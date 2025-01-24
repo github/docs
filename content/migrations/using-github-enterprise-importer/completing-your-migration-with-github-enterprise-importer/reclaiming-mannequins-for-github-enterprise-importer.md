@@ -127,7 +127,7 @@ If your migration source is Azure DevOps, you can reclaim mannequins with the {%
 
 If your migration source is Bitbucket Server, you can reclaim mannequins with the {% data variables.product.prodname_bbs2gh_cli %}.
 
-* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)."
+* {% data reusables.enterprise-migration-tool.add-pat-to-reclaim-mannequins %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens).
 * {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 {% data reusables.enterprise-migration-tool.create-csv-mannequins %}

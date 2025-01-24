@@ -20,7 +20,7 @@ shortTitle: Receive payment
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-After your {% data variables.product.prodname_marketplace %} listing for an app with a paid plan is created and approved, you'll provide payment details to {% data variables.product.product_name %} as part of the financial onboarding process.
+After your {% data variables.product.prodname_marketplace %} listing for an app with a paid plan is created and approved, you'll provide payment details to {% data variables.product.company_short %} as part of the financial onboarding process.
 
 Once your revenue reaches a minimum of 500 US dollars for the month, you'll receive an electronic payment from {% data variables.product.company_short %} at the end of the following month. This will be the income from marketplace transactions minus the amount charged by {% data variables.product.company_short %} to cover their running costs.
 

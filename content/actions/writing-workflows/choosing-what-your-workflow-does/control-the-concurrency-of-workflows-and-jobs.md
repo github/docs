@@ -9,6 +9,7 @@ versions:
 redirect_from:
   - /actions/using-jobs/using-concurrency
   - /actions/writing-workflows/choosing-what-your-workflow-does/using-concurrency
+  - /early-access/actions/running-additional-jobs-in-github-actions
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

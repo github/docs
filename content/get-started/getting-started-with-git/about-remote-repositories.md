@@ -10,7 +10,7 @@ redirect_from:
   - /github/using-git/about-remote-repositories
   - /github/getting-started-with-github/about-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/about-remote-repositories
-intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.product_name %} for other people to view, fetch, and update.'
+intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.github %} for other people to view, fetch, and update.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -42,7 +42,7 @@ You can use the command `git remote set-url` to [change a remote's URL](/get-sta
 
 ## Choosing a URL for your remote repository
 
-There are several ways to clone repositories available on {% data variables.product.prodname_dotcom %}.
+There are several ways to clone repositories available on {% data variables.product.github %}.
 
 When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
 
@@ -52,19 +52,19 @@ For information on setting or changing your remote URL, see [AUTOTITLE](/get-sta
 
 The `https://` clone URLs are available on all repositories, regardless of visibility. `https://` clone URLs work even if you are behind a firewall or proxy.
 
-When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.product_name %} username and password. {% data reusables.user-settings.password-authentication-deprecation %}
+When you `git clone`, `git fetch`, `git pull`, or `git push` to a private remote repository using HTTPS URLs on the command line, Git will ask for your {% data variables.product.github %} username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
 {% data reusables.command_line.provide-an-access-token %}
 
 > [!TIP]
 > * You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
-> * To clone a repository without authenticating to {% data variables.product.product_name %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop).
+> * To clone a repository without authenticating to {% data variables.product.github %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop).
 
  {% ifversion fpt or ghec %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. For more information, see [AUTOTITLE](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port).{% endif %}
 
 ## Cloning with SSH URLs
 
-SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
+SSH URLs provide access to a Git repository via SSH, a secure protocol. To use these URLs, you must generate an SSH keypair on your computer and add the **public** key to your account on {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote repository using SSH URLs, you'll be prompted for a password and must provide your SSH key passphrase. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
 
@@ -75,7 +75,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a remote reposit
 
 ## Cloning with {% data variables.product.prodname_cli %}
 
-You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.product_name %} workflows in your terminal. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
+You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.github %} workflows in your terminal. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 {% ifversion ghes < 3.13 %}
 
@@ -83,7 +83,7 @@ You can also install {% data variables.product.prodname_cli %} to use {% data va
 
 {% data reusables.subversion.sunset %}
 
-You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.prodname_dotcom %}. Subversion offers a different feature set than Git. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)
+You can also use a [Subversion](https://subversion.apache.org/) client to access any repository on {% data variables.product.github %}. Subversion offers a different feature set than Git. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git)
 
-You can also access repositories on {% data variables.product.prodname_dotcom %} from Subversion clients. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients).
+You can also access repositories on {% data variables.product.github %} from Subversion clients. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients).
 {% endif %}

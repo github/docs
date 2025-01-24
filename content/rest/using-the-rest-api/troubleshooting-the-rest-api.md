@@ -89,9 +89,9 @@ Basic authentication with your username and password is not supported. Instead, 
 
 ## Timeouts
 
-If {% data variables.product.product_name %} takes more than 10 seconds to process an API request, {% data variables.product.product_name %} will terminate the request and you will receive a timeout response and a "Server Error" message.
+If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a "Server Error" message.
 
-{% data variables.product.product_name %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+{% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
 
 You can check the status of the REST API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting 100 items on a page, you can try requesting fewer items.
 

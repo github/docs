@@ -389,16 +389,6 @@
       "args": []
     },
     {
-      "name": "mobileUpdatesUrl",
-      "type": "URI",
-      "kind": "scalars",
-      "id": "uri",
-      "href": "/graphql/reference/scalars#uri",
-      "description": "<p>A WebSocket URL for connecting to receive updates.</p>",
-      "isDeprecated": false,
-      "args": []
-    },
-    {
       "name": "node",
       "type": "Node",
       "kind": "interfaces",
@@ -934,25 +924,6 @@
       "href": "/graphql/reference/objects#user",
       "description": "<p>The currently authenticated user.</p>",
       "args": []
-    },
-    {
-      "name": "viewerUpdatesChannel",
-      "type": "String",
-      "kind": "scalars",
-      "id": "string",
-      "href": "/graphql/reference/scalars#string",
-      "description": "<p>Channel value for subscribing to live updates.</p>",
-      "isDeprecated": false,
-      "args": [
-        {
-          "name": "name",
-          "type": "UserPubSubTopic!",
-          "id": "userpubsubtopic",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#userpubsubtopic",
-          "description": "<p>The name of the channel to use.</p>"
-        }
-      ]
     }
   ],
   "mutations": [
@@ -3439,48 +3410,6 @@
       ]
     },
     {
-      "name": "createSavedNotificationThread",
-      "kind": "mutations",
-      "id": "createsavednotificationthread",
-      "href": "/graphql/reference/mutations#createsavednotificationthread",
-      "description": "<p>Adds a saved notification thread.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "CreateSavedNotificationThreadInput!",
-          "id": "createsavednotificationthreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#createsavednotificationthreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the saved notification belongs to.</p>"
-        }
-      ]
-    },
-    {
       "name": "createSponsorsListing",
       "kind": "mutations",
       "id": "createsponsorslisting",
@@ -4533,48 +4462,6 @@
       ]
     },
     {
-      "name": "deleteSavedNotificationThread",
-      "kind": "mutations",
-      "id": "deletesavednotificationthread",
-      "href": "/graphql/reference/mutations#deletesavednotificationthread",
-      "description": "<p>Deletes a saved notification thread.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "DeleteSavedNotificationThreadInput!",
-          "id": "deletesavednotificationthreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#deletesavednotificationthreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that deleted the saved notification.</p>"
-        }
-      ]
-    },
-    {
       "name": "deleteTeamDiscussion",
       "kind": "mutations",
       "id": "deleteteamdiscussion",
@@ -5305,40 +5192,6 @@
       ]
     },
     {
-      "name": "markAllNotifications",
-      "kind": "mutations",
-      "id": "markallnotifications",
-      "href": "/graphql/reference/mutations#markallnotifications",
-      "description": "<p>Mark all notifications as the state is passed.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkAllNotificationsInput!",
-          "id": "markallnotificationsinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#markallnotificationsinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        }
-      ]
-    },
-    {
       "name": "markDiscussionCommentAsAnswer",
       "kind": "mutations",
       "id": "markdiscussioncommentasanswer",
@@ -5403,352 +5256,6 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequest",
           "description": "<p>The updated pull request.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationAsDone",
-      "kind": "mutations",
-      "id": "marknotificationasdone",
-      "href": "/graphql/reference/mutations#marknotificationasdone",
-      "description": "<p>Marks a notification as done.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationAsDoneInput!",
-          "id": "marknotificationasdoneinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationasdoneinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the notification belongs to.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationAsRead",
-      "kind": "mutations",
-      "id": "marknotificationasread",
-      "href": "/graphql/reference/mutations#marknotificationasread",
-      "description": "<p>Marks a notification as read.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationAsReadInput!",
-          "id": "marknotificationasreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationasreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the notification belongs to.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationAsUndone",
-      "kind": "mutations",
-      "id": "marknotificationasundone",
-      "href": "/graphql/reference/mutations#marknotificationasundone",
-      "description": "<p>Marks a notification as undone.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationAsUndoneInput!",
-          "id": "marknotificationasundoneinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationasundoneinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the notification belongs to.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationAsUnread",
-      "kind": "mutations",
-      "id": "marknotificationasunread",
-      "href": "/graphql/reference/mutations#marknotificationasunread",
-      "description": "<p>Marks a notification as unread.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationAsUnreadInput!",
-          "id": "marknotificationasunreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationasunreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the notification belongs to.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationSubjectAsRead",
-      "kind": "mutations",
-      "id": "marknotificationsubjectasread",
-      "href": "/graphql/reference/mutations#marknotificationsubjectasread",
-      "description": "<p>Marks a notification as read.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationSubjectAsReadInput!",
-          "id": "marknotificationsubjectasreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationsubjectasreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        },
-        {
-          "name": "viewer",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user",
-          "description": "<p>The user that the saved notification belongs to.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationsAsDone",
-      "kind": "mutations",
-      "id": "marknotificationsasdone",
-      "href": "/graphql/reference/mutations#marknotificationsasdone",
-      "description": "<p>Marks a notification as done.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationsAsDoneInput!",
-          "id": "marknotificationsasdoneinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationsasdoneinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationsAsRead",
-      "kind": "mutations",
-      "id": "marknotificationsasread",
-      "href": "/graphql/reference/mutations#marknotificationsasread",
-      "description": "<p>Marks multiple notifications as read.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationsAsReadInput!",
-          "id": "marknotificationsasreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationsasreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationsAsUndone",
-      "kind": "mutations",
-      "id": "marknotificationsasundone",
-      "href": "/graphql/reference/mutations#marknotificationsasundone",
-      "description": "<p>Marks a notification as undone.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationsAsUndoneInput!",
-          "id": "marknotificationsasundoneinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationsasundoneinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
-        }
-      ]
-    },
-    {
-      "name": "markNotificationsAsUnread",
-      "kind": "mutations",
-      "id": "marknotificationsasunread",
-      "href": "/graphql/reference/mutations#marknotificationsasunread",
-      "description": "<p>Marks notifications as unread.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "MarkNotificationsAsUnreadInput!",
-          "id": "marknotificationsasunreadinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#marknotificationsasunreadinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
         }
       ]
     },
@@ -7967,40 +7474,6 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#pullrequestreviewthread",
           "description": "<p>The thread to resolve.</p>"
-        }
-      ]
-    },
-    {
-      "name": "unsubscribeFromNotifications",
-      "kind": "mutations",
-      "id": "unsubscribefromnotifications",
-      "href": "/graphql/reference/mutations#unsubscribefromnotifications",
-      "description": "<p>Unsubscribes from notifications.</p>",
-      "inputFields": [
-        {
-          "name": "input",
-          "type": "UnsubscribeFromNotificationsInput!",
-          "id": "unsubscribefromnotificationsinput",
-          "kind": "input-objects",
-          "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput"
-        }
-      ],
-      "returnFields": [
-        {
-          "name": "clientMutationId",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>"
-        },
-        {
-          "name": "success",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "description": "<p>Did the operation succeed?.</p>"
         }
       ]
     },
@@ -14991,15 +14464,6 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false
-        },
-        {
           "name": "url",
           "description": "<p>The HTTP URL for this commit.</p>",
           "type": "URI!",
@@ -17368,64 +16832,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        }
-      ]
-    },
-    {
-      "name": "CopilotLimitedUser",
-      "kind": "objects",
-      "id": "copilotlimiteduser",
-      "href": "/graphql/reference/objects#copilotlimiteduser",
-      "description": "<p>Information about a limited Copilot Free user, such as quotas or feature availability.</p>",
-      "isDeprecated": false,
-      "fields": [
-        {
-          "name": "hasUsageRemaining",
-          "description": "<p>Whether or not the user has remaining usage for the given feature.</p>",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean",
-          "arguments": [
-            {
-              "name": "feature",
-              "description": "<p>The feature whose quotas are to be checked against.</p>",
-              "type": {
-                "name": "CopilotLimitedFeature!",
-                "id": "copilotlimitedfeature",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#copilotlimitedfeature"
-              }
-            }
-          ]
-        },
-        {
-          "name": "quotaPercentageRemaining",
-          "description": "<p>The percentage of the quota remaining for the given feature.</p>",
-          "type": "Float",
-          "id": "float",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#float",
-          "arguments": [
-            {
-              "name": "feature",
-              "description": "<p>The feature whose quotas are to be checked against.</p>",
-              "type": {
-                "name": "CopilotLimitedFeature!",
-                "id": "copilotlimitedfeature",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#copilotlimitedfeature"
-              }
-            }
-          ]
-        },
-        {
-          "name": "resetDate",
-          "description": "<p>The date when the quota for the Copilot Free user will reset.</p>",
-          "type": "Date",
-          "id": "date",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#date"
         }
       ]
     },
@@ -20117,20 +19523,7 @@
           "type": "HTML!",
           "id": "html",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#html",
-          "arguments": [
-            {
-              "name": "renderMobileTasklistBlocks",
-              "defaultValue": false,
-              "description": "<p>Whether or not to render tasklist blocks using Mobile-specific HTML.</p>",
-              "type": {
-                "name": "Boolean",
-                "id": "boolean",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#boolean"
-              }
-            }
-          ]
+          "href": "/graphql/reference/scalars#html"
         },
         {
           "name": "bodyText",
@@ -20163,27 +19556,6 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "comment",
-          "description": "<p>Get a comment from a url.</p>",
-          "type": "DiscussionComment",
-          "id": "discussioncomment",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#discussioncomment",
-          "arguments": [
-            {
-              "name": "url",
-              "description": "<p>The url to decode.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            }
-          ],
-          "isDeprecated": false
         },
         {
           "name": "comments",
@@ -20508,28 +19880,6 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "arguments": [
-            {
-              "name": "name",
-              "defaultValue": "UPDATED",
-              "description": "<p>The name of the channel to use.</p>",
-              "type": {
-                "name": "DiscussionPubSubTopic",
-                "id": "discussionpubsubtopic",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#discussionpubsubtopic"
-              }
-            }
-          ],
-          "isDeprecated": false
         },
         {
           "name": "upvoteCount",
@@ -22448,6 +21798,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "updatedAt",
+          "description": "<p>Identifies the date and time when the object was last updated.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
         },
         {
           "name": "url",
@@ -29247,20 +28605,7 @@
           "type": "HTML!",
           "id": "html",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#html",
-          "arguments": [
-            {
-              "name": "renderMobileTasklistBlocks",
-              "defaultValue": false,
-              "description": "<p>Whether or not to render tasklist blocks using Mobile-specific HTML.</p>",
-              "type": {
-                "name": "Boolean",
-                "id": "boolean",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#boolean"
-              }
-            }
-          ]
+          "href": "/graphql/reference/scalars#html"
         },
         {
           "name": "bodyResourcePath",
@@ -30434,28 +29779,6 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "arguments": [
-            {
-              "name": "name",
-              "defaultValue": "UPDATED",
-              "description": "<p>The name of the channel to use.</p>",
-              "type": {
-                "name": "IssuePubSubTopic",
-                "id": "issuepubsubtopic",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#issuepubsubtopic"
-              }
-            }
-          ],
-          "isDeprecated": false
         },
         {
           "name": "url",
@@ -35169,291 +34492,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        }
-      ]
-    },
-    {
-      "name": "NotificationThread",
-      "kind": "objects",
-      "id": "notificationthread",
-      "href": "/graphql/reference/objects#notificationthread",
-      "description": "<p>Represents a notification thread for the viewer.</p>",
-      "isDeprecated": false,
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        }
-      ],
-      "fields": [
-        {
-          "name": "id",
-          "description": "<p>The Node ID of the NotificationThread object.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
-          "name": "isArchived",
-          "description": "<p>Archived state of the notification.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isDone",
-          "description": "<p>Done state of the notification.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isSaved",
-          "description": "<p>Whether a notification has been saved.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isStarred",
-          "description": "<p>Whether a notification has been starred.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "isUnread",
-          "description": "<p>Unread state of the notification.</p>",
-          "type": "Boolean!",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "lastReadAt",
-          "description": "<p>The last time that notifications were read for this thread.</p>",
-          "type": "DateTime",
-          "id": "datetime",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "lastSummarizedAt",
-          "description": "<p>The last time that notifications were updated for this thread.</p>",
-          "type": "DateTime!",
-          "id": "datetime",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "lastUpdatedAt",
-          "description": "<p>The last time that a notification was received on this thread for the current user.</p>",
-          "type": "DateTime!",
-          "id": "datetime",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "list",
-          "description": "<p>The notification's list.</p>",
-          "type": "NotificationsList!",
-          "id": "notificationslist",
-          "kind": "unions",
-          "href": "/graphql/reference/unions#notificationslist"
-        },
-        {
-          "name": "listId",
-          "description": "<p>The notification's list id.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "listType",
-          "description": "<p>The notification's list type.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "oldestUnreadItemAnchor",
-          "description": "<p>The oldest unread author internal anchor.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "reason",
-          "description": "<p>The reason a notification was received.</p>",
-          "type": "NotificationReason",
-          "id": "notificationreason",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#notificationreason"
-        },
-        {
-          "name": "recentParticipants",
-          "description": "<p>The last 3 recent participants.</p>",
-          "type": "[User!]!",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "subject",
-          "description": "<p>The notification's subject.</p>",
-          "type": "NotificationsSubject!",
-          "id": "notificationssubject",
-          "kind": "unions",
-          "href": "/graphql/reference/unions#notificationssubject"
-        },
-        {
-          "name": "subscriptionStatus",
-          "description": "<p>Subscription status for the thread.</p>",
-          "type": "NotificationThreadSubscriptionState!",
-          "id": "notificationthreadsubscriptionstate",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#notificationthreadsubscriptionstate"
-        },
-        {
-          "name": "summaryId",
-          "description": "<p>The notification's rollup summary id.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "summaryItemAuthor",
-          "description": "<p>The author of the item being used to summarize the thread.</p>",
-          "type": "User",
-          "id": "user",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#user"
-        },
-        {
-          "name": "summaryItemBody",
-          "description": "<p>The body text of the item being used to summarize the thread.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "threadId",
-          "description": "<p>The notification's thread id.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "threadType",
-          "description": "<p>The notification's thread type.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "title",
-          "description": "<p>The notification's title.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "unreadItemsCount",
-          "description": "<p>The number of unread items.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        },
-        {
-          "name": "url",
-          "description": "<p>The HTTP URL for the notification thread's subject.</p>",
-          "type": "URI!",
-          "id": "uri",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
-        }
-      ]
-    },
-    {
-      "name": "NotificationThreadConnection",
-      "kind": "objects",
-      "id": "notificationthreadconnection",
-      "href": "/graphql/reference/objects#notificationthreadconnection",
-      "description": "<p>A list of notification threads.</p>",
-      "isDeprecated": false,
-      "fields": [
-        {
-          "name": "edges",
-          "description": "<p>A list of edges.</p>",
-          "type": "[NotificationThreadEdge]",
-          "id": "notificationthreadedge",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#notificationthreadedge"
-        },
-        {
-          "name": "nodes",
-          "description": "<p>A list of nodes.</p>",
-          "type": "[NotificationThread]",
-          "id": "notificationthread",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#notificationthread"
-        },
-        {
-          "name": "pageInfo",
-          "description": "<p>Information to aid in pagination.</p>",
-          "type": "PageInfo!",
-          "id": "pageinfo",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#pageinfo"
-        },
-        {
-          "name": "totalCount",
-          "description": "<p>Identifies the total count of items in the connection.</p>",
-          "type": "Int!",
-          "id": "int",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
-        }
-      ]
-    },
-    {
-      "name": "NotificationThreadEdge",
-      "kind": "objects",
-      "id": "notificationthreadedge",
-      "href": "/graphql/reference/objects#notificationthreadedge",
-      "description": "<p>An edge in a connection.</p>",
-      "isDeprecated": false,
-      "fields": [
-        {
-          "name": "cursor",
-          "description": "<p>A cursor for use in pagination.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "node",
-          "description": "<p>The item at the end of the edge.</p>",
-          "type": "NotificationThread",
-          "id": "notificationthread",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#notificationthread"
         }
       ]
     },
@@ -48153,15 +47191,6 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false
-        },
-        {
           "name": "url",
           "description": "<p>The HTTP URL for this project.</p>",
           "type": "URI!",
@@ -51691,20 +50720,7 @@
           "type": "HTML!",
           "id": "html",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#html",
-          "arguments": [
-            {
-              "name": "renderMobileTasklistBlocks",
-              "defaultValue": false,
-              "description": "<p>Whether or not to render tasklist blocks using Mobile-specific HTML.</p>",
-              "type": {
-                "name": "Boolean",
-                "id": "boolean",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#boolean"
-              }
-            }
-          ]
+          "href": "/graphql/reference/scalars#html"
         },
         {
           "name": "bodyText",
@@ -53216,28 +52232,6 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
-        },
-        {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "arguments": [
-            {
-              "name": "name",
-              "defaultValue": "UPDATED",
-              "description": "<p>The name of the channel to use.</p>",
-              "type": {
-                "name": "PullRequestPubSubTopic",
-                "id": "pullrequestpubsubtopic",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#pullrequestpubsubtopic"
-              }
-            }
-          ],
-          "isDeprecated": false
         },
         {
           "name": "url",
@@ -56997,15 +55991,6 @@
           "id": "gitobject",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#gitobject"
-        },
-        {
-          "name": "updatesChannel",
-          "description": "<p>Channel value for subscribing to live updates.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string",
-          "isDeprecated": false
         }
       ]
     },
@@ -65775,52 +64760,6 @@
           "id": "uri",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#uri"
-        }
-      ]
-    },
-    {
-      "name": "RepositoryDependabotAlertsThread",
-      "kind": "objects",
-      "id": "repositorydependabotalertsthread",
-      "href": "/graphql/reference/objects#repositorydependabotalertsthread",
-      "description": "<p>A wrapper on Repository used for Dependabot Alerts notifications.</p>",
-      "isDeprecated": false,
-      "implements": [
-        {
-          "name": "Node",
-          "id": "node",
-          "href": "/graphql/reference/interfaces#node"
-        },
-        {
-          "name": "RepositoryNode",
-          "id": "repositorynode",
-          "href": "/graphql/reference/interfaces#repositorynode"
-        }
-      ],
-      "fields": [
-        {
-          "name": "id",
-          "description": "<p>The Node ID of the RepositoryDependabotAlertsThread object.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
-          "name": "notificationsPermalink",
-          "description": "<p>The URL pointing to the repository's dependabot alerts page.</p>",
-          "type": "URI",
-          "id": "uri",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
-        },
-        {
-          "name": "repository",
-          "description": "<p>The repository associated with this node.</p>",
-          "type": "Repository!",
-          "id": "repository",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#repository"
         }
       ]
     },
@@ -76728,15 +75667,6 @@
           "href": "/graphql/reference/objects#copilotendpoints"
         },
         {
-          "name": "copilotLimitedUser",
-          "description": "<p>Properties of the current Copilot user, if limited by Copilot Free.</p>",
-          "type": "CopilotLimitedUser",
-          "id": "copilotlimiteduser",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#copilotlimiteduser",
-          "isDeprecated": false
-        },
-        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -77522,77 +76452,6 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "notificationThreads",
-          "description": "<p>A list of notification threads for the viewer. Returns an empty list for a user other than\nthe current viewer.</p>\n<p>Combining both filterBy and query arguments will result in an error.\nPlease favor using the query argument.</p>",
-          "type": "NotificationThreadConnection!",
-          "id": "notificationthreadconnection",
-          "kind": "objects",
-          "href": "/graphql/reference/objects#notificationthreadconnection",
-          "arguments": [
-            {
-              "name": "after",
-              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "before",
-              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            },
-            {
-              "name": "filterBy",
-              "description": "<p>Filtering options for notifications. Will soon be deprecated.</p>",
-              "type": {
-                "name": "NotificationThreadFilters",
-                "id": "notificationthreadfilters",
-                "kind": "input-objects",
-                "href": "/graphql/reference/input-objects#notificationthreadfilters"
-              }
-            },
-            {
-              "name": "first",
-              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "last",
-              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
-              "type": {
-                "name": "Int",
-                "id": "int",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#int"
-              }
-            },
-            {
-              "name": "query",
-              "description": "<p>The search string to look for. If no is:read, is:unread, or is:done\nqualifiers are included in the query, results will include read and unread\nnotification threads by default.</p>",
-              "type": {
-                "name": "String",
-                "id": "string",
-                "kind": "scalars",
-                "href": "/graphql/reference/scalars#string"
-              }
-            }
-          ],
-          "isDeprecated": false
         },
         {
           "name": "organization",
@@ -85741,24 +84600,6 @@
       ]
     },
     {
-      "name": "CopilotLimitedFeature",
-      "kind": "enums",
-      "id": "copilotlimitedfeature",
-      "href": "/graphql/reference/enums#copilotlimitedfeature",
-      "description": "<p>The type of the activity that was performed.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "CHAT",
-          "description": "<p>Copilot Chat.</p>"
-        },
-        {
-          "name": "COMPLETIONS",
-          "description": "<p>Copilot IDE completions.</p>"
-        }
-      ]
-    },
-    {
       "name": "DefaultRepositoryPermissionField",
       "kind": "enums",
       "id": "defaultrepositorypermissionfield",
@@ -86050,24 +84891,6 @@
         {
           "name": "VOTE_COUNT",
           "description": "<p>Order poll options by the number of votes it has.</p>"
-        }
-      ]
-    },
-    {
-      "name": "DiscussionPubSubTopic",
-      "kind": "enums",
-      "id": "discussionpubsubtopic",
-      "href": "/graphql/reference/enums#discussionpubsubtopic",
-      "description": "<p>The possible PubSub channels for an discussion.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "TIMELINE",
-          "description": "<p>The channel ID for updating items on the discussion timeline.</p>"
-        },
-        {
-          "name": "UPDATED",
-          "description": "<p>The channel ID for observing discussion updates.</p>"
         }
       ]
     },
@@ -86889,32 +85712,6 @@
       ]
     },
     {
-      "name": "IssuePubSubTopic",
-      "kind": "enums",
-      "id": "issuepubsubtopic",
-      "href": "/graphql/reference/enums#issuepubsubtopic",
-      "description": "<p>The possible PubSub channels for an issue.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "CLOSE_REFERENCES",
-          "description": "<p>The channel ID for observing issue close references.</p>"
-        },
-        {
-          "name": "STATE",
-          "description": "<p>The channel ID for observing issue state updates.</p>"
-        },
-        {
-          "name": "TIMELINE",
-          "description": "<p>The channel ID for updating items on the issue timeline.</p>"
-        },
-        {
-          "name": "UPDATED",
-          "description": "<p>The channel ID for observing issue updates.</p>"
-        }
-      ]
-    },
-    {
       "name": "IssueState",
       "kind": "enums",
       "id": "issuestate",
@@ -87462,84 +86259,6 @@
       ]
     },
     {
-      "name": "NotificationReason",
-      "kind": "enums",
-      "id": "notificationreason",
-      "href": "/graphql/reference/enums#notificationreason",
-      "description": "<p>The reason you received a notification about a subject.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "APPROVAL_REQUESTED",
-          "description": "<p>You were requested for review for deployment.</p>"
-        },
-        {
-          "name": "ASSIGN",
-          "description": "<p>You were assigned to the Issue/PR.</p>"
-        },
-        {
-          "name": "AUTHOR",
-          "description": "<p>You created the thread.</p>"
-        },
-        {
-          "name": "CI_ACTIVITY",
-          "description": "<p>You are subscribed to continuous integration activity.</p>"
-        },
-        {
-          "name": "COMMENT",
-          "description": "<p>You commented on the thread.</p>"
-        },
-        {
-          "name": "INVITATION",
-          "description": "<p>You accepted an invitation to contribute to the repository.</p>"
-        },
-        {
-          "name": "MANUAL",
-          "description": "<p>You subscribed to the thread (via an Issue or Pull Request).</p>"
-        },
-        {
-          "name": "MEMBER_FEATURE_REQUESTED",
-          "description": "<p>New requests from members.</p>"
-        },
-        {
-          "name": "MENTION",
-          "description": "<p>You were specifically @mentioned in the content.</p>"
-        },
-        {
-          "name": "READY_FOR_REVIEW",
-          "description": "<p>A pull request you're subscribed to was marked ready for review.</p>"
-        },
-        {
-          "name": "REVIEW_REQUESTED",
-          "description": "<p>You were requested for review.</p>"
-        },
-        {
-          "name": "SAVED",
-          "description": "<p>You saved this notification.</p>"
-        },
-        {
-          "name": "SECURITY_ADVISORY_CREDIT",
-          "description": "<p>You were given credit for contributing to a Security Advisory.</p>"
-        },
-        {
-          "name": "SECURITY_ALERT",
-          "description": "<p>You have access to the notification subject's Dependabot alerts.</p>"
-        },
-        {
-          "name": "STATE_CHANGE",
-          "description": "<p>You changed the thread state (for example, closing an Issue or merging a Pull Request).</p>"
-        },
-        {
-          "name": "SUBSCRIBED",
-          "description": "<p>You are watching the subject of the notification.</p>"
-        },
-        {
-          "name": "TEAM_MENTION",
-          "description": "<p>You were on a team that was mentioned.</p>"
-        }
-      ]
-    },
-    {
       "name": "NotificationRestrictionSettingValue",
       "kind": "enums",
       "id": "notificationrestrictionsettingvalue",
@@ -87553,62 +86272,6 @@
         {
           "name": "ENABLED",
           "description": "<p>The setting is enabled for the owner.</p>"
-        }
-      ]
-    },
-    {
-      "name": "NotificationStatus",
-      "kind": "enums",
-      "id": "notificationstatus",
-      "href": "/graphql/reference/enums#notificationstatus",
-      "description": "<p>The possible states of a notification.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "ARCHIVED",
-          "description": "<p>A notification is archived.</p>"
-        },
-        {
-          "name": "DONE",
-          "description": "<p>A notification is done.</p>"
-        },
-        {
-          "name": "READ",
-          "description": "<p>A notification is read.</p>"
-        },
-        {
-          "name": "UNREAD",
-          "description": "<p>A notification is unread.</p>"
-        }
-      ]
-    },
-    {
-      "name": "NotificationThreadSubscriptionState",
-      "kind": "enums",
-      "id": "notificationthreadsubscriptionstate",
-      "href": "/graphql/reference/enums#notificationthreadsubscriptionstate",
-      "description": "<p>The possible subscription states of a notification thread.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "LIST_IGNORED",
-          "description": "<p>The thread's list is ignored.</p>"
-        },
-        {
-          "name": "LIST_SUBSCRIBED",
-          "description": "<p>The thread's list is subscribed to.</p>"
-        },
-        {
-          "name": "THREAD_SUBSCRIBED",
-          "description": "<p>The thread is subscribed to.</p>"
-        },
-        {
-          "name": "THREAD_TYPE_SUBSCRIBED",
-          "description": "<p>The thread's type is subscribed to.</p>"
-        },
-        {
-          "name": "UNSUBSCRIBED",
-          "description": "<p>The thread is not subscribed to.</p>"
         }
       ]
     },
@@ -88933,68 +87596,6 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order pull_requests by update time.</p>"
-        }
-      ]
-    },
-    {
-      "name": "PullRequestPubSubTopic",
-      "kind": "enums",
-      "id": "pullrequestpubsubtopic",
-      "href": "/graphql/reference/enums#pullrequestpubsubtopic",
-      "description": "<p>The possible PubSub channels for a pull request.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "BASE_REF",
-          "description": "<p>The channel ID for observing base ref updates.</p>"
-        },
-        {
-          "name": "COMMIT_HEAD_SHA",
-          "description": "<p>The channel ID for observing head commit updates.</p>"
-        },
-        {
-          "name": "DEPLOYED",
-          "description": "<p>The channel ID for observing pull request deployed updates.</p>"
-        },
-        {
-          "name": "GIT_MERGE_STATE",
-          "description": "<p>The channel ID for observing pull request git merge state updates.</p>"
-        },
-        {
-          "name": "HEAD_REF",
-          "description": "<p>The channel ID for observing head ref updates.</p>"
-        },
-        {
-          "name": "MERGEABILITY",
-          "description": "<p>The channel ID for observing pull request mergeability with HEAD or base branch.</p>"
-        },
-        {
-          "name": "MERGE_QUEUE",
-          "description": "<p>The channel ID for observing pull request merge queue entry updates.</p>"
-        },
-        {
-          "name": "PRESENCE",
-          "description": "<p>The channel ID for observing pull request user presence updates.</p>"
-        },
-        {
-          "name": "REVIEW_STATE",
-          "description": "<p>The channel ID for observing pull request review state updates.</p>"
-        },
-        {
-          "name": "STATE",
-          "description": "<p>The channel ID for observing pull request state updates.</p>"
-        },
-        {
-          "name": "TIMELINE",
-          "description": "<p>The channel ID for updating items on the pull request timeline.</p>"
-        },
-        {
-          "name": "UPDATED",
-          "description": "<p>The channel ID for observing pull request updates.</p>"
-        },
-        {
-          "name": "WORKFLOWS",
-          "description": "<p>The channel ID for observing pull request workflow run updates.</p>"
         }
       ]
     },
@@ -92252,24 +90853,6 @@
       ]
     },
     {
-      "name": "UserPubSubTopic",
-      "kind": "enums",
-      "id": "userpubsubtopic",
-      "href": "/graphql/reference/enums#userpubsubtopic",
-      "description": "<p>The possible PubSub channels for a user.</p>",
-      "isDeprecated": false,
-      "values": [
-        {
-          "name": "MARKED_READ",
-          "description": "<p>The channel ID for observing user marked as read updates.</p>"
-        },
-        {
-          "name": "NOTIFICATIONS_CHANGED",
-          "description": "<p>The channel ID for observing user notifications changed updates.</p>"
-        }
-      ]
-    },
-    {
       "name": "UserStatusOrderField",
       "kind": "enums",
       "id": "userstatusorderfield",
@@ -92941,126 +91524,6 @@
           "name": "PullRequest",
           "id": "pullrequest",
           "href": "/graphql/reference/objects#pullrequest"
-        }
-      ]
-    },
-    {
-      "name": "NotificationsList",
-      "kind": "unions",
-      "id": "notificationslist",
-      "href": "/graphql/reference/unions#notificationslist",
-      "description": "<p>The parent object that the notification thread's subject belongs to.</p>",
-      "isDeprecated": false,
-      "possibleTypes": [
-        {
-          "name": "Enterprise",
-          "id": "enterprise",
-          "href": "/graphql/reference/objects#enterprise"
-        },
-        {
-          "name": "Organization",
-          "id": "organization",
-          "href": "/graphql/reference/objects#organization"
-        },
-        {
-          "name": "Repository",
-          "id": "repository",
-          "href": "/graphql/reference/objects#repository"
-        },
-        {
-          "name": "Team",
-          "id": "team",
-          "href": "/graphql/reference/objects#team"
-        },
-        {
-          "name": "User",
-          "id": "user",
-          "href": "/graphql/reference/objects#user"
-        }
-      ]
-    },
-    {
-      "name": "NotificationsSubject",
-      "kind": "unions",
-      "id": "notificationssubject",
-      "href": "/graphql/reference/unions#notificationssubject",
-      "description": "<p>The notification's subject.</p>",
-      "isDeprecated": false,
-      "possibleTypes": [
-        {
-          "name": "CheckSuite",
-          "id": "checksuite",
-          "href": "/graphql/reference/objects#checksuite"
-        },
-        {
-          "name": "Commit",
-          "id": "commit",
-          "href": "/graphql/reference/objects#commit"
-        },
-        {
-          "name": "Discussion",
-          "id": "discussion",
-          "href": "/graphql/reference/objects#discussion"
-        },
-        {
-          "name": "Gist",
-          "id": "gist",
-          "href": "/graphql/reference/objects#gist"
-        },
-        {
-          "name": "Issue",
-          "id": "issue",
-          "href": "/graphql/reference/objects#issue"
-        },
-        {
-          "name": "MemberFeatureRequestNotification",
-          "id": "memberfeaturerequestnotification",
-          "href": "/graphql/reference/objects#memberfeaturerequestnotification"
-        },
-        {
-          "name": "ProjectV2",
-          "id": "projectv2",
-          "href": "/graphql/reference/objects#projectv2"
-        },
-        {
-          "name": "PullRequest",
-          "id": "pullrequest",
-          "href": "/graphql/reference/objects#pullrequest"
-        },
-        {
-          "name": "Release",
-          "id": "release",
-          "href": "/graphql/reference/objects#release"
-        },
-        {
-          "name": "RepositoryDependabotAlertsThread",
-          "id": "repositorydependabotalertsthread",
-          "href": "/graphql/reference/objects#repositorydependabotalertsthread"
-        },
-        {
-          "name": "RepositoryInvitation",
-          "id": "repositoryinvitation",
-          "href": "/graphql/reference/objects#repositoryinvitation"
-        },
-        {
-          "name": "RepositoryVulnerabilityAlert",
-          "id": "repositoryvulnerabilityalert",
-          "href": "/graphql/reference/objects#repositoryvulnerabilityalert"
-        },
-        {
-          "name": "SecurityAdvisory",
-          "id": "securityadvisory",
-          "href": "/graphql/reference/objects#securityadvisory"
-        },
-        {
-          "name": "TeamDiscussion",
-          "id": "teamdiscussion",
-          "href": "/graphql/reference/objects#teamdiscussion"
-        },
-        {
-          "name": "WorkflowRun",
-          "id": "workflowrun",
-          "href": "/graphql/reference/objects#workflowrun"
         }
       ]
     },
@@ -98634,33 +97097,6 @@
       ]
     },
     {
-      "name": "CreateSavedNotificationThreadInput",
-      "kind": "inputObjects",
-      "id": "createsavednotificationthreadinput",
-      "href": "/graphql/reference/input-objects#createsavednotificationthreadinput",
-      "description": "<p>Autogenerated input type of CreateSavedNotificationThread.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The notification thread's id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
       "name": "CreateSponsorsListingInput",
       "kind": "inputObjects",
       "id": "createsponsorslistinginput",
@@ -99747,33 +98183,6 @@
         {
           "name": "repositoryRulesetId",
           "description": "<p>The global relay id of the repository ruleset to be deleted.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "DeleteSavedNotificationThreadInput",
-      "kind": "inputObjects",
-      "id": "deletesavednotificationthreadinput",
-      "href": "/graphql/reference/input-objects#deletesavednotificationthreadinput",
-      "description": "<p>Autogenerated input type of DeleteSavedNotificationThread.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The saved notification thread's id.</p>",
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
@@ -101278,40 +99687,6 @@
       ]
     },
     {
-      "name": "MarkAllNotificationsInput",
-      "kind": "inputObjects",
-      "id": "markallnotificationsinput",
-      "href": "/graphql/reference/input-objects#markallnotificationsinput",
-      "description": "<p>Autogenerated input type of MarkAllNotifications.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "query",
-          "description": "<p>Filter used to mark all specific notifications.</p>",
-          "type": "String!",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "state",
-          "description": "<p>The new state for the notification.</p>",
-          "type": "NotificationStatus!",
-          "id": "notificationstatus",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#notificationstatus"
-        }
-      ]
-    },
-    {
       "name": "MarkDiscussionCommentAsAnswerInput",
       "kind": "inputObjects",
       "id": "markdiscussioncommentasanswerinput",
@@ -101364,249 +99739,6 @@
           "name": "pullRequestId",
           "description": "<p>The Node ID of the pull request.</p>",
           "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationAsDoneInput",
-      "kind": "inputObjects",
-      "id": "marknotificationasdoneinput",
-      "href": "/graphql/reference/input-objects#marknotificationasdoneinput",
-      "description": "<p>Autogenerated input type of MarkNotificationAsDone.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The NotificationThread id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationAsReadInput",
-      "kind": "inputObjects",
-      "id": "marknotificationasreadinput",
-      "href": "/graphql/reference/input-objects#marknotificationasreadinput",
-      "description": "<p>Autogenerated input type of MarkNotificationAsRead.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The NotificationThread id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationAsUndoneInput",
-      "kind": "inputObjects",
-      "id": "marknotificationasundoneinput",
-      "href": "/graphql/reference/input-objects#marknotificationasundoneinput",
-      "description": "<p>Autogenerated input type of MarkNotificationAsUndone.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The NotificationThread id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationAsUnreadInput",
-      "kind": "inputObjects",
-      "id": "marknotificationasunreadinput",
-      "href": "/graphql/reference/input-objects#marknotificationasunreadinput",
-      "description": "<p>Autogenerated input type of MarkNotificationAsUnread.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "id",
-          "description": "<p>The NotificationThread id.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationSubjectAsReadInput",
-      "kind": "inputObjects",
-      "id": "marknotificationsubjectasreadinput",
-      "href": "/graphql/reference/input-objects#marknotificationsubjectasreadinput",
-      "description": "<p>Autogenerated input type of MarkNotificationSubjectAsRead.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "subjectId",
-          "description": "<p>The id of the notification subject to mark as read.</p>",
-          "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationsAsDoneInput",
-      "kind": "inputObjects",
-      "id": "marknotificationsasdoneinput",
-      "href": "/graphql/reference/input-objects#marknotificationsasdoneinput",
-      "description": "<p>Autogenerated input type of MarkNotificationsAsDone.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs that will be marked as done.</p>",
-          "type": "[ID!]!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationsAsReadInput",
-      "kind": "inputObjects",
-      "id": "marknotificationsasreadinput",
-      "href": "/graphql/reference/input-objects#marknotificationsasreadinput",
-      "description": "<p>Autogenerated input type of MarkNotificationsAsRead.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs that will be marked as read.</p>",
-          "type": "[ID!]!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationsAsUndoneInput",
-      "kind": "inputObjects",
-      "id": "marknotificationsasundoneinput",
-      "href": "/graphql/reference/input-objects#marknotificationsasundoneinput",
-      "description": "<p>Autogenerated input type of MarkNotificationsAsUndone.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs to be marked as undone.</p>",
-          "type": "[ID!]!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "MarkNotificationsAsUnreadInput",
-      "kind": "inputObjects",
-      "id": "marknotificationsasunreadinput",
-      "href": "/graphql/reference/input-objects#marknotificationsasunreadinput",
-      "description": "<p>Autogenerated input type of MarkNotificationsAsUnread.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs that will be marked as unread.</p>",
-          "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
@@ -102024,64 +100156,6 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "NotificationThreadFilters",
-      "kind": "inputObjects",
-      "id": "notificationthreadfilters",
-      "href": "/graphql/reference/input-objects#notificationthreadfilters",
-      "description": "<p>Ways in which to filter lists of notification threads.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "listIds",
-          "description": "<p>Only return notification threads where the list is in the given list.</p>",
-          "type": "[ID!]",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
-        },
-        {
-          "name": "reasons",
-          "description": "<p>Only return notification threads where the reason is in the list.</p>",
-          "type": "[NotificationReason!]",
-          "id": "notificationreason",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#notificationreason"
-        },
-        {
-          "name": "savedOnly",
-          "description": "<p>Only return saved notifications. All other filters will be ignored.</p>",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "starredOnly",
-          "description": "<p>Only return starred notifications. All other filters will be ignored.</p>",
-          "type": "Boolean",
-          "id": "boolean",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
-        },
-        {
-          "name": "statuses",
-          "description": "<p>Only return notifications where the status is in the list.</p>",
-          "type": "[NotificationStatus!]",
-          "id": "notificationstatus",
-          "kind": "enums",
-          "href": "/graphql/reference/enums#notificationstatus"
-        },
-        {
-          "name": "threadTypes",
-          "description": "<p>Only return matching thread types.</p>",
-          "type": "[String!]",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -105815,33 +103889,6 @@
           "name": "threadId",
           "description": "<p>The ID of the thread to unresolve.</p>",
           "type": "ID!",
-          "id": "id",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
-        }
-      ]
-    },
-    {
-      "name": "UnsubscribeFromNotificationsInput",
-      "kind": "inputObjects",
-      "id": "unsubscribefromnotificationsinput",
-      "href": "/graphql/reference/input-objects#unsubscribefromnotificationsinput",
-      "description": "<p>Autogenerated input type of UnsubscribeFromNotifications.</p>",
-      "isDeprecated": false,
-      "inputFields": [
-        {
-          "name": "clientMutationId",
-          "description": "<p>A unique identifier for the client performing the mutation.</p>",
-          "type": "String",
-          "id": "string",
-          "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
-        },
-        {
-          "name": "ids",
-          "description": "<p>The NotificationThread IDs of the objects to unsubscribe from.</p>",
-          "type": "[ID!]!",
           "id": "id",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",

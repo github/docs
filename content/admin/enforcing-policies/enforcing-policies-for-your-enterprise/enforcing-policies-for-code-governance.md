@@ -30,7 +30,7 @@ To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-
 To import a prebuilt ruleset created by {% data variables.product.company_short %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
 {% ifversion repo-rules-management %}
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history)."
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).
 {% endif %}
 
 ## How will I define where my ruleset applies?
@@ -79,7 +79,7 @@ The following are eligible for bypass access:
 
 Select all organizations, choose a selection of existing organizations, or set a dynamic list by name. If you use {% data variables.product.prodname_emus %}, you can also choose to target all repositories owned by users in your enterprise.
 
-If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)."
+If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
 ### Choosing which repositories to target in your enterprise
 
@@ -91,7 +91,7 @@ Within the selected organizations, you can target all repositories or target a d
 
 ### Selecting branch or tag protections
 
-In the "Branch protections" or "Tag protections" section, select the rules you want to include in the ruleset. When you select a rule, you may be able to enter additional settings for the rule. For more information on the rules, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets)"
+In the "Branch protections" or "Tag protections" section, select the rules you want to include in the ruleset. When you select a rule, you may be able to enter additional settings for the rule. For more information on the rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Adding metadata restrictions
 
@@ -132,7 +132,7 @@ You can grant certain roles, teams, or apps bypass permissions as well as the ab
 
 Select all organizations, choose a selection of existing organizations, or set a dynamic list by name. If you use {% data variables.product.prodname_emus %}, you can also choose to target all repositories owned by users in your enterprise.
 
-If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)."
+If you set a dynamic list, you'll add one or more naming patterns using `fnmatch` syntax. For example, the string `*open-source` would match any organization with a name that ends with `open-source`. For syntax details, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
 ### Choosing which repositories to target in your enterprise
 

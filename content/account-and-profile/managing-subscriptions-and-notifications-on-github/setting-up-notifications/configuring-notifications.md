@@ -79,7 +79,7 @@ Anytime you comment in a conversation or when someone @mentions your username, y
 
 For conversations you're watching or participating in, you can choose whether you want to receive notifications by email or through the notifications inbox. For more information, see [Choosing your notification settings](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
 
-![Screenshot of the "Notification settings" page. The "Participating" and "Watching" settings are shown, each with two checkbox options, titled "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
+![Screenshot of the "Notification settings" page. "Participating" and "Watching" each have two checkbox options: "Email" and "Web and Mobile".](/assets/images/help/notifications-v2/participating-and-watching-options.png){% endif %}
 
 For example, on your "Notification settings" page:
 * If you don't want notifications to be sent to your email, deselect **email** for participating and watching notifications.
@@ -129,17 +129,17 @@ Email notifications from {% data variables.product.prodname_dotcom %} contain he
 | --- | --- |
 | `From` address | This address will always be {% ifversion fpt %}`notifications@github.com`{% elsif ghec %}`notifications@github.com` or `notifications@SUBDOMAIN.ghe.com`{% else %}the no-reply email address configured by your site administrator{% endif %}. |
 | `To` field | This field connects directly to the thread. If you reply to the email, you'll add a new comment to the conversation. |
-| `Cc` address | {% data variables.product.product_name %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% ifversion fpt %}`@noreply.github.com`{% elsif ghec %}`@noreply.github.com` or `@noreply.SUBDOMAIN.ghe.com`{% else %}based on the no-reply email address configured by your site administrator{% endif %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
+| `Cc` address | {% data variables.product.github %} will `Cc` you if you're subscribed to a conversation. The second `Cc` email address matches the notification reason. The suffix for these notification reasons is {% ifversion fpt %}`@noreply.github.com`{% elsif ghec %}`@noreply.github.com` or `@noreply.SUBDOMAIN.ghe.com`{% else %}based on the no-reply email address configured by your site administrator{% endif %}. The possible notification reasons are: <ul><li>`assign`: You were assigned to an issue or pull request.</li><li>`author`: You created an issue or pull request.</li><li>`ci_activity`: A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.</li><li>`comment`: You commented on an issue or pull request.</li><li>`manual`: There was an update to an issue or pull request you manually subscribed to.</li><li>`mention`: You were mentioned on an issue or pull request.</li><li>`push`: Someone committed to a pull request you're subscribed to.</li><li>`review_requested`: You or a team you're a member of was requested to review a pull request.</li><li>`security_alert`: {% data variables.product.prodname_dotcom %} detected a vulnerability in a repository you receive alerts for.</li><li>`state_change`: An issue or pull request you're subscribed to was either closed or opened.</li><li>`subscribed`: There was an update in a repository you're watching.</li><li>`team_mention`: A team you belong to was mentioned on an issue or pull request.</li><li>`your_activity`: You opened, commented on, or closed an issue or pull request.</li></ul> |
 | `List-Id` field | This field identifies the name of the repository and its owner. The format of this address is always `OWNER/REPOSITORY <REPOSITORY.OWNER>`, e.g. `List-Id: grain-lang/grain <grain.grain-lang.{% data variables.product.product_url %}>`. |
 | `X-GitHub-Severity` field | {% data reusables.repositories.security-alerts-x-github-severity %} The possible severity levels are:<ul><li>`low`</li><li>`moderate`</li><li>`high`</li><li>`critical`</li></ul>For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts). |
 
 ## Replying to email notifications
 
-You can reply to email notifications from {% data variables.product.product_name %} and your reply will be posted to the issue, pull request, or discussion.
+You can reply to email notifications from {% data variables.product.github %} and your reply will be posted to the issue, pull request, or discussion.
 
 The `reply-to` address on each email notification identifies the thread and the account that the comment will be posted from. This email address remains valid until you reset your password.
 
-{% data variables.product.product_name %} will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
+{% data variables.product.github %} will not always include the full email contents and will attempt to strip some personally identifiable information from comments created via an email reply:
 
 * Email addresses in a standard format, such as `octocat@github.com`, are transformed to `***@***.***`.
 * Signatures and quoted reply chains, when the email client has used a `>` to mark those sections, are stripped.
@@ -236,8 +236,6 @@ For more information about the notification delivery methods available to you, a
 
 For more information on how to configure notifications for {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/monitoring-alerts).
 
-{% ifversion update-notification-settings-22 or ghes %}
-
 ## {% data variables.product.prodname_actions %} notification options
 
 For repositories that are set up with {% data variables.product.prodname_actions %} and that you are watching, you can choose how you want to receive workflow run updates.
@@ -245,7 +243,7 @@ For repositories that are set up with {% data variables.product.prodname_actions
 {% ifversion update-notification-settings-22 %}
 1. On the "Notification settings" page, under "System", then under "Actions", select the **Don't notify** dropdown menu.
 
-   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is highlighted with an orange outline.](/assets/images/help/notifications/github-actions-customize-notifications.png)
+   ![Screenshot of the "System" section of the notification settings. Under "Actions," a dropdown menu, titled "Don't notify", is outlined in orange.](/assets/images/help/notifications/github-actions-customize-notifications.png)
 1. To opt into web notifications, from the dropdown menu, select "On {% data variables.product.prodname_dotcom %}."
 
    To opt into email notifications, from the dropdown menu, select "Email."
@@ -254,9 +252,7 @@ For repositories that are set up with {% data variables.product.prodname_actions
 {% ifversion ghes %}
 On the "Notification settings" page, select "Email" or "Web" notifications. Optionally, to only receive notifications for failed workflow runs, select "Send notifications for failed workflows only".
 
-![Screenshot of the "Actions" section on the "Notification settings" page. Three checkboxes, titled "Email", "Web", and "Send notifications for failed workflows only", are shown.](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
-
-{% endif %}
+![Screenshot of the "Actions" section of "Notification settings" with checkboxes: "Email", "Web", and "Send notifications for failed workflows only."](/assets/images/help/notifications-v2/github-actions-notification-options.png){% endif %}
 
 ## Organization alerts notification options
 

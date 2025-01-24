@@ -1,6 +1,6 @@
 ---
 title: Searching for repositories
-intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
+intro: 'You can search for repositories on {% data variables.product.github %} and narrow the results using these repository search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-repositories
   - /articles/searching-for-repositories
@@ -36,7 +36,7 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see [AUTOTITLE](/search-github/searching-on-github/finding-files-on-github) and "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see [AUTOTITLE](/search-github/searching-on-github/finding-files-on-github) and [AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}.
 
 | Qualifier  | Example
 | ------------- | -------------

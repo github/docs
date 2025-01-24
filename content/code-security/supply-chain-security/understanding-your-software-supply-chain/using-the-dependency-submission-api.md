@@ -37,7 +37,7 @@ Alternatively, you can write your own action to submit dependencies for your pro
   1. Translate the list of dependencies into the snapshot format accepted by the {% data variables.dependency-submission-api.name %}. For more information about the format, see the body parameters for the "Create a repository snapshot" API endpoint in [AUTOTITLE](/rest/dependency-graph/dependency-submission).
   1. Submit the formatted list of dependencies to the {% data variables.dependency-submission-api.name %}.
 
-{% data variables.product.product_name %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the {% data variables.dependency-submission-api.name %}. For more information about writing an action, see [AUTOTITLE](/actions/creating-actions).
+{% data variables.product.github %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the {% data variables.dependency-submission-api.name %}. For more information about writing an action, see [AUTOTITLE](/actions/creating-actions).
 
 ## Generating and submitting a software bill of materials (SBOM)
 

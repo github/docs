@@ -1878,7 +1878,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Hubspot
-  supportedSecret: 'Hubspot Private Apps User Token '
+  supportedSecret: Hubspot Private Apps User Token
   secretType: hubspot_private_apps_user_token
   versions:
     fpt: '*'
@@ -2926,6 +2926,39 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client ID
+  secretType: ramp_client_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client Secret
+  secretType: ramp_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Access or Refresh Token
+  secretType: ramp_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: ReadMe

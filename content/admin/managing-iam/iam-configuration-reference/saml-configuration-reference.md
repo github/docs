@@ -107,7 +107,7 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
   * If you configure SAML for an organization, this value is `https://github.com/orgs/ORGANIZATION`.
   * If you configure SAML for an enterprise, this URL is `https://github.com/enterprises/ENTERPRISE` or `https://SUBDOMAIN.ghe.com/enterprises/SUBDOMAIN`.
   {%- endif %}
-* Your IdP must protect each assertion in the response with a digital signature. You can accomplish this by signing each individual `<Assertion>` element or by signing the `<Response>` element.
+* Your IdP must provide a single assertion in the response with a digital signature. You can accomplish this by signing the `<Assertion>` element or by signing the `<Response>` element.
 * Your IdP must provide a `<NameID>` element as part of the `<Subject>` element. You may use any persistent name identifier format.
 * Your IdP must include the `Recipient` attribute, which must be set to the ACS URL. The following example demonstrates the attribute.
 
@@ -128,6 +128,36 @@ To specify more than one value for an attribute, use multiple `<saml2:AttributeV
        </saml:Assertion>
      </samlp:Response>
      ```
+
+{% ifversion ghes %}
+
+## SAML signing certificate for AuthnRequests
+
+When you first set up {% data variables.product.prodname_ghe_server %} and start the instance, a self-signed SAML signing certificate is generated, separate from the IdP's SAML certificate. This certificate is used to sign SAML `AuthnRequests` sent to the IdP and is valid for ten years. It is stored at `/data/user/common/saml-sp.p12` and you can view details in base64-encoded format at `http(s)://HOSTNAME/saml/metadata`.
+
+If your IdP validates the SAML signing certificate, or if SAML encrypted assertions are enabled, users may face authentication issues when the certificate expires. To check the expiration date, a {% data variables.product.prodname_ghe_server %} administrator can connect to the server via SSH and run the command below. See [Connecting to the administrative shell over SSH](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh#connecting-to-the-administrative-shell-over-ssh).
+
+`sudo openssl pkcs12 -in /data/user/common/saml-sp.p12 -clcerts -nokeys -password pass: | sudo openssl x509 -noout -enddate`
+
+To re-generate this SAML SP signing certificate if it has expired and it's required by the IdP or encrypted assertions, a {% data variables.product.prodname_ghe_server %} administrator can run the commands below in a {% data variables.product.prodname_ghe_server %} SSH session.
+
+>[!NOTE]
+> The `nomad` commands will be briefly disruptive to users as the `github-unicorn` service restarts.
+
+``` shell
+# Backup the old certificate
+sudo cp /data/user/common/saml-sp.p12 /data/user/common/saml-sp.p12-$(date +%d%m%Y_%H%M%S)
+
+saml_tempdir=$(sudo mktemp -d)
+sudo openssl req -new -newkey rsa:4096 -days 3650 -nodes -x509 -sha256 -subj "/CN=github_enterprise" -keyout $saml_tempdir/saml.key -out $saml_tempdir/saml.crt
+sudo openssl pkcs12 -export -inkey $saml_tempdir/saml.key -in $saml_tempdir/saml.crt -nodes -password pass: -out /data/user/common/saml-sp.p12
+sudo rm -rf $saml_tempdir
+
+sudo nomad stop github-unicorn
+sudo nomad run -hcl1 /etc/nomad-jobs/github/unicorn.hcl
+```
+
+{% endif %}
 
 ## Session duration and timeout
 

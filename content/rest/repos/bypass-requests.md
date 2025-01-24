@@ -1,7 +1,8 @@
 ---
-title: TODOCS
-shortTitle: TODOCS
-intro: TODOCS
+title: REST API endpoints for repository push rule bypass requests
+shortTitle: Bypass requests
+intro: >-
+  Use the REST API to manage repository push rule bypass requests.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
 topics:

@@ -62,7 +62,7 @@ You can use security overview to find a set of repositories and enable or disabl
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} for {% data variables.product.prodname_GH_advanced_security %}.
+1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available licenses for {% data variables.product.prodname_GH_advanced_security %}.
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
@@ -133,8 +133,8 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
 1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
 
-  The table lists the number of unique committers for each repository. This is the number of {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} you could free up by removing access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
-1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up {% ifversion ghas-billing-UI-update %}licenses{% else %}seats{% endif %} used by any active committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
+  The table lists the number of unique committers for each repository. This is the number of licenses you could free up by removing access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up licenses used by any active committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
 1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
 
 > [!NOTE]

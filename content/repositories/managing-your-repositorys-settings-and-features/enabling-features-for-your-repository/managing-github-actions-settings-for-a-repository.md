@@ -91,9 +91,7 @@ The default permissions can also be configured in the organization settings. If 
 
 ### Configuring the default `GITHUB_TOKEN` permissions
 
-{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, `GITHUB_TOKEN` only has read access for the `contents` and `packages` scopes. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -101,22 +99,17 @@ By default, when you create a new repository in your personal account, `GITHUB_T
 {% data reusables.actions.workflows.github-token-access %}
 1. Click **Save** to apply the settings.
 
-{% ifversion allow-actions-to-approve-pr-with-ent-repo %}
-
 ### Preventing {% data variables.product.prodname_actions %} from creating or approving pull requests
 
 {% data reusables.actions.workflow-pr-approval-permissions-intro %}
 
-{% ifversion actions-default-workflow-permissions-restrictive %}
 By default, when you create a new repository in your personal account, workflows are not allowed to create or approve pull requests. If you create a new repository in an organization, the setting is inherited from what is configured in the organization settings.
-{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under "Workflow permissions", use the **Allow GitHub Actions to create and approve pull requests** setting to configure whether `GITHUB_TOKEN` can create and approve pull requests.
 1. Click **Save** to apply the settings.
-{% endif %}
 
 {% ifversion ghes or ghec %}
 
@@ -136,8 +129,6 @@ You can use the steps below to configure whether {% ifversion internal-actions %
    * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - {% ifversion ghes or ghec %}Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private or internal repositories.{% else %}Workflows in other repositories can use workflows in this repository if they are part of the same enterprise and their visibility is private or internal.{% endif %}
 1. Click **Save** to apply the settings.
 {% endif %}
-
-{% ifversion private-actions %}
 
 ## Allowing access to components in a private repository
 
@@ -186,7 +177,6 @@ You can use the steps below to configure whether actions and reusable workflows 
    * **Accessible from repositories in the 'ENTERPRISE NAME' enterprise** - Workflows in other repositories that are part of the 'ENTERPRISE NAME' enterprise can access the actions and reusable workflows in this repository. Access is allowed only from private repositories.
 1. Click **Save** to apply the settings.
 {% endif %}
-{% endif %}
 
 ## Configuring the retention period for {% data variables.product.prodname_actions %} artifacts and logs in your repository
 
@@ -203,20 +193,17 @@ You can also define a custom retention period for a specific artifact created by
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-retention-period-for-artifacts-logs %}
 
-{% ifversion actions-cache-policy-apis %}
+{% ifversion ghes %}
 
 ## Configuring cache storage for a repository
 
 {% data reusables.actions.cache-default-size %} However, these default sizes might be different if an enterprise owner has changed them. {% data reusables.actions.cache-eviction-process %}
 
-You can set a total cache storage size for your repository up to the maximum size allowed by the {% ifversion actions-cache-admin-ui %}organization or{% endif %} enterprise policy setting{% ifversion actions-cache-admin-ui %}s{% endif %}.
-
-{% ifversion actions-cache-admin-ui %}
+You can set a total cache storage size for your repository up to the maximum size allowed by the organization or enterprise policy settings.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.settings-sidebar-actions-general %}
 {% data reusables.actions.change-cache-size-limit %}
 
-{% endif %}
 {% endif %}

@@ -27,7 +27,7 @@ By default, anyone with admin access to a repository can invite outside collabor
 
 {% endif %}
 
-{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see [Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories){% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}.
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

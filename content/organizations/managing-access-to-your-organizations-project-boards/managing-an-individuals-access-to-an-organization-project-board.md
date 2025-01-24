@@ -23,8 +23,8 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -37,8 +37,8 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -51,8 +51,8 @@ When you remove a collaborator from a {% data variables.projects.projects_v1_boa
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}

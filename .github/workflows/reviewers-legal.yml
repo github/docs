@@ -1,4 +1,4 @@
-name: Codeowners - Legal
+name: Reviewers - Legal
 
 # **What it does**: Enforces reviews of Responsible AI (RAI) content by the GitHub legal team. Because RAI content can live anywhere in the content directory, it becomes a maintenance problem to use CODEOWNERS to enforce review on each article.
 # **Why we have it**: RAI content must be reviewed by the GitHub legal team.
@@ -15,7 +15,7 @@ on:
       - synchronize
     paths:
       - 'content/**'
-      - .github/workflows/codeowners-legal.yml
+      - .github/workflows/reviewers-legal.yml
 
 permissions:
   contents: read
@@ -27,6 +27,7 @@ jobs:
     if: >-
       ${{ github.repository == 'github/docs-internal' &&
           !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'reviewers-legal') &&
           github.event.pull_request.head.ref != 'repo-sync' }}
     runs-on: ubuntu-latest
     steps:
@@ -62,7 +63,7 @@ jobs:
       - name: Check for reviewers-legal label, add if missing and request review
         if: steps.checkContentType.outputs.containsContentType == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
         run: |
           labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')

@@ -14,7 +14,7 @@ topics:
 
 ## About SCIM for organizations
 
-If your organization uses [SAML SSO](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on), you can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.product_name %}. For example, an administrator can deprovision an organization member using SCIM and automatically remove the member from the organization.
+If your organization uses [SAML SSO](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on), you can implement SCIM to add, manage, and remove organization members' access to {% data variables.product.github %}. For example, an administrator can deprovision an organization member using SCIM and automatically remove the member from the organization.
 
 {% data reusables.saml.ghec-only %}
 
@@ -26,7 +26,7 @@ If you use SAML SSO without implementing SCIM, you won't have automatic deprovis
 
 ## Supported identity providers
 
-These identity providers (IdPs) are compatible with the {% data variables.product.product_name %} SCIM API for organizations. For more information, see [AUTOTITLE](/rest/scim).
+These identity providers (IdPs) are compatible with the {% data variables.product.github %} SCIM API for organizations. For more information, see [AUTOTITLE](/rest/scim).
 * Microsoft Entra ID (previously known as Azure AD)
 * Okta
 * OneLogin

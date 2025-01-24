@@ -12,6 +12,9 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
 ---
 
+>[!NOTE]
+> You must already have a paid subscription to {% data variables.product.prodname_copilot_business_short %} to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}. Trial subscriptions are not eligible for upgrade.
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}

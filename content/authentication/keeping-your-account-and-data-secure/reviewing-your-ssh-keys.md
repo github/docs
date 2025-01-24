@@ -37,7 +37,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-1. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
+1. The SSH keys on {% data variables.product.github %} _should_ match the same keys on your computer.
 
 {% endmac %}
 
@@ -65,7 +65,7 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-1. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
+1. The SSH keys on {% data variables.product.github %} _should_ match the same keys on your computer.
 
 {% endwindows %}
 
@@ -89,9 +89,9 @@ You can delete unauthorized (or possibly compromised) SSH keys to ensure that an
    > 2048 SHA256:274ffWxgaxq/tSINAykStUL7XWyRNcRTlcST1Ei7gBQ /Users/USERNAME/.ssh/id_rsa (RSA)
    ```
 
-1. The SSH keys on {% data variables.product.product_name %} _should_ match the same keys on your computer.
+1. The SSH keys on {% data variables.product.github %} _should_ match the same keys on your computer.
 
 {% endlinux %}
 
 > [!WARNING]
-> If you see an SSH key you're not familiar with on {% data variables.product.product_name %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.
+> If you see an SSH key you're not familiar with on {% data variables.product.github %}, delete it immediately and contact {% data variables.contact.contact_support %} for further help. An unidentified public key may indicate a possible security concern.

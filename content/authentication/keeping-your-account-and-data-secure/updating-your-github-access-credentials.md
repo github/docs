@@ -1,6 +1,6 @@
 ---
 title: Updating your GitHub access credentials
-intro: '{% data variables.product.product_name %} credentials include not only your password, but also the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.product_name %}. Should you have the need, you can reset all of these access credentials yourself.'
+intro: '{% data variables.product.github %} credentials include not only your password, but also the access tokens, SSH keys, and application API tokens you use to communicate with {% data variables.product.github %}. Should you have the need, you can reset all of these access credentials yourself.'
 redirect_from:
   - /articles/rolling-your-credentials
   - /articles/how-can-i-reset-my-password
@@ -50,7 +50,7 @@ shortTitle: Update access credentials
 
 {% data reusables.repositories.blocked-passwords %}
 
-1. Sign in to {% data variables.product.product_name %}.
+1. Sign in to {% data variables.product.github %}.
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
 1. Under "Change password", type your old password, a strong new password, and confirm your new password. For help creating a strong password, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-strong-password).
@@ -71,7 +71,7 @@ See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-y
 
 ## Resetting API tokens
 
-If you have any applications registered with {% data variables.product.product_name %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in [AUTOTITLE](/rest/apps/oauth-applications#reset-a-token).
+If you have any applications registered with {% data variables.product.github %}, you'll want to reset their OAuth tokens. For more information, see the `PATCH /applications/{client_id}/token` endpoint in [AUTOTITLE](/rest/apps/oauth-applications#reset-a-token).
 
 ## Preventing unauthorized access
 

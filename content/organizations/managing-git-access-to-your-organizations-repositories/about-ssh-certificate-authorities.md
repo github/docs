@@ -27,7 +27,7 @@ Certificates added to your enterprise grant access to all organizations owned by
 
 Optionally, you can require that members and outside collaborators use SSH certificates to access organization resources. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise).
 
-For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.product_name %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
+For example, you can build an internal system that issues a new certificate to your developers every morning. Each developer can use their daily certificate to work on your organization's repositories on {% data variables.product.github %}. At the end of the day, the certificate can automatically expire, protecting your repositories if the certificate is later compromised.
 
 {% ifversion ghec %}
 Organization contributors can use their signed certificates for authentication even if you've enforced SAML single sign-on (SSO), without the need to authorize the signed certificates.
@@ -47,7 +47,7 @@ If your organization doesn't require SSH certificates, contributors can continue
 
 ## Issuing certificates
 
-When you issue each certificate, you must include an extension that specifies which {% data variables.product.product_name %} user the certificate is for. You can reference the user using their login handle{% ifversion ssh-ca-expires %} or their user ID{% endif %}. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.product_name %} username{% ifversion ssh-ca-expires %} or user ID{% endif %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
+When you issue each certificate, you must include an extension that specifies which {% data variables.product.github %} user the certificate is for. You can reference the user using their login handle{% ifversion ssh-ca-expires %} or their user ID{% endif %}. For example, you can use OpenSSH's `ssh-keygen` command, replacing KEY-IDENTITY with your key identity and USERNAME with a {% data variables.product.github %} username{% ifversion ssh-ca-expires %} or user ID{% endif %}. The certificate you generate will be authorized to act on behalf of that user for any of your organization's resources. Make sure you validate the user's identity before you issue the certificate.
 
 > [!NOTE]
 > You must update to OpenSSH 7.6 or later to use these commands.

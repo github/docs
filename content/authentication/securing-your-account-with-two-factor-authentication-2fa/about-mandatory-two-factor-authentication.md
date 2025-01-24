@@ -13,7 +13,7 @@ shortTitle: About mandatory 2FA
 
 ## About eligibility for mandatory 2FA
 
-Your account is selected for mandatory 2FA if you have taken some action on {% data variables.product.product_name %} that shows you are a contributor. Eligible actions include:
+Your account is selected for mandatory 2FA if you have taken some action on {% data variables.product.github %} that shows you are a contributor. Eligible actions include:
 * Publishing an app or action for others
 * Creating a release for your repository
 * Contributing to specific high-importance repositories, such as [the projects tracked by the Open Source Security Foundation](https://github.com/ossf/wg-securing-critical-projects#current-work)

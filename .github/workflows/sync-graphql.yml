@@ -1,4 +1,4 @@
-name: Update GraphQL files
+name: Sync GraphQL schema
 
 # **What it does**: This updates our GraphQL schemas.
 # **Why we have it**: We want our GraphQL docs up to date.

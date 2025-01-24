@@ -1,7 +1,7 @@
 ---
 title: Getting started with the REST API
 shortTitle: Getting started
-intro: 'Learn how to use the {% data variables.product.prodname_dotcom %} REST API.'
+intro: 'Learn how to use the {% data variables.product.github %} REST API.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -20,7 +20,7 @@ redirect_from:
 
 ## Introduction
 
-This article describes how to use the {% data variables.product.prodname_dotcom %} REST API with {% data variables.product.prodname_cli %}, `curl`, or JavaScript. For a quickstart guide, see [AUTOTITLE](/rest/quickstart).
+This article describes how to use the {% data variables.product.github %} REST API with {% data variables.product.prodname_cli %}, `curl`, or JavaScript. For a quickstart guide, see [AUTOTITLE](/rest/quickstart).
 
 {% curl %}
 
@@ -53,7 +53,7 @@ The HTTP method of an endpoint defines the type of action it performs on a given
 
 For example, the HTTP method for the ["List repository issues" endpoint](/rest/issues/issues#list-repository-issues) is `GET`."
 
-Where possible, the {% data variables.product.product_name %} REST API strives to use an appropriate HTTP method for each action.
+Where possible, the {% data variables.product.github %} REST API strives to use an appropriate HTTP method for each action.
 
 * `GET`: Used for retrieving resources.
 * `POST`: Used for creating resources.
@@ -87,19 +87,19 @@ All API requests must include a valid `User-Agent` header. The `User-Agent` head
 
 {% cli %}
 
-By default, {% data variables.product.prodname_cli %} sends a valid `User-Agent` header. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+By default, {% data variables.product.prodname_cli %} sends a valid `User-Agent` header. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.github %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
 
 {% endcli %}
 
 {% curl %}
 
-By default, `curl` sends a valid `User-Agent` header. However {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+By default, `curl` sends a valid `User-Agent` header. However {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.github %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
 
 {% endcurl %}
 
 {% javascript %}
 
-If you use the Octokit.js SDK, the SDK will send a valid `User-Agent` header for you. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.product_name %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
+If you use the Octokit.js SDK, the SDK will send a valid `User-Agent` header for you. However, {% data variables.product.prodname_dotcom %} recommends using your {% data variables.product.github %} username, or the name of your application, for the `User-Agent` header value. This allows {% data variables.product.prodname_dotcom %} to contact you if there are problems.
 
 {% endjavascript %}
 
@@ -126,7 +126,7 @@ The most common media types supported by the {% data variables.product.prodname_
 
 There are custom media types that you can use with some endpoints. For example, the REST API to manage [commits](/rest/commits/commits#get-a-commit) and [pull requests](/rest/pulls/pulls) support the media types `diff`, `patch`, and `sha`. The media types `full`, `raw`, `text`, or `html` are used by some other endpoints.
 
-All custom media types for {% data variables.product.product_name %} look like this: `application/vnd.github.PARAM+json`, where `PARAM` is the name of the media type. For example, to specify the `raw` media type, you would use `application/vnd.github.raw+json`.
+All custom media types for {% data variables.product.github %} look like this: `application/vnd.github.PARAM+json`, where `PARAM` is the name of the media type. For example, to specify the `raw` media type, you would use `application/vnd.github.raw+json`.
 
 For an example of a request that uses media types, see [Making a request](#making-a-request).
 
@@ -150,7 +150,7 @@ For an example of a request that uses an authentication token, see [Making a req
 
 {% cli %}
 
-Although some REST API endpoints are accessible without authentication, {% data variables.product.prodname_cli %} requires you to authenticate before you can use the `api` subcommand to make an API request. Use the `auth login` subcommand to authenticate to {% data variables.product.product_name %}. For more information, see [Making a request](#making-a-request).
+Although some REST API endpoints are accessible without authentication, {% data variables.product.prodname_cli %} requires you to authenticate before you can use the `api` subcommand to make an API request. Use the `auth login` subcommand to authenticate to {% data variables.product.github %}. For more information, see [Making a request](#making-a-request).
 
 {% endcli %}
 
@@ -218,7 +218,7 @@ Install {% data variables.product.prodname_cli %} on macOS, Windows, or Linux. F
 
 ### 3. Choose an endpoint for your request
 
-1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.github %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.github %}.
 1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see [HTTP method](#http-method) and [Path](#path).
 
    For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.
@@ -295,7 +295,7 @@ You must have `curl` installed on your machine. To check if `curl` is already in
 
 ### 2. Choose an endpoint for your request
 
-1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.github %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.github %}.
 1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see [HTTP method](#http-method) and [Path](#path).
 
    For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.
@@ -381,7 +381,7 @@ You must install `octokit` to use the Octokit.js library shown in the following 
 
 ### 2. Choose an endpoint for your request
 
-1. Choose an endpoint to make a request to. You can explore {% data variables.product.product_name %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.product_name %}.
+1. Choose an endpoint to make a request to. You can explore {% data variables.product.github %}'s [REST API documentation](/rest) to discover endpoints that you can use to interact with {% data variables.product.github %}.
 1. Identify the HTTP method and path of the endpoint. You will send these with your request. For more information, see [HTTP method](#http-method) and [Path](#path).
 
    For example, the ["Create an issue" endpoint](/rest/issues/issues#create-an-issue) uses the HTTP method `POST` and the path `/repos/{owner}/{repo}/issues`.

@@ -1,6 +1,6 @@
 ---
 title: Editing files
-intro: 'You can edit files directly on {% data variables.product.product_name %} in any of your repositories using the file editor.'
+intro: 'You can edit files directly on {% data variables.product.github %} in any of your repositories using the file editor.'
 redirect_from:
   - /articles/editing-files
   - /articles/editing-files-in-your-repository
@@ -24,7 +24,7 @@ shortTitle: Edit files
 > {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
 > [!NOTE]
-> {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
+> {% data variables.product.github %}'s file editor uses [CodeMirror](https://codemirror.net/).
 
 1. In your repository, browse to the file you want to edit.
 {% data reusables.repositories.edit-file %}

@@ -146,7 +146,7 @@ jobs:
 
           git add data/reusables/code-scanning/codeql-query-tables
           git commit -m "Update CodeQL query tables"
-          git push origin $branchname
+          git push -u origin $branchname
 
           echo "Creating pull request..."
           gh pr create \

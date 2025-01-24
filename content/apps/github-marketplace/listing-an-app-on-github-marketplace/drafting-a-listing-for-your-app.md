@@ -48,7 +48,7 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 {% data reusables.user-settings.edit_marketplace_listing %}
 1. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
 
-   ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. In a section labeled "Publish your app to Marketplace," unfinished action items such as "Add your contact info" are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
+   ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. Under "Publish your app to Marketplace," unfinished actions are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
 
 > [!NOTE]
 > In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.

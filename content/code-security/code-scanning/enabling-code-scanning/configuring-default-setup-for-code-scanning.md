@@ -50,7 +50,7 @@ If you need more granular control over your {% data variables.product.prodname_c
 Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}
 <!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
 {% else %}
-* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion codeql-swift-advanced-setup %} aside from Swift{% endif %}.{% endif %}
+* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion ghes = 3.10 %} aside from Swift{% endif %}.{% endif %}
 * {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
 * It is publicly visible.{%- elsif ghec %}
 * It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
@@ -62,7 +62,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 If your repository includes at least one {% data variables.product.prodname_codeql %}-supported language, you can use default setup even if your repository also includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. Unsupported languages will not be scanned by default setup. For more information on {% data variables.product.prodname_codeql %}-supported languages, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
 {% endif %}
 
-You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion codeql-swift-advanced-setup %} except Swift{% endif %} for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
+You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion ghes = 3.10 %} except Swift{% endif %} for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
 
 {% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
 
@@ -78,7 +78,7 @@ We recommend that you start using {% data variables.product.prodname_code_scanni
 If the code in a repository changes to include Go, JavaScript/TypeScript, Python, or Ruby, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 {% endif %}
 
-Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language{% ifversion codeql-swift-advanced-setup %} other than Swift{% endif %} for analysis.
+Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language{% ifversion ghes = 3.10 %} other than Swift{% endif %} for analysis.
 
 {% endif %}
 

@@ -18,7 +18,7 @@ You can edit a webhook to change any of the settings that were selected when the
 
 You can edit a webhook that was created in a specific repository. You must be a repository owner or have admin access in the repository to edit webhooks in that repository.
 
-You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to edit a repository webhook. For more information about using the REST API to edit a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#update-a-repository-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to edit a repository webhook. For more information about using the REST API to edit a repository webhook, see [AUTOTITLE](/rest/webhooks/repos#update-a-repository-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -31,7 +31,7 @@ You can use the {% data variables.product.prodname_dotcom %} web interface or th
 
 You can edit a webhook that was created in a specific organization. You must be an organization owner to edit webhooks in that organization.
 
-You can use the {% data variables.product.prodname_dotcom %} web interface or the REST API to edit an organization webhook. For more information about using the REST API to create an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#update-an-organization-webhook).
+You can use the {% data variables.product.github %} web interface or the REST API to edit an organization webhook. For more information about using the REST API to create an organization webhook, see [AUTOTITLE](/rest/orgs/webhooks#update-an-organization-webhook).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

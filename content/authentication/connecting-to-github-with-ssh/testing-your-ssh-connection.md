@@ -32,7 +32,7 @@ You'll need to authenticate this action using your password, which is the SSH ke
 
    ```shell copy
    ssh -T git@{% data variables.product.product_url %}
-   # Attempts to ssh to {% data variables.product.product_name %}
+   # Attempts to ssh to {% data variables.product.github %}
    ```
 
    You may see a warning like this:

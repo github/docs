@@ -25,8 +25,6 @@ Issues can be created in a variety of ways, so you can choose the most convenien
 
 ## About sub-issues
 
-{% data reusables.issues.release-stage %}
-
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
 
 {% endif %}
@@ -54,11 +52,9 @@ To help contributors open meaningful issues that provide the information that yo
 You can @mention collaborators who have access to your repository in an issue to draw their attention to a comment. To link related issues in the same repository, you can type `#` followed by part of the issue title and then clicking the issue that you want to link. To communicate responsibility, you can assign issues. If you find yourself frequently typing the same comment, you can use saved replies.
 {% ifversion fpt or ghec %} See [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and [AUTOTITLE](/issues/tracking-your-work-with-issues/assigning-issues-and-pull-requests-to-other-github-users).
 {% endif %}
-{% ifversion discussions %}
 
 ## Comparing issues and discussions
 
 Some conversations are more suitable for {% data variables.product.prodname_discussions %}. {% data reusables.discussions.you-can-use-discussions %} For guidance on when to use an issue or a discussion, see [AUTOTITLE](/get-started/using-github/communicating-on-github).
 
-{% ifversion converting-issues-to-discussions %}When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.{% endif %}
-{% endif %}
+When a conversation in an issue is better suited for a discussion, you can convert the issue to a discussion.

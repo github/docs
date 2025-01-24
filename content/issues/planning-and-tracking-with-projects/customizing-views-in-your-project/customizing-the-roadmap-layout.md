@@ -28,8 +28,6 @@ You can set the date or iteration fields that your roadmap will use to position 
 1. Optionally, to create a new date or iteration field, click **{% octicon "plus" aria-hidden="true" %} New field**, type the name of your field, and click **Save**. You can then select the new field or create another.
 1. Select a date or iteration field for "Start date" and "Target date."
 
-{% ifversion projects-v2-roadmap-markers %}
-
 ## Setting vertical markers
 
 You can configure vertical markers on a roadmap to show your iterations, the dates of items in your project, and the milestones associated with items in your project.
@@ -39,8 +37,6 @@ You can configure vertical markers on a roadmap to show your iterations, the dat
    ![Screenshot showing the menu bar in a roadmap layout. The "Markers" button is highlighted with an orange outline.](/assets/images/help/projects-v2/markers.png)
 
 1. In the menu, select which markers you want to display on your roadmap.
-
-{% endif %}
 
 ## Setting the zoom level
 
@@ -60,25 +56,11 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
 {% endif %}
 
-{% ifversion projects-v2-consistent-sorting %}
-
 ## Sorting by field values
 
 You can sort items by a field value.
 
 {% data reusables.projects.customize.sort %}
-
-{% endif %}
-
-{% ifversion projects-v2-roadmap-markers %}{% else %}
-
-## Showing and hiding fields
-
-When you show and hide fields on the roadmap layout, you define which fields are shown when the side panel opens. This setting will not affect the information visible on the roadmap layout.
-
-{% data reusables.projects.customize.show-hide-field %}
-
-{% endif %}
 
 ## Grouping by field values
 
@@ -86,10 +68,6 @@ You can group items by a custom field value.
 
 {% data reusables.projects.customize.group-fields %}
 
-{% ifversion projects-v2-numeric-summary %}
-
 ## Showing the sum of a number field
 
 {% data reusables.projects.customize.sum %}
-
-{% endif %}

@@ -40,10 +40,12 @@ If possible, create branch and tag names that don't contain special characters, 
 * The English alphabet (`a` to `z` and `A` to `Z`)
 * Numbers (`0` to `9`)
 * A limited set of punctuation characters:
+<!-- markdownlint-disable GHD034 -->
   * period (`.`)
   * hyphen (`-`)
   * underscore (`_`)
   * forward slash (`/`)
+<!-- markdownlint-enable GHD034 -->
 
 To avoid confusion, you should start branch names with a letter.
 

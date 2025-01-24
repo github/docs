@@ -2,16 +2,17 @@
 title: Enforcing policies for personal access tokens in your enterprise
 intro: 'Enterprise owners can control access to resources by applying policies to {% data variables.product.pat_generic_plural %}'
 versions:
-  feature: pat-v2-enterprise
+  ghec: '*'
+  ghes: '*'
 shortTitle: '{% data variables.product.pat_generic_caps %} policies'
 redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise
 ---
 
 > [!NOTE]
-> {% data reusables.user-settings.pat-v2-beta %}  
+> {% data reusables.user-settings.pat-v2-beta %}
 >
-> During the {% data variables.release-phases.public_preview %}, enterprises must opt in to {% data variables.product.pat_v2_plural %}. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.  
+> During the {% data variables.release-phases.public_preview %}, enterprises must opt in to {% data variables.product.pat_v2_plural %}. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
 >
 > Organizations within an enterprise can opt in to {% data variables.product.pat_v2_plural %}, even if the enterprise has not. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2_plural %} that can access resources owned by the user (such as repositories created under their account) regardless of the enterprise's opt in status.
 

@@ -1,6 +1,6 @@
 ---
 title: Viewing branches in your repository
-intro: 'Branches are central to collaboration on {% data variables.product.product_name %}, and the best way to view them is the branches page.'
+intro: 'Branches are central to collaboration on {% data variables.product.github %}, and the best way to view them is the branches page.'
 redirect_from:
   - /articles/viewing-branches-in-your-repository
   - /github/administering-a-repository/viewing-branches-in-your-repository

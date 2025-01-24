@@ -282,10 +282,11 @@ For most package managers, you should define a value that will match the depende
 
 Use to ignore specific versions or ranges of versions. If you want to define a range, use the standard pattern for the package manager. For example:
 
-* npm: use `^1.0.0`
+* npm: use `^1.0.0` <!-- markdownlint-disable-line GHD034 -->
 * Bundler: use `~> 2.0`
 * Docker: use Ruby version syntax
 * NuGet: use `7.*`
+* Maven: use `[1.4,)`
 
 For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-versions-or-ranges-of-versions).
 

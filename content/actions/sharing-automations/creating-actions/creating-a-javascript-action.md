@@ -167,9 +167,9 @@ with:
 ```
 ````
 
-## Commit, tag, and push your action to GitHub
+## Commit, tag, and push your action
 
-{% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.github %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
 
 From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
 

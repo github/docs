@@ -36,7 +36,7 @@ Webhooks are used in a wide range of scenarios, including:
 * Deploying to a production server.
 * Logging events as they happen on {% data variables.product.company_short %}, for audit purposes.
 
-## About webhooks on {% data variables.product.prodname_dotcom %}
+## About webhooks on {% data variables.product.github %}
 
 When you create a webhook, you specify a URL and subscribe to events that occur on {% data variables.product.company_short %}. When an event that your webhook is subscribed to occurs, {% data variables.product.company_short %} will send an HTTP request with data about the event to the URL that you specified. If your server is set up to listen for webhook deliveries at that URL, it can take action when it receives one.
 

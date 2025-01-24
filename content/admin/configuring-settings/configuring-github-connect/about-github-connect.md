@@ -1,6 +1,6 @@
 ---
 title: About GitHub Connect
-intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.product_name %} by giving you access to data and workflows from {% data variables.product.prodname_ghe_cloud %}.'
+intro: '{% data variables.product.prodname_github_connect %} enhances {% data variables.product.prodname_ghe_server %} by giving you access to data and workflows from {% data variables.product.prodname_ghe_cloud %}.'
 versions:
   ghes: '*'
 type: overview
@@ -26,7 +26,7 @@ To enable {% data variables.product.prodname_github_connect %}, you configure a 
 * {% data variables.product.prodname_github_connect %} does not open {% data variables.location.product_location %} to the public internet.
 * None of your enterprise's private data is exposed to {% data variables.product.prodname_ghe_cloud %} users.
 * {% data variables.product.prodname_github_connect %} transmits only the limited data needed for the features you enable. Unless you enable license sync, no personal data is transmitted. For more information, see [Data transmission](#data-transmission).
-* Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_ghe_cloud %} users to make changes to {% data variables.product.product_name %}.
+* Enabling {% data variables.product.prodname_github_connect %} will not allow {% data variables.product.prodname_ghe_cloud %} users to make changes to {% data variables.product.prodname_ghe_server %}.
 
 ## {% data variables.product.prodname_github_connect %} features
 
@@ -47,9 +47,7 @@ If you're connecting to an enterprise on {% data variables.enterprise.data_resid
 {% data reusables.github-connect.license-sync %}
 | {% data variables.product.prodname_dependabot %} | Allow users to find and fix vulnerabilities in code dependencies. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise) |
 | {% data variables.product.prodname_dotcom_the_website %} actions | Allow users to use actions from {% data variables.product.prodname_dotcom_the_website %} in public workflow files. | [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect) |
-| {% ifversion server-statistics %} |
 | {% data variables.product.prodname_server_statistics %} | Analyze your own aggregate data from GitHub Enterprise Server, and help us improve GitHub products. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise) |
-| {% endif %} |
 {% data reusables.github-connect.unified-search %}
 {% data reusables.github-connect.unified-contributions %}
 
@@ -72,7 +70,7 @@ If you're connecting to an enterprise on {% data variables.enterprise.data_resid
 When {% data variables.product.prodname_github_connect %} is enabled, a record on {% data variables.product.prodname_ghe_cloud %} stores information about the connection. If you enable individual features of {% data variables.product.prodname_github_connect %}, additional data is transmitted.
 
 > [!NOTE]
-> No repositories, issues, or pull requests are ever transmitted from {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} by {% data variables.product.prodname_github_connect %}.
+> No repositories, issues, or pull requests are ever transmitted from {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} by {% data variables.product.prodname_github_connect %}.
 
 ### Data transmitted when {% data variables.product.prodname_github_connect %} is enabled
 
@@ -89,7 +87,7 @@ When you enable {% data variables.product.prodname_github_connect %} or specific
 * The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
 * The dormancy threshold for your enterprise
 * The number of dormant users for your enterprise
-* A count of license-consuming seats, which does not include suspended users
+* A count of {% ifversion enterprise-licensing-language %}consumed licenses{% else %}license-consuming seats{% endif %}, which does not include suspended users
 
 {% data variables.product.prodname_github_connect %} syncs the above connection data between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %} weekly, starting from the day and approximate time that {% data variables.product.prodname_github_connect %} was enabled.
 
@@ -100,20 +98,16 @@ Additional data is transmitted if you enable individual features of {% data vari
 | Feature | Data | Which way does the data flow? | Where is the data used? |
 | ------- | ---- | --------- | ------ |
 | {% ifversion ghes %} |
-| Automatic user license sync | Each {% data variables.product.product_name %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %} | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
+| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
 | {% endif %} |
 | {% ifversion ghes %} |
-| {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |
+| {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% endif %} |
-| {% ifversion dependabot-updates-github-connect %} |
-| {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %} | {% data variables.product.product_name %} |
-| {% endif %} |
-| {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.product_name %} |
-| {% ifversion server-statistics %} |
-| {% data variables.product.prodname_server_statistics %} | Aggregate metrics about your usage of {% data variables.product.prodname_ghe_server %}. For the complete list of metrics, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected). | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
-| {% endif %} |
-| Unified search | Search terms, search results | From {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.product_name %}<br><br>From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.product_name %} |
-| Unified contributions | Contribution counts | From {% data variables.product.product_name %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
+| {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
+| {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}<br><br>From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_ghe_server %} |
+| {% data variables.product.prodname_server_statistics %} | Aggregate metrics about your usage of {% data variables.product.prodname_ghe_server %}. For the complete list of metrics, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected). | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
+| Unified search | Search terms, search results | From {% data variables.product.prodname_ghe_cloud %} to {% data variables.product.prodname_ghe_server %}<br><br>From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_server %} |
+| Unified contributions | Contribution counts | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
 
 ## Enabling {% data variables.product.prodname_github_connect %}
 

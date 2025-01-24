@@ -12,11 +12,11 @@ featuredLinks:
     - /packages/learn-github-packages/installing-a-package
   popular:
     - /packages/working-with-a-github-packages-registry/working-with-the-npm-registry
-    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - '{% ifversion ghes %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
     - /packages/learn-github-packages
     - /packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry
   guideCards:
-    - '{% ifversion docker-ghcr-enterprise-migration %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
+    - '{% ifversion ghes %}/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry{% endif %}'
     - /packages/working-with-a-github-packages-registry/working-with-the-container-registry
     - '{% ifversion packages-npm-v2 %}/packages/working-with-a-github-packages-registry/working-with-the-npm-registry{% endif %}'
     - /packages/working-with-a-github-packages-registry/working-with-the-rubygems-registry

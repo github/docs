@@ -5,19 +5,15 @@
 | `advisory_credit`   | Contains activities related to crediting a contributor for a security advisory in the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories). |
 | {% endif %} |
 | `artifact` | Contains activities related to {% data variables.product.prodname_actions %} workflow run artifacts. |
-| {% ifversion audit-log-streaming %} |
 | `audit_log_streaming`  | Contains activities related to streaming audit logs for organizations in an enterprise account. |
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `billing` | Contains activities related to an organization's billing. |
 | {% endif %} |
 | {% ifversion ghec or ghes %} |
 | `business`  | Contains activities related to business settings for an enterprise. |
 | {% endif %} |
-| {% ifversion code-security-audit-log-events %} |
 | `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise). |
 | `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise). |
-| {% endif %} |
 | {% ifversion secret-scanning-validity-check-audit-log %} |
 | `business_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise#managing-advanced-security-features). |
 | {% endif %} |
@@ -27,10 +23,8 @@
 | {% ifversion secret-scanning-custom-pattern-push-protection-audit %} |
 | `business_secret_scanning_custom_pattern_push_protection` | Contains activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account). |
 | {% endif %} |
-| {% ifversion code-security-audit-log-events %} |
 | `business_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise). |
 | `business_secret_scanning_push_protection_custom_message` | Contains activities related to the custom message displayed when push protection is triggered in an enterprise. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise). |
-| {% endif %} |
 | `checks`   | Contains activities related to check suites and runs. |
 | {% ifversion fpt or ghec %} |
 | `codespaces` | Contains activities related to an organization's codespaces. |
@@ -159,7 +153,7 @@
 | {% ifversion ghec or ghes %} |
 | `restrict_notification_delivery` | Contains activities related to the restriction of email notifications to approved or verified domains for an enterprise. |
 | {% endif %} |
-| {% ifversion custom-repository-roles %} |
+| {% ifversion ghec or ghes %} |
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization). |
 | {% endif %} |
 | {% ifversion ghec or ghes %} |
@@ -191,6 +185,6 @@
 | {% endif %} |
 | `user` | Contains activities related to users in an enterprise or organization. |
 | {% ifversion ghec or ghes %} |
-| `user_license` | Contains activities related to a user occupying a licensed seat in, and being a member of, an enterprise. |
+| `user_license` | Contains activities related to a user occupying a {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} in, and being a member of, an enterprise. |
 | {% endif %} |
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows. |

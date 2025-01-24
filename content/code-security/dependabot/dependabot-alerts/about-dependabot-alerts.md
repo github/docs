@@ -1,6 +1,6 @@
 ---
 title: About Dependabot alerts
-intro: '{% data variables.product.product_name %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency.'
+intro: '{% data variables.product.github %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency.'
 product: '{% data reusables.gated-features.dependabot-alerts %}'
 redirect_from:
   - /articles/about-security-alerts-for-vulnerable-dependencies
@@ -67,12 +67,12 @@ You can also enable or disable {% data variables.product.prodname_dependabot_ale
 
 For information about access requirements for actions related to {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#access-requirements-for-security-features).
 
-{% data variables.product.product_name %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
+{% data variables.product.github %} starts generating the dependency graph immediately and generates alerts for any insecure dependencies as soon as they are identified. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
 {% endif %}
 
-When {% data variables.product.product_name %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the **Security** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
+When {% data variables.product.github %} identifies a vulnerable dependency, we generate a {% data variables.product.prodname_dependabot %} alert and display it on the **Security** tab for the repository and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
 
-{% data variables.product.product_name %} may also notify the maintainers of affected repositories about new alerts according to their notification preferences.{% ifversion dependabot-suppressed-notifications %} When {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.product_name %} does not send notifications for all vulnerable dependencies found in your repository, only for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled.{% endif %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
+{% data variables.product.github %} may also notify the maintainers of affected repositories about new alerts according to their notification preferences.{% ifversion dependabot-suppressed-notifications %} When {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.github %} does not send notifications for all vulnerable dependencies found in your repository, only for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled.{% endif %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-notifications-for-dependabot-alerts).
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
@@ -83,13 +83,13 @@ When {% data variables.product.product_name %} identifies a vulnerable dependenc
 {% endif %}
 
 > [!WARNING]
-> {% data variables.product.product_name %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
+> {% data variables.product.github %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.
 
 ## Access to {% data variables.product.prodname_dependabot_alerts %}
 
 You can see all of the alerts that affect a particular project{% ifversion fpt or ghec %} on the repository's **Security** tab or{% endif %} in the repository's dependency graph. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
 
-By default, we notify people with write, maintain, or admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts).
+By default, we notify people with write, maintain, or admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% ifversion fpt or ghec %}{% data variables.product.github %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working with repositories that you own or have admin permissions for. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts).
 {% endif %}
 
 {% data reusables.notifications.vulnerable-dependency-notification-enable %}

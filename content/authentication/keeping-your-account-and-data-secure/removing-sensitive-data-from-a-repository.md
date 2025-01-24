@@ -49,10 +49,10 @@ Removing sensitive data from a repository involves four high-level steps:
 If you only rewrite your history and force push it, the commits with sensitive data may still be accessible elsewhere:
 
 * In any clones or forks of your repository
-* Directly via their SHA-1 hashes in cached views on {% data variables.product.product_name %}
+* Directly via their SHA-1 hashes in cached views on {% data variables.product.github %}
 * Through any pull requests that reference them
 
-You cannot remove sensitive data from other users' clones of your repository; you will have to send them the instructions from [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git filter-repo` manual to have them do so themselves.  However, you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.product_name %} by contacting {% data variables.contact.contact_support %}.
+You cannot remove sensitive data from other users' clones of your repository; you will have to send them the instructions from [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git filter-repo` manual to have them do so themselves.  However, you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.github %} by contacting {% data variables.contact.contact_support %}.
 
 {% ifversion fpt or ghec %}
 
@@ -129,11 +129,11 @@ Consider these limitations and challenges in your decision to rewrite your repos
    git push --force --mirror origin
    ```
 
-    This command will fail to push any refs starting with `refs/pull/`, since {% data variables.product.product_name %} marks those as read-only.  Those push failures will be handled in the next section.  If any other refs fail to push, you likely have branch protection turned on for that branch and will need to turn it off temporarily and redo the push.  Repeat until the only failures to update are refs starting with `refs/pull/`.
+    This command will fail to push any refs starting with `refs/pull/`, since {% data variables.product.github %} marks those as read-only.  Those push failures will be handled in the next section.  If any other refs fail to push, you likely have branch protection turned on for that branch and will need to turn it off temporarily and redo the push.  Repeat until the only failures to update are refs starting with `refs/pull/`.
 
-## Fully removing the data from {% data variables.product.prodname_dotcom %}
+## Fully removing the data from {% data variables.product.github %}
 
-After using `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.product_name %}, you must take a few more steps to fully remove the data from {% data variables.product.product_name %}.
+After using `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.github %}, you must take a few more steps to fully remove the data from {% data variables.product.github %}.
 
 1. Contact {% data variables.contact.contact_support %}, and provide the following information:
 
@@ -144,12 +144,12 @@ After using `git filter-repo` to remove the sensitive data and pushing your chan
 
     If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:
 
-    * Dereference or delete any affected PRs on {% data variables.product.product_name %}.
+    * Dereference or delete any affected PRs on {% data variables.product.github %}.
     * Run a garbage collection on the server to expunge the sensitive data from storage.
     * Remove cached views.
     * If LFS Objects are involved, delete and/or purge the orphaned LFS objects.
 
-    {% ifversion ghes %}For more information about how site administrators can remove unreachable Git objects, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc)." For more information about how site administrators can identify reachable commits, see "[Identifying reachable commits](#identifying-reachable-commits)."{% endif %}{% ifversion fpt or ghec %}
+    {% ifversion ghes %}For more information about how site administrators can remove unreachable Git objects, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc). For more information about how site administrators can identify reachable commits, see [Identifying reachable commits](#identifying-reachable-commits).{% endif %}{% ifversion fpt or ghec %}
      >[!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
 
 1. Collaborators must [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.  They may need to take additional steps as well; see [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git filter-repo` manual.

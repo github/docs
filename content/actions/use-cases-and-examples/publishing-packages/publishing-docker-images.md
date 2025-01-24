@@ -50,7 +50,7 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
-Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type.
+Each time you create a new release on {% data variables.product.github %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type.
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.
 
@@ -132,7 +132,7 @@ The above workflow checks out the {% data variables.product.prodname_dotcom %} r
 {% data reusables.package_registry.container-registry-ghes-beta %}
 {% endif %}
 
-Each time you create a new release on {% data variables.product.product_name %}, you can trigger a workflow to publish your image. The workflow in the example below runs when a change is pushed to the `release` branch.
+Each time you create a new release on {% data variables.product.github %}, you can trigger a workflow to publish your image. The workflow in the example below runs when a change is pushed to the `release` branch.
 
 In the example workflow below, we use the Docker `login-action`{% ifversion fpt or ghec %}, `metadata-action`,{% endif %} and `build-push-action` actions to build the Docker image, and if the build succeeds, push the built image to {% data variables.product.prodname_registry %}.
 
@@ -235,7 +235,7 @@ jobs:
 {% endif -%}
 ```
 
-The above workflow checks out the {% data variables.product.product_name %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
+The above workflow checks out the {% data variables.product.github %} repository, uses the `login-action` twice to log in to both registries and generates tags and labels with the `metadata-action` action.
 Then the `build-push-action` action builds and pushes the Docker image to Docker Hub and the {% data variables.product.prodname_container_registry %}.
 
 {% ifversion artifact-attestations %}{% data reusables.actions.artifact-attestations-step-explanation %}{% endif %}

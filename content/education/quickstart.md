@@ -11,14 +11,14 @@ shortTitle: Quickstart
 
 Educators who teach a course on software development can use discounts, partnerships, training, and tools from {% data variables.product.prodname_education %} to effectively teach relevant skills to students.
 
-In this guide, you'll get started with {% data variables.product.product_name %}, sign up for accounts and discounted services through {% data variables.product.prodname_education %}, and create a space for your course and assignment on {% data variables.product.prodname_classroom %}.
+In this guide, you'll get started with {% data variables.product.github %}, sign up for accounts and discounted services through {% data variables.product.prodname_education %}, and create a space for your course and assignment on {% data variables.product.prodname_classroom %}.
 
 > [!TIP]
 > If you're a student and you'd like to take advantage of an academic discount, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student).
 
-## Creating accounts on {% data variables.product.product_name %}
+## Creating accounts
 
-First, you'll need to create a free personal account on {% data variables.product.product_name %}.
+First, you'll need to create a free personal account on {% data variables.product.github %}.
 
 {% data reusables.accounts.create-account %}
 1. Follow the prompts to create your free personal account.
@@ -72,10 +72,10 @@ With your personal account and organization account, you're ready to get started
 
 ## Next steps
 
-You've created a classroom, and you're ready to enrich your course with {% data variables.product.product_name %} and {% data variables.product.prodname_classroom %}! 🎉
+You've created a classroom, and you're ready to enrich your course with {% data variables.product.github %} and {% data variables.product.prodname_classroom %}! 🎉
 
 * Manage your classrooms and classroom admins, and create a roster of students for your classroom. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/manage-classrooms).
-* Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.product_name %} fundamentals. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment).
+* Use the Git and {% data variables.product.company_short %} starter assignment to give students an overview of Git and {% data variables.product.github %} fundamentals. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment).
 * Create an assignment for individual students or teams. {% data reusables.classroom.for-more-information-about-assignment-creation %}
 * Write and implement automated tests to provide immediate feedback to students directly in assignment repositories. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding).
 * Participate in {% data variables.product.prodname_education_community_with_url %}.

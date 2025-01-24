@@ -17,7 +17,7 @@ topics:
   - Upgrades
 ---
 
-## About upgrades to a {% data variables.product.product_name %} cluster
+## About upgrades to a {% data variables.product.prodname_ghe_server %} cluster
 
 {% data reusables.enterprise.about-upgrades %}
 

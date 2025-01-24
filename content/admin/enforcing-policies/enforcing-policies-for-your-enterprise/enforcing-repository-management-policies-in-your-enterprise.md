@@ -89,9 +89,7 @@ Across all organizations owned by your enterprise, you can allow members to crea
 
 If you allow members to create repositories in your organizations, you can choose which types of repositories (public, private, and internal) that members can create.
 
-{% ifversion enterprise-namespace-repo-setting %}
 {% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can also prevent users from creating repositories owned by their user accounts. {% ifversion emu-owned-repos %}If you allow users to create repositories owned by their user accounts, you can view and temporarily access those repositories at any time. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/viewing-user-owned-repositories-in-your-enterprise) and [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise).{% endif %}
-{% endif %}
 
 {% data reusables.repositories.internal-repo-default %} For more information about internal repositories, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
@@ -103,39 +101,29 @@ If you allow members to create repositories in your organizations, you can choos
 1. Under "Repository creation", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 {% data reusables.enterprise-accounts.repo-creation-policy %}
 {% data reusables.enterprise-accounts.repo-creation-types %}
-{%- ifversion enterprise-namespace-repo-setting %}
 1. Optionally, {% ifversion ghec %}if your enterprise uses {% data variables.product.prodname_emus %} and you want {% endif %}to prevent enterprise members from creating repositories owned by their user accounts, select **Block the creation of user namespace repositories**.
-{%- endif %}
 
 ## Enforcing a policy for forking private or internal repositories
 
 Across all organizations owned by your enterprise, you can allow people with access to a private or internal repository to fork the repository, never allow forking of private or internal repositories, or allow owners to administer the setting on the organization level.
 
-{% ifversion org-owners-limit-forks-creation %}
 People with admin permissions can set a more granular forking policy. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization).
-{% endif %}
-
-{% ifversion enterprise-namespace-repo-setting %}
 
 > [!NOTE]
 > If {% ifversion ghec %}your enterprise uses {% data variables.product.prodname_emus %} and {% endif %}your "Repository creation" policy prevents enterprise members from creating repositories owned by their user accounts, members will not be allowed to fork a repository in their user accounts, regardless of your "Repository forking" policy.
-
-{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.repositories-tab %}
 1. Under "Repository forking", review the information about changing the setting. {% data reusables.enterprise-accounts.view-current-policy-config-orgs %}
 1. Under "Repository forking", select the dropdown menu and click a policy.
-{%- ifversion innersource-fork-policies %}
 1. If forking is enabled, select a policy for where users are allowed to fork repositories.
-{%- endif %}
 
 ## Enforcing a policy for inviting{% ifversion ghec %} outside{% endif %} collaborators to repositories
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
 
-Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, {% ifversion prevent-org-admin-add-outside-collaborator %}restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, {% endif %}or allow organization owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can allow members to invite{% ifversion ghec %} outside{% endif %} collaborators to repositories, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to organization owners, restrict {% ifversion ghec %}outside collaborator {% endif %}invitations to enterprise owners, or allow organization owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -221,7 +209,7 @@ By default, when you enforce repository upload limits, people cannot add or upda
 
    ![Screenshot of the "Repository upload limit" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
-{% ifversion profile-name-enterprise-setting %}
+{% ifversion ghes %}
 
 ## Enforcing a policy for the display of member names in your repositories
 
@@ -238,7 +226,7 @@ Across all organizations owned by your enterprise, you can allow members to see 
 1. Under "Allow members to see the comment author's profile name in public and internal repositories", select the dropdown menu and click a policy.
 1. Optionally, to enforce the display of profile names for all repositories in your enterprise, select **Enforce for all repositories on the instance**.
 
-   ![Screenshot of the "Allow members to see the comment author's profile name in public and internal repositories" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
+   ![Screenshot of the policy option for the display of member names in your repositories. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
 {% endif %}
 
@@ -336,7 +324,7 @@ If necessary, you can prevent repository administrators from changing anonymous 
 {% data reusables.enterprise_site_admin_settings.admin-top-tab %}
 1. Under "Danger Zone", next to "Enable Anonymous Git read access", click **Enable**.
 
-   ![Screenshot of the "Danger Zone" section of a repository's site admin settings. To the right of "Enable anonymous Git read access", the "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
+   ![Screenshot of the "Enable anonymous Git read access" setting. The "Enable" button is outlined.](/assets/images/enterprise/site-admin-settings/site-admin-enable-anonymous-git-read-access.png)
 1. Review the changes. To confirm, click **Yes, enable anonymous Git read access.**
 1. Optionally, to prevent repository admins from changing this setting for this repository, select **Prevent repository admins from disabling anonymous Git read access**.
 {% endif %}

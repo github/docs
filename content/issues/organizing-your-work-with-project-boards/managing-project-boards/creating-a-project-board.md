@@ -37,9 +37,9 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.profile.access_profile %}
 1. On the top of your profile page, in the main navigation, click **{% octicon "project" aria-hidden="true" %} Projects**.
 
-   ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png){% ifversion projects-v2 %}
+   ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 
-1. Click **Projects (classic)**{% endif %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -59,17 +59,13 @@ You can also configure workflow automations to keep your {% data variables.proje
 
 {% data reusables.projects.classic-project-creation %}
 
-{% ifversion classic-project-visibility-permissions %}
-
 > [!NOTE]
 > {% data reusables.projects.owners-can-limit-visibility-permissions %}
 
-{% endif %}
-
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}
@@ -92,8 +88,8 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **{% octicon "project" aria-hidden="true" %} Projects**.{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+1. Under your repository name, click **{% octicon "project" aria-hidden="true" %} Projects**.
+1. Click **Projects (classic)**.
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}
 {% data reusables.project-management.choose-template %}

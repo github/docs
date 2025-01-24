@@ -2,7 +2,10 @@
 title: Viewing and managing your sessions
 intro: You can view and revoke your active sessions in your settings.
 versions:
-  feature: device-and-settings-management-page
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+
 type: how_to
 topics:
   - SSO

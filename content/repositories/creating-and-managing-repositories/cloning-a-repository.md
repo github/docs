@@ -85,11 +85,11 @@ An empty repository contains no files. It's often made if you don't initialize t
 {% data reusables.repositories.navigate-to-repo %}
 1. To clone your repository using the command line using HTTPS, under "Quick setup", click {% octicon "copy" aria-label="Copy to clipboard" %}. To clone the repository using an SSH key, including a certificate issued by your organization's SSH certificate authority, click **SSH**, then click {% octicon "copy" aria-label="Copy to clipboard" %}.
 
-   ![Screenshot of the quick setup instructions for an empty repository. To the right of the HTTPS URL for the repository, a copy icon is outlined in dark orange.](/assets/images/help/repository/empty-https-url-clone-button.png)
+   ![Screenshot of the quick setup notes for an empty repository. To the right of the HTTPS URL for the repository, a copy icon is outlined in orange.](/assets/images/help/repository/empty-https-url-clone-button.png)
 
    Alternatively, to clone your repository in Desktop, click **{% octicon "desktop-download" aria-hidden="true" %} Set up in Desktop** and follow the prompts to complete the clone.
 
-   ![Screenshot of the quick setup instructions for an empty repository. A button, labeled with a download icon and "Set up in Desktop," is outlined in dark orange.](/assets/images/help/repository/empty-desktop-clone-button.png)
+   ![Screenshot of the quick setup notes for an empty repository. The "Set up in Desktop" button is outlined in dark orange.](/assets/images/help/repository/empty-desktop-clone-button.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}

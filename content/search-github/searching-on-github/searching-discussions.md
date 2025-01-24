@@ -1,8 +1,10 @@
 ---
 title: Searching discussions
-intro: 'You can search for discussions on {% data variables.product.product_name %} and narrow the results using search qualifiers.'
+intro: 'You can search for discussions on {% data variables.product.github %} and narrow the results using search qualifiers.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - GitHub search
 redirect_from:
@@ -12,13 +14,13 @@ redirect_from:
 
 ## About searching for discussions
 
-You can search for discussions globally across all of {% data variables.product.product_name %}, or search for discussions within a particular organization or repository. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+You can search for discussions globally across all of {% data variables.product.github %}, or search for discussions within a particular organization or repository. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 {% data reusables.search.syntax_tips %}
 
 ## Search by the title, body, or comments
 
-With the `in` qualifier you can restrict your search for discussions to the title, body, or comments. You can also combine qualifiers to search a combination of title, body, or comments. When you omit the `in` qualifier, {% data variables.product.product_name %} searches the title, body, and comments.
+With the `in` qualifier you can restrict your search for discussions to the title, body, or comments. You can also combine qualifiers to search a combination of title, body, or comments. When you omit the `in` qualifier, {% data variables.product.github %} searches the title, body, and comments.
 
 | Qualifier | Example |
 | :- | :- |

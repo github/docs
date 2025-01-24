@@ -34,7 +34,7 @@ The foundation of your bill is the number of user accounts using your{% ifversio
 
 To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
 
-In addition to licensed seats, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
+In addition to {% ifversion enterprise-licensing-language %}showing billable {% data variables.product.prodname_enterprise %} licenses{% else %}licensed seats{% endif %}, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
 {% endif %}
 
 {% ifversion metered-ghe-ghas %}
@@ -94,7 +94,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 > [!NOTE]
 > * {% data variables.product.company_short %} counts each member or outside collaborator once for billing purposes, even if the user account has membership in multiple organizations in an enterprise or access to multiple repositories owned by your organization.
 > * {% data reusables.organizations.org-invite-scim %}
-> * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
+> * Inviting an outside collaborator to a repository using their email address temporarily uses an available {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}, even if they already have access to other repositories. After they accept the invite, the {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %} will be freed up again. However, inviting them using their username does not temporarily use a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}.
 
 {% data variables.product.company_short %} does not bill for any of the following accounts:
 
@@ -110,11 +110,11 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 
 ### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
 
-After a user successfully authenticates to a {% data variables.product.prodname_ghe_server %} instance for the first time, the user consumes a seat.
+After a user successfully authenticates to a {% data variables.product.prodname_ghe_server %} instance for the first time, the user consumes a {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}.
 
-Suspended users are not counted when calculating the number of licensed users consuming seats. For more information, see "[Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+Suspended users are not counted when calculating the number of {% ifversion enterprise-licensing-language %}consumed licenses{% else %}licensed users consuming seats{% endif %}. For more information, see [Suspending and unsuspending users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/suspending-and-unsuspending-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
-Dormant users do occupy a seat license. Administrators can suspend dormant users to free licenses. For more information, see "[Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+Dormant users do occupy a {% ifversion enterprise-licensing-language %}license{% else %}seat license{% endif %}. Administrators can suspend dormant users to free licenses. For more information, see [Managing dormant users]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
 {% endif %}
 
@@ -130,7 +130,7 @@ You can change your {% data variables.product.prodname_dotcom %} subscription at
 
 {% ifversion ghec %}If you use usage-based billing, you can reduce the number of licenses you use by removing users from your enterprise account. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/removing-a-member-from-your-enterprise).
 
-{% else %}You can add more licensed seats to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more seats than are being used, you can also reduce the number of seats. This only applies if you currently pay for your {% data variables.product.prodname_enterprise %} licenses through a volume, subscription, or prepaid agreement.{% endif %}{% ifversion fpt %} See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan) and [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+{% else %}You can add more {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %} to your {% ifversion fpt or ghec %} organization{% endif %}{% ifversion ghec %} or{% endif %}{% ifversion ghec or ghes %} enterprise{% endif %} at any time. If you pay for more {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} than are being used, you can also reduce the number of {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %}. This only applies if you currently pay for your {% data variables.product.prodname_enterprise %} licenses through a volume, subscription, or prepaid agreement.{% endif %}{% ifversion fpt %} See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan) and [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
 
 If you have questions about your subscription, you can contact {% data variables.contact.contact_support %}.
 

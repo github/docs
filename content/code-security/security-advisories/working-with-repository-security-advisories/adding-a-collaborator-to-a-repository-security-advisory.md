@@ -36,7 +36,7 @@ Collaborators have write permissions to the security advisory. For more informat
 1. In the "Security Advisories" list, click the security advisory you'd like to add a collaborator to.
 1. On the right side of the page, under "Collaborators", type the name of the user or team you'd like to add to the security advisory.
 1. Click **{% octicon "plus" aria-label="Add Collaborator" %}** to add the selected user or team as a collaborator.
-   ![Screenshot of the "Collaborators" area in the right sidebar of a draft security advisory. The "Add collaborator" button, a plus icon, is outlined in dark orange.](/assets/images/help/security/security-advisory-add-collaborator-button.png)
+   ![Screenshot of the "Collaborators" area in the sidebar of a draft security advisory. The "Add collaborator" button, a plus icon, is outlined in orange.](/assets/images/help/security/security-advisory-add-collaborator-button.png)
 
 ## Further reading
 

@@ -28,7 +28,7 @@ You must have write access to a repository to create a branch, open a pull reque
 
 {% data reusables.branches.new-repo-default-branch %} The default branch is the branch that {% data variables.product.prodname_dotcom %} displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. {% data reusables.branches.default-branch-automatically-base-branch %}
 
-By default, {% data variables.product.product_name %} names the default branch `main` in any new repository.
+By default, {% data variables.product.github %} names the default branch `main` in any new repository.
 
 {% data reusables.branches.change-default-branch %}
 
@@ -55,7 +55,7 @@ Now when you merge the `feature2` pull request, it'll be merged into the `main` 
 
 ## Working with protected branches
 
-Repository administrators {% ifversion edit-repository-rules %}or custom roles with the "edit repository rules" permission {% endif %}can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
+Repository administrators or custom roles with the "edit repository rules" permission can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
 
 > [!NOTE]
 > If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."

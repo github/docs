@@ -26,7 +26,7 @@ When someone with admin or owner permissions has enabled required reviews, they 
 If a file has a code owner, you can see who the code owner is before you open a pull request. In the repository, you can browse to the file and hover over {% octicon "shield-lock" aria-label="Owned by USER or TEAM (from CODEOWNERS line NUMBER)" %} to see a tool tip with codeownership details.
 
 {% ifversion fpt or ghec %}
-![Screenshot showing the header for a file. The cursor is hovering over the shield icon, which displays the tooltip "Owned by USER or TEAM (from CODEOWNERS line NUMBER)."](/assets/images/help/repository/code-owner-for-a-file.png)
+![Screenshot showing the header for a file. The cursor hovers over a shield icon with the tooltip "Owned by USER or TEAM (from CODEOWNERS line NUMBER)."](/assets/images/help/repository/code-owner-for-a-file.png)
 {% else %}
 ![Screenshot showing the header for a file. The cursor is hovering over the shield icon, which displays the tooltip "Owned by USER or TEAM."](/assets/images/enterprise/repository/code-owner-for-a-file.png)
 {% endif %}

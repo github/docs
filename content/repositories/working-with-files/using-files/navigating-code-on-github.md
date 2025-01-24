@@ -1,6 +1,6 @@
 ---
 title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.github %}.'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -17,7 +17,7 @@ topics:
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
-![Screenshot showing a code file with a function called "request" highlighted and a pop-up window with information about the function underneath. The pop-up has two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
+![Screenshot showing a file with a function highlighted. A pop-up has information about the function on two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages support code navigation.
 

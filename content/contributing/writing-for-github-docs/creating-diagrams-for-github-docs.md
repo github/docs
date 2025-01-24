@@ -83,7 +83,7 @@ If you are creating a diagram to explain when or how something happens, consider
 
 * [Flowchart](https://en.wikipedia.org/wiki/Flowchart): Flowcharts are useful for showing the steps in a process. In this example, the rectangles represent steps in a process and the diamond represents a decision point where the chart branches into two possible endpoints.
 
-  ![An example flowchart that uses rectangles to represent steps in a process and a diamond to represent a decision point where the chart branches into two possible endpoints.](/assets/images/help/diagrams/flowchart-example.png)
+  ![An example flowchart that uses rectangles to represent steps in a process and a diamond to represent a decision point where the chart branches.](/assets/images/help/diagrams/flowchart-example.png)
 
 * [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart): Gantt charts are useful for showing how long tasks take and when they overlap. In this example, the horizontal axis is labelled "Time" and the blue rectangles represent three discrete tasks. Task 1 and task 2 overlap, which means that at least part of the tasks happen at the same time. Task 3 does not overlap with the other tasks, which means that it happens after the first two are completed.
 
@@ -123,7 +123,7 @@ If you are creating a diagram to explain why something is the way that it is, co
 
 * [Venn diagram](https://en.wikipedia.org/wiki/Venn_diagram): Venn diagrams are useful for showing shared traits or overlap of ideas. Circles represent concepts or things, and the area where the circles overlap represent shared traits between things. In this example, the overlap between the circle labelled "Octopus" and the circle labelled "Cat" is labelled "Octocat," which is a combination of an octopus and a cat.
 
-  ![An example Venn diagram that shows two circles overlapping. One circle is labelled "Octopus" and the other is labelled "Cat". The overlapping section of the circles is labelled "Octocat".](/assets/images/help/diagrams/venn-diagram-example.png)
+  ![An example Venn diagram with two circles overlapping: one labeled "Octopus" and the other "Cat". The intersection of the circles is labeled "Octocat".](/assets/images/help/diagrams/venn-diagram-example.png)
 
 ## Style guidelines
 
@@ -163,7 +163,7 @@ Use different types of lines to convey additional meaning of relationships.
 * Two-way lines that have an arrow on each side: Indicate reciprocation.
   ![Two blue rectangles connected by a line with an arrow on both ends.](/assets/images/help/diagrams/two-way-line-example.png)
 * Brackets: Establish hierarchy. In general, organize brackets vertically so that they are easier to navigate on a webpage. Indent each level of a hierarchy.
-  ![Two examples of blue rectangles connected by brackets. One has three rectangles arranged in a vertical bracket with two rectangles indented and connected to the top rectangle with lines. The other has two rectangles arranged horizontally connected to a rectangle above with lines.](/assets/images/help/diagrams/brackets-example.png)
+  ![Two examples demonstrating the difference between vertical (left) and horizontal (right) arrangement of three rectangles connected by brackets.](/assets/images/help/diagrams/brackets-example.png)
 
 ### Labels
 

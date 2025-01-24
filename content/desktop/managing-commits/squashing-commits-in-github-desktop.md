@@ -32,7 +32,7 @@ Squashing allows you to combine multiple commits in your branch's history into a
 
    {% endwindows %}
 
-   ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a commit, highlighted in blue. A hover-over text box says, "Squash 2 commits".](/assets/images/help/desktop/squash-drag-and-drop.png)
+   ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a commit, highlighted in blue. A hover-over box shows "Squash 2 commits".](/assets/images/help/desktop/squash-drag-and-drop.png)
 
 1. Modify the commit message of your new commit. The commit messages of the selected commits you want to squash are pre-filled into the **Summary** and **Description** fields.
 1. Click **Squash Commits**.

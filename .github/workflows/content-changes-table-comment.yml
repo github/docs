@@ -28,6 +28,7 @@ on:
     paths:
       - 'content/**'
       - 'data/reusables/**'
+      - 'assets/images/**'
 
 permissions:
   contents: read
@@ -48,21 +49,28 @@ jobs:
       - name: check out repo content
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Get preview app info
-        env:
-          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
-        run: src/workflows/get-preview-app-info.sh
-
       - uses: ./.github/actions/node-npm-setup
+
+      # We're setting the URLs manually until we merge in-progress work. We can utilize review server and its helper functions in a later iteration.
+      - name: Set APP_URL
+        run: |
+          if [[ "${{ github.repository }}" == "github/docs-internal" ]]; then
+            echo "APP_URL=https://docs-review.github.com" >> $GITHUB_ENV
+          elif [[ "${{ github.repository }}" == "github/docs" ]]; then
+            echo "APP_URL=https://os-docs-review.github.com" >> $GITHUB_ENV
+          fi
 
       - name: Get changes table
         id: changes
         timeout-minutes: 30
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_SERVER_ACCESS_TOKEN: ${{ secrets.REVIEW_SERVER_ACCESS_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
           BASE_SHA: ${{ github.event.pull_request.base.sha || inputs.BASE_SHA }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || inputs.HEAD_SHA }}
+          # HEAD_BRANCH isn't necessary for the table comment, but lets us list the branch in the review server menu bar
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
         run: npm run content-changes-table-comment
 
       - name: Find content directory changes comment
@@ -81,10 +89,10 @@ jobs:
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           body: |
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
-            ## Automatically generated comment ℹ️
-            **This comment is automatically generated and will be overwritten every time changes are committed to this branch.**
+            ## 👓 Previews for changed content
+            **This comment is 🤖 automatically generated and will be overwritten every time changes are committed to this branch.**
 
-            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the staging site. Please note that changes to the `data` directory will not show up in this table.
+            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the review server. Please note that changes to the `data` directory will not show up in this table.
 
             ---
 
@@ -93,7 +101,6 @@ jobs:
             ${{ steps.changes.outputs.changesTable }}
 
             ---
-            fpt: Free, Pro, Team
-            ghec: GitHub Enterprise Cloud
-            ghes: GitHub Enterprise Server
+            Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server
+            _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/content-changes-table-comment.yml) workflow._
           edit-mode: replace

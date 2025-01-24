@@ -456,32 +456,32 @@
   },
   {
     "action": "code_scanning.alert_appeared_in_branch",
-    "description": "An existing code scanning alert appeared in a branch.",
+    "description": "Existing code scanning alerts appeared in a branch.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_fixed",
-    "description": "A code scanning alert was fixed.",
+    "description": "Code scanning alerts were fixed.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_closed_by_user",
-    "description": "A code scanning alert was manually dismissed.",
+    "description": "Code scanning alerts were manually dismissed.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_created",
-    "description": "A code scanning alert was seen for the first time.",
+    "description": "Code scanning alerts were seen for the first time.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_reappeared",
-    "description": "A code scanning alert that was previously fixed reappeared.",
+    "description": "Code scanning alerts that were previously fixed reappeared.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_reopened_by_user",
-    "description": "A code scanning alert that was previously dismissed was reopened.",
+    "description": "Code scanning alerts that were previously dismissed were reopened.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {

@@ -1,6 +1,6 @@
 ---
 title: Creating and deleting branches within your repository
-intro: 'You can create or delete branches directly on {% data variables.product.product_name %}.'
+intro: 'You can create or delete branches directly on {% data variables.product.github %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
   - /articles/deleting-branches-in-a-pull-request
@@ -17,7 +17,7 @@ shortTitle: Create & delete branches
 
 ## Creating a branch
 
-You can create a branch in different ways on {% data variables.product.product_name %}.
+You can create a branch in different ways on {% data variables.product.github %}.
 
 > [!NOTE]
 > You can only create a branch in a repository to which you have push access.

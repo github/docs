@@ -35,7 +35,7 @@ Generate end-user query help from .qhelp files.
 
 ### Primary Options
 
-#### `<qhelpquerysuite>...`
+#### `<qhelp|mdhelp|query|dir|suite>...`
 
 \[Mandatory] Query help files to render. Each argument is one of:
 

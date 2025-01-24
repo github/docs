@@ -2,7 +2,7 @@
 title: About Server Statistics
 intro: 'You can use {% data variables.product.prodname_server_statistics %} to analyze your own aggregate data from {% data variables.product.prodname_ghe_server %}, and help us improve {% data variables.product.company_short %} products.'
 versions:
-  feature: server-statistics
+  ghes: '*'
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
@@ -96,7 +96,6 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | AN | `ghe_stats.users.total_users` | Number of user accounts |
 | AO | `ghe_stats.users.admin_users` | Number of user accounts that are site administrators |
 | AP | `ghe_stats.users.suspended_users` | Number of user accounts that are suspended |
-| {% ifversion actions-server-statistics %} |
 | AQ | `actions_stats.number_of_repos_using_actions` | Number of repositories using {% data variables.product.prodname_actions %} |
 | AR | `actions_stats.percentage_of_repos_using_actions` | Percentage of repositories using {% data variables.product.prodname_actions %} |
 | AS | `packages_stats.registry_enabled` | Whether {% data variables.product.prodname_registry %} with repository-scoped packages is enabled for {% data variables.location.product_location %} |
@@ -167,7 +166,6 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | DF |`packages_stats.ecosystems.containers.daily_update_count` | Number of container images updated |
 | DG |`packages_stats.ecosystems.containers.daily_delete_count` | Number of container images deleted |
 | DH | `packages_stats.ecosystems.containers.daily_create_count` | Number of container images created |
-| {% endif %} |
 
 ## {% data variables.product.prodname_server_statistics %} data examples
 

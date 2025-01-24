@@ -26,7 +26,7 @@ To do this, you need to:
 
 1. Create a secret token for a webhook.
 1. Store the token securely on your server.
-1. Validate incoming webhook payloads against the token, to verify that they are coming from {% data variables.product.prodname_dotcom %} and were not tampered with.
+1. Validate incoming webhook payloads against the token, to verify that they are coming from {% data variables.product.github %} and were not tampered with.
 
 ## Creating a secret token
 
@@ -41,13 +41,13 @@ After creating a secret token, you should store it in a secure location that you
 
 ## Validating webhook deliveries
 
-{% data variables.product.product_name %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers).
+{% data variables.product.github %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers).
 
 In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that {% data variables.product.company_short %} sent with the expected hash that you calculated, and ensure that they match. For examples showing how to validate the hashes in various programming languages, see [Examples](#examples).
 
 There are a few important things to keep in mind when validating webhook payloads:
 
-* {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash.
+* {% data variables.product.github %} uses an HMAC hex digest to compute the hash.
 * The hash signature always starts with `sha256=`.
 * The hash signature is generated using your webhook's secret token and the payload contents.
 * If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
@@ -62,7 +62,7 @@ You can use the following `secret` and `payload` values to verify that your impl
 
 If your implementation is correct, the signatures that you generate should match the following signature values:
 
-* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
+* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17` <!-- markdownlint-disable-line GHD034 -->
 * X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
 
 ### Examples
@@ -182,12 +182,12 @@ const webhooks = new Webhooks({
 const handleWebhook = async (req, res) => {
   const signature = req.headers["x-hub-signature-256"];
   const body = await req.text();
-  
+
   if (!(await webhooks.verify(body, signature))) {
     res.status(401).send("Unauthorized");
     return;
   }
-  
+
   // The rest of your logic here
 };
 ```

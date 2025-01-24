@@ -52,14 +52,14 @@ Repository administrators can also enable rulesets. Rulesets can be used to requ
 {% data reusables.desktop.history-tab %}
 1. Right-click on the commit you would like to create a new branch from and select **Create Branch from Commit**.
 
-   ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the cursor hovers over the "Create Branch from Commit" option.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
+   ![Screenshot of a list of commits in the "History" tab. Next to a commit, the cursor hovers the "Create Branch from Commit" option in a context menu.](/assets/images/help/desktop/create-branch-from-commit-context-menu.png)
 
 {% data reusables.desktop.name-branch %}
 {% data reusables.desktop.confirm-new-branch-button %}
 
 ## Publishing a branch
 
-If you create a branch on {% data variables.product.product_name %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.prodname_dotcom %}.
+If you create a branch in {% data variables.product.prodname_desktop %}, you'll need to publish the branch to make it available for collaboration on {% data variables.product.github %}.
 
 1. In the repository bar, click **{% octicon "git-branch" aria-hidden="true" %} Current Branch**, then click the branch that you want to publish.
    ![Screenshot of the "Current Branch" dropdown view. Under "Recent Branches", a branch, named "my-feature", is highlighted with an orange outline.](/assets/images/help/desktop/select-branch-from-dropdown.png)

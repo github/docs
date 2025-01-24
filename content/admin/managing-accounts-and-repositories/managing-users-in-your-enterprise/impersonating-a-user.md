@@ -29,7 +29,7 @@ Actions you perform during an impersonation session are recorded as events in th
 {% data reusables.enterprise_site_admin_settings.click-user %}
 1. In the top left of the page, click **User info**.
 
-   ![Screenshot of the "User info" section of the site admin page for a user. The "User info" heading is highlighted in dark orange. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/user-info.png)
+   ![Screenshot of the "User info" section for a user. The "User info" heading is outlined. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/user-info.png)
 1. Under "Danger Zone", click **Sign in to GitHub as @username**
 1. Select a reason from the dropdown list. If you select **Other** you will need to provide additional context in the text field below **Notes**. Click **Begin impersonation** to begin the session.
 1. When you are ready to end the impersonation session, click **Return to your mundane life as username** in the banner at the top of the page.

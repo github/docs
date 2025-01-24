@@ -33,7 +33,6 @@ $ ghe-announce -u
 > Removed the announcement message
 ```
 
-{% ifversion ghe-announce-dismiss %}
 To allow each user to dismiss the announcement for themselves, use the `-d` flag.
 
 ```shell
@@ -46,9 +45,7 @@ $ ghe-announce -u
 > dismissible: MESSAGE
 ```
 
-{% endif %}
-
-You can also set an announcement banner using the enterprise settings on {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).
+You can also set an announcement banner using the enterprise settings on {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner).
 
 <!--For earlier releases of GHES, see the previous service `ghe-resque-info`-->
 
@@ -282,7 +279,7 @@ ghe-org-admin-promote -a
 
 ### ghe-reactivate-admin-login
 
-Use this command to immediately unlock the {% data variables.enterprise.management_console %} after {% ifversion enterprise-authentication-rate-limits %}an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).{% else %}10 failed login attempts in the span of 10 minutes.{% endif %}
+Use this command to immediately unlock the {% data variables.enterprise.management_console %} after an account lockout. To configure authentication policies for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-rate-limits#configuring-authentication-policy-rate-limits).
 
 ```shell
 ghe-reactivate-admin-login
@@ -376,7 +373,7 @@ inactive
 
 ### ghe-set-password
 
-This utility allows you to set a new {% ifversion enterprise-management-console-multi-user-auth %}root site administrator {% endif %}password for authentication to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console).
+This utility allows you to set a new root site administrator password for authentication to the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-web-ui/managing-access-to-the-management-console).
 
 ```shell
 ghe-set-password
@@ -562,8 +559,6 @@ ghe-webhook-logs -g DELIVERY_GUID
 
 ## Clustering
 
-{% ifversion cluster-rebalancing %}
-
 ### ghe-cluster-balance
 
 This utility allows you to enforce an even distribution of allocations across your cluster nodes by checking the status of your cluster's allocations, then rebalancing problematic allocations. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/rebalancing-cluster-workloads).
@@ -608,8 +603,6 @@ To display a short description of the utility and any valid subcommands:
 ghe-cluster-balance help
 ```
 
-{% endif %}
-
 ### ghe-cluster-maintenance
 
 With the `ghe-cluster-maintenance` utility, you can set or unset maintenance mode for every node in a cluster.
@@ -621,12 +614,10 @@ $ ghe-cluster-maintenance -q
 # Queries the current mode
 $ ghe-cluster-maintenance -s
 # Sets maintenance mode
-{%- ifversion custom-maintenance-mode-message %}
 $ ghe-cluster-maintenance -s "MESSAGE"
 # Sets maintenance mode with a custom message
 $ ghe-cluster-maintenance -m "MESSAGE"
 # Updates the custom message
-{%- endif %}
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
@@ -674,7 +665,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -o' > cluster-support-b
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-cluster-support-bundle -p 2days -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -797,8 +788,6 @@ Flag | Description
 
 {% endif %}
 
-{% ifversion ghe-spokes-deprecation-phase-1 %}
-
 ### ghe-spokesctl
 
 This utility allows you to manage replication of repositories on the distributed Git servers.
@@ -819,36 +808,6 @@ To evacuate storage services on a cluster node:
 ghe-spokesctl server set evacuating git-server-UUID
 ```
 
-{% else %}
-
-### ghe-spokes
-
-This utility allows you to manage the three copies of each repository on the distributed Git servers.
-
-```shell
-ghe-spokes
-```
-
-To show a summary of repository location and health:
-
-```shell
-ghe-spokes status
-```
-
-To show the servers in which the repository is stored:
-
-```shell
-ghe-spokes route
-```
-
-To evacuate storage services on a cluster node:
-
-```shell
-ghe-spokes server evacuate git-server-UUID
-```
-
-{% endif %}
-
 ### ghe-storage
 
 This utility allows you to evacuate all storage services before evacuating a cluster node.
@@ -856,8 +815,6 @@ This utility allows you to evacuate all storage services before evacuating a clu
 ```shell
 ghe-storage evacuate storage-server-UUID
 ```
-
-{% ifversion node-eligibility-service %}
 
 ### nes
 
@@ -912,8 +869,6 @@ To manually update a node's eligibility for re-addition to the cluster:
 ```shell
 nes set-node-eligibility eligible HOSTNAME
 ```
-
-{% endif %}
 
 ## Git
 
@@ -990,12 +945,8 @@ This utility tests the blob storage configuration for {% data variables.product.
 
 For more information about the configuration of {% data variables.product.prodname_actions %}, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
 
-{% ifversion ghes-actions-storage-oidc %}
-
 > [!NOTE]
 > This utility only works with configurations that use a credentials-based connection to the storage provider. To test OpenID Connect (OIDC) configurations, use [`ghe-actions-test-storage-with-oidc`](#ghe-actions-test-storage-with-oidc).
-
-{% endif %}
 
 ```shell
 ghe-actions-precheck -p [PROVIDER] -cs ["CONNECTION-STRING"]
@@ -1007,8 +958,6 @@ If your storage system is configured correctly, you'll see the following output.
 All Storage tests passed
 ```
 
-{% ifversion ghes-actions-storage-oidc %}
-
 ### ghe-actions-test-storage-with-oidc
 
 This utility checks that the blob storage provider for {% data variables.product.prodname_actions %} on {% data variables.location.product_location %} is valid when OpenID Connect (OIDC) is used.
@@ -1019,8 +968,6 @@ This utility checks that the blob storage provider for {% data variables.product
 ```shell
 ghe-actions-test-storage-with-oidc -p [PROVIDER] -cs ["CONNECTION-STRING"]
 ```
-
-{% endif %}
 
 ### ghe-actions-stop
 
@@ -1295,7 +1242,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
 To create a standard bundle including data from the last 2 days:
 
 ```shell
-ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p {% ifversion bundle-cli-syntax-no-quotes %}2days {% endif %} -o" > support-bundle.tgz
+ssh -p 122 admin@HOSTNAME -- "ghe-support-bundle -p 2days -o" > support-bundle.tgz
 ```
 
 To create an extended bundle including data from the last 8 days:
@@ -1336,8 +1283,6 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 
 ## Upgrading {% data variables.product.prodname_ghe_server %}
 
-{% ifversion ghes-upgrade-complete-indicator %}
-
 ### ghe-check-background-upgrade-jobs
 
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
@@ -1345,17 +1290,13 @@ During an upgrade to a feature release, this utility displays the status of back
 {% ifversion ghes < 3.12 %}
 
 > [!NOTE]
-> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
 {% endif %}
 
 ```shell
 ghe-check-background-upgrade-jobs
 ```
-
-{% endif %}
-
-{% ifversion ghe-migrations-cli-utility %}
 
 ### ghe-migrations
 
@@ -1378,8 +1319,6 @@ By default, the visualizer refreshes every second. To specify the duration in se
 ```shell
 ghe-migrations -refresh_rate SECONDS
 ```
-
-{% endif %}
 
 ### ghe-update-check
 

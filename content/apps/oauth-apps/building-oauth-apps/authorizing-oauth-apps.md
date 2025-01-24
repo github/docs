@@ -25,7 +25,7 @@ topics:
 >
 > {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+{% data variables.product.github %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
@@ -73,7 +73,7 @@ The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_cha
 
 ### 2. Users are redirected back to your site by GitHub
 
-If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+If the user accepts your request, {% data variables.product.github %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
 
 Exchange this `code` for an access token:
 
@@ -83,8 +83,8 @@ This endpoint takes the following input parameters.
 
 Parameter name | Type | Required?| Description
 -----|------|---------|-----
-`client_id` | `string` | Required | The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | Required | The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`client_id` | `string` | Required | The client ID you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | Required | The client secret you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
 `code` | `string` | Required | The code you received as a response to Step 1.
 `redirect_uri` | `string` | Strongly recommended | The URL in your application where users are sent after authorization. We can use this to match against the URI originally provided when the `code` was issued, to prevent attacks against your service.
 
@@ -151,7 +151,7 @@ The endpoint takes the following input parameters.
 
 Parameter name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.github %} for your app.
 `scope` | `string` | A space-delimited list of the scopes that your app is requesting access to. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 By default, the response takes the following form:
@@ -210,7 +210,7 @@ The endpoint takes the following input parameters.
 
 Parameter name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
 `device_code` | `string` | **Required.** The `device_code` you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
 

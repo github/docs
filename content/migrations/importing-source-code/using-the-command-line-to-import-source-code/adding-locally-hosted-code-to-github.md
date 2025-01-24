@@ -100,7 +100,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
-   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
@@ -133,7 +133,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
-   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.
@@ -166,7 +166,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
 
 1. At the top of your repository on {% data variables.product.github %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
-   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Change the current working directory to your local project.

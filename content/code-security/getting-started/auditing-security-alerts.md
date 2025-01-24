@@ -31,7 +31,7 @@ Many of the events in the timeline also create an event in the audit log, which 
 
 Security overview consolidates information about security alerts and provides high-level summaries of the security status of your enterprise or organization.
 
-In security overview you can see repositories with open security alerts{% ifversion security-overview-org-risk-coverage %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views.
+In security overview you can see repositories with open security alerts{% ifversion ghec or ghes %}, as well as which repositories have enabled specific security features{% endif %}. You can also use security overview to filter and sort security alerts using interactive views.
 
 For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
 
@@ -47,7 +47,7 @@ For a list of audit log events, see [AUTOTITLE](/admin/monitoring-activity-in-yo
 
 For information on how to access the audit log for your enterprise or organization, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/accessing-the-audit-log-for-your-enterprise) and [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
-{% ifversion audit-log-streaming %}
+{% ifversion ghec or ghes %}
 
 You can also stream audit data from {% data variables.product.prodname_dotcom %} to an external data management system, which enables you to analyze and collect data for internal charts. Enterprise owners can configure audit log streaming. For more information, see [Streaming the audit log for your enterprise](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 

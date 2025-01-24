@@ -25,13 +25,13 @@ You can create a default code of conduct for your organization or personal accou
 
 ## Adding a code of conduct using a template
 
-{% data variables.product.product_name %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
+{% data variables.product.github %} provides templates for common codes of conduct to help you quickly add a code of conduct to your project.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 1. In the file name field, type _CODE_OF_CONDUCT.md_.
 1. Select **Choose a code of conduct template**.
-   ![Screenshot of a {% data variables.product.prodname_dotcom %} repository showing a new markdown file being created. A button at right, labeled "Choose a code of conduct template," is outlined in dark orange.](/assets/images/help/repository/code-of-conduct-tool.png)
+   ![Screenshot of a repository showing a new markdown file. A button at right, labeled "Choose a code of conduct template," is outlined in orange.](/assets/images/help/repository/code-of-conduct-tool.png)
 1. On the left side of the page, select a code of conduct to preview and add to your project.
 1. On the right side of the page, complete the fields to populate the selected code of conduct with the appropriate information.
 1. Click **Review and submit**.
