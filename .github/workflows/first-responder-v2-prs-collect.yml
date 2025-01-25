@@ -22,7 +22,24 @@ jobs:
     if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync' && !contains(github.event.pull_request.labels.*.name, 'skip FR board')
     runs-on: ubuntu-latest
 
-    steps:
+    steps:---
+title: Setting up and managing your GitHub profile
+intro: You can customize your GitHub profile and manage your contribution graph.
+shortTitle: Profiles
+redirect_from:
+  - /categories/setting-up-and-managing-your-github-profile
+  - /github/setting-up-and-managing-your-github-profile
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - Profiles
+children:
+  - /customizing-your-profile
+  - /managing-contribution-settings-on-your-profile
+---
+
       - name: Check if the event originated from a team member
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: check-membership
