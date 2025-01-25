@@ -37,10 +37,9 @@ As part of the downgrade to the free plan:
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. In the left sidebar, click **Organizations**.
 1. In the search bar, begin typing the organization's name until the organization appears in the search results.
-1. To the right of the organization's name, select the ... dropdown menu and click **Remove organization**.
+1. To the right of the organization's name, select the {% octicon "gear" aria-label="Organization settings" %} dropdown menu and click **Remove organization**.
 
- ![Expanded dropdown menu labelled with "...", for an organization. The "Remove organization" option outlined.](/assets/images/help/enterprises/remove-organization.png)
-
+   ![Screenshot of the expanded dropdown menu labeled with a gear icon, for an organization. The "Remove organization" option is outlined.](/assets/images/help/enterprises/remove-organization.png)
 1. Review the warnings, then click **Remove organization**.
 
 ## Further reading
