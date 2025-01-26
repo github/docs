@@ -27,7 +27,7 @@ on:
       - synchronize
     paths:
       - 'content/**'
-      - 'data/reusables/**'
+      - 'data/**'
       - 'assets/images/**'
 
 permissions:
@@ -102,5 +102,5 @@ jobs:
 
             ---
             Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server
-            _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/content-changes-table-comment.yml) workflow._
+            _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/comment-content-changes-table.yml) workflow._
           edit-mode: replace
