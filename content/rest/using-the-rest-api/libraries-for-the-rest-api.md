@@ -92,6 +92,7 @@ These third-party libraries are not maintained by {% data variables.product.comp
 
 ### PowerShell
 
+* GitHub: [PSModule/GitHub](https://github.com/PSModule/GitHub)
 * PowerShellForGitHub: [microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
