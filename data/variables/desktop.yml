@@ -1,5 +1,5 @@
 # Supported platforms
 
-mac-osx-versions: macOS 10.15 or later
+mac-osx-versions: macOS 11.0 or later
 
 windows-versions: Windows 10 64-bit or later
