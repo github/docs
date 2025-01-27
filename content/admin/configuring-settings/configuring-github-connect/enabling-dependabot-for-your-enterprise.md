@@ -42,7 +42,7 @@ After you {% ifversion dependabot-alerts-ghes-enablement %} set up {% data varia
 You can also choose to manually sync vulnerability data at any time. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise).
 
 > [!NOTE]
-> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
 When {% data variables.product.prodname_ghe_server %} receives information about a vulnerability, it identifies repositories that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
 

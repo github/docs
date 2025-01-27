@@ -32,15 +32,7 @@ To enable {% data variables.product.prodname_github_connect %}, you configure a 
 
 After you configure the connection between {% data variables.location.product_location %} and {% data variables.product.prodname_ghe_cloud %}, you can enable individual features of {% data variables.product.prodname_github_connect %}.
 
-{% ifversion ghecom-github-connect %}
-If you're connecting to an enterprise on {% data variables.enterprise.data_residency_site %}, features that rely on data from {% data variables.product.prodname_dotcom_the_website %} are not available.
-
-* [Connections to {% data variables.product.prodname_dotcom_the_website %}](#connections-to-githubcom)
-* [Connections to {% data variables.enterprise.data_residency_site %}](#connections-to-ghecom)
-
-### Connections to {% data variables.product.prodname_dotcom_the_website %}
-
-{% endif %}
+{% data reusables.github-connect.what-is-available-ghecom %}
 
 | Feature | Description | More information |
 | ----------- | ----------- | ----------- |
@@ -50,20 +42,6 @@ If you're connecting to an enterprise on {% data variables.enterprise.data_resid
 | {% data variables.product.prodname_server_statistics %} | Analyze your own aggregate data from GitHub Enterprise Server, and help us improve GitHub products. | [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-server-statistics-for-your-enterprise) |
 {% data reusables.github-connect.unified-search %}
 {% data reusables.github-connect.unified-contributions %}
-
-{% ifversion ghecom-github-connect %}
-
-### Connections to {% data variables.enterprise.data_residency_site %}
-
-| Feature | Description | More information |
-| ----------- | ----------- | ----------- |
-| {% ifversion ghecom-license-sync %} |
-{% data reusables.github-connect.license-sync %}
-| {% endif %} |
-{% data reusables.github-connect.unified-search %}
-{% data reusables.github-connect.unified-contributions %}
-
-{% endif %}
 
 ## Data transmission
 

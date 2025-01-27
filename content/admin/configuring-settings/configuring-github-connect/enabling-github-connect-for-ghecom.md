@@ -12,7 +12,7 @@ redirect_from:
 
 You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
 
-On {% data variables.enterprise.data_residency_site %}, {% data variables.product.prodname_github_connect %} features do not include any functionality that relies on resources on {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.github-connect.what-is-available-ghecom %}
 
 ## What happens when {% data variables.product.prodname_github_connect %} is enabled?
 
