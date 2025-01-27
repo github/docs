@@ -42,9 +42,7 @@ To create your profile README, see [AUTOTITLE](/account-and-profile/setting-up-a
 
 Pick 3-5 projects to highlight by "pinning" them on your profile. Repositories you pin will be prominently displayed, allowing you to direct hiring managers' attention to the projects you're most proud of.
 
-For the best chances at an interview, pick projects that show your diverse skills and are relevant to your specific job search.
-
-If possible, pin some projects you created and some that you contributed to:
+For the best chances at an interview, pick projects that show your diverse skills and are relevant to your specific job search. If possible, pin some projects you created and some that you contributed to:
 
 * Projects you own are fully under your control, so you can improve them using of the steps below.
 * Open source projects highlight your ability to collaborate with others.
