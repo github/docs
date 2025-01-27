@@ -39,7 +39,7 @@ The {% data variables.product.prodname_emu_idp_application %} application on Okt
    >For example, if you sign in to `github.com/enterprises/octocorp` or `{% data variables.enterprise.data_residency_example_domain %}`, your enterprise name is `octocorp`.
 
 1. On the "Sign on" tab, under "SAML 2.0," click **More details**.
-1. In order to configure your enterprise on {% data variables.product.product_name %} later, note down the following items:
+1. In order to configure your enterprise on {% data variables.product.github %} later, note down the following items:
 
    * "Sign on URL"
    * "Issuer"

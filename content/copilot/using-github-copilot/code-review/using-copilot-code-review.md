@@ -112,8 +112,6 @@ To turn this on, enable the **Request pull request review from {% data variables
 
 {% data reusables.copilot.code-review.custom-coding-guidelines %}
 
-![Screenshot of a comment produced from a custom coding guideline.](/assets/images/help/copilot/code-review/coding-guidelines-comment@2x.png)
-
 {% endwebui %}
 
 {% vscode %}

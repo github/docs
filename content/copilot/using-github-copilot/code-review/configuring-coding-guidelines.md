@@ -71,8 +71,6 @@ When you request a review from {% data variables.product.prodname_copilot_short 
 
 Comments generated based on a coding guideline will include a message, highlighting their source.
 
-![Screenshot of a comment produced from a custom coding guideline.](/assets/images/help/copilot/code-review/coding-guidelines-comment@2x.png)
-
 ## Coding guidelines examples
 
 ### Example 1: Avoid using magic numbers

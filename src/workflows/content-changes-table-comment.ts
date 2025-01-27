@@ -29,23 +29,41 @@ const context = github.context
 
 // the max size of the comment (in bytes)
 // the action we use to post the comment caps out at about 144kb
-// see docs-engineering#1849 for more info
-const MAX_COMMENT_SIZE = 125000
+// see docs-engineering#1849 and peter-evans/create-or-update-comment#271 for more info.
+// The max size the action allows is 2^16, but our table calculates near the end
+// of its rendering before we add a key, so playing it safe with 2^15.
+const MAX_COMMENT_SIZE = 32768
 
 const PROD_URL = 'https://docs.github.com'
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
-  const owner = context.repo.owner
-  const repo = context.payload.repository!.name
+  const isFork = context.payload.pull_request!.head.repo.fork
+
+  const headOwner = context.payload.pull_request!.head.repo.owner.login
+  const headRepo = context.payload.pull_request!.head.repo.name
+
+  const baseOwner = context.payload.pull_request!.base.repo.owner.login
+  const baseRepo = context.payload.pull_request!.base.repo.name
+
   const baseSHA = process.env.BASE_SHA || context.payload.pull_request!.base.sha
   const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
 
-  const markdownTable = await main(owner, repo, baseSHA, headSHA)
+  const markdownTable = await main(baseOwner, baseRepo, baseSHA, headSHA, {
+    isFork,
+    headOwner,
+    headRepo,
+  })
   core.setOutput('changesTable', markdownTable)
 }
 
-async function main(owner: string, repo: string, baseSHA: string, headSHA: string) {
+async function main(
+  owner: string,
+  repo: string,
+  baseSHA: string,
+  headSHA: string,
+  { isFork, headOwner, headRepo }: { isFork: boolean; headOwner?: string; headRepo?: string },
+) {
   if (!GITHUB_TOKEN) {
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
@@ -61,7 +79,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
 
   // we'll attach the branch or sha right after this
   const searchParams = new URLSearchParams({
-    'review-server-repository': `${owner}/${repo}`,
+    'review-server-repository': isFork ? `${headOwner}/${headRepo}` : `${owner}/${repo}`,
   })
 
   // this token will be available in the internal repo only, skip it for the open source repo
@@ -77,6 +95,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   const queryParams = `?${searchParams.toString()}`
 
   // get the list of file changes from the PR
+  // this works even if the head commit is from a fork
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,

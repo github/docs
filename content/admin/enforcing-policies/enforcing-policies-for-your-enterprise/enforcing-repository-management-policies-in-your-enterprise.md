@@ -48,7 +48,7 @@ shortTitle: Repository management policies
 
 ## About policies for repository management in your enterprise
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage repositories. You can also allow organization owners to manage policies for repository management.
+You can enforce policies to control how members of your enterprise manage repositories. You can also allow organization owners to manage policies for repository management.
 
 {% ifversion repo-policy-rules %}
 >[!NOTE] This page describes the policies you can set on the "Member privileges" page in your enterprise settings. Certain restrictions, such as who can create, delete, or transfer repositories, are also available in a **repository policy**. Repository policies give you more flexibility over which users are affected and which organizations and repositories are targeted. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise).
@@ -294,7 +294,7 @@ You can override the default inherited settings by configuring the settings for 
 
 If you have [enabled private mode](/admin/configuration/configuring-your-enterprise/enabling-private-mode) for {% data variables.location.product_location %}, you can allow repository administrators to enable anonymous Git read access to public repositories.
 
-Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.product.product_name %}) will have read access to the repository without authentication.
+Enabling anonymous Git read access allows users to bypass authentication for custom tools on your enterprise. When you or a repository administrator enable this access setting for a repository, unauthenticated Git operations (and anyone with network access to {% data variables.location.product_location_enterprise %}) will have read access to the repository without authentication.
 
 Anonymous Git read access is disabled by default.
 

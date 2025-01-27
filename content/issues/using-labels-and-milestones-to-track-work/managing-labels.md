@@ -32,11 +32,11 @@ type: how_to
 ---
 ## About labels
 
-You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
+You can manage your work on {% data variables.product.github %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
 ## About default labels
 
-{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
+{% data variables.product.github %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
 Label | Description
 ---  | ---

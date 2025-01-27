@@ -23,7 +23,7 @@ Your issue and pull request dashboards are available at the top of any page. On 
 {% ifversion global-nav-update %}
 1. At the top of any page, click {% octicon "issue-opened" aria-label="Issues" %} to see your issues or {% octicon "git-pull-request" aria-label="Pull requests" %} to see your pull requests.
 
-   ![Screenshot of the header of any page on {% data variables.product.product_name %}. The "Pull requests" and "Issues" icons are outlined in dark orange.](/assets/images/help/navigation/issues-and-prs-new-navigation.png)
+   ![Screenshot of the header of any page on {% data variables.product.github %}. The "Pull requests" and "Issues" icons are outlined in dark orange.](/assets/images/help/navigation/issues-and-prs-new-navigation.png)
 
 {% else %}
 1. At the top of any page, click **Pull requests** or **Issues**.
