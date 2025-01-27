@@ -1,7 +1,7 @@
 ---
 title: Setting policies for your enterprise
 allowTitleToDifferFromFilename: true
-intro: 'You can set policies in {% data variables.product.product_name %} to reduce risk and increase quality.'
+intro: 'You can set policies to reduce risk and increase quality.'
 redirect_from:
   - /enterprise/admin/developer-workflow
   - /enterprise/admin/policies

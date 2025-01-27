@@ -2209,6 +2209,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Mailersend
+  supportedSecret: Mailersend SMTP Password
+  secretType: mailersend_smtp_password
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
   supportedSecret: Mailersend SMTP Username
   secretType: mailersend_smtp_username
   versions:
