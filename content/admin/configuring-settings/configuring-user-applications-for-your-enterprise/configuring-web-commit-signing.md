@@ -1,7 +1,7 @@
 ---
 title: Configuring web commit signing
 shortTitle: Configure web commit signing
-intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.product_name %}.'
+intro: 'You can enable auto-signing of commits made in the web interface of {% data variables.product.prodname_ghe_server %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -11,7 +11,7 @@ topics:
   - Fundamentals
   - Identity
   - Security
-permissions: 'Site administrators can configure web commit signing for {% data variables.location.product_location %}.'
+permissions: 'Site administrators'
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-web-commit-signing
   - /admin/configuration/configuring-user-applications-for-your-enterprise/configuring-web-commit-signing
@@ -19,7 +19,7 @@ redirect_from:
 
 ## About web commit signing
 
-If you enable web commit signing, {% data variables.product.product_name %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.product_name %} will have a verified status. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
+If you enable web commit signing, {% data variables.product.prodname_ghe_server %} will automatically use GPG to sign commits users make on the web interface of {% data variables.location.product_location %}. Commits signed by {% data variables.product.prodname_ghe_server %} will have a verified status. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification).
 
 You can enable web commit signing, rotate the private key used for web commit signing, and disable web commit signing.
 
