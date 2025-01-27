@@ -106,6 +106,3 @@ Clones student repositories from a given assignment. By default, the student rep
 
 By default, all student repositories are cloned. To get a different number of repositories, use the `--page NUMBER` and `--per-page NUMBER` flags.
 
-```shell
-gh classroom clone student-repos --page 1 --per-page 20
-```
