@@ -61,6 +61,10 @@ We recommend that you have a basic understanding of Swift packages. For more inf
 
        steps:
        - uses: {% data reusables.actions.action-checkout %}
+       - name: Lint
+         run: swift run swiftlint --reporter github-actions-logging --strict
+       - name: Format
+         run: swiftformat .
        - name: Build
          run: swift build -v
        - name: Run tests
