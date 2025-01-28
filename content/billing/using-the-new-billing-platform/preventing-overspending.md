@@ -23,6 +23,9 @@ Budgets are not applicable to:
 * {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
 * Pre-paid volume licenses{% endif %}.
 
+> [!NOTE]
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
+
 ## Viewing budgets
 
 If you are an {% data variables.enterprise.enterprise_or_org %} owner or billing manager, your {% data variables.enterprise.enterprise_or_org %}'s budget will be listed at the top of the "Budgets and alerts" page{% ifversion ghec %}, followed by the budgets for your organizations and cost centers. As an organization owner, you will be able to view the budgets for your organizations, repositories, and cost centers{% endif %}.
