@@ -72,7 +72,6 @@
     "prevent-pushes-to-main": "tsx src/workflows/prevent-pushes-to-main.ts",
     "purge-fastly-edge-cache": "tsx src/workflows/purge-fastly-edge-cache.ts",
     "purge-fastly-edge-cache-per-language": "tsx src/languages/scripts/purge-fastly-edge-cache-per-language.js",
-    "purge-old-deployment-environments": "tsx src/workflows/purge-old-deployment-environments.ts",
     "purge-old-workflow-runs": "tsx src/workflows/purge-old-workflow-runs.js",
     "ready-for-docs-review": "tsx src/workflows/ready-for-docs-review.ts",
     "release-banner": "tsx src/ghes-releases/scripts/release-banner.js",
