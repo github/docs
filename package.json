@@ -342,7 +342,7 @@
     "@types/semver": "^7.5.8",
     "@types/tcp-port-used": "1.0.4",
     "@types/website-scraper": "^1.2.10",
-    "@typescript-eslint/eslint-plugin": "^7.15.0",
+    "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^7.18.0",
     "chalk": "^5.0.1",
     "change-case": "^5.4.4",
