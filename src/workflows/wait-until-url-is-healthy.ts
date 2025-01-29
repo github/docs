@@ -6,7 +6,7 @@ const DELAY_SECONDS = 15
 
 /*
  * Promise resolves once url is healthy or fails if timeout has passed
- * @param {string} url - health url, e.g. docs.com/healthz
+ * @param {string} url - health url, e.g. docs.com/healthcheck
  */
 export async function waitUntilUrlIsHealthy(url: string) {
   try {

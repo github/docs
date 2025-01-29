@@ -4,7 +4,6 @@
     "url": "https://api.github.com/repos/github/docs-internal/branches/main/protection/required_status_checks",
     "strict": true,
     "contexts": [
-      "Build and deploy Azure preview environment",
       "automated-pipelines",
       "github-apps",
       "graphql",
@@ -48,10 +47,6 @@
     ],
     "contexts_url": "https://api.github.com/repos/github/docs-internal/branches/main/protection/required_status_checks/contexts",
     "checks": [
-      {
-        "context": "Build and deploy Azure preview environment",
-        "app_id": 15368
-      },
       { "context": "automated-pipelines", "app_id": 15368 },
       { "context": "github-apps", "app_id": 15368 },
       { "context": "graphql", "app_id": 15368 },
