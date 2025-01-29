@@ -191,13 +191,13 @@ If you want to provide the VM for your primary MySQL node with more resources, o
    > [!WARNING]
    > If you do not wait for MySQL replication to finish, you risk data loss on your instance.
 
-1. To set the current MySQL primary node to read-only mode, run the following command from of the instance's nodes.
+1. To set the current MySQL primary node to read-only mode, run the following command from the MySQL primary node.
 
    ```shell copy
    echo "SET GLOBAL super_read_only = 1;" | sudo mysql
    ```
 
-1. Wait until Global Transaction Identifiers (GTIDs) set on the primary and replica MySQL nodes are identical. To check the GTIDs, run the following command from any of the instance's nodes.
+1. Wait until Global Transaction Identifiers (GTIDs) set on the primary and replica MySQL nodes are identical. To check the GTIDs, run the following command from any cluster node.
 
    ```shell copy
    ghe-cluster-each -r mysql -- 'echo "SELECT @@global.gtid_executed;" | sudo mysql'
