@@ -31,7 +31,7 @@ The Activity dashboard provides weekly, monthly, and yearly graphs of the number
 {% ifversion global-nav-update %}
 1. In the top-left corner of any page, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click **{% octicon "telescope" aria-hidden="true" %} Explore**.
 
-   ![Screenshot of the navigation bar on {% data variables.product.product_name %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
+   ![Screenshot of the navigation bar on {% data variables.product.github %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
 {% else %}
 1. At the top of any page, click **Explore**.
 

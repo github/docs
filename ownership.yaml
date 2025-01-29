@@ -9,6 +9,7 @@ ownership:
     description: Please use <https://catalog.githubapp.com/services/docs> instead.
     exec_sponsor: nerdneha
     product_manager: docs-bot
+    maintainer: tinabme
     team_slack: docs
     qos: best_effort
     tier: 2

@@ -18,7 +18,7 @@ redirect_from:
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-on-marketplace %}
 
-Anyone can install {% data variables.product.prodname_copilot_extensions_short %} for their personal account, but you must have an active {% data variables.product.prodname_copilot_pro_short %} subscription to use a {% data variables.product.prodname_copilot_extension_short %} you install.
+Anyone can install {% data variables.product.prodname_copilot_extensions_short %} for their personal account, but you must set up {% data variables.product.prodname_copilot_free_short %}, or have an active {% data variables.product.prodname_copilot_pro_short %} subscription, to use a {% data variables.product.prodname_copilot_extension_short %} you install.
 
 > [!NOTE] If you have access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription, {% data variables.product.prodname_copilot_extensions_short %} are installed by organization owners at the organization level, and you do not need to install the extension on your personal account. To start using {% data variables.product.prodname_copilot_extensions_short %} installed in your organization, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
 

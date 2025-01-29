@@ -44,7 +44,7 @@ Between feature releases, you can benefit from patch releases, which:
 
 There are two ways to upgrade {% data variables.product.prodname_ghe_server %}:
 
-* To set up a **completely new {% data variables.product.product_name %} instance** and configure the instance however you like, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
+* To set up a **completely new {% data variables.product.prodname_ghe_server %} instance** and configure the instance however you like, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
 * To upgrade your **existing instance** to a new release, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 
 ## Further reading

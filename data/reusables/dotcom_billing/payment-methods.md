@@ -8,6 +8,6 @@ If your {% data variables.product.prodname_ghe_cloud %} account uses metered bil
 
 {% else %}
 
-You can pay for {% data variables.product.product_name %} with a credit card or with a PayPal account.
+You can pay for {% data variables.product.company_short %} with a credit card or with a PayPal account.
 
 {% endif %}

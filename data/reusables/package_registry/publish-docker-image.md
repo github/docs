@@ -26,7 +26,7 @@ jobs:
       packages: write
       {% ifversion artifact-attestations %}attestations: write{% endif %}
       {% ifversion artifact-attestations %}id-token: write{% endif %}
-      # 
+      #
     steps:
       - name: Checkout repository
         uses: {% data reusables.actions.action-checkout %}
@@ -55,7 +55,7 @@ jobs:
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
       {% ifversion artifact-attestations %}
-      # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds). 
+      # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see [Using artifact attestations to establish provenance for builds](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
