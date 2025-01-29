@@ -19,7 +19,8 @@ topics:
 Successful security campaigns to fix alerts at scale have many features in common, including:
 
 * Selecting a related group of security alerts for remediation.
-* Making sure that the manager for the campaign is available for collaboration, reviews, and questions about fixes.
+* Using {% data variables.product.prodname_copilot_autofix_short %} suggestions where possible to help developers remediate alerts faster and more effectively.
+* Making sure that the campaign managers are available for collaboration, reviews, and questions about fixes.
 * Providing access to educational information about the type of alerts included in the campaign.{% ifversion ghec %}
 * Making {% data variables.product.prodname_copilot_chat %} available for developers to use to learn about the vulnerabilities highlighted by the security alerts in the campaign. {% endif %}
 * Defining a realistic deadline for campaign, bearing in mind the number of alerts you aim to fix.
@@ -36,7 +37,11 @@ For example, if you have many alerts for cross-site scripting vulnerabilities, y
 * Create educational content for developers in a repository using resources from the OWASP Foundation, see [Cross Site Scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 * Create a campaign to remediate all alerts for this vulnerability, including a link to the educational content in the campaign description.
 * Hold a training session or other event to highlight this opportunity to gain confidence in secure coding while fixing real bugs.
-* Make sure that the security team member assigned to manage the campaign is available to review the pull requests created to fix the campaign alerts, collaborating as needed.
+* Make sure that the security team members assigned to manage the campaign are available to review the pull requests created to fix the campaign alerts, collaborating as needed.
+
+### Using {% data variables.product.prodname_copilot_autofix_short %} to help remediate security alerts
+
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help fix {% data variables.product.prodname_code_scanning %} alerts. When you select alerts to include in a security campaign, you can preferentially include alerts that are eligible to be fixed with the help of {% data variables.product.prodname_copilot_autofix %} using the `autofix:supported` filter.
 
 ### Campaign filter templates
 
@@ -47,15 +52,19 @@ When you select alerts to include in a security campaign, you can use any of the
 The following limitations are intended to encourage you to take a balanced and measured approach to remediating alerts in your code. An iterative approach, addressing a few targeted sets of alerts at a time, is likely to lead to a sustainable and long-term change in security posture.
 
 * A maximum of 10 active security campaigns at a time (no limits on closed campaigns).
-* Each campaign can contain up to 1000 alerts spread across up to 100 repositories.
+* Each campaign can contain up to 1000 alerts.
 
 If you choose to create a campaign that exceeds these limits, alerts will be omitted to bring the campaign into line with the limits. Alerts in repositories with recent pushes are prioritized for inclusion in the campaign.
 
-## Defining the role of the campaign manager
+## Specifying campaign managers and contact links
 
-When you create a security campaign, you must select a "Campaign manager." The campaign manager must have either the organization owner or security manager role.
+When you create a security campaign, you must select one or more "Campaign managers." A campaign manager must be either:
+* A user with the organization owner role,  or the security manager role.
+* A member of a team with either the organization owner role, or the security manager role.
 
-The name of the campaign manager is visible to developers when they take part in the campaign. If you want to increase the remediation rate for alerts and scale the knowledge of the security team, this is a key opportunity to build collaborative relationships with developers. Ideally, a campaign manager is available to answer questions, collaborate on difficult fixes, and review pull requests for fixes over the whole course of the campaign.
+The names of the campaign managers are visible to developers when they take part in the campaign. To support communication between developers and the campaigns managers, you can also provide a contact link, such as a link to a {% data variables.product.prodname_discussions %} or another communication channel, when you create a campaign.
+
+If you want to increase the remediation rate for alerts and scale the knowledge of the security team, this is a key opportunity to build collaborative relationships with developers. Ideally, the campaign managers are available to answer questions and collaborate on difficult fixes via the contact link. Campaign managers should also be available to review pull requests for fixes over the whole course of the campaign.
 
 ## Combining security training with a security campaign
 
