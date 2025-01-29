@@ -1,12 +1,7 @@
----
-title: Using Claude 3.5 Sonnet in GitHub Copilot
-allowTitleToDifferFromFilename: true
-shortTitle: 'Use {% data variables.copilot.copilot_claude_sonnet %}'
-intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
-  feature: copilot
+  feature: pilot
 topics:
-  - Copilot
+  + ..pilot
 ---
 
 {% data reusables.copilot.claude-sonnet-preview-note %}
