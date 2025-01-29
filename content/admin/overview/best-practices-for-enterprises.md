@@ -16,7 +16,7 @@ topics:
 
 ## Choose an enterprise type
 
-Before you start using {% data variables.product.product_name %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
+Before you start using {% data variables.product.prodname_ghe_cloud %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
 
 For help identifying the type of enterprise that will best meet your needs, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 

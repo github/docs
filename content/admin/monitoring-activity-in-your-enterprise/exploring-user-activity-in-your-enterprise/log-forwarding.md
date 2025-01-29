@@ -1,6 +1,6 @@
 ---
 title: Log forwarding
-intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward system and application logs to the server you specify.'
+intro: '{% data variables.product.prodname_ghe_server %} uses `syslog-ng` to forward system and application logs to the server you specify.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
