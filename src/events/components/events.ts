@@ -136,7 +136,7 @@ function getReferrer(documentReferrer: string) {
     // new URL() throws an error if not a valid URL
     const referrerUrl = new URL(documentReferrer)
     if (!referrerUrl.pathname || referrerUrl.pathname === '/') {
-      return referrerUrl.origin + previousPath
+      return location.origin + previousPath
     }
   } catch {}
   return documentReferrer
