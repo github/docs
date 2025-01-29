@@ -18,7 +18,7 @@ redirect_from:
 
 By default, {% data variables.product.prodname_actions %} allows multiple jobs within the same workflow, multiple workflow runs within the same repository, and multiple workflow runs across a repository owner's account to run concurrently. This means that multiple instances of the same workflow or job can run at the same time, performing the same steps.
 
-{% data variables.product.prodname_actions %} also allows you to disable concurrency, limiting a workflow or a job to a single running instance at any given time in a specific context. This can be useful for controlling your account's or organization's resources in situations where running multiple workflows or jobs at the same time could cause conflicts or consume more Actions minutes and storage than expected.
+{% data variables.product.prodname_actions %} also allows you to disable concurrent execution. This can be useful for controlling your account’s or organization’s resources in situations where running multiple workflows or jobs at the same time could cause conflicts or consume more Actions minutes and storage than expected.
 
 For example, the ability to run workflows concurrently means that if multiple commits are pushed to a repository in quick succession, each push could trigger a separate workflow run, and these runs will execute concurrently.
 
