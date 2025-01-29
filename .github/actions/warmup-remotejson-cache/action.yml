@@ -20,9 +20,8 @@ runs:
         key: remotejson-cache-
         restore-keys: remotejson-cache-
 
-    # When we use this composite action from the workflows like
-    # Azure Preview Deploy and Azure Production Deploy, we don't have
-    # any Node installed or any of its packages. I.e. we never
+    # When we use this composite action from deployment workflows
+    # we don't have any Node installed or any of its packages. I.e. we never
     # run `npm ci` in those actions. For security sake.
     # So we can't do things that require Node code.
     # Tests and others will omit the `restore-only` input, but
