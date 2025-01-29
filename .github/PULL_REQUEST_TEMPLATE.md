@@ -4,7 +4,8 @@ Thank you for contributing to this project! You must fill out the information be
 
 ### Why:
 
-Closes: ISSUE_NUMBER
+<!-- Paste the issue link or number here -->
+Closes: 
 
 <!-- If there's an existing issue for your change, please link to it above.
 If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
