@@ -14,8 +14,7 @@ runs:
     # You "wrap" the step that appends to disk and it will possibly retrieve
     # some from the cache, then save it when it's got more in it.
     - name: Cache .remotejson-cache (restore)
-      # You can't use a SHA on these. Only possible with `actions/cache@SHA...`
-      uses: actions/cache/restore@v3
+      uses: actions/cache/restore@v4
       with:
         path: .remotejson-cache
         key: remotejson-cache-
@@ -37,7 +36,7 @@ runs:
 
     - name: Cache .remotejson-cache (save)
       if: ${{ inputs.restore-only == '' }}
-      uses: actions/cache/save@v3
+      uses: actions/cache/save@v4
       with:
         path: .remotejson-cache
         key: remotejson-cache-${{ github.sha }}

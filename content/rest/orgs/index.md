@@ -21,6 +21,7 @@ children:
   - /custom-properties
   - /custom-roles
   - /members
+  - /network-configurations
   - /organization-roles
   - /orgs
   - /outside-collaborators

@@ -17,10 +17,7 @@ This feature requires an external firewall or proxy. {% data variables.contact.g
 
 ## Requesting access
 
-This feature is not enabled by default, and is currently only available to enterprises that pay by invoice.
-
-* If you pay by invoice, to request access, contact your account manager in {% data variables.product.github %}'s Sales team.
-* If you pay via credit card or PayPal, this feature is currently unavailable.
+This feature is not enabled by default. To request access, contact your account manager in {% data variables.product.github %}'s Sales team or [sign up here](https://github.com/features/preview/enterprise-access-restrictions).
 
 ## Prerequisites
 
@@ -30,7 +27,7 @@ This feature is not enabled by default, and is currently only available to enter
 * To enforce the restriction, all traffic must flow through a proxy or firewall. The proxy or firewall must:
   * Be capable of intercepting and editing traffic, commonly called a "break and inspect" proxy
   * Support arbitrary header injection
-* Your account team at {% data variables.product.company_short %} must have granted you access to this feature.
+* {% data variables.product.company_short %} must have granted you access to this feature.
 
 ## Finding the header
 
