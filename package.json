@@ -23,7 +23,6 @@
     "build": "next build",
     "check-content-type": "tsx src/workflows/check-content-type.ts",
     "check-github-github-links": "tsx src/links/scripts/check-github-github-links.ts",
-    "close-dangling-prs": "tsx src/workflows/close-dangling-prs.ts",
     "cmp-files": "tsx src/workflows/cmp-files.ts",
     "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.js",
