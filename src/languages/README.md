@@ -26,7 +26,7 @@ Periodically, translators read the `content/**` and `data/**` directories from `
 
 ## Deployment of translated content
 
-In the deployment workflow, we [checkout](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/.github/workflows/azure-prod-build-deploy.yml#L90-L92) each and every translation repo and put their contents into the `translations/` directory.
+During the build step of our deployment, we checkout every translation repo into the `translations/` directory.
 
 The enabled languages and their source directories are interpreted in [`src/languages/lib/languages.js`](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/src/languages/lib/languages.js), which ensures English and translated content are in the same Docker image we deploy.
 
