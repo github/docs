@@ -19,8 +19,8 @@ export function createRateLimiter(max = MAX) {
     // 1 minute
     windowMs: EXPIRES_IN_AS_SECONDS * 1000,
     // limit each IP to X requests per windowMs
-    // We currently have about 25 instances in production. That's routed
-    // in Azure to spread the requests to each healthy instance.
+    // We currently have about 12 instances in production. That's routed
+    // in Moda to spread the requests to each healthy instance.
     // So, the true rate limit, per `windowMs`, is this number multiplied
     // by the current number of instances.
     max: max,
@@ -32,7 +32,7 @@ export function createRateLimiter(max = MAX) {
 
     keyGenerator: (req) => {
       let { ip } = req
-      // In our Azure preview environment, with the way the proxying works,
+      // In our previous environments, with the way the proxying works,
       // the `x-forwarded-for` is always the origin IP with a port number
       // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
       // This port number portion changes with every request, so we strip it.

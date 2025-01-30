@@ -115,9 +115,8 @@ export default function (app: Express) {
     app.use(datadog)
   }
 
-  // Put this early to make it as fast as possible because it's used,
-  // and used very often, by the Azure load balancer to check the
-  // health of each node.
+  // Put this early to make it as fast as possible because it's used
+  // to check the health of each cluster.
   app.use('/healthcheck', healthcheck)
 
   // Must appear before static assets and all other requests
