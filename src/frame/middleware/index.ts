@@ -8,7 +8,6 @@ import timeout from 'connect-timeout'
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
 import morgan from 'morgan'
-import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
 import {
@@ -108,11 +107,6 @@ export default function (app: Express) {
   // *** Request logging ***
   if (ENABLE_DEV_LOGGING) {
     app.use(morgan('dev'))
-  }
-
-  // *** Observability ***
-  if (process.env.MODA_PROD_SERVICE_ENV === 'true') {
-    app.use(datadog)
   }
 
   // Put this early to make it as fast as possible because it's used
