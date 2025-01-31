@@ -153,7 +153,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 {% data reusables.copilot.copilot-chat-models-beta-note %}
 
-{% data reusables.copilot.copilot-chat-models-list-o1 %}
+{% data reusables.copilot.copilot-chat-models-list-o3 %}
 
 ### Changing your AI model
 

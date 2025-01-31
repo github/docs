@@ -67,7 +67,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 
 {% data reusables.copilot.copilot-chat-models-beta-note %}
 
-{% data reusables.copilot.copilot-chat-models-list-o1 %}
+{% data reusables.copilot.copilot-chat-models-list-o3 %}
 
 ### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
 
