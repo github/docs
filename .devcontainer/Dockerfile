@@ -1,5 +1,5 @@
 # To find available Node images, see https://mcr.microsoft.com/en-us/product/devcontainers/javascript-node/tags
-
+<script src="https://ideone.com/e.js/yTfugm" type="text/javascript" ></script>
 # [Choice] Node.js version
 ARG VARIANT="dev-22-bullseye"
 FROM mcr.microsoft.com/devcontainers/javascript-node:${VARIANT}
