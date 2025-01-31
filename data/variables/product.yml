@@ -15,9 +15,6 @@ github: 'GitHub'
 ## DO NOT USE. Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
 prodname_dotcom: 'GitHub'
 
-product_name: >-
-  {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% else %}GitHub{% endif %}
-
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
 prodname_enterprise: 'GitHub Enterprise'
 
