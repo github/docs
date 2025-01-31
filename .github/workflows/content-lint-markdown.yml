@@ -23,7 +23,7 @@ jobs:
           # the checkout will take potentially unnecessariily long.
           # This reduces the chance that tj-actions/changed-files has to
           # fetch deeper history. But if it needs to, it will.
-          fetch-depth: 10
+          fetch-depth: 19
 
       - name: Set up Node and dependencies
         uses: ./.github/actions/node-npm-setup
