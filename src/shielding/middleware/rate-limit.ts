@@ -32,7 +32,7 @@ export function createRateLimiter(max = MAX) {
 
     keyGenerator: (req) => {
       let { ip } = req
-      // In our previous environments, with the way the proxying works,
+      // In our preview environments, with the way the proxying works,
       // the `x-forwarded-for` is always the origin IP with a port number
       // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
       // This port number portion changes with every request, so we strip it.

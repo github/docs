@@ -88,7 +88,9 @@ It's easiest to make these changes in {% data variables.product.prodname_vscode_
 
 ### Update your project's dependencies
 
-To showcase your understanding of security best practices, ensure your project is using the **latest versions** of any dependencies. You can automate this process with {% data variables.product.prodname_dependabot %}, which generates pull requests that update your project to the latest version. See [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
+If your project has any dependencies, you can showcase your understanding of security best practices by ensuring you're using the **latest versions**.
+
+You can automate this process with {% data variables.product.prodname_dependabot %}, which generates pull requests that update your project to new versions as they become available. See [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
 
 ## Extra credit: Maintaining your projects
 
