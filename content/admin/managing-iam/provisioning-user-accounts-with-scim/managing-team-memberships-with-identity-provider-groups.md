@@ -37,7 +37,7 @@ When group membership changes on your IdP, your IdP sends a SCIM request with th
 
 {% data variables.product.prodname_dotcom %} also runs a reconciliation job once per day, which synchronizes team membership with IdP group membership that is stored on {% data variables.product.prodname_dotcom %}, based on information previously sent from the IdP via SCIM. If this job finds that a user is a member of an IdP group in the enterprise, but they are not a member of the mapped team or its organization, the job will attempt to add the user to the organization and team.
 
-Teams connected to IdP groups cannot be parents of other teams nor a child of another team. If the team you want to connect to an IdP group is a parent or child team, we recommend creating a new team or removing the nested relationships that make your team a parent team.
+Teams connected to IdP groups cannot be parents of other teams nor can they contain manually assigned members. However, teams connected to IdP groups can be a child of another team, which is not connected to an IdP group. To achieve this, first create the team that should be connected to an IdP group as a child team of another team, **but do not connect it to an IdP group yet**. Once the team is created, remove all team members, then connect the team to an IdP group.
 
 To manage repository access for any team in your enterprise, including teams connected to an IdP group, you must make changes on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
