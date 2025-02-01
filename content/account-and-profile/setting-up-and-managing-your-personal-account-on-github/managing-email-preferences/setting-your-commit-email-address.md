@@ -66,7 +66,7 @@ If you use your `noreply` email address for {% data variables.product.github %} 
 
 You can use the `git config` command to change the email address you associate with your Git commits. The new email address you set will be visible in any future commits you push to {% data variables.product.github %} from the command line. Any commits you made prior to changing your commit email address are still associated with your previous email address.
 
-### Setting your email address for every repository on your computer
+### Setting your email address for _every_ repository on your computer
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
