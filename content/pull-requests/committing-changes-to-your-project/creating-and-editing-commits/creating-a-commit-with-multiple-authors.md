@@ -56,7 +56,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    >
    >
    Co-authored-by: NAME <NAME@EXAMPLE.COM>
-   Co-authored-by: ANOTHER-NAME <ANOTHER-NAME@EXAMPLE.COM>"
+   Co-authored-by: ANOTHER-NAME <username@users.noreply.github.com>"
    ```
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see [AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository).
