@@ -3,6 +3,20 @@
     "schemaChanges": [
       {
         "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Enum value 'PARENT_ISSUE<code>was added to enum</code>ProjectV2FieldType'</p>",
+          "<p>Enum value 'SUB_ISSUES_PROGRESS<code>was added to enum</code>ProjectV2FieldType'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-02-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
         "changes": []
       }
     ],

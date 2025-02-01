@@ -87386,6 +87386,10 @@
           "description": "<p>Number.</p>"
         },
         {
+          "name": "PARENT_ISSUE",
+          "description": "<p>Parent issue.</p>"
+        },
+        {
           "name": "REPOSITORY",
           "description": "<p>Repository.</p>"
         },
@@ -87396,6 +87400,10 @@
         {
           "name": "SINGLE_SELECT",
           "description": "<p>Single Select.</p>"
+        },
+        {
+          "name": "SUB_ISSUES_PROGRESS",
+          "description": "<p>Sub-issues progress.</p>"
         },
         {
           "name": "TEXT",
