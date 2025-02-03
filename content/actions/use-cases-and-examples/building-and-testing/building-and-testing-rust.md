@@ -53,7 +53,7 @@ We recommend that you have a basic understanding of the Rust language. For more 
        branches: [ "main" ]
 
    env:
-     CARGO_TERM_COLOR: always
+     CARGO_TERM_COLOR: never
 
    jobs:
      build:
@@ -170,6 +170,4 @@ To use the uploaded artifact in a different job, ensure your workflows have the 
           path: ./{% raw %}<my-app>{% endraw %}
       - name: Publish built binary to {% data variables.product.github %} releases
       - run: |
-          gh release create v0.1.0 --generate-notes
-          gh release upload v0.1.0 ./{% raw %}<my-app>/<my-project>#<my-app>{% endraw %}
-```
+          gh release create --generate-notes ./{% raw %}<my-app>/<my-project>#<my-app>{% endraw %}
