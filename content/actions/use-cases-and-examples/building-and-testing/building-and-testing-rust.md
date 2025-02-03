@@ -81,6 +81,8 @@ We recommend that you have a basic understanding of the Rust language. For more 
 
 {% data variables.product.prodname_dotcom %}-hosted runners include a recent version of the Rust toolchain. You can use rustup to report on the version installed on a runner, override the version, and to install different toolchains. For more information, see [The rustup book](https://rust-lang.github.io/rustup/).
 
+This example shows steps you could use to setup your runner environment to use the nightly build of rust and to report the version.
+
 ```yaml copy
       - name: Temporarily modify the rust toolchain version
         run: rustup override set nightly
