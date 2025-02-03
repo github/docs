@@ -79,7 +79,7 @@ We recommend that you have a basic understanding of the Rust language. For more 
 
 ## Specifying a Rust version
 
-{% data variables.product.prodname_dotcom %}-hosted runners include a recent version of the rustup rust compiler. You can use rustup to report on the version installed on a runner, override the version, and to install additional toolchains. For more information, see [The rustup book](https://rust-lang.github.io/rustup/).
+{% data variables.product.prodname_dotcom %}-hosted runners include a recent version of the Rust toolchain. You can use rustup to report on the version installed on a runner, override the version, and to install different toolchains. For more information, see [The rustup book](https://rust-lang.github.io/rustup/).
 
 ```yaml copy
       - name: Temporarily modify the rust toolchain version
@@ -150,7 +150,7 @@ If there are any errors building and packaging the crate, check the metadata in 
 After a workflow completes, you can upload the resulting artifacts for analysis or to use in another workflow. You could add these example steps to the workflow to upload an application for use by another workflow.
 
 ```yaml copy
-      - name: Upload {% raw %}<my-app>{% endraw %}
+      - name: Upload release artifact
         uses: {% data reusables.actions.action-upload-artifact %}
         with:
           name: {% raw %}<my-app>{% endraw %}
@@ -161,12 +161,12 @@ To use the uploaded artifact in a different job, ensure your workflows have the 
 
 ```yaml copy
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Download {% raw %}<my-app>{% endraw %}
+      - name: Download release artifact
         uses: {% data reusables.actions.action-download-artifact %}
         with:
           name: {% raw %}<my-app>{% endraw %}
           path: ./{% raw %}<my-app>{% endraw %}
-      - name: Publish {% raw %}<my-app>{% endraw %} binary as a release on {% data variables.product.github %}
+      - name: Publish built binary to {% data variables.product.github %} releases
       - run: |
           gh release create v0.1.0 --generate-notes
           gh release upload v0.1.0 ./{% raw %}<my-app>/<my-project>#<my-app>{% endraw %}
