@@ -23,7 +23,7 @@ To maintain the security of your account when you perform a potentially sensitiv
 * Addition of a new SSH key
 * Creation of a PAT or application
 
-After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.product_name %} has a two-hour session timeout period before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
+After you authenticate to perform a sensitive action, your session is temporarily in "sudo mode." In sudo mode, you can perform sensitive actions without authentication. {% data variables.product.github %} has a two-hour session timeout period before prompting you for authentication again. During this time, any sensitive action that you perform will reset the timer.
 
 {% ifversion ghes %}
 
@@ -34,7 +34,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 {% ifversion ghec %}
 
 > [!NOTE]
-> If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.product_name %}.
+> If your enterprise uses {% data variables.product.prodname_emus %}, only the setup user will receive prompts to enter sudo mode, as {% data variables.enterprise.prodname_managed_users %} don't have credentials stored on {% data variables.product.github %}.
 
 {% endif %}
 

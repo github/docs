@@ -1,6 +1,6 @@
 ---
 title: Associating an email with your GPG key
-intro: 'Your GPG key must be associated with a {% data variables.product.product_name %} verified email that matches your committer identity.'
+intro: 'Your GPG key must be associated with a verified email that matches your committer identity.'
 redirect_from:
   - /articles/associating-an-email-with-your-gpg-key
   - /github/authenticating-to-github/associating-an-email-with-your-gpg-key

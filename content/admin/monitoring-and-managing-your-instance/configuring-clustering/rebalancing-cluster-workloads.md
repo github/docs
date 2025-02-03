@@ -1,9 +1,9 @@
 ---
 title: Rebalancing cluster workloads
 shortTitle: Rebalance workloads
-intro: 'You can force your {% data variables.product.product_name %} cluster to evenly distribute job allocations for workloads on the cluster''s nodes.'
+intro: 'You can force your {% data variables.product.prodname_ghe_server %} cluster to evenly distribute job allocations for workloads on the cluster''s nodes.'
 product: '{% data reusables.gated-features.cluster %}'
-permissions: 'People with administrative SSH access to a {% data variables.product.product_name %} instance can rebalance cluster workloads on the instance.'
+permissions: 'People with administrative SSH access to a {% data variables.product.prodname_ghe_server %} instance can rebalance cluster workloads on the instance.'
 versions:
   ghes: '*'
 type: how_to
@@ -15,9 +15,9 @@ redirect_from:
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/rebalancing-cluster-workloads
 ---
 
-## About workload balance for a {% data variables.product.product_name %} cluster
+## About workload balance for a {% data variables.product.prodname_ghe_server %} cluster
 
-A {% data variables.product.product_name %} instance in a cluster configuration assigns each task to a node according to the node's role. This assignment is called an allocation.
+A {% data variables.product.prodname_ghe_server %} instance in a cluster configuration assigns each task to a node according to the node's role. This assignment is called an allocation.
 
 If a cluster node is unreachable by other nodes due to a hardware or software failure, your instance creates a new allocation to distribute jobs from the unhealthy node to another node that can handle the workload. In some situations, this distribution does not occur automatically, and a single node may run more jobs than expected.
 

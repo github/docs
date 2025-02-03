@@ -1,6 +1,6 @@
 ---
 title: About using integrations
-intro: 'Integrations are tools and services that connect with {% data variables.product.product_name %} to complement and extend your workflow.'
+intro: 'Integrations are tools and services that connect with {% data variables.product.github %} to complement and extend your workflow.'
 redirect_from:
   - /articles/about-integrations
   - /github/customizing-your-github-workflow/about-integrations

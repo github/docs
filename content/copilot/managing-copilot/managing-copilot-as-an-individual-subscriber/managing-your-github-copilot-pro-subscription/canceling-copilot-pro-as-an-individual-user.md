@@ -13,12 +13,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/canceling-copilot-as-an-individual-user
 ---
 
-<!-- expires 2025-01-22 -->
-
-{% data reusables.copilot.copilot-pro-temporary-refund %}
-
-<!-- end expires 2025-01-22 -->
-
 To cancel a free {% data variables.product.prodname_copilot_short %} trial, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
 
 If you have been granted a free subscription to {% data variables.product.prodname_copilot_pro %} as a verified student, teacher, or maintainer of a popular open source project, you will not be able to cancel your subscription. If you have access to {% data variables.product.prodname_copilot %} through an organization {% ifversion ghec %}or enterprise {% endif %}subscription, you will not be able to cancel your subscription. In these cases, you can disable {% data variables.product.prodname_copilot_pro %} in your environment. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
@@ -31,6 +25,6 @@ You can cancel your {% data variables.product.prodname_copilot_pro_short %} subs
 {% data reusables.user-settings.billing_plans %}
 1. Under "Add-ons", in the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel**.
 
-     ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The edit dropdown is expanded and the "Cancel" option is highlighted in dark orange.](/assets/images/help/copilot/copilot-cancel-cfi-subscription.png)
+     ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The edit dropdown is expanded and the "Cancel" option is outlined in orange.](/assets/images/help/copilot/copilot-cancel-cfi-subscription.png)
 
 1. In the "Cancel {% data variables.product.prodname_copilot %}" modal, click **I understand, cancel {% data variables.product.prodname_copilot %}**

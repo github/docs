@@ -154,7 +154,7 @@ You can also cache dependencies to speed up your workflow. For more information,
 
 ### Example using npm
 
-This example installs the versions in the _package-lock.json_ or _npm-shrinkwrap.json_ file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and [Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable).
+This example installs the versions in the `package-lock.json` or `npm-shrinkwrap.json` file and prevents updates to the lock file. Using `npm ci` is generally faster than running `npm install`. For more information, see [`npm ci`](https://docs.npmjs.com/cli/ci.html) and [Introducing `npm ci` for faster, more reliable builds](https://blog.npmjs.org/post/171556855892/introducing-npm-ci-for-faster-more-reliable).
 
 ```yaml copy
 steps:
@@ -167,7 +167,7 @@ steps:
   run: npm ci
 ```
 
-Using `npm install` installs the dependencies defined in the _package.json_ file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
+Using `npm install` installs the dependencies defined in the `package.json` file. For more information, see [`npm install`](https://docs.npmjs.com/cli/install).
 
 ```yaml copy
 steps:
@@ -182,7 +182,7 @@ steps:
 
 ### Example using Yarn
 
-This example installs the dependencies defined in the _yarn.lock_ file and prevents updates to the _yarn.lock_ file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
+This example installs the dependencies defined in the `yarn.lock` file and prevents updates to the `yarn.lock` file. For more information, see [`yarn install`](https://yarnpkg.com/en/docs/cli/install).
 
 ```yaml copy
 steps:
@@ -195,7 +195,7 @@ steps:
   run: yarn --frozen-lockfile
 ```
 
-Alternatively, you can install the dependencies defined in the _package.json_ file.
+Alternatively, you can install the dependencies defined in the `package.json` file.
 
 ```yaml copy
 steps:
@@ -214,9 +214,9 @@ steps:
 
 To authenticate to your private registry, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
-In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the _.npmrc_ file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an _.npmrc_ file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
+In the example below, the secret `NPM_TOKEN` stores the npm authentication token. The `setup-node` action configures the `.npmrc` file to read the npm authentication token from the `NODE_AUTH_TOKEN` environment variable. When using the `setup-node` action to create an `.npmrc` file, you must set the `NODE_AUTH_TOKEN` environment variable with the secret that contains your npm authentication token.
 
-Before installing dependencies, use the `setup-node` action to create the _.npmrc_ file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
+Before installing dependencies, use the `setup-node` action to create the `.npmrc` file. The action has two input parameters. The `node-version` parameter sets the Node.js version, and the `registry-url` parameter sets the default registry. If your package registry uses scopes, you must use the `scope` parameter. For more information, see [`npm-scope`](https://docs.npmjs.com/misc/scope).
 
 ```yaml copy
 steps:
@@ -234,7 +234,7 @@ steps:
     NODE_AUTH_TOKEN: {% raw %}${{ secrets.NPM_TOKEN }}{% endraw %}
 ```
 
-The example above creates an _.npmrc_ file with the following contents:
+The example above creates an `.npmrc` file with the following contents:
 
 ```shell
 //registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}
@@ -296,7 +296,7 @@ If you have a custom requirement or need finer controls for caching, you can use
 
 ## Building and testing your code
 
-You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your _package.json_ file and `npm test` to run your test suite, you would add those commands in your workflow file.
+You can use the same commands that you use locally to build and test your code. For example, if you run `npm run build` to run build steps defined in your `package.json` file and `npm test` to run your test suite, you would add those commands in your workflow file.
 
 ```yaml copy
 steps:

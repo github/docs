@@ -132,7 +132,7 @@ Once you have configured a TOTP application, or SMS, you can also use {% data va
 
 1. You must have already configured 2FA via a TOTP mobile app or via SMS.
 1. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-1. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Sign in to your {% data variables.product.github %} account from {% data variables.product.prodname_mobile %}.
 1. Ensure {% data variables.product.prodname_mobile %} can send push notifications. If you have not opted in to push notifications, you can turn them on within notification settings in {% data variables.product.prodname_mobile %}.
 
 After signing in and turning on push notifications, you can now use your device for 2FA.

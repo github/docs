@@ -43,7 +43,7 @@ For example, the API to manage contents generates a git commit for each addition
 
 ### Using the last known timezone for the user
 
-If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.product_name %} website.
+If no `Time-Zone` header is specified and you make an authenticated call to the API, we use the last known timezone for the authenticated user. The last known timezone is updated whenever you browse the {% data variables.product.github %} website.
 
 ### Defaulting to UTC without other timezone information
 

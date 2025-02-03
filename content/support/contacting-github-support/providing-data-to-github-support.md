@@ -138,7 +138,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise-accounts.license-tab %}
 1. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
 
-   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is highlighted with a dark orange rectangle.](/assets/images/enterprise/support/upload-support-bundle.png)
+   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is outlined in orange.](/assets/images/enterprise/support/upload-support-bundle.png)
 1. Under "Select an enterprise account", use the drop-down menu to select the support bundle's associated account.
 1. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
 1. Click **Upload**.

@@ -27,7 +27,7 @@ shortTitle: Container registry
 
 {% ifversion ghes %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
 
 {% endif %}
 
@@ -54,14 +54,11 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% ifversion packages-registries-v2 %}
-
 ### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% data reusables.package_registry.v2-actions-codespaces %}
-{% endif %}
 
 ### Authenticating with a {% data variables.product.pat_v1 %}
 

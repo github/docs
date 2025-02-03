@@ -138,7 +138,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
 For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.
 
-To see how {% data variables.product.product_name %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
+To see how {% data variables.product.github %} compares to GitLab, Bitbucket, and Jenkins, see [Comparing GitHub to other DevOps solutions](https://resources.github.com/devops/tools/compare/).
 
 You can set up trials to evaluate {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) and [AUTOTITLE](/enterprise-server@latest/admin/overview/setting-up-a-trial-of-github-enterprise-server).
 

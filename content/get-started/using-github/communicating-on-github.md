@@ -1,6 +1,6 @@
 ---
 title: Communicating on GitHub
-intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.product_name %}.'
+intro: 'You can discuss specific projects and changes, as well as broader ideas or team goals, using different types of discussions on {% data variables.product.github %}.'
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/getting-started/quickstart-for-communicating-on-github
   - /articles/about-discussions-in-issues-and-pull-requests
@@ -20,7 +20,7 @@ topics:
 ---
 ## Introduction
 
-{% data variables.product.product_name %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
+{% data variables.product.github %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
 {% ifversion team-discussions %}
 You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
@@ -171,7 +171,7 @@ To ask a question about an issue or discussion:
 
 ## Next steps
 
-These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.product_name %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
+These examples showed you how to decide which is the best tool for your conversations on {% data variables.product.github %}. But this is only the beginning; there is so much more you can do to tailor these tools to your needs.
 
 For issues, for example, you can tag issues with labels for quicker searching and create issue templates to help contributors open meaningful issues. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues#working-with-issues) and [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates).
 

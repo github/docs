@@ -113,16 +113,12 @@ When you create an issue from a discussion, the contents of the discussion post 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion projects-v2-create-issue-modal %}
-
 ## Creating an issue from a project
 
 {% data reusables.projects.about-issue-modal %} For more information about Projects, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 1. Navigate to your project.
 {% data reusables.projects.create-issue-modal %}
-
-{% endif %}
 
 {% ifversion projects-v1 %}
 

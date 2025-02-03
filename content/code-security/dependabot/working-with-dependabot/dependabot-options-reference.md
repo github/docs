@@ -286,6 +286,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 * Bundler: use `~> 2.0`
 * Docker: use Ruby version syntax
 * NuGet: use `7.*`
+* Maven: use `[1.4,)`
 
 For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-versions-or-ranges-of-versions).
 
@@ -388,7 +389,7 @@ Package manager | YAML value      | Supported versions |
 | Go modules     | `gomod`          | v1               |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
-| npm            | `npm`            | v6, v7, v8, v9   |
+| npm            | `npm`            |  v7, v8, v9   |
 | NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |

@@ -28,8 +28,8 @@ You can give an entire team the same permission level to a {% data variables.pro
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-{% data reusables.organizations.organization-wide-project %}{% ifversion projects-v2 %}
-1. Click **Projects (classic)**{% endif %}
+{% data reusables.organizations.organization-wide-project %}
+1. Click **Projects (classic)**.
 {% data reusables.project-management.select-project %}
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.access-collaboration-settings %}
@@ -49,10 +49,6 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
    ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
 1. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the permission level dropdown menu.
 
-{% ifversion projects-v2-add-to-team %}
-
 ## Further reading
 
 * [Adding your project to a team](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)
-
-{% endif %}

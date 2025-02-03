@@ -1,6 +1,6 @@
 ---
 title: Exploring projects on GitHub
-intro: 'Discover interesting projects on {% data variables.product.product_name %} and contribute to open source by collaborating with other people.'
+intro: 'Discover interesting projects on {% data variables.product.github %} and contribute to open source by collaborating with other people.'
 redirect_from:
   - /categories/stars
   - /categories/87/articles
@@ -20,6 +20,5 @@ children:
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations
-
 shortTitle: Explore projects
 ---

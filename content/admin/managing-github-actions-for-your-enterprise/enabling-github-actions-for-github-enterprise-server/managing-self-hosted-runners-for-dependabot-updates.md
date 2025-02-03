@@ -31,6 +31,8 @@ Configuring self-hosted runners is only one step in the middle of the process fo
 
 {% data reusables.dependabot.dependabot-runners-system-requirements %}
 
+{% data reusables.dependabot.vnet-arc-note %}
+
 ### Network requirements for {% data variables.product.prodname_dependabot %} runners
 
 {% data reusables.dependabot.dependabot-runners-network-requirements %}

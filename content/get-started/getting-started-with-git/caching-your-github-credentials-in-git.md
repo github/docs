@@ -7,7 +7,7 @@ redirect_from:
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
-intro: 'If you''re [cloning {% data variables.product.product_name %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager (GCM) to remember your credentials.'
+intro: 'If you''re [cloning {% data variables.product.github %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager (GCM) to remember your credentials.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,16 +16,16 @@ shortTitle: Caching credentials
 ---
 
 > [!TIP]
-> If you clone {% data variables.product.product_name %} repositories using SSH, then you can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
+> If you clone {% data variables.product.github %} repositories using SSH, then you can authenticate using an SSH key instead of using other credentials. For information about setting up an SSH connection, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
 
 ## {% data variables.product.prodname_cli %}
 
-{% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials.
+{% data variables.product.prodname_cli %} will automatically store your Git credentials for you when you choose `HTTPS` as your preferred protocol for Git operations and answer "yes" to the prompt asking if you would like to authenticate to Git with your {% data variables.product.github %} credentials.
 
 1. [Install](https://github.com/cli/cli#installation) {% data variables.product.prodname_cli %} on macOS, Windows, or Linux.
 1. In the command line, enter `gh auth login`, then follow the prompts.
    * When prompted for your preferred protocol for Git operations, select `HTTPS`.
-   * When asked if you would like to authenticate to Git with your {% data variables.product.product_name %} credentials, enter `Y`.
+   * When asked if you would like to authenticate to Git with your {% data variables.product.github %} credentials, enter `Y`.
 
 For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
@@ -71,7 +71,7 @@ Once you've authenticated successfully, your credentials are stored in the Windo
 > Older versions of Git for Windows came with Git Credential Manager for Windows. This older product is no longer supported and cannot connect to GitHub via OAuth. We recommend you upgrade to [the latest version of Git for Windows](https://github.com/git-for-windows/git/releases/latest).
 
 > [!WARNING]
-> If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.product_name %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.product_name %} entry and delete it.
+> If you cached incorrect or outdated credentials in Credential Manager for Windows, Git will fail to access {% data variables.product.github %}. To reset your cached credentials so that Git prompts you to enter your credentials, access the Credential Manager in the Windows Control Panel under User Accounts > Credential Manager. Look for the {% data variables.product.github %} entry and delete it.
 
 {% endwindows %}
 

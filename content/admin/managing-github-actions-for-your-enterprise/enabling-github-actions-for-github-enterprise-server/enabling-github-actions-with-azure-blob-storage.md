@@ -18,9 +18,7 @@ shortTitle: Azure Blob storage
 
 {% data reusables.actions.enterprise-storage-about %}
 
-{% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-{% endif %}
 
 ## Prerequisites
 
@@ -37,8 +35,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
   For more information on Azure storage account types and performance tiers, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-overview?toc=/azure/storage/blobs/toc.json#types-of-storage-accounts).
 {% data reusables.actions.enterprise-common-prereqs %}
 {% data reusables.actions.enterprise-oidc-prereqs %}
-
-{% ifversion ghes-actions-storage-oidc %}
 
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using OIDC (recommended)
 
@@ -94,20 +90,14 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage{% ifversion ghes-actions-storage-oidc %} using a connection string{% endif %}
+## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using a connection string
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
 {% data reusables.actions.enterprise-enable-checkbox %}
-{%- ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-azure-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your Azure storage account's connection string. For more information on getting the connection string for your storage account, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys).
-{%- else %}
-1. Under "Artifact & Log Storage", select **Azure Blob Storage**, then enter your Azure storage account's connection string. For more information about getting the connection string for your storage account, see the [View account access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys) on Microsoft Learn.
-{%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 

@@ -23,7 +23,7 @@ You can add issue or pull request cards to your {% data variables.projects.proje
 You can put a maximum of 2,500 cards into each project column. If a column has reached the maximum number of cards, no cards can be moved into that column.
 
 > [!NOTE]
-> You can also add notes to your {% data variables.projects.projects_v1_board %} to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add related information to your {% data variables.projects.projects_v1_board %}. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board).
+> You can also add notes to your {% data variables.projects.projects_v1_board %} to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.github %}, or to add related information to your {% data variables.projects.projects_v1_board %}. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board).
 
 {% data reusables.project-management.edit-in-project %}
 

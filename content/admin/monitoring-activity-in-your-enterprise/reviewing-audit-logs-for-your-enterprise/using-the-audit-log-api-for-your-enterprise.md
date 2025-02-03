@@ -30,7 +30,7 @@ For more information about the specific events that you can access via the audit
 
 Timestamps and date fields in the API response are measured in [UTC epoch milliseconds](https://en.wikipedia.org/wiki/Unix_time).
 
-{% ifversion read-audit-scope %}You can use the `read:audit_log` scope to access the audit log via the API.{% endif %}
+You can use the `read:audit_log` scope to access the audit log via the API.
 
 {% ifversion ghec %}
 

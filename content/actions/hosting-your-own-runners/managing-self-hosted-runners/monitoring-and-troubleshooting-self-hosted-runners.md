@@ -34,9 +34,9 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
     The status can be one of the following:
 
-    * **Idle:** The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
+    * **Idle:** The runner is connected to {% data variables.product.github %} and is ready to execute jobs.
     * **Active:** The runner is currently executing a job.
-    * **Offline:** The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
+    * **Offline:** The runner is not connected to {% data variables.product.github %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.github %}.
 
 ## Troubleshooting network connectivity
 
@@ -76,9 +76,9 @@ If you have any failing checks, you should also verify that your self-hosted run
 ### Disabling TLS certificate verification
 
 {% ifversion ghes %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}. If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.github %}. If {% data variables.location.product_location_enterprise %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
 {% else %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}. If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.github %}. If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
 {% endif %}
 
 To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
@@ -112,7 +112,7 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 {% endwindows %}
 
 > [!WARNING]
-> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.github %}. We recommend that you install the {% data variables.product.github %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.github %} certificate, check with your operating system vendor.
 
 ## Reviewing the self-hosted runner application log files
 

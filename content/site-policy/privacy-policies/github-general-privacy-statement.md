@@ -108,11 +108,15 @@ We may share Personal Data with the following recipients:
 
 If your GitHub account has private repositories, you control the access to that information. GitHub personnel does not access private repository information without your consent except as provided in this Privacy Statement and for:
 
+<!-- markdownlint-disable GHD034 -->
+
 * security purposes
 * automated scanning or manual review for known vulnerabilities, active malware, or other content known to violate our Terms of Service
 * to assist the repository owner with a support matter
 * to maintain the integrity of the Services, or
 * to comply with our legal obligations if we have reason to believe the contents are in violation of the law.
+
+<!-- markdownlint-enable GHD034 -->
 
 GitHub will provide you with notice regarding private repository access unless doing so is prohibited by law or if GitHub acted in response to a security threat or other risk to security.
 

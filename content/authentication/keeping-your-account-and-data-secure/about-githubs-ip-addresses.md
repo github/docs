@@ -1,6 +1,6 @@
 ---
 title: About GitHub's IP addresses
-intro: '{% data variables.product.product_name %} serves applications from multiple IP address ranges, which are available using the API.'
+intro: '{% data variables.product.github %} serves applications from multiple IP address ranges, which are available using the API.'
 redirect_from:
   - /articles/what-ip-addresses-does-github-use-that-i-should-whitelist
   - /categories/73/articles

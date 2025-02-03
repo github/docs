@@ -29,7 +29,7 @@ For more information about viewing your enterprise audit log, see [AUTOTITLE](/a
 
 You can also use the API to retrieve audit log events. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise).
 
-You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+You cannot search for entries using text. You can, however, construct search queries using a variety of filters. Many operators used when querying the log, such as `-`, `>`, or `<`, match the same format as searching across {% data variables.product.github %}. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 > [!NOTE]
 > {% data reusables.audit_log.retention-periods %}
@@ -73,9 +73,7 @@ The `key:value` pairs that can be used in a search query are:
 | {% ifversion ghes %} |
 | `business_id` | ID of the enterprise affected by the action (if applicable). |
 | {% endif %} |
-| {% ifversion token-audit-log %} |
 | `created` | Time at which the action occurred.{% ifversion ghes %} If querying the audit log from the site admin dashboard, use `created_at` instead. |
-| {% endif %} |
 | `country`           | Name of the country where the actor was when performing the action. |
 | `country_code`      | Two-letter short code of the country where the actor was when performing the action. |
 | {% ifversion ghes %} |
@@ -162,9 +160,6 @@ Using the qualifier `country`, you can filter events in the audit log based on t
 * `country:Mexico` finds all events that occurred in Mexico.
 * `country:"United States"` all finds events that occurred in the United States.
 
-{% ifversion token-audit-log %}
-
 ### Search based on the token that performed the action
 
 Use the `hashed_token` qualifier to search based on the token that performed the action. Before you can search for a token, you must generate a SHA-256 hash. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token).
-{% endif %}

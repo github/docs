@@ -93,6 +93,36 @@ You can edit the name of your {% data variables.actions.hosted_runner %}s.
 {% data reusables.actions.rename-larger-runner %}
 {% endif %}
 
+## Changing the size of a {% data variables.actions.hosted_runner %}
+
+{% ifversion ghec %}
+You can edit the size of your {% data variables.actions.hosted_runner %}s.
+
+* [Changing the size of an organization runner](#changing-the-size-of-an-organization-runner)
+* [Changing the size of an enterprise runner](#changing-the-size-of-an-enterprise-runner)
+
+### Changing the size of an organization runner
+
+{% endif %}
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
+{% data reusables.actions.select-a-larger-runner %}
+{% data reusables.actions.resize-larger-runner %}
+
+{% ifversion ghec %}
+
+### Changing the size of an enterprise runner
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.actions.select-a-larger-runner %}
+{% data reusables.actions.resize-larger-runner %}
+{% endif %}
+
 ## Configuring autoscaling for {% data variables.actions.hosted_runner %}s
 
 You can control the maximum number of jobs allowed to run concurrently for specific runner sets. Setting this field to a higher value can help prevent workflows being blocked due to parallelism.

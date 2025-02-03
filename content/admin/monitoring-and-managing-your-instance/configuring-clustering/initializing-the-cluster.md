@@ -16,9 +16,9 @@ topics:
   - Enterprise
 ---
 
-## About initialization of a {% data variables.product.product_name %} cluster
+## About initialization of a {% data variables.product.prodname_ghe_server %} cluster
 
-To deploy a {% data variables.product.product_name %} cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
+To deploy a {% data variables.product.prodname_ghe_server %} cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
@@ -31,7 +31,7 @@ To start setting up the cluster, install the {% data variables.product.prodname_
 
 ## Configuring the first node
 
-On the node that will function as your primary MySQL node, install your {% data variables.product.product_name %} license.
+On the node that will function as your primary MySQL node, install your {% data variables.product.prodname_ghe_server %} license.
 
 1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
 1. In your web browser, visit `https://<ip address>:8443/setup/`.

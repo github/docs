@@ -25,11 +25,11 @@ To update the bundled actions, you can use the `actions-sync` tool to update the
 
 ## Using {% data variables.product.prodname_github_connect %} to access the latest actions
 
-You can use {% data variables.product.prodname_github_connect %} to allow {% data variables.product.product_name %} to use actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
+You can use {% data variables.product.prodname_github_connect %} to allow {% data variables.product.prodname_ghe_server %} to use actions from {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
 Once {% data variables.product.prodname_github_connect %} is configured, you can use the latest version of an action by deleting its local repository in the `actions` organization on your instance. For example, if your enterprise instance is using `v1` of the `actions/checkout` action, and you need to use `{% data reusables.actions.action-checkout %}` which isn't available on your enterprise instance, perform the following steps to be able to use the latest `checkout` action from {% data variables.product.prodname_dotcom_the_website %}:
 
-1. From an enterprise owner account on {% data variables.product.product_name %}, navigate to the repository you want to delete from the _actions_ organization (in this example `checkout`).
+1. From an enterprise owner account on {% data variables.product.prodname_ghe_server %}, navigate to the repository you want to delete from the _actions_ organization (in this example `checkout`).
 1. By default, site administrators are not owners of the bundled _actions_ organization. To get the access required to delete the `checkout` repository, you must use the site admin tools. Click {% octicon "rocket" aria-label="Site admin" %} in the upper-right corner of any page in that repository.
 1. Click **{% octicon "shield-lock" aria-hidden="true" %} Security** to see an overview of the security for the repository.
 

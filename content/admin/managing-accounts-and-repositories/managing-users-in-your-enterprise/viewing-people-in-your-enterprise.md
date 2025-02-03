@@ -41,7 +41,7 @@ You can also export membership information for your enterprise. For more informa
 
 ## Viewing enterprise administrators
 
-You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise.{% ifversion enterprise-membership-view-improvements %} You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}.{% endif %} You can find a specific person by searching for their username or display name.
+You can view all the current enterprise owners{% ifversion ghec %} and billing managers{% endif %} for your enterprise. You can see useful information about each administrator{% ifversion ghec %} and filter the list by role{% endif %}. You can find a specific person by searching for their username or display name.
 
 {% ifversion ghes %}
 Enterprise owners whose accounts are suspended are included in the list of enterprise administrators, and are identified as suspended. You should consider demoting any suspended owners you see. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#demoting-a-site-administrator-from-the-enterprise-settings).
@@ -53,9 +53,9 @@ You can also remove an administrator. For more information. see [AUTOTITLE](/adm
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 
-## Viewing members {% ifversion enterprise-membership-view-improvements %}{% else %}and outside collaborators{% endif %}
+## Viewing members
 
-You can see all the current members {% ifversion enterprise-membership-view-improvements %}{% else %}or outside collaborators{% endif %} for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. In addition to the list of members, you will see an overview of the number of members in your enterprise, grouped by role{% ifversion ghec %}, type of license, and type of deployment{% endif %}.
+You can see all the current members for your enterprise. You can see useful information about each account and filter the list in useful ways, such as by role. In addition to the list of members, you will see an overview of the number of members in your enterprise, grouped by role{% ifversion ghec %}, type of license, and type of deployment{% endif %}.
 
 You can find a specific person by searching for the person's username or display name. To view more information about the person's access to your enterprise, such as the organizations the person belongs to, you can click the person's name.
 
@@ -64,13 +64,9 @@ You can also remove any enterprise member from all organizations owned by the en
 {% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}{% ifversion enterprise-membership-view-improvements %}
-{% else %}
-1. Optionally, to view a list of outside collaborators rather than the list of members, under "Members", click **Outside collaborators**.{% endif %}
+{% data reusables.enterprise-accounts.people-tab %}
 {% ifversion enterprise-member-csv %}
 1. Optionally, to export the list of members as a CSV report, click **CSV report**. For more information about the information included in the report, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).{% endif %}
-
-{% ifversion enterprise-members-breakdown %}
 
 ### About the membership overview
 
@@ -105,8 +101,6 @@ The "Deployment" column groups users by the type of deployment they are using. F
 "Cloud members" are a member or owner of any organization in your enterprise on {% data variables.product.prodname_ghe_cloud %}. "Server members" have an account on a {% data variables.product.prodname_ghe_server %} instance owned by your enterprise. "Members on cloud and server" are users who match both these criteria.
 {% endif %}
 
-{% endif %}
-
 {% ifversion ghec %}
 
 ## Viewing members' email addresses
@@ -121,7 +115,7 @@ You may be able to view the email addresses for members of your enterprise on ei
 
 If you use {% data variables.product.prodname_emus %}, verify a domain, or configure SAML SSO for your enterprise, you may be able to view the email addresses in one or more of the following ways.
 
-1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.product_name %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
+1. On your SAML Identity Provider (IdP), review the email addresses of users with access to your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
 1. Export the membership report for your enterprise on {% data variables.product.prodname_dotcom %}. The report may contain the user's email address, stored as the following values.
 
    * `GitHub com saml name`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference))
@@ -132,8 +126,6 @@ If you use {% data variables.product.prodname_emus %}, verify a domain, or confi
 
 {% endif %}
 
-{% ifversion enterprise-membership-view-improvements %}
-
 ## Viewing outside collaborators
 
 You can see all the current outside collaborators for your enterprise. You can see useful information about each collaborator and filter the list in useful ways, such as by organization. You can find a specific collaborator by searching for their username or display name.
@@ -143,7 +135,6 @@ You can view more information about the person's access to your enterprise, such
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 1. Under "People", click **Outside collaborators**.
-{% endif %}
 
 {% ifversion ghec %}
 
@@ -183,8 +174,6 @@ If your enterprise uses {% ifversion ghec %}{% data variables.product.prodname_e
 
 You can view a list of all dormant users {% ifversion ghes %} who have not been suspended and {% endif %}who are not site administrators. {% data reusables.enterprise-accounts.dormant-user-activity-threshold %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users).
 
-{% ifversion filter-by-enterprise-member-type %}
-
 ## Filtering by member type{% ifversion ghec %} in an {% data variables.enterprise.prodname_emu_enterprise %}{% endif %}
 
 {% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, you{% elsif ghes %}You{% endif %} can filter the member list of an organization by type to determine if memberships are managed through an IdP or managed directly. Memberships managed through an IdP were added through an IdP group, and the IdP group was connected to a team within the organization. Memberships managed directly were added to the organization manually. The way a membership is managed in an organization determines how it must be removed. You can use this filter to determine how members were added to an organization, so you know how to remove them.{% ifversion ghec %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users#about-organization-membership-management).{% endif %}
@@ -197,8 +186,6 @@ You can view a list of all dormant users {% ifversion ghes %} who have not been 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 1. Above the list of members, click **Type**, then select the type of members you want to view.
    ![Screenshot of the list of members. A dropdown menu labeled "Type" is outlined and expanded.](/assets/images/help/enterprises/filter-by-member-type.png)
-
-{% endif %}
 
 {% ifversion scim-for-ghes-public-beta %}
 

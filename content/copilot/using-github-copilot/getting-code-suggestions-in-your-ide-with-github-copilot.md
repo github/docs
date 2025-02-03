@@ -49,7 +49,7 @@ The examples in this guide use Java, however other languages will work similarly
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in JetBrains, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in JetBrains, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 * **Compatible JetBrains IDE**. To use {% data variables.product.prodname_copilot %} in JetBrains, you must have a compatible JetBrains IDE installed. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
 
@@ -151,7 +151,7 @@ The examples in this guide use C#, however other languages will work similarly. 
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Visual Studio, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 {% data reusables.copilot.visual-studio-prerequisites %}
 
@@ -211,11 +211,11 @@ The examples in this guide use JavaScript, however other languages will work sim
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 * **{% data variables.product.prodname_vscode %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 
-* **{% data variables.product.prodname_copilot_short %} extension for {% data variables.product.prodname_vscode %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot). For more information, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode %} documentation.
+* **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}**. When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually. For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Getting code suggestions
 
@@ -310,7 +310,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 * **Compatible version of Vim/Neovim**. To use {% data variables.product.prodname_copilot %} in Vim/Neovim you must have Vim version 9.0.0185 / Neovim version 0.6 or above and Node.js version 18 or above installed. For more information, see the [Vim](https://vimhelp.org/) / [Neovim documentation](https://neovim.io/doc/) and the [Node.js website](https://nodejs.org/en/).
 
@@ -336,7 +336,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 * **Compatible version of Azure Data Studio**. To use {% data variables.product.prodname_copilot %} in Azure Data Studio, you must have Azure Data Studio version 1.44.0 or later installed. For more information, see the [Azure Data Studio download page](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio) in the Azure Data Studio documentation.
 
@@ -434,7 +434,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 ## Prerequisites
 
-* **Subscription to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} for Xcode, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} for Xcode, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
 
 * **Compatible versions of Xcode and macOS**. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above installed. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
 

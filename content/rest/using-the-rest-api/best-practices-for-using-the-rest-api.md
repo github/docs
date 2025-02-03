@@ -52,7 +52,7 @@ Continuing to make requests while you are rate limited may result in the banning
 
 ## Follow redirects
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. You should assume that any
+The {% data variables.product.github %} REST API uses HTTP redirection where appropriate. You should assume that any
 request may result in a redirection. Receiving an HTTP redirection is not an error, and you should follow the redirect.
 
 A `301` status code indicates permanent redirection. You should repeat your request to the URL specified by the `location` header. Additionally, you should update your code to use this URL for future requests.

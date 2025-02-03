@@ -21,7 +21,7 @@ Your action should:
 * Make it simple for users to specify the version of the CLI to install
 * Support multiple operating systems
 * Run in an efficient fashion to minimize run-time and associated costs
-* Work across {% data variables.product.product_name %}-hosted and self-hosted runners
+* Work across {% data variables.product.github %}-hosted and self-hosted runners
 * Leverage community tooling when possible
 
 This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`.

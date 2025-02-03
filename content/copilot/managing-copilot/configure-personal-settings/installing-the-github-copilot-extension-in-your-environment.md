@@ -1,7 +1,7 @@
 ---
 title: Installing the GitHub Copilot extension in your environment
 shortTitle: Install Copilot extension
-intro: 'To use {% data variables.product.prodname_copilot_short %} in your preferred coding environment, you must install the {% data variables.product.prodname_copilot %} extension.'
+intro: 'To use {% data variables.product.prodname_copilot_short %} in your preferred coding environment, follow the steps for your chosen IDE.'
 versions:
   feature: copilot
 defaultTool: vscode
@@ -10,6 +10,15 @@ topics:
 redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
 ---
+
+## Getting access to {% data variables.product.prodname_copilot %}
+
+There are different ways to get access to {% data variables.product.prodname_copilot_short %}.
+
+| Type of user | How to get access to {% data variables.product.prodname_copilot_short %} |
+| --- | --- |
+| Individual | <ul><li>Set up {% data variables.product.prodname_copilot_free %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid {% data variables.product.prodname_copilot_short %} subscription to get unlimited completions and chat interactions. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot_short %} for free</span></a> with a one-time 30-day trial.</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options.</li></ul>  |
+| Organization{% ifversion ghec %}/Enterprise member{% endif %} | <ul><li>If you are a member of an organization{% ifversion ghec %} or enterprise{% endif %} that has a subscription to {% data variables.product.prodname_copilot_short %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to https://github.com/settings/copilot and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable {% data variables.product.prodname_copilot_short %} for your organization.</li>{% ifversion ghec %}<li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise) to enable {% data variables.product.prodname_copilot_short %} for your enterprise.</li>{% endif %}</ul> |
 
 {% azure_data_studio %}
 
@@ -162,25 +171,19 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 {% vscode %}
 
-## About the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
+## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. It also automatically installs the {% data variables.product.prodname_copilot_chat %} extension, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-### Version compatibility
+## Setting up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-{% data reusables.copilot.vscode-version-compatibility %}
+When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually.
 
-## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
+For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) in the {% data variables.product.prodname_vscode %} documentation.
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
-
-1. Install {% data variables.product.prodname_vscode %}. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
-
-1. Install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in {% data variables.product.prodname_vscode %}. For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode %} documentation.
-
-   >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code).
+>[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code).
 
 {% endvscode %}
 

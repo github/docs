@@ -15,7 +15,11 @@ topics:
 
 {% data variables.copilot.copilot_claude_sonnet %} is a large language model that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [model's capabilities](https://www.anthropic.com/claude/sonnet) or read the [model card](https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf).
 
-{% data variables.copilot.copilot_claude_sonnet %} is currently available in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}, and in immersive chat on the {% data variables.product.github %} website.
+{% data variables.copilot.copilot_claude_sonnet %} is currently available in:
+
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 17.12 Preview 3 or later
+* Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 

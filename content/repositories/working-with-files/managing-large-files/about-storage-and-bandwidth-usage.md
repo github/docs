@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 shortTitle: Storage & bandwidth
 ---
-{% data variables.large_files.product_name_short %} is available for every repository on {% data variables.product.product_name %}, whether or not your account or organization has a paid subscription.
+{% data variables.large_files.product_name_short %} is available for every repository on {% data variables.product.github %}, whether or not your account or organization has a paid subscription.
 
 ## Tracking storage and bandwidth use
 

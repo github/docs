@@ -19,7 +19,7 @@ shortTitle: Repository permissions
 
 Repositories owned by personal accounts have one owner. Ownership permissions can't be shared with another personal account.
 
-You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users on {% data variables.product.product_name %} to your repository as collaborators. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
+You can also {% ifversion fpt or ghec %}invite{% else %}add{% endif %} users to your repository as collaborators. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/inviting-collaborators-to-a-personal-repository).
 
 > [!TIP]
 > If you require more granular access to a repository owned by your personal account, consider transferring the repository to an organization. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository#transferring-a-repository-owned-by-your-personal-account).

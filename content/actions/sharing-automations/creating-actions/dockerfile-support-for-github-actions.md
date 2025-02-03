@@ -38,7 +38,7 @@ These are some best practices when setting the `FROM` argument:
 
 ### WORKDIR
 
-{% data variables.product.product_name %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.product_name %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables) and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
+{% data variables.product.github %} sets the working directory path in the `GITHUB_WORKSPACE` environment variable. It's recommended to not use the `WORKDIR` instruction in your `Dockerfile`. Before the action executes, {% data variables.product.github %} will mount the `GITHUB_WORKSPACE` directory on top of anything that was at that location in the Docker image and set `GITHUB_WORKSPACE` as the working directory. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables) and the [WORKDIR reference](https://docs.docker.com/engine/reference/builder/#workdir) in the Docker documentation.
 
 ### ENTRYPOINT
 
@@ -77,7 +77,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 #### Example _entrypoint.sh_ file
 
-Using the example Dockerfile above, {% data variables.product.product_name %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
+Using the example Dockerfile above, {% data variables.product.github %} will send the `args` configured in the action's metadata file as arguments to `entrypoint.sh`. Add the `#!/bin/sh` [shebang](https://en.wikipedia.org/wiki/Shebang_(Unix)) at the top of the `entrypoint.sh` file to explicitly use the system's [POSIX](https://en.wikipedia.org/wiki/POSIX)-compliant shell.
 
 ```shell
 #!/bin/sh

@@ -2,13 +2,11 @@ import fs from 'fs'
 import path from 'path'
 
 export class RewriteAssetPathsPlugin {
-  version: string
   tempDirectory: string
   localDev: boolean
   replaceUrl: string
 
-  constructor(version: string, tempDirectory: string, localDev: boolean, replaceUrl: string) {
-    this.version = version
+  constructor(tempDirectory: string, localDev: boolean, replaceUrl: string) {
     this.tempDirectory = tempDirectory
     this.localDev = localDev
     this.replaceUrl = replaceUrl
@@ -28,7 +26,7 @@ export class RewriteAssetPathsPlugin {
 
       // Rewrite HTML asset paths. Example:
       // ../assets/images/foo/bar.png ->
-      // https://githubdocs.azureedge.net/github-images/enterprise/2.17/assets/images/foo/bar.png
+      // https://github.github.com/docs-ghes-3.10/assets/images/foo/bar.png
 
       if (resource.isHtml()) {
         // Remove nextjs scripts and manifest.json link
@@ -42,8 +40,8 @@ export class RewriteAssetPathsPlugin {
           // Rewrite asset paths
           newBody = newBody.replace(
             /(?<attribute>src|href)="(?:\.\.\/|\/)*(?<basepath>_next\/static|javascripts|stylesheets|assets\/fonts|assets\/cb-\d+\/images|node_modules)/g,
-            (attribute: string, basepath: string) => {
-              const replaced = `${this.replaceUrl}/${this.version}/${basepath}`
+            (match: string, attribute: string, basepath: string) => {
+              const replaced = `${this.replaceUrl}/${basepath}`
               return `${attribute}="${replaced}`
             },
           )
@@ -52,15 +50,15 @@ export class RewriteAssetPathsPlugin {
 
       // Rewrite CSS asset paths. Example
       // url("../assets/fonts/alliance/alliance-no-1-regular.woff") ->
-      // url("https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/fonts/alliance/alliance-no-1-regular.woff")
+      // url("https://github.github.com/docs-ghes-3.10/assets/fonts/alliance/alliance-no-1-regular.woff")
       // url(../../../assets/cb-303/images/octicons/search-24.svg) ->
-      // url(https://githubdocs.azureedge.net/github-images/enterprise/2.20/assets/cb-303/images/octicons/search-24.svg)
+      // url(https://github.github.com/docs-ghes-3.10/assets/cb-303/images/octicons/search-24.svg)
       if (resource.isCss()) {
         if (!this.localDev) {
           newBody = newBody.replace(
             /(?<attribute>url)(?<paren>\("|\()(?:\.\.\/)*(?<basepath>_next\/static|assets\/fonts|assets\/images|assets\/cb-\d+\/images)/g,
-            (attribute: string, paren: string, basepath: string) => {
-              const replaced = `${this.replaceUrl}/${this.version}/${basepath}`
+            (match: string, attribute: string, paren: string, basepath: string) => {
+              const replaced = `${this.replaceUrl}/${basepath}`
               return `${attribute}${paren}${replaced}`
             },
           )

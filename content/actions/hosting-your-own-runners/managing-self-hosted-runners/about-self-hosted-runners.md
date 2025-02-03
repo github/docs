@@ -16,7 +16,7 @@ type: overview
 
 ## About self-hosted runners
 
-A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}. For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes %} and [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).{% endif %}
+A self-hosted runner is a system that you deploy and manage to execute jobs from {% data variables.product.prodname_actions %} on {% data variables.product.github %}. For more information about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghec or ghes %} and [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).{% endif %}
 
 {% data reusables.actions.self-hosted-runner-description %} {% data reusables.actions.self-hosted-runner-locations %}
 
@@ -53,14 +53,14 @@ For more information about installing and using self-hosted runners, see [AUTOTI
 * Are customizable to your hardware, operating system, software, and security requirements.
 * Don't need to have a clean instance for every job execution.
 * Are free to use with {% data variables.product.prodname_actions %}, but you are responsible for the cost of maintaining your runner machines.{% ifversion ghec or ghes %}
-* Can be organized into groups to restrict access to specific {% ifversion restrict-groups-to-workflows %}workflows, {% endif %}organizations and repositories. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
+* Can be organized into groups to restrict access to specific workflows, organizations, and repositories. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).{% endif %}
 
 ## Requirements for self-hosted runner machines
 
 You can use any machine as a self-hosted runner as long at it meets these requirements:
 
 * You can install and run the self-hosted runner application on the machine. For more information, see [Supported architectures and operating systems for self-hosted runners](#supported-architectures-and-operating-systems-for-self-hosted-runners).
-* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see [Communication between self-hosted runners and {% data variables.product.product_name %}](#communication-requirements).
+* The machine can communicate with {% data variables.product.prodname_actions %}. For more information, see [Communication between self-hosted runners and {% data variables.product.github %}](#communication-between-self-hosted-runners-and-github).
 * The machine has enough hardware resources for the type of workflows you plan to run. The self-hosted runner application itself only requires minimal resources.
 * If you want to run workflows that use Docker container actions or service containers, you must use a Linux machine and Docker must be installed.
 
@@ -131,9 +131,9 @@ Some extra configuration might be required to use actions from {% data variables
 
 <a name="communication-requirements"></a>
 
-## Communication between self-hosted runners and {% data variables.product.product_name %}
+## Communication between self-hosted runners and {% data variables.product.github %}
 
-The self-hosted runner connects to {% data variables.product.product_name %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.product_name %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
+The self-hosted runner connects to {% ifversion fpt or ghec %}{% data variables.product.github %}{% else %}{% data variables.location.product_location_enterprise %}{% endif %} to receive job assignments and to download new versions of the runner application. The self-hosted runner uses an {% ifversion ghes %}HTTP(S){% else %}HTTPS{% endif %} _long poll_ that opens a connection to {% data variables.product.github %} for 50 seconds, and if no response is received, it then times out and creates a new long poll. The application must be running on the machine to accept and run {% data variables.product.prodname_actions %} jobs.
 
 {% data reusables.actions.self-hosted-runner-ports-protocols %}
 

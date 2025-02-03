@@ -26,7 +26,7 @@ You can take part in a security campaign by fixing one or more of the alerts cho
 
 In addition to the benefit of removing an important security problem from your code, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
 
-* You have a contact on the security team to collaborate with.
+* You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
 * Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
 * You don't need to request a {% data variables.product.prodname_copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}

@@ -45,7 +45,7 @@ Here's an example of an HTTPS error you might receive:
 
 ### Check your Git version
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+There's no minimum Git version necessary to interact with {% data variables.product.github %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
 
 ### Ensure the remote is correct
 
@@ -115,7 +115,7 @@ Make sure that you have access to the repository in one of these ways:
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
+You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.github %}. You can check this by typing
 the following into the command line:
 
 ```shell

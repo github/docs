@@ -1276,6 +1276,9 @@ type AddedToProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the AddedToProjectEvent object
@@ -1291,11 +1294,17 @@ type AddedToProjectEvent implements Node {
   Project card referenced by this project event.
   """
   projectCard: ProjectCard
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Column name referenced by this project event.
   """
   projectColumnName: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -6916,6 +6925,9 @@ type ConvertedNoteToIssueEvent implements Node {
   Project card referenced by this project event.
   """
   projectCard: ProjectCard
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Column name referenced by this project event.
@@ -13206,6 +13218,11 @@ type Enterprise implements AnnouncementBannerI & Node {
   The URL-friendly identifier for the enterprise.
   """
   slug: String!
+
+  """
+  Identifies the date and time when the object was last updated.
+  """
+  updatedAt: DateTime!
 
   """
   The HTTP URL for this enterprise.
@@ -23186,6 +23203,9 @@ type MovedColumnsInProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the MovedColumnsInProjectEvent object
@@ -23196,6 +23216,9 @@ type MovedColumnsInProjectEvent implements Node {
   Column name the issue or pull request was moved from.
   """
   previousProjectColumnName: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Project referenced by event.
@@ -23206,11 +23229,17 @@ type MovedColumnsInProjectEvent implements Node {
   Project card referenced by this project event.
   """
   projectCard: ProjectCard
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Column name the issue or pull request was moved to.
   """
   projectColumnName: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -23356,6 +23385,9 @@ type Mutation {
     """
     input: AddProjectCardInput!
   ): AddProjectCardPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Adds a column to a Project.
@@ -23366,6 +23398,9 @@ type Mutation {
     """
     input: AddProjectColumnInput!
   ): AddProjectColumnPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Creates a new draft issue and add it to a Project.
@@ -23588,6 +23623,9 @@ type Mutation {
     """
     input: CloneProjectInput!
   ): CloneProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Create a new repository with the same files and directory structure as a template repository.
@@ -23638,6 +23676,9 @@ type Mutation {
     """
     input: ConvertProjectCardNoteToIssueInput!
   ): ConvertProjectCardNoteToIssuePayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Converts a projectV2 draft issue item to an issue.
@@ -23874,6 +23915,9 @@ type Mutation {
     """
     input: CreateProjectInput!
   ): CreateProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Creates a new project.
@@ -24145,6 +24189,9 @@ type Mutation {
     """
     input: DeleteProjectInput!
   ): DeleteProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Deletes a project card.
@@ -24155,6 +24202,9 @@ type Mutation {
     """
     input: DeleteProjectCardInput!
   ): DeleteProjectCardPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Deletes a project column.
@@ -24165,6 +24215,9 @@ type Mutation {
     """
     input: DeleteProjectColumnInput!
   ): DeleteProjectColumnPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Delete a project.
@@ -24405,6 +24458,9 @@ type Mutation {
     """
     input: ImportProjectInput!
   ): ImportProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Invite someone to become an administrator of the enterprise.
@@ -24455,6 +24511,9 @@ type Mutation {
     """
     input: LinkRepositoryToProjectInput!
   ): LinkRepositoryToProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Lock a lockable object
@@ -24545,6 +24604,9 @@ type Mutation {
     """
     input: MoveProjectCardInput!
   ): MoveProjectCardPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Moves a project column to another place.
@@ -24555,6 +24617,9 @@ type Mutation {
     """
     input: MoveProjectColumnInput!
   ): MoveProjectColumnPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Pin an environment to a repository
@@ -25016,6 +25081,9 @@ type Mutation {
     """
     input: UnlinkRepositoryFromProjectInput!
   ): UnlinkRepositoryFromProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Unlock a lockable object
@@ -25459,6 +25527,9 @@ type Mutation {
     """
     input: UpdateProjectInput!
   ): UpdateProjectPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Updates an existing project card.
@@ -25469,6 +25540,9 @@ type Mutation {
     """
     input: UpdateProjectCardInput!
   ): UpdateProjectCardPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Updates an existing project column.
@@ -25479,6 +25553,9 @@ type Mutation {
     """
     input: UpdateProjectColumnInput!
   ): UpdateProjectColumnPayload
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Updates an existing project.
@@ -30005,6 +30082,9 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
     """
     number: Int!
   ): Project
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Find a project by number.
@@ -30055,6 +30135,9 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
     """
     states: [ProjectState!]
   ): ProjectConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path listing organization's projects
@@ -33301,11 +33384,17 @@ type Project implements Closable & Node & Updatable {
   The project's description body.
   """
   body: String
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The projects description body rendered to HTML.
   """
   bodyHTML: HTML!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Indicates if the object is closed (definition of closed may depend on type)
@@ -33341,41 +33430,65 @@ type Project implements Closable & Node & Updatable {
     """
     last: Int
   ): ProjectColumnConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The actor who originally created the project.
   """
   creator: Actor
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the Project object
   """
   id: ID!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project's name.
   """
   name: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project's number.
   """
   number: Int!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project's owner. Currently limited to repositories, organizations, and users.
   """
   owner: ProjectOwner!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   List of pending cards in this project
@@ -33406,31 +33519,49 @@ type Project implements Closable & Node & Updatable {
     """
     last: Int
   ): ProjectCardConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Project progress details.
   """
   progress: ProjectProgress!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path for this project
   """
   resourcePath: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Whether the project is open or closed.
   """
   state: ProjectState!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP URL for this project
   """
   url: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Indicates if the object can be closed by the viewer.
@@ -33459,66 +33590,105 @@ type ProjectCard implements Node {
   associated with a column, they will not become pending in the future.
   """
   column: ProjectColumn
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The card content item
   """
   content: ProjectCardItem
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The actor who created this card
   """
   creator: Actor
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the ProjectCard object
   """
   id: ID!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Whether the card is archived
   """
   isArchived: Boolean!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The card note
   """
   note: String
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project that contains this card.
   """
   project: Project!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path for this card
   """
   resourcePath: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The state of ProjectCard
   """
   state: ProjectCardState
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP URL for this card
   """
   url: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -33649,51 +33819,81 @@ type ProjectColumn implements Node {
     """
     last: Int
   ): ProjectCardConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the ProjectColumn object
   """
   id: ID!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project column's name.
   """
   name: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The project that contains this column.
   """
   project: Project!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The semantic purpose of the column
   """
   purpose: ProjectColumnPurpose
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path for this project column
   """
   resourcePath: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Identifies the date and time when the object was last updated.
   """
   updatedAt: DateTime!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP URL for this project column
   """
   url: URI!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -33869,6 +34069,9 @@ interface ProjectOwner {
     """
     number: Int!
   ): Project
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   A list of projects under the owner.
@@ -33909,6 +34112,9 @@ interface ProjectOwner {
     """
     states: [ProjectState!]
   ): ProjectConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path listing owners projects
@@ -33934,36 +34140,57 @@ type ProjectProgress {
   The number of done cards.
   """
   doneCount: Int!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The percentage of done cards.
   """
   donePercentage: Float!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Whether progress tracking is enabled and cards with purpose exist for this project
   """
   enabled: Boolean!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The number of in-progress cards.
   """
   inProgressCount: Int!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The percentage of in-progress cards.
   """
   inProgressPercentage: Float!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The number of to do cards.
   """
   todoCount: Int!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The percentage of to do cards.
   """
   todoPercentage: Float!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -34724,6 +34951,11 @@ enum ProjectV2FieldType {
   NUMBER
 
   """
+  Parent issue
+  """
+  PARENT_ISSUE
+
+  """
   Repository
   """
   REPOSITORY
@@ -34737,6 +34969,11 @@ enum ProjectV2FieldType {
   Single Select
   """
   SINGLE_SELECT
+
+  """
+  Sub-issues progress
+  """
+  SUB_ISSUES_PROGRESS
 
   """
   Text
@@ -42574,6 +42811,9 @@ type RemovedFromProjectEvent implements Node {
   Identifies the primary key from the database.
   """
   databaseId: Int
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The Node ID of the RemovedFromProjectEvent object
@@ -42589,6 +42829,9 @@ type RemovedFromProjectEvent implements Node {
   Column name referenced by this project event.
   """
   projectColumnName: String!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 }
 
 """
@@ -46302,6 +46545,9 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     number: Int!
   ): Project
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Finds and returns the Project according to the provided Project number.
@@ -46352,6 +46598,9 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     """
     states: [ProjectState!]
   ): ProjectConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path listing the repository's projects
@@ -62548,6 +62797,9 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     number: Int!
   ): Project
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   Find a project by number.
@@ -62598,6 +62850,9 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     """
     states: [ProjectState!]
   ): ProjectConnection!
+    @deprecated(
+      reason: "Projects (classic) is being deprecated in favor of the new Projects experience, see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/. Removal on 2025-04-01 UTC."
+    )
 
   """
   The HTTP path listing user's projects

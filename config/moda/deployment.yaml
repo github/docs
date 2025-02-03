@@ -23,13 +23,9 @@ pipelines:
     stages:
       - name: full_production
         kind: deployment
-        start_message: We are now going to deploy {{app}}/{{ref}}! Please pause or cancel the pipeline after the deploy if you want more time before auto-merging your pull request(s).
         config:
           environment: production
           timeout: 1200
-        # gates:
-        #   - kind: timer
-        #     duration: 1200
 
 notifications:
   slack_channels:

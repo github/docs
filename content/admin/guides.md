@@ -1,7 +1,7 @@
 ---
 title: Guides for GitHub Enterprise
 shortTitle: Guides
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.prodname_enterprise %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:

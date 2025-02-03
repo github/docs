@@ -26,7 +26,7 @@ People with admin permissions for a repository can configure a custom domain for
 
 {% data reusables.pages.custom-domain-warning %}
 
-Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.product_name %} could result in someone else being able to host a site on one of your subdomains.
+Make sure you add your custom domain to your {% data variables.product.prodname_pages %} site before configuring your custom domain with your DNS provider. Configuring your custom domain with your DNS provider without adding your custom domain to {% data variables.product.github %} could result in someone else being able to host a site on one of your subdomains.
 
 {% windows %}
 
@@ -139,7 +139,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 
 ## DNS records for your custom domain
 
-If you are familiar with the process of configuring your domain for a {% data variables.product.prodname_pages %} site, you can use the table below to find the DNS values for your specific scenario and the DNS record types that your DNS provider supports. For more information, including how to configure your {% data variables.product.prodname_pages %} site on {% data variables.product.product_name %} and how to verify the configuration using the `dig` command, refer to the sections above.
+If you are familiar with the process of configuring your domain for a {% data variables.product.prodname_pages %} site, you can use the table below to find the DNS values for your specific scenario and the DNS record types that your DNS provider supports. For more information, including how to configure your {% data variables.product.prodname_pages %} site on {% data variables.product.github %} and how to verify the configuration using the `dig` command, refer to the sections above.
 
 To configure an apex domain, you only need to pick a single DNS record type from the table below. To configure an apex domain and `www` subdomain (for example, `example.com` and `www.example.com`), configure the apex domain and then the subdomain. For more information, see [Configuring an apex domain and the `www` subdomain variant](#configuring-an-apex-domain-and-the-www-subdomain-variant).
 
@@ -161,7 +161,7 @@ If you get an error about a custom domain being taken, you may need to remove th
 {% data reusables.pages.sidebar-pages %}
 1. Under "Custom domain," click **Remove**.
 
-   ![Screenshot of a settings box to save or remove a custom domain on {% data variables.product.prodname_pages %} . To the right of a text box reading "example.com" is a button labeled "Remove" in red type.](/assets/images/help/pages/remove-custom-domain.png)
+   ![Screenshot of a custom domain. To the right of a text box reading "example.com", and a "Save" button, is a button labeled "Remove" in red type.](/assets/images/help/pages/remove-custom-domain.png)
 
 ## Securing your custom domain
 

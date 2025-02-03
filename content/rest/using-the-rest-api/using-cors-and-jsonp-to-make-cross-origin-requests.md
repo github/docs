@@ -43,7 +43,7 @@ Access-Control-Max-Age: 86400
 ## JSON-P callbacks
 
 You can send a `?callback` parameter to any GET call to have the results
-wrapped in a JSON function. This is typically used when browsers want to embed {% data variables.product.product_name %} content in web pages and avoid cross-domain problems. The response includes the same data output as the regular API, plus the relevant HTTP Header information.
+wrapped in a JSON function. This is typically used when browsers want to embed {% data variables.product.github %} content in web pages and avoid cross-domain problems. The response includes the same data output as the regular API, plus the relevant HTTP Header information.
 
 ```shell
 $ curl {% data variables.product.rest_url %}?callback=foo

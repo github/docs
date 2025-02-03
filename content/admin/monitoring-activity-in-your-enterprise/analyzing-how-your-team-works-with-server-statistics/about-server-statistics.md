@@ -2,7 +2,7 @@
 title: About Server Statistics
 intro: 'You can use {% data variables.product.prodname_server_statistics %} to analyze your own aggregate data from {% data variables.product.prodname_ghe_server %}, and help us improve {% data variables.product.company_short %} products.'
 versions:
-  feature: server-statistics
+  ghes: '*'
 permissions: 'Enterprise owners can enable {% data variables.product.prodname_server_statistics %}.'
 redirect_from:
   - /early-access/github/analyze-how-your-team-works-with-server-statistics/about-server-statistics
@@ -58,7 +58,7 @@ The following aggregate metrics will be collected and transmitted on a daily bas
 | B | `host_name` | The hostname for your instance |
 | C | `dormant_users.dormancy_threshold` | The length of time a user must be inactive to be considered dormant |
 | D | `dormant_users.total_dormant_users` | Number of dormant user accounts |
-| E | `ghes_version` | The version of {% data variables.product.product_name %} that your instance is running |
+| E | `ghes_version` | The version of {% data variables.product.prodname_ghe_server %} that your instance is running |
 | F | `server_id` | The UUID generated for your instance
 | G | `collection_date` | The date the metrics were collected |
 | H | `schema_version` | The version of the database schema used to store this data |

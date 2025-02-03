@@ -133,13 +133,13 @@ git clone git@{% ifversion fpt or ghec %}github.com{% else %}my-GHE-hostname.com
 
 If your server needs to access repositories across one or more organizations, you can use a {% data variables.product.prodname_github_app %} to define the access you need, and then generate _tightly-scoped_, installation access tokens from that {% data variables.product.prodname_github_app %}. The installation access tokens can be scoped to single or multiple repositories, and can have fine-grained permissions. For example, you can generate a token with read-only access to a repository's contents.
 
-Since {% data variables.product.prodname_github_apps %} are a first class actor on {% data variables.product.product_name %}, the installation access tokens are decoupled from any {% data variables.product.prodname_dotcom %} user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps).
+Since {% data variables.product.prodname_github_apps %} are a first class actor on {% data variables.product.github %}, the installation access tokens are decoupled from any {% data variables.product.github %} user, which makes them comparable to "service tokens". Additionally, installation access tokens have dedicated rate limits that scale with the size of the organizations that they act upon. For more information, see [Rate limits for {% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps).
 
 ### Pros of installation access tokens
 
 * Tightly-scoped tokens with well-defined permission sets and expiration times (1 hour, or less if revoked manually using the API)
 * Dedicated rate limits that grow with your organization
-* Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any licensed seats
+* Decoupled from {% data variables.product.prodname_dotcom %} user identities, so they do not consume any {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}
 * Never granted a password, so cannot be directly signed in to
 
 ### Cons of installation access tokens

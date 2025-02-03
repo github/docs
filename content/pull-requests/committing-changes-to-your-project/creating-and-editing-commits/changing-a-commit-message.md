@@ -5,7 +5,7 @@ redirect_from:
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
+intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.github %}. You can also change a commit message to add missing information.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -110,7 +110,7 @@ For more information on interactive rebase, see [Interactive mode](https://git-s
 > As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
 
 > [!WARNING]
-> If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
+> If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.github %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.github %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
 
 ## Further reading
 

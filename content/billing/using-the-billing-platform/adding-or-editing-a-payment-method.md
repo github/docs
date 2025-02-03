@@ -54,7 +54,7 @@ You can update your personal account's payment method at any time.
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
-If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.product_name %}, PayPal could be a helpful method of payment.
+If your organization is outside of the US or if you're using a corporate checking account to pay for {% data variables.product.github %}, PayPal could be a helpful method of payment.
 
 {% data reusables.organizations.billing-settings %}
 {% data reusables.dotcom_billing.update_payment_method_organization_account %}

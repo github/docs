@@ -53,9 +53,9 @@ After you configure authentication and provisioning with your IdP, grant one or 
 
 You can also grant the billing manager role. A billing manager can view the assigned licenses for an enterprise, but cannot assign licenses or manage enterprise teams.
 
-## Linking an Azure subscription
+## Adding a payment method
 
-{% data reusables.copilot-business-for-non-ghe.link-azure-subscription %}
+{% data reusables.copilot-business-for-non-ghe.add-payment-method %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for the enterprise
 

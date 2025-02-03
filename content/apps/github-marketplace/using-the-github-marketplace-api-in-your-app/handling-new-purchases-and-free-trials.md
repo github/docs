@@ -28,7 +28,7 @@ Before a customer purchases your {% data variables.product.prodname_marketplace 
 
 The customer completes the purchase by clicking **Complete order and begin installation**.
 
-{% data variables.product.product_name %} then sends the [`marketplace_purchase`](/webhooks/webhook-events-and-payloads#marketplace_purchase) webhook with the `purchased` action to your app.
+{% data variables.product.github %} then sends the [`marketplace_purchase`](/webhooks/webhook-events-and-payloads#marketplace_purchase) webhook with the `purchased` action to your app.
 
 Read the `effective_date` and `marketplace_purchase` object from the `marketplace_purchase` webhook to determine which plan the customer purchased, when the billing cycle starts, and when the next billing cycle begins.
 
@@ -38,24 +38,24 @@ See [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-you
 
 ## Step 2. Installation
 
-If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.product_name %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.product_name %} then installs the app on the account the customer selected and grants access to the selected repositories.
+If your app is a {% data variables.product.prodname_github_app %}, {% data variables.product.github %} prompts the customer to select which repositories the app can access when they purchase it. {% data variables.product.github %} then installs the app on the account the customer selected and grants access to the selected repositories.
 
-At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.product_name %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
+At this point, if you specified a **Setup URL** in your {% data variables.product.prodname_github_app %} settings, {% data variables.product.github %} will redirect the customer to that URL. If you do not specify a setup URL, you will not be able to handle purchases of your {% data variables.product.prodname_github_app %}.
 
 > [!NOTE]
 > The **Setup URL** is described as optional in {% data variables.product.prodname_github_app %} settings, but it is a required field if you want to offer your app in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/about-the-setup-url).
 
-If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} does not install it anywhere. Instead, {% data variables.product.product_name %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#listing-urls).
+If your app is an {% data variables.product.prodname_oauth_app %}, {% data variables.product.github %} does not install it anywhere. Instead, {% data variables.product.github %} redirects the customer to the **Installation URL** you specified in your [{% data variables.product.prodname_marketplace %} listing](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app#listing-urls).
 
-When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.product_name %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
+When a customer purchases an {% data variables.product.prodname_oauth_app %}, {% data variables.product.github %} redirects the customer to the URL you choose (either Setup URL or Installation URL) and the URL includes the customer's selected pricing plan as a query parameter: `marketplace_listing_plan_id`.
 
 ## Step 3. Authorization
 
 When a customer purchases your app, you must send the customer through the OAuth authorization flow:
 
-* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Setup URL**. Follow the steps in [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
+* If your app is a {% data variables.product.prodname_github_app %}, begin the authorization flow as soon as {% data variables.product.github %} redirects the customer to the **Setup URL**. Follow the steps in [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.product_name %} redirects the customer to the **Installation URL**. Follow the steps in [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
+* If your app is an {% data variables.product.prodname_oauth_app %}, begin the authorization flow as soon as {% data variables.product.github %} redirects the customer to the **Installation URL**. Follow the steps in [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
 
 For either type of app, the first step is to redirect the customer to [https://github.com/login/oauth/authorize](https://github.com/login/oauth/authorize).
 

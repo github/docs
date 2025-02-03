@@ -52,7 +52,7 @@ router.post(
 
     // Validate the data matches the corresponding data schema
     const validate = validators[type]
-    if (!validate(req.body)) {
+    if (!validate(body)) {
       // This protects so we don't bother sending the same validation
       // error, per user, more than once (per time interval).
       // This helps if we're bombarded with junk bot traffic. So it
@@ -83,6 +83,10 @@ router.post(
       })
       body.survey_comment_language = await getGuessedLanguage(body.survey_comment)
     }
+
+    // Add dotcom_user to the context if it's available
+    // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
+    body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
 
     await publish({
       schema: hydroNames[type],
