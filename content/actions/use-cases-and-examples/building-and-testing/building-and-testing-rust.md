@@ -2,11 +2,13 @@
 title: Building and testing Rust
 intro: You can create a continuous integration (CI) workflow to build and test your Rust project.
 versions:
+  fpt: '*'
   ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - CI
-shortTitle: Build, test & Publish with Rust
+shortTitle: Build & test Rust
 ---
 <!-- {% data reusables.actions.enterprise-github-hosted-runners %}-->
 
@@ -59,7 +61,7 @@ At the time of writing, the default rust compiler version is 1.83.0 rustup is av
 You can cache and restore dependencies using the following example below. Note that you will need to have Cargo.lock in your repository to cache dependencies.
 
 ```yaml copy
-      - name: ⚡ Cache
+      - name: Cache
       - uses: {% data reusables.actions.action-cache %}
         with:
           path: |
