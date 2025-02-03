@@ -5,5 +5,6 @@ versions:
   fpt: '*'
 children:
   - /reusing-other-peoples-code-in-your-projects
+  - /learning-to-debug-with-github-copilot
 shortTitle: Learn to code
 ---
