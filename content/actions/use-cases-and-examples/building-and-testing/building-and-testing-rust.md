@@ -10,13 +10,14 @@ topics:
   - CI
 shortTitle: Build & test Rust
 ---
-<!-- {% data reusables.actions.enterprise-github-hosted-runners %}-->
+
+{% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
 
 This guide shows you how to build, test, and publish a Rust package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Rust. For a full list of up-to-date software and the preinstalled versions of Rust, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with preinstalled software, which includes the dependencies for Rust. For a full list of up-to-date software and the preinstalled versions of Rust, see [AUTOTITLE](/actions/using-github-hosted-runners/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
 
 ## Prerequisites
 
@@ -38,6 +39,37 @@ We recommend that you have a basic understanding of the Rust language. For more 
 1. On the "Rust - by {% data variables.product.prodname_actions %}" workflow, click **Configure**.
 
    ![Screenshot of the "Choose a workflow" page. The "Configure" button on the "Rust" workflow is highlighted with an orange outline.](/assets/images/help/actions/starter-workflow-rust.png)
+
+{%- ifversion ghes %}
+   If you don't find the "Rust - by {% data variables.product.prodname_actions %}" workflow template, copy the following workflow code to a new file called `rust.yml` in the `.github/workflows` directory of your repository.
+
+   ```yaml copy
+   name: Rust
+
+   on:
+     push:
+       branches: [ "main" ]
+     pull_request:
+       branches: [ "main" ]
+
+   env:
+     CARGO_TERM_COLOR: always
+
+   jobs:
+     build:
+
+       runs-on: ubuntu-latest
+
+       steps:
+       - uses: {% data reusables.actions.action-checkout %}
+       - name: Build
+         run: cargo build --verbose
+       - name: Run tests
+         run: cargo test --verbose
+   ```
+
+{%- endif %}
+
 1. Edit the workflow as required. For example, change the version of Rust.
 1. Click **Commit changes**.
 
@@ -47,7 +79,7 @@ We recommend that you have a basic understanding of the Rust language. For more 
 
 ## Specifying a Rust version
 
-At the time of writing, the default rust compiler version is 1.83.0 rustup is available and can be used to install additional toolchains.
+{% data variables.product.prodname_dotcom %}-hosted runners include a recent version of the rustup rust compiler. You can use rustup to report on the version installed on a runner, override the version, and to install additional toolchains. For more information, see [The rustup book](https://rust-lang.github.io/rustup/).
 
 ```yaml copy
       - name: Temporarily modify the rust toolchain version
@@ -58,7 +90,7 @@ At the time of writing, the default rust compiler version is 1.83.0 rustup is av
 
 ### Caching dependencies
 
-You can cache and restore dependencies using the following example below. Note that you will need to have Cargo.lock in your repository to cache dependencies.
+You can cache and restore dependencies using the Cache action. This example assumes that your repository contains a `Cargo.lock` file.
 
 ```yaml copy
       - name: Cache
@@ -71,7 +103,7 @@ You can cache and restore dependencies using the following example below. Note t
           key: {% raw %}${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}{% endraw %}
 ```
 
-If you have a custom requirement or need finer controls for caching, you can take a look at the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
+If you have custom requirements or need finer controls for caching, you should explore other configuration options for the [`cache` action](https://github.com/marketplace/actions/cache). For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ## Building and testing your code
 
@@ -85,51 +117,24 @@ jobs:
       matrix:
         BUILD_TARGET: [release] # refers to a cargo profile
     outputs:
-      release_built: ${{ steps.set-output.outputs.release_built }}
+      release_built: {% raw %}${{ steps.set-output.outputs.release_built }}{% endraw %}
     steps:
       - uses: {% data reusables.actions.action-checkout %}
-      - name: Build binaries in "${{ matrix.BUILD_TARGET }}" mode
-        run: cargo build --profile ${{ matrix.BUILD_TARGET }}
-      - name: Run tests in "${{ matrix.BUILD_TARGET }}" mode
-        run: cargo test --profile ${{ matrix.BUILD_TARGET }}
+      - name: Build binaries in "{% raw %}${{ matrix.BUILD_TARGET }}{% endraw %}" mode
+        run: cargo build --profile ${% raw %}{{ matrix.BUILD_TARGET }}{% endraw %}
+      - name: Run tests in "${% raw %}{{ matrix.BUILD_TARGET }}{% endraw %}" mode
+        run: cargo test --profile ${% raw %}{{ matrix.BUILD_TARGET }}{% endraw %}
 ```
 
-Note that the `release` keyword used above, corresponds to a cargo profile. You can use any [profile](https://doc.rust-lang.org/cargo/reference/profiles.html) you have defined in your `Cargo.toml` file.
-
-## Uploading and publishing artifacts
-
-In case publishing artifacts is needed, but not to crates.io, the following example demonstrates how to upload artifacts to the workflow run:
-
-```yaml copy
-      - name: Upload hello app
-        uses: {% data reusables.actions.action-upload-artifact %}
-        with:
-          name: cndk8-hello
-          path: target/${{ matrix.BUILD_TARGET }}/cndk8
-```
-
-And to use them on a different job, i.e publishing as a github release, check [AUTOTITLE](/actions/security-for-github-actions/security-guides/automatic-token-authentication) to ensure your workflows have the right permissions on the repository.
-
-```yaml copy
-      - uses: {% data reusables.actions.action-checkout %}
-      - name: Download hello app
-        uses: {% data reusables.actions.action-download-artifact %}
-        with:
-          name: cndk8-hello
-          path: ./cndk8-hello
-      - name: Publish hello app binary as a release on GitHub
-      - run: |
-          gh release create v0.1.0 --generate-notes
-          gh release upload v0.1.0 ./cndk8-hello/cndk8#my-cndk8-hello-app
-```
+The `release` keyword used in this example corresponds to a cargo profile. You can use any [profile](https://doc.rust-lang.org/cargo/reference/profiles.html) you have defined in your `Cargo.toml` file.
 
 ## Publishing your package or library to crates.io
 
-Once you have setup your workflow to build and test your code, you can alternatively use a secret to login to crates.io and publish your package.
+Once you have setup your workflow to build and test your code, you can use a secret to login to [crates.io](https://crates.io/) and publish your package.
 
 ```yaml copy
-      - name: login into crates.io
-        run: cargo login ${{ secrets.CRATES_IO }}
+      - name: Login into crates.io
+        run: cargo login {% raw %}${{ secrets.CRATES_IO }}{% endraw %}
       - name: Build binaries in "release" mode
         run: cargo build -r
       - name: "Package for crates.io"
@@ -138,5 +143,31 @@ Once you have setup your workflow to build and test your code, you can alternati
         run: cargo publish # publishes your crate as a library that can be added as a dependency
 ```
 
-As an example of how packages are published, see the [cndk8 0.1.0](https://crates.io/crates/cndk8/0.1.0). In the case that there are errors with Metadata check
-your [manifest](https://doc.rust-lang.org/cargo/reference/manifest.html) Cargo.toml, when its about dirty directory check your Cargo.lock, and read the corresponding documentation.
+If there are any errors building and packaging the crate, check the metadata in your manifest, `Cargo.toml` file, see [The Manifest Format](https://doc.rust-lang.org/cargo/reference/manifest.html). You should also check your `Cargo.lock` file, see [Cargo.toml vs Cargo.lock](https://doc.rust-lang.org/cargo/guide/cargo-toml-vs-cargo-lock.html).
+
+## Packaging workflow data as artifacts
+
+After a workflow completes, you can upload the resulting artifacts for analysis or to use in another workflow. You could add these example steps to the workflow to upload an application for use by another workflow.
+
+```yaml copy
+      - name: Upload {% raw %}<my-app>{% endraw %}
+        uses: {% data reusables.actions.action-upload-artifact %}
+        with:
+          name: {% raw %}<my-app>{% endraw %}
+          path: {% raw %}target/${{ matrix.BUILD_TARGET }}/<my-app>{% endraw %}
+```
+
+To use the uploaded artifact in a different job, ensure your workflows have the right permissions for the repository, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/automatic-token-authentication). You could use these example steps to download the app created in the previous workflow and publish it on {% data variables.product.github %}.
+
+```yaml copy
+      - uses: {% data reusables.actions.action-checkout %}
+      - name: Download {% raw %}<my-app>{% endraw %}
+        uses: {% data reusables.actions.action-download-artifact %}
+        with:
+          name: {% raw %}<my-app>{% endraw %}
+          path: ./{% raw %}<my-app>{% endraw %}
+      - name: Publish {% raw %}<my-app>{% endraw %} binary as a release on {% data variables.product.github %}
+      - run: |
+          gh release create v0.1.0 --generate-notes
+          gh release upload v0.1.0 ./{% raw %}<my-app>/<my-project>#<my-app>{% endraw %}
+```
