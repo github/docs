@@ -1,4 +1,4 @@
-The {% data variables.product.product_name %} REST API is versioned. The API version name is based on the date when the API version was released. For example, the API version `{{ initialRestVersioningReleaseDate }}` was released on {{ initialRestVersioningReleaseDateLong }}.
+The {% data variables.product.github %} REST API is versioned. The API version name is based on the date when the API version was released. For example, the API version `{{ initialRestVersioningReleaseDate }}` was released on {{ initialRestVersioningReleaseDateLong }}.
 
 Any breaking changes will be released in a new API version. Breaking changes are changes that can potentially break an integration. Breaking changes include:
 

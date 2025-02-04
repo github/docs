@@ -20,7 +20,9 @@ shortTitle: Contribute to open source
 ---
 ## Discovering relevant projects
 
-If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic).
+If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. See [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic).
+
+If you're interested in contributing to projects that **reduce the carbon emissions of software**, review [{% data variables.product.github %}'s Green Software Directory](https://github.com/github/GreenSoftwareDirectory).
 
 If you've been active on {% data variables.product.prodname_dotcom %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore).
 

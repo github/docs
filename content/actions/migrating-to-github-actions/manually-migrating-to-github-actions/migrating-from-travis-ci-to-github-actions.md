@@ -45,7 +45,7 @@ Travis CI and {% data variables.product.prodname_actions %} both use YAML to cre
 
 ### Custom variables
 
-Travis CI lets you set variables and share them between stages. Similarly, {% data variables.product.prodname_actions %} lets you define variables for a workflows. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
+Travis CI lets you set variables and share them between stages. Similarly, {% data variables.product.prodname_actions %} lets you define variables for a workflow. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
 
 ### Default variables
 

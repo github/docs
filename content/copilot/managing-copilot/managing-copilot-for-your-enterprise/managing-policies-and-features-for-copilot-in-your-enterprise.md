@@ -34,7 +34,7 @@ You can configure any of the following policies for your enterprise:
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
 * [{% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}](#copilot-access-to-claude-35-sonnet)
-* [{% data variables.product.prodname_copilot_short %} access to the o1 family of models](#copilot-access-to-the-o1-family-of-models)
+* [{% data variables.product.prodname_copilot_short %} access to the o1 and o3 families of models](#copilot-access-to-the-o1-and-o3-families-of-models)
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -81,16 +81,19 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. See [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
 
-### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
+### {% data variables.product.prodname_copilot_short %} access to the o1 and o3 families of models
 
 {% data reusables.models.o1-models-preview-note %}
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 or o3 models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
 
-The o1 family of models includes three models:
+The o1 family of models includes the following models:
 
 * `o1`/`o1-preview`: These models are focused on advanced reasoning and solving complex problems, in particular in math and science. They respond more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to each of these models per day.
-* `o1-mini`: This is the faster version of the `o1` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
+
+The o3 family of models includes one model:
+
+* `o3-mini`: This is the next generation of reasoning models, following from `o1` and `o1-mini`. The `o3-mini` model outperforms `o1` on coding benchmarks with response times that are comparable to `o1-mini`, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours.
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

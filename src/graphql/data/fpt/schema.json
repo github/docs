@@ -1417,6 +1417,8 @@
       "id": "addprojectcard",
       "href": "/graphql/reference/mutations#addprojectcard",
       "description": "<p>Adds a card to a ProjectColumn. Either <code>contentId</code> or <code>note</code> must be provided but <strong>not</strong> both.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -1459,6 +1461,8 @@
       "id": "addprojectcolumn",
       "href": "/graphql/reference/mutations#addprojectcolumn",
       "description": "<p>Adds a column to a Project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -2271,6 +2275,8 @@
       "id": "cloneproject",
       "href": "/graphql/reference/mutations#cloneproject",
       "description": "<p>Creates a new project by cloning configuration from an existing project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -2449,6 +2455,8 @@
       "id": "convertprojectcardnotetoissue",
       "href": "/graphql/reference/mutations#convertprojectcardnotetoissue",
       "description": "<p>Convert a project note card to one associated with a newly created issue.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -3143,6 +3151,8 @@
       "id": "createproject",
       "href": "/graphql/reference/mutations#createproject",
       "description": "<p>Creates a new project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4035,6 +4045,8 @@
       "id": "deleteproject",
       "href": "/graphql/reference/mutations#deleteproject",
       "description": "<p>Deletes a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4069,6 +4081,8 @@
       "id": "deleteprojectcard",
       "href": "/graphql/reference/mutations#deleteprojectcard",
       "description": "<p>Deletes a project card.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4111,6 +4125,8 @@
       "id": "deleteprojectcolumn",
       "href": "/graphql/reference/mutations#deleteprojectcolumn",
       "description": "<p>Deletes a project column.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -4943,6 +4959,8 @@
       "id": "importproject",
       "href": "/graphql/reference/mutations#importproject",
       "description": "<p>Creates a new project by importing columns and a list of issues/PRs.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5113,6 +5131,8 @@
       "id": "linkrepositorytoproject",
       "href": "/graphql/reference/mutations#linkrepositorytoproject",
       "description": "<p>Creates a repository link for a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5443,6 +5463,8 @@
       "id": "moveprojectcard",
       "href": "/graphql/reference/mutations#moveprojectcard",
       "description": "<p>Moves a project card to another place.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -5477,6 +5499,8 @@
       "id": "moveprojectcolumn",
       "href": "/graphql/reference/mutations#moveprojectcolumn",
       "description": "<p>Moves a project column to another place.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -7153,6 +7177,8 @@
       "id": "unlinkrepositoryfromproject",
       "href": "/graphql/reference/mutations#unlinkrepositoryfromproject",
       "description": "<p>Deletes a repository link from a project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8825,6 +8851,8 @@
       "id": "updateproject",
       "href": "/graphql/reference/mutations#updateproject",
       "description": "<p>Updates an existing project.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8859,6 +8887,8 @@
       "id": "updateprojectcard",
       "href": "/graphql/reference/mutations#updateprojectcard",
       "description": "<p>Updates an existing project card.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -8893,6 +8923,8 @@
       "id": "updateprojectcolumn",
       "href": "/graphql/reference/mutations#updateprojectcolumn",
       "description": "<p>Updates an existing project column.</p>",
+      "isDeprecated": true,
+      "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>",
       "inputFields": [
         {
           "name": "input",
@@ -9996,7 +10028,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -10020,7 +10054,9 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard"
+          "href": "/graphql/reference/objects#projectcard",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectColumnName",
@@ -10028,7 +10064,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -16734,7 +16772,9 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard"
+          "href": "/graphql/reference/objects#projectcard",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectColumnName",
@@ -34451,7 +34491,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -34467,7 +34509,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -34483,7 +34527,9 @@
           "type": "ProjectCard",
           "id": "projectcard",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcard"
+          "href": "/graphql/reference/objects#projectcard",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectColumnName",
@@ -34491,7 +34537,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -41447,7 +41495,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -41547,7 +41597,9 @@
                 "href": "/graphql/reference/enums#projectstate"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -45927,7 +45979,9 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "bodyHTML",
@@ -45935,7 +45989,9 @@
           "type": "HTML!",
           "id": "html",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#html"
+          "href": "/graphql/reference/scalars#html",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "closed",
@@ -46001,7 +46057,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -46009,7 +46067,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "creator",
@@ -46017,7 +46077,9 @@
           "type": "Actor",
           "id": "actor",
           "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#actor"
+          "href": "/graphql/reference/interfaces#actor",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -46025,7 +46087,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -46033,7 +46097,9 @@
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "name",
@@ -46041,7 +46107,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "number",
@@ -46049,7 +46117,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "owner",
@@ -46057,7 +46127,9 @@
           "type": "ProjectOwner!",
           "id": "projectowner",
           "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#projectowner"
+          "href": "/graphql/reference/interfaces#projectowner",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "pendingCards",
@@ -46117,7 +46189,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "progress",
@@ -46125,7 +46199,9 @@
           "type": "ProjectProgress!",
           "id": "projectprogress",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectprogress"
+          "href": "/graphql/reference/objects#projectprogress",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "resourcePath",
@@ -46133,7 +46209,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "state",
@@ -46141,7 +46219,9 @@
           "type": "ProjectState!",
           "id": "projectstate",
           "kind": "enums",
-          "href": "/graphql/reference/enums#projectstate"
+          "href": "/graphql/reference/enums#projectstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -46149,7 +46229,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "url",
@@ -46157,7 +46239,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "viewerCanClose",
@@ -46205,7 +46289,9 @@
           "type": "ProjectColumn",
           "id": "projectcolumn",
           "kind": "objects",
-          "href": "/graphql/reference/objects#projectcolumn"
+          "href": "/graphql/reference/objects#projectcolumn",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "content",
@@ -46213,7 +46299,9 @@
           "type": "ProjectCardItem",
           "id": "projectcarditem",
           "kind": "unions",
-          "href": "/graphql/reference/unions#projectcarditem"
+          "href": "/graphql/reference/unions#projectcarditem",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -46221,7 +46309,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "creator",
@@ -46229,7 +46319,9 @@
           "type": "Actor",
           "id": "actor",
           "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#actor"
+          "href": "/graphql/reference/interfaces#actor",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -46237,7 +46329,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -46245,7 +46339,9 @@
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "isArchived",
@@ -46253,7 +46349,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "note",
@@ -46261,7 +46359,9 @@
           "type": "String",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -46269,7 +46369,9 @@
           "type": "Project!",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "resourcePath",
@@ -46277,7 +46379,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "state",
@@ -46285,7 +46389,9 @@
           "type": "ProjectCardState",
           "id": "projectcardstate",
           "kind": "enums",
-          "href": "/graphql/reference/enums#projectcardstate"
+          "href": "/graphql/reference/enums#projectcardstate",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -46293,7 +46399,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "url",
@@ -46301,7 +46409,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -46443,7 +46553,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "createdAt",
@@ -46451,7 +46563,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "databaseId",
@@ -46459,7 +46573,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -46467,7 +46583,9 @@
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "name",
@@ -46475,7 +46593,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -46483,7 +46603,9 @@
           "type": "Project!",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "purpose",
@@ -46491,7 +46613,9 @@
           "type": "ProjectColumnPurpose",
           "id": "projectcolumnpurpose",
           "kind": "enums",
-          "href": "/graphql/reference/enums#projectcolumnpurpose"
+          "href": "/graphql/reference/enums#projectcolumnpurpose",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "resourcePath",
@@ -46499,7 +46623,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "updatedAt",
@@ -46507,7 +46633,9 @@
           "type": "DateTime!",
           "id": "datetime",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#datetime"
+          "href": "/graphql/reference/scalars#datetime",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "url",
@@ -46515,7 +46643,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -46664,7 +46794,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "donePercentage",
@@ -46672,7 +46804,9 @@
           "type": "Float!",
           "id": "float",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#float"
+          "href": "/graphql/reference/scalars#float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "enabled",
@@ -46680,7 +46814,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "inProgressCount",
@@ -46688,7 +46824,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "inProgressPercentage",
@@ -46696,7 +46834,9 @@
           "type": "Float!",
           "id": "float",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#float"
+          "href": "/graphql/reference/scalars#float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "todoCount",
@@ -46704,7 +46844,9 @@
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "todoPercentage",
@@ -46712,7 +46854,9 @@
           "type": "Float!",
           "id": "float",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#float"
+          "href": "/graphql/reference/scalars#float",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -57009,7 +57153,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "id",
@@ -57033,7 +57179,9 @@
           "type": "String!",
           "id": "string",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#string",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -63307,7 +63455,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -63407,7 +63557,9 @@
                 "href": "/graphql/reference/enums#projectstate"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -76789,7 +76941,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectV2",
@@ -76889,7 +77043,9 @@
                 "href": "/graphql/reference/enums#projectstate"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -81884,7 +82040,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projects",
@@ -81964,7 +82122,9 @@
                 "href": "/graphql/reference/enums#projectstate"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectsResourcePath",
@@ -87226,6 +87386,10 @@
           "description": "<p>Number.</p>"
         },
         {
+          "name": "PARENT_ISSUE",
+          "description": "<p>Parent issue.</p>"
+        },
+        {
           "name": "REPOSITORY",
           "description": "<p>Repository.</p>"
         },
@@ -87236,6 +87400,10 @@
         {
           "name": "SINGLE_SELECT",
           "description": "<p>Single Select.</p>"
+        },
+        {
+          "name": "SUB_ISSUES_PROGRESS",
+          "description": "<p>Sub-issues progress.</p>"
         },
         {
           "name": "TEXT",

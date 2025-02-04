@@ -3,7 +3,7 @@ title: Monitoring a high-availability configuration
 intro: 'After configuration of high availability for {% data variables.location.product_location %}, you can monitor the status of data replication among to your instance''s replica nodes.'
 versions:
   ghes: '*'
-permissions: 'Site administrators can monitor a high-availability configuration for a {% data variables.product.product_name %} instance.'
+permissions: 'Site administrators can monitor a high-availability configuration for a {% data variables.product.prodname_ghe_server %} instance.'
 type: how_to
 topics:
   - Enterprise
@@ -22,7 +22,7 @@ redirect_from:
 
 After you configure high availability, you can proactively ensure redundancy by monitoring the overall health of replication and the status of each of your instance's replica nodes. You can use command-line utilities on the instance, an overview dashboard, the instance's REST API, or a remote monitoring system such as Nagios.
 
-With high availability, your instance uses several approaches to replicate data between primary and replica nodes. Database services that support a native replication mechanism, such as MySQL, replicate using the service's native mechanism. Other services, such as Git repositories, replicate using a custom mechanism developed for {% data variables.product.product_name %}, or using platform tools like rsync.
+With high availability, your instance uses several approaches to replicate data between primary and replica nodes. Database services that support a native replication mechanism, such as MySQL, replicate using the service's native mechanism. Other services, such as Git repositories, replicate using a custom mechanism developed for {% data variables.product.prodname_ghe_server %}, or using platform tools like rsync.
 
 ## Monitoring replication from your instance
 
@@ -42,7 +42,7 @@ You can monitor replication status on your instance using the `gh es` extension 
 
 ## Monitoring replication using the REST API
 
-You can monitor replication status on your instance using the REST API. For more information, see [Manage {% data variables.product.product_name %}](/rest/enterprise-admin/manage-ghes#list-the-status-of-services-running-on-all-replica-nodes) in the REST API documentation.
+You can monitor replication status on your instance using the REST API. For more information, see [Manage {% data variables.product.prodname_ghe_server %}](/rest/enterprise-admin/manage-ghes#list-the-status-of-services-running-on-all-replica-nodes) in the REST API documentation.
 
 ## Monitoring replication from a remote system
 

@@ -12,6 +12,7 @@ topics:
   - Security
   - Dependencies
 children:
+  - /best-practices-for-maintaining-dependencies
   - /managing-dependabot-on-self-hosted-runners
   - /removing-dependabot-access-to-public-registries
 ---

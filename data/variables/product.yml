@@ -15,9 +15,6 @@ github: 'GitHub'
 ## DO NOT USE. Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
 prodname_dotcom: 'GitHub'
 
-product_name: >-
-  {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% else %}GitHub{% endif %}
-
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
 prodname_enterprise: 'GitHub Enterprise'
 
@@ -97,7 +94,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% endif %}
+  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.16 %}2.20.3{% endif %}
 
 # Projects v2
 prodname_projects_v2: 'Projects'

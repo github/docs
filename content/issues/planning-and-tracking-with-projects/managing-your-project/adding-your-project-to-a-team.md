@@ -30,7 +30,7 @@ Teams are granted read permissions on any project they are added to. This permis
 1. In the search field, start typing the name of the project you want to add and then select the project in the list of matches.
 
    > [!NOTE]
-   > If this change will result in increased project permissions for the team's members, {% data variables.product.product_name %} will prompt you to confirm your choice.
+   > If this change will result in increased project permissions for the team's members, {% data variables.product.github %} will prompt you to confirm your choice.
 
 ## Removing a project from a team
 

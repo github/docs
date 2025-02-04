@@ -28,7 +28,7 @@ In this article, the instructions that you must follow to connect an Azure subsc
 
 {% ifversion ghec %}
 
-If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connection to an Azure subscription is the only way to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %}, or to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond your plan's included amounts.
+If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_github_codespaces %}, or {% data variables.product.prodname_copilot %}, or to use {% data variables.product.prodname_actions %}, Git Large File Storage (LFS), or {% data variables.product.prodname_registry %} beyond your plan's included amounts.
 
 {% endif %}
 

@@ -211,7 +211,7 @@ For more information, see [AUTOTITLE](/code-security/supply-chain-security).
 
 {% data reusables.support.ask-and-answer-forum %}
 
-### 3. Reading about {% data variables.product.product_name %} on {% data variables.product.prodname_docs %}
+### 3. Reading about {% data variables.product.github %} on {% data variables.product.prodname_docs %}
 
 {% data reusables.docs.you-can-read-docs-for-your-product %}
 

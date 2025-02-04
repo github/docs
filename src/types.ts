@@ -165,6 +165,7 @@ export type Context = {
   currentLearningTrack?: LearningTrack | null
   renderedPage?: string
   miniTocItems?: string | undefined
+  markdownRequested?: boolean
 }
 export type LearningTracks = {
   [group: string]: {

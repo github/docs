@@ -49,7 +49,7 @@ jobs:
         run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
-        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache@v4
         with:
           path: external-link-checker-db.json
           key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.ts') }}

@@ -26,7 +26,7 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 |-----------------------|-----------|----------------------------------------------------------------------------|
 | `name`                | `string`  | The name of the environment as displayed in the UI.                        |
 | `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
+| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.github %}. |
 | `download`            | `object`  | This environment's download status.                                        |
 | `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
 

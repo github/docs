@@ -27,7 +27,7 @@ shortTitle: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}das
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the top navigation bar, click **Monitor**.
 
-   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/{% ifversion ghes > 3.15 %}monitor-dash-link.png{% else %}monitor-dash-link-old.png{% endif %})
+   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.]({% ifversion ghes > 3.15 %}/assets/images/enterprise/management-console/monitor-dash-link.png{% else %}/assets/images/enterprise/management-console/monitor-dash-link-old.png{% endif %})
 
 1. In HA and cluster environments you can switch between nodes using the dropdown and clicking on a different hostname.
 {% ifversion ghes > 3.15 %}

@@ -23,11 +23,11 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 1000m
+              memory: 4500Mi
             limits:
-              cpu: 16000m
-              memory: 14Gi
+              cpu: 8000m
+              memory: 16Gi
           ports:
             - name: http
               containerPort: 4000
@@ -53,5 +53,5 @@ spec:
             httpGet:
               # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
               # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
-              path: /healthz
+              path: /healthcheck
               port: http

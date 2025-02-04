@@ -59,13 +59,13 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 1. For SNMP v3 users with the `authnopriv` security level, configure authentication.
     * {% data reusables.enterprise_management_console.authentication-password %}
     * {% data reusables.enterprise_management_console.authentication-protocol %}
-    * If your external monitoring system requires the SHA algorithm, {% data variables.product.product_name %} currently uses SHA-1.
+    * If your external monitoring system requires the SHA algorithm, {% data variables.product.prodname_ghe_server %} currently uses SHA-1.
 1. For SNMP v3 users with the `authpriv` security level, configure authentication.
     * {% data reusables.enterprise_management_console.authentication-password %}
     * {% data reusables.enterprise_management_console.authentication-protocol %}
     * Optionally, under "Privacy password", type the privacy password.
     * Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
-    * If your external monitoring system requires the AES algorithm, {% data variables.product.product_name %} currently uses AES-128.
+    * If your external monitoring system requires the AES algorithm, {% data variables.product.prodname_ghe_server %} currently uses AES-128.
 1. Click **Add user**.
 {% data reusables.enterprise_management_console.save-settings %}
 

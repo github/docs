@@ -24,7 +24,7 @@ shortTitle: Policies for security settings
 
 ## About policies for security settings in your enterprise
 
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings.
+You can enforce policies to control the security settings for organizations owned by your enterprise. By default, organization owners can manage security settings.
 
 {% ifversion ghec or ghes %}
 

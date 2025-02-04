@@ -31,7 +31,7 @@ You can migrate on a repository-by-repository basis or, if your migration source
 * **High fidelity migration**, which allows you to migrate a single repository, a series of repositories, or an entire organization.
 * **Support for custom trial run migrations**, which allow you to run a migration as many times as you desire before running the production migration.
 * **Clear and unblocking error logging**, so that migrations are allowed to continue with non-critical migration errors, such as not being able to move a single pull request comment. After the migration, you can review a log file that opens automatically.
-* **Users retain ownership of their history**, to ensure that their Git history or {% data variables.product.product_name %} metadata is maintained across the migration.
+* **Users retain ownership of their history**, to ensure that their Git history or {% data variables.product.github %} metadata is maintained across the migration.
 
 {% data reusables.enterprise-migration-tool.tool-options %}
 

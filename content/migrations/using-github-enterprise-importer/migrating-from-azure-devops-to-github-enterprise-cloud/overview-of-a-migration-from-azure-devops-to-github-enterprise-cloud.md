@@ -67,17 +67,17 @@ To migrate a repository, you must be an organization owner for the destination o
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role).
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).
 
-### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?
+### What organizational structure do we want in {% data variables.product.github %}?
 
-Next, plan the organizational structure you'll create in {% data variables.product.prodname_dotcom %}. ADO and {% data variables.product.prodname_dotcom %} have different ways of organizing an enterprise's work.
+Next, plan the organizational structure you'll create in {% data variables.product.github %}. ADO and {% data variables.product.github %} have different ways of organizing an enterprise's work.
 
 * ADO: Organization > team project > repositories
-* {% data variables.product.prodname_dotcom %}: Enterprise > organization > repositories
+* {% data variables.product.github %}: Enterprise > organization > repositories
 
 > [!NOTE]
-> The concept of a team project, which is used to group repositories in ADO, does not exist in {% data variables.product.prodname_dotcom %}. We do not recommend treating organizations in {% data variables.product.product_name %} as the equivalent of team projects in ADO.
+> The concept of a team project, which is used to group repositories in ADO, does not exist in {% data variables.product.github %}. We do not recommend treating organizations in {% data variables.product.github %} as the equivalent of team projects in ADO.
 
-After migrating to {% data variables.product.prodname_dotcom %}, you should have only one enterprise account and a small number of organizations owned by that enterprise. Each organization from ADO should correspond to a single organization on {% data variables.product.prodname_dotcom %}. We do not recommend creating an organization on {% data variables.product.prodname_dotcom %} for each team project on ADO.
+After migrating to {% data variables.product.github %}, you should have only one enterprise account and a small number of organizations owned by that enterprise. Each organization from ADO should correspond to a single organization on {% data variables.product.github %}. We do not recommend creating an organization on {% data variables.product.github %} for each team project on ADO.
 
 This may result in a large list of ungrouped repositories within each organization. However, you can manage access to groups of repositories by creating teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 

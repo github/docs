@@ -1,6 +1,6 @@
 ---
   title: Upgrading with an upgrade package
-  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.product_name %} to a newer feature release.'
+  intro: 'Learn how to use an upgrade package to upgrade {% data variables.product.prodname_ghe_server %} to a newer feature release.'
   redirect_from:
     - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-a-standalone-instance-using-an-upgrade-package
     - /admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package
@@ -52,7 +52,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
-   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %} See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
+   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.{% endif %} See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
 
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 

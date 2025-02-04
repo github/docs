@@ -1,2 +1,2 @@
-* To pay for licenses, you will need a **Microsoft Azure subscription**, which you will connect to your enterprise account.
+* To pay for licenses, you will need to add either a **credit card** or a **Microsoft Azure subscription** to your enterprise account. You will agree a payment method with {% data variables.product.github %} Sales when you request the enterprise account.
 * Before you enable {% data variables.product.prodname_copilot_short %}, ensure you have reviewed the [{% data variables.product.prodname_copilot %} Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).

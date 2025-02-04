@@ -39,6 +39,9 @@ If you are transitioning to using {% data variables.product.prodname_dependabot 
 
 {% data reusables.dependabot.dependabot-on-actions-enterprise-policy-condition %}
 
+> [!NOTE]
+> {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} relies on the `ubuntu-latest` label to select the appropriate runner. To ensure {% data variables.product.prodname_dependabot %}  runs on {% data variables.product.github %}-hosted runners, you should not use the label `ubuntu-latest` for self-hosted runners.
+
 ## Enabling or disabling {% data variables.product.prodname_dependabot %} on {% data variables.product.github %}-hosted runners
 
 This section only applies to standard {% data variables.product.github %}-hosted runners, not larger runners.

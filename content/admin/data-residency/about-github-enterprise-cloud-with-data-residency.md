@@ -16,9 +16,9 @@ By default, {% data variables.product.company_short %} stores data for {% data v
 
 To get {% data variables.enterprise.data_residency_short %} for your enterprise, **contact {% data variables.contact.contact_sales_data_residency %}**.
 
-## What is {% data variables.product.product_name %}?
+## What is {% data variables.product.prodname_ghe_cloud %}?
 
-{% data variables.product.github %} is a complete developer platform for building, scaling, and delivering secure software. In addition to these capabilities, {% data variables.product.product_name %} offers several key features designed to further optimize and secure your use of the platform:
+{% data variables.product.github %} is a complete developer platform for building, scaling, and delivering secure software. In addition to these capabilities, {% data variables.product.prodname_ghe_cloud %} offers several key features designed to further optimize and secure your use of the platform:
 
 * Includes an **enterprise account:** a dedicated, shared space for your company to store code, collaborate, and access {% data variables.product.company_short %} features
 * Centralizes billing, administration, governance, and audit of your company’s resources and activity
@@ -97,7 +97,7 @@ Your developers can access {% data variables.product.prodname_copilot %} if you 
 
 ### Documentation
 
-In general, the content on [{% data variables.product.prodname_docs %}](/enterprise-cloud@latest) reflects the user experience on {% data variables.enterprise.data_residency_site %}. Readers should use the "{% data variables.product.product_name %}" version of the site. See [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs#about-versions-of-github-docs).
+In general, the content on [{% data variables.product.prodname_docs %}](/enterprise-cloud@latest) reflects the user experience on {% data variables.enterprise.data_residency_site %}. Readers should use the "{% data variables.product.prodname_ghe_cloud %}" version of the site. See [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs#about-versions-of-github-docs).
 
 When reading the documentation, readers may need to substitute references to {% data variables.product.prodname_dotcom_the_website %} with your enterprise's dedicated URL on {% data variables.enterprise.data_residency_site %}.
 

@@ -9,7 +9,7 @@ const {
   DD_AGENT_HOST,
 } = process.env
 
-const mock = NODE_ENV === 'test' || !MODA_PROD_SERVICE_ENV
+const mock = NODE_ENV === 'test' || MODA_PROD_SERVICE_ENV !== 'true'
 
 // MODA_APP_NAME gets set when the deploy target is Moda
 const modaApp = MODA_APP_NAME ? `moda_app_name:${MODA_APP_NAME}` : false
@@ -24,7 +24,6 @@ export default new StatsD({
   // DD_AGENT_HOST and DD_DOGSTATSD_PORT environment variables.
   // If undefined, the host will default to 'localhost' and the port
   // will default to 8125.
-  // Azure docker templates configure DD_AGENT_HOST but not DD_DOGSTATSD_PORT.
   // Moda configuration defines DD_DOGSTATSD_PORT but not DD_AGENT_HOST.
   // For Moda, the host must be set to the Kubernetes node name, which is
   // set in KUBE_NODE_HOSTNAME.

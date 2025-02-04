@@ -171,7 +171,7 @@ get_started_with_your_enterprise_account:
   title: Get started with your enterprise account
   description: >-
     Get started with your enterprise account to centrally manage multiple
-    organizations on {% data variables.product.product_name %}.
+    organizations on {% data variables.product.github %}.
   versions:
     ghes: '*'
     ghec: '*'

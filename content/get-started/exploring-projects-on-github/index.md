@@ -20,6 +20,5 @@ children:
   - /saving-repositories-with-stars
   - /following-people
   - /following-organizations
-
 shortTitle: Explore projects
 ---

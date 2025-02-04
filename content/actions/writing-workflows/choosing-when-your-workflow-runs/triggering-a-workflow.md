@@ -294,7 +294,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: build
-        echo 'building'
+        run: |
+          echo 'building'
 
   publish:
     needs: [build]
@@ -302,7 +303,8 @@ jobs:
     environment: production
     steps:
       - name: publish
-        echo 'publishing'
+        run: |
+          echo 'publishing'
 ```
 
 > [!NOTE]

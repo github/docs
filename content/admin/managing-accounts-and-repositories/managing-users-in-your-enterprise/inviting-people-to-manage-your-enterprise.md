@@ -22,7 +22,7 @@ shortTitle: Invite people to manage
 
 ## About administrator management
 
-{% ifversion ghec %}If you do not use {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can add or remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} on {% data variables.product.product_name %}. For more information about the privileges that come with each enterprise role, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
+{% ifversion ghec %}If you do not use {% data variables.product.prodname_emus %}, you{% else %}You{% endif %} can add or remove enterprise owners{% ifversion ghec %} and billing managers{% endif %} in your enterprise. For more information about the privileges that come with each enterprise role, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 {% ifversion ghes %}
 
