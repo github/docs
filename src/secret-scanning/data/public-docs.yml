@@ -2100,6 +2100,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: LinkedIn
+  supportedSecret: LinkedIn Client Secret
+  secretType: linkedin_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lob
   supportedSecret: Lob Live API Key
   secretType: lob_live_api_key
