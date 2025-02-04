@@ -66,7 +66,7 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
       ```
 
 > [!NOTE]
-> If your DNS provider automatically set a default record for your domain, be sure to remove it before continuing.
+> If your DNS provider automatically sets a default record, be sure to remove it before continuing.
 
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
