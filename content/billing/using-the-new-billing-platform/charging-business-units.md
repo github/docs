@@ -103,7 +103,7 @@ To ensure your cost centers reflect spending as intended, it's important to unde
 
 ### Cost center allocation for {% data variables.product.prodname_GH_advanced_security %}
 
-* If a user belongs to a cost center, all charges associated with the user is billed to the cost center.
+* If a user belongs to a cost center, all charges associated with the user are billed to the cost center.
 * If a user does not belong to any cost center, usage is charged to the enterprise's default payment method and grouped under "Enterprise Only" spending on the usage page.
 
 ### Cost center allocation for {% data variables.product.prodname_enterprise %}
