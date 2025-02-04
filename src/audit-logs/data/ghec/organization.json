@@ -95,6 +95,11 @@
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
+    "action": "code_scanning.alert_closed_became_outdated",
+    "description": "Code scanning alerts were closed as outdated (all configurations they were detected in were deleted).",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
     "action": "code_scanning.alert_closed_by_user",
     "description": "Code scanning alerts were manually dismissed.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
