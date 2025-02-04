@@ -18,7 +18,7 @@ You can change the name that is associated with your Git commits using the `git 
 
 Changing the name associated with your Git commits using `git config` will only affect future commits and will not change the name used for past commits.
 
-## Setting your Git username for _every_ repository on your computer
+## Setting your Git username for every repository on your computer
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
