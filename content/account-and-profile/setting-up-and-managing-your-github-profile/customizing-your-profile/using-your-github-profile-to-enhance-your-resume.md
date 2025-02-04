@@ -84,7 +84,7 @@ To give the best impression, you'll want to make sure that hiring managers can u
 * **Simplify** complex functions, break down large classes, and remove redundant code
 * Provide **tests** to validate that your code is working as expected
 
-It's easiest to make these changes in {% data variables.product.prodname_vscode_shortname %} with {% data variables.product.prodname_copilot_short %}. For example, when you start typing a line comment, {% data variables.product.prodname_copilot_short %} can automatically suggest the rest of the comment. To get started, see [Set up Visual Studio Code with Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified) in the Visual Studio Code documentation.
+The easiest way to follow these practices is to use {% data variables.product.prodname_copilot_short %} with {% data variables.product.prodname_vscode_shortname %}. See [Set up Visual Studio Code with Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ### Update your project's dependencies
 
@@ -102,3 +102,7 @@ If you want to improve your profile even more, incorporate these practices into 
 * **Use issues, pull requests, and {% data variables.product.prodname_projects_v2 %}**. Showcase your task management and project planning skills by tracking bugs and feature requests with issues and using {% data variables.product.prodname_projects_v2 %} to organize them.
 * **Keep dependencies updated**. Use {% data variables.product.prodname_dependabot_version_updates %} to automatically update your project's dependencies with the latest security features and bug fixes.
 * **Contribute to open source**. Open source contributions showcase your collaboration skills and prove that you can work in complex code bases. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability)
