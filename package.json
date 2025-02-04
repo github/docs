@@ -313,6 +313,7 @@
     "remark-parse": "^11.0.0",
     "remark-rehype": "^11.1.0",
     "remark-remove-comments": "^1.0.1",
+    "remark-stringify": "^11.0.0",
     "rss-parser": "^3.13.0",
     "scroll-anchoring": "^0.1.0",
     "semver": "^7.6.2",
