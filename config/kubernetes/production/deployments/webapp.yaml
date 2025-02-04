@@ -23,11 +23,11 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 4000m
+              memory: 8Gi
             limits:
-              cpu: 16000m
-              memory: 14Gi
+              cpu: 8000m
+              memory: 16Gi
           ports:
             - name: http
               containerPort: 4000
