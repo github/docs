@@ -65,6 +65,9 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
       2606:50c0:8003::153
       ```
 
+> [!NOTE]
+> If your DNS provider automatically set a default record for your domain, be sure to remove it before continuing.
+
 {% indented_data_reference reusables.pages.wildcard-dns-warning spaces=3 %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. To confirm that your DNS record configured correctly, use the `dig` command, replacing _EXAMPLE.COM_ with your apex domain. Confirm that the results match the IP addresses for {% data variables.product.prodname_pages %} above.
@@ -88,7 +91,6 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
      > EXAMPLE.COM     3600    IN AAAA     2606:50c0:8003::153
      ```
 
-      Remember to also check your `A` record.
 {% data reusables.pages.build-locally-download-cname %}
 {% data reusables.pages.enforce-https-custom-domain %}
 
