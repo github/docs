@@ -1,3 +1,3 @@
-1. Enter the url or path of the repository you want to clone.
+1. From the list of repositories, click the repository you want to clone.
 
-   ![Screenshot of the "Clone a repository" window. The input containing "octocat/Spoon-Knife" is highlighted with an orange outline.](/assets/images/help/desktop/clone-a-repository-url-tab-name-input.png)
+   ![Screenshot of the "Clone a repository" window. The "github/docs" repository is highlighted with an orange outline.](/assets/images/help/desktop/clone-a-repository-list-mac.png)
