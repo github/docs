@@ -19,7 +19,7 @@ shortTitle: Add licenses to your account
 >[!IMPORTANT] If you pay by invoice, you need to contact your account manager in {% data variables.contact.contact_enterprise_sales %} to add licenses to your enterprise account.
 {% endif %}
 
-If you have access to the new billing platform, you can add {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} to your account through the "Licensing" page. To check if you have access, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-new-billing-platform).
+If you have access to the new billing platform{% ifversion fpt %} with an organization on a {% data variables.product.prodname_team %} plan{% endif %}, you can add {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} to your account through the "Licensing" page. To check if you have access, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-new-billing-platform)
 
 {% ifversion fpt %}
 {% data reusables.profile.access_org %}
