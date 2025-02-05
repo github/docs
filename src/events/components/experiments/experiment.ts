@@ -83,7 +83,7 @@ if (typeof window !== 'undefined') {
 export function getExperimentControlGroupFromSession(
   experimentKey: ExperimentNames,
   percentToGetExperiment = 50,
-) {
+): string {
   if (controlGroupOverride[experimentKey]) {
     return controlGroupOverride[experimentKey]
   } else if (process.env.NODE_ENV === 'development') {
@@ -99,7 +99,7 @@ export function getExperimentControlGroupFromSession(
   return modHash < percentToGetExperiment ? TREATMENT_VARIATION : CONTROL_VARIATION
 }
 
-export function getExperimentVariationForContext(locale: string) {
+export function getExperimentVariationForContext(locale: string): string {
   const experiments = getActiveExperiments(locale)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
@@ -111,7 +111,7 @@ export function getExperimentVariationForContext(locale: string) {
   }
 
   // When no experiment has `includeVariationInContext: true`
-  return null
+  return ''
 }
 
 export function initializeExperiments(locale: string) {
