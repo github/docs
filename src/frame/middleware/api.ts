@@ -56,6 +56,16 @@ if (process.env.ELASTICSEARCH_URL) {
   )
 }
 
+// We need access to specific httpOnly cookies set on github.com from the client
+// The only way to access these on the client is to fetch them from the server
+router.get('/cookies', (req, res) => {
+  const cookies = {
+    isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
+    dotcomUsername: req.cookies?.dotcom_user || '',
+  }
+  return res.json(cookies)
+})
+
 router.get('*', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })
 })
