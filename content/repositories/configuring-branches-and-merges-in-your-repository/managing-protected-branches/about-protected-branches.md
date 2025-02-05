@@ -95,7 +95,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 ### Require status checks before merging
 
-Required status checks ensure that all required CI tests are either passing or skipped before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+Required status checks must have a `successful`, `skipped`, or `neutral` status before collaborators can make changes to a protected branch. Required status checks can be checks or commit statuses. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 You can use the commit status API to allow external services to mark commits with an appropriate status. For more information, see [AUTOTITLE](/rest/commits/statuses).
 
