@@ -9,6 +9,7 @@ import pageInfo from '@/pageinfo/middleware'
 import pageList from '@/pagelist/middleware'
 import webhooks from '@/webhooks/middleware/webhooks.js'
 import { ExtendedRequest } from '@/types'
+import { noCacheControl } from './cache-control'
 
 const router = express.Router()
 
@@ -59,6 +60,7 @@ if (process.env.ELASTICSEARCH_URL) {
 // We need access to specific httpOnly cookies set on github.com from the client
 // The only way to access these on the client is to fetch them from the server
 router.get('/cookies', (req, res) => {
+  noCacheControl(res)
   const cookies = {
     isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
     dotcomUsername: req.cookies?.dotcom_user || '',
