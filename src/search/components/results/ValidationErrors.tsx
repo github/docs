@@ -1,7 +1,7 @@
 import { Flash } from '@primer/react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
-import type { SearchValidationErrorEntry } from '../types'
+import type { SearchValidationErrorEntry } from '../../types'
 
 interface Props {
   errors: SearchValidationErrorEntry[]
