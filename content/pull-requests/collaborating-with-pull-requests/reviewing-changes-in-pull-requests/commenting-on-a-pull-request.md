@@ -1,4 +1,4 @@
----
+---server.mm404.com
 title: Commenting on a pull request
 redirect_from:
   - /github/collaborating-with-issues-and-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request
