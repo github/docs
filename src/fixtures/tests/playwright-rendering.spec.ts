@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
+import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -9,6 +10,8 @@ import { test, expect } from '@playwright/test'
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
+
+turnOffExperimentsBeforeEach(test)
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -513,12 +516,32 @@ test.describe('test nav at different viewports', () => {
 test.describe('survey', () => {
   test('happy path, thumbs up and enter comment and email', async ({ page }) => {
     let fulfilled = 0
+    let hasSurveyPressedEvent = false
+    let hasSurveySubmittedEvent = false
+
+    const surveyComment = 'This is a comment'
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
+      const postData = JSON.parse(request.postData() || '{}')
+      // Skip the exit event
+      if (postData.type === 'exit') {
+        return
+      }
       fulfilled++
+      if (postData.type === 'survey' && postData.survey_vote === true) {
+        hasSurveyPressedEvent = true
+      }
+      if (
+        postData.type === 'survey' &&
+        postData.survey_vote === true &&
+        postData.survey_comment === surveyComment
+      ) {
+        hasSurveySubmittedEvent = true
+      }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
@@ -533,23 +556,36 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
     await page.locator('[for=survey-comment]').click()
-    await page.locator('[for=survey-comment]').fill('This is a comment')
+    await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
-    // One for the page view event, one for the thumbs up click, one for
-    // the submission.
-    expect(fulfilled).toBe(1 + 2)
+    // Events:
+    // 1. page view event when navigating to the page
+    // 2. Survey thumbs up event
+    // 3. Survey submit event
+    expect(fulfilled).toBe(1 + 1 + 1)
+    expect(hasSurveyPressedEvent).toBe(true)
+    expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
+    let hasSurveyEvent = false
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
+      const postData = JSON.parse(request.postData() || '{}')
+      // Skip the exit event
+      if (postData.type === 'exit') {
+        return
+      }
+      if (postData.type === 'survey' && postData.survey_vote === true) {
+        hasSurveyEvent = true
+      }
       fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
@@ -560,8 +596,11 @@ test.describe('survey', () => {
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
-    // One for the page view event and one for the thumbs up click
+    // Events:
+    // 1. page view event when navigating to the page
+    // 2. the thumbs up click
     expect(fulfilled).toBe(1 + 1)
+    expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()

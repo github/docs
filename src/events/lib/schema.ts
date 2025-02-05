@@ -110,6 +110,10 @@ const context = {
       type: 'string',
       description: 'The cookie value of dotcom_user',
     },
+    is_staff: {
+      type: 'boolean',
+      description: 'The cookie value of staffonly',
+    },
 
     // Device information
     os: {
@@ -171,6 +175,12 @@ const context = {
     code_display_preference: {
       enum: ['beside', 'inline'],
       description: 'How the user prefers to view code examples.',
+    },
+
+    // Experiments
+    experiment_variation: {
+      type: 'string',
+      description: 'The variation this user we bucketed in is in, such as control or treatment.',
     },
   },
 }
