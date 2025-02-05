@@ -19,7 +19,7 @@ export const useQuery = (): QueryInfo => {
   }
 }
 
-function parseDebug(debug: string | Array<string> | undefined) {
+export function parseDebug(debug: string | Array<string> | undefined) {
   if (debug === '') {
     // E.g. `?query=foo&debug` should be treated as truthy
     return true

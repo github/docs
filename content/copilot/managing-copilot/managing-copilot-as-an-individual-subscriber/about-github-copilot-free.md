@@ -26,7 +26,7 @@ topics:
   * {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files (**only in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}**)
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and {% data variables.product.prodname_dotcom_the_website %}
 * Block suggestions matching public code
-* Access to {% data variables.copilot.copilot_claude_sonnet %} models
+* Access to the {% data variables.copilot.copilot_claude_sonnet %} and {% data variables.copilot.copilot_gemini_flash %} models
 * Access to {% data variables.product.prodname_copilot_extensions_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_mobile %}
 
 ## What are the limitations of {% data variables.product.prodname_copilot_free_short %}?
