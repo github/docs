@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import throttle from 'lodash/throttle'
 
 export function useInnerWindowWidth() {
   const hasWindow = typeof window !== 'undefined'
@@ -14,9 +15,9 @@ export function useInnerWindowWidth() {
 
   useEffect(() => {
     if (hasWindow) {
-      const handleResize = function () {
+      const handleResize = throttle(function () {
         setWidth(getWidth())
-      }
+      }, 100)
 
       window.addEventListener('resize', handleResize)
       return () => window.removeEventListener('resize', handleResize)

@@ -43,7 +43,6 @@ export function useQueryParam(
 
   // If the query param changes in the URL, update the state
   useEffect(() => {
-    console.log('updating state')
     const paramValue = router.query[queryParamKey]
 
     if (paramValue) {
