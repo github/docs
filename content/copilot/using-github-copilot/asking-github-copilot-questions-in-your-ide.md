@@ -151,17 +151,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list-o3 %}
-
-### Changing your AI model
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-{% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
@@ -306,19 +296,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list-o1-preview %}
-
-### Changing your AI model
-
-To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 17.12 Preview 3 or later. See [{% data variables.product.prodname_vs %} 2022 Preview](https://visualstudio.microsoft.com/vs/preview/#download-preview) in the {% data variables.product.prodname_vs %} documentation.
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 

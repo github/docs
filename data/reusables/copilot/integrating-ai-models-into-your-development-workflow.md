@@ -60,5 +60,5 @@ To see a list of all available commands, run `gh models`.
 
 There are a few key ways you can use the extension:
    * **To ask a model multiple questions using a chat experience**, run `gh models run`. Select your model from the listed models, then send your prompts.
-   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the GPT 4o model why the sky is blue, you can run `gh models run gpt-4o "why is the sky blue?"`.
-   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the GPT 4o model, you can run `cat README.md | gh models run gpt-4o "summarize this text"`.
+   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the GPT 4o model why the sky is blue, you can run `gh models run GPT-4o "why is the sky blue?"`.
+   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the GPT 4o model, you can run `cat README.md | gh models run GPT-4o "summarize this text"`.

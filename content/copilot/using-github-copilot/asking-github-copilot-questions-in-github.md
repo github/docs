@@ -35,7 +35,7 @@ On {% data variables.product.github %}, you can use {% data variables.product.pr
 
 ## Powered by skills
 
-When using the GPT-4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
+When using the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
 
 ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
 
@@ -65,27 +65,7 @@ The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list-o3 %}
-
-### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
-
-* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models are supported.
-* Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
-
-### Changing your AI model
-
-> [!NOTE] If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, in the top right of the panel, click {% octicon "plus" aria-label="New conversation" %}.
-
-   ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
-
-1. In the top right of the panel, click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**. Multi-model {% data variables.product.prodname_copilot_chat_short %} is currently only available in the immersive view.
-1. In the top left of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Asking a general question about software development
 

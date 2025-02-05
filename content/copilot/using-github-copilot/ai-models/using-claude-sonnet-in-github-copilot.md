@@ -7,9 +7,11 @@ versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
 ---
 
-{% data reusables.copilot.claude-sonnet-preview-note %}
+> [!NOTE] {% data variables.copilot.copilot_claude_sonnet %} is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
 ## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot %}
 
@@ -18,7 +20,7 @@ topics:
 {% data variables.copilot.copilot_claude_sonnet %} is currently available in:
 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 17.12 Preview 3 or later
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.12 or later
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
@@ -39,7 +41,7 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 
   Clicking **Allow** enables you to use {% data variables.copilot.copilot_claude_sonnet %} and updates the policy in your personal settings on {% data variables.product.github %}.
 
-* You can enable the model directly in your personal settings on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-claude-35-sonnet).
+* You can enable the model directly in your personal settings on the {% data variables.product.github %} website. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-alternative-ai-models).
 
 {% endif %}
 
@@ -49,11 +51,8 @@ As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can e
 
 ## Using {% data variables.copilot.copilot_claude_sonnet %}
 
-For details of how to change the model for {% data variables.product.prodname_copilot_chat_short %}, see:
-
-* [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#changing-your-ai-model)
-* [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#changing-your-ai-model)
+For details of how to change the model that {% data variables.product.prodname_copilot_chat_short %} uses, see: [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Leaving feedback
 
-To leave feedback about Claude 3.5 Sonnet in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).
+To leave feedback about {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).
