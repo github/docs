@@ -77,7 +77,7 @@ puts jwt
 ### Example: Using Python to generate a JWT
 
 > [!NOTE]
-> You must run `pip install PyJWT cryptography` to install the `PyJWT` and the 'cryptography' packages in order to use this script.
+> You must run `pip install PyJWT cryptography` to install the `PyJWT` and the `cryptography` packages in order to use this script.
 
 ```python copy
 #!/usr/bin/env python3
