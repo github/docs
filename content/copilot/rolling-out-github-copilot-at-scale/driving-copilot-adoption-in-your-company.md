@@ -85,6 +85,6 @@ If your organization has specific {% data variables.product.prodname_copilot_sho
 Once you have implemented your {% data variables.product.prodname_copilot_short %} enablement process, you should regularly review and optimize it to ensure it continues to meet your organization's needs. Some ways you can do this are:
 
 * Monitoring usage data to identify trends and patterns. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/analyzing-usage-over-time-with-the-copilot-metrics-api).
-* Following up with users who haven't been using their assigned license. You can use the API to see the latest activity date for each assigned seat. See [AUTOTITLE](/rest/copilot/copilot-user-management#list-all-copilot-seat-assignments-for-an-organization).
-* Gathering feedback from teams to understand what is working well and what could be improved
-* Reviewing {% data variables.product.prodname_discussions %} and other communication channels to identify common issues and questions
+* Following up with users who haven't been using their assigned license. You can use the API to see the latest activity date for each assigned seat. See [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users).
+* Gathering feedback from teams to understand what is working well and what could be improved.
+* Reviewing {% data variables.product.prodname_discussions %} and other communication channels to identify common issues and questions.
