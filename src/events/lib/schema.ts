@@ -604,7 +604,7 @@ export const hydroNames = {
   hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',
   searchResult: 'docs.v0.SearchResultEvent',
-  aiSearchResult: 'docs.v0.AISearchResultsEvent',
+  aiSearchResult: 'docs.v0.AISearchResultEvent',
   survey: 'docs.v0.SurveyEvent',
   experiment: 'docs.v0.ExperimentEvent',
   clipboard: 'docs.v0.ClipboardEvent',
