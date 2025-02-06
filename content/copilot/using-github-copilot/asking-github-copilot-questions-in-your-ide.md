@@ -121,9 +121,7 @@ In addition to submitting prompts through the chat view, you can submit prompts 
 
 See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inline-chat), [quick chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_quick-chat), and [chat smart actions](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-smart-actions) in the {% data variables.product.prodname_vscode %} documentation for more details.
 
-## Multi-file edits
-
-{% data reusables.copilot.copilot-edits-public-preview-note %}
+## {% data variables.product.prodname_copilot_edits_vscode_short %}
 
 Use {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files directly from a single {% data variables.product.prodname_copilot_chat_short %} prompt.
 
@@ -133,7 +131,7 @@ Use {% data variables.product.prodname_copilot_edits_vscode_short %} to make cha
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_vscode_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Apply** or **Discard** the edits for each file.
 
-For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+For more detailed instructions, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Sharing feedback
 
@@ -144,7 +142,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
-* [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
+* [Using {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
