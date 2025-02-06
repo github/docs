@@ -38,6 +38,7 @@ import { AutocompleteSearchHit } from '@/search/types'
 import { useAISearchAutocomplete } from '@/search/components/hooks/useAISearchAutocomplete'
 import { AskAIResults } from './AskAIResults'
 import { uuidv4 } from '@/events/components/events'
+import { getIsStaff } from '@/events/components/dotcom-cookies'
 
 type Props = {
   searchOverlayOpen: boolean
@@ -465,7 +466,20 @@ export function SearchOverlay({
               backgroundColor: 'var(--overlay-bg-color)',
             }}
           />
-          <Link as="button">Give Feedback</Link>
+          <Link
+            onClick={async () => {
+              if (await getIsStaff()) {
+                // Hubbers users use an internal discussion for feedback
+                window.open('https://github.com/github/docs-team/discussions/4952', '_blank')
+              } else {
+                // TODO: On ship date set this value
+                // window.open('TODO', '_blank')
+              }
+            }}
+            as="button"
+          >
+            {t('search.overlay.give_feedback')}
+          </Link>
         </footer>
       </Overlay>
     </>

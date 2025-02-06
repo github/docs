@@ -6,13 +6,13 @@ import {
   getActiveExperiments,
 } from './experiments'
 import { getUserEventsId } from '../events'
-import Cookies from 'src/frame/components/lib/cookies'
 
 let experimentsInitialized = false
 
 export function shouldShowExperiment(
   experimentKey: ExperimentNames | { key: ExperimentNames },
   locale: string,
+  isStaff: boolean,
 ) {
   // Accept either EXPERIMENTS.<experiment_key> or EXPERIMENTS.<experiment_key>.key
   if (typeof experimentKey === 'object') {
@@ -25,8 +25,7 @@ export function shouldShowExperiment(
     if (experiment.key === experimentKey) {
       // If the user has staffonly cookie, and staff override is true, show the experiment
       if (experiment.alwaysShowForStaff) {
-        const staffCookie = Cookies.get('staffonly')
-        if (staffCookie && staffCookie.startsWith('yes')) {
+        if (isStaff) {
           console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
           return true
         }
