@@ -29,6 +29,7 @@ You can configure any of the following policies for your enterprise:
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
+* [Editor preview features](#editor-preview-features)
 * [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
 * [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
 * [Suggestions matching public code](#suggestions-matching-public-code)
@@ -53,6 +54,10 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ### {% data variables.product.prodname_copilot_chat %} in the IDE
 
 You can chat with {% data variables.product.prodname_copilot %} in your IDE to get code suggestions and answers to coding-related questions without context switching.
+
+### Editor preview features
+
+Some features of {% data variables.product.prodname_copilot_short %} are available as preview features in your editor. You can enable or disable these features for your enterprise.
 
 ### {% data variables.product.prodname_copilot_mobile %}
 

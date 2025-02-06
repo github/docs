@@ -173,7 +173,8 @@ The following example uses JavaScript, however other languages will work similar
 ## Next steps
 
 {% data reusables.copilot.quickstart-nextsteps1 %}
-* **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
+* **Use {% data variables.product.prodname_copilot_short %} like a pro** - Learn how to write effective prompts for {% data variables.product.prodname_copilot %}. For more information, see [Best practices for using {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/prompt-crafting) in the {% data variables.product.prodname_vscode %} documentation.
+* **Get familiar with {% data variables.copilot.next_edit_suggestions %}** - See [About {% data variables.copilot.next_edit_suggestions %}](/copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot#about-next-edit-suggestions).
 {% data reusables.copilot.quickstart-nextsteps2 %}
 
 {% endvscode %}

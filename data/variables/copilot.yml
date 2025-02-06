@@ -30,3 +30,7 @@ copilot_code-review_short: 'Copilot code review'
 ## LLM models for Copilot
 copilot_claude_sonnet: 'Claude 3.5 Sonnet'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
+
+## Next edit suggestions in VS Code
+next_edit_suggestions: 'next edit suggestions'
+next_edit_suggestions_caps: 'Next edit suggestions'
