@@ -33,7 +33,7 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   }
 
   const body = {
-    chat_context: 'defaults',
+    chat_context: 'docs',
     docs_source: docsSource,
     query,
     stream: true,
