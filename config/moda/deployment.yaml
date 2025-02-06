@@ -10,6 +10,7 @@ environments:
   - name: staging-cedar
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
     cluster_selector:
       profile: general
       region: iad
@@ -17,6 +18,7 @@ environments:
   - name: staging-pine
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
     cluster_selector:
       profile: general
       region: iad
@@ -24,6 +26,7 @@ environments:
   - name: staging-spruce
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
     cluster_selector:
       profile: general
       region: iad

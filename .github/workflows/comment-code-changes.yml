@@ -58,7 +58,11 @@ jobs:
             COMMENT_BODY="<!-- CODE_CHANGES_COMMENT -->
             ## 🚀 Manual Deployment Required
 
-            It looks like this pull request contains code changes. To preview these changes, you will need to deploy them manually.
+            It looks like this pull request contains code changes. To preview these changes, please do one of:
+
+            1. [Set up a local development environment](https://github.com/github/docs/blob/main/contributing/development.md).
+            1. [Spin up a codespace to review](https://github.com/github/docs-engineering/blob/main/docs/team-practices/use-a-codespace-to-review.md).
+            1. Message \`#docs-engineering\` on Slack for a staging server.
 
             Thank you for your contribution!"
           fi
