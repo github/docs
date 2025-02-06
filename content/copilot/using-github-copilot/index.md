@@ -21,6 +21,7 @@ children:
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
   - /ai-models
   - /finding-public-code-that-matches-github-copilot-suggestions
+  - /github-copilot-chat-cheat-sheet
   - /using-github-copilot-for-pull-requests
   - /guides-on-using-github-copilot
 redirect_from:
