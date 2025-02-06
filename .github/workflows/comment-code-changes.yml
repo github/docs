@@ -62,7 +62,7 @@ jobs:
 
             1. [Set up a local development environment](https://github.com/github/docs/blob/main/contributing/development.md).
             1. [Spin up a codespace to review](https://github.com/github/docs-engineering/blob/main/docs/team-practices/use-a-codespace-to-review.md).
-            1. Message on Slack in `#docs-engineering` for a staging server.
+            1. Message \`#docs-engineering\` on Slack for a staging server.
 
             Thank you for your contribution!"
           fi
