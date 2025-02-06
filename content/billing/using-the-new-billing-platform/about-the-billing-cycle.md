@@ -12,7 +12,7 @@ topics:
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
->[!IMPORTANT] {% ifversion fpt %}If you have a {% data variables.product.prodname_free_user %} plan or a {% data variables.product.prodname_pro %} plan, this article does not apply to you.{% elsif ghec %}If you have not migrated to the enhanced billing platform, this article does not apply to you.{% endif %}
+>[!IMPORTANT] {% ifversion fpt %}If you want to know about billing for your personal user account, this article does not apply to you.{% elsif ghec %}If you have not migrated to the enhanced billing platform, this article does not apply to you.{% endif %}
 >
 > To check if you are on the enhanced billing platform, see [How do I know if I can access the enhanced billing platform?](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform).
 

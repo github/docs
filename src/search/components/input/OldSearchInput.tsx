@@ -5,18 +5,19 @@ import { SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
-import { useQuery } from 'src/search/components/useQuery'
-import { useBreakpoint } from 'src/search/components/useBreakpoint'
+import { useQuery } from 'src/search/components/hooks/useQuery'
+import { useBreakpoint } from 'src/search/components/hooks/useBreakpoint'
 import { sendEvent } from 'src/events/components/events'
 import { EventType } from 'src/events/types'
+import { GENERAL_SEARCH_CONTEXT } from '../helpers/execute-search-actions'
 
 type Props = { isSearchOpen: boolean }
 
-export function Search({ isSearchOpen }: Props) {
+export function OldSearchInput({ isSearchOpen }: Props) {
   const router = useRouter()
   const { query, debug } = useQuery()
   const [localQuery, setLocalQuery] = useState(query)
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('old_search')
   const { currentVersion } = useVersion()
   const atMediumViewport = useBreakpoint('medium')
 
@@ -56,6 +57,7 @@ export function Search({ isSearchOpen }: Props) {
             sendEvent({
               type: EventType.search,
               search_query: localQuery,
+              search_context: GENERAL_SEARCH_CONTEXT,
             })
 
             redirectSearch()

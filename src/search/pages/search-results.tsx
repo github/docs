@@ -8,7 +8,7 @@ import {
 } from 'src/frame/components/context/MainContext'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { SearchContext } from 'src/search/components/context/SearchContext'
-import { Search } from 'src/search/components/index'
+import { Search } from 'src/search/components/results/index'
 import { SearchOnReqObject } from 'src/search/types'
 import type { SearchContextT } from 'src/search/components/types'
 

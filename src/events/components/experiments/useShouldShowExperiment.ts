@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { shouldShowExperiment } from './experiment'
 import { ExperimentNames } from './experiments'
+import { getIsStaff } from '../dotcom-cookies'
 
 export function useShouldShowExperiment(
   experimentKey: ExperimentNames | { key: ExperimentNames },
@@ -13,8 +14,9 @@ export function useShouldShowExperiment(
   const [showExperiment, setShowExperiment] = useState(false)
 
   useEffect(() => {
-    const updateShouldShow = () => {
-      setShowExperiment(shouldShowExperiment(experimentKey, locale))
+    const updateShouldShow = async () => {
+      const isStaff = await getIsStaff()
+      setShowExperiment(shouldShowExperiment(experimentKey, locale, isStaff))
     }
 
     updateShouldShow()

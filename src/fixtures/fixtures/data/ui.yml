@@ -15,6 +15,7 @@ header:
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
   menu: Menu
+  open_menu_label: Open menu
   go_home: Home
 picker:
   language_picker_label: Language
@@ -23,6 +24,37 @@ picker:
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
+  input:
+    experimental_tag: Experimental
+    aria_label: Open search overlay
+    placeholder: Search or ask AI assistant
+  overlay:
+    input_aria_label: Search or ask AI assistant
+    suggestions_list_aria_label: Search suggestions
+    ai_suggestions_list_aria_label: AI search suggestions
+    general_suggestions_list_aria_label: Docs search suggestions
+    general_autocomplete_list_heading: Search docs
+    ai_autocomplete_list_heading: Ask AI
+    give_feedback: Give feedback
+    beta_tag: Beta
+    return_to_search: Return to search
+    clear_search_query: Clear
+  ai:
+    disclaimer: This is an experimental generative AI response. All information should be verified prior to use.
+    references: References from these articles
+    loading_status_message: Loading AI response...
+    done_loading_status_message: Done loading AI response
+    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query.
+    copy_answer: Copy answer
+    copied_announcement: Copied!
+    thumbs_up: This answer was helpful
+    thumbs_down: This answer was not helpful
+    thumbs_announcement: Thank you for your feedback!
+  failure:
+    autocomplete_title: There was an error loading autocomplete results.
+    ai_title: There was an error loading the AI assistant.
+    description: You can still use this field to search our docs.
+old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
   label: Search GitHub Docs

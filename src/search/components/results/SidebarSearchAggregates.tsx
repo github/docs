@@ -1,4 +1,4 @@
-import { useSearchContext } from './context/SearchContext'
+import { useSearchContext } from '../context/SearchContext'
 import { SearchResultsAggregations } from './Aggregations'
 
 export function SidebarSearchAggregates() {

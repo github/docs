@@ -68,6 +68,90 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
+test('open new search, and perform a general search', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Let new suggestions load
+  await page.waitForTimeout(1000)
+  // Navigate to general search item, "serve playwright"
+  await page.keyboard.press('ArrowDown')
+  // Select the general search item, "serve playwright"
+  await page.keyboard.press('Enter')
+
+  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+
+  await page.getByRole('link', { name: 'For Playwright' }).click()
+
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and get auto-complete results', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  let listGroup = page.getByTestId('ai-autocomplete-suggestions')
+
+  await expect(listGroup).toBeVisible()
+  let listItems = listGroup.locator('li')
+  await expect(listItems).toHaveCount(5)
+
+  // Top 5 queries from queries.json fixture's 'topQueries'
+  let expectedTexts = [
+    'What is GitHub and how do I get started?',
+    'What is GitHub Copilot and how do I get started?',
+    'How do I connect to GitHub with SSH?',
+    'How do I generate a personal access token?',
+    'How do I clone a repository?',
+  ]
+  for (let i = 0; i < expectedTexts.length; i++) {
+    await expect(listItems.nth(i)).toHaveText(expectedTexts[i])
+  }
+
+  const searchInput = await page.getByTestId('overlay-search-input')
+
+  await expect(searchInput).toBeVisible()
+  await expect(searchInput).toBeEnabled()
+
+  // Type the text "rest" into the search input
+  await searchInput.fill('rest')
+
+  // Ask AI suggestions
+  listGroup = page.getByTestId('ai-autocomplete-suggestions')
+  listItems = listGroup.locator('li')
+  await expect(listItems).toHaveCount(3)
+  await expect(listGroup).toBeVisible()
+  expectedTexts = [
+    'rest',
+    'How do I manage OAuth app access restrictions for my organization?',
+    'How do I test my SSH connection to GitHub?',
+  ]
+  for (let i = 0; i < expectedTexts.length; i++) {
+    await expect(listItems.nth(i)).toHaveText(expectedTexts[i])
+  }
+})
+
 test('search from enterprise-cloud and filter by top-level Fooing', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
