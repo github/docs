@@ -40,7 +40,10 @@ Organization owners can disable the publication of {% data variables.product.pro
 
 There are three types of {% data variables.product.prodname_pages %} sites: project, user, and organization. Project sites are connected to a specific project hosted on {% data variables.product.github %}, such as a JavaScript library or a recipe collection. User and organization sites are connected to a specific account on {% data variables.location.product_location %}.
 
-To publish a user site, you must create OR rename a repository owned by your personal account that's named {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}. To publish an organization site, you must create OR rename a repository owned by an organization that's named {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}. {% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% endif %}
+* User sites are hosted in a repository owned your personal account, named {% ifversion fpt or ghec %}`<username>.github.io`{% else %}`<username>.<hostname>`{% endif %}.
+* Organization sites are hosted in a repository owned by an organization, named {% ifversion fpt or ghec %}`<organization>.github.io`{% else %}`<organization>.<hostname>`{% endif %}.
+
+{% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% endif %}
 
 
 **Note: Github pages works around 10 minutes after you renamed/created the repository.**
