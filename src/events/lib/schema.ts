@@ -412,11 +412,11 @@ const aiSearchResult = {
       description: 'The query the user searched for.',
     },
     ai_search_result_response: {
-      type: 'number',
+      type: 'string',
       description: "The GPT's response to the query.",
     },
     ai_search_result_links_json: {
-      type: 'number',
+      type: 'string',
       description:
         'Dynamic JSON string of an array of "link" objects in the form: [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]',
     },
