@@ -13438,6 +13438,11 @@ enum EnterpriseAdministratorRole {
   Represents an owner of the enterprise account.
   """
   OWNER
+
+  """
+  Unaffiliated member of the enterprise account without an admin role.
+  """
+  UNAFFILIATED
 }
 
 """

@@ -81,8 +81,8 @@ jobs:
           comment-author: 'github-actions[bot]'
           body-includes: '<!-- MODIFIED_CONTENT_LINKING_COMMENT -->'
 
-      - name: Update comment
-        if: ${{ steps.changes.outputs.changesTable != '' }}
+      - name: Update comment on docs-internal
+        if: ${{github.repository == 'github/docs-internal' && steps.changes.outputs.changesTable != '' }}
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
@@ -93,6 +93,34 @@ jobs:
             **This comment is 🤖 automatically generated and will be overwritten every time changes are committed to this branch.**
 
             The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the review server. Please note that changes to the `data` directory will not show up in this table.
+
+            :bangbang: You can also preview changes [using Codespaces](https://github.com/github/docs-engineering/blob/main/docs/team-practices/use-a-codespace-to-review.md) or by [spinning up a local environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment). Please continue to [let us know](https://github.com/github/docs-team/discussions/4889) if you have trouble with the review server and use one of those options to preview your changes.
+
+            ---
+
+            ### Content directory changes
+            _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
+            ${{ steps.changes.outputs.changesTable }}
+
+            ---
+            Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server
+            _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/comment-content-changes-table.yml) workflow._
+          edit-mode: replace
+
+      - name: Update comment on docs public
+        if: ${{github.repository == 'github/docs' && steps.changes.outputs.changesTable != '' }}
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
+          body: |
+            <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
+            ## 👓 Previews for changed content
+            **This comment is 🤖 automatically generated and will be overwritten every time changes are committed to this branch.**
+
+            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the review server. Please note that changes to the `data` directory will not show up in this table.
+
+            :bangbang: You can also preview changes [using Codespaces](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace) or by [spinning up a local environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment). If you have trouble with the review server, use one of those options to preview your changes.
 
             ---
 

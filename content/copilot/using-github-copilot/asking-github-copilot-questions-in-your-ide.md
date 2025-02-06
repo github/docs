@@ -49,50 +49,33 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 
 ### Chat participants
 
-Chat participants are AI domain experts that can perform tasks or answer questions in a specific domain.
+Chat participants are like domain experts who have a specialty that they can help you with.
 
-{% data variables.product.prodname_copilot_chat_short %} can infer relevant chat participants based on your natural language prompt, improving discovery of advanced capabilities without you having to explicitly specify the participant you want to use in your prompt. However, if you prefer, you can still manually specify a chat participant to scope your prompt to a specific domain. To do this, type `@` in the chat prompt box, followed by a chat participant name.
+{% data variables.product.prodname_copilot_chat_short %} can infer relevant chat participants based on your natural language prompt, improving discovery of advanced capabilities without you having to explicitly specify the participant you want to use in your prompt.
 
 > [!NOTE] Automatic inference for chat participants is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
-Chat participants include:
+Alternatively, you can manually specify a chat participant to scope your prompt to a specific domain. To do this, type `@` in the chat prompt box, followed by a chat participant name.
 
-* `@workspace`: Has context about the code in your workspace. Use `@workspace` when you want {% data variables.product.prodname_copilot_short %} to consider the structure of your project, how different parts of your code interact, or design patterns in your project.
-* `@vscode`: Has context about {% data variables.product.prodname_vscode %} commands and features. Use `@vscode` when you want help with {% data variables.product.prodname_vscode %}.
-* `@terminal`: Has context about the {% data variables.product.prodname_vscode %} terminal shell and its contents. Use `@terminal` when you want help creating or debugging terminal commands.
-* `@azure`: Has context about Azure services and how to use, deploy and manage them. Use `@azure` when you want help with Azure. The `@azure` chat participant is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-{% ifversion ghec %}
-* `@github`: Allows you to use {% data variables.product.prodname_dotcom %}-specific {% data variables.product.prodname_copilot_short %} skills. See [Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}](#using-github-skills-for-copilot).
-{% endif %}
+For a list of available chat participants, type `@` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#chat-participants) or [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
 
-In addition to the built-in {% data variables.product.prodname_vscode %} chat participants, you can also install {% data variables.product.prodname_copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
+### {% data variables.product.prodname_copilot_extensions_short %} chat participants
+
+You can also install {% data variables.product.prodname_copilot_extensions_short %} that provide chat participants. You can install these extensions from [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true) and from [{% data variables.product.prodname_vscode_marketplace %}](https://marketplace.visualstudio.com/search?target=VSCode&category=Chat&sortBy=Installs). For information about extensions from {% data variables.product.prodname_marketplace %} that provide chat participants, see [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/about-github-copilot-extensions).
 
 {% data reusables.copilot.copilot-extensions.public-preview-note %}
 
-To see all available chat participants, type `@` in the chat prompt box.
-
-See also [Chat participants](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-participants) in the {% data variables.product.prodname_vscode %} documentation.
-
 ### Slash commands
 
-Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. Slash commands include:
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
 
-* `/tests`: Generate unit tests for the selected code
-* `/fix`: Propose a fix for problems in the selected code
-* `/explain`: Explain the selected code
-* `/clear`: Start a new chat
-
-To see all available slash commands, type `/` in the chat prompt box. See also [Slash commands](https://code.visualstudio.com/docs/copilot/copilot-chat#_slash-commands) in the {% data variables.product.prodname_vscode %} documentation.
+To see all available slash commands, type `/` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#slash-commands) or [Slash commands](https://code.visualstudio.com/docs/copilot/copilot-chat#_slash-commands) in the {% data variables.product.prodname_vscode %} documentation.
 
 ### Chat variables
 
-Use chat variables to include specific context in your prompt. To use a chat variable, type `#` in the chat prompt box, followed by a chat variable. Chat variables include:
+Use chat variables to include specific context in your prompt. To use a chat variable, type `#` in the chat prompt box, followed by a chat variable.
 
-* `#file`: Include a specific file as context in the chat.
-* `#git`: Include information about the current Git repository.
-* `#terminalLastCommand`: Include the last run command in the active {% data variables.product.prodname_vscode %} terminal.
-
-To see all available chat variables, type `#` in the chat prompt box. See also [Chat variables](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-variables) in the {% data variables.product.prodname_vscode %} documentation.
+To see all available chat variables, type `#` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#chat-variables) or [Chat variables](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-variables) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
 
@@ -105,32 +88,7 @@ When you add `@github` to a question, {% data variables.product.prodname_copilot
 * Use natural language to ask {% data variables.product.prodname_copilot_chat_short %} to use a skill. For example, `@github Search the web to find the latest GPT4 model from OpenAI.`
 * To specifically invoke a web search you can include the `#web` variable in your question. For example, `@github #web What is the latest LTS of Node.js?`
 
-### Currently available skills
-
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
-
-The skills you can use in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %} include those shown in the table below.
-
-<!-- Check whether any edits to this table also need to be made to the Visual Studio version of this table later in this file, or -->
-<!-- to the same table in asking-github-copilot-questions-in-githubcom.md -->
-| Skill | Description | Enabled by default? | Example question |
-| ----- | ----------- | ------------------- | ---------------- |
-| **Commit details** | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions. | Yes | `@github Explain the changes in the code of this commit` |
-| **Discussion details** | Retrieves a specific {% data variables.product.prodname_dotcom %} discussion. This is useful for quickly getting the gist of the conversation in a discussion. | Yes | `@github Summarize this discussion LINK-TO-DISCUSSION` |
-| **File details** | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` <br> <br> `@github What is the file history of user_auth.js?` |
-| **{% data variables.product.prodname_GH_advanced_security %}** | Retrieves information about security alerts within your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). | Yes | `@github How would I fix this {% data variables.product.prodname_code_scanning %} alert?` |
-| **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | `@github List issues assigned to me` |
-| {% ifversion ghec %} |
-| **Knowledge base search** | Tell {% data variables.product.prodname_copilot_chat_short %} to answer a question within the context of a knowledge base. To initiate a knowledge base search, first enter `@github #kb`. | Yes | Enter `@github #kb`, then choose your organization's style guide knowledge base, then ask: `What is our coding convention for indentation?` |
-| {% endif %} |
-| **Lexical code search** | Keyword code search in the default branch of the Git repository. This skill is useful when you want to know about specific functions, methods or keywords that exist in the code. This skill leverages most of the functionality available to [{% data variables.product.prodname_dotcom %} Search](/search-github/github-code-search/understanding-github-code-search-syntax#using-qualifiers) like `symbol` and `path`. | Yes | `Find me the tests for the GitService class` |
-| **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
-| **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | `@github List my recent pull requests` |
-| **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | `@github When was the latest release?` |
-| **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | `@github Tell me about PATH-TO-REPOSITORY` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/indexing-repositories-for-copilot-chat). | Yes <br><br>Available for all public and private repositories with any subscription. | `How does this repo manage HTTP requests and responses?`|
-| **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | `@github Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?` |
-| **Web search** | Searches the web using the Bing search engine. This skill allows {% data variables.product.prodname_copilot_short %} to access information about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `@github #web What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
 {% ifversion ghec %}
 
@@ -151,17 +109,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list-o3 %}
-
-### Changing your AI model
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-{% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
@@ -173,19 +121,29 @@ In addition to submitting prompts through the chat view, you can submit prompts 
 
 See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inline-chat), [quick chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_quick-chat), and [chat smart actions](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-smart-actions) in the {% data variables.product.prodname_vscode %} documentation for more details.
 
-## Multi-file edits
+## {% data variables.product.prodname_copilot_edits_vscode_short %}
 
-{% data reusables.copilot.copilot-edits-public-preview-note %}
+{% data reusables.copilot.about-copilot-edits %}
 
-Use {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files directly from a single {% data variables.product.prodname_copilot_chat_short %} prompt.
+### Using edit mode
 
-1. Enable {% data variables.product.prodname_copilot_edits_vscode_short %} in the {% data variables.product.prodname_copilot_extension_short %} settings.
-1. Start an edit session by selecting **Open {% data variables.product.prodname_copilot_edits_vscode_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_vscode_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. Optionally, add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_vscode_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Apply** or **Discard** the edits for each file.
 
-For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+For more detailed instructions, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+
+### Using agent mode
+
+{% data reusables.copilot.agent-mode-public-preview-note %}
+
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_vscode_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
+1. Select **Agent** from the mode dropdown menu.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
+1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
+
+For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Sharing feedback
 
@@ -196,7 +154,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
-* [Using Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with GitHub Copilot Chat in VS Code](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
+* [Using {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/copilot-chat) and [Getting started with {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/getting-started-chat) in the {% data variables.product.prodname_vscode %} documentation
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
@@ -239,25 +197,15 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 
 ### Slash commands
 
-Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. Slash commands include:
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
 
-* `/tests`: Generate unit tests for the selected code
-* `/fix`: Propose a fix for problems in the selected code
-* `/explain`: Explain the selected code
-* `/optimize`: Analyze and improve the runtime of the selected code
-
-To see all available slash commands, type `/` in the chat prompt box. See also [Slash commands](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#slash-commands) in the {% data variables.product.prodname_vs %} documentation.
+To see all available slash commands, type `/` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=vscode#slash-commands) or [Slash commands](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#slash-commands) in the {% data variables.product.prodname_vs %} documentation.
 
 ### References
 
-By default, {% data variables.product.prodname_copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also use `#` followed by a file name, file name and line numbers, or `solution` to reference a specific file, lines, or solution. For example:
+By default, {% data variables.product.prodname_copilot_chat_short %} will reference the file that you have open or the code that you have selected. You can also use `#` followed by a file name, file name and line numbers, or `solution` to reference a specific file, lines, or solution.
 
-* Reference a specific file: `Where are the tests in #MyFile.cs?`
-* Reference multiple files: `How are these files related #MyFile.cs #MyFile2.cs`
-* Reference specific lines in a file: `Explain this function #MyFile.cs: 66-72?`
-* Reference the current file: `Is there a delete method in this #solution`
-
-See also [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#reference) in the {% data variables.product.prodname_vs %} documentation.
+See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=visualstudio#references) or [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-context#reference) in the {% data variables.product.prodname_vs %} documentation.
 
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %} (preview)
 
@@ -268,23 +216,7 @@ See also [Reference](https://learn.microsoft.com/visualstudio/ide/copilot-chat-c
 
 When you add `@github` to a question, {% data variables.product.prodname_copilot_short %} dynamically selects an appropriate skill, based on the content of your question. You can also explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use a particular skill. For example, `@github Search the web to find the latest GPT4 model from OpenAI.`
 
-### Currently available skills
-
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `@github What skills are available?`
-
-The skills you can use in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} include those shown in the table below.
-
-<!-- Check whether any edits to this table also need to be made to the Visual Studio version of this table later in this file, or -->
-<!-- to the same table in asking-github-copilot-questions-in-githubcom.md -->
-| Skill  | Description | Enabled by default? | Example question |
-| ------ | ----------- | ------------------- | -----------------|
-| {% ifversion ghec %} |
-| **Knowledge base search** | Tell {% data variables.product.prodname_copilot_chat_short %} to answer a question within the context of a knowledge base. To initiate a knowledge base search, first enter `@github`, then press **#**, then select a knowledge base. | Yes | Enter `@github #`, then choose your organization's style guide knowledge base, then ask: `What is our coding convention for indentation?` |
-| {% endif %} |
-| **Lexical code search** | Keyword code search in the default branch of the Git repository. This skill is useful when you want to know about specific functions, methods or keywords that exist in the code. This skill leverages most of the functionality available to [{% data variables.product.prodname_dotcom %} Search](/search-github/github-code-search/understanding-github-code-search-syntax#using-qualifiers) like `symbol` and `path`. | Yes | `Find me the tests for the GitService class` |
-| **Path search** | Retrieves a specific file in the default branch of the Git repository. This skill is useful when you provide the exact path of a file in the repository. | Yes | `@github What logic does user_auth.js encapsulate?` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/indexing-repositories-for-copilot-chat). | Yes <br><br>Available for all public and private repositories with any subscription. | `How does this repo manage HTTP requests and responses?`|
-| **Web search** | Searches the web using the Bing search engine. This skill allows {% data variables.product.prodname_copilot_short %} to access information about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `@github What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
 {% ifversion ghec %}
 
@@ -306,19 +238,7 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-beta-note %}
-
-{% data reusables.copilot.copilot-chat-models-list-o1-preview %}
-
-### Changing your AI model
-
-To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 17.12 Preview 3 or later. See [{% data variables.product.prodname_vs %} 2022 Preview](https://visualstudio.microsoft.com/vs/preview/#download-preview) in the {% data variables.product.prodname_vs %} documentation.
-
-{% data reusables.copilot.chat-model-limitations-ide %}
-
-{% data reusables.copilot.model-picker-enable-o1-models %}
-1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
@@ -389,14 +309,9 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 
 ### Slash commands
 
-Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. Slash commands include:
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
 
-* `/tests`: Generate unit tests for the selected code
-* `/fix`: Propose a fix for problems in the selected code
-* `/explain`: Explain the selected code
-* `/help`: Learn more about using {% data variables.product.prodname_copilot_chat_short %}
-
-To see all available slash commands, type `/` in the chat prompt box.
+To see all available slash commands, type `/` in the chat prompt box. See also [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=jetbrains#slash-commands-2)
 
 ### File references
 

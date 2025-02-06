@@ -28,8 +28,12 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'tool',
   // When apiVersion isn't the only one. E.g. ?apiVersion=XXX&tool=vscode
   'apiVersion',
-  // Search
+  // Search results page
   'query',
+  // Any page, Search Overlay
+  'search-overlay-input',
+  'search-overlay-open',
+  'search-overlay-ask-ai',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
   // Used by the tracking middleware

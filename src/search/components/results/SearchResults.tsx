@@ -14,6 +14,7 @@ import styles from './SearchResults.module.scss'
 import type { SearchQueryContentT } from 'src/search/components/types'
 import type { GeneralSearchHitWithoutIncludes, GeneralSearchResponse } from 'src/search/types'
 import type { SearchTotalHits } from '@elastic/elasticsearch/lib/api/types'
+import { GENERAL_SEARCH_RESULTS } from '@/events/components/event-groups'
 
 type Props = {
   results: GeneralSearchResponse
@@ -105,6 +106,7 @@ function SearchResultHit({
           href={hit.url}
           className="color-fg-accent search-result-link"
           dangerouslySetInnerHTML={{ __html: title }}
+          data-group-key={GENERAL_SEARCH_RESULTS}
           onClick={() => {
             sendEvent({
               type: EventType.searchResult,

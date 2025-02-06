@@ -207,6 +207,11 @@ Alternatively, you can show alternate suggestions by pressing <kbd>Alt</kbd>+<kb
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} provides two kinds of suggestions:
+
+* **Code completions**. {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
+* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**. Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it.
+
 The examples in this guide use JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
 ## Prerequisites
@@ -299,6 +304,26 @@ Alternatively, you can use a keyboard shortcut to accept the next word of a sugg
 |Windows or Linux |<kbd>Control</kbd>+<kbd>→</kbd>|
 
 If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+
+## About {% data variables.copilot.next_edit_suggestions %}
+
+> [!NOTE] {% data variables.copilot.next_edit_suggestions_caps %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+Inline suggestions autocomplete code, but many development tasks involve editing existing code. {% data variables.copilot.next_edit_suggestions_caps %} assists with edits both at the cursor and in other relevant parts of the code, helping maintain consistency and streamline changes.
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+
+To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
+### Navigating and accepting suggestions
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options. If an edit suggestion is outside the current editor view, the arrow will point up or down to indicate where the next suggestion is.
+
+![Screenshot of the gutter menu in {% data variables.product.prodname_vscode %}. The arrow is outlined in dark orange.](/assets/images/help/copilot/vsc-advanced-code-completion-menu.png)
+
+For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/gh-copilot-nes-docs) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}
 
