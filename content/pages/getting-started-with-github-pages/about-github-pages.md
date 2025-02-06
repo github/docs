@@ -45,9 +45,7 @@ There are three types of {% data variables.product.prodname_pages %} sites: proj
 
 {% ifversion fpt or ghec %}Unless you're using a custom domain, user and organization sites are available at `http(s)://<username>.github.io` or `http(s)://<organization>.github.io`.{% endif %}
 
-
-**Note: Github pages works around 10 minutes after you renamed/created the repository.**
-
+{% data reusables.pages.twenty-minutes-to-publish %}
 
 The source files for a project site are stored in the same repository as their project. {% ifversion fpt or ghec %}Unless you're using a custom domain, project sites are available at `http(s)://<username>.github.io/<repository>` or `http(s)://<organization>.github.io/<repository>`.{% endif %}
 
