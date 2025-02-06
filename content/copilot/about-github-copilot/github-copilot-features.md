@@ -54,6 +54,12 @@ Bringing the power of industry leading large and small language models to users 
 
 AI-generated code review suggestions to help you write better code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
+### {% data variables.product.prodname_copilot_edits_vscode_short %}
+
+{% data variables.product.prodname_copilot_edits_vscode_short %} is available in {% data variables.product.prodname_vscode %}. {% data reusables.copilot.about-copilot-edits %}
+
+For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. For more information, see [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
