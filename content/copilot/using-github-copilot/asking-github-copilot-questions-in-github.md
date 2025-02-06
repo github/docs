@@ -41,27 +41,7 @@ When using the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} mod
 
 You can explicitly ask {% data variables.product.prodname_copilot_chat_dotcom %} to use a particular skill - for example, `Use the Bing skill to find the latest GPT4 model from OpenAI`.
 
-### Currently available skills
-
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
-
-The skills you can use in {% data variables.product.prodname_copilot_chat_dotcom_short %} include those shown in the table below.
-
-<!-- Check whether any edits to this table also need to be made to the same table later in asking-github-copilot-questions-in-your-ide.md -->
-| Skill | Description | Enabled by default? | Example question |
-| ----- | ----------- | ------------------- | ---------------- |
-| **Commit details** | Retrieves a list of commits, or the contents of a specific commit, to provide answers to commit-related questions. | Yes | `Explain the changes in the code of this commit`|
-| **Discussion details** | Retrieves a specific {% data variables.product.prodname_dotcom %} discussion. This is useful for quickly getting the gist of the conversation in a discussion. | Yes | `Summarize this discussion` |
-| **File details** | Retrieves a specific file in the default branch of the Git repository, allowing you to ask questions about the file and the recent changes made to it. This skill is useful when you provide the exact path of a file in the repository. | Yes | `What logic does user_auth.js encapsulate?` <br> <br>`What is the file history of user_auth.js?` |
-| **{% data variables.product.prodname_GH_advanced_security %}** | Retrieves information about security alerts within your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). | Yes | `How would I fix this {% data variables.product.prodname_code_scanning %} alert?` |
-| **Issue details** | Retrieves a specific {% data variables.product.prodname_dotcom %} issue, including the issue's title, number, author, status, body, linked pull requests, comments, and timestamps. | Yes | `Summarize the conversation on this issue and suggest next steps` |
-| **Lexical code search** | Keyword code search in the default branch of the Git repository. This skill is useful when you want to know about specific functions, methods or keywords that exist in the code. This skill leverages most of the functionality available to [{% data variables.product.prodname_dotcom %} Search](/search-github/github-code-search/understanding-github-code-search-syntax#using-qualifiers) like `symbol` and `path`. | Yes | `Find me the tests for the GitService class` |
-| **Pull request details** | Retrieves a specific pull request. This allows you to ask questions about the pull request, including getting a summary of the pull request, its comments, or the code it changes. | Yes | `Summarize this PR for me` <br><br>`Summarize the changes in this PR` |
-| **Release details** | Retrieves the latest, or specified, release. This allows you to find out who created a release, when it happened, and information included in the release notes. | Yes | `When was the latest release?` |
-| **Repository details** | Retrieves a specific {% data variables.product.prodname_dotcom %} repository. This is useful for finding out details such as the repository owner and the main language used. | Yes | `Tell me about this repo` |
-| **Semantic code search** | Natural language semantic code search in the default branch of the Git repository. This skill is useful when you want to know where or how certain functionality has been implemented in the code. | Yes <br><br>Available for all public and private repositories with any subscription. | `How does this repo manage HTTP requests and responses?`|
-| **Support search** | Retrieves information from the {% data variables.contact.contact_support_portal %}. This skill is useful for asking {% data variables.product.prodname_copilot_chat_short %} about {% data variables.product.prodname_dotcom %} products and support related questions. | Yes | `Can I use {% data variables.product.prodname_copilot_short %} knowledge bases with {% data variables.product.prodname_copilot_individuals_short %}?` |
-| **Web search** | Searches the web using the Bing search engine. This skill allows {% data variables.product.prodname_copilot_short %} to access information about recent events, new developments, trends, technologies, or extremely specific, detailed, or niche subjects. | No <br><br>{% ifversion fpt %}_For {% data variables.product.prodname_copilot_individuals_short %}:_<br>Enable in your user settings.<br><br>_For {% data variables.product.prodname_copilot_business_short %}:_<br>Enable in organization settings.{% else %}Enable in enterprise or organization settings.{% endif %} | `What are some recent articles about SAT tokens securing against vulnerabilities in Node?` |
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
