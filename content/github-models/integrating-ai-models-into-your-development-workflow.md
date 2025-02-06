@@ -12,7 +12,7 @@ With {% data variables.product.prodname_github_models %} extensions, you can cal
 
 If you have a {% data variables.product.prodname_copilot_short %} subscription, you can work with AI models in {% data variables.product.prodname_copilot_chat_short %} in two different ways:
 * Using the {% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}. With this extension, you can ask for model recommendations based on certain criteria and chat with specific models. See [Using the {% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}](#using-the-github-models-copilot-extension).
-* Using multiple model support in {% data variables.product.prodname_copilot_chat_short %}. With multi-model {% data variables.product.prodname_copilot_chat_short %}, you can choose a specific model to use for a conversation, then prompt {% data variables.product.prodname_copilot_chat_short %} as usual. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#ai-models-for-copilot-chat) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#ai-models-for-copilot-chat).
+* Using multiple model support in {% data variables.product.prodname_copilot_chat_short %}. With multi-model {% data variables.product.prodname_copilot_chat_short %}, you can choose a specific model to use for a conversation, then prompt {% data variables.product.prodname_copilot_chat_short %} as usual. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ### Using the {% data variables.product.prodname_github_models %} {% data variables.product.prodname_copilot_extension_short %}
 
@@ -60,5 +60,5 @@ To see a list of all available commands, run `gh models`.
 
 There are a few key ways you can use the extension:
    * **To ask a model multiple questions using a chat experience**, run `gh models run`. Select your model from the listed models, then send your prompts.
-   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the `gpt-4o` model why the sky is blue, you can run `gh models run gpt-4o "why is the sky blue?"`.
-   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the `gpt-4o` model, you can run `cat README.md | gh models run gpt-4o "summarize this text"`.
+   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the GPT 4o model why the sky is blue, you can run `gh models run gpt-4o "why is the sky blue?"`.
+   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the GPT 4o model, you can run `cat README.md | gh models run gpt-4o "summarize this text"`.

@@ -20,7 +20,7 @@ The enhanced billing platform provides better spending control and detailed usag
 
 The products shown in the enhanced billing platform are determined by your {% data variables.product.github %} plan and subscriptions.
 
-### {% data variables.product.prodname_team %}
+### Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}
 
 * {% data variables.product.prodname_actions %}
 * {% data variables.product.prodname_github_codespaces %}

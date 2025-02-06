@@ -36,7 +36,7 @@ remote: error: Required status check "ci-build" is failing
 
 ## Required check needs to succeed against the latest commit SHA
 
-In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks.
+In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks. Successful check statuses are: `success`, `skipped`, and `neutral`. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 ## Conflicts between head commit and test merge commit
 
