@@ -365,6 +365,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.proxy_security_header_disabled",
+    "description": "The proxy security header was disabled for an enterprise. All users on the network can now access GitHub, unless blocked by other means.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.proxy_security_header_enabled",
     "description": "The proxy security header was enabled for an enterprise. When the header is provided in requests, only Enterprise Managed Users matching the header will be able to access GitHub.",
     "docs_reference_links": "N/A"
@@ -3178,6 +3183,16 @@
     "action": "repo.code_scanning_configuration_for_branch_deleted",
     "description": "A code scanning configuration for a branch of a repository was deleted.",
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
+    "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
+    "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "repo.codeql_disabled",
