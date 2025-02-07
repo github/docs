@@ -16,7 +16,7 @@ featuredLinks:
   popular:
     - /copilot/using-github-copilot/best-practices-for-using-github-copilot
     - /copilot/using-github-copilot/prompt-engineering-for-github-copilot
-    - /copilot/example-prompts-for-github-copilot-chat
+    - /copilot/copilot-chat-cookbook
     - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
     - /copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide
     - /copilot/using-github-copilot/using-github-copilot-in-the-command-line
@@ -28,7 +28,7 @@ children:
   - /about-github-copilot
   - /setting-up-github-copilot
   - /using-github-copilot
-  - /example-prompts-for-github-copilot-chat
+  - /copilot-chat-cookbook
   - /managing-copilot
   - /rolling-out-github-copilot-at-scale
   - /customizing-copilot
