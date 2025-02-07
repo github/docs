@@ -46,7 +46,7 @@ To draft a new release and publish the action to {% data variables.product.prodn
    > [!NOTE]
    > The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
 
-1. If the labels in your metadata file contain any problems, you will see an error message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
+1. If the labels in your metadata file contain any problems, you will see an error message or a warning message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
 1. Select the **Primary Category** dropdown menu and click a category that will help people find your action in {% data variables.product.prodname_marketplace %}.
 1. Optionally, select the **Another Category** dropdown menu and click a secondary category.
 1. In the tag field, type a version for your action. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
