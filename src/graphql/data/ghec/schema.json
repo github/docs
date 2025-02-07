@@ -32713,7 +32713,7 @@
       "kind": "objects",
       "id": "maxfilesizeparameters",
       "href": "/graphql/reference/objects#maxfilesizeparameters",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "maxFileSize",
@@ -88797,7 +88797,7 @@
         },
         {
           "name": "MAX_FILE_SIZE",
-          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>"
+          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>"
         },
         {
           "name": "MAX_REF_UPDATES",
@@ -99992,7 +99992,7 @@
       "kind": "inputObjects",
       "id": "maxfilesizeparametersinput",
       "href": "/graphql/reference/input-objects#maxfilesizeparametersinput",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "maxFileSize",
