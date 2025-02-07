@@ -85152,6 +85152,10 @@
         {
           "name": "OWNER",
           "description": "<p>Represents an owner of the enterprise account.</p>"
+        },
+        {
+          "name": "UNAFFILIATED",
+          "description": "<p>Unaffiliated member of the enterprise account without an admin role.</p>"
         }
       ]
     },

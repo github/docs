@@ -3,6 +3,7 @@ import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
 import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
+import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
 
 const COOKIE_NAME = '_docs-events'
@@ -35,7 +36,7 @@ function resetPageParams() {
 
 // Temporary polyfill for crypto.randomUUID()
 // Necessary for localhost development (doesn't have https://)
-function uuidv4(): string {
+export function uuidv4(): string {
   try {
     return crypto.randomUUID()
   } catch {
@@ -63,10 +64,14 @@ function getMetaContent(name: string) {
 export function sendEvent<T extends EventType>({
   type,
   version = '1.0.0',
+  eventGroupKey,
+  eventGroupId,
   ...props
 }: {
   type: T
   version?: string
+  eventGroupKey?: string
+  eventGroupId?: string
 } & EventPropsByType[T]) {
   const body = {
     type,
@@ -110,6 +115,12 @@ export function sendEvent<T extends EventType>({
       color_mode_preference: getColorModePreference(),
       os_preference: Cookies.get('osPreferred'),
       code_display_preference: Cookies.get('annotate-mode'),
+
+      experiment_variation: getExperimentVariationForContext(getMetaContent('path-language')),
+
+      // Event grouping
+      event_group_key: eventGroupKey,
+      event_group_id: eventGroupId,
     },
 
     ...props,
@@ -292,6 +303,7 @@ function initCopyButtonEvent() {
     const target = evt.target as HTMLElement
     const button = target.closest('.js-btn-copy') as HTMLButtonElement
     if (!button) return
+
     sendEvent({
       type: EventType.clipboard,
       clipboard_operation: 'copy',
@@ -307,12 +319,19 @@ function initLinkEvent() {
     if (!link) return
     const sameSite = link.origin === location.origin
     const container = target.closest(`[data-container]`) as HTMLElement | null
+
+    // We can attach `data-group-key` and `data-group-id` to any anchor element to include them in the event
+    const eventGroupKey = link?.dataset?.groupKey || undefined
+    const eventGroupId = link?.dataset?.groupId || undefined
+
     sendEvent({
       type: EventType.link,
       link_url: link.href,
       link_samesite: sameSite,
       link_samepage: sameSite && link.pathname === location.pathname,
       link_container: container?.dataset.container,
+      eventGroupKey,
+      eventGroupId,
     })
   })
 

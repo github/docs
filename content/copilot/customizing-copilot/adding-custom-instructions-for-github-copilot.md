@@ -37,6 +37,12 @@ topics:
 
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
+{% vscode %}
+
+Additionally, you can create prompt files. With prompt files, you can specify common prompt instructions and relevant context in a Markdown file (`*.prompt.md`), that you can then reuse in your chat prompts. Prompt files are only available in {% data variables.product.prodname_vscode_shortname %}.
+
+{% endvscode %}
+
 ## Prerequisites
 
 * A custom instructions file (see the instructions below).
@@ -124,7 +130,7 @@ You can click the reference to open the file.
 
 {% data reusables.copilot.custom-instructions-reference %}
 
-![Screenshot of an expanded References list, showing the 'copilot-instructions.md' file highlighted with a dark organge outline.](/assets/images/help/copilot/custom-instructions-vscode.png)
+![Screenshot of an expanded References list, showing the 'copilot-instructions.md' file highlighted with a dark orange outline.](/assets/images/help/copilot/custom-instructions-vscode.png)
 
 {% endvscode %}
 
@@ -132,7 +138,7 @@ You can click the reference to open the file.
 
 {% data reusables.copilot.custom-instructions-reference %}
 
-![Screenshot of the References popup, showing the 'copilot-instructions.md' file highlighted with a dark organge outline.](/assets/images/help/copilot/custom-instruction-ref-visual-studio.png)
+![Screenshot of the References popup, showing the 'copilot-instructions.md' file highlighted with a dark orange outline.](/assets/images/help/copilot/custom-instruction-ref-visual-studio.png)
 
 {% endvisualstudio %}
 
@@ -167,3 +173,74 @@ Your choice persists until you change it.
 1. Select or clear the checkbox for **(Preview) Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
 {% endvisualstudio %}
+
+{% vscode %}
+
+## About prompt files
+
+> [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
+
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file that mimics the existing format of writing prompts in {% data variables.product.prodname_copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+
+While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
+
+Common use cases include:
+
+* **Code generation**. Create reusable prompts for components, tests, or migrations (for example, React forms, or API mocks).
+* **Domain expertise**. Share specialized knowledge through prompts, such as security practices, or compliance checks.
+* **Team collaboration**. Document patterns and guidelines with references to specs and documentation.
+* **Onboarding**. Create step-by-step guides for complex processes or project-specific patterns.
+
+### Prompt file examples
+
+The following examples demonstrate how to use prompt files.
+
+* `react-form.prompt.md` - documents a reusable task for generating a form.
+
+  ```markdown
+  Your goal is to generate a new React form component.
+
+  Ask for the form name and fields if not provided.
+
+  Requirements for the form:
+  - Use form design system components: [design-system/Form.md](../docs/design-system/Form.md)
+  - Use `react-hook-form` for form state management:
+    - Always define TypeScript types for your form data
+    - Prefer *uncontrolled* components using register
+    - Use `defaultValues` to prevent unnecessary rerenders
+  - Use `yup` for validation:
+    - Create reusable validation schemas in separate files
+    - Use TypeScript types to ensure type safety
+    - Customize UX-friendly validation rules
+  ```
+
+* `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs.
+
+  ```markdown
+  Secure REST API review:
+  - Ensure all endpoints are protected by authentication and authorization
+  - Validate all user inputs and sanitize data
+  - Implement rate limiting and throttling
+  - Implement logging and monitoring for security events
+  …
+  ```
+
+### Using prompt files
+
+To enable prompt files, configure the `chat.promptFiles` {% data variables.product.prodname_vscode_shortname %} setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace, and the default value of `.github/prompts` is used if no other path is provided. For more detailed instructions, see [{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %} settings reference](https://code.visualstudio.com/docs/copilot/copilot-settings) in the {% data variables.product.prodname_vscode %} documentation.
+
+1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
+1. Write prompt instructions by using Markdown formatting.
+
+   Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+
+1. Select the attach icon, then select **Prompt...** and choose the prompt file to attach it in {% data variables.product.prodname_copilot_chat_short %} or {% data variables.product.prodname_copilot_edits_vscode_short %}.
+1. Optionally, attach additional context files required for the task.
+1. Send the chat prompt.
+
+   * For reusable tasks, send the prompt without any additional instructions.
+   * Include additional instructions to provide more context for the task at hand.
+
+> [!TIP] Reference additional context files like API specs or documentation by using Markdown links to provide {% data variables.product.prodname_copilot_short %} with more complete information.
+
+{% endvscode %}

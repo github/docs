@@ -2400,6 +2400,16 @@
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
   },
   {
+    "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
+    "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
+    "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"

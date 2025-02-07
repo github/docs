@@ -92,6 +92,10 @@ If your project has any dependencies, you can showcase your understanding of sec
 
 You can automate this process with {% data variables.product.prodname_dependabot %}, which generates pull requests that update your project to new versions as they become available. See [AUTOTITLE](/code-security/getting-started/dependabot-quickstart-guide).
 
+## Step 5: Share your results
+
+Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
+
 ## Extra credit: Maintaining your projects
 
 Your profile is now ready to be included on your resume! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.

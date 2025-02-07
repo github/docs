@@ -19,8 +19,9 @@ children:
   - /using-github-copilot-in-the-command-line
   - /prompt-engineering-for-github-copilot
   - /using-extensions-to-integrate-external-tools-with-copilot-chat
-  - /using-claude-sonnet-in-github-copilot
+  - /ai-models
   - /finding-public-code-that-matches-github-copilot-suggestions
+  - /github-copilot-chat-cheat-sheet
   - /using-github-copilot-for-pull-requests
   - /guides-on-using-github-copilot
 redirect_from:

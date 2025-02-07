@@ -29,12 +29,12 @@ You can configure any of the following policies for your enterprise:
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
+* [Editor preview features](#editor-preview-features)
 * [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
 * [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
-* [{% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}](#copilot-access-to-claude-35-sonnet)
-* [{% data variables.product.prodname_copilot_short %} access to the o1 and o3 families of models](#copilot-access-to-the-o1-and-o3-families-of-models)
+* [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -54,6 +54,10 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ### {% data variables.product.prodname_copilot_chat %} in the IDE
 
 You can chat with {% data variables.product.prodname_copilot %} in your IDE to get code suggestions and answers to coding-related questions without context switching.
+
+### Editor preview features
+
+Some features of {% data variables.product.prodname_copilot_short %} are available as preview features in your editor. You can enable or disable these features for your enterprise.
 
 ### {% data variables.product.prodname_copilot_mobile %}
 
@@ -75,25 +79,17 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 
-### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
+### {% data variables.product.prodname_copilot_short %} access to alternative AI models
 
-{% data reusables.copilot.claude-sonnet-preview-note %}
+> [!NOTE] The following models are currently in {% data variables.release-phases.public_preview %} as AI models for {% data variables.product.prodname_copilot %}, and are subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of these products.
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. See [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the GPT 4o model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the default GPT 4o model. The available alternative models are:
 
-### {% data variables.product.prodname_copilot_short %} access to the o1 and o3 families of models
-
-{% data reusables.models.o1-models-preview-note %}
-
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 or o3 models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
-
-The o1 family of models includes the following models:
-
-* `o1`/`o1-preview`: These models are focused on advanced reasoning and solving complex problems, in particular in math and science. They respond more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to each of these models per day.
-
-The o3 family of models includes one model:
-
-* `o3-mini`: This is the next generation of reasoning models, following from `o1` and `o1-mini`. The `o3-mini` model outperforms `o1` on coding benchmarks with response times that are comparable to `o1-mini`, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours.
+* **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **{% data variables.copilot.copilot_gemini_flash %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
+* **OpenAI's o1 and o3 models**
+  * **o1**: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the GPT 4o model. Each member of your enterprise can make 10 requests to this model per day.
+  * **o3-mini**: This is the next generation of reasoning models, following from o1 and o1-mini. The o3-mini model outperforms o1 on coding benchmarks with response times that are comparable to o1-mini, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours.
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

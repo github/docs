@@ -9,4 +9,5 @@ topics:
 children:
   - /driving-copilot-adoption-in-your-company
   - /analyzing-usage-over-time-with-the-copilot-metrics-api
+  - /reminding-inactive-users
 ---

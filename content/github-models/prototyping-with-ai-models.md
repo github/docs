@@ -18,7 +18,7 @@ To find an AI model:
 
 The model is opened in the model playground. Details of the model are displayed in the sidebar on the right. If the sidebar is not displayed, expand it by clicking the **{% octicon "sidebar-expand" aria-label="Show parameters setting" %}** icon at the right of the playground.
 
-{% data reusables.models.o1-models-preview-note %}
+> [!NOTE] Access to OpenAI's models is in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Experimenting with AI models in the playground
 
