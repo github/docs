@@ -22,7 +22,7 @@ export const EXPERIMENTS = {
     percentOfUsersToGetExperiment: 0, // 10% of users will get the experiment
     includeVariationInContext: true, // All events will include the `experiment_variation` of the `ai_search_experiment`
     limitToLanguages: ['en'], // Only users with the `en` language will be included in the experiment
-    alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
+    alwaysShowForStaff: false, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
   },
   /*  Add new experiments here, example:
   'example_experiment': {
