@@ -92,7 +92,7 @@ export const CategoryLanding = () => {
               title="Generate unit tests"
               description="Copilot Chat can help with generating unit tests for a function."
               spotlight={true}
-              url="/copilot/copilot-chat-cookbook/testing-code/generate-unit-tests"
+              url="/en/copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests"
               tags={[]}
             />
           </div>
@@ -102,7 +102,7 @@ export const CategoryLanding = () => {
               title="Improving code readability and maintainability"
               description="Learn how to improve your code readability and maintainability."
               spotlight={true}
-              url="/copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability"
+              url="/en/copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability"
               tags={[]}
             />
           </div>
@@ -113,7 +113,7 @@ export const CategoryLanding = () => {
               description="Copilot can identify and resolve syntax errors or structural issues in JSON data."
               spotlight={true}
               tags={[]}
-              url="/copilot/copilot-chat-cookbook/debugging-errors/debugging-invalid-json"
+              url="/en/copilot/example-prompts-for-github-copilot-chat/debugging-errors/debugging-invalid-json"
             />
           </div>
         </div>
