@@ -109,4 +109,4 @@ If you want to improve your profile even more, incorporate these practices into 
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/copilot-chat-cookbook/refactoring-code/improving-code-readability-and-maintainability)
+* [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat/refactoring-code/improving-code-readability-and-maintainability)
