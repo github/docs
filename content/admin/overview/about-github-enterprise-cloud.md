@@ -1,4 +1,4 @@
----
+MINAKO---
 title: About GitHub Enterprise Cloud
 intro: 'Learn about {% data variables.product.prodname_ghe_cloud %}, its features, and management options for large businesses and teams.'
 versions:
