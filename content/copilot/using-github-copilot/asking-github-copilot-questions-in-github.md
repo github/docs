@@ -33,6 +33,15 @@ On {% data variables.product.github %}, you can use {% data variables.product.pr
 
 * The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
+### Viewing generated files within {% data variables.product.prodname_copilot_chat_short %}
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
+When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.product.prodname_copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view the files in the panel, or download them to your computer.
+
+For example, asking `Generate a simple calculator using HTML, CSS, and JavaScript` may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
+
 ## Powered by skills
 
 When using the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
