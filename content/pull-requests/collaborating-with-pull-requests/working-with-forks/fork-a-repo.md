@@ -95,11 +95,11 @@ You can fork a repository on {% data variables.product.prodname_dotcom_the_websi
 
 {% enddesktop %}
 
+{% webui %}
+
 ## Cloning your forked repository
 
 Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
-
-{% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
