@@ -23,7 +23,7 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 1000m
+              cpu: 2000m
               memory: 4500Mi
             limits:
               cpu: 8000m
