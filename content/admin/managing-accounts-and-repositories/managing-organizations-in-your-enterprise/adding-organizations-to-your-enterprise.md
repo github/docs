@@ -22,13 +22,17 @@ There are three ways to add organizations to your enterprise.
 
 * **Create** a new organization in your enterprise.
 * **Invite** an existing organization to join your enterprise.
-* **Transfer** an existing organization between enterprise accounts.
+* **Transfer** an existing organization between enterprise accounts on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise.create-an-enterprise-account %} See [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account).
 
-## Limitations if you use {% data variables.product.prodname_emus %}
+## Limitations
 
-* Adding existing organizations to your enterprise is not possible if you use {% data variables.product.prodname_emus %}.
+If you use {% data variables.enterprise.data_residency %}, you cannot transfer organizations between {% data variables.product.prodname_dotcom_the_website %} and your enterprise on {% data variables.enterprise.data_residency_site %}. Instead, you must migrate organizations with the {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
+
+If you use {% data variables.product.prodname_emus %}, the following limitations apply:
+
+* Adding existing organizations to your enterprise is not possible.
 * Existing organizations from an enterprise with managed users cannot be added to a different enterprise.
 
 ## Changes when adding an existing organization
