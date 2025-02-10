@@ -8,37 +8,42 @@ type DotcomCookies = {
 
 let cachedCookies: DotcomCookies | null = null
 let inFlightPromise: Promise<DotcomCookies> | null = null
-let tries = 0
 
 const GET_COOKIES_ENDPOINT = '/api/cookies'
-const MAX_TRIES = 3
+const LOCAL_STORAGE_KEY = 'dotcomCookies'
 
-// Fetches httpOnly cookies from the server and cache the result
-// We use an in-flight promise to avoid duplicate requests
+// Fetches httpOnly cookies from the server and caches the result.
+// We don't want to do this every time because of the load it would place on our servers
+// So on success, the data is stored in local storage and reused on subsequent loads
+// On failure, returns default empty values
+// If a user is staff and they didn't happen to be logged in when these cookies were saved,
+// we can instruct them as needed to update the cookies and correctly set the isStaff flag.
 async function fetchCookies(): Promise<DotcomCookies> {
+  // Return the cached object if we have it in memory.
   if (cachedCookies) {
     return cachedCookies
   }
 
-  // If request is already in progress, return the same promise
+  // Try to load from local storage.
+  const storedCookies = localStorage.getItem(LOCAL_STORAGE_KEY)
+  if (storedCookies) {
+    try {
+      cachedCookies = JSON.parse(storedCookies) as DotcomCookies
+      return cachedCookies
+    } catch (e) {
+      console.error('Error parsing cookies from local storage:', e)
+      localStorage.removeItem(LOCAL_STORAGE_KEY)
+    }
+  }
+
+  // If a request is already in progress, reuse it.
   if (inFlightPromise) {
     return inFlightPromise
   }
 
-  if (tries > MAX_TRIES) {
-    // In prod, fail without a serious error
-    console.error('Failed to fetch cookies after 3 tries')
-    // In dev, be loud about the issue
-    if (process.env.NODE_ENV === 'development') {
-      throw new Error('Failed to fetch cookies after 3 tries')
-    }
-
-    return Promise.resolve({})
-  }
-
+  // Make a single fetch request to the backend.
   inFlightPromise = fetch(GET_COOKIES_ENDPOINT)
     .then((response) => {
-      tries++
       if (!response.ok) {
         throw new Error(`Failed to fetch cookies: ${response.statusText}`)
       }
@@ -46,12 +51,26 @@ async function fetchCookies(): Promise<DotcomCookies> {
     })
     .then((data) => {
       cachedCookies = data
+      // Store the fetched cookies in local storage for future use.
+      try {
+        localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(data))
+      } catch (e) {
+        console.error('Error storing cookies in local storage:', e)
+      }
       return data
     })
+    .catch((err) => {
+      console.error('Error fetching cookies:', err)
+      // On failure, return default values.
+      const defaultCookies: DotcomCookies = {
+        dotcomUsername: '',
+        isStaff: false,
+      }
+      cachedCookies = defaultCookies
+      return defaultCookies
+    })
     .finally(() => {
-      // Clear the in-flight promise regardless of success or failure
-      // On success, subsequent calls will return the cached value
-      // On failure, subsequent calls will retry the request up to MAX_TRIES times
+      // Clear the in-flight promise regardless of success or failure.
       inFlightPromise = null
     })
 

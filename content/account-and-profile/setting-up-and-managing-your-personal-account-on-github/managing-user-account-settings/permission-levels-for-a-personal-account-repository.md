@@ -43,7 +43,7 @@ The repository owner has full control of the repository. In addition to the acti
 | Manage security and analysis settings for the repository | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository) |
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
-| Enable the dependency graph for a private repository | [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository) |
+| Enable the dependency graph for a private {% ifversion ghec %}or internal {% endif %}repository, or public fork | [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph) |
 | {% endif %} |
 | Delete and restore packages | [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) |
 | Customize the repository's social media preview | [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/customizing-your-repositorys-social-media-preview) |

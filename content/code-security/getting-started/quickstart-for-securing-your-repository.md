@@ -48,7 +48,7 @@ From the main page of your repository, click **{% octicon "gear" aria-hidden="tr
 
 {% data reusables.dependabot.dependabot-alerts-dependency-graph-enterprise %}
 
-For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository).
+For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %}
 
