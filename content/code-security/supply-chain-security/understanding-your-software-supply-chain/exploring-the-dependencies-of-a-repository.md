@@ -77,9 +77,9 @@ If vulnerabilities have been detected in the repository, these are shown at the 
 
 For public repositories, the dependents view shows how the repository is used by other repositories. To show only the repositories that contain a library in a package manager, click **NUMBER Packages** immediately above the list of dependent repositories. The dependent counts are approximate and may not always match the dependents listed.
 
-## Enabling and disabling the dependency graph for a private repository
+## Enabling and disabling the dependency graph
 
-{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo %}
+{% data reusables.dependabot.enabling-disabling-dependency-graph-private-repo-public-fork %}
 
 ## Changing the "Used by" package
 
