@@ -53,7 +53,16 @@ function extractMarkdownLinks(markdownResponse: string) {
     urls.push(match[2])
   }
 
-  return urls
+  // Filter out any invalid URLs
+  return urls.filter((url) => {
+    try {
+      new URL(url)
+      return true
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    } catch (e) {
+      return false
+    }
+  })
 }
 
 // Given a Docs URL, extract the product name

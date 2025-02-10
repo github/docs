@@ -25,7 +25,11 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments(router.locale as string)
+    initializeExperiments(
+      router.locale as string,
+      pageProps.mainContext.currentVersion,
+      pageProps.mainContext.allVersions,
+    )
   }, [])
 
   useEffect(() => {
