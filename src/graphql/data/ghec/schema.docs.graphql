@@ -18743,7 +18743,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -30189,7 +30189,7 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -35994,7 +35994,7 @@ interface ProjectV2Owner {
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -37824,7 +37824,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -62904,7 +62904,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
