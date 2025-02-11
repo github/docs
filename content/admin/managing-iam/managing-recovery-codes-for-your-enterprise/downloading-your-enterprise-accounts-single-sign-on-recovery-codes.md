@@ -1,7 +1,7 @@
 ---
 title: Downloading your enterprise account's single sign-on recovery codes
 shortTitle: Download recovery codes
-intro: 'To ensure that you can access {% data variables.product.product_name %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
+intro: 'To ensure that you can access {% data variables.product.github %} if your identity provider (IdP) is unavailable, you should download your enterprise account''s single sign-on (SSO) recovery codes.'
 versions:
   ghec: '*'
 type: how_to
@@ -16,7 +16,7 @@ redirect_from:
 permissions: Enterprise owners can download the SSO recovery codes for the enterprise account.
 ---
 
-In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.github %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
+In the event that your IdP is unavailable, you can use a recovery code to sign in and access your enterprise on {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
 
 If you did not save your recovery codes when you configured SSO, you can still access the codes from your enterprise's settings.
 

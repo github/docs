@@ -24,7 +24,7 @@ Commit co-authors are included in the commit activity summary if their commits w
 
 {% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}
-For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).
 {% endif %}
 
 ## Accessing Pulse

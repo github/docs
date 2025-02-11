@@ -13,13 +13,13 @@ versions:
 ---
 ## About branch synchronization
 
-You can sync your local branch with the remote repository by pulling any commits that have been added to the branch on {% data variables.product.product_name %} since the last time you synced. If you make commits from another device or if multiple people contribute to a project, you will need to sync your local branch to keep the branch updated.
+You can sync your local branch with the remote repository by pulling any commits that have been added to the branch on {% data variables.product.github %} since the last time you synced. If you make commits from another device or if multiple people contribute to a project, you will need to sync your local branch to keep the branch updated.
 
-When you pull to your local branch, you only update your local copy of the repository. To update your branch on {% data variables.product.prodname_dotcom %}, you must push your changes. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)."
+When you pull to your local branch, you only update your local copy of the repository. To update your branch on {% data variables.product.github %}, you must push your changes. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop).
 
-To add changes from one branch to another branch, you can merge the branches. To apply changes to your branch from another branch in the same repository, you can merge the other branch into your branch on {% data variables.product.prodname_desktop %}. To request that changes from your branch are merged into another branch, in the same repository or in another repository in the network, you can create a pull request on {% data variables.product.prodname_desktop %}. For more information, see "[Merging another branch into your project branch](#merging-another-branch-into-your-project-branch)" and "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+To add changes from one branch to another branch, you can merge the branches. To apply changes to your branch from another branch in the same repository, you can merge the other branch into your branch on {% data variables.product.prodname_desktop %}. To request that changes from your branch are merged into another branch, in the same repository or in another repository in the network, you can create a pull request on {% data variables.product.prodname_desktop %}. For more information, see [Merging another branch into your project branch](#merging-another-branch-into-your-project-branch) and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
-Some workflows require or benefit from rebasing instead of merging. By rebasing you can reorder, edit, or squash commits together. For more information, see "[AUTOTITLE](/get-started/using-git/about-git-rebase)" and "[Rebasing your project branch onto another branch](#rebasing-your-project-branch-onto-another-branch)."
+Some workflows require or benefit from rebasing instead of merging. By rebasing you can reorder, edit, or squash commits together. For more information, see [AUTOTITLE](/get-started/using-git/about-git-rebase) and [Rebasing your project branch onto another branch](#rebasing-your-project-branch-onto-another-branch).
 
 ## Pulling to your local branch from the remote
 
@@ -57,7 +57,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, an option labeled "Rebase Current Branch" is outlined in orange.](/assets/images/help/desktop/windows-rebase-current-branch.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the "Branch" dropdown menu, the "Rebase Current Branch" option is outlined in orange.](/assets/images/help/desktop/windows-rebase-current-branch.png)
 
    {% endwindows %}
 
@@ -74,13 +74,13 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
    {% mac %}
 
-   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor hovers over an option labeled "Squash and Merge into Current Branch".](/assets/images/help/desktop/squash-and-merge-menu.png)
+   ![Screenshot of the menu bar on a Mac. On the expanded "Branch" dropdown menu, the cursor hovers over the "Squash and Merge into Current Branch" option.](/assets/images/help/desktop/squash-and-merge-menu.png)
 
    {% endmac %}
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Branch" dropdown menu, option labeled "Squash and merge into curre..." is outlined in orange.](/assets/images/help/desktop/windows-squash-and-merge-menu.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the "Branch" dropdown menu, the "Squash and merge into curre..." option is outlined.](/assets/images/help/desktop/windows-squash-and-merge-menu.png)
 
    {% endwindows %}
 
@@ -93,6 +93,6 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
 ## Further Reading
 
-* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#pull)" in the {% data variables.product.prodname_dotcom %} glossary
-* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#merge)" in the {% data variables.product.prodname_dotcom %} glossary
-* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#rebase)" in the {% data variables.product.prodname_dotcom %} glossary
+* [AUTOTITLE](/get-started/learning-about-github/github-glossary#pull) in the {% data variables.product.prodname_dotcom %} glossary
+* [AUTOTITLE](/get-started/learning-about-github/github-glossary#merge) in the {% data variables.product.prodname_dotcom %} glossary
+* [AUTOTITLE](/get-started/learning-about-github/github-glossary#rebase) in the {% data variables.product.prodname_dotcom %} glossary

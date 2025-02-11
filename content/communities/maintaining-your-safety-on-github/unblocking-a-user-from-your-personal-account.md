@@ -37,7 +37,7 @@ You can unblock a user in your account settings or from the user's profile page.
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)
+* [AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)

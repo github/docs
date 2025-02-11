@@ -21,12 +21,12 @@ shortTitle: Manage releases
 ---
 ## About release management
 
-You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see "[AUTOTITLE](/rest/releases/releases)" in the REST API documentation.
+You can create new releases with release notes, @mentions of contributors, and links to binary files, as well as edit or delete existing releases. You can also create, modify, and delete releases by using the Releases API. For more information, see [AUTOTITLE](/rest/releases/releases) in the REST API documentation.
 
 {% ifversion fpt or ghec %}
-You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace)."
+You can also publish an action from a specific release in {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace).
 
-You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.product_name %} creates for each release. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
+You can choose whether {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) objects are included in the ZIP files and tarballs that {% data variables.product.github %} creates for each release. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
 {% endif %}
 
 ## Creating a release
@@ -61,7 +61,7 @@ You can choose whether {% data variables.large_files.product_name_long %} ({% da
    gh release create v1.3.2 --title "v1.3.2 (beta)" --notes "this is a {% data variables.release-phases.public_preview %} release" --prerelease
    ```
 
-If you @mention any {% data variables.product.product_name %} users in the notes, the published release on {% data variables.product.prodname_dotcom_the_website %} will include a **Contributors** section with an avatar list of all the mentioned users.
+If you @mention any {% data variables.product.github %} users in the notes, the published release will include a **Contributors** section with an avatar list of all the mentioned users.
 
 {% endcli %}
 

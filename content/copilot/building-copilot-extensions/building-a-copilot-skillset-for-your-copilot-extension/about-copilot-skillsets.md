@@ -13,7 +13,7 @@ type: overview
 
 A skill within {% data variables.product.prodname_copilot %} is a tool that the model calls to perform a specific task in response to a user query. A skillset is a collection of these skills (up to five per skillset). {% data variables.product.prodname_copilot_skillsets %} provide a streamlined way to extend {% data variables.product.prodname_copilot_short %}’s functionality, allowing builders to integrate external services or custom API endpoints into their {% data variables.product.prodname_copilot_short %} workflow. With skillsets, builders can enable {% data variables.product.prodname_copilot_short %} to perform tasks—such as retrieving data or executing actions in third-party services—without needing to manage complex workflows or architecture.
 
-For a quickstart example of a skillset, see the "[skillset-example](https://github.com/copilot-extensions/skillset-example)" repository. For information on building a skillset, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/building-copilot-skillsets)."
+For a quickstart example of a skillset, see the [skillset-example](https://github.com/copilot-extensions/skillset-example) repository. For information on building a skillset, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension/building-copilot-skillsets).
 
 ## How skillsets and agents differ
 

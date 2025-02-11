@@ -25,14 +25,14 @@ topics:
 You can create actions by writing custom code that interacts with your repository in any way you'd like, including integrating with {% data variables.product.prodname_dotcom %}'s APIs and any publicly available third-party API. For example, an action can publish npm modules, send SMS alerts when urgent issues are created, or deploy production-ready code.
 
 {% ifversion fpt or ghec %}
-You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built with everyone, your repository must be public. {% ifversion internal-actions %}To share actions only within your enterprise, your repository must be internal.{% endif %}
+You can write your own actions to use in your workflow or share the actions you build with the {% data variables.product.prodname_dotcom %} community. To share actions you've built with everyone, your repository must be public. {% ifversion ghec %}To share actions only within your enterprise, your repository must be internal.{% endif %}
 {% endif %}
 
 Actions can run directly on a machine or in a Docker container. You can define an action's inputs, outputs, and environment variables.
 
 ## Types of actions
 
-You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
+You can build Docker container, JavaScript, and composite actions. Actions require a metadata file to define the inputs, outputs and main entrypoint for your action. The metadata filename must be either `action.yml` or `action.yaml`. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 {% rowheaders %}
 
@@ -62,7 +62,7 @@ If you're developing a Node.js project, the {% data variables.product.prodname_a
 
 ### Composite Actions
 
-A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)".
+A _composite_ action allows you to combine multiple workflow steps within one action. For example, you can use this feature to bundle together multiple run commands into an action, and then have a workflow that executes the bundled commands as a single step using that action. To see an example, check out [AUTOTITLE](/actions/creating-actions/creating-a-composite-action).
 
 ## Choosing a location for your action
 
@@ -82,7 +82,7 @@ Many people access {% data variables.product.github %} at a domain other than {%
 
 To ensure that your action is compatible with other platforms, do not use any hard-coded references to API URLs such as `https://api.github.com`. Instead, you can:
 
-* Use environment variables (see "[AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)"):
+* Use environment variables (see [AUTOTITLE](/actions/learn-github-actions/variables#default-environment-variables)):
 
   * For the REST API, use the `GITHUB_API_URL` environment variable.
   * For GraphQL, use the `GITHUB_GRAPHQL_URL` environment variable.
@@ -106,8 +106,8 @@ To use a specific action version, users can configure their {% data variables.pr
 We recommend using tags for actions release management. Using this approach, your users can easily distinguish between major and minor versions:
 
 * Create and validate a release on a release branch (such as `release/v1`) before creating the release tag (for example, `v1.0.2`).
-* Create a release using semantic versioning. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
-* Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see "[Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging)."
+* Create a release using semantic versioning. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
+* Move the major version tag (such as `v1`, `v2`) to point to the Git ref of the current release. For more information, see [Git basics - tagging](https://git-scm.com/book/en/v2/Git-Basics-Tagging).
 * Introduce a new major version tag (`v2`) for changes that will break existing workflows. For example, changing an action's inputs would be a breaking change.
 * Major versions can be initially released with a `beta` tag to indicate their status, for example, `v2-beta`. The `-beta` tag can then be removed when ready.
 
@@ -156,7 +156,7 @@ We recommend creating a README file to help people learn how to use your action.
 
 ## Comparing {% data variables.product.prodname_actions %} to {% data variables.product.prodname_github_apps %}
 
-{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+{% data variables.product.prodname_marketplace %} offers tools to improve your workflow. Understanding the differences and the benefits of each tool will allow you to select the best tool for your job. For more information about building apps, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
 ### Strengths of GitHub Actions and GitHub Apps
 
@@ -177,4 +177,4 @@ While both {% data variables.product.prodname_actions %} and {% data variables.p
 
 ## Further reading
 
-* "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)"
+* [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions)

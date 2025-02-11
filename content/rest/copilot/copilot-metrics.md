@@ -20,6 +20,6 @@ You can use these endpoints to get a breakdown of aggregated metrics for various
 
 If you currently use the [AUTOTITLE](/rest/copilot/copilot-usage), we recommend migrating to these endpoints as soon as possible.
 
-For help getting started, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/analyzing-usage-over-time-with-the-copilot-metrics-api)."
+For help getting started, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/analyzing-usage-over-time-with-the-copilot-metrics-api).
 
 <!-- Content after this section is automatically generated -->

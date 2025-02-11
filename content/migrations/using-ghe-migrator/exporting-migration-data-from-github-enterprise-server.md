@@ -56,7 +56,7 @@ shortTitle: Export from GHES
    Enter username authorized for migration:  admin
    ```
 
-1. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in "[Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance)":
+1. When prompted for a {% data variables.product.pat_generic %}, enter the access token you created in [Preparing the {% data variables.product.prodname_ghe_server %} source instance](#preparing-the-github-enterprise-server-source-instance):
 
    ```shell
    Enter {% data variables.product.pat_generic %}:  **************

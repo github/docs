@@ -27,7 +27,7 @@ shortTitle: About the monitor {% ifversion ghes > 3.15 %}dashboards{% else %}das
 {% data reusables.enterprise_site_admin_settings.management-console %}
 1. In the top navigation bar, click **Monitor**.
 
-   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.](/assets/images/enterprise/management-console/{% ifversion ghes > 3.15 %}monitor-dash-link.png{% else %}monitor-dash-link-old.png{% endif %})
+   ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Monitor", is highlighted with an orange outline.]({% ifversion ghes > 3.15 %}/assets/images/enterprise/management-console/monitor-dash-link.png{% else %}/assets/images/enterprise/management-console/monitor-dash-link-old.png{% endif %})
 
 1. In HA and cluster environments you can switch between nodes using the dropdown and clicking on a different hostname.
 {% ifversion ghes > 3.15 %}
@@ -50,7 +50,7 @@ On this more detailed dashboard you can get further insights into all aspects of
 
 ## Creating new dashboards
 
-Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance).
 
 {% else %}
 
@@ -60,14 +60,14 @@ The page visualizes metrics which can be useful for troubleshooting performance 
 
 Within the pre-built dashboard you can find various sections grouping graphs of different types of system resources.
 
-Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+Building your own dashboard and alerts requires the data to be forwarded to an external instance, by enabling `collectd` forwarding. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance).
 {% endif %}
 
 ## About the metrics on the monitor dashboards
 
 ### System Health
 
-The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds)."
+The system health graphs provide a general overview of services and system resource utilization. The CPU, memory, and load average graphs are useful for identifying trends or times where provisioned resource saturation has occurred. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/recommended-alert-thresholds).
 {% ifversion ghes > 3.15 %}
 
 ### Application Health
@@ -92,7 +92,7 @@ The authentication graphs break down the rates at which users and applications a
 
 ### LDAP
 
-LDAP graphs will only display data if LDAP authentication is enabled on the {% data variables.product.prodname_ghe_server %} appliance. For more information, see "[AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap)." These graphs can help you to identify slow responses from your LDAP server, as well as the overall volume of LDAP password based authentications.
+LDAP graphs will only display data if LDAP authentication is enabled on the {% data variables.product.prodname_ghe_server %} appliance. For more information, see [AUTOTITLE](/admin/managing-iam/using-ldap-for-enterprise-iam/using-ldap). These graphs can help you to identify slow responses from your LDAP server, as well as the overall volume of LDAP password based authentications.
 
 ### App servers
 
@@ -116,7 +116,7 @@ The network interface graphs can be useful in profiling user activity, and throu
 
 ### Storage
 
-{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see "[AUTOTITLE](/enterprise-server@3.14/admin/overview/system-overview)."
+{% data variables.product.prodname_ghe_server %} repository performance is very dependent on the underlying storage system. Low latency, local SSD disks provide the highest performance. For more information on the {% data variables.product.prodname_enterprise %} storage architecture, see [AUTOTITLE](/enterprise-server@3.14/admin/overview/system-overview).
 
 ### Appliance-specific system services
 

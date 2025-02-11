@@ -12,14 +12,14 @@ versions:
   ghec: '*'
 shortTitle: Configure Git LFS
 ---
-If there are existing files in your repository that you'd like to use {% data variables.product.product_name %} with, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/moving-a-file-in-your-repository-to-git-large-file-storage)."
+If there are existing files in your repository that you'd like to use with {% data variables.product.github %}, you need to first remove them from the repository and then add them to {% data variables.large_files.product_name_short %} locally. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/moving-a-file-in-your-repository-to-git-large-file-storage).
 
 {% data reusables.large_files.resolving-upload-failures %}
 
 {% ifversion ghes %}
 
 > [!NOTE]
-> Before trying to push a large file to {% data variables.product.product_name %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise)."
+> Before trying to push a large file to {% data variables.product.prodname_ghe_server %}, make sure that you've enabled {% data variables.large_files.product_name_short %} on your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise).
 
 {% endif %}
 
@@ -49,7 +49,7 @@ If there are existing files in your repository that you'd like to use {% data va
    git add path/to/file.psd
    ```
 
-1. Commit the file and push it to {% data variables.product.product_name %}:
+1. Commit the file and push it to {% data variables.product.github %}:
 
    ```shell
    git commit -m "add file.psd"
@@ -66,5 +66,5 @@ If there are existing files in your repository that you'd like to use {% data va
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)"{% endif %}
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage){% ifversion fpt or ghec %}
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository){% endif %}

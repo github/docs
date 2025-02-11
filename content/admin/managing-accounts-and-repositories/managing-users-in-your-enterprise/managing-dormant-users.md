@@ -8,7 +8,7 @@ redirect_from:
   - /admin/user-management/managing-dormant-users
   - /admin/user-management/managing-users-in-your-enterprise/managing-dormant-users
 intro: '{% data reusables.enterprise-accounts.dormant-user-activity-threshold %}'
-permissions: "{% ifversion ghec %}Enterprise owners can manage dormant users for an enterprise.{% elsif ghes %}Site administrators can manage dormant users on a {% data variables.product.product_name %} instance.{% endif %}"
+permissions: "{% ifversion ghec %}Enterprise owners{% elsif ghes %}Site administrators{% endif %}"
 versions:
   ghec: '*'
   ghes: '*'
@@ -29,7 +29,7 @@ topics:
 When assessing user dormancy, we only consider organizations, repositories, or sign-on events that are associated with the enterprise. For example, a user who has recently commented on an issue in a public repository outside of the enterprise may be considered dormant, while a user who has commented on an issue in a public repository within the enterprise will not be considered dormant.
 {% endif %}
 
-A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 90 days.{% elsif ghes %} meets the following criteria:
+A user account is considered to be dormant if the user {% ifversion ghec %} hasn't performed any of the previous activities in the past 30 days.{% elsif ghes %} meets the following criteria:
 
 * The user's account has existed for longer than the dormancy threshold {% data variables.location.product_location %}.
 * The user hasn't performed any of the previous activities within the dormancy threshold.
@@ -41,7 +41,7 @@ Dormancy applies to both enterprise members and outside collaborators.
 
 {% ifversion ghes %}
 
-Dormant users are not automatically suspended. Consider suspending dormant users to release license seats. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
+Dormant users are not automatically suspended. Consider suspending dormant users to release {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %}. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
 ## Viewing dormant users
 
@@ -58,7 +58,7 @@ Dormant users are not automatically suspended. Consider suspending dormant users
 {% data reusables.enterprise_site_admin_settings.click-user %}
 1. In the **User info** section, view the status of the user's account. Any users labeled with "{% octicon "hourglass" aria-hidden="true" %} Dormant" are dormant, and users labeled with "{% octicon "hourglass" aria-hidden="true" %} "Active" are not.
 
-   ![Screenshot of the "User info" section of the site admin page for a user. The "User info" heading is highlighted in dark orange. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/active-user.png)
+   ![Screenshot of the "User info" section for a user. The "User info" heading is outlined. Under the heading, the user is marked as active.](/assets/images/enterprise/stafftools/active-user.png)
 
 ## Configuring the dormancy threshold
 

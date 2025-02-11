@@ -20,4 +20,6 @@ children:
   - /dependabot-security-updates
   - /dependabot-version-updates
   - /working-with-dependabot
+  - /maintain-dependencies
+  - /troubleshooting-dependabot
 ---

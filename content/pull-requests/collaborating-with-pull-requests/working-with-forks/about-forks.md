@@ -18,13 +18,13 @@ topics:
 
 {% data reusables.repositories.about-forks %} A fork can exist in either a personal account or an organization.
 
-When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
+When you view a forked repository on {% data variables.product.github %}, the upstream repository is indicated below the name of the fork.
 
 ![Screenshot of a repository's page on GitHub. Below the name of the repository, "mona/docs", the text "forked from github/docs" is outlined in orange.](/assets/images/help/pull_requests/fork-path.png)
 
 In open source projects, forks are often used to iterate on ideas or changes before incorporating the changes into the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
 
-Deleting a fork will not delete the original upstream repository. Code pushed to a fork will be visible from the upstream, but changes won't have any immediate effect on the upstream branches. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream branches. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
+Deleting a fork will not delete the original upstream repository. Code pushed to a fork will be visible from the upstream, but changes won't have any immediate effect on the upstream branches. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream branches. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository).{% endif %} If you delete a private repository, all forks of the repository are deleted.
 
 {% data reusables.repositories.forks-page %}
 
@@ -32,14 +32,14 @@ Deleting a fork will not delete the original upstream repository. Code pushed to
 
 {% data reusables.repositories.you-can-fork %}
 
-For instructions for forking a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)." For more information about when you can create forks, and the permission and visibility settings of forks, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
+For instructions for forking a repository, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo). For more information about when you can create forks, and the permission and visibility settings of forks, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks).
 
 > [!TIP]
 > {% data reusables.repositories.desktop-fork %}
 
 ## Forking a repository versus duplicating a repository
 
-If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)."
+If you want to create a new repository from the contents of an existing repository but don't want to merge your changes to the upstream in the future, you can duplicate the repository or, if the repository is a template, you can use the repository as a template. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository) and [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 
@@ -51,7 +51,7 @@ Forking a repository is similar to duplicating a repository, with the following 
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)
 * [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
 * [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

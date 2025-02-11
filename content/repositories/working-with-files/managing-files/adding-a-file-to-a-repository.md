@@ -1,6 +1,6 @@
 ---
 title: Adding a file to a repository
-intro: 'You can upload and commit an existing file to a repository on {% data variables.product.product_name %} or by using the command line.'
+intro: 'You can upload and commit an existing file to a repository on {% data variables.product.github %} or by using the command line.'
 redirect_from:
   - /articles/adding-a-file-to-a-repository
   - /github/managing-files-in-a-repository/adding-a-file-to-a-repository
@@ -19,11 +19,11 @@ topics:
 shortTitle: Add a file
 ---
 
-## Adding a file to a repository on {% data variables.product.product_name %}
+## Adding a file to a repository on {% data variables.product.github %}
 
-Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see "[Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line)." To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)."
+Files that you add to a repository via a browser are limited to {% data variables.large_files.max_github_browser_size %} per file. You can add larger files, up to {% data variables.large_files.max_github_size %} each, via the command line. For more information, see [Adding a file to a repository using the command line](#adding-a-file-to-a-repository-using-the-command-line). To add files larger than {% data variables.large_files.max_github_size %}, you must use {% data variables.large_files.product_name_long %}. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github).
 
-You can upload multiple files to {% data variables.product.product_name %} at the same time.
+You can upload multiple files to {% data variables.product.github %} at the same time.
 
 {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
@@ -35,7 +35,7 @@ You can upload multiple files to {% data variables.product.product_name %} at th
 
 {% ifversion push-protection-block-uploads %}
 
-Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)" and "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit)."
+Your repository may be secured by push protection. With push protection, {% data variables.product.prodname_dotcom %} will block uploading a file to the repository if the file contains a supported secret, such as a token. You should remove the secret from the file before attempting to upload the file again. For more information, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui) and [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#resolving-a-blocked-commit).
 
 {% data reusables.secret-scanning.push-protection-web-UI-uploads-beta %}
 
@@ -55,13 +55,13 @@ Your repository may be secured by push protection. With push protection, {% data
 You can upload an existing file to a repository on {% data variables.product.prodname_dotcom %} using the command line.
 
 > [!TIP]
-> You can also [add an existing file to a repository from the {% data variables.product.product_name %} website](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+> You can also [add an existing file to a repository from the {% data variables.product.github %} website](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
 
 {% data reusables.command_line.manipulating_file_prereqs %}
 
 {% data reusables.repositories.sensitive-info-warning %}
 
-1. On your computer, move the file you'd like to upload to {% data variables.product.product_name %} into the local directory that was created when you cloned the repository.
+1. On your computer, move the file you'd like to upload to {% data variables.product.github %} into the local directory that was created when you cloned the repository.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.switching_directories_procedural %}
 {% data reusables.git.stage_for_commit %}
@@ -84,5 +84,5 @@ You can upload an existing file to a repository on {% data variables.product.pro
 
 ## Further reading
 
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)"
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github)
 {% endif %}

@@ -14,13 +14,13 @@ type: how_to
 
 {% data reusables.copilot.copilot-extensions.public-preview-note %}
 
-Your {% data variables.product.prodname_copilot_extension_short %} must be hosted on a server that is accessible to the internet. In this guide, we will use [ngrok](https://ngrok.com/) to create a tunnel to your local server, but you could also use a service like [localtunnel](https://localtunnel.github.io/www/) or [serveo](https://serveo.net/).
+Your {% data variables.product.prodname_copilot_extension_short %} must be hosted on a server that is accessible to the internet. In this guide, we will use [ngrok](https://ngrok.com/) to create a tunnel to your local server, but you could also use a service like [localtunnel](https://localtunnel.github.io/www/).
 
-Alternatively, if you are a {% data variables.product.prodname_codespaces %} user, you can use the built-in {% data variables.product.prodname_codespaces %} port forwarding. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace)."
+Alternatively, if you are a {% data variables.product.prodname_codespaces %} user, you can use the built-in {% data variables.product.prodname_codespaces %} port forwarding. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace).
 
 ## Prerequisites
 
-* You have created a {% data variables.product.prodname_copilot_extension_short %}. For more information, see "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension) or [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension)."
+* You have created a {% data variables.product.prodname_copilot_extension_short %}. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension) or [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-skillset-for-your-copilot-extension).
 
 ## Configuring your server
 

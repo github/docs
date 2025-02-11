@@ -1,1 +1,0 @@
-{% data variables.product.prodname_copilot_chat %} is currently in {% data variables.release-phases.public_preview %} for users with a {% data variables.product.prodname_copilot_individuals_short %} or {% data variables.product.prodname_copilot_business_short %} subscription.

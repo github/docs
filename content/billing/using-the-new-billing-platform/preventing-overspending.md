@@ -20,8 +20,11 @@ The budget only applies to expenses incurred from the date of its creation onwar
 
 Budgets are not applicable to:
 
-* Seat-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
+* {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
 * Pre-paid volume licenses{% endif %}.
+
+> [!NOTE]
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
 
 ## Viewing budgets
 

@@ -29,7 +29,7 @@ To read about how {% data variables.product.prodname_dotcom %} is used by educat
 
 * New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact {% data variables.contact.contact_support %}. For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin).
 
-To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement)."
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see [AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement).
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 

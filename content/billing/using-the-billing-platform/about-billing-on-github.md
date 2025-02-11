@@ -16,9 +16,9 @@ topics:
 
 ## About billing on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.company_short %} bills separately for each account. This means that you will receive a separate bill for your personal account and for each organization or enterprise account you own. For more information about account types, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+{% data variables.product.company_short %} bills separately for each account. This means that you will receive a separate bill for your personal account and for each organization or enterprise account you own. For more information about account types, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
-You can switch between the billing settings for each of your accounts by using the context switcher. See "[Switching between settings for your different accounts](#switching-between-settings-for-your-different-accounts)."
+You can switch between the billing settings for each of your accounts by using the context switcher. See [Switching between settings for your different accounts](#switching-between-settings-for-your-different-accounts).
 
 The bill for each account is a combination of subscriptions and usage-based billing. Subscriptions include your account's plan, such as {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %}, as well as paid products that have a consistent monthly cost, such as {% data variables.product.prodname_copilot %} and apps from {% data variables.product.prodname_marketplace %}.
 
@@ -130,7 +130,7 @@ Payments can be made via credit card, PayPal, or Azure subscription. When you up
 
 {% endif %}
 
-See "[AUTOTITLE](/billing/managing-your-github-billing-settings)."
+See [AUTOTITLE](/billing/managing-your-github-billing-settings).
 
 ## Switching between settings for your different accounts
 
@@ -139,6 +139,6 @@ If you're an organization or enterprise owner, you can switch between settings f
 {% data reusables.user-settings.access_settings %}
 1. At the top of the page, to the right of your name, click **Switch settings context**.
 
-   ![Screenshot of the "Public profile" settings page for The Octocat. Next to the text "Your personal profile," a link, labeled "Switch settings context," is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
+   ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
 1. Start typing the name of the account you want to switch to, then click the name of the account.
 1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.

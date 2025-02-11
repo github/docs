@@ -41,12 +41,8 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 > * If you're a member{% ifversion fpt or ghec %} or billing manager{% endif %} of an organization that requires 2FA, you will be unable to access that organization's resources while you have 2FA disabled.
 > * If you disable 2FA, you will automatically lose access to the organization. To regain access to the organization, if you're a member{% ifversion fpt or ghec %} or billing manager{% endif %}, you must re-enable 2FA. If you're an outside collaborator, you will also lose access to any private forks you have of the organization's private repositories after disabling 2FA, and must re-enable 2FA and contact an organization owner to have access restored.
 
-{% ifversion 2fa-reconfiguration-inline-update %}
-
 > [!NOTE]
 > You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
-
-{% endif %}
 
 ## Configuring two-factor authentication using a TOTP app
 
@@ -89,7 +85,7 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %} See "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+{% data reusables.passkeys.about-passkeys %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 
 > [!NOTE]
 > Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
@@ -124,7 +120,7 @@ Registering a security key for your account is available after enabling 2FA with
 1. Under "Security keys", click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
 1. Following your security key's documentation, activate your security key.
-1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
+1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
 {% ifversion fpt or ghec %}
 
@@ -136,7 +132,7 @@ Once you have configured a TOTP application, or SMS, you can also use {% data va
 
 1. You must have already configured 2FA via a TOTP mobile app or via SMS.
 1. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-1. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Sign in to your {% data variables.product.github %} account from {% data variables.product.prodname_mobile %}.
 1. Ensure {% data variables.product.prodname_mobile %} can send push notifications. If you have not opted in to push notifications, you can turn them on within notification settings in {% data variables.product.prodname_mobile %}.
 
 After signing in and turning on push notifications, you can now use your device for 2FA.
@@ -144,8 +140,8 @@ After signing in and turning on push notifications, you can now use your device 
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)

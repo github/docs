@@ -1,6 +1,6 @@
 ---
 title: Understanding the search syntax
-intro: 'When searching {% data variables.product.product_name %}, you can construct queries that match specific numbers and words.'
+intro: 'When searching {% data variables.product.github %}, you can construct queries that match specific numbers and words.'
 redirect_from:
   - /articles/search-syntax
   - /articles/understanding-the-search-syntax
@@ -18,7 +18,7 @@ shortTitle: Understand search syntax
 {% ifversion code-search-upgrade %}
 
 > [!NOTE]
-> The syntax below applies to non-code search. For more information on code search syntax, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
+> The syntax below applies to non-code search. For more information on code search syntax, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
 {% endif %}
 
@@ -97,14 +97,14 @@ If your search query contains whitespace, you will need to surround it with quot
 
 ## Queries with usernames
 
-If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any {% data variables.product.product_name %} username to specify a specific person{% ifversion copilot %}, `@me` to specify the current user, or `@copilot` to specify {% data variables.product.prodname_copilot_short %}.{% else %} or `@me`, to specify the current user.{% endif %}
+If your search query contains a qualifier that requires a username, such as `user`, `actor`, or `assignee`, you can use any valid username to specify a specific person{% ifversion copilot %}, `@me` to specify the current user, or `@copilot` to specify {% data variables.product.prodname_copilot_short %}.{% else %} or `@me`, to specify the current user.{% endif %}
 
 | Query  | Example |
 | ------ | ------- |
 | `QUALIFIER:USERNAME` | [`author:nat`](https://github.com/search?q=author%3Anat&type=Commits) matches commits authored by @nat |
 | `QUALIFIER:@me` | [`is:issue assignee:@me`](https://github.com/search?q=is%3Aissue+assignee%3A%40me&type=Issues) matches issues assigned to the person viewing the results |
 | {% ifversion copilot %} |
-| `QUALIFIER:@copilot` | [`is:pr reviewed-by:@copilot`](https://github.com/search?q=is:pr+reviewed-by:@copilot&type=pullrequests) matches pull requests reviewed by {% data variables.product.prodname_copilot_short %}. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)." |
+| `QUALIFIER:@copilot` | [`is:pr reviewed-by:@copilot`](https://github.com/search?q=is:pr+reviewed-by:@copilot&type=pullrequests) matches pull requests reviewed by {% data variables.product.prodname_copilot_short %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review). |
 | {% endif %} |
 
 You can only use `@me` {% ifversion copilot %} or `@copilot` {% endif %} with a qualifier, and not as a search term, such as `@me main.workflow`.

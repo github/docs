@@ -10,14 +10,14 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
+You can see whether a workflow run is in progress or complete from the workflow run page. You must be logged in to a {% data variables.product.prodname_dotcom %} account to view workflow run information, including for public repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
 If the run is complete, you can see whether the result was a success, failure, canceled, or neutral. If the run failed, you can view and search the build logs to diagnose the failure and re-run the workflow. You can also view billable job execution minutes, or download logs and build artifacts.
 
-{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see "[AUTOTITLE](/rest/checks)."
+{% data variables.product.prodname_actions %} use the Checks API to output statuses, results, and logs for a workflow. {% data variables.product.prodname_dotcom %} creates a new check suite for each workflow run. The check suite contains a check run for each job in the workflow, and each job includes steps. {% data variables.product.prodname_actions %} are run as a step in a workflow. For more information about the Checks API, see [AUTOTITLE](/rest/checks).
 
 {% data reusables.actions.invalid-workflow-files %}
 
@@ -50,7 +50,7 @@ You can search the build logs for a particular step. When you search logs, only 
 
 ## Downloading logs
 
-You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)." {% data reusables.repositories.permissions-statement-read %}
+You can download the log files from your workflow run. You can also download a workflow's artifacts. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts). {% data reusables.repositories.permissions-statement-read %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.actions-tab %}
@@ -61,12 +61,8 @@ You can download the log files from your workflow run. You can also download a w
 
    ![Screenshot of the log for a job. In the header, a gear icon is outlined in dark orange.](/assets/images/help/actions/download-logs-drop-down.png)
 
-  {% ifversion re-run-jobs %}
-
   > [!NOTE]
   > When you download the log archive for a workflow that was partially re-run, the archive only includes the jobs that were re-run. To get a complete set of logs for jobs that were run from a workflow, you must download the log archives for the previous run attempts that ran the other jobs.
-
-  {% endif %}
 
 ## Deleting logs
 

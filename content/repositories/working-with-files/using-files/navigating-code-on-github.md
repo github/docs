@@ -1,6 +1,6 @@
 ---
 title: Navigating code on GitHub
-intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.product_name %}.'
+intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.github %}.'
 redirect_from:
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
@@ -17,7 +17,7 @@ topics:
 
 Code navigation helps you to read, navigate, and understand code by showing and linking definitions of a named entity corresponding to a reference to that entity, as well as references corresponding to an entity's definition.
 
-![Screenshot showing a code file with a function called "request" highlighted and a pop-up window with information about the function underneath. The pop-up has two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
+![Screenshot showing a file with a function highlighted. A pop-up has information about the function on two tabs: "Definition" and "Reference".](/assets/images/help/repository/code-navigation-popover.png)
 
 Code navigation uses the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library. The following languages support code navigation.
 
@@ -27,7 +27,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 {% data variables.product.prodname_dotcom %} has developed a code navigation approach based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library that searches all definitions and references across a repository to find entities with a given name.
 
-{% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see "[AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files)."{% endif %}
+{% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files).{% endif %}
 
 {% ifversion code-search-upgrade %}
 
@@ -35,7 +35,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 You can now quickly view and navigate between symbols such as functions or classes in your code with the symbols pane. You can search for a symbol in a single file, in all files in a repository, or even in all public repositories on {% data variables.product.prodname_dotcom %}.
 
-Symbol search is a feature of code search. For more information, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+Symbol search is a feature of code search. For more information, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier).
 
 1. Select a repository, then navigate to a file containing symbols.
 1. To bring up the symbols pane, above the file content, click {% octicon "code-square" aria-label="The code square icon" %}.
@@ -71,4 +71,4 @@ If code navigation is enabled for you but you don't see links to the definitions
 
 ## Further reading
 
-* "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}"
+* [AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/about-github-code-search){% else %}(/search-github/searching-on-github/searching-code){% endif %}

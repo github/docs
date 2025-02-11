@@ -17,7 +17,7 @@ You must accept the terms of service to publish actions in {% data variables.pro
 
 ## About publishing actions
 
-Before you can publish an action, you'll need to create an action in your repository. For more information, see "[AUTOTITLE](/actions/creating-actions)."
+Before you can publish an action, you'll need to create an action in your repository. For more information, see [AUTOTITLE](/actions/creating-actions).
 
 When you plan to publish your action to {% data variables.product.prodname_marketplace %}, you'll need to ensure that the repository only includes the metadata file, code, and files necessary for the action. Creating a single repository for the action allows you to tag, release, and package the code in a single unit. {% data variables.product.prodname_dotcom %} also uses the action's metadata on your {% data variables.product.prodname_marketplace %} page.
 
@@ -46,12 +46,12 @@ To draft a new release and publish the action to {% data variables.product.prodn
    > [!NOTE]
    > The "Publish" checkbox is disabled if the account that owns the repository has not yet accepted the {% data variables.product.prodname_marketplace %} Developer Agreement. If you own the repository or are an organization owner, click the link to "accept the GitHub Marketplace Developer Agreement", then accept the agreement. If there is no link, send the organization owner a link to this "Release Action" page and ask them to accept the agreement.
 
-1. If the labels in your metadata file contain any problems, you will see an error message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
+1. If the labels in your metadata file contain any problems, you will see an error message or a warning message. Address them by updating your metadata file. Once complete, you will see an "Everything looks good!" message.
 1. Select the **Primary Category** dropdown menu and click a category that will help people find your action in {% data variables.product.prodname_marketplace %}.
 1. Optionally, select the **Another Category** dropdown menu and click a secondary category.
 1. In the tag field, type a version for your action. This helps people know what changes or features the release includes. People will see the version in the action's dedicated {% data variables.product.prodname_marketplace %} page.
 1. In the title field, type a release title.
-1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+1. Complete all other fields and click **Publish release**. Publishing requires you to use two-factor authentication. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 ## Removing an action from {% data variables.product.prodname_marketplace %}
 
@@ -65,7 +65,7 @@ To remove a published action from {% data variables.product.prodname_marketplace
 
 ## Transferring an action repository
 
-You can transfer an action repository to another user or organization. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository)."
+You can transfer an action repository to another user or organization. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/transferring-a-repository).
 
 When a repository admin transfers an action repository, {% data variables.product.prodname_dotcom %} automatically creates a redirect from the previous URL to the new URL, meaning workflows that use the affected action do not need to be updated.
 

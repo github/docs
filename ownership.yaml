@@ -1,0 +1,24 @@
+---
+version: 1
+ownership:
+  - team: github/docs-engineering
+    repo: https://github.com/github/docs-internal
+    name: docs-internal
+    kind: moda
+    long_name: Docs on Moda
+    description: Please use <https://catalog.githubapp.com/services/docs> instead.
+    exec_sponsor: nerdneha
+    product_manager: docs-bot
+    maintainer: tinabme
+    team_slack: docs
+    qos: best_effort
+    tier: 2
+    sev1:
+      pagerduty: https://github.pagerduty.com/escalation_policies#PN57VQ1
+      tta: 30m
+    sev2:
+      issue: https://github.com/github/docs-engineering/issues
+      tta: 1d
+    sev3:
+      issue: https://github.com/github/docs-engineering/issues
+      tta: 1w

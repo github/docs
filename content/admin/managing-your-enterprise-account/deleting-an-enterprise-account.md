@@ -16,9 +16,7 @@ redirect_from:
 
 ## Can I delete my enterprise account?
 
-You can only delete your enterprise account if your enterprise uses personal accounts on {% data variables.product.prodname_dotcom_the_website %}, and your business pays by credit card or PayPal.
-
-If your company uses {% data variables.product.prodname_emus %} or pays via invoice, and you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, contact {% data variables.contact.contact_enterprise_sales %}.
+Only self-serve {% data variables.product.prodname_enterprise %} customers can delete their enterprise account. If your company pays via invoice, and you want to stop paying for {% data variables.product.prodname_enterprise %} altogether, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## What happens when I delete the account?
 
@@ -32,7 +30,7 @@ If you upgraded to an enterprise account from a single organization and then del
 
 ## Prerequisites
 
-You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise)."
+You must remove, transfer, or delete all organizations in the enterprise before you can delete the enterprise account. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/removing-organizations-from-your-enterprise).
 
 ## Deleting an enterprise account on {% data variables.product.prodname_dotcom %}
 

@@ -1,7 +1,7 @@
 Workflow triggers are events that cause a workflow to run. These events can be:
 
 * Events that occur in your workflow's repository
-* Events that occur outside of {% data variables.product.product_name %} and trigger a `repository_dispatch` event on {% data variables.product.product_name %}
+* Events that occur outside of {% data variables.product.github %} and trigger a `repository_dispatch` event on {% data variables.product.github %}
 * Scheduled times
 * Manual
 

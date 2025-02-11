@@ -25,7 +25,7 @@ import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/rewrite-asset-p
 const port = '4001'
 const host = `http://localhost:${port}`
 const version = EnterpriseServerReleases.oldestSupported
-const REMOTE_ENTERPRISE_STORAGE_URL = 'https://githubdocs.azureedge.net/enterprise'
+const GH_PAGES_URL = `https://github.github.com/docs-ghes-${version}`
 
 // Once page-data.js is converted to TS,
 // we can import the more comprehesive type
@@ -108,14 +108,7 @@ async function main() {
         directory: tmpArchivalDirectory,
         filenameGenerator: 'bySiteStructure',
         requestConcurrency: 6,
-        plugins: [
-          new RewriteAssetPathsPlugin(
-            version,
-            tmpArchivalDirectory,
-            localDev,
-            REMOTE_ENTERPRISE_STORAGE_URL,
-          ),
-        ],
+        plugins: [new RewriteAssetPathsPlugin(tmpArchivalDirectory, localDev, GH_PAGES_URL)],
       }).catch((err: Error) => {
         console.error('scraping error')
         console.error(err)

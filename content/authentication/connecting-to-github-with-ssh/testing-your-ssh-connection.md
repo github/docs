@@ -19,7 +19,7 @@ Before testing your SSH connection, you should have already:
 * [Generated a new SSH key](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * [Added a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
 
-You'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. See "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases)."
+You'll need to authenticate this action using your password, which is the SSH key passphrase you created earlier. See [AUTOTITLE](/authentication/connecting-to-github-with-ssh/working-with-ssh-key-passphrases).
 
 {% ifversion ghec %}
 
@@ -32,7 +32,7 @@ You'll need to authenticate this action using your password, which is the SSH ke
 
    ```shell copy
    ssh -T git@{% data variables.product.product_url %}
-   # Attempts to ssh to {% data variables.product.product_name %}
+   # Attempts to ssh to {% data variables.product.github %}
    ```
 
    You may see a warning like this:
@@ -61,11 +61,11 @@ You'll need to authenticate this action using your password, which is the SSH ke
    Permission denied (publickey).
    ```
 
-   This is a known problem with certain Linux distributions. For more information, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign)."
+   This is a known problem with certain Linux distributions. For more information, see [AUTOTITLE](/authentication/troubleshooting-ssh/error-agent-admitted-failure-to-sign).
 
    {% endlinux %}
 
    > [!NOTE]
    > The remote command should exit with code 1.
 
-1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see "[AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey)."
+1. Verify that the resulting message contains your username. If you receive a "permission denied" message, see [AUTOTITLE](/authentication/troubleshooting-ssh/error-permission-denied-publickey).

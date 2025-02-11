@@ -22,7 +22,7 @@ shortTitle: Partner program
 
 When a match of your secret format is found in a public source, a payload is sent to an HTTP endpoint of your choice.
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
@@ -35,7 +35,7 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 ## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them. For more detailed information and recommendations, see "[Identify your secrets and create regular expressions](#identify-your-secrets-and-create-regular-expressions)" below.
+1. Identify the relevant secrets you want to scan for and create regular expressions to capture them. For more detailed information and recommendations, see [Identify your secrets and create regular expressions](#identify-your-secrets-and-create-regular-expressions) below.
 1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %} that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
@@ -56,7 +56,7 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
   * High entropy random strings
   * A 32-bit checksum
 
-  ![Screenshot showing the breakdown of a secret into details to be considered when submitting to GitHub a regular expression to find high quality secrets.](/assets/images/help/security/regular-expression-guidance.png)
+  ![Screenshot showing the breakdown of a secret into a prefix and a 32-bit checksum.](/assets/images/help/security/regular-expression-guidance.png)
 
 * A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
 * The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.
@@ -121,7 +121,7 @@ will provide several `key_identifier` and public keys. You can determine which p
 key to use based on the value of `Github-Public-Key-Identifier`.
 
 > [!NOTE]
-> When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
+> When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests).
 
 > [!NOTE]
 > The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.

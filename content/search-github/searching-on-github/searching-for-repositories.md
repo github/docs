@@ -1,6 +1,6 @@
 ---
 title: Searching for repositories
-intro: 'You can search for repositories on {% data variables.product.product_name %} and narrow the results using these repository search qualifiers in any combination.'
+intro: 'You can search for repositories on {% data variables.product.github %} and narrow the results using these repository search qualifiers in any combination.'
 redirect_from:
   - /articles/searching-repositories
   - /articles/searching-for-repositories
@@ -14,9 +14,9 @@ topics:
   - GitHub search
 shortTitle: Search for repositories
 ---
-You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+You can search for repositories globally across all of {% data variables.product.prodname_dotcom %}, or search for repositories within a particular organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
-To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)."
+To include forks in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-in-forks).
 
 {% data reusables.search.syntax_tips %}
 
@@ -34,9 +34,9 @@ With the `in` qualifier you can restrict your search to the repository name, rep
 
 ## Search based on the contents of a repository
 
-You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
+You can find a repository by searching for content in the repository's README file using the `in:readme` qualifier. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
-Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)" and "[AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}."
+Besides using `in:readme`, it's not possible to find repositories by searching for specific content within the repository. To search for a specific file or content within a repository, you can use the file finder or code-specific search qualifiers. For more information, see [AUTOTITLE](/search-github/searching-on-github/finding-files-on-github) and [AUTOTITLE]{% ifversion code-search-upgrade %}(/search-github/github-code-search/understanding-github-code-search-syntax){% else %}(/search-github/searching-on-github/searching-code){% endif %}.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -53,7 +53,7 @@ To search in all repositories owned by a certain user or organization, you can u
 
 ## Search by repository size
 
-The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+The `size` qualifier finds repositories that match a certain size (in kilobytes), using greater than, less than, and range qualifiers. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -64,7 +64,7 @@ The `size` qualifier finds repositories that match a certain size (in kilobytes)
 
 ## Search by number of followers
 
-You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+You can filter repositories based on the number of users who follow the repositories, using the `followers` qualifier with greater than, less than, and range qualifiers. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -73,7 +73,7 @@ You can filter repositories based on the number of users who follow the reposito
 
 ## Search by number of forks
 
-The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+The `forks` qualifier specifies the number of forks a repository should have, using greater than, less than, and range qualifiers. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -84,7 +84,7 @@ The `forks` qualifier specifies the number of forks a repository should have, us
 
 ## Search by number of stars
 
-You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)" and "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+You can search repositories based on the number of stars the repositories have, using greater than, less than, and range qualifiers. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars) and [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -116,7 +116,7 @@ You can search repositories based on the language of the code in the repositorie
 
 ## Search by topic
 
-You can find all of the repositories that are classified with a particular topic. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+You can find all of the repositories that are classified with a particular topic. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -124,7 +124,7 @@ You can find all of the repositories that are classified with a particular topic
 
 ## Search by number of topics
 
-You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)" and "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)."
+You can search repositories by the number of topics that have been applied to the repositories, using the `topics` qualifier along with greater than, less than, and range qualifiers. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) and [AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -133,7 +133,7 @@ You can search repositories by the number of topics that have been applied to th
 
 ## Search by license
 
-You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository)."
+You can search repositories by the type of license in the repositories. You must use a license keyword to filter repositories by a particular license or license family. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -141,7 +141,7 @@ You can search repositories by the type of license in the repositories. You must
 
 ## Search by repository visibility
 
-You can filter your search based on the visibility of the repositories. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
+You can filter your search based on the visibility of the repositories. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility).
 
 | Qualifier  | Example |
 | ------------- | ------------- |
@@ -155,7 +155,7 @@ You can filter your search based on the visibility of the repositories. For more
 
 ## Search based on repository custom property
 
-You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
+You can filter repositories based on custom properties using the `props.` prefixed qualifiers. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
 For these qualifiers to work, the search must be limited to a single organization. Otherwise, `props.` qualifiers are ignored.
 
@@ -169,7 +169,7 @@ For these qualifiers to work, the search must be limited to a single organizatio
 
 ## Search based on whether a repository is a mirror
 
-You can search repositories based on whether the repositories are mirrors and hosted elsewhere. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."
+You can search repositories based on whether the repositories are mirrors and hosted elsewhere. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -180,7 +180,7 @@ You can search repositories based on whether the repositories are mirrors and ho
 
 ## Search based on whether a repository is a template
 
-You can search repositories based on whether the repositories are templates. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository)".
+You can search repositories based on whether the repositories are templates. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-template-repository).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -189,7 +189,7 @@ You can search repositories based on whether the repositories are templates. For
 
 ## Search based on whether a repository is archived
 
-You can search repositories based on whether or not the repositories are archived. For more information, see "[AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories)."
+You can search repositories based on whether or not the repositories are archived. For more information, see [AUTOTITLE](/repositories/archiving-a-github-repository/archiving-repositories).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -200,7 +200,7 @@ You can search repositories based on whether or not the repositories are archive
 
 ## Search based on number of issues with `good first issue` or `help wanted` labels
 
-You can search for repositories that have a minimum number of issues labeled `help-wanted` or `good-first-issue` with the qualifiers `help-wanted-issues:>n` and `good-first-issues:>n`. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)."
+You can search for repositories that have a minimum number of issues labeled `help-wanted` or `good-first-issue` with the qualifiers `help-wanted-issues:>n` and `good-first-issues:>n`. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -209,9 +209,9 @@ You can search for repositories that have a minimum number of issues labeled `he
 
 ## Search based on ability to sponsor
 
-You can search for repositories whose owners can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see "[AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors)."
+You can search for repositories whose owners can be sponsored on {% data variables.product.prodname_sponsors %} with the `is:sponsorable` qualifier. For more information, see [AUTOTITLE](/sponsors/getting-started-with-github-sponsors/about-github-sponsors).
 
-You can search for repositories that have a funding file using the `has:funding-file` qualifier. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository#about-funding-files)."
+You can search for repositories that have a funding file using the `has:funding-file` qualifier. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository#about-funding-files).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -222,5 +222,5 @@ You can search for repositories that have a funding file using the `has:funding-
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-* "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)
+* [AUTOTITLE](/search-github/searching-on-github/searching-in-forks)

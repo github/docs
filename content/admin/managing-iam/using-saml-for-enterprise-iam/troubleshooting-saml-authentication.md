@@ -22,29 +22,29 @@ redirect_from:
 
 ## About problems with SAML authentication
 
-{% data variables.product.product_name %} logs error messages for failed SAML authentication in the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}systemd journal logs{% endif %} {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}for the `github-unicorn` container{% endif %}. You can review responses in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}this log{% endif %}, and you can also configure more verbose logging.
+{% data variables.product.prodname_ghe_server %} logs error messages for failed SAML authentication in the systemd journal logs for the `github-unicorn` container. You can review responses in this log, and you can also configure more verbose logging.
 
-For more information about SAML response requirements, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements)."
+For more information about SAML response requirements, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-response-requirements).
 
 ## Configuring SAML debugging
 
-You can configure {% data variables.product.product_name %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
+You can configure {% data variables.product.prodname_ghe_server %} to write verbose debug logs for every SAML authentication attempt. You may be able to troubleshoot failed authentication attempts with this extra output.
 
 > [!WARNING]
-> * Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}logs{% endif %} increases much faster than usual, which can negatively impact the performance of {% data variables.product.product_name %}.
-> * Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance)."
+> * Only enable SAML debugging temporarily, and disable debugging immediately after you finish troubleshooting. If you leave debugging enabled, the size of the logs increases much faster than usual, which can negatively impact the performance of {% data variables.product.prodname_ghe_server %}.
+> * Test new authentication settings for {% data variables.location.product_location %} in a staging environment before you apply the settings in your production environment. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance/setting-up-a-staging-instance).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "SAML debugging", select the drop-down and click **Enabled**.
 1. Attempt to sign into {% data variables.location.product_location %} through your SAML IdP.
-1. Review the debug output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% endif %} on {% data variables.location.product_location %}. {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server)."{% endif %}
+1. Review the debug output in the systemd journal for `github-unicorn`on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs#system-logs-in-the-systemd-journal-for-github-enterprise-server).
 1. When you're done troubleshooting, select the drop-down and click **Disabled**.
 
 ## Decoding responses
 
-Some output in {% ifversion opentelemetry-and-otel-log-migration-phase-1 %}the systemd journal for `github-unicorn`{% endif %} may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+Some output in the systemd journal for `github-unicorn` may be Base64-encoded. You can access the administrative shell and use the `base64` utility on {% data variables.location.product_location %} to decode these responses. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 To decode the output, run the following command, replacing ENCODED_OUTPUT with the encoded output from the log.
 
@@ -54,13 +54,13 @@ base64 --decode ENCODED_OUTPUT
 
 ## Error: "Another user already owns the account"
 
-When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.product_name %} creates a user account on the instance and maps the SAML `NameID` and `nameid-format` to the account.
+When a user signs into {% data variables.location.product_location %} for the first time with SAML authentication, {% data variables.product.github %} creates a user account on the instance and maps the SAML `NameID` and `nameid-format` to the account.
 
-When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID` or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.product_name %} expects for the user, the sign-in will fail. The user will see the following message.
+When the user signs in again, {% data variables.product.prodname_ghe_server %} compares the account's `NameID` and `nameid-format` mapping to the IdP's response. If the `NameID` or `nameid-format` in the IdP's response no longer matches the values that {% data variables.product.github %} expects for the user, the sign-in will fail. The user will see the following message.
 
 > Another user already owns the account. Please have your administrator check the authentication log.
 
-The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` and `nameid-format` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` and `nameid-format` on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+The message typically indicates that the person's username or email address has changed on the IdP. Ensure that the `NameID` and `nameid-format` mapping for the user account on {% data variables.product.prodname_ghe_server %} matches the user's `NameID` and `nameid-format` on your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
 
 ## Error: Recipient in SAML response was blank or not valid
 
@@ -84,7 +84,7 @@ If your IdP does not sign the SAML response, or the signature does not match the
 SAML Response is not signed or has been modified.
 ```
 
-Ensure that you configure signed assertions for the {% data variables.product.product_name %} application on your IdP.
+Ensure that you configure signed assertions for the {% data variables.product.github %} application on your IdP.
 
 ## Error: "Audience is invalid" or "No assertion found"
 

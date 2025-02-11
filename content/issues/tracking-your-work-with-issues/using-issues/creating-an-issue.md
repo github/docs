@@ -31,7 +31,7 @@ shortTitle: Create an issue
 type: how_to
 ---
 
-Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
+Issues can be used to keep track of bugs, enhancements, or other requests. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
 
 {% data reusables.repositories.administrators-can-disable-issues %}
 
@@ -51,7 +51,7 @@ Issues can be used to keep track of bugs, enhancements, or other requests. For m
 
 ## Creating an issue with {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} To learn more about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 To create an issue, use the `gh issue create` subcommand. To skip the interactive prompts, include the `--body` and the `--title` flags.
 
@@ -97,13 +97,11 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% ifversion discussions %}
-
 ## Creating an issue from discussion
 
 People with triage permission to a repository can create an issue from a discussion.
 
-When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+When you create an issue from a discussion, the contents of the discussion post will be automatically included in the issue body, and any labels will be retained. Creating an issue from a discussion does not convert the discussion to an issue or delete the existing discussion. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
@@ -115,24 +113,18 @@ When you create an issue from a discussion, the contents of the discussion post 
 {% data reusables.repositories.assign-an-issue-as-project-maintainer %}
 {% data reusables.repositories.submit-new-issue %}
 
-{% endif %}
-
-{% ifversion projects-v2-create-issue-modal %}
-
 ## Creating an issue from a project
 
-{% data reusables.projects.about-issue-modal %} For more information about Projects, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+{% data reusables.projects.about-issue-modal %} For more information about Projects, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 1. Navigate to your project.
 {% data reusables.projects.create-issue-modal %}
-
-{% endif %}
 
 {% ifversion projects-v1 %}
 
 ## Creating an issue from a {% data variables.projects.projects_v1_board %} note
 
-If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board#converting-a-note-to-an-issue)."
+If you're using a {% data variables.projects.projects_v1_board %} to track and prioritize your work, you can convert notes to issues. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board#converting-a-note-to-an-issue).
 
 {% endif %}
 
@@ -140,7 +132,7 @@ If you're using a {% data variables.projects.projects_v1_board %} to track and p
 
 ## Creating an issue from a task list item
 
-Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+Within an issue, you can use task lists to break work into smaller tasks and track the full set of work to completion. If a task requires further tracking or discussion, you can convert the task to an issue by hovering over the task and clicking {% octicon "issue-opened" aria-label="The issue opened icon" %} in the upper-right corner of the task. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
 
 {% endif %}
 
@@ -149,9 +141,9 @@ Within an issue, you can use task lists to break work into smaller tasks and tra
 You can use query parameters to open issues. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To create your own query parameters, you must match the key and value pair.
 
 > [!TIP]
-> You can also create issue templates that open with default labels, assignees, and an issue title. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+> You can also create issue templates that open with default labels, assignees, and an issue title. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
 
-You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
@@ -163,10 +155,10 @@ Query parameter | Example
 `milestone` | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` creates an issue with the milestone "testing milestones."
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
 `projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project 1. {% ifversion projects-v2 and projects-v1 %}{% ifversion projects-in-issue-forms %}{% else %}Only {% data variables.projects.projects_v1_boards %} can currently be specified in URL queries.{% endif %}{% endif %}
-`template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+`template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
 
 {% ifversion fpt or ghec %}
-You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 {% endif %}
 
 {% ifversion code-scanning-task-lists %}
@@ -181,4 +173,4 @@ If you're using issues to track and prioritize your work, you can use issues to 
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github)"
+* [AUTOTITLE](/get-started/writing-on-github)

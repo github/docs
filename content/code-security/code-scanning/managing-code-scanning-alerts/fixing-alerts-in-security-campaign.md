@@ -26,7 +26,7 @@ You can take part in a security campaign by fixing one or more of the alerts cho
 
 In addition to the benefit of removing an important security problem from your code, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
 
-* You have a contact on the security team to collaborate with.
+* You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
 * You know that you are fixing a security alert that is important to the company.
 * Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
 * You don't need to request a {% data variables.product.prodname_copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
@@ -69,9 +69,11 @@ If you want to see the code that triggered the security alert and the suggested 
 
 If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
-To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should consider:
+To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
 
-1. Indexing your repositories to give {% data variables.product.prodname_copilot_chat_short %} more context to answer questions about the repository code, see "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/indexing-repositories-for-copilot-chat)."
-1. Explicitly asking {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions, for example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+For example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+
+> [!TIP]
+> {% data reusables.copilot.semantic-index-info %}
 
 {% endif %}

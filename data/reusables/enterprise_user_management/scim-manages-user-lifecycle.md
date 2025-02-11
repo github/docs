@@ -6,5 +6,5 @@ With SCIM, you manage the lifecycle of user accounts from your IdP:
 * If you reassign a user to the IdP application or reactivate their account on your IdP, the user account will be reactivated, and the username will be restored.
 
 {% ifversion ghec or ghes > 3.13 %}
-To configure team and organization membership, repository access, and permissions on {% data variables.product.product_name %}, you can use groups on your IdP. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+To configure team and organization membership, repository access, and permissions, you can use groups on your IdP. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 {% endif %}

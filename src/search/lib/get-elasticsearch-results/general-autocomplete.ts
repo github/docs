@@ -15,31 +15,47 @@ export async function getAutocompleteSearchResults({
   indexName,
   query,
   size,
+  debug = false,
 }: AutocompleteResultsArgs): Promise<AutocompleteSearchResponse> {
   const t0 = new Date()
   const client = getElasticsearchClient() as Client
 
-  const matchQueries = getAutocompleteMatchQueries(query.trim(), {
-    fuzzy: {
-      minLength: 3,
-      maxLength: 20,
-    },
-  })
-  const matchQuery = {
-    bool: {
-      should: matchQueries,
-    },
-  }
-
-  const highlight = getHighlightConfiguration(query, ['term'])
-
-  const searchQuery = {
+  let searchQuery: any = {
     index: indexName,
-    highlight,
     size,
-    query: matchQuery,
     // Send absolutely minimal from Elasticsearch to here. Less data => faster.
     _source_includes: ['term'],
+  }
+
+  const trimmedQuery = query.trim()
+  // When the query is empty, return no results
+  if (trimmedQuery === '') {
+    return {
+      meta: {
+        found: {
+          value: 0,
+          relation: 'eq',
+        },
+        took: { query_msec: 0, total_msec: new Date().getTime() - t0.getTime() },
+        size,
+      },
+      hits: [],
+    }
+  } else {
+    const matchQueries = getAutocompleteMatchQueries(trimmedQuery, {
+      fuzzy: {
+        minLength: 3,
+        maxLength: 20,
+      },
+    })
+    const matchQuery: QueryDslQueryContainer = {
+      bool: {
+        should: matchQueries,
+      },
+    }
+
+    searchQuery.query = matchQuery
+    searchQuery.highlight = getHighlightConfiguration(trimmedQuery, ['term'])
   }
 
   const result = await client.search<AutocompleteElasticsearchItem>(searchQuery)
@@ -48,6 +64,13 @@ export async function getAutocompleteSearchResults({
   const hits = hitsAll.hits.map((hit) => ({
     term: hit._source?.term,
     highlights: (hit.highlight && hit.highlight.term) || [],
+    ...(debug && {
+      score: hit._score ?? 0.0,
+      es_url:
+        process.env.NODE_ENV !== 'production'
+          ? `http://localhost:9200/${indexName}/_doc/${hit._id}`
+          : '',
+    }),
   }))
 
   return {

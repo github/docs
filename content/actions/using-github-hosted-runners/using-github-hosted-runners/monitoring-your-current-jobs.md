@@ -21,7 +21,7 @@ You can get a list of all jobs currently running on {% data variables.product.pr
 
 ## Viewing queued jobs in your organization or enterprise
 
-{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)."
+{% data variables.product.prodname_dotcom %}-hosted runners allow you to run jobs concurrently, and the maximum number of concurrent jobs will vary depending on your plan. If you reach the maximum number of concurrent jobs, any new jobs will start to enter a queue. To find out more about the number of concurrent jobs available to your plan, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration).
 
 The following procedure demonstrates how to check the maximum number of concurrent jobs you can run.
 

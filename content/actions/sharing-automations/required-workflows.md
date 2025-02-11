@@ -16,7 +16,7 @@ redirect_from:
 
 ## Overview
 
-You can configure a workflow that must run in repositories in an organization for all pull requests opened against {% ifversion actions-required-workflow-improvements %}any target branch{% else %}the default branch{% endif %}. Required workflows allow you to implement organization-wide CI/CD policies that apply to current and future repositories. A required workflow is triggered by {% ifversion actions-required-workflow-improvements %}`pull_request` and `pull_request_target` default events{% else %}pull request events{% endif %} and appears as a required status check, which blocks the ability to merge the pull request until the required workflow succeeds.
+You can configure a workflow that must run in repositories in an organization for all pull requests opened against any target branch. Required workflows allow you to implement organization-wide CI/CD policies that apply to current and future repositories. A required workflow is triggered by `pull_request` and `pull_request_target` default events and appears as a required status check, which blocks the ability to merge the pull request until the required workflow succeeds.
 
 Required workflows are not the same as reusable workflows. Reusable workflows can be called by another workflow. Required workflows are enforced on repositories by an organization owner.
 
@@ -46,8 +46,8 @@ After a required workflow has run at least once in a repository, you can view it
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, you can view workflow runs for required workflows under "Required workflows."
 
-   ![Screenshot of the sidebar on the "Actions" page. A subsection, labeled "Required workflows", contains an entry called "Test required workflow" and is outlined in dark orange.](/assets/images/help/settings/view-required-workflows.png)
+   ![Screenshot of the sidebar on the "Actions" page. The "Required workflows" section lists "Test required workflow" and is outlined in orange.](/assets/images/help/settings/view-required-workflows.png)
 
 ## Adding a required workflow to an organization
 
-Organization owners can configure required workflows in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization)."
+Organization owners can configure required workflows in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization#adding-a-required-workflow-to-an-organization).

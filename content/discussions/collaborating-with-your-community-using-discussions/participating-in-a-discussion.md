@@ -1,16 +1,18 @@
 ---
 title: Participating in a discussion
-intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.product_name %}.'
+intro: 'You can converse with the community and maintainers in a forum within the repository for a project on {% data variables.product.github %}.'
 permissions: 'People with read access to a repository can participate in discussions and polls in the repository. People with read access to the source repository for organization discussions can participate in discussions and polls in that organization. {% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Participate in discussion
 ---
 
 
 ## About participation in a discussion
 
-{% data reusables.discussions.about-discussions %} For more information, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+{% data reusables.discussions.about-discussions %} For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
 In addition to starting or viewing discussions and polls, you can:
 
@@ -19,11 +21,11 @@ In addition to starting or viewing discussions and polls, you can:
 * React to comments with emoji
 * Upvote discussions and top-level comments to give them more visibility
 
-{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github)."{% endif %}
+{% ifversion fpt or ghec %}You can block users and report disruptive content to maintain a safe and pleasant environment for yourself. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github).{% endif %}
 
 ## Prerequisites
 
-{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository)" and "[AUTOTITLE](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization)."
+{% data variables.product.prodname_discussions %} must be enabled for the repository or organization for you to participate in a discussion in the repository or organization. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository) and [AUTOTITLE](/organizations/managing-organization-settings/enabling-or-disabling-github-discussions-for-an-organization).
 
 ## Creating a discussion
 
@@ -42,7 +44,7 @@ Similarly, discussion authors and users with the triage role or greater for the 
 
 ## Upvoting a discussion
 
-You can upvote discussions to give more visibility to the topics that matter to you, and sort discussions to see which have been upvoted the most. For more information on sorting discussions, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-the-list-of-discussions)."
+You can upvote discussions to give more visibility to the topics that matter to you, and sort discussions to see which have been upvoted the most. For more information on sorting discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-the-list-of-discussions).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}
@@ -55,7 +57,7 @@ You can upvote discussions to give more visibility to the topics that matter to 
 
 ## Upvoting a comment
 
-You can upvote top-level comments in discussions, and sort top-level comments to see which comments have been upvoted the most. For more information on sorting comments, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-top-level-comments-in-discussions)."
+You can upvote top-level comments in discussions, and sort top-level comments to see which comments have been upvoted the most. For more information on sorting comments, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/collaborating-with-maintainers-using-discussions#sorting-top-level-comments-in-discussions).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.discussions.discussions-tab %}

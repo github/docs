@@ -151,4 +151,4 @@ curl --request POST \
 
 ## Next steps
 
-Now that you understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform, you can learn how to integrate your agent with the {% data variables.product.github %} API. See "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github)."
+Now that you understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform, you can learn how to integrate your agent with the {% data variables.product.github %} API. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github).

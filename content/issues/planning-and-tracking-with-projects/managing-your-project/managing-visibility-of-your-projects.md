@@ -19,7 +19,7 @@ Project visibility can be set to {% ifversion ghec %}private, internal when usin
 
 Only the project visibility is affected; to view an item on the project, someone must have the required permissions for the repository that the item belongs to. Only people with access to a private repository will be able to view project items from that private repository.
 
-![Screenshot showing a project using a table layout. One of the items is marked with a padlock icon, indicating it's hidden, and highlighted with an orange outline.](/assets/images/help/projects-v2/hidden-items.png)
+![Screenshot showing a project using a table layout. One of the items is marked with a padlock icon, indicating it's hidden, and outlined in orange.](/assets/images/help/projects-v2/hidden-items.png)
 
 Project admins and organization owners can control project visibility. Organization owners{% ifversion project-visibility-policy %} and enterprise owners{% endif %} can restrict the ability to change project visibility to just organization owners.
 
@@ -27,7 +27,7 @@ In public{% ifversion ghec %}, internal, {% endif %} and private projects, insig
 
 In private{% ifversion ghec %} and internal{% endif %} organization-owned projects, the avatars of users who are current making updates to the project are displayed in the project UI.
 
-Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)."
+Project admins can also manage write and admin access to their project and control read access for individual users. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects).
 
 ## Changing project visibility
 

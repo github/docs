@@ -12,12 +12,12 @@ shortTitle: Manage a ruleset
 
 After creating a ruleset, you can still make changes to it. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/repos/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/repos/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
 
 {% ifversion repo-rules-enterprise %}
 
 > [!TIP]
-> If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+> If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).
 
 {% endif %}
 
@@ -34,15 +34,24 @@ For push rulesets for forked repositories, the "Rulesets" page will indicate tha
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
 1. To the left of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
+
+   > [!TIP] Only branches that have a ruleset have a {% octicon "shield" aria-label="The shield icon" %} icon adjacent to their name.
+
 1. Optionally, to filter the results click the tabs or use the "Search branches" search bar.
 1. Click the name of the ruleset you want to view.
+
+You can also view active ruselets:
+
+* By adding the `/rules` slug to the repository's URL. For example, to view the rules of the open source documentation repository at {% data variables.product.github %},  you would go to https://github.com/github/docs/rules.
+
+* In the merge box if there are rules blocking the merging of a pull request.
 
 ## Editing a ruleset
 
 {% ifversion repo-rules-enterprise %}
 
 > [!NOTE]
-> If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
+> If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset).
 
 {% endif %}
 

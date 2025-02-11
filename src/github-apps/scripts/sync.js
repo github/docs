@@ -17,6 +17,9 @@ const ENABLED_APPS_DIR = 'src/github-apps/data'
 const CONFIG_FILE = 'src/github-apps/lib/config.json'
 
 export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAccessSource) {
+  console.log(
+    `Generating GitHub Apps data from ${openApiSource}, ${sourceSchemas} and ${progAccessSource}`,
+  )
   const { progAccessData, progActorResources } = await getProgAccessData(progAccessSource)
 
   for (const schemaName of sourceSchemas) {
@@ -66,6 +69,8 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
           for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
             const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
+            if (progActorResources[permissionName]['visibility'] === 'private') continue
+
             const additionalPermissions =
               progAccessData[operation.operationId].permissions.length > 1 ||
               progAccessData[operation.operationId].permissions.some(

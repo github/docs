@@ -20,7 +20,7 @@ Your JWT must be signed using the `RS256` algorithm and must contain the followi
 |---|---|---|
 |`iat`| Issued At | The time that the JWT was created. To protect against clock drift, we recommend that you set this 60 seconds in the past and ensure that your server's date and time is set accurately (for example, by using the Network Time Protocol). |
 |`exp`| Expires At | The expiration time of the JWT, after which it can't be used to request an installation token. The time must be no more than 10 minutes into the future. |
-|`iss`| Issuer | The {% ifversion client-id-for-app %}client ID or {% endif %}application ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID{% ifversion client-id-for-app %}s{% endif %} on the settings page for your {% data variables.product.prodname_github_app %}.{% ifversion client-id-for-app %} Use of the client ID is recommended.{% endif %} For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."|
+|`iss`| Issuer | The {% ifversion client-id-for-app %}client ID or {% endif %}application ID of your {% data variables.product.prodname_github_app %}. This value is used to find the right public key to verify the signature of the JWT. You can find your app's ID{% ifversion client-id-for-app %}s{% endif %} on the settings page for your {% data variables.product.prodname_github_app %}.{% ifversion client-id-for-app %} Use of the client ID is recommended.{% endif %} For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings).|
 |`alg`| Message authentication code algorithm | This should be `RS256` since your JWT must be signed using the `RS256` algorithm. |
 
 To use a JWT, pass it in the `Authorization` header of an API request. For example:
@@ -37,10 +37,10 @@ curl --request GET \
 
 ## Generating a JSON Web Token (JWT)
 
-Most programming languages have a package that can generate a JWT. In all cases, you must have a private key and the ID of your {% data variables.product.prodname_github_app %}. For more information about generating a private key, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)". You can find your app's ID with the `GET /app` REST API endpoint. For more information, see "[Apps](/rest/apps/apps)" in the REST API documentation.
+Most programming languages have a package that can generate a JWT. In all cases, you must have a private key and the ID of your {% data variables.product.prodname_github_app %}. For more information about generating a private key, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). You can find your app's ID with the `GET /app` REST API endpoint. For more information, see [Apps](/rest/apps/apps) in the REST API documentation.
 
 > [!NOTE]
-> Instead of creating a JWT, you can use {% data variables.product.company_short %}'s Octokit SDKs to authenticate as an app. The SDK will take care of generating a JWT for you and will regenerate the JWT once the token expires. For more information, see "[Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript#authenticating-with-a-github-app)."
+> Instead of creating a JWT, you can use {% data variables.product.company_short %}'s Octokit SDKs to authenticate as an app. The SDK will take care of generating a JWT for you and will regenerate the JWT once the token expires. For more information, see [Scripting with the REST API and JavaScript](/rest/guides/scripting-with-the-rest-api-and-javascript#authenticating-with-a-github-app).
 
 ### Example: Using Ruby to generate a JWT
 
@@ -77,7 +77,7 @@ puts jwt
 ### Example: Using Python to generate a JWT
 
 > [!NOTE]
-> You must run `pip install PyJWT` to install the `PyJWT` package in order to use this script.
+> You must run `pip install PyJWT cryptography` to install the `PyJWT` and the `cryptography` packages in order to use this script.
 
 ```python copy
 #!/usr/bin/env python3

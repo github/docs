@@ -28,7 +28,7 @@ Until you add an image, repository links expand to show basic information about 
     * To add a new image, click **Upload an image...**.
     * To remove an image, click **Remove image**.
 
-    ![Screenshot of the "Social Preview" section. The "Edit" button is highlighted with an orange outline, and a dropdown displays the options for uploading or removing an image.](/assets/images/help/repository/social-preview.png)
+    ![Screenshot of the "Social Preview" section. The "Edit" button is outlined in orange. The upload and remove an image options are shown.](/assets/images/help/repository/social-preview.png)
 
 ## About transparency
 

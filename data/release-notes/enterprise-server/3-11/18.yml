@@ -14,7 +14,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
     - |
@@ -42,4 +42,4 @@ sections:
     - |
       Attempting to stop replications after stopping GitHub Actions on a GitHub Enterprise Server instance would fail, reporting that MSSQL was not responding. The can be avoided by start MSSQL prior to stopping replication  `/usr/local/share/enterprise/ghe-nomad-jobs queue /etc/nomad-jobs/mssql/mssql.hcl`
     - |
-      Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature "[Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks)" in the management console.
+      Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature [Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks) in the management console.

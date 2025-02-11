@@ -42,9 +42,9 @@ On this page, you can view your usage in the following categories:
    To view a different time period, select **Time Frame**, then choose a time period. You can also download an image or CSV of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
 
 {% ifversion fpt %}
-* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
+* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
 {% elsif ghec %}
-* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
+* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
 {% endif %}
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 
@@ -70,6 +70,6 @@ In the "Current promotions and discounts" section in the top right, you can see 
 
 ## Tracking budgets
 
-At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See "[AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform)."
+At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform).
 
 If you have used all of your budget, a red banner appears at the top of the page. You can click **Update your budget** to increase your budget.

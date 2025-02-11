@@ -1,1 +1,1 @@
-To get started with preconfigured workflows, browse through the list of templates in the [actions/starter-workflows](https://github.com/actions/starter-workflows) repository. For more information, see "[AUTOTITLE](/actions/writing-workflows/using-starter-workflows)."
+To get started with preconfigured workflows, browse through the list of templates in the [actions/starter-workflows](https://github.com/actions/starter-workflows) repository. For more information, see [AUTOTITLE](/actions/writing-workflows/using-starter-workflows).

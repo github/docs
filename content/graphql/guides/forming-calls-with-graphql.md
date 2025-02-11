@@ -19,7 +19,7 @@ You can authenticate to the GraphQL API using a {% data variables.product.pat_ge
 
 ### Authenticating with a {% data variables.product.pat_generic %}
 
-To authenticate with a {% data variables.product.pat_generic %}, follow the steps in "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." The data that you are requesting will dictate which scopes or permissions you will need.
+To authenticate with a {% data variables.product.pat_generic %}, follow the steps in [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). The data that you are requesting will dictate which scopes or permissions you will need.
 
 For example, select the "issues:read" permission to read all of the issues in the repositories your token has access to.
 
@@ -29,11 +29,11 @@ If your token does not have the required scopes or permissions to access a resou
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
 
-If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+If you want to use the API on behalf of an organization or another user, {% data variables.product.company_short %} recommends that you use a {% data variables.product.prodname_github_app %}. In order to attribute activity to your app, you can make your app authenticate as an app installation. In order to attribute app activity to a user, you can make your app authenticate on behalf of a user. In both cases, you will generate a token that you can use to authenticate to the GraphQL API. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app).
 
 ### Authenticating with a {% data variables.product.prodname_oauth_app %}
 
-To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)" and "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+To authenticate with an OAuth token from an {% data variables.product.prodname_oauth_app %}, you must first authorize your {% data variables.product.prodname_oauth_app %} using either a web application flow or device flow. Then, you can use the access token that you received to access the API. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app) and [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
 
 ## The GraphQL endpoint
 
@@ -51,7 +51,7 @@ If you access {% data variables.product.github %} at a different domain, such as
 
 Because GraphQL operations consist of multiline JSON, GitHub recommends using the [Explorer](/graphql/guides/using-the-explorer) to make GraphQL calls. You can also use `curl` or any other HTTP-speaking library.
 
-In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see "[AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql)."
+In REST, [HTTP verbs](/rest#http-verbs) determine the operation performed. In GraphQL, you'll provide a JSON-encoded body whether you're performing a query or a mutation, so the HTTP verb is `POST`. The exception is an [introspection query](/graphql/guides/introduction-to-graphql#discovering-the-graphql-api), which is a simple `GET` to the endpoint. For more information on GraphQL versus REST, see [AUTOTITLE](/graphql/guides/migrating-from-rest-to-graphql).
 
 To query GraphQL in a `curl` command, make a `POST` request with a JSON payload. The payload must contain a string called `query`:
 
@@ -70,7 +70,7 @@ curl -H "Authorization: bearer TOKEN" -X POST -d " \
 
 The two types of allowed operations in GitHub's GraphQL API are _queries_ and _mutations_. Comparing GraphQL to REST, queries operate like `GET` requests, while mutations operate like `POST`/`PATCH`/`DELETE`. The [mutation name](/graphql/reference/mutations) determines which modification is executed.
 
-For information about rate limiting, see "[AUTOTITLE](/graphql/overview/resource-limitations)."
+For information about rate limiting, see [AUTOTITLE](/graphql/overview/resource-limitations).
 
 Queries and mutations share similar forms, with some important differences.
 
@@ -84,7 +84,7 @@ Queries are structured like this:
   JSON-OBJECT-TO-RETURN
 }</pre>
 
-For a real-world example, see "[Example query](#example-query)."
+For a real-world example, see [Example query](#example-query).
 
 ### About mutations
 
@@ -106,7 +106,7 @@ The input object in this example is `MutationNameInput`, and the payload object 
 
 In the [mutations](/graphql/reference/mutations) reference, the listed _input fields_ are what you pass as the input object. The listed _return fields_ are what you pass as the payload object.
 
-For a real-world example, see "[Example mutation](#example-mutation)."
+For a real-world example, see [Example mutation](#example-mutation).
 
 ## Working with variables
 
@@ -269,11 +269,8 @@ mutation AddReactionToIssue {
 }
 ```
 
-{% tip %}
-
-Although you can include a query and a mutation in the same Explorer window if you give them names (`FindIssueID` and `AddReactionToIssue` in this example), the operations will be executed as separate calls to the GraphQL endpoint. It's not possible to perform a query at the same time as a mutation, or vice versa.
-
-{% endtip %}
+> [!TIP]
+> Although you can include a query and a mutation in the same Explorer window if you give them names (`FindIssueID` and `AddReactionToIssue` in this example), the operations will be executed as separate calls to the GraphQL endpoint. It's not possible to perform a query at the same time as a mutation, or vice versa.
 
 Let's walk through the example. The task sounds simple: add an emoji reaction to an issue.
 
@@ -382,15 +379,12 @@ variables {
 }
 ```
 
-{% note %}
-
-You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
-* When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
-* When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
-
-For more information on the difference between enums and strings, see the [official GraphQL spec](https://spec.graphql.org/June2018/#sec-Enums).
-
-{% endnote %}
+> [!NOTE]
+> You may notice that the `content` field value in the earlier example (where it's used directly in the mutation) does not have quotes around `HOORAY`, but it does have quotes when used in the variable. There's a reason for this:
+> * When you use `content` directly in the mutation, the schema expects the value to be of type [`ReactionContent`](/graphql/reference/enums#reactioncontent), which is an _enum_, not a string. Schema validation will throw an error if you add quotes around the enum value, as quotes are reserved for strings.
+> * When you use `content` in a variable, the variables section must be valid JSON, so the quotes are required. Schema validation correctly interprets the `ReactionContent` type when the variable is passed into the mutation during execution.
+>
+> For more information on the difference between enums and strings, see the [official GraphQL spec](https://spec.graphql.org/June2018/#sec-Enums).
 
 ## Further reading
 

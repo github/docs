@@ -13,19 +13,21 @@ type: reference
 
 ## Prerequisites
 
-Before you configure your {% data variables.product.prodname_copilot_agent_short %} to communicate with {% data variables.product.github %}, you should understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform. See "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-the-copilot-platform)."
+Before you configure your {% data variables.product.prodname_copilot_agent_short %} to communicate with {% data variables.product.github %}, you should understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-the-copilot-platform).
 
 ## Verifying that payloads are coming from {% data variables.product.github %}
 
-Before your {% data variables.product.prodname_copilot_agent_short %} begins processing a request, you should verify that the request came from {% data variables.product.github %}, and that it is intended for your agent. All agent requests contain the `Github-Public-Key-Identifier` and `Github-Public-Key-Signature` headers. To verify the signature for a particular request, compare the signature in the `Github-Public-Key-Signature` header with a signed copy of the request body using the current public key listed at https://api.github.com/meta/public_keys/copilot_api.
+Before your {% data variables.product.prodname_copilot_agent_short %} begins processing a request, you should verify that the request came from {% data variables.product.github %}, and that it is intended for your agent. All agent requests contain the `X-GitHub-Public-Key-Identifier` and `X-GitHub-Public-Key-Signature` headers. To verify the signature for a particular request, compare the signature in the `X-GitHub-Public-Key-Signature` header with a signed copy of the request body using the current public key listed at https://api.github.com/meta/public_keys/copilot_api.
 
 For more details and examples of signature verification in specific languages, see the [`github-technology-partners/signature-verification`](https://github.com/github-technology-partners/signature-verification) repository.
 
+> ⚠️ **Note:** We currently send duplicate pairs of these headers. One set has the prefix `Github-Public-...`; the other has `X-GitHub-Public...`. The former will be {% data variables.release-phases.closing_down %} **by March 31st**. Please update your relevant checks to the correct prefix (`X-GitHub-Public...`) by then.
+
 ## Fetching resources from the {% data variables.product.github %} API
 
-Requests to your {% data variables.product.prodname_copilot_agent_short %} will receive an `X-Github-Token` header. This header contains an API token that can be used to fetch resources from the {% data variables.product.github %} API on behalf of the user interacting with your agent. The permissions of this token are the overlap of the user's own permissions and the permissions granted to your {% data variables.product.prodname_github_app %} installation.
+Requests to your {% data variables.product.prodname_copilot_agent_short %} will receive an `X-GitHub-Token` header. This header contains an API token that can be used to fetch resources from the {% data variables.product.github %} API on behalf of the user interacting with your agent. The permissions of this token are the overlap of the user's own permissions and the permissions granted to your {% data variables.product.prodname_github_app %} installation.
 
-For an example of how you might use `X-Github-Token`, see the following code sample:
+For an example of how you might use `X-GitHub-Token`, see the following code sample:
 
 ```typescript
 async function whoami(req) {

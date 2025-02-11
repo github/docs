@@ -57,7 +57,7 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 > * `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file.
 > * `npm run build` creates static assets, such as JavaScript and CSS files.
 
-If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment)" in the github/docs repository.
+If you would like to read more about debugging and troubleshooting the {% data variables.product.prodname_docs %} application, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/troubleshooting-your-environment) in the github/docs repository.
 
 ### Using browser shortcuts
 
@@ -78,7 +78,7 @@ The supported language codes are defined in [`src/languages/lib/languages.js`](h
 
 As an alternative to running {% data variables.product.prodname_docs %} locally, you can use {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_github_codespaces %} enable you to edit, preview, and test your changes directly from your browser.
 
-For more information about using a codespace for working on {% data variables.product.company_short %} documentation, see "[AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)."
+For more information about using a codespace for working on {% data variables.product.company_short %} documentation, see [AUTOTITLE](/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace).
 
 ## Further reading
 

@@ -32,11 +32,11 @@ type: how_to
 ---
 ## About labels
 
-You can manage your work on {% data variables.product.product_name %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
+You can manage your work on {% data variables.product.github %} by creating labels to categorize {% ifversion fpt or ghec %}issues, pull requests, and discussions{% else %}issues and pull requests{% endif %}. You can apply labels in the repository the label was created in. Once a label exists, you can use the label on any {% ifversion fpt or ghec %}issue, pull request, or discussion{% else %}issue or pull request{% endif %} within that repository.
 
 ## About default labels
 
-{% data variables.product.product_name %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
+{% data variables.product.github %} provides default labels in every new repository. You can use these default labels to help create a standard workflow in a repository.
 
 Label | Description
 ---  | ---
@@ -54,7 +54,7 @@ Default labels are included in every new repository when the repository is creat
 
 Issues with the `good first issue` label are used to populate the repository's `contribute` page. For an example of a `contribute` page, see [github/docs/contribute](https://github.com/github/docs/contribute).
 
-Organization owners can customize the default labels for repositories in their organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)."
+Organization owners can customize the default labels for repositories in their organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization).
 
 ## Creating a label
 
@@ -102,7 +102,7 @@ Deleting a label will remove the label from issues and pull requests.
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels)"{% endif %}
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)"
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests)
+* [AUTOTITLE](/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization){% ifversion fpt or ghec %}
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/encouraging-helpful-contributions-to-your-project-with-labels){% endif %}
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#using-emoji)

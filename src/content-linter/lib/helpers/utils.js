@@ -50,6 +50,11 @@ export function doesStringEndWithPeriod(text) {
   return /^.*\.['"]?$/.test(text)
 }
 
+export function quotePrecedesLinkOpen(text) {
+  if (!text) return false
+  return text.endsWith('"') || text.endsWith("'")
+}
+
 // Filters a list of tokens by token type only when they match
 // a specific token type order.
 // For example, if a list of tokens contains:

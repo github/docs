@@ -33,7 +33,7 @@ You can also use {% data variables.product.prodname_dotcom %}'s APIs to retrieve
 
 {% ifversion ghec %}
 
-Enterprise owners can also export membership information for an enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)."
+Enterprise owners can also export membership information for an enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
 
 {% endif %}
 
@@ -60,13 +60,13 @@ You may be able to view the email addresses for members of your organization on 
 
 If SAML SSO is configured for your organization, or if you have verified a domain, you may be able to view the email addresses in one or more of the following ways.
 
-1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam)."
+1. On your SAML Identity Provider (IdP), review the email addresses of users with access to {% data variables.product.github %}. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/about-saml-for-enterprise-iam).
 1. Export the membership report for your organization. The report may contain the user's email address, stored as the following values.
 
-   * `saml_name_id`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)")
-   * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)")
+   * `saml_name_id`: The `NameID` from the user's linked SAML identity, which is typically the user's email address (for more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on))
+   * `GitHub com verified domain emails`: Email addresses for any verified domains (for more information, see [AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization))
 
-   For more information, see "[Exporting membership information](#exporting-a-membership-information-report)."
+   For more information, see [Exporting membership information](#exporting-a-membership-information-report).
 
 {% data reusables.saml.use-api-to-get-externalidentity %}
 

@@ -10,8 +10,13 @@ api.github.com
 
 ```shell copy
 codeload.github.com
+pkg.actions.githubusercontent.com
+```
+
+**Needed for publishing immutable actions:**
+
+```shell copy
 ghcr.io
-*.actions.githubusercontent.com
 ```
 
 **Needed for uploading/downloading job summaries, logs, workflow artifacts, and caches:**
@@ -40,6 +45,7 @@ github-registry-files.githubusercontent.com
 
 ```shell copy
 *.pkg.github.com
+pkg-containers.githubusercontent.com
 ghcr.io
 ```
 

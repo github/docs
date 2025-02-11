@@ -11,7 +11,7 @@ topics:
   - CodeQL
 type: reference
 allowTitleToDifferFromFilename: true
-intro: 'If you specifically opt in to permit {% data variables.product.company_short %} to do so, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.'
+intro: 'If {% data variables.product.prodname_vscode_shortname %} telemetry is enabled, {% data variables.product.company_short %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode_shortname %}.'
 redirect_from:
   - /code-security/codeql-for-vs-code/about-telemetry-in-codeql-for-visual-studio-code
 ---
@@ -19,7 +19,7 @@ redirect_from:
 This data will not be shared with any parties outside of {% data variables.product.company_short %}. IP addresses and installation IDs will be retained for a maximum of 30 days. Anonymous data will be retained for a maximum of 180 days.
 
 > [!NOTE]
-> Telemetry collection is disabled by default in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
+> Telemetry collection in {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} follows the {% data variables.product.prodname_vscode_shortname %} telemetry settings. When telemetry collection is disabled, no data will be sent to {% data variables.product.company_short %} servers.
 
 ## Why we collect data
 
@@ -27,7 +27,7 @@ This data will not be shared with any parties outside of {% data variables.produ
 
 ## What data is collected
 
-If you opt in, {% data variables.product.company_short %} collects the following information related to the usage of the extension. The data collected are:
+If telemetry is enabled, {% data variables.product.company_short %} collects the following information related to the usage of the extension. The data collected are:
 
 * The identifiers of any {% data variables.product.prodname_codeql %}-related {% data variables.product.prodname_vscode_shortname %} commands that are run. For each command, these are: the timestamp, time taken, and whether or not the command completed successfully.
 
@@ -41,7 +41,7 @@ If you opt in, {% data variables.product.company_short %} collects the following
 
 * IP address of the client sending the telemetry data. This is discarded before aggregation.
 
-* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension settings are configured. For more information about customizing settings, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+* Whether any {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} extension settings are configured. For more information about customizing settings, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
 
 ## How long data is retained
 
@@ -69,11 +69,9 @@ We only collect the minimal amount of data we need to answer the questions about
 
 ## Disabling telemetry reporting
 
-You can disable telemetry collection by setting `codeQL.telemetry.enableTelemetry` to `false` in your settings. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
-
-Additionally, telemetry collection will be disabled if the global `telemetry.telemetryLevel` setting is set to `off`. For more information about global telemetry collection, see [Visual Studio Code FAQ](https://code.visualstudio.com/docs/supporting/faq#_how-to-disable-telemetry-reporting) in the {% data variables.product.prodname_vscode %} documentation.
+You can disable telemetry collection by setting the global `telemetry.telemetryLevel` setting to `off`. For more information, see the [Visual Studio Code Telemetry page](https://code.visualstudio.com/docs/getstarted/telemetry) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-general-privacy-statement)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service)

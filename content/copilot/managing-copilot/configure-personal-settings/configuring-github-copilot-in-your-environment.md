@@ -22,7 +22,7 @@ If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can au
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=jetbrains)."
+To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=jetbrains).
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -109,9 +109,9 @@ The file is located in the following directory:
 
 For example, if you are using IntelliJ IDEA 2021.1 on macOS, the file is located at `~/Library/Application Support/JetBrains/IdeaIC2021.1/options/github-copilot.xml`.
 
-The `github-copilot.xml` file might not be generated until you make a change to your default language configuration in the IDE's settings. If you cannot locate the file, you should try modifying the default language settings in the IDE. For more information, see "[Configuring language settings in the IDE](#configuring-language-settings-in-the-ide)."
+The `github-copilot.xml` file might not be generated until you make a change to your default language configuration in the IDE's settings. If you cannot locate the file, you should try modifying the default language settings in the IDE. For more information, see [Configuring language settings in the IDE](#configuring-language-settings-in-the-ide).
 
-Alternatively, you can create the file manually and save it in the location for your operating system listed above. For more information, see "[Example language configurations](#example-language-configurations)."
+Alternatively, you can create the file manually and save it in the location for your operating system listed above. For more information, see [Example language configurations](#example-language-configurations).
 
 1. Open the `github-copilot.xml` file in a text editor.
 1. Between the `<map>` tags, add the line or lines for the languages you want to activate or deactivate {% data variables.product.prodname_copilot %} for. For example, to deactivate {% data variables.product.prodname_copilot %} for all languages:
@@ -200,7 +200,7 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=visualstudio)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=visualstudio).
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -257,13 +257,13 @@ If you use {% data variables.product.prodname_vscode %}, you can use {% data var
 * Learn from the code {% data variables.product.prodname_copilot_short %} generates
 * Help you configure your editor
 
-You can learn more about scenarios and setup in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
+You can learn more about scenarios and setup in the [{% data variables.product.prodname_vscode_shortname %} documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
 
 After you install the {% data variables.product.prodname_copilot %} extension, you can enable or disable it, and you can configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.github %}.
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} extension. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode)."
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} extension. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode).
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -317,11 +317,17 @@ You can choose to enable or disable inline suggestions for {% data variables.pro
 1. In the left-side panel of the settings tab, click **Extensions** and then select **{% data variables.product.prodname_copilot_short %}**.
 1. Under "Inline Suggest:Enable," select or deselect the checkbox to enable or disable inline suggestions.
 
+## Enabling {% data variables.copilot.next_edit_suggestions %}
+
+You can enable {% data variables.copilot.next_edit_suggestions %} via the {% data variables.product.prodname_vscode_shortname %} setting `github.copilot.nextEditSuggestions.enabled`. For more detailed instructions, see [Enabling edit suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_enabling-edit-suggestions) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+If you have a {% data variables.product.prodname_copilot_business_short %} {% ifversion ghec %}or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} subscription, then the organization {% ifversion ghec %}or enterprise{% endif %} from which you receive your subscription must enable the **Editor Preview Features** setting. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#configuring-policies-for-github-copilot){% endif %}.
+
 ## Enabling or disabling {% data variables.product.prodname_copilot %} for specific languages
 
 You can specify which languages you want to enable or disable {% data variables.product.prodname_copilot %} for.
 
-1. From the {% data variables.product.prodname_vscode %}, click the **Extensions** tab, then navigate to the **Copilot** section. For more information, see "[Enabling or disabling inline suggestions](#enabling-or-disabling-inline-suggestions)."
+1. From the {% data variables.product.prodname_vscode %}, click the **Extensions** tab, then navigate to the **Copilot** section. For more information, see [Enabling or disabling inline suggestions](#enabling-or-disabling-inline-suggestions).
 1. Under "Enable or disable {% data variables.product.prodname_copilot_short %} for specified languages," click **Edit in settings.json**.
 1. In the _settings.json_ file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the list, ensuring there is a trailing comma after all but the last list item.
 
@@ -408,7 +414,7 @@ If you use Xcode, {% data variables.product.prodname_copilot %} can autocomplete
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} extension. See "[AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode)."
+To configure {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=xcode).
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -451,3 +457,7 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 {% data reusables.copilot.dotcom-settings %}
 
 {% endxcode %}
+
+## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
+
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).

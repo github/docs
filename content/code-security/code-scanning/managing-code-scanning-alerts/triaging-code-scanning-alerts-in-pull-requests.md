@@ -34,23 +34,23 @@ If the lines of code changed in the pull request generate {% data variables.prod
 * The **Files changed** tab of the pull request
 
 > [!NOTE]
-> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files)."
+> {% data variables.product.prodname_code_scanning_caps %} displays alerts in pull requests only when all the lines of code identified by the alert exist in the pull request diff. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#specifying-the-location-for-source-files).
 
 {% ifversion code-scanning-autofix %}
 
-{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis (including {% data variables.product.prodname_codeql %} analysis) in private repositories. For more information on working with suggestions from {% data variables.product.prodname_copilot_autofix_short %} in pull requests, see "[Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request)."
+{% data variables.product.prodname_copilot_autofix %} will suggest fixes for alerts from {% data variables.product.prodname_code_scanning %} analysis (including {% data variables.product.prodname_codeql %} analysis) in private repositories. For more information on working with suggestions from {% data variables.product.prodname_copilot_autofix_short %} in pull requests, see [Working with {% data variables.product.prodname_copilot_autofix_short %} suggestions for alerts on a pull request](#working-with-copilot-autofix-suggestions-for-alerts-on-a-pull-request).
 
 {% endif %}
 
-If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository)."
+If you have write permission for the repository, you can see any existing {% data variables.product.prodname_code_scanning %} alerts on the **Security** tab. For information about repository alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository).
 
-In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-push)."
+In repositories where {% data variables.product.prodname_code_scanning %} is configured to scan each time code is pushed, {% data variables.product.prodname_code_scanning %} will also map the results to any open pull requests and add the alerts as annotations in the same places as other pull request checks. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#scanning-on-push).
 
-If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_caps %} results" check must pass before you can merge the pull request. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
+If your pull request targets a protected branch that uses {% data variables.product.prodname_code_scanning %}, and the repository owner has configured required status checks, then the "{% data variables.product.prodname_code_scanning_caps %} results" check must pass before you can merge the pull request. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can also ask {% data variables.product.prodname_copilot_chat %} for help to better understand {% data variables.product.prodname_code_scanning %} alerts in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -62,7 +62,7 @@ There are many options for configuring {% data variables.product.prodname_code_s
 
 For all configurations of {% data variables.product.prodname_code_scanning %}, the check that contains the results of {% data variables.product.prodname_code_scanning %} is: **{% data variables.product.prodname_code_scanning_caps %} results**. The results for each analysis tool used are shown separately. Any new alerts on lines of code changed in the pull request are shown as annotations.
 
-To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts)."
+To see the full set of alerts for the analyzed branch, click **View all branch alerts**. This opens the full alert view where you can filter all the alerts on the branch by type, severity, tag, etc. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#filtering-and-searching-for-code-scanning-alerts).
 
 ![Screenshot of the {% data variables.product.prodname_code_scanning_caps %} results check on a pull request. The "View all branch alerts" link is highlighted with a dark orange outline.](/assets/images/help/repository/code-scanning-results-check.png)
 
@@ -72,7 +72,7 @@ If the {% data variables.product.prodname_code_scanning %} results check finds a
 
 ![Screenshot of the merge box for a pull request. The "Code scanning results / CodeQL" check has "1 new alert including 1 high severity security v..."](/assets/images/help/repository/code-scanning-check-failure.png)
 
-You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#defining-the-severities-causing-pull-request-check-failure)".
+You can override the default behavior in your repository settings, by specifying the level of severities and security severities that will cause a pull request check failure. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#defining-the-severities-causing-pull-request-check-failure).
 
 ### Other {% data variables.product.prodname_code_scanning %} checks
 
@@ -80,7 +80,7 @@ Depending on your configuration, you may see additional checks running on pull r
 
 For example, if the repository uses the {% data variables.code-scanning.codeql_workflow %} a **{% data variables.product.prodname_codeql %} / Analyze (LANGUAGE)** check is run for each language before the results check runs. The analysis check may fail if there are configuration problems, or if the pull request breaks the build for a language that the analysis compiles (for example, {% data variables.code-scanning.compiled_languages %}).
 
-As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)" or "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)."
+As with other pull request checks, you can see full details of the check failure on the **Checks** tab. For more information about configuring and troubleshooting, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning) or [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning).
 
 ## Viewing an alert on your pull request
 
@@ -90,9 +90,9 @@ You can see any {% data variables.product.prodname_code_scanning %} alerts that 
 
 You can also view all {% data variables.product.prodname_code_scanning %} alerts that are inside the diff of the changes introduced in the pull request in the **Files changed** tab.
 
-If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository)."
+If you add a new code scanning configuration in your pull request, you will see a comment on your pull request directing you to the **Security** tab of the repository so you can view all the alerts on the pull request branch. For more information about viewing the alerts for a repository, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/assessing-code-scanning-alerts-for-your-repository#viewing-the-alerts-for-a-repository).
 
-If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)."
+If you have write permission for the repository, some annotations contain links with extra context for the alert. In the example above, from {% data variables.product.prodname_codeql %} analysis, you can click **user-provided value** to see where the untrusted data enters the data flow (this is referred to as the source). In this case you can also view the full path from the source to the code that uses the data (the sink) by clicking **Show paths**. This makes it easy to check whether the data is untrusted or if the analysis failed to recognize a data sanitization step between the source and the sink. For information about analyzing data flow using {% data variables.product.prodname_codeql %}, see [About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/).
 
 To see more information about an alert, users with write permission can click the **Show more details** link shown in the annotation. This allows you to see all of the context and metadata provided by the tool in an alert view. In the example below, you can see tags showing the severity, type, and relevant common weakness enumerations (CWEs) for the problem. The view also shows which commit introduced the problem.
 
@@ -106,7 +106,7 @@ In the detailed view for an alert, some {% data variables.product.prodname_code_
 
 You can comment on any {% data variables.product.prodname_code_scanning %} alert that appears in a pull request. Alerts appear as annotations in the **Conversation** tab of a pull request, as part of a pull request review, and also are shown in the **Files changed** tab.
 
-You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging)."
+You can choose to require all conversations in a pull request, including those on {% data variables.product.prodname_code_scanning %} alerts, to be resolved before a pull request can be merged. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-conversation-resolution-before-merging).
 
 ## Fixing an alert on your pull request
 
@@ -124,20 +124,20 @@ Anyone with push access to a pull request can fix a {% data variables.product.pr
 
 ### Generating {% data variables.product.prodname_copilot_autofix_short %} suggestions and publishing to a pull request
 
-When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_code_scanning %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning)."
+When {% data variables.product.prodname_copilot_autofix_short %} is enabled for a repository, alerts are displayed in pull requests as normal and information from any alerts found by {% data variables.product.prodname_code_scanning %} is automatically sent to the LLM for processing. When LLM analysis is complete, any results are published as comments on relevant alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 > [!NOTE]
-> * {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites)."
+> * {% data variables.product.prodname_copilot_autofix_short %} supports a subset of {% data variables.product.prodname_codeql %} queries. For information about the availability of {% data variables.product.prodname_copilot_autofix_short %}, see the query tables linked from [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#query-lists-for-the-default-query-suites).
 > * When analysis is complete, all relevant results are published to the pull request at once. If at least one alert in your pull request has an {% data variables.product.prodname_copilot_autofix_short %} suggestion, you should assume that the LLM has finished identifying potential fixes for your code.
 > * On alerts generated from queries that are not supported by {% data variables.product.prodname_copilot_autofix_short %}, you will see a note telling you that the query is not supported. If a suggestion for a supported query fails to generate, you will see a note on the alert prompting you to try pushing another commit or to contact support.
 
 Usually, when you suggest changes to a pull request, your comment contains changes for a single file that is changed in the pull request. The following screenshot shows an {% data variables.product.prodname_copilot_autofix_short %} comment that suggests changes to the `index.js` file where the alert is displayed. Since the potential fix requires a new dependency on `escape-html`, the comment also suggests adding this dependency to the `package.json` file, even though the original pull request makes no changes to this file.
 
-![Screenshot of the {% data variables.product.prodname_copilot_autofix_short %} suggestion with explanation and change in the current file. A suggested change in "package.json" is outlined in dark orange.](/assets/images/help/code-scanning/autofix-example.png)
+![Screenshot of {% data variables.product.prodname_copilot_autofix_short %} suggestion to edit the current file. A suggested change in "package.json" is outlined in dark orange.](/assets/images/help/code-scanning/autofix-example.png)
 
 ### Assessing and committing an {% data variables.product.prodname_copilot_autofix_short %} suggestion
 
-Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of {% data variables.product.prodname_copilot_autofix_short %} suggestions, see "[Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#limitations-of-suggestions)" and "[Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#mitigating-the-limitations-of-suggestions)" in "Responsible use of {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}."
+Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demonstrates a potential solution for a {% data variables.product.prodname_code_scanning %} alert in your codebase. You must assess the suggested changes to determine whether they are a good solution for your codebase and to ensure that they maintain the intended behavior. For information about the limitations of {% data variables.product.prodname_copilot_autofix_short %} suggestions, see [Limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#limitations-of-suggestions) and [Mitigating the limitations of suggestions](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning#mitigating-the-limitations-of-suggestions) in "Responsible use of {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}."
 
 1. Click **Edit** to display the editing options and select your preferred method.
    * Under **Edit with {% data variables.product.prodname_cli %}**, follow the instructions for checking out the pull request locally and applying the suggested fix.
@@ -168,4 +168,4 @@ An alternative way of closing an alert is to dismiss it. You can dismiss an aler
 
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
-For more information about dismissing alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#dismissing--alerts)."
+For more information about dismissing alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#dismissing--alerts).

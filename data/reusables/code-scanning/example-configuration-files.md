@@ -1,4 +1,4 @@
-This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see "[Running additional queries](#running-additional-queries)."
+This configuration file adds the `security-and-quality` query suite to the list of queries run by {% data variables.product.prodname_codeql %} when scanning your code. For more information about the query suites available for use, see [Running additional queries](#running-additional-queries).
 
 ``` yaml
 name: "My {% data variables.product.prodname_codeql %} config"

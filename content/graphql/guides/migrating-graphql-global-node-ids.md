@@ -11,11 +11,11 @@ shortTitle: Migrating global node IDs
 
 ## Background
 
-The {% data variables.product.product_name %} GraphQL API currently supports two types of global node ID formats. The legacy format will be {% data variables.release-phases.closing_down %} and replaced with a new format. This guide shows you how to migrate to the new format, if necessary.
+The {% data variables.product.github %} GraphQL API currently supports two types of global node ID formats. The legacy format will be {% data variables.release-phases.closing_down %} and replaced with a new format. This guide shows you how to migrate to the new format, if necessary.
 
 By migrating to the new format, you ensure that the response times of your requests remain consistent and small. You also ensure that your application continues to work once the legacy IDs are {% data variables.release-phases.closing_down %}.
 
-To learn more about why the legacy global node ID format will be {% data variables.release-phases.closing_down %}, see "[New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql)."
+To learn more about why the legacy global node ID format will be {% data variables.release-phases.closing_down %}, see [New global ID format coming to GraphQL](https://github.blog/2021-02-10-new-global-id-format-coming-to-graphql).
 
 ## Determining if you need to take action
 
@@ -44,7 +44,7 @@ Even though the legacy ID `MDQ6VXNlcjM0MDczMDM=` was used in the query, the resp
 ```
 
 With the `X-Github-Next-Global-ID` header, you can find the new ID format for legacy IDs that you reference in your application. You can then update those references with the ID received in the response. You should update all references to legacy IDs and use the new ID format for any subsequent requests to the API.
-To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see "[the GraphQL docs](https://graphql.org/learn/queries/#aliases)."
+To perform bulk operations, you can use aliases to submit multiple node queries in one API call. For more information, see [the GraphQL docs](https://graphql.org/learn/queries/#aliases).
 
 You can also get the new ID for a collection of items. For example, if you wanted to get the new ID for the last 10 repositories in your organization, you could use a query like this:
 

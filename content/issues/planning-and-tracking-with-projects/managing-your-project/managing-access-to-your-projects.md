@@ -19,7 +19,7 @@ Admins of organization-level projects can manage access for the entire organizat
 
 Admins of user-level projects can invite individual collaborators and manage their access.
 
-Project admins can also control the visibility of their project for everyone on the internet. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects)."
+Project admins can also control the visibility of their project for everyone on the internet. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects).
 
 ## Managing access for organization-level projects
 
@@ -27,17 +27,9 @@ You can control access to your project by setting permissions for particular ind
 
 ### Managing access for everyone in your organization
 
-{% ifversion projects-v2-default-base-permission %}
-
 You can manage access for everyone in your organization to a particular project by changing the project's base permission. Changes to the base permission only affect organization members who are not organization owners and who are not granted individual access.
 
-You can also configure the default base permission at the organization-level for new projects and projects that haven't yet had a base permission configured. For more information about setting your organization's base permission for projects, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-base-permissions-for-projects)."
-
-{% else %}
-
-The default base role is `write`, meaning that everyone in the organization can see and edit your project. To change project access for everyone in the organization, you can change the base role. Changes to the base role only affect organization members who are not organization owners and who are not granted individual access.
-
-{% endif %}
+You can also configure the default base permission at the organization-level for new projects and projects that haven't yet had a base permission configured. For more information about setting your organization's base permission for projects, see [AUTOTITLE](/organizations/managing-organization-settings/managing-base-permissions-for-projects).
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.
@@ -52,13 +44,9 @@ The default base role is `write`, meaning that everyone in the organization can 
 
 ### Managing access for teams and individual members of your organization
 
-You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+You can also add teams, external collaborators, and individual organization members as collaborators for an organization-level project. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
-{% ifversion projects-v2-add-to-team %}
-
-If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)."
-
-{% endif %}
+If you grant a team read permissions or greater for a project, the project is also displayed on the team's projects page. You can also add projects to a team on the team's projects page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team).
 
 You can only invite an individual user to collaborate on your organization-level project if they are already a member of the organization or an outside collaborator on at least one repository in the organization.
 
@@ -91,11 +79,8 @@ You can only invite an individual user to collaborate on your organization-level
 
 ### Granting a collaborator access to your project
 
-{% note %}
-
-This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. Only people with access to a private repository will be able to view project items from that private repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)" and "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."
-
-{% endnote %}
+> [!NOTE]
+> This only affects collaborators for your project, not for repositories in your project. To view an item on the project, someone must have the required permissions for the repository that the item belongs to. Only people with access to a private repository will be able to view project items from that private repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository).
 
 {% data reusables.projects.project-settings %}
 1. Click **Manage access**.

@@ -30,14 +30,14 @@ sections:
     - |
       A more specific error message is shown when the `ghe-repl-node` command is run on an instance not configured for high availability.
     - |
-      The SCIM private beta has resumed with support from GitHub engineering in GitHub Enterprise Server version 3.11 and later. Site administrators can provision users and groups on a GitHub Enterprise Server instance automatically with SCIM. SCIM for GitHub Enterprise Server is in private beta and subject to change. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise)" and "[AUTOTITLE](/rest/enterprise-admin/scim)" in the REST API documentation.
+      The SCIM private beta has resumed with support from GitHub engineering in GitHub Enterprise Server version 3.11 and later. Site administrators can provision users and groups on a GitHub Enterprise Server instance automatically with SCIM. SCIM for GitHub Enterprise Server is in private beta and subject to change. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise) and [AUTOTITLE](/rest/enterprise-admin/scim) in the REST API documentation.
   known_issues:
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |

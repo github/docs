@@ -22,7 +22,7 @@ topics:
 ---
 ## About forks
 
-{% data reusables.repositories.fork-definition-long %} For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks)."
+{% data reusables.repositories.fork-definition-long %} For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks).
 
 ### Propose changes to someone else's project
 
@@ -34,17 +34,17 @@ For example, you can use forks to propose changes related to fixing a bug. Rathe
 
 ### Use someone else's project as a starting point for your own idea.
 
-Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the "[About the Open Source Initiative](https://opensource.org/about)" on the Open Source Initiative.
+Open source software is based on the idea that by sharing code, we can make better, more reliable software. For more information, see the [About the Open Source Initiative](https://opensource.org/about) on the Open Source Initiative.
 
-For more information about applying open source principles to your organization's development work on {% data variables.product.prodname_dotcom %}, see {% data variables.product.prodname_dotcom %}'s white paper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+For more information about applying open source principles to your organization's development work on {% data variables.product.prodname_dotcom %}, see {% data variables.product.prodname_dotcom %}'s white paper [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/).
 
-When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see "[Choose an open source license](https://choosealicense.com/)" at choosealicense.com.
+When creating your public repository from a fork of someone's project, make sure to include a license file that determines how you want your project to be shared with others. For more information, see [Choose an open source license](https://choosealicense.com/) at choosealicense.com.
 
 {% data reusables.open-source.open-source-guide-repositories %} {% data reusables.open-source.open-source-learning %}
 
 ## Prerequisites
 
-If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
+If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
 
 ## Forking a repository
 
@@ -65,7 +65,7 @@ You might fork a project to propose changes to the upstream repository. In this 
 1. Click **Create fork**.
 
 > [!NOTE]
-> If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository)."
+> If you want to copy additional branches from the upstream repository, you can do so from the **Branches** page. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository).
 
 {% endwebui %}
 
@@ -95,17 +95,17 @@ You can fork a repository on {% data variables.product.prodname_dotcom_the_websi
 
 {% enddesktop %}
 
+{% webui %}
+
 ## Cloning your forked repository
 
 Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
-
-{% webui %}
 
 1. On {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.location.product_location %}{% endif %}, navigate to **your fork** of the Spoon-Knife repository.
 {% data reusables.repositories.copy-clone-url %}
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.command_line.change-current-directory-clone %}
-1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.product_name %} username instead of `YOUR-USERNAME`:
+1. Type `git clone`, and then paste the URL you copied earlier. It will look like this, with your {% data variables.product.github %} username instead of `YOUR-USERNAME`:
 
    ```shell
    git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/Spoon-Knife
@@ -126,6 +126,10 @@ Right now, you have a fork of the Spoon-Knife repository, but you do not have th
 
 {% cli %}
 
+## Cloning your forked repository
+
+Right now, you have a fork of the Spoon-Knife repository, but you do not have the files in that repository locally on your computer.
+
 {% data reusables.cli.cli-learn-more %}
 
 To create a clone of your fork, use the `--clone` flag.
@@ -135,16 +139,6 @@ gh repo fork REPOSITORY --clone=true
 ```
 
 {% endcli %}
-
-{% desktop %}
-
-{% data reusables.desktop.choose-clone-repository %}
-{% data reusables.desktop.cloning-location-tab %}
-{% data reusables.desktop.cloning-repository-list %}
-{% data reusables.desktop.choose-local-path %}
-{% data reusables.desktop.click-clone %}
-
-{% enddesktop %}
 
 ## Configuring Git to sync your fork with the upstream repository
 
@@ -184,7 +178,7 @@ When you fork a project in order to propose changes to the upstream repository, 
    > upstream  https://{% data variables.product.product_url %}/ORIGINAL-OWNER/ORIGINAL-REPOSITORY.git (push)
    ```
 
-Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork)."
+Now, you can keep your fork synced with the upstream repository with a few Git commands. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork).
 
 {% endwebui %}
 
@@ -215,9 +209,9 @@ You can make any changes to a fork, including:
 
 ## Find another repository to fork
 
-Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %} For more information about when you can fork a repository, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks)."
+Fork a repository to start contributing to a project. {% data reusables.repositories.you-can-fork %} For more information about when you can fork a repository, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-permissions-and-visibility-of-forks).
 
-{% ifversion fpt or ghec %}You can browse [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)."
+{% ifversion fpt or ghec %}You can browse [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore) to find projects and start contributing to open source repositories. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
 
 {% endif %}
 
@@ -225,7 +219,7 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 

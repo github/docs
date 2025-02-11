@@ -1,6 +1,6 @@
 ---
 title: About secret scanning
-intro: '{% data variables.product.product_name %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
+intro: '{% data variables.product.github %} scans repositories for known types of secrets, to prevent fraudulent use of secrets that were committed accidentally.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 redirect_from:
   - /github/administering-a-repository/about-token-scanning
@@ -28,18 +28,18 @@ shortTitle: Secret scanning
 
 {% data reusables.secret-scanning.what-is-scanned %}
 
-When a supported secret is leaked, {% data variables.product.product_name %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.product_name %}, where you can view, evaluate, and resolve them. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+When a supported secret is leaked, {% data variables.product.github %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.github %}, where you can view, evaluate, and resolve them. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 
 {% ifversion fpt or ghec %}Service providers can partner with {% data variables.product.company_short %} to provide their secret formats for scanning. We automatically run {% data variables.product.prodname_secret_scanning %} for partner patterns on all public repositories and public npm packages.{% data reusables.secret-scanning.partner-program-link %}
 
-Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on {% data variables.product.prodname_dotcom %}. For more information about partner patterns, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."{% endif %}
+Any strings that match patterns that were provided by secret scanning partners are reported directly to the relevant partner, and aren't displayed on {% data variables.product.prodname_dotcom %}. For more information about partner patterns, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts).{% endif %}
 
-For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets)."
+For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
 
-You can use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see "[AUTOTITLE](/rest/secret-scanning)."
+You can use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see [AUTOTITLE](/rest/secret-scanning).
 
 {% ifversion ghec or ghes %}
-You can also use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview)."
+You can also use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
 {% endif %}
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
@@ -50,19 +50,17 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 * **Detection:** {% data variables.product.prodname_secret_scanning_caps %} automatically scans your repository's contents for sensitive data, such as API keys, passwords, tokens, and other secrets. It looks for patterns and heuristics that match known types of secrets.
 
-* **Alerts:** When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts)."
+* **Alerts:** When a potential secret is detected, {% data variables.product.prodname_dotcom %} generates an alert and notifies the relevant repository administrators and users. This notification includes details about the detected secret, such as its location in the repository. For more information about alert types and alert details, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts).
 
 * **Review:** When a secret is detected, you'll need to review the alert details provided.
 
-* **Remediation:** You then need to take appropriate actions to remediate the exposure. This might include:
-  * Rotating the affected credential to ensure it is no longer usable.
-  * Removing the secret from the repository's history (using tools like `git-filter-repo` or {% data variables.product.prodname_dotcom %}'s built-in features).
+* **Remediation:** You then need to take appropriate action to remediate the exposure. This should always include rotating the affected credential to ensure it is no longer usable.  It may also include removing the secret from the repository's history (using tools like `git-filter-repo`; see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository) for more details) though this will likely involve a heavy cost in time and effort, and is usually unnecessary if the credentials have been revoked.
 
 * **Monitoring:** It's good practice to regularly audit and monitor your repositories to ensure no other secrets are exposed.
 
 {% ifversion fpt or ghec %}
 
-* **Integration with partners:** {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with partners:** {% data variables.product.prodname_dotcom %} works with various service providers to validate secrets. When a partner secret is detected, {% data variables.product.prodname_dotcom %} notifies the provider so they can take appropriate action, such as revoking the credential. For more information about the partnership program, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program).
 
 {% endif %}
 
@@ -76,7 +74,7 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% ifversion fpt or ghec %}
 
-* **Integration with service providers:** {% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see "[AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program)."
+* **Integration with service providers:** {% data variables.product.prodname_dotcom %} partners with various service providers to validate detected secrets. When a secret is identified, {% data variables.product.prodname_dotcom %} notifies the corresponding service provider to take appropriate actions, such as revoking the exposed credential. For more information, see [AUTOTITLE](/code-security/secret-scanning/secret-scanning-partnership-program/secret-scanning-partner-program).
 
 {% endif %}
 
@@ -100,19 +98,19 @@ Once {% data variables.product.prodname_secret_scanning %} is enabled, you can c
 
 ### Detection of non-provider patterns
 
-Scan for and detect secrets that are not specific to a service provider, such as private keys and generic API keys. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns)."
+Scan for and detect secrets that are not specific to a service provider, such as private keys and generic API keys. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns).
 
 {% endif %}
 
 ### Performing validity checks
 
-Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository)" and{% endif %} "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity)."
+Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository) and{% endif %} [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).
 
 {% ifversion ghec or ghes %}
 
 ### Defining custom patterns
 
-Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
+Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 {% endif %}
 
@@ -120,16 +118,16 @@ Define your own patterns for secrets used by your organization that {% data vari
 
 ### {% data variables.secret-scanning.copilot-secret-scanning %}
 
-* **{% data variables.secret-scanning.generic-secret-detection-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets)."{% ifversion secret-scanning-custom-pattern-ai-generated %}
-* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see "[AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator).{% endif %}
+* **{% data variables.secret-scanning.generic-secret-detection-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to detect unstructured secrets, such as passwords, in your repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% ifversion secret-scanning-custom-pattern-ai-generated %}
+* **{% data variables.secret-scanning.custom-pattern-regular-expression-generator-caps %}:** Leverage {% data variables.product.prodname_secret_scanning %}'s AI capabilities to generate regular expressions that will capture all your custom patterns. For more information, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-regex-generator).{% endif %}
 
 {% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)"
-* "[AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)"
-* "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)"
-* "[AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)"
-* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure)"
+* [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection)
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection)
+* [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization)
+* [AUTOTITLE](/code-security/getting-started/securing-your-repository)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure)

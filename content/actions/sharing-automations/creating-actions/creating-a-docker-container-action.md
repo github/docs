@@ -32,13 +32,13 @@ Once you complete this project, you should understand how to build your own Dock
 
 ## Prerequisites
 
-* You must create a repository on {% data variables.product.github %} and clone it to your workstation. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)" and "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
-* If your repository uses {% data variables.large_files.product_name_short %}, you must include the objects in archives of your repository. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository)."
-* You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %}, environment variables and the Docker container filesystem. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem)."
+* You must create a repository on {% data variables.product.github %} and clone it to your workstation. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository) and [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
+* If your repository uses {% data variables.large_files.product_name_short %}, you must include the objects in archives of your repository. For more information, see [AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-git-lfs-objects-in-archives-of-your-repository).
+* You may find it helpful to have a basic understanding of {% data variables.product.prodname_actions %}, environment variables and the Docker container filesystem. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/enterprise-cloud@latest/actions/using-github-hosted-runners/about-github-hosted-runners#docker-container-filesystem).
 
 ## Creating a Dockerfile
 
-In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions)."
+In your new `hello-world-docker-action` directory, create a new `Dockerfile` file. Make sure that your filename is capitalized correctly (use a capital `D` but not a capital `f`) if you're having issues. For more information, see [AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions).
 
 **Dockerfile**
 
@@ -55,7 +55,7 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 ## Creating an action metadata file
 
-Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Create a new `action.yml` file in the `hello-world-docker-action` directory you created above. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 {% raw %}
 **action.yml**
@@ -89,7 +89,7 @@ This metadata defines one `who-to-greet` input and one `time` output parameter. 
 
 You can choose any base Docker image and, therefore, any language for your action. The following shell script example uses the `who-to-greet` input variable to print "Hello [who-to-greet]" in the log file.
 
-Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)."
+Next, the script gets the current time and sets it as an output variable that actions running later in a job can use. In order for {% data variables.product.prodname_dotcom %} to recognize output variables, you must write them to the `$GITHUB_OUTPUT` environment file: `echo "<output name>=<value>" >> $GITHUB_OUTPUT`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter).
 
 1. Create a new `entrypoint.sh` file in the `hello-world-docker-action` directory.
 
@@ -106,7 +106,7 @@ Next, the script gets the current time and sets it as an output variable that ac
 
    ```
 
-   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
+   If `entrypoint.sh` executes without any errors, the action's status is set to `success`. You can also explicitly set exit codes in your action's code to provide an action's status. For more information, see [AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions).
 
 1. Make your `entrypoint.sh` file executable. Git provides a way to explicitly change the permission mode of a file so that it doesn’t get reset every time there is a clone/fork.
 
@@ -162,11 +162,11 @@ with:
   who-to-greet: 'Mona the Octocat'
 ```
 
-## Commit, tag, and push your action to {% data variables.product.product_name %}
+## Commit, tag, and push your action
 
 From your terminal, commit your `action.yml`, `entrypoint.sh`, `Dockerfile`, and `README.md` files.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
+It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions).
 
 ```shell copy
 git add action.yml entrypoint.sh Dockerfile README.md
@@ -179,15 +179,15 @@ git push --follow-tags
 
 Now you're ready to test your action out in a workflow.
 
-{% ifversion private-actions %}- When an action is in a private repository, you can control who can access it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository)."{% else %}- When an action is in a private repository, the action can only be used in workflows in the same repository.{% endif %}
-{% ifversion ghes or ghec %}{% ifversion internal-actions %}- When an action is in an internal repository, you can control who can access it. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository)."{% else %}- When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}{% endif %}
+* When an action is in a private repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-a-private-repository).
+* {% ifversion ghes or ghec %}When an action is in an internal repository, you can control who can access it. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#allowing-access-to-components-in-an-internal-repository).{% else %}When an action is in an internal repository, the action can only be used in workflows in the same repository.{% endif %}
 * Public actions can be used by workflows in any repository.
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 
 ### Example using a public action
 
-The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see "[AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action)." {% endif %}
+The following workflow code uses the completed _hello world_ action in the public [`actions/hello-world-docker-action`](https://github.com/actions/hello-world-docker-action) repository. Copy the following workflow example code into a `.github/workflows/main.yml` file, but replace the `actions/hello-world-docker-action` with your repository and action name. You can also replace the `who-to-greet` input with your name. {% ifversion fpt or ghec %}Public actions can be used even if they're not published to {% data variables.product.prodname_marketplace %}. For more information, see [AUTOTITLE](/actions/creating-actions/publishing-actions-in-github-marketplace#publishing-an-action). {% endif %}
 
 **.github/workflows/main.yml**
 
@@ -264,7 +264,7 @@ jobs:
           path: {% raw %}${{ github.workspace }}{% endraw %}
 ```
 
-For more information about uploading build output as an artifact, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information about uploading build output as an artifact, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 ## Example Docker container actions on {% data variables.product.prodname_dotcom_the_website %}
 

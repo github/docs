@@ -7,7 +7,7 @@ redirect_from:
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
   - /github/getting-started-with-github/getting-started-with-git/ignoring-files
-intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.product_name %}.'
+intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ versions:
 You can create a `.gitignore` file in your repository's root directory to tell Git which files and directories to ignore when you make a commit.
 To share the ignore rules with other users who clone the repository, commit the `.gitignore` file in to your repository.
 
-GitHub maintains an official list of recommended `.gitignore` files for many popular operating systems, environments, and languages in the "github/gitignore" public repository. You can also use gitignore.io to create a `.gitignore` file for your operating system, programming language, or IDE. For more information, see "[github/gitignore](https://github.com/github/gitignore)" and the "[gitignore.io](https://www.gitignore.io/)" site.
+GitHub maintains an official list of recommended `.gitignore` files for many popular operating systems, environments, and languages in the "github/gitignore" public repository. You can also use gitignore.io to create a `.gitignore` file for your operating system, programming language, or IDE. For more information, see [github/gitignore](https://github.com/github/gitignore) and the [gitignore.io](https://www.gitignore.io/) site.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Navigate to the location of your Git repository.
@@ -30,7 +30,7 @@ GitHub maintains an official list of recommended `.gitignore` files for many pop
 
    If the command succeeds, there will be no output.
 
-For an example `.gitignore` file, see "[Some common .gitignore configurations](https://gist.github.com/octocat/9257657)" in the Octocat repository.
+For an example `.gitignore` file, see [Some common .gitignore configurations](https://gist.github.com/octocat/9257657) in the Octocat repository.
 
 If you want to ignore a file that is already checked in, you must untrack the file before you add a rule to ignore it. From your terminal, untrack the file.
 

@@ -17,7 +17,7 @@ shortTitle: Permanent links to files
 ---
 
 > [!TIP]
-> Press "?" on any page in {% data variables.product.product_name %} to see all available keyboard shortcuts.
+> Press "?" on any page in {% data variables.product.github %} to see all available keyboard shortcuts.
 
 ## File views show the latest version on a branch
 
@@ -44,8 +44,8 @@ Looking up the commit SHA by hand is inconvenient, however, so as a shortcut you
 
 ## Creating a permanent link to a code snippet
 
-You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet)."
+You can create a permanent link to a specific line or range of lines of code in a specific version of a file or pull request. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-a-permanent-link-to-a-code-snippet).
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/archiving-a-github-repository)"
+* [AUTOTITLE](/repositories/archiving-a-github-repository)

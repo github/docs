@@ -13,7 +13,7 @@ children:
   - /creating-a-custom-security-configuration
   - /applying-a-custom-security-configuration
   - /configuring-global-security-settings-for-your-organization
+  - /giving-org-access-private-registries
 redirect_from:
   - /code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations
 ---
-

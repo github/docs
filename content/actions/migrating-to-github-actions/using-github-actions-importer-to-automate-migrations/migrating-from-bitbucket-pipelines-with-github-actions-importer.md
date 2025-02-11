@@ -30,9 +30,9 @@ The instructions below will guide you through configuring your environment to us
 There are some limitations when migrating from Bitbucket Pipelines to {% data variables.product.prodname_actions %} with {% data variables.product.prodname_actions_importer %}.
 
 * Images in a private AWS ECR are not supported.
-* The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners)."{% endif %}
+* The Bitbucket Pipelines option `size` is not supported. {% ifversion fpt or ghec %}If additional runner resources are required in {% data variables.product.prodname_actions %}, consider using {% data variables.actions.hosted_runner %}s. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).{% endif %}
 * Metrics detailing the queue time of jobs is not supported by the `forecast` command.
-* Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
+* Bitbucket [after-scripts](https://support.atlassian.com/bitbucket-cloud/docs/step-options/#After-script) are supported using {% data variables.product.prodname_actions %} `always()` in combination with checking the `steps.<step_id>.conclusion` of the previous step. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#steps-context).
 
   The following is an example of using the `always()` with `steps.<step_id>.conclusion`.
 
@@ -66,7 +66,7 @@ Certain Bitbucket Pipelines constructs must be migrated manually. These include:
 
 The `configure` CLI command is used to set required credentials and options for {% data variables.product.prodname_actions_importer %} when working with Bitbucket Pipelines and {% data variables.product.prodname_dotcom %}.
 
-1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %}. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
    Your token must have the `workflow` scope.
 
@@ -83,7 +83,7 @@ The `configure` CLI command is used to set required credentials and options for 
 
    * For "Which CI providers are you configuring?", use the arrow keys to select `Bitbucket`, press <kbd>Space</kbd> to select it, then press <kbd>Enter</kbd>.
    * For "{% data variables.product.pat_generic_caps %} for GitHub", enter the value of the {% data variables.product.pat_v1 %} that you created earlier, and press <kbd>Enter</kbd>.
-   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for your {% data variables.product.product_name %} instance, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
+   * For "Base url of the GitHub instance", {% ifversion ghes %}enter the URL for {% data variables.location.product_location_enterprise %}, and press <kbd>Enter</kbd>.{% else %}press <kbd>Enter</kbd> to accept the default value (`https://github.com`).{% endif %}
    * For "{% data variables.product.pat_generic_caps %} for Bitbucket", enter the Workspace Access Token that you created earlier, and press <kbd>Enter</kbd>.
    * For "Base url of the Bitbucket instance", enter the URL for your Bitbucket instance, and press <kbd>Enter</kbd>.
 

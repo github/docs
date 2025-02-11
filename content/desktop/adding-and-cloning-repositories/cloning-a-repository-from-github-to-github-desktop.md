@@ -11,14 +11,14 @@ shortTitle: Clone a GitHub repo
 ---
 
 > [!TIP]
-> You also can use {% data variables.product.prodname_desktop %} to clone repositories that exist on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop)."
+> You also can use {% data variables.product.prodname_desktop %} to clone repositories that exist on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-and-forking-repositories-from-github-desktop).
 
 1. Sign in to {% data variables.product.github %} and {% data variables.product.prodname_desktop %} before you start to clone.
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.open-with-github-desktop %}
 1. Click **Choose...** and navigate to a local directory where you want to clone the repository.
 
-   ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is highlighted with an orange outline.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
+   ![Screenshot of the "URL" tab of the "Clone a Repository" window. Next to the "Local Path" field, a button, labeled "Choose", is outlined in orange.](/assets/images/help/desktop/clone-choose-button-url-mac.png)
 
    > [!NOTE]
    > If the repository is configured to use LFS, you will be prompted to initialize {% data variables.large_files.product_name_short %}.

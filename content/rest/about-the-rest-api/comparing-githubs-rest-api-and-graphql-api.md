@@ -1,7 +1,7 @@
 ---
 title: Comparing GitHub's REST API and GraphQL API
 shortTitle: Comparing GitHub's APIs
-intro: 'Learn about {% data variables.product.prodname_dotcom %}''s APIs to extend and customize your {% data variables.product.prodname_dotcom %} experience.'
+intro: 'Learn about {% data variables.product.github %}''s APIs to extend and customize your {% data variables.product.github %} experience.'
 redirect_from:
   - /v3/versions
   - /articles/getting-started-with-the-api
@@ -21,15 +21,15 @@ topics:
 
 {% data variables.product.company_short %} provides two APIs: a REST API and a GraphQL API. You can interact with both APIs using {% data variables.product.prodname_cli %}, curl, the official Octokit libraries, and third party libraries. Occasionally, a feature may be supported on one API but not the other.
 
-You should use the API that best aligns with your needs and that you are most comfortable using. You don't need to exclusively use one API over the other. Node IDs let you move between the REST API and GraphQL API. For more information, see "[AUTOTITLE](/graphql/guides/using-global-node-ids)."
+You should use the API that best aligns with your needs and that you are most comfortable using. You don't need to exclusively use one API over the other. Node IDs let you move between the REST API and GraphQL API. For more information, see [AUTOTITLE](/graphql/guides/using-global-node-ids).
 
-This article discusses the benefits of each API. For more information about the GraphQL API, see "[AUTOTITLE](/graphql/overview/about-the-graphql-api)." For more information about the REST API, see "[AUTOTITLE](/rest/about-the-rest-api/about-the-rest-api)".
+This article discusses the benefits of each API. For more information about the GraphQL API, see [AUTOTITLE](/graphql/overview/about-the-graphql-api). For more information about the REST API, see [AUTOTITLE](/rest/about-the-rest-api/about-the-rest-api).
 
 ## Choosing the GraphQL API
 
 The GraphQL API returns exactly the data that you request. GraphQL also returns the data in a pre-known structure based on your request. In contrast, the REST API returns more data than you requested and returns it in a pre-determined structure. You can also accomplish the equivalent of multiple REST API request in a single GraphQL request. The ability to make fewer requests and fetch less data makes GraphQL appealing to developers of mobile applications.
 
-For example, to get the {% data variables.product.product_name %} login of ten of your followers, and the login of ten followers of each of your followers, you can send a single request like:
+For example, to get the {% data variables.product.github %} login of ten of your followers, and the login of ten followers of each of your followers, you can send a single request like:
 
 ```graphql
 {

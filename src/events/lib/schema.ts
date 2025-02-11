@@ -106,6 +106,14 @@ const context = {
       type: 'boolean',
       description: 'Anonymous -- whether the user has github.com cookies set.',
     },
+    dotcom_user: {
+      type: 'string',
+      description: 'The cookie value of dotcom_user',
+    },
+    is_staff: {
+      type: 'boolean',
+      description: 'The cookie value of staffonly',
+    },
 
     // Device information
     os: {
@@ -167,6 +175,23 @@ const context = {
     code_display_preference: {
       enum: ['beside', 'inline'],
       description: 'How the user prefers to view code examples.',
+    },
+
+    // Experiments
+    experiment_variation: {
+      type: 'string',
+      description: 'The variation this user we bucketed in is in, such as control or treatment.',
+    },
+
+    // Event Grouping. The comination of key + id should be unique
+    event_group_key: {
+      type: 'string',
+      description: 'A enum indentifier (e.g. "ask-ai") used to put events into a specific group.',
+    },
+    event_group_id: {
+      type: 'string',
+      description:
+        'A unique id (uuid) that can be used to identify a group of events made by a user during the same session.',
     },
   },
 }
@@ -366,6 +391,38 @@ const searchResult = {
   },
 }
 
+const aiSearchResult = {
+  type: 'object',
+  additionalProperties: false,
+  required: [
+    'type',
+    'context',
+    'ai_search_result_query',
+    'ai_search_result_response',
+    'ai_search_result_links_json',
+  ],
+  properties: {
+    context,
+    type: {
+      type: 'string',
+      pattern: '^aiSearchResult$',
+    },
+    ai_search_result_query: {
+      type: 'string',
+      description: 'The query the user searched for.',
+    },
+    ai_search_result_response: {
+      type: 'string',
+      description: "The GPT's response to the query.",
+    },
+    ai_search_result_links_json: {
+      type: 'string',
+      description:
+        'Dynamic JSON string of an array of "link" objects in the form: [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]',
+    },
+  },
+}
+
 const survey = {
   type: 'object',
   additionalProperties: false,
@@ -418,7 +475,7 @@ const experiment = {
     },
     experiment_variation: {
       type: 'string',
-      description: 'The variation this user we bucketed in, such as control or treatment.',
+      description: 'The variation this user we bucketed in is in, such as control or treatment.',
     },
     experiment_success: {
       type: 'boolean',
@@ -531,6 +588,7 @@ export const schemas = {
   hover,
   search,
   searchResult,
+  aiSearchResult,
   survey,
   experiment,
   clipboard,
@@ -546,6 +604,7 @@ export const hydroNames = {
   hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',
   searchResult: 'docs.v0.SearchResultEvent',
+  aiSearchResult: 'docs.v0.AISearchResultEvent',
   survey: 'docs.v0.SurveyEvent',
   experiment: 'docs.v0.ExperimentEvent',
   clipboard: 'docs.v0.ClipboardEvent',

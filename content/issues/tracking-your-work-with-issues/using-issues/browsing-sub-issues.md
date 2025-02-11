@@ -8,8 +8,6 @@ topics:
   - Project management
 ---
 
-{% data reusables.issues.release-stage %}
-
 {% data reusables.issues.about-sub-issues %}
 
 ## Navigating issue hierarchy
@@ -29,4 +27,4 @@ When you view a sub-issue, you can always find a link back to the parent issue i
 
 ## Using sub-issues in your projects
 
-You can add sub-issues to your projects and make use of the hierarchy data for building views, grouping items, and filtering your views. See "[AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-parent-issue-and-sub-issue-progress-fields)."
+You can add sub-issues to your projects and make use of the hierarchy data for building views, grouping items, and filtering your views. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/understanding-fields/about-parent-issue-and-sub-issue-progress-fields).

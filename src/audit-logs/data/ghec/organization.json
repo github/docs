@@ -86,32 +86,37 @@
   },
   {
     "action": "code_scanning.alert_appeared_in_branch",
-    "description": "An existing code scanning alert appeared in a branch.",
+    "description": "Existing code scanning alerts appeared in a branch.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_closed_became_fixed",
-    "description": "A code scanning alert was fixed.",
+    "description": "Code scanning alerts were fixed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_outdated",
+    "description": "Code scanning alerts were closed as outdated (all configurations they were detected in were deleted).",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_closed_by_user",
-    "description": "A code scanning alert was manually dismissed.",
+    "description": "Code scanning alerts were manually dismissed.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_created",
-    "description": "A code scanning alert was seen for the first time.",
+    "description": "Code scanning alerts were seen for the first time.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_reappeared",
-    "description": "A code scanning alert that was previously fixed reappeared.",
+    "description": "Code scanning alerts that were previously fixed reappeared.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "code_scanning.alert_reopened_by_user",
-    "description": "A code scanning alert that was previously dismissed was reopened.",
+    "description": "Code scanning alerts that were previously dismissed were reopened.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
@@ -2395,6 +2400,16 @@
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
   },
   {
+    "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
+    "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
+    "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
@@ -3128,6 +3143,11 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_scan.completed",
+    "description": "A secret scanning scan has completed on this repository.",
+    "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
   },
   {
     "action": "security_configuration.create",

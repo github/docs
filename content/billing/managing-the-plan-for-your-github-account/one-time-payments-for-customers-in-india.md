@@ -17,7 +17,7 @@ shortTitle: India one-time payments
 
 ## About the Reserve Bank of India's recurring payments regulation
 
-A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.product_name %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
+A new payments regulation from the Reserve Bank of India (RBI) recently came into effect. This regulation places additional requirements on recurring online transactions and has prevented some {% data variables.product.company_short %} customers in India from making recurring payments. Customers using payment methods issued in India for any recurring transactions on {% data variables.product.github %} may find that their payments are declined by their banks or card issuers. For more information, see [the RBI's press release](https://www.rbi.org.in/Scripts/BS_PressReleaseDisplay.aspx?prid=51353).
 
 The regulation applies to all recurring transactions, including:
 * {% data variables.product.prodname_dotcom %} plan subscriptions (Pro, Team, Enterprise)
@@ -36,7 +36,7 @@ As we work with our payment gateway provider to meet the new requirements, we ar
 
 Customers on monthly billing plans will be able to make a one-time payment on the same day their billing cycle usually renews. For example, if you're usually billed on the 7th of each month, you will now be able to make a one-time payment from your account from the 7th of each month. Your first one-time payment will also include any accrued usage from October 2021 onwards.
 
-If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle)."
+If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle).
 
 ### For customers on yearly billing
 

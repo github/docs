@@ -21,13 +21,13 @@ You can automatically increase or decrease the number of self-hosted runners in 
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.prodname_dotcom %}-hosted runners inherently autoscale based on your needs. {% data variables.product.prodname_dotcom %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners)."
+{% data variables.product.prodname_dotcom %}-hosted runners inherently autoscale based on your needs. {% data variables.product.prodname_dotcom %}-hosted runners can be a low-maintenance and cost-effective alternative to developing or implementing autoscaling solutions. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners).
 
 {% endif %}
 
 The [actions/actions-runner-controller](https://github.com/actions/actions-runner-controller) (ARC) project is a Kubernetes-based runner autoscaler. {% data variables.product.prodname_dotcom %} recommends ARC if the team deploying it has expert Kubernetes knowledge and experience.
 
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller)."
+For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-support-for-actions-runner-controller).
 
 ## Using ephemeral runners for autoscaling
 
@@ -35,7 +35,7 @@ For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managin
 
 This approach allows you to manage your runners as ephemeral systems, since you can use automation to provide a clean environment for each job. This helps limit the exposure of any sensitive resources from previous jobs, and also helps mitigate the risk of a compromised runner receiving new jobs.
 
->[!WARNING]The runner application log files for ephemeral runners must be forwarded to an external log storage solution for troubleshooting and diagnostic purposes. While it is not required for ephemeral runners to be deployed, {% data variables.product.prodname_dotcom %} recommends ensuring runner logs are forwarded and preserved externally before deploying an ephemeral runner autoscaling solution in a production environment. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files)."
+>[!WARNING]The runner application log files for ephemeral runners must be forwarded to an external log storage solution for troubleshooting and diagnostic purposes. While it is not required for ephemeral runners to be deployed, {% data variables.product.prodname_dotcom %} recommends ensuring runner logs are forwarded and preserved externally before deploying an ephemeral runner autoscaling solution in a production environment. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#reviewing-the-self-hosted-runner-application-log-files).
 
 To add an ephemeral runner to your environment, include the `--ephemeral` parameter when registering your runner using `config.sh`. For example:
 
@@ -48,11 +48,7 @@ The {% data variables.product.prodname_actions %} service will then automaticall
 > [!NOTE]
 > If a job is labeled for a certain type of runner, but none matching that type are available, the job does not immediately fail at the time of queueing. Instead, the job will remain queued until the 24 hour timeout period expires.
 
-{% ifversion actions-single-use-tokens %}
-
-Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
-
-{% endif %}
+Alternatively, you can create ephemeral, just-in-time runners using the REST API. For more information, see [AUTOTITLE](/rest/actions/self-hosted-runners).
 
 ## Controlling runner software updates on self-hosted runners
 
@@ -66,7 +62,7 @@ To turn off automatic software updates and install software updates yourself, sp
 
 If you disable automatic updates, you must still update your runner version regularly. New functionality in {% data variables.product.prodname_actions %} requires changes in both the {% data variables.product.prodname_actions %} service _and_ the runner software. The runner may not be able to correctly process jobs that take advantage of new features in {% data variables.product.prodname_actions %} without a software update.
 
-If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available. You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications)."
+If you disable automatic updates, you will be required to update your runner version within 30 days of a new version being made available. You may want to subscribe to notifications for releases in the [`actions/runner` repository](https://github.com/actions/runner/releases). For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#about-custom-notifications).
 
 For instructions on how to install the latest runner version, see the installation instructions for [the latest release](https://github.com/actions/runner/releases).
 
@@ -76,8 +72,8 @@ For instructions on how to install the latest runner version, see the installati
 
 You can create your own autoscaling environment by using payloads received from the [`workflow_job`](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job) webhook. This webhook is available at the repository, organization, and enterprise levels, and the payload for this event contains an `action` key that corresponds to the stages of a workflow job's life-cycle; for example when jobs are `queued`, `in_progress`, and `completed`. You must then create your own scaling automation in response to these webhook payloads.
 
-* For more information about the `workflow_job` webhook, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job)."
-* To learn how to work with webhooks, see "[AUTOTITLE](/webhooks)."
+* For more information about the `workflow_job` webhook, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#workflow_job).
+* To learn how to work with webhooks, see [AUTOTITLE](/webhooks).
 
 ## Authentication requirements
 

@@ -1,5 +1,5 @@
 import { fastTextOnly } from './text-only.js'
-import { createProcessor } from './processor.js'
+import { createProcessor, createMarkdownOnlyProcessor } from './processor.js'
 
 export async function renderUnified(template, context, options) {
   const processor = createProcessor(context)
@@ -11,4 +11,12 @@ export async function renderUnified(template, context, options) {
   }
 
   return html.trim()
+}
+
+export async function renderMarkdown(template, context, options) {
+  const processor = createMarkdownOnlyProcessor(context)
+  const vFile = await processor.process(template)
+  let markdown = vFile.toString()
+
+  return markdown.trim()
 }

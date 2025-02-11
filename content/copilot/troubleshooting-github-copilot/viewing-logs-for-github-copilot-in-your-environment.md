@@ -21,7 +21,7 @@ shortTitle: View logs
 
 ## Collecting log files
 
-The location of the log files depends on the JetBrains IDE you are using. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains)."
+The location of the log files depends on the JetBrains IDE you are using. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains).
 
 These steps describe how to view and collect the log files for the following JetBrains IDEs:
 
@@ -53,7 +53,7 @@ If you find the log file doesn't contain enough information to resolve an issue,
 
 1. In the menu bar, click **Help**, select **Diagnostic Tools**, and click **Debug Log Settings...**.
 
-   ![Screenshot of the menu bar in a JetBrains IDE. The "Help" menu and "Diagnostic Tools" submenu are expanded, and the "Debug Log Settings" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-debug-log.png)
+   ![Screenshot of the menu bar in a JetBrains IDE. The "Help" menu and "Diagnostic Tools" submenu are expanded and "Debug Log Settings" is highlighted.](/assets/images/help/copilot/jetbrains-debug-log.png)
 
 1. In the "Custom Debug Log Configuration" window, add a new line with the following content, then click **OK**.
 
@@ -61,7 +61,7 @@ If you find the log file doesn't contain enough information to resolve an issue,
    #com.github.copilot:trace
    ```
 
-1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Collecting log files](#collecting-log-files)."
+1. Keep using your IDE until you encounter the issue again, then collect the log file as described in [Collecting log files](#collecting-log-files).
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
 
 ## Viewing network connectivity diagnostics logs
@@ -74,7 +74,7 @@ If you encounter problems connecting to {% data variables.product.prodname_copil
 
 ## Troubleshooting certificate-related errors
 
-If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)". Then use the following troubleshooting steps.
+If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot). Then use the following troubleshooting steps.
 
 1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot %}**, and click **Log CA Certificates**.
 1. The `idea.log` file should open in the JetBrains IDE with the trusted CA certificates logged in PEM format. You may need to refresh the `idea.log` file to view all of the output. Alternatively, you can open the `idea.log` file in your preferred editor.
@@ -93,7 +93,7 @@ The log files for the {% data variables.product.prodname_copilot %} extension ar
 
 ## Further reading
 
-* "[Log all activity to the log file for troubleshooting](https://learn.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2022)" in the {% data variables.product.prodname_vs %} documentation
+* [Log all activity to the log file for troubleshooting](https://learn.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation
 
 {% endvisualstudio %}
 
@@ -143,8 +143,8 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)"
-* "[Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)" in the {% data variables.product.prodname_vscode %} documentation
+* [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)
+* [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network) in the {% data variables.product.prodname_vscode %} documentation
 
 {% endvscode %}
 

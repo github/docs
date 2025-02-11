@@ -17,14 +17,14 @@ redirect_from:
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
-For more information on merging a pull request using a merge queue, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)."
+For more information on merging a pull request using a merge queue, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue).
 
 ## Configuring continuous integration (CI) workflows for merge queues
 
 > [!NOTE]
 > * A merge queue cannot be enabled with branch protection rules that use wildcard characters (`*`) in the branch name pattern.
 > * A merge queue will wait for required checks to be reported before it can proceed with merging. You must update your CI configuration to trigger and report on merge group events when requiring a merge queue.
-> * Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue)."
+> * Merge queue and pull requests checks are coupled and configured under branch protection rules or rulesets. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue#managing-a-merge-queue).
 
 ### Triggering merge group checks with {% data variables.product.prodname_actions %}
 
@@ -41,7 +41,7 @@ on:
   merge_group:
 ```
 
-For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
+For more information on the `merge_group` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group).
 
 ### Triggering merge group checks with third-party CI providers
 
@@ -49,7 +49,7 @@ With third-party CI providers, you will need to update your CI configuration to 
 
 ## Managing a merge queue
 
-Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule)."
+Repository administrators can require a merge queue by enabling the branch protection setting "Require merge queue" in the protection rules for the base branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule#creating-a-branch-protection-rule).
 
 Once you have enabled the "Require merge queue" setting, you can also access the following settings:
 
@@ -80,9 +80,9 @@ Once you have enabled the "Require merge queue" setting, you can also access the
 
 As pull requests are added to the merge queue, the merge queue ensures that they are merged in a first-in-first-out order where the required checks are always satisfied.
 
-A merge queue creates temporary branches with a special prefix to validate pull request changes. When a pull request is added to the merge queue, the changes in the pull request are grouped into a `merge_group` with the latest version of the `base_branch` as well as changes from pull requests ahead of it in the queue. {% data variables.product.product_name %} will merge all these changes into the `base_branch` once the checks required by the branch protections of `base_branch` pass.
+A merge queue creates temporary branches with a special prefix to validate pull request changes. When a pull request is added to the merge queue, the changes in the pull request are grouped into a `merge_group` with the latest version of the `base_branch` as well as changes from pull requests ahead of it in the queue. {% data variables.product.github %} will merge all these changes into the `base_branch` once the checks required by the branch protections of `base_branch` pass.
 
-For information about merge methods, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
+For information about merge methods, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
 
 ### Successful CI
 
@@ -92,7 +92,7 @@ When multiple pull requests are added to the merge queue and when the temporary 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
 1. User adds pull request #2 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
-1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branches `main/pr-1` and `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch. The target branch now contains both changes from pull request #1 and #2.
+1. When the {% data variables.product.github %} API receives successful CI responses for `merge_group` branches `main/pr-1` and `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch. The target branch now contains both changes from pull request #1 and #2.
 
 ### Failing CI
 
@@ -104,9 +104,9 @@ The following scenario outlines what happens when a CI reports a failing status 
 1. The merge queue creates a temporary branch with the prefix of `main/pr-1` that contains code changes from the target branch and pull request #1. A `merge_group` webhook event of type `checks_requested` is dispatched and the merge queue will await a response from your CI provider.
 1. User adds pull request #2 to the merge queue.
 1. The merge queue creates a temporary branch with the prefix of `main/pr-2` that contains code changes from the target branch, pull request #1, and pull request #2, and dispatches webhooks.
-1. When the {% data variables.product.product_name %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
+1. When the {% data variables.product.github %} API receives a failing status for `main/pr-1`, the merge queue automatically removes pull request #1 from the merge queue.
 1. The merge queue recreates the temporary branch with the prefix of `main/pr-2` to only contain changes from the target branch and pull request #2.
-1. When the {% data variables.product.product_name %} API receives successful CI responses for `merge_group` branch `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch without pull request #1 included.
+1. When the {% data variables.product.github %} API receives successful CI responses for `merge_group` branch `main/pr-2`, the temporary branch `main/pr-2` will be merged in to the target branch without pull request #1 included.
 
 {% data reusables.pull_requests.merge-queue-removal-reasons %}
 
@@ -129,5 +129,5 @@ The following scenario outlines what happens when a user jumps the queue.
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)"
-* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue)
+* [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)

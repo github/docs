@@ -13,7 +13,7 @@ shortTitle: Use custom workflows
 
 ## About custom workflows
 
-Custom workflows allow {% data variables.product.prodname_pages %} sites to be built via the use of {% data variables.product.prodname_actions %}. You can still select the branch you would like to use via the workflow file, but you are able to do much more with the use of custom workflows. To start using custom workflows you must first enable them for your current repository. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)."
+Custom workflows allow {% data variables.product.prodname_pages %} sites to be built via the use of {% data variables.product.prodname_actions %}. You can still select the branch you would like to use via the workflow file, but you are able to do much more with the use of custom workflows. To start using custom workflows you must first enable them for your current repository. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow).
 
 ## Configuring the `configure-pages` action
 
@@ -26,7 +26,7 @@ To use the action place this snippet under your `jobs` in the desired workflow.
   uses: actions/configure-pages@v5
 ```
 
-This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see "[AUTOTITLE](/actions/learn-github-actions/using-starter-workflows)."
+This action helps support deployment from any static site generator to {% data variables.product.prodname_pages %}. To make this process less repetitive you can use workflow templates for some of the most widely used static site generators. For more information, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).
 
 ## Configuring the `upload-pages-artifact` action
 
@@ -38,10 +38,8 @@ To use the action in your current workflow place this snippet under `jobs`.
 - name: Upload GitHub Pages artifact
 {%- ifversion fpt or ghec %}
   uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
   uses: actions/upload-pages-artifact@v2
-{%- else %}
-  uses: actions/upload-pages-artifact@v1
 {%- endif %}
 ```
 
@@ -75,10 +73,8 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -108,10 +104,8 @@ jobs:
       - name: Upload artifact
 {%- ifversion fpt or ghec %}
         uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
-{%- else %}
-        uses: actions/upload-pages-artifact@v1
 {%- endif %}
 
   # Deployment job
@@ -126,10 +120,8 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 # ...
 ```
@@ -154,10 +146,8 @@ jobs:
       - name: Upload Artifact
 {%- ifversion fpt or ghec %}
         uses: actions/upload-pages-artifact@v3
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/upload-pages-artifact@v2
-{%- else %}
-        uses: actions/upload-pages-artifact@v1
 {%- endif %}
         with:
           # upload entire directory
@@ -166,13 +156,11 @@ jobs:
         id: deployment
 {%- ifversion fpt or ghec %}
         uses: actions/deploy-pages@v4
-{%- elsif pages-custom-workflow-ghes3-9 %}
+{%- elsif ghes %}
         uses: actions/deploy-pages@v3
-{%- else %}
-        uses: actions/deploy-pages@v1
 {%- endif %}
 
 # ...
 ```
 
-You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see "[AUTOTITLE](/actions/using-jobs)."
+You can define your jobs to be run on different runners, sequentially, or in parallel. For more information, see [AUTOTITLE](/actions/using-jobs).

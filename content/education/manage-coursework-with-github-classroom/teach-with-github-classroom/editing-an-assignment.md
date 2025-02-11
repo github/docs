@@ -8,7 +8,7 @@ shortTitle: Edit an assignment
 ---
 ## About editing assignments
 
-After creating an assignment, you can edit many aspects of the assignment to better fit the needs of yourself and your students. Be aware that you cannot change the assignment type (either individual or group) or the online integrated development environment (IDE) after assignment creation. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)" and "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
+After creating an assignment, you can edit many aspects of the assignment to better fit the needs of yourself and your students. Be aware that you cannot change the assignment type (either individual or group) or the online integrated development environment (IDE) after assignment creation. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment) and [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment).
 
 ## Editing an existing assignment
 
@@ -41,7 +41,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
     > [!NOTE]
     > Changing the visibility for assignment repositories will not retroactively change the visibility of existing assignment repositories.
 
-1. Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+1. Optionally, select or deselect **Grant students admin access to their repository**. For more information on admin permissions for repositories, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
     > [!NOTE]
     > Granting or revoking student admin access after an assignment has been created will not retroactively change the permissions for existing assignment repositories.
@@ -50,12 +50,12 @@ After creating an assignment, you can edit many aspects of the assignment to bet
    * To choose a template repository, begin typing the repository name in the text field, then click the repository in the search results.
    * To remove a template repository, delete any text in the text field.
 
-  You cannot change the template repository after a student has accepted the assignment. If you wish to provide updates to the starter code after students have accepted the assignment, see "[Making changes to assignment starter code](#making-changes-to-assignment-starter-code)."
+  You cannot change the template repository after a student has accepted the assignment. If you wish to provide updates to the starter code after students have accepted the assignment, see [Making changes to assignment starter code](#making-changes-to-assignment-starter-code).
 
    > [!NOTE]
    > By default, an assignment will create an empty repository for each student on the roster for the classroom.
 
-1. To add a new autograding test, in the "Add autograding tests" section, select the **Add test** dropdown menu, then click a grading method from the options that appear. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+1. To add a new autograding test, in the "Add autograding tests" section, select the **Add test** dropdown menu, then click a grading method from the options that appear. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding).
 
     Additionally, you can edit or delete existing autograding tests with {% octicon "pencil" aria-label="The pencil icon" %} or {% octicon "trash" aria-label="The trash icon" %}.
 
@@ -75,7 +75,7 @@ After creating an assignment, you can edit many aspects of the assignment to bet
 
 ## Making changes to assignment starter code
 
-If you need to update the starter code for your assignment after students have already accepted it, you can do so by modifying the original repository. Since student assignments are based on forks of this repository, you can make changes to the starter code and then create pull requests for students to merge these updates into their assignments. See, "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+If you need to update the starter code for your assignment after students have already accepted it, you can do so by modifying the original repository. Since student assignments are based on forks of this repository, you can make changes to the starter code and then create pull requests for students to merge these updates into their assignments. See, [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository).
 
 {% data reusables.classroom.sign-into-github-classroom %}
 {% data reusables.classroom.click-classroom-in-list %}
@@ -91,5 +91,5 @@ The pull requests will be titled "{% data variables.product.prodname_classroom %
 
 ## Further reading
 
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)

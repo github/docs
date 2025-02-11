@@ -4,7 +4,7 @@ If you're using an allow list, you can also choose to automatically add to your 
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-For more information about how to create an allow list for a {% data variables.product.prodname_github_app %} you have created, see "[AUTOTITLE](/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app)."
+For more information about how to create an allow list for a {% data variables.product.prodname_github_app %} you have created, see [AUTOTITLE](/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app).
 
 To enable automatic addition of IP addresses for {% data variables.product.prodname_github_apps %}:
 

@@ -23,22 +23,22 @@ You can add issue or pull request cards to your {% data variables.projects.proje
 You can put a maximum of 2,500 cards into each project column. If a column has reached the maximum number of cards, no cards can be moved into that column.
 
 > [!NOTE]
-> You can also add notes to your {% data variables.projects.projects_v1_board %} to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.product_name %}, or to add related information to your {% data variables.projects.projects_v1_board %}. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board)."
+> You can also add notes to your {% data variables.projects.projects_v1_board %} to serve as task reminders, references to issues and pull requests from any repository on {% data variables.product.github %}, or to add related information to your {% data variables.projects.projects_v1_board %}. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-notes-to-a-project-board).
 
 {% data reusables.project-management.edit-in-project %}
 
-{% data reusables.project-management.link-repos-to-project-board %} When you search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %}, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board)."
+{% data reusables.project-management.link-repos-to-project-board %} When you search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %}, the search automatically scopes to your linked repositories. You can remove these qualifiers to search within all organization repositories. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/linking-a-repository-to-a-project-board).
 
 ## Adding issues and pull requests to a {% data variables.projects.projects_v1_board %}
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add issues and pull requests.
 1. In your {% data variables.projects.projects_v1_board %}, click **{% octicon "plus" aria-hidden="true" %} Add cards**.
 ![Screenshot showing the header of a project. The "Add cards" button is highlighted with an orange outline.](/assets/images/help/projects/add-cards-button.png)
-1. Search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %} using search qualifiers such as `is:issue is:open`. For more information on search qualifiers you can use, see "[AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests)."
+1. Search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %} using search qualifiers such as `is:issue is:open`. For more information on search qualifiers you can use, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
 
    > [!TIP]
    > * You can also add an issue or pull request by typing the URL in a card.
-   > * If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+   > * If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels).
 
 1. From the filtered list of issues and pull requests, drag the card you'd like to add to your {% data variables.projects.projects_v1_board %} and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
 
@@ -59,6 +59,6 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)

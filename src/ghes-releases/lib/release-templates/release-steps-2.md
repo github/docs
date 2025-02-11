@@ -36,7 +36,7 @@ To prepare for a GHES RC, you will:
 Each day, review [GHES release slack channel][ghes-release-slack-channel-link] on Slack for any potential late-breaking content changes.
 
 - Most conversation is operational and relates to preparation of the release builds, with no docs impact.
-- Typically, at this phase, any content changes would relate to content in the "[Enterprise administrators](https://docs.github.com/en/enterprise-server/admin)" docset. If you see discussion about end-user features, investigate further.
+- Typically, at this phase, any content changes would relate to content in the [Enterprise administrators](https://docs.github.com/en/enterprise-server/admin) docset. If you see discussion about end-user features, investigate further.
 - If you're uncertain whether the conversation relates to changes that could affect the docs, ask the following questions.
   - [Which audience](https://github.com/github/docs-content/blob/main/focus-areas/enterprise/writing-for-enterprise/audiences.md) is affected?
   - Is there any change in behavior or functionality that might affect the public docs? For example, is a feature pulled from the release?
@@ -120,9 +120,9 @@ For each item in the Release Tracker project's [GHES Docs][ghes-release-tracker-
 During [validation](#validation), if you set the "GHES docs status" field for any issues in the Release Tracker project's [GHES Docs][ghes-release-tracker-project-board-link] view to "[Needs versioning][ghes-release-tracker-needs-versioning-query]", create a single PR to correct the versioning.
 
 - Target `main` to get the changes published as soon as possible, particularly if any items slipped from the previous GHES release.
-- If a change was supposed to be in a previous release but you needed to update the versioning to reflect that it's in this upcoming release, you may need to relocate the release note for the feature in the prior version into the "[Errata](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#errata)" section and include the release note in the upcoming release.
+- If a change was supposed to be in a previous release but you needed to update the versioning to reflect that it's in this upcoming release, you may need to relocate the release note for the feature in the prior version into the [Errata](https://github.com/github/docs-internal/blob/main/contributing/content-style-guide.md#errata) section and include the release note in the upcoming release.
 
-After you merge the PR, update the status for each item in the Release Tracker project's [GHES Docs][ghes-release-tracker-project-board-link] view with a "GHES docs status" field set to "[Needs versioning][ghes-release-tracker-needs-versioning-query]".
+After you merge the PR, update the status for each item in the Release Tracker project's [GHES Docs][ghes-release-tracker-project-board-link] view with a "GHES docs status" field set to [Needs versioning][ghes-release-tracker-needs-versioning-query].
 
 <br/>
 <a name="release-note-preparation">
@@ -180,7 +180,7 @@ At least a week before the ship date for the RC, request review of the PR with t
 
 1. After you've received writer and PM approval, merge the PR into the topic branch that you created for the PR to close {{ release-steps-1-url }}.
 
-1. Link the PR to this issue as well. See "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
+1. Link the PR to this issue as well. See [Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar).
 
 1. To provide other GTM teams like Support Delivery an advance look at changes in the release, share a link to the release notes on the staging deployment and a link to the YAML file in **Files changed** tab within the PR for {{ release-steps-1-url }}.
 

@@ -26,6 +26,9 @@ Dependency insights can help you track, report, and act on your organization's o
 
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
+> [!NOTE]
+> Dependency insights don't include information for private dependencies.
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.insights %}
@@ -37,7 +40,7 @@ With dependency insights you can view vulnerabilities, licenses, and other impor
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)"
-* "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)"
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/changing-the-visibility-of-your-organizations-dependency-insights)
+* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)

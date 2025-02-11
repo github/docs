@@ -122,7 +122,7 @@ Please make sure you have the correct access rights and the repository exists.
 
 This error means that you do not have a valid SSH key set up.
 
-To troubleshoot, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+To troubleshoot, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 ### Failed to clone
 
@@ -140,7 +140,7 @@ This error means that either the repository that you are trying to clone has sub
 
 If you do not have access to the submodules, troubleshoot by contacting the person who administers permissions for the repository.
 
-If you do not have a valid SSH key set up, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+If you do not have a valid SSH key set up, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% windows %}
 
@@ -161,10 +161,10 @@ If the `Command Processor` registry entries are modified, {% data variables.prod
 1. Check to see if there is an `Autorun` value in either location.
 1. If there is an `Autorun` value, delete it.
 
-If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see "[Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account)" in the Microsoft documentation.
+If your Windows username has extended Unicode characters, it may cause an AskPass response error. To troubleshoot, create a new Windows user account and migrate your files to that account. For more information, see [Create a user account in Windows](https://support.microsoft.com/en-us/help/13951/windows-create-user-account) in the Microsoft documentation.
 
 {% endwindows %}
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)

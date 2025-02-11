@@ -1,6 +1,6 @@
 ---
 title: Working with non-code files
-intro: '{% data variables.product.product_name %} supports rendering and diffing in a number of non-code file formats.'
+intro: '{% data variables.product.github %} supports rendering and diffing in a number of non-code file formats.'
 redirect_from:
   - /articles/rendering-and-diffing-images
   - /github/managing-files-in-a-repository/rendering-and-diffing-images
@@ -36,7 +36,7 @@ shortTitle: Working with non-code files
 
 ## Rendering and diffing images
 
-{% data variables.product.product_name %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
+{% data variables.product.github %} can display several common image formats, including PNG, JPG, GIF, PSD, and SVG. In addition to simply displaying them, there are several ways to compare differences between versions of those image formats.
 
 > [!NOTE]
 > * {% data variables.product.prodname_dotcom %} does not support comparing the differences between PSD files.
@@ -56,7 +56,7 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 **2-up** is the default mode; it gives you a quick glimpse of both images. In addition, if the image has changed size between versions, the actual dimension change is displayed. This should make it very apparent when things are resized, such as when assets are upgraded to higher resolutions.
 
-![Screenshot of a diff for an image in 2-up mode. The image on the right is outlined in green and larger than the image on the left, which is outlined in red.](/assets/images/help/repository/images-2up-view.png)
+![Screenshot of a diff for an image in 2-up mode. The larger image on the right is outlined in green. The image on the left is outlined in red.](/assets/images/help/repository/images-2up-view.png)
 
 #### Swipe
 
@@ -70,9 +70,9 @@ You can visually compare images in three different modes: [2-up](#2-up), [swipe]
 
 ## 3D File Viewer
 
-{% data variables.product.product_name %} can host and render 3D files with the _.stl_ extension.
+{% data variables.product.github %} can host and render 3D files with the _.stl_ extension.
 
-When looking directly at an STL file on {% data variables.product.product_name %} you can:
+When looking directly at an STL file on {% data variables.product.github %} you can:
 
 * Click and drag to spin the model.
 * Right click and drag to translate the view.
@@ -110,7 +110,7 @@ By default, the embedded renderer is 420 pixels wide by 620 pixels high, but you
 
 ### Rendering in Markdown
 
-You can embed ASCII STL syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models)."
+You can embed ASCII STL syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-stl-3d-models).
 
 ## Rendering CSV and TSV data
 
@@ -149,7 +149,7 @@ Currently, links within PDFs are ignored.
 Commits and pull requests that include prose documents have the ability to represent those documents with _source_ and _rendered_ views.
 
 The source view shows the raw text that has been typed, while the rendered
-view shows how that text would look once it's rendered on {% data variables.product.product_name %}. For example,
+view shows how that text would look once it's rendered on {% data variables.product.github %}. For example,
 this might be the difference between showing `**bold**` in Markdown, and **bold** in the rendered view.
 
 Prose rendering is supported for rendered documents supported by [github/markup](https://github.com/github/markup):
@@ -170,7 +170,7 @@ To see the changes made to the document as part of a commit, click {% octicon "f
 
 This "rich diff" highlights the code that has been added and removed.
 
-![Screenshot of the diff for a Markdown file. "@octo-org/core" is struck through, with a red background, followed by "@octocat", with a green background.](/assets/images/help/repository/rendered-prose-changes.png)
+![Screenshot of the diff for a Markdown file. The old text, "@octo-org/core", is struck out with a red background. The new text has a green background.](/assets/images/help/repository/rendered-prose-changes.png)
 
 ### Disabling Markdown rendering
 
@@ -178,11 +178,9 @@ This "rich diff" highlights the code that has been added and removed.
 
 ### Visualizing attribute changes
 
-We provide a tooltip
-describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to
-another, we'd show a tooltip like this:
+We provide a tooltip describing changes to attributes that, unlike words, would not otherwise be visible in the rendered document. For example, if a link URL changes from one website to another, we'd show a tooltip like this: "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."
 
-![Screenshot of the diff for a Markdown file. A tooltip over a link says "href: /octo-org-repo/blob/CONTRIBUTING -> /octo-org/octo-repo/blob/docs/CONTRIBUTING."](/assets/images/help/repository/prose-diff-attributes.png)
+![Screenshot of the diff for a Markdown file. The tooltip over the "CONTRIBUTING file" link contains the URL changes from the example above.](/assets/images/help/repository/prose-diff-attributes.png)
 
 ### Commenting on changes
 
@@ -197,23 +195,23 @@ of your rendered prose diff to specific sections.
 
 ### Viewing complex diffs
 
-Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.product_name %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
+Some pull requests involve a large number of changes with large, complex documents. When the changes take too long to analyze, {% data variables.product.github %} can't always produce a rendered view of the changes. If this happens, you'll see an error message when you click the rendered button.
 
 You can still use the source view to analyze and comment on changes.
 
 ### Viewing HTML elements
 
-We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.product_name %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
+We don't directly support rendered views of commits to HTML documents. Some formats, such as Markdown, let you embed arbitrary HTML in a document. When these documents are shown on {% data variables.product.github %}, some of that embedded HTML can be shown in a preview, while some (like an embedded YouTube video) cannot.
 
-In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.product_name %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
+In general, rendered views of changes to a document containing embedded HTML will show changes to the elements that are supported in {% data variables.product.github %}'s view of the document. Changes to documents containing embedded HTML should always be reviewed in both the rendered and source views for completeness.
 
 ## Mapping GeoJSON/TopoJSON files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.product_name %} repositories. Commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on {% data variables.product.product_name %}.
+{% data variables.product.github %} supports rendering GeoJSON and TopoJSON map files within {% data variables.product.github %} repositories. Commit the file as you would normally using a `.geojson` or `.topojson` extension. Files with a `.json` extension are also supported, but only if `type` is set to `FeatureCollection`, `GeometryCollection`, or `topology`. Then, navigate to the path of the GeoJSON/TopoJSON file on {% data variables.product.github %}.
 
 ### Geometry types
 
-Maps on {% data variables.product.product_name %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
+Maps on {% data variables.product.github %} use [Leaflet.js](http://leafletjs.com) and support all the geometry types outlined in [the geoJSON spec](http://www.geojson.org/geojson-spec.html) (Point, LineString, Polygon, MultiPoint, MultiLineString, MultiPolygon, and GeometryCollection). TopoJSON files should be type "Topology" and adhere to the [TopoJSON spec](https://github.com/mbostock/topojson/wiki/Specification).
 
 {% ifversion geoJSON-with-MapBox %}
 
@@ -235,7 +233,7 @@ See [version 1.1.0 of the open simplestyle spec](https://github.com/mapbox/simpl
 
 ### Embedding your map elsewhere
 
-Want to make your GeoJSON map available someplace other than {% data variables.product.product_name %}? Simply modify this template, and place it in any HTML page that supports JavaScript (for example, [{% data variables.product.prodname_pages %}](https://pages.github.com)):
+Want to make your GeoJSON map available someplace other than {% data variables.product.github %}? Simply modify this template, and place it in any HTML page that supports JavaScript (for example, [{% data variables.product.prodname_pages %}](https://pages.github.com)):
 
 ```html
 <script src="https://embed.github.com/view/geojson/<username>/<repo>/<ref>/<path_to_file>"></script>
@@ -254,7 +252,7 @@ By default, the embedded map 420px x 620px, but you can customize the output by 
 
 ### Mapping in Markdown
 
-You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps)."
+You can embed GeoJSON and TopoJSON directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-geojson-and-topojson-maps).
 
 {% data reusables.advanced-formatting.administrator-must-enable-mapping %}
 
@@ -268,7 +266,7 @@ The underlying map data (street names, roads, etc.) are driven by [OpenStreetMap
 
 ### Troubleshooting GeoJSON/TopoJSON files
 
-If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (for example, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.product_name %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
+If you're having trouble rendering GeoJSON files, ensure you have a valid GeoJSON file by running it through a [GeoJSON linter](http://geojsonlint.com/). If your points aren't appearing where you'd expect (for example, in the middle of the ocean), it's likely that the data is in a projection which is currently unsupported. Currently, {% data variables.product.github %} only supports the `urn:ogc:def:crs:OGC:1.3:CRS84` projection.
 
 Additionally, if your `.geojson` file is especially large (over 10 MB), it is not possible to render within the browser. If that's the case, you'll generally see a message that says we can't show files that large.
 
@@ -309,7 +307,7 @@ jupyter nbconvert --to html NOTEBOOK-NAME.ipynb
 
 ## Displaying Mermaid files on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.product_name %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
+{% data variables.product.github %} supports rendering Mermaid files within repositories. Commit the file as you would normally using a `.mermaid` or `.mmd` extension. Then, navigate to the path of the Mermaid file on {% data variables.product.prodname_dotcom %}.
 
 For example, if you add a `.mmd` file with the following content to your repository:
 
@@ -340,7 +338,7 @@ If the chart displays, but does not appear as you'd expect, you can create a new
 
 ### Mermaid in Markdown
 
-You can embed Mermaid syntax directly in Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams)."
+You can embed Mermaid syntax directly in Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/creating-diagrams#creating-mermaid-diagrams).
 
 ### Further reading about Mermaid
 

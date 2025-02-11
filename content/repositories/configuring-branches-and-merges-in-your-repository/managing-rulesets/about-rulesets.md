@@ -14,11 +14,11 @@ shortTitle: About rulesets
 
 A ruleset is a named list of rules that applies to a repository{% ifversion repo-rules-enterprise %}, or to multiple repositories in an organization{% endif %}. You can have up to 75 rulesets per repository{% ifversion repo-rules-enterprise %}, and 75 organization-wide rulesets{% endif %}.
 
-When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-ruleset)."
+When you create a ruleset, you can allow certain users to bypass the rules in the ruleset. This can be users with a certain role, such as repository administrator, or it can be specific teams or {% data variables.product.prodname_github_apps %}. For more information about granting bypass permissions, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#granting-bypass-permissions-for-your-ruleset).
 
 {% ifversion not ghes %}
 
-For organizations on the {% data variables.product.prodname_enterprise %} plan, you can set up rulesets at the organization level to target multiple repositories in your organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+For organizations on the {% data variables.product.prodname_enterprise %} plan, you can set up rulesets at the {% ifversion enterprise-code-rulesets %} enterprise or {% endif %}organization level to target multiple repositories in your organization. See [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 {% endif %}
 
@@ -38,7 +38,7 @@ You can use rulesets to target branches or tags in a repository or to block push
 
 You can create rulesets to control how people can interact with selected branches and tags in a repository. You can control things like who can push commits to a certain branch{% ifversion repo-rules-enterprise %} and how the commits must be formatted{% endif %}, or who can delete or rename a tag. For example, you could set up a ruleset for your repository's `feature` branch that requires signed commits and blocks force pushes for all users except repository administrators.
 
-For each ruleset you create, you specify which branches or tags in your repository{% ifversion repo-rules-enterprise %}, or which repositories in your organization,{% endif %} the ruleset applies to. You can use `fnmatch` syntax to define a pattern to target specific {% ifversion repo-rules-enterprise %}branches, tags, and repositories{% else %}branches and tags{% endif %}. For example, you could use the pattern `releases/**/*` to target all branches in your repository whose name starts with the string `releases/`. For more information on `fnmatch` syntax, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax)."
+For each ruleset you create, you specify which branches or tags in your repository{% ifversion repo-rules-enterprise %}, or which repositories in your organization,{% endif %} the ruleset applies to. You can use `fnmatch` syntax to define a pattern to target specific {% ifversion repo-rules-enterprise %}branches, tags, and repositories{% else %}branches and tags{% endif %}. For example, you could use the pattern `releases/**/*` to target all branches in your repository whose name starts with the string `releases/`. For more information on `fnmatch` syntax, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#using-fnmatch-syntax).
 
 {% ifversion push-rulesets %}
 
@@ -62,17 +62,17 @@ Rulesets work alongside any branch protection rules{% ifversion ghes < 3.16 %} a
 
 {% ifversion ghes < 3.16 %}
 
-Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. See "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets)."
+Additionally, you can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/configuring-tag-protection-rules#about-importing-tag-protection-rules-to-repository-rulesets).
 
 {% endif %}
 
 Rulesets have the following advantages over branch {% ifversion ghes < 3.16 %}
 and tag{% endif %} protection rules.
 
-* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch {% ifversion ghes < 3.16 %}or tag{% endif %} in your repository will be evaluated when someone interacts with that branch{% ifversion ghes < 3.16 %} or tag{% endif %}. See "[About rule layering](#about-rule-layering)."
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a branch {% ifversion ghes < 3.16 %}or tag{% endif %} in your repository will be evaluated when someone interacts with that branch{% ifversion ghes < 3.16 %} or tag{% endif %}. See [About rule layering](#about-rule-layering).
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
-* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+* You can create additional rules to control the metadata of commits entering a repository, such as the commit message and the author's email address. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 ## Using ruleset enforcement statuses
 

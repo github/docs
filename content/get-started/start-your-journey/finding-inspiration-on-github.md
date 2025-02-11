@@ -8,7 +8,7 @@ redirect_from:
   - /github/getting-started-with-github/quickstart/be-social
   - /get-started/quickstart/be-social
   - /get-started/quickstart/finding-inspiration-on-github
-intro: 'You can find inspiration for your own projects and learning on {% data variables.product.prodname_dotcom %} and connect with a community.'
+intro: 'You can find inspiration for your own projects and learning on {% data variables.product.github %} and connect with a community.'
 permissions: '{% data reusables.enterprise-accounts.emu-permission-interact %}'
 versions:
   fpt: '*'
@@ -22,7 +22,7 @@ topics:
 
 ## Introduction
 
-{% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} is a vast open-source community. {% endif %}You can explore {% data variables.product.product_name %} to find interesting repositories, topics, code, people, and organizations that can inspire your own work, or support your own learning.
+{% ifversion fpt or ghec %}{% data variables.product.github %} is a vast open-source community. {% endif %}You can explore {% data variables.product.github %} to find interesting repositories, topics, code, people, and organizations that can inspire your own work, or support your own learning.
 
 Once you've found something that interests you, you can:
 * **Star** the repository or topic, so you can easily find it again later.
@@ -32,23 +32,23 @@ Once you've found something that interests you, you can:
 
 Once you star repositories or follow people, you will see updates on their activities on your {% data reusables.user-settings.personal_dashboard %}.
 
-## Visit Explore {% data variables.product.prodname_dotcom %}
+## Visit Explore {% data variables.product.github %}
 
 1. Navigate to {% data variables.explore.explore_github %}.
 1. Browse popular repositories and topics.
 1. Click **{% octicon "star" aria-hidden="true" %} Star** next to repositories and topics that interest you, so you can easily find them again later.
 1. Navigate to your {% data variables.explore.your_stars_page %} to see all your starred repositories and topics.
 
-## Search for a topic or project on {% data variables.product.prodname_dotcom %}
+## Search for a topic or project on {% data variables.product.github %}
 
 1. Navigate to https://github.com/search.
-1. Type a keyword or query into the search bar. {% ifversion fpt or ghec %}For example, try "how to build a webpage", or "skills-course".{% endif %} For more detailed information on how to search {% data variables.product.product_name %} for specific topics, repositories, or code, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-1. Use the left sidebar to filter the results. {% ifversion fpt or ghec %}For example, to browse all repositories in the "skills-course" topic, search "skills-course", then filter by "Topic".{% endif %}
-1. Star the repositories that match your interests.
+1. Type a keyword or query into the search bar. For example, try "green software tools." For more detailed information about searching for specific topics, repositories, or code, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+1. Use the left sidebar to filter the results. For example, to browse all repositories in the "green-software" topic, search "green-software", then filter by "Topic".
+1. Star the repositories that match your interests, such as [{% data variables.product.github %}'s Green Software Directory](https://github.com/github/GreenSoftwareDirectory).
 
-## Following people and organizations on {% data variables.product.product_name %}
+## Following people and organizations on {% data variables.product.github %}
 
-Following people and organizations on {% data variables.product.product_name %} is another good way to stay updated on projects and topics that interest you.
+Following people and organizations is another good way to stay updated on projects and topics that interest you.
 
 ### Following people
 
@@ -68,9 +68,9 @@ Following people and organizations on {% data variables.product.product_name %} 
 ## Next steps
 
 * {% data reusables.support.connect-in-the-forum-bootcamp %}
-* In the next tutorial, "[AUTOTITLE](/get-started/start-your-journey/downloading-files-from-github)," you'll learn how to download files from {% data variables.product.product_name %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
+* In the next tutorial, [AUTOTITLE](/get-started/start-your-journey/downloading-files-from-github), you'll learn how to download files from {% data variables.product.github %} for your own use, and learn the differences between downloading, cloning, and forking repositories.
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"{% endif %}
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard){% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github){% endif %}

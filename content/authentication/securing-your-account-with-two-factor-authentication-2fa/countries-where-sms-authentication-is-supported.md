@@ -1,6 +1,6 @@
 ---
 title: Countries where SMS authentication is supported
-intro: 'Because of delivery success rates, {% data variables.product.product_name %} only supports two-factor authentication via SMS for certain countries.'
+intro: 'Because of delivery success rates, {% data variables.product.github %} only supports two-factor authentication via SMS for certain countries.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
   - /github/authenticating-to-github/countries-where-sms-authentication-is-supported
@@ -12,11 +12,11 @@ topics:
   - 2FA
 shortTitle: Countries supporting SMS
 ---
-If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
-## Supported countries for SMS authentication
+## Supported countries and regions for SMS authentication
 
-If your country is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
+If your country or region is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>Aland Islands</li>
@@ -130,4 +130,4 @@ If your country is not on this list, then we aren't currently able to reliably d
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)

@@ -5,6 +5,7 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-for-github-actions
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-github-actions/about-billing-for-github-actions
   - /billing/managing-billing-for-github-actions/about-billing-for-github-actions
+  - /early-access/billing/actions-billing-update
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,16 +28,16 @@ shortTitle: Billing for GitHub Actions
 
 {% data reusables.actions.actions-billing %}
 
-{% data reusables.actions.actions-spending-limit-brief %} For more information, see "[About spending limits](#about-spending-limits)."
+{% data reusables.actions.actions-spending-limit-brief %} For more information, see [About spending limits](#about-spending-limits).
 
-If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts included with your account. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)."
+If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_actions %} usage beyond the amounts included with your account. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
 
 Minutes reset every month, while storage usage does not.
 
 ### Included storage and minutes
 
 > [!NOTE]
-> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 > * Logs and job summaries do not count towards storage usage.
 
 |Plan | Storage | Minutes (per month)|
@@ -47,7 +48,7 @@ Minutes reset every month, while storage usage does not.
 | {% data variables.product.prodname_team %} | 2 GB | 3,000 |
 | {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for {% data variables.product.prodname_registry %}, see "[AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)."
+The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
 
 If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
 
@@ -119,11 +120,11 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Points to note about rates for runners
 
-* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration)" for {% data variables.product.prodname_dotcom %}-hosted runners and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)" for self-hosted runner usage limits.
+* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits) for self-hosted runner usage limits.
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}
-* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see "[AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners)."
+* For {% data variables.actions.hosted_runner %}s, there is no additional cost for configurations that assign public static IP addresses to a {% data variables.actions.hosted_runner %}. For more information on {% data variables.actions.hosted_runner %}s, see [AUTOTITLE](/actions/using-github-hosted-runners/using-larger-runners/about-larger-runners).
 * Included minutes cannot be used for {% data variables.actions.hosted_runner %}s.
 * The {% data variables.actions.hosted_runner %}s are not free for public repositories.
 
@@ -163,6 +164,6 @@ Your {% data variables.product.prodname_actions %} usage shares your account's e
 
 {% data reusables.actions.actions-spending-limit-detailed %}
 
-For information on managing and changing your account's spending limit, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions)."
+For information on managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}

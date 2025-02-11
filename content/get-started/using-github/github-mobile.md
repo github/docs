@@ -1,6 +1,6 @@
 ---
 title: GitHub Mobile
-intro: 'Triage, collaborate, and manage your work on {% data variables.product.product_name %} from your mobile device.'
+intro: 'Triage, collaborate, and manage your work on {% data variables.product.github %} from your mobile device.'
 shortTitle: GitHub Mobile
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ redirect_from:
 
 {% data reusables.mobile.about-mobile %}
 
-{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.product_name %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your {% data variables.product.product_name %} data through a trusted, first-party client application.
+{% data variables.product.prodname_mobile %} gives you a way to do high-impact work on {% data variables.product.github %} quickly and from anywhere. {% data variables.product.prodname_mobile %} is a safe and secure way to access your data through a trusted, first-party client application.
 
 With {% data variables.product.prodname_mobile %} you can:
 
@@ -34,10 +34,10 @@ With {% data variables.product.prodname_mobile %} you can:
 
 The following documentation contains more information about using {% data variables.product.company_short %} features on {% data variables.product.prodname_mobile %}.
 
-* For more information about notifications for {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile)."
-{% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile)."{% endif %}
-{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile)" and "[Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile)." {% endif %}
-{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.product.prodname_copilot_mobile %}, see "[AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile)."{% endif %}
+* For more information about notifications for {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#enabling-push-notifications-with-github-mobile).
+{% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}
+{% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}
+{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.product.prodname_copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
 
@@ -45,7 +45,7 @@ To install {% data variables.product.prodname_mobile %} for Android or iOS, see 
 
 ## Managing accounts
 
-You can be simultaneously signed into mobile with multiple accounts on {% data variables.product.prodname_dotcom_the_website %}, on {% data variables.enterprise.data_residency_site %}, and on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+You can be simultaneously signed into mobile with multiple accounts on {% data variables.product.prodname_dotcom_the_website %}, on {% data variables.enterprise.data_residency_site %}, and on {% data variables.product.prodname_ghe_server %}. For more information about our different products, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
 {% data reusables.mobile.push-notifications-on-ghes %}
 
@@ -59,7 +59,7 @@ To access accounts on {% data variables.enterprise.data_residency %} using {% da
 
 You must install {% data variables.product.prodname_mobile %} 1.4 or later on your device to use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}.
 
-To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_dotcom %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}"[AUTOTITLE](/admin/release-notes)" and {% endif %}"[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+To use {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, {% data variables.product.prodname_dotcom %} must be version 3.0 or greater, and your enterprise owner must enable mobile support for your enterprise. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/release-notes) and {% endif %}[Managing {% data variables.product.prodname_mobile %} for your enterprise]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/configuration/configuring-your-enterprise/managing-github-mobile-for-your-enterprise){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 
 During the {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_mobile %} with {% data variables.product.prodname_ghe_server %}, you must be signed in with a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 

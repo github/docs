@@ -15,7 +15,7 @@ topics:
 
 While they may be considered "common knowledge" by many developers, the vast majority of newly introduced security weaknesses are due to vulnerabilities like cross-site scripting (XSS), SQL injection, and cross-site request forgery (CSRF). These vulnerabilities can be mitigated by following secure coding practices, such as using parameterized queries, input validation, and avoiding hard-coded sensitive data. GitHub Copilot can help detect and resolve these issues.
 
-> [!NOTE] While {% data variables.product.prodname_copilot_chat_short %} can help find some common security vulnerabilities and help you fix them, you should not rely on {% data variables.product.prodname_copilot_short %} for a comprehensive security analysis. Using security tools and features will more thoroughly ensure your code is secure. For more information on {% data variables.product.github %} security features, see "[AUTOTITLE](/code-security/getting-started/github-security-features)."
+> [!NOTE] While {% data variables.product.prodname_copilot_chat_short %} can help find some common security vulnerabilities and help you fix them, you should not rely on {% data variables.product.prodname_copilot_short %} for a comprehensive security analysis. Using security tools and features will more thoroughly ensure your code is secure. For more information on {% data variables.product.github %} security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ## Example scenario
 

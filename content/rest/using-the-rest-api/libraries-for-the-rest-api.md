@@ -25,7 +25,7 @@ You can use libraries to extend and simplify the way your application interacts 
 
 {% data variables.product.company_short %} maintains these official client libraries for the {% data variables.product.company_short %} API. These repositories are open source, and community contributions are welcome.
 
-For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)."
+For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript) and [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby).
 
 * JavaScript: [octokit.js](https://github.com/octokit/octokit.js)
 * Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)

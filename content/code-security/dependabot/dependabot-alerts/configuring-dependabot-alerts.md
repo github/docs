@@ -21,7 +21,7 @@ topics:
 
 {% data reusables.repositories.a-vulnerability-is %}
 
-{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
+{% data variables.product.prodname_dependabot %} scans code when a new advisory is added to the {% data variables.product.prodname_advisory_database %} or the dependency graph for a repository changes. When vulnerable dependencies are detected, {% data variables.product.prodname_dependabot_alerts %} are generated. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
@@ -60,7 +60,7 @@ When you enable {% data variables.product.prodname_dependabot_alerts %} for exis
 1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of {% data variables.product.prodname_dependabot_alerts %}, select **Automatically enable for new repositories**.
 
 {% else %}
-{% data variables.product.prodname_dependabot_alerts %} for your repositories can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+{% data variables.product.prodname_dependabot_alerts %} for your repositories can be enabled or disabled by your enterprise owner. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
 {% endif %}
 
@@ -68,12 +68,12 @@ When you enable {% data variables.product.prodname_dependabot_alerts %} for exis
 
 You can manage {% data variables.product.prodname_dependabot_alerts %} for your public, private or internal repository.
 
-By default, we notify people with write, maintain, or admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.product_name %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working on repositories that you own or have admin permissions for.
+By default, we notify people with write, maintain, or admin permissions in the affected repositories about new {% data variables.product.prodname_dependabot_alerts %}. {% data variables.product.github %} never publicly discloses insecure dependencies for any repository. You can also make {% data variables.product.prodname_dependabot_alerts %} visible to additional people or teams working on repositories that you own or have admin permissions for.
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% ifversion dependabot-alerts-ghes-enablement %}
-An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for a repository
 
@@ -84,19 +84,19 @@ An enterprise owner must first set up {% data variables.product.prodname_dependa
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your organization
 
-{% ifversion security-configurations %} You can enable {% data variables.product.prodname_dependabot_alerts %} for all eligible repositories in your organization. For more information, see "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)."
+{% ifversion security-configurations %} You can enable {% data variables.product.prodname_dependabot_alerts %} for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 
 {% else %}
 
 You can enable or disable {% data variables.product.prodname_dependabot_alerts %} for some or all repositories owned by your organization. {% data reusables.security.note-securing-your-org %}
 
 {% ifversion dependabot-alerts-ghes-enablement %}
-An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+An enterprise owner must first set up {% data variables.product.prodname_dependabot %} for your enterprise before you can manage {% data variables.product.prodname_dependabot_alerts %} for your repository. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
 ### Enabling or disabling {% data variables.product.prodname_dependabot_alerts %} for all existing repositories
 
 {% ifversion code-security-multi-repo-enablement %}
-You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_dependabot_alerts %} for them all at the same time. For more information, see "[AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories)."
+You can use security overview to find a set of repositories and enable or disable {% data variables.product.prodname_dependabot_alerts %} for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
 
 You can also use the organization settings page for {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} to enable or disable {% data variables.product.prodname_dependabot_alerts %} for all existing repositories in an organization.
 {% else %}

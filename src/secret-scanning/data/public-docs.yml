@@ -150,6 +150,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -186,7 +187,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -532,7 +533,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -664,6 +665,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -784,7 +786,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -896,6 +898,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Cockroach Labs
+  supportedSecret: CockroachDB Cloud API Key
+  secretType: ccdb_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Contentful
   supportedSecret: Contentful Personal Access Token
   secretType: contentful_personal_access_token
@@ -921,23 +934,23 @@
   isduplicate: false
 - provider: Coveo
   supportedSecret: Coveo Access Token
-  secretType: coveoaccesstoken
+  secretType: coveo_access_token
   versions:
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Coveo
   supportedSecret: Coveo API Key
-  secretType: coveoapikey
+  secretType: coveo_api_key
   versions:
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -951,6 +964,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Databento
+  supportedSecret: Databento API Key
+  secretType: databento_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Databricks
@@ -985,6 +1009,17 @@
   isPublic: true
   isPrivateWithGhas: false
   hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Datastax
+  supportedSecret: Datastax AstraCS Tokens
+  secretType: datastax_astracs_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Defined Networking
@@ -1592,6 +1627,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Google
+  supportedSecret: GCP API Key Bound to a Service Account
+  secretType: google_gcp_api_key_bound_service_account
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Google
   supportedSecret: Google OAuth Access Token
   secretType: google_oauth_access_token
   versions:
@@ -1832,12 +1878,23 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Hubspot
+  supportedSecret: Hubspot Private Apps User Token
+  secretType: hubspot_private_apps_user_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Hubspot
   supportedSecret: Hubspot SMTP Credential
   secretType: hubspot_smtp_credential
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1849,7 +1906,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1861,10 +1918,10 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: IBM
@@ -1985,6 +2042,28 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess OAuth Access Token
+  secretType: lichess_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Lichess
+  supportedSecret: Lichess Personal Access Token
+  secretType: lichess_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lightspeed
   supportedSecret: Lightspeed Personal Access Token
   secretType: lightspeed_xs_pat
@@ -2019,6 +2098,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: LinkedIn
+  supportedSecret: LinkedIn Client Secret
+  secretType: linkedin_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Lob
@@ -2110,6 +2200,39 @@
 - provider: Mailchimp
   supportedSecret: Mandrill API Key
   secretType: mandrill_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
+  supportedSecret: Mailersend API Token
+  secretType: mailersend_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
+  supportedSecret: Mailersend SMTP Password
+  secretType: mailersend_smtp_password
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
+  supportedSecret: Mailersend SMTP Username
+  secretType: mailersend_smtp_username
   versions:
     fpt: '*'
     ghec: '*'
@@ -2244,7 +2367,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2255,7 +2378,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2475,6 +2598,28 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
+- provider: OpenRouter
+  supportedSecret: OpenRouter API Key
+  secretType: openrouter_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Oracle
+  supportedSecret: Oracle API Key
+  secretType: oracle_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Orbit
   supportedSecret: Orbit API Token
   secretType: orbit_api_token
@@ -2626,7 +2771,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2637,7 +2782,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2648,18 +2793,18 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Polar
-  supportedSecret: Polat Client Secret
+  supportedSecret: Polar Client Secret
   secretType: polar_client_secret
   versions:
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2670,7 +2815,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2681,7 +2826,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2805,6 +2950,39 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client ID
+  secretType: ramp_client_id
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Client Secret
+  secretType: ramp_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Ramp
+  supportedSecret: Ramp OAuth Access or Refresh Token
+  secretType: ramp_oauth_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: ReadMe
   supportedSecret: ReadMe API Key
   secretType: readmeio_api_access_token
@@ -2835,7 +3013,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2895,9 +3073,10 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Segment
@@ -2954,7 +3133,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2966,7 +3145,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2978,7 +3157,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2990,7 +3169,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3026,7 +3205,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3146,7 +3325,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3170,7 +3349,7 @@
     fpt: '*'
     ghec: '*'
   isPublic: true
-  isPrivateWithGhas: false
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: true
@@ -3366,6 +3545,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Tailscale
+  supportedSecret: Tailscale API Key
+  secretType: tailscale_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Telegram
   supportedSecret: Telegram Bot Token
   secretType: telegram_bot_token
@@ -3420,7 +3610,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true

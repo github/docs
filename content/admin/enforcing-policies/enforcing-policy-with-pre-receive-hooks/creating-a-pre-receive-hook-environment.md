@@ -26,42 +26,46 @@ If you are using another Git implementation, it must support relative paths in t
 
 ## Creating a pre-receive hook environment using Docker
 
-You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Alpine Linux](https://www.alpinelinux.org/) and [Docker](https://www.docker.com/).
+You can use a Linux container management tool to build a pre-receive hook environment. This example uses [Debian Linux](https://www.debian.org/) and [Docker](https://www.docker.com/).
 
 {% data reusables.linux.ensure-docker %}
-1. Create the file `Dockerfile.alpine` that contains this information:
+1. Create the file `Dockerfile.debian` that contains this information:
 
    ```dockerfile
-   FROM alpine:latest
-   RUN apk add --no-cache git bash
+   FROM --platform=linux/amd64 debian:stable
+   RUN apt-get update && apt-get install -y git bash curl
+   RUN rm -fr /etc/localtime /usr/share/zoneinfo/localtime
    ```
 
-1. From the working directory that contains `Dockerfile.alpine`, build an image:
+>[!NOTE] The Debian image includes some symlinks by default, which if not removed, may cause errors when executing scripts in the custom environment. Symlinks are removed in the last line of the example above.
+
+1. From the working directory that contains `Dockerfile.debian`, build an image:
 
    ```shell
-   $ docker build -f Dockerfile.alpine -t pre-receive.alpine .
-   > Sending build context to Docker daemon 12.29 kB
-   > Step 1 : FROM alpine:latest
-   >  ---> 8944964f99f4
-   > Step 2 : RUN apk add --no-cache git bash
-   >  ---> Using cache
-   >  ---> 0250ab3be9c5
-   > Successfully built 0250ab3be9c5
+   $ docker build -f Dockerfile.debian -t pre-receive.debian .
+   > [+] Building 0.6s (6/6) FINISHED                                                                   docker:desktop-linux
+   > => [internal] load build definition from Dockerfile.debian                                                              
+   > => [1/2] FROM docker.io/library/debian:latest@sha256:80dd3c3b9c6cecb9f1667e9290b3bc61b78c2678c02cbdae5f0fea92cc6  
+   > => [2/2] RUN apt-get update && apt-get install -y git bash curl                                            
+   > => exporting to image                                                                                             
+   > => => exporting layers                                                                                            
+   > => => writing image sha256:b57af4e24082f3a30a34c0fe652a336444a3608f76833f5c5fdaf4d81d20c3cc                       
+   > => => naming to docker.io/library/pre-receive.debian 
    ```
 
 1. Create a container:
 
    ```shell
-   docker create --name pre-receive.alpine pre-receive.alpine /bin/true
+   docker create --name pre-receive.debian pre-receive.debian /bin/true
    ```
 
 1. Export the Docker container to a `gzip` compressed `tar` file:
 
    ```shell
-   docker export pre-receive.alpine | gzip > alpine.tar.gz
+   docker export pre-receive.debian | gzip > debian.tar.gz
    ```
 
-   This file `alpine.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
+   This file `debian.tar.gz` is ready to be uploaded to the {% data variables.product.prodname_ghe_server %} appliance.
 
 ## Creating a pre-receive hook environment using chroot
 
@@ -78,7 +82,7 @@ You can use a Linux container management tool to build a pre-receive hook enviro
    > * `/bin/sh` must exist and be executable, as the entry point into the chroot environment.
    > * Unlike traditional chroots, the `dev` directory is not required by the chroot environment for pre-receive hooks.
 
-For more information about creating a chroot environment see "[Chroot](https://wiki.debian.org/chroot)" from the _Debian Wiki_, "[BasicChroot](https://help.ubuntu.com/community/BasicChroot)" from the _Ubuntu Community Help Wiki_, or "[Installing Alpine Linux in a chroot](https://wiki.alpinelinux.org/wiki/Installing_Alpine_Linux_in_a_chroot)" from the _Alpine Linux Wiki_.
+For more information about creating a chroot environment see [Chroot](https://wiki.debian.org/chroot) from the _Debian Wiki_ or [BasicChroot](https://help.ubuntu.com/community/BasicChroot) from the _Ubuntu Community Help Wiki_.
 
 ## Uploading a pre-receive hook environment on {% data variables.product.prodname_ghe_server %}
 
@@ -98,6 +102,6 @@ For more information about creating a chroot environment see "[Chroot](https://w
 1. Use the `ghe-hook-env-create` command and type the name you want for the environment as the first argument and the full local path or URL of a `*.tar.gz` file that contains your environment as the second argument.
 
    ```shell
-   admin@ghe-host:~$ ghe-hook-env-create AlpineTestEnv /home/admin/alpine.tar.gz
-   > Pre-receive hook environment 'AlpineTestEnv' (2) has been created.
+   admin@ghe-host:~$ ghe-hook-env-create DebianTestEnv /home/admin/debian.tar.gz
+   > Pre-receive hook environment 'DebianTestEnv' (2) has been created.
    ```

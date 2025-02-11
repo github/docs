@@ -3,7 +3,8 @@ title: Identifying audit log events performed by an access token
 shortTitle: Identify events by token
 intro: 'You can identify the actions performed by a specific token in your enterprise.'
 versions:
-  feature: token-audit-log
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Authentication
@@ -49,7 +50,7 @@ curl --header "Accept: application/vnd.github+json" --header "Authorization: Bea
 
 ### Identifying Git events
 
-{% data reusables.audit_log.you-can-identify-git-events %} For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise#exporting-git-events-data)."
+{% data reusables.audit_log.you-can-identify-git-events %} For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise#exporting-git-events-data).
 
 {% data reusables.audit_log.authentication-metadata-git-events-release-phase %}
 
@@ -57,7 +58,7 @@ curl --header "Accept: application/vnd.github+json" --header "Authorization: Bea
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)"
+* [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/using-the-audit-log-api-for-your-enterprise)
 {%- ifversion ghec %}
-* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)"
+* [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/identifying-audit-log-events-performed-by-an-access-token)
 {%- endif %}

@@ -12,16 +12,16 @@ shortTitle: About enterprise accounts
 
 ## About enterprise accounts
 
-An enterprise account allows your client to manage and enforce policies for multiple organizations. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts)."
+An enterprise account allows your client to manage and enforce policies for multiple organizations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-enterprise-accounts).
 
 To access an enterprise account, each member must sign into their own personal account. Enterprise members can have different roles, including owner and billing manager:
 
 * Owners have complete administrative access to an enterprise.
 * Billing managers can only manage billing settings, and cannot access enterprise resources.
 
-For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
-Alternatively, you can set up a single organization for your client. For more information, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-paid-organizations-for-procurement-companies)."
+Alternatively, you can set up a single organization for your client. For more information, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-paid-organizations-for-procurement-companies).
 
 ## Payments and pricing for enterprise accounts
 

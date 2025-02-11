@@ -22,13 +22,17 @@ There are three ways to add organizations to your enterprise.
 
 * **Create** a new organization in your enterprise.
 * **Invite** an existing organization to join your enterprise.
-* **Transfer** an existing organization between enterprise accounts.
+* **Transfer** an existing organization between enterprise accounts on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% data reusables.enterprise.create-an-enterprise-account %} See "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account)."
+{% data reusables.enterprise.create-an-enterprise-account %} See [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account).
 
-## Limitations if you use {% data variables.product.prodname_emus %}
+## Limitations
 
-* Adding existing organizations to your enterprise is not possible if you use {% data variables.product.prodname_emus %}.
+If you use {% data variables.enterprise.data_residency %}, you cannot transfer organizations between {% data variables.product.prodname_dotcom_the_website %} and your enterprise on {% data variables.enterprise.data_residency_site %}. Instead, you must migrate organizations with the {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
+
+If you use {% data variables.product.prodname_emus %}, the following limitations apply:
+
+* Adding existing organizations to your enterprise is not possible.
 * Existing organizations from an enterprise with managed users cannot be added to a different enterprise.
 
 ## Changes when adding an existing organization
@@ -36,8 +40,8 @@ There are three ways to add organizations to your enterprise.
 After you add an existing organization to your enterprise, the organization's resources remain accessible to members at the same URLs, and the following changes will apply.
 
 * **Two-factor authentication (2FA):** If required by the enterprise, members without 2FA, or with insecure 2FA, will be unable to access organization resources until they configure 2FA that meets the enterprise's 2FA security requirements.
-* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)."
-* **Enterprise role management:** Enterprise owners can manage their roles within the organization. See "[AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise)."
+* **Enterprise licenses:** Members become part of the enterprise, and usage is billed to the enterprise account. You must ensure that the enterprise account has enough licenses to accommodate any new members. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
+* **Enterprise role management:** Enterprise owners can manage their roles within the organization. See [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 * **Enterprise policies:** Any policies applied to the enterprise will apply to the organization. {% data reusables.actions.org-to-enterprise-actions-permissions %}
 
 * **SAML SSO Configuration:**
@@ -48,10 +52,10 @@ After you add an existing organization to your enterprise, the organization's re
   * If SAML is **not** configured for the destination enterprise, the organization will retain any existing SAML and SCIM settings.
   * If organization members have existing SAML authorizations for {% data variables.product.pat_generic_plural %} or SSH keys to access the organization, these authorizations will remain active.
     * To see these authorizations, SAML must be configured for either the organization or enterprise, and the user must have a linked SAML identity.
-    * To access additional organizations owned by the enterprise, members must authorize the {% data variables.product.pat_generic %} or key. See "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on)" and "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on)."
+    * To access additional organizations owned by the enterprise, members must authorize the {% data variables.product.pat_generic %} or key. See [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on) and [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/authorizing-an-ssh-key-for-use-with-saml-single-sign-on).
 
-* **Trial enterprise:** Certain features may be disabled if added to a trial enterprise. See "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial)."
-* **{% data variables.product.prodname_github_connect %}:** If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. See "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect)" in the {% data variables.product.prodname_ghe_server %} documentation.
+* **Trial enterprise:** Certain features may be disabled if added to a trial enterprise. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#features-not-included-in-the-trial).
+* **{% data variables.product.prodname_github_connect %}:** If the organization was connected to {% data variables.product.prodname_ghe_server %} using {% data variables.product.prodname_github_connect %}, adding the organization to an enterprise will not update the connection. {% data variables.product.prodname_github_connect %} features will no longer function for the organization. To continue using {% data variables.product.prodname_github_connect %}, you must disable and re-enable the feature. See [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/managing-github-connect) in the {% data variables.product.prodname_ghe_server %} documentation.
 * **{% data variables.product.prodname_marketplace %} apps:** If you add a standalone organization that uses billed {% data variables.product.prodname_marketplace %} apps, the organization can continue to use the apps, but usage will be billable to the enterprise.
   * If your enterprise is billed via invoice, contact the app vendor and pay directly.
   * If your enterprise is billed via credit card or PayPal, billing continues automatically.
@@ -63,7 +67,7 @@ After you add an existing organization to your enterprise, the organization's re
 
 New organizations you create within your enterprise account settings are included in your enterprise account's {% data variables.product.prodname_ghe_cloud %} subscription.
 
-Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. See "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Enterprise owners who create an organization owned by the enterprise account automatically become organization owners. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 
 During a trial of {% data variables.product.prodname_ghe_cloud %}, you can create up to three new organizations in your enterprise.
 
@@ -81,7 +85,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can creat
 
 Enterprise owners can invite existing organizations to join their enterprise account.
 
-During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you must be an owner of both enterprise accounts and initiate an organization transfer. See "[Transferring an existing organization](#transferring-an-existing-organization)."
+During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you must be an owner of both enterprise accounts and initiate an organization transfer. See [Transferring an existing organization](#transferring-an-existing-organization).
 
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
@@ -110,7 +114,7 @@ If the existing organization uses billed apps, make sure to remove the billed ap
 {%- endif %}
 1. Next to the organization you want to transfer, select the {% octicon "kebab-horizontal" width="16" aria-label="Organization settings" %} dropdown menu, then click **Transfer organization**.
 
-   ![Screenshot of an organization in the organization list. A dropdown menu, labeled with the kebab icon, is expanded and the "Transfer organization" option is highlighted with an orange outline.](/assets/images/help/business-accounts/transfer-organization.png)
+   ![Screenshot of the expanded dropdown menu labeled with the kebab icon, for an organization. The "Transfer organization" option is outlined.](/assets/images/help/business-accounts/transfer-organization.png)
 
 1. Select the **Select enterprise** dropdown menu, start typing the name of the destination enterprise, and click the enterprise you want to transfer the organization to.
 1. Click **Review transfer**.

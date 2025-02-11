@@ -26,7 +26,7 @@ You can see how much of the usage included in your personal account you have use
 
    ![Screenshot of the "{% data variables.product.prodname_codespaces %}" section of the billing page showing figures for "Usage hours" and "Storage."](/assets/images/help/codespaces/view-personal-usage-collapsed.png)
 
-   For information about "core hours" and "GB-months," see "[AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces)."
+   For information about "core hours" and "GB-months," see [AUTOTITLE](/free-pro-team@latest/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces).
 
 1. Optionally, click **Usage hours** and **Storage** to see more details.
 
@@ -34,7 +34,7 @@ You can see how much of the usage included in your personal account you have use
 
    The **Included** column shows how many of the core hours of compute usage, or GB-months of storage, included free with your account, you have used so far this month. The **Paid** column shows how many billed core hours of usage, or GB-months of storage, you have used. The figures are updated once every hour.
 
-   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. See "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)" and "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account)."
+   In the screenshot above, the entire quota of included storage for the month has been used. When you've used all of either the included compute usage or storage (whichever is reached first), you must set up a payment method and a spending limit to continue using {% data variables.product.prodname_github_codespaces %} during the current billing month. See [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method) and [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces#managing-the-github-codespaces-spending-limit-for-your-personal-account).
 
    {% data reusables.codespaces.tips-included-usage %}
 
@@ -51,9 +51,9 @@ Organization owners and billing managers can view {% data variables.product.prod
    > * The costs shown here are the cumulative costs within the current billing month. The usage-based costs for {% data variables.product.prodname_github_codespaces %} shown on this page are reset to zero at the start of each billing month. Outstanding costs from previous months are not shown.
    > * The figures on this page are updated every hour.
 
-   You can also see and update your current spending limit. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces)."
+   You can also see and update your current spending limit. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/managing-the-spending-limit-for-github-codespaces).
 
-   The **Projected usage** figure gives an estimate of the total usage for the current billing month, assuming the compute and storage usage for the past seven days continues unchanged for the remainder of the billing month. See "[AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#viewing-projected-usage-for-an-organization)."
+   The **Projected usage** figure gives an estimate of the total usage for the current billing month, assuming the compute and storage usage for the past seven days continues unchanged for the remainder of the billing month. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#viewing-projected-usage-for-an-organization).
 
 {% data reusables.codespaces.usage-report-download %}
 
@@ -72,4 +72,4 @@ Enterprise owners and billing managers can view {% data variables.product.prodna
 
 ## Further reading
 
-* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)"
+* [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/listing-the-codespaces-in-your-organization)

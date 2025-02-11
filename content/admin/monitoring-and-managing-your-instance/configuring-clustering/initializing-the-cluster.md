@@ -16,9 +16,9 @@ topics:
   - Enterprise
 ---
 
-## About initialization of a {% data variables.product.product_name %} cluster
+## About initialization of a {% data variables.product.prodname_ghe_server %} cluster
 
-To deploy a {% data variables.product.product_name %} cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
+To deploy a {% data variables.product.prodname_ghe_server %} cluster in your environment, you must install {% data variables.product.prodname_ghe_server %}, upload a cluster-enabled license, configure the first node, and initialize the node with a configuration file.
 
 {% data reusables.enterprise_clustering.clustering-requires-https %}
 
@@ -26,14 +26,14 @@ To deploy a {% data variables.product.product_name %} cluster in your environmen
 
 To start setting up the cluster, install the {% data variables.product.prodname_ghe_server %} appliance on each node's virtual machine (VM), then configure an IP address.
 
-1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see "[AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance)."
+1. On each cluster node, provision and install {% data variables.product.prodname_ghe_server %}. For more information, see [AUTOTITLE](/admin/installation/setting-up-a-github-enterprise-server-instance).
 1. Using the administrative shell or DHCP, **only** configure the IP address of each node. Don't configure any other settings.
 
 ## Configuring the first node
 
-On the node that will function as your primary MySQL node, install your {% data variables.product.product_name %} license.
+On the node that will function as your primary MySQL node, install your {% data variables.product.prodname_ghe_server %} license.
 
-1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+1. Connect to the node that will be designated as MySQL primary in `cluster.conf`. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
 1. In your web browser, visit `https://<ip address>:8443/setup/`.
 {% data reusables.enterprise_installation.upload-a-license-file %}
 {% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %}
@@ -41,7 +41,7 @@ On the node that will function as your primary MySQL node, install your {% data 
 
 ## Initializing the cluster
 
-To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)".
+To initialize the cluster, you need a cluster configuration file (`cluster.conf`). For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file).
 
 1. From the first node that was configured, run `ghe-cluster-config-init`. This will initialize the cluster if there are nodes in the cluster configuration file that are not configured.
 1. Run `ghe-cluster-config-apply`. This will validate the `cluster.conf` file, apply the configuration to each node file and bring up the configured services on each node.
@@ -51,7 +51,7 @@ To check the status of a running cluster use the `ghe-cluster-status` command.
 ## About the cluster configuration file
 
 The cluster configuration file (`cluster.conf`) defines the nodes in the cluster, and what services they run.
-For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes)."
+For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/about-cluster-nodes).
 
 This example `cluster.conf` defines a cluster with 11 nodes.
 
@@ -62,7 +62,7 @@ This example `cluster.conf` defines a cluster with 11 nodes.
 
 You must choose a valid and unique hostname and IPv4 address for each node. To ensure that nodes are locally resolvable to each other, {% data variables.product.prodname_ghe_server %} will add a record for each node's hostname to `/etc/hosts` on every node.
 
-* For more information about valid hostnames for {% data variables.product.prodname_ghe_server %}, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance)."
+* For more information about valid hostnames for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-the-hostname-for-your-instance).
 * Each IPv4 address must be an address on a private network. See [RFC 1918](https://datatracker.ietf.org/doc/html/rfc1918) on the IETF website.
 
 Specify the first cluster node you configured as the MySQL primary via `mysql-server` and `mysql-master`.

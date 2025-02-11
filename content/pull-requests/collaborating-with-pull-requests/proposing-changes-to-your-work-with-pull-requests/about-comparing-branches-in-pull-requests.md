@@ -16,7 +16,7 @@ shortTitle: Compare branches
 ---
 
 > [!NOTE]
-> When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository)."
+> When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository).
 
 You can view proposed changes in a pull request in the Files changed tab.
 ![Screenshot of the tabs for a pull request. The "Files changed" tab is outlined in dark orange.](/assets/images/help/pull_requests/pull-request-tabs-changed-files.png)
@@ -38,14 +38,16 @@ You can also choose to ignore whitespace changes to get a more accurate view of 
 
 ![Screenshot of the "Files changed" tab for a pull request. The "Diff view" menu is outlined in dark orange.](/assets/images/help/pull_requests/diff-settings-menu.png)
 
-To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request)."
+To simplify reviewing changes in a large pull request, you can filter the diff to only show selected file types, show files you are a CODEOWNER of, hide files you have already viewed, or hide deleted files. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/filtering-files-in-a-pull-request).
 
 ![Screenshot of the file filter dropdown menu. The menu is expanded and outlined in dark orange.](/assets/images/help/pull_requests/file-filter-menu.png)
 
+You can also use the diff view to see which dependencies you are introducing or changing with your pull request, and whether the dependency versions contain security vulnerabilities. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-dependency-changes-in-a-pull-request#reviewing-dependencies-in-a-pull-request).
+
 ## Reasons diffs will not display
 
-* You've exceeded the total limit of files or certain file types. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/repository-limits#diff-limits)."
-* Your file matches a rule in the repository's _.gitattributes_ file to block that file from displaying by default. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github)."
+* You've exceeded the total limit of files or certain file types. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/repository-limits#diff-limits).
+* Your file matches a rule in the repository's _.gitattributes_ file to block that file from displaying by default. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/customizing-how-changed-files-appear-on-github).
 
 ## Three-dot and two-dot Git diff comparisons
 
@@ -67,7 +69,7 @@ A two-dot diff compares two Git committish references, such as SHAs or OIDs (Obj
 
 If you want to simulate a two-dot diff in a pull request and see a comparison between the most recent versions of each branch, you can merge the base branch into your topic branch, which updates the last common ancestor between your branches.
 
-For more information about Git commands to compare changes, see "[Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203)" from the _Pro Git_ book site.
+For more information about Git commands to compare changes, see [Git diff options](https://git-scm.com/docs/git-diff#git-diff-emgitdiffemltoptionsgtltcommitgtltcommitgt--ltpathgt82308203) from the _Pro Git_ book site.
 
 ## About three-dot comparison on {% data variables.product.prodname_dotcom %}
 
@@ -83,5 +85,5 @@ To avoid getting confused, merge the base branch (for example, `main`) into your
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks)

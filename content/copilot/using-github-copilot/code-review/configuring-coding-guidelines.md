@@ -16,7 +16,7 @@ redirect_from:
 
 ## About coding guidelines
 
-You can customize {% data variables.copilot.copilot_code-review_short %} with custom coding guidelines written in natural language. For more information on {% data variables.copilot.copilot_code-review_short %}, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)."
+You can customize {% data variables.copilot.copilot_code-review_short %} with custom coding guidelines written in natural language. For more information on {% data variables.copilot.copilot_code-review_short %}, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
 With coding guidelines, {% data variables.product.prodname_copilot_short %} can give feedback based on your organization's specific coding style and best practices.
 
@@ -26,14 +26,14 @@ Coding guidelines are configured at the repository level. You can create and ena
 
 > [!NOTE]
 >
-> * Coding guidelines only work with languages supported by Copilot code review. For a list of supported languages, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review#supported-programming-languages)."
+> * Coding guidelines only work with languages supported by Copilot code review. For a list of supported languages, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review#supported-programming-languages).
 > * Coding guidelines only apply to code reviews carried out by Copilot. The guidelines do not affect Copilot code completion suggestions, or code suggested in Copilot Chat responses.
 
 ## Dos and don'ts for coding guidelines
 
 * **Do** use simple, clear and concise language to describe your coding guideline.
 * **Do** be as specific as possible about what Copilot should look for - that is, what you do or don't want to see in your code.
-* **Do** take a look at the "[Coding guidelines examples](#coding-guidelines-examples)" below for some inspiration.
+* **Do** take a look at the [Coding guidelines examples](#coding-guidelines-examples) below for some inspiration.
 * **Don't** try to use coding guidelines to enforce style guidelines that can be covered by your linter or static analysis tool.
 * **Don't** use wording that is ambiguous or could be interpreted in different ways.
 * **Don't** try to fit multiple different ideas into a single coding guideline.
@@ -48,7 +48,7 @@ Coding guidelines are configured at the repository level. You can create and ena
 1. Under "Name," give the coding guideline a name.
 1. Under "Description," provide a description of the coding guideline up to 600 characters long. This will be used by {% data variables.product.prodname_copilot_short %} to understand your coding style and to decide when to leave a comment.
 
-   How you write your description has a big impact on the quality of comments that {% data variables.product.prodname_copilot_short %} will generate. For help with writing effective coding guidelines, see "[Dos and don'ts for coding guidelines](#dos-and-donts-for-coding-guidelines)" above, and "[Coding guidelines examples](#coding-guidelines-examples)" below.
+   How you write your description has a big impact on the quality of comments that {% data variables.product.prodname_copilot_short %} will generate. For help with writing effective coding guidelines, see [Dos and don'ts for coding guidelines](#dos-and-donts-for-coding-guidelines) above, and [Coding guidelines examples](#coding-guidelines-examples) below.
 
 1. Optionally, limit the coding guideline to specific file types or paths by clicking **Add file path** and adding path patterns.
 
@@ -67,11 +67,9 @@ Coding guidelines are configured at the repository level. You can create and ena
 
 ## Running a review with coding guidelines
 
-When you request a review from {% data variables.product.prodname_copilot_short %}, it will automatically use the repository's enabled coding guidelines to review your code. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)."
+When you request a review from {% data variables.product.prodname_copilot_short %}, it will automatically use the repository's enabled coding guidelines to review your code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
 Comments generated based on a coding guideline will include a message, highlighting their source.
-
-![Screenshot of a comment produced from a custom coding guideline.](/assets/images/help/copilot/code-review/coding-guidelines-comment@2x.png)
 
 ## Coding guidelines examples
 

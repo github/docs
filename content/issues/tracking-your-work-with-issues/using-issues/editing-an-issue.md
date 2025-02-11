@@ -27,7 +27,7 @@ You can edit an issue's title. The change to the title is added to the issue's t
 
 ## Editing an issue description
 
-You can also make changes to the issue description. The edit history is available unless the author or a person with write access removes it. See "[AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment)."
+You can also make changes to the issue description. The edit history is available unless the author or a person with write access removes it. See [AUTOTITLE](/communities/moderating-comments-and-conversations/tracking-changes-in-a-comment).
 
 1. Navigate to the issue you want to edit.
 1. At the top right of the issue description, click {% octicon "kebab-horizontal" aria-label="Issue body actions" %}.

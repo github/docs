@@ -23,7 +23,7 @@ Reordering allows you to alter your commit history to provide a more meaningful 
 {% data reusables.desktop.history-tab %}
 1. Drag the commit that you want to reorder and drop it between two adjoining commits.
 
-   ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a narrow horizontal line between two commits, with a "one" icon indicating one commit is being moved.](/assets/images/help/desktop/reorder-drag-and-drop.png)
+   ![Screenshot of a list of commits in the "History" tab. The cursor hovers over a narrow line between two commits as one commit is moved, see "one" icon.](/assets/images/help/desktop/reorder-drag-and-drop.png)
 
 While the application reorders the commits, a **Reorder in process** dialog indicates the progress of the change.
 
@@ -44,4 +44,4 @@ When you reorder commits, you may see one of the following notifications or erro
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)

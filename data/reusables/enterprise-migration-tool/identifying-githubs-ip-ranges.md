@@ -13,4 +13,4 @@ You can get an up-to-date list of IP ranges used by {% data variables.product.pr
 
 The `github_enterprise_importer` key in the response contains a list of IP ranges used for migrations.
 
-For more information, see "[AUTOTITLE](/rest/meta#get-github-meta-information)."
+For more information, see [AUTOTITLE](/rest/meta#get-github-meta-information).

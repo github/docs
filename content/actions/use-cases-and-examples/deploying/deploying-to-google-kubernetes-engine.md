@@ -102,11 +102,11 @@ This procedure demonstrates how to create the service account for your GKE integ
    export GKE_SA_KEY=$(cat key.json | base64)
    ```
 
-   For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+   For more information about how to store a secret, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ### Storing your project name
 
-Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+Store the name of your project as a secret named `GKE_PROJECT`. For more information about how to store a secret, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ### (Optional) Configuring kustomize
 
@@ -208,4 +208,4 @@ For more information on the tools used in these examples, see the following docu
 
 * For the full workflow template, see the ["Build and Deploy to GKE" workflow](https://github.com/actions/starter-workflows/blob/main/deployments/google.yml).
 * The Kubernetes YAML customization engine: [Kustomize](https://kustomize.io/).
-* "[Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app)" in the Google Kubernetes Engine documentation.
+* [Deploying a containerized web application](https://cloud.google.com/kubernetes-engine/docs/tutorials/hello-app) in the Google Kubernetes Engine documentation.

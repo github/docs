@@ -46,14 +46,21 @@ Billing managers **are not** able to:
 
 ## Inviting a billing manager
 
-{% ifversion ghec %}
+{% ifversion enhanced-billing-platform %}
 
-> [!NOTE]
-> If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)."
+>[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the enhanced billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.
+>
+> If you are on the enhanced billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform#inviting-a-billing-manager).
 
 {% endif %}
 
-The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
+{% ifversion ghec %}
+
+If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
+
+{% endif %}
+
+The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
@@ -61,4 +68,4 @@ The invited person will receive an invitation email asking them to become a bill
 
 ## Further reading
 
-* "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

@@ -1,6 +1,6 @@
 ---
 title: Setting your billing email
-intro: 'Your account''s billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.'
+intro: 'Your account''s billing email is where {% data variables.product.company_short %} sends receipts and other billing-related communication.'
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/setting-your-billing-email
   - /articles/setting-your-personal-account-s-billing-email
@@ -21,16 +21,16 @@ shortTitle: Billing email
 ---
 ## Setting your personal account's billing email
 
-Your personal account's primary email is where {% data variables.product.product_name %} sends receipts and other billing-related communication.
+Your personal account's primary email is where {% data variables.product.company_short %} sends receipts and other billing-related communication.
 
 Your primary email address is the first email listed in your account email settings.
 We also use your primary email address as our billing email address.
 
-If you'd like to change your billing email, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)."
+If you'd like to change your billing email, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
 ## Setting your organization's billing email
 
-Your organization's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the organization account.
+Your organization's billing email is where {% data variables.product.company_short %} sends receipts and other billing-related communication. The email address does not need to be unique to the organization account.
 
 {% data reusables.dotcom_billing.org-billing-perms %}
 
@@ -73,9 +73,9 @@ One address must always be designated as the primary recipient. The address with
 
 ## Setting your enterprise's billing email
 
-Your enterprise's billing email is where {% data variables.product.product_name %} sends receipts and other billing-related communication. The email address does not need to be unique to the enterprise account.
+Your enterprise's billing email is where {% data variables.product.company_short %} sends receipts and other billing-related communication. The email address does not need to be unique to the enterprise account.
 
-Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
@@ -89,7 +89,7 @@ Only enterprise members with the owner or billing manager role can access or cha
 
 If you have users that want to receive billing reports, you can add their email addresses as billing email recipients.
 
-Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise)."
+Only enterprise members with the owner or billing manager role can access or change billing settings for your enterprise. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise).
 
 ### Adding a recipient for billing notifications for your enterprise
 

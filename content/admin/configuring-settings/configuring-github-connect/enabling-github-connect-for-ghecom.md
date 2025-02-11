@@ -10,9 +10,9 @@ redirect_from:
    - /early-access/admin/data-residency-for-github-enterprise-cloud/configuring-github-connect-for-data-residency
 ---
 
-You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See "[AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect)."
+You can access additional features and workflows on {% data variables.location.product_location %} by enabling {% data variables.product.prodname_github_connect %}. See [AUTOTITLE](/admin/configuration/configuring-github-connect/about-github-connect).
 
-On {% data variables.enterprise.data_residency_site %}, {% data variables.product.prodname_github_connect %} features do not include any functionality that relies on resources on {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.github-connect.what-is-available-ghecom %}
 
 ## What happens when {% data variables.product.prodname_github_connect %} is enabled?
 
@@ -28,7 +28,7 @@ On {% data variables.enterprise.data_residency_site %}, {% data variables.produc
    * `{% data variables.enterprise.data_residency_api %}`
    * `uploads.{% data variables.enterprise.data_residency_domain %}`
 
-   See "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server)."
+   See [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server).
 
 ## Step 1: Enable connection to {% data variables.enterprise.data_residency_site %}
 
@@ -56,13 +56,13 @@ After the run completes, you can configure {% data variables.product.prodname_gi
 
 ## Step 2: Enable {% data variables.product.prodname_github_connect %}
 
-To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.product_name %} and {% data variables.product.prodname_ghe_cloud %}.
+To enable {% data variables.product.prodname_github_connect %}, you must be an enterprise owner on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}.
 
 People with a user account in both environments can connect the accounts from {% data variables.location.product_location_enterprise %}.
 
 1. Sign in to {% data variables.location.product_location %} and {% data variables.enterprise.data_residency_site %}.
 {% data reusables.github-connect.enable-github-connect %}
-1. Choose which individual features of {% data variables.product.prodname_github_connect %} you want to enable. See "[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect#github-connect-features)."
+1. Choose which individual features of {% data variables.product.prodname_github_connect %} you want to enable. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/about-github-connect#github-connect-features).
 
 ## Reenabling connections to {% data variables.product.prodname_dotcom_the_website %}
 
@@ -83,4 +83,4 @@ If you need to reenable {% data variables.product.prodname_github_connect %} for
     ghe-config-apply
     ```
 
-1. Enable {% data variables.product.prodname_github_connect %} on {% data variables.product.prodname_dotcom_the_website %}. See "[AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom)."
+1. Enable {% data variables.product.prodname_github_connect %} on {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).

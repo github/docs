@@ -1,4 +1,4 @@
-   If the dev container configuration for the repository specifies permissions for accessing other repositories, you will be shown an authorization page. For more information on how this is specified in the `devcontainer.json` file, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces)."
+   If the dev container configuration for the repository specifies permissions for accessing other repositories, you will be shown an authorization page. For more information on how this is specified in the `devcontainer.json` file, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces).
 
    Click {% octicon "chevron-down" aria-label="The expand down icon" %} to view the details of the requested permissions.
 

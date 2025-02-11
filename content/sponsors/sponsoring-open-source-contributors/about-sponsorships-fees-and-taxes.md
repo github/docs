@@ -23,16 +23,16 @@ You can sponsor an account on behalf of your personal account to invest in proje
 * Developing brand awareness as an organization that values open source
 * Thanking open source developers for building libraries that complement the product your organization offers
 
-We may share certain limited tax information with sponsored accounts. For more information, see "[Tax information](#tax-information)."
+We may share certain limited tax information with sponsored accounts. For more information, see [Tax information](#tax-information).
 
 You can choose whether to display your sponsorship publicly. One-time sponsorships remain visible for one month.
 
-If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship)" and "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship)."
+If the sponsored account retires your tier, the tier will remain in place for you until you choose a different tier or cancel your subscription. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/upgrading-a-sponsorship) and [AUTOTITLE](/billing/managing-billing-for-github-sponsors/downgrading-a-sponsorship).
 
-If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+If the account you want to sponsor does not have a profile on {% data variables.product.prodname_sponsors %}, you can encourage the account to join. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account) and [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
 > [!NOTE]
-> {% data variables.product.prodname_dotcom %} is not responsible for how developers represent themselves nor does {% data variables.product.prodname_dotcom %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms).
+> {% data variables.product.github %} is not responsible for how developers represent themselves nor does {% data variables.product.github %} endorse any sponsored open source projects. The claims are solely the responsibility of the developer receiving the funds. Make sure you trust a person before offering a sponsorship. For more information, see the [{% data variables.product.prodname_sponsors %} Additional Terms](/free-pro-team@latest/site-policy/github-terms/github-sponsors-additional-terms).
 
 ## About billing and sponsorship payments
 
@@ -57,7 +57,7 @@ When an enterprise opts to pay by credit card, it can enforce policies within it
 
 ## Using the sponsorships dashboard for organizations
 
-You can use the sponsorships dashboard to see an overview of active and past sponsorships. Organization owners can use the dashboard to see how much they are paying, make changes to sponsorships, and export their sponsorships as a CSV file. Non-members and people signed out of {% data variables.product.product_name %} can see public sponsorships and organization members can see public and private sponsorships.
+You can use the sponsorships dashboard to see an overview of active and past sponsorships. Organization owners can use the dashboard to see how much they are paying, make changes to sponsorships, and export their sponsorships as a CSV file. Non-members and people signed out of {% data variables.product.github %} can see public sponsorships and organization members can see public and private sponsorships.
 
 You can access the sponsorships dashboard through your organization's profile.
 
@@ -69,7 +69,7 @@ You can access the sponsorships dashboard through your organization's profile.
 
 {% data reusables.sponsors.no-fees %}
 
-For more information on fees and billing, see "[AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors)."
+For more information on fees and billing, see [AUTOTITLE](/billing/managing-billing-for-github-sponsors/about-billing-for-github-sponsors).
 
 ## Tax information
 

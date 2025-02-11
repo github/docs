@@ -21,7 +21,7 @@ topics:
 
 **Before** following the steps in this article, make sure that your enterprise uses **managed users**. You can do so by checking whether your enterprise view has the "Users managed by ACCOUNT NAME" header bar at the top of the screen. If you see this, your enterprise uses **managed users** and you can follow the steps in this article.
 
-If your enterprise uses **personal accounts**, you must follow a different process to configure SAML single sign-on. See "[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+If your enterprise uses **personal accounts**, you must follow a different process to configure SAML single sign-on. See [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
 ## About SAML SSO for {% data variables.product.prodname_emus %}
 
@@ -38,10 +38,10 @@ After you configure SAML SSO, we recommend storing your recovery codes so you ca
   * {% data variables.product.company_short %} offers a "paved-path" integration and full support if you use a **partner IdP** for both authentication and provisioning.
   * Alternatively, you can use any system or combination of systems that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited.
 
-  For more details, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+  For more details, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
 * Your IdP must adhere to the SAML 2.0 specification. See the [SAML Wiki](https://wiki.oasis-open.org/security) on the OASIS website.
 * You must have tenant administrative access to your IdP.
-* If you're configuring SAML SSO for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
+* If you're configuring SAML SSO for a new enterprise, make sure to complete all previous steps in the initial configuration process. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 ## Configure SAML SSO for {% data variables.product.prodname_emus %}
 
@@ -72,12 +72,12 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
    | Identity provider | Documentation for {% data variables.product.prodname_dotcom_the_website %} | Documentation for {% data variables.enterprise.data_residency_site %} |
    | ----------------- | ------------- | ------------------- |
    | Microsoft Entra ID | [Microsoft Learn](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/github-enterprise-managed-user-tutorial) | [Microsoft Learn](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-ghe-com-tutorial) |
-   | Okta | "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)" | "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users)" |
-   | PingFederate | "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)" ("Prerequisities" and "1. Configure SAML" sections) | "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate)" ("Prerequisities" and "1. Configure SAML" sections) |
+   | Okta | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) | [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-with-okta-for-enterprise-managed-users) |
+   | PingFederate | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisities" and "1. Configure SAML" sections) | [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-authentication-and-provisioning-with-pingfederate) ("Prerequisities" and "1. Configure SAML" sections) |
 
    {% endrowheaders %}
 
-   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP. See "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference)."
+   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.github %} to create and configure a generic SAML 2.0 application on your IdP. See [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference).
 
 1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.product.github %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
 
@@ -96,14 +96,14 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.product.github %}.
 
-After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users)."
+After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate, which can be done by any member with the enterprise owner role. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users).
 
 {% data reusables.emus.sign-in-as-setup-user %}
 
    > [!NOTE]
    > {% data reusables.enterprise-accounts.emu-password-reset-session %}
 
-1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems)."
+1. If you're using a **non-partner IdP** (an IdP other than Okta, PingFederate or Entra ID), before enabling SAML, you must update a setting so that you will be able to set up SCIM using the REST API. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#configuring-provisioning-for-other-identity-management-systems).
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.identity-provider-tab %}
 {% data reusables.enterprise-accounts.sso-configuration %}
@@ -123,10 +123,10 @@ After the initial configuration of SAML SSO, the only setting you can update on 
 
 ### Enable provisioning
 
-After you enable SAML SSO, enable provisioning. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users)."
+After you enable SAML SSO, enable provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-scim-provisioning-for-enterprise-managed-users).
 
 ### Enable guest collaborators
 
 You can use the role of guest collaborator to grant limited access to vendors and contractors in your enterprise. Unlike enterprise members, guest collaborators only have access to internal repositories within organizations where they are a member.
 
-If you use Entra ID or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators. For more information, see "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators)."
+If you use Entra ID or Okta for SAML authentication, you may need to update your IdP application to use guest collaborators. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/enabling-guest-collaborators).

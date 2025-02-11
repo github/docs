@@ -18,6 +18,6 @@ redirect_from:
 1. Under "Access management", locate the organization for which you want to downgrade {% data variables.product.prodname_copilot_short %}.
 1. To the right of the organization name, select the **Copilot** dropdown menu, and click **Business**.
 
-   ![Screenshot of the Copilot "access management" page. A dropdown menu is selected, and a button labeled "Business" is highlighted with an orange outline.](/assets/images/help/copilot/copilot-downgrade-to-business.png)
+   ![Screenshot of the Copilot "access management" page. A dropdown menu is selected, and a button labeled "Business" is outlined in orange.](/assets/images/help/copilot/copilot-downgrade-to-business.png)
 
 1. In the pop-up window that appears, review the effects of downgrading the organization, then click **Confirm and downgrade**.

@@ -10,7 +10,7 @@ redirect_from:
 
 ## About using Markdown and Liquid in {% data variables.product.prodname_docs %}
 
-{% data variables.product.prodname_docs %} are written using Markdown, which is a human-friendly syntax for formatting plain text. We use the variant of Markdown called {% data variables.product.prodname_dotcom %} Flavored Markdown and ensure that it is compliant with CommonMark. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github)."
+{% data variables.product.prodname_docs %} are written using Markdown, which is a human-friendly syntax for formatting plain text. We use the variant of Markdown called {% data variables.product.prodname_dotcom %} Flavored Markdown and ensure that it is compliant with CommonMark. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/about-writing-and-formatting-on-github).
 
 We use Liquid syntax to expand the functionality to provide accessible tables, maintainable links, versioning, variables, and chunks of reusable content. For more information about Liquid, see the [Liquid documentation](https://shopify.github.io/liquid/basics/introduction/).
 
@@ -52,7 +52,7 @@ This content is displayed on the {% data variables.product.prodname_docs %} site
 
 Alerts highlight important information that users need to know. We use standard formatting and colors for four different types of Alerts: Note, Tip, Warning, and Caution.
 
-For information on when to use alerts, and how to format them in Markdown, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alerts)."
+For information on when to use alerts, and how to format them in Markdown, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alerts).
 
 ### Examples of alerts
 
@@ -108,7 +108,7 @@ const copyMe = true
 
 Code sample annotations help explain longer code examples by rendering comments as annotations next to the sample code. This lets us write longer explanations of code without cluttering the code itself. Code samples with annotations are rendered in a two pane layout with the code sample on the left and the annotations on the right. The annotations are visually emphasized when someone hovers their cursor over the code example.
 
-Code annotations only work in articles with the `layout: inline` frontmatter property. For more information on how to write and style code annotations, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/annotating-code-examples)."
+Code annotations only work in articles with the `layout: inline` frontmatter property. For more information on how to write and style code annotations, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/annotating-code-examples).
 
 ### Example of an annotated code sample
 
@@ -138,7 +138,7 @@ Code annotations only work in articles with the `layout: inline` frontmatter pro
               PR_URL: ${{ github.event.pull_request.html_url }}
     ```
 
-For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see "[AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions)."
+For an example of an article that uses code annotations on {% data variables.product.prodname_docs %}, see [AUTOTITLE](/packages/managing-github-packages-using-github-actions-workflows/publishing-and-installing-a-package-with-github-actions).
 
 ## Octicons
 
@@ -150,7 +150,7 @@ If you're referencing an Octicon that appears in the UI, identify whether the Oc
    * Some Octicons used as labels have dynamic `aria-label` elements that change based on the state of the UI element or a user input. For example, when someone has two security policies-`Policy A` and `Policy B`-their UI will show two trash Octicons labelled `{% raw %}{% octicon "trash" aria-label="Delete Policy A" %}{% endraw %}` and `{% raw %}{% octicon "trash" aria-label="Delete Policy B" %}{% endraw %}`. For dynamic `aria-label` elements, since we can't document the exact `aria-label` that people will encounter, describe the Octicon and a placeholder example of the label (for example, `"{% raw %}{% octicon "trash" aria-label="The trash icon, labelled 'Delete YOUR-POLICY-NAME'." %}{% endraw %}"`). This will help people identify both the Octicon and how it is labelled, and give context for collaborating with people who are visually describing the Octicon.
  * If the Octicon is decorative, it's likely hidden to screen readers with the `aria-hidden=true` attribute. If so, for consistency with the product, use `aria-hidden="true"` in the Liquid syntax for the Octicon in the docs as well (for example, `"{% raw %}{% octicon "plus" aria-hidden="true" %} Add message"{% endraw %}`).
 
-If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables)."
+If you're using the Octicon in another way, such as using the "check" and "x" icons to reflect binary values in tables, use the `aria-label` to describe the meaning of the Octicon, not its visual characteristics. For example, if you're using a "x" icon in the "Supported" column of a table, use "Not supported" as the `aria-label`. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#tables).
 
 ### Example usage of Octicons
 
@@ -191,7 +191,7 @@ These instructions are pertinent to Windows users.
 {% endwindows %}{% endraw %}
 ```
 
-You can define a default platform in an article's YAML frontmatter. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaultplatform)."
+You can define a default platform in an article's YAML frontmatter. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaultplatform).
 
 ## Tool tags
 
@@ -199,9 +199,9 @@ We occasionally need to write documentation that has different instructions for 
 
 {% data variables.product.prodname_docs %} maintains tool tags for {% data variables.product.prodname_dotcom %} products and selected third-party extensions. See the [`all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) object in the `github/docs` repository for a list of all supported tools.
 
-On rare occasions, we will add new tools. Before adding a new tool, read "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles)." To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
+On rare occasions, we will add new tools. Before adding a new tool, read [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles). To add a new tool, add an entry to the `allTools` object in [`lib/all-tools.js`](https://github.com/github/docs/blob/main/src/tools/lib/all-tools.js) as a key-value pair. The key is the tag you'll use to refer to the tool in the article, and the value is how the tool will be identified on the tool picker at the top of the article.
 
-You can define a default tool for an article in the YAML frontmatter. For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaulttool)."
+You can define a default tool for an article in the YAML frontmatter. For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter#defaulttool).
 
 ### Example usage of tool tags
 
@@ -305,7 +305,7 @@ These instructions are pertinent to GitHub UI users.
 
 Reusable strings (commonly called content references or conrefs) contain content that is used in more than one place in our documentation. Creating these allows us to update the content in a single location rather than every place the string appears.
 
-For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables and variables, see "[AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)."
+For longer strings, we use reusables, and for shorter strings, we use variables. For more information about reusables and variables, see [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content).
 
 ## Table pipes
 
@@ -321,7 +321,7 @@ Every row of a table in the {% data variables.product.prodname_docs %} must star
 
 ## Table row headers
 
-If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#use-proper-markup-for-row-and-column-headers)."
+If you create a table where the first column contains headers for the table rows, wrap your table in the Liquid tag {% raw %}`{% rowheaders %} {% endrowheaders %}`{% endraw %}. For more information on using markup for tables, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#use-proper-markup-for-row-and-column-headers).
 
 ### Example table with row headers
 
@@ -360,7 +360,7 @@ If this happens, add the following CSS style to the `<table>` HTML tag:
 <table style="table-layout: fixed;">
 ```
 
-For a current example of this usage, see "[AUTOTITLE](/actions/examples)."
+For a current example of this usage, see [AUTOTITLE](/actions/examples).
 
 ## Links
 
@@ -388,7 +388,7 @@ and when viewed on {% data variables.product.prodname_ghe_server %} docs, the ve
 /en/enterprise-server@2.20/github/writing-on-github/creating-a-saved-reply
 ```
 
-For more information about links, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links)."
+For more information about links, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links).
 
 ### Permalinks
 
@@ -420,9 +420,9 @@ When linking to another {% data variables.product.prodname_docs %} page, use sta
 
 #### Example usage of internal links with AUTOTITLE
 
-* `For more information, see "[AUTOTITLE](/path/to/page)."`
-* `For more information, see "[AUTOTITLE](/path/to/page#section-link)."`
-* `For more information, see the TOOLNAME documentation in "[AUTOTITLE](/path/to/page?tool=TOOLNAME)."`
+* `For more information, see [AUTOTITLE](/path/to/page).`
+* `For more information, see [AUTOTITLE](/path/to/page#section-link).`
+* `For more information, see the TOOLNAME documentation in [AUTOTITLE](/path/to/page?tool=TOOLNAME).`
 
 > [!NOTE]
 > Same-page section links do not work with this keyword. Type out the full header text instead.
@@ -445,7 +445,7 @@ You can link directly to a different version of the page using the `currentArtic
 Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, you should include the preferred version in the path.
 
 ```markdown
-"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
+[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`src/redirects/lib/external-sites.json`](https://github.com/github/docs/blob/main/src/redirects/lib/external-sites.json) get rewritten. See [`contributing/redirects.md`](https://github.com/github/docs/blob/main/contributing/redirects.md) for more info about this type of redirect.

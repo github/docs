@@ -22,7 +22,7 @@ Anyone with read permissions for a repository can test a {% data variables.produ
 
 Before you can use Jekyll to test a site, you must:
 * Install [Jekyll](https://jekyllrb.com/docs/installation/).
-* Create a Jekyll site. For more information, see "[AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll)."
+* Create a Jekyll site. For more information, see [AUTOTITLE](/pages/setting-up-a-github-pages-site-with-jekyll/creating-a-github-pages-site-with-jekyll).
 
 {% data reusables.pages.recommend-bundler %}
 
@@ -64,7 +64,7 @@ Before you can use Jekyll to test a site, you must:
 
 ## Updating the {% data variables.product.prodname_pages %} gem
 
-Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.product_name %}. To avoid this, regularly update the `github-pages` gem on your computer.
+Jekyll is an active open source project that is updated frequently. If the `github-pages` gem on your computer is out of date with the `github-pages` gem on the {% data variables.product.prodname_pages %} server, your site may look different when built locally than when published on {% data variables.product.github %}. To avoid this, regularly update the `github-pages` gem on your computer.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Update the `github-pages` gem.

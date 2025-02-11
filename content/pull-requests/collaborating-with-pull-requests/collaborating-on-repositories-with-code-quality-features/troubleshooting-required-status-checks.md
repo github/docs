@@ -14,15 +14,15 @@ redirect_from:
   - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks
 shortTitle: Required status checks
 ---
-If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see "[AUTOTITLE](/rest/checks)."
+If you have a check and a status with the same name, and you select that name as a required status check, both the check and the status are required. For more information, see [AUTOTITLE](/rest/checks).
 
 > [!NOTE]
 > To be required, status checks must have completed successfully within the chosen repository during the past seven days.
 
-After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging)."
+After you enable required status checks, your branch may need to be up-to-date with the base branch before merging. This ensures that your branch has been tested with the latest code from the base branch. If your branch is out of date, you'll need to merge the base branch into your branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging).
 
 > [!NOTE]
-> You can also bring your branch up to date with the base branch using Git rebase. For more information, see "[AUTOTITLE](/get-started/using-git/about-git-rebase)."
+> You can also bring your branch up to date with the base branch using Git rebase. For more information, see [AUTOTITLE](/get-started/using-git/about-git-rebase).
 
 You won't be able to push local changes to a protected branch until all required status checks pass. Instead, you'll receive an error message similar to the following.
 
@@ -36,13 +36,13 @@ remote: error: Required status check "ci-build" is failing
 
 ## Required check needs to succeed against the latest commit SHA
 
-In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks.
+In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks. Successful check statuses are: `success`, `skipped`, and `neutral`. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 ## Conflicts between head commit and test merge commit
 
 Sometimes, the results of the status checks for the test merge commit and head commit will conflict. If the test merge commit has a status, the test merge commit must pass. Otherwise, the status of the head commit must pass before you can merge the branch.
 
-If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see "[AUTOTITLE](/rest/pulls/pulls#get-a-pull-request)."
+If there is a conflict between the test merge commit and head commit, the checks for the test merge commit are shown in the pull request status checks box. This is indicated in the pull request status box by a line starting with `Showing checks for the merge commit`. For more information about test merge commits, see [AUTOTITLE](/rest/pulls/pulls#get-a-pull-request).
 
 ## Handling skipped but required checks
 
@@ -51,9 +51,9 @@ If there is a conflict between the test merge commit and head commit, the checks
 >
 > {% data reusables.pull_requests.path-filtering-required-workflows %}
 >
-> If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see "[AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution)."
+> If, however, a job within a workflow is skipped due to a conditional, it will report its status as "Success". For more information, see [AUTOTITLE](/actions/using-jobs/using-conditions-to-control-job-execution).
 >
-> When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see "[AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs)."
+> When a job fails, any jobs that depend on the failed job are skipped and do not report a failure. A pull request that requires the check may not be blocked. To use a required check on a job that depends on other jobs, use the `always()` conditional expression in addition to `needs`, see [AUTOTITLE](/actions/using-jobs/using-jobs-in-a-workflow#defining-prerequisite-jobs).
 
 ### Example
 
@@ -104,7 +104,7 @@ on:
   merge_group:
 ```
 
-For more information on the `merge_group` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group)."
+For more information on the `merge_group` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group).
 
 {% endif %}
 

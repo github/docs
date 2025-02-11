@@ -15,7 +15,7 @@ redirect_from:
 
 ## About expressions
 
-You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+You can use expressions to programmatically set environment variables in workflow files and access contexts. An expression can be any combination of literal values, references to a context, or functions. You can combine literals, context references, and functions using operators. For more information about contexts, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 Expressions are commonly used with the conditional `if` keyword in a workflow file to determine whether a step should run. When an `if` conditional is `true`, the step will run.
 
@@ -26,7 +26,7 @@ Expressions are commonly used with the conditional `if` keyword in a workflow fi
 {% endraw %}
 
 > [!NOTE]
-> The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)."
+> The exception to this rule is when you are using expressions in an `if` clause, where, optionally, you can usually omit {% raw %}`${{`{% endraw %} and {% raw %}`}}`{% endraw %}. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif).
 
 {% data reusables.actions.context-injection-warning %}
 
@@ -91,8 +91,8 @@ env:
 
   > [!NOTE]
   > * {% data variables.product.company_short %} ignores case when comparing strings.
-  > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#steps-context)."
-  > * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see "[fromJSON](#fromjson)."
+  > * `steps.<step_id>.outputs.<output_name>` evaluates as a string. {% data reusables.actions.expressions-syntax-evaluation %} For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#steps-context).
+  > * For numerical comparison, the `fromJSON()` function can be used to convert a string to a number. For more information on the `fromJSON()` function, see [fromJSON](#fromjson).
 
 {% data variables.product.prodname_dotcom %} performs loose equality comparisons.
 
@@ -105,7 +105,7 @@ env:
   | String  | Parsed from any legal JSON number format, otherwise `NaN`. <br /> Note: empty string returns `0`. |
   | Array   | `NaN` |
   | Object  | `NaN` |
-* When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the "[NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN)."
+* When `NaN` is one of the operands of any relational comparison (`>`, `<`, `>=`, `<=`), the result is always `false`. For more information, see the [NaN Mozilla docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN).
 * {% data variables.product.prodname_dotcom %} ignores case when comparing strings.
 * Objects and arrays are only considered equal when they are the same instance.
 
@@ -151,7 +151,7 @@ Returns `true` if `search` contains `item`. If `search` is an array, this functi
 
 `contains(github.event.issue.labels.*.name, 'bug')` returns `true` if the issue related to the event has a label "bug".
 
-For more information, see "[Object filters](#object-filters)."
+For more information, see [Object filters](#object-filters).
 
 #### Example matching an array of strings
 
@@ -288,25 +288,37 @@ The workflow uses the `fromJSON()` function to convert the environment variable 
 
 `hashFiles(path)`
 
-Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see "[SHA-2](https://en.wikipedia.org/wiki/SHA-2)."
+Returns a single hash for the set of files that matches the `path` pattern. You can provide a single `path` pattern or multiple `path` patterns separated by commas. The `path` is relative to the `GITHUB_WORKSPACE` directory and can only include files inside of the `GITHUB_WORKSPACE`. This function calculates an individual SHA-256 hash for each matched file, and then uses those hashes to calculate a final SHA-256 hash for the set of files. If the `path` pattern does not match any files, this returns an empty string. For more information about SHA-256, see [SHA-2](https://en.wikipedia.org/wiki/SHA-2).
 
 You can use pattern matching characters to match file names. Pattern matching for `hashFiles` follows glob pattern matching and is case-insensitive on Windows. For more information about supported pattern matching characters, see the [Patterns](https://www.npmjs.com/package/@actions/glob#patterns) section in the `@actions/glob` documentation.
 
-#### Example with a single pattern
+#### Examples with a single pattern
 
 Matches any `package-lock.json` file in the repository.
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+Matches all `.js` files in the `src` directory at root level, but ignores any subdirectories of `src`.
+
+`hashFiles('/src/*.js')`
+
+Matches all `.rb` files in the `lib` directory at root level, including any subdirectories of `lib`.
+
+`hashFiles('/lib/**/*.rb')`
+
+#### Examples with multiple patterns
 
 Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
 
+Creates a hash for all `.rb` files in the `lib` directory at root level, including any subdirectories of `lib`, but excluding `.rb` files in the `foo` subdirectory.
+
+`hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
+
 ## Status check functions
 
-You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif)" and "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif)".
+You can use the following status check functions as expressions in `if` conditionals. A default status check of `success()` is applied unless you include one of these functions. For more information about `if` conditionals, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) and [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions#runsstepsif).
 
 ### success
 

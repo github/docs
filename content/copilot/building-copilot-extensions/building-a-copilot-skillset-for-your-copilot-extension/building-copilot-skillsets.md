@@ -5,7 +5,7 @@ versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Build {% data variables.product.prodname_copilot_skillsets_short %} 
+shortTitle: Build {% data variables.product.prodname_copilot_skillsets_short %}
 type: how_to
 ---
 
@@ -19,13 +19,13 @@ type: how_to
 
 Before you begin, make sure you have the following:
 
-1. **A configured {% data variables.product.prodname_github_app %}:** You’ll need a {% data variables.product.prodname_github_app %} to act as the container for your skillset. If you haven’t already set one up, refer to "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension)" and "[AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension)".
+1. **A configured {% data variables.product.prodname_github_app %}:** You’ll need a {% data variables.product.prodname_github_app %} to act as the container for your skillset. If you haven’t already set one up, refer to [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/creating-a-github-app-for-your-copilot-extension) and [AUTOTITLE](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension).
 1. **API endpoints:** You need one endpoint per skill. Each endpoint must:
     * Accept POST requests with the `application/json` MIME type
     * Be able to verify the signature of requests from {% data variables.product.github %} to authenticate their origin and prevent unauthorized access
     * Be publicly accessible via HTTPS
 
-For more information about signature verification, see "[Verifying that payloads are coming from Github](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github)".
+For more information about signature verification, see [Verifying that payloads are coming from {% data variables.product.github %}](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#verifying-that-payloads-are-coming-from-github).
 
 ## Configuration requirements
 

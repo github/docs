@@ -9,9 +9,9 @@ topics:
   - Repositories
 ---
 
-Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
+Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-Most of the limits below affect both {% data variables.product.product_name %} and the API.
+Most of the limits below affect both {% data variables.product.github %} and the API.
 
 ## Text limits
 
@@ -36,4 +36,4 @@ The maximum count of commits displayed on the Commits tab is **10,000**. Use oth
 
 ## Organization Limits
 
-If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership)."
+If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership).

@@ -15,16 +15,16 @@ Checking out a commit allows you to view your repository in a previous state wit
 Checking out a commit puts your repository in a "detached HEAD" state. In Git terminology "HEAD" is the reference that points to the tip, or latest commit, of a named branch in your repository. A "detached HEAD" state means that HEAD refers to a specific commit, but not on a named branch in your repository.
 
 > [!NOTE]
-> Any commits made in a "detached HEAD" state will be lost when switching branches, since these commits have not been made on a named branch. If you need to recover the lost commits, see "[Troubleshooting](#troubleshooting)."
+> Any commits made in a "detached HEAD" state will be lost when switching branches, since these commits have not been made on a named branch. If you need to recover the lost commits, see [Troubleshooting](#troubleshooting).
 
 ## Checking out a commit
 
 {% data reusables.desktop.history-tab %}
 1. Right-click on the commit you would like to checkout and select **Checkout commit**.
-    ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the "Checkout Commit" option is highlighted with an orange outline.](/assets/images/help/desktop/checkout-commit.png)
+    ![Screenshot of a list of commits in the "History" tab. Next to a commit, in a context menu, the "Checkout Commit" option is outlined in orange.](/assets/images/help/desktop/checkout-commit.png)
 1. The **{% octicon "git-branch" aria-hidden="true" %} Current Branch** item in the repository bar will now show "Detached HEAD", along with the SHA of the commit that was checked out.
     ![Screenshot of the repository bar. The "Current Branch" item shows a "Detached HEAD" state and is highlighted with an orange outline.](/assets/images/help/desktop/branch-item.png)
-1. To exit the "detached HEAD" state you will need to switch branches. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop#switching-between-branches)."
+1. To exit the "detached HEAD" state you will need to switch branches. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop#switching-between-branches).
 
 ## Troubleshooting
 

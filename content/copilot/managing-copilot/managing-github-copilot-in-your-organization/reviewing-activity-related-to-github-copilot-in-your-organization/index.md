@@ -9,5 +9,4 @@ topics:
 children:
   - /reviewing-user-activity-data-for-copilot-in-your-organization
   - /reviewing-audit-logs-for-copilot-business
-  - /analyzing-usage-over-time-with-the-copilot-metrics-api
 ---

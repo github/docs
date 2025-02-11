@@ -39,9 +39,9 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 1. Download and install Node.js {% ifversion actions-node20-support %}20.x{% else %}16.x{% endif %}, which includes npm.
 
    https://nodejs.org/en/download/
-1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 
-1. Clone your repository to your computer. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+1. Clone your repository to your computer. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
 1. From your terminal, change directories into your new repository.
 
@@ -57,7 +57,7 @@ Before you begin, you'll need to download Node.js and create a public {% data va
 
 ## Creating an action metadata file
 
-Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
+Create a new file named `action.yml` in the `hello-world-javascript-action` directory with the following example code. For more information, see [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 ```yaml copy
 name: 'Hello World'
@@ -126,7 +126,7 @@ try {
 
 {% endraw %}
 
-If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see "[AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions)."
+If an error is thrown in the above `index.js` example, `core.setFailed(error.message);` uses the actions toolkit [`@actions/core`](https://github.com/actions/toolkit/tree/main/packages/core) package to log a message and set a failing exit code. For more information, see [AUTOTITLE](/actions/creating-actions/setting-exit-codes-for-actions).
 
 ## Creating a README
 
@@ -167,13 +167,13 @@ with:
 ```
 ````
 
-## Commit, tag, and push your action to GitHub
+## Commit, tag, and push your action
 
-{% data variables.product.product_name %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
+{% data variables.product.github %} downloads each action run in a workflow during runtime and executes it as a complete package of code before you can use workflow commands like `run` to interact with the runner machine. This means you must include any package dependencies required to run the JavaScript code. You'll need to check in the toolkit `core` and `github` packages to your action's repository.
 
 From your terminal, commit your `action.yml`, `index.js`, `node_modules`, `package.json`, `package-lock.json`, and `README.md` files. If you added a `.gitignore` file that lists `node_modules`, you'll need to remove that line to commit the `node_modules` directory.
 
-It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
+It's best practice to also add a version tag for releases of your action. For more information on versioning your action, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions).
 
 ```shell copy
 git add action.yml index.js node_modules/* package.json package-lock.json README.md
@@ -215,7 +215,7 @@ Checking in your `node_modules` directory can cause problems. As an alternative,
 
 Now you're ready to test your action out in a workflow.
 
-Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)."
+Public actions can be used by workflows in any repository. When an action is in a private{% ifversion ghec or ghes %} or internal{% endif %} repository, the repository settings dictate whether the action is available only within the same repository or also to other repositories owned by the same {% ifversion ghec or ghes %}organization or enterprise{% else %}user or organization{% endif %}. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
 
 {% data reusables.actions.enterprise-marketplace-actions %}
 

@@ -52,7 +52,7 @@ Below is the JSON data that caused the error:
 
 {% data reusables.copilot.example-prompts.response-is-an-example %}
 
-{% data variables.product.prodname_copilot_short %} might suggest that your JSON is invalid because it is missing a closing quote for the `conditions` value. Here is the corrected JSON:
+{% data variables.product.prodname_copilot_short %} might suggest that your JSON is invalid because it's missing a closing quote for the `conditions` value. Here is the corrected JSON:
 
 ```json
 {

@@ -22,11 +22,11 @@ redirect_from:
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
-{% data variables.product.prodname_copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.product.prodname_copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model GPT-4o from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
+{% data variables.product.prodname_copilot_autofix_short %} generates potential fixes that are relevant to the existing source code and translates the description and location of an alert into code changes that may fix the alert. {% data variables.product.prodname_copilot_autofix_short %} uses internal {% data variables.product.prodname_copilot %} APIs interfacing with the large language model GPT 4o from OpenAI, which has sufficient generative capabilities to produce both suggested fixes in code and explanatory text for those fixes.
 
-{% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)."
+{% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 
-In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
+In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 ## Developer experience
 
@@ -38,7 +38,7 @@ After committing a suggested fix or modified fix, the developer should always ve
 
 ## Supported languages for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix_short %} supports fix generation for a subset of queries included in the default and security-extended {% data variables.product.prodname_codeql %} query suites for {% data variables.code-scanning.codeql_autofix_languages %}. For more information on these query suites, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites)."
+{% data variables.product.prodname_copilot_autofix_short %} supports fix generation for a subset of queries included in the default and security-extended {% data variables.product.prodname_codeql %} query suites for {% data variables.code-scanning.codeql_autofix_languages %}. For more information on these query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#built-in-codeql-query-suites).
 
 ## Suggestion generation process
 
@@ -54,7 +54,7 @@ When {% data variables.product.prodname_copilot_autofix_short %} is enabled for 
 
 Any {% data variables.product.prodname_copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
-The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on  {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}."{% else %} in the Free, Pro, & Team documentation.{% endif %}
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
 
 ## Quality of suggestions
 
@@ -90,7 +90,7 @@ However, each project and codebase is unique, so developers may need to edit a l
 
 ## Limitations of suggestions
 
-When you review a suggestion from {% data variables.product.prodname_copilot_autofix_short %}, you must always consider the limitations of AI and edit the changes as needed before you accept the changes. You should also consider updating the CI testing and dependency management for a repository before enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}. For more information, see "[Mitigating the limitations of suggestions](#mitigating-the-limitations-of-suggestions)."
+When you review a suggestion from {% data variables.product.prodname_copilot_autofix_short %}, you must always consider the limitations of AI and edit the changes as needed before you accept the changes. You should also consider updating the CI testing and dependency management for a repository before enabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}. For more information, see [Mitigating the limitations of suggestions](#mitigating-the-limitations-of-suggestions).
 
 ### Limitations of code suggestions
 
@@ -119,7 +119,7 @@ It is important to remember that the author of a pull request retains responsibi
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts-on-a-pull-request)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts)
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)"
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests#working-with-autofix-suggestions-for-alerts-on-a-pull-request)
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#generating-suggested-fixes-for-code-scanning-alerts)
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning)

@@ -39,11 +39,3 @@ The installation requires a few steps:
 1. Paste the path in place of where it says `REPLACE_ME` in line 1 (make sure to leave the single quotes around it).
 1. Change the title to something like `Open in VSC`.
 1. Drag the generated link onto your bookmarks bar.
-
-## Add preview links to PRs
-
-[`src/bookmarklets/add-pr-links.js`](./add-pr-links.js)
-
-This bookmarklet modifies the `Files changed` page of a GitHub pull request that has a current staging deployment. For each Markdown file in the diff view, it adds links to the preview deployment of the file for each version: `FPT / GHEC / GHES / AE`. (Some of these may redirect to another version or 404 if that version of the page doesn't exist.)
-
-Note: readable JavaScript source lives in `src/bookmarklets/pr-link-source.js`. The bookmarklet code was generated via https://chriszarate.github.io/bookmarkleter.

@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
 import { aiSearchProxy } from '../lib/ai-search-proxy'
 import { createRateLimiter } from '#src/shielding/middleware/rate-limit.js'
+import { noCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const router = express.Router()
 if (process.env.NODE_ENV === 'test') {
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === 'test') {
 router.post(
   '/v1',
   catchMiddlewareError(async (req: Request, res: Response) => {
+    noCacheControl(res)
     await aiSearchProxy(req, res)
   }),
 )

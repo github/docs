@@ -1,2 +1,2 @@
 > [!NOTE]
-> This event will only trigger a workflow run if the workflow file is on the default branch.
+> This event will only trigger a workflow run if the workflow file exists on the default branch.

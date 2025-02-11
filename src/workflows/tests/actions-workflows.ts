@@ -7,8 +7,10 @@ import yaml from 'js-yaml'
 import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 
+const githubOwnedActionsRegex =
+  /^(actions\/(cache|checkout|download-artifact|upload-artifact)@v\d+(\.\d+)*)$/
 const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
-const checkoutRegexp = /^[actions/checkout]+@[0-9a-f]{40}$/
+const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/
 
 type WorkflowMeta = {
@@ -27,6 +29,7 @@ const workflowsDir = path.join(__dirname, '../../../.github/workflows')
 const workflows: WorkflowMeta[] = fs
   .readdirSync(workflowsDir)
   .filter((filename) => filename.endsWith('.yml') || filename.endsWith('.yaml'))
+  .filter((filename) => filename !== 'moda-ci.yaml') // Skip moda-ci
   .map((filename) => {
     const fullpath = path.join(workflowsDir, filename)
     const data = yaml.load(fs.readFileSync(fullpath, 'utf8')) as WorkflowMeta['data']
@@ -70,7 +73,9 @@ const dailyWorkflows = scheduledWorkflows.filter(({ data }) =>
 
 describe('GitHub Actions workflows', () => {
   test.each(allUsedActions)('requires specific hash: %p', (actionName) => {
-    expect(actionName).toMatch(actionHashRegexp)
+    const matchesGitHubOwnedActions = githubOwnedActionsRegex.test(actionName)
+    const matchesActionHash = actionHashRegexp.test(actionName)
+    expect(matchesGitHubOwnedActions || matchesActionHash).toBe(true)
   })
 
   test.each(scheduledWorkflows)(

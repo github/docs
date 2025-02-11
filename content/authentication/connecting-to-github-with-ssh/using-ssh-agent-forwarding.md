@@ -19,7 +19,7 @@ shortTitle: SSH agent forwarding
 
 SSH agent forwarding can be used to make deploying to a server simple. It allows you to use your local SSH keys instead of leaving keys (without passphrases!) sitting on your server.
 
-If you've already set up an SSH key to interact with {% data variables.product.product_name %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
+If you've already set up an SSH key to interact with {% data variables.product.github %}, you're probably familiar with `ssh-agent`. It's a program that runs in the background and keeps your key loaded into memory, so that you don't need to enter your passphrase every time you need to use the key. The nifty thing is, you can choose to let servers access your local `ssh-agent` as if they were already running on the server. This is sort of like asking a friend to enter their password so that you can use their computer.
 
 Check out [Steve Friedl's Tech Tips guide][tech-tips] for a more detailed explanation of SSH agent forwarding.
 
@@ -147,15 +147,12 @@ If the command says that no identity is available, you'll need to add your key:
 ssh-add YOUR-KEY
 ```
 
-{% tip %}
-
-On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
-
-```shell
-ssh-add --apple-use-keychain YOUR-KEY
-```
-
-{% endtip %}
+> [!TIP]
+> On macOS, `ssh-agent` will "forget" this key, once it gets restarted during reboots. But you can import your SSH keys into Keychain using this command:
+>
+> ```shell
+> ssh-add --apple-use-keychain YOUR-KEY
+> ```
 
 {% data reusables.ssh.apple-use-keychain %}
 

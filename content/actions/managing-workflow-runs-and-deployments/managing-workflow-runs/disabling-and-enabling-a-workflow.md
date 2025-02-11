@@ -25,7 +25,7 @@ Temporarily disabling a workflow can be useful in many scenarios. These are a fe
 > [!WARNING]
 > {% data reusables.actions.scheduled-workflows-disabled %}
 
-You can also disable and enable a workflow using the REST API. For more information, see "[AUTOTITLE](/rest/actions/workflows)."
+You can also disable and enable a workflow using the REST API. For more information, see [AUTOTITLE](/rest/actions/workflows).
 
 ## Disabling a workflow
 
@@ -36,15 +36,7 @@ You can also disable and enable a workflow using the REST API. For more informat
 1. In the left sidebar, click the workflow you want to disable.
 1. Click {% octicon "kebab-horizontal" aria-label="Show workflow options" %} to display a dropdown menu and click **Disable workflow**.
 
-   {% ifversion workflow-nav-2022 -%}
-   ![Screenshot of a workflow. The "Show workflow options" button, labeled with a horizontal kebab icon, and the "Disable workflow" menu item are outlined in dark orange.](/assets/images/help/repository/actions-disable-workflow-2022.png)
-   {%- else -%}
-   ![Screenshot of a workflow. Features apart from the "Disable workflow" menu item are grayed out.](/assets/images/help/repository/actions-disable-workflow.png)
-
-   The disabled workflow is marked {% octicon "stop" aria-label="The stop icon" %} to indicate its status.
-
-   ![Screenshot showing the actions list. The name of the disabled "Greet Everyone" workflow is prefixed with a stop icon.](/assets/images/help/repository/actions-find-disabled-workflow.png)
-   {%- endif %}
+   ![Screenshot of a workflow. The "Show workflow options" button, shown with a kebab icon, and the "Disable workflow" menu item are outlined in orange.](/assets/images/help/repository/actions-disable-workflow-2022.png)
 
 {% endwebui %}
 
@@ -70,11 +62,8 @@ You can re-enable a workflow that was previously disabled.
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the workflow you want to enable.
 
-   {% ifversion workflow-nav-2022 -%}
    ![Screenshot of the "Actions" page. In the left sidebar, a workflow name is highlighted with an outline in dark orange.](/assets/images/help/repository/actions-select-disabled-workflow-2022.png)
-   {%- else -%}
-   ![Screenshot of the "Actions" page. Features are grayed out apart from one workflow name in the left sidebar.](/assets/images/help/repository/actions-select-disabled-workflow.png)
-   {%- endif %}
+
 1. Click **Enable workflow**.
 
 {% endwebui %}

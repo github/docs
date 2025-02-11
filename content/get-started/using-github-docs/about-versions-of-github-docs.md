@@ -12,7 +12,7 @@ redirect_from:
 
 ## About versions of {% data variables.product.prodname_docs %}
 
-{% data variables.product.company_short %} offers different plans for storing and collaborating on code. The plan you use determines which features are available to you. For more information, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+{% data variables.product.company_short %} offers different plans for storing and collaborating on code. The plan you use determines which features are available to you. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
 This website, {% data variables.product.prodname_docs %}, provides documentation for all of {% data variables.product.company_short %}'s plans. If the content you're reading applies to more than one plan, you can choose the version of the documentation that's relevant to you by selecting the plan you're currently using.
 
@@ -21,7 +21,7 @@ At the top of a page on {% data variables.product.prodname_docs %}, select the d
 ![Screenshot of the header of {% data variables.product.prodname_docs %}. The "Version" dropdown menu is expanded and highlighted with an orange outline.](/assets/images/help/docs/version-picker.png)
 
 > [!NOTE]
-> You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} **{% ifversion fpt %}Free, Pro, & Team{% else %}{% data variables.product.product_name %}{% endif %}** version of this article.
+> You can try changing the version now. You're viewing {% ifversion ghes %}a{% else %}the{% endif %} **{% ifversion fpt %}Free, Pro, & Team{% elsif ghec %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.product.prodname_ghe_server %}{% endif %}** version of this article.
 
 ## Determining which {% data variables.product.company_short %} product you use
 
@@ -40,15 +40,15 @@ In a wide browser window, there is no text that immediately follows the {% data 
 
 {% endif %}
 
-On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+On {% data variables.product.prodname_dotcom_the_website %}, each account has its own plan. Each personal account has an associated plan that provides access to certain features, and each organization has a different associated plan. If your personal account is a member of an organization on {% data variables.product.prodname_dotcom %}, you may have access to different features when you use resources owned by that organization than when you use resources owned by your personal account. For more information, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
-If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization)."
+If you don't know whether an organization uses {% data variables.product.prodname_ghe_cloud %}, ask an organization owner. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/viewing-peoples-roles-in-an-organization).
 
 ### {% data variables.enterprise.data_residency_site %}
 
 If you access {% data variables.product.github %} at a subdomain of {% data variables.enterprise.data_residency_site %}, such as `octocorp.ghe.com`, you're part of an enterprise that uses {% data variables.enterprise.data_residency %}. You should use the "{% data variables.product.prodname_ghe_cloud %}" version of {% data variables.product.prodname_docs %}.
 
-Because you're using a {% data variables.enterprise.prodname_managed_user %}, certain parts of the documentation may not apply to you. See "[AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts)."
+Because you're using a {% data variables.enterprise.prodname_managed_user %}, certain parts of the documentation may not apply to you. See [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 If you see references to "github.com" in the documentation, you may need to substitute these references for your enterprise's subdomain on {% data variables.enterprise.data_residency_site %}. For example, you will make API calls to `https://{% data variables.enterprise.data_residency_api %}`, rather than `https://api.github.com`.
 

@@ -22,11 +22,8 @@ redirect_from:
 
 You can use filters in a security overview to narrow your focus based on a range of factors, like alert risk level, alert type, and feature enablement. Different filters are available depending on the specific view, and whether you are viewing data at the enterprise or organization level.
 
-{% note %}
-
-{% data reusables.security-overview.information-varies-GHAS %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.security-overview.information-varies-GHAS %}
 
 ## Filter logic for security overview
 
@@ -68,8 +65,8 @@ These qualifiers are available in all views.
 
 | Qualifier | Description |
 |--------|--------|
-| `team` | Display data for all repositories that the specified team has {% ifversion security-overview-team-write-access -%} write access or {% endif -%} admin access to. For more information on repository roles, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)". |
-| `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)." |
+| `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). |
+| `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). |
 
 {% ifversion security-overview-repository-properties %}
 
@@ -78,7 +75,7 @@ These qualifiers are available in all views.
 > [!NOTE]
 > Repository properties are in {% data variables.release-phases.public_preview %} and subject to change.
 
-Custom repository properties are metadata that organization owners can add to repositories in an organization, providing a way to group repositories by the information you are interested in. For example, you can add custom repository properties for compliance frameworks or data sensitivity. For more information on adding custom repository properties, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization)."
+Custom repository properties are metadata that organization owners can add to repositories in an organization, providing a way to group repositories by the information you are interested in. For example, you can add custom repository properties for compliance frameworks or data sensitivity. For more information on adding custom repository properties, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
 If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are available in both the organization-level and enterprise-level views.
 
@@ -100,7 +97,7 @@ In enterprise-level views, you can limit the data to repositories owned by a sin
 |  {% endif %} |
 | `org` | Display data for repositories owned by one organization. | {% data variables.product.prodname_dependabot_alerts %} and {% data variables.product.prodname_code_scanning %} alerts |
 
-{% elsif security-overview-org-risk-coverage-enterprise %}
+{% else %}
 
 In enterprise-level views, you can limit the data to repositories owned by a single organization in your enterprise. Use the `org` qualifier to display data for repositories owned by one organization.
 
@@ -129,21 +126,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
 | `secret-scanning-push-protection` | Display data for repositories where push protection for {% data variables.product.prodname_secret_scanning %} is enabled or not enabled. |
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}{% else %}
-
-## Repository risk-level filtering
-
-The level of risk for a repository is determined by the number and severity of alerts from security features. You can filter on the level of risk using the `risk` qualifier.
-
-* The level of risk can be one of `high`, `medium`, or `low`.
-* If one or more security features are not enabled for a repository, the repository has an `unknown` level of risk.
-* If all security features are enabled and no alerts are report, the repository has a `clear` level of risk.
-
-{% endif %}
-
 ## Alert number filters
 
-{% ifversion security-overview-org-risk-coverage-enterprise %}In the "Risk" view, you can filter repositories by the number of alerts they have of a specific type.{% else %}These qualifiers are available in the enterprise-level "Overview" and in the organization-level "Security risk" view.{% endif %}
+In the "Risk" view, you can filter repositories by the number of alerts they have of a specific type.
 
 | Qualifier | Description |
 | -------- | -------- |
@@ -191,7 +176,7 @@ You can filter the view to show {% data variables.product.prodname_dependabot_al
 | Qualifier | Description |
 | -------- | -------- |
 |`ecosystem`|Display {% data variables.product.prodname_dependabot_alerts %} detected in a specified ecosystem, for example: `ecosystem:Maven`.|
-|`has`| Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions)."|
+|`has`| Display {% data variables.product.prodname_dependabot_alerts %} for vulnerabilities where either a secure version is already available (`patch`) or where at least one call from the repository to a vulnerable function is detected (`vulnerable-calls`). For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#about-the-detection-of-calls-to-vulnerable-functions).|
 |`is`|Display {% data variables.product.prodname_dependabot_alerts %} that are open (`open`) or closed (`closed`).|
 |`package`|Display {% data variables.product.prodname_dependabot_alerts %} detected in the specified package, for example: `package:semver`.|
 |`resolution`| Display {% data variables.product.prodname_dependabot_alerts %} closed as "auto-dismissed" (`auto-dismissed`), "a fix has already been started" (`fix-started`), "fixed" (`fixed`), "this alert is inaccurate or incorrect" (`inaccurate`), "no bandwidth to fix this" (`no-bandwidth`), "vulnerable code is not actually used" (`not-used`), or "risk is tolerable to this project" (`tolerable-risk`).|
