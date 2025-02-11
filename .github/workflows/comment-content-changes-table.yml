@@ -1,6 +1,6 @@
 name: Content Changes Table Comment
 
-# **What it does**: When a PR is opened in docs-internal or docs, it adds the staging preview and live article links in a Content Directory Changes table in a comment
+# **What it does**: When a PR is opened in docs-internal or docs, it adds the staging review and live article links in a Content Directory Changes table in a comment
 # **Why we have it**: To help Docs Content team members and contributors automatically have their staging/live article links added to the table
 # **Who does it impact**: docs-internal/docs maintainers and contributors
 
@@ -89,22 +89,30 @@ jobs:
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           body: |
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
-            ## 👓 Previews for changed content
-            **This comment is 🤖 automatically generated and will be overwritten every time changes are committed to this branch.**
+            ### 👓 How to review these changes
 
-            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the review server. Please note that changes to the `data` directory will not show up in this table.
+            Thank you for your contribution. To review these changes, you can:
 
-            :bangbang: You can also preview changes [using Codespaces](https://github.com/github/docs-engineering/blob/main/docs/team-practices/use-a-codespace-to-review.md) or by [spinning up a local environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment). Please continue to [let us know](https://github.com/github/docs-team/discussions/4889) if you have trouble with the review server and use one of those options to preview your changes.
+            1. [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
+            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
+            1. Message \`#docs-engineering\` on Slack for a staging server.
 
-            ---
+            <details><summary>Table of review links</summary>
 
-            ### Content directory changes
-            _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
+            > [!WARNING]
+            > Our review server is experiencing latency issues.
+
+            The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table. If you have issues with the review server, please [let us know](https://github.com/github/docs-team/discussions/4889) and use one of the other options to review your changes.
+
             ${{ steps.changes.outputs.changesTable }}
 
             ---
             Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server
             _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/comment-content-changes-table.yml) workflow._
+
+            </details>
+
+            🤖 This comment is automatically generated.
           edit-mode: replace
 
       - name: Update comment on docs public
@@ -115,20 +123,29 @@ jobs:
           issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
           body: |
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
-            ## 👓 Previews for changed content
-            **This comment is 🤖 automatically generated and will be overwritten every time changes are committed to this branch.**
+            ### 👓 How to review these changes
 
-            The table contains an overview of files in the `content` directory that have been changed in this pull request. It's provided to make it easy to review your changes on the review server. Please note that changes to the `data` directory will not show up in this table.
+            Thank you for your contribution. To review these changes, you can:
 
-            :bangbang: You can also preview changes [using Codespaces](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace) or by [spinning up a local environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment). If you have trouble with the review server, use one of those options to preview your changes.
+            1. [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
+            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
 
-            ---
+            A Hubber will need to deploy your changes internally to review.
 
-            ### Content directory changes
-            _You may find it useful to copy this table into the pull request summary. There you can edit it to share links to important articles or changes and to give a high-level overview of how the changes in your pull request support the overall goals of the pull request._
+            <details><summary>Table of review links</summary>
+
+            > [!WARNING]
+            > Our review server is experiencing latency issues.
+
+            The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table.
+
             ${{ steps.changes.outputs.changesTable }}
 
             ---
             Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server
             _This table is posted from the [${{ github.workflow }}](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/comment-content-changes-table.yml) workflow._
+
+            </details>
+
+            🤖 This comment is automatically generated.
           edit-mode: replace

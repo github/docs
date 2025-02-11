@@ -1,7 +1,7 @@
 name: Code changes comment
 
-# **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and preview the changes.
-# **Why we have it**: To help Docs contributors understand how to preview their changes.
+# **What it does**: When a PR is opened in docs-internal or docs containing code, it comments with instructions on how to deploy and review the changes.
+# **Why we have it**: To help Docs contributors understand how to review their changes.
 # **Who does it impact**: docs-internal and docs maintainers and contributors
 
 on:
@@ -49,22 +49,29 @@ jobs:
         run: |
           if [[ "${{ github.repository }}" == "github/docs" ]]; then
             COMMENT_BODY="<!-- CODE_CHANGES_COMMENT -->
-            ## 🚀 Manual Deployment Required
+            ### 👓 How to review these changes
 
-            It looks like this pull request contains code changes. To preview these changes, an internal Hubber will need to manually deploy the changes to one of our staging servers.
+            Thank you for your contribution. To review these changes, you can:
 
-            Thank you for your contribution!"
+            1. [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
+            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
+
+            This pull request contains code changes, so we will not generate a table of review links. A Hubber will need to deploy your changes internally to review.
+
+            🤖 This comment is automatically generated."
           else
             COMMENT_BODY="<!-- CODE_CHANGES_COMMENT -->
-            ## 🚀 Manual Deployment Required
+            ### 👓 How to review these changes
 
-            It looks like this pull request contains code changes. To preview these changes, please do one of:
+            Thank you for your contribution. To review these changes, you can:
 
-            1. [Set up a local development environment](https://github.com/github/docs/blob/main/contributing/development.md).
-            1. [Spin up a codespace to review](https://github.com/github/docs-engineering/blob/main/docs/team-practices/use-a-codespace-to-review.md).
+            1. [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
+            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
             1. Message \`#docs-engineering\` on Slack for a staging server.
 
-            Thank you for your contribution!"
+            This pull request contains code changes, so we will not generate a table of review links.
+
+            🤖 This comment is automatically generated."
           fi
 
           gh pr comment ${{ github.event.pull_request.number }} --body "$COMMENT_BODY"

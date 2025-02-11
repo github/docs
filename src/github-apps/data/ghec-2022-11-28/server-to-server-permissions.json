@@ -919,6 +919,28 @@
       },
       {
         "category": "orgs",
+        "slug": "get-organization-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-organization-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
         "slug": "list-security-manager-teams",
         "subcategory": "security-managers",
         "verb": "get",
@@ -5071,6 +5093,28 @@
         "subcategory": "rules",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "get-repository-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "get-repository-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
