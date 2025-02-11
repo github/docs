@@ -4,7 +4,7 @@
 
 {% elsif ghes %}
 
-Site administrators can control the retention policy for checks data on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-applications#enabling-retention-policy-for-checks)."
+Site administrators can control the retention policy for checks data on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-applications#enabling-retention-policy-for-checks).
 
 {% endif %}
 

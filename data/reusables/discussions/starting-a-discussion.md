@@ -3,7 +3,7 @@
 1. On the right side of the page, click **New discussion**.
 1. Select a discussion category by clicking **Get started**.
 
-   ![Screenshot of the "Select a discussion category" page.  A button, labeled "Get started", is outlined in dark orange.](/assets/images/help/discussions/new-discussion-select-category-dropdown-menu.png)
+   ![Screenshot of the "Select a discussion category" page. A button, labeled "Get started", is outlined in dark orange.](/assets/images/help/discussions/new-discussion-select-category-dropdown-menu.png)
 
 1. Under "Discussion title", type a title for your discussion, and under "Write", type the body of your discussion.
 

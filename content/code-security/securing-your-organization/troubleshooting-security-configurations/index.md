@@ -11,4 +11,5 @@ topics:
 children:
   - /a-repository-is-using-advanced-setup-for-code-scanning
   - /not-enough-github-advanced-security-licenses
+  - /feature-disappears
 ---

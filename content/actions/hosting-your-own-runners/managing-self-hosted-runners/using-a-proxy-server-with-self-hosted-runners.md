@@ -1,6 +1,6 @@
 ---
 title: Using a proxy server with self-hosted runners
-intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.product_name %}.'
+intro: 'You can configure self-hosted runners to use a proxy server to communicate with {% data variables.product.github %}.'
 redirect_from:
   - /actions/automating-your-workflow-with-github-actions/using-a-proxy-server-with-self-hosted-runners
   - /actions/hosting-your-own-runners/using-a-proxy-server-with-self-hosted-runners
@@ -11,7 +11,7 @@ versions:
 type: tutorial
 shortTitle: Proxy servers
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Configuring a proxy server using environment variables
@@ -53,4 +53,4 @@ no_proxy=example.com,myserver.local:443
 
 If you use Docker container actions or service containers in your workflows, you might also need to configure Docker to use your proxy server in addition to setting the above environment variables.
 
-For information on the required Docker configuration, see "[Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/)" in the Docker documentation.
+For information on the required Docker configuration, see [Configure Docker to use a proxy server](https://docs.docker.com/network/proxy/) in the Docker documentation.

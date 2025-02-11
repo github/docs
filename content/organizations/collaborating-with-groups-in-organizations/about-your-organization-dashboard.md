@@ -32,7 +32,7 @@ In the left sidebar of your dashboard, you can access your organization's top re
 
 In the "All activity" section of your news feed, you can view updates from other teams and repositories in your organization.
 
-The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)" and "[AUTOTITLE](/get-started/exploring-projects-on-github/following-people)."
+The "All activity" section shows all recent activity in the organization, including activity in repositories you're not subscribed to and of people you're not following. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications) and [AUTOTITLE](/get-started/exploring-projects-on-github/following-people).
 
 For instance, the organization news feed shows updates when someone in the organization:
 * Creates a new branch.
@@ -45,4 +45,4 @@ For instance, the organization news feed shows updates when someone in the organ
 
 ## Further information
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)

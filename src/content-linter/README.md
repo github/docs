@@ -1,6 +1,6 @@
 # Content Linter
 
-For an overview of what the content linter is and how to use it, see "[Using the content linter](/content/contributing/collaborating-on-github-docs/using-the-content-linter.md)."
+For an overview of what the content linter is and how to use it, see [Using the content linter](/content/contributing/collaborating-on-github-docs/using-the-content-linter.md).
 
 This README shows you how to contribute to the content linter code by adding new rules, modifying existing rules, or updating the scripts used to run the content linter.
 
@@ -162,7 +162,7 @@ Severity can be set to either `error` or `warning`. A severity of `warning` is n
 
 Ideally, all rules will be set to `error` severity. However, there may be cases when too many violations exist in the content to fix or disable them all. In these cases we can temporarily set a rule to `warning`, and then update the rule to `error` severity after all cases have been fixed or disabled. However, there may be a case at some point where we need to keep a rule set to `warning` indefinitely.
 
-For more info, see "[Updating content to adhere to a new rule](#updating-content-to-adhere-to-a-new-rule)."
+For more info, see [Updating content to adhere to a new rule](#updating-content-to-adhere-to-a-new-rule).
 
 ### `partial-markdown-files`
 

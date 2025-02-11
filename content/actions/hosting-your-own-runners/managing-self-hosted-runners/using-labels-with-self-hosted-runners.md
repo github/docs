@@ -13,7 +13,7 @@ shortTitle: Label runners
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-For information on how to use labels to route jobs to specific types of self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow)." {% ifversion target-runner-groups %}You can also route jobs to runners in a specific group. For more information, see "[AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group)."{% endif %}
+For information on how to use labels to route jobs to specific types of self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/using-self-hosted-runners-in-a-workflow). You can also route jobs to runners in a specific group. For more information, see [AUTOTITLE](/actions/using-jobs/choosing-the-runner-for-a-job#targeting-runners-in-a-group).
 
 {% data reusables.actions.self-hosted-runner-management-permissions-required %}
 
@@ -119,7 +119,7 @@ You can remove custom labels from self-hosted runners at the repository{% ifvers
 
 You can programmatically assign labels to a self-hosted runner after the runner is created, or during its initial configuration.
 
-* To programmatically assign labels to an existing self-hosted runner, you must use the REST API. For more information, see "[AUTOTITLE](/rest/actions/self-hosted-runners)."
+* To programmatically assign labels to an existing self-hosted runner, you must use the REST API. For more information, see [AUTOTITLE](/rest/actions/self-hosted-runners).
 * To programmatically assign labels to a self-hosted runner during the initial runner configuration, you can pass label names to the `config` script using the `labels` parameter.
 
   > [!NOTE]

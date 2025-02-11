@@ -44,7 +44,7 @@ It now returns an empty list of machine learning models.
 
 ### Primary Options
 
-#### `<querysuite|pack>...`
+#### `<query|dir|suite|pack>...`
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:

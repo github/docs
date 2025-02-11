@@ -13,7 +13,7 @@ type: how_to
 Links that use the word `AUTOTITLE` in the Markdown become the
 title of the document it links to.
 
-For example "[AUTOTITLE](/get-started/start-your-journey/hello-world)."
+For example [AUTOTITLE](/get-started/start-your-journey/hello-world).
 
 It should also work if the URL as a query string, like this:
 [AUTOTITLE](/get-started/start-your-journey/hello-world?tool=linux)

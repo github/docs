@@ -14,7 +14,7 @@ import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
-import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import { readCompressedJsonFile } from '@/frame/lib/read-json-file.js'
 
 const router = express.Router()

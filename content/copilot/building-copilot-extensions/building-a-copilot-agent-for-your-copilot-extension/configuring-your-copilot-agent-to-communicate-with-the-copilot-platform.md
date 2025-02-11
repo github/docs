@@ -10,7 +10,7 @@ type: reference
 layout: inline
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_agents_short %} communicate with the {% data variables.product.prodname_copilot_short %} platform in the form of server-sent events (SSEs). Rather than waiting for the {% data variables.product.prodname_copilot_short %} platform to request an update from your agent, or vice versa, you can use SSEs to send and receive updates to and from the platform in real time.
 
@@ -151,4 +151,4 @@ curl --request POST \
 
 ## Next steps
 
-Now that you understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform, you can learn how to integrate your agent with the {% data variables.product.github %} API. See "[AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github)."
+Now that you understand how your {% data variables.product.prodname_copilot_agent_short %} communicates with the {% data variables.product.prodname_copilot_short %} platform, you can learn how to integrate your agent with the {% data variables.product.github %} API. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github).

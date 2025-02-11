@@ -19,7 +19,7 @@ sections:
     - |
       On an instance in a cluster configuration with high availability replication enabled, Git operations for existing repositories would fail after failover to the replica cluster.
     - |
-      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover. The `ghe-cluster-failover` command has been updated to block access from the old cluster, and four new command-line utilities have been introduced to manually block IP addresses: `ghe-cluster-block-ips`, `ghe-cluster-block-ip`, `ghe-cluster-unblock-ips`, and `ghe-cluster-unblock-ip`. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover)." [Updated: 2024-05-01]
+      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover. The `ghe-cluster-failover` command has been updated to block access from the old cluster, and four new command-line utilities have been introduced to manually block IP addresses: `ghe-cluster-block-ips`, `ghe-cluster-block-ip`, `ghe-cluster-unblock-ips`, and `ghe-cluster-unblock-ip`. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-failover). [Updated: 2024-05-01]
     - |
       A Redis job had a memory limit that was too low in some cases, leading the process to run out of memory.
     - |
@@ -57,7 +57,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |

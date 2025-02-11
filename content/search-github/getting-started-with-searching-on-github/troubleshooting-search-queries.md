@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting search queries
-intro: 'If you encounter unexpected results while searching on {% data variables.product.product_name %}, you can troubleshoot by reviewing common problems and limitations.'
+intro: 'If you encounter unexpected results while searching on {% data variables.product.github %}, you can troubleshoot by reviewing common problems and limitations.'
 redirect_from:
   - /articles/troubleshooting-search-queries
   - /github/searching-for-information-on-github/troubleshooting-search-queries
@@ -21,13 +21,13 @@ Reaching a timeout does not necessarily mean that search results are incomplete.
 
 ## Limitations on query length
 
-There are some limits to the length of the queries when searching across {% data variables.product.product_name %}:
+There are some limits to the length of the queries when searching across {% data variables.product.github %}:
 
 * Queries longer than 256 characters are not supported
 * You can't construct a query using more than five `AND`, `OR`, or `NOT` operators
 
-Specific search types, such as code search, might have additional limitations. Check the documentation for these search types for more information. {% ifversion code-search-upgrade %} For more information on code search limitations specifically, see "[AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations)."{% endif %}
+Specific search types, such as code search, might have additional limitations. Check the documentation for these search types for more information. {% ifversion code-search-upgrade %} For more information on code search limitations specifically, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations).{% endif %}
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)"
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)

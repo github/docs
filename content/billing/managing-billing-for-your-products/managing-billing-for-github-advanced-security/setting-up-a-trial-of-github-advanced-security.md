@@ -21,19 +21,21 @@ shortTitle: Set up an Advanced Security trial
 
 ## About {% data variables.product.prodname_GH_advanced_security %}
 
-{% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)."
+{% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
 
-{% data reusables.advanced-security.ghas-trial-availability %}
+There are a few ways to trial {% data variables.product.prodname_GH_advanced_security %}:
 
-{% data reusables.advanced-security.ghas-trial-invoiced %}
+* If you are **an existing {% data variables.product.prodname_ghe_cloud %} customer** paying by credit card or PayPal, and you have not yet purchased {% data variables.product.prodname_GH_advanced_security %} or participated in a trial, you can start a trial of {% data variables.product.prodname_GH_advanced_security %} at any time. For more information, see [Setting up your trial of {% data variables.product.prodname_GH_advanced_security %}](#setting-up-your-trial-of-github-advanced-security).
+* If you are **a new {% data variables.product.prodname_ghe_cloud %} customer**, you can start a trial of {% data variables.product.prodname_ghe_cloud %}, which includes {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
+* {% ifversion ghec %}If you **pay by invoice**, contact {% data variables.contact.contact_enterprise_sales %} to discuss trialing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.{% endif %}
 
-During a trial, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations. The standard length of the trial is 30 days. If you're taking part in a free trial of {% data variables.product.prodname_ghe_cloud %}, the trial of {% data variables.product.prodname_GH_advanced_security %} will last for the time you have remaining on your trial of {% data variables.product.prodname_ghe_cloud %}.
+During a trial of {% data variables.product.prodname_GH_advanced_security %} in a {% data variables.product.prodname_ghe_cloud %} account with a paid subscription, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations. During a trial of {% data variables.product.prodname_ghe_cloud %}, you can enable {% data variables.product.prodname_GH_advanced_security %} for your whole enterprise.
 
 ## Prerequisites
 
-To set up a trial of {% data variables.product.prodname_GH_advanced_security %}, you must be an owner of an enterprise account. For more information, see "[AUTOTITLE](/admin/overview/about-enterprise-accounts)" and "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners)."
+To set up a trial of {% data variables.product.prodname_GH_advanced_security %}, you must be an owner of an enterprise account. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts) and [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-owners).
 
 ## Setting up your trial of {% data variables.product.prodname_GH_advanced_security %}
 
@@ -61,6 +63,6 @@ If you pay for {% data variables.product.prodname_ghe_cloud %} with usage-based 
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
-* "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)"
-* "[AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)"
+* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
+* [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale)
+* [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)

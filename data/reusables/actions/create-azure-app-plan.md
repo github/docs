@@ -13,5 +13,5 @@
 
    See the Azure documentation for more information on using the [Azure CLI](https://docs.microsoft.com/cli/azure/):
 
-   * For authentication, see "[Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli)."
-   * If you need to create a new resource group, see "[az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create)."
+   * For authentication, see [Sign in with Azure CLI](https://docs.microsoft.com/cli/azure/authenticate-azure-cli).
+   * If you need to create a new resource group, see [az group](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az_group_create).

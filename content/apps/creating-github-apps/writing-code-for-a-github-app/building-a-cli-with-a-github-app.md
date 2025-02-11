@@ -34,15 +34,15 @@ This tutorial uses Ruby, but you can write a CLI and use the device flow to gene
 
 The CLI will use the device flow to authenticate a user and generate a user access token. Then, the CLI can use the user access token to make API requests on behalf of the authenticated user.
 
-Your app should use a user access token if you want to attribute the app's actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
+Your app should use a user access token if you want to attribute the app's actions to a user. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).
 
-There are two ways to generate a user access token for a {% data variables.product.prodname_github_app %}: web application flow and device flow. You should use the device flow to generate a user access token if your app is headless or does not have access to a web interface. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. If your app has access to a web interface, you should use web application flow instead. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app)" and "[AUTOTITLE](/apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app)."
+There are two ways to generate a user access token for a {% data variables.product.prodname_github_app %}: web application flow and device flow. You should use the device flow to generate a user access token if your app is headless or does not have access to a web interface. For example, CLI tools, simple Raspberry Pis, and desktop applications should use the device flow. If your app has access to a web interface, you should use web application flow instead. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/guides/using-the-web-application-flow-to-generate-a-user-access-token-for-a-github-app).
 
 ## Prerequisites
 
-This tutorial assumes that you have already registered a {% data variables.product.prodname_github_app %}. For more information about registering a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app)."
+This tutorial assumes that you have already registered a {% data variables.product.prodname_github_app %}. For more information about registering a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/creating-a-github-app).
 
-Before following this tutorial, you must enable device flow for your app. For more information about enabling device flow for your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
+Before following this tutorial, you must enable device flow for your app. For more information about enabling device flow for your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app).
 
 This tutorial assumes that you have a basic understanding of Ruby. For more information, see [Ruby](https://www.ruby-lang.org).
 
@@ -57,7 +57,7 @@ You will need your app's client ID in order to generate a user access token via 
 
 ## Write the CLI
 
-These steps lead you through building a CLI and using device flow to get a user access token. To skip ahead to the final code, see "[Full code example](#full-code-example)."
+These steps lead you through building a CLI and using device flow to get a user access token. To skip ahead to the final code, see [Full code example](#full-code-example).
 
 ### Setup
 
@@ -214,9 +214,9 @@ These steps lead you through building a CLI and using device flow to get a user 
 
 ### Add a `login` command
 
-The `login` command will run the device flow to get a user access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token)."
+The `login` command will run the device flow to get a user access token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-device-flow-to-generate-a-user-access-token).
 
-1. Near the top of your file, after the `require` statements, add the `CLIENT_ID` of your {% data variables.product.prodname_github_app %} as a constant in `app_cli.rb`. For more information about finding your app's client ID, see "[Get the client ID](#get-the-client-id)." Replace `YOUR_CLIENT_ID` with the client ID of your app:
+1. Near the top of your file, after the `require` statements, add the `CLIENT_ID` of your {% data variables.product.prodname_github_app %} as a constant in `app_cli.rb`. For more information about finding your app's client ID, see [Get the client ID](#get-the-client-id). Replace `YOUR_CLIENT_ID` with the client ID of your app:
 
    ```ruby copy
    CLIENT_ID="YOUR_CLIENT_ID"
@@ -559,7 +559,7 @@ Now that your app can generate a user access token, you can make API requests on
    end
    ```
 
-1. Check your code against the full code example in the next section. You can test your code by following the steps outlined in the "[Testing](#testing)" section below the full code example.
+1. Check your code against the full code example in the next section. You can test your code by following the steps outlined in the [Testing](#testing) section below the full code example.
 
 ## Full code example
 
@@ -747,7 +747,7 @@ This tutorial assumes that your app code is stored in a file named `app_cli.rb`.
 
 ### Adjust the code to meet your app's needs
 
-This tutorial demonstrated how to write a CLI that uses the device flow to generate a user access token. You can expand this CLI to accept additional commands. For example, you can add a `create-issue` command that opens an issue. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app)."
+This tutorial demonstrated how to write a CLI that uses the device flow to generate a user access token. You can expand this CLI to accept additional commands. For example, you can add a `create-issue` command that opens an issue. Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/choosing-permissions-for-a-github-app).
 
 ### Securely store tokens
 
@@ -755,8 +755,8 @@ This tutorial generates a user access token and saves it in a local file. You sh
 
 Depending on your device, you may choose different ways to store the token. You should check the best practices for storing tokens on your device.
 
-For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).

@@ -1,22 +1,6 @@
-You'll need to add the following IP ranges to your IP allow list(s):
+You must allow:
 
-* 192.30.252.0/22
-* 185.199.108.0/22
-* 140.82.112.0/20
-* 143.55.64.0/20
-* 2a0a:a440::/29
-* 2606:50c0::/32
-* 4.231.155.80/29
-* 4.225.9.96/29
-* 51.12.144.32/29
-* 20.199.1.232/29
-* 51.12.152.184/29
-* 20.199.6.80/29
-* 51.12.152.240/29
-* 20.19.101.136/29
-* 51.12.252.16/28
-* 74.241.131.48/28
-* 20.240.211.176/28
-* 108.143.221.96/28
-* 20.61.46.32/28
-* 20.224.62.160/28
+* Ranges required for everyone
+* Additional ranges that depend on your data residency region
+
+For the ranges to add, see [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/network-details-for-ghecom#ip-ranges-for-github-enterprise-importer).

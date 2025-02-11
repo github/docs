@@ -30,11 +30,11 @@ You can choose from [several different URLs](/get-started/getting-started-with-g
 
 {% ifversion global-nav-update %}
 
-  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
+  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
 
 {% else %}
 
-  ![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
+  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
 
 {% endif %}
 
@@ -60,7 +60,7 @@ $ git fetch REMOTE-NAME
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+Otherwise, you can always add a new remote and then fetch. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
 
 ## Merging changes into your local branch
 
@@ -91,4 +91,4 @@ to take the branch back to where it was in before you pulled.
 ## Further reading
 
 * ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
-* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems){% endif %}

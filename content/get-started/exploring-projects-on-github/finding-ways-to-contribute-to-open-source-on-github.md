@@ -20,11 +20,13 @@ shortTitle: Contribute to open source
 ---
 ## Discovering relevant projects
 
-If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic)."
+If there's a particular topic that interests you, visit `github.com/topics/<topic>`. For example, if you are interested in machine learning, you can find relevant projects and good first issues by visiting https://github.com/topics/machine-learning. You can browse popular topics by visiting [Topics](https://github.com/topics). You can also search for repositories that match a topic you're interested in. See [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-topic).
+
+If you're interested in contributing to projects that **reduce the carbon emissions of software**, review [{% data variables.product.github %}'s Green Software Directory](https://github.com/github/GreenSoftwareDirectory).
 
 If you've been active on {% data variables.product.prodname_dotcom %}, you can find personalized recommendations for projects and good first issues based on your past contributions, stars, and other activities in [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore).
 
-Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard)."
+Keep up with recent activity from repositories you watch, as well as people and organizations you follow, with your personal dashboard. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard).
 
 {% data reusables.support.ask-and-answer-forum %}
 
@@ -54,5 +56,5 @@ You can contribute to an open source project by adding additional information to
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)

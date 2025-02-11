@@ -1,4 +1,4 @@
-1. At the top of the team page, click {% octicon "organization" aria-hidden="true" %} **Members**.
+1. At the top of the team page, click **{% octicon "organization" aria-hidden="true" %} Members**.
 
 {% ifversion global-nav-update %}
 

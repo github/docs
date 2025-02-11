@@ -19,7 +19,7 @@ Here are some quick links to get you up and running with the GraphQL API:
 * [Rate limits](/graphql/overview/resource-limitations)
 * [Migrating from REST](/graphql/guides/migrating-from-rest-to-graphql)
 
-For more information about {% data variables.product.company_short %}'s APIs, see "[AUTOTITLE](/rest/overview/about-githubs-apis)."
+For more information about {% data variables.product.company_short %}'s APIs, see [AUTOTITLE](/rest/overview/about-githubs-apis).
 
 ## About GraphQL
 

@@ -17,7 +17,7 @@ redirect_from:
 
 Organizations can use an invoice method to participate in the {% data variables.product.prodname_sponsors %} program.
 
-When an organization pays by invoice, they will not be charged the 3% credit card processing fee that applies to sponsorships from organization accounts. The 3% {% data variables.product.company_short %} service processing fee still applies to invoiced billing. For more information about sponsorship fees, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsorship-fees)."
+When an organization pays by invoice, they will not be charged the 3% credit card processing fee that applies to sponsorships from organization accounts. The 3% {% data variables.product.company_short %} service processing fee still applies to invoiced billing. For more information about sponsorship fees, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsorship-fees).
 
 Organizations paying by invoice are invoiced separately for their {% data variables.product.prodname_sponsors %} payments and their other payments to {% data variables.product.company_short %}. Organizations can be invoiced for sponsorships and pay via credit card for other payments to {% data variables.product.company_short %}.
 
@@ -35,11 +35,8 @@ Once the organization reaches the yearly minimum spend, they can opt out of bein
 
 If your organization currently pays for {% data variables.product.prodname_sponsors %} by credit card, you can switch to paying by invoice. Switching to paying by invoice will not affect the billing schedule for other {% data variables.product.company_short %} products like {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}.
 
-{% note %}
-
-**Note:** Changing your payment method to invoiced billing will cancel your current sponsorships and your current sponsored projects will receive a cancellation email. You will need to set up your sponsorships again after switching to paying by invoice. You can view your recently canceled sponsorships in your past sponsorships list. Additionally, {% data variables.product.prodname_dotcom %} will email you a list of your active sponsorships prior to switching to invoiced billing. You can re-sponsor projects by importing that list into the bulk sponsorship tool. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsoring-accounts-in-bulk)."
-
-{% endnote %}
+> [!NOTE]
+> Changing your payment method to invoiced billing will cancel your current sponsorships and your current sponsored projects will receive a cancellation email. You will need to set up your sponsorships again after switching to paying by invoice. You can view your recently canceled sponsorships in your past sponsorships list. Additionally, {% data variables.product.github %} will email you a list of your active sponsorships prior to switching to invoiced billing. You can re-sponsor projects by importing that list into the bulk sponsorship tool. For more information, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor#sponsoring-accounts-in-bulk).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -68,7 +65,7 @@ Click on the invoice amount to view and pay the invoice. The invoice will also b
 
 ## Paying for {% data variables.product.prodname_sponsors %} by invoice
 
-Once you have paid the invoice, you can use your balance to sponsor accounts. The process for sponsoring accounts is the same as for organizations paying by credit card. The only difference is that you will see "Invoice balance" listed as the payment method. For more information, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+Once you have paid the invoice, you can use your balance to sponsor accounts. The process for sponsoring accounts is the same as for organizations paying by credit card. The only difference is that you will see "Invoice balance" listed as the payment method. For more information, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor).
 
 ## Viewing your {% data variables.product.company_short %} Invoiced Sponsor Agreement
 
@@ -76,9 +73,9 @@ You can view your {% data variables.product.company_short %} Invoiced Sponsor Ag
 
 1. Navigate to the organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click {% octicon "graph" aria-label="The graph icon" %} **Insights**.
+1. In the sidebar, click **{% octicon "graph" aria-hidden="true" %} Insights**.
 1. Under your balance, click **{% data variables.product.company_short %} Invoiced Sponsor Agreement** to view the agreement.
 
 ## Understanding your {% data variables.product.prodname_sponsors %} invoice
 
-Payments to {% data variables.product.prodname_sponsors %} are invoiced through Stripe. Organizations will receive an invoice by email from Stripe, Inc. This invoice is separate from the one you receive for {% data variables.product.product_name %} services, and may have a different payment date.
+Payments to {% data variables.product.prodname_sponsors %} are invoiced through Stripe. Organizations will receive an invoice by email from Stripe, Inc. This invoice is separate from the one you receive for {% data variables.product.github %} services, and may have a different payment date.

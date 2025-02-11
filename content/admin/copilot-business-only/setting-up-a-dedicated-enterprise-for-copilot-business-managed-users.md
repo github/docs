@@ -16,11 +16,11 @@ redirect_from:
 
 You can use an enterprise account to manage licenses for {% data variables.product.prodname_copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
 
-This article describes the setup for an **enterprise with managed users**. If you haven't chosen an enterprise type, see "[AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business)."
+This article describes the setup for an **enterprise with managed users**. If you haven't chosen an enterprise type, see [AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
 
 ## Prerequisites
 
-* To provision users, you must connect the enterprise account to an identity management system. {% data variables.product.company_short %} partners with some developers of identity management systems to provide a "paved-path" integration with {% data variables.product.prodname_emus %}. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. See "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+* To provision users, you must connect the enterprise account to an identity management system. {% data variables.product.company_short %} partners with some developers of identity management systems to provide a "paved-path" integration with {% data variables.product.prodname_emus %}. Alternatively, you can use any system, or combination of systems, that conforms to SAML 2.0 and SCIM 2.0. However, support for resolving problems with these systems may be limited. See [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
 {% data reusables.copilot-business-for-non-ghe.prerequisites %}
 
 ## Requesting an enterprise account
@@ -38,24 +38,24 @@ To provision user accounts through your IdP, you'll need to **configure your IdP
 ### Step 1: Configure authentication
 
 To manage single sign-on (SSO) for users, you must connect your IdP to your enterprise account. You can use:
-* **SAML** with Entra ID, Okta, or PingFederate. For instructions, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users)."
-* **OIDC** with Entra ID. For instructions, see "[AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users)."
+* **SAML** with Entra ID, Okta, or PingFederate. For instructions, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users).
+* **OIDC** with Entra ID. For instructions, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/configuring-oidc-for-enterprise-managed-users).
 
 ### Step 2: Configure SCIM provisioning
 
-To provision accounts from your IdP, you must configure SCIM provisioning. For instructions, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users)."
+To provision accounts from your IdP, you must configure SCIM provisioning. For instructions, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
 
 If you want to manage membership of teams from your IdP, you must assign the relevant identity groups to the {% data variables.product.prodname_emu_idp_application %} application on your IdP.
 
 ### Step 3: Assign an enterprise owner
 
-After you configure authentication and provisioning with your IdP, grant one or more users the enterprise owner role. Enterprise owners can enable {% data variables.product.prodname_copilot_short %} for the enterprise and manage which users receive licenses. For instructions, see "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups)."
+After you configure authentication and provisioning with your IdP, grant one or more users the enterprise owner role. Enterprise owners can enable {% data variables.product.prodname_copilot_short %} for the enterprise and manage which users receive licenses. For instructions, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users#assigning-users-and-groups).
 
 You can also grant the billing manager role. A billing manager can view the assigned licenses for an enterprise, but cannot assign licenses or manage enterprise teams.
 
-## Linking an Azure subscription
+## Adding a payment method
 
-{% data reusables.copilot-business-for-non-ghe.link-azure-subscription %}
+{% data reusables.copilot-business-for-non-ghe.add-payment-method %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for the enterprise
 
@@ -84,7 +84,7 @@ The same user can be a member of multiple teams. You will only be charged once p
 1. Add users to the team:
 
    * If you linked the team to an IdP group, add users to the related group in your IdP.
-   * If you are managing team membership directly, on the team page, click **Add a member**, then search for and select the user. For information about how {% data variables.product.company_short %} generates usernames for users provisioned from an IdP, see "[AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication#about-usernames-for-managed-user-accounts)."
+   * If you are managing team membership directly, on the team page, click **Add a member**, then search for and select the user. For information about how {% data variables.product.company_short %} generates usernames for users provisioned from an IdP, see [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication#about-usernames-for-managed-user-accounts).
 
 ### Assigning licenses to a team
 

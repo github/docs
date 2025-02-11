@@ -91,13 +91,13 @@ jobs:
           branchname=codeql-cli-update-${{ steps.semmle-code.outputs.OPENAPI_COMMIT_SHA }}
 
           branchCheckout=$(git checkout -b $branchname)
-          if [[! $? -eq 0 ]]; then
+          if [[ ! $? -eq 0 ]]; then
             echo "Branch $branchname already exists in `github/docs-internal`. Exiting..."
             exit 0
           fi
           git add .
           git commit -m "Update CodeQL CLI data"
-          git push origin $branchname
+          git push -u origin $branchname
 
           echo "Creating pull request..."
           gh pr create \
@@ -109,3 +109,9 @@ jobs:
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
             --label "codeql-cli-pipeline,skip FR board,ready-for-doc-review"
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

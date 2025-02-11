@@ -22,6 +22,8 @@ You are responsible for using the Service in compliance with all applicable laws
 
 We do not allow content or activity on GitHub that:
 
+<!-- markdownlint-disable GHD034 -->
+
 * is unlawful or promotes unlawful activities;
 
 * is [sexually obscene](/site-policy/acceptable-use-policies/github-sexually-obscene-content) or relates to sexual exploitation or abuse, including of minors;
@@ -74,6 +76,8 @@ We do not allow content or activity on GitHub that:
 * directly supports [unlawful active attack or malware campaigns](/site-policy/acceptable-use-policies/github-active-malware-or-exploits) that are causing technical harms — such as using our platform to deliver malicious executables or as attack infrastructure, for example by organizing denial of service attacks or managing command and control servers — with no implicit or explicit dual-use purpose prior to the abuse occurring; or
 * uses our servers to disrupt or to attempt to disrupt, or to gain or to attempt to gain unauthorized access to, any service, device, data, account or network. Please note, activities permitted under bug bounty programs, such as the [GitHub Bug Bounty program](https://bounty.github.com), are not considered “unauthorized,” but must only affect the organization whose bug bounty program authorized the activity.
 
+<!-- markdownlint-enable GHD034 -->
+
 ## 6. Services Usage Limits
 
 You will not reproduce, duplicate, copy, sell, resell or exploit any portion of the Service, use of the Service, or access to the Service without our express written permission.
@@ -99,7 +103,7 @@ Any person, entity, or service collecting data from the Service must comply with
 
 ## 9. Excessive Bandwidth Use
 
-The Service's bandwidth limitations vary based on the features you use. If we determine your bandwidth usage to be significantly excessive in relation to other users of similar features, we reserve the right to suspend your Account, throttle your file hosting, or otherwise limit your activity until you can reduce your bandwidth consumption. We also reserve the right—after providing advance notice—to delete repositories that we determine to be placing undue strain on our infrastructure. For guidance on acceptable use of object storage in repositories, refer to "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github)". For more details on specific features' bandwidth limitations, see the [GitHub Additional Product Terms](/site-policy/github-terms/github-terms-for-additional-products-and-features).
+The Service's bandwidth limitations vary based on the features you use. If we determine your bandwidth usage to be significantly excessive in relation to other users of similar features, we reserve the right to suspend your Account, throttle your file hosting, or otherwise limit your activity until you can reduce your bandwidth consumption. We also reserve the right—after providing advance notice—to delete repositories that we determine to be placing undue strain on our infrastructure. For guidance on acceptable use of object storage in repositories, refer to [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-large-files-on-github). For more details on specific features' bandwidth limitations, see the [GitHub Additional Product Terms](/site-policy/github-terms/github-terms-for-additional-products-and-features).
 
 ## 10. Advertising on GitHub
 

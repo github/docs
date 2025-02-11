@@ -14,5 +14,6 @@ children:
   - /editing-a-custom-security-configuration
   - /managing-your-github-advanced-security-license-usage
   - /detaching-repositories-from-their-security-configurations
+  - /finding-repositories-with-attachment-failures
   - /deleting-a-custom-security-configuration
 ---

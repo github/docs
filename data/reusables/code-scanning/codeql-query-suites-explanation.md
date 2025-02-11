@@ -2,7 +2,7 @@ The following query suites are built into {% data variables.product.prodname_cod
 
 {% data reusables.code-scanning.codeql-query-suites %}
 
-Each of these query suites contains a different subset of the queries included in the built-in {% data variables.product.prodname_codeql %} query pack for that language. The query suites are automatically generated using the metadata for each query. For more information, see "[Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/)."
+Each of these query suites contains a different subset of the queries included in the built-in {% data variables.product.prodname_codeql %} query pack for that language. The query suites are automatically generated using the metadata for each query. For more information, see [Metadata for CodeQL queries](https://codeql.github.com/docs/writing-codeql-queries/metadata-for-codeql-queries/).
 
 <!--See lists of query tables linked in the reusable above.-->
 

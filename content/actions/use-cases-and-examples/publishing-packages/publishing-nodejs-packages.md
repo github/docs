@@ -27,32 +27,32 @@ This guide shows you how to create a workflow that publishes Node.js packages to
 
 ## Prerequisites
 
-We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+We recommend that you have a basic understanding of workflow configuration options and how to create a workflow file. For more information, see [AUTOTITLE](/actions/learn-github-actions).
 
-For more information about creating a CI workflow for your Node.js project, see "[AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-nodejs)."
+For more information about creating a CI workflow for your Node.js project, see [AUTOTITLE](/actions/automating-builds-and-tests/building-and-testing-nodejs).
 
 You may also find it helpful to have a basic understanding of the following:
 
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)"
-* "[AUTOTITLE](/actions/learn-github-actions/variables)"
-* "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)"
-* "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)"
+* [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)
+* [AUTOTITLE](/actions/learn-github-actions/variables)
+* [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)
+* [AUTOTITLE](/actions/security-guides/automatic-token-authentication)
 
 ## About package configuration
 
- The `name` and `version` fields in the `package.json` file create a unique identifier that registries use to link your package to a registry. You can add a summary for the package listing page by including a `description` field in the `package.json` file. For more information, see "[Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file)" and "[Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)" in the npm documentation.
+ The `name` and `version` fields in the `package.json` file create a unique identifier that registries use to link your package to a registry. You can add a summary for the package listing page by including a `description` field in the `package.json` file. For more information, see [Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file) and [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules) in the npm documentation.
 
 When a local `.npmrc` file exists and has a `registry` value specified, the `npm publish` command uses the registry configured in the `.npmrc` file. {% data reusables.actions.setup-node-intro %}
 
 You can specify the Node.js version installed on the runner using the `setup-node` action.
 
-If you add steps in your workflow to configure the `publishConfig` fields in your `package.json` file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see "[publishConfig](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#publishconfig)" in the npm documentation.
+If you add steps in your workflow to configure the `publishConfig` fields in your `package.json` file, you don't need to specify the registry-url using the `setup-node` action, but you will be limited to publishing the package to one registry. For more information, see [publishConfig](https://docs.npmjs.com/cli/v9/configuring-npm/package-json#publishconfig) in the npm documentation.
 
 ## Publishing packages to the npm registry
 
-You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to the npm registry. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to the npm registry. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release).
 
-To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+To perform authenticated operations against the npm registry in your workflow, you'll need to store your npm authentication token as a secret. For example, create a repository secret called `NPM_TOKEN`. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 By default, npm uses the `name` field of the `package.json` file to determine the name of your published package. When publishing to a global namespace, you only need to include the package name. For example, you would publish a package named `my-package` to `https://www.npmjs.com/package/my-package`.
 
@@ -98,7 +98,7 @@ Please note that you need to set the `registry-url` to `https://registry.npmjs.o
 
 ## Publishing packages to {% data variables.product.prodname_registry %}
 
-You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to {% data variables.product.prodname_registry %}. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release)."
+You can trigger a workflow to publish your package every time you publish a new release. The process in the following example is executed when the release event of type `published` is triggered. If the CI tests pass, the process uploads the package to {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository#creating-a-release).
 
 ### Configuring the destination repository
 
@@ -119,7 +119,7 @@ If you do provide the `repository` key in your `package.json` file, then the rep
 
 To perform authenticated operations against the {% data variables.product.prodname_registry %} registry in your workflow, you can use the `GITHUB_TOKEN`. {% data reusables.actions.github-token-permissions %}
 
-If you want to publish your package to a different repository, you must use a {% data variables.product.pat_v1 %} that has permission to write to packages in the destination repository. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+If you want to publish your package to a different repository, you must use a {% data variables.product.pat_v1 %} that has permission to write to packages in the destination repository. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ### Example workflow
 

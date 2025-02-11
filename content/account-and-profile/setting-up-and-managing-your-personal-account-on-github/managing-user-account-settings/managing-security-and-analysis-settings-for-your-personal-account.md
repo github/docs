@@ -18,24 +18,24 @@ shortTitle: Manage security & analysis
 
 {% data variables.product.prodname_dotcom %} can help secure your repositories. This topic tells you how you can manage the security and analysis features for all your existing or new repositories.
 
-You can still manage the security and analysis features for individual repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository)."
+You can still manage the security and analysis features for individual repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
-You can also review the security log for all activity on your personal account. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log)."
+You can also review the security log for all activity on your personal account. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/reviewing-your-security-log).
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
-For an overview of repository-level security, see "[AUTOTITLE](/code-security/getting-started/securing-your-repository)."
+For an overview of repository-level security, see [AUTOTITLE](/code-security/getting-started/securing-your-repository).
 
 ## Enabling or disabling features for existing repositories
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all**.
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of the feature, click **Disable all** or **Enable all**.
 1. Optionally, enable the feature by default for new repositories that you own.{% ifversion not ghes %}
 
-   ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option highlighted with a dark orange outline.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
+   ![Screenshot of the "Enable FEATURE" modal dialog, with the "Enable by default for new private repositories" option outlined in dark orange.](/assets/images/help/settings/security-and-analysis-enable-by-default-in-modal.png){% endif %}
 
 1. Click **Disable FEATURE** or **Enable FEATURE** to disable or enable the feature for all the repositories you own.
 
@@ -45,10 +45,10 @@ For an overview of repository-level security, see "[AUTOTITLE](/code-security/ge
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security-analysis %}
-1. Under "Code security and analysis", to the right of the feature, enable or disable the feature by default for new repositories that you own.
+1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of the feature, enable or disable the feature by default for new repositories that you own.
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
-* "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)"
-* "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates)"
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
+* [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
+* [AUTOTITLE](/code-security/dependabot/dependabot-version-updates)

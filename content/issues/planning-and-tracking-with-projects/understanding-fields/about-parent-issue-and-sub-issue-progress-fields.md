@@ -11,7 +11,7 @@ topics:
 
 If your organization uses sub-issues, you can enable the "Parent issue" and "Sub-issue progress" fields on your projects to see the relationships between your issues and the progress made on those issues.
 
-The "Parent issue" field can be used to group items, allowing you to create views that break down your work using the sub-issue hierarchies you have created. For more about grouping views, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#grouping-by-field-values-in-table-layout)."
+The "Parent issue" field can be used to group items, allowing you to create views that break down your work using the sub-issue hierarchies you have created. For more about grouping views, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#grouping-by-field-values-in-table-layout).
 
 You can also filter by the "Parent issue" field to only display items that are sub-issues of a particular issue. You can start by typing "parent-issue" and then selecting an issue from the list. Or, if you know the repository and issue number, you can type the filter in full:
 
@@ -19,7 +19,7 @@ You can also filter by the "Parent issue" field to only display items that are s
 parent-issue:"<OWNER>/<REPO>#<ISSUE NUMBER>"
 ```
 
-To use the filter, replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. See "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+To use the filter, replace `<OWNER>` with the repository owner, `<REPO>` with the repository name, and `<ISSUE NUMBER>` with the issue number. See [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
 ## Enabling the Parent issue field
 

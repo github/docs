@@ -141,7 +141,7 @@
   },
   "3.11": {
     "releaseDate": "2023-11-14",
-    "deprecationDate": "2024-12-05"
+    "deprecationDate": "2024-12-19"
   },
   "3.12": {
     "releaseDate": "2024-02-13",
@@ -157,7 +157,7 @@
   },
   "3.15": {
     "releaseDate": "2024-11-12",
-    "deprecationDate": "2025-11-19"
+    "deprecationDate": "2025-12-19"
   },
   "3.16": {
     "releaseDate": "2025-02-18",

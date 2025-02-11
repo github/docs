@@ -17,7 +17,7 @@ shortTitle: Attribute sponsorships
 
 1. Navigate to the organization whose sponsorships you want to attribute to another organization.
 {% data reusables.organizations.navigate-to-sponsoring %}
-1. In the sidebar, click {% octicon "gear" aria-hidden="true" %} **Settings**.
+1. In the sidebar, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 
    ![Screenshot of the sponsorship overview page for @octo-org. A sidebar tab, labeled "Settings," is outlined in dark orange.](/assets/images/help/sponsors/sponsoring-settings-tab.png)
 

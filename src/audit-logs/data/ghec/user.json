@@ -670,6 +670,11 @@
     "docs_reference_links": "/apps/using-github-apps/reviewing-your-authorized-integrations"
   },
   {
+    "action": "oauth_authorization.update",
+    "description": "An authorization for an OAuth application was updated.",
+    "docs_reference_links": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
+  },
+  {
     "action": "org.add_member",
     "description": "A user joined an organization.",
     "docs_reference_links": "N/A"

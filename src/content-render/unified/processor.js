@@ -29,6 +29,7 @@ import annotate from './annotate.js'
 import alerts from './alerts.js'
 import replaceDomain from './replace-domain.js'
 import removeHtmlComments from 'remark-remove-comments'
+import remarkStringify from 'remark-stringify'
 
 export function createProcessor(context) {
   return (
@@ -77,6 +78,10 @@ export function createProcessor(context) {
       .use(html)
     // String below vvv
   )
+}
+
+export function createMarkdownOnlyProcessor(context) {
+  return unified().use(remarkParse).use(gfm).use(remarkStringify)
 }
 
 export function createMinimalProcessor(context) {

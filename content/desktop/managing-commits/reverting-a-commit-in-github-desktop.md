@@ -20,4 +20,4 @@ When you revert to a previous commit, the revert is also a commit. The original 
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)

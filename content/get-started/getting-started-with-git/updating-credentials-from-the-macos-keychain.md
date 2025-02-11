@@ -1,6 +1,6 @@
 ---
 title: Updating credentials from the macOS Keychain
-intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or {% data variables.product.pat_generic %} on {% data variables.product.product_name %}.'
+intro: 'You''ll need to update your saved credentials in the `git-credential-osxkeychain` helper if you change your username, password, or {% data variables.product.pat_generic %} on {% data variables.product.github %}.'
 redirect_from:
   - /articles/updating-credentials-from-the-osx-keychain
   - /github/using-git/updating-credentials-from-the-osx-keychain
@@ -51,4 +51,4 @@ If it's successful, nothing will print out. To test that it works, try and clone
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)"
+* [AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)

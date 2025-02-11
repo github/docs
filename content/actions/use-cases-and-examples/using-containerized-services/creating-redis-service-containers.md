@@ -31,8 +31,8 @@ This guide shows you workflow examples that configure a service container using 
 
 You may also find it helpful to have a basic understanding of YAML, the syntax for {% data variables.product.prodname_actions %}, and Redis. For more information, see:
 
-* "[AUTOTITLE](/actions/learn-github-actions)"
-* "[Getting Started with Redis](https://redislabs.com/get-started-with-redis/)" in the Redis documentation
+* [AUTOTITLE](/actions/learn-github-actions)
+* [Getting Started with Redis](https://redislabs.com/get-started-with-redis/) in the Redis documentation
 
 ## Running jobs in containers
 
@@ -208,7 +208,7 @@ jobs:
 
 {% data reusables.actions.redis-label-description %}
 
-The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports)."
+The workflow maps port 6379 on the Redis service container to the Docker host. For more information about the `ports` keyword, see [AUTOTITLE](/actions/using-containerized-services/about-service-containers#mapping-docker-host-and-service-container-ports).
 
 ```yaml copy
 jobs:

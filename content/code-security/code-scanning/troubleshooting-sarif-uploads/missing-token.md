@@ -33,4 +33,4 @@ You could see this error for SARIF files created using any tool and uploaded usi
 
 ## Fixing the problem
 
-Create a new {% data variables.product.pat_generic %} or {% data variables.product.prodname_github_app %} with the correct permission. For more information see, "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)", or "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)" and  "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app)."
+Create a new {% data variables.product.pat_generic %} or {% data variables.product.prodname_github_app %} with the correct permission. For more information see, [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens), or [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app).

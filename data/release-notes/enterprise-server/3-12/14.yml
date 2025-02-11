@@ -1,0 +1,50 @@
+date: '2025-01-21'
+sections:
+  security_fixes:
+    - |
+      **HIGH:** An attacker could forge a SAML response to provision and/or gain access to an account with administrator privileges for GitHub Enterprise Server instances that use SAML single sign-on authentication. Instances not utilizing SAML single sign-on or where the attacker is not already an existing user are not impacted. Exploitation of this vulnerability would allow for signature spoofing by improper validation. GitHub has requested CVE ID [CVE-2025-23369](https://www.cve.org/cverecord?id=CVE-2025-23369) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Restore failed silently on incremental MySQL backups.
+    - |
+      On an instance with GitHub Actions enabled, a configuration run could hang if the blob storage was inaccessible.
+    - |
+      After an initial reboot, the appliance sometimes altered the ownership permissions of `gitmon` directories. As a result, the Management Console could hang at the "Starting" phase.
+    - |
+      Repository archive exports failed when the archive was more than 5 GiB.
+    - |
+      `ghe-migrator` imports could fail due to attachments with invalid model types.
+  changes:
+    - |
+      To avoid service disruption, the bundled action `actions/setup-dotnet` uses new .NET CDN URLs. See https://github.com/dotnet/core/issues/9671.
+    - |
+      To avoid unnecessary error messages when users attempt to create a ruleset in evaluate mode in a repository that is user owned, we removed the evaluate mode option on the ruleset.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      The `reply.[hostname]` subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**. When regenerating the certificates with management console, the `subdomain reply.[hostname]` is missing from the ssl certification.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature "[Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks)" in the management console.

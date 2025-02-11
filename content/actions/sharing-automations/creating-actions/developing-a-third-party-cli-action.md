@@ -21,14 +21,14 @@ Your action should:
 * Make it simple for users to specify the version of the CLI to install
 * Support multiple operating systems
 * Run in an efficient fashion to minimize run-time and associated costs
-* Work across {% data variables.product.product_name %}-hosted and self-hosted runners
+* Work across {% data variables.product.github %}-hosted and self-hosted runners
 * Leverage community tooling when possible
 
 This article will demonstrate how to write an action that retrieves a specific version of your CLI, installs it, adds it to the path, and (optionally) caches it. This type of action (an action that sets up a tool) is often named `setup-$TOOL`.
 
 ## Prerequisites
 
-You should have an understanding of how to write a custom action. For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions)". For a more detailed guide on how to write a custom action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
+You should have an understanding of how to write a custom action. For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions). For a more detailed guide on how to write a custom action, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
 
 ## Example
 
@@ -61,7 +61,7 @@ module.exports = setup
 
 {% endraw %}
 
-To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action)."
+To use this script, replace `getDownloadURL` with a function that downloads your CLI. You will also need to create an actions metadata file (`action.yml`) that accepts a `version` input and that runs this script. For full details about how to create an action, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action).
 
 ## Further reading
 

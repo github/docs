@@ -1,7 +1,7 @@
 ---
 title: Managing GitHub Actions for your enterprise
 allowTitleToDifferFromFilename: true
-intro: 'Enable {% data variables.product.prodname_actions %} on {% data variables.product.product_name %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
+intro: 'Enable {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_server %}, and manage {% data variables.product.prodname_actions %} policies and settings.'
 redirect_from:
   - /enterprise/admin/github-actions
   - /admin/github-actions

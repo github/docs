@@ -14,4 +14,4 @@ versions:
 
 Some tools, like {% data variables.product.prodname_importer_proper_name %} migrate the current state of your code, all of the code's history, plus your settings and collaboration history, such as issues and pull requests. Other tools migrate only your code and its history, or even the code alone.
 
-To determine the best tool for your migration and learn how to make your migration successful, see "[AUTOTITLE](/migrations/overview/planning-your-migration-to-github)."
+To determine the best tool for your migration and learn how to make your migration successful, see [AUTOTITLE](/migrations/overview/planning-your-migration-to-github).

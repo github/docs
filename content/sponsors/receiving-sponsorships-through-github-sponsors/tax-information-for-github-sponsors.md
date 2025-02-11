@@ -28,7 +28,7 @@ If you are a taxpayer in the United States, you must submit a [W-9](https://www.
 
 W-8 BEN and W-8 BEN-E tax forms help {% data variables.product.prodname_dotcom %} determine the beneficial owner of an amount subject to withholding.
 
-If you are a taxpayer in any other region besides the United States, you must submit a [W-8 BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf) (individual) or [W-8 BEN-E](https://www.irs.gov/forms-pubs/about-form-w-8-ben-e) (company) form before you can publish your {% data variables.product.prodname_sponsors %} profile. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account#submitting-your-tax-information)" and "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information)." Stripe will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
+If you are a taxpayer in any other region besides the United States, you must submit a [W-8 BEN](https://www.irs.gov/pub/irs-pdf/fw8ben.pdf) (individual) or [W-8 BEN-E](https://www.irs.gov/forms-pubs/about-form-w-8-ben-e) (company) form before you can publish your {% data variables.product.prodname_sponsors %} profile. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account#submitting-your-tax-information) and [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization#submitting-your-tax-information). Stripe will send you the appropriate forms, notify you when they are due, and give you a reasonable amount of time to complete and send in the forms.
 
 If you have been assigned an incorrect tax form, you can contact Stripe to get reassigned the correct one for your situation. For more information, see [Contact Us](https://support.stripe.com/contact/email?topic=connect) on the Stripe Support site.
 
@@ -40,12 +40,10 @@ If you are not a U.S. citizen or other U.S. person, including a resident alien i
 
 If your country of residence or billing country is India, then you can use your Permanent Account Number (PAN) as your tax identification number.
 
-{% note %}
-
-**Note:** If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".
-
-Guidance from the IRS states that you should not write "not applicable." For more information, see "[Instructions for Form W-8BEN, Line 6](https://www.irs.gov/instructions/iw8ben#idm139867098922656)" on the IRS website.
-{% endnote %}
+> [!NOTE]
+> If your country does not require citizens to have a tax number issued by the government, then you can instead write "not legally required".
+>
+> Guidance from the IRS states that you should not write "not applicable." For more information, see [Instructions for Form W-8BEN, Line 6](https://www.irs.gov/instructions/iw8ben#idm139867098922656) on the IRS website.
 
 The IRS allows non-resident and resident aliens to request an [Individual Taxpayer Identification Number](https://www.irs.gov/individuals/international-taxpayers/taxpayer-identification-numbers-tin#itin) or ITIN. It is unlikely that this is necessary for maintainers receiving income through {% data variables.product.prodname_sponsors %}, but read the full [instructions](https://www.irs.gov/pub/irs-pdf/iw8ben.pdf) to determine your individual circumstances.
 
@@ -73,4 +71,4 @@ In the EU and most other countries and regions, B2C sales are subject to sales t
 
 ## Further reading
 
-* "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)"
+* [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/viewing-your-sponsors-and-sponsorships)

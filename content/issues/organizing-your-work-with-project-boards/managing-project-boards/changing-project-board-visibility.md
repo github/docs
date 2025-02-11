@@ -16,14 +16,9 @@ allowTitleToDifferFromFilename: true
 
 {% data reusables.project-management.project-board-visibility %}
 
-{% note %}
-
-**{% ifversion classic-project-visibility-permissions %}Notes{% else %}Note{% endif %}:** {% ifversion classic-project-visibility-permissions %}
-
-* {% data reusables.projects.owners-can-limit-visibility-permissions %}
-* {% endif %}When you make your {% data variables.projects.projects_v1_board %} public, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see "[AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.projects.owners-can-limit-visibility-permissions %}
+> * When you make your {% data variables.projects.projects_v1_board %} public, organization members are given read access by default. You can give specific organization members write or admin permissions by giving access to teams they're on or by adding them to the {% data variables.projects.projects_v1_board %} as a collaborator. For more information, see [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization).
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to make public or private.
 {% data reusables.project-management.click-menu %}

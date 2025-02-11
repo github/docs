@@ -14,7 +14,7 @@ redirect_from:
 
 You can use an enterprise account to manage licenses for {% data variables.product.prodname_copilot_for_business %}, without adopting {% data variables.product.prodname_enterprise %}.
 
-This article describes the setup for an **enterprise with personal accounts**. If you haven't chosen an enterprise type, see "[AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business)."
+This article describes the setup for an **enterprise with personal accounts**. If you haven't chosen an enterprise type, see [AUTOTITLE](/admin/copilot-business-only/about-enterprise-accounts-for-copilot-business).
 
 ## Prerequisites
 
@@ -36,17 +36,17 @@ After you invite someone to join the enterprise account, they must accept the em
 
 ### Inviting an enterprise owner
 
-You can also invite a user as an enterprise owner. Enterprise owners can grant access to {% data variables.product.prodname_copilot %} and set policies for the enterprise. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account)."
+You can also invite a user as an enterprise owner. Enterprise owners can grant access to {% data variables.product.prodname_copilot %} and set policies for the enterprise. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#inviting-an-enterprise-administrator-to-your-enterprise-account).
 
 You can also invite a user as a billing manager. A billing manager can view the assigned licenses for an enterprise, but cannot assign licenses or manage enterprise teams.
 
 ### Configuring SAML authentication
 
-You can configure SAML single sign-on to require users to authenticate to an external identity management system in addition to their personal account. See "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise)."
+You can configure SAML single sign-on to require users to authenticate to an external identity management system in addition to their personal account. See [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
-## Linking an Azure subscription
+## Adding a payment method
 
-{% data reusables.copilot-business-for-non-ghe.link-azure-subscription %}
+{% data reusables.copilot-business-for-non-ghe.add-payment-method %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for the enterprise
 

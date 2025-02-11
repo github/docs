@@ -1,5 +1,5 @@
 {% data reusables.profile.access_profile %}
-1. On your profile, click {% octicon "table" aria-hidden="true" %} **Projects**.
+1. On your profile, click **{% octicon "table" aria-hidden="true" %} Projects**.
 
    ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 
@@ -16,6 +16,6 @@
 
    ![Screenshot showing the template selection modal. The title field is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-select-template-title.png)
 
-1. Click a {% ifversion projects-v2-org-templates %}built-in template, a template from your organization{% else %}template{% endif %} or, to start with an empty project, click **Table**, **Roadmap**, or **Board**.
+1. Click a built-in template, a template from your organization or, to start with an empty project, click **Table**, **Roadmap**, or **Board**.
 1. Click **Create**.
 {%- endif %}

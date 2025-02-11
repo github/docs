@@ -1,0 +1,41 @@
+name: Reviewers - Content Systems
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    paths:
+      - 'contributing/content-*.md'
+      - 'content/contributing/**.md'
+      - .github/workflows/reviewers-content-systems.yml
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: read
+
+jobs:
+  reviewers-content-systems:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'reviewers-content-systems') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.pull_request.html_url }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Add content systems as a reviewer
+        run: |
+          labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')
+          if ! echo "$labels" | grep -q 'reviewers-content-systems'; then
+            gh pr edit $PR --add-reviewer github/docs-content-systems
+            gh pr edit $PR --add-label reviewers-content-systems
+          fi

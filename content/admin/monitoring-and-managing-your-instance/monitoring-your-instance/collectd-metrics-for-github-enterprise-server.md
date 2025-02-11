@@ -17,13 +17,13 @@ redirect_from:
 
 ## About `collectd` metrics
 
-By default, `collectd` on {% data variables.location.product_location %} gathers metrics related to the instance's performance. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance)."
+By default, `collectd` on {% data variables.location.product_location %} gathers metrics related to the instance's performance. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/configuring-collectd-for-your-instance).
 
 You can learn more about the type of data that `collectd` gathers, and you can download a CSV file that contains a full list of metrics.
 
 ## Metrics gathered by `collectd` plugins
 
-Plugins provide metrics to `collectd`. You can learn about each plugin available on {% data variables.location.product_location %}, and you can review documentation about the plugin. To review a full list of metrics for a {% data variables.product.product_name %} instance, see the [CSV file with `collectd` metrics](/assets/ghes-collectd-metrics.csv).
+Plugins provide metrics to `collectd`. You can learn about each plugin available on {% data variables.location.product_location %}, and you can review documentation about the plugin. To review a full list of metrics for a {% data variables.product.prodname_ghe_server %} instance, see the [CSV file with `collectd` metrics](/assets/ghes-collectd-metrics.csv).
 
 | Plugin | Metrics gathered | More information |
 | :- | :- | :- |

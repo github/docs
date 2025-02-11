@@ -12,3 +12,6 @@ gist_starred: >-
 
 gist_user_starred: >-
   {% ifversion fpt or ghec %}`https://gist.github.com/YOUR_USERNAME/starred`{% else %}`http(s)://[hostname]/gist/YOUR_USERNAME/starred` or `http(s)://gist.[hostname]/YOUR_USERNAME/starred` if subdomains are enabled{% endif %}
+
+gist_user: >-
+  {% ifversion fpt or ghec %}`https://gist.github.com/YOUR_USERNAME`{% else %}`http(s)://[hostname]/gist/YOUR_USERNAME` or `http(s)://gist.[hostname]/YOUR_USERNAME` if subdomains are enabled{% endif %}

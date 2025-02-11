@@ -30,7 +30,7 @@ The obligations in this Section 2 won’t apply to information that you can prov
 
 ## C. Reservation of Rights
 
-All Confidential Information remains the sole and exclusive property of GitHub.  Neither party acquires any intellectual property rights under this Agreement, unless expressly specified herein.
+All Confidential Information remains the sole and exclusive property of GitHub. Neither party acquires any intellectual property rights under this Agreement, unless expressly specified herein.
 
 ## D. Privacy
 

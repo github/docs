@@ -26,7 +26,7 @@ Many workflow triggers are useful for automating project management.
 * A comment is added to an issue.
 * A scheduled time.
 
-For a full list of events that can trigger workflows, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+For a full list of events that can trigger workflows, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).
 
 ## What can workflows do?
 
@@ -34,9 +34,9 @@ Workflows can do many things, such as commenting on an issue, adding or removing
 
 You can learn about using {% data variables.product.prodname_actions %} for project management by following these tutorials, which include example workflows that you can adapt to meet your needs.
 
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/adding-labels-to-issues)"{%- ifversion projects-v1 %}
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column)"
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards)"{% endif %}
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added)"
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/closing-inactive-issues)"
-* "[AUTOTITLE](/actions/managing-issues-and-pull-requests/scheduling-issue-creation)"
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/adding-labels-to-issues){%- ifversion projects-v1 %}
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/removing-a-label-when-a-card-is-added-to-a-project-board-column)
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/moving-assigned-issues-on-project-boards){% endif %}
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added)
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/closing-inactive-issues)
+* [AUTOTITLE](/actions/managing-issues-and-pull-requests/scheduling-issue-creation)

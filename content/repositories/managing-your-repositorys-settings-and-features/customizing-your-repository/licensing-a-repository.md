@@ -19,15 +19,12 @@ We created [choosealicense.com](https://choosealicense.com), to help you underst
 
 You're under no obligation to choose a license. However, without a license, the default copyright laws apply, meaning that you retain all rights to your source code and no one may reproduce, distribute, or create derivative works from your work. If you're creating an open source project, we strongly encourage you to include an open source license. The [Open Source Guide](https://opensource.guide/legal/#which-open-source-license-is-appropriate-for-my-project) provides additional guidance on choosing the correct license for your project.
 
-{% note %}
-
-**Note:** If you publish your source code in a public repository on {% data variables.product.product_name %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
-
-{% endnote %}
+> [!NOTE]
+> If you publish your source code in a public repository on {% data variables.product.github %}, {% ifversion fpt or ghec %}according to the [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service), {% endif %}other users of {% data variables.location.product_location %} have the right to view and fork your repository. If you have already created a repository and no longer want users to have access to the repository, you can make the repository private. When you change the visibility of a repository to private, existing forks or local copies created by other users will still exist. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
 
 ## Determining the location of your license
 
-Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/github/hubot/blob/master/LICENSE.md).
+Most people place their license text in a file named `LICENSE.txt` (or `LICENSE.md` or `LICENSE.rst`) in the root of the repository; [here's an example from Hubot](https://github.com/hubotio/hubot/blob/main/LICENSE.md).
 
 Some projects include information about their license in their README. For example, a project's README may include a note saying "This project is licensed under the terms of the MIT license."
 
@@ -76,11 +73,11 @@ License | License keyword
 | The Unlicense | `Unlicense` |
 | zLib License | `Zlib` |
 
-When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-license)."
+When you search by a family license, your results will include all licenses in that family. For example, when you use the query `license:gpl`, your results will include repositories licensed under GNU General Public License v2.0 and GNU General Public License v3.0. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-by-license).
 
 ## Detecting a license
 
-[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's _LICENSE_ file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/licenses) and [gives us insight into how repositories on {% data variables.product.product_name %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
+[The open source Ruby gem Licensee](https://github.com/licensee/licensee) compares the repository's _LICENSE_ file to a short list of known licenses. Licensee also provides the [Licenses API](/rest/licenses) and [gives us insight into how repositories on {% data variables.product.github %} are licensed](https://github.com/blog/1964-open-source-license-usage-on-github-com). If your repository is using a license that isn't listed on the [Choose a License website](https://choosealicense.com/appendix/), you can [request including the license](https://github.com/github/choosealicense.com/blob/gh-pages/CONTRIBUTING.md#adding-a-license).
 
 If your repository is using a license that is listed on the Choose a License website and it's not displaying clearly at the top of the repository page, it may contain multiple licenses or other complexity. To have your license detected, simplify your _LICENSE_ file and note the complexity somewhere else, such as your repository's _README_ file.
 
@@ -92,7 +89,7 @@ The license picker is only available when you create a new project on GitHub.
 ![Screenshot the "Choose a license" section of the new repository page, including a dropdown menu labeled "License."](/assets/images/help/repository/repository-license-picker.png)
 {% endif %}
 
-You can manually add a license using the browser. For more information on adding a license to a repository, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository)."
+You can manually add a license using the browser. For more information on adding a license to a repository, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository).
 
 ## Disclaimer
 
@@ -100,5 +97,5 @@ The goal of GitHub's open source licensing efforts is to provide a starting poin
 
 ## Further reading
 
-* The Open Source Guides' section "[The Legal Side of Open Source](https://opensource.guide/legal/)"{% ifversion fpt or ghec %}
+* The Open Source Guides' section [The Legal Side of Open Source](https://opensource.guide/legal/){% ifversion fpt or ghec %}
 * [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

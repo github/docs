@@ -1,0 +1,1 @@
+If you're using a {% data variables.product.prodname_copilot_short %} subscription for a {% data variables.enterprise.prodname_managed_user %} account on {% data variables.enterprise.data_residency_site %}, you'll need to update some settings before you sign in.

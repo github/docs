@@ -38,7 +38,7 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
 
     This tells {% data variables.product.prodname_secret_scanning %} to ignore everything in the `docs` directory. You can use this example file as a template to add the files and folders you’d like to exclude from your own repositories.
 
-    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see "[Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet)."
+    You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see [Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
 
     ``` yaml copy
     paths-ignore:

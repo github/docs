@@ -1,6 +1,8 @@
 ---
 title: Syntax for GitHub's form schema
 intro: 'You can use {% data variables.product.company_short %}''s form schema to configure forms for supported features.'
+redirect_from:
+  - /early-access/github/save-time-with-slash-commands/githubs-form-schema
 versions:
   fpt: '*'
   ghec: '*'
@@ -14,7 +16,7 @@ topics:
 
 ## About {% data variables.product.company_short %}'s form schema
 
-You can use {% data variables.product.company_short %}'s form schema to configure forms for supported features. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms)."
+You can use {% data variables.product.company_short %}'s form schema to configure forms for supported features. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository#creating-issue-forms).
 
 A form is a set of elements for requesting user input. You can configure a form by creating a YAML form definition, which is an array of form elements. Each form element is a set of key-value pairs that determine the type of the element, the properties of the element, and the constraints you want to apply to the element. For some keys, the value is another set of key-value pairs.
 
@@ -118,7 +120,7 @@ You can use a `textarea` element to add a multi-line text field to your form. Co
 | `description` | A description of the text area to provide context or guidance, which is displayed in the form. | {% octicon "x" aria-label="Optional" %}  | String | Empty String | {% octicon "dash" aria-label="Not applicable" %} |
 | `placeholder` | A semi-opaque placeholder that renders in the text area when empty. | {% octicon "x" aria-label="Optional" %}  | String | Empty String | {% octicon "dash" aria-label="Not applicable" %} |
 | `value` | Text that is pre-filled in the text area. | {% octicon "x" aria-label="Optional" %}  | String | {% octicon "dash" aria-label="Not applicable" %} | {% octicon "dash" aria-label="Not applicable" %} |
-| `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | {% octicon "x" aria-label="Optional" %}  | String | {% octicon "dash" aria-label="Not applicable" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml). |
+| `render` | If a value is provided, submitted text will be formatted into a codeblock. When this key is provided, the text area will not expand for file attachments or Markdown editing. | {% octicon "x" aria-label="Optional" %}  | String | {% octicon "dash" aria-label="Not applicable" %} | Languages known to {% data variables.product.prodname_dotcom %}. For more information, see [the languages YAML file](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml). |
 
 #### Validations for `textarea`
 

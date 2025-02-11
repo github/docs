@@ -16,6 +16,7 @@ children:
   - /configuring-ssh-connections-to-your-instance
   - /configuring-the-referrer-policy-for-your-enterprise
   - /restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list
+  - /restricting-access-to-githubcom-using-a-corporate-proxy
 redirect_from:
   - /admin/configuration/hardening-security-for-your-enterprise
 ---

@@ -12,11 +12,9 @@ topics:
 shortTitle: Disable team discussions
 ---
 
-{% ifversion team-discussions-migration %}
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
-{% data reusables.organizations.team-discussions-default %} For more information on team discussions, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
+{% data reusables.organizations.team-discussions-default %} For more information on team discussions, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

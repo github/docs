@@ -79,7 +79,7 @@
   description: A movable square within a project board associated with an issue or pull request.
 - term: check
   description: >-
-    A check is a type of status check on {% data variables.product.product_name %}. See "[Status checks](#status-checks)."
+    A check is a type of status check on {% data variables.product.github %}. See [Status checks](#status-checks).
 - term: checkout
   description: >-
     You can use `git checkout` on the command line to create a new branch, change your current working branch to a different branch, or even to switch to a different version of a file from a different branch with `git checkout [branchname] [path to file]`. The "checkout" action updates all or part of the working tree with a tree object or
@@ -95,7 +95,7 @@
 - term: clean
   description: >-
     A working tree is clean if it corresponds to the revision referenced by the
-    current HEAD. Also see "[dirty](#dirty)."
+    current HEAD. Also see [dirty](#dirty).
 - term: clone
   description: >-
     A clone is a copy of a repository that lives on your computer instead of on
@@ -156,8 +156,8 @@
 - term: contributions
   description: >-
     Specific activities on GitHub that will:
-      - Add a square to a user's contribution graph: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#what-counts-as-a-contribution)"
-      - Add activities to a user's timeline on their profile: "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#contribution-activity)"
+      - Add a square to a user's contribution graph: [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#what-counts-as-a-contribution)
+      - Add activities to a user's timeline on their profile: [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile#contribution-activity)
 - term: contributor
   description: >-
     A contributor is someone who does not have collaborator access to a repository but has contributed to a project and had a pull request they opened merged into the repository.
@@ -173,7 +173,7 @@
   description: Used in command lines or scripts to transfer data.
 - term: dashboard
   description: >-
-    Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard)" or "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)."
+    Your personal dashboard is the main hub of your activity on GitHub. From your personal dashboard, you can keep track of issues and pull requests you're following or working on, navigate to your top repositories and team pages, and learn about recent activity in repositories you're watching or participating in. You can also discover new repositories, which are recommended based on users you're following and repositories you have starred. To only view activity for a specific organization, visit your organization's dashboard. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/about-your-personal-dashboard) or [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard).
 - term: default branch
   description: >-
     The base branch for new pull requests and code commits in a repository. Each repository has at least one branch, which Git creates when you initialize the repository. The first branch is usually called `main`, and is often the default branch.
@@ -337,7 +337,7 @@
     that they configure and control.
 - term: integration
   description: >-
-    A third-party application that integrates with GitHub. These are often {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %}, or custom actions. For more information, see "[AUTOTITLE](/get-started/exploring-integrations/about-building-integrations)."
+    A third-party application that integrates with GitHub. These are often {% data variables.product.prodname_github_apps %}, {% data variables.product.prodname_actions %}, or custom actions. For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-building-integrations).
 - term: issue
   description: >-
     Issues are suggested improvements, tasks or questions related to the
@@ -553,7 +553,7 @@
     Pull refers to when you are fetching in changes and merging them. For
     instance, if someone has edited the remote file you're both working on,
     you'll want to pull in those changes to your local copy so that it's up to
-    date. See also "[fetch](#fetch)."
+    date. See also [fetch](#fetch).
 - term: pull access
   description: A synonym for read access.
 - term: pull request
@@ -673,7 +673,7 @@
     days.
 - term: server-to-server request
   description: >-
-    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via the GitHub API. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)." See also, "[user-to-server request](#user-to-server-request)."
+    An API request used by an application that acts as a bot, independently of any particular user. For example, an application that runs on a scheduled basis and closes issues where there has been no activity for a long time. Applications that use this type of authentication don't use a licensed GitHub account so, in an enterprise with a billing plan that allows a certain number of licenses to be used, a server-to-server bot is not consuming one of your GitHub licenses. The token used in a server-to-server request is acquired programmatically, via the GitHub API. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation). See also, [user-to-server request](#user-to-server-request).
 - term: service hook
   description: >-
     Also called "webhook." Webhooks provide a way for notifications to be
@@ -689,7 +689,7 @@
   description: To combine multiple commits into a single commit. Also a Git command.
 - term: SSH key
   description: >-
-    SSH keys are a way to identify yourself to an online server, using an encrypted message. It's as if your computer has its own unique password to another service. {% data variables.product.product_name %} uses SSH keys to securely transfer information to your computer.
+    SSH keys are a way to identify yourself to an online server, using an encrypted message. It's as if your computer has its own unique password to another service. {% data variables.product.github %} uses SSH keys to securely transfer information to your computer.
 - term: staging instance
   description: >-
     A way to test modifications before they are applied to your actual GitHub
@@ -700,7 +700,7 @@
     conditions set for the repository you're contributing to.
 - term: status checks
   description: >-
-    Status checks are external processes, such as continuous integration builds, which run for each commit you make in a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks)."
+    Status checks are external processes, such as continuous integration builds, which run for each commit you make in a repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 - term: star
   description: >-
     A bookmark or display of appreciation for a repository. Stars are a manual
@@ -762,7 +762,7 @@
   description: A user's handle on GitHub.
 - term: user-to-server request
   description: >-
-    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)." See also, "[server-to-server request](#server-to-server-request)."
+    An API request used by an application that performs a task on behalf of a particular user. Where a task is carried out with user-to-server authentication it's shown on GitHub as having been done by a user via an application. For example, you might choose to create an issue from within a third-party application, and the application would do this on your behalf on GitHub. The scope of tasks an application can perform using a user-to-server request is restricted by both the app's and the user's permissions and access. The token used in a user-to-server request is acquired via OAuth. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user). See also, [server-to-server request](#server-to-server-request).
 - term: visible team
   description: A team that can be viewed and @mentioned by every organization member.
 - term: watch

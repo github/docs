@@ -19,7 +19,7 @@ runs:
     # Cache the elasticsearch image to prevent Docker Hub rate limiting
     - name: Cache Docker layers
       id: cache-docker-layers
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: /tmp/docker-cache
         key: ${{ runner.os }}-elasticsearch-${{ inputs.elasticsearch_version }}

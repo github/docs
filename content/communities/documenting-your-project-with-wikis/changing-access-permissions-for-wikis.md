@@ -20,4 +20,4 @@ shortTitle: Change access permissions
 
 ## Further reading
 
-* "[AUTOTITLE](/communities/documenting-your-project-with-wikis/disabling-wikis)"
+* [AUTOTITLE](/communities/documenting-your-project-with-wikis/disabling-wikis)

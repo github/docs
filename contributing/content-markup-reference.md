@@ -1,1 +1,1 @@
-The content in the `contributing` directory has been deprecated. See "[Using Markdown and Liquid in GitHub Docs](https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs)" in the GitHub Docs for the maintained version of this article.
+The content in the `contributing` directory has been deprecated. See [Using Markdown and Liquid in GitHub Docs](https://docs.github.com/en/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs) in the GitHub Docs for the maintained version of this article.

@@ -18,7 +18,7 @@ shortTitle: Install from Marketplace for org
 
 ## About {% data variables.product.prodname_marketplace %}
 
-This article applies to installing and purchasing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from a source other than {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)."
+This article applies to installing and purchasing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from a source other than {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party).
 
 {% data reusables.data-residency.github-marketplace-apps-unsupported %}
 
@@ -26,7 +26,7 @@ If you install a {% data variables.product.prodname_github_app %} on your organi
 
 {% data reusables.marketplace.free-trials %}
 
-For more information about installing an {% data variables.product.prodname_oauth_app %} instead of a {% data variables.product.prodname_github_app %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)."
+For more information about installing an {% data variables.product.prodname_oauth_app %} instead of a {% data variables.product.prodname_github_app %} from {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization).
 
 ## About installing {% data variables.product.prodname_github_apps %}
 
@@ -38,7 +38,7 @@ After you install a {% data variables.product.prodname_github_app %}, you may al
 
 {% data reusables.apps.install-vs-authorize %}
 
-For more information about authorizing {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+For more information about authorizing {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
 
 ## Requirements to install a {% data variables.product.prodname_github_app %} on an organization
 
@@ -48,7 +48,7 @@ For enterprises that pay by credit card, enterprise owners who are also organiza
 
 Admins of repositories that are owned by an organization can also install {% data variables.product.prodname_github_apps %} on the organization if they only grant the app access to repositories that they are an admin of and if the app does not request any organization permissions or the "repository administration" permission. Organization owners can prevent outside collaborators who are repository admins from installing {% data variables.product.prodname_github_apps %}.
 
-The "app manager" role in an organization does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization. For more information, see "[AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers)."
+The "app manager" role in an organization does not give a person the ability to install a {% data variables.product.prodname_github_app %} in the organization. For more information, see [AUTOTITLE](/apps/maintaining-github-apps/about-github-app-managers).
 
 {% ifversion ghec %}
 
@@ -73,5 +73,5 @@ For enterprise managed user accounts, only enterprise owners can purchase and in
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-* "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)"
+* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)
+* [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-personal-account)

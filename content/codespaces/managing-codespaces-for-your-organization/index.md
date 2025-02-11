@@ -2,7 +2,7 @@
 title: Managing GitHub Codespaces for your organization
 allowTitleToDifferFromFilename: true
 shortTitle: Managing your organization
-intro: 'You can manage and review how users in your organization can use  {% data variables.product.prodname_github_codespaces %}.'
+intro: 'You can manage and review how users in your organization can use {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'
   ghec: '*'

@@ -16,6 +16,8 @@ From time to time, GitHub receives requests from governments to remove content t
 
 ## What is a complete government takedown request?
 
+<!-- markdownlint-disable GHD034 -->
+
 To count as a complete request, a request or notice must
 * come from a relevant, official government agency
 * identify illegal content
@@ -28,6 +30,8 @@ When we receive a notice from a relevant, official government agency that identi
 * allow the affected users to appeal the decision as part of that notification
 * limit the geographic scope of the takedown when possible and include that as part of the notification
 * post the official request that led to the takedown in our public [gov-takedowns repository](https://github.com/github/gov-takedowns).
+
+<!-- markdownlint-enable GHD034 -->
 
 ## Why do we publicly post takedown notices?
 

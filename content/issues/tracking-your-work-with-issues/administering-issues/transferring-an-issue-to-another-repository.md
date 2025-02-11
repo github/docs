@@ -15,12 +15,12 @@ topics:
   - Pull requests
 shortTitle: Transfer an issue
 ---
-To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+To transfer an open issue to another repository, you must have write access to the repository the issue is in and the repository you're transferring the issue to. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 > [!NOTE]
 > You can only transfer issues between repositories owned by the same user or organization account. A private repository issue cannot be transferred to a public repository.
 
-When you transfer an issue, comments and assignees are retained. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. {% ifversion projects-v1 %}This issue will stay on any user-owned or organization-wide {% data variables.projects.projects_v1_boards %} and be removed from any repository {% data variables.projects.projects_v1_boards %}. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."{% endif %}
+When you transfer an issue, comments and assignees are retained. Labels and milestones are also retained if they're present in the target repository, with labels matching by name and milestones matching by both name and due date. {% ifversion projects-v1 %}This issue will stay on any user-owned or organization-wide {% data variables.projects.projects_v1_boards %} and be removed from any repository {% data variables.projects.projects_v1_boards %}. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).{% endif %}
 
 People or teams who are mentioned in the issue will receive a notification letting them know that the issue has been transferred to a new repository. The original URL redirects to the new issue's URL. People who don't have read permissions in the new repository will see a banner letting them know that the issue has been transferred to a new repository that they can't access.
 
@@ -51,4 +51,4 @@ gh issue transfer ISSUE {% ifversion ghes %}HOSTNAME/{% endif %}OWNER/REPO
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)"
+* [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)

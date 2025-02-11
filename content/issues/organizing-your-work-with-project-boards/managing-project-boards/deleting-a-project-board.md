@@ -25,6 +25,6 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/disabling-project-boards-in-your-organization)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/disabling-project-boards-in-your-organization)

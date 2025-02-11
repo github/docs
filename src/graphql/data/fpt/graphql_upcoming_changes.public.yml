@@ -666,6 +666,118 @@ upcoming_changes:
     date: '2025-01-01T00:00:00+00:00'
     criticality: breaking
     owner: chriskirkland
+  - location: AddedToProjectEvent.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: AddedToProjectEvent.projectCard
+    description: '`projectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: AddedToProjectEvent.projectColumnName
+    description: '`projectColumnName` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: AnnouncementBannerI.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: AnnouncementBannerI.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: ConvertedNoteToIssueEvent.projectCard
+    description: '`projectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Enterprise.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Enterprise.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
   - location: Enterprise.members.hasTwoFactorEnabled
     description:
       '`hasTwoFactorEnabled` will be removed. Use `two_factor_method_security`
@@ -690,6 +802,606 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: authentication
+  - location: MovedColumnsInProjectEvent.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: MovedColumnsInProjectEvent.previousProjectColumnName
+    description: '`previousProjectColumnName` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: MovedColumnsInProjectEvent.projectCard
+    description: '`projectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: MovedColumnsInProjectEvent.projectColumnName
+    description: '`projectColumnName` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.addProjectCard
+    description: '`addProjectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.addProjectColumn
+    description: '`addProjectColumn` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.cloneProject
+    description: '`cloneProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.convertProjectCardNoteToIssue
+    description: '`convertProjectCardNoteToIssue` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.createProject
+    description: '`createProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.deleteProject
+    description: '`deleteProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.deleteProjectCard
+    description: '`deleteProjectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.deleteProjectColumn
+    description: '`deleteProjectColumn` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.importProject
+    description: '`importProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.linkRepositoryToProject
+    description: '`linkRepositoryToProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.moveProjectCard
+    description: '`moveProjectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.moveProjectColumn
+    description: '`moveProjectColumn` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.unlinkRepositoryFromProject
+    description: '`unlinkRepositoryFromProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.updateProject
+    description: '`updateProject` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.updateProjectCard
+    description: '`updateProjectCard` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Mutation.updateProjectColumn
+    description: '`updateProjectColumn` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Organization.announcement
+    description:
+      '`announcement` will be removed. Use the `announcementBanner` object
+      instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementCreatedAt
+    description:
+      '`announcementCreatedAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementExpiresAt
+    description:
+      '`announcementExpiresAt` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.announcementUserDismissible
+    description:
+      '`announcementUserDismissible` will be removed. Use the `announcementBanner`
+      object instead.'
+    reason:
+      The individual `announcementX` fields do not follow our standard GraphQL
+      patterns.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: vaindil
+  - location: Organization.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Organization.projects
+    description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.body
+    description: '`body` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.bodyHTML
+    description: '`bodyHtml` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.columns
+    description: '`columns` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.createdAt
+    description: '`createdAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.creator
+    description: '`creator` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.id
+    description: '`id` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.name
+    description: '`name` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.number
+    description: '`number` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.owner
+    description: '`owner` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.pendingCards
+    description: '`pendingCards` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.progress
+    description: '`progress` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.resourcePath
+    description: '`resourcePath` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.state
+    description: '`state` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.updatedAt
+    description: '`updatedAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Project.url
+    description: '`url` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.column
+    description: '`column` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.content
+    description: '`content` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.createdAt
+    description: '`createdAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.creator
+    description: '`creator` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.id
+    description: '`id` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.isArchived
+    description: '`isArchived` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.note
+    description: '`note` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.resourcePath
+    description: '`resourcePath` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.state
+    description: '`state` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.updatedAt
+    description: '`updatedAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCard.url
+    description: '`url` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.cards
+    description: '`cards` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.createdAt
+    description: '`createdAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.id
+    description: '`id` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.name
+    description: '`name` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.purpose
+    description: '`purpose` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.resourcePath
+    description: '`resourcePath` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.updatedAt
+    description: '`updatedAt` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectColumn.url
+    description: '`url` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectOwner.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectOwner.projects
+    description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.doneCount
+    description: '`doneCount` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.donePercentage
+    description: '`donePercentage` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.enabled
+    description: '`enabled` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.inProgressCount
+    description: '`inProgressCount` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.inProgressPercentage
+    description: '`inProgressPercentage` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.todoCount
+    description: '`todoCount` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectProgress.todoPercentage
+    description: '`todoPercentage` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: ProjectV2.databaseId
     description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
     reason:
@@ -730,6 +1442,62 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: dewski
+  - location: RemovedFromProjectEvent.databaseId
+    description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: RemovedFromProjectEvent.projectColumnName
+    description: '`projectColumnName` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Repository.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Repository.projects
+    description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: SearchShortcutQueryProjectTerm.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: User.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: User.projects
+    description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: SecurityAdvisory.cvss
     description:
       '`cvss` will be removed. New `cvss_severities` field will now contain

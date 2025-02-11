@@ -11,9 +11,7 @@ topics:
   - Community
 ---
 
-{% ifversion team-discussions-migration %}
 {% data reusables.organizations.team-discussions-migration %}
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -23,6 +21,6 @@ topics:
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)"
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)"
-* "[AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)"
+* [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)
+* [AUTOTITLE](/organizations/collaborating-with-your-team/creating-a-team-discussion)
+* [AUTOTITLE](/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion)

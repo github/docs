@@ -16,7 +16,7 @@ shortTitle: Install from Marketplace for user
 
 ## About {% data variables.product.prodname_marketplace %}
 
-This article applies to installing and purchasing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from a source other than {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party)."
+This article applies to installing and purchasing {% data variables.product.prodname_github_apps %} from {% data variables.product.prodname_marketplace %}. For more information on installing {% data variables.product.prodname_github_apps %} from a source other than {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-a-third-party).
 
 {% data reusables.data-residency.github-marketplace-apps-unsupported %}
 
@@ -24,7 +24,7 @@ If you install a {% data variables.product.prodname_github_app %} on your person
 
 {% data reusables.marketplace.free-trials %}
 
-For more information about installing an {% data variables.product.prodname_oauth_app %} instead of a {% data variables.product.prodname_github_app %} from {% data variables.product.prodname_marketplace %}, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)."
+For more information about installing an {% data variables.product.prodname_oauth_app %} instead of a {% data variables.product.prodname_github_app %} from {% data variables.product.prodname_marketplace %}, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account).
 
 ## About installing {% data variables.product.prodname_github_apps %}
 
@@ -36,7 +36,7 @@ After you install a {% data variables.product.prodname_github_app %}, you may al
 
 {% data reusables.apps.install-vs-authorize %}
 
-For more information about authorizing {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)."
+For more information about authorizing {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps).
 
 ## Installing a {% data variables.product.prodname_github_app %} in your personal account
 
@@ -55,5 +55,5 @@ For more information about authorizing {% data variables.product.prodname_github
 
 ## Further reading
 
-* "[AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)"
-* "[AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)"
+* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method)
+* [AUTOTITLE](/apps/using-github-apps/installing-an-app-in-your-organization)

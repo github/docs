@@ -5,7 +5,8 @@ import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from '../types'
 
 import styles from './Survey.module.scss'
 

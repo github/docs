@@ -23,11 +23,11 @@ shortTitle: Build & test Python
 
 This guide shows you how to build, test, and publish a Python package.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Python and PyPy. You don't have to install anything! For a full list of up-to-date software and the pre-installed versions of Python and PyPy, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
 
 ## Prerequisites
 
-You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see "[AUTOTITLE](/actions/learn-github-actions)."
+You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/actions/learn-github-actions).
 
 We recommend that you have a basic understanding of Python, and pip. For more information, see:
 
@@ -119,11 +119,11 @@ The table below describes the locations for the tools cache in each {% data vari
 
 If you are using a self-hosted runner, you can configure the runner to use the `setup-python` action to manage your dependencies. For more information, see [using setup-python with a self-hosted runner](https://github.com/actions/setup-python#using-setup-python-with-a-self-hosted-runner) in the `setup-python` README.
 
-{% data variables.product.prodname_dotcom %} supports semantic versioning syntax. For more information, see "[Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept)" and the "[Semantic versioning specification](https://semver.org/)."
+{% data variables.product.prodname_dotcom %} supports semantic versioning syntax. For more information, see [Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept) and the [Semantic versioning specification](https://semver.org/).
 
 ### Using multiple Python versions
 
-The following example uses a matrix for the job to set up multiple Python versions. For more information, see "[AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs)."
+The following example uses a matrix for the job to set up multiple Python versions. For more information, see [AUTOTITLE](/actions/using-jobs/using-a-matrix-for-your-jobs).
 
 ```yaml copy
 name: Python package
@@ -182,7 +182,7 @@ jobs:
 
 If you specify a version of Python that is not available, `setup-python` fails with an error such as: `##[error]Version 3.7 with arch x64 not found`. The error message includes the available versions.
 
-You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy)."
+You can also use the `exclude` keyword in your workflow if there is a configuration of Python that you do not wish to run. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstrategy).
 
 ```yaml copy
 name: Python package
@@ -218,7 +218,7 @@ We recommend using `setup-python` to configure the version of Python used in you
 
 {% data variables.product.prodname_dotcom %}-hosted runners have the pip package manager installed. You can use pip to install dependencies from the PyPI package registry before building and testing your code. For example, the YAML below installs or upgrades the `pip` package installer and the `setuptools` and `wheel` packages.
 
-You can also cache dependencies to speed up your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows)."
+You can also cache dependencies to speed up your workflow. For more information, see [AUTOTITLE](/actions/using-workflows/caching-dependencies-to-speed-up-workflows).
 
 ```yaml copy
 steps:
@@ -233,7 +233,7 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from _requirements.txt_. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from `requirements.txt`. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 ```yaml copy
 steps:
@@ -265,7 +265,7 @@ steps:
 - run: pip test
 ```
 
-By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. For more information, see "[Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies)" in the `setup-python` README.
+By default, the `setup-python` action searches for the dependency file (`requirements.txt` for pip, `Pipfile.lock` for pipenv or `poetry.lock` for poetry) in the whole repository. For more information, see [Caching packages dependencies](https://github.com/actions/setup-python#caching-packages-dependencies) in the `setup-python` README.
 
 If you have a custom requirement or need finer controls for caching, you can use the [`cache` action](https://github.com/marketplace/actions/cache). Pip caches dependencies in different locations, depending on the operating system of the runner. The path you'll need to cache may differ from the Ubuntu example above, depending on the operating system you use. For more information, see [Python caching examples](https://github.com/actions/cache/blob/main/examples.md#python---pip) in the `cache` action repository.
 
@@ -348,7 +348,7 @@ jobs:
 
 ## Packaging workflow data as artifacts
 
-You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+You can upload artifacts to view after a workflow completes. For example, you may need to save log files, core dumps, test results, or screenshots. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 The following example demonstrates how you can use the `upload-artifact` action to archive test results from running `pytest`. For more information, see the [`upload-artifact` action](https://github.com/actions/upload-artifact).
 
@@ -389,7 +389,7 @@ jobs:
 
 ## Publishing to PyPI
 
-You can configure your workflow to publish your Python package to PyPI once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you publish a release. For more information, see "[AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository)."
+You can configure your workflow to publish your Python package to PyPI once your CI tests pass. This section demonstrates how you can use {% data variables.product.prodname_actions %} to upload your package to PyPI each time you publish a release. For more information, see [AUTOTITLE](/repositories/releasing-projects-on-github/managing-releases-in-a-repository).
 
 The example workflow below uses [Trusted Publishing](https://docs.pypi.org/trusted-publishers/) to authenticate with PyPI, eliminating the need for a manually configured API token.
 

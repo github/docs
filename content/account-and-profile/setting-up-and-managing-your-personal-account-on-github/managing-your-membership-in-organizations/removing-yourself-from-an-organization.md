@@ -18,9 +18,9 @@ shortTitle: Leave an organization
 {% ifversion fpt or ghec %}
 
 > [!WARNING]
-> If you're currently responsible for paying for {% data variables.product.product_name %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
+> If you're currently responsible for paying for {% data variables.product.github %} in your organization, removing yourself from the organization **does not** update the billing information on file for the organization. If you are currently responsible for billing, **you must** have another owner or billing manager for the organization [update the organization's payment method](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
 >
-> For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)."
+> For more information, see [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership).
 
 {% endif %}
 

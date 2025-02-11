@@ -15,17 +15,17 @@ topics:
 If you are not receiving the webhook deliveries that you expect, you should identify the point at which the delivery is missing.
 
 1. Trigger an event that you expect to result in a webhook delivery. For example, if your webhook is a repository webhook that is subscribed to the `issues` event, you can open an issue on that repository.
-1. Look at the recent deliveries log for your webhook. For information about how to do this for each webhook type, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+1. Look at the recent deliveries log for your webhook. For information about how to do this for each webhook type, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).
 
    If the recent deliveries log does not include a delivery that corresponds to the webhook event that you triggered in the previous step, then {% data variables.product.company_short %} did not attempt a delivery. To identify the cause:
 
    1. Wait a few minutes, and then check again. Webhook deliveries can take a few minutes to appear.
    1. Make sure that you triggered an event in the location where your webhook is configured. For example, if your webhook is a repository webhook, make sure that you triggered the event in the same repository where your webhook is configured.
    1. Make sure that your webhook is subscribed to the event that you triggered. For example, if you expect a webhook delivery when you open an issue, make sure your webhook is subscribed to the `issues` event.
-   1. Make sure that your webhook is active. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks)."
-   1. Make sure that your webhook is not impacted by {% data variables.product.prodname_oauth_app %} access restrictions. If your webhook was created by an {% data variables.product.prodname_oauth_app %} on behalf of a user who authorized the {% data variables.product.prodname_oauth_app %}, the webhook will be automatically disabled if it is an organization or repository webhook for an organization that has restricted access by the {% data variables.product.prodname_oauth_app %}. For more information, see {% ifversion ghec or fpt %}"[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."{% else %}"[AUTOTITLE](/free-pro-team@latest/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)" in the {% data variables.product.prodname_free_user %} documentation.{% endif %}
+   1. Make sure that your webhook is active. For more information, see [AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks).
+   1. Make sure that your webhook is not impacted by {% data variables.product.prodname_oauth_app %} access restrictions. If your webhook was created by an {% data variables.product.prodname_oauth_app %} on behalf of a user who authorized the {% data variables.product.prodname_oauth_app %}, the webhook will be automatically disabled if it is an organization or repository webhook for an organization that has restricted access by the {% data variables.product.prodname_oauth_app %}. For more information, see {% ifversion ghec or fpt %}[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions).{% else %}[AUTOTITLE](/free-pro-team@latest/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions) in the {% data variables.product.prodname_free_user %} documentation.{% endif %}
 
-   1. Check whether your event may have hit a documented limit. For example, if you push more than three tags at once, the `push` event will not be triggered for that push. For more information about documented limits for each event, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads)."
+   1. Check whether your event may have hit a documented limit. For example, if you push more than three tags at once, the `push` event will not be triggered for that push. For more information about documented limits for each event, see [AUTOTITLE](/webhooks/webhook-events-and-payloads).
    1. Check the status of webhooks at [githubstatus.com](https://www.githubstatus.com/).
 
    If the recent deliveries log indicates that there was an error with the delivery, then {% data variables.product.company_short %} attempted delivery but the delivery was unsuccessful. This is typically due to a problem with your server. You can refer to the sections below to help resolve the specific error.
@@ -42,7 +42,7 @@ If you require more than {% ifversion ghes %}250{% else %}20{% endif %} webhooks
 
 You cannot use `localhost` or `127.0.0.1` as a webhook URL.
 
-To deliver webhooks to your local server for testing, you can use a webhook forwarding service. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)" or visit https://smee.io/.
+To deliver webhooks to your local server for testing, you can use a webhook forwarding service. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks) or visit https://smee.io/.
 
 ## Failed to connect to host
 
@@ -54,7 +54,7 @@ To check whether a host name resolves to an IP address, you can use `nslookup`. 
 
 The `failed to connect to network` error indicates that your server refused the connection when {% data variables.product.company_short %} attempted to deliver a webhook.
 
-You should make sure that your server allows connections from {% data variables.product.company_short %}'s IP addresses. You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)." {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
+You should make sure that your server allows connections from {% data variables.product.company_short %}'s IP addresses. You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information). {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
 
 ## Timed out
 
@@ -91,7 +91,7 @@ Webhook deliveries can take a few minutes to be delivered and to appear in the r
 
 {% ifversion fpt or ghec %}
 
-If your account experiences a surge in webhook deliveries, {% data variables.product.company_short %} may temporarily throttle the rate of deliveries to your account. If your webhook deliveries are slowed down by GitHub, the `throttled_at` property for each affected delivery shows the timestamp when delivery was throttled. You can check for this using the REST API, see "[List deliveries for a repository webhook](/rest/repos/webhooks#list-deliveries-for-a-repository-webhook)."
+If your account experiences a surge in webhook deliveries, {% data variables.product.company_short %} may temporarily throttle the rate of deliveries to your account. If your webhook deliveries are slowed down by GitHub, the `throttled_at` property for each affected delivery shows the timestamp when delivery was throttled. You can check for this using the REST API, see [List deliveries for a repository webhook](/rest/repos/webhooks#list-deliveries-for-a-repository-webhook).
 
 To avoid delays, subscribe only to the webhook events that are necessary for your account, reducing the frequency of deliveries. See “[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks).”
 
@@ -99,6 +99,6 @@ To avoid delays, subscribe only to the webhook events that are necessary for you
 
 ## Failed signature verification
 
-You should use a webhook secret and the `X-Hub-Signature-256` header to verify that a webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries)."
+You should use a webhook secret and the `X-Hub-Signature-256` header to verify that a webhook delivery is from {% data variables.product.company_short %}. For more information, see [AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries).
 
 {% data reusables.webhooks.signature-troubleshooting %}

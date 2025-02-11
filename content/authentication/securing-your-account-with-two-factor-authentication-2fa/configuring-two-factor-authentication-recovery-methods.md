@@ -18,7 +18,7 @@ topics:
   - 2FA
 shortTitle: Configure 2FA recovery
 ---
-In addition to securely storing your two-factor authentication (2FA) recovery codes, we strongly recommend configuring two or more authentication methods to avoid losing access to your account. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key)."
+In addition to securely storing your two-factor authentication (2FA) recovery codes, we strongly recommend configuring two or more authentication methods to avoid losing access to your account. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-a-security-key).
 
 ## Downloading your two-factor authentication recovery codes
 
@@ -26,7 +26,7 @@ In addition to securely storing your two-factor authentication (2FA) recovery co
 
 To keep your account secure, don't share or distribute your recovery codes. We recommend saving them with a secure password manager.
 
-If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update.{% ifversion 2fa-reconfiguration-inline-update %} Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.{% endif %}
+If you generate new recovery codes or disable and re-enable 2FA, the recovery codes in your security settings automatically update. Reconfiguring your 2FA settings without disabling 2FA will not change your recovery codes.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
@@ -57,7 +57,7 @@ The process of configuring backups is different for each TOTP app. For some exam
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)

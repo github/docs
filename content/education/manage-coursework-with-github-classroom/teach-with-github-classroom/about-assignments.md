@@ -13,7 +13,7 @@ versions:
 
 Assignments are coursework created for students in {% data variables.product.prodname_classroom %}. You can use assignments to test and grade your students, or to help your students practice their learnings.
 
-With {% data variables.product.prodname_classroom %}, you can create individual assignments, to be completed by a single student, or group assignments, to be completed in teams. For more information, see "[Types of assignments](#types-of-assignments)."
+With {% data variables.product.prodname_classroom %}, you can create individual assignments, to be completed by a single student, or group assignments, to be completed in teams. For more information, see [Types of assignments](#types-of-assignments).
 
 {% data reusables.classroom.about-assignments %}
 
@@ -36,7 +36,7 @@ You can create both individual assignments and group assignments with {% data va
 
 {% data reusables.classroom.classroom-creates-individual-repositories %}
 
-For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)."
+For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment).
 
 ### Group assignments
 
@@ -44,10 +44,10 @@ For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-
 
 {% data reusables.classroom.about-teams-in-group-assignment %}
 
-For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)."
+For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment).
 
 ## Further reading
 
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)"
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-the-git-and-github-starter-assignment)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-individual-assignment)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-a-group-assignment)

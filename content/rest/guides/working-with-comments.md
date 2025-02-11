@@ -14,11 +14,11 @@ topics:
 
 
 
-For any Pull Request, {% data variables.product.product_name %} provides three kinds of comment views:
+For any Pull Request, {% data variables.product.github %} provides three kinds of comment views:
 [comments on the Pull Request](https://github.com/octocat/Spoon-Knife/pull/1176#issuecomment-24114792) as a whole, [comments on a specific line](https://github.com/octocat/Spoon-Knife/pull/1176#discussion_r6252889) within the Pull Request,
 and [comments on a specific commit](https://github.com/octocat/Spoon-Knife/commit/cbc28e7c8caee26febc8c013b0adfb97a4edd96e#commitcomment-4049848) within the Pull Request.
 
-Each of these types of comments goes through a different portion of the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API.
+Each of these types of comments goes through a different portion of the {% data variables.product.github %} API.
 In this guide, we'll explore how you can access and manipulate each one. For every
 example, we'll be using [this sample Pull Request made](https://github.com/octocat/Spoon-Knife/pull/1176) on the "octocat"
 repository. As always, samples can be found in [our platform-samples repository](https://github.com/github/platform-samples/tree/master/api/ruby/working-with-comments).

@@ -1,6 +1,6 @@
 ---
 title: Importing a Subversion repository
-intro: 'You can import a repository from Subversion by converting the repository to Git, then pushing the Git repository to {% data variables.product.product_name %}.'
+intro: 'You can import a repository from Subversion by converting the repository to Git, then pushing the Git repository to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 * [Subversion](https://subversion.apache.org)
 * [Git](https://git-scm.com/downloads), including `git-svn`
-* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
+* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see [AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage))
 
 ## Importing a Subversion repository
 
@@ -60,5 +60,5 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+* [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)
 {% endif %}

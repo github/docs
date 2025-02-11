@@ -6,7 +6,7 @@ A NIC enables an Azure virtual machine (VM) to communicate with internet, Azure,
 
 >[!NOTE] {% data reusables.actions.azure-vnet-over-provisioning-resources %}
 
-![Diagram of the network communication architecture between GitHub networks and your private networks. The diagram describes each step in connecting GitHub-hosted runners to an Azure VNET. Each step is numbered and the numbers correspond to the numbered descriptions of the step listed below the diagram.](/assets/images/help/actions/actions-vnet-injected-larger-runners-architecture.png)
+![Diagram of network communication between GitHub and your private networks. Each step is numbered and corresponds to a step listed below the diagram.](/assets/images/help/actions/actions-vnet-injected-larger-runners-architecture.png)
 
 1. A {% data variables.product.prodname_actions %} workflow is triggered.
 1. The {% data variables.product.prodname_actions %} service creates a runner.

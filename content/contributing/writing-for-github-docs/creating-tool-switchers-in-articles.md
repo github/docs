@@ -42,7 +42,7 @@ This content is specific to JetBrains IDEs.
 
 By default, the first tool tag used in the Markdown will be selected for an article. You can define a different default tool for an article by specifying a `defaultTool:` property in the article's frontmatter. For more information, see the [content README](https://github.com/github/docs/blob/main/content/README.md#defaulttool).
 
-You can also link to an article with a specific tool selected by adding `?tool=TOOLNAME` to the end of the link. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links-to-a-specific-tool)."
+You can also link to an article with a specific tool selected by adding `?tool=TOOLNAME` to the end of the link. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#links-to-a-specific-tool).
 
 Only include a maximum of eight different tools in an article. Including more tools causes the tool switcher tabs to overflow with an article's table of contents, which prevents people from using either the tool switcher or table of contents. It is unlikely that you will ever need to include eight separate tools in an article. In general, plan to use as few separate tools as possible in an article.
 

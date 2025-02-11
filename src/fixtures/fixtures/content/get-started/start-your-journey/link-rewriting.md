@@ -10,7 +10,7 @@ type: quick_start
 
 ## Internal links never need language prefix
 
-"[AUTOTITLE](/get-started/foo/cross-version-linking)" already tests things
+[AUTOTITLE](/get-started/foo/cross-version-linking) already tests things
 like `/enterprise-server@latest/` becomes `/enterprise-server@X.Y/` where
 `X.Y` is the latest Enterprise server version.
 

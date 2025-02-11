@@ -1,6 +1,6 @@
 ---
 title: Authorizing OAuth apps
-intro: 'You can connect your {% data variables.product.product_name %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
+intro: 'You can connect your {% data variables.product.github %} identity to third-party applications using OAuth. When authorizing an {% data variables.product.prodname_oauth_app %}, you should ensure you trust the application, review who it''s developed by, and review the kinds of information the application wants to access.'
 redirect_from:
   - /articles/authorizing-oauth-apps
   - /github/authenticating-to-github/authorizing-oauth-apps
@@ -25,7 +25,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 ## {% data variables.product.prodname_oauth_app %} access
 
-{% data variables.product.prodname_oauth_apps %} can have _read_ or _write_ access to your {% data variables.product.product_name %} data.
+{% data variables.product.prodname_oauth_apps %} can have _read_ or _write_ access to your {% data variables.product.github %} data.
 
 * **Read access** only allows an app to _look at_ your data.
 * **Write access** allows an app to _change_ your data.
@@ -37,7 +37,7 @@ When an {% data variables.product.prodname_oauth_app %} wants to identify you by
 
 _Scopes_ are named groups of permissions that an {% data variables.product.prodname_oauth_app %} can request to access both public and non-public data.
 
-When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.product_name %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+When you want to use an {% data variables.product.prodname_oauth_app %} that integrates with {% data variables.product.github %}, that app lets you know what type of access to your data will be required. If you grant access to the app, then the app will be able to perform actions on your behalf, such as reading or modifying data. For example, if you want to use an app that requests `user:email` scope, the app will have read-only access to your private email addresses. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 > [!NOTE]
 > Currently, you can't scope source code access to read-only.
@@ -56,7 +56,7 @@ When you want to use an {% data variables.product.prodname_oauth_app %} that int
 | Deployments | Deployment status access allows apps to determine if a deployment is successful against a specific commit for public and private repositories. Apps won't have access to your code. |
 | Gists | [Gist](https://gist.github.com) access allows apps to read or write to both your public and secret Gists. |
 | Hooks | [Webhooks](/webhooks-and-events/webhooks/about-webhooks) access allows apps to read or write hook configurations on repositories you manage. |
-| Notifications | Notification access allows apps to read your {% data variables.product.product_name %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
+| Notifications | Notification access allows apps to read your {% data variables.product.github %} notifications, such as comments on issues and pull requests. However, apps remain unable to access anything in your repositories. |
 | Organizations and teams | Organization and teams access allows apps to access and manage organization and team membership. |
 | Personal user data | User data includes information found in your user profile, like your name, e-mail address, and location. |
 | Repositories | Repository information includes the names of contributors, the branches you've created, and the actual files within your repository. Apps can request access for either public or private repositories on a user-wide level. |
@@ -86,8 +86,8 @@ If you belong to any organizations with SAML single sign-on (SSO) enabled, and y
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
-* "[AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)"
-* "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)
+* [AUTOTITLE](/apps/using-github-apps/authorizing-github-apps)
+* [AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)
 
 {% endif %}

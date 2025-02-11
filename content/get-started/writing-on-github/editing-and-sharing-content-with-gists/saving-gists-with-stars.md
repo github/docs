@@ -11,11 +11,11 @@ versions:
 You can star a gist to add it to the "Starred" page. Starring makes it easy to find a gist again later.
 
 1. Navigate to {% data variables.gists.discover_url %} and select the gist you want to star.
-1. To star the gist, click {% octicon "star" aria-hidden="true" %} **Star** in the top-right corner of the page.
+1. To star the gist, click **{% octicon "star" aria-hidden="true" %} Star** in the top-right corner of the page.
 
    ![Screenshot of the gist bar with the "Star" option highlighted with a dark orange outline.](/assets/images/help/gist/starring-a-gist.png)
 
-1. Optionally, to unstar a previously starred gist, click {% octicon "star-fill" aria-hidden="true" %} **Unstar**. This will remove the gist from your starred list.
+1. Optionally, to unstar a previously starred gist, click **{% octicon "star-fill" aria-hidden="true" %} Unstar**. This will remove the gist from your starred list.
 
 ## Viewing your starred gists
 
@@ -33,4 +33,4 @@ You can see all recently starred gists from other users by going to the {% data 
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"
+* [AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)

@@ -19,18 +19,14 @@ shortTitle: '{% data variables.product.prodname_oauth_app %} restrictions'
 
 {% data reusables.apps.oauth-app-access-restrictions %}
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% data reusables.organizations.restricted-app-access-requests %}
 
-Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} apps and use them to access data from the organization. For more information, see "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)."
+Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} apps and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps).
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
-{% tip %}
-
-**Tip**: When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
-
-{% endtip %}
+> [!WARNING]
+> When an organization has not set up {% data variables.product.prodname_oauth_app %} access restrictions, any {% data variables.product.prodname_oauth_app %} authorized by an organization member can also access the organization's private resources.
 
 {% ifversion fpt %}
 To further protect your organization's resources, you can upgrade to {% data variables.product.prodname_ghe_cloud %}, which includes security features like SAML single sign-on. {% data reusables.enterprise.link-to-ghec-trial %}
@@ -65,10 +61,10 @@ If an organization disables {% data variables.product.prodname_oauth_app %} acce
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization)"
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)"
-* "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-github-apps-installed-in-your-organization)"
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization)"
-* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps)"
-* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)"
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization)
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization)
+* [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/reviewing-github-apps-installed-in-your-organization)
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization)
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/requesting-organization-approval-for-oauth-apps)
+* [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps)

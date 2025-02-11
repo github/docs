@@ -23,20 +23,19 @@ topics:
 
 There are three main ways to use {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %}:
 
-* Use default setup to quickly configure {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %} on your repository. Default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite to run and languages to analyze. After you enable {% data variables.product.prodname_codeql %}, {% data variables.product.prodname_actions %} will execute workflow runs to scan your code. For more information, see "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)."
-* Use advanced setup to add the {% data variables.product.prodname_codeql %} workflow to your repository. This generates a customizable workflow file which uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql)."
+* Use default setup to quickly configure {% data variables.product.prodname_codeql %} analysis for {% data variables.product.prodname_code_scanning %} on your repository. Default setup automatically chooses the languages to analyze, query suite to run, and events that trigger scans. If you prefer, you can manually select the query suite to run and languages to analyze. After you enable {% data variables.product.prodname_codeql %}, {% data variables.product.prodname_actions %} will execute workflow runs to scan your code. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
+* Use advanced setup to add the {% data variables.product.prodname_codeql %} workflow to your repository. This generates a customizable workflow file which uses the [github/codeql-action](https://github.com/github/codeql-action/) to run the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-advanced-setup-for-code-scanning-with-codeql).
 
-* Run the {% data variables.product.prodname_codeql_cli %} directly in an external CI system and upload the results to {% data variables.product.github %}. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
+* Run the {% data variables.product.prodname_codeql_cli %} directly in an external CI system and upload the results to {% data variables.product.github %}. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system).
 
 {% ifversion ghes %}
 
-{% note %}
-On {% data variables.product.product_name %} {% ifversion ghes %}{{ allVersions[currentVersion].currentRelease }},{% endif %} the {% data variables.product.prodname_codeql %} action uses {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system.
-{% endnote %}
+> [!NOTE]
+> On {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, the {% data variables.product.prodname_codeql %} action uses {% data variables.product.prodname_codeql_cli %} version {% data variables.product.codeql_cli_ghes_recommended_version %} by default. We recommend that you use the same version of the {% data variables.product.prodname_codeql_cli %} if you run analysis in an external CI system.
 
 {% endif %}
 
-For information about {% data variables.product.prodname_code_scanning %} alerts, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
+For information about {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
 
 ## About {% data variables.product.prodname_codeql %}
 
@@ -44,27 +43,29 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 1. You generate a {% data variables.product.prodname_codeql %} database to represent your codebase.
 1. Then you run {% data variables.product.prodname_codeql %} queries on that database to identify problems in the codebase.
-1. The query results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.product_name %} when you use {% data variables.product.prodname_codeql %} with {% data variables.product.prodname_code_scanning %}.
+1. The query results are shown as {% data variables.product.prodname_code_scanning %} alerts in {% data variables.product.github %} when you use {% data variables.product.prodname_codeql %} with {% data variables.product.prodname_code_scanning %}.
 
 {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
+{% data reusables.code-scanning.beta-actions-analysis %}
+
 {% ifversion fpt or ghec or ghes > 3.10 %}
 
 ## Modeling custom or niche frameworks
 
-{% data variables.product.github %} experts, security researchers, and community contributors write libraries to model the flow of data in popular frameworks and libraries. If you use custom dependencies that aren't modeled, then you can use the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to create models for these dependencies and use them to extend your analysis. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
+{% data variables.product.github %} experts, security researchers, and community contributors write libraries to model the flow of data in popular frameworks and libraries. If you use custom dependencies that aren't modeled, then you can use the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to create models for these dependencies and use them to extend your analysis. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
 
 {% endif %}
 
 ## {% data variables.product.prodname_codeql %} queries
 
-{% data variables.product.github %} experts, security researchers, and community contributors write and maintain the default {% data variables.product.prodname_codeql %} queries used for {% data variables.product.prodname_code_scanning %}. The queries are regularly updated to improve analysis and reduce any false positive results.{% ifversion ghes %} For details of the queries available in the default and extended packs, see "[Queries included in the default and security-extended query suites](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#queries-included-in-the-default-and-security-extended-query-suites)."{% endif %}
+{% data variables.product.github %} experts, security researchers, and community contributors write and maintain the default {% data variables.product.prodname_codeql %} queries used for {% data variables.product.prodname_code_scanning %}. The queries are regularly updated to improve analysis and reduce any false positive results.{% ifversion ghes %} For details of the queries available in the default and extended packs, see [Queries included in the default and security-extended query suites](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites#queries-included-in-the-default-and-security-extended-query-suites).{% endif %}
 
 ### Writing your own queries
 
-The queries are open source, so you can view and contribute to the queries in the [github/codeql](https://github.com/github/codeql) repository. For more information, see "[About {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/)" in the {% data variables.product.prodname_codeql %} documentation.
+The queries are open source, so you can view and contribute to the queries in the [github/codeql](https://github.com/github/codeql) repository. For more information, see [About {% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/about-codeql-queries/) in the {% data variables.product.prodname_codeql %} documentation.
 
 ### Running additional queries
 
@@ -74,6 +75,6 @@ These queries must belong to a published {% data variables.product.prodname_code
 
 * When a {% data variables.product.prodname_codeql %} query pack is published to the {% data variables.product.company_short %} {% data variables.product.prodname_container_registry %}, all the transitive dependencies required by the queries and a compilation cache are included in the package. This improves performance and ensures that running the queries in the pack gives identical results every time until you upgrade to a new version of the pack or the CLI.
 
-* {% data variables.product.prodname_codeql %} query packs can be downloaded from multiple {% data variables.product.prodname_dotcom %} container registries. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server)."
+* {% data variables.product.prodname_codeql %} query packs can be downloaded from multiple {% data variables.product.prodname_dotcom %} container registries. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#downloading-codeql-packs-from-github-enterprise-server).
 
-For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
+For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs).

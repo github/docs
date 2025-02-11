@@ -113,6 +113,13 @@ If your instance has subdomain isolation disabled:
 
 ## Publishing a package
 
+{% ifversion packages-nuget-v2 %}
+
+> [!NOTE]
+> The `nupkg` archive for a NuGet package version must be smaller than 2.147 GB in size.
+
+{% endif %}
+
 You can publish a package to {% data variables.product.prodname_registry %} by authenticating with a _nuget.config_ file, using the `--api-key` command line option with your {% data variables.product.prodname_dotcom %} {% data variables.product.pat_v1 %} or by using command that can be run directly from the command line using the `dotnet` command-line interface (CLI).
 
 Replace `OWNER` with your username or company name, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
@@ -125,15 +132,15 @@ dotnet nuget add source --username OWNER --password {% raw %}YOUR_GITHUB_PAT{% e
 
 The NuGet registry stores packages within your organization or personal account, and allows you to associate packages with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
-If you specify a `RepositoryURL` in your project's _.csproj_ file, the published package will automatically be connected to the specified repository. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file)." For information on linking an already-published package to a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+If you specify a `RepositoryURL` in your project's _.csproj_ file, the published package will automatically be connected to the specified repository. For more information, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-nuget-registry#publishing-a-package-using-a-nugetconfig-file). For information on linking an already-published package to a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
 {% endif %}
 
 ### Publishing a package using a GitHub {% data variables.product.pat_generic %} as your API key
 
-If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.product.github %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+If you don't already have a {% data variables.product.pat_generic %} to use for your account on {% data variables.product.github %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 1. Create a new project. Replace `PROJECT_NAME` with the name you'd like to give the project.
 
@@ -150,14 +157,14 @@ If you don't already have a {% data variables.product.pat_generic %} to use for 
 1. Publish the package using your {% data variables.product.pat_generic %} as the API key. Replace `PROJECT_NAME` with the name of the project, `1.0.0` with the version number of the package, and `YOUR_GITHUB_PAT` with your {% data variables.product.pat_generic %}.
 
    ```shell
-   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg"  --api-key YOUR_GITHUB_PAT --source "github"
+   dotnet nuget push "bin/Release/PROJECT_NAME.1.0.0.nupkg" --api-key YOUR_GITHUB_PAT --source "github"
    ```
 
 {% data reusables.package_registry.viewing-packages %}
 
 ### Publishing a package using a _nuget.config_ file
 
-When publishing, {% ifversion packages-nuget-v2 %}if you are linking your package to a repository, {% endif %}the `OWNER` of the repository specified in your _.csproj_ file must match the `NAMESPACE` that you use in your _nuget.config_ authentication file. Specify or increment the version number in your _.csproj_ file, then use the `dotnet pack` command to create a _.nuspec_ file for that version. For more information on creating your package, see "[Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli)" in the Microsoft documentation.
+When publishing, {% ifversion packages-nuget-v2 %}if you are linking your package to a repository, {% endif %}the `OWNER` of the repository specified in your _.csproj_ file must match the `NAMESPACE` that you use in your _nuget.config_ authentication file. Specify or increment the version number in your _.csproj_ file, then use the `dotnet pack` command to create a _.nuspec_ file for that version. For more information on creating your package, see [Create and publish a package](https://docs.microsoft.com/nuget/quickstart/create-and-publish-a-package-using-the-dotnet-cli) in the Microsoft documentation.
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
 
@@ -168,7 +175,7 @@ When publishing, {% ifversion packages-nuget-v2 %}if you are linking your packag
    dotnet new console --name PROJECT_NAME
    ```
 
-1. Add your project's specific information to your project's file, which ends in _.csproj_.  Make sure to replace:
+1. Add your project's specific information to your project's file, which ends in _.csproj_. Make sure to replace:
 
    * `1.0.0` with the version number of the package.
    * `OWNER` with the name of the personal account or organization that owns the repository to which you want to {% ifversion packages-nuget-v2 %}link your package{% else %}publish your package{% endif %}.
@@ -248,7 +255,7 @@ The following example publishes the projects MY_APP and MY_OTHER_APP to the same
 
 ## Installing a package
 
-Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from _nuget.org_. Add your package dependencies to your _.csproj_ file, specifying the package name and version. For more information on using a _.csproj_ file in your project, see "[Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow)" in the Microsoft documentation.
+Using packages from {% data variables.product.prodname_dotcom %} in your project is similar to using packages from _nuget.org_. Add your package dependencies to your _.csproj_ file, specifying the package name and version. For more information on using a _.csproj_ file in your project, see [Working with NuGet packages](https://docs.microsoft.com/nuget/consume-packages/overview-and-workflow) in the Microsoft documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 
@@ -291,4 +298,4 @@ If you're using a `GITHUB_TOKEN` to authenticate to a {% data variables.product.
 
 ## Further reading
 
-* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

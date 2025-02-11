@@ -8,7 +8,7 @@ import { applyFixes } from 'markdownlint-rule-helpers'
 import boxen from 'boxen'
 import ora from 'ora'
 
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'

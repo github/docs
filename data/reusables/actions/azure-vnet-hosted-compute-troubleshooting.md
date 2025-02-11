@@ -68,6 +68,20 @@ VNetInjectionSubnetIsFull
 
 To fix this, either increase the size of the subnet you are using or reduce the pool's maximum runner count to match your subnet size.
 
+### Cannot delete subnet
+
+In some cases, a subnet cannot be deleted because it has a Service Association Link (SAL) applied to it. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#deleting-a-subnet).
+
+If you need to identify the network settings resource associated with the subnet, you can run the following `curl` command.
+To obtain an Azure Entra token, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli). Use the same `api-version` you used to create the resource.
+
+```shell
+curl --request GET \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/GitHub.Network/NetworkSettings?api-version={api-version}&subnetId={subnetId}" \
+  --header 'Content-Type: application/json' \
+  --header "Authorization: Bearer {entra_token}"
+```
+
 ### Incorrect NSG or firewall rules
 
 The "Configuring your Azure resources" procedures list the required openings. However, you may have complex production networks with multiple downstream proxies or firewalls.

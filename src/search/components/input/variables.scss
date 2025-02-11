@@ -1,0 +1,11 @@
+// Widths of the search bar button at different breakpoints
+$smHeaderSearchInputWidth: 100%; // Technically we don't show the search bar at this breakpoint
+$mdHeaderSearchInputWidth: 100%; // Technically we don't show the search bar at this breakpoint
+$lgHeaderSearchInputWidth: 30rem;
+$xlHeaderSearchInputWidth: 40rem;
+
+// Widths of the search overlay popup at different breakpoints
+$smSearchOverlayWidth: 100vw;
+$mdSearchOverlayWidth: 100vw;
+$lgSearchOverlayWidth: 40rem;
+$xlSearchOverlayWidth: 50rem;

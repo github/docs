@@ -64,5 +64,5 @@ Organization owners can schedule a reminder for one or more teams in their organ
 ## Further reading
 
 * [Getting started](https://github.com/integrations/slack?tab=readme-ov-file#getting-started) in the Slack integrations documentation
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)"
-* "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/managing-your-scheduled-reminders)
+* [AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)

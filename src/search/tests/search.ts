@@ -5,7 +5,7 @@ describe('search results page', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('says something if no query is provided', async (): Promise<void> => {
-    const $ = await getDOM('/en/search')
+    const { $ } = await getDOM('/en/search')
     const $container = $('[data-testid="search-results"]')
     expect($container.text()).toMatch(/Enter a search term/)
     // Default is the frontmatter title of the content/search/index.md
@@ -14,7 +14,7 @@ describe('search results page', () => {
 
   test('says something if query is empty', async (): Promise<void> => {
     const queryParams = new URLSearchParams({ query: ' ' }).toString()
-    const $ = await getDOM(`/en/search?${queryParams}`)
+    const { $ } = await getDOM(`/en/search?${queryParams}`)
     const $container = $('[data-testid="search-results"]')
     expect($container.text()).toMatch(/Enter a search term/)
   })
@@ -22,7 +22,7 @@ describe('search results page', () => {
   test('mentions search term in h1', async (): Promise<void> => {
     const searchTerm = 'peterbe'
     const queryParams = new URLSearchParams({ query: searchTerm }).toString()
-    const $ = await getDOM(`/en/search?${queryParams}`)
+    const { $ } = await getDOM(`/en/search?${queryParams}`)
     const $container = $('[data-testid="search-results"]')
     const h1Text: string = $container.find('h1').text()
 

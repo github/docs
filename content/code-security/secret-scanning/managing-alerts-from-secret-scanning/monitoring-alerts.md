@@ -1,6 +1,6 @@
 ---
 title: Monitoring alerts from secret scanning
-intro: 'Learn how and when {% data variables.product.product_name %} will notify you about a secret scanning alert.'
+intro: 'Learn how and when {% data variables.product.github %} will notify you about a secret scanning alert.'
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ allowTitleToDifferFromFilename: true
 
 ## Configuring notifications for {% data variables.secret-scanning.alerts %}
 
-In addition to displaying an alert in the **Security** tab of the repository, {% data variables.product.product_name %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
+In addition to displaying an alert in the **Security** tab of the repository, {% data variables.product.github %} can also send email notifications for alerts. These notifications are different for incremental scans and historical scans.
 
 ### Incremental scans
 
@@ -34,13 +34,13 @@ In addition to displaying an alert in the **Security** tab of the repository, {%
 1. On your notification settings page, under "Subscriptions", then under "Watching", select the **Notify me** dropdown.
 1. Select "Email" as a notification option, then click **Save**.
 
-   ![Screenshot of the notification settings for a user account. An element header, titled "Subscriptions", and a sub-header, titled "Watching", are shown. A checkbox, titled "Email", is highlighted with an orange outline.](/assets/images/help/notifications/repository-watching-notification-options.png)
+   ![Screenshot of the notification settings for a user account. Under "Subscriptions" and "Watching" a checkbox, titled "Email", is outlined in orange.](/assets/images/help/notifications/repository-watching-notification-options.png)
 
 {% data reusables.notifications.watch-settings %}
 
 ### Historical scans
 
-For historical scans, {% data variables.product.product_name %} notifies the following users:
+For historical scans, {% data variables.product.github %} notifies the following users:
 
 * Organization owners, enterprise owners, and security managers—whenever a historical scan is complete, even if no secrets are found.
 * Repository administrators, security managers, and users with custom roles with read/write access—whenever a historical scan detects a secret, and according to their notification preferences.

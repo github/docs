@@ -1,4 +1,4 @@
-1. At the top of the team page, click {% octicon "gear" aria-hidden="true" %} **Settings**.
+1. At the top of the team page, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 
 {% ifversion global-nav-update %}
 

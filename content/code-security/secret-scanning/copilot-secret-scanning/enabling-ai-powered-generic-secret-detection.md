@@ -40,7 +40,7 @@ You can then enable {% data variables.secret-scanning.generic-secret-detection %
 1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
 1. Under "Secret scanning", select the checkbox next to "Scan for generic secrets".
 
-For information on how to view alerts for generic secrets that have been detected using AI, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts)."
+For information on how to view alerts for generic secrets that have been detected using AI, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
 
 ## Further reading
 

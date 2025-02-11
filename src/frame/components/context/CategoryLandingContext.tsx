@@ -5,17 +5,7 @@ import {
   FeaturedLink,
   getFeaturedLinksFromReq,
 } from 'src/landings/components/ProductLandingContext'
-
-export type TocItem = {
-  fullPath: string
-  title: string
-  intro?: string
-  childTocItems?: Array<{
-    fullPath: string
-    title: string
-    intro: string
-  }>
-}
+import { TocItem } from '#src/landings/types.ts'
 
 export type CategoryLandingContextT = {
   title: string

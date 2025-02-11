@@ -1,6 +1,6 @@
 ---
 title: Start your journey
-intro: 'Learn the basics of {% data variables.product.product_name %}.'
+intro: 'Learn the basics of {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'

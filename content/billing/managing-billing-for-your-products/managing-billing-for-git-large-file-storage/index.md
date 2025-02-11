@@ -20,8 +20,4 @@ children:
   - /downgrading-git-large-file-storage
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}

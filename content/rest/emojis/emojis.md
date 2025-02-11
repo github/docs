@@ -4,7 +4,7 @@ shortTitle: Emojis
 allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to list and view all the available emojis to use on {% data
-  variables.product.product_name %}.
+  variables.product.github %}.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
   ghec: '*'

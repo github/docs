@@ -23,7 +23,7 @@ We recommend inviting another {% data variables.product.company_short %} user to
 
 Successors cannot log into your account.
 
-An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see "[AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-deceased-user-policy)."
+An appointed successor can manage your public repositories after presenting a death certificate then waiting for 7 days or presenting an obituary then waiting for 21 days. For more information, see [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-deceased-user-policy).
 
 To request access to manage repositories as a successor, please contact us through the {% data variables.contact.contact_support_portal %}.
 
@@ -36,7 +36,7 @@ The person you invite to be your successor must have a {% data variables.product
 
 1. Under "Successor settings", to invite a successor, begin typing a username, full name, or email address, then click their name when it appears.
 
-   ![Screenshot of the "Successor settings" section. The string "octocat" is entered in a search field, and Octocat's profile is listed in a dropdown below.](/assets/images/help/settings/settings-invite-successor-search-field.png)
+   ![Screenshot of the "Successor settings" section. The string "octocat" is entered in a search field, and Octocat's profile is listed in a dropdown.](/assets/images/help/settings/settings-invite-successor-search-field.png)
 
 1. Click **Add successor**.
 {% data reusables.user-settings.sudo-mode-popup %}

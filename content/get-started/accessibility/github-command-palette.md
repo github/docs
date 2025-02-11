@@ -1,6 +1,6 @@
 ---
 title: GitHub Command Palette
-intro: 'Use the command palette in {% data variables.product.product_name %} to navigate, search, and run commands directly from your keyboard.'
+intro: 'Use the command palette to navigate, search, and run commands directly from your keyboard.'
 versions:
   feature: command-palette
 shortTitle: GitHub Command Palette
@@ -14,7 +14,7 @@ redirect_from:
 
 ## About the {% data variables.product.prodname_command_palette %}
 
-You can navigate, search, and run commands on {% data variables.product.product_name %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.product_name %}, which saves you time and keeps your hands on the keyboard.
+You can navigate, search, and run commands on {% data variables.product.github %} with the {% data variables.product.prodname_command_palette %}. The command palette is an on-demand way to show suggestions based on your current context and resources you've used recently. You can open the command palette with a keyboard shortcut from anywhere on {% data variables.product.github %}, which saves you time and keeps your hands on the keyboard.
 
 ### Fast navigation
 
@@ -34,15 +34,15 @@ Open the command palette using one of the following default keyboard shortcuts:
 * Windows and Linux: <kbd>Ctrl</kbd>+<kbd>K</kbd> or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd>
 * Mac: <kbd>Command</kbd>+<kbd>K</kbd> or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd>
 
-You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see "[Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts)."
+You can customize the keyboard shortcuts you use to open the command palette in the [Accessibility section](https://github.com/settings/accessibility) of your user settings. For more information, see [Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts](#customizing-your-github-command-palette-keyboard-shortcuts).
 
 When you open the command palette, it shows your location at the top left and uses it as the scope for suggestions (for example, the `octo-org` organization).
 
 ![Screenshot of the command palette. "octo-org" is highlighted with an orange outline.](/assets/images/help/command-palette/command-palette-launch.png)
 
 > [!NOTE]
-> * If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).{% ifversion projects-v2 %}
-> * If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)."{% endif %}
+> * If you are editing Markdown text, open the command palette with <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Option</kbd>+<kbd>K</kbd> (Mac).
+> * If you are working on a {% data variables.projects.project_v2 %}, a project-specific command palette is displayed instead. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
 
 ### Customizing your {% data variables.product.prodname_command_palette %} keyboard shortcuts
 
@@ -50,7 +50,7 @@ The default keyboard shortcuts used to open the command palette may conflict wit
 
 ## Navigating with the {% data variables.product.prodname_command_palette %}
 
-You can use the command palette to navigate to any page that you have access to on {% data variables.product.product_name %}.
+You can use the command palette to navigate to any page that you have access to on {% data variables.product.github %}.
 
 {% data reusables.command-palette.open-palette %}
 
@@ -58,7 +58,7 @@ You can use the command palette to navigate to any page that you have access to 
 
 {% data reusables.command-palette.change-scope %}
 
-   You can also use keystrokes to narrow your search. For more information, see "[Keystroke functions](#keystroke-functions)."
+   You can also use keystrokes to narrow your search. For more information, see [Keystroke functions](#keystroke-functions).
 
 1. Finish entering the path, or use the arrow keys to highlight the path you want from the list of suggestions.
 
@@ -81,11 +81,8 @@ You can use the command palette to search for anything on {% data variables.prod
 
 1. Begin entering your search terms. The command palette will offer you a range of suggested searches based on your search scope.
 
-   {% tip %}
-
-   You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see "[AUTOTITLE](/search-github)."
-
-   {% endtip %}
+   > [!TIP]
+   > You can also use the full syntax of {% data variables.product.prodname_dotcom %}'s integrated search within the command palette. For more information, see [AUTOTITLE](/search-github).
 
 1. Use the arrow keys to highlight the search result you want and use <kbd>Enter</kbd> to jump to your chosen location. Alternatively, use <kbd>Ctrl</kbd>+<kbd>Enter</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) to open the location in a new browser tab.
 
@@ -96,7 +93,7 @@ You can use the {% data variables.product.prodname_command_palette %} to run com
 * Pull request and issue commands always run on the underlying page.
 * Higher-level commands, for example, repository commands, run in the scope shown in the command palette.
 
-For a full list of supported commands, see "[{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference)."
+For a full list of supported commands, see [{% data variables.product.prodname_command_palette %} reference](#github-command-palette-reference).
 
 1. The default keyboard shortcuts to open the command palette in command mode are <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Windows and Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>K</kbd> (Mac). If you already have the command palette open, press <kbd>></kbd> to switch to command mode. {% data variables.product.prodname_dotcom %} suggests commands based on your location.
 
@@ -123,11 +120,11 @@ These keystrokes are available when the command palette is in navigation and sea
 
 | Keystroke | Function |
 | :- | :- |
-|<kbd>></kbd>| Enter command mode. For more information, see "[Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette)." |
-|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
-|<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)." |
-|<kbd>!</kbd>| Search just for projects. For more information, see "[Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette)."|
+|<kbd>></kbd>| Enter command mode. For more information, see [Running commands from the {% data variables.product.prodname_command_palette %}](#running-commands-from-the-github-command-palette). |
+|<kbd>#</kbd>| Search for issues, pull requests, discussions, and projects. For more information, see [Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
+|<kbd>@</kbd>| Search for users, organizations, and repositories. For more information, see [Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
+|<kbd>/</kbd>| Search for files within a repository scope or repositories within an organization scope. For more information, see [Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette). |
+|<kbd>!</kbd>| Search just for projects. For more information, see [Searching with the {% data variables.product.prodname_command_palette %}](#searching-with-the-github-command-palette).|
 |<kbd>Ctrl</kbd>+<kbd>C</kbd> or <kbd>Command</kbd>+<kbd>C</kbd>| Copy the search or navigation URL for the highlighted result to the clipboard.|
 |<kbd>Enter</kbd>| Jump to the highlighted result or run the highlighted command.|
 |<kbd>Ctrl</kbd>+<kbd>Enter</kbd> or <kbd>Command</kbd>+<kbd>Enter</kbd>| Open the highlighted search or navigation result in a new browser tab.|
@@ -139,12 +136,12 @@ These commands are available from all scopes.
 
 | Command | Behavior|
 | :- | :- |
-|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)."  |
-|`New gist`|Open a new gist. For more information, see "[AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists)." |
-|`New organization`|Create a new organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)." |
-|`New project`|Create a new project. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)."  |
-|`New repository`|Create a new repository from scratch. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)." |
-|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see "[AUTOTITLE](/get-started/accessibility/managing-your-theme-settings)." |
+|`Import repository`|Create a new repository by importing a project from another version control system. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer).  |
+|`New gist`|Open a new gist. For more information, see [AUTOTITLE](/get-started/writing-on-github/editing-and-sharing-content-with-gists/creating-gists). |
+|`New organization`|Create a new organization. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch). |
+|`New project`|Create a new project. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project).  |
+|`New repository`|Create a new repository from scratch. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository). |
+|`Switch theme to <theme name>`|Change directly to a different theme for the UI. For more information, see [AUTOTITLE](/get-started/accessibility/managing-your-theme-settings). |
 
 ### Organization commands
 
@@ -152,7 +149,7 @@ These commands are available only within the scope of an organization.
 
 | Command | Behavior|
 | :- | :- |
-| `New team`| Create a new team in the current organization. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team)."
+| `New team`| Create a new team in the current organization. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/creating-a-team).
 
 ### Repository commands
 
@@ -160,11 +157,11 @@ Most of these commands are available only on the home page of the repository. If
 
 | Command | Behavior|
 | :- | :- |
-|`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."|
-|`New discussion`|Create a new discussion in the repository. For more information, see "[AUTOTITLE](/discussions/quickstart#creating-a-new-discussion)."|
-|`New file`|Create a new file from any page in the repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository)."
-|`New issue`|Open a new issue from any page in the repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."|
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Clone repository: <URL type>`|Copy the URL needed to clone the repository using {% data variables.product.prodname_cli %}, HTTPS, or SSH to the clipboard. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).|
+|`New discussion`|Create a new discussion in the repository. For more information, see [AUTOTITLE](/discussions/quickstart#creating-a-new-discussion).|
+|`New file`|Create a new file from any page in the repository. For more information, see [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+|`New issue`|Open a new issue from any page in the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).|
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the current repository in the {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
 
 ### File commands
 
@@ -172,8 +169,8 @@ These commands are available only when you open the command palette from a file 
 
 | Command | Behavior|
 | :- | :- |
-|`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see "[AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit)."
-|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see "[AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor)."|
+|`Copy permalink`|Create a link to the file that includes the current commit SHA and copy the link to the clipboard. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/getting-permanent-links-to-files#press-y-to-permalink-to-a-file-in-a-specific-commit).
+|`Open in {% data variables.codespaces.serverless %} editor`|Open the currently displayed file in {% data variables.codespaces.serverless %} editor. For more information, see [AUTOTITLE](/codespaces/the-githubdev-web-based-editor#opening-the-web-based-editor).|
 
 ### Discussion commands
 
@@ -181,10 +178,10 @@ These commands are available only when you open the command palette from a discu
 
 | Command | Behavior|
 | :- | :- |
-|`Delete discussion...`|Permanently delete the discussion. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion)."
+|`Delete discussion...`|Permanently delete the discussion. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#deleting-a-discussion).
 |`Edit discussion body`|Open the main body of the discussion ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer discussion...`|Move the discussion to a different repository. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion)."
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for additions to the discussion. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Transfer discussion...`|Move the discussion to a different repository. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#transferring-a-discussion).
 
 ### Issue commands
 
@@ -192,15 +189,15 @@ These commands are available only when you open the command palette from an issu
 
 | Command | Behavior|
 | :- | :- |
-|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."|
-|`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion)."
-|`Delete issue...`|Delete the current issue. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/deleting-an-issue)."|
+|`Close`/`reopen issue`|Close or reopen the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).|
+|`Convert issue to discussion...`|Convert the current issue into a discussion. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions#converting-an-issue-to-a-discussion).
+|`Delete issue...`|Delete the current issue. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/deleting-an-issue).|
 |`Edit issue body`|Open the main body of the issue ready for editing.
 |`Edit issue title`|Open the title of the issue ready for editing.
-|`Lock issue`|Limit new comments to users with write access to the repository. For more information, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations)."
-|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository)."|
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Transfer issue...`|Transfer the issue to another repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository)."|
+|`Lock issue`|Limit new comments to users with write access to the repository. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
+|`Pin`/`unpin issue`|Change whether or not the issue is shown in the pinned issues section for the repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository).|
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this issue. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Transfer issue...`|Transfer the issue to another repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository).|
 
 ### Pull request commands
 
@@ -208,10 +205,10 @@ These commands are available only when you open the command palette from a pull 
 
 | Command | Behavior|
 | :- | :- |
-|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."|
-|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request)."|
+|`Close`/`reopen pull request`|Close or reopen the current pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).|
+|`Convert to draft`/`Mark pull request as ready for review`|Change the state of the pull request to show it as ready, or not ready, for review. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/changing-the-stage-of-a-pull-request).|
 |`Copy current branch name`| Add the name of the head branch for the pull request to the clipboard.
 |`Edit pull request body`|Open the main body of the pull request ready for editing.
 |`Edit pull request title`|Open the title of the pull request ready for editing.
-|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)."
-|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)."|
+|`Subscribe`/`unsubscribe`|Opt in or out of notifications for changes to this pull request. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications).
+|`Update current branch`|Update the head branch of the pull request with changes from the base branch. This is available only for pull requests that target the default branch of the repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches).|

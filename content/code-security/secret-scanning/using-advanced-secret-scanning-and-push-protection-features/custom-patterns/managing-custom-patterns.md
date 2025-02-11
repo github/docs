@@ -12,7 +12,7 @@ topics:
   - Secret scanning
 ---
 
-Custom patterns are user-defined patterns that you can use to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning)."
+Custom patterns are user-defined patterns that you can use to identify secrets that are not detected by the default patterns supported by {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 At the enterprise level, only the creator of a custom pattern can edit the pattern, and use it in a dry run. There are no similar restrictions for editing custom patterns at repository and organization level.
 
@@ -22,9 +22,7 @@ When you save a change to a custom pattern, this closes all the {% data variable
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
-{%- ifversion custom-pattern-dry-run-ga %}
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
-{%- endif %}
 1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}
 {% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
 1. Optionally, to disable push protection for your custom pattern, click **Disable**.
@@ -52,19 +50,15 @@ You can enable {% data variables.product.prodname_secret_scanning %} as a push p
 
 {% data reusables.secret-scanning.push-protection-enterprise-note %}
 
-Before enabling push protection for a custom pattern at enterprise level, you must also{% ifversion custom-pattern-dry-run-ga %} test your custom patterns using dry runs. {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}{% else %} test your custom patterns in a repository before defining them for your entire enterprise, as there is no dry-run functionality. That way, you can avoid creating excess false-positive {% data variables.secret-scanning.alerts %}.{% endif %}
+Before enabling push protection for a custom pattern at enterprise level, you must also test your custom patterns using dry runs. {% data reusables.secret-scanning.dry-runs-enterprise-permissions %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.policies-tab %}{% ifversion security-feature-enablement-policies %}
+{% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "Code security and analysis", click **Security features**.{% else %}
-{% data reusables.enterprise-accounts.advanced-security-policies %}
-{% data reusables.enterprise-accounts.advanced-security-security-features %}{% endif %}
+1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
 
-   {% ifversion custom-pattern-dry-run-ga %}
    >[!NOTE] At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
-   {%- endif %}
 
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
@@ -76,7 +70,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 
-Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)."
+Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -95,7 +89,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in a repository for a custom pattern
 
-Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository)."
+Before enabling push protection for a custom pattern at repository level, you must define the custom pattern for the repository, and test it in the repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -20,7 +20,7 @@ topics:
 ---
 SNMP is a common standard for monitoring devices over a network. We strongly recommend enabling SNMP so you can monitor the health of {% data variables.location.product_location %} and know when to add more memory, storage, or processor power to the host machine.
 
-{% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](https://www.monitoring-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
+{% data variables.product.prodname_enterprise %} has a standard SNMP installation, so you can take advantage of the [many plugins](https://nagios-plugins.org/doc/man/check_snmp.html) available for Nagios or for any other monitoring system.
 
 ## Configuring SNMP v2c
 
@@ -59,19 +59,19 @@ If you enable SNMP v3, you can take advantage of increased user based security t
 1. For SNMP v3 users with the `authnopriv` security level, configure authentication.
     * {% data reusables.enterprise_management_console.authentication-password %}
     * {% data reusables.enterprise_management_console.authentication-protocol %}
-    * If your external monitoring system requires the SHA algorithm, {% data variables.product.product_name %} currently uses SHA-1.
+    * If your external monitoring system requires the SHA algorithm, {% data variables.product.prodname_ghe_server %} currently uses SHA-1.
 1. For SNMP v3 users with the `authpriv` security level, configure authentication.
     * {% data reusables.enterprise_management_console.authentication-password %}
     * {% data reusables.enterprise_management_console.authentication-protocol %}
     * Optionally, under "Privacy password", type the privacy password.
     * Next to "Privacy password", select the **Protocol** dropdown menu, then click the privacy protocol method you want to use.
-    * If your external monitoring system requires the AES algorithm, {% data variables.product.product_name %} currently uses AES-128.
+    * If your external monitoring system requires the AES algorithm, {% data variables.product.prodname_ghe_server %} currently uses AES-128.
 1. Click **Add user**.
 {% data reusables.enterprise_management_console.save-settings %}
 
 ### Querying SNMP data
 
-Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the "[OID reference documentation](https://oidref.com/1.3.6.1.2.1.25.4)."
+Both hardware and software-level information about your appliance is available with SNMP v3. Due to the lack of encryption and privacy for the `noAuthNoPriv` and `authNoPriv` security levels, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports. We include this table if you're using the `authPriv` security level. For more information, see the [MIB documentation](https://github.com/net-snmp/net-snmp-htdocs/blob/master/docs/mibs/HOST-RESOURCES-MIB.txt).
 
 With SNMP v2c, only hardware-level information about your appliance is available. The applications and services within {% data variables.product.prodname_enterprise %} do not have OIDs configured to report metrics. Several MIBs are available, which you can see by running `snmpwalk` on a separate workstation with SNMP support in your network:
 
@@ -116,4 +116,4 @@ snmpget -v 2c -c COMMUNITY-STRING HOSTNAME HOST-RESOURCES-MIB::hrMemorySize.0
 > [!NOTE]
 > To prevent leaking information about services running on your appliance, we exclude the `hrSWRun` table (1.3.6.1.2.1.25.4) from the resulting SNMP reports unless you're using the `authPriv` security level with SNMP v3. If you're using the `authPriv` security level, we include the `hrSWRun` table.
 
-For more information on OID mappings for common system attributes in SNMP, see "[Linux SNMP OID’s for CPU, Memory and Disk Statistics](http://www.linux-admins.net/2012/02/linux-snmp-oids-for-cpumemory-and-disk.html)".
+For more information on OID mappings for common system attributes in SNMP, see [Linux SNMP OID’s for CPU, Memory and Disk Statistics](http://www.linux-admins.net/2012/02/linux-snmp-oids-for-cpumemory-and-disk.html).

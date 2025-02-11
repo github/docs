@@ -32,7 +32,7 @@ describeIfElasticsearchURL('search rendering page', () => {
     // To see why this will work,
     // see src/search/tests/fixtures/search-indexes/github-docs-dotcom-en-records.json
     // which clearly has a record with the title "Foo"
-    const $ = await getDOM('/en/search?query=foo')
+    const { $ } = await getDOM('/en/search?query=foo')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
     // Note it testid being 'search-result', not 'search-results'
@@ -62,7 +62,7 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('debug search', async () => {
-    const $ = await getDOM('/en/search?query=foo&debug=1')
+    const { $ } = await getDOM('/en/search?query=foo&debug=1')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
     // Note it testid being 'search-result', not 'search-results'
@@ -74,21 +74,21 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('no query', async () => {
-    const $ = await getDOM('/en/search')
+    const { $ } = await getDOM('/en/search')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
     expect($('[data-testid="search-results"]').text()).toMatch('Enter a search term')
   })
 
   test('empty query', async () => {
-    const $ = await getDOM('/en/search?query=')
+    const { $ } = await getDOM('/en/search?query=')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
     expect($('[data-testid="search-results"]').text()).toMatch('Enter a search term')
   })
 
   test('find nothing', async () => {
-    const $ = await getDOM('/en/search?query=xojixjoiwejhfoiuwehjfioweufhj')
+    const { $ } = await getDOM('/en/search?query=xojixjoiwejhfoiuwehjfioweufhj')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
     expect($('[data-testid="search-results"]').text()).toMatch('0 Search results')
@@ -100,7 +100,7 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('links per version in pathname', async () => {
-    const $ = await getDOM('/en/enterprise-cloud@latest/search?query=foo')
+    const { $ } = await getDOM('/en/enterprise-cloud@latest/search?query=foo')
     expect($('[data-testid="search-results"]').text()).toMatch('Exclusively for GHEC')
     // Note it testid being 'search-result', not 'search-results'
     const results = $('[data-testid="search-result"]')
@@ -115,14 +115,14 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('invalid parameters (page)', async () => {
-    const $ = await getDOM('/en/search?query=foo&page=999')
+    const { $ } = await getDOM('/en/search?query=foo&page=999')
     expect($('[data-testid="search-results"]').text()).toMatch('Not a valid value (999)')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
   })
 
   test('invalid parameters (size)', async () => {
-    const $ = await getDOM('/en/search?query=foo&size=888')
+    const { $ } = await getDOM('/en/search?query=foo&size=888')
     expect($('[data-testid="search-results"]').text()).toMatch('Not a valid value (888)')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
@@ -134,14 +134,14 @@ describeIfElasticsearchURL('search rendering page', () => {
   })
 
   test('more than one search query', async () => {
-    const $ = await getDOM('/en/search?query=foo&query=bar')
+    const { $ } = await getDOM('/en/search?query=foo&query=bar')
     expect($('[data-testid="search-results"]').text()).toMatch('Cannot have multiple values')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
   })
 
   test("search with 'toplevel' query string", async () => {
-    const $ = await getDOM('/en/search?query=foo&toplevel=Baring')
+    const { $ } = await getDOM('/en/search?query=foo&toplevel=Baring')
     expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
 
     // Note it testid being 'search-result', not 'search-results'

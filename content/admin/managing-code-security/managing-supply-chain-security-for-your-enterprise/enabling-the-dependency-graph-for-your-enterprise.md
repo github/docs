@@ -16,17 +16,17 @@ redirect_from:
 
 ## About the dependency graph
 
-{% data reusables.dependabot.about-the-dependency-graph %} For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)"
+{% data reusables.dependabot.about-the-dependency-graph %} For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
 
 {% data reusables.dependency-review.dependency-review-enabled-ghes %}
 
-After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository and automatically fix the vulnerabilities. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."
+After you enable the dependency graph for your enterprise, you can enable {% data variables.product.prodname_dependabot %} to detect insecure dependencies in your repository and automatically fix the vulnerabilities. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
 You can enable the dependency graph via the {% data variables.enterprise.management_console %} or the administrative shell. We recommend using the {% data variables.enterprise.management_console %} unless your instance uses clustering.
 
 ## Enabling the dependency graph via the {% data variables.enterprise.management_console %}
 
-If your instance uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see "[Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell)."
+If your instance uses clustering, you cannot enable the dependency graph with the {% data variables.enterprise.management_console %} and must use the administrative shell instead. For more information, see [Enabling the dependency graph via the administrative shell](#enabling-the-dependency-graph-via-the-administrative-shell).
 
 {% data reusables.enterprise_site_admin_settings.sign-in %}
 {% data reusables.enterprise_site_admin_settings.access-settings %}
@@ -46,7 +46,7 @@ If your instance uses clustering, you cannot enable the dependency graph with th
     ```
 
    > [!NOTE]
-   > For more information about enabling access to the administrative shell via SSH, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+   > For more information about enabling access to the administrative shell via SSH, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 1. Apply the configuration.
 

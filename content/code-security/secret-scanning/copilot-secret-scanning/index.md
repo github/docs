@@ -14,8 +14,9 @@ topics:
 children:
   - /responsible-ai-generic-secrets
   - /enabling-ai-powered-generic-secret-detection
-  - /responsible-use-ai-regex-generator
-  - /generating-regular-expressions-for-custom-patterns-with-ai
+  - /responsible-ai-regex-generator
+  - /generating-regular-expressions-for-custom-patterns-with-copilot-secret-scanning
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection
 ---
+

@@ -1,6 +1,6 @@
 ---
 title: Unions
-intro: A union  is a type of object representing many objects.
+intro: A union is a type of object representing many objects.
 redirect_from:
   - /v4/union
   - /v4/reference/union
@@ -19,6 +19,6 @@ A [union](https://spec.graphql.org/June2018/#sec-Unions) is a type of object rep
 
 For example, a field marked as an [`ProjectCardItem`](/graphql/reference/unions#projectcarditem) could be an [`Issue`](/graphql/reference/objects#issue) or a [`PullRequest`](/graphql/reference/objects#pullrequest) because each of those objects can be inside a project card. Using a union instead of an object gives you flexibility.
 
-For more information, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql)."
+For more information, see [AUTOTITLE](/graphql/guides/introduction-to-graphql).
 
 <!-- Content after this section is automatically generated -->

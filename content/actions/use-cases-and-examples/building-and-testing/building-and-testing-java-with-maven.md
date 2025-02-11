@@ -23,13 +23,13 @@ shortTitle: Build & test Java with Maven
 
 This guide shows you how to create a workflow that performs continuous integration (CI) for your Java project using the Maven software project management tool. The workflow you create will allow you to see when commits to a pull request cause build or test failures against your default branch; this approach can help ensure that your code is always healthy. You can extend your CI workflow to cache files and upload artifacts from a workflow run.
 
-{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software)".
+{% data variables.product.prodname_dotcom %}-hosted runners have a tools cache with pre-installed software, which includes Java Development Kits (JDKs) and Maven. For a list of software and the pre-installed versions for JDK and Maven, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software).
 
 ## Prerequisites
 
 You should be familiar with YAML and the syntax for {% data variables.product.prodname_actions %}. For more information, see:
-* "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)"
-* "[AUTOTITLE](/actions/learn-github-actions)"
+* [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)
+* [AUTOTITLE](/actions/learn-github-actions)
 
 We recommend that you have a basic understanding of Java and the Maven framework. For more information, see the [Maven Getting Started Guide](https://maven.apache.org/guides/getting-started/index.html) in the Maven documentation.
 
@@ -97,7 +97,7 @@ You can use the same commands that you use locally to build and test your code.
 
 The workflow template will run the `package` target by default. In the default Maven configuration, this command will download dependencies, build classes, run tests, and package classes into their distributable format, for example, a JAR file.
 
-If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a _pom-ci.xml_ file.
+If you use different commands to build your project, or you want to use a different target, you can specify those. For example, you may want to run the `verify` target that's configured in a `pom-ci.xml` file.
 
 ```yaml copy
 steps:
@@ -117,7 +117,7 @@ You can cache your dependencies to speed up your workflow runs. After a successf
 ```yaml copy
 steps:
   - uses: {% data reusables.actions.action-checkout %}
-  - name: Set up JDK 11
+  - name: Set up JDK 17
     uses: {% data reusables.actions.action-setup-java %}
     with:
       java-version: '17'
@@ -127,11 +127,11 @@ steps:
     run: mvn --batch-mode --update-snapshots verify
 ```
 
-This workflow will save the contents of your local Maven repository, located in the `.m2` directory of the runner's home directory. The cache key will be the hashed contents of _pom.xml_, so changes to _pom.xml_ will invalidate the cache.
+This workflow will save the contents of your local Maven repository, located in the `.m2` directory of the runner's home directory. The cache key will be the hashed contents of `pom.xml`, so changes to `pom.xml` will invalidate the cache.
 
 ## Packaging workflow data as artifacts
 
-After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+After your build has succeeded and your tests have passed, you may want to upload the resulting Java packages as a build artifact. This will store the built packages as part of the workflow run, and allow you to download them. Artifacts can help you test and debug pull requests in your local environment before they're merged. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 Maven will usually create output files like JARs, EARs, or WARs in the `target` directory. To upload those as artifacts, you can copy them into a new directory that contains artifacts to upload. For example, you can create a directory called `staging`. Then you can upload the contents of that directory using the `upload-artifact` action.
 

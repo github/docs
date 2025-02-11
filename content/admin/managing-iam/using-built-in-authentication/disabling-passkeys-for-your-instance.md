@@ -23,4 +23,4 @@ Passkeys are enabled by default.
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)"
+* [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)

@@ -18,7 +18,7 @@ There are three types of repository submissions:
 
 Consider what the main purpose of your repository is when choosing the type of submission for your repository.
 
-To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)."
+To promote your project and make it more discoverable to other students, you should assign one or more topics and {% data variables.product.prodname_student_pack %} offers to your repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 
 Once a repository has been submitted to {% data variables.product.prodname_community_exchange %}, it will be published immediately with the purpose, topics, and offers you've chosen. The {% data variables.product.prodname_community_exchange %} community moderates all repository submissions.
 
@@ -39,7 +39,7 @@ For a submission with a purpose of `Collaborate`, your repository must have:
 * One or more issues for collaborators to work on.
 * CONTRIBUTING.md file to communicate how to contribute to your project.
 
-A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
+A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories).
 
 ## Submitting your repository
 

@@ -34,5 +34,5 @@ While forks of private repositories are deleted when a collaborator is removed, 
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)"
-* "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)"
+* [AUTOTITLE](/organizations/organizing-members-into-teams/removing-organization-members-from-a-team)
+* [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/removing-an-outside-collaborator-from-an-organization-repository)

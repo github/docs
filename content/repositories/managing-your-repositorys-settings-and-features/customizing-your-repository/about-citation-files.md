@@ -67,7 +67,7 @@ When you add a `CITATION.cff` file to the default branch of your repository, a l
 
 <!-- Screenshot taken from: https://github.com/citation-file-format/ruby-cff -->
 
-![Screenshot showing the landing page for a repository. The "Cite this repository" link in the right sidebar is highlighted with a dark orange outline and a dropdown menu with the citation details is expanded underneath.](/assets/images/help/repository/citation-link.png)
+![Screenshot showing the main repository page. The "Cite this repository" link on the right is expanded to show details and outlined in orange.](/assets/images/help/repository/citation-link.png)
 
 ## Citing something other than software
 

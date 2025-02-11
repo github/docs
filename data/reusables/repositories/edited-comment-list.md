@@ -1,10 +1,7 @@
 1. At the top of the comment, click **edited** to open the edit history.
 
-   {% note %}
-
-   **Note:** If you don't see the **edited** option, then the comment doesn't have an edit history.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you don't see the **edited** option, then the comment doesn't have an edit history.
 
 1. To view the details of a specific change, select it from the list of edits.
 

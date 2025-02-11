@@ -22,11 +22,11 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.enterprise-accounts-compliance-tab %}
-1. Under "Resources", to the right of the report you want to access, click {% octicon "download" aria-hidden="true" %} **Download** or {% octicon "link-external" aria-hidden="true" %} **View**.
+1. Under "Resources", to the right of the report you want to access, click **{% octicon "download" aria-hidden="true" %} Download** or **{% octicon "link-external" aria-hidden="true" %} View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization)"{% ifversion enterprise-member-csv %}
-* "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise)"{% endif %}
+* [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/accessing-compliance-reports-for-your-organization){% ifversion enterprise-member-csv %}
+* [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise){% endif %}

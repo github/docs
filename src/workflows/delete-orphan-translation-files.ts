@@ -24,7 +24,7 @@ import fs from 'fs'
 import path from 'path'
 
 import { program } from 'commander'
-import walkFiles from 'src/workflows/walk-files.js'
+import walkFiles from 'src/workflows/walk-files'
 import { ROOT } from 'src/frame/lib/constants.js'
 
 program

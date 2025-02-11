@@ -31,7 +31,7 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
 {% data reusables.actions.oidc-on-ghecom %}
 
-* To be secure, you need to set a Claims JSON in JFrog when configuring identity mappings. For more information, see "[AUTOTITLE](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-identity-mappings)" and "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims)."
+* To be secure, you need to set a Claims JSON in JFrog when configuring identity mappings. For more information, see [AUTOTITLE](https://jfrog.com/help/r/jfrog-platform-administration-documentation/configure-identity-mappings) and [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#customizing-the-token-claims).
 
     For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
 
@@ -84,7 +84,7 @@ The following example shows part of a {% data variables.product.prodname_actions
           echo "ID_TOKEN=${ID_TOKEN}" >> $GITHUB_OUTPUT
 ```
 
-Alternatively, you can set the audience as an environment variable using the `env` context. For more information about the `env` context, see "[AUTOTITLE](/actions/learn-github-actions/contexts#env-context)."
+Alternatively, you can set the audience as an environment variable using the `env` context. For more information about the `env` context, see [AUTOTITLE](/actions/learn-github-actions/contexts#env-context).
 
 {% data reusables.actions.oidc-deployment-protection-rules %}
 

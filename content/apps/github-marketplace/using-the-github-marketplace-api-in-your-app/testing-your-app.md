@@ -19,7 +19,7 @@ topics:
 
 ## Testing apps
 
-You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. For more information, see "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/drafting-a-listing-for-your-app)" and "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app)."
+You can use a draft {% data variables.product.prodname_marketplace %} listing to simulate each of the billing flows. A listing in the draft state means that it has not been submitted for approval. Any purchases you make using a draft {% data variables.product.prodname_marketplace %} listing will _not_ create real transactions, and GitHub will not charge your credit card. Note that you can only simulate purchases for plans published in the draft listing and not for draft plans. For more information, see [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/drafting-a-listing-for-your-app) and [AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app).
 
 ### Using a development app with a draft listing to test changes
 
@@ -29,11 +29,8 @@ Because you can only create draft {% data variables.product.prodname_marketplace
 
 Once you have a development app with a draft listing, you can use it to test changes you make to your app while integrating with the {% data variables.product.prodname_marketplace %} API and webhooks.
 
-{% warning %}
-
-Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
-
-{% endwarning %}
+> [!WARNING]
+> Do not make test purchases with an app that is live in {% data variables.product.prodname_marketplace %}.
 
 ### Simulating Marketplace purchase events
 
@@ -45,4 +42,4 @@ For most {% data variables.product.prodname_marketplace %} API endpoints, we als
 
 ## Testing webhooks
 
-GitHub provides tools for testing your deployed payloads. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks)."
+GitHub provides tools for testing your deployed payloads. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/testing-webhooks).

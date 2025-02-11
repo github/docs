@@ -32,7 +32,7 @@ Forks _do_ inherit push rulesets from their root repository. {% data reusables.r
 To import one of the prebuilt rulesets by {% data variables.product.prodname_dotcom %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
 {% ifversion repo-rules-management %}
-{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history)."{% endif %}
+{% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).{% endif %}
 
 ## Using `fnmatch` syntax
 

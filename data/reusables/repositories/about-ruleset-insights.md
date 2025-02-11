@@ -6,4 +6,4 @@ On the "Rule Insights" page, you will see a timeline of the following user actio
 
 If a ruleset is running in "Evaluate" mode, you can see actions that would have passed or failed if the ruleset had been active.
 
-![Screenshot of the "Rule Insights" page. Three actions are listed: one marked "pass," one marked "bypass," and one marked "fail" with an "evaluate" label.](/assets/images/help/repository/rule-insights.png)
+![Screenshot of the "Rule Insights" page. Three actions are listed marked: "Pass," "Bypass," and "Fail". The failed action has with an "evaluate" label.](/assets/images/help/repository/rule-insights.png)

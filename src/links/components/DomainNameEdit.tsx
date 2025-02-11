@@ -6,7 +6,8 @@ import { useTranslation } from 'src/languages/components/useTranslation'
 import { Box, Flash, FormControl, Spinner, TextInput } from '@primer/react'
 import { Dialog } from '@primer/react/experimental'
 import { useEditableDomainName } from './useEditableDomainContext'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from 'src/events/types'
 
 type Props = {
   xs?: boolean

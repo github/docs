@@ -1,7 +1,7 @@
 ---
 title: Setting up enterprise accounts for procurement companies
 shortTitle: Enterprise accounts
-intro: 'If you pay for {% data variables.product.product_name %} on behalf of a client, you can configure their enterprise account and payment settings to optimize convenience and security.'
+intro: 'If you pay for {% data variables.product.github %} on behalf of a client, you can configure their enterprise account and payment settings to optimize convenience and security.'
 versions:
   fpt: '*'
   ghec: '*'

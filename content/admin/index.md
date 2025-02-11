@@ -1,7 +1,7 @@
 ---
 title: Enterprise administrator documentation
 shortTitle: Enterprise administrators
-intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.product_name %}.'
+intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.prodname_enterprise %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise

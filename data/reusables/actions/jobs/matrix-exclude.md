@@ -15,8 +15,5 @@ strategy:
 runs-on: {% raw %}${{ matrix.os }}{% endraw %}
 ```
 
-{% note %}
-
-**Note:** All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.
-
-{% endnote %}
+> [!NOTE]
+> All `include` combinations are processed after `exclude`. This allows you to use `include` to add back combinations that were previously excluded.

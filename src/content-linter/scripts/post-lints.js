@@ -4,8 +4,8 @@ import { program } from 'commander'
 import fs from 'fs'
 import coreLib from '@actions/core'
 
-import github from '#src/workflows/github.js'
-import { getEnvInputs } from '#src/workflows/get-env-inputs.js'
+import github from '#src/workflows/github.ts'
+import { getEnvInputs } from '#src/workflows/get-env-inputs.ts'
 import { createReportIssue, linkReports } from '#src/workflows/issue-report.js'
 
 // [start-readme]

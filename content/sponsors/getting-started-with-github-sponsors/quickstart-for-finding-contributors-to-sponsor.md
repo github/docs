@@ -46,4 +46,4 @@ At https://github.com/sponsors/community, you can search by ecosystem, most used
 
 ## Next steps
 
-For more information on starting your sponsorship, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes)" and "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github)."
+For more information on starting your sponsorship, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes) and [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github).

@@ -1,6 +1,6 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+intro: 'In rare circumstances, connecting to {% data variables.product.github %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign

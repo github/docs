@@ -13,7 +13,7 @@ We collectively refer to tutorials and quickstarts as "guides" across the site. 
 
 ## How to write a tutorial
 
-For the tutorial template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#tutorial-article-template)."
+For the tutorial template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#tutorial-article-template).
 
 Contents of tutorials:
 * Introduction

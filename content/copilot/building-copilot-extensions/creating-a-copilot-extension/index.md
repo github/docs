@@ -7,7 +7,8 @@ versions:
 topics:
   - Copilot
 children:
-  - /configuring-your-server-to-deploy-your-copilot-agent
+  - /configuring-your-server-to-host-your-copilot-extension
   - /creating-a-github-app-for-your-copilot-extension
-  - /configuring-your-github-app-for-your-copilot-agent
+  - /configuring-your-github-app-for-your-copilot-extension
 ---
+

@@ -1,6 +1,6 @@
 ---
 title: Overview
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.'
+intro: 'Learn about {% data variables.product.prodname_enterprise %} products and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:

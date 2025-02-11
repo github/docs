@@ -5,6 +5,7 @@ name: Purge Fastly
 # **Who does it impact**: Writers and engineers.
 
 on:
+  deployment_status:
   workflow_dispatch:
     inputs:
       nuke_all:
@@ -16,10 +17,6 @@ on:
         description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
         required: false
         default: ''
-  workflow_run:
-    workflows: ['Azure Production - Build and Deploy']
-    types:
-      - completed
 
 permissions:
   contents: read
@@ -30,11 +27,12 @@ env:
 
 jobs:
   send-purges:
+    # Run when workflow_dispatch is the event (manual) or when deployment_status is the event (automatic) and it's a successful production deploy
     if: >-
       ${{
         github.repository == 'github/docs-internal' &&
-        (github.event_name != 'workflow_run' ||
-        github.event.workflow_run.conclusion == 'success')
+        (github.event_name != 'deployment_status' ||
+         github.event.deployment_status.state == 'success' && github.event.deployment_status.environment == 'production')
       }}
     runs-on: ubuntu-latest
     steps:
@@ -43,15 +41,32 @@ jobs:
 
       - uses: ./.github/actions/node-npm-setup
 
+      - name: Wait for production to match build number
+        run: |
+          needs=$(git rev-parse HEAD)
+          start_time=$(date +%s)
+          timeout_seconds=1200
+          while [[ $needs != $(curl -s --fail --retry-connrefused --retry 5 https://docs.github.com/_build) ]]
+          do
+            if [[ $(($(date +%s) - $start_time)) -gt $timeout_seconds ]]
+            then
+              echo "Production did not match the build number within $timeout_seconds seconds"
+              exit 1
+            fi
+            echo "Production is not up to date with the build commit"
+            sleep 10
+          done
+          echo "Production is up to date with the build commit"
+
       - name: Purge Fastly edge cache independent of language
         if: ${{ inputs.nuke_all }}
-        run: src/workflows/purge-fastly-edge-cache.js
+        run: npm run purge-fastly-edge-cache
 
       - name: Purge Fastly edge cache per language
         if: ${{ !inputs.nuke_all }}
         env:
           LANGUAGES: ${{ inputs.languages }}
-        run: src/languages/scripts/purge-fastly-edge-cache-per-language.js
+        run: npm run purge-fastly-edge-cache-per-language
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

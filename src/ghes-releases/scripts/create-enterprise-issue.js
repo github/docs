@@ -7,8 +7,8 @@ import walk from 'walk-sync'
 import matter from 'gray-matter'
 
 import { latest, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
-import { getContents } from '#src/workflows/git-utils.js'
-import github from '#src/workflows/github.js'
+import { getContents } from '#src/workflows/git-utils.ts'
+import github from '#src/workflows/github.ts'
 
 // Required by github() to authenticate
 if (!process.env.GITHUB_TOKEN) {

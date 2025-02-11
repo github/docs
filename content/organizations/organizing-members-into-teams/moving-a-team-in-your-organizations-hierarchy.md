@@ -16,17 +16,13 @@ topics:
 shortTitle: Move a team
 ---
 
-Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)" and "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team)."
+Organization owners can change the parent of any team. Team maintainers can change a team's parent if they are maintainers in both the child team and the parent team. Team maintainers without maintainer permissions in the child team can request to add a parent or child team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team) and [AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-a-child-team).
 
 {% data reusables.organizations.child-team-inherits-permissions %}
 
-{% tip %}
-
-**Tips:**
-* You cannot change a team's parent to a secret team. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
-* You cannot nest a parent team beneath one of its child teams.
-
-{% endtip %}
+> [!TIP]
+> * You cannot change a team's parent to a secret team. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
+> * You cannot nest a parent team beneath one of its child teams.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -40,4 +36,4 @@ Organization owners can change the parent of any team. Team maintainers can chan
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)

@@ -26,8 +26,8 @@ To create and access the feedback pull request, you must enable the feedback pul
 {% data reusables.classroom.click-assignment-in-list %}
 1. Each student will have a submission row, press the Feedback link to navigate to the student's pull request.
 1. On the Feedback PR select the Files changed tab.
-1. Review the pull request. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)."
+1. Review the pull request. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request).
 
 ## Further reading
 
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)"
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide)

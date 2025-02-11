@@ -14,7 +14,7 @@ redirect_from:
 
 ## About cookie preferences on enterprise marketing pages
 
-{% data variables.product.company_short %} may use non-essential cookies on some enterprise marketing pages. You can customize how these cookies behave. For more information about how {% data variables.product.company_short %} uses cookies, see "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)."
+{% data variables.product.company_short %} may use non-essential cookies on some enterprise marketing pages. You can customize how these cookies behave. For more information about how {% data variables.product.company_short %} uses cookies, see [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement).
 
 ## Changing your cookie preferences
 
@@ -27,6 +27,6 @@ You can customize how non-essential cookies behave on any {% data variables.prod
 
 1. Under "Manage cookie preferences," to accept or reject each non-essential cookie, click **Accept** or **Reject**.
 
-   ![Screenshot of the "Manage cookie preferences" dialog window. Under "Analytics," two radio buttons, labeled "Accept" and "Reject," are outlined in orange.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
+   ![Screenshot of the "Manage cookie preferences" dialog. Under "Analytics", two radio buttons, labeled "Accept" and "Reject," are outlined.](/assets/images/help/settings/cookie-settings-accept-or-reject.png)
 
 1. Click **Save changes**.

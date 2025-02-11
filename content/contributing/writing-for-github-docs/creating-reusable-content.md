@@ -20,7 +20,7 @@ Reusable files are divided generally into directories by task. For example, if y
 
 ### Applying versioning to reusables
 
-Reusables can include Liquid conditionals to conditionally render content depending on the current version being viewed. <!-- For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs)." -->
+Reusables can include Liquid conditionals to conditionally render content depending on the current version being viewed. <!-- For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs). -->
 
 ## About variables
 

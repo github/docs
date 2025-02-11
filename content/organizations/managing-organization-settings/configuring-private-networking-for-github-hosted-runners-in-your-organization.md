@@ -34,7 +34,7 @@ topics:
 
 ### 1. Obtain the `databaseId` for your organization
 
-You can use the following GraphQL query to retrieve your organization `databaseId`. You will use the organization `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql)."
+You can use the following GraphQL query to retrieve your organization `databaseId`. You will use the organization `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
 | Query variable | Description |
 |----|----|
@@ -88,26 +88,20 @@ https://api.github.com/graphql
 
 ### 2. Create a runner group for your organization
 
-{% note %}
+> [!NOTE]
+> For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group).
 
-**Note:** For the runner group to be accessible by repositories within your organizations, those repositories must have access to that runner group at the organization level. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners#changing-which-repositories-can-access-a-runner-group)."
-
-{% endnote %}
-
-1. Create a new runner group for your organization. For more information about how to create a runner group, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-organization)."
+1. Create a new runner group for your organization. For more information about how to create a runner group, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/controlling-access-to-larger-runners#creating-a-runner-group-for-an-organization).
 1. To choose a policy for repository access, select the **Repository access** dropdown menu and click a policy. You can configure a runner group to be accessible to a specific list of repositories, or all repositories in the organization.
 1. While configuring your runner group, under "Network configurations," use the dropdown menu to select the network configuration you created for the Azure VNET.
 1. To create the group and apply the policy, click **Create group**.
 
 ### 3. Add the {% data variables.product.company_short %}-hosted runner to the organization runner group
 
-{% note %}
+> [!NOTE]
+> When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
 
-**Note:** When adding your {% data variables.product.company_short %}-hosted runner to a runner group, select the runner group you created in the previous procedures.
-
-{% endnote %}
-
-1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization)."
+1. Add the {% data variables.product.company_short %}-hosted runner to the runner group. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners/managing-larger-runners#adding-a-larger-runner-to-an-organization).
 
 ### 4. Optionally, manage network configurations
 

@@ -1,6 +1,6 @@
 ---
 title: Editing files
-intro: 'You can edit files directly on {% data variables.product.product_name %} in any of your repositories using the file editor.'
+intro: 'You can edit files directly on {% data variables.product.github %} in any of your repositories using the file editor.'
 redirect_from:
   - /articles/editing-files
   - /articles/editing-files-in-your-repository
@@ -20,17 +20,11 @@ shortTitle: Edit files
 
 ## Editing files in your repository
 
-{% tip %}
+> [!TIP]
+> {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
 
-**Tip**: {% data reusables.repositories.protected-branches-block-web-edits-uploads %}
-
-{% endtip %}
-
-{% note %}
-
-**Note:** {% data variables.product.product_name %}'s file editor uses [CodeMirror](https://codemirror.net/).
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.github %}'s file editor uses [CodeMirror](https://codemirror.net/).
 
 1. In your repository, browse to the file you want to edit.
 {% data reusables.repositories.edit-file %}
@@ -46,7 +40,7 @@ shortTitle: Edit files
 When you edit a file in another user's repository, we'll automatically [fork the repository](/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) and [open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) for you.
 
 1. In another user's repository, browse to the folder that contains the file you want to edit. Click the name of the file you want to edit.
-1. Above the file content, click {% octicon "pencil" aria-label="Edit file" %}. At this point, {% data variables.product.prodname_dotcom %} forks the repository for you.
+1. Above the file content, click {% octicon "pencil" aria-label="Edit file" %}. On the page that appears, click **Fork this repository**.
 1. In the text box, make any changes you need to the file.
 {% data reusables.files.preview_change %}
 {% data reusables.files.write_commit_message %}

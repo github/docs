@@ -13,7 +13,7 @@ We collectively refer to tutorials and quickstarts as "guides" across the site. 
 
 ## How to write a quickstart
 
-For the quickstart template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#quickstart-article-template)."
+For the quickstart template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#quickstart-article-template).
 
 Contents of quickstarts:
 * Introduction:

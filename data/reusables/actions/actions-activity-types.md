@@ -19,4 +19,4 @@ on:
       - labeled
 ```
 
-For more information about each event and their activity types, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
+For more information about each event and their activity types, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).

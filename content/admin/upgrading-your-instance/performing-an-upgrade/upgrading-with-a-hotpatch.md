@@ -1,6 +1,6 @@
 ---
   title: Upgrading with a hotpatch
-  intro: 'You can use a hotpatch package to upgrade {% data variables.product.product_name %} to a newer patch release within a feature series.'
+  intro: 'You can use a hotpatch package to upgrade {% data variables.product.prodname_ghe_server %} to a newer patch release within a feature series.'
   redirect_from:
     - /admin/guides/installation/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
     - /admin/monitoring-managing-and-updating-your-instance/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-a-hotpatch
@@ -15,7 +15,7 @@
 
 {% data reusables.enterprise_installation.hotpatching-explanation %}
 
-Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. See "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)" and "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements)."
+Using the {% data variables.enterprise.management_console %}, you can install a hotpatch immediately or schedule it for later installation. You can use the administrative shell to install a hotpatch with the `ghe-upgrade` utility. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements).
 
 ## Upgrading a standalone instance using a hotpatch
 
@@ -30,7 +30,7 @@ You can use the {% data variables.enterprise.management_console %} to upgrade wi
 
 If the upgrade target you're presented with is a feature release instead of a patch release, you cannot use the {% data variables.enterprise.management_console %} to install a hotpatch. You must install the hotpatch using the administrative shell instead.
 
-1. Enable automatic updates. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks)."
+1. Enable automatic updates. For more information, see [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/enabling-automatic-update-checks).
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.updates-tab %}
@@ -64,13 +64,13 @@ If you are installing a hotpatch, you do not need to enter maintenance mode or s
 
 ### Upgrading the primary node using a hotpatch
 
-For instructions to upgrade the primary node, see "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+For instructions to upgrade the primary node, see [Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell).
 
 ### Upgrading additional nodes using a hotpatch
 
 {% data reusables.enterprise_installation.multiple-node-upgrade-admonishment %}
 
-1. To upgrade the node, follow the instructions in "[Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell)."
+1. To upgrade the node, follow the instructions in [Installing a hotpatch using the administrative shell](#installing-a-hotpatch-using-the-administrative-shell).
 {% data reusables.enterprise_installation.replica-ssh %}
 {% data reusables.enterprise_installation.replica-verify %}
 {% data reusables.enterprise_installation.multiple-node-repeat-upgrade-process %}

@@ -3,7 +3,9 @@ title: 'Managing {% data variables.projects.project_v2 %} templates in your orga
 shortTitle: 'Managing templates'
 intro: 'You can {% ifversion projects-v2-org-templates-improvements %}create templates or {% endif %}set projects as templates in your organization, allowing other people to select your template as the base for projects they create.'
 versions:
-  feature: projects-v2-org-templates
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: tutorial
 permissions: 'People with admin permissions for a project in an organization can set the project as a template. People with admin or write permissions for a project in an organization can copy the project and set the copied project as a template.'
 topics:
@@ -51,7 +53,7 @@ You can find all the templates in your organization on the "Templates" page.
 {% data reusables.projects.projects-tab %}
 {% data reusables.projects.templates-tab %}
 
-You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team)" and "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository)."
+You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository).
 
 {% else %}
 
@@ -71,7 +73,7 @@ You can filter the list of projects in your organization to only show projects s
 If you have write or admin permissions for a project in your organization, you can choose to copy the project as a template. This will make a duplicate of the current project—copying the {% data reusables.projects.what-gets-copied %} —and set that copied project as a template for your organization.
 
 {% data reusables.projects.project-settings %}
-1. In the "Templates" section, click {% octicon "duplicate" aria-hidden="true" %} **Copy as template**.
+1. In the "Templates" section, click **{% octicon "duplicate" aria-hidden="true" %} Copy as template**.
 
 {% ifversion projects-v2-org-templates-GA-updates %}
 
@@ -85,7 +87,7 @@ You can add up to six templates to your organization's recommended templates.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Under "Recommended templates", click **Customize recommended templates**.
 1. In the list of templates owned by your organization, select up to six templates that you want to recommend to your members.
 
@@ -99,7 +101,7 @@ You can change the display order of your recommended templates in the "Create pr
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Under "Recommended templates", find the template you want to reposition, click on {% octicon "grabber" aria-label="Drag to reorder" %}, and drag the template to the new position.
 
    ![Screenshot of an organization's recommended templates settings. The 'Drag to reorder' handle is highlighted with an orange outline.](/assets/images/help/projects-v2/rec-template-handle.png)
@@ -108,4 +110,4 @@ You can change the display order of your recommended templates in the "Create pr
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)

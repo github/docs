@@ -1,4 +1,4 @@
-{% data variables.product.product_name %} marks an issue or pull request as updated when it is:
+{% data variables.product.github %} marks an issue or pull request as updated when it is:
 
 * Created
 * Reopened

@@ -1,6 +1,6 @@
 ---
 title: Log forwarding
-intro: '{% data variables.product.product_name %} uses `syslog-ng` to forward system and application logs to the server you specify.'
+intro: '{% data variables.product.prodname_ghe_server %} uses `syslog-ng` to forward system and application logs to the server you specify.'
 redirect_from:
   - /enterprise/admin/articles/log-forwarding
   - /enterprise/admin/installation/log-forwarding
@@ -21,9 +21,13 @@ topics:
 
 ## About log forwarding
 
+Forwarding logs to an external receiver allows your organization to centralize log management and retention, providing the data needed for monitoring system activity, detecting anomalies, and integrating with existing security and analytics tools.
+
 Any log collection system that supports syslog-style log streams is supported (e.g., [Logstash](https://www.elastic.co/products/logstash) and [Splunk](https://docs.splunk.com/Documentation/Splunk/latest/Data/Monitornetworkports)).
 
 When you enable log forwarding, you must upload a CA certificate to encrypt communications between syslog endpoints. Your appliance and the remote syslog server will perform two-way SSL, each providing a certificate to the other and validating the certificate which is received.
+
+For more information on log content, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-system-logs).
 
 ## Enabling log forwarding
 

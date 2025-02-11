@@ -27,7 +27,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
 ## Creating the workflow
 
 1. {% data reusables.actions.choose-repo %}
-1. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. {% ifversion projects-v1-can-create %} You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board)."{% endif %}
+1. Choose a {% data variables.projects.projects_v1_board %} that belongs to the repository. This workflow cannot be used with projects that belong to users or organizations. {% ifversion projects-v1-can-create %} You can use an existing {% data variables.projects.projects_v1_board %}, or you can create a new {% data variables.projects.projects_v1_board %}. For more information about creating a project, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/creating-a-project-board).{% endif %}
 1. {% data reusables.actions.make-workflow-file %}
 1. Copy the following YAML contents into your workflow file.
 
@@ -64,7 +64,7 @@ In the tutorial, you will first make a workflow file that uses the [`actions/git
      To find the column ID, navigate to your {% data variables.projects.projects_v1_board %}. Next to the title of the column, click {% octicon "kebab-horizontal" aria-label="Column menu" %} then click **Copy column link**. The column ID is the number at the end of the copied link. For example, `24687531` is the column ID for `https://github.com/octocat/octo-repo/projects/1#column-24687531`.
 
      If you want to act on more than one column, separate the conditions with `||`. For example, `if github.event.project_card.column_id == '12345678' || github.event.project_card.column_id == '87654321'` will act whenever a project card is added to column `12345678` or column `87654321`. The columns may be on different {% data variables.projects.projects_v1_boards %}.
-   * Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
+   * Change the value for `name` in the `github.rest.issues.removeLabel()` function to the name of the label that you want to remove from issues or pull requests that are moved to the specified column(s). For more information on labels, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests).
 1. {% data reusables.actions.commit-workflow %}
 
 ## Testing the workflow
@@ -73,10 +73,10 @@ Every time a project card on a {% data variables.projects.projects_v1_board %} i
 
 Test your workflow out by moving an issue on your {% data variables.projects.projects_v1_board %} into the target column.
 
-1. Open an issue in your repository. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
-1. Label the issue with the label that you want the workflow to remove. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests)."
-1. Add the issue to the {% data variables.projects.projects_v1_board %} column that you specified in your workflow file. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board)."
-1. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history)."
+1. Open an issue in your repository. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
+1. Label the issue with the label that you want the workflow to remove. For more information, see [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels#applying-labels-to-issues-and-pull-requests).
+1. Add the issue to the {% data variables.projects.projects_v1_board %} column that you specified in your workflow file. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/adding-issues-and-pull-requests-to-a-project-board).
+1. To see the workflow run that was triggered by adding the issue to the project, view the history of your workflow runs. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/viewing-workflow-run-history).
 1. When the workflow completes, the issue that you added to the project column should have the specified label removed.
 
 ## Next steps

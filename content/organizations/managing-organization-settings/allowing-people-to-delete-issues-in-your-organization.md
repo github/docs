@@ -16,7 +16,7 @@ shortTitle: Allow issue deletion
 
 By default, issues cannot be deleted in an organization's repositories. An organization owner must enable this feature for all of the organization's repositories first.
 
-Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)" and "[AUTOTITLE](/issues/tracking-your-work-with-issues/deleting-an-issue)."
+Once enabled, organization owners and people with admin access in an organization-owned repository can delete issues. People with admin access in a repository include organization members and outside collaborators who were given admin access. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization) and [AUTOTITLE](/issues/tracking-your-work-with-issues/deleting-an-issue).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

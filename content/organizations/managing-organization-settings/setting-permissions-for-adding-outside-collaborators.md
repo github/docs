@@ -16,19 +16,18 @@ shortTitle: Set collaborator policy
 
 {% data reusables.enterprise-managed.repo-collaborators-note %}
 
-{% data reusables.organizations.about-outside-collaborators %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization)."
+{% data reusables.organizations.about-outside-collaborators %} For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-outside-collaborators/adding-outside-collaborators-to-repositories-in-your-organization).
 
 By default, anyone with admin access to a repository can invite outside collaborators to work on the repository. You can choose to restrict the ability to add outside collaborators to organization owners only.
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** Only organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite outside collaborators to organization owners. {% data reusables.enterprise.link-to-ghec-trial %}
+> [!NOTE]
+> Only organizations that use {% data variables.product.prodname_ghe_cloud %} can restrict the ability to invite outside collaborators to organization owners. {% data reusables.enterprise.link-to-ghec-trial %}
 
-{% endnote %}
 {% endif %}
 
-{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see "[Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories)"{% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}."
+{% ifversion ghec %}If your organization is owned by an enterprise account, you{% else %}You{% endif %} may not be able to configure this setting for your organization, if an enterprise owner has set a policy at the enterprise level. For more information, see [Enforcing repository management policies in your enterprise]{% ifversion ghec %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-collaborators-to-repositories){% else %}(/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories){% endif %}.
 
 {% data reusables.organizations.outside-collaborators-use-seats %}
 

@@ -47,7 +47,7 @@ There are five main archetypes for organizational structure. The archetypes are 
 * Whether to use a single organization or multiple organizations
 * Whether to grant all members access to all repositories, or use teams to manage repository access more granularly
 
-For more information about teams, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+For more information about teams, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 ### Single organization with direct repository access
 
@@ -55,7 +55,7 @@ The simplest organizational structure is a single organization, where members ar
 
 This structure works best for small companies, such as startups, where everyone collaborates on everything. It can work for medium-sized companies as well, if trust is high.
 
-To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization).
 
 ### Single organization with teams for repository access
 
@@ -88,4 +88,4 @@ Then, create a second organization specifically for more sensitive repositories.
 ## Further reading
 
 * [Organize your experts with ad hoc teams](https://github.blog/2017-02-15-organize-your-experts-with-ad-hoc-teams/) in the {% data variables.product.company_short %} blog
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)

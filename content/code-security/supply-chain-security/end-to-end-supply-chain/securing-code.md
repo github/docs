@@ -47,11 +47,11 @@ As a first step, you want to make a complete inventory of your dependencies. The
 
 ### Automatic detection of vulnerabilities in dependencies
 
-{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)".
+{% data variables.product.prodname_dependabot %} can help you by monitoring your dependencies and notifying you when they contain a known vulnerability. You can even enable {% data variables.product.prodname_dependabot %} to automatically raise pull requests that update the dependency to a secure version. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
 ### Automatic detection of vulnerabilities in pull requests
 
-The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see "[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#dependency-review-enforcement)."
+The {% data variables.dependency-review.action_name %} enforces a dependency review on your pull requests, making it easy for you to see if a pull request will introduce a vulnerable version of a dependency to your repository. When a vulnerability is detected, the {% data variables.dependency-review.action_name %} can block the pull request from merging. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review#the-dependency-review-action).
 
 ### Assessment of exposure to risk from a vulnerable dependency
 
@@ -71,30 +71,30 @@ Code often needs to communicate with other systems over a network, and requires 
 {% data reusables.secret-scanning.enterprise-enable-secret-scanning %}
 
 {% ifversion fpt or ghec %}
-{% data variables.product.prodname_dotcom %} partners with many providers to automatically detect when secrets are committed to or stored in your public repositories and public npm packages you depend on, and will notify the provider so they can take appropriate actions to ensure your account remains secure. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts##about-partner-alerts)."
+{% data variables.product.prodname_dotcom %} partners with many providers to automatically detect when secrets are committed to or stored in your public repositories and public npm packages you depend on, and will notify the provider so they can take appropriate actions to ensure your account remains secure. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts##about-partner-alerts).
 {% endif %}
 
 {% ifversion fpt %}
-You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.product_name %} if you own:
-   * Public repositories on {% data variables.product.prodname_dotcom %}.
+You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.github %} if you own:
+   * Public repositories.
    * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
 If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
 
-You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-secret-scanning-alerts)."
+You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-secret-scanning-alerts).
 {% else %}
-You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see "[AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)" and "[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns)."
+You can configure {% data variables.product.prodname_secret_scanning %} to check for secrets issued by many service providers and to notify you when any are detected. You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns).
 {% endif %}
 
-### Secure storage of secrets you use in {% data variables.product.product_name %}
+### Secure storage of secrets you use on {% data variables.product.github %}
 
 {% ifversion fpt or ghec %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)," "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)," and "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces)."
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows, {% data variables.product.prodname_dependabot %}, or your {% data variables.product.prodname_github_codespaces %} development environment to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets), [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use), and [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces).
 {% endif %}
 
 {% ifversion ghes %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion ghes %}" and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use)."{% else %}."{% endif %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion ghes %} and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).{% else %}."{% endif %}
 {% endif %}
 
 ## Keep vulnerable coding patterns out of your repository
@@ -106,16 +106,16 @@ Besides your code, you probably need to use secrets in other places. For example
 
 ### Create a pull request review process
 
-You can improve the quality and security of your code by ensuring that all pull requests are reviewed and tested before they are merged. {% data variables.product.prodname_dotcom %} has many features you can use to control the review and merge process. To get started, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+You can improve the quality and security of your code by ensuring that all pull requests are reviewed and tested before they are merged. {% data variables.product.prodname_dotcom %} has many features you can use to control the review and merge process. To get started, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
 ### Scan your code for vulnerable patterns
 
-Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)."
+Insecure code patterns are often difficult for reviewers to spot unaided. In addition to scanning your code for secrets, you can check it for patterns that are associated with security vulnerabilities. For example, a function that isn't memory-safe, or failing to escaping user input that could lead to an injection vulnerability. {% data variables.product.prodname_dotcom %} offers several different ways to approach both how and when you scan your code. To get started, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning).
 
 ## Next steps
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/end-to-end-supply-chain-overview)
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts)
 
-* "[AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)"
+* [AUTOTITLE](/code-security/supply-chain-security/end-to-end-supply-chain/securing-builds)

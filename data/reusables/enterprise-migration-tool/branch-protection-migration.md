@@ -1,4 +1,4 @@
-Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+Branch protections apply a specified set of rules to a specific branch name or branch name pattern. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
 Branch protections will always be migrated, but certain rules will not be migrated. The following branch protection rules are not migrated.
 

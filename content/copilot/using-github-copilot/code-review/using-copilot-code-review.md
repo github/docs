@@ -3,6 +3,7 @@ title: Using GitHub Copilot code review
 shortTitle: Using code review
 intro: "Learn how to request a code review from {% data variables.product.prodname_copilot %}."
 allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.copilot-free-availability %}'
 versions:
   feature: copilot
 topics:
@@ -13,10 +14,7 @@ redirect_from:
   - /early-access/copilot/code-reviews/using-copilot-code-reviews
 ---
 
-> [!NOTE]
->
-> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. Some functionality is available to all {% data variables.product.prodname_copilot_short %} subscribers, but other functionality is only available to a limited number of users. To join the waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
-> * The "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms)" apply to your use of this product.
+{% data reusables.copilot.code-review.preview-note %}
 
 ## About {% data variables.copilot.copilot_code-review_short %}
 
@@ -24,8 +22,8 @@ redirect_from:
 
 {% data variables.copilot.copilot_code-review_short %} supports two types of review:
 
-* **Review selection**: Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
-* **Review changes**: Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
+* **Review selection:** Highlight code and ask for an initial review _({% data variables.product.prodname_vscode %} only)_
+* **Review changes:** Request a deeper review of all your changes _({% data variables.product.github %} website and {% data variables.product.prodname_vscode %})_
 
 The current functionality and availability of the two types of review is summarized in the following table:
 
@@ -33,17 +31,17 @@ The current functionality and availability of the two types of review is summari
 
 | Feature   | Review selection  | Review changes  |
 | --------- | ----------------- | --------------- |
+| Environment | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
 | Description | Initial review of a highlighted section of code with feedback and suggestions  | Deeper review of all changes |
 | Language support | All | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript |
 | Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines) |
-| Environment | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
-| Availability | {% data variables.release-phases.public_preview_caps %}, available to all {% data variables.product.prodname_copilot_short %} subscribers | {% data variables.release-phases.public_preview_caps %} with waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)" |
+| Availability | {% data variables.release-phases.public_preview_caps %}, available to all {% data variables.product.prodname_copilot_short %} subscribers | {% data variables.release-phases.public_preview_caps %} with waitlist, see [Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist) |
 
 {% endrowheaders %}
 
 > [!WARNING] {% data variables.product.prodname_copilot_short %} isn't guaranteed to spot all problems or issues in a pull request, and sometimes it will make mistakes. Always validate {% data variables.product.prodname_copilot_short %}'s feedback carefully, and supplement {% data variables.product.prodname_copilot_short %}'s feedback with a human review.
 
-For more information, see "[AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review)."
+For more information, see [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review).
 
 ## Requesting a review from {% data variables.product.prodname_copilot_short %}
 
@@ -53,7 +51,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
 ### Requesting a pull request review from {% data variables.product.prodname_copilot_short %}
 
-> [!NOTE] Requesting a pull request review from {% data variables.product.prodname_copilot_short %} is currently only available to a limited number of {% data variables.product.prodname_copilot_short %} subscribers. To join the waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
+> [!NOTE] Requesting a pull request review from {% data variables.product.prodname_copilot_short %} is currently only available to a limited number of {% data variables.product.prodname_copilot_short %} subscribers. To join the waitlist, see [Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist).
 
 1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
 1. Open the **Reviewers** menu, then select **{% data variables.product.prodname_copilot_short %}**.
@@ -66,7 +64,7 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
    ![Screenshot of a code review left by {% data variables.product.prodname_copilot_short %}.](/assets/images/help/copilot/code-review/review-comment@2x.png)
 
-   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required reviews for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews)."
+   {% data variables.product.prodname_copilot_short %} always leaves a "Comment" review, not an "Approve" review or a "Request changes" review. This means that {% data variables.product.prodname_copilot_short %}'s reviews do not count toward required reviews for the pull request, and {% data variables.product.prodname_copilot_short %}'s reviews will not block merging changes. For more details, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/approving-a-pull-request-with-required-reviews).
 
 1. {% data variables.product.prodname_copilot_short %}'s review comments behave like review comments from humans. You can add reactions to them, comment on them, resolve them and hide them.
 
@@ -76,9 +74,9 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
 Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
 
-If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request)."
+If you're happy with the changes, you can accept a single suggestion from {% data variables.product.prodname_copilot_short %} and commit it, or accept a group of suggestions together in a single commit. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/incorporating-feedback-in-your-pull-request).
 
-If you want to validate {% data variables.product.prodname_copilot_short %}'s suggested changes (for example by running automated tests or your linter), or if you want to make modifications before committing the suggested changes, click the **Open in Workspace** button. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)."
+If you want to validate {% data variables.product.prodname_copilot_short %}'s suggested changes (for example by running automated tests or your linter), or if you want to make modifications before committing the suggested changes, click the **Open in Workspace** button. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request).
 
 ## Providing feedback on {% data variables.product.prodname_copilot_short %}'s reviews
 
@@ -96,7 +94,7 @@ You can provide feedback on {% data variables.product.prodname_copilot_short %}'
 
 When you push changes to a pull request that {% data variables.product.prodname_copilot_short %} has reviewed, it won't automatically re-review your changes.
 
-To request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review)."
+To request a re-review from {% data variables.product.prodname_copilot_short %}, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/requesting-a-pull-request-review).
 
 > [!NOTE] When re-reviewing a pull request, {% data variables.product.prodname_copilot_short %} may repeat the same comments again, even if they have been dismissed with the "Resolve conversation" button or downvoted with the thumbs down (:-1:) button.
 
@@ -104,7 +102,7 @@ To request a re-review from {% data variables.product.prodname_copilot_short %},
 
 By default, you will have to manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request.
 
-You can enable automatic reviews from {% data variables.product.prodname_copilot_short %} on all pull requests using rulesets configured at the repository level or organization level. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets)."
+You can enable automatic reviews from {% data variables.product.prodname_copilot_short %} on all pull requests using rulesets configured at the repository level or organization level. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
 To turn this on, enable the **Request pull request review from {% data variables.product.prodname_copilot_short %}** branch rule, nested under **Require a pull request before merging**.
 
@@ -113,8 +111,6 @@ To turn this on, enable the **Request pull request review from {% data variables
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
 
 {% data reusables.copilot.code-review.custom-coding-guidelines %}
-
-![Screenshot of a comment produced from a custom coding guideline.](/assets/images/help/copilot/code-review/coding-guidelines-comment@2x.png)
 
 {% endwebui %}
 
@@ -148,7 +144,7 @@ You can request an initial review of a highlighted selection of code in {% data 
 
 ### Reviewing changes
 
-> [!NOTE] Reviewing changes is currently only available to a limited number of {% data variables.product.prodname_copilot_short %} subscribers. To join the waitlist, see "[Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist)."
+> [!NOTE] Reviewing changes is currently only available to a limited number of {% data variables.product.prodname_copilot_short %} subscribers. To join the waitlist, see [Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist).
 
 You can request a review for your staged or unstaged changes in {% data variables.product.prodname_vscode %}.
 

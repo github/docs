@@ -2,7 +2,7 @@ import got from 'got'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns.js'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,

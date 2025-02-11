@@ -1,7 +1,7 @@
 ---
 title: Username considerations for external authentication
 shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.product_name %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -29,13 +29,13 @@ redirect_from:
 
 {% ifversion ghes %}
 
-You can configure external authentication for {% data variables.product.product_name %} using CAS, LDAP, or SAML. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+You can configure external authentication for {% data variables.product.prodname_ghe_server %} using CAS, LDAP, or SAML. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server).
 
 When you use external authentication, {% data variables.location.product_location %} automatically creates a username for each person when the person signs into {% data variables.location.product_location %} through your external authentication system for the first time.
 
 {% elsif ghec %}
 
-If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" and "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server)."
+If you use an enterprise with {% data variables.product.prodname_emus %}, members of your enterprise authenticate to access {% data variables.product.prodname_dotcom %} through your SAML identity provider (IdP). For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) and [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise#authentication-methods-for-github-enterprise-server).
 
 {% data variables.product.github %} automatically creates a username for each person when their user account is provisioned via SCIM.
 
@@ -89,7 +89,7 @@ These rules may result in your IdP providing the same IDP-USERNAME for multiple 
 * `bob_example#EXT#fabrikamcom@contoso.com`
 * `bob_example.com#EXT#fabrikamcom@contoso.com`
 
-This will cause a username conflict, and only the first user will be provisioned. For more information, see "[Resolving username problems](#resolving-username-problems)."
+This will cause a username conflict, and only the first user will be provisioned. For more information, see [Resolving username problems](#resolving-username-problems).
 {% endif %}
 
 Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} must not exceed 39 characters.
@@ -99,18 +99,18 @@ Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} m
 Usernames for user accounts on {% data variables.product.prodname_dotcom %} can only contain alphanumeric characters and dashes (`-`).
 
 {% ifversion ghec %}
-When you configure SAML authentication, {% data variables.product.product_name %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom %}. If this value includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+When you configure SAML authentication, {% data variables.product.github %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom %}. If this value includes unsupported characters, {% data variables.product.github %} will normalize the username per the following rules.
 {% elsif ghes %}
-When you configure CAS, LDAP, or SAML authentication, {% data variables.product.product_name %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on {% data variables.product.product_name %}. If the identifier includes unsupported characters, {% data variables.product.product_name %} will normalize the username per the following rules.
+When you configure CAS, LDAP, or SAML authentication, {% data variables.product.prodname_ghe_server %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on your {% data variables.product.prodname_ghe_server %} instance. If the identifier includes unsupported characters, {% data variables.product.github %} will normalize the username per the following rules.
 {% endif %}
 
-1. {% data variables.product.product_name %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
+1. {% data variables.product.github %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
 
 1. Usernames created from email addresses are created from the normalized characters that precede the `@` character.
 
 1. Usernames created from domain accounts are created from the normalized characters after the `\\` separator.
 
-1. If multiple accounts are normalized into the same {% data variables.product.product_name %} username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see "[Resolving username problems](#resolving-username-problems)."{% endif %}
+1. If multiple accounts are normalized into the same username, only the first user account is created. Subsequent users with the same username won't be able to sign in. {% ifversion ghec %}For more information, see [Resolving username problems](#resolving-username-problems).{% endif %}
 
 ### Examples of username normalization
 
@@ -118,7 +118,6 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 | :- | :- | :- |
 | The.Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is created successfully. |
 | !The.Octocat | `-the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it starts with a dash. |
-| The.Octocat! | `the-octocat-{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it ends with a dash. |
 | The!!Octocat | `the--octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it contains two consecutive dashes. |
 | The!Octocat | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `The.Octocat@example.com` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
@@ -129,21 +128,21 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 
 ### About username normalization with SAML
 
-{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.product_name %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
+{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.github %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
 
 1. The custom `username` attribute, if defined and present
 1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
 1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` assertion, if present
 1. The `NameID` element
 
-{% data variables.product.product_name %} requires the `NameID` element even if other attributes are present. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes)."
+{% data variables.product.github %} requires the `NameID` element even if other attributes are present. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/saml-configuration-reference#saml-attributes).
 
-{% data variables.product.product_name %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
+{% data variables.product.github %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
 {% ifversion ghes %}
 
 > [!NOTE]
-> If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid)."
+> If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
 
 {% endif %}
 {% endif %}

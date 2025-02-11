@@ -16,13 +16,13 @@ If possible, consider using a {% data variables.product.prodname_github_app %} i
 
 Similar to {% data variables.product.prodname_oauth_apps %}, {% data variables.product.prodname_github_apps %} can still use OAuth 2.0 and generate a type of OAuth token (called a user access token) and take actions on behalf of a user. However, {% data variables.product.prodname_github_apps %} can also act independently of a user.
 
-For more information about {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+For more information about {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
-For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps).
 
 ## Use minimal scopes
 
-Your {% data variables.product.prodname_oauth_app %} should only request the scopes that the app needs to perform its intended functionality. If any tokens for your app become compromised, this will limit the amount of damage that can occur. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
+Your {% data variables.product.prodname_oauth_app %} should only request the scopes that the app needs to perform its intended functionality. If any tokens for your app become compromised, this will limit the amount of damage that can occur. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps).
 
 ## Authorize thoroughly and durably
 
@@ -44,7 +44,7 @@ After signing in a user, app developers must take additional steps to ensure tha
 
 Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
 
-To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)."
+To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see [AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user).
 
 {% data reusables.emus.oauth-app-note %}
 
@@ -76,7 +76,7 @@ You should have a plan in place so that you can handle any security breaches in 
 
 In the event that your app's client secret is compromised, you will need to generate a new secret, update your app to use the new secret, and delete your old secret.
 
-In the event that user access tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)."
+In the event that user access tokens are compromised, you should immediately revoke these tokens. For more information, see [AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token).
 
 ## Conduct regular vulnerability scans
 
@@ -102,7 +102,7 @@ If your app is available to other users, you should give users a way to delete t
 
 ## Further reading
 
-* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
-* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
+* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)
+* [AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)
 
 {% endif %}

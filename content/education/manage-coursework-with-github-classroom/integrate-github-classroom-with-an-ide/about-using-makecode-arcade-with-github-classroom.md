@@ -10,15 +10,15 @@ redirect_from:
 ---
 ## About MakeCode Arcade
 
-MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide)."
+MakeCode Arcade is an online integrated development environment (IDE) for developing retro arcade games using drag-and-drop block programming and JavaScript. Students can write, edit, run, test, and debug code in a browser with MakeCode Arcade. For more information about IDEs and {% data variables.product.prodname_classroom %}, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/integrate-github-classroom-with-an-ide/integrate-github-classroom-with-an-ide).
 
 {% data reusables.classroom.readme-contains-button-for-online-ide %}
 
-The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.product_name %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
+The first time the student clicks the button to visit MakeCode Arcade, the student must sign into MakeCode Arcade with {% data variables.product.github %} credentials. After signing in, the student will have access to a development environment containing the code from the assignment repository, fully configured on MakeCode Arcade.
 
 For more information about working on MakeCode Arcade, see the [MakeCode Arcade Tour](https://arcade.makecode.com/ide-tour) and [documentation](https://arcade.makecode.com/docs) on the MakeCode Arcade website.
 
-MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.product_name %} features like branches and pull requests.
+MakeCode Arcade does not support multiplayer-editing for group assignments. Instead, students can collaborate with Git and {% data variables.product.github %} features like branches and pull requests.
 
 ## About submission of assignments with MakeCode Arcade
 
@@ -28,4 +28,4 @@ By default, MakeCode Arcade is configured to push to the assignment repository o
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)

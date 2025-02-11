@@ -9,7 +9,7 @@ shortTitle: Sharing feedback
 ---
 
 > [!IMPORTANT]
-> If you're a {% data variables.product.prodname_enterprise %} customer, contact {% data variables.contact.github_support %} who will share your feedback with the Product team. For more information, see "Creating a support ticket" in either the "[{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/support/contacting-github-support/creating-a-support-ticket)" or "[{% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/support/contacting-github-support/creating-a-support-ticket)."
+> If you're a {% data variables.product.prodname_enterprise %} customer, contact {% data variables.contact.github_support %} who will share your feedback with the Product team. For more information, see "Creating a support ticket" in either the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/support/contacting-github-support/creating-a-support-ticket) or [{% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/support/contacting-github-support/creating-a-support-ticket).
 
 ## About sharing feedback
 

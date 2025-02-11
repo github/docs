@@ -23,13 +23,10 @@ Legacy admin teams are teams that were created with the admin permission level u
 
 You can remove this ability by migrating your legacy admin teams to the improved organization permissions.
 
-For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
-{% warning %}
-
-**Warning:** If your organization has disabled [repository creation permissions](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization) for all members, some members of legacy admin teams may lose repository creation permissions. If your organization has enabled member repository creation, migrating legacy admin teams to improved organization permissions will not affect team members' ability to create repositories.
-
-{% endwarning %}
+> [!WARNING]
+> If your organization has disabled [repository creation permissions](/organizations/managing-organization-settings/restricting-repository-creation-in-your-organization) for all members, some members of legacy admin teams may lose repository creation permissions. If your organization has enabled member repository creation, migrating legacy admin teams to improved organization permissions will not affect team members' ability to create repositories.
 
 ## Migrating all of your organization's legacy admin teams
 

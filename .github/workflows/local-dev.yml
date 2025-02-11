@@ -34,6 +34,9 @@ jobs:
       - name: Disable Next.js telemetry
         run: npx next telemetry disable
 
+      - name: Install headless browser
+        run: npx playwright install --no-shell
+
       # The Playwright test, with the env vars we set here, takes care of
       # starting a server and shutting it down when it's done.
       # That's why it's important this step comes before the `npm start &`

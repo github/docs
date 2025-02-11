@@ -71,7 +71,8 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  test('any URL that ends with /.md redirects', async () => {
+  // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
+  test.skip('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {
       const res = await get('/en/get-started/hello.md')

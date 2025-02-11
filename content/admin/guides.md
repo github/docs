@@ -1,7 +1,7 @@
 ---
 title: Guides for GitHub Enterprise
 shortTitle: Guides
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.prodname_enterprise %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -64,7 +64,7 @@ includeGuides:
   - /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
   - /admin/monitoring-and-managing-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
   - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks

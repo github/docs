@@ -122,8 +122,8 @@ export async function getDOMCached(
 ): Promise<cheerio.Root> {
   const key = `${route}::${JSON.stringify(options)}`
   if (!getDOMCache.has(key)) {
-    const dom = await getDOM(route, options)
-    getDOMCache.set(key, dom)
+    const { $ } = await getDOM(route, options)
+    getDOMCache.set(key, $)
   }
   // The non-null assertion is safe here because we've just set the key if it didn't exist
   return getDOMCache.get(key)!
@@ -136,7 +136,10 @@ export async function getDOMCached(
  * @param options - Options for fetching the DOM.
  * @returns A promise that resolves to the loaded DOM object.
  */
-export async function getDOM(route: string, options: GetDOMOptions = {}): Promise<cheerio.Root> {
+export async function getDOM(
+  route: string,
+  options: GetDOMOptions = {},
+): Promise<{ $: cheerio.Root; res: Response }> {
   const { headers, allow500s = false, allow404 = false, retries = 0 } = options
   const res = await get(route, { followRedirects: true, headers, retries })
 
@@ -150,10 +153,7 @@ export async function getDOM(route: string, options: GetDOMOptions = {}): Promis
 
   const $ = cheerio.load(res.body || '', { xmlMode: true })
 
-  // Extend the Cheerio instance with the response object
-  ;($ as any).res = { ...res }
-
-  return $
+  return { $, res }
 }
 
 /**

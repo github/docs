@@ -47,24 +47,24 @@ For other tasks, such as downloading a migration log, you only need one {% data 
 
 Your Azure DevOps {% data variables.product.pat_generic %} must have `work item (read)`, `code (read)`, and `identity (read)` scopes.
 
-If you want to use the `--rewire-pipelines` flag when generating a migration script, you will also need `Build (Read)` scope. To use the `inventory-report` and `--integrate-boards` flags, you will need to grant full access to your {% data variables.product.pat_generic %}.
+If you want to use the `--rewire-pipelines` flag when generating a migration script, you will also need `Build (Read)` scope. To use the `inventory-report` and `integrate-boards` flags, you will need to grant full access to your {% data variables.product.pat_generic %}.
 
 If you want to migrate from multiple organizations, allow the {% data variables.product.pat_generic %} to access all accessible organizations. For more information, see [Use {% data variables.product.pat_generic %}s](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) in Microsoft Docs.
 
 ## Granting the migrator role
 
-To allow someone other than an organization owner to run a migration or download migration logs, you can grant the migrator role to a user or team. For more information, see "[About the migrator role](#about-the-migrator-role)."
+To allow someone other than an organization owner to run a migration or download migration logs, you can grant the migrator role to a user or team. For more information, see [About the migrator role](#about-the-migrator-role).
 
 You can grant the migrator role using either the {% data variables.product.prodname_ado2gh_cli %} or the GraphQL API.
 
-* "[Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)"
-* "[Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)"
+* [Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}](#granting-the-migrator-role-with-the-ado2gh-extension)
+* [Granting the migrator role with the GraphQL API](#granting-the-migrator-role-with-the-graphql-api)
 
 ### Granting the migrator role with the {% data variables.product.prodname_ado2gh_cli_short %}
 
-To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_ado2gh_cli %}. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud#step-1-install-the-ado2gh-extension-of-the-github-cli)."
+To grant the migrator role using the CLI, you must have installed the {% data variables.product.prodname_ado2gh_cli %}. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud#step-1-install-the-ado2gh-extension-of-the-github-cli).
 
-1. On {% data variables.product.prodname_dotcom %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see "[Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_dotcom %}](#creating-a-personal-access-token-for-github)."
+1. On {% data variables.product.prodname_dotcom %}, create and record a {% data variables.product.pat_generic %} that meets all the requirements for granting the migrator role. For more information, see [Creating a {% data variables.product.pat_generic %} for {% data variables.product.prodname_dotcom %}](#creating-a-personal-access-token-for-github).
 {% data reusables.enterprise-migration-tool.grant-migrator-role-pat %}
 1. Use the `gh ado2gh grant-migrator-role` command, replacing ORGANIZATION with the organization you want to grant the migrator role for, ACTOR with the user or team name, and TYPE with `USER` or `TEAM`.
 
@@ -96,4 +96,4 @@ To grant the migrator role using the CLI, you must have installed the {% data va
 
 ## Further reading
 
-* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)"
+* [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)

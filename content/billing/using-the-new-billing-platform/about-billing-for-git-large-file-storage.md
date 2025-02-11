@@ -1,6 +1,6 @@
 ---
 title: About billing for Git Large File Storage
-intro: 'Learn about billing for {% data variables.large_files.product_name_long %}.'
+intro: 'Learn about billing for {% data variables.large_files.product_name_long %} using the enhanced billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -10,8 +10,9 @@ topics:
   - Billing
   - LFS
   - Enterprise
+  - Team
 shortTitle: About Git LFS billing
-permissions: '{% data reusables.billing.new-billing-platform-permissions %}'
+product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
 ## About billing for {% data variables.large_files.product_name_long %}
@@ -57,9 +58,9 @@ In this example, {% data variables.product.company_short %} would bill for 1.5 G
 
 ## Managing your budget for {% data variables.large_files.product_name_long %}
 
-The default budget for paid usage is $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited. You can take steps to manage your {% data variables.large_files.product_name_short %} budget. See "[AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending)."
+The default budget for paid usage is $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited. You can take steps to manage your {% data variables.large_files.product_name_short %} budget. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending).
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)"
-* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)"
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)
+* [AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)

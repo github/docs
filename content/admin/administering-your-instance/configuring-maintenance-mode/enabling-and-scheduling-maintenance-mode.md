@@ -37,11 +37,7 @@ We recommend that you schedule a maintenance window for at least 30 minutes in t
 
 When the instance is in maintenance mode, all normal HTTP and Git access is refused. This includes web and API requests, for which the appliance responds with status code `503` (Service Unavailable). Git fetch, clone, and push operations are also rejected with an error message indicating that the site is temporarily unavailable.{% ifversion ghes < 3.13 %} In high availability configurations, Git replication will be paused.{% endif %} GitHub Actions jobs will not be executed. Visiting the site in a browser results in a maintenance page.
 
-{% ifversion ip-exception-list %}
-
 You can perform initial validation of your maintenance operation by configuring an IP exception list to allow access to {% data variables.location.product_location %} from only the IP addresses and ranges provided. Attempts to access {% data variables.location.product_location %} from IP addresses not specified on the IP exception list will receive a response consistent with those sent when the instance is in maintenance mode.
-
-{% endif %}
 
 ## Enabling maintenance mode immediately or scheduling a maintenance window for a later time
 
@@ -50,14 +46,11 @@ You can perform initial validation of your maintenance operation by configuring 
 1. In the top navigation bar, click **Maintenance**.
 
    ![Screenshot of the header of the {% data variables.enterprise.management_console %}. A tab, labeled "Maintenance", is highlighted with an orange outline.](/assets/images/enterprise/management-console/maintenance-tab.png)
-1. Under "Enable and schedule", {% ifversion custom-maintenance-mode-message %}select **Enable maintenance mode**, then {% endif %}decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
+1. Under "Enable and schedule", select **Enable maintenance mode**, then decide whether to enable maintenance mode immediately or to schedule a maintenance window for a future time.
     * To enable maintenance mode immediately, select the dropdown menu and click **now**.
     * To schedule a maintenance window for a future time, select the dropdown menu and click a start time.
 {% data reusables.enterprise_management_console.custom-maintenance-message %}
-{% ifversion custom-maintenance-mode-message %}1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
-{% else %}1. When you're satisfied with the timing of the window, select the checkbox next to "Enable maintenance mode". If you selected "now", your instance will be put into maintenance mode immediately.{% endif %}
-
-{% ifversion ip-exception-list %}
+1. When you're satisfied with the timing of the window and the optional message, click **Save**. If you selected "now", your instance will be put into maintenance mode immediately.
 
 ## Validating changes in maintenance mode using the IP exception list
 
@@ -65,7 +58,7 @@ The IP exception list provides controlled and restricted access to {% data varia
 
 If you re-enable maintenance mode, the IP exception list will be disabled and {% data variables.location.product_location %} will return to maintenance mode. If you just disable the IP exception list, {% data variables.location.product_location %} will return to normal operation.
 
-You can also use a command-line utility to configure the IP exception list. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance)" and "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh)."
+You can also use a command-line utility to configure the IP exception list. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-maintenance) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
@@ -77,21 +70,9 @@ You can also use a command-line utility to configure the IP exception list. For 
 {% data reusables.enterprise_management_console.custom-maintenance-message %}
 1. Click **Save**.
 
-{% endif %}
-
-{% ifversion maintenance-management-api %}
-
 ## Managing maintenance mode using the REST API
 
-You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see "[AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode)."
-
-{% else %}
-
-## Scheduling maintenance mode with the {% data variables.product.prodname_enterprise_api %}
-
-You can schedule maintenance for different times or dates with the {% data variables.product.prodname_enterprise_api %}. For more information, see "[AUTOTITLE](/rest/enterprise-admin/management-console#enable-or-disable-maintenance-mode)."
-
-{% endif %}
+You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode).
 
 {% ifversion ghes-manage-api-cli-extension %}
 
@@ -99,19 +80,17 @@ You can schedule maintenance for different times or dates with the {% data varia
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the {% data variables.product.prodname_cli %} `gh es` extension. For more information, see the GH ES CLI usage documentation for [`gh es maintenance set`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-set) and [`gh es maintenance get`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-get).
 
-For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)".
+For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
 {% endif %}
 
-{% ifversion custom-maintenance-mode-message %}
-
 ## Managing maintenance mode using SSH
 
-If you have SSH access, you can use the `ghe-maintenance` command line utility to can set or unset maintenance mode for a {% data variables.product.product_name %} instance with one node, or multiple nodes in a high-availability configuration. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance)."
+If you have SSH access, you can use the `ghe-maintenance` command line utility to can set or unset maintenance mode for a {% data variables.product.prodname_ghe_server %} instance with one node, or multiple nodes in a high-availability configuration. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-maintenance).
 
 ## Managing maintenance mode for a cluster using SSH
 
-If you have SSH access to your {% data variables.product.prodname_ghe_server %} instance, you can use the `ghe-cluster-maintenance` command line utility to set or unset maintenance mode for every node in a cluster. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh)" and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-maintenance)."
+If you have SSH access to your {% data variables.product.prodname_ghe_server %} instance, you can use the `ghe-cluster-maintenance` command line utility to set or unset maintenance mode for every node in a cluster. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-cluster-maintenance).
 
 ```shell
 $ ghe-cluster-maintenance -h
@@ -120,14 +99,10 @@ $ ghe-cluster-maintenance -q
 # Queries the current mode
 $ ghe-cluster-maintenance -s
 # Sets maintenance mode
-{%- ifversion custom-maintenance-mode-message %}
 $ ghe-cluster-maintenance -s "MESSAGE"
 # Sets maintenance mode with a custom message
 $ ghe-cluster-maintenance -m "MESSAGE"
 # Updates the custom message
-{%- endif %}
 $ ghe-cluster-maintenance -u
 # Unsets maintenance mode
 ```
-
-{% endif %}

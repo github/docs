@@ -12,11 +12,13 @@ topics:
 
 ## Subscribe to the minimum number of events
 
-You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see "[AUTOTITLE](/webhooks/creating-webhooks)" and "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
+You should only subscribe to the webhook events that you need. This will reduce the amount of work your server needs to do. For more information about subscribing to events, see [AUTOTITLE](/webhooks/creating-webhooks) and [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
 
 ## Use a webhook secret
 
-You should set a webhook secret for your webhook and verify that the signature of each webhook delivery matches the secret. This helps to ensure that the webhook delivery is from {% data variables.product.company_short %}. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/securing-your-webhooks)."
+> [!WARNING]
+> To avoid accidental exposure of sensitive information, do **not** include sensitive information in your payload URL.
+> This includes your own API keys and other authentication credentials. Instead, to validate that webhook deliveries were sent by {% data variables.product.github %} and have not been tampered with, use a webhook secret. For more information, see [AUTOTITLE](/webhooks/using-webhooks/validating-webhook-deliveries).
 
 The webhook secret should be a random string of text with high entropy. You should securely store your webhook secret in a way that your server can access.
 
@@ -30,9 +32,9 @@ You should ensure that your server uses an HTTPS connection. By default, {% data
 
 You can set up an IP allow list for your server, and add the IP addresses that {% data variables.product.company_short %} uses for webhook deliveries. This can block spoofed requests to your server.
 
-You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)." {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
+You can use the `GET /meta` endpoint to find the current list of {% data variables.product.company_short %}'s IP addresses. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information). {% data variables.product.company_short %} occasionally makes changes to its IP addresses, so you should update your IP allow list periodically.
 
-For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses)."
+For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-githubs-ip-addresses).
 
 {% endif %}
 
@@ -48,19 +50,16 @@ There are multiple webhook event types, and many events can have multiple action
 
 ## Redeliver missed deliveries
 
-If your server goes down, you should redeliver missed webhooks once your server is back up. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+If your server goes down, you should redeliver missed webhooks once your server is back up. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 
 ## Use the `X-GitHub-Delivery` header
 
 In a replay attack, a bad actor intercepts a webhook delivery and re-sends the delivery. To protect against replay attacks, you can use the `X-GitHub-Delivery` header to ensure that each delivery is unique per event.
 
-{% note %}
-
-**Note**: If you request a redelivery, the `X-GitHub-Delivery` header will be the same as in the original delivery.
-
-{% endnote %}
+> [!NOTE]
+> If you request a redelivery, the `X-GitHub-Delivery` header will be the same as in the original delivery.
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
-* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* [AUTOTITLE](/rest/guides/best-practices-for-integrators)
+* [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)

@@ -17,7 +17,7 @@ redirect_from:
 
 ## Adding a {% data variables.actions.hosted_runner %} to an enterprise
 
-Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see "[Allowing repositories to access {% data variables.actions.hosted_runner %}s](#allowing-repositories-to-access-larger-runners)."
+Enterprise owners can add {% data variables.actions.hosted_runner %}s to an enterprise and assign them to organizations. By default, when a {% data variables.actions.hosted_runner %} is created for an enterprise, it is added to a default runner group that all organizations in the enterprise have access to. While all organizations are granted access to the runner, the repositories in each organization **are not** granted access. For each organization, an organization owner must configure the runner group to specify which repositories have access to the enterprise runner. For more information, see [Allowing repositories to access {% data variables.actions.hosted_runner %}s](#allowing-repositories-to-access-larger-runners).
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
@@ -32,7 +32,7 @@ Enterprise owners can add {% data variables.actions.hosted_runner %}s to an ente
 
 ## Adding a {% data variables.actions.hosted_runner %} to an organization
 
-Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see "[Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners)."
+Organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} can add a {% data variables.actions.hosted_runner %} to an organization control which repositories can use it. When you create a new runner for an organization, by default, all repositories in the organization have access to the runner. To limit which repositories can use the runner, assign it to a runner group with access to specific repositories. For more information, see [Allowing repositories to access larger runners](#allowing-repositories-to-access-larger-runners).
 
 {% data reusables.actions.add-hosted-runner-overview %}
 
@@ -40,18 +40,18 @@ Organization owners{% ifversion custom-org-roles %} and users with the "Manage o
 {% data reusables.organizations.org_settings %}
 {% data reusables.organizations.settings-sidebar-actions-runners %}
 {% data reusables.actions.add-hosted-runner %}
-1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see "[Allowing repositories to access {% data variables.actions.hosted_runner %}s](#allowing-repositories-to-access-larger-runners)."
+1. To allow repositories to access your {% data variables.actions.hosted_runner %}s, add them to the list of repositories that can use it. For more information, see [Allowing repositories to access {% data variables.actions.hosted_runner %}s](#allowing-repositories-to-access-larger-runners).
 
 ## Allowing repositories to access {% data variables.actions.hosted_runner %}s
 
 Repositories are granted access to {% data variables.actions.hosted_runner %}s through runner groups. Enterprise administrators can choose which organizations are granted access to enterprise-level runner groups, and organization owners{% ifversion custom-org-roles %} and users with the "Manage organization runners and runner groups" permission{% endif %} control repository-level access to all {% data variables.actions.hosted_runner %}s.
 
-Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."{% endif %}
+Organization owners can use and configure enterprise-level runner groups for the repositories in their organization, or they can create organization-level runner groups to control access.{% ifversion custom-org-roles %} Users with the "Manage organization runners and runner groups" can only manage organization-level runner groups. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).{% endif %}
 
-* **For enterprise-level runner groups**: {% data reusables.actions.about-enterprise-level-runner-groups %}
-* **For organization-level runner groups**: {% data reusables.actions.about-organization-level-runner-groups %}
+* **For enterprise-level runner groups:** {% data reusables.actions.about-enterprise-level-runner-groups %}
+* **For organization-level runner groups:** {% data reusables.actions.about-organization-level-runner-groups %}
 
-Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners)."
+Once a repository has access to {% data variables.actions.hosted_runner %}s, the {% data variables.actions.hosted_runner %}s can be added to workflow files. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/running-jobs-on-larger-runners).
 
 {% data reusables.actions.runner-groups-org-navigation %}
 1. Select a runner group from either list on the page. Organization-level runner groups are listed at the top of the page, and enterprise-level runner groups are listed under "Shared by the Enterprise."
@@ -59,7 +59,7 @@ Once a repository has access to {% data variables.actions.hosted_runner %}s, the
 
 > [!WARNING]
 > {% data reusables.actions.hosted-runner-security %}
-> For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners)."
+> For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/controlling-access-to-larger-runners).
 
 ## Changing the name of a {% data variables.actions.hosted_runner %}
 
@@ -91,6 +91,36 @@ You can edit the name of your {% data variables.actions.hosted_runner %}s.
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.select-a-larger-runner %}
 {% data reusables.actions.rename-larger-runner %}
+{% endif %}
+
+## Changing the size of a {% data variables.actions.hosted_runner %}
+
+{% ifversion ghec %}
+You can edit the size of your {% data variables.actions.hosted_runner %}s.
+
+* [Changing the size of an organization runner](#changing-the-size-of-an-organization-runner)
+* [Changing the size of an enterprise runner](#changing-the-size-of-an-enterprise-runner)
+
+### Changing the size of an organization runner
+
+{% endif %}
+
+{% data reusables.organizations.navigate-to-org %}
+{% data reusables.organizations.org_settings %}
+{% data reusables.organizations.settings-sidebar-actions-runners %}
+{% data reusables.actions.select-a-larger-runner %}
+{% data reusables.actions.resize-larger-runner %}
+
+{% ifversion ghec %}
+
+### Changing the size of an enterprise runner
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.policies-tab %}
+{% data reusables.enterprise-accounts.actions-tab %}
+{% data reusables.enterprise-accounts.actions-runners-tab %}
+{% data reusables.actions.select-a-larger-runner %}
+{% data reusables.actions.resize-larger-runner %}
 {% endif %}
 
 ## Configuring autoscaling for {% data variables.actions.hosted_runner %}s

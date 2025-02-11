@@ -1,7 +1,7 @@
 ---
 title: Monitoring the health of your cluster
 shortTitle: Monitor cluster health
-intro: 'To ensure the performance and redundancy of a {% data variables.product.product_name %} cluster, you can monitor the cluster''s health.'
+intro: 'To ensure the performance and redundancy of a {% data variables.product.prodname_ghe_server %} cluster, you can monitor the cluster''s health.'
 product: '{% data reusables.gated-features.cluster %}'
 redirect_from:
   - /enterprise/admin/clustering/monitoring-cluster-nodes
@@ -22,15 +22,11 @@ topics:
   - Performance
 ---
 
-## About {% data variables.product.product_name %} cluster health
+## About {% data variables.product.prodname_ghe_server %} cluster health
 
-A {% data variables.product.product_name %} cluster comprises multiple nodes, with redundant services distributed across two or more nodes. If an individual service or an entire node fails, users should not notice. Failures affect performance and redundancy, so it's important to monitor the health of your cluster. You can monitor the health of your cluster using a command-line utility or an external monitoring tool like Nagios.
+A {% data variables.product.prodname_ghe_server %} cluster comprises multiple nodes, with redundant services distributed across two or more nodes. If an individual service or an entire node fails, users should not notice. Failures affect performance and redundancy, so it's important to monitor the health of your cluster. You can monitor the health of your cluster using a command-line utility or an external monitoring tool like Nagios.
 
-{% ifversion node-eligibility-service %}
-
-You can also monitor the health of individual nodes using {% data variables.product.prodname_nes %}. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service)."
-
-{% endif %}
+You can also monitor the health of individual nodes using {% data variables.product.prodname_nes %}. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service).
 
 ## Manually checking cluster status
 
@@ -49,7 +45,7 @@ admin@ghe-data-node-0:~$ ghe-cluster-status | grep error
 
 ## Monitoring cluster status using the {% data variables.product.prodname_cli %}
 
-You can use the `gh es` extension for {% data variables.product.prodname_cli %} to check the status of your {% data variables.product.product_name %} cluster. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-cluster-status) and "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli)".
+You can use the `gh es` extension for {% data variables.product.prodname_cli %} to check the status of your {% data variables.product.prodname_ghe_server %} cluster. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-cluster-status) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
 {% endif %}
 
@@ -76,11 +72,8 @@ You can configure [Nagios](https://www.nagios.org/) to monitor {% data variables
    > Your public key has been saved in /home/nagiosuser/.ssh/id_ed25519.pub.
    ```
 
-   {% danger %}
-
-   **Security Warning:** An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
-
-   {% enddanger %}
+   > [!CAUTION]
+   > An SSH key without a passphrase can pose a security risk if authorized for full access to a host. Limit this key's authorization to a single read-only command.
 
    > [!NOTE]
    > If you're using a distribution of Linux that doesn't support the Ed25519 algorithm, use the command:

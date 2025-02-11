@@ -36,7 +36,7 @@ describe('permission statements', () => {
   })
 
   test('page with permission frontmatter and product statement', async () => {
-    const $ = await getDOM('/get-started/foo/page-with-permissions-and-product-callout.md')
+    const $ = await getDOM('/get-started/foo/page-with-permissions-and-product-callout')
     const html = $('[data-testid=permissions-callout] div').html()
     // part of the UI
     expect(html).toMatch('Who can use this feature')

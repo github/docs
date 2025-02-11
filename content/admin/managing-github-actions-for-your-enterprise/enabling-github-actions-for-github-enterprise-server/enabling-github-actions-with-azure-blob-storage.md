@@ -18,9 +18,7 @@ shortTitle: Azure Blob storage
 
 {% data reusables.actions.enterprise-storage-about %}
 
-{% ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-storage-about-oidc %}
-{% endif %}
 
 ## Prerequisites
 
@@ -38,8 +36,6 @@ Before enabling {% data variables.product.prodname_actions %}, make sure you hav
 {% data reusables.actions.enterprise-common-prereqs %}
 {% data reusables.actions.enterprise-oidc-prereqs %}
 
-{% ifversion ghes-actions-storage-oidc %}
-
 ## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using OIDC (recommended)
 
 To configure {% data variables.product.prodname_ghe_server %} to use OIDC with an Azure storage account, you must first register a Microsoft Entra ID (previously known as Azure AD) application with OIDC credentials, then configure your storage account, and finally configure {% data variables.product.prodname_ghe_server %} to access the storage container using the Entra ID.
@@ -53,7 +49,7 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
    ![Screenshot of the "Overview" page in Entra ID. The first four items in the "Essentials" section are highlighted with an orange outline.](/assets/images/azure/azure-aad-app-storage-ids.png)
 1. In your Entra ID application, under "Manage", click **Certificates & secrets**, select the **Federated credentials** tab, then click **Add credential**.
 
-   ![Screenshot of the "Federated credentials" page in Entra ID. The "Certificates & secrets" tab, the "Federated credentials" tab, and the "Add credential" button are highlighted with orange outlines.](/assets/images/azure/azure-federated-credential.png)
+   ![Screenshot of the page to manage "Certificates & secrets". The page link, "Federated credentials" tab, and "Add credential" button are outlined.](/assets/images/azure/azure-federated-credential.png)
 1. Enter the following details for the credential:
    1. For "Federated credential scenario", select **Other issuer**.
    1. For "Issuer", enter `https://HOSTNAME/_services/token`, where `HOSTNAME` is the public hostname for {% data variables.location.product_location_enterprise %}. For example, `https://my-ghes-host.example.com/_services/token`.
@@ -94,20 +90,14 @@ To configure {% data variables.product.prodname_ghe_server %} to use OIDC with a
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 
-{% endif %}
-
-## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage{% ifversion ghes-actions-storage-oidc %} using a connection string{% endif %}
+## Enabling {% data variables.product.prodname_actions %} with Azure Blob storage using a connection string
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.actions %}
 {% data reusables.actions.enterprise-enable-checkbox %}
-{%- ifversion ghes-actions-storage-oidc %}
 {% data reusables.actions.enterprise-azure-storage-setup %}
 1. Under "Authentication", select **Credentials-based**, and enter your Azure storage account's connection string. For more information on getting the connection string for your storage account, see the [Azure documentation](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys).
-{%- else %}
-1. Under "Artifact & Log Storage", select **Azure Blob Storage**, then enter your Azure storage account's connection string. For more information about getting the connection string for your storage account, see the [View account access keys](https://docs.microsoft.com/en-us/azure/storage/common/storage-account-keys-manage?tabs=azure-portal#view-account-access-keys) on Microsoft Learn.
-{%- endif %}
 {% data reusables.enterprise_management_console.test-storage-button %}
 {% data reusables.enterprise_management_console.save-settings %}
 

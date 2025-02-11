@@ -13,7 +13,7 @@ redirect_from:
 
 ## About workflow runs from private forks
 
-{% data reusables.actions.private-repository-forks-overview %} For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories)."
+{% data reusables.actions.private-repository-forks-overview %} For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-private-repositories).
 
 ## Approving workflow runs on a pull request from a private fork
 

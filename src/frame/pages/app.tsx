@@ -3,9 +3,10 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
+import { useRouter } from 'next/router'
 
 import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiment'
+import { initializeExperiments } from 'src/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -20,10 +21,15 @@ type MyAppProps = AppProps & {
 
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   const { theme } = useTheme()
+  const router = useRouter()
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments()
+    initializeExperiments(
+      router.locale as string,
+      pageProps.mainContext.currentVersion,
+      pageProps.mainContext.allVersions,
+    )
   }, [])
 
   useEffect(() => {

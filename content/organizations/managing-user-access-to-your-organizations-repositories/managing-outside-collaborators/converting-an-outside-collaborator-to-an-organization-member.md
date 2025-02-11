@@ -20,7 +20,7 @@ shortTitle: Convert collaborator to member
 {% data reusables.enterprise-managed.repo-collaborators-note %}
 
 {% ifversion fpt or ghec %}
-If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)." {% data reusables.organizations.org-invite-expiration %}{% endif %}
+If your organization is on a paid per-user subscription, an unused license must be available before you can invite a new member to join the organization or reinstate a former organization member. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing). {% data reusables.organizations.org-invite-expiration %}{% endif %}
 
 If your organization [requires members to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), users {% ifversion fpt or ghec %}you invite must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before they can accept the invitation.{% else %}must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.{% endif %}
 

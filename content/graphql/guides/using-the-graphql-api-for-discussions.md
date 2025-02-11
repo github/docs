@@ -2,13 +2,15 @@
 title: Using the GraphQL API for Discussions
 intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Use GraphQL for Discussions
 ---
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
-This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 ## Fields
 
@@ -70,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
 _Signature:_
 
@@ -110,7 +112,7 @@ pinnedDiscussions(
 
 ## Objects
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#connection)."
+**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see [AUTOTITLE](/graphql/guides/introduction-to-graphql#connection).
 
 ```graphql
 query {
@@ -1091,4 +1093,4 @@ Return type fields:
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[AUTOTITLE](/graphql/reference/queries#searchresultitemconnection)" and "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)."
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see [AUTOTITLE](/graphql/reference/queries#searchresultitemconnection) and [AUTOTITLE](/search-github/searching-on-github/searching-discussions).

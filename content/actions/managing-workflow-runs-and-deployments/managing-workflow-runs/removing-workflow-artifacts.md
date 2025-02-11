@@ -1,6 +1,6 @@
 ---
 title: Removing workflow artifacts
-intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.product_name %}.'
+intro: 'You can reclaim used {% data variables.product.prodname_actions %} storage by deleting artifacts before they expire on {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -31,10 +31,10 @@ redirect_from:
 
 ## Setting the retention period for an artifact
 
-Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see "[AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy)."
+Retention periods for artifacts and logs can be configured at the repository, organization, and enterprise level. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration#artifact-and-log-retention-policy).
 
-You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period)."
+You can also define a custom retention period for individual artifacts using the `actions/upload-artifact` action in a workflow. For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts#configuring-a-custom-artifact-retention-period).
 
 ## Finding the expiration date of an artifact
 
-You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by the REST API. For more information, see "[AUTOTITLE](/rest/actions/artifacts)."
+You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by the REST API. For more information, see [AUTOTITLE](/rest/actions/artifacts).

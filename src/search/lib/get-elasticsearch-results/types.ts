@@ -2,6 +2,7 @@ export interface AutocompleteResultsArgs {
   indexName: string
   query: string
   size: number
+  debug?: boolean
 }
 
 export interface FuzzyConfig {

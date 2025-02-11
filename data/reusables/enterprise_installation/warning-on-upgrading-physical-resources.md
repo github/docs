@@ -1,1 +1,1 @@
-The process for allocating new system resources varies by virtualization platform and resource type. You should always configure the monitoring and alerting of key system resources. For more information, see "[AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance)."
+The process for allocating new system resources varies by virtualization platform and resource type. You should always configure the monitoring and alerting of key system resources. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance).

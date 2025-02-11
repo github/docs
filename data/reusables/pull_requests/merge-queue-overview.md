@@ -6,4 +6,4 @@ Using a merge queue is particularly useful on branches that have a relatively hi
 
 Once a pull request has passed all required branch protection checks, a user with write access to the repository can add the pull request to the queue. The merge queue will ensure the pull request's changes pass all required status checks when applied to the latest version of the target branch and any pull requests already in the queue.
 
-A merge queue may use {% data variables.product.prodname_actions %} or your own CI provider to run required checks on pull requests in a merge queue. For more information, see "[AUTOTITLE](/actions)."
+A merge queue may use {% data variables.product.prodname_actions %} or your own CI provider to run required checks on pull requests in a merge queue. For more information, see [AUTOTITLE](/actions).

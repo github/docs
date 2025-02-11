@@ -134,7 +134,7 @@ Some examples of GitHub products and services are:
 * GitHub Desktop
 * GitHub CLI
 * GitHub API
-* npm
+* npm <!-- markdownlint-disable-line GHD034 -->
 
 ### 3.3 Sponsorship and/or Affiliation
 

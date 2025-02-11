@@ -15,7 +15,7 @@ shortTitle: Change insight visibility
 Organization owners can set limitations for viewing organization dependency insights. All members of an organization can view organization dependency insights by default.
 
 {% ifversion ghec %}
-Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights)."
+Enterprise owners can set limitations for viewing organization dependency insights on all organizations in your enterprise account. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-visibility-of-dependency-insights).
 {% endif %}
 
 {% data reusables.profile.access_org %}

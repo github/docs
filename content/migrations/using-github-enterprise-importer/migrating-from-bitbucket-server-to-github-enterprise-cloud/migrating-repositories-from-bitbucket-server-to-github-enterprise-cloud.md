@@ -24,15 +24,15 @@ At this time, migrating from Bitbucket Server with the {% data variables.product
 
 ## Prerequisites
 
-* We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud#running-your-migrations)."
-* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud)."
+* We strongly recommend that you perform a trial run of your migration and complete your production migration soon after. To learn more about trial runs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/overview-of-a-migration-from-bitbucket-server-to-github-enterprise-cloud#running-your-migrations).
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/about-migrations-from-bitbucket-server-to-github-enterprise-cloud).
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role)."
+* For the destination organization on {% data variables.product.prodname_dotcom_the_website %}, you must be an organization owner or have the migrator role. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#about-the-migrator-role).
 * You need the username and password for a Bitbucket Server account with admin or super admin permissions.
 
 ## Step 1: Install the {% data variables.product.prodname_bbs2gh_cli %}
 
-If this is your first migration, you'll need to install the {% data variables.product.prodname_bbs2gh_cli %}. For more information about {% data variables.product.prodname_cli %}, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+If this is your first migration, you'll need to install the {% data variables.product.prodname_bbs2gh_cli %}. For more information about {% data variables.product.prodname_cli %}, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
 {% data reusables.enterprise-migration-tool.bbs2gh-binary %}
 
@@ -59,7 +59,7 @@ Before you can use the {% data variables.product.prodname_bbs2gh_cli_short %} to
 
 You'll also need to set environment variables for your Bitbucket Server username and password and, if your Bitbucket Server instance runs on Windows, your SMB password.
 
-1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#creating-a-personal-access-token-for-github-enterprise-importer)."
+1. Create and record a {% data variables.product.pat_v1 %} that will authenticate for the destination organization on {% data variables.product.prodname_ghe_cloud %}, making sure that the token meets all requirements. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#creating-a-personal-access-token-for-github-enterprise-importer).
 1. Set environment variables, replacing TOKEN with the {% data variables.product.pat_generic %} you recorded above, USERNAME with the username of a Bitbucket Server account that has admin or super admin permissions, and PASSWORD with the password for the Bitbucket Server account.
 
    * If you're using Terminal, use the `export` command.
@@ -108,7 +108,7 @@ Before you can run a migration, you need to set up a storage container with your
 
 ### Allowing network access
 
-If you have configured firewall rules on your storage account, ensure you have allowed access to the IP ranges for your migration destination. See "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#ip-ranges-for-ghecom)."
+If you have configured firewall rules on your storage account, ensure you have allowed access to the IP ranges for your migration destination. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#ip-ranges-for-ghecom).
 
 ## Step 5: Migrate a repository
 
@@ -124,8 +124,8 @@ When you migrate a repository, by default, the {% data variables.product.prodnam
 
 Alternatively, you can use the {% data variables.product.prodname_cli %} to generate the archive, download that archive manually, and then use the {% data variables.product.prodname_cli %} to continue the migration.
 
-* "[Allowing the {% data variables.product.prodname_cli %} to download the migration archive](#allowing-the-github-cli-to-download-the-migration-archive)"
-* "[Downloading the migration archive manually](#downloading-the-migration-archive-manually)"
+* [Allowing the {% data variables.product.prodname_cli %} to download the migration archive](#allowing-the-github-cli-to-download-the-migration-archive)
+* [Downloading the migration archive manually](#downloading-the-migration-archive-manually)
 
 ### Allowing the {% data variables.product.prodname_cli %} to download the migration archive
 
@@ -163,7 +163,7 @@ gh bbs2gh migrate-repo --bbs-server-url BBS-SERVER-URL \
 {% data reusables.enterprise-migration-tool.archive-download-host-placeholder %}
 
 > [!NOTE]
-> If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported)."
+> If you get an error mentioning `Renci.SshNet`, then the CLI is having issues making an SFTP connection to your server to download your migration archive. For information about how to troubleshoot these issues, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#cipher-name-is-not-supported).
 
 ### Downloading the migration archive manually
 
@@ -196,7 +196,7 @@ Your migration archive will be generated, and its path will be printed in the co
 instance at $BITBUCKET_SHARED_HOME/data/migration/export/Bitbucket_export_9.tar
 ```
 
-In general, `$BITBUCKET_SHARED_HOME` will be set to `/var/atlassian/application-data/bitbucket/shared` on Linux and `C:\Atlassian\ApplicationData\Bitbucket\Shared` on Windows, but this may differ depending on your server configuration. To help you identify your shared home directory, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#source-export-archive-does-not-exist-error)."
+In general, `$BITBUCKET_SHARED_HOME` will be set to `/var/atlassian/application-data/bitbucket/shared` on Linux and `C:\Atlassian\ApplicationData\Bitbucket\Shared` on Windows, but this may differ depending on your server configuration. To help you identify your shared home directory, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#source-export-archive-does-not-exist-error).
 
 Download the migration archive from your Bitbucket Server instance, and store the archive on the machine where you're running the {% data variables.product.prodname_cli %}.
 

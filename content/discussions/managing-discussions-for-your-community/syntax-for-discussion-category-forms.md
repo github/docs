@@ -3,7 +3,9 @@ title: Syntax for discussion category forms
 shortTitle: Syntax for discussion category forms
 intro: You can use YAML syntax to define the fields in your discussion category forms.
 versions:
-  feature: discussion-category-forms
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 ---
 
 ## About YAML syntax for discussion category forms
@@ -44,4 +46,4 @@ You can set the following top-level keys for each discussion category form.
 | `labels` | Labels that will automatically be added to discussions created with this template. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the discussion submission form. | Optional | String |
 
-To add fields to your form, include an array of form elements in the `body` key. For a list of available elements and their syntaxes, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema)."
+To add fields to your form, include an array of form elements in the `body` key. For a list of available elements and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).

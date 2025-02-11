@@ -15,11 +15,8 @@ versions:
 
 _These terms apply to Customers who licensed the Products prior to January 4, 2021. Customers who purchase GitHub Products after that date are directed to https://github.com/customer-terms for current terms._
 
-{% tip %}
-
-This Amendment to GitHub's [Terms of Service](/site-policy/github-terms/github-terms-of-service) applies only to users that are using GitHub on behalf of the United States federal government. If you are not using GitHub on behalf of the U.S. federal government, the standard [GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service) apply to you.
-
-{% endtip %}
+> [!NOTE]
+> This Amendment to GitHub's [Terms of Service](/site-policy/github-terms/github-terms-of-service) applies only to users that are using GitHub on behalf of the United States federal government. If you are not using GitHub on behalf of the U.S. federal government, the standard [GitHub Terms of Service](/site-policy/github-terms/github-terms-of-service) apply to you.
 
 This Amendment is an agreement between GitHub, Inc. ("GitHub" or "Company") and U.S. federal government users of the GitHub.com web site (the “Service”) and applies solely to any U.S. federal government agency and its users who use or access the Service on behalf of the U.S. federal government (the "Government").
 

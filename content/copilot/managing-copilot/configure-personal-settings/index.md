@@ -12,6 +12,7 @@ children:
   - /configuring-network-settings-for-github-copilot
   - /configuring-github-copilot-in-your-environment
   - /configuring-github-copilot-in-the-cli
+  - /using-github-copilot-with-an-account-on-ghecom
 
 redirect_from:
   - /copilot/configuring-github-copilot

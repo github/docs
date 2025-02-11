@@ -30,10 +30,10 @@ describe('robots.txt', () => {
     ).toBe(true)
   })
 
-  test('disallows indexing of azurecontainer.io domains', async () => {
+  test('disallows indexing of internal domains', async () => {
     const res = await get('/robots.txt', {
       headers: {
-        host: 'docs-internal-preview-12345-asdfz.azurecontainer.io',
+        host: 'docs-internal.github.com',
       },
     })
     expect(res.body).toEqual('User-agent: *\nDisallow: /')

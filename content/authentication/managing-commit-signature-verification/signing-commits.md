@@ -36,14 +36,14 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
    ```
 
 1. If you're using GPG, after you create your commit, provide the passphrase you set up when you [generated your GPG key](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
-1. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.product_name %}:
+1. When you've finished creating commits locally, push them to your remote repository on {% data variables.product.github %}:
 
    ```shell
    $ git push
    # Pushes your local commits to the remote repository
    ```
 
-1. On {% data variables.product.product_name %}, navigate to your pull request.
+1. On {% data variables.product.github %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 1. To view more detailed information about the verified signature, click **Verified.**
 
@@ -51,6 +51,6 @@ If you have multiple keys or are attempting to sign commits or tags with a key t
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)"{% endif %}
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags){% ifversion fpt or ghec %}
+* [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces){% endif %}

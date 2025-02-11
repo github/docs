@@ -147,6 +147,7 @@ export default [
   'Storage',
   'Support',
   'Swift',
+  'Team',
   'Teams',
   'Transcripts',
   'Travis CI',

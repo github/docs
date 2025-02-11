@@ -23,7 +23,7 @@ If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot p
 
 ## Publishing your package
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Clone the repository to your local machine.
 
     ```shell
@@ -123,7 +123,7 @@ If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot p
 
 1. The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
 
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see [Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release).
 
 ## Viewing your published package
 
@@ -135,7 +135,7 @@ You can view all of the packages you have published.
 
 ## Installing a published package
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package).
 
 ## Next steps
 
@@ -143,6 +143,6 @@ The basic workflow you just added runs any time a new release is created in your
 
 Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
-* "[AUTOTITLE](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-* "[AUTOTITLE](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+* [AUTOTITLE](/packages/learn-github-packages) for an in-depth tutorial on GitHub Packages
+* [AUTOTITLE](/actions/learn-github-actions) for an in-depth tutorial on GitHub Actions
+* [AUTOTITLE](/packages/working-with-a-github-packages-registry) for specific uses cases and examples

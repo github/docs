@@ -58,4 +58,4 @@ to the `codeql/javascript-queries` {% data variables.product.prodname_codeql %} 
 AngularJS/DeadAngularJSEventListener.ql
 ```
 
-For another example, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries)."
+For another example, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries).

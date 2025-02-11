@@ -6,11 +6,6 @@ import {
   ValidationError,
   getSearchRequestParamsObject,
 } from '@/search/lib/search-request-params/search-params-objects'
-import {
-  getGeneralSearchIndexVersion,
-  getGeneralSearchIndexPrefix,
-  isBeforeSearchIndexMigration,
-} from '@/search/lib/helpers/old-version-logic'
 
 import type {
   ComputedSearchQueryParams,
@@ -79,17 +74,8 @@ export function getSearchFromRequestParams<Type extends SearchTypes>(
 
   let indexName = ''
   if (!validationErrors.length) {
-    // generalSearch is the only type of search that uses the old index prefix logic, rather than the `getElasticSearchIndex` function logic
-    if (type === 'generalSearch' && isBeforeSearchIndexMigration()) {
-      indexName = `${getGeneralSearchIndexPrefix()}github-docs-${getGeneralSearchIndexVersion(searchParams.version)}-${searchParams.language}`
-    } else {
-      const getIndexResults = getElasticSearchIndex(
-        type,
-        searchParams.version,
-        searchParams.language,
-      )
-      indexName = getIndexResults.indexName
-    }
+    const getIndexResults = getElasticSearchIndex(type, searchParams.version, searchParams.language)
+    indexName = getIndexResults.indexName
   }
 
   return { indexName, searchParams, validationErrors }

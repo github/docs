@@ -16,7 +16,7 @@ topics:
 shortTitle: 'Manage {% data variables.projects.projects_v1_boards %} access'
 allowTitleToDifferFromFilename: true
 ---
-A collaborator is a person who has permissions to a {% data variables.projects.projects_v1_board %} you own. A collaborator's permissions will default to read access. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account)."
+A collaborator is a person who has permissions to a {% data variables.projects.projects_v1_board %} you own. A collaborator's permissions will default to read access. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-project-board-owned-by-a-personal-account).
 
 ## Inviting collaborators to a user-owned {% data variables.projects.projects_v1_board %}
 

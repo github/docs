@@ -27,4 +27,4 @@ shortTitle: Show or hide membership
     * To publicize your membership, choose **Public**.
     * To hide your membership, choose **Private**.
 
-   ![Screenshot of an entry in the list of organization members. To the right of the username, a dropdown menu, labeled "Private", is outlined in dark orange.](/assets/images/help/organizations/member-visibility-link.png)
+   ![Screenshot of an entry in the list of organization members. Next to the username, a dropdown menu, labeled "Private", is outlined in dark orange.](/assets/images/help/organizations/member-visibility-link.png)

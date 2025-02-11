@@ -7,4 +7,4 @@ To find the permanent name of a codespace, do one of the following:
 * In a codespace, use this command in the terminal: `echo $CODESPACE_NAME`.
 * If {% data variables.product.prodname_cli %} is installed, either locally or in a codespace, use this command in the terminal to list all of your codespaces: `gh codespace list`.
 
-The permanent name the codespace is also included in many of the log files. For example, in the {% data variables.product.prodname_github_codespaces %} extension log, after `fetching codespace` or `Connecting to codespace`, and in the browser console log after `clientUrl`. For more information, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs)."
+The permanent name the codespace is also included in many of the log files. For example, in the {% data variables.product.prodname_github_codespaces %} extension log, after `fetching codespace` or `Connecting to codespace`, and in the browser console log after `clientUrl`. For more information, see [AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs).

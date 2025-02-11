@@ -138,6 +138,7 @@ const DEFAULT_UI_NAMESPACES = [
   'alerts',
   'header',
   'search',
+  'old_search',
   'survey',
   'toc',
   'meta',

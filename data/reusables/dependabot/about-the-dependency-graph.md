@@ -8,4 +8,4 @@ The dependency graph is a summary of the manifest and lock files stored in a rep
 {% endif %}
 
 {% ifversion ghes %}
-{% data variables.product.product_name %} does not retrieve license information for dependencies, and does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}
+{% data variables.product.github %} does not retrieve license information for dependencies, and does not calculate information about dependents, the repositories and packages that depend on a repository.{% endif %}

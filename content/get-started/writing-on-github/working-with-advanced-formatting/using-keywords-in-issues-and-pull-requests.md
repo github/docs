@@ -1,6 +1,7 @@
 ---
 title: Using keywords in issues and pull requests
 intro: Use keywords to link an issue and pull request or to mark an issue or pull request as a duplicate.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -16,6 +17,7 @@ topics:
 
 To link a pull request to an issue to show that a fix is in progress and to automatically close the issue when someone merges the pull request, type one of the following keywords followed by a reference to the issue. For example, `Closes #10` or `Fixes octo-org/octo-repo#100`.
 
+<!-- markdownlint-disable GHD034 -->
 * close
 * closes
 * closed
@@ -25,9 +27,10 @@ To link a pull request to an issue to show that a fix is in progress and to auto
 * resolve
 * resolves
 * resolved
+<!-- markdownlint-enable GHD034 -->
 
-For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 ## Marking an issue or pull request as a duplicate
 
-To mark an issue or pull request as a duplicate, type "Duplicate of" followed by the issue or pull request number it duplicates in the body of a new comment. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate)."
+To mark an issue or pull request as a duplicate, type "Duplicate of" followed by the issue or pull request number it duplicates in the body of a new comment. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/marking-issues-or-pull-requests-as-a-duplicate).

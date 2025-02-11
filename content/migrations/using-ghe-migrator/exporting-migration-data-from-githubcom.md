@@ -42,7 +42,7 @@ The Migrations API is currently in a preview period, which means that the endpoi
 
 {% data reusables.enterprise_migrations.locking-repositories %}
 
-1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/about-ghe-migrator#types-of-migrations)."
+1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see [AUTOTITLE](/migrations/using-ghe-migrator/about-ghe-migrator#types-of-migrations).
 
 1. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
     * Your access token for authentication.

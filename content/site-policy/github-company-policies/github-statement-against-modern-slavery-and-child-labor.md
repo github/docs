@@ -11,7 +11,7 @@ topics:
 ---
 _2018 statement_
 
-According to the International Labour Organization (ILO), [40 million people were victims of modern slavery and 152 million children were subject to child labor](https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm) globally in 2016. As the [ILO reports](https://www.ilo.org/global/topics/forced-labour/lang--en/index.htm):
+According to the International Labour Organization (ILO), [40 million people were victims of modern slavery and 152 million children were subject to child labor](https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm) globally in 2016. As the [ILO reports](https://www.ilo.org/topics-and-sectors/forced-labour-modern-slavery-and-trafficking-persons):
    * 1 in 4 victims of modern slavery are children.
    * Out of the 24.9 million people trapped in forced labour, 16 million people are exploited in the private sector such as domestic work, construction or agriculture; 4.8 million persons in forced sexual exploitation, and 4 million persons in forced labour imposed by state authorities.
    *	Women and girls are disproportionately affected by forced labour, accounting for 99% of victims in the commercial sex industry, and 58% in other sectors.
@@ -56,19 +56,19 @@ GitHub has a non-retaliation policy for reporting workplace-related concerns. Co
 
 GitHub's labor practices are
 
-**fair**:
+**fair:**
    * GitHub pays its employees and contractors a fair wage, in accordance with applicable legal wages
    * GitHub maintains humane working conditions
    * GitHub does not require workers to exceed the maximum hours of daily labor set by local and national laws or regulations
    * GitHub pays its employees and contractors in a timely manner, with documentation (such as a pay stub) stating the basis on which they are paid, and keeps employee records in accordance with local and national laws
 
-**humane and ethical**:
+**humane and ethical:**
    * GitHub uses only voluntary labor
    * GitHub prohibits child labor
    * GitHub does not engage in physical discipline or abuse
    * GitHub does not tolerate harassment or unlawful discrimination in the workforce or workplace
 
-**respectful**:
+**respectful:**
    * GitHub protects its employees' rights to freedom of association and collective bargaining in accordance with legal requirements, including to post legal notices of employees' rights under the National Labor Relations Act
    * GitHub provides benefits to employees at or in excess of levels expected in the industry
    * GitHub encourages employees to report any workplace complaint and does not tolerate retaliation for reporting

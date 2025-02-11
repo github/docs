@@ -38,7 +38,7 @@ You can change numerous settings for the {% data variables.product.prodname_code
 
 ### Choosing a version of the {% data variables.product.prodname_codeql_cli %}
 
-To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} "Executable Path" in the extension settings, and point it to your existing copy of the {% data variables.product.prodname_codeql_cli %}. That is, the file named `codeql` (Linux and macOS), or `codeql.exe` (Windows). For more information about the default behavior, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
+To override the default behavior and use a specific version of the {% data variables.product.prodname_codeql_cli %}, you can specify the {% data variables.product.prodname_codeql_cli %} "Executable Path" in the extension settings, and point it to your existing copy of the {% data variables.product.prodname_codeql_cli %}. That is, the file named `codeql` (Linux and macOS), or `codeql.exe` (Windows). For more information about the default behavior, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli).
 
 ### Changing the labels of query history items
 
@@ -66,7 +66,7 @@ To save query server logs in a custom location, edit the "Running Queries: Custo
 
 {% ifversion codeql-vs-code-mrva %}
 
-There are a number of settings under "Variant Analysis" that you can use to define or edit lists of {% data variables.product.company_short %} repositories for variant analysis, and change to a different controller repository. For information on the purpose and requirements for a controller repository, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis)."
+There are a number of settings under "Variant Analysis" that you can use to define or edit lists of {% data variables.product.company_short %} repositories for variant analysis, and change to a different controller repository. For information on the purpose and requirements for a controller repository, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
 
 {% endif %}
 
@@ -108,7 +108,7 @@ You can change the items shown in the view or add new items by directly editing 
 
 To automatically add database source folders to your workspace, you can enable the "Adding Databases: Add Database Source to Workspace" setting.
 
-This setting is disabled by default. You may want to enable the setting if you regularly browse the source code of databases (for example, to view the abstract syntax tree of the code). For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/exploring-the-structure-of-your-source-code)."
+This setting is disabled by default. You may want to enable the setting if you regularly browse the source code of databases (for example, to view the abstract syntax tree of the code). For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/exploring-the-structure-of-your-source-code).
 
 > [!NOTE]
 > If you are in a single-folder workspace, adding database source folders will cause the workspace to reload as a multi-root workspace. This may cause query history and database lists to reset.
@@ -119,11 +119,11 @@ This setting is disabled by default. You may want to enable the setting if you r
 
 To increase the number of threads used for testing queries, you can update the "Running Tests: Number Of Threads" setting.
 
-To pass additional arguments to the {% data variables.product.prodname_codeql_cli %} when running tests, you can update the "Running Tests: Additional Test Arguments" setting. For more information about the available arguments, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/)."
+To pass additional arguments to the {% data variables.product.prodname_codeql_cli %} when running tests, you can update the "Running Tests: Additional Test Arguments" setting. For more information about the available arguments, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run/).
 
 ### Configuring settings for telemetry and data collection
 
-You can configure whether the {% data variables.product.prodname_codeql %} extension collects telemetry data. This is disabled by default. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code)."
+You can configure whether the {% data variables.product.prodname_codeql %} extension collects telemetry data. This is disabled by default. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code).
 
 {% ifversion ghec %}
 
@@ -153,7 +153,7 @@ When {% data variables.product.github %} Enterprise URI (`github-enterprise.uri`
 * Creating a list of repositories for variant analysis
 
 > [!NOTE]
-> {% data variables.enterprise.data_residency %} requires authentication to see all repositories, so you will need to authenticate before you can download or analyze data. In addition, you will not see any "Top XX repositories" lists for variant analysis, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis)."
+> {% data variables.enterprise.data_residency %} requires authentication to see all repositories, so you will need to authenticate before you can download or analyze data. In addition, you will not see any "Top XX repositories" lists for variant analysis, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
 
 {% endif %}
 

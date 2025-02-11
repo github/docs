@@ -17,7 +17,7 @@ redirect_from:
 
 To run a workflow manually, the workflow must be configured to run on the `workflow_dispatch` event.
 
-To trigger the `workflow_dispatch` event, your workflow must be in the default branch. For more information about configuring the `workflow_dispatch` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)."
+To trigger the `workflow_dispatch` event, your workflow must be in the default branch. For more information about configuring the `workflow_dispatch` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 
 {% data reusables.repositories.permissions-statement-write %}
 
@@ -29,15 +29,12 @@ To trigger the `workflow_dispatch` event, your workflow must be in the default b
 {% data reusables.repositories.actions-tab %}
 1. In the left sidebar, click the name of the workflow you want to run.
 
-   {% ifversion workflow-nav-2022 -%}
    ![Screenshot of the "Actions" page. In the left sidebar, a workflow name is highlighted with an outline in dark orange.](/assets/images/help/repository/actions-select-workflow-2022.png)
-   {%- else -%}
-   ![Screenshot of the "Actions" page. Features apart from one workflow in the left sidebar are grayed out.](/assets/images/help/repository/actions-select-workflow.png)
-   {%- endif %}
+
 1. Above the list of workflow runs, click the **Run workflow** button.
 
    > [!NOTE]
-   > To see the **Run workflow** button, your workflow file must use the `workflow_dispatch` event trigger. Only workflow files that use the `workflow_dispatch` event trigger will have the option to run the workflow manually using the **Run workflow** button. For more information about configuring the `workflow_dispatch` event, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch)."
+   > To see the **Run workflow** button, your workflow file must use the `workflow_dispatch` event trigger. Only workflow files that use the `workflow_dispatch` event trigger will have the option to run the workflow manually using the **Run workflow** button. For more information about configuring the `workflow_dispatch` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#workflow_dispatch).
 
    ![Screenshot of a workflow page. Above the list of workflow runs, a button, labeled "Run workflow", is outlined in dark orange.](/assets/images/help/actions/actions-workflow-dispatch.png)
 1. Select the **Branch** dropdown menu and click a branch to run the workflow on.
@@ -89,4 +86,4 @@ When using the REST API, you configure the `inputs` and `ref` as request body pa
 > [!NOTE]
 > You can define up to 10 `inputs` for a `workflow_dispatch` event.
 
-For more information about using the REST API, see "[AUTOTITLE](/rest/actions/workflows#create-a-workflow-dispatch-event)."
+For more information about using the REST API, see [AUTOTITLE](/rest/actions/workflows#create-a-workflow-dispatch-event).

@@ -22,11 +22,11 @@ To use {% data variables.product.prodname_copilot %}, a user must authenticate t
 
 If you don't already manage users through an organization or enterprise, you can create an enterprise account specifically for allocating {% data variables.product.prodname_copilot_business_short %} licenses.
 
-* You'll only pay for the {% data variables.product.prodname_copilot_short %} licenses you assign. For pricing, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business)."
+* You'll only pay for the {% data variables.product.prodname_copilot_short %} licenses you assign. For pricing, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#pricing-for-github-copilot-business).
 * You won't pay for {% data variables.product.prodname_enterprise %} seats.
 * You won't be able to create organizations or repositories in the enterprise, or use features that require repositories or organizations, such as {% data variables.product.prodname_actions %}.
 
-When you create the account, you can choose whether your enterprise members will authenticate using their personal {% data variables.product.company_short %} accounts, or using new accounts that you will create and manage from an external identity management system. For a comparison, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud)."
+When you create the account, you can choose whether your enterprise members will authenticate using their personal {% data variables.product.company_short %} accounts, or using new accounts that you will create and manage from an external identity management system. For a comparison, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 
 ## How will I manage access for users?
 
@@ -52,9 +52,9 @@ If you request an {% data variables.enterprise.prodname_emu_enterprise %}:
 ## Limitations
 
 * You will not be able to use REST API endpoints that require an organization. In particular, these include:
-  * "[List enterprise consumed licenses](/rest/enterprise-admin/license#list-enterprise-consumed-licenses)"
-  * "[AUTOTITLE](/rest/orgs/members)"
-  * "[AUTOTITLE](/rest/copilot/copilot-user-management)"
+  * [List enterprise consumed licenses](/rest/enterprise-admin/license#list-enterprise-consumed-licenses)
+  * [AUTOTITLE](/rest/orgs/members)
+  * [AUTOTITLE](/rest/copilot/copilot-user-management)
 * Documentation on {% data variables.product.prodname_docs %} may not apply to your enterprise.
 * With an enterprise for personal accounts, you cannot use team synchronization to manage membership of enterprise teams.
 
@@ -64,5 +64,5 @@ To get started, you will work with {% data variables.contact.contact_enterprise_
 
 See the setup guide for your chosen type of enterprise.
 
-* "[AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts)
-* "[AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-managed-users)
+* [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-personal-accounts)
+* [AUTOTITLE](/admin/copilot-business-only/setting-up-a-dedicated-enterprise-for-copilot-business-managed-users)

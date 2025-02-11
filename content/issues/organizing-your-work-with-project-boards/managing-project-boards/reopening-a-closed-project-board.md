@@ -14,7 +14,7 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-When you close a {% data variables.projects.projects_v1_board %}, any workflow automation that was configured for the {% data variables.projects.projects_v1_board %} will pause by default. For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)."
+When you close a {% data variables.projects.projects_v1_board %}, any workflow automation that was configured for the {% data variables.projects.projects_v1_board %} will pause by default. For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board).
 
 When you reopen a {% data variables.projects.projects_v1_board %}, you have the option to _sync_ automation, which updates the position of the cards on the board according to the automation settings configured for the board.
 
@@ -26,4 +26,4 @@ When you reopen a {% data variables.projects.projects_v1_board %}, you have the 
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards)

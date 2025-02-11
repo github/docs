@@ -41,4 +41,4 @@ For each activity, you can view the exact changes by clicking "Compare changes."
 
 1. To see exactly what changes were introduced by a particular activity, to the right of the activity, select {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **{% octicon "git-compare" aria-hidden="true" %} Compare changes**.
 
-   ![Screenshot of a repository's activity view. The horizontal kebab icon, and a pop-up button, labeled "Compare changes", are highlighted with a dark orange outline.](/assets/images/help/graphs/activity-view-compare-changes.png)
+   ![Screenshot of a repository's activity view. The kebab icon and the "Compare changes" pop-up button are highlighted with a dark orange outline.](/assets/images/help/graphs/activity-view-compare-changes.png)

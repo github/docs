@@ -1,6 +1,6 @@
 ## Improving performance for {% data variables.product.prodname_copilot_chat %}
 
-{% data variables.product.prodname_copilot_chat_short %} can support a wide range of practical applications like code generation, code analysis, and code fixes, each with different performance metrics and mitigation strategies. To enhance performance and address some of the  the limitations of {% data variables.product.prodname_copilot_chat_short %}, there are various measures that you can adopt. For more information on the limitations of {% data variables.product.prodname_copilot_chat_short %}, see "[Limitations of {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/about-github-copilot-chat-in-your-ide#limitations-of-github-copilot-chat)."
+{% data variables.product.prodname_copilot_chat_short %} can support a wide range of practical applications like code generation, code analysis, and code fixes, each with different performance metrics and mitigation strategies. To enhance performance and address some of the limitations of {% data variables.product.prodname_copilot_chat_short %}, there are various measures that you can adopt. For more information on the limitations of {% data variables.product.prodname_copilot_chat_short %}, see [Limitations of {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/about-github-copilot-chat-in-your-ide#limitations-of-github-copilot-chat).
 
 ### Keep your prompts on topic
 

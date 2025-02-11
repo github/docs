@@ -122,6 +122,10 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
       const title = await page.renderProp('rawTitle', context, { textOnly: true })
+      const octicon = page.octicon ? page.octicon : null
+      const category = page.category ? page.category : null
+      const complexity = page.complexity ? page.complexity : null
+      const industry = page.industry ? page.industry : null
       let intro = null
       if (opts.renderIntros) {
         intro = ''
@@ -152,6 +156,10 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         title,
         fullPath,
         intro,
+        octicon,
+        category,
+        complexity,
+        industry,
         childTocItems,
       } as ToC
     }),

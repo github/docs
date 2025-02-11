@@ -42,7 +42,7 @@ specifiers passed in as command line arguments.
 
 ### Primary Options
 
-#### `<querysuite|pack>...`
+#### `<query|dir|suite|pack>...`
 
 \[Mandatory] Queries to execute. Each argument is in the form
 `scope/name@range:path` where:

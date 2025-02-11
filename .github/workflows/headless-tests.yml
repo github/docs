@@ -51,6 +51,9 @@ jobs:
       - name: Index fixtures into the local Elasticsearch
         run: npm run index-test-fixtures
 
+      - name: Install headless browser
+        run: npx playwright install --no-shell
+
       - name: Run Playwright tests
         env:
           PLAYWRIGHT_WORKERS: ${{ fromJSON('[1, 4]')[github.repository == 'github/docs-internal'] }}

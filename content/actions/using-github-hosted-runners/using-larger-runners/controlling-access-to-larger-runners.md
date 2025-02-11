@@ -25,8 +25,8 @@ redirect_from:
 
 Runner groups are used to control which repositories can run jobs on your {% data variables.actions.hosted_runner %}s. You must manage access to the group from each level of the management hierarchy, depending on where you've defined the {% data variables.actions.hosted_runner %}:
 
-* **Runners at the enterprise level**: {% data reusables.actions.about-enterprise-level-runner-groups %}
-* **Runners at the organization level**: {% data reusables.actions.about-organization-level-runner-groups %}
+* **Runners at the enterprise level:** {% data reusables.actions.about-enterprise-level-runner-groups %}
+* **Runners at the organization level:** {% data reusables.actions.about-organization-level-runner-groups %}
 
 For example, the following diagram has a runner group named `grp-ubuntu-20.04-16core` at the enterprise level. Before the repository named `octo-repo` can use the runners in the group, you must first configure the group at the enterprise level to allow access to the `octo-org` organization. You must then configure the group at the organization level to allow access to `octo-repo`.
 
@@ -70,7 +70,7 @@ For runner groups in an organization, you can change what repositories in the or
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-repository-access-for-a-runner-group %}
 
-{% ifversion restrict-groups-to-workflows %}
+{% ifversion ghec %}
 
 ## Changing which workflows can access a runner group
 
@@ -99,7 +99,7 @@ For runner groups in an organization, you can change what repositories in the or
 
 {% data reusables.actions.azure-vnet-network-configuration-intro %}
 
-If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see "[AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners#using-an-azure-virtual-network-vnet)."
+If you have configured your {% ifversion ghec %}enterprise or {% endif %}organization to connect to an Azure VNET, you can give runner groups access to the virtual network. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners#using-an-azure-virtual-network-vnet).
 
 {% endif %}
 

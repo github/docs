@@ -133,17 +133,17 @@ These two examples show how to calculate the total nodes in a call.
 
 {% ifversion ghes %}
 
-Rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
-If you are a site administrator, you can set rate limits for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
+If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see "[AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations)" in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations) in the {% data variables.product.prodname_free_user %} documentation.
 
 {% else %}
 
 The GraphQL API assigns points to each query and limits the points that you can use within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
-The REST API also has a separate primary rate limit. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
+The REST API also has a separate primary rate limit. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
 
 In general, you can calculate your primary rate limit for the GraphQL API based on your method of authentication:
 
@@ -274,12 +274,8 @@ Continuing to make requests while you are rate limited may result in the banning
 
 To avoid exceeding a rate limit, you should pause at least 1 second between mutative requests and avoid concurrent requests.
 
-You should also subscribe to webhook events instead of polling the API for data. For more information, see "[AUTOTITLE](/webhooks)."
+You should also subscribe to webhook events instead of polling the API for data. For more information, see [AUTOTITLE](/webhooks).
 
-{% ifversion audit-log-streaming %}
-
-You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
-
-{% endif %}
+You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
 {% endif %}

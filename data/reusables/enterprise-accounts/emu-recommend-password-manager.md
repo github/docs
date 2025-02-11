@@ -1,0 +1,1 @@
+We strongly recommend **storing the credentials for the setup user** in your company's password management tool. Someone will need to sign in as this user to update authentication settings, migrate to another identity provider or authentication method, or use your enterprise's recovery codes.

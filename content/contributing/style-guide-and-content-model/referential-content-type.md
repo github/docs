@@ -11,7 +11,7 @@ We create referential articles and referential sections within other articles.
 
 ## How to write referential content
 
-For the referential content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#referential-article-template)."
+For the referential content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#referential-article-template).
 
 * Write a sentence or an entire conceptual section to introduce the referential content.
 * Present the actual referential content clearly and consistently.

@@ -110,7 +110,7 @@ export default async function handleError(
     }
 
     // display error on the page in development and staging, but not in production
-    if (process.env.HEROKU_PRODUCTION_APP !== 'true') {
+    if (!process.env.MODA_PROD_SERVICE_ENV) {
       req.context.error = error
     }
 

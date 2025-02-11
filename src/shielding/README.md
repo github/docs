@@ -23,13 +23,13 @@ At its root, the `src/shielding/frame/middleware/index.js` is injected into our
 Express server. From there, it loads all its individual middleware handlers.
 
 Each middleware is one file that focuses on a single use-case. The
-use-cases are borne from studying log files (CDN and Azure App Service) to
+use-cases are borne from studying log files to
 spot patterns of request abuse.
 
 ## Notes
 
 - The best place to do shielding is as close to the client(s) as possible,
-i.e. in the CDN or in Azure Frontdoor. Having the code in our own backend
+i.e. in the CDN. Having the code in our own backend
 has the advantage that it's easier to write custom business logic
 along with end-to-end tests.
 - Some shielding "tricks" appear in other places throughout the code

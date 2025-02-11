@@ -34,6 +34,8 @@ GitHub’s **Gifts and Entertainment Policy** explains that bribery is not permi
 
 ## Training for our employees
 
+<!-- markdownlint-disable GHD034 -->
+
 GitHub employees are required to participate in training on corruption, including bribery. We also provide additional training for particularly relevant people and teams, such as our sales team. The training explains relevant elements of the U.S. Foreign Corrupt Practices Act and the U.K. Bribery Act of 2010. For example,
 * definition and structural effects of corruption
 * who is covered, including
@@ -48,6 +50,8 @@ GitHub employees are required to participate in training on corruption, includin
    * improper advantage or influence
 * due diligence and red flags
 * record-keeping requirements
+
+<!-- markdownlint-enable GHD034 -->
 
 In addition, the training covers GitHub’s internal policies related to anti-corruption and bribery, including our non-retaliation (whistleblower) policy.
 

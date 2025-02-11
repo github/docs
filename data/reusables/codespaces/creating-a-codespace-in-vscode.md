@@ -17,8 +17,5 @@ After you connect your account on {% data variables.product.github %} to the {% 
 1. If prompted to choose a dev container configuration file, choose a file from the list.
 1. Click the machine type you want to use.
 
-   {% note %}
-
-   **Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.codespaces.codespaces-machine-type-availability %}

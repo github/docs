@@ -32,7 +32,9 @@ changelog:
 examples_source: data/product-examples/discussions/community-examples.yml
 layout: product-landing
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/discussions'

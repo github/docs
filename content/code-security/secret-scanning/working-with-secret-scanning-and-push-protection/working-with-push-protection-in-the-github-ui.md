@@ -29,8 +29,8 @@ When you {% ifversion push-protection-delegated-bypass-file-upload-support %}upl
 
 You should either:
 
-* **Remove** the secret from the commit. For more information, see "[Resolving a blocked commit](#resolving-a-blocked-commit)."
-* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see "[Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %}" and "[Requesting bypass privileges](#requesting-bypass-privileges){% endif %}."
+* **Remove** the secret from the commit. For more information, see [Resolving a blocked commit](#resolving-a-blocked-commit).
+* **Review** the instructions in the dialog box {% ifversion push-protection-delegated-bypass %}to see what options are available to you{% endif %} to allow the push. For more information, see [Bypassing push protection](#bypassing-push-protection){% ifversion push-protection-delegated-bypass %} and [Requesting bypass privileges](#requesting-bypass-privileges){% endif %}.
 
 {% data variables.product.prodname_dotcom %} will only display one detected secret at a time in the web UI. If a particular secret has already been detected in the repository and an alert already exists, {% data variables.product.prodname_dotcom %} will not block that secret.
 
@@ -42,7 +42,7 @@ Organization owners can provide a custom link that will be displayed when a push
 
 To resolve a blocked commit in the web UI, you need to remove the secret from the file. Once you remove the secret, you will be able to commit your changes.
 
->[!NOTE] To learn how to resolved a blocked push on the command line, see "[AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push)."
+>[!NOTE] To learn how to resolved a blocked push on the command line, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
 
 ## Bypassing push protection
 
@@ -59,7 +59,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% ifversion push-protection-delegated-bypass %}
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see "[Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges)."
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui#requesting-bypass-privileges).
 
 {% endif %}
 

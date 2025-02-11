@@ -15,7 +15,7 @@ topics:
   - Repositories
 ---
 
-Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)."
+Anyone with read permission for a repository can see {% data variables.product.prodname_code_scanning %} annotations on pull requests. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests).
 
 ## Viewing the alerts for a repository
 
@@ -38,16 +38,16 @@ By default, the {% data variables.product.prodname_code_scanning %} alerts page 
 
 1. Alerts from {% data variables.product.prodname_codeql %} analysis include a description of the problem. Click **Show more** for guidance on how to fix your code.
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts)."
+For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
 
 > [!NOTE]
-> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page)."
+> You can see information about when {% data variables.product.prodname_code_scanning %} analysis last ran on the tool status page. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/about-the-tool-status-page).
 
 {% ifversion copilot-chat-ghas-alerts %}
 
 ## Asking {% data variables.product.prodname_copilot_chat %} about {% data variables.product.prodname_code_scanning %} alerts
 
-With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see "[AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features)."
+With a {% data variables.product.prodname_copilot_enterprise %} license, you can ask {% data variables.product.prodname_copilot_chat_short %} for help to better understand security alerts, including {% data variables.product.prodname_code_scanning %} alerts, in repositories in your organization. For more information, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom#asking-questions-about-alerts-from-github-advanced-security-features).
 
 {% endif %}
 
@@ -55,7 +55,7 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 
 ## Viewing metrics for {% data variables.product.prodname_codeql %} pull request alerts for an organization
 
-For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts)."
+For {% data variables.product.prodname_code_scanning %} alerts from {% data variables.product.prodname_codeql %} analysis, you can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests in repositories where you have write access across your organization, and to identify repositories where you may need to take action. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
 
 {% endif %}
 
@@ -75,11 +75,11 @@ You can prefix the `tag` filter with `-` to exclude results with that tag. For e
 
 ### Restricting results to application code only
 
-You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code)."
+You can use the "Only alerts in application code" filter or `autofilter:true` keyword and value to restrict results to alerts in application code. For more information about the types of code that are automatically labeled as not application code, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-labels-for-alerts-that-are-not-found-in-application-code).
 
 ## Searching {% data variables.product.prodname_code_scanning %} alerts
 
-You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.product_name %} performs the free text search across:
+You can search the list of alerts. This is useful if there is a large number of alerts in your repository, or if you don't know the exact name for an alert for example. {% data variables.product.github %} performs the free text search across:
 * The name of the alert
 * The alert details (this also includes the information hidden from view by default in the **Show more** collapsible section)
 
@@ -110,7 +110,7 @@ You can search the list of alerts. This is useful if there is a large number of 
 
 To quickly create an issue to track the status of a specific {% data variables.product.prodname_code_scanning %} alert, on the {% data variables.product.prodname_code_scanning %} alerts page, click the alert you would like to track. On the detailed page for that alert, click **Create issue**. Customize the autogenerated issue as desired, then click **Submit new issue**.
 
-Alternatively, to track a {% data variables.product.prodname_code_scanning %} alert in an existing issue, add the URL for the alert as a task list item in the issue. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+Alternatively, to track a {% data variables.product.prodname_code_scanning %} alert in an existing issue, add the URL for the alert as a task list item in the issue. For more information about task lists, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
 
 {% data reusables.code-scanning.alert-tracking-link %}
 
@@ -122,7 +122,7 @@ Alternatively, to track a {% data variables.product.prodname_code_scanning %} al
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts)"
-* "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)"
-* "[AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)"
-* "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)"
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts)
+* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/triaging-code-scanning-alerts-in-pull-requests)
+* [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning)
+* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/about-integration-with-code-scanning)

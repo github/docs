@@ -33,7 +33,7 @@ jobs:
           # need to use a token from a user with access to github/audit-log-allowlists for this step
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
-          npm run audit-log-sync
+          npm run sync-audit-log
 
       - name: Get the audit-log-allowlists SHA being synced
         id: audit-log-allowlists
@@ -54,7 +54,11 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
-          if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
+          filesChanged=$(git diff --name-only)
+          # There will always be at least one file changed:
+          # src/audit-logs/lib/config.json
+          # If the config file is the only file changed, exit.
+          if [[ $changes -eq 1 ]] && [[ $untracked -eq 1 ]] && [[ $filesChanged == *lib/config.json ]]; then
             echo "There are no changes to commit or untracked files. Exiting..."
             exit 0
           fi
@@ -83,7 +87,8 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label audit-log-pipeline
+            --label audit-log-pipeline \
+            --head=$branchname
 
           # can't approve your own PR, approve with Actions
           unset GITHUB_TOKEN
@@ -93,7 +98,7 @@ jobs:
           # Actions can't merge the PR so back to docs-bot to merge the PR
           unset GITHUB_TOKEN
           gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}"
-          gh pr merge --auto --delete-branch
+          gh pr merge --auto
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

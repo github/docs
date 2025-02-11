@@ -87,7 +87,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
     // the language prefix.
     // We can't always force on the language prefix because some URLs
     // aren't pages. They're other middleware endpoints such as
-    // `/healthz` which should never redirect.
+    // `/healthcheck` which should never redirect.
     // But for example, a `/authentication/connecting-to-github-with-ssh`
     // needs to become `/en/authentication/connecting-to-github-with-ssh`
     const possibleRedirectTo = `/en${req.path}`

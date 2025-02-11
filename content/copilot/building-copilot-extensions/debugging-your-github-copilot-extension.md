@@ -8,7 +8,7 @@ topics:
 shortTitle: Debug Copilot Extension
 ---
 
-{% data reusables.copilot.copilot-extensions.beta-note %}
+{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 With the debug tool for {% data variables.product.prodname_copilot_extensions_short %}, you can chat with your {% data variables.product.prodname_copilot_agent_short %} from the command line, then view detailed logs as your agent generates a response. You can pass several flags to the tool, with the most important flags being:
 * The `url` flag, which contains the URL to access your {% data variables.product.prodname_copilot_agent_short %}. This is the only required flag to start the tool.

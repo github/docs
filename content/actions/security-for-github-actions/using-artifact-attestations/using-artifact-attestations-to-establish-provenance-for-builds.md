@@ -46,7 +46,7 @@ You should **not** sign:
 
 ### About verifying artifact attestations
 
-If you consume software that publishes artifact attestations, you can use the {% data variables.product.prodname_cli %} to verify those attestations. Because the attestations give you information about where and how software was built, you can use that information to create and enforce security policies that elevate your supply chain security. For more information, see "[Verifying artifact attestations with the {% data variables.product.prodname_cli %}](#verifying-artifact-attestations-with-the-github-cli)."
+If you consume software that publishes artifact attestations, you can use the {% data variables.product.prodname_cli %} to verify those attestations. Because the attestations give you information about where and how software was built, you can use that information to create and enforce security policies that elevate your supply chain security. For more information, see [Verifying artifact attestations with the {% data variables.product.prodname_cli %}](#verifying-artifact-attestations-with-the-github-cli).
 
 >[!WARNING]It is important to remember that artifact attestations are _not_ a guarantee that an artifact is secure. Instead, artifact attestations link you to the source code and the build instructions that produced them. It is up to you to define your policy criteria, evaluate that policy by evaluating the content, and make an informed risk decision when you are consuming software.
 
@@ -76,7 +76,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v1
+     uses: actions/attest-build-provenance@v2
      with:
        subject-path: 'PATH/TO/ARTIFACT'
    ```
@@ -99,7 +99,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    ```yaml
    - name: Generate artifact attestation
-     uses: actions/attest-build-provenance@v1
+     uses: actions/attest-build-provenance@v2
      with:
        subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}{% endraw %}
        subject-digest: 'sha256:fedcba0...'
@@ -108,7 +108,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `subject-name` parameter should specify the fully-qualified image name. For example, `ghcr.io/user/app` or `acme.azurecr.io/user/app`. Do not include a tag as part of the image name.
 
-   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).
 
 ## Generating an attestation for a software bill of materials (SBOM)
 
@@ -171,7 +171,7 @@ When you run your updated workflows, they will build your artifacts and generate
 
    The value of the `subject-name` parameter should specify the fully-qualified image name. For example, `ghcr.io/user/app` or `acme.azurecr.io/user/app`. Do not include a tag as part of the image name.
 
-   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs)."
+   The value of the `subject-digest` parameter should be set to the SHA256 digest of the subject for the attestation, in the form `sha256:HEX_DIGEST`. If your workflow uses `docker/build-push-action`, you can use the [`digest`](https://github.com/docker/build-push-action?tab=readme-ov-file#outputs) output from that step to supply the value. For more information on using outputs, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs).
 
    The value of the `sbom-path` parameter should be set to the path to the JSON-formatted SBOM file you want to attest.
 
@@ -191,6 +191,6 @@ docker login ghcr.io
 gh attestation verify oci://ghcr.io/ORGANIZATION_NAME/IMAGE_NAME:test -R ORGANIZATION_NAME/REPOSITORY_NAME
 ```
 
->[!NOTE]These commands assume you are in an online environment. If you are in an offline or air-gapped environment, see "[AUTOTITLE](/actions/security-guides/verifying-attestations-offline)."
+>[!NOTE]These commands assume you are in an online environment. If you are in an offline or air-gapped environment, see [AUTOTITLE](/actions/security-guides/verifying-attestations-offline).
 
 For more information, see the [`attestation`](https://cli.github.com/manual/gh_attestation) section of the {% data variables.product.prodname_cli %} manual.

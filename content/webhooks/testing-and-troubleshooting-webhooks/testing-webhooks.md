@@ -30,13 +30,13 @@ You can trigger a webhook event and verify that {% data variables.product.compan
 
 1. Trigger your webhook. For example, if you are testing a repository webhook that is subscribed to the `issues` event, open an issue in the repository where the webhook is configured.
 
-   You can also redeliver a previous webhook delivery. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+   You can also redeliver a previous webhook delivery. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 
-   If you are using an organization or repository webhook, you can also use the REST API to trigger the `ping` event for your webhook. If you are using a repository webhook and your webhook is subscribed to the `push` event, you can use the REST API to trigger a test `push` event for your webhook. For more information, see "[AUTOTITLE](/rest/webhooks/repos)" and "[AUTOTITLE](/rest/orgs/webhooks)."
+   If you are using an organization or repository webhook, you can also use the REST API to trigger the `ping` event for your webhook. If you are using a repository webhook and your webhook is subscribed to the `push` event, you can use the REST API to trigger a test `push` event for your webhook. For more information, see [AUTOTITLE](/rest/webhooks/repos) and [AUTOTITLE](/rest/orgs/webhooks).
 
-1. Check {% data variables.product.company_short %} to verify that a webhook delivery was sent. For information about how to do this for each webhook type, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+1. Check {% data variables.product.company_short %} to verify that a webhook delivery was sent. For information about how to do this for each webhook type, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).
 
-If a webhook delivery was not sent, or if a webhook delivery was sent but {% data variables.product.company_short %} indicates that the delivery failed, refer to the troubleshooting guide to help diagnose the problem. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)."
+If a webhook delivery was not sent, or if a webhook delivery was sent but {% data variables.product.company_short %} indicates that the delivery failed, refer to the troubleshooting guide to help diagnose the problem. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks).
 
 ## Testing webhook code locally
 
@@ -44,7 +44,7 @@ In order to test your webhook code locally on your computer or codespace, you ca
 
 The following sections demonstrate how to use smee.io to provide a webhook proxy URL and forward webhooks.
 
-For specific examples of code and testing steps, see "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)."
+For specific examples of code and testing steps, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).
 
 ### Get a webhook proxy URL
 
@@ -54,13 +54,13 @@ For specific examples of code and testing steps, see "[AUTOTITLE](/webhooks/usin
 
 ### Configure a webhook to use the webhook proxy URL
 
-Configure your webhook to use the webhook proxy URL from above. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)" and "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
+Configure your webhook to use the webhook proxy URL from above. For more information, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks) and [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
 
 Now, {% data variables.product.company_short %} will send webhook deliveries to that URL.
 
 ### Start a local server
 
-On your computer or codespace, start a local server. The way that you do this depends on how your code to receive webhooks is written. For examples, see "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)."
+On your computer or codespace, start a local server. The way that you do this depends on how your code to receive webhooks is written. For examples, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).
 
 You should make sure that your code can run locally. For example, if your code relies on environment variables on your server in production, you should make sure that the environment variables are also available on your local server.
 
@@ -99,7 +99,7 @@ At this point, you should have both your local server running and the smee forwa
 
 Trigger your webhook. For example, if you are testing a repository webhook that is subscribed to the `issues` event, open an issue in the repository where the webhook is configured.
 
-You can also redeliver a previous webhook delivery. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
+You can also redeliver a previous webhook delivery. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks).
 
 ### Verify delivery
 
@@ -107,9 +107,9 @@ You can verify that {% data variables.product.company_short %} sent a webhook de
 
 #### Verify that {% data variables.product.company_short %} sent a delivery
 
-Check {% data variables.product.company_short %} to verify that a webhook delivery was sent. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+Check {% data variables.product.company_short %} to verify that a webhook delivery was sent. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).
 
-If a webhook delivery was not sent, or if a webhook delivery was sent but {% data variables.product.company_short %} indicates that the delivery failed, refer to the troubleshooting guide to help diagnose the problem. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks)."
+If a webhook delivery was not sent, or if a webhook delivery was sent but {% data variables.product.company_short %} indicates that the delivery failed, refer to the troubleshooting guide to help diagnose the problem. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/troubleshooting-webhooks).
 
 #### Verify that smee received your webhook delivery
 
@@ -123,8 +123,8 @@ In the terminal window where you ran `smee --url WEBHOOK_PROXY_URL --path /PATH 
 
 If you don't see this, make sure that both the smee client and your local server are running. You should have these processes running in two separate terminal windows.
 
-You should also check for errors in the terminal windows where you are running the smee client and your local server. The specific errors depend on how your code to receive webhooks is written. For examples, see "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)."
+You should also check for errors in the terminal windows where you are running the smee client and your local server. The specific errors depend on how your code to receive webhooks is written. For examples, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).
 
 #### Verify that your local server processed the webhook delivery
 
-At this point, you have verified that {% data variables.product.company_short %} sent a webhook delivery and that smee forwarded the delivery to your local server. Now, you should verify that your code processed the webhook delivery as expected. The way that you do this depends on how your code to receive webhooks is written. For examples, see "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)."
+At this point, you have verified that {% data variables.product.company_short %} sent a webhook delivery and that smee forwarded the delivery to your local server. Now, you should verify that your code processed the webhook delivery as expected. The way that you do this depends on how your code to receive webhooks is written. For examples, see [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries).

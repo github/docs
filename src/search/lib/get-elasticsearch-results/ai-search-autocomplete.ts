@@ -14,30 +14,38 @@ export async function getAISearchAutocompleteResults({
   indexName,
   query,
   size,
+  debug = false,
 }: AutocompleteResultsArgs): Promise<AutocompleteSearchResponse> {
   const t0 = new Date()
   const client = getElasticsearchClient() as Client
 
-  const matchQueries = getAISearchAutocompleteMatchQueries(query.trim(), {
-    fuzzy: {
-      minLength: 3,
-      maxLength: 20,
-    },
-  })
-  const matchQuery = {
-    bool: {
-      should: matchQueries,
-    },
+  let searchQuery: any = {
+    index: indexName,
+    size,
+    // Send absolutely minimal from Elasticsearch to here. Less data => faster.
+    _source_includes: ['term'],
   }
 
-  const highlight = getHighlightConfiguration(query, ['term'])
+  const trimmedQuery = query.trim()
+  // When the query is empty, we want to return the top `size` most popular terms
+  if (trimmedQuery === '') {
+    searchQuery.query = { match_all: {} }
+    searchQuery.sort = [{ popularity: { order: 'desc' } }]
+  } else {
+    const matchQueries = getAISearchAutocompleteMatchQueries(trimmedQuery, {
+      fuzzy: {
+        minLength: 3,
+        maxLength: 20,
+      },
+    })
+    const matchQuery: QueryDslQueryContainer = {
+      bool: {
+        should: matchQueries,
+      },
+    }
 
-  const searchQuery = {
-    index: indexName,
-    highlight,
-    size,
-    query: matchQuery,
-    _source_includes: ['term'],
+    searchQuery.query = matchQuery
+    searchQuery.highlight = getHighlightConfiguration(trimmedQuery, ['term'])
   }
 
   const result = await client.search<{ term: string }>(searchQuery)
@@ -46,6 +54,13 @@ export async function getAISearchAutocompleteResults({
   const hits = hitsAll.hits.map((hit) => ({
     term: hit._source?.term,
     highlights: (hit.highlight && hit.highlight.term) || [],
+    ...(debug && {
+      score: hit._score ?? 0.0,
+      es_url:
+        process.env.NODE_ENV !== 'production'
+          ? `http://localhost:9200/${indexName}/_doc/${hit._id}`
+          : '',
+    }),
   }))
 
   return {

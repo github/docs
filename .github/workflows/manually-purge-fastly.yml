@@ -27,4 +27,4 @@ jobs:
           FASTLY_TOKEN: ${{ secrets.FASTLY_TOKEN }}
           FASTLY_SERVICE_ID: ${{ secrets.FASTLY_SERVICE_ID }}
           FASTLY_SURROGATE_KEY: 'manual-purge'
-        run: src/workflows/purge-fastly-edge-cache.js
+        run: npm run purge-fastly-edge-cache

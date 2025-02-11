@@ -11,6 +11,62 @@
   ],
   "2025-04-01": [
     {
+      "location": "User.projects",
+      "description": "<p><code>projects</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "User.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "SearchShortcutQueryProjectTerm.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Repository.projects",
+      "description": "<p><code>projects</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Repository.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "RemovedFromProjectEvent.projectColumnName",
+      "description": "<p><code>projectColumnName</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "RemovedFromProjectEvent.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
       "location": "ProjectV2Workflow.databaseId",
       "description": "<p><code>databaseId</code> will be removed. Use <code>fullDatabaseId</code> instead.</p>",
       "reason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers.</p>",
@@ -51,6 +107,598 @@
       "owner": "dewski"
     },
     {
+      "location": "ProjectProgress.todoPercentage",
+      "description": "<p><code>todoPercentage</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.todoCount",
+      "description": "<p><code>todoCount</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.inProgressPercentage",
+      "description": "<p><code>inProgressPercentage</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.inProgressCount",
+      "description": "<p><code>inProgressCount</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.enabled",
+      "description": "<p><code>enabled</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.donePercentage",
+      "description": "<p><code>donePercentage</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectProgress.doneCount",
+      "description": "<p><code>doneCount</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectOwner.projects",
+      "description": "<p><code>projects</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectOwner.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.url",
+      "description": "<p><code>url</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.updatedAt",
+      "description": "<p><code>updatedAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.purpose",
+      "description": "<p><code>purpose</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.id",
+      "description": "<p><code>id</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.createdAt",
+      "description": "<p><code>createdAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectColumn.cards",
+      "description": "<p><code>cards</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.url",
+      "description": "<p><code>url</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.updatedAt",
+      "description": "<p><code>updatedAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.state",
+      "description": "<p><code>state</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.note",
+      "description": "<p><code>note</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.isArchived",
+      "description": "<p><code>isArchived</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.id",
+      "description": "<p><code>id</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.creator",
+      "description": "<p><code>creator</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.createdAt",
+      "description": "<p><code>createdAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.content",
+      "description": "<p><code>content</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "ProjectCard.column",
+      "description": "<p><code>column</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.url",
+      "description": "<p><code>url</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.updatedAt",
+      "description": "<p><code>updatedAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.state",
+      "description": "<p><code>state</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.resourcePath",
+      "description": "<p><code>resourcePath</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.progress",
+      "description": "<p><code>progress</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.pendingCards",
+      "description": "<p><code>pendingCards</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.owner",
+      "description": "<p><code>owner</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.number",
+      "description": "<p><code>number</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.name",
+      "description": "<p><code>name</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.id",
+      "description": "<p><code>id</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.creator",
+      "description": "<p><code>creator</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.createdAt",
+      "description": "<p><code>createdAt</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.columns",
+      "description": "<p><code>columns</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.bodyHTML",
+      "description": "<p><code>bodyHtml</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Project.body",
+      "description": "<p><code>body</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Organization.projects",
+      "description": "<p><code>projects</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Organization.project",
+      "description": "<p><code>project</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Organization.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Organization.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Mutation.updateProjectColumn",
+      "description": "<p><code>updateProjectColumn</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.updateProjectCard",
+      "description": "<p><code>updateProjectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.updateProject",
+      "description": "<p><code>updateProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.unlinkRepositoryFromProject",
+      "description": "<p><code>unlinkRepositoryFromProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.moveProjectColumn",
+      "description": "<p><code>moveProjectColumn</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.moveProjectCard",
+      "description": "<p><code>moveProjectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.linkRepositoryToProject",
+      "description": "<p><code>linkRepositoryToProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.importProject",
+      "description": "<p><code>importProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.deleteProjectColumn",
+      "description": "<p><code>deleteProjectColumn</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.deleteProjectCard",
+      "description": "<p><code>deleteProjectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.deleteProject",
+      "description": "<p><code>deleteProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.createProject",
+      "description": "<p><code>createProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.convertProjectCardNoteToIssue",
+      "description": "<p><code>convertProjectCardNoteToIssue</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.cloneProject",
+      "description": "<p><code>cloneProject</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.addProjectColumn",
+      "description": "<p><code>addProjectColumn</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "Mutation.addProjectCard",
+      "description": "<p><code>addProjectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "MovedColumnsInProjectEvent.projectColumnName",
+      "description": "<p><code>projectColumnName</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "MovedColumnsInProjectEvent.projectCard",
+      "description": "<p><code>projectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "MovedColumnsInProjectEvent.previousProjectColumnName",
+      "description": "<p><code>previousProjectColumnName</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "MovedColumnsInProjectEvent.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
       "location": "EnterpriseOwnerInfo.outsideCollaborators.hasTwoFactorEnabled",
       "description": "<p><code>hasTwoFactorEnabled</code> will be removed. Use <code>two_factor_method_security</code> instead.</p>",
       "reason": "<p><code>has_two_factor_enabled</code> will be removed.</p>",
@@ -73,6 +721,102 @@
       "date": "2025-04-01",
       "criticality": "breaking",
       "owner": "authentication"
+    },
+    {
+      "location": "Enterprise.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "Enterprise.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "ConvertedNoteToIssueEvent.projectCard",
+      "description": "<p><code>projectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementUserDismissible",
+      "description": "<p><code>announcementUserDismissible</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementExpiresAt",
+      "description": "<p><code>announcementExpiresAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcementCreatedAt",
+      "description": "<p><code>announcementCreatedAt</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AnnouncementBannerI.announcement",
+      "description": "<p><code>announcement</code> will be removed. Use the <code>announcementBanner</code> object instead.</p>",
+      "reason": "<p>The individual <code>announcementX</code> fields do not follow our standard GraphQL patterns.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "vaindil"
+    },
+    {
+      "location": "AddedToProjectEvent.projectColumnName",
+      "description": "<p><code>projectColumnName</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "AddedToProjectEvent.projectCard",
+      "description": "<p><code>projectCard</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
+    },
+    {
+      "location": "AddedToProjectEvent.databaseId",
+      "description": "<p><code>databaseId</code> will be removed.</p>",
+      "reason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>.</p>",
+      "date": "2025-04-01",
+      "criticality": "breaking",
+      "owner": "github/memex"
     }
   ],
   "2025-01-01": [

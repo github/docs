@@ -17,7 +17,7 @@ topics:
 
 {% data reusables.scim.ghes-beta-note %}
 
-{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}"[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users)."{% else %}"[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes)."{% endif %}
+{% data reusables.saml.idp-saml-and-scim-explanation %} For more information, see {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes).{% endif %}
 
 ## Overview
 
@@ -35,29 +35,29 @@ Before you start, please note the following:
 
 {% ifversion ghec %}
 
-If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."
+If you're configuring SCIM provisioning for a new enterprise, make sure to complete all previous steps in the initial configuration process. See [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
 
 {% else %}
 
-The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites)."
+The general prerequisites for using SCIM on {% data variables.product.prodname_ghe_server %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 {% endif %}
 
 In addition:
 
 {%- ifversion ghes %}
-* To configure SCIM, you must have completed **steps 1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."
+* To configure SCIM, you must have completed **steps 1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from PingFederate.
 {%- endif %}
-* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the provisioner](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/wie1563995015164.html) in the PingIdentity documentation.
+* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the provisioner](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_gh_emu_install_the_provisioner.html) in the PingIdentity documentation.
 * To provision users with SCIM, you must use an LDAP server as the backing data store.
 * You may need to configure the firewall in PingFederate to allow outbound connections to {% ifversion ghes %}the `https://HOSTNAME/api/v3/scim/v2` endpoint on your {% data variables.product.prodname_ghe_server %} instance.{% else %}the SCIM endpoints on {% data variables.product.github %}:
   * For **{% data variables.product.prodname_dotcom_the_website %}**: `https://api.github.com/scim/v2/enterprises/ENTERPRISE`
   * For **{% data variables.enterprise.data_residency_site %}**: `https://api.SUBDOMAIN.ghe.com/scim/v2/enterprises/SUBDOMAIN`{% endif %}
 * PingFederate's "provisioner mode" must be set to a value that allows SCIM provisioning. See the "Before you begin" section in PingIdentity's [Configuring outbound provisioning settings](https://docs.pingidentity.com/pingfederate/11.2/administrators_reference_guide/help_protocolsettingstasklet_saasglobalprovisioningsettingsstate.html) guide.
-* During this procedure, you will need to upload an X509 certificate to PingFederate. You may want to create and store the certificate before proceeding. You will also need the challenge password for the certificate. See the "[Example of creating an X509 certificate](#example-of-creating-an-x509-certificate)" section later in this article.
+* During this procedure, you will need to upload an X509 certificate to PingFederate. You may want to create and store the certificate before proceeding. You will also need the challenge password for the certificate. See the [Example of creating an X509 certificate](#example-of-creating-an-x509-certificate) section later in this article.
 {%- ifversion ghec %}
-* During this procedure, you will need to upload a SAML metadata file to PingFederate. If you're setting up an enterprise that uses **{% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}**, it is easiest to create this file before you start. See "[Creating a SAML metadata file for {% data variables.enterprise.data_residency_site %}](#creating-a-saml-metadata-file-for-ghecom)."
+* During this procedure, you will need to upload a SAML metadata file to PingFederate. If you're setting up an enterprise that uses **{% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %}**, it is easiest to create this file before you start. See [Creating a SAML metadata file for {% data variables.enterprise.data_residency_site %}](#creating-a-saml-metadata-file-for-ghecom).
 {%- endif %}
 
 ## 1. Configure SAML
@@ -68,7 +68,7 @@ In this section you will create a SAML connector in PingFederate, set up an LDAP
 1. [Set up an LDAP IdP adapter instance](#set-up-an-ldap-idp-adapter-instance)
 1. [Manage SAML output from your IdP adapter](#manage-saml-output-from-your-idp-adapter)
 
-Before starting this section, ensure you have followed {% ifversion ghec %}the previous steps in "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."{% else %}steps **1 and 2** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."{% endif %}
+Before starting this section, ensure you have followed {% ifversion ghec %}the previous steps in [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).{% else %}steps **1 and 2** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).{% endif %}
 
 ### Create a SAML adapter
 
@@ -87,7 +87,7 @@ Before starting this section, ensure you have followed {% ifversion ghec %}the p
    To locate the file:
 
    * If you're setting up an enterprise on **{% data variables.product.prodname_dotcom_the_website %}**, you will find this file in a ZIP file attached to the "GitHub EMU Connector" on PingFederate.
-   * If you're setting up an enterprise on **{% data variables.enterprise.data_residency_site %}**, you will create the file manually. See "[Creating a SAML metadata file for {% data variables.enterprise.data_residency_site %}](#creating-a-saml-metadata-file-for-ghecom)."
+   * If you're setting up an enterprise on **{% data variables.enterprise.data_residency_site %}**, you will create the file manually. See [Creating a SAML metadata file for {% data variables.enterprise.data_residency_site %}](#creating-a-saml-metadata-file-for-ghecom).
    {%- endif %}
 
 1. On the PingFederate "SP Connection" page, upload the file from the previous step as the metadata file.{% ifversion ghes %} Ensure you do this within 5 minutes of downloading the file.{% endif %}
@@ -200,7 +200,7 @@ Before starting this section, ensure you have followed {% ifversion ghec %}the p
 1. Click **Save**.
 1. Click **Next** and **Done** until you reach the "Credentials" tab.
 1. On the "Credentials" tab, click **Configure Credentials**, then click **Manage Certificates**.
-1. On the "Certificate Management" page, click **Import**, then upload an X509 certificate (for help, see the "[Example of creating an X509 certificate](#example-of-creating-an-x509-certificate)" section).
+1. On the "Certificate Management" page, click **Import**, then upload an X509 certificate (for help, see the [Example of creating an X509 certificate](#example-of-creating-an-x509-certificate) section).
 1. For the "Password," use the challenge password for the certificate.
 1. Click **Next**, then **Save**.
 1. On the "Certificate Management" tab, you should see the certificate you just imported. Click **Done**.
@@ -226,7 +226,7 @@ You will need some details from PingFederate to configure SAML on {% data variab
 ### Configure {% data variables.product.github %}
 
 1. Sign in to {% data variables.product.github %} as {% ifversion ghec %}the setup user for your enterprise{% else %}a user with access to the Management Console{% endif %}.
-1. Enable SAML in your enterprise settings. See {% ifversion ghec %}"[AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#configure-saml-sso-for-enterprise-managed-users)."{% else %}"[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso)."{% endif %}
+1. Enable SAML in your enterprise settings. See {% ifversion ghec %}[AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/configuring-saml-single-sign-on-for-enterprise-managed-users#configure-saml-sso-for-enterprise-managed-users).{% else %}[AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).{% endif %}
 1. Enter the following values from the SAML metadata file from the previous section.
 
    * For the "Single sign-on URL," use the `location` value of the `<md: SingleSignOnService>` field. This should be a URL ending `/idp/SSO.saml2`.
@@ -243,7 +243,7 @@ In this section, you'll configure SCIM settings and attribute mapping on PingFed
 1. [Map LDAP fields to SCIM](#map-ldap-fields-to-scim)
 1. [Finish configuration and test](#finish-configuration-and-test)
 
-Before starting this section, ensure you have followed {% ifversion ghec %}the previous steps in "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users)."{% else %}steps **1 to 4** in "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users)."{% endif %}
+Before starting this section, ensure you have followed {% ifversion ghec %}the previous steps in [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).{% else %}steps **1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).{% endif %}
 
 ### Configure SCIM settings
 
@@ -269,14 +269,14 @@ Before starting this section, ensure you have followed {% ifversion ghec %}the p
 
 On the "Attribute Mapping" tab, you will need to map fields from your LDAP server to SCIM fields. See the following list for {% data variables.product.github %}'s supported SCIM fields and the values expected in each one.
 
-* **Username**: This will be normalized and used as the {% data variables.product.github %} username for the provisioned user. See "[AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication#about-username-normalization)." This must match the normalization of the subject sent with the SAML assertion that you configured with the `SAML_SUBJECT` property in PingFederate.
-* **Email**: A field containing the user's email address.
-* **Display Name**: A human-readable name for the user.
-* **Formatted Name**: The user's full name, including all middle names, titles, and suffixes, formatted for display.
-* **First Name**: The first name of the user.
-* **Last Name**: The last name of the user.
-* **External ID**: This identifier is generated by an IdP provider.
-* **Roles**: This field should contain a string that represents the user's intended role on {% data variables.product.github %}. Valid roles are {% ifversion ghec %}`enterprise_owner`, `user`, `billing_manager`, and `guest_collaborator`{% else %}`enterprise_owner` and `user`{% endif %}.
+* **Username:** This will be normalized and used as the {% data variables.product.github %} username for the provisioned user. See [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication#about-username-normalization). This must match the normalization of the subject sent with the SAML assertion that you configured with the `SAML_SUBJECT` property in PingFederate.
+* **Email:** A field containing the user's email address.
+* **Display Name:** A human-readable name for the user.
+* **Formatted Name:** The user's full name, including all middle names, titles, and suffixes, formatted for display.
+* **First Name:** The first name of the user.
+* **Last Name:** The last name of the user.
+* **External ID:** This identifier is generated by an IdP provider.
+* **Roles:** This field should contain a string that represents the user's intended role on {% data variables.product.github %}. Valid roles are {% ifversion ghec %}`enterprise_owner`, `user`, `billing_manager`, and `guest_collaborator`{% else %}`enterprise_owner` and `user`{% endif %}.
 
 When you have finished configuring these settings, click **Next**.
 
@@ -293,7 +293,7 @@ PingFederate provisioning handles users and groups independently. Users must be 
 
 {% ifversion ghes %}
 
-When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings)."
+When you have finished configuring SCIM, you may want to disable some SAML settings you enabled for the configuration process. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#6-disable-optional-settings).
 
 {% endif %}
 
@@ -363,6 +363,6 @@ Because some values differ from the metadata file that PingFederate provides for
 
 1. Replace all instances of SUBDOMAIN with your enterprise's subdomain of {% data variables.enterprise.data_residency_site %}. For example: `octocorp`.
 1. Save the file as an XML file.
-1. Return to the instructions in "[Creating a SAML adapter](#create-a-saml-adapter)."
+1. Return to the instructions in [Creating a SAML adapter](#create-a-saml-adapter).
 
 {% endif %}

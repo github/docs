@@ -48,7 +48,7 @@ When you choose a paid plan with a free trial:
 
 ## Unit plan limits
 
-If you choose a unit plan (for example, a plan that charges per user), and you exceed the units that you're paying for, the integrator may disable your access until you upgrade the app. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app)."
+If you choose a unit plan (for example, a plan that charges per user), and you exceed the units that you're paying for, the integrator may disable your access until you upgrade the app. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/upgrading-the-billing-plan-for-a-github-marketplace-app).
 
 ## Downgrading a {% data variables.product.prodname_marketplace %} app
 
@@ -58,9 +58,9 @@ If you cancel an app on a free plan, your subscription will immediately end and 
 
 {% data reusables.marketplace.downgrade-marketplace-only %}
 
-If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app)."
+If you cancel a free trial on a paid plan, your subscription is immediately canceled and you will lose access to the app. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app).
 
 ## Further reading
 
-* "[AUTOTITLE](/apps/using-github-apps)"
-* "[AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)"
+* [AUTOTITLE](/apps/using-github-apps)
+* [AUTOTITLE](/support/learning-about-github-support/github-marketplace-support)

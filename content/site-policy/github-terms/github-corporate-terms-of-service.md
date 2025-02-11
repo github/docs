@@ -11,11 +11,8 @@ topics:
 ---
 <!-- markdownlint-disable search-replace -->
 
-{% note %}
-
-**Note:** The GitHub Corporate Terms of Service were deprecated effective 30 November 2021, and are no longer used for new customers. The terms below apply _only_ to those GitHub customers with executed agreements that explicitly reference the Corporate Terms of Service. All other business or institution customers are directed to the GitHub Customer Agreement terms available at [github.com/customer-terms](https://github.com/customer-terms).
-
-{% endnote %}
+> [!NOTE]
+> The GitHub Corporate Terms of Service were deprecated effective 30 November 2021, and are no longer used for new customers. The terms below apply _only_ to those GitHub customers with executed agreements that explicitly reference the Corporate Terms of Service. All other business or institution customers are directed to the GitHub Customer Agreement terms available at [github.com/customer-terms](https://github.com/customer-terms).
 
 ## GitHub Corporate Terms of Service
 
@@ -113,7 +110,7 @@ In order to create an account, Customer must adhere to the following:
 
 ### 3. Account Security
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) [promptly notifying GitHub](https://github.com/contact) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section B.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) [promptly notifying GitHub](https://github.com/contact) upon becoming aware of any unauthorized use of, or access to, the Service through its account. GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section B.
 
 ### 4. Third Party Terms
 
@@ -251,7 +248,7 @@ Either Party may terminate an Order Form (if applicable) or this Agreement, with
 
 ### 3. Termination for Material Breach
 
-Either Party may terminate this Agreement immediately upon notice if the other Party breaches a material obligation under this Agreement and fails to cure the breach within thirty (30) days from the date it receives notification.  GitHub may terminate this Agreement if Customer's Account has been suspended for more than 90 days.
+Either Party may terminate this Agreement immediately upon notice if the other Party breaches a material obligation under this Agreement and fails to cure the breach within thirty (30) days from the date it receives notification. GitHub may terminate this Agreement if Customer's Account has been suspended for more than 90 days.
 
 ### 4. Effect of Termination
 

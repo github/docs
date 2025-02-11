@@ -8,11 +8,8 @@ By default, regular expressions in metadata restrictions do not consider multipl
 
 The negative lookahead assertion, denoted `?!`, is not supported. However, for cases where you need to look for a given string that is not followed by another given string, you can use the positive lookahead assertion, denoted `?`, combined with the "Must not match a given regex pattern" requirement.
 
-{% note %}
-
-**Note:** If you require contributors to sign off on commits, this may interfere with your regular expression patterns. When someone signs off, {% data variables.product.prodname_dotcom %} adds a string like `Signed-off-by: #AUTHOR-NAME <#AUTHOR-EMAIL>` to the commit message. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> If you require contributors to sign off on commits, this may interfere with your regular expression patterns. When someone signs off, {% data variables.product.prodname_dotcom %} adds a string like `Signed-off-by: #AUTHOR-NAME <#AUTHOR-EMAIL>` to the commit message. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization).
 
 #### Useful regular expression patterns
 

@@ -8,7 +8,6 @@
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the open "Repository" dropdown menu, an option labeled "Repository Settings" is outlined in orange.](/assets/images/help/desktop/repository-settings-win.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the open "Repository" dropdown menu, the "Repository Settings" option is outlined.](/assets/images/help/desktop/repository-settings-win.png)
 
    {% endwindows %}
-  

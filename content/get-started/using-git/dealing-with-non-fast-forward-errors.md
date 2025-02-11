@@ -20,7 +20,7 @@ $ git push origin main
 >  ! [rejected]        main -> main (non-fast-forward)
 > error: failed to push some refs to 'https://{% data variables.product.product_url %}/USERNAME/REPOSITORY.git'
 > To prevent you from losing history, non-fast-forward updates were rejected
-> Merge the remote changes (e.g. 'git pull') before pushing again.  See the
+> Merge the remote changes (e.g. 'git pull') before pushing again. See the
 > 'Note about fast-forwards' section of 'git push --help' for details.
 ```
 

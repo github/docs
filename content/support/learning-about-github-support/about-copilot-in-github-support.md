@@ -53,7 +53,7 @@ Currently, {% data variables.product.prodname_copilot_in_support %} cannot take 
 
 ## Best practices and use cases
 
-{% data variables.product.prodname_copilot_in_support %} is intended to answer your query related to {% data variables.product.prodname_dotcom %} products from {% data variables.product.prodname_dotcom %} documentation. More information provided in your input increases {% data variables.product.prodname_copilot_in_support %}'s likelihood of providing a relevant and helpful response that may also include best practices, tips, and solutions.  {% data variables.product.prodname_copilot_in_support %} consolidates information from multiple {% data variables.product.prodname_dotcom %} documents into a  tailored response, and may reduce the time required to answer your question. If you have a follow-up question or another {% data variables.product.prodname_dotcom %}-related query, you can continue using {% data variables.product.prodname_copilot_in_support %}.
+{% data variables.product.prodname_copilot_in_support %} is intended to answer your query related to {% data variables.product.prodname_dotcom %} products from {% data variables.product.prodname_dotcom %} documentation. More information provided in your input increases {% data variables.product.prodname_copilot_in_support %}'s likelihood of providing a relevant and helpful response that may also include best practices, tips, and solutions. {% data variables.product.prodname_copilot_in_support %} consolidates information from multiple {% data variables.product.prodname_dotcom %} documents into a tailored response, and may reduce the time required to answer your question. If you have a follow-up question or another {% data variables.product.prodname_dotcom %}-related query, you can continue using {% data variables.product.prodname_copilot_in_support %}.
 
 {% data variables.product.prodname_copilot_in_support %} also includes links to any documentation it uses when crafting an answer so that you're able to review the material or bookmark it for future reference. As with every large language model, it can make mistakes so please review the information provided to ensure it is free of errors.
 
@@ -63,5 +63,5 @@ We greatly value your feedback. As we continuously improve {% data variables.pro
 
 ## Further reading
 
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/privacy-policies/github-privacy-statement)

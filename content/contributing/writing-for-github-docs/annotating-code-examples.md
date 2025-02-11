@@ -35,8 +35,9 @@ You can annotate multiple code examples in a single article, but keep in mind th
 The following rules apply to all code annotations.
 
 * Multiline-style comments, such as `/*` are not supported.
-* You can include any number of spaces before the comment tag starts.
-* You can include any number of spaces after the comment tag ends.
+* There must be a space between the symbol that starts a code annotation and the comment.
+  * **Use:** `# comment`
+  * **Avoid:** `#comment`
 * To create a blank annotation, insert a comment tag with no text after it. Blank annotations are useful if some lines of a sample don't require an annotation.
 * Strings that begin with `#!` will render in the code block and are not treated as comments.
 * Anything after the comment tag will be parsed with Markdown. Links, versioning, and other styling will render as if they were written in Markdown.

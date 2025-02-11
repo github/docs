@@ -51,7 +51,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 
 ## Changing the duration of your enterprise account's billing cycle
 
->[!IMPORTANT] If you are on the new billing platform, this procedure does not apply to you. For more information about the billing cycle for your enterprise account, see "[AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle)."
+>[!IMPORTANT] If you are on the new billing platform, this procedure does not apply to you. For more information about the billing cycle for your enterprise account, see [AUTOTITLE](/billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle).
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
@@ -63,7 +63,7 @@ When you change your billing cycle's duration, your {% data variables.product.pr
 {% data reusables.enterprise-accounts.billing-tab %}
 1. Under "Payment information", click **Switch to yearly billing and save** or **Switch to monthly billing**.
 
-   ![Screenshot of the billing page for an enterprise account. In the "Payment information" section, a link, labeled "Switch to yearly billing and save", is outlined in dark orange.](/assets/images/help/billing/switch-to-yearly-billing.png)
+   ![Screenshot of the billing page for an enterprise account. In "Payment information", a "Switch to yearly billing and save" link is outlined in orange.](/assets/images/help/billing/switch-to-yearly-billing.png)
 1. Under "How often do you want to be billed?", select a billing cycle.
 1. Click **Change your account's billing cycle**.
 {% endif %}

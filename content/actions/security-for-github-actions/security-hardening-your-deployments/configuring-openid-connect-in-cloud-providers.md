@@ -63,7 +63,7 @@ To update your workflows using this approach, you will need to make three change
 
 ### Requesting the JWT using the Actions core toolkit
 
-The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+The following example demonstrates how to use `actions/github-script` with the `core` toolkit to request the JWT from {% data variables.product.prodname_dotcom %}'s OIDC provider. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages).
 
 ```yaml
 jobs:
@@ -87,7 +87,7 @@ jobs:
 
 The following example demonstrates how to use environment variables to request a JSON Web Token.
 
-For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages)."
+For your deployment job, you will need to define the token settings, using `actions/github-script` with the `core` toolkit. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-javascript-action#adding-actions-toolkit-packages).
 
 For example:
 

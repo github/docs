@@ -18,11 +18,7 @@ topics:
 shortTitle: View your usage
 ---
 
-{% ifversion enhanced-billing-platform %}
-
 {% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
 
 ## Viewing {% data variables.product.prodname_registry %} usage for your personal account
 

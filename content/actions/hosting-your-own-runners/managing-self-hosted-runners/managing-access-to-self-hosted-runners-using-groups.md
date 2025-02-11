@@ -62,7 +62,7 @@ For runner groups in an organization, you can change what repositories in the or
 {% data reusables.actions.runner-groups-org-navigation %}
 {% data reusables.actions.changing-repository-access-for-a-runner-group %}
 
-{% ifversion restrict-groups-to-workflows %}
+{% ifversion ghec or ghes %}
 
 ## Changing which workflows can access a runner group
 

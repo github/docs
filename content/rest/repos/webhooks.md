@@ -19,6 +19,6 @@ redirect_from:
 
 ## About repository webhooks
 
-Repository webhooks allow your server to receive HTTP `POST` payloads whenever certain events happen in a repository. For more information, see "[AUTOTITLE](/webhooks)."
+Repository webhooks allow your server to receive HTTP `POST` payloads whenever certain events happen in a repository. For more information, see [AUTOTITLE](/webhooks).
 
 <!-- Content after this section is automatically generated -->

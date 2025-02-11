@@ -23,7 +23,7 @@ Reusable workflows and composite actions are two ways to avoid duplicating the c
 
 Reusable workflows and composite actions solve similar problems, but have a few important differences. Most of the time you can use either solution. But some of the time, you’ll need to use one or the other, as described later in this article.
 
-For details of how to create and use reusable workflows and composite actions, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)" and "[AUTOTITLE](/actions/creating-actions/creating-a-composite-action)."
+For details of how to create and use reusable workflows and composite actions, see [AUTOTITLE](/actions/using-workflows/reusing-workflows) and [AUTOTITLE](/actions/creating-actions/creating-a-composite-action).
 
 ## Comparison of reusable workflows and composite actions
 

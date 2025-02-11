@@ -19,13 +19,13 @@ When you sign in to {% data variables.product.prodname_dotcom %} using a passkey
 
 Cloud-backed passkey services allow passkeys to be synced across devices (such as Apple devices, Android devices, or password managers) so they can be used from more places and are less easily lost. Once you have set up a synced passkey on one device, that passkey is available to use across multiple devices using the same service. For example, if you register a passkey with your iCloud account using your MacBook's Touch ID, you can then use that passkey with your face, fingerprint, PIN, or device password interchangeably across multiple devices tied to the same iCloud account.
 
-For more information about adding a passkey to your account, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys)."
+For more information about adding a passkey to your account, see [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).
 
-For 2FA users, if you already have passkey-eligible security keys registered to your account for 2FA, you can upgrade these existing credentials into passkeys in your account settings. When you use an eligible security key to sign in, you'll also be asked if you want to upgrade it to a passkey. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys#upgrading-an-existing-security-key-to-a-passkey)."
+For 2FA users, if you already have passkey-eligible security keys registered to your account for 2FA, you can upgrade these existing credentials into passkeys in your account settings. When you use an eligible security key to sign in, you'll also be asked if you want to upgrade it to a passkey. For more information, see [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys#upgrading-an-existing-security-key-to-a-passkey).
 
 ## About authenticators
 
-Some authenticators allow passkeys to be used with nearby devices. For example, perhaps you want to sign in to {% data variables.product.prodname_dotcom %} using a bluetooth-enabled laptop that's not set up with a passkey. If you have registered a passkey on your phone, you might opt to scan a QR code, or trigger a push notification to your phone, in order to complete the sign in securely. For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey#signing-in-with-a-passkey-using-a-nearby-device)."
+Some authenticators allow passkeys to be used with nearby devices. For example, perhaps you want to sign in to {% data variables.product.prodname_dotcom %} using a bluetooth-enabled laptop that's not set up with a passkey. If you have registered a passkey on your phone, you might opt to scan a QR code, or trigger a push notification to your phone, in order to complete the sign in securely. For more information, see [AUTOTITLE](/authentication/authenticating-with-a-passkey/signing-in-with-a-passkey#signing-in-with-a-passkey-using-a-nearby-device).
 
 Other authenticators create device-bound passkeys, meaning they can only be used on a single authenticator. These passkeys cannot be backed up or moved to another authenticator. Some passkey providers may offer device-bound passkeys as an option during passkey creation, while other providers may not offer the choice between device-bound and synced passkeys.
 
@@ -35,7 +35,7 @@ For information on whether your device and operating system support passkeys, se
 
 ## Feedback
 
-You can share your feedback on passkeys with {% data variables.product.company_short %}. To join the conversation, see "[[Feedback] Passkeys for passwordless authentication](https://gh.io/passkey-feedback)."
+You can share your feedback on passkeys with {% data variables.product.company_short %}. To join the conversation, see [[Feedback] Passkeys for passwordless authentication](https://gh.io/passkey-feedback).
 
 ## Further reading
 

@@ -10,5 +10,6 @@ The time period selection feature allows you to view {% data variables.product.p
 | Last 30 days           | Data from the last 30 days to when the page is viewed.                       |
 | Last 90 days           | Data from the last 90 days to when the page is viewed.                       |
 | Last year              | Data aggregated for the last 12 months.                                      |
+| Custom                 | Data from a custom date range. The range can be up to 100 days including the start and end dates and go back as far as one year. |
 
 {% endrowheaders %}

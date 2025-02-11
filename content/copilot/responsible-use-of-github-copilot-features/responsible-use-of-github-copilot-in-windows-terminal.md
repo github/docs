@@ -20,7 +20,7 @@ The primary supported language for {% data variables.product.prodname_copilot %}
 
 ### Input processing
 
-The input prompt from the user is pre-processed by Terminal Chat, combined with contextual information (the name of the active shell and the chat history), and sent to a {% data variables.product.company_short %} service that is connected to a large language model that then generates a response based on the context and prompt. User input can take the form of natural language prompts or questions. The system is only intended to respond to command line-related questions. For more information, see "[Terminal Chat](https://learn.microsoft.com/windows/terminal/terminal-chat)."
+The input prompt from the user is pre-processed by Terminal Chat, combined with contextual information (the name of the active shell and the chat history), and sent to a {% data variables.product.company_short %} service that is connected to a large language model that then generates a response based on the context and prompt. User input can take the form of natural language prompts or questions. The system is only intended to respond to command line-related questions. For more information, see [Terminal Chat](https://learn.microsoft.com/windows/terminal/terminal-chat).
 
 ### Language model analysis
 
@@ -52,7 +52,7 @@ By generating explanations, {% data variables.product.prodname_copilot %} may he
 
 ## Improving {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_windows_terminal %}
 
-To enhance the experience and address some of the limitations of {% data variables.product.prodname_copilot %}, there are various measures that you can adopt. For more information about the limitations, see "[Limitations of {% data variables.product.prodname_copilot %}](#limitations-of-github-copilot-in-windows-terminal)."
+To enhance the experience and address some of the limitations of {% data variables.product.prodname_copilot %}, there are various measures that you can adopt. For more information about the limitations, see [Limitations of {% data variables.product.prodname_copilot %}](#limitations-of-github-copilot-in-windows-terminal).
 
 ### Use {% data variables.product.prodname_copilot %} as a tool, not a replacement
 
@@ -95,5 +95,5 @@ Additionally, you are ultimately responsible for the commands executed by {% dat
 ## Further reading
 
 * [Terminal Chat](https://learn.microsoft.com/windows/terminal/terminal-chat)
-* "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)"
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)

@@ -37,7 +37,7 @@ children:
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% endif %}'
+product_video: 'https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y'
 product_video_transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests

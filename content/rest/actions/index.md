@@ -17,6 +17,7 @@ topics:
 children:
   - /artifacts
   - /cache
+  - /hosted-runners
   - /oidc
   - /permissions
   - /secrets

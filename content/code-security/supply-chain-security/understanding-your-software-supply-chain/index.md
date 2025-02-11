@@ -18,7 +18,7 @@ children:
   - /exporting-a-software-bill-of-materials-for-your-repository
   - /using-the-dependency-submission-api
   - /about-dependency-review
-  - /configuring-dependency-review
+  - /configuring-the-dependency-review-action
   - /customizing-your-dependency-review-action-configuration
   - /enforcing-dependency-review-across-an-organization
   - /exploring-the-dependencies-of-a-repository
