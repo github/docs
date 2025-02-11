@@ -18,7 +18,6 @@ topics:
 {% data variables.copilot.copilot_gemini_flash %} is currently available in:
 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.12 or later
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_gemini_flash %} hosted on Google Cloud Platform (GCP). When using {% data variables.copilot.copilot_gemini_flash %}, prompts and metadata are sent to GCP, which makes the [following data commitment](https://cloud.google.com/gemini/docs/discover/data-governance): _Gemini doesn't use your prompts, or its responses, as data to train its models._
