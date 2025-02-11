@@ -99,8 +99,7 @@ jobs:
 
             <details><summary>Table of review links</summary>
 
-            > [!WARNING]
-            > Our review server is experiencing latency issues.
+            ⚠️ **Warning**: Our review server is experiencing latency issues.
 
             The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table. If you have issues with the review server, please [let us know](https://github.com/github/docs-team/discussions/4889) and use one of the other options to review your changes.
 
@@ -134,8 +133,7 @@ jobs:
 
             <details><summary>Table of review links</summary>
 
-            > [!WARNING]
-            > Our review server is experiencing latency issues.
+            ⚠️ **Warning**: Our review server is experiencing latency issues.
 
             The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table.
 
