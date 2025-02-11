@@ -1,22 +1,30 @@
 import { useEffect, useState } from 'react'
+import { useRouter } from 'next/router'
 import { shouldShowExperiment } from './experiment'
 import { ExperimentNames } from './experiments'
 import { getIsStaff } from '../dotcom-cookies'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
-export function useShouldShowExperiment(
-  experimentKey: ExperimentNames | { key: ExperimentNames },
-  locale: string,
-) {
+export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: ExperimentNames }) {
   if (typeof experimentKey === 'object') {
     experimentKey = experimentKey.key
   }
 
   const [showExperiment, setShowExperiment] = useState(false)
+  const router = useRouter()
+  const mainContext = useMainContext()
 
   useEffect(() => {
     const updateShouldShow = async () => {
       const isStaff = await getIsStaff()
-      setShowExperiment(shouldShowExperiment(experimentKey, locale, isStaff))
+      setShowExperiment(
+        shouldShowExperiment(
+          experimentKey,
+          router.locale || '',
+          mainContext.currentVersion || '',
+          isStaff,
+        ),
+      )
     }
 
     updateShouldShow()
@@ -27,7 +35,7 @@ export function useShouldShowExperiment(
     return () => {
       window.removeEventListener('controlGroupOverrideChanged', updateShouldShow)
     }
-  }, [experimentKey])
+  }, [experimentKey, router.locale, mainContext.currentVersion])
 
   return showExperiment
 }

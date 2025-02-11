@@ -51,10 +51,7 @@ export const Header = () => {
   const { width } = useInnerWindowWidth()
   const returnFocusRef = useRef(null)
 
-  const showNewSearch = useShouldShowExperiment(
-    EXPERIMENTS.ai_search_experiment,
-    router.locale as string,
-  )
+  const showNewSearch = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
 
   useEffect(() => {
     function onScroll() {

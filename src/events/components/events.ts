@@ -116,7 +116,10 @@ export function sendEvent<T extends EventType>({
       os_preference: Cookies.get('osPreferred'),
       code_display_preference: Cookies.get('annotate-mode'),
 
-      experiment_variation: getExperimentVariationForContext(getMetaContent('path-language')),
+      experiment_variation: getExperimentVariationForContext(
+        getMetaContent('path-language'),
+        getMetaContent('path-version'),
+      ),
 
       // Event grouping
       event_group_key: eventGroupKey,

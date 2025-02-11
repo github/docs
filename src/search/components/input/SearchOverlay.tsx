@@ -1,12 +1,4 @@
-import React, {
-  useState,
-  useRef,
-  RefObject,
-  useEffect,
-  KeyboardEvent,
-  SetStateAction,
-  useMemo,
-} from 'react'
+import React, { useState, useRef, RefObject, useEffect, SetStateAction, useMemo } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import {
@@ -71,7 +63,7 @@ export function SearchOverlay({
   // We need an array of refs to the list elements so we can focus them when the user uses the arrow keys
   const listElementsRef = React.useRef<Array<HTMLLIElement | null>>([])
 
-  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  const [selectedIndex, setSelectedIndex] = useState<number>(-1)
   const [aiQuery, setAiQuery] = useState<string>(urlSearchInputQuery)
   const [aiSearchError, setAISearchError] = useState<boolean>(false)
 
@@ -114,15 +106,15 @@ export function SearchOverlay({
     group: 'general' | 'ai' | string
     option: AutocompleteSearchHitWithUserQuery
   }>
+  // NOTE: Order of combinedOptions is important, since 'selectedIndex' is used to navigate the combinedOptions array
+  // Add general options _before_ AI options
+  combinedOptions.push(
+    ...generalOptionsWithUserInput.map((option) => ({ group: 'general', option })),
+  )
   // On AI Error, don't include AI suggestions, only user input
   if (!aiSearchError) {
     combinedOptions.push(...aiOptionsWithUserInput.map((option) => ({ group: 'ai', option })))
   }
-  // NOTE: Order of combinedOptions is important, since 'selectedIndex' is used to navigate the combinedOptions array
-  // Add general options after AI options
-  combinedOptions.push(
-    ...generalOptionsWithUserInput.map((option) => ({ group: 'general', option })),
-  )
 
   // Fetch initial search results on open
   useEffect(() => {
@@ -159,7 +151,7 @@ export function SearchOverlay({
   const handleSearchQueryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newQuery = event.target.value
     setUrlSearchInputQuery(newQuery)
-    setSelectedIndex(0) // Reset selected index when query changes
+    setSelectedIndex(-1) // Reset selected index when query changes
     // We don't need to fetch autocomplete results when asking the AI
     if (!isAskAIState) {
       updateAutocompleteResults(newQuery)
@@ -190,45 +182,40 @@ export function SearchOverlay({
     }
   }
 
-  // On keydown can be called from the input or a list item
-  // In either case, we want to deal with both focus & selection when up, down, or enter are pressed
-  const handleKeyDown = (
-    event: React.KeyboardEvent<HTMLElement>,
-    // Passed when called from a list item's handler
-    manuallyPassedIndex?: number,
-  ) => {
+  // Handle keyboard navigation of suggestions
+  const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
     if (event.key === 'ArrowDown') {
       event.preventDefault()
       if (combinedOptions.length > 0) {
         let newIndex = 0
-        if (typeof manuallyPassedIndex !== 'undefined') {
-          newIndex = (manuallyPassedIndex + 1) % combinedOptions.length
+        // If no item is selected, select the first item
+        if (selectedIndex === -1) {
+          newIndex = 0
         } else {
           newIndex = (selectedIndex + 1) % combinedOptions.length
+          // If we go "out of bounds" (i.e. the index is less than the selected index), unselect the item
+          if (newIndex < selectedIndex) {
+            newIndex = -1
+          }
         }
         setSelectedIndex(newIndex)
-        if (listElementsRef.current?.[newIndex]) {
-          listElementsRef.current?.[newIndex]?.focus()
-        }
       }
     } else if (event.key === 'ArrowUp') {
       event.preventDefault()
-      if (manuallyPassedIndex === 0 || selectedIndex === 0) {
-        // Focus the input when the first item is selected
-        inputRef.current?.focus()
-      } else if (combinedOptions.length > 0) {
+      if (combinedOptions.length > 0) {
         let newIndex = 0
-        if (typeof manuallyPassedIndex !== 'undefined') {
-          newIndex = (manuallyPassedIndex - 1 + combinedOptions.length) % combinedOptions.length
+        // If no item is selected, select the last item
+        if (selectedIndex === -1) {
+          newIndex = combinedOptions.length - 1
         } else {
+          // Otherwise, select the previous item
           newIndex = (selectedIndex - 1 + combinedOptions.length) % combinedOptions.length
+          // If we go "out of bounds" (i.e. the index is greater than the selected index), unselect the item
+          if (newIndex > selectedIndex) {
+            newIndex = -1
+          }
         }
         setSelectedIndex(newIndex)
-        if (listElementsRef.current?.[newIndex]) {
-          listElementsRef.current?.[newIndex]?.focus()
-        }
-      } else {
-        inputRef.current?.focus()
       }
     } else if (event.key === 'Enter') {
       // When AI Search is already open, ask subsequent queries
@@ -243,6 +230,12 @@ export function SearchOverlay({
       }
 
       event.preventDefault()
+
+      // Nothing manually selected, so general search the typed suggestion
+      if (selectedIndex === -1) {
+        generalSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
+        return
+      }
 
       if (
         combinedOptions.length > 0 &&
@@ -289,7 +282,6 @@ export function SearchOverlay({
             selectedIndex,
             setSelectedIndex,
             listElementsRef,
-            handleKeyDown,
           )}
         </ActionList>
         {/* Always show the AI Search UI error message when it is needed */}
@@ -375,7 +367,6 @@ export function SearchOverlay({
           selectedIndex,
           setSelectedIndex,
           listElementsRef,
-          handleKeyDown,
         )}
       </ActionList>
     )
@@ -432,6 +423,10 @@ export function SearchOverlay({
                 <TextInput.Action
                   onClick={() => {
                     setUrlSearchInputQuery('')
+                    setSelectedIndex(-1)
+                    if (isAskAIState) {
+                      setIsAskAIState(false)
+                    }
                     if (!isAskAIState) {
                       updateAutocompleteResults('')
                     }
@@ -500,67 +495,8 @@ function renderSearchGroups(
   selectedIndex: number,
   setSelectedIndex: (value: SetStateAction<number>) => void,
   listElementsRef: RefObject<Array<HTMLLIElement | null>>,
-  handleKeyDown: (
-    event: KeyboardEvent<HTMLElement>,
-    manuallyPassedIndex?: number | undefined,
-  ) => void,
 ) {
   const groups = []
-
-  if (aiOptionsWithUserInput.length) {
-    groups.push(
-      <ActionList.Group key="ai" data-testid="ai-autocomplete-suggestions">
-        <ActionList.GroupHeading
-          as="h3"
-          tabIndex={-1}
-          aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
-        >
-          <SparklesFillIcon className="mr-1" />
-          {t('search.overlay.ai_autocomplete_list_heading')}
-        </ActionList.GroupHeading>
-        {aiOptionsWithUserInput.map((option: AutocompleteSearchHitWithUserQuery, index: number) => {
-          const isActive = selectedIndex === index
-          const item = (
-            <ActionList.Item
-              key={`ai-${index}`}
-              className={styles.searchSuggestion}
-              onClick={() => aiAutocompleteOnSelect(option)}
-              onKeyDown={(e: React.KeyboardEvent<HTMLLIElement>) => {
-                handleKeyDown(e, index)
-              }}
-              onFocus={() => {
-                setSelectedIndex(index)
-              }}
-              active={isActive}
-              tabIndex={0}
-              ref={(element) => {
-                if (listElementsRef.current) {
-                  listElementsRef.current[index] = element
-                }
-              }}
-            >
-              <ActionList.LeadingVisual aria-hidden>
-                <SparklesFillIcon />
-              </ActionList.LeadingVisual>
-              {option.term}
-              <ActionList.TrailingVisual
-                aria-hidden
-                sx={{
-                  visibility: isActive ? 'visible' : 'hidden',
-                }}
-              >
-                <ArrowRightIcon />
-              </ActionList.TrailingVisual>
-            </ActionList.Item>
-          )
-          return item
-        })}
-      </ActionList.Group>,
-    )
-    if (generalOptionsWithUserInput.length) {
-      groups.push(<ActionList.Divider key="general-divider" />)
-    }
-  }
 
   if (generalOptionsWithUserInput.length) {
     groups.push(
@@ -574,25 +510,20 @@ function renderSearchGroups(
         </ActionList.GroupHeading>
         {generalOptionsWithUserInput.map(
           (option: AutocompleteSearchHitWithUserQuery, index: number) => {
-            // Since AI Search comes first, we need to add an offset for general search options
-            const indexWithOffset = aiOptionsWithUserInput.length + index
-            const isActive = selectedIndex === indexWithOffset
+            const isActive = selectedIndex === index
             const item = (
               <ActionList.Item
-                key={`general-${indexWithOffset}`}
+                key={`general-${index}`}
                 className={styles.searchSuggestion}
-                onClick={() => generalAutocompleteOnSelect(option)}
-                onKeyDown={(e) => {
-                  handleKeyDown(e, indexWithOffset)
-                }}
+                onSelect={() => generalAutocompleteOnSelect(option)}
                 onFocus={() => {
-                  setSelectedIndex(indexWithOffset)
+                  setSelectedIndex(index)
                 }}
                 active={isActive}
-                tabIndex={0}
+                tabIndex={-1}
                 ref={(element) => {
                   if (listElementsRef.current) {
-                    listElementsRef.current[indexWithOffset] = element
+                    listElementsRef.current[index] = element
                   }
                 }}
               >
@@ -615,6 +546,61 @@ function renderSearchGroups(
             return item
           },
         )}
+      </ActionList.Group>,
+    )
+  }
+
+  if (generalOptionsWithUserInput.length) {
+    groups.push(<ActionList.Divider key="general-divider" />)
+  }
+
+  if (aiOptionsWithUserInput.length) {
+    groups.push(
+      <ActionList.Group key="ai" data-testid="ai-autocomplete-suggestions">
+        <ActionList.GroupHeading
+          as="h3"
+          tabIndex={-1}
+          aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
+        >
+          <SparklesFillIcon className="mr-1" />
+          {t('search.overlay.ai_autocomplete_list_heading')}
+        </ActionList.GroupHeading>
+        {aiOptionsWithUserInput.map((option: AutocompleteSearchHitWithUserQuery, index: number) => {
+          // Since general search comes first, we need to add an offset for AI suggestions
+          const indexWithOffset = generalOptionsWithUserInput.length + index
+          const isActive = selectedIndex === indexWithOffset
+          const item = (
+            <ActionList.Item
+              key={`ai-${indexWithOffset}`}
+              className={styles.searchSuggestion}
+              onSelect={() => aiAutocompleteOnSelect(option)}
+              onFocus={() => {
+                setSelectedIndex(indexWithOffset)
+              }}
+              active={isActive}
+              tabIndex={-1}
+              ref={(element) => {
+                if (listElementsRef.current) {
+                  listElementsRef.current[indexWithOffset] = element
+                }
+              }}
+            >
+              <ActionList.LeadingVisual aria-hidden>
+                <SparklesFillIcon />
+              </ActionList.LeadingVisual>
+              {option.term}
+              <ActionList.TrailingVisual
+                aria-hidden
+                sx={{
+                  visibility: isActive ? 'visible' : 'hidden',
+                }}
+              >
+                <ArrowRightIcon />
+              </ActionList.TrailingVisual>
+            </ActionList.Item>
+          )
+          return item
+        })}
       </ActionList.Group>,
     )
   }
