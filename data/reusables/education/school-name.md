@@ -1,1 +1,1 @@
-1. Enter your school's name.
+1. In the "Application" dialog, enter the name of your school.
