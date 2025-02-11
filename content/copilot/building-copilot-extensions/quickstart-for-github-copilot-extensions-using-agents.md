@@ -93,7 +93,7 @@ Rather than deploying the Blackbeard agent as a web app, you can host your agent
 
 To make the Blackbeard agent accessible to the {% data variables.product.prodname_copilot_short %} platform and {% data variables.product.github %}, you need to expose your local server so it's reachable by HTTP requests. You can use any port forwarding or tunneling service to achieve this. For the following steps, we'll use ngrok.
 
-1. Navigate to [ngrok's download page](https://ngrok.com/download), then install the appropriate version of ngrok for your operating system.
+1. Navigate to [ngrok's download page](https://ngrok.com/downloads/), then install the appropriate version of ngrok for your operating system.
 1. Navigate to the [ngrok setup and installation page](https://dashboard.ngrok.com/get-started/setup/), then log in or sign up for an ngrok account.
 1. To expose your local server, in a new window of your command line application, run the following command:
 
