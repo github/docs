@@ -36,14 +36,14 @@ To configure an LMS to connect to {% data variables.product.prodname_classroom %
 
 You can link your Blackboard course with a classroom in {% data variables.product.prodname_classroom %}. For more information about Blackboard, see the [Blackboard website](https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard).
 
-An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-blackboard-for-github-classroom)."
+An administrator needs to register your LMS instance with classroom before you can link an LMS course. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/register-a-learning-management-system-with-github-classroom#configuring-blackboard-for-github-classroom).
 
 1. Sign into your **Blackboard** instance.
 1. Select the Blackboard course or organization to integrate with {% data variables.product.prodname_classroom %}.
 1. In the rigth sidebar on the course page, click **Books & Tools**, then click **GitHub Classroom**. Note that the name may be different if your LMS admin named it something else when registering your LMS.
 1. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
 
-Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see "[Importing a roster from your LMS](#importing-a-roster-from-your-lms)."
+Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see [Importing a roster from your LMS](#importing-a-roster-from-your-lms).
 
 ## Linking a Canvas course with a classroom
 
