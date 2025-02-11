@@ -29,7 +29,7 @@ shortTitle: Existing GPG keys
       $ gpg --armor --export 3AA5C34371567BD2
       # Prints the GPG public key, in ASCII armor format
       ```
-      
+
         Consider exporting your keys with the option `--export-options export-minimal`, which can prevent misreading keys that contain deprecated fields.
 
       You can then [add your GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
