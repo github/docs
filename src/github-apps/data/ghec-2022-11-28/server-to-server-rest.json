@@ -3489,6 +3489,18 @@
       "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
     },
     {
+      "slug": "get-organization-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-organization-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}"
+    },
+    {
       "slug": "list-security-manager-teams",
       "subcategory": "security-managers",
       "verb": "get",
@@ -4621,6 +4633,18 @@
       "subcategory": "rules",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
+    },
+    {
+      "slug": "get-repository-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-repository-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}"
     },
     {
       "slug": "list-repository-tags",
