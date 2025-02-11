@@ -114,7 +114,7 @@ export function getExperimentVariationForContext(locale: string, version: string
   }
 
   // When no experiment has `includeVariationInContext: true`
-  return ''
+  return CONTROL_VARIATION
 }
 
 export function initializeExperiments(
