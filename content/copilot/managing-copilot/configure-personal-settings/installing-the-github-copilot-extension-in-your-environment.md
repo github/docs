@@ -228,6 +228,40 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 {% endxcode %}
 
+{% eclipse %}
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+## About {% data variables.product.prodname_copilot %} in Eclipse
+
+Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
+
+To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+
+* **Compatible version of Eclipse**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have Eclipse version 2024-09 or above. For more information on the latest versions, see the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+
+## Installing {% data variables.product.prodname_copilot %} in Eclipse
+
+1. Download and install the latest version of {% data variables.product.prodname_copilot %} in the [Eclipse Marketplace](https://aka.ms/copiloteclipse).
+
+1. After the extension is installed, restart Eclipse to apply the changes.
+
+1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+
+1. In the "Sign In to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy Code and Open**.
+
+1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+
+1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
+
+1. After the permissions have been approved, Eclipse will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
+
+{% endeclipse %}
+
 ## Next steps
 
 * **Get started with {% data variables.product.prodname_copilot_short %}** - Learn how to use {% data variables.product.prodname_copilot_short %} in your preferred coding environment. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor).

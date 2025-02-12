@@ -458,6 +458,37 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 
 {% endxcode %}
 
+{% eclipse %}
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+## About {% data variables.product.prodname_copilot %} in Eclipse
+
+If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE.  
+
+After you install {% data variables.product.prodname_copilot %} in Eclipse, you can enable or disable it, and you can configure advanced settings within the IDE.
+
+## Prerequisites
+
+To configure {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+
+## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts for inline suggestions in Eclipse when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command.
+
+## Rebinding keyboard shortcuts
+
+If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
+
+1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
+1. Click **Edit Keyboard Shortcuts...** to rebind the shortcuts.
+
+## Settings and configurations
+
+For advanced settings, you can set auto-completion behavior, configure proxy, and assign a {% data variables.product.prodname_enterprise %} authentication endpoint.
+
+{% endeclipse %}
+
 ## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
 
 {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
