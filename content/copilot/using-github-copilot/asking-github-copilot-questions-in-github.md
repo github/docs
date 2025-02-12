@@ -52,6 +52,16 @@ You can explicitly ask {% data variables.product.prodname_copilot_chat_dotcom %}
 
 You can generate a list of currently available skills by asking {% data variables.product.prodname_copilot_short %}: `What skills are available?`
 
+## Customizing {% data variables.product.prodname_copilot_chat_short %} responses
+
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, the specifics of your project, or your personal preferences, if you provide it with enough context to do so. Instead of repeating instructions in each prompt, you can create and save instructions for {% data variables.product.prodname_copilot_chat_short %} to customize what responses you receive.
+
+There are two types of custom instructions you can add for {% data variables.product.prodname_copilot_chat_short %}:
+* Repository instructions: You can create a custom instructions file for a repository, so that all prompts asked in the context of the repository automatically include the instructions you've defined
+* Personal instructions: You can add personal instructions so that all the chat responses you, as a user, receive are tailored to your preferences
+
+For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot) and [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot).
+
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}

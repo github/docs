@@ -41,7 +41,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
    The response may contain text, code blocks, buttons, images, URIs, and file trees. The response often includes interactive elements. For example, the response may include a menu to insert a code block, or a button to invoke a {% data variables.product.prodname_vscode %} command.
 
-   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, select the **Used _n_ references** dropdown at the top of the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot).
+   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, select the **Used _n_ references** dropdown at the top of the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 
@@ -189,7 +189,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 
    The response often includes interactive elements. For example, the response may include buttons to copy, insert, or preview the result of a code block.
 
-   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-custom-instructions-for-github-copilot).
+   To see the files that {% data variables.product.prodname_copilot_chat_short %} used to generate the response, click the **References** link below the response. The references may include a link to a custom instructions file for your repository. This file contains additional information that is automatically added to all of your chat questions to improve the quality of the responses. For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
 
 ## Using keywords in your prompt
 

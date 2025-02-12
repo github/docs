@@ -4,9 +4,6 @@ $bodyPadding: 0 16px 0px 16px;
 $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 
 .container {
-  max-height: 95vh;
-  overflow-y: auto;
-  overflow-x: hidden;
   max-width: 100%;
   width: 100%;
 }
@@ -16,7 +13,7 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   font-size: small !important;
   font-weight: var(--base-text-weight-normal, 400) !important;
   color: $mutedTextColor;
-  margin: 8px 0px 8px 0px;
+  margin: 8px 0px 18px 0px;
   padding: $bodyPadding;
 }
 
@@ -28,24 +25,12 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 }
 
 .referencesTitle {
-  font-size: small !important;
-  font-weight: var(--base-text-weight-normal, 400) !important;
   margin: 0;
-  color: $mutedTextColor;
   padding-left: 0 !important;
 }
 
 .referencesList {
-  padding: 0 !important;
   padding-left: 16px !important;
-  li {
-    padding: $bodyPadding;
-    margin-left: 0 !important;
-    padding-left: 0 !important;
-    a {
-      color: var(--color-accent-emphasis);
-    }
-  }
 }
 
 .loadingContainer {

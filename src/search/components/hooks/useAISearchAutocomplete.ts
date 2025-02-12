@@ -18,6 +18,7 @@ type UseAutocompleteProps = {
 type UseAutocompleteReturn = {
   autoCompleteOptions: AutocompleteOptions
   searchLoading: boolean
+  setSearchLoading: (loading: boolean) => void
   searchError: boolean
   updateAutocompleteResults: (query: string) => void
   clearAutocompleteResults: () => void
@@ -145,6 +146,7 @@ export function useAISearchAutocomplete({
   return {
     autoCompleteOptions,
     searchLoading,
+    setSearchLoading,
     searchError,
     updateAutocompleteResults,
     clearAutocompleteResults,
