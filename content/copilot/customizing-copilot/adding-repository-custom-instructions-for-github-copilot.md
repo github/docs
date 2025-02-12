@@ -1,7 +1,9 @@
 ---
-title: Adding custom instructions for GitHub Copilot
-shortTitle: Custom instructions
-intro: 'You can create a file that automatically adds information to all questions you ask {% data variables.product.prodname_copilot_chat_short %}.'
+title: Adding repository custom instructions for GitHub Copilot
+shortTitle: Repository custom instructions
+intro: 'You can create a file in a repository that automatically adds information to all questions you ask {% data variables.product.prodname_copilot_chat_short %}.'
+redirect_from:
+   - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
 versions:
   feature: copilot
 topics:
@@ -13,7 +15,7 @@ topics:
 
 {% data reusables.copilot.custom-instructions-note %}
 >
->   This version of this article is for using custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+>   This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endwebui %}
 
@@ -21,7 +23,7 @@ topics:
 
 {% data reusables.copilot.custom-instructions-note %}
 >
->   This version of this article is for using custom instructions in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+>   This version of this article is for using repository custom instructions in {% data variables.product.prodname_vscode_shortname %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endvscode %}
 
@@ -29,13 +31,13 @@ topics:
 
 {% data reusables.copilot.custom-instructions-note %}
 >
->   This version of this article is for using custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+>   This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endvisualstudio %}
 
-## About custom instructions for {% data variables.product.prodname_copilot_chat %}
+## About repository custom instructions for {% data variables.product.prodname_copilot_chat %}
 
-{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+{% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
 {% vscode %}
 
@@ -43,30 +45,36 @@ Additionally, you can create prompt files. With prompt files, you can specify co
 
 {% endvscode %}
 
+{% webui %}
+
+You can also create personal custom instructions, which apply to conversations you, as a user, have with {% data variables.product.prodname_copilot_chat_short %} across {% data variables.product.github %}. This differs from repository custom instructions, which apply to conversations in the context of a single repository. For more information on personal instructions, see [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot).
+
+{% endwebui %}
+
 ## Prerequisites
 
 * A custom instructions file (see the instructions below).
 
 {% webui %}
 
-* Your personal choice of whether to use custom instructions must be set to enabled. This is enabled by default. See [Enabling or disabling custom instructions](#enabling-or-disabling-custom-instructions) later in this article.
+* Your personal choice of whether to use custom instructions must be set to enabled. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 * During the {% data variables.release-phases.public_preview %}, if you have a {% data variables.product.prodname_copilot_business_short %} {% ifversion ghec %}or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} subscription, then the organization {% ifversion ghec %}or enterprise{% endif %} from which you receive your subscription must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
 
 {% endwebui %}
 
 {% vscode %}
 
-* The **Use Instruction Files** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling custom instructions](#enabling-or-disabling-custom-instructions) later in this article.
+* The **Use Instruction Files** option must be enabled in your settings. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 
 {% endvscode %}
 
 {% visualstudio %}
 
-* The **Enable custom instructions** option must be enabled in your settings. This is disabled by default. See [Enabling or disabling custom instructions](#enabling-or-disabling-custom-instructions) later in this article.
+* The **Enable custom instructions** option must be enabled in your settings. This is disabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
 
 {% endvisualstudio %}
 
-## Creating a custom instructions file
+## Creating a repository custom instructions file
 
 1. In the root of your repository, create a file named `.github/copilot-instructions.md`.
 
@@ -88,7 +96,7 @@ We always write JavaScript with double quotes and tabs for indentation, so when 
 Our team uses Jira for tracking items of work.
 ```
 
-## Writing effective custom instructions
+## Writing effective repository custom instructions
 
 The instructions you add to the `.github/copilot-instructions.md` file should be short, self-contained statements that add context or relevant information to supplement users' chat questions.
 
@@ -110,7 +118,7 @@ Answer all questions in the style of a friendly colleague, using informal langua
 Answer all questions in less than 1000 characters, and words of no more than 12 characters.
 ```
 
-## Custom instructions in use
+## Repository custom instructions in use
 
 {% webui %}
 
@@ -123,6 +131,8 @@ Custom instructions are not visible in {% data variables.product.prodname_copilo
 ![Screenshot of an expanded References list, showing the 'copilot-instructions.md' file highlighted with a dark organge outline.](/assets/images/help/copilot/custom-instructions-ref-in-github.png)
 
 You can click the reference to open the file.
+
+{% data reusables.copilot.repository-vs-personal-instructions-note %}
 
 {% endwebui %}
 
@@ -142,7 +152,7 @@ You can click the reference to open the file.
 
 {% endvisualstudio %}
 
-## Enabling or disabling custom instructions
+## Enabling or disabling repository custom instructions
 
 You can choose whether or not to have custom instructions added to your chat questions.
 
