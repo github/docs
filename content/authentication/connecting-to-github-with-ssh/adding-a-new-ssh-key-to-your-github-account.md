@@ -80,14 +80,6 @@ gh ssh-key add ~/.ssh/id_ed25519.pub --type signing
 
 {% endcli %}
 
-{% note %}
-
-Did you successfully add an SSH key to your account?
-
-<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
-
-{% endnote %}
-
 {% ifversion fpt or ghec %}
 
 ## Further reading
