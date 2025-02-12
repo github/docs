@@ -38,7 +38,7 @@ We do not allow content or activity on GitHub that:
 
 * [threatens or incites violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content) toward any individual or group, especially on the basis of who they are;
 
-* [gratuitously depicts or glorifies violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content), including violent images; or
+* [gratuitously depicts or glorifies violence](/site-policy/acceptable-use-policies/github-threats-of-violence-and-gratuitously-violent-content), including violent images;
 
 * is off-topic, or interacts with platform features in a way that significantly or repeatedly [disrupts the experience of other users](/site-policy/acceptable-use-policies/github-disrupting-the-experience-of-other-users).
 
