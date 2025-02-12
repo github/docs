@@ -6,7 +6,6 @@ topics:
   - Mobile
 versions:
   feature: copilot-chat-for-mobile
-product: '{% data reusables.gated-features.copilot-free-availability %}'
 shortTitle: Chat in Mobile
 redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
@@ -41,24 +40,15 @@ The following limitations apply to {% data variables.product.prodname_copilot_mo
 
 ## Prerequisites
 
-To use {% data variables.product.prodname_copilot_mobile_short %} you will need the following.
+To use {% data variables.product.prodname_copilot_mobile_short %}, click the {% data variables.product.prodname_copilot_short %} icon in {% data variables.product.prodname_mobile %} to initiate a chat. If you don't already have an active {% data variables.product.prodname_copilot %} subscription, you will automatically get subscribed to {% data variables.product.prodname_copilot_free_short %}.
 
-* **Subscription to {% data variables.product.prodname_copilot %}:** You must have an active {% data variables.product.prodname_copilot %} subscription. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
-
-   If you do not have a {% data variables.product.prodname_copilot %} subscription, you can purchase a {% data variables.product.prodname_copilot_pro_short %} subscription directly in the iOS version of {% data variables.product.prodname_mobile %}, or in the Google Play Store for the Android version of {% data variables.product.prodname_mobile %}.
-
-* **Access to {% data variables.product.prodname_copilot_mobile_short %}:** If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner will need to grant you access to {% data variables.product.prodname_copilot_mobile_short %}. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile).
-* **Enable {% data variables.product.prodname_copilot_short %} features for your device:** {% data variables.product.prodname_copilot_short %} needs to be enabled from within {% data variables.product.prodname_mobile %}. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot#enabling-or-disabling-copilot-in-github-mobile). If you cannot see the {% data variables.product.prodname_copilot_short %} logo in the {% data variables.product.prodname_mobile %} home page, you may need to update your app version.
+If you are part of an organization{% ifversion ghec %} or enterprise{% endif %} with a {% data variables.product.prodname_copilot_for_business %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise %}{% endif %} subscription, the organization{% ifversion ghec %} or enterprise{% endif %} owner may need to grant you access to {% data variables.product.prodname_copilot_mobile_short %}. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/enabling-github-copilot-chat-for-github-mobile).
 
 ## Asking a general question about software development
 
 You can ask a general question about software development{% ifversion ghec %} that is not focused on a particular context, such as a repository{% endif %}.
 
-1. In {% data variables.product.prodname_mobile %}, tap the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon in the bottom right corner of the screen.
-
-   > [!NOTE]
-   > The **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon is not shown on every page in {% data variables.product.prodname_mobile %}. If you don't see the icon, navigate to a different page in {% data variables.product.prodname_mobile %} and look for the icon there.
-
+{% data reusables.copilot.chat-mobile-start-chat %}
 1. If the page displays a previous conversation you had with {% data variables.product.prodname_copilot_short %}, tap {% octicon "kebab-horizontal" %} in the top right corner of the screen, and then tap **New conversation {% octicon "plus" aria-hidden="true" %}**.
 1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and send the message.
 
@@ -185,6 +175,15 @@ You can ask questions about a specific discussion in a repository.
 ## Extending {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_mobile %}
 
 {% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
+
+## Hiding {% data variables.product.prodname_copilot_chat_short %}
+
+You can hide the floating {% data variables.product.prodname_copilot_short %} button in {% data variables.product.prodname_mobile %}.
+
+1. In the bottom menu, tap **Profile**.
+1. To view your settings, tap {% octicon "gear" aria-label="The Gear icon" %}.
+1. Tap **{% data variables.product.prodname_copilot_short %}**.
+1. Next to "Hide {% data variables.product.prodname_copilot_short %}", use the toggle to hide {% data variables.product.prodname_copilot_short %}.
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_mobile %}
 
