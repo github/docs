@@ -163,3 +163,27 @@ Commonly used chat participants include:
 | `@project` | Has context about the code in your project. Use `@project` when you want {% data variables.product.prodname_copilot_short %} to consider all of the files in your project when it answers your question. |
 
 {% endjetbrains %}
+
+{% xcode %}
+
+This version of this article is for {% data variables.product.prodname_copilot_short %} in Xcode. For other versions of this article, click the tabs above.
+
+{% data reusables.copilot.about-copilot-enhancements %}
+
+For information about how to get started with {% data variables.product.prodname_copilot_chat_short %} in Xcode, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
+
+## Slash commands
+
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by the command name.
+
+Available slash commands may vary, depending on your environment and the context of your chat. To view a list of currently available slash commands, type `/` in the chat prompt box of your current environment. Below is a list of the slash commands for using {% data variables.product.prodname_copilot_chat_short %}.
+
+| Command     | Description                                        |
+|-------------|----------------------------------------------------|
+| `/doc`      | Generate documentation for this symbol.            |
+| `/explain`  | Provide an explanation for the selected code.      |
+| `/fix`      | Suggest fixes for code errors and typos.           |
+| `/simplify` | Simplify the current code selection.               |
+| `/tests`    | Create a unit test for the current code selection. |
+
+{% endxcode %}

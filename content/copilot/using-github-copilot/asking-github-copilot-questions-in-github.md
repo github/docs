@@ -23,7 +23,7 @@ On {% data variables.product.github %}, you can use {% data variables.product.pr
 
 * General software-related questions, without a particular context. For more information, see [Asking a general question about software development](#asking-a-general-question-about-software-development).
 * Exploratory questions asked in the context of a specific repository. For more information, see [Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository).
-* Questions asked in the context of a specific repository, file or symbol. For more information, see [Asking a question about a specific file or symbol](#asking-a-question-about-a-specific-file-or-symbol). {% ifversion ghec %}
+* Questions asked in the context of a specific repository, folder, file, or symbol. For more information, see [Asking questions about references](#asking-questions-about-references). {% ifversion ghec %}
 * Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see [Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base).{% endif %}
 * Questions about a specific file or specified lines of code within a file. For more information, see [Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code).
 * Questions about a pull request diff. For more information, see [Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request).
@@ -132,19 +132,21 @@ Depending on the question you ask, and your enterprise and organization settings
 {% data reusables.copilot.stop-response-generation %}
 {% data reusables.copilot.chat-conversation-buttons %}
 
-## Asking a question about a specific file or symbol
+## Asking questions about references
 
-You can ask {% data variables.product.prodname_copilot_short %} about a specific file or symbol within a repository.
+You can ask {% data variables.product.prodname_copilot_short %} about a specific file, folder, or symbol within a repository.
 
 > [!NOTE] A "symbol" is a named entity in code. This could be a variable, function, class, module, or any other identifier that's part of a codebase.
 
 {% data reusables.copilot.go-to-copilot-page %}
 
-{% data reusables.copilot.ask-copilot-not-displayed %}
-
-1. Click the "Attach files or symbols" button (a paperclip icon) at the bottom of the chat panel, then search for and select one or more files and symbols.
+1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
 
    ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
+
+1. Once the repository has been attached, click {% octicon "paperclip" aria-label="Add attachments" %} again, then select "Files, folders, and symbols".
+
+1. Search for and select one or more files, folders, or symbols.
 
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
