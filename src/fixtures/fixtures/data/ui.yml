@@ -33,7 +33,7 @@ search:
     suggestions_list_aria_label: Search suggestions
     ai_suggestions_list_aria_label: AI search suggestions
     general_suggestions_list_aria_label: Docs search suggestions
-    general_autocomplete_list_heading: Search docs
+    general_suggestions_list_heading: Search docs
     ai_autocomplete_list_heading: Ask AI
     give_feedback: Give feedback
     beta_tag: Beta
