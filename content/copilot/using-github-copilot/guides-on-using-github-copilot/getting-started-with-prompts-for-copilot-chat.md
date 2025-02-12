@@ -37,9 +37,9 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} questions a
 
 To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
 
-* Highlight relevant lines of code
-* Use chat variables like `#selection`, `#file`, `#editor`, `#codebase`, or `#git`
-* Use the `@workspace` chat participant
+* Highlight relevant lines of code.
+* Use chat variables like `#selection`, `#file`, `#editor`, `#codebase`, or `#git`.
+* Use the `@workspace` chat participant.
 
 ## Write code
 
@@ -127,10 +127,10 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} general sof
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} questions about your project. To give {% data variables.product.prodname_copilot_short %} the correct context, try some of these strategies:
 
-* Highlight relevant lines of code
-* Open the relevant file
-* Use `#file` to tell {% data variables.product.prodname_copilot_short %} to reference specific files
-* Use `#solution` to tell {% data variables.product.prodname_copilot_short %} to reference the active file
+* Highlight relevant lines of code.
+* Open the relevant file.
+* Use `#file` to tell {% data variables.product.prodname_copilot_short %} to reference specific files.
+* Use `#solution` to tell {% data variables.product.prodname_copilot_short %} to reference the active file.
 
 For example:
 
@@ -196,11 +196,13 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} questions a
 * Highlight relevant lines of code.
 * Open the relevant file.
 * Add the file as a reference. For information about how to use file references, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide?tool=jetbrains#file-references).
+* Use the `@project` chat participant.
 
 For example:
 
 * `what sorting algorithm does this function use`
 * `how are these files related` (with references to the files in question)
+* `@project how are notifications scheduled`
 
 ## Write code
 
