@@ -189,13 +189,15 @@ For detailed instructions, see [Set up {% data variables.product.prodname_copilo
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-beta-note %}
-
 ## About the {% data variables.product.prodname_copilot %} extension for Xcode
 
 Installing the {% data variables.product.prodname_copilot %} extension for Xcode allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+{% data reusables.copilot.xcode-prerequisites %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 

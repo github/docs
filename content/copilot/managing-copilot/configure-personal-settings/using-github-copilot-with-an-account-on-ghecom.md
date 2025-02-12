@@ -59,9 +59,9 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 {% xcode %}
 
-## Authenticating from Xcode
+{% data reusables.copilot.xcode-public-preview-note %}
 
-{% data reusables.copilot.xcode-beta-note %}
+## Authenticating from Xcode
 
 1. Open the "{% data variables.product.prodname_copilot %} for Xcode" application.
 1. Click the **Advanced** tab.

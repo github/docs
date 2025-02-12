@@ -406,7 +406,7 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-beta-note %}
+{% data reusables.copilot.xcode-public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot %} for Xcode
 
