@@ -162,4 +162,4 @@ With these tactics, you're well equipped to start squashing bugs in your project
 
 ## Next steps
 
-As you continue coding, you'll likely encounter specific problem scenarios and errors that are difficult to debug. For a list of potential issues and example {% data variables.product.prodname_copilot_chat_short %} prompts to fix them, see [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat/debugging-errors).
+As you continue coding, you'll likely encounter specific problem scenarios and errors that are difficult to debug. For a list of potential issues and example {% data variables.product.prodname_copilot_chat_short %} prompts to fix them, see [AUTOTITLE](/copilot/copilot-chat-cookbook/debugging-errors).
