@@ -312,6 +312,35 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
     <td>1</td>
   </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>DeepSeek-R1</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>8</td>
+    <td>8</td>
+    <td>10</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
 </table>
 
 These limits are subject to change without notice.
