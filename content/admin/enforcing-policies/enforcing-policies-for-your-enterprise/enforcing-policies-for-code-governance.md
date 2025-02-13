@@ -25,13 +25,11 @@ You can create rulesets to control how users can interact with code in repositor
 
 To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-## Importing prebuilt rulesets
+## Importing rulesets
 
 To import a prebuilt ruleset created by {% data variables.product.company_short %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
-{% ifversion repo-rules-management %}
 {% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).
-{% endif %}
 
 ## How will I define where my ruleset applies?
 

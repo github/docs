@@ -30,6 +30,11 @@ const DEBOUNCE_TIME = 300 // In milliseconds
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
 let sessionCache = {} as Record<string, AutocompleteOptions>
 
+// Helper to incorporate version & locale into the cache key
+function getCacheKey(query: string, version: string, locale: string) {
+  return `${query}__${version}__${locale}`
+}
+
 // Helpers surrounding the ai-search-autocomplete request to lessen the # of requests made to our API
 // There are 3 methods for reducing the # of requests:
 // 1. Debouncing the request to prevent multiple requests while the user is typing
@@ -70,9 +75,12 @@ export function useAISearchAutocomplete({
         abortControllerRef.current.abort()
       }
 
+      // Build cache key based on query, version, and locale
+      const cacheKey = getCacheKey(queryValue, currentVersion, router.locale || 'en')
+
       // Check if the result is in cache
-      if (sessionCache[queryValue]) {
-        setAutoCompleteOptions(sessionCache[queryValue])
+      if (sessionCache[cacheKey]) {
+        setAutoCompleteOptions(sessionCache[cacheKey])
         setSearchLoading(false)
         return
       }
@@ -98,7 +106,7 @@ export function useAISearchAutocomplete({
         }
 
         // Update cache
-        sessionCache[queryValue] = results
+        sessionCache[cacheKey] = results
 
         // Update state with fetched results
         setAutoCompleteOptions(results)

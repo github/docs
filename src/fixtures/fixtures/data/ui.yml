@@ -25,25 +25,24 @@ release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
   input:
-    experimental_tag: Experimental
     aria_label: Open search overlay
-    placeholder: Search or ask AI assistant
+    placeholder: Search or ask Copilot
   overlay:
-    input_aria_label: Search or ask AI assistant
+    input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
-    ai_suggestions_list_aria_label: AI search suggestions
+    ai_suggestions_list_aria_label: Copilot search suggestions
     general_suggestions_list_aria_label: Docs search suggestions
     general_suggestions_list_heading: Search docs
-    ai_autocomplete_list_heading: Ask AI
+    ai_autocomplete_list_heading: Ask Copilot
     give_feedback: Give feedback
     beta_tag: Beta
     return_to_search: Return to search
     clear_search_query: Clear
   ai:
-    disclaimer: This is an experimental generative AI response. All information should be verified prior to use.
+    disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
     references: References from these articles
-    loading_status_message: Loading AI response...
-    done_loading_status_message: Done loading AI response
+    loading_status_message: Loading Copilot response...
+    done_loading_status_message: Done loading Copilot response
     unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query.
     copy_answer: Copy answer
     copied_announcement: Copied!

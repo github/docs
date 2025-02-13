@@ -12,13 +12,7 @@ import {
   TextInput,
   Token,
 } from '@primer/react'
-import {
-  SearchIcon,
-  XCircleFillIcon,
-  SparklesFillIcon,
-  ChevronLeftIcon,
-  CommentIcon,
-} from '@primer/octicons-react'
+import { SearchIcon, XCircleFillIcon, CommentIcon, CopilotIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { useVersion } from 'src/versions/components/useVersion'
@@ -182,6 +176,10 @@ export function SearchOverlay({
     if (!isAskAIState) {
       updateAutocompleteResults(newQuery)
     }
+    // If the query empties while we are in the AI state, we should switch back to the search state
+    if (isAskAIState && newQuery.trim() === '') {
+      setIsAskAIState(false)
+    }
   }
 
   // When a general option is selected, execute the search and close the overlay since general search results are in a new page
@@ -213,6 +211,7 @@ export function SearchOverlay({
       setIsAskAIState(true)
       setUrlSearchInputQuery(selectedOption.term)
       setAiQuery(selectedOption.term)
+      setSelectedIndex(-1)
       inputRef.current?.focus()
     }
   }
@@ -357,7 +356,7 @@ export function SearchOverlay({
               tabIndex={-1}
               aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
             >
-              <SparklesFillIcon className="mr-1" />
+              <CopilotIcon className="mr-1" />
               {t('search.overlay.ai_autocomplete_list_heading')}
             </ActionList.GroupHeading>
             <Banner
@@ -444,21 +443,7 @@ export function SearchOverlay({
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
             onKeyDown={handleKeyDown}
-            leadingVisual={
-              isAskAIState ? (
-                <Stack justify="center">
-                  <TextInput.Action
-                    onClick={() => {
-                      setIsAskAIState(false)
-                    }}
-                    icon={ChevronLeftIcon}
-                    aria-label={t('search.overlay.return_to_search')}
-                  />
-                </Stack>
-              ) : (
-                <SearchIcon />
-              )
-            }
+            leadingVisual={<SearchIcon />}
             aria-labelledby={overlayHeadingId}
             placeholder={t('search.input.placeholder')}
             trailingAction={
@@ -609,7 +594,7 @@ function renderSearchGroups(
       tabIndex={-1}
       aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
     >
-      <SparklesFillIcon className="mr-1" />
+      <CopilotIcon className="mr-1" />
       {t('search.overlay.ai_autocomplete_list_heading')}
     </ActionList.GroupHeading>
   )
@@ -642,7 +627,7 @@ function renderSearchGroups(
           tabIndex={-1}
           aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
         >
-          <SparklesFillIcon className="mr-1" />
+          <CopilotIcon className="mr-1" />
           {t('search.overlay.ai_autocomplete_list_heading')}
         </ActionList.GroupHeading>
         {aiOptionsWithUserInput.map((option: AutocompleteSearchHitWithUserQuery, index: number) => {

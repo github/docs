@@ -91,8 +91,8 @@ export async function executeAIAutocompleteSearch(
     params.set('debug', '1')
   }
 
-  // Always fetch 5 results for autocomplete
-  params.set('size', '5')
+  // Always fetch 4 results for autocomplete
+  params.set('size', '4')
 
   const response = await fetch(`/api/search/ai-search-autocomplete/v1?${params}`, {
     headers: {

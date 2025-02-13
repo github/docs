@@ -11,6 +11,7 @@ type Experiment = {
   limitToLanguages?: string[]
   limitToVersions?: string[]
   alwaysShowForStaff: boolean
+  turnOnWithURLParam?: string
 }
 
 // Update this with the name of the experiment, e.g. | 'example_experiment'
@@ -29,6 +30,7 @@ export const EXPERIMENTS = {
       'enterprise-server@latest',
     ], // Only enable for versions
     alwaysShowForStaff: false, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
+    turnOnWithURLParam: 'ai_search', /// When the query param `?feature=ai_search` is set, the experiment will be enabled
   },
   /*  Add new experiments here, example:
   'example_experiment': {
@@ -43,6 +45,7 @@ export const EXPERIMENTS = {
         'enterprise-server@latest',
       ], // Only enable for the latest versions
       alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
+      turnOnWithURLParam: 'example', // When the query param `?feature=example` is set, the experiment will be enabled
     }
   */
 } as Record<ExperimentNames, Experiment>
