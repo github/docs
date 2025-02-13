@@ -11,5 +11,6 @@ redirect_from:
 children:
   - /getting-started-with-prompts-for-copilot-chat
   - /refactoring-code-with-github-copilot
+  - /using-copilot-to-migrate-a-project
   - /writing-tests-with-github-copilot
 ---
