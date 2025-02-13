@@ -23,6 +23,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
           router.locale || '',
           mainContext.currentVersion || '',
           isStaff,
+          router.query,
         ),
       )
     }
@@ -35,7 +36,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
     return () => {
       window.removeEventListener('controlGroupOverrideChanged', updateShouldShow)
     }
-  }, [experimentKey, router.locale, mainContext.currentVersion])
+  }, [experimentKey, router.locale, mainContext.currentVersion, router.query])
 
   return showExperiment
 }

@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import cx from 'classnames'
-import { IconButton, Token } from '@primer/react'
-import { SearchIcon, SparklesFillIcon } from '@primer/octicons-react'
+import { IconButton } from '@primer/react'
+import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { SearchOverlay } from './SearchOverlay'
@@ -75,8 +75,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
               aria-hidden
               tabIndex={-1}
             >
-              <SparklesFillIcon aria-hidden className="mr-1" />
-              <Token aria-hidden as="span" text={t('search.input.experimental_tag')} />
+              <CopilotIcon aria-hidden className="mr-1" />
               <span
                 className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
               >

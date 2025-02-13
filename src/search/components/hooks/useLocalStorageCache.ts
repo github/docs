@@ -28,12 +28,8 @@ function useLocalStorageCache<T = any>(
 ) {
   const cacheIndexKey = `${cacheKeyPrefix}-index`
 
-  /**
-   * Generates a unique key based on the query string.
-   * @param query - The query string to generate the key from.
-   * @returns A unique string key.
-   */
-  const generateKey = (query: string): string => {
+  // Generates a unique key based on the query string, version, and language
+  const generateCacheKey = (query: string, version: string, language: string): string => {
     query = query.trim().toLowerCase()
     // Simple hash function to generate a unique key from the query
     let hash = 0
@@ -42,17 +38,12 @@ function useLocalStorageCache<T = any>(
       hash = (hash << 5) - hash + char
       hash |= 0 // Convert to 32bit integer
     }
-    return `${cacheKeyPrefix}-${Math.abs(hash)}`
+    return `${cacheKeyPrefix}-${Math.abs(hash)}-${version}-${language}`
   }
 
-  /**
-   * Retrieves an item from the cache.
-   * @param query - The query string associated with the cached data.
-   * @returns The cached data if valid, otherwise null.
-   */
   const getItem = useCallback(
-    (query: string): T | null => {
-      const key = generateKey(query)
+    (query: string, version: string, language: string): T | null => {
+      const key = generateCacheKey(query, version, language)
       const itemStr = localStorage.getItem(key)
       if (!itemStr) return null
 
@@ -80,14 +71,9 @@ function useLocalStorageCache<T = any>(
     [cacheKeyPrefix, expirationDays],
   )
 
-  /**
-   * Stores an item in the cache.
-   * @param query - The query string associated with the data.
-   * @param data - The data to cache.
-   */
   const setItem = useCallback(
-    (query: string, data: T): void => {
-      const key = generateKey(query)
+    (query: string, data: T, version: string, language: string): void => {
+      const key = generateCacheKey(query, version, language)
       const now = Date.now()
       const cachedItem: CachedItem<T> = { data, timestamp: now }
 

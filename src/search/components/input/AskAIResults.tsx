@@ -69,7 +69,7 @@ export function AskAIResults({
     askAiEventGroupId.current = uuidv4()
     disclaimerRef.current?.focus()
 
-    const cachedData = getItem(query)
+    const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
       setMessage(cachedData.message)
       setReferences(cachedData.sources)
@@ -90,7 +90,12 @@ export function AskAIResults({
           setInitialLoading(false)
           setResponseLoading(false)
           const cannedResponse = t('search.ai.unable_to_answer')
-          setItem(query, { query, message: cannedResponse, sources: [] })
+          setItem(
+            query,
+            { query, message: cannedResponse, sources: [] },
+            version,
+            router.locale || 'en',
+          )
           return setMessage(cannedResponse)
         }
         if (!response.ok) {
@@ -144,7 +149,12 @@ export function AskAIResults({
         }
       } finally {
         if (!isCancelled && messageBuffer) {
-          setItem(query, { query, message: messageBuffer, sources: sourcesBuffer })
+          setItem(
+            query,
+            { query, message: messageBuffer, sources: sourcesBuffer },
+            version,
+            router.locale || 'en',
+          )
           setInitialLoading(false)
           setResponseLoading(false)
           sendAISearchResultEvent(sourcesBuffer, messageBuffer, askAiEventGroupId.current)
