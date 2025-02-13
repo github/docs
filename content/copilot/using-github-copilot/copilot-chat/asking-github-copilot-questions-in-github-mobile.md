@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-github-mobile
   - /copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile
   - /copilot/github-copilot-chat/copilot-chat-in-github-mobile
+  - /copilot/using-github-copilot/asking-github-copilot-questions-in-github-mobile
 ---
 
 ## Overview

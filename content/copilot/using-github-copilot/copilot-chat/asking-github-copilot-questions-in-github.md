@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
   - /copilot/github-copilot-chat/copilot-chat-in-github
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom
+  - /copilot/using-github-copilot/asking-github-copilot-questions-in-github
 ---
 
 ## Overview
@@ -19,15 +20,7 @@ redirect_from:
 
 {% data variables.product.prodname_copilot_chat_short %} can help you with a variety of coding-related tasks, like offering you code suggestions, providing natural language descriptions of a piece of code's functionality and purpose, generating unit tests for your code, and proposing fixes for bugs in your code. For more information, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom).
 
-On {% data variables.product.github %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask:
-
-* General software-related questions, without a particular context. For more information, see [Asking a general question about software development](#asking-a-general-question-about-software-development).
-* Exploratory questions asked in the context of a specific repository. For more information, see [Asking exploratory questions about a repository](#asking-exploratory-questions-about-a-repository).
-* Questions asked in the context of a specific repository, folder, file, or symbol. For more information, see [Asking questions about references](#asking-questions-about-references). {% ifversion ghec %}
-* Questions asked in the context of a knowledge base (that is, Markdown documentation across one or more repositories). For more information, see [Asking a question about a knowledge base](#asking-a-question-about-a-knowledge-base).{% endif %}
-* Questions about a specific file or specified lines of code within a file. For more information, see [Asking questions about specific pieces of code](#asking-questions-about-specific-pieces-of-code).
-* Questions about a pull request diff. For more information, see [Finding out about the changes in a pull request](#asking-questions-about-a-specific-pull-request).
-* Questions about a specific issue. For more information, see [Asking a question about a specific issue or discussion](#asking-a-question-about-a-specific-issue-or-discussion).
+On {% data variables.product.github %}, you can use {% data variables.product.prodname_copilot_chat_short %} to ask different questions in different contexts. For example, you can ask about a specific repository, a specific issue, or a specific pull request. You can also ask general questions about software development, or about a specific programming language.
 
 ### Limitations
 
@@ -66,15 +59,20 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/adding-reposi
 
 {% data reusables.copilot.change-the-ai-model %}
 
-## Asking a general question about software development
+## Submitting a question to {% data variables.product.prodname_copilot_chat_short %}
 
-You can ask a general question about software development that is not focused on a particular context, such as a repository{% ifversion ghec %} or a knowledge base{% endif %}.
+You can open {% data variables.product.prodname_copilot_chat_short %} from any page on {% data variables.product.github %}. Certain questions may require you to be in a specific context, such as a repository, issue, or pull request. The following procedure describes how to ask a general software related question, and demonstrates the core functionality of {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}. For more information on other scenarios, see [Asking {% data variables.product.prodname_copilot_chat_short %} questions in different contexts](/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-copilot-chat-questions-in-different-contexts).
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE] Bing search integration is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+1. On any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the bottom right of the page.
 
-{% data reusables.copilot.go-to-copilot-page %}
+   The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
+
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the "New conversation" icon (a plus sign) at the top right of the panel.
+
+   ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
 
 1. If the panel is headed "Chatting about OWNER/REPOSITORY," click **All repositories**.
 
@@ -87,11 +85,11 @@ Depending on the question you ask, and your enterprise and organization settings
 1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
-   * What are the advantages of the Go programming language?
-   * What is Agile software development?
-   * What is the most popular JavaScript framework?
-   * Give me some examples of regular expressions.
-   * Write a bash script to output today's date.
+   * `What are the advantages of the Go programming language?`
+   * `What is Agile software development?`
+   * `What is the most popular JavaScript framework?`
+   * `Give me some examples of regular expressions.`
+   * `Write a bash script to output today's date.`
 
 {% data reusables.copilot.stop-response-generation %}
 1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
@@ -101,54 +99,37 @@ Depending on the question you ask, and your enterprise and organization settings
 
 {% data reusables.copilot.chat-conversation-buttons %}
 
-## Asking exploratory questions about a repository
+## Asking {% data variables.product.prodname_copilot_chat_short %} questions in different contexts
 
-{% data variables.product.prodname_copilot_short %} allows you to use natural language questions to explore repositories on {% data variables.product.prodname_dotcom %}. This can help you get a better understanding of where specific aspects of a codebase are implemented.
+You can ask {% data variables.product.prodname_copilot_chat_short %} different types of questions depending on where you are on {% data variables.product.github %}. For example, to ask a question about a specific repository, you must be in the context of that repository. The following sections describe how to access the different contexts.
 
-1. On the {% data variables.product.prodname_dotcom %} website, go to the repository you want to chat about.
+   For examples of the types of questions you can ask in different contexts, see [AUTOTITLE](/copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat?tool=webui).
 
-1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
+## Asking {% data variables.product.prodname_copilot_chat_short %} questions in a repository
 
-   The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
+To ask a question about a specific repository, you must be viewing the repository on {% data variables.product.github %}.
 
+1. Navigate to a repository on {% data variables.product.github %}.
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 1. The heading at the top of the panel should read "Chatting about" followed by the name of the current repository.
 
-   If the wrong repository name is displayed, because you were previously chatting about another repository, click **All repositories** then choose the repository you want to chat about.
+   If the wrong repository name is displayed, because you were previously chatting about another repository, click All repositories then choose the repository you want to chat about.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
 
-1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, at the bottom of the chat panel, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-   For example, you could ask:
-
-   * When was the most recent release?
-   * Where is rate limiting implemented in our API?
-   * How does the WidgetFactory class work?
-   * Where is the code for updating a phone number?
-   * Where are SAT tokens generated?
-   * Show the most recently updated issues assigned to USERNAME
-   * List open issues about SUBJECT
-   * What was the last merged PR by USERNAME
-   * What are the latest commits to the main branch by USERNAME
-
-   {% data variables.product.prodname_copilot_short %} replies in the chat panel.
-
-   <a id="repo-indexing-note"></a>
-
-   > [!TIP]
+   > [!NOTE]
    >
-   > {% data reusables.copilot.semantic-index-info %}
+   > {% data variables.product.prodname_copilot_short %}'s ability to answer natural language questions in a repository context is improved when the repository has been indexed for semantic code search. The indexing status of the repository is displayed when you start a conversation that has a repository context. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat).
 
-{% data reusables.copilot.stop-response-generation %}
-{% data reusables.copilot.chat-conversation-buttons %}
-
-## Asking questions about references
+## Asking {% data variables.product.prodname_copilot_chat_short %} questions about a specific file or symbol
 
 You can ask {% data variables.product.prodname_copilot_short %} about a specific file, folder, or symbol within a repository.
 
 > [!NOTE] A "symbol" is a named entity in code. This could be a variable, function, class, module, or any other identifier that's part of a codebase.
 
-{% data reusables.copilot.go-to-copilot-page %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
 1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
 
@@ -166,18 +147,15 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
    >
    > {% data reusables.copilot.semantic-index-info %}
 
-{% data reusables.copilot.stop-response-generation %}
-{% data reusables.copilot.chat-conversation-buttons %}
-
 {% ifversion ghec %}
 
-## Asking a question about a knowledge base
+## Asking {% data variables.product.prodname_copilot_chat_short %} questions about a knowledge base
 
 Organization owners (with a {% data variables.product.prodname_copilot_enterprise_short %} subscription) can create knowledge bases, grouping together Markdown documentation across one or more repositories. You can use a knowledge base to ask questions with that context in mind.
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
-{% data reusables.copilot.go-to-copilot-page %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
 
@@ -198,13 +176,6 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
 1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-   For example, if you chose a knowledge base with your organization's internal developer documentation, you could ask:
-
-   * How do I deploy a new application?
-   * What's the process for creating a new REST API?
-   * What are our best practices for logging?
-
-{% data reusables.copilot.stop-response-generation %}
 1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
 
    ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
@@ -215,10 +186,9 @@ When you enter a query, {% data variables.product.prodname_copilot_short %} sear
 
 1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
-{% data reusables.copilot.chat-conversation-buttons %}
 {% endif %}
 
-## Asking questions about specific pieces of code
+## Asking {% data variables.product.prodname_copilot_chat_short %} questions about specific pieces of code
 
 You can chat with {% data variables.product.prodname_copilot_short %} about a file in your repository, or about specific lines of code within a file.
 
@@ -239,33 +209,15 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 1. If you clicked the {% data variables.product.prodname_copilot_short %} icon, type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
 
-   For example, if you are asking about the entire file, you could enter:
-
-   * Explain this file.
-   * How could I improve this code?
-   * How can I test this script?
-
-   If you are asking about specific lines, you could enter:
-   * Explain the function at the selected lines.
-   * How could I improve this class?
-   * Add error handling to this code.
-   * Write a unit test for this method.
-
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
    ![Screenshot of a response to the question "What does the function at the selected lines do?"](/assets/images/help/copilot/copilot-sample-chat-response.png)
-
-{% data reusables.copilot.stop-response-generation %}
-1. You can continue the conversation by asking a follow-up question. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
-1. To clear, delete, or rename the current conversation thread, or to start a new thread, type `/` in the "Ask {% data variables.product.prodname_copilot_short %}" box, select from the options that are displayed, then press <kbd>Enter</kbd>.
-
-1. To view a conversation in immersive mode, displaying just the conversation thread, click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**.
 
 ## Asking questions about {% data variables.product.prodname_GH_advanced_security %} alerts
 
 {% data variables.product.prodname_copilot_short %} allows you to use natural language questions to ask about security alerts in repositories in your organization when these alerts are generated by {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).
 
-{% data reusables.copilot.go-to-copilot-page %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
 
@@ -279,13 +231,6 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-   For example, you could ask:
-
-   * How would I fix this alert?
-   * How many alerts do I have on this pull request?
-   * Which line of code is this {% data variables.product.prodname_code_scanning %} alert referencing?
-   * What library is affected by this {% data variables.product.prodname_dependabot %} alert?
-
    {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
    <a id="repo-indexing-note"></a>
@@ -294,28 +239,19 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
    >
    > {% data reusables.copilot.semantic-index-info %}
 
-{% data reusables.copilot.stop-response-generation %}
-{% data reusables.copilot.chat-conversation-buttons %}
-
 ## Asking questions about a specific pull request
 
-You can ask {% data variables.product.prodname_copilot_short %} to summarize a pull request, or explain what has changed within specific files or lines of code in a pull request.
+You can ask {% data variables.product.prodname_copilot_short %} different questions about a pull request, from different views within the pull request. For example, you can ask {% data variables.product.prodname_copilot_short %} to summarize a pull request, or explain what has changed within specific files or lines of code in a pull request.
 
 ### Get a summary of a pull request
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 
-{% data reusables.copilot.open-copilot %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
+
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
 
 1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
-
-   For example, you could ask:
-
-   * Summarize this PR for me.
-   * Summarize the comments in this PR.
-   * Summarize the changes in this PR.
-
-{% data reusables.copilot.stop-response-generation %}
 
 ### Ask about changes to a specific file in a pull request
 
@@ -323,13 +259,6 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
 1. Click the **Files changed** tab.
 1. Click {% octicon "kebab-horizontal" aria-label="Show options" %} at the top right of the file, then click **Ask {% data variables.product.prodname_copilot_short %} about this diff**.
 1. Type a question in the "Ask {% data variables.product.prodname_copilot_short %}" box at the bottom of the chat panel and press <kbd>Enter</kbd>.
-
-   For example, you could ask:
-
-   * What's the purpose of this file?
-   * Why has this module been included?
-
-{% data reusables.copilot.stop-response-generation %}
 
 ### Ask about specific lines within a file in a pull request
 
@@ -340,33 +269,20 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize a p
    * _To ask your own question about the selected lines_, to the right of your selection, click the {% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %} icon.
    This displays the {% data variables.product.prodname_copilot_chat %} panel with the selected lines indicated as the context of your question.
 
-      For example, you could ask:
-
-      * What is &#96;actorData&#96; in this line?
-      * Explain this &#96;do..end&#96; block.
-
-   * _To ask a predefined question_, to the right of your selection, beside the {% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %} icon, click {% octicon "triangle-down" aria-label="Copilot menu" %}, then click **Explain**.
-
-{% data reusables.copilot.stop-response-generation %}
-
 ### Ask why a workflow has failed
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
 
-{% data reusables.copilot.open-copilot %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
+
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
 
 1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
-
-      For example, you could ask:
-
-      * Tell me why this job failed
-      * Suggest a fix for this error
 
 {% data variables.product.prodname_copilot_short %} will respond with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
 
 1. If {% data variables.product.prodname_copilot_short %} has provided steps to fix the issue, you can follow the steps to resolve the problem.
-{% data reusables.copilot.stop-response-generation %}
 
 ## Asking a question about a specific issue or discussion
 
@@ -376,21 +292,15 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 
 1. Navigate to an issue or discussion on {% data variables.product.github %}.
 
-{% data reusables.copilot.open-copilot %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
-1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
 
-   * Explain this issue
-   * Summarize this discussion
-   * Recommend next steps for this issue
-   * What are the acceptance criteria for this issue?
-   * What are the main points made by PERSON in this discussion?
-
-   > [!TIP] Instead of navigating to an issue or discussion in your browser to ask a question, you can include the relevant URL in your message. For example, `Summarize https://github.com/monalisa/octokit/issues/1`.
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
 
-{% data reusables.copilot.stop-response-generation %}
+   > [!TIP] Instead of navigating to an issue or discussion in your browser to ask a question, you can include the relevant URL in your message. For example, `Summarize https://github.com/monalisa/octokit/issues/1`.
 
 ## Asking a question about a specific commit
 
@@ -398,13 +308,11 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 1. Navigate to a commit on {% data variables.product.github %}.
 
-{% data reusables.copilot.open-copilot %}
+1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 
-1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>. For example, you could enter:
+1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
 
-   * Summarize the changes in this commit
-   * Who committed these changes?
-   * When was this commit made?
+1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    > [!TIP]
    > If you know the SHA for a commit, instead of navigating to the commit, you can ask {% data variables.product.prodname_copilot_short %} about the commit from any page in the repository on {% data variables.product.github %} by including the SHA in your message. For example, `What changed in commit a778e0eab?`

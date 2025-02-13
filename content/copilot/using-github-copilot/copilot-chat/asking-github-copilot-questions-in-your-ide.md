@@ -8,6 +8,7 @@ redirect_from:
   - /copilot/github-copilot-chat/using-github-copilot-chat-in-your-ide
   - /copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide
   - /copilot/github-copilot-chat/copilot-chat-in-ides
+  - /copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide
 defaultTool: vscode
 versions:
   feature: copilot

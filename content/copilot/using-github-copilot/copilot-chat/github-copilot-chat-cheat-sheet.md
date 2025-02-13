@@ -6,6 +6,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/using-github-copilot/github-copilot-chat-cheat-sheet
 ---
 
 {% webui %}

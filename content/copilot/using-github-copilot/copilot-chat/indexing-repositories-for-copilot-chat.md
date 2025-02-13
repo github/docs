@@ -11,6 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/indexing-repositories-for-copilot-chat
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/indexing-repositories-for-copilot-chat
   - /copilot/customizing-copilot/indexing-repositories-for-copilot-chat
+  - /copilot/using-github-copilot/indexing-repositories-for-copilot-chat
 ---
 
 ## Benefit of indexing repositories

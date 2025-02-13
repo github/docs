@@ -8,6 +8,7 @@ versions:
   feature: copilot
 redirect_from:
   - /copilot/using-github-copilot/example-use-cases/example-prompts-for-copilot-chat
+  - /copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat
 shortTitle: Getting started with chat
 ---
 
@@ -236,3 +237,106 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 * `Add tests for a JavaScript function that should sum a list of integers`
 
 {% endjetbrains %}
+
+{% webui %}
+
+Some of the example prompts require you to be in a specific context on the {% data variables.product.github %} website. For more information on how to access those contexts, see [Asking {% data variables.product.prodname_copilot_chat_short %} questions in different contexts](/copilot/using-github-copilot/asking-github-copilot-questions-in-github#asking-copilot-chat-questions-in-different-contexts).
+
+## Ask general software questions
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
+
+* `tell me about nodejs web server frameworks`
+* `how to create an express app`
+* `what is the best way to update an npm package`
+
+## Ask questions about a repository
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a repository. For example:
+
+* `what is the purpose of this repository?`
+* `When was the most recent release?`
+* `Where is rate limiting implemented in our API?`
+* `What was the last merged PR by USERNAME`
+
+## Ask questions about a specific file or symbol
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific file or symbol. For example:
+
+* `what sorting algorithm does this function use`
+* `how are these files related`
+* `what is the purpose of this function`
+
+## Ask questions about a knowledge base
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a knowledge base. For example:
+
+* `How do I deploy a new application?`
+* `What's the process for creating a new REST API?`
+* `What are our best practices for logging?`
+
+## Ask questions about a specific piece of code
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific piece of code. You might ask a question about a whole file, or a specific line. For example:
+
+If you are asking about a whole file, you could enter:
+
+* `Explain this file.`
+* `How could I improve this code?`
+* `How can I test this script?`
+
+If you are asking about specific lines, you could enter:
+* `Explain the function at the selected lines.`
+* `How could I improve this class?`
+* `Add error handling to this code.`
+* `Write a unit test for this method.`
+
+## Ask questions about {% data variables.product.prodname_GH_advanced_security %} alerts
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+
+* `How would I fix this alert?`
+* `How many alerts do I have on this pull request?`
+* `Which line of code is this {% data variables.product.prodname_code_scanning %} alert referencing?`
+* `What library is affected by this {% data variables.product.prodname_dependabot %} alert?`
+
+## Ask {% data variables.product.prodname_copilot_chat_short %} questions in a pull request
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions in a pull request. Your question could relate to various elements of the pull request For example:
+
+You might ask for a summary of the changes in the pull request:
+
+* `Summarize this PR for me.`
+* `Summarize the comments in this PR.`
+* `Summarize the changes in this PR.`
+
+You might ask about the changes in a specific file in the pull request:
+
+* `What's the purpose of this file?`
+* `Why has this module been included?`
+
+You might ask about the changes in a specific line in the pull request:
+
+* `What is "actorData" in this line?`
+* `Explain this "do..end" block.`
+
+You might ask why a workflow failed:
+
+* `Tell me why this job failed`
+* `Suggest a fix for this error`
+
+## Ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific issue or discussion
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific issue or discussion. For example:
+
+* `what is the purpose of this issue?`
+
+## Ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific commit
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about a specific commit. For example:
+
+* `what is the purpose of this commit?`
+* `what is the expected output of this commit?`
+* `what is the best way to test this commit?`
+
+{% endwebui %}
