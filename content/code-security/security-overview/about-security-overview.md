@@ -120,7 +120,7 @@ For more information about access to security alerts and related views, see [AUT
 > [!NOTE]
 > If you are an **enterprise owner**, you will need to join an organization as an organization owner to view data for the organization's repositories in both the organization-level and enterprise-level overview.{% ifversion secret-scanning-user-owned-repos %} {% data reusables.secret-scanning.secret-scanning-user-owned-repo-access %}{% endif %} For more information, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/managing-your-role-in-an-organization-owned-by-your-enterprise).
 
-In the enterprise-level security overview, you can see data for all organizations where you are an **organization owner or security manager**. {% ifversion pre-security-configurations %}However, you cannot use the enterprise-level security overview to enable and disable security features. {% endif %}For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
+In the enterprise-level security overview, you can see data for all organizations where you are an **organization owner or security manager**.
 
 {% ifversion ghec %}
 If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}, you can view data from user-owned repositories in security overview and filter by repository owner type. For more information on {% data variables.enterprise.prodname_managed_users %}, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users).
