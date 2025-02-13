@@ -20,6 +20,20 @@ The enhanced billing platform provides better spending control and detailed usag
 
 The products shown in the enhanced billing platform are determined by your {% data variables.product.github %} plan and subscriptions.
 
+{% ifversion fpt %}
+
+### Personal accounts on {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}
+
+* {% data variables.product.prodname_actions %}
+* {% data variables.product.prodname_github_codespaces %}
+* {% data variables.product.prodname_copilot %}
+* {% data variables.product.prodname_registry %}
+* {% data variables.large_files.product_name_long %}
+* {% data variables.product.prodname_marketplace %}
+* {% data variables.product.prodname_sponsors %}
+
+{% endif %}
+
 ### Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}
 
 * {% data variables.product.prodname_actions %}
@@ -68,8 +82,10 @@ With the new billing platform, you can:
 
 {% ifversion fpt %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
+
+   * For **personal accounts**, click **Settings**.
+   * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.
 
 {% elsif ghec %}
 
