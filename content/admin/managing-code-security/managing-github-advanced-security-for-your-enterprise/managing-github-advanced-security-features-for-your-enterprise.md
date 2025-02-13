@@ -3,8 +3,7 @@ title: Managing GitHub Advanced Security features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
 versions:
-  ghec: '*'
-  ghes: '*'
+  ghes: '<= 3.15'
 type: how_to
 topics:
   - Alerts
@@ -32,25 +31,15 @@ To manage individual {% data variables.product.prodname_GH_advanced_security %} 
 
 {% endif %}
 
-{% ifversion ghec %}
-
-{% data variables.product.prodname_security_configurations_caps %} simplify the rollout of {% data variables.product.company_short %} security products at scale by helping you define collections of security settings and apply them across your enterprise. For more information, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/about-security-configurations).
-
-{% data reusables.security-configurations.overview %}
-
-{% endif %}
-
 {% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}
 
-{% ifversion ghes %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).{% elsif ghec %}For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security).{% endif %}
+For information about buying a license for {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 If you have disallowed {% data variables.product.prodname_GH_advanced_security %} for an organization, that organization will not be affected by enabling a feature for all existing repositories or for all new repositories. For more information about disallowing {% data variables.product.prodname_GH_advanced_security %} for an organization, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 When you enable one or more security and analysis features for existing repositories, you will see any results displayed on {% data variables.product.prodname_dotcom %} within minutes.
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
-
-{% ifversion ghes %}
 
 ## Managing {% data variables.product.prodname_advanced_security %} features
 
@@ -71,5 +60,3 @@ When you enable one or more security and analysis features for existing reposito
    > When a custom link is configured for an organization, the organization-level value overrides the custom link set for the enterprise. See [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).
 
    ![Screenshot of "Push protection" settings. The checkbox and text field used for enabling a custom link are outlined.](/assets/images/help/organizations/secret-scanning-custom-link.png)
-
-{% endif %}
