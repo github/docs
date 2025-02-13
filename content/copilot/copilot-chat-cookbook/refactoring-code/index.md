@@ -17,4 +17,5 @@ children:
   - /handling-cross-cutting-concerns
   - /simplifying-complex-inheritance-hierarchies
   - /fixing-database-deadlocks-or-data-integrity-issues
+  - /translating-code-to-a-different-programming-language
 ---
