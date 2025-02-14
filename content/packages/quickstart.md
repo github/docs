@@ -74,7 +74,7 @@ If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot p
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 16
+              node-version: 20
           - run: npm ci
           - run: npm test
 
@@ -88,7 +88,7 @@ If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot p
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 16
+              node-version: 20
               registry-url: {% ifversion ghes %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
