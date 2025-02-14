@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { CookBookArticleCard } from './CookBookArticleCard'
 import { CookBookFilter } from './CookBookFilter'
-
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { ArticleTitle } from 'src/frame/components/article/ArticleTitle'
 import { Lead } from 'src/frame/components/ui/Lead'
@@ -14,6 +14,7 @@ import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { ArticleCardItems } from 'src/landings/types'
 
 export const CategoryLanding = () => {
+  const { t } = useTranslation('cookbook_landing')
   const router = useRouter()
   const { title, intro, tocItems } = useCategoryLandingContext()
 
@@ -84,7 +85,7 @@ export const CategoryLanding = () => {
         <ArticleTitle>{title}</ArticleTitle>
         {intro && <Lead data-search="lead">{intro}</Lead>}
 
-        <h2 className="py-5">Spotlight</h2>
+        <h2 className="py-5">{t('spotlight')}</h2>
         <div className="d-md-flex d-sm-block col-md-12">
           <div className="col-md-4">
             <CookBookArticleCard
@@ -121,7 +122,9 @@ export const CategoryLanding = () => {
         <div className="pt-8">
           <div className="py-5 border-bottom">
             <div className="pb-3 mr-5 ml-1 float-xl-left">
-              <h2>Explore {searchResults.length} prompt articles</h2>
+              <h2>
+                {t('explore_articles').replace('{{ number }}', searchResults.length.toString())}
+              </h2>
             </div>
             <div>
               <CookBookFilter

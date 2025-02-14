@@ -311,3 +311,10 @@ domain_edit:
   snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
   learn_more: Learn more
   submission_failed: Submission failed. Please try again in a minute.
+cookbook_landing:
+  spotlight: Spotlight
+  explore_articles: Explore {{ number }} prompt articles
+  reset_filters: Reset filters
+  search_articles: Search articles
+  category: Category
+  complexity: Complexity
