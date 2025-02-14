@@ -8014,6 +8014,11 @@ input CreateProjectV2FieldInput {
   dataType: ProjectV2CustomFieldType!
 
   """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
+
+  """
   The name of the field.
   """
   name: String!
@@ -34686,6 +34691,11 @@ enum ProjectV2CustomFieldType {
   DATE
 
   """
+  Iteration
+  """
+  ITERATION
+
+  """
   Number
   """
   NUMBER
@@ -35801,6 +35811,26 @@ enum ProjectV2ItemType {
 }
 
 """
+Represents an iteration
+"""
+input ProjectV2Iteration {
+  """
+  The duration of the iteration, in days.
+  """
+  duration: Int!
+
+  """
+  The start date for the iteration.
+  """
+  startDate: Date!
+
+  """
+  The title for the iteration.
+  """
+  title: String!
+}
+
+"""
 An iteration field inside a project.
 """
 type ProjectV2IterationField implements Node & ProjectV2FieldCommon {
@@ -35868,6 +35898,26 @@ type ProjectV2IterationFieldConfiguration {
   The iteration's start day of the week
   """
   startDay: Int!
+}
+
+"""
+Represents an iteration field configuration.
+"""
+input ProjectV2IterationFieldConfigurationInput {
+  """
+  The duration of each iteration, in days.
+  """
+  duration: Int!
+
+  """
+  Zero or more iterations for the field.
+  """
+  iterations: [ProjectV2Iteration!]!
+
+  """
+  The start date for the first iteration.
+  """
+  startDate: Date!
 }
 
 """
@@ -60992,6 +61042,11 @@ input UpdateProjectV2FieldInput {
       concreteTypes: ["ProjectV2Field", "ProjectV2IterationField", "ProjectV2SingleSelectField"]
       abstractType: "ProjectV2FieldConfiguration"
     )
+
+  """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
 
   """
   The name to update.
