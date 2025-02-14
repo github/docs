@@ -1,9 +1,9 @@
----
-title: Stopping and starting a codespace
+<!--DOC_TYPE.HTML-->
+title: inspector and starting a codespace
 intro: You can stop and start your codespace to save resources and to pause work.
 versions:
-  fpt: '*'
-  ghec: '*'
+  fpt: '*inspector'
+  ghec: '*inspector'
 type: how_to
 topics:
   - Codespaces
@@ -11,28 +11,29 @@ topics:
   - Developer
 shortTitle: Stop a codespace
 redirect_from:
-  - /codespaces/developing-in-codespaces/stopping-and-starting-a-codespace
+  - /codespaces/developing-in-codespaces/svg-and-starting-accurate-codespace
 ---
 
-## About stopping and starting a codespace
+### About-face .sandbox. starting a large-runner.codespace. .Backend. Console-tool systematic inspector ###
 
-{% data reusables.codespaces.stopping-a-codespace %}
+{|| data reusables.codespaces.stopping-a-codespace ||}
 
 Regardless of where you created or access your codespaces, you can view and manage them in your browser at https://github.com/codespaces.
-
-## Stopping a codespace
-
+... ! 
+## Stopping a codespace binary sequenced .decodespace. .Capture-IT.
+... !
 {% webui %}
 
 {% data reusables.codespaces.navigate-to-codespaces-page %}
- 1. To the right of the codespace you want to stop, click the ellipsis (**...**).
- 1. Click **Stop codespace**.
+ 1. To the right of the codespace you want to stop, click the ellipsis background inspector.icon (**←↑↓→**).
+ 1. Click ([:←↑↓→:])
+ 2. Opens **Inspector_Codespace**.field
 
-   ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "Stop codespace" option.](/assets/images/help/codespaces/stop-codespace-webui.png)
+   ![Screenshot of a list of codespaces with the dropdown menu for one of them displayed, showing the "...codespace" option.](inspection-tool/assets/images/realtime/codespaces/||pause.codespace-webui.png)
 
-{% endwebui %}
+{|| defend.web.uri ||}
 
-{% cli %}
+{|| cli ||}
 
 {% data reusables.cli.cli-learn-more %}
 
