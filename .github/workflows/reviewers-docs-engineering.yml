@@ -24,6 +24,7 @@ on:
       - '!src/**.yml' # So that Docs Engineering isn't reviewing automated pipeline data PRs
       - '.github/**'
       - 'config/**'
+      - '.devcontainer/**'
       - '**Dockerfile'
       - 'package*.json'
       - .github/workflows/reviewers-docs-engineering.yml

@@ -51,10 +51,10 @@ jobs:
             COMMENT_BODY="<!-- CODE_CHANGES_COMMENT -->
             ### 👓 How to review these changes
 
-            Thank you for your contribution. To review these changes, you can:
+            Thank you for your contribution. To review these changes, choose one of the following options:
 
-            1. [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
-            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
+            * [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
+            * [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
 
             This pull request contains code changes, so we will not generate a table of review links. A Hubber will need to deploy your changes internally to review.
 
@@ -63,11 +63,11 @@ jobs:
             COMMENT_BODY="<!-- CODE_CHANGES_COMMENT -->
             ### 👓 How to review these changes
 
-            Thank you for your contribution. To review these changes, you can:
+            Thank you for your contribution. To review these changes, choose one of the following options:
 
-            1. [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
-            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
-            1. Message \`#docs-engineering\` on Slack for a staging server.
+            * [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
+            * [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
+            * Message \`#docs-engineering\` on Slack for a staging server.
 
             This pull request contains code changes, so we will not generate a table of review links.
 
