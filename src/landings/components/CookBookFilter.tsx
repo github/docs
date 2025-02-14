@@ -2,6 +2,7 @@ import { TextInput, ActionMenu, ActionList, Button, Box } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRef, useEffect, useState } from 'react'
 import { ArticleCardItems } from '#src/landings/types.ts'
+import { useTranslation } from 'src/languages/components/useTranslation'
 
 type Props = {
   tokens: ArticleCardItems
@@ -23,6 +24,7 @@ export const CookBookFilter = ({
     'All',
     ...new Set(tokens.flatMap((item) => item.complexity || [])),
   ]
+  const { t } = useTranslation('cookbook_landing')
 
   const [selectedCategory, setSelectedCategory] = useState(0)
   const [selectedComplexity, setSelectedComplexity] = useState(0)
@@ -61,7 +63,7 @@ export const CookBookFilter = ({
             leadingVisual={SearchIcon}
             className="m-1"
             sx={{ minWidth: ['stretch', 'stretch', 'stretch', 'stretch'] }}
-            placeholder="Search articles"
+            placeholder={t('search_articles')}
             ref={inputRef}
             autoComplete="false"
             onChange={(e) => {
@@ -80,7 +82,7 @@ export const CookBookFilter = ({
                 display: 'inline-block',
               }}
             >
-              Category:
+              {t('category')}:
             </Box>{' '}
             {categories[selectedCategory]}
           </ActionMenu.Button>
@@ -107,7 +109,7 @@ export const CookBookFilter = ({
                 display: 'inline-block',
               }}
             >
-              Complexity:
+              {t('complexity')}:
             </Box>{' '}
             {complexities[selectedComplexity]}
           </ActionMenu.Button>
@@ -127,7 +129,7 @@ export const CookBookFilter = ({
         </ActionMenu>
 
         <Button variant="invisible" className="col-md-1 col-sm-2 mt-1" onClick={onResetFilter}>
-          Reset filters
+          {t('reset_filters')}
         </Button>
       </div>
     </div>
