@@ -165,7 +165,7 @@ For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-act
 
 An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+To see the inputs and outputs of an action, check the `action.yml` in the root directory of the repository.
 
 In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
 
