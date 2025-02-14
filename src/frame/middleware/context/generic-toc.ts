@@ -143,12 +143,9 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         }
       }
 
-      let childTocItems = null
-      if (opts.recurse) {
-        childTocItems = []
-        if (child.childPages) {
-          childTocItems.push(...(await getTocItems(child, context, opts)))
-        }
+      let childTocItems = []
+      if (child.childPages) {
+        childTocItems.push(...(await getTocItems(child, context, opts)))
       }
 
       const fullPath = child.href
