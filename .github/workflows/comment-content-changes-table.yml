@@ -91,11 +91,11 @@ jobs:
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
             ### 👓 How to review these changes
 
-            Thank you for your contribution. To review these changes, you can:
+            Thank you for your contribution. To review these changes, choose one of the following options:
 
-            1. [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
-            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
-            1. Message \`#docs-engineering\` on Slack for a staging server.
+            * [Spin up a codespace](https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md).
+            * [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment).
+            * Message \`#docs-engineering\` on Slack for a staging server.
 
             <details><summary>Table of review links</summary>
 
@@ -124,10 +124,10 @@ jobs:
             <!-- MODIFIED_CONTENT_LINKING_COMMENT -->
             ### 👓 How to review these changes
 
-            Thank you for your contribution. To review these changes, you can:
+            Thank you for your contribution. To review these changes, choose one of the following options:
 
-            1. [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
-            1. [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
+            * [Spin up a codespace](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace)
+            * [Set up a local development environment](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment)
 
             A Hubber will need to deploy your changes internally to review.
 
