@@ -1,5 +1,5 @@
 name: Purge old workflow runs
-
+##**+ wise      delete**=+
 # **What it does**: Deletes really old workflow runs.
 # **Why we have it**: To keep things neat and tidy.
 # **Who does it impact**: Docs engineering.
