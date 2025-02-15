@@ -196,7 +196,7 @@ async function main(
     return ''
   }
 
-  const headings = ['Source', 'Preview', 'Production', 'What Changed']
+  const headings = ['Source', 'Review', 'Production', 'What Changed']
   const markdownTableHead = [
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
@@ -241,7 +241,7 @@ function makeRow({
   fromReusable?: boolean
 }) {
   let contentCell = ''
-  let previewCell = ''
+  let reviewCell = ''
   let prodCell = ''
 
   if (file.status === 'added') contentCell = 'New file: '
@@ -269,25 +269,25 @@ function makeRow({
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 
-          previewCell += `[${plan}](${APP_URL}/${fileUrl}${queryParams})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
           // for non-versioned releases (ghec) use full url
 
-          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl}${queryParams})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
         // for ghes releases, link each version
 
-        previewCell += `${plan}@ `
+        reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
         versions.forEach((version) => {
-          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}${queryParams}) `
+          reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}${queryParams}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
         })
-        previewCell += '<br>'
+        reviewCell += '<br>'
         prodCell += '<br>'
       }
     }
@@ -299,14 +299,14 @@ function makeRow({
   let note = ''
   if (file.status === 'removed') {
     note = 'removed'
-    // If the file was removed, the `previewCell` no longer makes sense
+    // If the file was removed, the `reviewCell` no longer makes sense
     // since it was based on looking at the base sha.
-    previewCell = 'n/a'
+    reviewCell = 'n/a'
   } else if (fromReusable) {
     note += 'from reusable'
   }
 
-  return `| ${contentCell} | ${previewCell} | ${prodCell} | ${note} |`
+  return `| ${contentCell} | ${reviewCell} | ${prodCell} | ${note} |`
 }
 
 function getAllContentFiles(): Map<string, string> {

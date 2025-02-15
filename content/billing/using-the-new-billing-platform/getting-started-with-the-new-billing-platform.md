@@ -16,7 +16,7 @@ shortTitle: Get started
 If you don't already have access to the enhanced billing platform, you may be able to get started.
 
 {% ifversion fpt %}
-* If you are **new** to {% data variables.product.github %}, create an organization on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan.
+* If you are **new** to {% data variables.product.github %}, create a personal account on a {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} plan or an organization on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan.
 {% endif %}
 * If you are **new** to {% data variables.product.prodname_ghe_cloud %}, set up a trial of {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 {% ifversion ghec %}

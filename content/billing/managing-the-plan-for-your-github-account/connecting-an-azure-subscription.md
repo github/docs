@@ -117,9 +117,8 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an enterprise owner on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Payment Information", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
@@ -155,9 +154,8 @@ After you disconnect your Azure subscription from your organization account, you
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.

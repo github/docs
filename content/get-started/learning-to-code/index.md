@@ -4,6 +4,7 @@ intro: "Learn how {% data variables.product.github %} can help while you're lear
 versions:
   fpt: '*'
 children:
+  - /finding-and-understanding-example-code
   - /reusing-other-peoples-code-in-your-projects
   - /learning-to-debug-with-github-copilot
 shortTitle: Learn to code

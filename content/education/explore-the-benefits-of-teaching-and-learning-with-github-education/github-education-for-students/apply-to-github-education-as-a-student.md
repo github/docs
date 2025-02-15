@@ -34,11 +34,9 @@ For information about renewing your {% data variables.product.prodname_global_ca
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-1. Under "Individuals", click **Get student benefits**.
-1. Under "Select the academic status", select **Student**.
-{% data reusables.education.select-email-address %}
+1. Under "Select your role in education", select **Student**.
 {% data reusables.education.school-name %}
-{% data reusables.education.plan-to-use-github %}
+{% data reusables.education.select-email-address %}
 {% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 

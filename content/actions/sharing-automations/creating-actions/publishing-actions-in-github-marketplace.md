@@ -26,7 +26,7 @@ Actions are published to {% data variables.product.prodname_marketplace %} immed
 * The action must be in a public repository.
 * Each repository must contain a single action.
 * Each repository must _not_ contain any workflow files.
-* The action's metadata file (`action.yml` or `action.yaml`) must be in the root directory of the repository.
+* The action's metadata file (`action.yml`) must be in the root directory of the repository.
 * The `name` in the action's metadata file must be unique.
   * The `name` cannot match an existing action name published on {% data variables.product.prodname_marketplace %}.
   * The `name` cannot match a user or organization on {% data variables.product.prodname_dotcom %}, unless the user or organization owner is publishing the action. For example, only the {% data variables.product.prodname_dotcom %} organization can publish an action named `github`.
@@ -40,7 +40,8 @@ You can add the action you've created to {% data variables.product.prodname_mark
 To draft a new release and publish the action to {% data variables.product.prodname_marketplace %}, follow these instructions:
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Navigate to the action metadata file in your repository (`action.yml` or `action.yaml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
+
+1. Navigate to the action metadata file in your repository (`action.yml`), and you'll see a banner to publish the action to {% data variables.product.prodname_marketplace %}. Click **Draft a release**.
 1. Under "Release Action", select **Publish this Action to the {% data variables.product.prodname_marketplace %}**.
 
    > [!NOTE]

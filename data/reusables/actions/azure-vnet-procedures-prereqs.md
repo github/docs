@@ -46,7 +46,7 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 210
@@ -125,7 +125,7 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 220
@@ -207,7 +207,7 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             destinationAddressPrefix: 'Storage'
             access: 'Allow'

@@ -19,7 +19,7 @@ type: reference
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The preferred format is `action.yml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 Action metadata files use YAML syntax. If you're new to YAML, you can read [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
 
@@ -771,3 +771,12 @@ Brand icons, and all the following icons, are omitted.
 <li>zoom-in</li>
 <li>zoom-out</li>
 </ul>
+
+{% ifversion fpt or ghec %}
+
+## Changing the metadata file name
+
+While the actions metadata file supports both YAML formats, changing the metadata file name (from `action.yml` to `action.yaml` or vice versa) between releases will affect previous release versions that have been published to {% data variables.product.prodname_marketplace %}. Changing the file name will hide all release versions associated with the previous file name from {% data variables.product.prodname_marketplace %}. Previous release versions will still be accessible to users through the source repository.
+
+When releasing new versions of actions, only versions released after the metadata file name change will have the {% data variables.product.prodname_marketplace %} tag and will show up on {% data variables.product.prodname_marketplace %}
+{% endif %}

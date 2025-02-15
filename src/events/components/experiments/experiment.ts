@@ -7,6 +7,7 @@ import {
   getActiveExperiments,
 } from './experiments'
 import { getUserEventsId } from '../events'
+import type { ParsedUrlQuery } from 'querystring'
 
 let experimentsInitialized = false
 
@@ -15,6 +16,7 @@ export function shouldShowExperiment(
   locale: string,
   version: string,
   isStaff: boolean,
+  routerQuery: ParsedUrlQuery,
 ) {
   // Accept either EXPERIMENTS.<experiment_key> or EXPERIMENTS.<experiment_key>.key
   if (typeof experimentKey === 'object') {
@@ -25,14 +27,6 @@ export function shouldShowExperiment(
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
-      // If the user has staffonly cookie, and staff override is true, show the experiment
-      if (experiment.alwaysShowForStaff) {
-        if (isStaff) {
-          console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
-          return true
-        }
-      }
-
       // If there is an override for the current session, use that
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(
@@ -40,13 +34,29 @@ export function shouldShowExperiment(
           experiment.percentOfUsersToGetExperiment,
         )
         return controlGroup === TREATMENT_VARIATION
-        // Otherwise use the regular logic to determine if the user is in the treatment group
+        // Otherwise determine if the user is in the treatment group
       } else if (
         (experiment.limitToLanguages?.length
           ? experiment.limitToLanguages.includes(locale)
           : true) &&
         (experiment.limitToVersions?.length ? experiment.limitToVersions.includes(version) : true)
       ) {
+        // If the user has staffonly cookie, and staff override is true, show the experiment
+        if (experiment.alwaysShowForStaff) {
+          if (isStaff) {
+            console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
+            return true
+          }
+        }
+        if (experiment.turnOnWithURLParam) {
+          if (
+            typeof routerQuery?.feature === 'string'
+              ? routerQuery.feature.toLowerCase() === experiment.turnOnWithURLParam.toLowerCase()
+              : false
+          ) {
+            return true
+          }
+        }
         return (
           getExperimentControlGroupFromSession(
             experimentKey,
@@ -114,7 +124,7 @@ export function getExperimentVariationForContext(locale: string, version: string
   }
 
   // When no experiment has `includeVariationInContext: true`
-  return ''
+  return CONTROL_VARIATION
 }
 
 export function initializeExperiments(

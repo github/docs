@@ -29335,7 +29335,7 @@
             },
             {
               "name": "query",
-              "description": "<p>A project to search for under the the owner.</p>",
+              "description": "<p>A project to search for under the owner.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -41688,7 +41688,7 @@
             },
             {
               "name": "query",
-              "description": "<p>A project to search for under the the owner.</p>",
+              "description": "<p>A project to search for under the owner.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -51873,7 +51873,7 @@
             },
             {
               "name": "query",
-              "description": "<p>A project to search for under the the owner.</p>",
+              "description": "<p>A project to search for under the owner.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -77134,7 +77134,7 @@
             },
             {
               "name": "query",
-              "description": "<p>A project to search for under the the owner.</p>",
+              "description": "<p>A project to search for under the owner.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -82388,7 +82388,7 @@
             },
             {
               "name": "query",
-              "description": "<p>A project to search for under the the owner.</p>",
+              "description": "<p>A project to search for under the owner.</p>",
               "type": {
                 "name": "String",
                 "id": "string",
@@ -87318,6 +87318,10 @@
         {
           "name": "DATE",
           "description": "<p>Date.</p>"
+        },
+        {
+          "name": "ITERATION",
+          "description": "<p>Iteration.</p>"
         },
         {
           "name": "NUMBER",
@@ -96842,6 +96846,14 @@
           "href": "/graphql/reference/enums#projectv2customfieldtype"
         },
         {
+          "name": "iterationConfiguration",
+          "description": "<p>Configuration for an iteration field.</p>",
+          "type": "ProjectV2IterationFieldConfigurationInput",
+          "id": "projectv2iterationfieldconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2iterationfieldconfigurationinput"
+        },
+        {
           "name": "name",
           "description": "<p>The name of the field.</p>",
           "type": "String!",
@@ -100797,6 +100809,72 @@
           "id": "projectv2itemorderfield",
           "kind": "enums",
           "href": "/graphql/reference/enums#projectv2itemorderfield"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2Iteration",
+      "kind": "inputObjects",
+      "id": "projectv2iteration",
+      "href": "/graphql/reference/input-objects#projectv2iteration",
+      "description": "<p>Represents an iteration.</p>",
+      "inputFields": [
+        {
+          "name": "duration",
+          "description": "<p>The duration of the iteration, in days.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date for the iteration.</p>",
+          "type": "Date!",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
+        },
+        {
+          "name": "title",
+          "description": "<p>The title for the iteration.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "ProjectV2IterationFieldConfigurationInput",
+      "kind": "inputObjects",
+      "id": "projectv2iterationfieldconfigurationinput",
+      "href": "/graphql/reference/input-objects#projectv2iterationfieldconfigurationinput",
+      "description": "<p>Represents an iteration field configuration.</p>",
+      "inputFields": [
+        {
+          "name": "duration",
+          "description": "<p>The duration of each iteration, in days.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "iterations",
+          "description": "<p>Zero or more iterations for the field.</p>",
+          "type": "[ProjectV2Iteration!]!",
+          "id": "projectv2iteration",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2iteration"
+        },
+        {
+          "name": "startDate",
+          "description": "<p>The start date for the first iteration.</p>",
+          "type": "Date!",
+          "id": "date",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#date"
         }
       ]
     },
@@ -105994,6 +106072,14 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        },
+        {
+          "name": "iterationConfiguration",
+          "description": "<p>Configuration for an iteration field.</p>",
+          "type": "ProjectV2IterationFieldConfigurationInput",
+          "id": "projectv2iterationfieldconfigurationinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#projectv2iterationfieldconfigurationinput"
         },
         {
           "name": "name",

@@ -11,6 +11,7 @@ environments:
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
     secret_environment: production
+    required_review_tasks: []
     cluster_selector:
       profile: general
       region: iad
@@ -19,6 +20,7 @@ environments:
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
     secret_environment: production
+    required_review_tasks: []
     cluster_selector:
       profile: general
       region: iad
@@ -27,6 +29,7 @@ environments:
     require_pipeline: false
     notify_still_locked: true # Notify last person to lock this after an hour
     secret_environment: production
+    required_review_tasks: []
     cluster_selector:
       profile: general
       region: iad

@@ -13,7 +13,7 @@ children:
   - /getting-started-with-the-new-billing-platform
   - /about-the-billing-cycle
   - /about-usage-based-billing-for-licenses
-  - /adding-licenses-to-your-account
+  - /managing-licenses-and-plans-for-your-account
   - /roles-for-the-new-billing-platform
   - /estimating-spending
   - /gathering-insights-on-your-spending

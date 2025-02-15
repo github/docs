@@ -3,7 +3,7 @@ import { AutocompleteSearchResponse } from '@/search/types'
 import { DEFAULT_VERSION } from '@/versions/components/useVersion'
 import { NextRouter } from 'next/router'
 import { sendEvent } from 'src/events/components/events'
-import { ASK_AI_EVENT_GROUP, SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
+import { SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 
 // Search context values for identifying each search event
 export const GENERAL_SEARCH_CONTEXT = 'general-search'
@@ -45,17 +45,7 @@ export async function executeAISearch(
   version: string,
   query: string,
   debug = false,
-  eventGroupId?: string,
 ) {
-  sendEvent({
-    type: EventType.search,
-    // TODO: Remove PII so we can include the actual query
-    search_query: 'REDACTED',
-    search_context: AI_SEARCH_CONTEXT,
-    eventGroupKey: ASK_AI_EVENT_GROUP,
-    eventGroupId,
-  })
-
   let language = router.locale || 'en'
 
   const body = {
@@ -101,8 +91,8 @@ export async function executeAIAutocompleteSearch(
     params.set('debug', '1')
   }
 
-  // Always fetch 5 results for autocomplete
-  params.set('size', '5')
+  // Always fetch 4 results for autocomplete
+  params.set('size', '4')
 
   const response = await fetch(`/api/search/ai-search-autocomplete/v1?${params}`, {
     headers: {
