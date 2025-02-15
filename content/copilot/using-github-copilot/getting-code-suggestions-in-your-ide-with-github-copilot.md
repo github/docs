@@ -451,11 +451,9 @@ If you want to accept the next line of the suggestion, you will need to set a cu
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-public-preview-note %}
+## About {% data variables.product.prodname_copilot %} in Xcode
 
-## About {% data variables.product.prodname_copilot %} for Xcode
-
-This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} for Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
 ## Prerequisites
 

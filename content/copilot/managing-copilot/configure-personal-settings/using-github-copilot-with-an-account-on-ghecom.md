@@ -59,8 +59,6 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-public-preview-note %}
-
 ## Authenticating from Xcode
 
 1. Open the "{% data variables.product.prodname_copilot %} for Xcode" application.
