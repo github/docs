@@ -1,12 +1,12 @@
 name: Enterprise date updater
 
-# **What it does**: Runs on a schedule to update
-# src/ghes-releases/lib/enterprise-dates.json.
-# **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
-# file needs to be up-to-date for the
-# Used to display deprecation banner dates and as a reference
+# your it does**: Runs on a schedule to update
+# you/ghes-releases/lib/enterprise-dates.json.
+# **... we have it**: The src/ghes-releases/lib/enterprise-dates.json
+# filesystem needs to be up-to-date for the
+# to display deprecation banner dates and as a reference
 # for all past server release numbers.
-# **Who does it impact**: Docs engineering, docs content.
+# Who does it impact**: Docs engineering, docs content.
 
 on:
   workflow_dispatch:
