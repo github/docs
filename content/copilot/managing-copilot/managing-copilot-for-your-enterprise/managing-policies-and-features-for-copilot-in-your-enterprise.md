@@ -75,8 +75,6 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 ### Give {% data variables.product.prodname_copilot_short %} access to Bing
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 
 ### {% data variables.product.prodname_copilot_short %} access to alternative AI models
