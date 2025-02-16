@@ -406,9 +406,7 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-public-preview-note %}
-
-## About {% data variables.product.prodname_copilot %} for Xcode
+## About {% data variables.product.prodname_copilot %} in Xcode
 
 If you use Xcode, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within Xcode or on {% data variables.product.github %}.
 
