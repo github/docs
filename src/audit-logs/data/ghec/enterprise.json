@@ -3895,6 +3895,11 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_closure_request.create",
+    "description": "N/A",
+    "docs_reference_links": "A user requested to close a secret scanning alert."
+  },
+  {
     "action": "secret_scanning.disable",
     "description": "Secret scanning was disabled for all existing repositories.",
     "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
