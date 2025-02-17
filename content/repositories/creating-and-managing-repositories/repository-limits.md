@@ -34,6 +34,14 @@ The compare view and pull requests pages display a list of commits between the `
 
 The maximum count of commits displayed on the Commits tab is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
 
+{% ifversion fpt or ghec or ghes > 3.16 %}
+
+## Rebase limits
+
+Merging a pull request using the "Rebase and merge" option is limited to **100** commits.  If you have a pull request with more than 100 commits, you need to create a merge commit, squash and merge, or split the commits up into multiple pull requests.
+
+{% endif %}
+
 ## Organization Limits
 
 If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership).
