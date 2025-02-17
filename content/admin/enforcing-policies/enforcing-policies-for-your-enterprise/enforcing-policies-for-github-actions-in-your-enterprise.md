@@ -1,3 +1,4 @@
+![12](https://github.com/user-attachments/assets/ae49dd33-7230-48c8-9d26-ab73e13fa332)
 ---
 title: Enforcing policies for GitHub Actions in your enterprise
 intro: "You can enforce policies to manage how {% data variables.product.prodname_actions %} can be used within your enterprise."
