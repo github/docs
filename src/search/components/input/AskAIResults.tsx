@@ -3,7 +3,7 @@ import { executeAISearch } from '../helpers/execute-search-actions'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ActionList, IconButton, Spinner } from '@primer/react'
-import { BookIcon, CheckIcon, CopyIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
+import { CheckIcon, CopyIcon, FileIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import useLocalStorageCache from '../hooks/useLocalStorageCache'
 import { UnrenderedMarkdownContent } from '@/frame/components/ui/MarkdownContent/UnrenderedMarkdownContent'
@@ -14,34 +14,46 @@ import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { generateAiSearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
+import type { AIReference } from '../types'
 
 type AIQueryResultsProps = {
   query: string
   version: string
   debug: boolean
   setAISearchError: () => void
+  references: AIReference[]
+  setReferences: (references: AIReference[]) => void
+  referencesIndexOffset: number
+  referenceOnSelect: (url: string) => void
+  selectedIndex: number
+  setSelectedIndex: (index: number) => void
+  askAiEventGroupId: React.MutableRefObject<string>
 }
 
-type Source = {
-  url: string
-  title: string
-  index: string
-}
-
-export function AskAIResults({ query, version, debug, setAISearchError }: AIQueryResultsProps) {
+export function AskAIResults({
+  query,
+  version,
+  debug,
+  setAISearchError,
+  references,
+  setReferences,
+  referencesIndexOffset,
+  referenceOnSelect,
+  selectedIndex,
+  setSelectedIndex,
+  askAiEventGroupId,
+}: AIQueryResultsProps) {
   const router = useRouter()
   const { t } = useTranslation('search')
   const [message, setMessage] = useState('')
-  const [sources, setSources] = useState<Source[]>([] as Source[])
   const [initialLoading, setInitialLoading] = useState(true)
   const [responseLoading, setResponseLoading] = useState(false)
-  const eventGroupId = useRef<string>('')
   const disclaimerRef = useRef<HTMLDivElement>(null)
   // We cache up to 1000 queries, and expire them after 30 days
   const { getItem, setItem } = useLocalStorageCache<{
     query: string
     message: string
-    sources: Source[]
+    sources: AIReference[]
   }>('ai-query-cache', 1000, 30)
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
@@ -51,34 +63,39 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
   useEffect(() => {
     let isCancelled = false
     setMessage('')
-    setSources([])
+    setReferences([])
     setInitialLoading(true)
     setResponseLoading(true)
-    eventGroupId.current = uuidv4()
+    askAiEventGroupId.current = uuidv4()
     disclaimerRef.current?.focus()
 
-    const cachedData = getItem(query)
+    const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
       setMessage(cachedData.message)
-      setSources(cachedData.sources)
+      setReferences(cachedData.sources)
       setInitialLoading(false)
       setResponseLoading(false)
-      sendAISearchResultEvent(cachedData.sources, cachedData.message, eventGroupId.current)
+      sendAISearchResultEvent(cachedData.sources, cachedData.message, askAiEventGroupId.current)
       return
     }
 
     // Handler for streamed response from GPT
     async function fetchData() {
       let messageBuffer = ''
-      let sourcesBuffer: Source[] = []
+      let sourcesBuffer: AIReference[] = []
       try {
-        const response = await executeAISearch(router, version, query, debug, eventGroupId.current)
+        const response = await executeAISearch(router, version, query, debug)
         // Serve canned response. A question that cannot be answered was asked
         if (response.status === 400) {
           setInitialLoading(false)
           setResponseLoading(false)
           const cannedResponse = t('search.ai.unable_to_answer')
-          setItem(query, { query, message: cannedResponse, sources: [] })
+          setItem(
+            query,
+            { query, message: cannedResponse, sources: [] },
+            version,
+            router.locale || 'en',
+          )
           return setMessage(cannedResponse)
         }
         if (!response.ok) {
@@ -114,7 +131,7 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
               if (parsedLine.chunkType === 'SOURCES') {
                 if (!isCancelled) {
                   sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
-                  setSources(parsedLine.sources)
+                  setReferences(parsedLine.sources)
                 }
               } else if (parsedLine.chunkType === 'MESSAGE_CHUNK') {
                 if (!isCancelled) {
@@ -132,10 +149,15 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
         }
       } finally {
         if (!isCancelled && messageBuffer) {
-          setItem(query, { query, message: messageBuffer, sources: sourcesBuffer })
+          setItem(
+            query,
+            { query, message: messageBuffer, sources: sourcesBuffer },
+            version,
+            router.locale || 'en',
+          )
           setInitialLoading(false)
           setResponseLoading(false)
-          sendAISearchResultEvent(sourcesBuffer, messageBuffer, eventGroupId.current)
+          sendAISearchResultEvent(sourcesBuffer, messageBuffer, askAiEventGroupId.current)
         }
       }
     }
@@ -167,7 +189,7 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
           <UnrenderedMarkdownContent
             className={styles.markdownBodyOverrides}
             eventGroupKey={ASK_AI_EVENT_GROUP}
-            eventGroupId={eventGroupId.current}
+            eventGroupId={askAiEventGroupId.current}
           >
             {responseLoading ? fixIncompleteMarkdown(message) : message}
           </UnrenderedMarkdownContent>
@@ -192,7 +214,7 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
                 type: EventType.survey,
                 survey_vote: true,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: eventGroupId.current,
+                eventGroupId: askAiEventGroupId.current,
               })
             }}
           ></IconButton>
@@ -213,7 +235,7 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
                 type: EventType.survey,
                 survey_vote: false,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: eventGroupId.current,
+                eventGroupId: askAiEventGroupId.current,
               })
             }}
           ></IconButton>
@@ -234,37 +256,45 @@ export function AskAIResults({ query, version, debug, setAISearchError }: AIQuer
                 type: EventType.clipboard,
                 clipboard_operation: 'copy',
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: eventGroupId.current,
+                eventGroupId: askAiEventGroupId.current,
               })
             }}
           ></IconButton>
         </div>
       ) : null}
-      {sources && sources.length > 0 ? (
+      {references && references.length > 0 ? (
         <>
           <ActionList.Divider aria-hidden="true" />
-          <ActionList className={styles.referencesList}>
+          <ActionList className={styles.referencesList} showDividers>
             <ActionList.Group>
               <ActionList.GroupHeading
-                as="h2"
+                as="h3"
                 aria-label={t('search.ai.references')}
                 className={styles.referencesTitle}
               >
                 {t('search.ai.references')}
               </ActionList.GroupHeading>
-              {sources.map((source, index) => (
-                <ActionList.LinkItem
-                  key={index}
-                  target="_blank"
-                  href={`https://docs.github.com${source.index}`}
-                  data-group-key={ASK_AI_EVENT_GROUP}
-                  data-group-id={eventGroupId.current}
+              {references.map((source, index) => (
+                <ActionList.Item
+                  sx={{
+                    marginLeft: '0px',
+                    paddingLeft: '0px',
+                  }}
+                  key={`reference-${index}`}
+                  tabIndex={-1}
+                  onSelect={() => {
+                    referenceOnSelect(source.url)
+                  }}
+                  onFocus={() => {
+                    setSelectedIndex(index + referencesIndexOffset)
+                  }}
+                  active={index + referencesIndexOffset === selectedIndex}
                 >
                   <ActionList.LeadingVisual aria-hidden="true">
-                    <BookIcon />
+                    <FileIcon />
                   </ActionList.LeadingVisual>
                   {source.title}
-                </ActionList.LinkItem>
+                </ActionList.Item>
               ))}
             </ActionList.Group>
           </ActionList>

@@ -8014,6 +8014,11 @@ input CreateProjectV2FieldInput {
   dataType: ProjectV2CustomFieldType!
 
   """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
+
+  """
   The name of the field.
   """
   name: String!
@@ -18743,7 +18748,7 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -21506,7 +21511,7 @@ input MaxFilePathLengthParametersInput {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the commit.
+Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
 """
 type MaxFileSizeParameters {
   """
@@ -21516,7 +21521,7 @@ type MaxFileSizeParameters {
 }
 
 """
-Prevent commits that exceed a specified file size limit from being pushed to the commit.
+Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
 """
 input MaxFileSizeParametersInput {
   """
@@ -30189,7 +30194,7 @@ type Organization implements Actor & AnnouncementBannerI & MemberStatusable & No
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -34686,6 +34691,11 @@ enum ProjectV2CustomFieldType {
   DATE
 
   """
+  Iteration
+  """
+  ITERATION
+
+  """
   Number
   """
   NUMBER
@@ -35801,6 +35811,26 @@ enum ProjectV2ItemType {
 }
 
 """
+Represents an iteration
+"""
+input ProjectV2Iteration {
+  """
+  The duration of the iteration, in days.
+  """
+  duration: Int!
+
+  """
+  The start date for the iteration.
+  """
+  startDate: Date!
+
+  """
+  The title for the iteration.
+  """
+  title: String!
+}
+
+"""
 An iteration field inside a project.
 """
 type ProjectV2IterationField implements Node & ProjectV2FieldCommon {
@@ -35868,6 +35898,26 @@ type ProjectV2IterationFieldConfiguration {
   The iteration's start day of the week
   """
   startDay: Int!
+}
+
+"""
+Represents an iteration field configuration.
+"""
+input ProjectV2IterationFieldConfigurationInput {
+  """
+  The duration of each iteration, in days.
+  """
+  duration: Int!
+
+  """
+  Zero or more iterations for the field.
+  """
+  iterations: [ProjectV2Iteration!]!
+
+  """
+  The start date for the first iteration.
+  """
+  startDate: Date!
 }
 
 """
@@ -35994,7 +36044,7 @@ interface ProjectV2Owner {
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -37824,7 +37874,7 @@ type PullRequest implements Assignable & Closable & Comment & Labelable & Lockab
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!
@@ -48655,7 +48705,7 @@ enum RepositoryRuleType {
   MAX_FILE_PATH_LENGTH
 
   """
-  Prevent commits that exceed a specified file size limit from being pushed to the commit.
+  Prevent commits that exceed a specified file size limit from being pushed to the commit graph.
   """
   MAX_FILE_SIZE
 
@@ -60994,6 +61044,11 @@ input UpdateProjectV2FieldInput {
     )
 
   """
+  Configuration for an iteration field.
+  """
+  iterationConfiguration: ProjectV2IterationFieldConfigurationInput
+
+  """
   The name to update.
   """
   name: String
@@ -62904,7 +62959,7 @@ type User implements Actor & Node & PackageOwner & ProfileOwner & ProjectOwner &
     orderBy: ProjectV2Order = {field: NUMBER, direction: DESC}
 
     """
-    A project to search for under the the owner.
+    A project to search for under the owner.
     """
     query: String
   ): ProjectV2Connection!

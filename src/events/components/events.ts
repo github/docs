@@ -116,7 +116,11 @@ export function sendEvent<T extends EventType>({
       os_preference: Cookies.get('osPreferred'),
       code_display_preference: Cookies.get('annotate-mode'),
 
-      experiment_variation: getExperimentVariationForContext(getMetaContent('path-language')),
+      experiment_variation:
+        getExperimentVariationForContext(
+          getMetaContent('path-language'),
+          getMetaContent('path-version'),
+        ) || '',
 
       // Event grouping
       event_group_key: eventGroupKey,
@@ -219,6 +223,8 @@ function sendExit() {
   sentExit = true
   const { render, firstContentfulPaint, domInteractive, domComplete } = getPerformance()
 
+  const clampedScrollLength = Math.min(maxScrollY, 1)
+
   return sendEvent({
     type: EventType.exit,
     exit_render_duration: render,
@@ -226,7 +232,7 @@ function sendExit() {
     exit_dom_interactive: domInteractive,
     exit_dom_complete: domComplete,
     exit_visit_duration: (Date.now() - startVisitTime) / 1000,
-    exit_scroll_length: maxScrollY,
+    exit_scroll_length: clampedScrollLength,
     exit_scroll_flip: scrollFlipCount,
   })
 }

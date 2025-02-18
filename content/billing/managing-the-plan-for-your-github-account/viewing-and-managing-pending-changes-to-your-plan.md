@@ -19,6 +19,8 @@ topics:
 shortTitle: Pending plan changes
 ---
 
+{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
+
 ## About pending plan changes
 
 You can cancel pending changes to your account's plan as well as pending changes to other subscriptions and usage-based billing.

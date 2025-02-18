@@ -177,7 +177,7 @@ kubectl create secret generic pre-defined-secret \
   --namespace=arc-runners \
   --from-literal=github_app_id=123456 \
   --from-literal=github_app_installation_id=654321 \
-  --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'
+  --from-file=github_app_private_key=private-key.pem
 ```
 
 In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) pass the secret name as a reference.

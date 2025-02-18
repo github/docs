@@ -31,3 +31,5 @@ children:
   - /one-time-payments-for-customers-in-india
   - /discounted-plans-for-github-accounts
 ---
+
+{% ifversion fpt %}{% data reusables.billing.enhanced-billing-platform-personal-accounts %}{% endif %}

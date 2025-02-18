@@ -30,6 +30,8 @@ topics:
 shortTitle: Downgrade plan
 ---
 
+{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
+
 ## About downgrades
 
 When you downgrade your personal account, organization, or enterprise account's subscription, pricing and account feature changes take effect on your next billing date. Downgrading your plan does not affect other subscriptions or usage-based billing for your account. For more information, see [AUTOTITLE](/articles/how-does-upgrading-or-downgrading-affect-the-billing-process).

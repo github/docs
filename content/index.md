@@ -105,9 +105,9 @@ childGroups:
     children:
       - copilot
       - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/prompt-engineering-for-github-copilot
-      - copilot/example-prompts-for-github-copilot-chat
-      - copilot/using-github-copilot/asking-github-copilot-questions-in-github
+      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
+      - copilot/copilot-chat-cookbook
       - copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot
   - name: CI/CD and DevOps
     octicon: GearIcon

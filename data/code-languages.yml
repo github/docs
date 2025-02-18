@@ -43,6 +43,9 @@ jsonc:
 markdown:
   name: Markdown
   comment: xml
+perl:
+  name: Perl
+  comment: number
 powershell:
   name: PowerShell
   comment: number

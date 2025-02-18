@@ -42,6 +42,8 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'utm_source',
   'utm_medium',
   'utm_campaign',
+  // Used by experiments
+  'feature',
 ])
 
 export default function handleInvalidQuerystrings(

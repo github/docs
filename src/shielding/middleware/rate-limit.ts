@@ -101,6 +101,9 @@ const MISC_KEYS = [
 
   // Lowercase for rest pages
   'apiversion',
+
+  // We use the query param "feature" to enable experiments in the browser
+  'feature',
 ]
 
 /**

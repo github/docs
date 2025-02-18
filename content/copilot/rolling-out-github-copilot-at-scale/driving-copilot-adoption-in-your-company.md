@@ -74,7 +74,7 @@ You can also use {% data variables.product.prodname_discussions %} to create a s
 
 ### Providing learning resources
 
-In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.product.prodname_copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/example-prompts-for-github-copilot-chat).
+In addition to your onboarding resources, you may want to provide a library of learning resources to help teams advance their skills with {% data variables.product.prodname_copilot_short %}. The {% data variables.product.prodname_copilot_chat_short %} Cookbook is a great place to start. The Cookbook is a collection of example prompts that you can use to learn how to ask {% data variables.product.prodname_copilot_short %} for help with a wide range of tasks. See [AUTOTITLE](/copilot/copilot-chat-cookbook).
 
 ### Communicating expectations
 

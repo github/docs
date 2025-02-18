@@ -13,7 +13,7 @@
 // To try it you need to generate a local `GITHUB_TOKEN` that has read-access
 // "content" and "pull requests" on the repo.
 // You also need to set an APP_URL which can be the domain of the
-// preview environment or just the production domain. Example:
+// review environment or just the production domain. Example:
 //
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....

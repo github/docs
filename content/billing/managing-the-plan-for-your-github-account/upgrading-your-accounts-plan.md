@@ -32,6 +32,8 @@ topics:
 shortTitle: Upgrade your plan
 ---
 
+{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
+
 ## About upgrades
 
 {% data reusables.accounts.accounts-billed-separately %}

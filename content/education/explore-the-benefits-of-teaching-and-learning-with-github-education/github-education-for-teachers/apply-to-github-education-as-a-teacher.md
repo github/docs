@@ -27,11 +27,9 @@ For more information about personal accounts on {% data variables.product.github
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-{% data reusables.education.click-get-teacher-benefits %}
-1. Under "Select the academic status", select **Teacher**.
+1. Under "Select your role in education", select **Teacher**.
 {% data reusables.education.select-email-address %}
 {% data reusables.education.school-name %}
-{% data reusables.education.plan-to-use-github %}
 {% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 

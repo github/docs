@@ -1,18 +1,22 @@
 import murmur from 'imurmurhash'
 import {
   CONTROL_VARIATION,
+  EXPERIMENTS,
   ExperimentNames,
   TREATMENT_VARIATION,
   getActiveExperiments,
 } from './experiments'
 import { getUserEventsId } from '../events'
+import type { ParsedUrlQuery } from 'querystring'
 
 let experimentsInitialized = false
 
 export function shouldShowExperiment(
   experimentKey: ExperimentNames | { key: ExperimentNames },
   locale: string,
+  version: string,
   isStaff: boolean,
+  routerQuery: ParsedUrlQuery,
 ) {
   // Accept either EXPERIMENTS.<experiment_key> or EXPERIMENTS.<experiment_key>.key
   if (typeof experimentKey === 'object') {
@@ -23,14 +27,6 @@ export function shouldShowExperiment(
   const experiments = getActiveExperiments('all')
   for (const experiment of experiments) {
     if (experiment.key === experimentKey) {
-      // If the user has staffonly cookie, and staff override is true, show the experiment
-      if (experiment.alwaysShowForStaff) {
-        if (isStaff) {
-          console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
-          return true
-        }
-      }
-
       // If there is an override for the current session, use that
       if (controlGroupOverride[experiment.key]) {
         const controlGroup = getExperimentControlGroupFromSession(
@@ -38,11 +34,29 @@ export function shouldShowExperiment(
           experiment.percentOfUsersToGetExperiment,
         )
         return controlGroup === TREATMENT_VARIATION
-        // Otherwise use the regular logic to determine if the user is in the treatment group
+        // Otherwise determine if the user is in the treatment group
       } else if (
-        experiment.limitToLanguages?.length &&
-        experiment.limitToLanguages.includes(locale)
+        (experiment.limitToLanguages?.length
+          ? experiment.limitToLanguages.includes(locale)
+          : true) &&
+        (experiment.limitToVersions?.length ? experiment.limitToVersions.includes(version) : true)
       ) {
+        // If the user has staffonly cookie, and staff override is true, show the experiment
+        if (experiment.alwaysShowForStaff) {
+          if (isStaff) {
+            console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
+            return true
+          }
+        }
+        if (experiment.turnOnWithURLParam) {
+          if (
+            typeof routerQuery?.feature === 'string'
+              ? routerQuery.feature.toLowerCase() === experiment.turnOnWithURLParam.toLowerCase()
+              : false
+          ) {
+            return true
+          }
+        }
         return (
           getExperimentControlGroupFromSession(
             experimentKey,
@@ -98,8 +112,8 @@ export function getExperimentControlGroupFromSession(
   return modHash < percentToGetExperiment ? TREATMENT_VARIATION : CONTROL_VARIATION
 }
 
-export function getExperimentVariationForContext(locale: string): string {
-  const experiments = getActiveExperiments(locale)
+export function getExperimentVariationForContext(locale: string, version: string): string {
+  const experiments = getActiveExperiments(locale, version)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
       return getExperimentControlGroupFromSession(
@@ -110,14 +124,41 @@ export function getExperimentVariationForContext(locale: string): string {
   }
 
   // When no experiment has `includeVariationInContext: true`
-  return ''
+  return CONTROL_VARIATION
 }
 
-export function initializeExperiments(locale: string) {
+export function initializeExperiments(
+  locale: string,
+  currentVersion: string,
+  allVersions: { [key: string]: { version: string } },
+) {
   if (experimentsInitialized) return
   experimentsInitialized = true
 
-  const experiments = getActiveExperiments(locale)
+  // Replace any occurrence of 'enterprise-server@latest' with the actual latest version
+  for (const [experimentKey, experiment] of Object.entries(EXPERIMENTS)) {
+    if (experiment.limitToVersions?.includes('enterprise-server@latest')) {
+      // Sort the versions in descending order so that the latest enterprise-server version is first
+      const latestEnterpriseServerVersion = Object.keys(allVersions)
+        .filter((version) => version.startsWith('enterprise-server@'))
+        .sort((a, b) => {
+          const aVersion = a.split('@')[1]
+          const bVersion = b.split('@')[1]
+          return Number(bVersion) - Number(aVersion)
+        })[0]
+      if (latestEnterpriseServerVersion) {
+        EXPERIMENTS[experimentKey as ExperimentNames].limitToVersions =
+          experiment.limitToVersions.map((version) =>
+            version.replace(
+              'enterprise-server@latest',
+              allVersions[latestEnterpriseServerVersion].version,
+            ),
+          )
+      }
+    }
+  }
+
+  const experiments = getActiveExperiments(locale, currentVersion)
 
   if (experiments.length && process.env.NODE_ENV === 'development') {
     console.log(

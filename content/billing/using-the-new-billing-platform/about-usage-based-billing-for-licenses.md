@@ -18,7 +18,12 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Usage-based billing for licenses
 ---
 
-With the enhanced billing platform, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %} licenses you use. You will not need to buy a predefined number of licenses in advance.
+## About usage-based billing
+
+With the enhanced billing platform, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %} licenses you use. You will not need to buy a predefined number of licenses in advance. Usage-based billing provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
+
+{% data reusables.billing.license-type-overview %}
+{% data reusables.billing.license-models %}
 
 If a user starts consuming a {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} during the month, you will pay pro rata for the user's license usage that month. If a user stops consuming a {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} during the month, your bill for the following month will reflect the change.
 

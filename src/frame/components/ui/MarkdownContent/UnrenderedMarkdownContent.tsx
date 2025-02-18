@@ -3,8 +3,6 @@ import type { Components } from 'react-markdown'
 import cx from 'classnames'
 import remarkGfm from 'remark-gfm'
 
-import styles from './MarkdownContent.module.scss'
-
 export type MarkdownContentPropsT = {
   children: string
   className?: string
@@ -40,7 +38,7 @@ export const UnrenderedMarkdownContent = ({
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
       {...restProps}
-      className={cx(styles.markdownBody, 'markdown-body', className)}
+      className={cx('markdown-body', className)}
       components={components}
     >
       {children}

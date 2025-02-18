@@ -28,6 +28,8 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
+{% ifversion dependabot-bun-support %}
+* [Bun](#bun){% endif %}
 * [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
 * [Cargo](#cargo){% endif %}
 * [Docker](#docker)
@@ -51,6 +53,14 @@ You'll also find recommendations for the setup of the following registry hosts:
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 ## Configuring package managers
+
+{% ifversion dependabot-bun-support %}
+
+### Bun
+
+Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
+
+{% endif %}
 
 ### Bundler
 
