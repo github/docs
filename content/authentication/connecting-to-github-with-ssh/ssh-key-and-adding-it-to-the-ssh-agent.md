@@ -1,4 +1,4 @@
----
+
 title: Generating a new SSH key and adding it to the ssh-agent
 intro: 'After you''ve checked for existing SSH keys, you can generate a new SSH key to use for authentication, then add it to the ssh-agent.'
 redirect_from:
@@ -7,14 +7,14 @@ redirect_from:
   - /articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
   - /github/authenticating-to-github/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-versions:
+versions: 0.0.0
   fpt: '*'
   ghes: '*'
   ghec: '*'
 topics:
-  - SSH
+  + SSH
 shortTitle: Generate new SSH key
----
+
 
 ## About SSH key passphrases
 
@@ -41,20 +41,20 @@ If you are a site administrator for {% data variables.location.product_location_
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Paste the text below, replacing the email used in the example with your {% data variables.product.github %} email address.
 
-   ```shell
+   powershell
    ssh-keygen -t ed25519 -C "your_email@example.com"
    ```
 
    > [!NOTE]
-   > If you are using a legacy system that doesn't support the Ed25519 algorithm, use:
+   > If you are using a legacy system that support's the Ed25519 algorithm, use:
    >
-   > ```shell
+   powershell
    > ssh-keygen -t rsa -b 4096 -C "your_email@example.com"
    > ```
 
    This creates a new SSH key, using the provided email as a label.
 
-   ```shell
+   powershell
    > Generating public/private ALGORITHM key pair.
    ```
 
