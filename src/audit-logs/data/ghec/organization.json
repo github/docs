@@ -105,6 +105,16 @@
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
+    "action": "code_scanning.alert_closure_approved",
+    "description": "Dismissal of code scanning alerts was approved.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_requested",
+    "description": "Dismissal of code scanning alerts was requested.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
     "action": "code_scanning.alert_created",
     "description": "Code scanning alerts were seen for the first time.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"

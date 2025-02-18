@@ -42,3 +42,15 @@ You can add custom properties to your enterprise to make those properties availa
 1. Optionally, select **Allow repository actors to set this property**. When enabled, repository users and apps with the repository-level `custom properties` fine-grained permission will be able to set and update the property value for their repository. Additionally, any actor creating a repository can set the property on the repository.
 1. Optionally, select **Require this property for all repositories** and add a default value. This means that you require that all repositories in your enterprise have a value for this property. Repositories that don’t have an explicit value for this property will inherit the default value.
 1. Click **Save property**.
+
+## Promoting organization properties to enterprise properties
+
+You can promote a property from an organization to your enterprise account, to ensure that property name and values are available for use across all organizations in the enterprise.
+
+{% data reusables.enterprise-accounts.access-enterprise %}
+1. In the left sidebar, under "Policies", click **Custom properties**.
+1. To see all properties managed by organizations, select **Filter** and choose the qualifier **Managed by** and **organization** as the value, or enter `managed-by:organization` in the filter bar.
+1. Optionally, to see properties managed by a specific organization, select **Filter** and choose the qualifier **Organization** and an organization name as the value, or enter `org:<ORGANIZATION-NAME>` in the filter bar.
+1. From the list of properties, select the property name that you want to promote. This takes you to the property details page.
+1. To promote the selected property, click **Promote to enterprise**. The property name must be unique across all organizations in the enterprise otherwise the promotion will not be permitted.
+1. Click **Promote**.

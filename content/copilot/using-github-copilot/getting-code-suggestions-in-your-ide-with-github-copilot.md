@@ -325,6 +325,10 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/gh-copilot-nes-docs) in the {% data variables.product.prodname_vscode %} documentation.
 
+## Changing the AI model
+
+You can change the large language model that's used to generate code completion suggestions. For more information, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+
 {% endvscode %}
 
 {% vimneovim %}

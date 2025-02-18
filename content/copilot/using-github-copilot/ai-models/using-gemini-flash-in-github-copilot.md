@@ -1,8 +1,8 @@
 ---
-title: Using Gemini 2.0 Flash in GitHub Copilot
+title: Using Gemini 2.0 Flash in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use {% data variables.copilot.copilot_gemini_flash %}'
-intro: 'Learn how to enable {% data variables.copilot.copilot_gemini_flash %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
+intro: 'Learn how to enable {% data variables.copilot.copilot_gemini_flash %} in {% data variables.product.prodname_copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
   feature: copilot
 topics:
