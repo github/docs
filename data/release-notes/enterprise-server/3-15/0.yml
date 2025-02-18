@@ -100,19 +100,19 @@ sections:
       notes:
         # https://github.com/github/releases/issues/4073
         - |
-          Users can use new property types when creating a custom property: `Multi select` and `True/False`.
+          Users can use new property types when creating a custom property: `Multi select` and `True/False`. See [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization#adding-custom-properties).
         # https://github.com/github/releases/issues/4139
         - |
-          Users can gain deeper insights into contributors and code frequency with enhanced focus navigation, and a new table format for viewing and downloading data.
+          Users can gain deeper insights into contributors and code frequency with enhanced focus navigation, and a new table format for viewing and downloading data. See [Enhanced Repo Insights Views](https://github.blog/changelog/2024-08-12-enhanced-repo-insights-views/) on the GitHub Blog.
         # https://github.com/github/releases/issues/4244
         - |
-          Users can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues).
+          Users can require that merges must be performed with a merge queue at the repository level. See [the GitHub blog post](https://github.blog/changelog/2024-07-31-repository-updates-july-31st-2024/#repository-ruleset-merge-queue-rule-is-now-generally-available). For more information about merge queues, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues).
         # https://github.com/github/releases/issues/4245
         - |
-          Admins can enforce status checks and workflow runs on existing refs while allowing the creation of new refs.
+          Admins can enforce status checks and workflow runs on existing refs while allowing the creation of new refs. See [the GitHub blog post](https://github.blog/changelog/2024-07-31-repository-updates-july-31st-2024/#avoid-required-status-checks-and-required-workflows-when-creating-branches).
         # https://github.com/github/releases/issues/4246
         - |
-          Organization members can use the new repository view and advanced filters to find repositories by visibility, language, custom properties, size, license, and more.
+          Organization members can use the new repository view and advanced filters to find repositories by visibility, language, custom properties, size, license, and more. See [the GitHub blog post](https://github.blog/changelog/2024-07-31-repository-updates-july-31st-2024/#finding-repositories-in-your-organization-is-now-easier).
 
     - heading: Projects
       notes:
@@ -124,19 +124,19 @@ sections:
           For better accessibility, swimlanes and card titles have heading elements attached to them.
         # https://github.com/github/releases/issues/4071
         - |
-          Project custom field changes are included directly in the [project_v2_item](/webhooks/webhook-events-and-payloads?actionType=edited#projects_v2_item) webhook event when a project item's fields are edited, allowing users to understand how project fields change over time and how long they have a particular value.
+          Project custom field changes are included directly in the [project_v2_item](/webhooks/webhook-events-and-payloads?actionType=edited#projects_v2_item) webhook event when a project item's fields are edited, allowing users to understand how project fields change over time and how long they have a particular value. See [GitHub Issues & Projects – GraphQL and webhook support for project status updates and more!](https://github.blog/changelog/2024-06-27-github-issues-projects-graphql-and-webhook-support-for-project-status-updates-and-more/#using-webhooks-for-project-custom-field-changes) on the GitHub Blog.
 
     - heading: Accessibility
       notes:
         # https://github.com/github/releases/issues/4147
         - |
-          Users can navigate and dismiss hovercards using keyboard shortcuts, enhancing accessibility. Additionally, a new setting allows users to disable all hovercards.
+          Users can navigate and dismiss hovercards using keyboard shortcuts, enhancing accessibility. Additionally, a new setting allows users to disable all hovercards. See [Keyboard Navigation Improvements for Hovercards](https://github.blog/changelog/2024-07-29-keyboard-navigation-improvements-for-hovercards/) on the GitHub Blog.
         # https://github.com/github/releases/issues/4248
         - |
           Math equations are rendered with standardized MathML, replacing custom HTML MathJax to enhance accessibility and security. While most users will see minimal changes, slight differences in font and alignment may occur.
         # https://github.com/github/releases/issues/4408
         - |
-          The light and dark high contrast themes have been updated to improve readability.
+          The light and dark high contrast themes have been updated to improve readability. See [High contrast theme improvements](https://github.blog/changelog/2024-08-15-high-contrast-theme-improvements/) on the GitHub Blog.
 
     - heading: Integrations and extensions
       notes:
