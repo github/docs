@@ -85,7 +85,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can creat
 
 Enterprise owners can invite existing organizations to join their enterprise account.
 
-During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you must be an owner of both enterprise accounts and initiate an organization transfer. See [Transferring an existing organization](#transferring-an-existing-organization).
+During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you cannot invite it to your trial enterprise.
 
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 
