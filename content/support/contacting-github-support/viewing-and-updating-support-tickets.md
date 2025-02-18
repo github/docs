@@ -65,7 +65,7 @@ You can also comment on tickets opened by someone else and associated with your 
 
 ## Requesting a callback
 
-You can request a callback for urgent or high priority tickets{% ifversion ghec %} if your account includes {% data variables.contact.premium_support %}{% endif %}. From the ticket, click **Request a callback from GitHub Support**.
+If your account includes {% data variables.contact.premium_support %}, you can request a callback for urgent or high priority tickets. From the ticket, click **Request a callback from GitHub Support**.
 
 ## Requesting an escalation
 
