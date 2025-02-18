@@ -73,6 +73,7 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 
 ## Further reading
 
+* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)
 * [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
 * [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
