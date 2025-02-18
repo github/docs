@@ -57,13 +57,15 @@
     }
   },
 
-  // Use 'onCreateCommand' to run commands after the container is created.
+  // Lifecycle commands
   "onCreateCommand": "npm ci",
+  "postStartCommand": "nohup bash -c 'npm start &'",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node",
 
   "hostRequirements": {
-    "memory": "16gb"
+    "memory": "16gb",
+    "cpus": "4"
   }
 }
