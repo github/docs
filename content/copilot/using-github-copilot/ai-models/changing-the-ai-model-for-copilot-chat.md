@@ -1,6 +1,6 @@
 ---
 title: Changing the AI model for Copilot Chat
-shortTitle: 'Change the AI model'
+shortTitle: 'Change the chat model'
 intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_chat_short %} to a different model.'
 versions:
   feature: copilot
@@ -13,6 +13,8 @@ By default, {% data variables.product.prodname_copilot_chat_short %} uses OpenAI
 However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
+
+Changing the model that's used by {% data variables.product.prodname_copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 {% webui %}
 
@@ -74,7 +76,7 @@ These instructions are for {% data variables.product.prodname_vscode_shortname %
 
 {% data reusables.copilot.copilot-chat-models-list-visual-studio %}
 
-## Changing your AI model
+## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
 
 These instructions are for {% data variables.product.prodname_vs %}. For {% data variables.product.prodname_vscode_shortname %} or for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, click the appropriate tab at the top of this page.
 
