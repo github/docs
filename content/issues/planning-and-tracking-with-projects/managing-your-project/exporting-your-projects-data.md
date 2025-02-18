@@ -19,4 +19,4 @@ You can download a view as a _.tsv_ (tab-separated) file.
 
 {% data reusables.projects.open-view-menu %}
 
-1. Click {% ifversion ghes < 3.11 %}**Download**{% else %}**Export view data**{% endif %}.
+1. Click **Export view data**.

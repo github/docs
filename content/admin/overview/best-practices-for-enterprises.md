@@ -24,7 +24,7 @@ For help identifying the type of enterprise that will best meet your needs, see 
 
 ## Assign multiple owners
 
-{% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).{% endif %}
+{% data reusables.organizations.ent-ownership-recommendation %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
 ## Use policies
 

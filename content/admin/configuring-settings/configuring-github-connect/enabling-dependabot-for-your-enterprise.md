@@ -25,13 +25,11 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies.{% ifversion ghes %} You {% ifversion dependabot-alerts-ghes-enablement %} must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you {% endif %} can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
+{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies. You {% ifversion dependabot-alerts-ghes-enablement %} must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you {% endif %} can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
 {% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.product.prodname_dotcom %}. For more information about the other features, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise).
 
 ### About {% data variables.product.prodname_dependabot_alerts %}
-
-{% endif %}
 
 With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.prodname_ghe_server %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
 

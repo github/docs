@@ -43,9 +43,7 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `http(s)://HOSTNAME/reply/` | `http(s)://reply.HOSTNAME/` |
 | `http(s)://HOSTNAME/uploads/` | `http(s)://uploads.HOSTNAME/` |
 | `http(s)://HOSTNAME/viewscreen/` | `http(s)://viewscreen.HOSTNAME/` |
-| {%- ifversion ghes %} |
 | Not supported | `https://containers.HOSTNAME/` |
-| {%- endif %} |
 
 ## Prerequisites
 

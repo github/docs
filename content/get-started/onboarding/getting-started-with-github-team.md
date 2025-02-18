@@ -91,7 +91,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.marketplace %}
 
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.github %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} API
+### 2. Using the {% data variables.product.github %} API
 
 {% data reusables.getting-started.api %}
 

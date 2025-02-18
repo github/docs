@@ -51,13 +51,9 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 {% data reusables.code-scanning.beta-actions-analysis %}
 
-{% ifversion fpt or ghec or ghes > 3.10 %}
-
 ## Modeling custom or niche frameworks
 
 {% data variables.product.github %} experts, security researchers, and community contributors write libraries to model the flow of data in popular frameworks and libraries. If you use custom dependencies that aren't modeled, then you can use the {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} to create models for these dependencies and use them to extend your analysis. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
-
-{% endif %}
 
 ## {% data variables.product.prodname_codeql %} queries
 
