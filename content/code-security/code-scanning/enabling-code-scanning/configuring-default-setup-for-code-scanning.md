@@ -30,7 +30,7 @@ versions:
 
 Default setup for {% data variables.product.prodname_code_scanning %} is the quickest, easiest, most low-maintenance way to enable {% data variables.product.prodname_code_scanning %} for your repository. Based on the code in your repository, default setup will automatically create a custom {% data variables.product.prodname_code_scanning %} configuration. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in your repository will be scanned:
 * On each push to the repository's default branch, or any protected branch. For more information on protected branches, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
-* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
+* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.
 * On a weekly schedule.
 
 {% ifversion code-scanning-default-setup-exclude-dormant-repos %}
@@ -38,7 +38,6 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 > [!NOTE]
 > If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
 
-{% endif %}
 {% endif %}
 
 You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).
@@ -50,7 +49,7 @@ If you need more granular control over your {% data variables.product.prodname_c
 Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}
 <!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
 {% else %}
-* It includes at least one {% data variables.product.prodname_codeql %}-supported language{% ifversion ghes = 3.10 %} aside from Swift{% endif %}.{% endif %}
+* It includes at least one {% data variables.product.prodname_codeql %}-supported language.{% endif %}
 * {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
 * It is publicly visible.{%- elsif ghec %}
 * It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
@@ -62,7 +61,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 If your repository includes at least one {% data variables.product.prodname_codeql %}-supported language, you can use default setup even if your repository also includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. Unsupported languages will not be scanned by default setup. For more information on {% data variables.product.prodname_codeql %}-supported languages, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
 {% endif %}
 
-You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages{% ifversion ghes = 3.10 %} except Swift{% endif %} for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
+You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
 
 {% ifversion codeql-no-build %}Default setup uses the `none` build mode for {% data variables.code-scanning.no_build_support %} and uses the `autobuild` build mode for other compiled languages. You should configure your self-hosted runners to make sure they can run all the necessary commands for C/C++, C#, and Swift analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% else %}Default setup runs the `autobuild` action, so you should configure your self-hosted runners to make sure they can run all the necessary commands for {% data variables.code-scanning.compiled_languages %} analysis. Analysis of JavaScript/TypeScript, Go, Ruby, Python, and Kotlin code does not currently require special configuration.{% endif %}
 
@@ -72,13 +71,11 @@ We recommend that you start using {% data variables.product.prodname_code_scanni
 
 {% ifversion code-scanning-default-setup-recommended-languages %}
 
-### About adding {% ifversion code-scanning-default-setup-automatic-311 %}non-compiled and {% endif %}compiled languages to your default setup
+### About adding non-compiled and compiled languages to your default setup
 
-{% ifversion code-scanning-default-setup-automatic-311 %}
 If the code in a repository changes to include Go, JavaScript/TypeScript, Python, or Ruby, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
-{% endif %}
 
-Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language{% ifversion ghes = 3.10 %} other than Swift{% endif %} for analysis.
+Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language for analysis.
 
 {% endif %}
 

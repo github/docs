@@ -42,9 +42,7 @@ When you remove a custom pattern, {% data variables.product.prodname_dotcom %} g
 
 ## Enabling push protection for a custom pattern
 
-You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes %}the enterprise, organization, or repository level{% else %} the organization or repository level{% endif %}.
-
-{% ifversion ghec or ghes %}
+You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at the enterprise, organization, or repository level.
 
 ### Enabling push protection for a custom pattern stored in an enterprise
 
@@ -65,8 +63,6 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
    {% data reusables.secret-scanning.custom-pattern-push-protection-enable-button %}
 
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
-
-{% endif %}
 
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 

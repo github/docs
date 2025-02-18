@@ -203,8 +203,6 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## Viewing members without an email address from a verified domain
 
 You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account.
@@ -213,7 +211,6 @@ You can view a list of members in your enterprise who don't have an email addres
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
 1. Under "Notification preferences", click the **{% octicon "eye" aria-hidden="true" %} View enterprise members without an approved or verified domain email** link.
-{% endif %}
 
 ## Viewing whether members in your enterprise have 2FA enabled
 

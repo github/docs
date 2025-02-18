@@ -1302,7 +1302,7 @@ During an upgrade to a feature release, this utility displays the status of back
 {% ifversion ghes < 3.12 %}
 
 > [!NOTE]
-> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.1 or later.
 
 {% endif %}
 

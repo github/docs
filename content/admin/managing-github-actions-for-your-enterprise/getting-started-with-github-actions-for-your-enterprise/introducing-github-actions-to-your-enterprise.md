@@ -98,9 +98,7 @@ If you want more control over the networking policies for your runners, use self
 
 You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups). You can also use policies to prevent people using repository-level self-hosted runners. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#disabling-repository-level-self-hosted-runners).
 
-{% ifversion ghec or ghes %}
 You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners).
-{% endif %}
 
 Finally, you should consider security hardening for self-hosted runners. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
@@ -113,11 +111,7 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 You must configure external blob storage for workflow artifacts, caches, and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts, caches, and log retention. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
-
-{% endif %}
 
 {% ifversion ghec %}
 Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).

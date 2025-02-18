@@ -19,11 +19,11 @@ product: 'Development environment secrets are available in all public repositori
 
 ## About secrets
 
-Development environment secrets are {% ifversion fpt or ghec %}encrypted {% endif %}environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. This article explains how to manage organization secrets and repository secrets. For information on creating user-specific secrets, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces).
+Development environment secrets are encrypted environment variables that you create in the {% data variables.product.prodname_github_codespaces %} settings for an organization, a repository, or a personal account. This article explains how to manage organization secrets and repository secrets. For information on creating user-specific secrets, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-your-account-specific-secrets-for-github-codespaces).
 
-The development environment secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
+The development environment secrets that you create are available to use in {% data variables.product.prodname_github_codespaces %}. {% data variables.product.prodname_dotcom %} uses a [libsodium sealed box](https://libsodium.gitbook.io/doc/public-key_cryptography/sealed_boxes) to encrypt secrets before they reach {% data variables.product.prodname_dotcom %} and only decrypts them when you use them in a codespace.
 
-{% endif %}Organization secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
+Organization secrets let you share secrets between multiple repositories, which reduces the need to create duplicate secrets. You can use access policies to control which repositories can use organization secrets.
 
 {% data reusables.codespaces.secrets-on-start %}
 

@@ -104,19 +104,13 @@ You can also require two-factor authentication for each of your organizations. F
 
 You can implement required status checks and commit verifications to enforce your organization's compliance standards and automate compliance workflows. You can also use the audit log for your organization to review actions performed by your team. For more information, see [AUTOTITLE](/admin/policies/enforcing-policy-with-pre-receive-hooks) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
 
-{% ifversion ghes %}
-
 ### 3. Configuring security features for your organizations
 
 {% data reusables.getting-started.configuring-security-features %}
-{% endif %}
-
-{% ifversion ghes %}
 
 ### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
 
 You can upgrade your  {% data variables.product.prodname_ghe_server %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
-{% endif %}
 
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.github %}
 
@@ -130,8 +124,6 @@ You can build integrations with the {% data variables.product.prodname_ghe_serve
 
 {% data reusables.getting-started.api %}
 
-{% ifversion ghes %}
-
 ### 3. Building {% data variables.product.prodname_actions %}
 
 {% data reusables.getting-started.actions %}
@@ -143,7 +135,6 @@ For more information on enabling and configuring {% data variables.product.prodn
 {% data reusables.getting-started.packages %}
 
 For more information on enabling and configuring {% data variables.product.prodname_registry %} for {% data variables.location.product_location %}, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise).
-{% endif %}
 
 ### 5. Using {% data variables.product.prodname_pages %}
 

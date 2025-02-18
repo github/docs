@@ -13,8 +13,6 @@ shortTitle: SAML single sign-on
 ---
 ## About authentication with SAML SSO
 
-{% ifversion ghec %}
-
 {% data reusables.saml.dotcom-saml-explanation %} Organization owners can invite your personal account on {% data variables.product.prodname_dotcom %} to join their organization that uses SAML SSO, which allows you to contribute to the organization and retain your existing identity and contributions on {% data variables.product.prodname_dotcom %}.
 
 If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, you will instead use a new account that is provisioned for you and controlled by your enterprise. {% data reusables.enterprise-accounts.emu-more-info-account %}
@@ -55,8 +53,6 @@ To see the {% data variables.product.prodname_oauth_apps %} you've authorized, v
 
 For more information, see [AUTOTITLE](/apps/using-github-apps/saml-and-github-apps).
 
-{% endif %}
-
 ## Further reading
 
-{% ifversion ghec %}- [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% endif %}
+* [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on)
