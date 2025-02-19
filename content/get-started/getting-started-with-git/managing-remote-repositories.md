@@ -1,4 +1,5 @@
----
+$ git remote add origin https://github.com/octocat/Spoon-Knife.git
+> fatal: remote origin already exists.
 title: Managing remote repositories
 intro: 'Learn to work with your local repositories on your computer and remote repositories hosted on {% data variables.product.github %}.'
 redirect_from:
