@@ -14,7 +14,7 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 
 > [!NOTE]
 > * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Currently the ability to switch AI model is only available in the latest releases of {% data variables.product.prodname_vscode_shortname %}, with the latest version of the {% data variables.product.prodname_copilot %} extension.
+> * Currently the ability to switch AI model is available in the latest releases of {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
 
 ## Effects of switching the AI model
 
@@ -36,7 +36,11 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 
 {% data reusables.copilot.editor-preview-settings %}
 
+{% vscode %}
+
 ## Changing the AI model for code completion
+
+The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
 
 1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
@@ -50,3 +54,18 @@ Alternatively, if Command Center is enabled, you can click the down arrow beside
 1. Type `copilot completion` and look for the "{% data variables.product.github %} > {% data variables.product.prodname_copilot_short %}: Selected Completion Model" section.
 
    The field in this section displays the currently selected model. If the field is empty, the default model is being used.
+
+{% endvscode %}
+
+{% jetbrains %}
+
+## Changing the AI model for code completion
+
+The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the start of this article.
+
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
+1. In the popup menu, click **Edit Model for Completion**.
+1. In the settings dialog box for "Languages & Frameworks > {% data variables.product.prodname_copilot %}," click the dropdown menu for **Model for completions** and select the model you want to use.
+1. Click **OK**.
+
+{% endjetbrains %}
