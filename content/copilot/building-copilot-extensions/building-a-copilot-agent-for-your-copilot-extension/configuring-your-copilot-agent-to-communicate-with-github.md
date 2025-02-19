@@ -9,8 +9,6 @@ shortTitle: Communicate with GitHub
 type: reference
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## Prerequisites
 
 {% data reusables.copilot.copilot-extensions.agents-copilot-platform-prerequisites %}

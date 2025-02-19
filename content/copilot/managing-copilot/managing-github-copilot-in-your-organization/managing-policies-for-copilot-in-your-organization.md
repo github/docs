@@ -68,8 +68,6 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat).
 
 Before you install {% data variables.product.prodname_copilot_extensions_short %} in your organization, you should set a usage policy for your organization. Setting a usage policy allows you to enable or disable {% data variables.product.prodname_copilot_extensions_short %} for all members of your organization, limiting your security risk.

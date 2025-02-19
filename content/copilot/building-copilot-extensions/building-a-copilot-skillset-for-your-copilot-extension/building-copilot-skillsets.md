@@ -9,8 +9,6 @@ shortTitle: Build {% data variables.product.prodname_copilot_skillsets_short %}
 type: how_to
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## Introduction
 
 {% data variables.product.prodname_copilot_skillsets %} are a streamlined way to extend {% data variables.product.prodname_copilot %}'s functionality by defining API endpoints that {% data variables.product.prodname_copilot_short %} can call. When you create a skillset, {% data variables.product.prodname_copilot_short %} handles all the AI interactions while your endpoints provide the data or functionality. This guide walks you through configuring and deploying a skillset within your {% data variables.product.prodname_github_app %}.
