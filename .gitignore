@@ -17,6 +17,7 @@ coverage/
 .node-version
 .linkinator/full.log
 next-env.d.ts
+nohup.out
 
 # blc: broken link checker
 blc_output.log
