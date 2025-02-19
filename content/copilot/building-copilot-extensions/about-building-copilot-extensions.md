@@ -9,8 +9,6 @@ shortTitle: About building Extensions
 type: overview
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot_extensions_short %}
 
 {% data variables.product.prodname_copilot_extensions_short %} are integrations that expand the functionality of {% data variables.product.prodname_copilot_chat_short %}, allowing developers to bring external tools, services, and custom behaviors into the Chat experience. You can use {% data variables.product.prodname_copilot_extensions_short %} to extend the capabilities of {% data variables.product.prodname_copilot_chat_short %} in a variety of ways, including:
@@ -53,8 +51,6 @@ For more information about skillsets, see [AUTOTITLE](/copilot/building-copilot-
 
 ### About context passing
 
-{% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
-
 You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See step 10 of [Configuring your {% data variables.product.prodname_github_app %}](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension#configuring-your-github-app).
 
 The {% data variables.product.prodname_copilot_extensibility_platform %} automatically handles messaging when implicit and explicit context is unavailable or unauthorized. To enable context passing, you are required to request permissions from users. To enable context passing, you are required to:
@@ -67,6 +63,8 @@ The {% data variables.product.prodname_copilot_extensibility_platform %} automat
   * Request only the minimum required permissions for your extension.
 
 Context passing respects content exclusions, which refers to any files listed in your context exclusion settings, including files that begin with `.`.
+
+For more information about context passing, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/context-passing-for-your-agent).
 
 ### Resources for building {% data variables.product.prodname_copilot_extensions %}
 
