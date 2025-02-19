@@ -156,7 +156,7 @@ After a workflow run has been completed, you can download or delete artifacts on
 The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
 
 > [!NOTE]
-> {% ifversion fpt or ghec %}If you want to download artifacts from a different workflow or workflow run, you need to supply a token and run identifier. See [Download Artifacts from other Workflow Runs or Repositories](https://github.com/actions/download-artifact?tab=readme-ov-file#download-artifacts-from-other-workflow-runs-or-repositories) in the documentation for the download-artifact action.
+> {% ifversion fpt or ghec %}If you want to download artifacts from a different workflow or workflow run, you need to supply a token and run identifier. See [Download Artifacts from other Workflow Runs or Repositories](https://github.com/actions/download-artifact?tab=readme-ov-file#download-artifacts-from-other-workflow-runs-or-repositories) in the documentation for the `download-artifact` action.
 {% elsif ghes %}You can only download artifacts in a workflow that were uploaded during the same workflow run.{% endif %}
 
 Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
