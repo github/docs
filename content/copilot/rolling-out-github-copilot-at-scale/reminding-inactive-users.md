@@ -79,7 +79,7 @@ To use this workflow:
 1. Using the example below, create the workflow in the repository where you want the reminder issues to be created.
 
    If you're new to {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/writing-workflows/quickstart).
-1. In the workflow, replace the `ORG/REPO` placeholders in the `gh` commands with the name of the repository where you want the reminder issues to be created. For example: `octo-org/octo-repo`.
+1. If you want to create the issues in a repository other than the one in which the workflow is located, replace `${{ github.repository }}` in the `gh` commands with the name of the repository where you want the reminder issues to be created. For example: `octo-org/octo-repo`.
 
 ### Example workflow
 
@@ -89,16 +89,24 @@ To use this workflow:
 
 ``` yaml annotate
 # Name your workflow
-name: Remind inactive users about Copilot license
+name: Remind inactive users about GitHub Copilot license
 
-# Run the workflow every day at 8am UTC
 on:
+  # Run on demand (enables `Run workflow` button on the Actions tab to easily trigger a run manually)
+  workflow_dispatch:
+  # Run the workflow every day at 8am UTC
   schedule:
     - cron: '0 8 * * *'
 
 jobs:
   context-log:
     runs-on: ubuntu-latest
+
+    # Define permissions
+    permissions:
+      contents: read
+      issues: write
+
     steps:
       - name: Check Copilot Last Activity
         id: check-last-activity
