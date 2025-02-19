@@ -58,7 +58,7 @@ If you no longer need access to {% data variables.product.prodname_copilot_short
 
 ## Automating the reminder with {% data variables.product.prodname_actions %}
 
-The following example workflow uses the API to identify users in an organization who haven't used their license for 30 days, then creates an issue assigned to each user. This is a simple example that you can adapt to meet your needs.
+The following example workflow uses the API to identify users in an organization who have not used their license for 30 days or have not used it at all since the seat was assigned, then creates an issue assigned to each user. This is a simple example that you can adapt to meet your needs.
 
 To use this workflow:
 
