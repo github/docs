@@ -1,0 +1,2 @@
+ $ git remote add origin https://github.com/octocat/Spoon-Knife.git
+> fatal: remote origin already exists.
