@@ -13,9 +13,9 @@ featuredLinks:
   startHere:
     - /copilot/about-github-copilot/what-is-github-copilot
     - /copilot/quickstart
+    - /copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
   popular:
     - /copilot/using-github-copilot/best-practices-for-using-github-copilot
-    - /copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
     - /copilot/copilot-chat-cookbook
     - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
     - /copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide

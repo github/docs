@@ -5,7 +5,7 @@ product: '{% data reusables.gated-features.dependency-review %}'
 shortTitle: Dependency review
 versions:
   fpt: '*'
-  ghes: '>= 3.2'
+  ghes: '*'
   ghec: '*'
 type: overview
 topics:
@@ -58,15 +58,11 @@ The action is available for all {% ifversion fpt or ghec %}public repositories, 
 
 {% data reusables.dependency-review.action-enterprise %}
 
-The action uses the dependency review REST API to get the diff of dependency changes between the base commit and head commit. You can use the dependency review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see [AUTOTITLE](/rest/dependency-graph/dependency-review).{% ifversion dependency-review-submission-api %} The action also considers dependencies submitted via the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+The action uses the dependency review REST API to get the diff of dependency changes between the base commit and head commit. You can use the dependency review API to get the diff of dependency changes, including vulnerability data, between any two commits on a repository. For more information, see [AUTOTITLE](/rest/dependency-graph/dependency-review). The action also considers dependencies submitted via the {% data variables.dependency-submission-api.name %}. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
 {% data reusables.dependency-review.works-with-submission-api-beta %}
 
 You can configure the {% data variables.dependency-review.action_name %} to better suit your needs. For example, you can specify the severity level that will make the action fail{% ifversion dependency-review-action-licenses %}, or set an allow or deny list for licenses to scan{% endif %}. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-review-action).
-
-{% endif %}
-
-{% ifversion dependency-review-submission-api %}
 
 ## Best practices for using the dependency review API and the {% data variables.dependency-submission-api.name %} together
 
@@ -94,7 +90,6 @@ If you don’t use {% data variables.product.prodname_actions %}, and your code 
      * When there are snapshots missing for either side of the comparison, you will see an explanation for that in the `x-github-dependency-graph-snapshot-warnings` header (as a base64-encoded string). Therefore, if the header is non-empty, you should consider retrying.
      * Implement a retry logic with exponential backoff retries.
      * Implement a reasonable number of retries to account for the typical runtime of your dependency submission code.
-{% endif %}
 
 ## Further reading
 

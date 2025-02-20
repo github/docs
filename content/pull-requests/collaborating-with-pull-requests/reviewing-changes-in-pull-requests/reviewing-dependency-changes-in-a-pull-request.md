@@ -4,7 +4,7 @@ intro: 'If a pull request contains changes to dependencies, you can view a summa
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
-  ghes: '>= 3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:

@@ -2,8 +2,8 @@
 name: Bug Report
 description: File a bug report.
 title: "[Bug]: "
-labels: ["bug", "triage"]{% ifversion projects-in-issue-forms %}
-projects: ["octo-org/1", "octo-org/44"]{% endif %}
+labels: ["bug", "triage"]
+projects: ["octo-org/1", "octo-org/44"]
 assignees:
   - octocat
 body:
@@ -35,8 +35,8 @@ body:
       description: What version of our software are you running?
       options:
         - 1.0.2 (Default)
-        - 1.0.3 (Edge){% ifversion issue-form-dropdown-defaults %}
-      default: 0{% endif %}
+        - 1.0.3 (Edge)
+      default: 0
     validations:
       required: true
   - type: dropdown

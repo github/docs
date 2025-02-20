@@ -24,8 +24,8 @@ With default setup for {% data variables.product.prodname_code_scanning %}, you 
 You can enable {% data variables.product.prodname_code_scanning %} for all repositories in your organization that are eligible for default setup. After enabling default setup, the code written in {% data variables.product.prodname_codeql %}-supported languages in repositories in the organization will be scanned:
 
 * On each push to the repository's default branch, or any protected branch. For more information on protected branches, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
-* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.{% ifversion default-setup-scan-on-schedule %}
-* On a weekly schedule.{% endif %}
+* When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.
+* On a weekly schedule.
 
 For more information, see [Configuring default setup for all eligible repositories in an organization](#configuring-default-setup-for-all-eligible-repositories-in-an-organization).
 
@@ -41,8 +41,6 @@ For repositories that are not eligible for default setup, you can configure adva
 <a name="eligible-repositories-default-setup"></a>
 
 ### Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale
-
-{% data reusables.code-scanning.beta-org-enable-all %}
 
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
@@ -63,13 +61,9 @@ A repository must meet all the following criteria to be eligible for default set
 
 {% endif %}
 
-{% ifversion code-scanning-default-setup-automatic-311 %}
-
 ### About adding languages to an existing default setup configuration
 
 If the code in a repository changes to include {% ifversion code-scanning-default-setup-recommended-languages %}Go, JavaScript/TypeScript, Python, or Ruby,{% else %}a {% data variables.product.prodname_codeql %}-supported language,{% endif %} {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
-
-{% endif %}
 
 {% ifversion org-private-registry %}
 
@@ -84,8 +78,6 @@ When a repository uses code stored in a private registry, default setup needs ac
 {% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 {% else %}
 Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
-
-{% data reusables.code-scanning.beta-org-enable-all %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

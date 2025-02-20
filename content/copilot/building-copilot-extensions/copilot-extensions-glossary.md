@@ -9,13 +9,11 @@ shortTitle: Extensions Glossary
 type: reference
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 The following terms are used in the context of {% data variables.product.prodname_copilot_extensions_short %}, and are defined here for clarity.
 
 #### Agent
 
-A concrete implementation of an AI assistant that can receive user queries and return a stream of response tokens. The combination of an agent + {% data variables.product.prodname_github_app %} is what we refer to as a {% data variables.product.prodname_copilot_extension_short %}.
+A type of {% data variables.product.prodname_copilot_extension_short %} implementation that gives developers full control over handling user queries and response generation. This approach is ideal for builders who want complete customization and management of AI interactions.
 
 #### Context Passing
 
@@ -51,7 +49,7 @@ An extension that appears on the {% data variables.product.prodname_marketplace 
 
 #### Private Extension
 
-An extension that is only visible and usable by the organization or individual user that created it.
+An extension that is only visible and usable by the enterprise, organization, or individual user that created it. Enterprise-created extensions can be installed by organizations that are within the enterprise.
 
 #### Public Extension
 
@@ -63,7 +61,7 @@ A piece of code that retrieves context or executes an action in response to a us
 
 #### Skillset
 
-A collection of skills in the form of an implementation in {% data variables.product.prodname_copilot_extensions %} that allows developers to connect external services or custom API endpoints to Copilot with minimal complexity. The {% data variables.product.prodname_copilot_extensibility_platform_short %} handles prompt crafting, function evaluation, and response generation. The developer handles only the API call.
+A type of {% data variables.product.prodname_copilot_extension_short %} implementation that gives developers the ability to connect external services and custom API endpoints to {% data variables.product.prodname_copilot_short %} with minimal complexity. The {% data variables.product.prodname_copilot_extensibility_platform_short %} handles prompt crafting, function evaluation, and response generation. The builder only needs to handle API skill definitions. This approach is ideal for builders who want minimal complexity.
 
 #### Tool/Function Calling
 

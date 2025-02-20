@@ -543,7 +543,6 @@ This utility returns webhook delivery logs for administrators to review and iden
 ghe-webhook-logs
 ```
 
-{% ifversion ghes > 3.10 %}
 To show all hook deliveries filtered by a given event:
 
 ```shell
@@ -554,7 +553,6 @@ To show all hook deliveries filtered by a given event and action:
 
 ```shell
 ghe-webhook-logs --event issues.opened
-{% endif %}
 To show all failed hook deliveries in the past day:
 
 ```shell

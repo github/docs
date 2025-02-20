@@ -38,9 +38,7 @@ Deleting your organization account removes all repositories, forks of private re
 
 {% data reusables.package_registry.delete-account-namespace-retirement %}
 
-{% ifversion archive-organizations %}
 You can also archive an organization, instead of deleting it. Archiving an organization will make it read-only. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
-{% endif %}
 
 ## Backing up your organization content
 

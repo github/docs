@@ -116,8 +116,6 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 ### Extra filters for the "Coverage" view
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
-
 | Qualifier | Description |
 | -------- | -------- |
 | `advanced-security` | Display data for repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled or not enabled. |

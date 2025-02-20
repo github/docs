@@ -10,8 +10,6 @@ type: reference
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot_short %}'s Language Learning Model (LLM)
 
 {% data variables.product.prodname_copilot_short %}'s Language Learning Model (LLM) is a powerful, large-scale language model that is trained on a diverse range of data sources, including code, documentation, and other text. {% data variables.product.prodname_copilot_short %}'s LLM underpins the functionality for {% data variables.product.prodname_copilot %}, and is used to power all of {% data variables.product.prodname_copilot_short %}'s features, including code generation, documentation generation, and code completion.
@@ -22,7 +20,7 @@ You have the option to use {% data variables.product.prodname_copilot_short %}'s
 
 ## Using {% data variables.product.prodname_copilot_short %}'s LLM for your agent
 
-You can call {% data variables.product.prodname_copilot_short %}'s LLM deployment at `{% data variables.copilot.chat_completions_api %}` with a POST request. The request and responses should be in the same format as the OpenAI API.
+You can call {% data variables.product.prodname_copilot_short %}'s LLM deployment at `{% data variables.copilot.chat_completions_api %}` with a POST request. Requests and responses should follow the format as the [OpenAI API](https://platform.openai.com/docs/api-reference/chat/create).
 
 To authenticate, use the same `X-Github-Token` header sent to your agent. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/configuring-your-copilot-agent-to-communicate-with-github#fetching-resources-from-the-github-api).
 
