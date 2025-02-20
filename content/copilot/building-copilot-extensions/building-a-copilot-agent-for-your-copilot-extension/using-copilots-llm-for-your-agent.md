@@ -10,9 +10,9 @@ type: reference
 allowTitleToDifferFromFilename: true
 ---
 
-## About {% data variables.product.prodname_copilot_short %}'s Language Learning Model (LLM)
+## About {% data variables.product.prodname_copilot_short %}'s Large Language Model (LLM)
 
-{% data variables.product.prodname_copilot_short %}'s Language Learning Model (LLM) is a powerful, large-scale language model that is trained on a diverse range of data sources, including code, documentation, and other text. {% data variables.product.prodname_copilot_short %}'s LLM underpins the functionality for {% data variables.product.prodname_copilot %}, and is used to power all of {% data variables.product.prodname_copilot_short %}'s features, including code generation, documentation generation, and code completion.
+{% data variables.product.prodname_copilot_short %}'s Large Language Model (LLM) is a powerful, large-scale language model that is trained on a diverse range of data sources, including code, documentation, and other text. {% data variables.product.prodname_copilot_short %}'s LLM underpins the functionality for {% data variables.product.prodname_copilot %}, and is used to power all of {% data variables.product.prodname_copilot_short %}'s features, including code generation, documentation generation, and code completion.
 
 You have the option to use {% data variables.product.prodname_copilot_short %}'s LLM to power your agent, which can be useful if you want your agent to be able to generate completions for user messages, but you don't want to manage your own LLM.
 
