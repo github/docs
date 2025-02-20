@@ -269,7 +269,7 @@ To configure {% data variables.product.prodname_copilot %} in {% data variables.
 
 You can use the default keyboard shortcuts for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_copilot %}. Search keyboard shortcuts by command name in the Keyboard Shortcuts editor.
 
-Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [VS Code documentation on key bindings](https://code.visualstudio.com/docs/getstarted/keybindings).
+Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [VS Code documentation on editing shortcuts](https://code.visualstudio.com/Docs/editor/keybindings).
 
 ### Keyboard shortcuts for macOS
 
