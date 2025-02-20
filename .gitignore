@@ -27,9 +27,6 @@ broken_links.md
 # still have these files on their disk.
 lib/redirects/.redirects-cache*.json
 
-# During the preview deploy untrusted user code may be cloned into this directory
-# We ignore it from git to keep things deterministic
-user-code/
 
 # Logs from scripts
 */logs/
