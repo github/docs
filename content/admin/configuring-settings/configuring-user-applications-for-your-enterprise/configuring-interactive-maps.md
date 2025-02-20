@@ -21,17 +21,11 @@ To enable interactive maps, you must provide authentication credentials for Azur
 {% ifversion ghes < 3.13 %}
 
 > [!WARNING]
-> Authentication with Azure Maps using an API token is {% data variables.release-phases.retired %} in {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.11 %}1{% endif %} and later. If you upgrade to the latest release of {% data variables.product.prodname_ghe_server %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
+> Authentication with Azure Maps using an API token is {% data variables.release-phases.retired %} in {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}. and later. If you upgrade to the latest release of {% data variables.product.prodname_ghe_server %} on an instance already configured to authenticate with an API token, interactive maps will be disabled. You must reconfigure authentication using role-based access control (RBAC) for an application on a Microsoft Entra ID (previously known as Azure AD) tenant. {% data reusables.enterprise.azure-maps-auth-deprecation-link %}
 
 {% endif %}
 
 ## Prerequisites
-
-{% ifversion ghes < 3.12 %}
-
-The following prerequisites apply if your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.1 or later.
-
-{% endif %}
 
 * To configure interactive maps for your instance, you must have administrative access to a tenant in Microsoft Entra ID. For more information, contact the administrator for Microsoft resources at your company, or see [Quickstart: Create a new tenant in Microsoft Entra ID](https://learn.microsoft.com/entra/fundamentals/create-new-tenant) on Microsoft Learn.
 
@@ -39,21 +33,7 @@ The following prerequisites apply if your instance runs {% data variables.produc
 
 * Your instance must be able to access https://login.microsoftonline.com.
 
-{% ifversion ghes < 3.12 %}
-
-If your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.0, you must provide an API token for Azure Maps instead.
-
-{% data reusables.enterprise.azure-maps-auth-warning %}
-
-{% endif %}
-
 ## Generating credentials for Azure Maps
-
-{% ifversion ghes < 3.12 %}
-
-To configure authentication for Azure Maps using RBAC, your instance must run {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.1 or later.
-
-{% endif %}
 
 To generate credentials for Azure Maps, you must create an application for your tenant in Entra ID, provide the application access to an Azure Maps account, and configure role-based access control (RBAC).
 
@@ -90,11 +70,11 @@ After you create an application on your Entra ID tenant and generate a secret fo
    ```
 
    Store the string in a secure location that you can reference in the next step.
-1. {% ifversion ghes > 3.11 %}Below the headings, type or paste{% else %}Enter{% endif %} your authentication details for Azure Maps.
+1. Below the headings, type or paste your authentication details for Azure Maps.
 
-   * If your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.11 %}0{% endif %}, below "Azure Maps API Token", type or paste your token.
+   * If your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}., below "Azure Maps API Token", type or paste your token.
  %}
-   * If your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.11 %}1{% endif %} or later, below the headings, type or paste the following information.
+   * If your instance runs {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}. or later, below the headings, type or paste the following information.
 
      * Optionally, to change the style of rendered maps, under "Basemap ID", type the ID for the style you'd like to use.
      * Under the headings, type or paste your authentication details.

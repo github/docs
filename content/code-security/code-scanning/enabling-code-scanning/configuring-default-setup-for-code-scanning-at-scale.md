@@ -45,7 +45,7 @@ For repositories that are not eligible for default setup, you can configure adva
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
 * {% ifversion fpt %}{% data variables.product.prodname_code_scanning_caps %}{% else %}Advanced setup for {% data variables.product.prodname_code_scanning %}{% endif %} is not already enabled.
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}{% elsif code-scanning-default-setup-recommended-languages %}
+* {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}
 * Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}{% ifversion fpt %}
 * Publicly visible.{%- elsif ghec %}
 * Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
@@ -63,7 +63,7 @@ A repository must meet all the following criteria to be eligible for default set
 
 ### About adding languages to an existing default setup configuration
 
-If the code in a repository changes to include {% ifversion code-scanning-default-setup-recommended-languages %}Go, JavaScript/TypeScript, Python, or Ruby,{% else %}a {% data variables.product.prodname_codeql %}-supported language,{% endif %} {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
+If the code in a repository changes to include a {% data variables.product.prodname_codeql %}-supported language, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 
 {% ifversion org-private-registry %}
 

@@ -339,8 +339,6 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion merge-queue %}
-
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -362,8 +360,6 @@ on:
   merge_group:
     types: [checks_requested]
 ```
-
-{% endif %}
 
 ## `milestone`
 

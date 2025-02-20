@@ -24,7 +24,6 @@ children:
   - /monitoring-the-health-of-your-cluster
   - /monitoring-the-health-of-your-cluster-nodes-with-node-eligibility-service
   - /rebalancing-cluster-workloads
-  - /evacuating-a-cluster-node-running-data-services
   - /replacing-a-cluster-node
   - /configuring-high-availability-replication-for-a-cluster
   - /initiating-a-failover-to-your-replica-cluster

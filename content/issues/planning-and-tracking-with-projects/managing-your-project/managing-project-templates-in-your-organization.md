@@ -13,13 +13,13 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-{% data reusables.projects.org-templates-release-stage %}
+
 
 ## About templates
 
 You can create a template, or set a project as a template, to share a pre-configured project with other people in your organization which they can then use as the base for their projects.
 
-The projects you mark as templates are shown in the "Create a project" dialog when anyone creates a project in your organization. {% ifversion projects-v2-org-templates-GA-updates %}You can also configure up to six templates to recommend to your organization's members.{% endif %}
+The projects you mark as templates are shown in the "Create a project" dialog when anyone creates a project in your organization. You can also configure up to six templates to recommend to your organization's members.
 
 When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. You can find the template that a project used from the project's settings page, under the "Templates" section.
 
@@ -56,8 +56,6 @@ If you have write or admin permissions for a project in your organization, you c
 {% data reusables.projects.project-settings %}
 1. In the "Templates" section, click **{% octicon "duplicate" aria-hidden="true" %} Copy as template**.
 
-{% ifversion projects-v2-org-templates-GA-updates %}
-
 ## Configuring recommended templates
 
 If you are an organization owner, you can select up to six templates to recommend to your organization's members. These recommended templates are suggested first when an organization member creates a new project.
@@ -86,8 +84,6 @@ You can change the display order of your recommended templates in the "Create pr
 1. Under "Recommended templates", find the template you want to reposition, click on {% octicon "grabber" aria-label="Drag to reorder" %}, and drag the template to the new position.
 
    ![Screenshot of an organization's recommended templates settings. The 'Drag to reorder' handle is highlighted with an orange outline.](/assets/images/help/projects-v2/rec-template-handle.png)
-
-{% endif %}
 
 ## Further reading
 
