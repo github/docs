@@ -26,9 +26,9 @@ If you're using advanced setup and your workflow doesn't explicitly specify the 
       # ...
       strategy:
         fail-fast: false
-        matrix: 
-          language: ['csharp', 'c-cpp', 'javascript-typescript'] 
-          language: ['csharp', 'cpp', 'javascript'] 
+        matrix: {% ifversion codeql-language-identifiers-311 %}
+          language: ['csharp', 'c-cpp', 'javascript-typescript'] {% else %}
+          language: ['csharp', 'cpp', 'javascript'] {% endif %}
 
       steps:
       # ...
