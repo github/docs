@@ -19,6 +19,10 @@ A type of {% data variables.product.prodname_copilot_extension_short %} implemen
 
 A capability in {% data variables.product.prodname_copilot_extensions_short %} that enables user context from editors to be sent to agents, allowing for more tailored responses.
 
+#### Context Passing
+
+A capability in {% data variables.product.prodname_copilot_extensions_short %} that enables user context from editors to be sent to agents, allowing for more tailored responses.
+
 #### {% data variables.product.prodname_copilot_chat_short %}
 
 The conversational interface within {% data variables.product.prodname_copilot %} where users can interact with the AI assistant and extensions.
