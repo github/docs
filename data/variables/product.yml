@@ -95,7 +95,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
   {% ifversion ghes < 3.12 %}2.14.6{% elsif ghes < 3.17 %}2.20.3{% endif %}
-
+codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
 prodname_projects_v1: >-
