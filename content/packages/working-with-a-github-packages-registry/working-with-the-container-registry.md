@@ -15,7 +15,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.5'
+  ghes: '*'
 shortTitle: Container registry
 ---
 

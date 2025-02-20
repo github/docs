@@ -17,13 +17,11 @@ allowTitleToDifferFromFilename: true
 
 ## About templates
 
-You can {% ifversion projects-v2-org-templates-improvements %}create a template, or {% endif %}set a project as a template{% ifversion projects-v2-org-templates-improvements %},{% endif %} to share a pre-configured project with other people in your organization which they can then use as the base for their projects.
+You can create a template, or set a project as a template, to share a pre-configured project with other people in your organization which they can then use as the base for their projects.
 
 The projects you mark as templates are shown in the "Create a project" dialog when anyone creates a project in your organization. {% ifversion projects-v2-org-templates-GA-updates %}You can also configure up to six templates to recommend to your organization's members.{% endif %}
 
-When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. {% ifversion projects-v2-org-templates-improvements %}You can find the template that a project used from the project's settings page, under the "Templates" section.{% endif %}
-
-{% ifversion projects-v2-org-templates-improvements %}
+When someone creates a project from a template, the {% data reusables.projects.what-gets-copied %} are copied from the template to the new project. You can find the template that a project used from the project's settings page, under the "Templates" section.
 
 ## Creating a new template
 
@@ -32,8 +30,6 @@ When someone creates a project from a template, the {% data reusables.projects.w
 {% data reusables.projects.projects-tab %}
 {% data reusables.projects.templates-tab %}
 1. Click **New template**.
-
-{% endif %}
 
 ## Setting a project as a template
 
@@ -44,8 +40,6 @@ If you have admin permissions for a project in your organization, you can set th
 
 ## Finding templates in your organization
 
-{% ifversion projects-v2-org-templates-improvements %}
-
 You can find all the templates in your organization on the "Templates" page.
 
 {% data reusables.profile.access_org %}
@@ -54,19 +48,6 @@ You can find all the templates in your organization on the "Templates" page.
 {% data reusables.projects.templates-tab %}
 
 You can also add templates to teams and repositories, to make them accessible and more visible from the team or repository's "Templates" page. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-team) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/adding-your-project-to-a-repository).
-
-{% else %}
-
-You can filter the list of projects in your organization to only show projects set as templates.
-
-{% data reusables.profile.access_org %}
-{% data reusables.user-settings.access_org %}
-{% data reusables.projects.projects-tab %}
-1. In the text box above the list of projects, type `is:template`, and press **Enter**.
-
-   ![Screenshot of the projects index page. The search text box is highlighted with an orange outline.](/assets/images/help/projects-v2/filter-for-templates.png)
-
-{% endif %}
 
 ## Copying a project as a template
 

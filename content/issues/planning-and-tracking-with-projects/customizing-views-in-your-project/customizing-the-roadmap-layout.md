@@ -48,13 +48,9 @@ You can choose the density of items on your roadmap. You can zoom in to show one
 
 1. Select either **Month**, **Quarter**, or **Year**.
 
-{% ifversion projects-v2-slice-panel %}
-
 ## Slicing by field values
 
 {% data reusables.projects.customize.slice-panel %}
-
-{% endif %}
 
 ## Sorting by field values
 

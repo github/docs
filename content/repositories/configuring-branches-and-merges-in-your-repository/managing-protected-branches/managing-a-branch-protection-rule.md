@@ -42,12 +42,8 @@ To create an exception to an existing branch rule, you can create a new branch p
 
 For more information about each of the available branch protection settings, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
-{% ifversion repo-rules %}
-
 > [!NOTE]
 > Only a single branch protection rule can apply at a time, which means it can be difficult to know how which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% endif %}
 
 ## Creating a branch protection rule
 

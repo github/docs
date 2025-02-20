@@ -51,7 +51,7 @@ Third-party systems can be observability systems, change management systems, cod
 
 Use required reviewers to require a specific person or team to approve workflow jobs that reference the environment. You can list up to six users or teams as reviewers. The reviewers must have at least read access to the repository. Only one of the required reviewers needs to approve the job for it to proceed.
 
-{% ifversion deployments-prevent-self-approval %}You also have the option to prevent self-reviews for deployments to protected environments. If you enable this setting, users who initiate a deployment cannot approve the deployment job, even if they are a required reviewer. This ensures that deployments to protected environments are always reviewed by more than one person.{% endif %}
+You also have the option to prevent self-reviews for deployments to protected environments. If you enable this setting, users who initiate a deployment cannot approve the deployment job, even if they are a required reviewer. This ensures that deployments to protected environments are always reviewed by more than one person.
 
 For more information on reviewing jobs that reference an environment with required reviewers, see [AUTOTITLE](/actions/managing-workflow-runs/reviewing-deployments).
 
@@ -82,12 +82,11 @@ Use deployment branches{% ifversion deployment-protections-tag-patterns %} and t
 {%- else %}
 * **All branches:** All branches in the repository can deploy to the environment.
 {%- endif %}
-* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}:** Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).{% ifversion actions-protected-branches-restrictions %}
+* **Protected branches{% ifversion deployment-protections-tag-patterns %} only{% endif %}:** Only branches with branch protection rules enabled can deploy to the environment. If no branch protection rules are defined for any branch in the repository, then all branches can deploy. For more information about branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
   > [!NOTE]
   > Deployment workflow runs triggered by tags with the same name as a protected branch and forks with branches that match the protected branch name cannot deploy to the environment.
 
-  {% endif %}
 * **Selected branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %}:** Only branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} that match your specified name patterns can deploy to the environment.
 
   If you specify `releases/*` as a deployment branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} rule, only a branch{% ifversion deployment-protections-tag-patterns %} or tag{% endif %} whose name begins with `releases/` can deploy to the environment. (Wildcard characters will not match `/`. To match branches{% ifversion deployment-protections-tag-patterns %} or tags{% endif %} that begin with `release/` and contain an additional single slash, use `release/*/*`.) If you add `main` as a branch rule, a branch named `main` can also deploy to the environment. For more information about syntax options for deployment branches, see the [Ruby `File.fnmatch` documentation](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch).
@@ -180,7 +179,7 @@ Variables stored in an environment are only available to workflow jobs that refe
 1. Optionally, specify people or teams that must approve workflow jobs that use this environment. For more information, see [Required reviewers](#required-reviewers).
    1. Select **Required reviewers**.
    1. Enter up to 6 people or teams. Only one of the required reviewers needs to approve the job for it to proceed.
-   {% ifversion deployments-prevent-self-approval %}1. Optionally, to prevent users from approving workflows runs that they triggered, select **Prevent self-review**.{% endif %}
+   1. Optionally, to prevent users from approving workflows runs that they triggered, select **Prevent self-review**.
    1. Click **Save protection rules**.
 1. Optionally, specify the amount of time to wait before allowing workflow jobs that use this environment to proceed. For more information, see [Wait timer](#wait-timer).
    1. Select **Wait timer**.

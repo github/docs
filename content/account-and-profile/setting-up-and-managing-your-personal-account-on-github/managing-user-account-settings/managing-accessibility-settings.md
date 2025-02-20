@@ -16,9 +16,7 @@ type: how_to
 
 To create an experience on {% data variables.product.github %} that fits your needs, you can customize the user interface. Accessibility settings can be essential for people with disabilities, but can be useful to anyone. For example, customization of keyboard shortcuts is essential to people who navigate using voice control, but can be useful to anyone when a keyboard shortcut for {% data variables.product.github %} clashes with another application shortcut.
 
-You can decide whether you want to use some or all keyboard shortcuts, and control the display of animated images{% ifversion link-underlines %} and how links are displayed{% endif %}.
-
-{% ifversion link-underlines %}
+You can decide whether you want to use some or all keyboard shortcuts, and control the display of animated images and how links are displayed.
 
 ## Managing the appearance of links
 
@@ -31,8 +29,6 @@ You can control whether links in text blocks are underlined and therefore more d
     * To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
     * To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
     * To disable hovercards for previewing link content, deselect **Hovercards**.
-
-{% endif %}
 
 ## Managing keyboard shortcuts
 
