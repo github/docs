@@ -10,25 +10,25 @@ topics:
   - Enterprise
   - Billing
   - REST
-permissions: 'Enterprise owners and billing managers'
+permissions: 'Enterprise owners, organization owners, and billing managers'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
 You can automatically pull data from {% data variables.product.github %} to populate the business systems you use to monitor costs and usage using the REST API. If you haven't used the {% data variables.product.github %} REST API before, the following articles are a good starting point, see [AUTOTITLE](/rest/using-the-rest-api).
 
-## Using the billing platform `/usage` endpoint to retrieve metered usage details for an enterprise
+## Using the billing platform `/usage` endpoint to retrieve metered usage details for an enterprise or organization
 
-The enhanced billing platform provides a single REST API `/usage` endpoint that you can use to report on the use of all metered products. The usage data provided by this endpoint is available only to enterprise owners and enterprise billing managers, so you will need to authenticate with {% data variables.product.github %}.
+The enhanced billing platform provides REST API `/usage` endpoints that you can use to report on the use of all metered products in an enterprise or an organization. The usage data provided by the enterprise endpoint is available to enterprise owners and enterprise billing managers, and the data provided by the organization endpoint is available to organization owners within an enterprise and organization owners within an organization account. You will need to authenticate with {% data variables.product.github %}.
 
 * If you use the GitHub CLI, use the `gh auth login` command to authenticate.
 * Otherwise, you will need to create a {% data variables.product.pat_v1 %}, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
 
-When you call the `/usage` endpoint, you must specify the enterprise that you want data for and, by default, usage for the current year that does not belong to a cost center is reported. You can reduce the scope of data returned by the endpoint using query parameters.
+When you call a `/usage` endpoint, you must specify the enterprise or organization that you want data for and, by default, usage for the current year that does not belong to a cost center is reported. You can reduce the scope of data returned by the endpoint using query parameters.
 
 * Define a specific time period by setting one or more of the following parameters: `year`, `month`, `day`, and `hour`.
-* Define a cost center to report on by identifier using the `cost_center_id` query parameter.
+* Define a cost center to report on by identifier using the `cost_center_id` query parameter. This query parameter is only available for the enterprise-level endpoint.
 
-For more detailed information and an example call and response, see [Get billing usage report for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise).
+For more detailed information and an example call and response, see [Get billing usage report for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) or [Get billing usage report for an organization](/rest/billing/enhanced-billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-organization) .
 
 <!-- expires 2025-07-01 -->
 ## Migrating from the endpoints used for the previous billing platform
