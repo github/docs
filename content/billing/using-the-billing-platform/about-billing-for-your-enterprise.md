@@ -20,8 +20,6 @@ shortTitle: Billing for your enterprise
 
 ## About billing for your enterprise
 
-{% ifversion ghec or ghes %}
-
 {% ifversion ghec %}
 
 When you use an enterprise account on {% data variables.product.prodname_dotcom %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
@@ -52,8 +50,6 @@ Administrators for your enterprise account on {% data variables.product.prodname
 
 {% ifversion ghes %}
 {% data reusables.billing.ghes-with-no-enterprise-account %}
-{% endif %}
-
 {% endif %}
 
 {% ifversion enhanced-billing-platform %}

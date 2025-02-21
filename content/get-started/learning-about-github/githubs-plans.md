@@ -122,7 +122,7 @@ In addition to the features available with {% data variables.product.prodname_te
 * Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
 * {% data variables.product.prodname_github_connect %}
 * The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-* Additional features such as internal repositories{% ifversion repo-rules %}, security overview, and repository rules{% else %} and security overview{% endif %}.
+* Additional features such as internal repositories, security overview, and repository rules.
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 * 50,000 {% data variables.product.prodname_actions %} minutes per month

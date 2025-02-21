@@ -16,7 +16,7 @@ versions:
   ghec: '*'
 ---
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
+
 
 ## About adoption of code security features
 

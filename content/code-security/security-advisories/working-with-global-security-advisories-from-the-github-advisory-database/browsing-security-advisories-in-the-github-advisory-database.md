@@ -37,8 +37,7 @@ You can access any advisory in the {% data variables.product.prodname_advisory_d
 
 The database is also accessible using the GraphQL API. By default, queries will return {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities unless you specify `type:malware`. For more information, see the [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#security_advisory).
 
-{% ifversion security-advisories-rest-api %}
-Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see [AUTOTITLE](/rest/security-advisories/global-advisories).{% endif %}
+Additionally, you can access the {% data variables.product.prodname_advisory_database %} using the REST API. For more information, see [AUTOTITLE](/rest/security-advisories/global-advisories).
 
 ## Editing an advisory in the {% data variables.product.prodname_advisory_database %}
 

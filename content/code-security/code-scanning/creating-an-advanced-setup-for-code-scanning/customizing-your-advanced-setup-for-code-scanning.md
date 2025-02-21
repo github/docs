@@ -249,8 +249,6 @@ The `category` value will appear as the `<run>.automationDetails.id` property in
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
 
-{% ifversion codeql-model-packs %}
-
 ## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs
 
 If your codebase depends on a library or framework that is not recognized by the standard queries in {% data variables.product.prodname_codeql %}, you can extend the {% data variables.product.prodname_codeql %} coverage in your {% data variables.product.prodname_code_scanning %} workflow by specifying published {% data variables.product.prodname_codeql %} model packs. For more information about creating your own model packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs#creating-a-model-pack).
@@ -274,8 +272,6 @@ To add one or more published {% data variables.product.prodname_codeql %} model 
 ```
 
 In this example, the default queries will be run for Java, as well as the queries from a version greater than or equal to `7.8.9` and less than `7.9.0` of the query pack `my-company/my-java-queries`. The dependencies modeled in the latest version of the model pack `my-repo/my-java-model-pack` will be available to both the default queries and those in `my-company/my-java-queries`.
-
-{% endif %}
 
 ## Running additional queries
 

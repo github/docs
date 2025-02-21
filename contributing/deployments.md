@@ -2,9 +2,9 @@
 
 Staging and production deployments are automated by a deployer service created and maintained by @github/docs-engineering.
 
-### Preview deployments
+### Review deployments
 
-When a pull request contains only content changes, it can be previewed without a deployment. Code changes will require a deployment. GitHub Staff can deploy such a PR to a staging environment. 
+TBD
 
 ### Production deployments
 

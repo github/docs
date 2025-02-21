@@ -31,15 +31,17 @@ If you started a trial of {% data variables.product.prodname_GH_advanced_securit
 
 There are a few key differences between metered and volume billing for {% data variables.product.prodname_GH_advanced_security %}.
 
-* **Metered billing:**
+* **GHE Metered billing**
 
   * Billed per active committer, with no pre-defined license limit.
   * No overage state, pay only for what you use.
 
-* **Volume billing:**
+* **GHE Volume/Subscription billing**
 
   * Purchase a defined number of licenses (for example, 100 licenses).
   * If usage exceeds purchased licenses, you will need to purchase additional licenses to cover this overage usage.
+
+For more detailed information about these two types of billing, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
 
 ### Managing committers and repositories
 

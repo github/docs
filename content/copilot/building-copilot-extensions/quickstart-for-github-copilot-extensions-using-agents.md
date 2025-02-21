@@ -12,8 +12,6 @@ topics:
 shortTitle: Extensions quickstart
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 The [Blackbeard extension](https://github.com/copilot-extensions/blackbeard-extension) is a {% data variables.product.prodname_copilot_extension %} built with a simple agent that responds to requests like a pirate using {% data variables.product.prodname_copilot_short %}'s large language model (LLM) API and special system prompts. This guide uses a simple agent implementation, but the process is similar for skillsets.
 
 This quickstart is designed to help you build and chat with the Blackbeard extension as quickly as possible, so you can develop and test your extension without deploying infrastructure. For production, you'll need to host the application for your agent or skillset's endpoints on a publicly accessible server. To instead learn how to create a new {% data variables.product.prodname_copilot_extension %}, see [AUTOTITLE](/copilot/building-copilot-extensions/setting-up-copilot-extensions).

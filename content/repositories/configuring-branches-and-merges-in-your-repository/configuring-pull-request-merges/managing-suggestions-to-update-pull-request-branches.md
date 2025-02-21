@@ -3,7 +3,7 @@ title: Managing suggestions to update pull request branches
 intro: You can give users the ability to always update a pull request branch when it is not up to date with the base branch.
 versions:
   fpt: '*'
-  ghes: '> 3.4'
+  ghes: '*'
   ghec: '*'
 topics:
   - Repositories

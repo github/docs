@@ -1,5 +1,3 @@
-{% data variables.product.prodname_copilot_chat_short %} uses the GPT 4o model by default. Depending on the task you are working on, you may want to use a different model, such as the {% data variables.copilot.copilot_claude_sonnet %} model or the o1 model. For a list of all AI models currently available to {% data variables.product.prodname_copilot_chat_short %}, and the advantages and limitations of each model, see [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?#ai-models-1).
-
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
 * **GPT 4o:** This is the default {% data variables.product.prodname_copilot_chat_short %} model. It is a versatile, multimodal model that excels in both text and image processing and is designed to provide fast, reliable responses. It also has superior performance in non-English languages. Learn more about the [model's capabilities](https://platform.openai.com/docs/models/gpt-4o) and review the [model card](https://openai.com/index/gpt-4o-system-card/). GPT 4o is hosted on Azure.

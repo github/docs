@@ -27,12 +27,8 @@ For more information about environments and required approvals, see [AUTOTITLE](
    * To approve the job, click **Approve and deploy**. Once a job is approved (and any other deployment protection rules have passed), the job will proceed. At this point, the job can access any secrets stored in the environment.
    * To reject the job, click **Reject**. If a job is rejected, the workflow will fail.
 
-{% ifversion deployments-prevent-self-approval %}
-
 > [!NOTE]
 > If the targeted environment is configured to prevent self-approvals for deployments, you will not be able to approve a deployment from a workflow run you initiated. For more information, see [AUTOTITLE](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#required-reviewers).
-
-{% endif %}
 
 ## Bypassing deployment protection rules
 

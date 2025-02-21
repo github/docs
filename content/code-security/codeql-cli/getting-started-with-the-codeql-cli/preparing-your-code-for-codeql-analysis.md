@@ -227,6 +227,7 @@ The following examples are designed to give you an idea of some of the build com
 * C/C++ project built using `make`:
 
   ```shell
+  # Disable parallel execution via `-j1` or other techniques: https://www.gnu.org/software/make/manual/make.html#Parallel-Execution
   codeql database create cpp-database --language={% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} --command=make
   ```
 

@@ -122,6 +122,8 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% endwebui %}
 
+* Secure your repository using {% data variables.product.github %}'s available security features. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
+
 * You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
 
 * {% data reusables.getting-started.being-social %}

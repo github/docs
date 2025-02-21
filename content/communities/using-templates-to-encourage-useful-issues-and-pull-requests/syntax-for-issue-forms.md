@@ -52,9 +52,9 @@ You can set the following top-level keys for each issue form.
 | {% ifversion issue-types %} |
 | `type` |  The issue type that will be automatically added to issues created with this template. Issue types are defined at the organization level and can be used to create a shared syntax across repos. | Optional | String |
 | {% endif %} |
-| {% ifversion projects-in-issue-forms %} |
+|  |
 | `projects` | Projects that any issues created with this template will automatically be added to. The format of this key is `PROJECT-OWNER/PROJECT-NUMBER`. > [!NOTE] The person opening the issue must have write permissions for the specified projects. If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see [Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically). | Optional | Array or comma-delimited string |
-| {% endif %} |
+|  |
 
 For the available `body` input types and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
 

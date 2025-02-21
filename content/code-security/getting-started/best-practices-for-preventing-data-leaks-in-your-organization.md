@@ -97,11 +97,7 @@ You can also proactively secure IP and maintain compliance for your organization
 
 To ensure that all code is properly reviewed prior to being merged into the default branch, you can enable branch protection. By setting branch protection rules, you can enforce certain workflows or requirements before a contributor can push changes. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
 
-{% ifversion repo-rules %}
-
 {% data reusables.repositories.rulesets-alternative %}
-
-{% endif %}
 
 ## Mitigate data leaks
 

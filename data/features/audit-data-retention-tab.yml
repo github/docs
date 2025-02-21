@@ -1,4 +1,0 @@
-# Reference #5104
-# Documentation for the "Audit data retention" tab in the enterprise audit log
-versions:
-  ghes: '>=3.4'

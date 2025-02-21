@@ -94,8 +94,8 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.17 %}2.20.3{% endif %}
-
+  {% ifversion ghes < 3.12 %}2.14.6{% elsif ghes < 3.17 %}2.20.3{% endif %}
+codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
 prodname_projects_v1: >-
@@ -119,13 +119,13 @@ pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v2_caps_plural: 'Fine-grained personal access tokens'
 pat_v1: >-
-  {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
+  personal access token (classic)
 pat_v1_plural: >-
-  {% ifversion pat-v2 %}personal access tokens (classic){% else %}personal access tokens{% endif %}
+  personal access tokens (classic)
 pat_v1_caps: >-
-  {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
+  Personal access token (classic)
 pat_v1_caps_plural: >-
-  {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+  Personal access tokens (classic)
 pat_classic: 'token (classic)'
 pat_classic_plural: 'tokens (classic)'
 pat_classic_caps: 'Token (classic)'
@@ -147,7 +147,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% endif %}
+  {% ifversion ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'

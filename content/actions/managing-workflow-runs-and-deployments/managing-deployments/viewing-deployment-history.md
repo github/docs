@@ -13,7 +13,6 @@ redirect_from:
   - /actions/deployment/viewing-deployment-history
   - /actions/deployment/managing-your-deployments/viewing-deployment-history
 ---
-{% ifversion actions-deployment-history-beta %}
 
 ## About deployment history
 
@@ -49,17 +48,3 @@ By default, the deployments page shows currently active deployments from select 
    1. Depending on the qualifier you chose, fill out information in the "Operator" and "Value" columns.
    1. Optionally, click **{% octicon "plus" aria-hidden="true" %} Add a filter** to add another filter.
    1. Click **Apply**.{% endif %}
-
-{% else %}
-
-{% data reusables.actions.about-deployment-with-github-actions %}
-
-To view current and past deployments, click **Environments** in the sidebar of the home page of your repository.
-
-The deployments page displays the last active deployment of each environment for your repository. If the deployment includes an environment URL, a **View deployment** button that links to the URL is shown next to the deployment.
-
-The activity log shows the deployment history for your environments. By default, only the most recent deployment for an environment has an `Active` status; all previously active deployments have an `Inactive` status. For more information on automatic inactivation of deployments, see [AUTOTITLE](/rest/deployments#inactive-deployments).
-
-You can also use the REST API to get information about deployments. For more information, see [AUTOTITLE](/rest/repos#deployments).
-
-{% endif %}

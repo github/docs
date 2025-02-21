@@ -59,5 +59,5 @@ shortTitle: Install on VMware
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/system-overview){% ifversion ghes %}
-* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases){% endif %}
+* [AUTOTITLE](/admin/overview/system-overview)
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)

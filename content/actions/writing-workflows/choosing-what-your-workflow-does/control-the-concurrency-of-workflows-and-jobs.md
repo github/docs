@@ -4,7 +4,7 @@ shortTitle: Concurrency
 intro: Run a single job at a time.
 versions:
   fpt: '*'
-  ghes: '> 3.1'
+  ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/using-concurrency
