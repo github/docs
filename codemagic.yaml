@@ -1,3 +1,8 @@
-git add codemagic.yaml
-git commit -m 'Add first workflow'
-git push
+workflows:
+  my-workflow:
+    name: My First Workflow
+    instance_type: mac_mini_m1
+    environment:
+      flutter: stable
+    scripts:
+      - echo "Hello, Codemagic!"
