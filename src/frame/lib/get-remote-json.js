@@ -77,7 +77,7 @@ export default async function getRemoteJSON(url, config) {
       }
       cache.set(cacheKey, JSON.parse(res.body))
 
-      // Only write to disk for testing and local preview.
+      // Only write to disk for testing and local review.
       // In production, we never write to disk. Only in-memory.
       if (!inProd) {
         fs.mkdirSync(path.dirname(onDisk), { recursive: true })

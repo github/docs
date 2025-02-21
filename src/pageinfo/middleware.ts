@@ -216,7 +216,7 @@ async function getPageInfoFromCache(page: Page, pathname: string) {
     // a HTTP GET request will only happen once per deployment. That's
     // because the CDN will cache it until the next deployment (which is
     // followed by a CDN purge).
-    // In development (local preview), the performance doesn't really matter.
+    // In development (local review), the performance doesn't really matter.
     // In CI, we use the caching because the CI runs
     // `npm run precompute-pageinfo` right before it runs vitest tests.
   }
