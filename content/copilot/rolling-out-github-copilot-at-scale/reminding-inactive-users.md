@@ -79,7 +79,7 @@ To use this workflow:
 1. Using the example below, create the workflow in the repository where you want the reminder issues to be created.
 
    If you're new to {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/writing-workflows/quickstart).
-1. If you want to create the issues in a repository other than the one in which the workflow is located, replace `${{ github.repository }}` in the `gh` commands with the name of the repository where you want the reminder issues to be created. For example: `octo-org/octo-repo`.
+1. If you want to create the issues in a repository other than the one in which the workflow is located, replace `{% raw %}${{ github.repository }}{% endraw %}` in the `gh` commands with the name of the repository where you want the reminder issues to be created. For example: `octo-org/octo-repo`.
 
 ### Example workflow
 
@@ -149,7 +149,7 @@ jobs:
 
         # Set the GH_TOKEN, required for the 'gh issue' commands
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```
 
 <!-- markdownlint-enable GHD021 -->

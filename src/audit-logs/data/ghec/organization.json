@@ -3120,6 +3120,11 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_closure_request.approve",
+    "description": "A request to close a secret scanning alert was approved by a user.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "secret_scanning_closure_request.create",
     "description": "N/A",
     "docs_reference_links": "A user requested to close a secret scanning alert."
