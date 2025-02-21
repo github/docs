@@ -185,7 +185,7 @@ export function initializeExperiments(
       experiment.percentOfUsersToGetExperiment,
     )
 
-    // Even in preview & prod it is useful to see if a given experiment is "on" or "off"
+    // In any environment, it is useful to see if a given experiment is "on" or "off"
     console.log(
       `Experiment ${experiment.key} is in the "${controlGroup === TREATMENT_VARIATION ? TREATMENT_VARIATION : CONTROL_VARIATION}" group for this browser.\nCall function window.overrideControlGroup('${experiment.key}', 'treatment' | 'control') to change your group for this session.`,
     )

@@ -26,7 +26,6 @@
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | todocs-placeholder | Catch occurrences of TODOCS placeholder. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | docs-domain | Catch occurrences of docs.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | help-domain | Catch occurrences of help.github.com domain. | error |  |
-| [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | preview-domain | Catch occurrences of preview.ghdocs.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | developer-domain | Catch occurrences of developer.github.com domain. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: site.data | Catch occurrences of deprecated liquid data syntax. | error |  |
 | [search-replace](https://github.com/OnkarRuikar/markdownlint-rule-search-replace) | deprecated liquid syntax: octicon-<icon-name> | The octicon liquid syntax used is deprecated. Use this format instead `octicon "<octicon-name>" aria-label="<Octicon aria label>"` | error |  |

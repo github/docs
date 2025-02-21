@@ -49,7 +49,7 @@ npm ci
 npm start
 ```
 
-You should now have a running server. To access your local preview environment, visit [localhost:4000](http://localhost:4000) in your browser.
+You should now have a running server. To access your local environment, visit [localhost:4000](http://localhost:4000) in your browser.
 
 When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> in your terminal window.
 
