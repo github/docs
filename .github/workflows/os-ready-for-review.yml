@@ -1,4 +1,4 @@
-name: OS Ready for review
+[![OS Ready for review](https://github.com/github/docs/actions/workflows/os-ready-for-review.yml/badge.svg)](https://github.com/github/docs/actions/workflows/os-ready-for-review.yml): OS Ready for review
 
 # **What it does**: Adds pull requests and issues in the docs repository to the docs-content review board when the "waiting for review" label is added
 # **Why we have it**: So that contributors in the OS repo can easily get reviews from the docs-content team, and so that writers can see when a PR is ready for review
