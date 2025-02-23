@@ -1,7 +1,7 @@
 name: docs-internal Moda CI
 
-# More info on CI actions setup can be found here:
-# https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
+ More info on CI actions setup can be found here:
+https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
 
 on:
   workflow_dispatch:
@@ -13,7 +13,7 @@ on:
 
 jobs:
   ##########################
-  # Generate Vault keys
+   Generate Vault keys
   ##########################
   set-vault-keys:
     runs-on: ubuntu-latest
@@ -73,7 +73,7 @@ jobs:
       datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
 
   #############
-  # Docker Security jobs
+   Docker Security jobs
   #############
   docker-security:
     if: ${{ github.repository == 'github/docs-internal' }}
