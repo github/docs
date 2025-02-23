@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
     - /get-started/getting-started-with-git/set-up-git
@@ -51,6 +51,7 @@ versions:
 children:
   - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
   - authentication
   - repositories
@@ -83,6 +84,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
+
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -105,10 +107,10 @@ childGroups:
     children:
       - copilot
       - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-      - copilot/using-github-copilot/prompt-engineering-for-github-copilot
-      - copilot/example-prompts-for-github-copilot-chat
-      - copilot/using-github-copilot/asking-github-copilot-questions-in-github
-      - copilot/using-github-copilot/guides-on-using-github-copilot/refactoring-code-with-github-copilot
+      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
+      - copilot/copilot-chat-cookbook
+      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -141,6 +143,7 @@ childGroups:
     children:
       - organizations
       - code-security/securing-your-organization
+      - enterprise-onboarding
       - admin
       - gh-wa
   - name: Developers

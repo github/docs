@@ -5,7 +5,7 @@ intro: 'Learn how to deploy runner scale sets with {% data variables.product.pro
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller
@@ -177,7 +177,7 @@ kubectl create secret generic pre-defined-secret \
   --namespace=arc-runners \
   --from-literal=github_app_id=123456 \
   --from-literal=github_app_installation_id=654321 \
-  --from-literal=github_app_private_key='-----BEGIN RSA PRIVATE KEY-----********'
+  --from-file=github_app_private_key=private-key.pem
 ```
 
 In your copy of the [`values.yaml`](https://github.com/actions/actions-runner-controller/blob/master/charts/gha-runner-scale-set/values.yaml) pass the secret name as a reference.
@@ -892,12 +892,8 @@ The following table shows the metrics emitted by the controller-manager and list
 | listener           | gha_idle_runners                              | gauge     | Number of registered runners not running a job                                                              |
 | listener           | gha_started_jobs_total                        | counter   | Total number of jobs started since the listener became ready [1]                                            |
 | listener           | gha_completed_jobs_total                      | counter   | Total number of jobs completed since the listener became ready [1]                                          |
-| {% ifversion fpt or ghec or ghes > 3.10 %} |
 | listener           | gha_job_startup_duration_seconds              | histogram | Number of seconds spent waiting for workflow job to get started on the runner owned by the runner scale set |
-| {% endif %} |
-| {% ifversion fpt or ghec or ghes > 3.10 %} |
 | listener           | gha_job_execution_duration_seconds            | histogram | Number of seconds spent executing workflow jobs by the runner scale set                                     |
-| {% endif %} |
 
 [1]: Listener metrics that have the counter type are reset when the listener pod restarts.
 

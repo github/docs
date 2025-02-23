@@ -1,5 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
+import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -9,6 +10,8 @@ import { test, expect } from '@playwright/test'
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
+
+turnOffExperimentsBeforeEach(test)
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -63,6 +66,91 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
 
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and perform a general search', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Let new suggestions load
+  await page.waitForTimeout(1000)
+  // Navigate to general search item, "serve playwright"
+  await page.keyboard.press('ArrowDown')
+  // Select the general search item, "serve playwright"
+  await page.keyboard.press('Enter')
+
+  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+
+  await page.getByRole('link', { name: 'For Playwright' }).click()
+
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and get auto-complete results', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  let listGroup = page.getByTestId('ai-autocomplete-suggestions')
+
+  await expect(listGroup).toBeVisible()
+  let listItems = listGroup.locator('li')
+  await expect(listItems).toHaveCount(4)
+
+  // Top queries from queries.json fixture's 'topQueries'
+  let expectedTexts = [
+    'What is GitHub and how do I get started?',
+    'What is GitHub Copilot and how do I get started?',
+    'How do I connect to GitHub with SSH?',
+    'How do I generate a personal access token?',
+  ]
+  for (let i = 0; i < expectedTexts.length; i++) {
+    await expect(listItems.nth(i)).toHaveText(expectedTexts[i])
+  }
+
+  const searchInput = await page.getByTestId('overlay-search-input')
+
+  await expect(searchInput).toBeVisible()
+  await expect(searchInput).toBeEnabled()
+
+  // Type the text "rest" into the search input
+  await searchInput.fill('rest')
+  // For for 1 second for the suggestions to load
+  await page.waitForTimeout(1000)
+
+  // Ask AI suggestions
+  listGroup = page.getByTestId('ai-autocomplete-suggestions')
+  listItems = listGroup.locator('li')
+  await expect(listItems).toHaveCount(3)
+  await expect(listGroup).toBeVisible()
+  expectedTexts = [
+    'rest',
+    'How do I manage OAuth app access restrictions for my organization?',
+    'How do I test my SSH connection to GitHub?',
+  ]
+  for (let i = 0; i < expectedTexts.length; i++) {
+    await expect(listItems.nth(i)).toHaveText(expectedTexts[i])
+  }
 })
 
 test('search from enterprise-cloud and filter by top-level Fooing', async ({ page }) => {
@@ -513,12 +601,32 @@ test.describe('test nav at different viewports', () => {
 test.describe('survey', () => {
   test('happy path, thumbs up and enter comment and email', async ({ page }) => {
     let fulfilled = 0
+    let hasSurveyPressedEvent = false
+    let hasSurveySubmittedEvent = false
+
+    const surveyComment = 'This is a comment'
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
+      const postData = JSON.parse(request.postData() || '{}')
+      // Skip the exit event
+      if (postData.type === 'exit') {
+        return
+      }
       fulfilled++
+      if (postData.type === 'survey' && postData.survey_vote === true) {
+        hasSurveyPressedEvent = true
+      }
+      if (
+        postData.type === 'survey' &&
+        postData.survey_vote === true &&
+        postData.survey_comment === surveyComment
+      ) {
+        hasSurveySubmittedEvent = true
+      }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
@@ -533,23 +641,36 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
     await page.locator('[for=survey-comment]').click()
-    await page.locator('[for=survey-comment]').fill('This is a comment')
+    await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
-    // One for the page view event, one for the thumbs up click, one for
-    // the submission.
-    expect(fulfilled).toBe(1 + 2)
+    // Events:
+    // 1. page view event when navigating to the page
+    // 2. Survey thumbs up event
+    // 3. Survey submit event
+    expect(fulfilled).toBe(1 + 1 + 1)
+    expect(hasSurveyPressedEvent).toBe(true)
+    expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
   })
 
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
+    let hasSurveyEvent = false
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
       route.fulfill({})
       expect(request.method()).toBe('POST')
+      const postData = JSON.parse(request.postData() || '{}')
+      // Skip the exit event
+      if (postData.type === 'exit') {
+        return
+      }
+      if (postData.type === 'survey' && postData.survey_vote === true) {
+        hasSurveyEvent = true
+      }
       fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
@@ -560,8 +681,11 @@ test.describe('survey', () => {
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
-    // One for the page view event and one for the thumbs up click
+    // Events:
+    // 1. page view event when navigating to the page
+    // 2. the thumbs up click
     expect(fulfilled).toBe(1 + 1)
+    expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
     await page.getByRole('button', { name: 'Cancel' }).click()

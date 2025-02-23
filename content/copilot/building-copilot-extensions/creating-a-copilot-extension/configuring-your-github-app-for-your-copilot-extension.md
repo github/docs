@@ -12,8 +12,6 @@ redirect_from:
   - /copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-agent
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 Once you have configured your server and created your {% data variables.product.prodname_github_app %}, you need to configure your {% data variables.product.prodname_github_app %} for use with your {% data variables.product.prodname_copilot_short %} extension.
 
 ## Prerequisites
@@ -46,7 +44,7 @@ Once you have configured your server and created your {% data variables.product.
     > [!NOTE] If you are using an ephemeral domain in ngrok, you will need to update this URL every time you restart your ngrok server.
 
 1. Under "Inference description", type a brief description of your agent, then click **Save**. This will be the description users see when they hover over your extension's slug in the chat window.
-1. Your pre-authorization URL is a link on your website that starts the authorization process for your extension. Users will be redirected to this URL when they decide to authorize your extension. If you are using a pre-authorization URL, under "Pre-authorization URL," enter the URL, then click **Save changes**.
+1. Your pre-authorization URL is a link on your website that starts the authorization process for your extension. Users will be redirected to this URL when they decide to authorize your extension. If you are using a pre-authorization URL, under "Pre-authorization URL," enter the URL, then click **Save**.
 1. In your {% data variables.product.prodname_github_app %} settings, in the left sidebar, click **Install App**, then, next to the account you want to install your app on, click **Install**.
 {% data reusables.copilot.go-to-copilot-page %}
 1. Invoke your extension by typing `@EXTENSION-NAME`, replacing any spaces in the extension name with `-`, then press `Enter`.
@@ -73,7 +71,7 @@ Once you have configured your server and created your {% data variables.product.
 1. Read the {% data variables.product.prodname_marketplace %} Developer Agreement and the {% data variables.product.github %} Pre-release License Terms, then accept the terms for creating a {% data variables.product.prodname_copilot_extension_short %}.
 
 1. In the "App type" section, select the dropdown menu, then click **Skillset**.
-1. Your pre-authorization URL is a link on your website that starts the authorization process for your extension. Users will be redirected to this URL when they decide to authorize your extension. If you are using a pre-authorization URL, under "Pre-authorization URL," enter the URL, then click **Save changes**.
+1. Your pre-authorization URL is a link on your website that starts the authorization process for your extension. Users will be redirected to this URL when they decide to authorize your extension. If you are using a pre-authorization URL, under "Pre-authorization URL," enter the URL, then click **Save**.
 {% data reusables.copilot.copilot-extensions.skillsets-configuration-steps %}
 1. In your {% data variables.product.prodname_github_app %} settings, in the left sidebar, click **Install App**, then, next to the account you want to install your app on, click **Install**.
 {% data reusables.copilot.go-to-copilot-page %}

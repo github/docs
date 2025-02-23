@@ -6,7 +6,7 @@ redirect_from:
   - /admin/enterprise-management/initiating-a-failover-to-your-replica-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster
 versions:
-  ghes: '>= 3.9'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

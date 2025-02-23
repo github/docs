@@ -10,7 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -27,7 +27,7 @@ shortTitle: Configure version updates
 
 You enable {% data variables.product.prodname_dependabot_version_updates %} by checking a `dependabot.yml` configuration file in to your repository's `.github` directory. {% data variables.product.prodname_dependabot %} then raises pull requests to keep the dependencies you configure up-to-date. For each package manager's dependencies that you want to update, you must specify the location of the package manifest files and how often to check for updates to the dependencies listed in those files. For information about enabling security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
 
-{% data reusables.dependabot.initial-updates %} {% ifversion dependabot-version-updates-groups %}For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).{% endif %}
+{% data reusables.dependabot.initial-updates %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
 
 {% data reusables.dependabot.version-updates-skip-scheduled-runs %}
 

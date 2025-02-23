@@ -5,7 +5,7 @@ intro: 'Learn how to troubleshoot {% data variables.product.prodname_actions_run
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: how_to
 topics:
   - Actions Runner Controller

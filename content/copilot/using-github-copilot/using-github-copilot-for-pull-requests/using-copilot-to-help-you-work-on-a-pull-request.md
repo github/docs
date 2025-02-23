@@ -44,7 +44,7 @@ Using {% data variables.product.prodname_copilot_workspace %} requires:
 * Admission to the {% data variables.release-phases.public_preview %} from the waitlist. To apply to join the waitlist, see [Join the {% data variables.product.prodname_copilot_short %} code review waitlist](https://gh.io/copilot-code-review-waitlist).
 * An existing pull request on the {% data variables.product.github %} website. If you need help on creating a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-Without access {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
+Without access to {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
 
 ## Editing files in a pull request
 

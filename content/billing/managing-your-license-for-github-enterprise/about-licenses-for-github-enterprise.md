@@ -25,6 +25,13 @@ shortTitle: About licenses
 
 To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments.
 
+{% ifversion ghes %}
+
+{% data reusables.billing.license-type-overview %}
+{% data reusables.billing.license-models %}
+
+{% endif %}
+
 In order to use a {% data variables.product.prodname_ghe_server %} instance, you must upload a license file that {% data variables.product.company_short %} provides when you purchase, renew, or add user licenses to {% data variables.product.prodname_enterprise %}.
 
 ## About synchronization of license usage for {% data variables.product.prodname_enterprise %}

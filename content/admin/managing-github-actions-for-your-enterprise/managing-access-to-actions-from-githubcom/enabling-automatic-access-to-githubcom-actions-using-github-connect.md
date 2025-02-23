@@ -34,9 +34,9 @@ If a user has already created an organization and repository in your enterprise 
 
 ## Enabling automatic access to public {% data variables.product.prodname_dotcom_the_website %} actions
 
-Before enabling access to public actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must{% ifversion ghes %}:
+Before enabling access to public actions from {% data variables.product.prodname_dotcom_the_website %} for your enterprise, you must:
 * Configure {% data variables.location.product_location %} to use {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server).
-* Enable{% else %} enable{% endif %} {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
+* Enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}

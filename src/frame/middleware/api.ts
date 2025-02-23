@@ -6,9 +6,10 @@ import anchorRedirect from '@/rest/api/anchor-redirect.js'
 import aiSearch from '@/search/middleware/ai-search'
 import search from '@/search/middleware/search-routes.js'
 import pageInfo from '@/pageinfo/middleware'
-import pageList from '@/pagelist/middleware'
+import pageList from '@/article-api/middleware/pagelist'
 import webhooks from '@/webhooks/middleware/webhooks.js'
 import { ExtendedRequest } from '@/types'
+import { noCacheControl } from './cache-control'
 
 const router = express.Router()
 
@@ -55,6 +56,17 @@ if (process.env.ELASTICSEARCH_URL) {
     }),
   )
 }
+
+// We need access to specific httpOnly cookies set on github.com from the client
+// The only way to access these on the client is to fetch them from the server
+router.get('/cookies', (req, res) => {
+  noCacheControl(res)
+  const cookies = {
+    isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
+    dotcomUsername: req.cookies?.dotcom_user || '',
+  }
+  return res.json(cookies)
+})
 
 router.get('*', (req, res) => {
   res.status(404).json({ error: `${req.path} not found` })

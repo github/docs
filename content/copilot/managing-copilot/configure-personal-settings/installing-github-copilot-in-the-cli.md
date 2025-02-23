@@ -6,7 +6,6 @@ versions:
 topics:
   - Copilot
   - CLI
-product: '{% data reusables.gated-features.copilot-free-availability %}'
 shortTitle: Install Copilot in the CLI
 redirect_from:
   - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli

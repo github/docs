@@ -4,7 +4,7 @@ shortTitle: Environments
 intro: Specify a deployment environment in your workflow.
 versions:
   fpt: '*'
-  ghes: '> 3.0'
+  ghes: '*'
   ghec: '*'
 redirect_from:
   - /actions/using-jobs/using-environments-for-jobs

@@ -25,11 +25,7 @@ topics:
 > [!TIP]
 > You can also create a repository using the {% data variables.product.prodname_cli %}. For more information, see [`gh repo create`](https://cli.github.com/manual/gh_repo_create) in the {% data variables.product.prodname_cli %} documentation.
 
-{% ifversion create-new-repos-with-query-params %}
-
 ## Creating a new repository from the web UI
-
-{% endif %}
 
 {% data reusables.repositories.create_new %}
 1. Optionally, to create a repository with the directory structure and files of an existing repository, select the **Choose a template** dropdown menu and click a template repository. You'll see template repositories that are owned by you and organizations you're a member of or that you've used before. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
@@ -49,8 +45,6 @@ topics:
 1. At the bottom of the resulting Quick Setup page, under "Import code from an old repository", you can choose to import a project to your new repository. To do so, click **Import code**.
 {% endif %}
 
-{% ifversion create-new-repos-with-query-params %}
-
 ## Creating a new repository from a URL query
 
 You can use query parameters to pre-fill form fields when creating a new repository. Query parameters are optional parts of a URL you can customize to share a specific web page view, such as search filter results or an issue template on {% data variables.product.prodname_dotcom %}. To specify values for the predefined query parameters, you must match the key and value pair.
@@ -69,10 +63,9 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 | `owner` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&visibility=public` creates a public repository owned by the "avocado-corp" organization. | Any valid organization name or username. Alternatively, while signed in use `@me` to specify your user account as the owner. |
 | `template_owner` and `template_name` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&template_owner=avocado-corp&template_name=octo-repo` creates a repository owned by the "avocado-corp" using the avocado-corp's template "octo-repo". | The username of the template owner and the name of the repository template. |
 
-{% endif %}
-
 ## Further reading
 
+* [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories)
 * [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
 * [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

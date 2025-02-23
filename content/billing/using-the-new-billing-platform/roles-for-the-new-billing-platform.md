@@ -12,7 +12,9 @@ topics:
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
-The following roles have access to the new billing platform: {% ifversion ghec %}enterprise owners, {% endif %}billing managers, and organization owners. {% ifversion fpt %}See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).{% elsif ghec %}See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).{% endif %}
+In an {% data variables.enterprise.enterprise_and_org %}, the following roles have access to the new billing platform: {% ifversion ghec %}enterprise owners, {% endif %}billing managers, and organization owners. {% ifversion fpt %}See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).{% elsif ghec %}See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).{% endif %}
+
+{% ifversion fpt %}Personal accounts also have access to the new billing platform for their personal usage.{% endif %}
 
 {% ifversion ghec %}
 

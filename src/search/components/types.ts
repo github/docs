@@ -13,3 +13,9 @@ export type SearchQueryContentT = {
   query: string
   debug: boolean
 }
+
+export type AIReference = {
+  url: string
+  title: string
+  index: string
+}

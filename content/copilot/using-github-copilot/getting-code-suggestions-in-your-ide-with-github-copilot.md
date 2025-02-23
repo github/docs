@@ -207,6 +207,11 @@ Alternatively, you can show alternate suggestions by pressing <kbd>Alt</kbd>+<kb
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
+{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} provides two kinds of suggestions:
+
+* **Code completions**. {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
+* **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**. Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it.
+
 The examples in this guide use JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
 
 ## Prerequisites
@@ -299,6 +304,30 @@ Alternatively, you can use a keyboard shortcut to accept the next word of a sugg
 |Windows or Linux |<kbd>Control</kbd>+<kbd>→</kbd>|
 
 If you want to accept the next line of a suggestion, you will need to set a custom keyboard shortcut for the command `editor.action.inlineSuggest.acceptNextLine`. For more information on setting custom keyboard shortcuts, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment).
+
+## About {% data variables.copilot.next_edit_suggestions %}
+
+> [!NOTE] {% data variables.copilot.next_edit_suggestions_caps %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+Inline suggestions autocomplete code, but many development tasks involve editing existing code. {% data variables.copilot.next_edit_suggestions_caps %} assists with edits both at the cursor and in other relevant parts of the code, helping maintain consistency and streamline changes.
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+
+To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
+### Navigating and accepting suggestions
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
+
+An arrow in the gutter indicates an available edit suggestion. Hover over the arrow to access the edit suggestion menu, which provides keyboard shortcuts and settings options. If an edit suggestion is outside the current editor view, the arrow will point up or down to indicate where the next suggestion is.
+
+![Screenshot of the gutter menu in {% data variables.product.prodname_vscode %}. The arrow is outlined in dark orange.](/assets/images/help/copilot/vsc-advanced-code-completion-menu.png)
+
+For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/gh-copilot-nes-docs) in the {% data variables.product.prodname_vscode %} documentation.
+
+## Changing the AI model
+
+You can change the large language model that's used to generate code completion suggestions. For more information, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 {% endvscode %}
 
@@ -426,19 +455,13 @@ If you want to accept the next line of the suggestion, you will need to set a cu
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-beta-note %}
+## About {% data variables.product.prodname_copilot %} in Xcode
 
-## About {% data variables.product.prodname_copilot %} for Xcode
-
-This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} for Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Xcode. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} for Xcode, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
-
-* **Compatible versions of Xcode and macOS**. To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above installed. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
-
-* **{% data variables.product.prodname_copilot %} extension for Xcode**. To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
 
 ## Getting code suggestions
 
@@ -462,6 +485,62 @@ If you encounter issues with code suggestions, such as conflicting or missing su
 You can also open an issue in the [{% data variables.product.prodname_copilot_short %} for Xcode repository](https://github.com/github/CopilotForXcode).
 
 {% endxcode %}
+
+{% eclipse %}
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+## About {% data variables.product.prodname_copilot %} and Eclipse
+
+This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Eclipse. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+To use {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+
+## Getting code suggestions
+
+{% data variables.product.prodname_copilot %} offers coding suggestions as you type. For example, type this function header in a Java file:
+
+```java copy
+public int getDiff(int a, int b)
+```
+
+{% data variables.product.prodname_copilot %} will automatically suggest the rest of the function. {% data reusables.copilot.accept-suggestion %}
+To discard the suggestion, press <kbd>Esc</kbd>.
+
+You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal. For example, type this comment in a Java file:
+
+```java copy
+/*
+ * Return the difference between two different integers.
+ */
+```
+
+{% data variables.product.prodname_copilot %} will automatically suggest code.
+
+> [!TIP]
+> If you receive limited or no suggestions from {% data variables.product.prodname_copilot_short %}, you may have duplication detection enabled. For more information about duplication detection, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code).
+
+## Manually triggering code completion
+
+You can also use keyboard shortcuts to trigger code completion.
+
+| OS               | Trigger code completion                           |
+|:-----------------|:--------------------------------------------------|
+| macOS            | <kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>/</kbd> |
+| Windows or Linux | <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>/</kbd>       |
+
+## Accepting partial suggestions
+
+If you don't want to accept an entire suggestion from {% data variables.product.prodname_copilot_short %}, you can accept the next word of a suggestion.
+
+| OS               | Accept next word                     |
+|:-----------------|:-------------------------------------|
+| macOS            | <kbd>Command</kbd>+<kbd>&rarr;</kbd> |
+| Windows or Linux | <kbd>Ctrl</kbd>+<kbd>&rarr;</kbd>    |
+
+{% endeclipse %}
 
 ## Next steps
 

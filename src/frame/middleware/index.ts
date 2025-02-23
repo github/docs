@@ -8,7 +8,6 @@ import timeout from 'connect-timeout'
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
 import morgan from 'morgan'
-import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
 import {
@@ -110,14 +109,8 @@ export default function (app: Express) {
     app.use(morgan('dev'))
   }
 
-  // *** Observability ***
-  if (process.env.MODA_PROD_SERVICE_ENV === 'true') {
-    app.use(datadog)
-  }
-
-  // Put this early to make it as fast as possible because it's used,
-  // and used very often, by the Azure load balancer to check the
-  // health of each node.
+  // Put this early to make it as fast as possible because it's used
+  // to check the health of each cluster.
   app.use('/healthcheck', healthcheck)
 
   // Must appear before static assets and all other requests

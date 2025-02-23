@@ -19,7 +19,7 @@ type: reference
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The preferred format is `action.yml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
 Action metadata files use YAML syntax. If you're new to YAML, you can read [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
 
@@ -150,11 +150,11 @@ For more information on how to use context syntax, see [AUTOTITLE](/actions/lear
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion actions-node20-support %}v20{% else %}v16{% endif %}
+### Example: Using Node.js v20
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   main: 'main.js'
 ```
 
@@ -162,7 +162,7 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-* Use {% ifversion actions-node20-support %}`node20` for Node.js v20{% else %}`node16` for Node.js v16{% endif %}.
+* Use `node20` for Node.js v20.
 
 ### `runs.main`
 
@@ -176,7 +176,7 @@ In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -203,7 +203,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -771,3 +771,12 @@ Brand icons, and all the following icons, are omitted.
 <li>zoom-in</li>
 <li>zoom-out</li>
 </ul>
+
+{% ifversion fpt or ghec %}
+
+## Changing the metadata file name
+
+While the actions metadata file supports both YAML formats, changing the metadata file name (from `action.yml` to `action.yaml` or vice versa) between releases will affect previous release versions that have been published to {% data variables.product.prodname_marketplace %}. Changing the file name will hide all release versions associated with the previous file name from {% data variables.product.prodname_marketplace %}. Previous release versions will still be accessible to users through the source repository.
+
+When releasing new versions of actions, only versions released after the metadata file name change will have the {% data variables.product.prodname_marketplace %} tag and will show up on {% data variables.product.prodname_marketplace %}
+{% endif %}

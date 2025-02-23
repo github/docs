@@ -121,7 +121,12 @@ If your private registry is configured with an IP allow list, you can find the I
 
 When you give {% data variables.product.prodname_dependabot %} access to one or more registries, external code execution is automatically disabled to protect your code from compromised packages. However, some version updates may fail.
 
-If you need to allow {% data variables.product.prodname_dependabot %} to access a private package registry and enable limited external code execution, you can set `insecure-external-code-execution` to `allow`. Any external code execution will only have access to the package managers in the registries associated with the enclosing `updates` setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
+If you need to allow {% data variables.product.prodname_dependabot %} to access a private package registry and enable limited external code execution, you can set `insecure-external-code-execution` to `allow`. Allowing {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates is not as scary as it sounds:
+
+* Any external code execution will only have access to the package managers in the registries associated with the enclosing `updates` setting.
+* There is no access allowed to any of the registries defined in the top level `registries` configuration.
+
+It is common for tooling, such as `bundler`, `mix`, `pip`, and `swift`, to allow the execution of external code by default.
 
 In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
 {% raw %}

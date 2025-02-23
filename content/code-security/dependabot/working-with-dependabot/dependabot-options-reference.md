@@ -145,12 +145,8 @@ When `commit-message` is defined:
 | `prefix-development` | On supported systems, defines a different prefix to use for commits that update dependencies in the Development dependency group. |
 | `include` | Follow the commit message prefix with additional information. |
 
-{% ifversion dependabot-version-updates-groups %}
-
 > [!TIP]
 > When pull requests are raised for grouped updates, the branch name and pull request title are defined by the group `IDENTIFIER`, see {% ifversion dependabot-grouped-security-updates-config %}[`groups`](#groups--){% else %}[`groups`](#groups-){% endif %}.
-
-{% endif %}
 
 ### `prefix`
 
@@ -194,8 +190,6 @@ If you need to use more than one block in the configuration file to define updat
 ## `enable-beta-ecosystems` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Not currently in use.
-
-{% ifversion dependabot-version-updates-groups %}
 
 ## `groups` {% ifversion dependabot-grouped-security-updates-config %}{% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}{% else %}{% octicon "versions" aria-label="Version updates only" height="24" %}{% endif %}
 
@@ -244,8 +238,6 @@ By default, a group will include updates for all semantic versions (SemVer). Sem
 * Use `major` to include major releases.
 
 For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#specifying-the-semantic-versioning-level-to-ignore).
-
-{% endif %}
 
 ## `ignore` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
@@ -372,6 +364,9 @@ When `open-pull-requests-limit` is defined:
 
 Package manager | YAML value      | Supported versions |
 ---------------|------------------|:------------------:|
+| {% ifversion dependabot-bun-support %} |
+| Bun | `bun`         | >=v1.1.39              |
+| {% endif %} |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
@@ -397,9 +392,9 @@ Package manager | YAML value      | Supported versions |
 | pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
 | poetry         | `pip`            | v1               |
 | pub         | `pub`            | v2  |
-| {% ifversion dependabot-updates-swift-support %} |
+|  |
 | Swift   | `swift`      | v5  |
-| {% endif %} |
+|  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.8.x  |
 | yarn         | `npm`            | v1, v2, v3       |
 
@@ -473,7 +468,7 @@ Reviewers must have at least read access to the repository.
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
-**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. {% ifversion dependabot-version-updates-groups %}For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).{% endif %}
+**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
 
 | Parameters | Purpose |
 |------------|---------|

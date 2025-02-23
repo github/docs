@@ -257,7 +257,7 @@ If you use {% data variables.product.prodname_vscode %}, you can use {% data var
 * Learn from the code {% data variables.product.prodname_copilot_short %} generates
 * Help you configure your editor
 
-You can learn more about scenarios and setup in the [VS Code documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
+You can learn more about scenarios and setup in the [{% data variables.product.prodname_vscode_shortname %} documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
 
 After you install the {% data variables.product.prodname_copilot %} extension, you can enable or disable it, and you can configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.github %}.
 
@@ -269,7 +269,7 @@ To configure {% data variables.product.prodname_copilot %} in {% data variables.
 
 You can use the default keyboard shortcuts for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_copilot %}. Search keyboard shortcuts by command name in the Keyboard Shortcuts editor.
 
-Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [VS Code documentation on key bindings](https://code.visualstudio.com/docs/getstarted/keybindings).
+Alternatively, you can rebind the shortcut for each command in the Keyboard Shortcuts editor. For more information, see the [VS Code documentation on editing shortcuts](https://code.visualstudio.com/Docs/editor/keybindings).
 
 ### Keyboard shortcuts for macOS
 
@@ -316,6 +316,12 @@ You can choose to enable or disable inline suggestions for {% data variables.pro
 {% data reusables.copilot.vscode-settings %}
 1. In the left-side panel of the settings tab, click **Extensions** and then select **{% data variables.product.prodname_copilot_short %}**.
 1. Under "Inline Suggest:Enable," select or deselect the checkbox to enable or disable inline suggestions.
+
+## Enabling {% data variables.copilot.next_edit_suggestions %}
+
+You can enable {% data variables.copilot.next_edit_suggestions %} via the {% data variables.product.prodname_vscode_shortname %} setting `github.copilot.nextEditSuggestions.enabled`. For more detailed instructions, see [Enabling edit suggestions](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions#_enabling-edit-suggestions) in the {% data variables.product.prodname_vscode_shortname %} documentation.
+
+{% data reusables.copilot.editor-preview-settings %}
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %} for specific languages
 
@@ -400,9 +406,7 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-beta-note %}
-
-## About {% data variables.product.prodname_copilot %} for Xcode
+## About {% data variables.product.prodname_copilot %} in Xcode
 
 If you use Xcode, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within Xcode or on {% data variables.product.github %}.
 
@@ -451,6 +455,37 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 {% data reusables.copilot.dotcom-settings %}
 
 {% endxcode %}
+
+{% eclipse %}
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+## About {% data variables.product.prodname_copilot %} in Eclipse
+
+If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE.  
+
+After you install {% data variables.product.prodname_copilot %} in Eclipse, you can enable or disable it, and you can configure advanced settings within the IDE.
+
+## Prerequisites
+
+To configure {% data variables.product.prodname_copilot %} in Eclipse, you must install the {% data variables.product.prodname_copilot %} extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+
+## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
+
+You can use the default keyboard shortcuts for inline suggestions in Eclipse when using {% data variables.product.prodname_copilot %}. Alternatively, you can rebind the shortcuts to your preferred keyboard shortcuts for each specific command.
+
+## Rebinding keyboard shortcuts
+
+If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
+
+1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
+1. Click **Edit Keyboard Shortcuts...** to rebind the shortcuts.
+
+## Settings and configurations
+
+For advanced settings, you can set auto-completion behavior, configure proxy, and assign a {% data variables.product.prodname_enterprise %} authentication endpoint.
+
+{% endeclipse %}
 
 ## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
 

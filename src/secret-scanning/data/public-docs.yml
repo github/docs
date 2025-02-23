@@ -533,7 +533,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1894,7 +1894,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1906,7 +1906,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1918,7 +1918,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2098,6 +2098,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: LinkedIn
+  supportedSecret: LinkedIn Client Secret
+  secretType: linkedin_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Lob
@@ -3002,7 +3013,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3122,7 +3133,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3134,7 +3145,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3146,7 +3157,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3158,7 +3169,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3194,7 +3205,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3314,7 +3325,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3599,7 +3610,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true

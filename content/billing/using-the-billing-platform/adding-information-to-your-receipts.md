@@ -25,6 +25,8 @@ topics:
 shortTitle: Add to your receipts
 ---
 
+{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
+
 Your receipts include your {% data variables.product.prodname_dotcom %} subscription as well as any subscriptions for other paid features and products. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
 > [!WARNING]

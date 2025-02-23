@@ -20,8 +20,6 @@ shortTitle: Manage security & analysis
 
 {% data variables.product.prodname_dotcom %} can help you to secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% ifversion ghec %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).{% endif %}
 
-{% ifversion ghec or ghes %}If your organization is owned by an enterprise with a license for {% data variables.product.prodname_GH_advanced_security %}, then extra options for managing security and analysis settings may be available. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).{% endif %}
-
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}

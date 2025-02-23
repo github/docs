@@ -26,6 +26,7 @@ children:
   - /csv-output
   - /extractor-options
   - /exit-codes
+  - /creating-database-bundle-for-troubleshooting
 redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference
 ---

@@ -23,11 +23,11 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 2000m
+              memory: 6Gi
             limits:
-              cpu: 16000m
-              memory: 14Gi
+              cpu: 8000m
+              memory: 16Gi
           ports:
             - name: http
               containerPort: 4000
@@ -37,7 +37,7 @@ spec:
                 name: vault-secrets
             - configMapRef:
                 name: kube-cluster-metadata
-            # application-config is crated at deploy time from
+            # application-config is created at deploy time from
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config

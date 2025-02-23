@@ -1,7 +1,7 @@
 ---
 title: About GitHub Copilot Free
 shortTitle: About Copilot Free
-intro: 'Use {% data variables.product.prodname_copilot %} in your IDE or on {% data variables.product.prodname_dotcom_the_website %} for free.'
+intro: 'Use {% data variables.product.prodname_copilot %} in your IDE, on {% data variables.product.prodname_mobile %}, or on {% data variables.product.prodname_dotcom_the_website %} for free.'
 versions:
   feature: copilot
 type: overview
@@ -23,10 +23,15 @@ topics:
 {% data variables.product.prodname_copilot_free_short %} includes the following features:
 
 * Code completion in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Vim/Neovim, Xcode, and Azure Data Studio
-  * {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files (**only in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}**)
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and {% data variables.product.prodname_dotcom_the_website %}
+  * {% data variables.copilot.next_edit_suggestions_caps %}, which will predict the location of the next edit you are likely to make and suggest a completion for it. (**only in {% data variables.product.prodname_vscode_shortname %}**)
+  * {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files. {% data variables.product.prodname_copilot_edits_vscode_short %} is available in two modes: edit mode and agent mode. (**only in {% data variables.product.prodname_vscode_shortname %}**)
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, {% data variables.product.prodname_mobile %}, and {% data variables.product.prodname_dotcom_the_website %}
+  * Custom instructions (**only in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_dotcom_the_website %}**)
+  * Prompt files (**only in {% data variables.product.prodname_vscode_shortname %}**)
+  * Vision (**only in {% data variables.product.prodname_vscode_shortname %} Insiders**)
+* {% data variables.product.prodname_copilot_cli_short %}
 * Block suggestions matching public code
-* Access to {% data variables.copilot.copilot_claude_sonnet %} models
+* Access to the {% data variables.copilot.copilot_claude_sonnet %}, {% data variables.copilot.copilot_gemini_flash %} and o3-mini models
 * Access to {% data variables.product.prodname_copilot_extensions_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_mobile %}
 
 ## What are the limitations of {% data variables.product.prodname_copilot_free_short %}?
@@ -34,8 +39,7 @@ topics:
 {% data variables.product.prodname_copilot_free_short %} has the following limitations:
 
 * Code completions are limited to 2000 completions per month.
-* {% data variables.product.prodname_copilot_chat_short %} is limited to 50 chat messages per month. This limit includes both standard chats and multi-file editing chats in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}.
-
+* {% data variables.product.prodname_copilot_chat_short %} is limited to 50 chat messages per month. This limit includes the usage of {% data variables.product.prodname_copilot_cli_short %}, and both standard and multi-file editing chats in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}.
 When you reach these limits, you can upgrade to {% data variables.product.prodname_copilot_pro_short %} to continue using {% data variables.product.prodname_copilot_short %}.
 
 ### Limitations for enterprises
@@ -55,6 +59,7 @@ There are a few ways to access {% data variables.product.prodname_copilot_free_s
 
 * [{% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode_shortname %}](#visual-studio-and-vs-code)
 * [{% data variables.product.prodname_dotcom_the_website %}](#githubcom)
+* [{% data variables.product.prodname_mobile %}](#github-mobile)
 * [Other IDEs](#other-ides)
 
 ### {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode_shortname %}
@@ -72,6 +77,15 @@ With {% data variables.product.prodname_copilot_free_short %}, you can ask {% da
 1. To access your personal dashboard once you're signed in, click the {% octicon "mark-github" aria-label="The github octocat logo" %} in the upper-left corner of any page on {% data variables.product.github %}.
 1. At the top of the dashboard, use the "Ask a question" box to start a chat with {% data variables.product.prodname_copilot_short %}.
 
+### {% data variables.product.prodname_mobile %}
+
+You'll automatically get subscribed to {% data variables.product.prodname_copilot_free_short %} when you start a chat with {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_mobile %}.
+
+{% data reusables.copilot.chat-mobile-start-chat %}
+1. At the bottom of the page, use the "Ask {% data variables.product.prodname_copilot_short %}" box to start a chat with {% data variables.product.prodname_copilot_short %}.
+
+Alternatively, go to "Settings" in {% data variables.product.prodname_mobile %}, then under {% data variables.product.prodname_copilot_short %} settings, click **Get started for Free**.
+
 ### Other IDEs
 
 To use {% data variables.product.prodname_copilot_free_short %} in other IDEs, you first have to activate {% data variables.product.prodname_copilot_free_short %} in your {% data variables.product.github %} account settings.
@@ -85,3 +99,5 @@ To use {% data variables.product.prodname_copilot_free_short %} in other IDEs, y
 If you use {% data variables.product.prodname_copilot_free_short %} in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, or on {% data variables.product.prodname_dotcom_the_website %}, and reach the usage limits, you'll receive a notification. The notification includes the reset date for your limits and a link to set up a 30-day free trial of {% data variables.product.prodname_copilot_pro_short %}. After the trial ends, you'll need a paid subscription to keep using {% data variables.product.prodname_copilot_short %}.
 
 If you use {% data variables.product.prodname_copilot_free_short %} in a different IDE and reach the limits, an error message will appear in your editor. To continue, you can start a 30-day free trial of {% data variables.product.prodname_copilot_pro_short %} in your {% data variables.product.github %} account settings. See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself#1-get-access-to-github-copilot).
+
+If you use {% data variables.product.prodname_copilot_free_short %} in {% data variables.product.prodname_mobile %} and reach the usage limits, you'll be prompted to upgrade to {% data variables.product.prodname_copilot_pro_short %} via an in-app purchase.

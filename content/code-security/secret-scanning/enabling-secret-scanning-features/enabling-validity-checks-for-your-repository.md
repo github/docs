@@ -18,13 +18,9 @@ You can enable validity checks for secrets identified as service provider tokens
 
 {% data variables.product.company_short %} displays the validation status of the secret in the alert view, so you can see if the secret is `active`, `inactive`, or if the validation status is `unknown`. You can optionally perform an "on-demand" validity check for the secret in the alert view.
 
-{% ifversion secret-scanning-validity-check-partner-patterns %}
-
 You can additionally choose to enable validity checks for partner patterns. Once enabled, {% data variables.product.company_short %} will periodically check the validity of a detected credential by sending the secret directly to the provider, as part of {% data variables.product.company_short %}'s formal secret scanning partnership program. {% data variables.product.company_short %} typically makes GET requests to check the validity of the credential, picks the least intrusive endpoints, and selects endpoints that don't return any personal information.
 
 {% data variables.product.company_short %} displays the validation status of the secret in the alert view.
-
-{% endif %}
 
 You can filter by validation status on the alerts page, to help you prioritize which alerts you need to take action on.
 
@@ -42,7 +38,8 @@ For more information on using validity checks, see [AUTOTITLE](/code-security/se
 
 You can also use the REST API to enable validity checks for partner patterns for your repository. For more information, see [AUTOTITLE](/rest/repos/repos#update-a-repository).
 
-Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise settings. For more information on enabling at the organization-level, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration). For more information on enabling at the enterprise-level, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise) and [AUTOTITLE](/rest/enterprise-admin/code-security-and-analysis#update-code-security-and-analysis-features-for-an-enterprise).
+Alternatively, organization owners and enterprise administrators can enable the feature for all repositories in the organization or enterprise. For more information on enabling at the organization-level, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+For more information on enabling at the enterprise-level, see [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
 
 ## Further reading
 

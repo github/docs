@@ -169,8 +169,6 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 **Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
 
-{% ifversion dependabot-version-updates-groups %}
-
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
 {% ifversion dependabot-grouped-security-updates-config %}The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
@@ -251,8 +249,6 @@ If the dependency still fails to update, there may be a problem with the depende
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 If you continue to see CI failures, you should remove the group configuration so that {% data variables.product.prodname_dependabot %} reverts to raising individual pull requests for each dependency. Then, you should check and confirm that the update works correctly for each individual pull request.
-
-{% endif %}
 
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 

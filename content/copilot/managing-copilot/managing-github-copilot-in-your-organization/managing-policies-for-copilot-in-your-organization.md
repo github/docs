@@ -28,12 +28,14 @@ Organization owners can set policies to govern how {% data variables.product.pro
 
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
+* Editor preview features
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
-  * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in Copilot
-  * OpenAI o1 models in Copilot
+  * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
+  * Google {% data variables.copilot.copilot_gemini_flash %} in {% data variables.product.prodname_copilot_short %}
+  * OpenAI o1 and o3 models in {% data variables.product.prodname_copilot_short %}
 
 The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 
@@ -65,8 +67,6 @@ If an organization member is assigned a seat by multiple organizations with diff
     {% data reusables.copilot.policies-for-dotcom %}
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
-
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}. See [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat).
 

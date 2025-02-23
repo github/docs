@@ -19,7 +19,7 @@ As you are learning to code, you might copy and paste other people's code snippe
 
 Your first step is to choose a code snippet you want to reuse. To find eligible code, try [searching {% data variables.product.github %}](https://github.com/search). You can narrow your search with search qualifiers like `language:YOUR-SEARCH-LANGUAGE`.
 
-For example, let's say you want to reuse Python code that calculates the factorial of a number. By searching {% data variables.product.github %} for `factorial language:python is:repository user:devwithdocs`, we find the [`devwithdocs/python-factorial`](https://github.com/devwithdocs/python-factorial) repository, which implements the calculator in [`factorial_finder.py`](https://github.com/devwithdocs/python-factorial/blob/main/factorial_finder.py) using a loop:
+For example, let's say you want to reuse Python code that calculates the factorial of a number. By searching {% data variables.product.github %} for `factorial language:python is:repository`, we find the [`new2code/python-factorial`](https://github.com/new2code/python-factorial) repository, which implements the calculator in [`factorial_finder.py`](https://github.com/new2code/python-factorial/blob/main/factorial_finder.py) using a loop:
 
 ```python
 # Initialize the factorial result to 1
@@ -35,7 +35,7 @@ for i in range(1, number + 1):
 print(f"The factorial of {number} is {factorial}")
 ```
 
-If you don't immediately understand a code snippet, you can ask {% data variables.product.prodname_copilot_short %} to explain it. In the menu bar at the top of the [`factorial_finder.py`](https://github.com/devwithdocs/python-factorial/blob/main/factorial_finder.py) file, click {% octicon "copilot" aria-label="Ask Copilot about this file" %} to start a conversation about the file, then ask {% data variables.product.prodname_copilot_short %} to `Explain this program`.
+If you don't immediately understand a code snippet, you can ask {% data variables.product.prodname_copilot_short %} to explain it. In the menu bar at the top of the [`factorial_finder.py`](https://github.com/new2code/python-factorial/blob/main/factorial_finder.py) file, click {% octicon "copilot" aria-label="Ask Copilot about this file" %} to start a conversation about the file, then ask {% data variables.product.prodname_copilot_short %} to `Explain this program`.
 
   ![Screenshot of the {% data variables.product.prodname_copilot_short %} button, outlined in dark orange, at the top of the file view.](/assets/images/help/copilot/factorial-finder-copilot-button.png)
 
@@ -43,9 +43,9 @@ If you don't immediately understand a code snippet, you can ask {% data variable
 
 Before you can reuse the code you've found, you need to understand its licensing. Licenses determine how you can use the code in a project, including your ability to copy, modify, and distribute that code.
 
-You can find the license for a project in the "About" section of the main page of the repository. For example, we can see that the [`devwithdocs/python-factorial`](https://github.com/devwithdocs/python-factorial) repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" %} **MIT license**.
+You can find the license for a project in the "About" section of the main page of the repository. For example, we can see that the [`new2code/python-factorial`](https://github.com/new2code/python-factorial) repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" %} **MIT license**.
 
-  ![Screenshot of the main page of the devwithdocs/python-factorial repository. In the right sidebar, "MIT license" is outlined in dark orange.](/assets/images/help/repository/license-info-python-factorial.png)
+  ![Screenshot of the main page of the new2code/python-factorial repository. In the right sidebar, "MIT license" is outlined in dark orange.](/assets/images/help/repository/license-info-python-factorial.png)
 
 > [!NOTE] If the code you want to use is under a different license, use the license summaries in [Licenses](https://choosealicense.com/licenses/) to understand it.
 

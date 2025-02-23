@@ -1,6 +1,7 @@
 ---
 title: About building Copilot Extensions
 intro: 'Learn about the development process for {% data variables.product.prodname_copilot_extensions_short %}.'
+product: '{% data reusables.gated-features.copilot-extensions %}'
 versions:
   feature: copilot-extensions
 topics:
@@ -8,8 +9,6 @@ topics:
 shortTitle: About building Extensions
 type: overview
 ---
-
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot_extensions_short %}
 
@@ -45,6 +44,18 @@ type: overview
     * Integrate their tool into the developer workflow on {% data variables.product.company_short %} and the IDE
     * Leverage the {% data variables.product.company_short %} ecosystem to raise awareness for their product
 
+### About {% data variables.product.prodname_copilot_extensions %} permissions
+
+{% data reusables.copilot.copilot-extensions.about-extensions-permissions %}
+
+#### Granting permissions to access organization resources
+
+Only organization admins can grant permissions for {% data variables.product.prodname_copilot_extensions_short %} to access organization resources.
+To grant organization members access:
+* The organization admin must install the extension.
+* The organization admin must grant the extension permission to access specific repositories.
+* The organization admin must authorize access for all, or specific repositories.
+
 ### About skillsets and agents
 
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}
@@ -52,8 +63,6 @@ For more information about skillsets, see [AUTOTITLE](/copilot/building-copilot-
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-2 %}
 
 ### About context passing
-
-{% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
 
 You can allow your {% data variables.product.prodname_copilot_extension_short %} to receive context from the editor, such as the currently opened file, by enabling the **Read-only** access level for the "{% data variables.product.prodname_copilot_short %} Editor Context" permission in your {% data variables.product.prodname_github_app %} settings. See step 10 of [Configuring your {% data variables.product.prodname_github_app %}](/copilot/building-copilot-extensions/creating-a-copilot-extension/configuring-your-github-app-for-your-copilot-extension#configuring-your-github-app).
 
@@ -68,7 +77,15 @@ The {% data variables.product.prodname_copilot_extensibility_platform %} automat
 
 Context passing respects content exclusions, which refers to any files listed in your context exclusion settings, including files that begin with `.`.
 
-### Resources for building {% data variables.product.prodname_copilot_extensions %}
+For more information about context passing, see [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/context-passing-for-your-agent).
+
+### Using APIs in {% data variables.product.prodname_copilot_extensions %}
+
+Building {% data variables.product.prodname_copilot_extensions %} requires using the {% data variables.product.github %} API. Optionally, the {% data variables.product.prodname_copilot_short %} API can be used for additional capabilities. For details on request and response formatting, see the [OpenAI API documentation](https://platform.openai.com/docs/api-reference/chat).
+
+> [!NOTE] The {% data variables.product.prodname_copilot_short %} API is available for {% data variables.product.prodname_copilot_extension_short %} builders, but only {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_vscode_shortname %} Chat extensions can be used to access these endpoints.
+
+## Resources for building {% data variables.product.prodname_copilot_extensions %}
 
 {% data variables.product.company_short %} provides a comprehensive toolkit for extension builders, with code samples, a CLI debugging tool, quickstart SDKs, and a user feedback repository. For more information, see the [copilot-extensions](https://github.com/orgs/copilot-extensions/) organization on {% data variables.product.company_short %}.
 

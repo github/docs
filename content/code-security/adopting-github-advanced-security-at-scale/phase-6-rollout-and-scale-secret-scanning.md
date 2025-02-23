@@ -12,11 +12,13 @@ shortTitle: 6. Rollout secret scanning
 > [!NOTE]
 > This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning).
 
-You can enable secret scanning for individual repositories or for all repositories in an organization or enterprise. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository), [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization), or [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
-
 {% ifversion security-configurations %}
 
 {% data reusables.security-configurations.enable-security-features-with-gh-config %}
+
+{% else %}
+
+You can enable secret scanning for individual repositories or for all repositories in an organization or enterprise. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository), [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization), or [AUTOTITLE](/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise).
 
 {% endif %}
 

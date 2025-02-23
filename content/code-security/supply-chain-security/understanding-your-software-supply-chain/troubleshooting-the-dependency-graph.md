@@ -40,7 +40,7 @@ However, you can use the {% data variables.dependency-submission-api.name %} to 
 
 ## Are there limits which affect the dependency graph data?
 
-Yes, the dependency graph has {% ifversion dependency-graph-repository-view-update %}one category{% else %}two categories{% endif %} of limits:
+Yes, the dependency graph has one category of limits:
 
 1. **Processing limits**
 

@@ -38,12 +38,15 @@ You can choose whether your prompts and {% data variables.product.prodname_copil
 {% data reusables.user-settings.copilot-settings %}
 1. To allow or prevent {% data variables.product.prodname_dotcom %} using your data, select or deselect **Allow {% data variables.product.prodname_dotcom %} to use my code snippets from the code editor for product improvements**.
 
-## Enabling or disabling {% data variables.copilot.copilot_claude_sonnet %}
+## Enabling or disabling alternative AI models
 
-You can choose whether to allow use of Anthropic's {% data variables.copilot.copilot_claude_sonnet %} model as an alternative to {% data variables.product.prodname_copilot_short %}'s default model. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
+You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
+
+* {% data variables.copilot.copilot_claude_sonnet %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot)
+* {% data variables.copilot.copilot_gemini_flash %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot)
 
 {% data reusables.user-settings.copilot-settings %}
-1. To the right of **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, select the dropdown menu, then click **Enabled** or **Disabled**.
+1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.
 
 ## Enabling or disabling web search for {% data variables.product.prodname_copilot_chat %}
 

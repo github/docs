@@ -8,5 +8,7 @@ topics:
   - Copilot
 children:
   - /driving-copilot-adoption-in-your-company
+  - /setting-up-a-self-serve-process-for-github-copilot-licenses
   - /analyzing-usage-over-time-with-the-copilot-metrics-api
+  - /reminding-inactive-users
 ---

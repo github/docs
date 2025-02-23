@@ -21,11 +21,7 @@ After running an initial analysis of your code with default setup, you may need 
 * The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup).
 {% endif %}
 
-{% ifversion codeql-model-packs %}
-
 If your codebase depends on a library or framework that is not recognized by the standard libraries included with {% data variables.product.prodname_codeql %}, you can also extend the {% data variables.product.prodname_codeql %} coverage in default setup using {% data variables.product.prodname_codeql %} model packs. For more information, see [Extending CodeQL coverage with CodeQL model packs in default setup](#extending-codeql-coverage-with-codeql-model-packs-in-default-setup).
-
-{% endif %}
 
 If you need to change any other aspects of your {% data variables.product.prodname_code_scanning %} configuration, consider configuring advanced setup. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning).
 
@@ -83,8 +79,6 @@ You can edit the threat model used in a default setup configuration. For more in
 
 {% endif %}
 
-{% ifversion codeql-model-packs %}
-
 ## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs in default setup
 
 {% data reusables.code-scanning.beta-model-packs %}
@@ -123,5 +117,4 @@ For more information about {% data variables.product.prodname_codeql %} model pa
 
 1. The model packs will be automatically detected and used when {% data variables.product.prodname_code_scanning %} runs on any repository in the organization with default setup enabled.
 
-{% endif %}
 {% endif %}
