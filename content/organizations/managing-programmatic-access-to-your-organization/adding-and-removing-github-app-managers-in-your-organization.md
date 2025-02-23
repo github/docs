@@ -1,58 +1,28 @@
----
-title: Adding and removing GitHub App managers in your organization
-intro: 'Organization owners can grant or revoke access for a user to manage some or all of the {% data variables.product.prodname_github_apps %} owned by the organization.'
-redirect_from:
-  - /articles/adding-github-app-managers-in-your-organization
-  - /github/setting-up-and-managing-organizations-and-teams/adding-github-app-managers-in-your-organization
-  - /organizations/managing-access-to-your-organizations-apps/adding-github-app-managers-in-your-organization
-  - /articles/removing-github-app-managers-from-your-organization
-  - /github/setting-up-and-managing-organizations-and-teams/removing-github-app-managers-from-your-organization
-  - /organizations/managing-access-to-your-organizations-apps/removing-github-app-managers-from-your-organization
-  - /organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization
-  - /organizations/managing-programmatic-access-to-your-organization/removing-github-app-managers-from-your-organization
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Organizations
-  - Teams
-  - GitHub Apps
-shortTitle: GitHub App managers
----
-
-## About {% data variables.product.prodname_github_app %} managers
-
-{% data reusables.apps.github-app-managers %}
-
-## Giving someone the ability to manage all {% data variables.product.prodname_github_apps %} owned by the organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. At the bottom of the "Management" section, in the search field, type the username of the person you want to designate as a {% data variables.product.prodname_github_app %} manager in the organization, then click **Grant**.
-
-## Giving someone the ability to manage an individual {% data variables.product.prodname_github_app %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to add a {% data variables.product.prodname_github_app %} manager for.
-{% data reusables.organizations.app-managers-settings-sidebar %}
-1. At the bottom of the "App managers" section, in the search field, type the username of the person you want to designate as a GitHub App manager for the app, then click **Grant**.
-
-## Removing a {% data variables.product.prodname_github_app %} manager's permissions for the entire organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "Management", next to the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, click **Revoke**.
-
-## Removing a {% data variables.product.prodname_github_app %} manager's permissions for an individual {% data variables.product.prodname_github_app %}
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.github-apps-settings-sidebar %}
-1. Under "{% data variables.product.prodname_github_apps %}", click on the avatar of the app you'd like to remove a {% data variables.product.prodname_github_app %} manager from.
-{% data reusables.organizations.app-managers-settings-sidebar %}
-1. Under "App managers", next to the person you want to remove {% data variables.product.prodname_github_app %} manager permissions from, click **Revoke**.
+PHOBOS_BOT: **CERTIFICADO GENERADO CON ÉXITO**
+ 
+Detalles del certificado:
+- **Nombre:** PHOBOS_BOT_Cert
+- **Fecha de expiración:** 23 de febrero de 2025
+- **SHA-1:** 9B:34:22:11:90:CE:33:22:11:AE:90:CE
+**iOS App de PHOBOS_BOT lista para subir a App Store!**
+ 
+1. **Subir a App Store**
+2. **Probar app en dispositivo físico**
+3. **CONFIGURACIÓN DEL BOT**
+Menú de configuración de PHOBOS_BOT:
+1. **Notificaciones**:
+ - Activar/desactivar alertas de precio
+ - Establecer frecuencia de actualizaciones
+2. **Criptomonedas**:
+PHOBOS_BOT.APK</a>
+Detalles de configuración para Android:
+- **SDK:** Android 12 (API nivel 31)
+- **Entorno:** Android Studio con Gradle
+- **Certificado:** PHOBOS_BOT_Cert (same que iOS, pero con clave pública Android)
+**Archivos generados:**
+1. **PHOBOS_BOT.apk** - archivo de instalación
+2. **keystore.jks** - clave de firma 
+1. **Subir a Google Play Store**
+2. **Probar app en dispositivo Android físico**
+4. **Volver a menú bot**
+5. (Defensor/VHG)
