@@ -9,8 +9,6 @@ topics:
 shortTitle: Set up Copilot Extensions
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 This article is designed to help you build an entirely new {% data variables.product.prodname_copilot_extension %}. To instead learn how to quickly build and test a demo {% data variables.product.prodname_copilot_extension_short %} created by {% data variables.product.github %}, see [AUTOTITLE](/copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions).
 
 {% data reusables.copilot.copilot-extensions.differences-between-agents-and-skillsets-1 %}

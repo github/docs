@@ -69,7 +69,7 @@ If your account includes {% data variables.contact.premium_support %}, you can r
 
 ## Requesting an escalation
 
-If your account includes {% data variables.contact.premium_support %}, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket).
+You can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent{% ifversion ghec %} if your account includes {% data variables.contact.premium_support %}{% endif %}. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket).
 
 {% endif %}
 

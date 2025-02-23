@@ -122,7 +122,7 @@ export default async function dynamicAssets(
         // likely never be enjoyed by network or human eyes.
         effort = 1
       } else if (process.env.NODE_ENV === 'development') {
-        // If you're doing local development (or preview!), the
+        // If you're doing local development (or review), the
         // network is not precious (localhost:4000) and you have no
         // CDN to cache it for you. Make it low but not too unrealistically
         // low.

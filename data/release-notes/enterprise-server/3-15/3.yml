@@ -1,0 +1,82 @@
+date: '2025-02-18'
+sections:
+  security_fixes:
+    - |
+      **LOW**: An attacker with access to an organization administrator's user account could view repository metadata without an active SAML SSO session by searching for repositories within the organization and viewing the search results.
+    - |
+      **HIGH**: An attacker could access environment variables in the debug artifacts uploaded by the CodeQL action after a failed code scanning workflow run. This includes any secrets that were exposed to the workflow as environment variables. The attacker requires read access to the repository to access the debug artifact. Users who do not have debug logging enabled are unaffected. The impact to GitHub Enterprise Server users is limited to internal actors. To mitigate this issue, GitHub no longer logs the complete environment by default. GitHub has requested [CVE-2025-24362](https://www.cve.org/CVERecord?id=CVE-2025-24362) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      After disabling the "TLS only" setting in the Management Console, the maintenance page failed to load.
+    - |
+      In some cluster configurations, it was not possible to enable GitHub Advanced Security in bulk.
+    - |
+      In certain cases, on an instance in a cluster configuration, secret scanning would fail to run due to misconfiguration of a Kafka service.
+    - |
+      In an instance in a high-availability or cluster configuration, administrators who updated the instance's license did not see the change reflected on the "Licenses" page in the UI.
+    - |
+      Audit log indices from 2018 could occasionally fail to be created when migrating to Elasticsearch 8.
+    - |
+      Attachment records were not created when JWT tokens were included in user asset URLs on issues.
+    - |
+      In some cases, a file in the code view would appear as JSON instead of HTML.
+    - |
+      When an administrator suspended a user from the site admin dashboard, the form required them to complete Digital Services Act (DSA) fields that are not relevant on GitHub Enterprise Server.
+    - |
+      Enterprise owners could not modify the "Outside collaborators" policy. Instead a `404 Not Found` response was returned.
+    - |
+      The relative date for commits was sometimes incorrectly displayed in the web UI.
+    - |
+      In cluster environments, API rate limits were calculated using the cluster node IP address instead of the client IP address. This could lead to incorrect rate limiting and the wrong IP address being recorded in audit log entries.
+    - |
+      Users were unable to open issues where the events timeline contained references to projects that were not moved over during a migration. Instead, the `500` error page was displayed.
+    - |
+      Users who had authenticated to multiple accounts, then logged out of one account, were unable to switch to a different account on the platform.
+    - |
+      In some cluster configurations, secret scanning failed to run normally due to connection failures.
+  changes:
+    - |
+      Log files on the appliance root disk are compressed immediately upon daily rotation instead of after a 24 hour delay. You can revert to the previous `delaycompress` behavior by signing in as an SSH admin user, setting `ghe-config logrotate.delaycompress true` and then running `ghe-config-apply`.
+    - |
+      The logrotate `maxsize` (the maximum size of the log file before rotation) automatically scales to 5% of the current root partition size, instead of the prior static value of 15G. This better protects the root disk from unexpected large log files filling up the volume. Administrators can run `ghe-config logrotate.maxsize` to change the configuration value to a static value. Full cluster environments are excluded from this change and retain the 15G static value, unless overridden.
+    - |
+      The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
+    - |
+      The `ghe-live-migrations --init-target` command fails with a descriptive error message if the specified upgrade path is not supported.
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.

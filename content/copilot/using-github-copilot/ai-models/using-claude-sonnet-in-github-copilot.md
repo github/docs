@@ -1,8 +1,8 @@
 ---
-title: Using Claude 3.5 Sonnet in GitHub Copilot
+title: Using Claude 3.5 Sonnet in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use {% data variables.copilot.copilot_claude_sonnet %}'
-intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
+intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
   feature: copilot
 topics:
@@ -13,7 +13,7 @@ redirect_from:
 
 > [!NOTE] {% data variables.copilot.copilot_claude_sonnet %} is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
-## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot %}
+## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}
 
 {% data variables.copilot.copilot_claude_sonnet %} is a large language model that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [model's capabilities](https://www.anthropic.com/claude/sonnet) or read the [model card](https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf).
 

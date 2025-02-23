@@ -26,11 +26,7 @@ For more information about configuring {% data variables.product.prodname_regist
 
 {% data reusables.package_registry.container-registry-replaces-docker-registry %} If the Docker registry on {% data variables.location.product_location %} contains images, you must manually migrate the images to the {% data variables.product.prodname_container_registry %}.
 
-{% ifversion ghes %}
-
 >[!NOTE] {% data reusables.package_registry.container-registry-ghes-migration-availability %}
-
-{% endif %}
 
 {% data reusables.package_registry.container-registry-migration-namespaces %} For more information about the impact of migration to the {% data variables.product.prodname_container_registry %}, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/migrating-to-the-container-registry-from-the-docker-registry#about-migration-from-the-docker-registry).
 

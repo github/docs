@@ -5,7 +5,7 @@ intro: 'Learn how to authenticate to the {% data variables.product.company_short
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller

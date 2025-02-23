@@ -12,8 +12,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot_extensions %} for your personal account
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-on-marketplace %}

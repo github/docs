@@ -18,7 +18,7 @@ redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
+
 
 ## Exploring the security risks in your code
 

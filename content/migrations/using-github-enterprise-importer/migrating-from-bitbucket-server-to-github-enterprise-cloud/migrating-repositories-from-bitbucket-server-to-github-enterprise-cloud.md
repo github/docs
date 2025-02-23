@@ -229,7 +229,7 @@ gh bbs2gh migrate-repo --archive-path ARCHIVE-PATH \
 {% data reusables.enterprise-migration-tool.abort-migration %}
 
 ```shell copy
-gh bb2gh abort-migration --migration-id MIGRATION-ID
+gh bbs2gh abort-migration --migration-id MIGRATION-ID
 ```
 
 ## Step 6: Validate your migration and check the error log

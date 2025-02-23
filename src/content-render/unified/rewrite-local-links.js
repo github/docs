@@ -149,7 +149,7 @@ export default function rewriteLocalLinks(context) {
     })
 
     if (!isProd) {
-      // This runs when doing local preview, link checker tests, or
+      // This runs when doing local review, link checker tests, or
       // running a script like `update-internal-links.js`.
       visit(tree, matcherAnchorLinks, (node) => {
         for (const child of node.children || []) {

@@ -37,7 +37,7 @@ Enable {% data variables.product.prodname_copilot_short %} for some or all membe
 
 To help drive adoption of {% data variables.product.prodname_copilot_short %} in your organization, think about what teams or members are most excited about {% data variables.product.prodname_copilot_short %} or could benefit the most from {% data variables.product.prodname_copilot_short %}. You may want to enable {% data variables.product.prodname_copilot_short %} for those members before enabling {% data variables.product.prodname_copilot_short %} for your whole organization. This can help you discover blockers, demonstrate early success, and set your organization up for a successful {% data variables.product.prodname_copilot_short %} rollout.
 
-Alternatively, you can set up a self-serve workflow using the API. See [Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization) and [Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization) in the REST API documentation.
+{% data reusables.copilot.self-serve-license-link %}
 
 If your organization is part of an enterprise on {% data variables.enterprise.data_residency_site %}, users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 

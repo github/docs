@@ -40,6 +40,7 @@ jobs:
         name:
           # src/ directory
           - archives
+          - article-api
           - assets
           - audit-logs
           - automated-pipelines
@@ -66,7 +67,6 @@ jobs:
           - observability
           # - open-source
           - pageinfo
-          - pagelist
           # - pages
           - products
           - redirects

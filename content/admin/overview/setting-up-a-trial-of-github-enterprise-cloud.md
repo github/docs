@@ -62,6 +62,7 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 You can create up to **three new organizations** in the trial enterprise, or transfer any number of existing organizations.
 
 * You cannot transfer organizations that have free or paid {% data variables.product.prodname_marketplace %} apps. Free apps are supported for new organizations in the trial.
+* You cannot transfer organizations that are already owned by another enterprise.
 * Billing for transferred organizations is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}.
 * Organizations created during the trial cannot be removed from the enterprise account until you purchase {% data variables.product.prodname_enterprise %}.
 

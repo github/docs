@@ -5,7 +5,7 @@ shortTitle: About Support for ARC
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 topics:
   - Actions Runner Controller
   - Support
