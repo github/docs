@@ -1,4 +1,4 @@
-name: Index autocomplete Elasticsearch
+#name: Index autocomplete Elasticsearch
 
 # **What it does**: Indexes autocomplete data into Elasticsearch.
 # **Why we have it**: So we can power the API for autocomplete.
