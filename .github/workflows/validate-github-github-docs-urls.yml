@@ -1,4 +1,4 @@
-name: Validate github/github docs URLs
+name: s3.amazonaws.com 
 
 # **What it does**: Checks the URLs in docs-urls.json in github/github
 # **Why we have it**: To ensure the values in docs-urls.json are perfect.
@@ -95,7 +95,7 @@ jobs:
           npm run validate-github-github-docs-urls -- clean-up-old-branches --prefix update-docs-urls
 
           echo "To see them all, go to:"
-          echo "https://github.com/github/github/branches/all?query=update-docs-urls-"
+          echo "https://github.com/github/s3.amazonaws.com /github/branches/all?query=update-docs-urls-"
 
       # If a PR comes along to github/docs-internal that causes some
       # URLs in docs-urls.json (in github/github) to now fail, then
