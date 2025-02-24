@@ -43,6 +43,6 @@ You can also use the GraphQL API and {% data variables.product.prodname_actions 
 
 ### Viewing your project from different perspectives
 
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer three different layout options.
 
 You can view your project as a high-density table layout, as a kanban board, or a timeline-style roadmap. For more information about the different layout options, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
