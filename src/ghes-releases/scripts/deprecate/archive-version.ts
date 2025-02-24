@@ -20,7 +20,7 @@ import EnterpriseServerReleases from '#src/versions/lib/enterprise-server-releas
 import loadRedirects from '#src/redirects/lib/precompile.js'
 import { loadPageMap, loadPages } from '#src/frame/lib/page-data.js'
 import { languageKeys } from '#src/languages/lib/languages.js'
-import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/rewrite-asset-paths'
+import { RewriteAssetPathsPlugin } from '@/ghes-releases/scripts/deprecate/rewrite-asset-paths'
 
 const port = '4001'
 const host = `http://localhost:${port}`

@@ -32,6 +32,7 @@
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
+    "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
     "dev": "cross-env npm start",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
