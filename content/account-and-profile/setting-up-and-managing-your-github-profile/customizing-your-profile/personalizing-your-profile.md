@@ -151,15 +151,8 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **{% octicon "smiley" aria-hidden="true" %} Set status** or, if you already have a status set, click your current status.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile.png)
-
-{% endif %}
 1. In the "What's happening" field, type a status message.
 1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 1. Optionally, if you'd like to share that you have limited availability, select "Busy."

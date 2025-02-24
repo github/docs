@@ -97,7 +97,7 @@ You can download a CSV file with {% data variables.product.prodname_GH_advanced_
 * The username of the person using the license
 * The {% data variables.product.prodname_advanced_security %}-enabled repositories where commits were made
 * The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using licenses belong to
-* The most recent commit dates{% ifversion ghec or ghes > 3.11 %} and associated email addresses{% endif %}
+* The most recent commit dates and associated email addresses
 
 You can use this information for insights into your {% data variables.product.prodname_advanced_security %} usage, such as which members of your enterprise are using an {% data variables.product.prodname_advanced_security %} license or how {% data variables.product.prodname_advanced_security %} licenses are being consumed across your organizations.
 

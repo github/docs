@@ -69,21 +69,13 @@ You can use default setup for all {% data variables.product.prodname_codeql %}-s
 
 We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your code security needs. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
 
-{% ifversion code-scanning-default-setup-recommended-languages %}
-
 ### About adding non-compiled and compiled languages to your default setup
 
 If the code in a repository changes to include Go, JavaScript/TypeScript, Python, or Ruby, {% data variables.product.prodname_dotcom %} will automatically update the {% data variables.product.prodname_code_scanning %} configuration to include the new language. If {% data variables.product.prodname_code_scanning %} fails with the new configuration, {% data variables.product.prodname_dotcom %} will resume the previous configuration automatically so the repository does not lose {% data variables.product.prodname_code_scanning %} coverage.
 
 Compiled languages are not automatically included in default setup configuration because they often require more advanced configuration, but you can manually select any {% data variables.product.prodname_codeql %}-supported compiled language for analysis.
 
-{% endif %}
-
 ## Configuring default setup for a repository
-
-{% ifversion code-scanning-default-setup-recommended-languages %}{% else %}
-When you initially configure default setup for {% data variables.product.prodname_code_scanning %} for a repository, all {% data variables.product.prodname_codeql %}-supported languages in the repository will be analyzed automatically. The languages that are analyzed successfully will be retained in the new default setup configuration. Languages that are not analyzed successfully will be automatically deselected from the default setup configuration.
-{% endif %}
 
 > [!NOTE]
 {% ifversion default-setup-pre-enablement %}> If the analyses fail for all {% data variables.product.prodname_codeql %}-supported languages in a repository, default setup will still be enabled, but it will not run any scans or use any {% data variables.product.prodname_actions %} minutes until another {% data variables.product.prodname_codeql %}-supported language is added to the repository or default setup is manually reconfigured, and the analysis of a {% data variables.product.prodname_codeql %}-supported language succeeds.
@@ -103,32 +95,12 @@ When you initially configure default setup for {% data variables.product.prodnam
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 
-   {% ifversion code-scanning-default-setup-recommended-languages %}
-
    > [!NOTE]
    > If your repository contains _only_ compiled {% data variables.product.prodname_codeql %}-supported languages (for example, Java), you will be taken to the settings page to select the languages you want to add to your default setup configuration.
 
 1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
-   * To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. {% ifversion code-scanning-default-setup-recommended-languages %}If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.{% endif %}
+   * To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.
    * To specify the {% data variables.product.prodname_codeql %} query suite you would like to use, select your preferred query suite in the "Query suites" section.
-
-{%- else -%}
-
-1. Optionally, in the "Query suites" section of the "{% data variables.product.prodname_codeql %} default configuration" modal dialog, select the **Default** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the {% data variables.product.prodname_codeql %} query suite you would like to use.
-
-   ![Screenshot of the modal for default setup. A button labeled "Default", with an arrow indicating a dropdown menu, is outlined in dark orange.](/assets/images/help/security/default-setup-query-suite-dropdown.png)
-
-   If you choose the **Extended** query suite, your {% data variables.product.prodname_code_scanning %} configuration will run lower severity and precision queries in addition to the queries included in the **Default** query suite. For more information on the available query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).
-
-   > [!NOTE]
-   > If you configure {% data variables.product.prodname_code_scanning %} to use the **Extended** query suite, you may experience a higher rate of false positive alerts.
-
-{% ifversion code-scanning-default-setup-customize-labels %}
-
-1. Optionally, to use labeled runners, in the "Runner type" section, select **Standard {% data variables.product.company_short %} runner** {% octicon "triangle-down" aria-hidden="true" %} then select **Labeled runner**. Then, next to "Runner label", enter the label of an existing self-hosted or {% data variables.product.company_short %}-hosted runner. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
-
-{%- endif %}
-{%- endif %}
 
 1. Review the settings for default setup on your repository, then click **Enable {% data variables.product.prodname_codeql %}**. This will trigger a workflow that tests the new, automatically generated configuration.
 

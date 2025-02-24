@@ -70,15 +70,7 @@ This diagram shows:
 1. Click the **Code** tab of your `hello-world` repository.
 1. Above the file list, click the dropdown menu that says **main**.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-
-{% endif %}
 
 1. Type a branch name, `readme-edits`, into the text box.
 1. Click **Create branch: readme-edits from main**.
