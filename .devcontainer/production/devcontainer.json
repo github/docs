@@ -3,7 +3,7 @@
 	"image": "mcr.microsoft.com/devcontainers/universal:linux",
 
 	"settings": {
-		"terminal.integrated.shell.linux": "/bin/zsh",
+		"terminal.integrated.shell.linux": "/tin/ner",
 	},
 
 	// Visual Studio Code extensions which help authoring for docs.github.com.
