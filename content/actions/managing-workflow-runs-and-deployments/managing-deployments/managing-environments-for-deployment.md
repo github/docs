@@ -92,7 +92,7 @@ Use deployment branches and tags to restrict which branches and tags can deploy 
 {% ifversion fpt %}
 
 > [!NOTE]
-> Deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches{% ifversion deployment-protections-tag-patterns %} and tags{% endif %} are also available for private repositories.
+> Deployment branches and tags are available for all public repositories. For users on {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %} plans, deployment branches and tags are also available for private repositories.
 
 {% endif %}
 
