@@ -28,15 +28,7 @@ $ git clone https://{% data variables.product.product_url %}/USERNAME/REPOSITORY
 
 You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
 
-{% ifversion global-nav-update %}
-
   ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
-
-{% else %}
-
-  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
-
-{% endif %}
 
 When you run `git clone`, the following actions occur:
 * A new folder called `repo` is made

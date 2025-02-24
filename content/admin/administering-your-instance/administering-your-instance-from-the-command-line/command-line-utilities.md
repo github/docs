@@ -1297,13 +1297,6 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
 
-{% ifversion ghes < 3.12 %}
-
-> [!NOTE]
-> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.1 or later.
-
-{% endif %}
-
 ```shell
 ghe-check-background-upgrade-jobs
 ```

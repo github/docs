@@ -35,11 +35,7 @@ A {% data variables.product.prodname_GH_advanced_security %} license provides th
 
 * **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %}private repositories{% else %} the repository{% endif %}. If push protection is enabled, {% data variables.product.prodname_dotcom %} also detects secrets when they are pushed to your repository. {% ifversion secret-scanning-enable-by-default-for-public-repos %}{% data variables.secret-scanning.user_alerts_caps %} and push protection are available and free of charge for all {% ifversion ghec %}user-owned {% endif %}public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %} See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
-{% ifversion dependabot-auto-triage-rules %}
-
 * **{% data variables.dependabot.custom_rules_caps %}** - {% data reusables.dependabot.dependabot-custom-rules-ghas %}
-
-{% endif %}
 
 * **Dependency review** - Show the full impact of changes to dependencies and see details of any vulnerable versions before you merge a pull request. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
@@ -59,9 +55,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 | Code scanning     | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% data variables.product.prodname_codeql_cli %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | Secret scanning   | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| {% ifversion dependabot-auto-triage-rules %} |
 | {% data variables.dependabot.custom_rules_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
-| {% endif %} |
 | Dependency review | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 
 {% endrowheaders %}

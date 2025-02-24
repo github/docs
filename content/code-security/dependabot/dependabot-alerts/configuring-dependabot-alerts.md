@@ -31,11 +31,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 * Your organization{% ifversion dependabot-alerts-enterprise-enablement or ghes %}
 * Your enterprise{% endif %}
 
-{% ifversion dependabot-auto-triage-rules %}
-
 {% data reusables.dependabot.dependabot-alert-rules %}
-
-{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_alerts %} for your personal account
 
