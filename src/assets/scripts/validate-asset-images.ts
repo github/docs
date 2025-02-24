@@ -6,7 +6,7 @@
 //
 // Generally writers don't check in bogus/corrupt images but mistakes
 // can happen and it's ideally spotted in other processes such as
-// reviewing PR preview environment.
+// reviewing PR review environment.
 // This script also makes sure that all images really are what they're
 // called. For example, an image might be named `screenshot.png` but
 // it might actually be something mischievous.

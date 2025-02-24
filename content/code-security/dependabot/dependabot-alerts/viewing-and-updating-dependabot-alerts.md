@@ -53,6 +53,8 @@ The search bar also allows for full text searching of alerts and related securit
 
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
 
+You can also use the REST API to get a list of {% data variables.product.prodname_dependabot_alerts %} sorted using your filter of choice, for your repository, organization, or enterprise. For more information about API endpoints, see [AUTOTITLE](/rest/dependabot/alerts).
+
 ## Supported ecosystems and manifests for dependency scope
 
 {% data reusables.dependabot.dependabot-alerts-dependency-scope %}

@@ -51,6 +51,7 @@ versions:
 children:
   - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
   - authentication
   - repositories
@@ -83,6 +84,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
+
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -141,6 +143,7 @@ childGroups:
     children:
       - organizations
       - code-security/securing-your-organization
+      - enterprise-onboarding
       - admin
       - gh-wa
   - name: Developers

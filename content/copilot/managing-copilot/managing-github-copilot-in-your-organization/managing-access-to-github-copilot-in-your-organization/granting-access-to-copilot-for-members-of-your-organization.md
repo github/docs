@@ -78,6 +78,8 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
 You can use {% data variables.product.prodname_dotcom %}'s REST API to grant access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. See [Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization) and [Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization).
 
+{% data reusables.copilot.self-serve-license-link %}
+
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)

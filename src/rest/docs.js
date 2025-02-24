@@ -20,7 +20,7 @@ const log = console.log
 
 log(
   chalk.green.bold(
-    '\nUse this script to build a local docs preview. You can build specific versions of the REST and Webhook docs.\n',
+    '\nUse this script to build a local docs review. You can build specific versions of the REST and Webhook docs.\n',
   ),
 )
 log(chalk.white.bold('  Versions that can be built: ', openApiVersions, '\n'))

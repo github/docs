@@ -54,7 +54,7 @@ router.get(
         searchCacheControl(res)
         // We can cache this without purging it after every deploy
         // because the API search is only used as a proxy for local
-        // and preview environments.
+        // and review environments.
         setFastlySurrogateKey(res, SURROGATE_ENUMS.MANUAL)
       }
 

@@ -30,6 +30,8 @@ Depending on the size of your organization, you may want to start with a small p
 
 You can start by identifying a small number of teams that are interested in using {% data variables.product.prodname_copilot_short %}. You can then work with these teams to help them get started with {% data variables.product.prodname_copilot_short %}.
 
+{% data reusables.copilot.self-serve-license-link %}
+
 ## Supporting users setting up their environment
 
 Once your teams have access to {% data variables.product.prodname_copilot %}, ensure they're confident with setting up their environment. {% data variables.product.github %} provides comprehensive documentation to help users set up their environment and resolve common issues. See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) and [AUTOTITLE](/copilot/troubleshooting-github-copilot).

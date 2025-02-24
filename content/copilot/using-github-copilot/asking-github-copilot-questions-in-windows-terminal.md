@@ -3,7 +3,6 @@ title: Asking GitHub Copilot questions in Windows Terminal
 intro: 'You can use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} to get suggestions and explanations for the command line.'
 topics:
   - Copilot
-product: '{% data reusables.gated-features.copilot-free-availability %}'
 shortTitle: Copilot in Windows Terminal
 versions:
   feature: copilot
