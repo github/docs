@@ -1,5 +1,5 @@
 {
-	"name": "test",
+	"name": "name",
 	"image": "mcr.microsoft.com/devcontainers/universal:linux",
 
 	"settings": {
