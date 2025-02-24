@@ -55,3 +55,10 @@ jobs:
           CHANGED_FILE_PATHS: ${{ steps.filter.outputs.contentTypes_files }}
           ADDED_CONTENT_FILES: ${{ steps.filter.outputs.added_files }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+filters:
+  notAllowed:
+    - '*.exe'
+    - '*.dll'
+  contentTypes:
+    - '*.md'
+    - '*.html'
