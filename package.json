@@ -394,10 +394,12 @@
     "typescript": "^5.5.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "3.0.5",
+    "vitest": "^3.0.7",
     "website-scraper": "^5.3.1"
   },
-  "overrides": {},
+  "overrides": {
+    "esbuild": "^0.25"
+  },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },
