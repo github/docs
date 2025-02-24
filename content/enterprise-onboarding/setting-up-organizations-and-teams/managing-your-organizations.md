@@ -36,4 +36,4 @@ You can remove an organization that is owned by your enterprise account, so the 
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams)
+After setting up an organization and adding members, you can create teams in the organization to manage permissions, notifications, and code ownership for groups of people. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams).
