@@ -1,4 +1,10 @@
 date: '2025-02-18'
+intro: |
+  {% warning %}
+
+  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches or upgrades to GitHub Enterprise Server version `3.12.15` will result errors being reported in the upgrade log. We recommend waiting for the next patch release to hotpatch or upgrade.
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -24,6 +30,8 @@ sections:
     - |
       The `ghe-live-migrations --init-target` command fails with a descriptive error message if the specified upgrade path is not supported.
   known_issues:
+    - |
+      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-02-23]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
