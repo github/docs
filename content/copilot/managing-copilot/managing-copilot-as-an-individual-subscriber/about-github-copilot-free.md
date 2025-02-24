@@ -30,6 +30,7 @@ topics:
   * Prompt files (**only in {% data variables.product.prodname_vscode_shortname %}**)
   * Vision (**only in {% data variables.product.prodname_vscode_shortname %} Insiders**)
 * {% data variables.product.prodname_copilot_cli_short %}
+* {% data variables.product.prodname_windows_terminal %}
 * Block suggestions matching public code
 * Access to the {% data variables.copilot.copilot_claude_sonnet %}, {% data variables.copilot.copilot_gemini_flash %} and o3-mini models
 * Access to {% data variables.product.prodname_copilot_extensions_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_mobile %}
@@ -39,7 +40,7 @@ topics:
 {% data variables.product.prodname_copilot_free_short %} has the following limitations:
 
 * Code completions are limited to 2000 completions per month.
-* {% data variables.product.prodname_copilot_chat_short %} is limited to 50 chat messages per month. This limit includes the usage of {% data variables.product.prodname_copilot_cli_short %}, and both standard and multi-file editing chats in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}.
+* {% data variables.product.prodname_copilot_chat_short %} is limited to 50 chat messages per month. This limit includes the usage of {% data variables.product.prodname_copilot_cli_short %}, {% data variables.product.prodname_windows_terminal %}, and both standard and multi-file editing chats in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %}.
 When you reach these limits, you can upgrade to {% data variables.product.prodname_copilot_pro_short %} to continue using {% data variables.product.prodname_copilot_short %}.
 
 ### Limitations for enterprises
