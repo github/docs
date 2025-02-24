@@ -36,5 +36,5 @@ You can enjoy the convenience of {% data variables.product.company_short %}-host
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions) to learn about the basics
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise) if you're ready to plan your rollout
+1. To learn about {% data variables.product.prodname_actions %} basics, including core concepts and essential terminology, see [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/understanding-github-actions).
+1. To get started planning a rollout of {% data variables.product.prodname_actions %} in your enterprise, see [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).

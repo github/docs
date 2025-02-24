@@ -76,4 +76,4 @@ For more information about self-hosted runners, see [AUTOTITLE](/actions/hosting
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise)
+Next, learn about planning a rollout of {% data variables.product.prodname_actions %} in your enterprise. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/introducing-github-actions-to-your-enterprise).

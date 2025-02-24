@@ -31,3 +31,7 @@ You can also create READMEs for organizations in your enterprise, visible either
 
 * [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)
+
+## Next steps
+
+Next, learn about the security features available to your enterprise. See [AUTOTITLE](/enterprise-onboarding/feature-enhancements/about-enterprise-security).

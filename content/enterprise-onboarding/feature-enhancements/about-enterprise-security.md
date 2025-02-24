@@ -1,10 +1,12 @@
 ---
-title: 'About security for your enterprise'
-shortTitle: 'About enterprise security'
+title: 'About enterprise security'
+shortTitle: 'Learn about the security fetures available to your enterprise.'
 intro: 'Learn about the security features available to your enterprise.'
 versions:
   ghec: '*'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /enterprise-onboarding/feature-enhancements/about-code-security-for-your-enterprise
 type: overview
 topics:
   - Enterprise
