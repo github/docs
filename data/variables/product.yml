@@ -199,6 +199,7 @@ prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
 # GitHub support
+standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
 premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
 microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
