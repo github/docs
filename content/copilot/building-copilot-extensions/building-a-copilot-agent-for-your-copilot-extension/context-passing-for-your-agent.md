@@ -37,6 +37,7 @@ The following table shows the reference types that are passed to {% data variabl
 | {% data variables.product.prodname_vscode %} | Yes           | Yes                | Yes                 |      No              | Repository owner and branch                       |
 | {% data variables.product.prodname_vs %}      | Yes           | Yes                | Yes                 |         No           | Repository owner and branch                       |
 | {% data variables.product.prodname_dotcom_the_website %}         |    No         |        No          | Yes                 | Yes                  | Repository information and other {% data variables.product.github %} resources |
+| {% data variables.product.prodname_mobile %}      |        No     |     No            |     No              | Yes                  |             Not applicable
 
 {% endrowheaders %}
 

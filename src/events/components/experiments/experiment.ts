@@ -99,8 +99,6 @@ export function getExperimentControlGroupFromSession(
 ): string {
   if (controlGroupOverride[experimentKey]) {
     return controlGroupOverride[experimentKey]
-  } else if (process.env.NODE_ENV === 'development') {
-    return TREATMENT_VARIATION
   } else if (process.env.NODE_ENV === 'test') {
     return CONTROL_VARIATION
   }
@@ -159,14 +157,6 @@ export function initializeExperiments(
   }
 
   const experiments = getActiveExperiments(locale, currentVersion)
-
-  if (experiments.length && process.env.NODE_ENV === 'development') {
-    console.log(
-      `In development, all users are placed in the "${TREATMENT_VARIATION}" group for experiments`,
-    )
-  } else if (experiments.length && process.env.NODE_ENV === 'test') {
-    console.log(`In test, all users are placed in the "${CONTROL_VARIATION}" group for experiments`)
-  }
 
   let numberOfExperimentsUsingContext = 0
   for (const experiment of experiments) {
