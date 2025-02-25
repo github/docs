@@ -1,9 +1,11 @@
 ---
 title: About GitHub Desktop
-shortTitle: 'About'
+shortTitle: About
 intro: '{% data variables.product.prodname_desktop %} helps you work with projects hosted on {% data variables.product.prodname_dotcom %}.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/about-github-desktop
   - /github/getting-started-with-github/github-desktop

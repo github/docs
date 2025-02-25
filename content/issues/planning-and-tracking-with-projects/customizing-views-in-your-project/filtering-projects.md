@@ -2,7 +2,9 @@
 title: 'Filtering {% data variables.projects.projects_v2 %}'
 intro: Use filters to choose which items appear in your project's views.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
 type: tutorial

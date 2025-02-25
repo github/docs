@@ -10,8 +10,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/managing-branches-in-github-desktop
 versions:
-  feature: desktop
-
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## About managing branches
 

@@ -3,7 +3,9 @@ title: 'Finding your {% data variables.projects.projects_v2 %}'
 intro: 'Learn how to locate projects in your account, organizations, repositories, and teams.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2-global-nav
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
 topics:
   - Projects

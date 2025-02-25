@@ -3,7 +3,9 @@ title: About Dependabot auto-triage rules
 intro: '{% data variables.dependabot.auto_triage_rules %} are a powerful tool to help you better manage your security alerts at scale. {% data variables.dependabot.github_presets %} are rules curated by {% data variables.product.company_short %} that you can use to filter out a substantial amount of false positives. {% data variables.dependabot.custom_rules_caps %} provide control over which alerts are ignored, snoozed, or trigger a {% data variables.product.prodname_dependabot %} security update to resolve the alert.'
 product: '{% data reusables.gated-features.dependabot-auto-triage-rules %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
 topics:
   - Dependabot

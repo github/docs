@@ -10,6 +10,9 @@ Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-c
 [Dev containers](#dev-containers) | `devcontainers`         | Not applicable               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} |
 | {% endif %} |
 [Docker](#docker)    | `docker`         | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% ifversion dependabot-docker-compose-support %} |
+[Docker Compose](#docker-compose)    | `docker-compose`         | v2, v3              | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+| {% endif %} |
 | {% ifversion dependabot-dotnet-sdk %} |
 .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable | Not applicable | Not applicable |
 | {% endif %} |
@@ -74,6 +77,14 @@ In order for {% data variables.product.prodname_dependabot %} to fetch Docker me
 {% data variables.product.prodname_dependabot %} supports both public and private Docker registries. For a list of the supported registries, see "`docker-registry`" in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#docker-registry).
 
 {% data variables.product.prodname_dependabot %} parses Docker image tags for Semantic Versioning ([SemVer](https://semver.org/)). If {% data variables.product.prodname_dependabot %} detects a tag with a pre-release, then it will only suggest an update to the latest version with a matching pre-release, and it will not suggest a newer version that use a different pre-release label. For more information, see the `dependabot-docker` [README.md](https://github.com/dependabot/dependabot-core/blob/main/docker/README.md) file in the `dependabot/dependabot-core` repository.
+
+{% ifversion dependabot-docker-compose-support %}
+
+#### Docker Compose
+
+{% data variables.product.prodname_dependabot %} supports Docker Compose in a similar way to Docker. For more information, see [Docker](#docker).
+
+{% endif %}
 
 #### {% data variables.product.prodname_actions %}
 

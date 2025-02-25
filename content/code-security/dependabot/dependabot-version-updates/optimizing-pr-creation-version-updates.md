@@ -4,7 +4,9 @@ intro: 'Learn how to streamline and efficiently manage your {% data variables.pr
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
 versions:
-  feature: dependabot-version-updates-groups
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot

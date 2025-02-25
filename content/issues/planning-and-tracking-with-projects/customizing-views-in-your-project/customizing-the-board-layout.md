@@ -3,7 +3,9 @@ title: Customizing the board layout
 shortTitle: Customizing boards
 intro: You can use the board layout to arrange your project's items over customizable columns.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
