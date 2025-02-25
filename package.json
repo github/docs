@@ -32,6 +32,7 @@
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
+    "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
     "dev": "cross-env npm start",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
@@ -324,7 +325,7 @@
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
     "tcp-port-used": "1.0.2",
-    "tsx": "4.15.1",
+    "tsx": "^4.19.3",
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
@@ -394,10 +395,12 @@
     "typescript": "^5.5.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "3.0.5",
+    "vitest": "^3.0.7",
     "website-scraper": "^5.3.1"
   },
-  "overrides": {},
+  "overrides": {
+    "esbuild": "^0.25"
+  },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },

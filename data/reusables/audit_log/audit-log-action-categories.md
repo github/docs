@@ -14,9 +14,7 @@
 | {% endif %} |
 | `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. |
 | `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. |
-| {% ifversion secret-scanning-validity-check-audit-log %} |
 | `business_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an enterprise. |
-| {% endif %} |
 | {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an enterprise. |
 | {% endif %} |
@@ -85,9 +83,7 @@
 | {% ifversion ghec or ghes %} |
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on. |
 | {% endif %} |
-| {% ifversion secret-scanning-validity-check-audit-log %} |
 | `org_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization). |
-| {% endif %} |
 | {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). |
 | {% endif %} |
@@ -130,9 +126,7 @@
 | {% ifversion ghec or ghes %} |
 | `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning). |
 | {% endif %} |
-| {% ifversion secret-scanning-validity-check-audit-log %} |
 | `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository). |
-| {% endif %} |
 | {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `repository_secret_scanning_custom_pattern` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). |
 | {% endif %} |

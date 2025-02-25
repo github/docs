@@ -8,7 +8,7 @@ topics:
   - Copilot
 ---
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses OpenAI's GPT 4o large language model. This is a highly proficient model that performs well for text generation tasks, such as summarization and knowledge-based chat. The model is also capable of reasoning, solving complex math problems and coding.
+By default, {% data variables.product.prodname_copilot_chat_short %} uses OpenAI's GPT-4o large language model. This is a highly proficient model that performs well for text generation tasks, such as summarization and knowledge-based chat. The model is also capable of reasoning, solving complex math problems and coding.
 
 However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
@@ -28,7 +28,7 @@ Changing the model that's used by {% data variables.product.prodname_copilot_cha
 
 ### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT 4o, {% data variables.copilot.copilot_claude_sonnet %}, and {% data variables.copilot.copilot_gemini_flash %} models are supported.
+* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT-4o, {% data variables.copilot.copilot_claude_sonnet %}, and {% data variables.copilot.copilot_gemini_flash %} models are supported.
 * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
 ## Changing your AI model

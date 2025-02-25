@@ -76,11 +76,7 @@ When {% data variables.product.github %} identifies a vulnerable dependency, we 
 
 {% data reusables.dependabot.dependabot-alert-create-PR %}
 
-{% ifversion dependabot-auto-triage-rules %}
-
 {% data reusables.dependabot.dependabot-alert-rules %}
-
-{% endif %}
 
 > [!WARNING]
 > {% data variables.product.github %}'s security features do not claim to catch all vulnerabilities. We actively maintain {% data variables.product.prodname_advisory_database %} and generate alerts with the most up-to-date information. However, we cannot catch everything or tell you about known vulnerabilities within a guaranteed time frame. These features are not substitutes for human review of each dependency for potential vulnerabilities or any other issues, and we recommend consulting with a security service or conducting a thorough dependency review when necessary.

@@ -445,3 +445,22 @@ export type ProductExample = {
   user?: string
   description: string
 }
+
+export type FeatureData = {
+  [key: string]: Versions
+}
+export type Versions = {
+  versions: FrontmatterVersions
+}
+
+// Used for parsing .md pages with YAML frontmatter
+// This is not the full list available in the frontmatter schema
+export type MarkdownFrontmatter = {
+  title: string
+  shortTitle?: string
+  children: string[]
+  allowTitleToDifferFromFilename?: boolean
+  versions: FrontmatterVersions
+  mapTopic?: boolean
+  hidden?: boolean
+}

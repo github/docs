@@ -392,9 +392,7 @@ Package manager | YAML value      | Supported versions |
 | pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
 | poetry         | `pip`            | v1               |
 | pub         | `pub`            | v2  |
-|  |
 | Swift   | `swift`      | v5  |
-|  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.8.x  |
 | yarn         | `npm`            | v1, v2, v3       |
 
