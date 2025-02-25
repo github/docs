@@ -27,11 +27,7 @@ You can always create a branch in {% data variables.product.prodname_desktop %} 
 
 {% data reusables.desktop.protected-branches %}
 
-{% ifversion repo-rules %}
-
 Repository administrators can also enable rulesets. Rulesets can be used to require specific branch names when creating a new branch, or to allow only users with bypass permissions to publish a new branch to the remote repository. {% data variables.product.prodname_desktop %} will show a warning and prevent the branch from being created if the branch does not follow the rulesets. For more information, see [AUTOTITLE](/enterprise-cloud@latest/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% endif %}
 
 ## Creating a branch
 

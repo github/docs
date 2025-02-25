@@ -278,10 +278,10 @@ For more information about the `run` keyword, see [AUTOTITLE](/actions/using-wor
 For repositories with multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, you might want to provide manual build steps for one language (here Java). This specifies build steps for Java while still using `autobuild` for C/C++ and C#.
 
 ```yaml
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'c-cpp'{% else %}'cpp'{% endif %} || matrix.language == 'csharp'
+- if: matrix.language == 'c-cpp' || matrix.language == 'csharp'
   name: Autobuild
   uses: {% data reusables.actions.action-codeql-action-autobuild %}
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'java-kotlin'{% else %}'java'{% endif %}
+- if: matrix.language == 'java-kotlin'
   name: Build Java
   run: |
     make bootstrap
