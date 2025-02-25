@@ -22,6 +22,10 @@ $mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
   margin-top: 4px;
   margin-bottom: 16px;
   padding: $bodyPadding;
+  ul,
+  ol {
+    list-style-type: decimal !important;
+  }
 }
 
 .referencesTitle {
