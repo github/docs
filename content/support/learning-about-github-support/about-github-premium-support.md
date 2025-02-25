@@ -44,8 +44,8 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Members with support entitlements | 20 | 40 |
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
-Escalation management | For high and urgent priority tickets | For High and Urgent priority tickets
-Incident management | None | For urgent priority tickets, as needed
+| Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets |
+| Incident management | None | For Urgent priority tickets, as needed |
 | Health checks | {% ifversion not ghes %}None{% else %}Unlimited automated health check reports (see [Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise))</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
 | {% ifversion ghes %} |
 | Crisis prevention | None | Yearly participation in guided incident simulations to help you be prepared |
