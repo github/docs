@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 <a href="https://desktop.github.com?ref_cta=download+desktop&ref_loc=installing+github+desktop&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 %}</a>

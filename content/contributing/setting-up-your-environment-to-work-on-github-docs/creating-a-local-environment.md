@@ -3,7 +3,9 @@ title: Creating a local environment
 shortTitle: Create a local environment
 intro: 'You can run the {% data variables.product.prodname_docs %} application locally on your computer.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About {% data variables.product.prodname_docs %} site structure

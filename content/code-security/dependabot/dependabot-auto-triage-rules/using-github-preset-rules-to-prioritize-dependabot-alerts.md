@@ -3,7 +3,9 @@ title: Using GitHub preset rules to prioritize Dependabot alerts
 intro: 'You can use {% data variables.dependabot.github_presets %}, which are rules curated by {% data variables.product.company_short %}, to auto-dismiss low impact development alerts for npm dependencies.'
 permissions: '{% data reusables.permissions.dependabot-github-presets %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot

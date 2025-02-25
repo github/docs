@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/creating-your-first-repository-using-github-desktop
   - /desktop/installing-and-configuring-github-desktop/overview/creating-your-first-repository-using-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## Introduction
 

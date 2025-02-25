@@ -2,7 +2,9 @@
 title: Versioning documentation
 intro: '{% data variables.product.prodname_docs %} uses YAML frontmatter and liquid operators to support multiple versions of {% data variables.product.company_short %} with a single-source approach.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/versioning-documentation
 ---

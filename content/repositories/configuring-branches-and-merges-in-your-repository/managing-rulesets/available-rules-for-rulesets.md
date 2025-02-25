@@ -1,9 +1,11 @@
 ---
 title: Available rules for rulesets
-intro: 'Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.'
+intro: Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories

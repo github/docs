@@ -1,9 +1,11 @@
 ---
 title: Troubleshooting rules
-intro: 'Learn how to troubleshoot rulesets when you''re contributing to a repository.'
+intro: Learn how to troubleshoot rulesets when you're contributing to a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Repositories
 shortTitle: Troubleshooting

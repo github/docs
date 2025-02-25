@@ -3,7 +3,9 @@ title: 'Automating {% data variables.product.prodname_projects_v2 %} using Actio
 shortTitle: Automating with Actions
 intro: 'You can use {% data variables.product.prodname_actions %} to automate your projects.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/automating-projects
 type: tutorial
