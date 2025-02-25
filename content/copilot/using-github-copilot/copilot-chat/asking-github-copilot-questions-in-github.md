@@ -37,7 +37,7 @@ For example, asking `Generate a simple calculator using HTML, CSS, and JavaScrip
 
 ## Powered by skills
 
-When using the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
+When using the GPT-4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
 
 ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
 
