@@ -56,7 +56,7 @@ To confirm access for sudo mode, you can authenticate with your password. Option
 
 {% ifversion passkeys %}
 
-## Confirming access using a passkey
+### Confirming access using a passkey
 
 You must have a passkey registered to your account to confirm access to your account for sudo mode using a passkey. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 {% endif %}
