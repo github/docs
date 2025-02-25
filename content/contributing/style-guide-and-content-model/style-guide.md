@@ -2,7 +2,9 @@
 title: Style guide
 intro: 'Follow this guide to make sure {% data variables.product.company_short %}''s documentation stays consistent and follows clear patterns that our readers can understand.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/writing-for-github-docs/style-guide
 ---

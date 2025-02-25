@@ -4,7 +4,9 @@ shortTitle: 'Exporting your {% data variables.projects.project_v2 %} data'
 intro: 'Learn about exporting your {% data variables.projects.project_v2 %} data.'
 permissions: 'People who can access a project can export a view. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-visibility-of-your-projects) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects).'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

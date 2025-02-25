@@ -93,7 +93,7 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 > [!TIP]
 > When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
 
-{% elsif dependabot-version-updates-groups %}
+{% else %}
 
 ### Managing {% data variables.product.prodname_dependabot %} pull requests for grouped version updates with comment commands
 

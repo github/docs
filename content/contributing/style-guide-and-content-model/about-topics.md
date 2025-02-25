@@ -1,9 +1,11 @@
 ---
 title: About topics
 shortTitle: About topics
-intro: 'Use topics to make articles searchable.'
+intro: Use topics to make articles searchable.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 An article can be defined as being relevant to one or more topics by having those topics listed in the article's frontmatter. For example:

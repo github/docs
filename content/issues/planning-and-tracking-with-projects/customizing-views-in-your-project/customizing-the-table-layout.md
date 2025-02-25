@@ -3,7 +3,9 @@ title: Customizing the table layout
 shortTitle: Customizing tables
 intro: 'You can use the table layout to build a spreadsheet using your project''s items, {% data variables.product.company_short %} metadata, and your custom fields.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

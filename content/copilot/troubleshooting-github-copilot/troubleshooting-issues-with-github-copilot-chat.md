@@ -1,6 +1,6 @@
 ---
-title: Troubleshooting issues with GitHub Copilot Chat in IDEs
-intro: Troubleshooting help for common issues with {% data variables.product.prodname_copilot_chat %} in your IDE.
+title: Troubleshooting issues with GitHub Copilot Chat
+intro: 'This guide describes common issues with {% data variables.product.prodname_copilot_chat_short %} and how to resolve them.'
 product: '{% data reusables.gated-features.copilot-chat-callout %}'
 defaultTool: vscode
 topics:
@@ -10,15 +10,17 @@ versions:
   feature: copilot
 shortTitle: Copilot Chat
 redirect_from:
-  - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat
+  - /copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat-in-ides
   - /copilot/troubleshooting-github-copilot/troubleshooting-authentication-issues-with-github-copilot-chat
 ---
 
+You can use {% data variables.product.prodname_copilot_chat %} in your IDE or on the {% data variables.product.github %} website. Click the tabs above for troubleshooting information for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on {% data variables.product.github %} in the browser.
+
 If you need help with {% data variables.product.prodname_copilot_chat %} and can't find the answer here, you can report a bug or ask for help. For more information, see [Sharing feedback about {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#sharing-feedback-about-github-copilot-chat).
 
-If you can't find {% data variables.product.prodname_copilot_chat %} in your editor, make sure you have checked the [Prerequisites](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#prerequisites) section.
-
 {% vscode %}
+
+If you can't find {% data variables.product.prodname_copilot_chat_short %} in your editor, make sure you have checked the [Prerequisites](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#prerequisites) section.
 
 ## Troubleshooting issues caused by version incompatibility
 
@@ -26,15 +28,9 @@ If you can't find {% data variables.product.prodname_copilot_chat %} in your edi
 
 To use {% data variables.product.prodname_copilot_chat %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
 
-{% endvscode %}
-
 ## Troubleshooting authentication issues in your editor
 
-You can use {% data variables.product.prodname_copilot_chat %} in {% data variables.product.prodname_vscode %} and {% data variables.product.prodname_vs %}. You can use the tabs at the top of this article for troubleshooting information relevant to the editor you're using.
-
 {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
-
-{% vscode %}
 
 ### Troubleshooting authentication issues in {% data variables.product.prodname_vscode %}
 
@@ -47,6 +43,12 @@ If you are experiencing authentication issues after installing the {% data varia
 {% endvscode %}
 
 {% visualstudio %}
+
+If you can't find {% data variables.product.prodname_copilot_chat_short %} in your editor, make sure you have checked the [Prerequisites](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#prerequisites) section.
+
+## Troubleshooting authentication issues in your editor
+
+{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 
 ### Troubleshooting authentication issues in {% data variables.product.prodname_vs %}
 
@@ -61,6 +63,12 @@ If you are experiencing authentication issues after installing the {% data varia
 
 {% endvisualstudio %}
 
-## Error: "Oops, your response got filtered"
+{% webui %}
 
-You may encounter this error unexpectedly while using {% data variables.product.prodname_copilot_chat %}. {% data variables.product.company_short %} is aware of this issue and working to fix it. You can report the error in this [{% data variables.product.prodname_github_community %} discussion](https://github.com/orgs/community/discussions/56134).
+## Troubleshooting interrupted chat responses
+
+If a chat response terminates unexpectedly, before the response is complete, try resubmitting the question.
+
+In {% data variables.product.prodname_copilot_chat_short %}'s immersive view (the [github.com/copilot](https://github.com/copilot) page), you can resubmit your question by clicking the {% octicon "sync" aria-label="Retry" %} button under the chat response.
+
+{% endwebui %}

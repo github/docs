@@ -1,8 +1,10 @@
 ---
 title: Referential content type
-intro: 'Referential content provides detailed information that people need while they are actively using a feature.'
+intro: Referential content provides detailed information that people need while they are actively using a feature.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 We create referential articles and referential sections within other articles.

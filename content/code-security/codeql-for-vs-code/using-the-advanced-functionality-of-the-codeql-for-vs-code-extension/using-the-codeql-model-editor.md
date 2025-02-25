@@ -2,7 +2,9 @@
 title: Using the CodeQL model editor
 shortTitle: CodeQL model editor
 versions:
-  feature: 'codeql-model-packs'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Advanced Security
   - Code scanning

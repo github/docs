@@ -4,7 +4,9 @@ intro: 'You can filter to see which alerts have been auto-dismissed by a rule, a
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.dependabot-auto-triage-rules %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
