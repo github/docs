@@ -78,8 +78,8 @@ If you use Azure private networking for {% data variables.product.company_short 
 
 | Runner type | Supported regions |
 | ----------- | ----------------- |
-| x64 | `francecentral`, `swedencentral` |
-| arm64 | `francecentral`, `northeurope` |
+| x64 | `francecentral`, `swedencentral`, `germanywestcentral` |
+| arm64 | `francecentral`, `northeurope`, `germanywestcentral` |
 | GPU | `italynorth`, `swedencentral` |
 
 ### Supported regions in Australia
