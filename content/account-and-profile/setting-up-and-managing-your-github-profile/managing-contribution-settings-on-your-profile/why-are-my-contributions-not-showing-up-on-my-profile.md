@@ -68,7 +68,7 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/getting-started-with-git/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
+The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/git-basics/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
 If the email address used for the commit is not connected to your account on {% data variables.product.prodname_dotcom %}, you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.prodname_dotcom %}. Your contributions graph will be rebuilt automatically when you add the new address.
 

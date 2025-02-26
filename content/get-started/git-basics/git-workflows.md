@@ -7,6 +7,7 @@ redirect_from:
   - /github/using-git/git-workflows
   - /github/getting-started-with-github/git-workflows
   - /github/getting-started-with-github/getting-started-with-git/git-workflows
+  - /get-started/getting-started-with-git/git-workflows
 versions:
   fpt: '*'
   ghes: '*'

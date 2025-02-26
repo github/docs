@@ -7,6 +7,7 @@ redirect_from:
   - /github/using-git/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/caching-your-github-credentials-in-git
   - /github/getting-started-with-github/getting-started-with-git/caching-your-github-credentials-in-git
+  - /get-started/getting-started-with-git/caching-your-github-credentials-in-git
 intro: 'If you''re [cloning {% data variables.product.github %} repositories using HTTPS](/github/getting-started-with-github/about-remote-repositories), we recommend you use {% data variables.product.prodname_cli %} or Git Credential Manager (GCM) to remember your credentials.'
 versions:
   fpt: '*'

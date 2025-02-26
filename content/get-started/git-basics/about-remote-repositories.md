@@ -10,6 +10,7 @@ redirect_from:
   - /github/using-git/about-remote-repositories
   - /github/getting-started-with-github/about-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/about-remote-repositories
+  - /get-started/getting-started-with-git/about-remote-repositories
 intro: 'GitHub''s collaborative approach to development depends on publishing commits from your local repository to {% data variables.product.github %} for other people to view, fetch, and update.'
 versions:
   fpt: '*'
@@ -38,7 +39,7 @@ git remote add origin <REMOTE_URL>
 
 This associates the name `origin` with the `REMOTE_URL`.
 
-You can use the command `git remote set-url` to [change a remote's URL](/get-started/getting-started-with-git/managing-remote-repositories).
+You can use the command `git remote set-url` to [change a remote's URL](/get-started/git-basics/managing-remote-repositories).
 
 ## Choosing a URL for your remote repository
 
@@ -46,7 +47,7 @@ There are several ways to clone repositories available on {% data variables.prod
 
 When you view a repository while signed in to your account, the URLs you can use to clone the project onto your computer are available below the repository details.
 
-For information on setting or changing your remote URL, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+For information on setting or changing your remote URL, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 ## Cloning with HTTPS URLs
 
@@ -57,7 +58,7 @@ When you `git clone`, `git fetch`, `git pull`, or `git push` to a private remote
 {% data reusables.command_line.provide-an-access-token %}
 
 > [!TIP]
-> * You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
+> * You can use a credential helper so Git will remember your {% data variables.product.prodname_dotcom %} credentials every time it talks to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git).
 > * To clone a repository without authenticating to {% data variables.product.github %} on the command line, you can use {% data variables.product.prodname_desktop %} to clone instead. For more information, see [AUTOTITLE](/desktop/adding-and-cloning-repositories/cloning-a-repository-from-github-to-github-desktop).
 
  {% ifversion fpt or ghec %}If you'd rather use SSH but cannot connect over port 22, you might be able to use SSH over the HTTPS port. For more information, see [AUTOTITLE](/authentication/troubleshooting-ssh/using-ssh-over-the-https-port).{% endif %}

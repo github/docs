@@ -1,5 +1,5 @@
 ---
-title: Getting started with Git
+title: Git basics
 intro: 'Set up Git, a distributed version control system, to manage your {% data variables.product.github %} repositories from your computer.'
 redirect_from:
   - /articles/getting-started-with-git-and-github
@@ -7,6 +7,7 @@ redirect_from:
   - /github/using-git/learning-about-git
   - /articles/learning-about-git
   - /github/getting-started-with-github/getting-started-with-git
+  - /get-started/getting-started-with-git
 versions:
   fpt: '*'
   ghes: '*'
