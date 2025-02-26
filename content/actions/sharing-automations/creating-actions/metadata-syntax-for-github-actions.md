@@ -359,13 +359,9 @@ runs:
         last_name: Octocat
 ```
 
-{% ifversion ghes %}
-
 #### `runs.steps[*].continue-on-error`
 
 **Optional** Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
-
-{% endif %}
 
 ## `runs` for Docker container actions
 
