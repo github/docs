@@ -544,3 +544,75 @@ upcoming_changes:
     date: '2025-01-01T00:00:00+00:00'
     criticality: breaking
     owner: chriskirkland
+  - location: Enterprise.members.hasTwoFactorEnabled
+    description:
+      '`hasTwoFactorEnabled` will be removed. Use `two_factor_method_security`
+      instead.'
+    reason: '`has_two_factor_enabled` will be removed.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: authentication
+  - location: EnterpriseOwnerInfo.admins.hasTwoFactorEnabled
+    description:
+      '`hasTwoFactorEnabled` will be removed. Use `two_factor_method_security`
+      instead.'
+    reason: '`has_two_factor_enabled` will be removed.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: authentication
+  - location: EnterpriseOwnerInfo.outsideCollaborators.hasTwoFactorEnabled
+    description:
+      '`hasTwoFactorEnabled` will be removed. Use `two_factor_method_security`
+      instead.'
+    reason: '`has_two_factor_enabled` will be removed.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: authentication
+  - location: ProjectV2.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dewski
+  - location: ProjectV2Item.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dewski
+  - location: ProjectV2StatusUpdate.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dewski
+  - location: ProjectV2View.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dewski
+  - location: ProjectV2Workflow.databaseId
+    description: '`databaseId` will be removed. Use `fullDatabaseId` instead.'
+    reason:
+      '`databaseId` will be removed because it does not support 64-bit signed
+      integer identifiers.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: dewski
+  - location: SecurityAdvisory.cvss
+    description:
+      '`cvss` will be removed. New `cvss_severities` field will now contain
+      both `cvss_v3` and `cvss_v4` properties.'
+    reason: '`cvss` will be removed.'
+    date: '2025-10-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/advisory-database

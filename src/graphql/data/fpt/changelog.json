@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Field <code>repository</code> was removed from object type <code>UserNamespaceRepository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-02-26"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type 'ProjectV2Iteration' was added</p>",
           "<p>Type 'ProjectV2IterationFieldConfigurationInput' was added</p>",
           "<p>Input field <code>iterationConfiguration</code> of type 'ProjectV2IterationFieldConfigurationInput<code>was added to input object type</code>CreateProjectV2FieldInput'</p>",

@@ -79485,14 +79485,6 @@
           "id": "repositoryowner",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#repositoryowner"
-        },
-        {
-          "name": "repository",
-          "description": "<p>The repository owned by an enterprise managed user.</p>",
-          "type": "RepositoryInfo",
-          "id": "repositoryinfo",
-          "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#repositoryinfo"
         }
       ]
     },

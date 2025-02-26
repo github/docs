@@ -54,6 +54,15 @@
       ]
     },
     {
+      "name": "id",
+      "type": "ID!",
+      "kind": "scalars",
+      "id": "id",
+      "href": "/graphql/reference/scalars#id",
+      "description": "<p>ID of the object.</p>",
+      "args": []
+    },
+    {
       "name": "license",
       "type": "License",
       "kind": "objects",
@@ -381,6 +390,22 @@
           "kind": "enums",
           "href": "/graphql/reference/enums#securityadvisoryclassification",
           "description": "<p>A list of classifications to filter advisories by.</p>"
+        },
+        {
+          "name": "epssPercentage",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float",
+          "description": "<p>The EPSS percentage to filter advisories by.</p>"
+        },
+        {
+          "name": "epssPercentile",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float",
+          "description": "<p>The EPSS percentile to filter advisories by.</p>"
         },
         {
           "name": "first",
@@ -1328,6 +1353,48 @@
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#starrable",
           "description": "<p>The starrable.</p>"
+        }
+      ]
+    },
+    {
+      "name": "addSubIssue",
+      "kind": "mutations",
+      "id": "addsubissue",
+      "href": "/graphql/reference/mutations#addsubissue",
+      "description": "<p>Adds a sub-issue to a given issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "AddSubIssueInput!",
+          "id": "addsubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#addsubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent issue that the sub-issue was added to.</p>"
+        },
+        {
+          "name": "subIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The sub-issue of the parent.</p>"
         }
       ]
     },
@@ -5068,6 +5135,48 @@
       ]
     },
     {
+      "name": "removeSubIssue",
+      "kind": "mutations",
+      "id": "removesubissue",
+      "href": "/graphql/reference/mutations#removesubissue",
+      "description": "<p>Removes a sub-issue from a given issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "RemoveSubIssueInput!",
+          "id": "removesubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#removesubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent of the sub-issue.</p>"
+        },
+        {
+          "name": "subIssue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The sub-issue of the parent.</p>"
+        }
+      ]
+    },
+    {
       "name": "removeUpvote",
       "kind": "mutations",
       "id": "removeupvote",
@@ -5234,6 +5343,40 @@
           "kind": "objects",
           "href": "/graphql/reference/objects#environment",
           "description": "<p>The environment that was reordered.</p>"
+        }
+      ]
+    },
+    {
+      "name": "reprioritizeSubIssue",
+      "kind": "mutations",
+      "id": "reprioritizesubissue",
+      "href": "/graphql/reference/mutations#reprioritizesubissue",
+      "description": "<p>Reprioritizes a sub-issue to a different position in the parent list.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReprioritizeSubIssueInput!",
+          "id": "reprioritizesubissueinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#reprioritizesubissueinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The parent issue that the sub-issue was reprioritized in.</p>"
         }
       ]
     },
@@ -6424,6 +6567,48 @@
       ]
     },
     {
+      "name": "updateEnterpriseDeployKeySetting",
+      "kind": "mutations",
+      "id": "updateenterprisedeploykeysetting",
+      "href": "/graphql/reference/mutations#updateenterprisedeploykeysetting",
+      "description": "<p>Sets whether deploy keys are allowed to be created and used for an enterprise.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseDeployKeySettingInput!",
+          "id": "updateenterprisedeploykeysettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateenterprisedeploykeysettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise",
+          "description": "<p>The enterprise with the updated deploy key setting.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the deploy key setting.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateEnterpriseMembersCanChangeRepositoryVisibilitySetting",
       "kind": "mutations",
       "id": "updateenterprisememberscanchangerepositoryvisibilitysetting",
@@ -6950,6 +7135,48 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A message confirming the result of updating the team discussions setting.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting",
+      "kind": "mutations",
+      "id": "updateenterprisetwofactorauthenticationdisallowedmethodssetting",
+      "href": "/graphql/reference/mutations#updateenterprisetwofactorauthenticationdisallowedmethodssetting",
+      "description": "<p>Sets the two-factor authentication methods that users of an enterprise may not use.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput!",
+          "id": "updateenterprisetwofactorauthenticationdisallowedmethodssettinginput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateenterprisetwofactorauthenticationdisallowedmethodssettinginput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "enterprise",
+          "type": "Enterprise",
+          "id": "enterprise",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#enterprise",
+          "description": "<p>The enterprise with the updated two-factor authentication disallowed methods setting.</p>"
+        },
+        {
+          "name": "message",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A message confirming the result of updating the two-factor authentication disallowed methods setting.</p>"
         }
       ]
     },
@@ -16042,6 +16269,31 @@
       ]
     },
     {
+      "name": "CvssSeverities",
+      "kind": "objects",
+      "id": "cvssseverities",
+      "href": "/graphql/reference/objects#cvssseverities",
+      "description": "<p>The Common Vulnerability Scoring System.</p>",
+      "fields": [
+        {
+          "name": "cvssV3",
+          "description": "<p>The CVSS v3 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        },
+        {
+          "name": "cvssV4",
+          "description": "<p>The CVSS v4 severity associated with this advisory.</p>",
+          "type": "CVSS",
+          "id": "cvss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvss"
+        }
+      ]
+    },
+    {
       "name": "DemilestonedEvent",
       "kind": "objects",
       "id": "demilestonedevent",
@@ -16504,6 +16756,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "enabled",
+          "description": "<p>Whether or not the deploy key is enabled by policy at the Enterprise or Organization level.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "id",
@@ -19696,6 +19956,31 @@
       ]
     },
     {
+      "name": "EPSS",
+      "kind": "objects",
+      "id": "epss",
+      "href": "/graphql/reference/objects#epss",
+      "description": "<p>The Exploit Prediction Scoring System.</p>",
+      "fields": [
+        {
+          "name": "percentage",
+          "description": "<p>The EPSS percentage represents the likelihood of a CVE being exploited.</p>",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        },
+        {
+          "name": "percentile",
+          "description": "<p>The EPSS percentile represents the relative rank of the CVE's likelihood of being exploited compared to other CVEs.</p>",
+          "type": "Float",
+          "id": "float",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#float"
+        }
+      ]
+    },
+    {
       "name": "Enterprise",
       "kind": "objects",
       "id": "enterprise",
@@ -19703,9 +19988,9 @@
       "description": "<p>An account to manage multiple organizations with consolidated policy and billing.</p>",
       "implements": [
         {
-          "name": "AnnouncementBanner",
-          "id": "announcementbanner",
-          "href": "/graphql/reference/interfaces#announcementbanner"
+          "name": "AnnouncementBannerI",
+          "id": "announcementbanneri",
+          "href": "/graphql/reference/interfaces#announcementbanneri"
         },
         {
           "name": "Node",
@@ -19880,7 +20165,7 @@
             },
             {
               "name": "hasTwoFactorEnabled",
-              "description": "<p>Only return members with this two-factor authentication status. Does not\ninclude members who only have an account on a GitHub Enterprise Server instance.</p>",
+              "description": "<p>Only return members with this two-factor authentication status. Does not\ninclude members who only have an account on a GitHub Enterprise Server instance.</p>\n<p><strong>Upcoming Change on 2025-04-01 UTC</strong>\n<strong>Description:</strong> <code>hasTwoFactorEnabled</code> will be removed. Use <code>two_factor_method_security</code> instead.\n<strong>Reason:</strong> <code>has_two_factor_enabled</code> will be removed.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -19936,6 +20221,16 @@
                 "id": "enterpriseuseraccountmembershiprole",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#enterpriseuseraccountmembershiprole"
+              }
+            },
+            {
+              "name": "twoFactorMethodSecurity",
+              "description": "<p>Only return members with this type of two-factor authentication method. Does\nnot include members who only have an account on a GitHub Enterprise Server instance.</p>",
+              "type": {
+                "name": "TwoFactorCredentialSecurityType",
+                "id": "twofactorcredentialsecuritytype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#twofactorcredentialsecuritytype"
               }
             }
           ]
@@ -21072,7 +21367,7 @@
             },
             {
               "name": "hasTwoFactorEnabled",
-              "description": "<p>Only return administrators with this two-factor authentication status.</p>",
+              "description": "<p>Only return administrators with this two-factor authentication status.</p>\n<p><strong>Upcoming Change on 2025-04-01 UTC</strong>\n<strong>Description:</strong> <code>hasTwoFactorEnabled</code> will be removed. Use <code>two_factor_method_security</code> instead.\n<strong>Reason:</strong> <code>has_two_factor_enabled</code> will be removed.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -21128,6 +21423,16 @@
                 "id": "enterpriseadministratorrole",
                 "kind": "enums",
                 "href": "/graphql/reference/enums#enterpriseadministratorrole"
+              }
+            },
+            {
+              "name": "twoFactorMethodSecurity",
+              "description": "<p>Only return outside collaborators with this type of two-factor authentication method.</p>",
+              "type": {
+                "name": "TwoFactorCredentialSecurityType",
+                "id": "twofactorcredentialsecuritytype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#twofactorcredentialsecuritytype"
               }
             }
           ]
@@ -22290,7 +22595,7 @@
             },
             {
               "name": "hasTwoFactorEnabled",
-              "description": "<p>Only return outside collaborators with this two-factor authentication status.</p>",
+              "description": "<p>Only return outside collaborators with this two-factor authentication status.</p>\n<p><strong>Upcoming Change on 2025-04-01 UTC</strong>\n<strong>Description:</strong> <code>hasTwoFactorEnabled</code> will be removed. Use <code>two_factor_method_security</code> instead.\n<strong>Reason:</strong> <code>has_two_factor_enabled</code> will be removed.</p>",
               "type": {
                 "name": "Boolean",
                 "id": "boolean",
@@ -22346,6 +22651,16 @@
                 "id": "string",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "twoFactorMethodSecurity",
+              "description": "<p>Only return outside collaborators with this type of two-factor authentication method.</p>",
+              "type": {
+                "name": "TwoFactorCredentialSecurityType",
+                "id": "twofactorcredentialsecuritytype",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#twofactorcredentialsecuritytype"
               }
             },
             {
@@ -22591,6 +22906,84 @@
           ]
         },
         {
+          "name": "repositoryDeployKeySetting",
+          "description": "<p>The setting value for whether deploy keys are enabled for repositories in organizations in this enterprise.</p>",
+          "type": "EnterpriseEnabledDisabledSettingValue!",
+          "id": "enterpriseenableddisabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
+        },
+        {
+          "name": "repositoryDeployKeySettingOrganizations",
+          "description": "<p>A list of enterprise organizations configured with the provided deploy keys setting value.</p>",
+          "type": "OrganizationConnection!",
+          "id": "organizationconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#organizationconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for organizations with this setting.</p>",
+              "type": {
+                "name": "OrganizationOrder",
+                "id": "organizationorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#organizationorder"
+              }
+            },
+            {
+              "name": "value",
+              "description": "<p>The setting value to find organizations for.</p>",
+              "type": {
+                "name": "Boolean!",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
+            }
+          ]
+        },
+        {
           "name": "repositoryProjectsSetting",
           "description": "<p>The setting value for whether repository projects are enabled in this enterprise.</p>",
           "type": "EnterpriseEnabledDisabledSettingValue!",
@@ -22823,6 +23216,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "twoFactorDisallowedMethodsSetting",
+          "description": "<p>The setting value for what methods of two-factor authentication the enterprise prevents its users from having.</p>",
+          "type": "EnterpriseDisallowedMethodsSettingValue!",
+          "id": "enterprisedisallowedmethodssettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterprisedisallowedmethodssettingvalue"
         },
         {
           "name": "twoFactorRequiredSetting",
@@ -24567,7 +24968,7 @@
       "kind": "objects",
       "id": "fileextensionrestrictionparameters",
       "href": "/graphql/reference/objects#fileextensionrestrictionparameters",
-      "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "restrictedFileExtensions",
@@ -24584,7 +24985,7 @@
       "kind": "objects",
       "id": "filepathrestrictionparameters",
       "href": "/graphql/reference/objects#filepathrestrictionparameters",
-      "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "restrictedFilePaths",
@@ -26697,6 +27098,14 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "parent",
+          "description": "<p>The parent entity of the issue.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
+        },
+        {
           "name": "participants",
           "description": "<p>A list of Users that are participating in the Issue conversation.</p>",
           "type": "UserConnection!",
@@ -27085,6 +27494,64 @@
           "id": "issuestatereason",
           "kind": "enums",
           "href": "/graphql/reference/enums#issuestatereason"
+        },
+        {
+          "name": "subIssues",
+          "description": "<p>A list of sub-issues associated with the Issue.</p>",
+          "type": "IssueConnection!",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "subIssuesSummary",
+          "description": "<p>Summary of the state of an issue's sub-issues.</p>",
+          "type": "SubIssuesSummary!",
+          "id": "subissuessummary",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#subissuessummary"
         },
         {
           "name": "timeline",
@@ -29497,7 +29964,7 @@
       "kind": "objects",
       "id": "maxfilepathlengthparameters",
       "href": "/graphql/reference/objects#maxfilepathlengthparameters",
-      "description": "<p>Prevent commits that include file paths that exceed a specified character limit\nfrom being pushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "maxFilePathLength",
@@ -29514,7 +29981,7 @@
       "kind": "objects",
       "id": "maxfilesizeparameters",
       "href": "/graphql/reference/objects#maxfilesizeparameters",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the\ncommit. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>",
       "fields": [
         {
           "name": "maxFileSize",
@@ -36978,9 +37445,9 @@
           "href": "/graphql/reference/interfaces#actor"
         },
         {
-          "name": "AnnouncementBanner",
-          "id": "announcementbanner",
-          "href": "/graphql/reference/interfaces#announcementbanner"
+          "name": "AnnouncementBannerI",
+          "id": "announcementbanneri",
+          "href": "/graphql/reference/interfaces#announcementbanneri"
         },
         {
           "name": "MemberStatusable",
@@ -38713,6 +39180,17 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "includeParents",
+              "defaultValue": true,
+              "description": "<p>Include rulesets configured at higher levels that apply to this organization.</p>",
+              "type": {
+                "name": "Boolean",
+                "id": "boolean",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#boolean"
+              }
             }
           ]
         },
@@ -38773,6 +39251,16 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "targets",
+              "description": "<p>Return rulesets that apply to the specified target.</p>",
+              "type": {
+                "name": "[RepositoryRulesetTarget!]",
+                "id": "repositoryrulesettarget",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryrulesettarget"
               }
             }
           ]
@@ -42651,7 +43139,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "field",
@@ -42732,6 +43222,14 @@
               }
             }
           ]
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -43632,7 +44130,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "fieldValueByName",
@@ -45284,7 +45784,17 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -45430,7 +45940,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "fields",
@@ -45499,6 +46011,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "groupBy",
@@ -46052,7 +46572,9 @@
           "type": "Int",
           "id": "int",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#int"
+          "href": "/graphql/reference/scalars#int",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>databaseId</code> will be removed because it does not support 64-bit signed integer identifiers. Use <code>fullDatabaseId</code> instead. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "enabled",
@@ -46061,6 +46583,14 @@
           "id": "boolean",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "fullDatabaseId",
+          "description": "<p>Identifies the primary key from the database as a BigInt.</p>",
+          "type": "BigInt",
+          "id": "bigint",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#bigint"
         },
         {
           "name": "id",
@@ -59844,6 +60374,16 @@
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
               }
+            },
+            {
+              "name": "targets",
+              "description": "<p>Return rulesets that apply to the specified target.</p>",
+              "type": {
+                "name": "[RepositoryRulesetTarget!]",
+                "id": "repositoryrulesettarget",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#repositoryrulesettarget"
+              }
             }
           ]
         },
@@ -61408,6 +61948,14 @@
         {
           "name": "deployKey",
           "description": "<p>This actor represents the ability for a deploy key to bypass.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "enterpriseOwner",
+          "description": "<p>This actor represents the ability for an enterprise owner to bypass.</p>",
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
@@ -63301,7 +63849,17 @@
           "type": "CVSS!",
           "id": "cvss",
           "kind": "objects",
-          "href": "/graphql/reference/objects#cvss"
+          "href": "/graphql/reference/objects#cvss",
+          "isDeprecated": true,
+          "deprecationReason": "<p><code>cvss</code> will be removed. New <code>cvss_severities</code> field will now contain both <code>cvss_v3</code> and <code>cvss_v4</code> properties. Removal on 2025-10-01 UTC.</p>"
+        },
+        {
+          "name": "cvssSeverities",
+          "description": "<p>The CVSS associated with this advisory.</p>",
+          "type": "CvssSeverities!",
+          "id": "cvssseverities",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#cvssseverities"
         },
         {
           "name": "cwes",
@@ -63368,6 +63926,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "epss",
+          "description": "<p>The Exploit Prediction Scoring System.</p>",
+          "type": "EPSS",
+          "id": "epss",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#epss"
         },
         {
           "name": "ghsaId",
@@ -64726,6 +65292,39 @@
           "id": "statusstate",
           "kind": "enums",
           "href": "/graphql/reference/enums#statusstate"
+        }
+      ]
+    },
+    {
+      "name": "SubIssuesSummary",
+      "kind": "objects",
+      "id": "subissuessummary",
+      "href": "/graphql/reference/objects#subissuessummary",
+      "description": "<p>Summary of the state of an issue's sub-issues.</p>",
+      "fields": [
+        {
+          "name": "completed",
+          "description": "<p>Count of completed sub-issues.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "percentCompleted",
+          "description": "<p>Percent of sub-issues which are completed.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "total",
+          "description": "<p>Count of total number of sub-issues.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
         }
       ]
     },
@@ -71896,6 +72495,14 @@
           "href": "/graphql/reference/scalars#uri"
         },
         {
+          "name": "userViewType",
+          "description": "<p>Whether the request returns publicly visible information or privately visible information about the user.</p>",
+          "type": "UserViewType!",
+          "id": "userviewtype",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#userviewtype"
+        },
+        {
           "name": "viewerCanChangePinnedItems",
           "description": "<p>Can the viewer pin repositories and gists to the profile?.</p>",
           "type": "Boolean!",
@@ -73692,10 +74299,10 @@
       ]
     },
     {
-      "name": "AnnouncementBanner",
+      "name": "AnnouncementBannerI",
       "kind": "interfaces",
-      "id": "announcementbanner",
-      "href": "/graphql/reference/interfaces#announcementbanner",
+      "id": "announcementbanneri",
+      "href": "/graphql/reference/interfaces#announcementbanneri",
       "description": "<p>Represents an announcement banner.</p>",
       "fields": [
         {
@@ -77533,6 +78140,23 @@
       ]
     },
     {
+      "name": "EnterpriseDisallowedMethodsSettingValue",
+      "kind": "enums",
+      "id": "enterprisedisallowedmethodssettingvalue",
+      "href": "/graphql/reference/enums#enterprisedisallowedmethodssettingvalue",
+      "description": "<p>The possible values for an enabled/no policy enterprise setting.</p>",
+      "values": [
+        {
+          "name": "INSECURE",
+          "description": "<p>The setting prevents insecure 2FA methods from being used by members of the enterprise.</p>"
+        },
+        {
+          "name": "NO_POLICY",
+          "description": "<p>There is no policy set for preventing insecure 2FA methods from being used by members of the enterprise.</p>"
+        }
+      ]
+    },
+    {
       "name": "EnterpriseEnabledDisabledSettingValue",
       "kind": "enums",
       "id": "enterpriseenableddisabledsettingvalue",
@@ -78048,6 +78672,10 @@
           "description": "<p>An issue that has been closed as completed.</p>"
         },
         {
+          "name": "DUPLICATE",
+          "description": "<p>An issue that has been closed as a duplicate.</p>"
+        },
+        {
           "name": "NOT_PLANNED",
           "description": "<p>An issue that has been closed as not planned.</p>"
         }
@@ -78114,6 +78742,10 @@
         {
           "name": "COMPLETED",
           "description": "<p>An issue that has been closed as completed.</p>"
+        },
+        {
+          "name": "DUPLICATE",
+          "description": "<p>An issue that has been closed as a duplicate.</p>"
         },
         {
           "name": "NOT_PLANNED",
@@ -80853,11 +81485,11 @@
         },
         {
           "name": "FILE_EXTENSION_RESTRICTION",
-          "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>"
         },
         {
           "name": "FILE_PATH_RESTRICTION",
-          "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>"
         },
         {
           "name": "LOCK_BRANCH",
@@ -80865,11 +81497,11 @@
         },
         {
           "name": "MAX_FILE_PATH_LENGTH",
-          "description": "<p>Prevent commits that include file paths that exceed a specified character\nlimit from being pushed to the commit graph. NOTE: This rule is in beta and\nsubject to change.</p>"
+          "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>"
         },
         {
           "name": "MAX_FILE_SIZE",
-          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to\nthe commit. NOTE: This rule is in beta and subject to change.</p>"
+          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>"
         },
         {
           "name": "MAX_REF_UPDATES",
@@ -80963,7 +81595,7 @@
       "kind": "enums",
       "id": "repositoryrulesettarget",
       "href": "/graphql/reference/enums#repositoryrulesettarget",
-      "description": "<p>The targets supported for rulesets. NOTE: The push target is in beta and subject to change.</p>",
+      "description": "<p>The targets supported for rulesets.</p>",
       "values": [
         {
           "name": "BRANCH",
@@ -81307,6 +81939,10 @@
       "href": "/graphql/reference/enums#socialaccountprovider",
       "description": "<p>Software or company that hosts social media accounts.</p>",
       "values": [
+        {
+          "name": "BLUESKY",
+          "description": "<p>Decentralized microblogging social platform.</p>"
+        },
         {
           "name": "FACEBOOK",
           "description": "<p>Social media and networking website.</p>"
@@ -81716,6 +82352,27 @@
       ]
     },
     {
+      "name": "TwoFactorCredentialSecurityType",
+      "kind": "enums",
+      "id": "twofactorcredentialsecuritytype",
+      "href": "/graphql/reference/enums#twofactorcredentialsecuritytype",
+      "description": "<p>Filters by whether or not 2FA is enabled and if the method configured is considered secure or insecure.</p>",
+      "values": [
+        {
+          "name": "DISABLED",
+          "description": "<p>No method of two-factor authentication.</p>"
+        },
+        {
+          "name": "INSECURE",
+          "description": "<p>Has an insecure method of two-factor authentication. GitHub currently defines this as SMS two-factor authentication.</p>"
+        },
+        {
+          "name": "SECURE",
+          "description": "<p>Has only secure methods of two-factor authentication.</p>"
+        }
+      ]
+    },
+    {
       "name": "UserBlockDuration",
       "kind": "enums",
       "id": "userblockduration",
@@ -81754,6 +82411,23 @@
         {
           "name": "UPDATED_AT",
           "description": "<p>Order user statuses by when they were updated.</p>"
+        }
+      ]
+    },
+    {
+      "name": "UserViewType",
+      "kind": "enums",
+      "id": "userviewtype",
+      "href": "/graphql/reference/enums#userviewtype",
+      "description": "<p>Whether a user being viewed contains public or private information.</p>",
+      "values": [
+        {
+          "name": "PRIVATE",
+          "description": "<p>A user containing information only visible to the authenticated user.</p>"
+        },
+        {
+          "name": "PUBLIC",
+          "description": "<p>A user that is publicly visible.</p>"
         }
       ]
     },
@@ -83641,6 +84315,11 @@
       "description": "<p>Types which can have <code>RepositoryRule</code> objects.</p>",
       "possibleTypes": [
         {
+          "name": "Enterprise",
+          "id": "enterprise",
+          "href": "/graphql/reference/objects#enterprise"
+        },
+        {
           "name": "Organization",
           "id": "organization",
           "href": "/graphql/reference/objects#organization"
@@ -84556,6 +85235,57 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#id",
           "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "AddSubIssueInput",
+      "kind": "inputObjects",
+      "id": "addsubissueinput",
+      "href": "/graphql/reference/input-objects#addsubissueinput",
+      "description": "<p>Autogenerated input type of AddSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "replaceParent",
+          "description": "<p>Option to replace parent issue if one already exists.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueUrl",
+          "description": "<p>The url of the sub-issue.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
@@ -86835,6 +87565,15 @@
           "isDeprecated": false
         },
         {
+          "name": "parentIssueId",
+          "description": "<p>The Node ID of the parent issue to add this new issue to.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "projectIds",
           "description": "<p>An array of Node IDs for projects associated with this issue.</p>",
           "type": "[ID!]",
@@ -89039,7 +89778,7 @@
       "kind": "inputObjects",
       "id": "fileextensionrestrictionparametersinput",
       "href": "/graphql/reference/input-objects#fileextensionrestrictionparametersinput",
-      "description": "<p>Prevent commits that include files with specified file extensions from being\npushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include files with specified file extensions from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "restrictedFileExtensions",
@@ -89056,7 +89795,7 @@
       "kind": "inputObjects",
       "id": "filepathrestrictionparametersinput",
       "href": "/graphql/reference/input-objects#filepathrestrictionparametersinput",
-      "description": "<p>Prevent commits that include changes in specified file paths from being pushed\nto the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "restrictedFilePaths",
@@ -89791,7 +90530,7 @@
       "kind": "inputObjects",
       "id": "maxfilepathlengthparametersinput",
       "href": "/graphql/reference/input-objects#maxfilepathlengthparametersinput",
-      "description": "<p>Prevent commits that include file paths that exceed a specified character limit\nfrom being pushed to the commit graph. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "maxFilePathLength",
@@ -89808,7 +90547,7 @@
       "kind": "inputObjects",
       "id": "maxfilesizeparametersinput",
       "href": "/graphql/reference/input-objects#maxfilesizeparametersinput",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the\ncommit. NOTE: This rule is in beta and subject to change.</p>",
+      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit.</p>",
       "inputFields": [
         {
           "name": "maxFileSize",
@@ -91257,6 +91996,41 @@
       ]
     },
     {
+      "name": "RemoveSubIssueInput",
+      "kind": "inputObjects",
+      "id": "removesubissueinput",
+      "href": "/graphql/reference/input-objects#removesubissueinput",
+      "description": "<p>Autogenerated input type of RemoveSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "RemoveUpvoteInput",
       "kind": "inputObjects",
       "id": "removeupvoteinput",
@@ -91676,6 +92450,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "enterpriseOwner",
+          "description": "<p>For enterprise owner bypasses, true.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
           "name": "organizationAdmin",
           "description": "<p>For organization owner bypasses, true.</p>",
           "type": "Boolean",
@@ -91690,6 +92472,59 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ReprioritizeSubIssueInput",
+      "kind": "inputObjects",
+      "id": "reprioritizesubissueinput",
+      "href": "/graphql/reference/input-objects#reprioritizesubissueinput",
+      "description": "<p>Autogenerated input type of ReprioritizeSubIssue.</p>",
+      "inputFields": [
+        {
+          "name": "afterId",
+          "description": "<p>The id of the sub-issue to be prioritized after (either positional argument after OR before should be specified).</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "beforeId",
+          "description": "<p>The id of the sub-issue to be prioritized before (either positional argument after OR before should be specified).</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The id of the parent issue.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "subIssueId",
+          "description": "<p>The id of the sub-issue to reprioritize.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -93659,6 +94494,40 @@
       ]
     },
     {
+      "name": "UpdateEnterpriseDeployKeySettingInput",
+      "kind": "inputObjects",
+      "id": "updateenterprisedeploykeysettinginput",
+      "href": "/graphql/reference/input-objects#updateenterprisedeploykeysettinginput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseDeployKeySetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise on which to set the deploy key setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the deploy key setting on the enterprise.</p>",
+          "type": "EnterpriseEnabledDisabledSettingValue!",
+          "id": "enterpriseenableddisabledsettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
+        }
+      ]
+    },
+    {
       "name": "UpdateEnterpriseMembersCanChangeRepositoryVisibilitySettingInput",
       "kind": "inputObjects",
       "id": "updateenterprisememberscanchangerepositoryvisibilitysettinginput",
@@ -94162,6 +95031,40 @@
           "id": "enterpriseenableddisabledsettingvalue",
           "kind": "enums",
           "href": "/graphql/reference/enums#enterpriseenableddisabledsettingvalue"
+        }
+      ]
+    },
+    {
+      "name": "UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSettingInput",
+      "kind": "inputObjects",
+      "id": "updateenterprisetwofactorauthenticationdisallowedmethodssettinginput",
+      "href": "/graphql/reference/input-objects#updateenterprisetwofactorauthenticationdisallowedmethodssettinginput",
+      "description": "<p>Autogenerated input type of UpdateEnterpriseTwoFactorAuthenticationDisallowedMethodsSetting.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "enterpriseId",
+          "description": "<p>The ID of the enterprise on which to set the two-factor authentication disallowed methods setting.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "settingValue",
+          "description": "<p>The value for the two-factor authentication disallowed methods setting on the enterprise.</p>",
+          "type": "EnterpriseDisallowedMethodsSettingValue!",
+          "id": "enterprisedisallowedmethodssettingvalue",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#enterprisedisallowedmethodssettingvalue"
         }
       ]
     },
