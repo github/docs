@@ -241,6 +241,21 @@ sections:
     # https://github.com/github/releases/issues/4683
     - |
       As of November 6, 2024, Dependabot no longer supports Composer version 1, which has reached its end-of-life. If you continue to use Composer version 1, Dependabot will be unable to create pull requests to update your dependencies. If this affects you, we recommend updating to a supported release of Composer. As of October 2024, the newest supported version of Composer is 2.8, and the long-term supported version is 2.2. View [Composer's official documentation](https://getcomposer.org/download/) for more information about supported releases.
+    # https://github.com/github/releases/issues/3525
+    - |
+      In GitHub Enterprise Server 3.17, GitHub will migrate tag protection rules to a ruleset and the tag protection rule feature will no longer be available. Prior to upgrading to 3.17, you can use the [migration feature](https://github.blog/changelog/2023-10-18-migrate-tag-protections-to-repository-rules/) to move your tag protection rules.
+    # https://github.com/github/releases/issues/5381
+    - |
+      In GitHub Enterprise Server 3.17, GitHub will deprecate the Docker registry for GitHub Packages in favor of the GitHub Container Registry, which supports Docker packages. All packages in the Docker registry will be deleted and cannot be fetched past the deprecation date.
+    # https://github.com/github/releases/issues/5292
+    - |
+      In GitHub Enterprise Server 3.17, Dependabot will no longer support Python 3.8, which has reached its end-of-life. If you continue to use Python 3.8, Dependabot will not be able to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of Python. As of February 2025, Python 3.13 is the newest supported release.
+    # https://github.com/github/releases/issues/5204
+    - |
+      In GitHub Enterprise Server 3.17, Dependabot will no longer support NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
+   # https://github.com/github/releases/issues/4710
+    - |
+      In GitHub Enterprise Server 3.17 and later, the field `cvss` for GitHub security advisories in the REST & GraphQL APIs will be deprecated in favour of the new `cvss_severities` field.
 
   retired:
     - |
