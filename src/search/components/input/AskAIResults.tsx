@@ -5,14 +5,14 @@ import { useTranslation } from '@/languages/components/useTranslation'
 import { ActionList, IconButton, Spinner } from '@primer/react'
 import { CheckIcon, CopyIcon, FileIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
-import useLocalStorageCache from '../hooks/useLocalStorageCache'
+import { useAISearchLocalStorageCache } from '../hooks/useAISearchLocalStorageCache'
 import { UnrenderedMarkdownContent } from '@/frame/components/ui/MarkdownContent/UnrenderedMarkdownContent'
 import styles from './AskAIResults.module.scss'
 import { fixIncompleteMarkdown } from '../helpers/fix-incomplete-markdown'
 import useClipboard from '@/rest/components/useClipboard'
 import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
-import { generateAiSearchLinksJson } from '../helpers/ai-search-links-json'
+import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
 import type { AIReference } from '../types'
 
@@ -20,14 +20,15 @@ type AIQueryResultsProps = {
   query: string
   version: string
   debug: boolean
-  setAISearchError: () => void
+  setAISearchError: (isError?: boolean) => void
   references: AIReference[]
   setReferences: (references: AIReference[]) => void
   referencesIndexOffset: number
   referenceOnSelect: (url: string) => void
   selectedIndex: number
-  setSelectedIndex: (index: number) => void
-  askAiEventGroupId: React.MutableRefObject<string>
+  askAIEventGroupId: React.MutableRefObject<string>
+  aiCouldNotAnswer: boolean
+  setAICouldNotAnswer: (aiCouldNotAnswer: boolean) => void
 }
 
 export function AskAIResults({
@@ -40,8 +41,9 @@ export function AskAIResults({
   referencesIndexOffset,
   referenceOnSelect,
   selectedIndex,
-  setSelectedIndex,
-  askAiEventGroupId,
+  askAIEventGroupId,
+  aiCouldNotAnswer,
+  setAICouldNotAnswer,
 }: AIQueryResultsProps) {
   const router = useRouter()
   const { t } = useTranslation('search')
@@ -50,32 +52,53 @@ export function AskAIResults({
   const [responseLoading, setResponseLoading] = useState(false)
   const disclaimerRef = useRef<HTMLDivElement>(null)
   // We cache up to 1000 queries, and expire them after 30 days
-  const { getItem, setItem } = useLocalStorageCache<{
+  const { getItem, setItem } = useAISearchLocalStorageCache<{
     query: string
     message: string
     sources: AIReference[]
-  }>('ai-query-cache', 1000, 30)
+    aiCouldNotAnswer: boolean
+  }>('ai-query-cache', 1000, 7)
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
 
+  const handleAICannotAnswer = () => {
+    setInitialLoading(false)
+    setResponseLoading(false)
+    setAICouldNotAnswer(true)
+    const cannedResponse = t('search.ai.unable_to_answer')
+    sendAISearchResultEvent([], cannedResponse, askAIEventGroupId.current, true)
+    setMessage(cannedResponse)
+    setReferences([])
+  }
+
   // On query change, fetch the new results
   useEffect(() => {
+    // If we open this window directly (like from a URL), we need to generate a new event group ID
+    if (!askAIEventGroupId.current) {
+      askAIEventGroupId.current = uuidv4()
+    }
     let isCancelled = false
     setMessage('')
     setReferences([])
+    setAICouldNotAnswer(false)
     setInitialLoading(true)
     setResponseLoading(true)
-    askAiEventGroupId.current = uuidv4()
     disclaimerRef.current?.focus()
 
     const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
       setMessage(cachedData.message)
       setReferences(cachedData.sources)
+      setAICouldNotAnswer(cachedData.aiCouldNotAnswer || false)
       setInitialLoading(false)
       setResponseLoading(false)
-      sendAISearchResultEvent(cachedData.sources, cachedData.message, askAiEventGroupId.current)
+      sendAISearchResultEvent(
+        cachedData.sources,
+        cachedData.message,
+        askAIEventGroupId.current,
+        cachedData.aiCouldNotAnswer,
+      )
       return
     }
 
@@ -83,26 +106,20 @@ export function AskAIResults({
     async function fetchData() {
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
+
       try {
         const response = await executeAISearch(router, version, query, debug)
         // Serve canned response. A question that cannot be answered was asked
         if (response.status === 400) {
-          setInitialLoading(false)
-          setResponseLoading(false)
-          const cannedResponse = t('search.ai.unable_to_answer')
-          setItem(
-            query,
-            { query, message: cannedResponse, sources: [] },
-            version,
-            router.locale || 'en',
-          )
-          return setMessage(cannedResponse)
+          return handleAICannotAnswer()
         }
         if (!response.ok) {
           console.error(
             `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
           )
           return setAISearchError()
+        } else {
+          setAISearchError(false)
         }
         if (!response.body) {
           console.error(`ReadableStream not supported in this browser`)
@@ -124,7 +141,14 @@ export function AskAIResults({
               try {
                 parsedLine = JSON.parse(line)
               } catch (e) {
-                console.error('Failed to parse JSON:', e, 'Line:', line)
+                console.error(
+                  'Failed to parse JSON:',
+                  e,
+                  'Line:',
+                  line,
+                  'Typeof line: ',
+                  typeof line,
+                )
                 continue
               }
 
@@ -151,13 +175,18 @@ export function AskAIResults({
         if (!isCancelled && messageBuffer) {
           setItem(
             query,
-            { query, message: messageBuffer, sources: sourcesBuffer },
+            {
+              query,
+              message: messageBuffer,
+              sources: sourcesBuffer,
+              aiCouldNotAnswer: false,
+            },
             version,
             router.locale || 'en',
           )
           setInitialLoading(false)
           setResponseLoading(false)
-          sendAISearchResultEvent(sourcesBuffer, messageBuffer, askAiEventGroupId.current)
+          sendAISearchResultEvent(sourcesBuffer, messageBuffer, askAIEventGroupId.current, false)
         }
       }
     }
@@ -183,13 +212,15 @@ export function AskAIResults({
         </div>
       ) : (
         <article aria-busy={responseLoading} aria-live="polite">
-          <span ref={disclaimerRef} className={styles.disclaimerText}>
-            {t('search.ai.disclaimer')}
-          </span>
+          {!aiCouldNotAnswer && message === '' ? (
+            <span ref={disclaimerRef} className={styles.disclaimerText}>
+              {t('search.ai.disclaimer')}
+            </span>
+          ) : null}
           <UnrenderedMarkdownContent
             className={styles.markdownBodyOverrides}
             eventGroupKey={ASK_AI_EVENT_GROUP}
-            eventGroupId={askAiEventGroupId.current}
+            eventGroupId={askAIEventGroupId.current}
           >
             {responseLoading ? fixIncompleteMarkdown(message) : message}
           </UnrenderedMarkdownContent>
@@ -214,7 +245,7 @@ export function AskAIResults({
                 type: EventType.survey,
                 survey_vote: true,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: askAiEventGroupId.current,
+                eventGroupId: askAIEventGroupId.current,
               })
             }}
           ></IconButton>
@@ -235,7 +266,7 @@ export function AskAIResults({
                 type: EventType.survey,
                 survey_vote: false,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: askAiEventGroupId.current,
+                eventGroupId: askAIEventGroupId.current,
               })
             }}
           ></IconButton>
@@ -256,13 +287,13 @@ export function AskAIResults({
                 type: EventType.clipboard,
                 clipboard_operation: 'copy',
                 eventGroupKey: ASK_AI_EVENT_GROUP,
-                eventGroupId: askAiEventGroupId.current,
+                eventGroupId: askAIEventGroupId.current,
               })
             }}
           ></IconButton>
         </div>
       ) : null}
-      {references && references.length > 0 ? (
+      {!aiCouldNotAnswer && references && references.length > 0 ? (
         <>
           <ActionList.Divider aria-hidden="true" />
           <ActionList className={styles.referencesList} showDividers>
@@ -278,15 +309,11 @@ export function AskAIResults({
                 <ActionList.Item
                   sx={{
                     marginLeft: '0px',
-                    paddingLeft: '0px',
                   }}
                   key={`reference-${index}`}
                   tabIndex={-1}
                   onSelect={() => {
                     referenceOnSelect(source.url)
-                  }}
-                  onFocus={() => {
-                    setSelectedIndex(index + referencesIndexOffset)
                   }}
                   active={index + referencesIndexOffset === selectedIndex}
                 >
@@ -308,10 +335,11 @@ function sendAISearchResultEvent(
   sources: Array<{ url: string }>,
   message: string,
   eventGroupId: string,
+  couldNotAnswer = false,
 ) {
   let searchResultLinksJson = '[]'
   try {
-    searchResultLinksJson = generateAiSearchLinksJson(sources, message)
+    searchResultLinksJson = generateAISearchLinksJson(sources, message)
   } catch (e) {
     console.error('Failed to generate search result links JSON:', e)
   }
@@ -321,6 +349,7 @@ function sendAISearchResultEvent(
     ai_search_result_query: 'REDACTED',
     ai_search_result_response: 'REDACTED',
     ai_search_result_links_json: searchResultLinksJson,
+    ai_search_result_provided_answer: couldNotAnswer ? false : true,
     eventGroupKey: ASK_AI_EVENT_GROUP,
     eventGroupId: eventGroupId,
   })

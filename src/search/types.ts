@@ -21,9 +21,9 @@ export interface AutocompleteSearchResponse {
   hits: AutocompleteSearchHit[]
 }
 
-export interface CombinedAutocompleteSearchResponse {
-  aiAutocomplete: AutocompleteSearchResponse
-  generalAutocomplete: AutocompleteSearchResponse
+export interface CombinedSearchResponse {
+  aiAutocompleteSuggestions: AutocompleteSearchResponse
+  generalSearchResults: GeneralSearchResponse
 }
 
 // Response to middleware /search route
