@@ -72,16 +72,13 @@ sections:
         # https://github.com/github/releases/issues/4309
         - |
           Enterprise administrators can authenticate with region-specific OIDC endpoints for improved compliance and performance.
-         
+
 
     - heading: GitHub Apps
       notes:
         # https://github.com/github/releases/issues/4900
         - |
           GitHub App developers can improve security with a 25-key limit per app, encouraging safer key management practices. Apps exceeding the limit must delete excess keys before adding new ones. Additionally, scoped tokens can access more repositories. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
-        # https://github.com/github/releases/issues/4342
-        - |
-          Enterprise owners can securely manage and share GitHub Apps across all organizations within their enterprise by creating enterprise-owned GitHub Apps. This eliminates the need to duplicate apps or make them public, reducing management overhead while improving security and centralization. See [AUTOTITLE](/admin/managing-your-enterprise-account/creating-github-apps-for-your-enterprise).
 
     - heading: Repositories
       notes:
@@ -109,7 +106,7 @@ sections:
         # https://github.com/github/releases/issues/4483
         - |
           In the GitHub Advisory Database, users have access to an estimated probability that a vulnerability will be exploited over the next 30 days, calculated by the FIRST organization. This Exploit Prediction Scoring System (EPSS) score makes it easier for you to compare the risks of different vulnerabilities to your organization. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-epss-scores).
-          
+
     - heading: Code scanning
       notes:
        # https://github.com/github/releases/issues/4501
@@ -185,7 +182,7 @@ sections:
     # https://github.com/github/releases/issues/5415
     - |
       **HIGH**: An attacker could access environment variables in the debug artifacts uploaded by the CodeQL action after a failed code scanning workflow run. This includes any secrets that were exposed to the workflow as environment variables. The attacker requires read access to the repository to access the debug artifact. Users who do not have debug logging enabled are unaffected. The impact to GitHub Enterprise Server users is limited to internal actors. To mitigate this issue, GitHub no longer logs the complete environment by default. GitHub has requested [CVE-2025-24362](https://www.cve.org/CVERecord?id=CVE-2025-24362) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
-      
+
   changes:
     - |
       The 400GB root disk requirement introduced in [Enterprise Server 3.15.0](/enterprise-server@3.15/admin/release-notes#3.15.0-features) has been reverted in 3.15.2. The 400GB root disk size is no longer a requirement for new GHES installations and upgrades. Customers on standalone or standalone HA topologies are still recommended to upgrade their root disk size to 400GB.
@@ -201,7 +198,7 @@ sections:
     # https://github.com/github/releases/issues/5415
     - |
       The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
-      
+
   known_issues:
     - |
       **Note:** This list is not complete. Any new known issues that are identified for the 3.16 release will be added between now and the general availability release.
