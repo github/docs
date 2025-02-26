@@ -7,6 +7,7 @@ redirect_from:
   - /github/using-git/ignoring-files
   - /github/getting-started-with-github/ignoring-files
   - /github/getting-started-with-github/getting-started-with-git/ignoring-files
+  - /get-started/getting-started-with-git/ignoring-files
 intro: 'You can configure Git to ignore files you don''t want to check in to {% data variables.product.github %}.'
 versions:
   fpt: '*'

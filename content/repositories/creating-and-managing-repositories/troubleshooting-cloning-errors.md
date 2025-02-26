@@ -83,11 +83,11 @@ To access {% data variables.product.prodname_dotcom %}, you must authenticate wi
 When prompted for a username and password, make sure you use an account that has access to the repository.
 
 > [!TIP]
-> If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/getting-started-with-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
+> If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/git-basics/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
 
 ### Use SSH instead
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS. For more information, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ## Error: Repository not found
 
@@ -99,7 +99,7 @@ Typos happen. If you try to clone `git@{% data variables.product.product_url %}:
 
 To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-To update the remote on an existing repository, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+To update the remote on an existing repository, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 ### Checking your permissions
 

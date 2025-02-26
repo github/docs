@@ -34,5 +34,5 @@ You can only use your password to log on to {% data variables.product.github %} 
 
 ## Further reading
 
-* [AUTOTITLE](/get-started/getting-started-with-git/caching-your-github-credentials-in-git)
+* [AUTOTITLE](/get-started/git-basics/caching-your-github-credentials-in-git)
 * [AUTOTITLE](/authentication/keeping-your-account-and-data-secure)

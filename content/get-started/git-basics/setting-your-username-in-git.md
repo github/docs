@@ -6,6 +6,7 @@ redirect_from:
   - /github/using-git/setting-your-username-in-git
   - /github/getting-started-with-github/setting-your-username-in-git
   - /github/getting-started-with-github/getting-started-with-git/setting-your-username-in-git
+  - /get-started/getting-started-with-git/setting-your-username-in-git
 versions:
   fpt: '*'
   ghes: '*'

@@ -33,7 +33,7 @@ Before adding a new SSH key to your account on {% data variables.location.produc
 
 You can add an SSH key and use it for authentication, or commit signing, or both. If you want to use the same SSH key for both authentication and signing, you need to upload it twice.
 
-After adding a new SSH authentication key to your account on {% data variables.location.product_location %}, you can reconfigure any local repositories to use SSH. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#switching-remote-urls-from-https-to-ssh).
+After adding a new SSH authentication key to your account on {% data variables.location.product_location %}, you can reconfigure any local repositories to use SSH. For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories#switching-remote-urls-from-https-to-ssh).
 
 {% data reusables.ssh.key-type-support %}
 

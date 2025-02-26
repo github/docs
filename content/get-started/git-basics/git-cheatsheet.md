@@ -5,6 +5,7 @@ redirect_from:
   - /github/getting-started-with-github/git-cheatsheet
   - /github/getting-started-with-github/quickstart/git-cheatsheet
   - /get-started/quickstart/git-cheatsheet
+  - /get-started/getting-started-with-git/git-cheatsheet
 versions:
   fpt: '*'
   ghes: '*'

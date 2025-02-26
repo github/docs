@@ -18,6 +18,7 @@ redirect_from:
   - /github/using-git/managing-remote-repositories
   - /github/getting-started-with-github/managing-remote-repositories
   - /github/getting-started-with-github/getting-started-with-git/managing-remote-repositories
+  - /get-started/getting-started-with-git/managing-remote-repositories
 versions:
   fpt: '*'
   ghes: '*'
@@ -50,7 +51,7 @@ $ git remote -v
 > origin  https://{% data variables.product.product_url %}/OWNER/REPOSITORY.git (push)
 ```
 
-For more information on which URL to use, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+For more information on which URL to use, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ### Troubleshooting: Remote origin already exists
 
@@ -71,7 +72,7 @@ To fix this, you can:
 The `git remote set-url` command changes an existing remote repository URL.
 
 > [!TIP]
-> For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+> For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 The `git remote set-url` command takes two arguments:
 
@@ -118,7 +119,7 @@ The `git remote set-url` command takes two arguments:
 
 The next time you `git fetch`, `git pull`, or `git push` to the remote repository, you'll be asked for your GitHub username and password. {% data reusables.user-settings.password-authentication-deprecation %}
 
-You can [use a credential helper](/get-started/getting-started-with-git/caching-your-github-credentials-in-git) so Git will remember your GitHub username and {% data variables.product.pat_generic %} every time it talks to GitHub.
+You can [use a credential helper](/get-started/git-basics/caching-your-github-credentials-in-git) so Git will remember your GitHub username and {% data variables.product.pat_generic %} every time it talks to GitHub.
 
 ### Switching remote URLs from HTTPS to SSH
 
@@ -168,7 +169,7 @@ The `git remote rename` command takes two arguments:
 
 ### Example of renaming a remote repository
 
-These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
+These examples assume you're [cloning using HTTPS](/get-started/git-basics/about-remote-repositories#cloning-with-https-urls), which is recommended.
 
 ```shell
 $ git remote -v
@@ -213,7 +214,7 @@ Removing the remote URL from your repository only unlinks the local and remote r
 
 ### Example of removing a remote repository
 
-These examples assume you're [cloning using HTTPS](/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls), which is recommended.
+These examples assume you're [cloning using HTTPS](/get-started/git-basics/about-remote-repositories#cloning-with-https-urls), which is recommended.
 
 ```shell
 $ git remote -v

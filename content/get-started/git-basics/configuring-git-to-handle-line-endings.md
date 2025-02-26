@@ -9,6 +9,7 @@ redirect_from:
   - /github/using-git/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/configuring-git-to-handle-line-endings
   - /github/getting-started-with-github/getting-started-with-git/configuring-git-to-handle-line-endings
+  - /get-started/getting-started-with-git/configuring-git-to-handle-line-endings
 versions:
   fpt: '*'
   ghes: '*'

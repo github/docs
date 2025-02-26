@@ -27,7 +27,7 @@ In addition to redirecting web traffic, all `git clone`, `git fetch`, or `git pu
 git remote set-url origin NEW_URL
 ```
 
-For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 {% ifversion fpt or ghec %}
 

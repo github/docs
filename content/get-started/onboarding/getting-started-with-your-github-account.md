@@ -68,11 +68,11 @@ To best use {% data variables.product.github %}, you'll need to set up Git. Git 
 
 ### 2. Setting up Git
 
-If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see [AUTOTITLE](/desktop/overview/getting-started-with-github-desktop).
 
-Once you install Git, you can connect to {% data variables.product.github %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.github %} using either HTTPS or SSH. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+Once you install Git, you can connect to {% data variables.product.github %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.github %} using either HTTPS or SSH. For more information, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ### 3. Choosing how to interact with {% data variables.product.github %}
 
