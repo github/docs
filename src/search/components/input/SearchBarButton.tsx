@@ -7,7 +7,7 @@ import { useTranslation } from 'src/languages/components/useTranslation'
 import { SearchOverlay } from './SearchOverlay'
 
 import styles from './SearchBarButton.module.scss'
-import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
+import { useMultiQueryParams } from '../hooks/useMultiQueryParams'
 
 type Props = {
   isSearchOpen: boolean
@@ -16,15 +16,11 @@ type Props = {
 
 export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
   const { t } = useTranslation('search')
-  const {
-    debug,
-    queryParam: urlSearchInputQuery,
-    setQueryParam: setUrlSearchInputQuery,
-  } = useQueryParam('search-overlay-input')
-  const { queryParam: isAskAIState, setQueryParam: setIsAskAIState } = useQueryParam(
-    'search-overlay-ask-ai',
-    true,
-  )
+
+  const { params, updateParams } = useMultiQueryParams()
+  const urlSearchInputQuery = params['search-overlay-input']
+  const debug = params.debug === 'true'
+
   const buttonRef = useRef(null)
 
   // Handle click events
@@ -92,10 +88,8 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
           searchOverlayOpen={isSearchOpen}
           parentRef={buttonRef}
           debug={debug}
-          urlSearchInputQuery={urlSearchInputQuery}
-          setUrlSearchInputQuery={setUrlSearchInputQuery}
-          isAskAIState={isAskAIState}
-          setIsAskAIState={setIsAskAIState}
+          params={params}
+          updateParams={updateParams}
           onClose={() => {
             setIsSearchOpen(false)
           }}

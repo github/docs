@@ -82,19 +82,50 @@ test('open new search, and perform a general search', async ({ page }) => {
   await page.getByTestId('search').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
-  // Let new suggestions load
+  // Wait for the results to load
+  // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
+  // to allow an unnecessary request when there are no search results. Easier to wait 1 second
   await page.waitForTimeout(1000)
-  // Navigate to general search item, "serve playwright"
-  await page.keyboard.press('ArrowDown')
-  // Select the general search item, "serve playwright"
+  // Press enter to perform  general search
   await page.keyboard.press('Enter')
 
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
+  // The first result should be "For Playwright"
   await page.getByRole('link', { name: 'For Playwright' }).click()
 
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and select a general search article', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Let new suggestions load
+  await page.waitForTimeout(1000)
+  // Navigate to general search item, "For Playwright"
+  await page.keyboard.press('ArrowDown')
+  // Select the general search item, "For Playwright"
+  await page.keyboard.press('Enter')
+
+  // We should now be on the page for "For Playwright"
+  await expect(page).toHaveURL(
+    /\/get-started\/foo\/for-playwright\?search-overlay-input=serve\+playwright$/,
+  )
   await expect(page).toHaveTitle(/For Playwright/)
 })
 

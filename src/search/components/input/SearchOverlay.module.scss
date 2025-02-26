@@ -95,5 +95,13 @@
 .errorBanner {
   width: 100%;
   margin-top: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+.viewAllSearchResults {
+  color: var(--color-accent-emphasis) !important;
+  padding-left: 32px !important;
+  span {
+    font-weight: 500 !important;
+  }
 }

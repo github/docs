@@ -11,17 +11,12 @@ interface CacheIndexEntry {
 }
 
 /**
- * Custom hook for managing a localStorage cache
- * The cache uses an index to track the keys of cached items, and a separate item in localStorage
+ * We cache AI Search response as individual entries in localStorage, with a separate index to track the keys.
  * This allows the cache to be updated without having to read a single large entry into memory and parse it each time a key is accessed
  *
- * Cached items are cached under a prefix, for a fixed number of days, and the cache is limited to a fixed number of entries set by the following:
- * @param cacheKeyPrefix - Prefix for cache keys in localStorage.
- * @param maxEntries - Maximum number of entries that can be stored in the cache.
- * @param expirationDays - Number of days before a cache entry expires.
- * @returns An object containing getItem and setItem functions.
+ * Cached items are cached under a prefix, for a fixed number of days
  */
-function useLocalStorageCache<T = any>(
+export function useAISearchLocalStorageCache<T = any>(
   cacheKeyPrefix: string = 'ai-query-cache',
   maxEntries: number = 1000,
   expirationDays: number = 30,
@@ -59,7 +54,6 @@ function useLocalStorageCache<T = any>(
       const now = Date.now()
       const expirationTime = cachedItem.timestamp + expirationDays * 24 * 60 * 60 * 1000
       if (now < expirationTime) {
-        // Item is still valid
         return cachedItem.data
       } else {
         // Item expired, remove it
@@ -77,10 +71,8 @@ function useLocalStorageCache<T = any>(
       const now = Date.now()
       const cachedItem: CachedItem<T> = { data, timestamp: now }
 
-      // Store the item
       localStorage.setItem(key, JSON.stringify(cachedItem))
 
-      // Update index
       const indexStr = localStorage.getItem(cacheIndexKey)
       let index: CacheIndexEntry[] = []
       if (indexStr) {
@@ -113,10 +105,6 @@ function useLocalStorageCache<T = any>(
     [cacheKeyPrefix, maxEntries],
   )
 
-  /**
-   * Updates the cache index using a provided updater function.
-   * @param updateFn - A function that takes the current index and returns the updated index.
-   */
   const updateCacheIndex = (updateFn: (index: CacheIndexEntry[]) => CacheIndexEntry[]): void => {
     const indexStr = localStorage.getItem(cacheIndexKey)
     let index: CacheIndexEntry[] = []
@@ -134,5 +122,3 @@ function useLocalStorageCache<T = any>(
 
   return { getItem, setItem }
 }
-
-export default useLocalStorageCache

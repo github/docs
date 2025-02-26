@@ -10,7 +10,7 @@ type LinksJSON = Array<{
 //
 // We include the JSON string in our analytics events so we can see the
 // most popular sourced references, among other things.
-export function generateAiSearchLinksJson(
+export function generateAISearchLinksJson(
   sourcesBuffer: Array<{ url: string }>,
   aiResponse: string,
 ): string {
