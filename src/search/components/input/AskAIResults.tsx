@@ -70,6 +70,17 @@ export function AskAIResults({
     sendAISearchResultEvent([], cannedResponse, askAIEventGroupId.current, true)
     setMessage(cannedResponse)
     setReferences([])
+    setItem(
+      query,
+      {
+        query,
+        message: cannedResponse,
+        sources: [],
+        aiCouldNotAnswer: true,
+      },
+      version,
+      router.locale || 'en',
+    )
   }
 
   // On query change, fetch the new results
