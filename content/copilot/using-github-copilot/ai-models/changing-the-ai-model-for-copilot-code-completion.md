@@ -1,7 +1,7 @@
 ---
 title: Changing the AI model for Copilot code completion
 shortTitle: 'Change the completion model'
-intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_chat_short %} to a different model.'
+intro: 'Learn how to change the default LLM for {% data variables.product.prodname_copilot_short %} code completion to a different model.'
 versions:
   feature: copilot
 topics:
