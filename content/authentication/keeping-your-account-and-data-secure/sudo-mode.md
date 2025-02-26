@@ -45,7 +45,7 @@ After you authenticate to perform a sensitive action, your session is temporaril
 To confirm access for sudo mode, you can authenticate with your password. Optionally, you can use a different authentication method, like {% ifversion passkeys %}a passkey, {% endif %}{% ifversion fpt or ghec %}a security key, {% data variables.product.prodname_mobile %}, or a 2FA code{% elsif ghes %}a security key or a 2FA code{% endif %}.
 
 {%- ifversion passkeys %}
-* [Confirming access using a passkey key](#confirming-access-using-a-passkey)
+* [Confirming access using a passkey](#confirming-access-using-a-passkey)
 {%- endif %}
 * [Confirming access using a security key](#confirming-access-using-a-security-key)
 {%- ifversion fpt or ghec %}
