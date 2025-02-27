@@ -651,7 +651,7 @@ export function SearchOverlay({
             onClick={async () => {
               if (await getIsStaff()) {
                 // Hubbers users use an internal discussion for feedback
-                window.open('https://github.com/github/docs-team/discussions/4952', '_blank')
+                window.open('https://github.com/github/docs-engineering/discussions/5295', '_blank')
               } else {
                 // TODO: On ship date set this value
                 // window.open('TODO', '_blank')
