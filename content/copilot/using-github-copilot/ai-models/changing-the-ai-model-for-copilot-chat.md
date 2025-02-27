@@ -24,7 +24,20 @@ Changing the model that's used by {% data variables.product.prodname_copilot_cha
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-list %}
+The following models are currently available in the immersive mode of {% data variables.product.prodname_copilot_chat_short %}:
+
+* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
+* {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-gemini-flash %}
+* {% data reusables.copilot.model-description-o1 %}
+* {% data reusables.copilot.model-description-o3-mini %}
+
+For more information about these models, see:
+
+* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models/models) in the OpenAI Platform documentation.
+* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
 
 ### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
 
@@ -53,7 +66,20 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-list %}
+The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
+
+* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
+* {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-gemini-flash %}
+* {% data reusables.copilot.model-description-o1 %}
+* {% data reusables.copilot.model-description-o3-mini %}
+
+For more information about these models, see:
+
+* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models/models) in the OpenAI Platform documentation.
+* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
 
 ## Changing your AI model
 
@@ -74,7 +100,18 @@ These instructions are for {% data variables.product.prodname_vscode_shortname %
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-{% data reusables.copilot.copilot-chat-models-list-visual-studio %}
+The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
+
+* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
+* {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-o1 %}
+* {% data reusables.copilot.model-description-o3-mini %}
+
+For more information about these models, see:
+
+* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models/models) in the OpenAI Platform documentation.
+* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 
 ## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
 
