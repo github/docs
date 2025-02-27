@@ -62,7 +62,7 @@ First, we need to create a local copy of the example repository:
 
 Now that we've cloned the repository, let's run `bugged_dice_battle.py` to see the output:
 
-1. Open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+1. Open the Command Palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
 1. In the terminal tab, paste the following command.
 
@@ -80,7 +80,11 @@ Now that we've cloned the repository, let's run `bugged_dice_battle.py` to see t
 
 1. Press <kbd>Enter</kbd> to run the program.
 
-Unfortunately, we get some error text in our terminal ending with the following message: `TypeError: can only concatenate str (not "int") to str`. To understand what this means, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open {% data variables.product.prodname_copilot_chat_short %}, then paste and send the following prompt:
+Unfortunately, we get some error text in our terminal ending with the following message:
+
+> TypeError: can only concatenate str (not "int") to str
+
+To understand what this means, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) to **open {% data variables.product.prodname_copilot_chat_short %}**, then paste and send the following prompt:
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
