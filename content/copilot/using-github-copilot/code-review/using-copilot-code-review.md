@@ -14,23 +14,24 @@ redirect_from:
   - /early-access/copilot/code-reviews/using-copilot-code-reviews
 ---
 
+>[!NOTE]
+> {% data reusables.copilot.code-review.preview-note %}
+
+## Receiving access
+
 {% webui %}
 
-> [!NOTE]
->
-> {% data reusables.copilot.code-review.preview-note %}
-> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization {% ifversion ghec %}or enterprise{% endif %} has enabled **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} > Opt in to preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization {% ifversion ghec %}or enterprise{% endif %} settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization has enabled **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} > Opt in to preview features** in the organization policies. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 {% endwebui %}
 
 {% vscode %}
 
-> [!NOTE]
->
-> {% data reusables.copilot.code-review.preview-note %}
-> * If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} in {% data variables.product.prodname_vscode_shortname %} if an owner of your organization {% ifversion ghec %}or enterprise{% endif %} has enabled **Editor preview features** in the **{% data variables.product.prodname_copilot %} policies** page of the organization {% ifversion ghec %}or enterprise{% endif %} settings. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} in {% data variables.product.prodname_vscode_shortname %} if an owner of your organization has enabled **Editor preview features** in the organization policies. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 {% endvscode %}
+
+If an enterprise owner has explicitly enabled or disabled preview features, organizations in the enterprise will not be able to change the policy. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 ## About {% data variables.copilot.copilot_code-review_short %}
 
