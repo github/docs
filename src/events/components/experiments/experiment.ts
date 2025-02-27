@@ -54,6 +54,7 @@ export function shouldShowExperiment(
               ? routerQuery.feature.toLowerCase() === experiment.turnOnWithURLParam.toLowerCase()
               : false
           ) {
+            controlGroupOverride[experimentKey] = TREATMENT_VARIATION
             return true
           }
         }
