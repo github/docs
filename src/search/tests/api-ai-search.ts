@@ -82,41 +82,6 @@ describe('AI Search Routes', () => {
     expect(receivedMessage).toBe(expectedMessage)
   })
 
-  // We can't actually trigger a full rate limit because
-  // then all other tests will all fail. And we can't rely on this
-  // test always being run last.
-  test('should respect rate limiting', async () => {
-    let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
-
-    const response = await fetch('http://localhost:4000/api/ai-search/v1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apiBody),
-    })
-
-    expect(response.ok).toBe(true)
-    expect(response.status).toBe(200)
-    const limit = parseInt(response.headers.get('ratelimit-limit') || '0')
-    const remaining = parseInt(response.headers.get('ratelimit-remaining') || '0')
-    expect(limit).toBeGreaterThan(0)
-    expect(remaining).toBeLessThan(limit)
-
-    const response2 = await fetch('http://localhost:4000/api/ai-search/v1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apiBody),
-    })
-
-    expect(response2.ok).toBe(true)
-    expect(response2.status).toBe(200)
-    const newLimit = parseInt(response2.headers.get('ratelimit-limit') || '0')
-    const newRemaining = parseInt(response2.headers.get('ratelimit-remaining') || '0')
-    expect(newLimit).toBe(limit)
-    // Can't rely on `newRemaining == remaining - 1` because of
-    // concurrency of test-running.
-    expect(newRemaining).toBeLessThan(remaining)
-  })
-
   test('should handle validation errors: query missing', async () => {
     let body = { language: 'en', version: 'dotcom' }
     const response = await post('/api/ai-search/v1', {
@@ -187,13 +152,46 @@ describe('AI Search Routes', () => {
   test('should rate limit when total number of requests exceeds max amount', async () => {
     let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
 
+    // First request isn't rate limited
     const response = await fetch('http://localhost:4000/api/ai-search/v1', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'fastly-client-ip': 'abc' },
       body: JSON.stringify(apiBody),
     })
 
-    expect(response.ok).toBe(false)
-    expect(response.status).toBe(429)
+    expect(response.ok).toBe(true)
+    expect(response.status).toBe(200)
+    const limit = parseInt(response.headers.get('ratelimit-limit') || '0')
+    const remaining = parseInt(response.headers.get('ratelimit-remaining') || '0')
+    expect(limit).toEqual(2)
+    expect(remaining).toBeLessThan(limit)
+
+    // Second request uses our last unused rate limit
+    const response2 = await fetch('http://localhost:4000/api/ai-search/v1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'fastly-client-ip': 'abc' },
+      body: JSON.stringify(apiBody),
+    })
+
+    expect(response2.ok).toBe(true)
+    expect(response2.status).toBe(200)
+    let newLimit = parseInt(response2.headers.get('ratelimit-limit') || '0')
+    let newRemaining = parseInt(response2.headers.get('ratelimit-remaining') || '0')
+    expect(newLimit).toBe(limit)
+    expect(newRemaining).toBeLessThan(remaining)
+
+    // Our third request should be rate limited
+    const response3 = await fetch('http://localhost:4000/api/ai-search/v1', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'fastly-client-ip': 'abc' },
+      body: JSON.stringify(apiBody),
+    })
+
+    expect(response3.ok).toBe(false)
+    expect(response3.status).toBe(429)
+    newLimit = parseInt(response3.headers.get('ratelimit-limit') || '0')
+    newRemaining = parseInt(response3.headers.get('ratelimit-remaining') || '0')
+    expect(newLimit).toBe(limit)
+    expect(newRemaining).toBe(0)
   })
 })

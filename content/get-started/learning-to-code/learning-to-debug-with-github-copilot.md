@@ -54,32 +54,28 @@ def dice_battle():
 print(dice_battle())
 ```
 
-First, we need to clone the repository locally:
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Git: Clone` and press <kbd>Enter</kbd>.
-1. Paste the URL of the `new2code/debug-with-copilot` repository:
+First, we need to create a local copy of the example repository:
 
-   ```text copy
-   https://github.com/new2code/debug-with-copilot
-   ```
-
-1. Press <kbd>Enter</kbd>, then choose a location to save the repository on your computer.
-1. When prompted, open the repository in {% data variables.product.prodname_vscode_shortname %}.
+1. [Start cloning the new2code/debug-with-copilot repository](vscode://vscode.git/clone?url=https://github.com/new2code/debug-with-copilot) in {% data variables.product.prodname_vscode_shortname %}. <!-- markdownlint-disable-line GHD003 -->
+1. Choose a location to save the repository on your computer, then click **Select as Repository Destination**.
+1. When prompted, open the repository.
 
 Now that we've cloned the repository, let's run `bugged_dice_battle.py` to see the output:
 
 1. Open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
 1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
+1. In the terminal tab, paste the following command.
 
-    ```shell copy
-    python bugged_dice_battle.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+    Windows:
 
     ```shell copy
     py bugged_dice_battle.py
+    ```
+
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_dice_battle.py
     ```
 
 1. Press <kbd>Enter</kbd> to run the program.
@@ -116,18 +112,17 @@ print(f"The factorial of {number} is {factorial}")
 
 Since we've already cloned the repository locally, let's run `bugged_factorial_finder.py` to see the output:
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
-
-    ```shell copy
-    python bugged_factorial_finder.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+1. In the terminal you created earlier, paste the following command.
+    Windows:
 
     ```shell copy
     py bugged_factorial_finder.py
+    ```
+
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_factorial_finder.py
     ```
 
 1. Press <kbd>Enter</kbd> to run the program.
