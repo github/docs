@@ -1,8 +1,10 @@
 ---
 title: Procedural content type
-intro: 'Procedural content gives context on how a task fits into someone''s larger goal.'
+intro: Procedural content gives context on how a task fits into someone's larger goal.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Procedural content helps people complete a task from start to finish while they are using {% data variables.product.prodname_dotcom %}.
@@ -11,9 +13,9 @@ We create procedural articles and procedural sections within larger articles.
 
 ## How to write procedural articles
 
-For the procedural content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#procedural-article-template)."
+For the procedural content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#procedural-article-template).
 
-* Follow the style guidelines for procedural steps in "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#procedural-steps)".
+* Follow the style guidelines for procedural steps in [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#procedural-steps).
 * Procedural content can get repetitive––look for opportunities to group related content into a single longer article.
   * Group multiple related procedures into a single article unless there's a reason not to.
   * If disabling a setting or undoing a task requires the same steps and has no special implications, do not write a separate procedure.

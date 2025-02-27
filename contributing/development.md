@@ -32,9 +32,9 @@ Power users may want to read more about [debugging the docs application](./debug
 
 ### Using GitHub Codespaces
 
-As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
+As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see [Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md).
 
-In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
+In a matter of minutes, you will be ready to edit, review and test your changes directly from the comfort of your browser.
 
 ### Using browser shortcuts
 
@@ -42,7 +42,7 @@ The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser sh
 
 ### Enabling different languages
 
-By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
+By default the local server won't run with all supported languages enabled. If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable. For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
 
 The supported language codes are defined in [lib/languages.js](../src/languages/lib/languages.js).
 

@@ -4,13 +4,13 @@ Push rules do not require any branch targeting because they apply to every push 
 
 Push rulesets allow you to:
 
-* **Restrict file paths**: Prevent commits that include changes in specified file paths from being pushed.
+* **Restrict file paths:** Prevent commits that include changes in specified file paths from being pushed.
 
   {% data reusables.repositories.rulesets-push-rules-path-example %}
-* **Restrict file path length**: Prevent commits that include file paths that exceed a specified character limit from being pushed.
-* **Restrict file extensions**: Prevent commits that include files with specified file extensions from being pushed.
-* **Restrict file size**: Prevent commits that exceed a specified file size limit from being pushed.
+* **Restrict file path length:** Prevent commits that include file paths that exceed a specified character limit from being pushed.
+* **Restrict file extensions:** Prevent commits that include files with specified file extensions from being pushed.
+* **Restrict file size:** Prevent commits that exceed a specified file size limit from being pushed.
 
-#### About push rulesets for forked repositories
+### About push rulesets for forked repositories
 
 {% data reusables.repositories.rulesets-push-rulesets-fork-network-information %}

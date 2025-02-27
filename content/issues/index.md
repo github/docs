@@ -4,28 +4,26 @@ shortTitle: "{% data variables.product.prodname_github_issues %}"
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
 introLinks:
   overview: /issues/tracking-your-work-with-issues/about-issues
-  quickstart: /issues/tracking-your-work-with-issues/quickstart
+  quickstart: /issues/tracking-your-work-with-issues/configuring-issues/quickstart
 featuredLinks:
   startHere:
-    - /issues/tracking-your-work-with-issues/creating-an-issue
+    - /issues/tracking-your-work-with-issues/using-issues/creating-an-issue
     - /issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects
-    - /issues/managing-your-tasks-with-tasklists/quickstart-for-tasklists
     - /issues/planning-and-tracking-with-projects/learning-about-projects/best-practices-for-projects
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/configuring-issue-templates-for-your-repository
-    - /issues/tracking-your-work-with-issues/planning-and-tracking-work-for-your-team-or-project
+    - /issues/tracking-your-work-with-issues/configuring-issues/planning-and-tracking-work-for-your-team-or-project
   guideCards:
     - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view
-    - /issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue
+    - /issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue
     - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/configuring-automation-for-project-boards{% endif %}'
     - /issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions
   popular:
     - /issues/tracking-your-work-with-issues/about-issues
     - /issues/planning-and-tracking-with-projects/learning-about-projects/about-projects
     - /issues/planning-and-tracking-with-projects/creating-projects/creating-a-project
-    - /issues/managing-your-tasks-with-tasklists/creating-a-tasklist
     - /communities/using-templates-to-encourage-useful-issues-and-pull-requests/about-issue-and-pull-request-templates
     - /issues/using-labels-and-milestones-to-track-work/managing-labels
-    - /issues/tracking-your-work-with-issues/viewing-all-of-your-issues-and-pull-requests
+    - /issues/tracking-your-work-with-issues/using-issues/viewing-all-of-your-issues-and-pull-requests
     - '{% ifversion ghes %}/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards{% endif %}'
 layout: product-landing
 beta_product: false
@@ -36,11 +34,10 @@ versions:
 children:
   - /tracking-your-work-with-issues
   - /planning-and-tracking-with-projects
-  - /managing-your-tasks-with-tasklists
   - /organizing-your-work-with-project-boards
   - /using-labels-and-milestones-to-track-work
   - /guides
-product_video: '{% ifversion projects-v2 %}https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y{% endif %}'
+product_video: 'https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y'
 product_video_transcript: /video-transcripts/transcript-using-projects-for-feature-planning
 redirect_from:
   - /github/managing-your-work-on-github/managing-your-work-with-issues-and-pull-requests

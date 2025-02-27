@@ -1,6 +1,6 @@
 ---
 title: Managing your personal account
-intro: 'You can manage your personal account on {% data variables.location.product_location %}. For example, you can {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}convert an account to an organization, or delete an account.'
+intro: 'You can manage your personal account on {% data variables.product.github %}. For example, you can {% ifversion fpt or ghec %}manage multiple accounts, {% endif %}convert an account to an organization, or delete an account.'
 shortTitle: Manage personal account
 versions:
   fpt: '*'

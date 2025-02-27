@@ -16,7 +16,7 @@ Ensure your Azure resources have been configured _before_ adding a network confi
 
 ### Runner failed to connect to the internet
 
-{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.prodname_dotcom_the_website %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
+{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.github %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
 
 If {% data variables.product.prodname_actions %} cannot communicate with the runners, the pool will never be able to bring runners online and so no jobs will be picked up. In this case, the pool will have the following error code.
 
@@ -68,6 +68,20 @@ VNetInjectionSubnetIsFull
 
 To fix this, either increase the size of the subnet you are using or reduce the pool's maximum runner count to match your subnet size.
 
+### Cannot delete subnet
+
+In some cases, a subnet cannot be deleted because it has a Service Association Link (SAL) applied to it. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#deleting-a-subnet).
+
+If you need to identify the network settings resource associated with the subnet, you can run the following `curl` command.
+To obtain an Azure Entra token, please refer to the [Azure documentation](https://learn.microsoft.com/en-us/cli/azure/authenticate-azure-cli). Use the same `api-version` you used to create the resource.
+
+```shell
+curl --request GET \
+  --url "https://management.azure.com/subscriptions/{subscriptionId}/providers/GitHub.Network/NetworkSettings?api-version={api-version}&subnetId={subnetId}" \
+  --header 'Content-Type: application/json' \
+  --header "Authorization: Bearer {entra_token}"
+```
+
 ### Incorrect NSG or firewall rules
 
 The "Configuring your Azure resources" procedures list the required openings. However, you may have complex production networks with multiple downstream proxies or firewalls.
@@ -87,3 +101,7 @@ While running the command to configure Azure resources, ensure you are using the
 ```
 
 If you experience this error, you can see more information by running the command using the `---debug` flag.
+
+### Network settings configured at the wrong level
+
+If network settings were configured using an organization's `databaseId` instead of an enterprise `databaseId`, an error will occur. The error message will indicate that a private network cannot be established with the provided resource ID because it is already associated with a different enterprise or organization. To resolve this, delete the existing network settings and recreate them using the enterprise `databaseId`.

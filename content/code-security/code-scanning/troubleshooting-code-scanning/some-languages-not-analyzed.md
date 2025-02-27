@@ -23,19 +23,18 @@ If you're using advanced setup and your workflow doesn't explicitly specify the 
       permissions:
         security-events: write
         actions: read
-      ...
+      # ...
       strategy:
         fail-fast: false
-        matrix: {% ifversion codeql-language-identifiers-311 %}
-          language: ['csharp', 'c-cpp', 'javascript-typescript'] {% else %}
-          language: ['csharp', 'cpp', 'javascript'] {% endif %}
+        matrix:
+          language: ['csharp', 'c-cpp', 'javascript-typescript']
 
       steps:
-      ...
+      # ...
         - name: Initialize {% data variables.product.prodname_codeql %}
           uses: {% data reusables.actions.action-codeql-action-init %}
           with:
             languages: {% raw %}${{ matrix.language }}{% endraw %}
   ```
 
-  For more information about editing the workflow, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning)."
+  For more information about editing the workflow, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).

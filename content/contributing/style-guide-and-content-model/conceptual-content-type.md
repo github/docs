@@ -1,8 +1,10 @@
 ---
 title: Conceptual content type
-intro: 'People most often use conceptual content when they are learning about something new to them.'
+intro: People most often use conceptual content when they are learning about something new to them.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Conceptual content helps people understand a feature or topic by providing a clear, high-level overview, explanation of how the feature or topic can help them on their journey, and context like use cases or examples.
@@ -11,7 +13,7 @@ We create conceptual articles and conceptual sections within other articles. Mos
 
 ## How to write conceptual content
 
-For the conceptual content template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#conceptual-article-template)."
+For the conceptual content template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#conceptual-article-template).
 
 * Describe in plain language what the feature, product, or topic is.
 * Describe its purpose and why it’s useful to the reader.

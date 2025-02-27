@@ -2,7 +2,8 @@
 title: About custom repository roles
 intro: You can more granularly control access to your organization's repositories with custom repository roles.
 versions:
-  feature: custom-repository-roles
+  ghes: '*'
+  ghec: '*'
 topics:
   - Organizations
   - Teams
@@ -15,29 +16,25 @@ redirect_from:
 
 ## About custom repository roles
 
-To perform any actions on {% data variables.product.product_name %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
+To perform any actions on {% data variables.product.github %}, such as creating a pull request in a repository or changing an organization's billing settings, a person must have sufficient access to the relevant account or resource. This access is controlled by permissions. A permission is the ability to perform a specific action. For example, the ability to delete an issue is a permission. A role is a set of permissions you can assign to individuals or teams.
 
-Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization)."
+Within an organization, you can assign roles at the organization, team, and repository level. For more information about the different levels of roles, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).
 
-You can have more granular control over the permissions you grant at the repository level by creating up to {% ifversion authz-increased-custom-repo-roles %}five {% else %}three {% endif %} custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."
+You can have more granular control over the permissions you grant at the repository level by creating up to five custom repository roles. {% data reusables.organizations.about-custom-repo-roles %} For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 
-After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository)."
+After you create a custom role, anyone with admin access to a repository can assign the role to an individual or team. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-an-individuals-access-to-an-organization-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository).
 
-{% ifversion custom-repo-role-api %}
-
-You can also use the REST API to create and manage custom repository roles. For more information, see "[AUTOTITLE](/rest/orgs/custom-roles)."
-
-{% endif %}
+You can also use the REST API to create and manage custom repository roles. For more information, see [AUTOTITLE](/rest/orgs/custom-roles).
 
 {% ifversion custom-org-roles %}
-Custom repository roles manage access to specific repositories in your organization. To {% ifversion org-custom-role-with-repo-permissions %}grant access to all repositories, and to {% endif %}control access to your organization's administration settings, you can use custom organization roles. See "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles)."
+Custom repository roles manage access to specific repositories in your organization. To {% ifversion org-custom-role-with-repo-permissions %}grant access to all repositories, and to {% endif %}control access to your organization's administration settings, you can use custom organization roles. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles).
 
 Custom organization roles differ from repository roles by granting permissions across **all** current and future repositories in the organization. Custom repository roles, however, allow you to grant permissions to **specific** repositories within the organization.
 {% endif %}
 
 ## About the inherited role
 
-When you create a custom repository role, you start by choosing an inherited role from a set of pre-defined options. The inherited role determines the initial set of permissions included in the custom role. Then, you can further customize the role by choosing additional permissions to give the role. For the full list of available permissions, see "[Additional permissions for custom roles](#additional-permissions-for-custom-roles)."
+When you create a custom repository role, you start by choosing an inherited role from a set of pre-defined options. The inherited role determines the initial set of permissions included in the custom role. Then, you can further customize the role by choosing additional permissions to give the role. For the full list of available permissions, see [Additional permissions for custom roles](#additional-permissions-for-custom-roles).
 
 Your options for the inherited role are standardized for different types of contributors in your repository.
 

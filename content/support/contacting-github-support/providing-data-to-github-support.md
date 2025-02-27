@@ -96,15 +96,12 @@ After you submit your support request, we may ask you to share a support bundle 
 * `collectd/logs/collectd.log`: Collectd logs
 * `mail-logs/mail.log`: SMTP email delivery logs
 
-For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise)."
+For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise).
 
-Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see "[Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles)."
+Support bundles include logs from the past two days by default. You can specify an exact duration in days. To provide logs from the past eight days, you can download an extended support bundle. For more information, see [Creating and sharing extended support bundles](#creating-and-sharing-extended-support-bundles).
 
-{% tip %}
-
-**Tip:** When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
-
-{% endtip %}
+> [!TIP]
+> When you contact {% data variables.contact.github_support %}, you'll be sent a confirmation email that will contain a ticket reference link. If {% data variables.contact.github_support %} asks you to upload a support bundle, you can use the ticket reference link to upload the support bundle.
 
 ### Creating a support bundle from the {% data variables.enterprise.management_console %}
 
@@ -130,7 +127,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
    ssh -p 122 admin@HOSTNAME -- 'ghe-support-bundle -o' > support-bundle.tgz
    ```
 
-   For more information about the `ghe-support-bundle` command, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle)".
+   For more information about the `ghe-support-bundle` command, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-support-bundle).
 {% data reusables.enterprise_enterprise_support.sign-in-to-support %}
 {% data reusables.enterprise_enterprise_support.upload-support-bundle %}
 
@@ -141,7 +138,7 @@ You can use these steps to create and share a support bundle if you have SSH acc
 {% data reusables.enterprise-accounts.license-tab %}
 1. Under "{% data variables.product.prodname_enterprise %} Help", click **Upload a support bundle**.
 
-   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is highlighted with a dark orange rectangle.](/assets/images/enterprise/support/upload-support-bundle.png)
+   ![Screenshot of the "GitHub Enterprise help" section of the enterprise settings page. The "Upload a support bundle link" is outlined in orange.](/assets/images/enterprise/support/upload-support-bundle.png)
 1. Under "Select an enterprise account", use the drop-down menu to select the support bundle's associated account.
 1. Under "Upload a support bundle for {% data variables.contact.enterprise_support %}", to select your support bundle, click **Choose file**, or drag your support bundle file onto **Choose file**.
 1. Click **Upload**.
@@ -191,5 +188,5 @@ You can directly upload a support bundle to our server if:
 
 ## Further reading
 
-* "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
-* "[AUTOTITLE](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)"
+* [AUTOTITLE](/support/learning-about-github-support/about-github-support)
+* [AUTOTITLE](/enterprise-server@latest/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)

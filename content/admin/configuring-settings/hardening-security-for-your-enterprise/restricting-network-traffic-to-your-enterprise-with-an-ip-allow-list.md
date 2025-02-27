@@ -1,6 +1,6 @@
 ---
 title: Restricting network traffic to your enterprise with an IP allow list
-shortTitle: Restricting network traffic
+shortTitle: IP allow list
 intro: You can restrict access to your enterprise and only allow access to your resources from specified IP addresses by using an IP allow list.
 permissions: Enterprise owners can configure IP allow lists.
 versions:
@@ -23,15 +23,9 @@ redirect_from:
 
 By default, authorized users can access your enterprise's resources from any IP address. You can restrict access to your enterprise's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
-{% ifversion ghec %}
-
 If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
-{% endif %}
-
 {% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
-
-{% ifversion ghec %}
 
 ## About {% data variables.product.company_short %}'s IP allow list
 
@@ -49,7 +43,9 @@ Using your IdP's allow list deactivates the {% data variables.product.company_sh
 
 By default, your IdP runs the CAP on the initial interactive SAML or OIDC sign-in to {% data variables.product.company_short %} for any IP allow list configuration you choose.
 
-The OIDC CAP only applies for requests to the API using a user token, such as an OAuth token for an {% data variables.product.prodname_oauth_app %} or a user access token for a {% data variables.product.prodname_github_app %} acting on behalf of a user. The OIDC CAP does not apply when a {% data variables.product.prodname_github_app %} uses an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)" and "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps)."
+The OIDC CAP applies to web requests and requests to the API using a user token, such as an OAuth token for an {% data variables.product.prodname_oauth_app %} or a user access token for a {% data variables.product.prodname_github_app %} acting on behalf of a user. The OIDC CAP does not apply when a {% data variables.product.prodname_github_app %} uses an installation access token. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app) and [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-support-for-your-idps-conditional-access-policy#github-apps-and-oauth-apps).
+
+{% data reusables.enterprise-accounts.emu-cap-public-preview %}
 
 To ensure seamless use of the OIDC CAP while still applying the policy to OAuth tokens and user access tokens, you must copy all of the IP ranges from each {% data variables.product.prodname_github_app %} that your enterprise uses to your IdP policy.
 
@@ -57,7 +53,7 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 
 ### Enabling {% data variables.product.company_short %}'s IP allow list
 
-{% data reusables.profile.access_org %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 1. If you're using {% data variables.product.prodname_emus %} with OIDC, under "IP allow list", select the **IP allow list configuration** dropdown menu and click **GitHub**.
@@ -117,20 +113,15 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 
 ## Using your identity provider's allow list
 
-{% note %}
+> [!NOTE]
+> Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Entra ID and OIDC.
 
-**Note:** Using your IdP's allow list is only supported for {% data variables.product.prodname_emus %} with Entra ID and OIDC.
-
-{% endnote %}
-
-{% data reusables.profile.access_org %}
+{% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.security %}
 1. Under "IP allow list", select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
 1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 1. Click **Save**.
-
-{% endif %}
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 

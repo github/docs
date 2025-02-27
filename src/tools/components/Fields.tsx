@@ -26,7 +26,7 @@ export const Fields = (fieldProps: {
             key={item.text}
             href={item.href}
             selected={item.selected === true}
-            onClick={() => {
+            onSelect={() => {
               if (onSelect) onSelect(item)
               setOpen(!open)
             }}

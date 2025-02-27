@@ -28,11 +28,8 @@ When your profile is private, the following content is hidden from your profile 
 * Stars, projects, packages, and sponsoring tabs
 * Your pronouns
 
-{% note %}
-
-**Note**: When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
-
-{% endnote %}
+> [!NOTE]
+> When your profile is private, some optional fields are still publicly visible, such as the README, biography, and profile photo.
 
 ## Changes to reporting on your activities
 
@@ -45,11 +42,8 @@ When your profile is private, your {% data variables.product.prodname_dotcom %} 
 * Site-wide search results
 * The [Trending](https://github.com/trending) page
 
-{% note %}
-
-**Note**: Your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
-
-{% endnote %}
+> [!NOTE]
+> Your activity on public repositories will still be publicly visible to anyone viewing those repositories, and some activity data may still be available through the {% data variables.product.prodname_dotcom %} API.
 
 ## Changing your profile's privacy settings
 

@@ -14,13 +14,10 @@ versions:
 shortTitle: Splitting a subfolder
 ---
 
-{% note %}
+> [!NOTE]
+> You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
 
-**Note:** You need Git version 2.22.0 or later to follow these instructions, otherwise `git filter-repo` will not work.
-
-{% endnote %}
-
-If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository.  However, note that the new repository won't have the branches and tags of the original repository.
+If you create a new clone of the repository, you won't lose any of your Git history or changes when you split a folder into a separate repository. However, note that the new repository won't have the branches and tags of the original repository.
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 
@@ -43,11 +40,8 @@ If you create a new clone of the repository, you won't lose any of your Git hist
 
    {% windows %}
 
-   {% tip %}
-
-   **Tip:** Windows users should use `/` to delimit folders.
-
-   {% endtip %}
+   > [!TIP]
+   > Windows users should use `/` to delimit folders.
 
    {% endwindows %}
 
@@ -65,17 +59,14 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    # Filter the specific branch by using a single sub-directory as the root for the new repository
    ```
 
-1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.product_name %}.
+1. [Create a new repository](/repositories/creating-and-managing-repositories/creating-a-new-repository) on {% data variables.product.github %}.
 
 1. At the top of your new repository on {% data variables.product.prodname_dotcom %}'s Quick Setup page, click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the remote repository URL.
 
-   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is highlighted with an orange outline.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
+   ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
-   {% tip %}
-
-   **Tip:** For information on the difference between HTTPS and SSH URLs, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
-
-   {% endtip %}
+   > [!TIP]
+   > For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 1. Add a new remote name with the URL you copied for your repository. For example, `origin` or `upstream` are two common choices.
 
@@ -92,7 +83,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
     > origin  https://{% data variables.product.product_url %}/USERNAME/NEW-REPOSITORY-NAME.git (push)
     ```
 
-1. Push your changes to the new repository on {% data variables.product.product_name %}.
+1. Push your changes to the new repository on {% data variables.product.github %}.
 
     ```shell
     git push -u origin BRANCH-NAME

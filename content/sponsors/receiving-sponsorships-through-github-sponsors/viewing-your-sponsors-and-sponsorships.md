@@ -20,7 +20,7 @@ You can view analytics on your current and past sponsorships, the payments you'v
 
 ## About transaction metadata
 
-To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see "[Exporting your sponsorship data](#exporting-your-sponsorship-data)."
+To track where your sponsorships are coming from, you can use custom URLs with metadata for your {% data variables.product.prodname_sponsors %} profile or checkout page. The metadata will be included in your transaction export in the metadata column. For more information about exporting transaction data, see [Exporting your sponsorship data](#exporting-your-sponsorship-data).
 
 Metadata must use the `key=value` format and can be added to the end of these URLs.
 
@@ -60,5 +60,5 @@ You can export your sponsorship transactions by month. {% data variables.product
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.your-sponsors-tab %}
-1. In the top-right, click {% octicon "download" aria-hidden="true" %} **Export**.
+1. In the top-right, click **{% octicon "download" aria-hidden="true" %} Export**.
 1. Choose a time frame and a format for the data you'd like to export, then click **Start export**.

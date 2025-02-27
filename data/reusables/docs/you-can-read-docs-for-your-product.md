@@ -1,1 +1,1 @@
-You can read documentation that reflects the features available to you on {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs)."
+You can read documentation that reflects the {% data variables.product.github %} product you're currently using. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-versions-of-github-docs).

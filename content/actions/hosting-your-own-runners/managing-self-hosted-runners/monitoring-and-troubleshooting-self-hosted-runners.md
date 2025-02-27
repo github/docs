@@ -17,15 +17,11 @@ shortTitle: Monitor & troubleshoot
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% ifversion actions-disable-repo-runners %}
-
 ## Using repository-level self-hosted runners
 
 You may not be able to create a self-hosted runner for an organization-owned repository.
 
 {% data reusables.actions.disable-selfhosted-runners-crossrefs %}
-
-{% endif %}
 
 ## Checking the status of a self-hosted runner
 
@@ -38,20 +34,20 @@ You may not be able to create a self-hosted runner for an organization-owned rep
 
     The status can be one of the following:
 
-    * **Idle**: The runner is connected to {% data variables.product.product_name %} and is ready to execute jobs.
-    * **Active**: The runner is currently executing a job.
-    * **Offline**: The runner is not connected to {% data variables.product.product_name %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.product_name %}.
+    * **Idle:** The runner is connected to {% data variables.product.github %} and is ready to execute jobs.
+    * **Active:** The runner is currently executing a job.
+    * **Offline:** The runner is not connected to {% data variables.product.github %}. This could be because the machine is offline, the self-hosted runner application is not running on the machine, or the self-hosted runner application cannot communicate with {% data variables.product.github %}.
 
 ## Troubleshooting network connectivity
 
 ### Checking self-hosted runner network connectivity
 
-You can use the self-hosted runner application's `config` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.location.product_location %}.
+You can use the self-hosted runner application's `config` script with the `--check` parameter to check that a self-hosted runner can access all required network services on {% data variables.product.github %}.
 
 In addition to `--check`, you must provide two arguments to the script:
 
 * `--url` with the URL to your {% data variables.product.company_short %} repository, organization, or enterprise. For example, `--url https://github.com/octo-org/octo-repo`.
-* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope{% ifversion pat-v2%}, or a {% data variables.product.pat_v2 %} with workflows read and write access {% endif %}. For example, `--pat ghp_abcd1234`. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+* `--pat` with the value of a {% data variables.product.pat_v1 %}, which must have the `workflow` scope, or a {% data variables.product.pat_v2 %} with workflows read and write access. For example, `--pat ghp_abcd1234`. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 For example:
 
@@ -75,14 +71,14 @@ config.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD123
 
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements)."
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements).
 
 ### Disabling TLS certificate verification
 
 {% ifversion ghes %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If your {% data variables.product.product_name %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.github %}. If {% data variables.location.product_location_enterprise %} has a self-signed or internally-issued certificate, you may wish to disable TLS certificate verification for testing purposes.
 {% else %}
-By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.product_name %}.  If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
+By default, the self-hosted runner application verifies the TLS certificate for {% data variables.product.github %}. If you encounter network problems, you may wish to disable TLS certificate verification for testing purposes.
 {% endif %}
 
 To disable TLS certification verification in the self-hosted runner application, set the `GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY` environment variable to `1` before configuring and running the self-hosted runner application.
@@ -116,14 +112,14 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 {% endwindows %}
 
 > [!WARNING]
-> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.github %}. We recommend that you install the {% data variables.product.github %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.github %} certificate, check with your operating system vendor.
 
 ## Reviewing the self-hosted runner application log files
 
 You can monitor the status of the self-hosted runner application and its activities. Log files are kept in the `_diag` directory where you installed the runner application, and a new log is generated each time the application is started. The filename begins with `Runner_`, and is followed by a UTC timestamp of when the application was started.
 
 > [!WARNING]
-> Runner application log files for ephemeral runners must be forwarded and preserved externally for troubleshooting and diagnostic purposes. For more information about ephemeral runners and autoscaling self-hosted runners, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling)."
+> Runner application log files for ephemeral runners must be forwarded and preserved externally for troubleshooting and diagnostic purposes. For more information about ephemeral runners and autoscaling self-hosted runners, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners#using-ephemeral-runners-for-autoscaling).
 
 For detailed logs on workflow job executions, see the next section describing the `Worker_` files.
 
@@ -168,7 +164,7 @@ Feb 11 16:07:10 runner01 runsvc.sh[962]: 2020-02-11 16:07:10Z: Job testAction co
 ```
 
 To view the `systemd` configuration, you can locate the service file here: `/etc/systemd/system/actions.runner.<org>-<repo>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service).
 
 {% endlinux %}
 
@@ -196,7 +192,7 @@ Started:
 The resulting output includes the process ID and the name of the application’s `launchd` service.
 
 To view the `launchd` configuration, you can locate the service file here: `/Users/exampleUsername/Library/LaunchAgents/actions.runner.<repoName>.<runnerName>.service`.
-If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1)."
+If you want to customize the self-hosted runner application service, do not directly modify this file. Follow the instructions described in [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/configuring-the-self-hosted-runner-application-as-a-service#customizing-the-self-hosted-runner-service-1).
 
 {% endmac %}
 
@@ -293,7 +289,7 @@ User=runner-user
 
 {% ifversion ghes %}
 
-## Resolving runners that are offline after an upgrade of {% data variables.location.product_location %}
+## Resolving runners that are offline after an upgrade of {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.actions.upgrade-runners-before-upgrade-ghes %}
 

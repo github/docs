@@ -39,11 +39,11 @@ fatal: The remote end hung up unexpectedly
 
 ## Scenarios where you cannot suspend users
 
-Before suspending site administrators, you must demote them to regular users. See "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
+Before suspending site administrators, you must demote them to regular users. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 
 If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
-* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in "[AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync)."
+* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
 * If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.
 
 ## Viewing suspended users in the site admin dashboard
@@ -92,7 +92,7 @@ You can create a custom message that suspended users will see when attempting to
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Suspended user page", click **Add message**.
 
-   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/add-message.png)
+   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/add-message.png)
 1. In the "Suspend user message" field, type your message. You can type Markdown, or use the Markdown toolbar to style your message.
 1. To see the rendered message, click **Preview**.
 {% data reusables.enterprise_site_admin_settings.save-changes %}
@@ -108,4 +108,4 @@ You can create a custom message that suspended users will see when attempting to
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)"
+* [AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)

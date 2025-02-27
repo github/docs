@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}{% data variables.projects.projects_v1_boards %}{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide {% data variables.projects.projects_v1_boards %} and repository {% data variables.projects.projects_v1_boards %}{% endif %} in an organization.'
+title: 'Disabling projects in your organization'
+intro: 'Organization owners can turn off organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -28,7 +28,7 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under "Projects":
     * To disable {% data variables.projects.projects_v2_and_v1 %}, deselect **Enable Projects for the organization**.
     * To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
@@ -40,11 +40,11 @@ If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any
 
 ## Managing {% data variables.projects.projects_v1_boards %} in your organization's repositories
 
-You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)."
+You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
 1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under "Projects (classic) only":
     * To enable {% data variables.projects.projects_v1_boards %} in repositories, select **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
     * To disable {% data variables.projects.projects_v1_boards %} in repositories, deselect **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
@@ -54,8 +54,8 @@ You can control whether organization members can create {% data variables.projec
 
 ## Further reading
 
-{% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+{% ifversion projects-v1 %}* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board){% endif %}
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)

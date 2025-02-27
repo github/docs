@@ -1,6 +1,6 @@
 ---
 title: GitHub Enterprise Server releases
-intro: "Review information for each version of {% data variables.product.prodname_ghe_server %}: deprecation dates, links to documentation, and minimum recommended versions of supporting applications."
+intro: "Review information for each version of {% data variables.product.prodname_ghe_server %}: {% data variables.release-phases.closing_down %} dates, links to documentation, and minimum recommended versions of supporting applications."
 allowTitleToDifferFromFilename: true
 versions:
   ghes: '*'
@@ -10,17 +10,17 @@ topics:
 shortTitle: Releases
 ---
 
-{% data reusables.enterprise.constantly-improving %} See "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)."
+{% data reusables.enterprise.constantly-improving %} See [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases).
 
-## Releases of {% data variables.product.product_name %}
+## Releases of {% data variables.product.prodname_ghe_server %}
 
 {% data variables.product.company_short %} supports the **four** most recent feature releases.
 
-We provide documentation for both supported and deprecated versions of {% data variables.product.product_name %}. We do not maintain or update the documentation for deprecated versions.
+We provide documentation for both supported and unsupported versions of {% data variables.product.prodname_ghe_server %}. We do not maintain or update the documentation for unsupported versions.
 
 For information about the latest release, see the [{% data variables.product.prodname_enterprise %}](https://github.com/enterprise) website.
 
-| Version | Release | Deprecation | Supported | Release notes | Documentation |
+| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Supported | Release notes | Documentation |
 | :- | :- | :- | :-: | :- | :- |
 {%- for version in enterpriseServerReleases.supported %}
 {%- assign currentDate = 'now' | date: '%s' %}
@@ -34,11 +34,11 @@ For information about the latest release, see the [{% data variables.product.pro
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | {% octicon "x" aria-label="Not supported" %} | [{{version}} release notes](https://enterprise.github.com/releases/series/{{version}}) | [{{version}} documentation](/enterprise/{{version}}) |
 {%- endfor %}
 
-### Deprecated developer documentation
+### Developer documentation that is {% data variables.release-phases.closing_down %}
 
-We hosted developer documentation for {% data variables.product.product_name %} on a separate site until the 2.17 release. We provide developer documentation for version 2.16 and earlier, but do not maintain or update the documentation.
+We hosted developer documentation for {% data variables.product.prodname_ghe_server %} on a separate site until the 2.17 release. We provide developer documentation for version 2.16 and earlier, but do not maintain or update the documentation.
 
-| Version | Release | Deprecation | Developer documentation |
+| Version | Release | {% data variables.release-phases.closing_down_caps %} date | Developer documentation |
 | :- | :- | :- | :- |
 {%- for version in enterpriseServerReleases.deprecatedReleasesOnDeveloperSite %}
 | {{version}} | {{enterpriseServerReleases.dates[version].releaseDate}} | {{enterpriseServerReleases.dates[version].deprecationDate}} | [{{version}} developer documentation](https://developer.github.com/enterprise/{{version}}) |
@@ -48,10 +48,11 @@ We hosted developer documentation for {% data variables.product.product_name %} 
 
 For instances with a {% data variables.product.prodname_GH_advanced_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
 
-If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See "[AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance)."
+If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
 
-| {% data variables.product.product_name %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
+| {% data variables.product.prodname_ghe_server %} version | Recommended {% data variables.product.prodname_codeql_cli %} version |
 | ------------------------------------------------- | ---------------------- |
+| 3.15 | 2.18.4 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.18.4/)) |
 | 3.14 | 2.17.6 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.17.6/)) |
 | 3.13 | 2.16.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.16.5/)) |
 | 3.12 | 2.15.5 ([changelog](https://codeql.github.com/docs/codeql-overview/codeql-changelog/codeql-cli-2.15.5/)) |
@@ -64,10 +65,12 @@ If you run analysis in an external CI system, we recommend using the same versio
 For instances with {% data variables.product.prodname_actions %} enabled, self-hosted {% data variables.product.prodname_actions %} runners must run a minimum required version of the {% data variables.product.prodname_actions %} Runner application.
 
 * For most instances, the Runner application is updated automatically.
-* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines)."
+* If your instance uses ephemeral self-hosted runners and you've disabled automatic updates, you must upgrade your runners before upgrading {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#requirements-for-self-hosted-runner-machines).
 
-| {% data variables.product.product_name %} version | Minimum Runner version |
+| {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.16 | 2.321.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.321.0)) |
+| 3.15 | 2.319.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.319.1)) |
 | 3.14 | 2.317.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.317.0)) |
 | 3.13 | 2.314.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.314.1)) |
 | 3.12 | 2.311.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.311.0)) |

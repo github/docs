@@ -1,6 +1,6 @@
 ---
 title: Migrating repositories from GitHub.com to GitHub Enterprise Cloud
-shortTitle: Migrate repositories on GitHub.com
+shortTitle: Migrate repositories from GitHub.com
 intro: 'You can migrate repositories from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_cloud %}, using the {% data variables.product.prodname_cli %} or the GraphQL API.'
 versions:
   fpt: '*'
@@ -14,6 +14,8 @@ redirect_from:
 ---
 
 ## About repository migrations with {% data variables.product.prodname_importer_proper_name %}
+
+Migrations to {% data variables.product.prodname_ghe_cloud %} include migrations between accounts on {% data variables.product.prodname_dotcom_the_website %} and, if you're adopting {% data variables.enterprise.data_residency_short %}, migrations to your enterprise's subdomain of {% data variables.enterprise.data_residency_site %}.
 
 {% data reusables.enterprise-migration-tool.tool-options %}
 
@@ -31,9 +33,9 @@ redirect_from:
 ## Prerequisites
 
 * {% data reusables.enterprise-migration-tool.github-trial-prerequisite %}
-* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products)."
+* {% data reusables.enterprise-migration-tool.link-to-support-limitations %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
 * {% data reusables.enterprise-migration-tool.delta-migrations-not-supported %}
-* In both the source and destination organization, you must be either an organization owner or be granted the migrator role. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role)."
+* In both the source and destination organization, you must be either an organization owner or be granted the migrator role. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#about-the-migrator-role).
 
 {% api %}
 
@@ -134,7 +136,7 @@ mutation startRepositoryMigration (
 {% data reusables.enterprise-migration-tool.startRepositoryMigration-table-ec %}
 | `sourceRepositoryUrl` | The URL of your source repository, using the format `https://github.com/{organization}/{repository}`.
 
-For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens).
 
 {% data reusables.enterprise-migration-tool.next-check-status %}
 
@@ -186,11 +188,18 @@ If you want to migrate a single repository, skip to the next step.
 gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATION --output FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.download-migration-logs-flag %}
+{% data reusables.enterprise-migration-tool.gei-binary-generate-script %}
+
+#### Placeholders
 
 {% data reusables.enterprise-migration-tool.generate-script-table %}
 
-{% data reusables.enterprise-migration-tool.gei-binary-generate-script %}
+#### Additional arguments
+
+| Argument | Description |
+| -------- | ----------- |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--download-migration-logs` | Download the migration log for each migrated repository. For more information about migration logs, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/accessing-your-migration-logs-for-github-enterprise-importer#downloading-all-migration-logs-for-an-organization). |
 
 ### Reviewing the migration script
 
@@ -216,9 +225,19 @@ gh gei generate-script --github-source-org SOURCE --github-target-org DESTINATIO
 gh gei migrate-repo --github-source-org SOURCE --source-repo CURRENT-NAME --github-target-org DESTINATION --target-repo NEW-NAME
 ```
 
-{% data reusables.enterprise-migration-tool.skip-releases %}
+#### Placeholders
 
 {% data reusables.enterprise-migration-tool.migrate-repo-table-ec %}
+
+#### Additional arguments
+
+| Argument | Description |
+| -------- | ----------- |
+| `--target-api-url TARGET-API-URL` | {% data reusables.enterprise-migration-tool.add-target-api-url %} |
+| `--skip-releases` | {% data reusables.enterprise-migration-tool.skip-releases %} |
+| `--target-repo-visibility TARGET-VISIBILITY` | {% data reusables.enterprise-migration-tool.set-repository-visibility %} |
+
+#### Aborting the migration
 
 {% data reusables.enterprise-migration-tool.abort-migration %}
 

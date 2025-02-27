@@ -1,8 +1,2 @@
-{% note %}
-
-**Notes:**
-
-* Ruleset history is currently in public beta and subject to change.
-* Only changes made to a ruleset after the public beta release, on October 11, 2023, are included in the ruleset history.
-
-{% endnote %}
+> [!NOTE]
+> {% ifversion ghes > 3.16 %}Only changes made to a ruleset after you have upgraded to {% data variables.product.prodname_ghe_server %} 3.17.0, or a later version, are included in the ruleset history.{% elsif fpt or ghec %}Only changes made to a ruleset after the {% data variables.release-phases.public_preview %} release, on October 11, 2023, are included in the ruleset history.{% endif %}

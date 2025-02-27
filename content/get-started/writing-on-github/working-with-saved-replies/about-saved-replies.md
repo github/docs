@@ -17,11 +17,11 @@ Once you've added a saved reply, it can be used in issues, pull requests, and di
 
 You can create a maximum of 100 saved replies. If you've reached the maximum limit, you can delete saved replies that you no longer use or edit existing saved replies.
 
-You can also use the {% data variables.product.product_name %}-provided "Duplicate issue" saved reply to mark an issue as a duplicate and track it with a similar issue.
+You can also use the {% data variables.product.github %}-provided "Duplicate issue" saved reply to mark an issue as a duplicate and track it with a similar issue.
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)"
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)"
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)"
-* "[AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)"
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/creating-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/using-saved-replies)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/editing-a-saved-reply)
+* [AUTOTITLE](/get-started/writing-on-github/working-with-saved-replies/deleting-a-saved-reply)

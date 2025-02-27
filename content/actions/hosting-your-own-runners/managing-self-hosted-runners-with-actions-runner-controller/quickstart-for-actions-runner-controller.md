@@ -5,7 +5,7 @@ intro: 'Try out {% data variables.product.prodname_actions_runner_controller %} 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: quick_start
 topics:
   - Actions Runner Controller
@@ -18,7 +18,7 @@ defaultPlatform: linux
 
 {% data reusables.actions.actions-runner-controller-about-arc %}
 
-You can set up ARC on Kubernetes using Helm, then create and run a workflow that uses runner scale sets. For more information about runner scale sets, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#runner-scale-set)."
+You can set up ARC on Kubernetes using Helm, then create and run a workflow that uses runner scale sets. For more information about runner scale sets, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#runner-scale-set).
 
 ## Prerequisites
 
@@ -28,11 +28,8 @@ In order to use ARC, ensure you have the following.
   * For a managed cloud environment, you can use AKS. For more information, see [Azure Kubernetes Service](https://azure.microsoft.com/en-us/products/kubernetes-service) in the Azure documentation.
   * For a local setup, you can use minikube or kind. For more information, see [minikube start](https://minikube.sigs.k8s.io/docs/start/) in the minikube documentation and [kind](https://kind.sigs.k8s.io/) in the kind documentation.
 
-    {% note %}
-
-    **Note:** OpenShift clusters are currently unsupported.
-
-    {% endnote %}
+    > [!NOTE]
+    > OpenShift clusters are currently unsupported.
 
 * Helm 3
   * For more information, see [Installing Helm](https://helm.sh/docs/intro/install/) in the Helm documentation.
@@ -64,18 +61,14 @@ In order to use ARC, ensure you have the following.
 
     When you run the command, keep the following in mind.
 
-    * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of `runs-on` in your workflows. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+    * Update the `INSTALLATION_NAME` value carefully. You will use the installation name as the value of `runs-on` in your workflows. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on).
     * Update the `NAMESPACE` value to the location you want the runner pods to be created.
     * Set `GITHUB_CONFIG_URL` to the URL of your repository, organization, or enterprise. This is the entity that the runners will belong to.
     * This example command installs the latest version of the Helm chart. To install a specific version, you can pass the `--version` argument with the version of the chart you wish to install. You can find the list of releases in the [GitHub Container Registry](https://github.com/actions/actions-runner-controller/pkgs/container/actions-runner-controller-charts%2Fgha-runner-scale-set).
 
-        {% note %}
-
-        **Note:**
-        * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
-        * {% data reusables.actions.actions-runner-controller-security-practices-secret %} For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)."
-
-        {% endnote %}
+        > [!NOTE]
+        > * {% data reusables.actions.actions-runner-controller-security-practices-namespace %}
+        > * {% data reusables.actions.actions-runner-controller-security-practices-secret %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
         ```bash copy
         INSTALLATION_NAME="arc-runner-set"
@@ -120,7 +113,7 @@ In order to use ARC, ensure you have the following.
     arc-runner-set-754b578d-listener                       1/1     Running   0          12s
     ```
 
-If your installation was not successful, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors)" for troubleshooting information.
+If your installation was not successful, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/troubleshooting-actions-runner-controller-errors) for troubleshooting information.
 
 ## Using runner scale sets
 
@@ -128,7 +121,7 @@ Now you will create and run a simple test workflow that uses the runner scale se
 
 1. In a repository, create a workflow similar to the following example. The `runs-on` value should match the Helm installation name you used when you installed the autoscaling runner set.
 
-    For more information on adding workflows to a repository, see "[AUTOTITLE](/actions/quickstart#creating-your-first-workflow)."
+    For more information on adding workflows to a repository, see [AUTOTITLE](/actions/quickstart#creating-your-first-workflow).
 
     ```yaml copy
     name: Actions Runner Controller Demo
@@ -143,7 +136,7 @@ Now you will create and run a simple test workflow that uses the runner scale se
         - run: echo "🎉 This job uses runner scale set runners!"
     ```
 
-1. Once you've added the workflow to your repository, manually trigger the workflow. For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow)."
+1. Once you've added the workflow to your repository, manually trigger the workflow. For more information, see [AUTOTITLE](/actions/managing-workflow-runs/manually-running-a-workflow).
 
 1. To view the runner pods being created while the workflow is running, run the following command from your terminal.
 
@@ -162,9 +155,9 @@ Now you will create and run a simple test workflow that uses the runner scale se
 
 {% data variables.product.prodname_actions_runner_controller %} can help you efficiently manage your {% data variables.product.prodname_actions %} runners. Ready to get started? Here are some helpful resources for taking your next steps with ARC:
 
-* For detailed authentication information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api)."
-* For help using ARC runners in your workflows, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow)."
-* For deployment information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)."
+* For detailed authentication information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api).
+* For help using ARC runners in your workflows, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/using-actions-runner-controller-runners-in-a-workflow).
+* For deployment information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
 ## Legal notice
 

@@ -21,22 +21,20 @@ To read about how {% data variables.product.prodname_dotcom %} is used by educat
 
 ## {% data variables.product.prodname_campus_program %} terms and conditions
 
-* The license is free for one year and will automatically renew for free every 2 years. You may continue on the free license so long as you continue to operate within the terms of the agreement. Any school that can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
+* The license is free for one year and will automatically renew annually. You may continue on the free license so long as you continue to operate within the terms of the agreement. Any school that grants degrees, diplomas, or certificates, and can agree to the [terms of the program](https://education.github.com/schools/terms) is welcome to join.
 
-* Please note that the licenses are for use by the whole school. Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use. Externally funded research groups that are housed at the university may not use the free licenses.
+* Please note that the licenses are for use by the whole school. Internal IT departments, academic research groups, collaborators, students, and other non-academic departments are eligible to use the licenses so long as they are not making a profit from its use.
 
 * You must offer {% data variables.product.prodname_dotcom %} to all of your technical and academic departments and your school’s logo will be shared on the GitHub Education website as a {% data variables.product.prodname_campus_program %} Partner.
 
 * New organizations in your enterprise are automatically added to your enterprise account. To add organizations that existed before your school joined the {% data variables.product.prodname_campus_program %}, please contact {% data variables.contact.contact_support %}. For more information about administrating your enterprise, see the [enterprise administrators documentation](/admin).
 
-To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see "[AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement)."
+To read more about {% data variables.product.prodname_dotcom %}'s privacy practices, see [AUTOTITLE](/site-policy/privacy-policies/github-privacy-statement).
 
 ## {% data variables.product.prodname_campus_program %} Application Eligibility
 
-* Often times, a campus CTO/CIO, Dean, Department Chair, or Technology Officer signs the terms of the program on behalf of the campus.
+A school employee with authority to adopt technology for the whole school, such as a CTO/CIO, Dean, Department Chair, or Technology Officer, must sign the terms of the program on behalf of the campus.
 
-* If your school does not issue email addresses, {% data variables.product.prodname_dotcom %} will reach out to your account administrators with an alternative option to allow you to distribute the student developer pack to your students.
-
-For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page.
+For more information, see the [official {% data variables.product.prodname_campus_program %}](https://education.github.com/schools) page or visit the [{% data variables.product.prodname_education %} Resource Guide](https://github.com/github-education-resources/edu-resource-guide?tab=readme-ov-file#github-education-resource-guide).
 
 If you're a student or academic faculty and your school isn't partnered with {% data variables.product.prodname_dotcom %} as a {% data variables.product.prodname_campus_program %} school, then you can still individually apply for discounts to use {% data variables.product.prodname_dotcom %}. To apply for the Student Developer Pack, [see the application form](https://education.github.com/pack/join).

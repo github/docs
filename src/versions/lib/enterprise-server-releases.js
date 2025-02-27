@@ -9,13 +9,13 @@ export const dates = JSON.parse(await fs.readFile('src/ghes-releases/lib/enterpr
 // enterprise-releases/docs/supported-versions.md#release-lifecycle-dates
 
 // Some frontmatter may contain the upcoming GHES release number
-export const next = '3.15'
-export const nextNext = '3.16'
+export const next = '3.17'
+export const nextNext = '3.18'
 
-export const supported = ['3.14', '3.13', '3.12', '3.11', '3.10']
+export const supported = ['3.16', '3.15', '3.14', '3.13', '3.12']
 
 // Edit this to `null` when it's no longer the release candidate
-export const releaseCandidate = null
+export const releaseCandidate = '3.16'
 
 // Ensure that:
 // "next" is ahead of "latest" by one minor or major release.
@@ -41,6 +41,8 @@ function isValidNext(v1, v2) {
 // array and you should never need to touch the `deprecated` array
 // on the line just below.
 export const deprecatedWithFunctionalRedirects = [
+  '3.11',
+  '3.10',
   '3.9',
   '3.8',
   '3.7',
@@ -81,10 +83,11 @@ export const deprecated = [
 ]
 export const legacyAssetVersions = ['3.0', '2.22', '2.21']
 
-// As of GHES 3.2, the archived enterprise content in no longer stored
-// in the help-docs-archived-enterprise-versions repository. Instead, it
-// is stored in our githubdocs Azure blog storage, in the `enterprise`
-// container.
+// As of GHES 3.2, we started storing the scraped assets and html
+// in Azure blob storage. All enterprise deprecated veresions are
+// now stored in individual docs-ghes-<release number> repos. This
+// release number now indicates a change in the way the archived html
+// references assets.
 export const firstReleaseStoredInBlobStorage = '3.2'
 
 export const all = supported.concat(deprecated)

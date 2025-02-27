@@ -1,0 +1,84 @@
+date: '2024-11-07'
+sections:
+  security_fixes:
+    - |
+      Elasticsearch packages have been updated to the latest security versions.
+    - |
+      Packages have been updated to the latest security version.
+    - |
+      **HIGH**: An attacker could bypass SAML single sign-on (SSO) authentication with the optional encrypted assertions feature, allowing unauthorized provisioning of users and access to the instance, by exploiting an improper verification of cryptographic signatures vulnerability in GitHub Enterprise Server. This is a follow up fix for [CVE-2024-9487](https://www.cve.org/cverecord?id=CVE-2024-9487) to further harden the encrypted assertions feature against this type of attack. Please note that encrypted assertions are not enabled by default. Instances not utilizing SAML SSO, or utilizing SAML SSO authentication without encrypted assertions, are not impacted. Additionally, an attacker would require direct network access as well as a signed SAML response or metadata document to exploit this vulnerability.
+    - |
+      **HIGH**: An attacker with Enterprise Administrator access to the GitHub Enterprise Server instance could escalate privileges to SSH root access. This is achieved by exploiting the pre-receive hook environment to bypass symlink checks in the `ghe-firejail` path and execute malicious scripts. GitHub has requested CVE ID [CVE-2024-10007](https://www.cve.org/cverecord?id=CVE-2024-10007) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2024-11-07]
+    - |
+      **HIGH**: An attacker could leak sensitive data from the DOM by injecting malicious input through the `identity` parameter in `querySelector` handling. This allows the attacker to dynamically embed a hidden iframe on the page and exfiltrate data from DOM attributes. To execute the attack, the victim must be logged into GitHub and interact with the attacker controlled malicious webpage containing the hidden iframe. GitHub has requested CVE ID [CVE-2024-10001](https://www.cve.org/cverecord?id=CVE-2024-10001) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2025-01-27]
+  bugs:
+    - |
+      When saving settings in the Management Console, the configuration run would stop if the `enterprise-manage` process was restarted.
+    - |
+      On an instance with GitHub Actions enabled, some maintenance tasks could fail due to incomplete upgrade steps during previous upgrades to new releases of GitHub Enterprise Server.
+    - |
+      A repeated error message concerning connectivity to port 6002 was emitted to the system logs when GitHub Actions was enabled.
+    - |
+      The initial setup certificate generation in AWS took longer than expected due to fallback to private IPs. The time for this fallback has been reduced.
+    - |
+      The `ghe-support-bundle` generation would fail when the `aqueduct-lite` service is down.
+    - |
+      If the primary instance was unreachable, running `ghe-repl-stop --force` on a replica would fail during the config apply run.
+    - |
+      Administrators in the SCIM private beta (versions < 3.14) that decided to upgrade their private beta appliance see an incorrectly checked box in the "SCIM Configuration" section of the Enterprise settings authentication security page in 3.14.
+    - |
+      Certain URLs may have caused a 500 error on instances that use the mandatory message feature logging.
+    - |
+      When restoring from a backup, repositories that had been deleted in the last 90 days were not completely restored.
+    - |
+      For instances that use secret scanning, custom messages for push protection set by the enterprise did not display to users.
+    - |
+      Restoring Git repositories using `backup-utils` occasionally failed.
+    - |
+      Enterprise installations experienced unpredictable repository search results due to the default 4,000 repository limit. A relaxed repository filter mode, which includes all single-tenant organization repositories and bypasses the limit, has been introduced. Administrators can enable this mode using `ghe-config app.github.enterprise-repo-search-filter-enabled true && ghe-config-apply`.
+    - |
+      Running `config-apply` became stuck under certain circumstances due to a misconfiguration with Packages and Elasticsearch.
+    - |
+      Audit log events for secret scanning alerts incorrectly displayed a blank secret type when generated for a custom pattern.
+    - |
+      Some customers upgrading to 3.14 experienced issues with undecryptable records during the upgrade. This issue has now been resolved. A diagnostic script will run to assess impact, if no records are affected the message "SUCCESS: Encrypted records OK." will print to the console and can be ignored. If the error message "WARN: Error reading encrypted records!" is output, we recommend you read [Undecryptable records](/admin/upgrading-your-instance/troubleshooting-upgrades/known-issues-with-upgrades-to-your-instance#undecryptable-records). [Updated: 2024-01-22]
+  changes:
+    - |
+      When connecting to an appliance via SSH, a notification about upcoming root disk changes displays.
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a `config apply` as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
+    - |
+      Customers doing feature version upgrade to 3.14.3 may experience issues with database migrations due to data issues during database conversions. [Added: 2024-11-08]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-29]

@@ -7,7 +7,7 @@ header:
     release_candidate:
       # The version name is rendered before the below text via includes/header-notification.html
       ' is currently available as a <a href="/admin/overview/about-upgrades-to-new-releases">release candidate</a>.'
-    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about an early access feature.
+    early_access: 📣 Please <b>do not share</b> this URL publicly. This page contains content about a private preview feature.
     release_notes_use_latest: Please use the latest release for the latest security, performance, and bug fixes.
     # GHES release notes
     ghes_release_notes_upgrade_patch_only: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of Enterprise Server.
@@ -15,6 +15,7 @@ header:
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
   menu: Menu
+  open_menu_label: Open menu
   go_home: Home
 picker:
   language_picker_label: Language
@@ -23,6 +24,38 @@ picker:
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
+  input:
+    aria_label: Open search overlay
+    placeholder: Search or ask Copilot
+  overlay:
+    input_aria_label: Search or ask Copilot
+    suggestions_list_aria_label: Search suggestions
+    ai_suggestions_list_aria_label: Copilot search suggestions
+    general_suggestions_list_aria_label: Docs search suggestions
+    general_suggestions_list_heading: Search docs
+    ai_autocomplete_list_heading: Ask Copilot
+    give_feedback: Give feedback
+    beta_tag: Beta
+    return_to_search: Return to search
+    clear_search_query: Clear
+    view_all_search_results: View all {{length}} results
+    no_results_found: No results found
+  ai:
+    disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
+    references: References from these articles
+    loading_status_message: Loading Copilot response...
+    done_loading_status_message: Done loading Copilot response
+    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query or search our docs.
+    copy_answer: Copy answer
+    copied_announcement: Copied!
+    thumbs_up: This answer was helpful
+    thumbs_down: This answer was not helpful
+    thumbs_announcement: Thank you for your feedback!
+  failure:
+    general_title: There was an error loading search results.
+    ai_title: There was an error loading Copilot.
+    description: You can still use this field to search our docs.
+old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
   label: Search GitHub Docs
@@ -148,6 +181,7 @@ rest_reference:
   http_status_code: HTTP response status codes for "{{ RESTOperationTitle }}"
   code_sample: Code sample
   code_samples: Code samples for "{{ RESTOperationTitle }}"
+  data_residency_notice: If you access GitHub at GHE.com, replace <code>api.github.com</code> with your enterprise's dedicated subdomain at <code>api.SUBDOMAIN.ghe.com</code>.
   preview_notice: Preview notice for "{{ RESTOperationTitle }}"
   preview_notices: Preview notices for "{{ RESTOperationTitle }}"
   fine_grained_access: Fine-grained access tokens for "{{ RESTOperationTitle }}"
@@ -209,7 +243,7 @@ product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
-  try_ghec_for_free: Try Enterprise Cloud for free
+  try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
   plan_your_migration: Plan your migration
   releases: Releases
@@ -262,7 +296,6 @@ scroll_button:
   scroll_to_top: Scroll to top
 popovers:
   role_description: hovercard link
-  keyboard_shortcut_description: Press alt+up to activate
 alerts:
   NOTE: Note
   IMPORTANT: Important
@@ -280,3 +313,10 @@ domain_edit:
   snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
   learn_more: Learn more
   submission_failed: Submission failed. Please try again in a minute.
+cookbook_landing:
+  spotlight: Spotlight
+  explore_articles: Explore {{ number }} prompt articles
+  reset_filters: Reset filters
+  search_articles: Search articles
+  category: Category
+  complexity: Complexity

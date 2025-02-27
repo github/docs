@@ -21,25 +21,19 @@ shortTitle: View listing metrics
 
 You can view metrics for the past day (24 hours), week, month, or for the entire duration of time that your {% data variables.product.prodname_github_app %} has been listed.
 
-{% note %}
-
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
-
-{% endnote %}
+> [!NOTE]
+> Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
 
 ## Performance metrics
 
 The Insights page displays these performance metrics, for the selected time period:
 
-* **Subscription value:** Total possible revenue (in US dollars) for subscriptions. This value represents the possible revenue if no plans or free trials are cancelled and all credit transactions are successful. The subscription value includes the full value for plans that begin with a free trial in the selected time period, even when there are no financial transactions in that time period. The subscription value also includes the full value of upgraded plans in the selected time period but does not include the prorated amount. To see and download individual transactions, see "[AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing)."
+* **Subscription value:** Total possible revenue (in US dollars) for subscriptions. This value represents the possible revenue if no plans or free trials are cancelled and all credit transactions are successful. The subscription value includes the full value for plans that begin with a free trial in the selected time period, even when there are no financial transactions in that time period. The subscription value also includes the full value of upgraded plans in the selected time period but does not include the prorated amount. To see and download individual transactions, see [AUTOTITLE](/apps/github-marketplace/creating-apps-for-github-marketplace/viewing-transactions-for-your-listing).
 * **Visitors:** Number of people that have viewed a page in your GitHub Apps listing. This number includes both logged in and logged out visitors.
 * **Pageviews:** Number of views the pages in your GitHub App's listing received. A single visitor can generate more than one page view.
 
-{% note %}
-
-**Note:**  Your estimated subscription value could be much higher than the transactions processed for this period.
-
-{% endnote %}
+> [!NOTE]
+> Your estimated subscription value could be much higher than the transactions processed for this period.
 
 ### Conversion performance
 

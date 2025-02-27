@@ -15,7 +15,7 @@ redirect_from:
 
 ## About automatically redelivering failed deliveries
 
-This article describes how to write a script to find and redeliver failed deliveries for a repository webhook. For more information about failed deliveries, see "[AUTOTITLE](/webhooks/using-webhooks/handling-failed-webhook-deliveries)."
+This article describes how to write a script to find and redeliver failed deliveries for a repository webhook. For more information about failed deliveries, see [AUTOTITLE](/webhooks/using-webhooks/handling-failed-webhook-deliveries).
 
 This example shows you:
 
@@ -23,24 +23,20 @@ This example shows you:
 * What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
 * A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
 
-This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see "[Alternative methods](#alternative-methods)."
+This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see [Alternative methods](#alternative-methods).
 
 ## Storing credentials for the script
 
-The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver webhooks. Instead of using `GITHUB_TOKEN`, this example uses a {% data variables.product.pat_generic %}. Alternatively, instead of creating a {% data variables.product.pat_generic %}, you can create a {% data variables.product.prodname_github_app %} and use the app's credentials to create an installation access token during the {% data variables.product.prodname_actions %} workflow. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
+The built in `GITHUB_TOKEN` does not have sufficient permissions to redeliver webhooks. Instead of using `GITHUB_TOKEN`, this example uses a {% data variables.product.pat_generic %}. Alternatively, instead of creating a {% data variables.product.pat_generic %}, you can create a {% data variables.product.prodname_github_app %} and use the app's credentials to create an installation access token during the {% data variables.product.prodname_actions %} workflow. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
 
-{% ifversion pat-v2 %}
-1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
    * For a {% data variables.product.pat_v2 %}, grant the token:
      * Access to the repository where your webhook was created
      * Access to the repository where this workflow will run
      * Write access to the repository webhooks permission
      * Write access to the repository variables permission
    * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
-{% else %}
-1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-{% endif %}
-1. Store your {% data variables.product.pat_generic %} as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
+1. Store your {% data variables.product.pat_generic %} as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
 ## Adding a workflow that will run the script
 
@@ -87,7 +83,7 @@ jobs:
       # - Replace `YOUR_REPO_OWNER` with the owner of the repository where the webhook was created.
       # - Replace `YOUR_REPO_NAME` with the name of the repository where the webhook was created.
       # - Replace `YOUR_HOOK_ID` with the ID of the webhook.
-      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
       {% ifversion ghes %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
       - name: Run script
         env:
@@ -110,7 +106,7 @@ This section demonstrates how you can write a script to find and redeliver faile
 Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.js` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
 
 ```javascript copy annotate
-// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
+// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript).
 const { Octokit } = require("octokit");
 
 //
@@ -219,7 +215,7 @@ async function checkAndRedeliverWebhooks() {
 }
 
 // This function will fetch all of the webhook deliveries that were delivered since `lastWebhookRedeliveryTime`.
-// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests)."
+// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests).
 //
 // If a page of results includes deliveries that occurred before `lastWebhookRedeliveryTime`,
 // it will store only the deliveries that occurred after `lastWebhookRedeliveryTime` and then stop.
@@ -313,7 +309,7 @@ async function getVariable({ variableName, repoOwner, repoName, octokit }) {
   }
 }
 
-// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
 async function updateVariable({
   variableName,
   value,
@@ -351,7 +347,7 @@ async function updateVariable({
 
 ## Testing the script
 
-You can manually trigger your workflow to test the script. For more information, see "[AUTOTITLE](/actions/using-workflows/manually-running-a-workflow)" and "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
+You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/using-workflows/manually-running-a-workflow) and [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
 
 ## Alternative methods
 

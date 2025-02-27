@@ -71,7 +71,8 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
-  test('any URL that ends with /.md redirects', async () => {
+  // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
+  test.skip('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {
       const res = await get('/en/get-started/hello.md')
@@ -99,7 +100,13 @@ describe('rate limiting', () => {
   // test always being run last.
 
   test('only happens if you have junk query strings', async () => {
-    const res = await get('/robots.txt?foo=bar')
+    const res = await get('/robots.txt?foo=bar', {
+      headers: {
+        // Rate limiting only happens in production, so we need to
+        // make the environment look like production.
+        'fastly-client-ip': 'abc',
+      },
+    })
     expect(res.statusCode).toBe(200)
     const limit = parseInt(res.headers['ratelimit-limit'])
     const remaining = parseInt(res.headers['ratelimit-remaining'])
@@ -108,7 +115,11 @@ describe('rate limiting', () => {
 
     // A second request
     {
-      const res = await get('/robots.txt?foo=buzz')
+      const res = await get('/robots.txt?foo=buzz', {
+        headers: {
+          'fastly-client-ip': 'abc',
+        },
+      })
       expect(res.statusCode).toBe(200)
       const newLimit = parseInt(res.headers['ratelimit-limit'])
       const newRemaining = parseInt(res.headers['ratelimit-remaining'])

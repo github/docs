@@ -17,13 +17,10 @@ To direct people to specific support resources, you can add a SUPPORT file to yo
 
 ![Screenshot of the new issue form. In the right sidebar, in the "Helpful resources" section, a link labeled "Support" is outlined in dark orange.](/assets/images/help/issues/support-guidelines-in-issue.png)
 
-You can create default support resources for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create default support resources for your organization or personal account. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 
-{% tip %}
-
-**Tip:** To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
-
-{% endtip %}
+> [!TIP]
+> To help people find your support guidelines, you can link to your SUPPORT file from other places in your repository, such as your [README file](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
 ## Adding support resources to your project
 

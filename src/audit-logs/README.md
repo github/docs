@@ -40,7 +40,7 @@ The workflow runs the `src/audit-logs/scripts/sync.ts` script.
 
 To run the audit log events pipeline locally:
 
-1. Run `npm run audit-log-sync`
+1. Run `npm run sync-audit-log`
 
 ## About this directory
 

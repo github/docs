@@ -1,9 +1,11 @@
 ---
 title: Using GitHub preset rules to prioritize Dependabot alerts
 intro: 'You can use {% data variables.dependabot.github_presets %}, which are rules curated by {% data variables.product.company_short %}, to auto-dismiss low impact development alerts for npm dependencies.'
-permissions: 'People with write permissions can view {% data variables.dependabot.auto_triage_rules %} for the repository. People with admin permissions to a repository can enable or disable {% data variables.dependabot.github_presets %} for the repository. Organization owners and security managers can enable or disable {% data variables.dependabot.github_presets %} at the organization-level and optionally choose to enforce rules for repositories in the organization.'
+permissions: '{% data reusables.permissions.dependabot-github-presets %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -26,13 +28,10 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is a {%
 * At worst, have limited effects like slow builds or long-running tests.
 * Are not indicative of issues in production.
 
-{% note %}
+> [!NOTE]
+> Automatic dismissal of low impact development alerts is currently only supported for npm.
 
-**Note:** Automatic dismissal of low impact development alerts is currently only supported for npm.
-
-{% endnote %}
-
-The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see "[Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule)."
+The `Dismiss low impact issues for development-scoped dependencies` rule includes vulnerabilities relating to resource management, programming and logic, and information disclosure issues. For more information, see [Publicly disclosed CWEs used by the `Dismiss low impact issues for development-scoped dependencies` rule](#publicly-disclosed-cwes-used-by-the-dismiss-low-impact-issues-for-development-scoped-dependencies-rule).
 
 Filtering out these low impact alerts allows you to focus on alerts that matter to you, without having to worry about missing potentially high-risk development-scoped alerts.
 
@@ -40,14 +39,14 @@ The `Dismiss low impact issues for development-scoped dependencies` rule is enab
 
 ## Enabling the `Dismiss low impact issues for development-scoped dependencies` rule for your private repository
 
-{% ifversion fpt or ghec %}You first need to enable {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-repository)."{% elsif ghes %}{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see "[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise)."{% endif %}
+{% ifversion fpt or ghec %}You first need to enable {% data variables.product.prodname_dependabot_alerts %} for the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts#managing-dependabot-alerts-for-your-repository).{% elsif ghes %}{% data variables.product.prodname_dependabot_alerts %} for your repository can be enabled or disabled by your enterprise owner. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. Under "{% data variables.product.prodname_dependabot_alerts %}", click {% octicon "gear" aria-label="The Gear icon" %} close to "{% data variables.product.prodname_dependabot %} rules".
 
-   ![Screenshot of the "Code security and analysis" page for a repository. The gear icon is highlighted with an orange outline.](/assets/images/help/repository/dependabot-rules-page.png)
+   ![Screenshot of the {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} page for a repository. The gear icon is highlighted with an orange outline.](/assets/images/help/repository/dependabot-rules-page.png)
 
 1. Under "{% data variables.product.company_short %} presets", to the right of "Dismiss low impact issues for development-scoped dependencies", click {% octicon "pencil" aria-label="Edit rule" %}.
 1. Under "State", select the dropdown menu, then click "Enabled".

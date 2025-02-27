@@ -19,13 +19,17 @@ type: rai
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-custom-instructions %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-response-generation %}
 
-When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat_short %} will be able to gather context from your code stored on {% data variables.product.prodname_dotcom_the_website %} and search results from Bing (if enabled by your administrator).
+When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat_short %} will be able to gather context from your code stored on {% data variables.product.github %} and search results from Bing (if enabled by your administrator).
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
 
@@ -55,13 +59,17 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-custom-instructions %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-response-generation %}
 
-When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat_short %} will be able to gather context from your code stored on {% data variables.product.prodname_dotcom_the_website %} and search results from Bing (if enabled by your administrator).
+When you use the `@github` chat participant, {% data variables.product.prodname_copilot_chat_short %} will be able to gather context from your code stored on {% data variables.product.github %} and search results from Bing (if enabled by your administrator).
 
 {% data reusables.rai.copilot.copilot-chat-ide-output-formatting %}
 
@@ -89,7 +97,9 @@ This can be a useful tool for programmers, as it can provide guidance and suppor
 
 {% data reusables.rai.copilot.about-copilot-chat-ide %}
 
-{% data reusables.rai.copilot.copilot-chat-ide-input-processing %}
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all1 %}
+
+{% data reusables.rai.copilot.copilot-chat-ide-input-processing-all2 %}
 
 {% data reusables.rai.copilot.copilot-chat-ide-language-model-analysis %}
 

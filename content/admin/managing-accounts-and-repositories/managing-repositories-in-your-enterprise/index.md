@@ -11,8 +11,10 @@ versions:
 topics:
   - Enterprise
 children:
+  - /governing-how-people-use-repositories-in-your-enterprise
   - /viewing-user-owned-repositories-in-your-enterprise
   - /accessing-user-owned-repositories-in-your-enterprise
+  - /managing-custom-properties-for-repositories-in-your-enterprise
   - /configuring-git-large-file-storage-for-your-enterprise
   - /disabling-git-ssh-access-on-your-enterprise
   - /locking-a-repository

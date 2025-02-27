@@ -8,6 +8,14 @@ inputs:
   slack_token:
     description: Slack token
     required: true
+  message:
+    description: The message to send to Slack
+    default: The last '${{ github.workflow }}' run failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+    required: false
+  color:
+    description: The color of the Slack message
+    default: failure
+    required: false
 
 runs:
   using: composite
@@ -17,5 +25,5 @@ runs:
       with:
         channel: ${{ inputs.slack_channel_id }}
         bot-token: ${{ inputs.slack_token }}
-        color: failure
-        text: The last '${{ github.workflow }}' run failed. See ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        color: ${{ inputs.color }}
+        text: ${{ inputs.message }}

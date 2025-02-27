@@ -16,7 +16,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Managing alerts
+shortTitle: Manage alerts
 children:
   - /about-alerts
   - /viewing-alerts

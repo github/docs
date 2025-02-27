@@ -1,0 +1,1 @@
+>[!NOTE] If you created a personal account after February 13, 2025, your billing experience may differ from the information in this article. You can manage your plan and view billing details in the new billing platform. See [AUTOTITLE](/billing/using-the-new-billing-platform).

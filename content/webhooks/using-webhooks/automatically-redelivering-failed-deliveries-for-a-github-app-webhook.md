@@ -15,7 +15,7 @@ redirect_from:
 
 ## About automatically redelivering failed deliveries
 
-This article describes how to write a script to find and redeliver failed deliveries for a {% data variables.product.prodname_github_app %} webhook. For more information about failed deliveries, see "[AUTOTITLE](/webhooks/using-webhooks/handling-failed-webhook-deliveries)."
+This article describes how to write a script to find and redeliver failed deliveries for a {% data variables.product.prodname_github_app %} webhook. For more information about failed deliveries, see [AUTOTITLE](/webhooks/using-webhooks/handling-failed-webhook-deliveries).
 
 This example shows you:
 
@@ -23,27 +23,23 @@ This example shows you:
 * What credentials your script will need, and how to store the credentials securely as {% data variables.product.prodname_actions %} secrets
 * A {% data variables.product.prodname_actions %} workflow that can securely access your credentials and run the script periodically
 
-This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see "[Alternative methods](#alternative-methods)."
+This example uses {% data variables.product.prodname_actions %}, but you can also run this script on your server that handles webhook deliveries. For more information, see [Alternative methods](#alternative-methods).
 
 ## Storing credentials for the script
 
 The endpoints to find and redeliver failed webhooks require a JSON web token, which is generated from the app ID and private key for your app.
 
-The endpoints to fetch and update the value of environment variables require a {% data variables.product.pat_generic %}, {% data variables.product.prodname_github_app %} installation access token, or {% data variables.product.prodname_github_app %} user access token. This example uses a {% data variables.product.pat_generic %}. If your {% data variables.product.prodname_github_app %} is installed on the repository where this workflow will run and has permission to write repository variables, you can modify this example to create an installation access token during the {% data variables.product.prodname_actions %} workflow instead of using a {% data variables.product.pat_generic %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow)."
+The endpoints to fetch and update the value of environment variables require a {% data variables.product.pat_generic %}, {% data variables.product.prodname_github_app %} installation access token, or {% data variables.product.prodname_github_app %} user access token. This example uses a {% data variables.product.pat_generic %}. If your {% data variables.product.prodname_github_app %} is installed on the repository where this workflow will run and has permission to write repository variables, you can modify this example to create an installation access token during the {% data variables.product.prodname_actions %} workflow instead of using a {% data variables.product.pat_generic %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
 
-1. Find the app ID for your {% data variables.product.prodname_github_app %}. You can find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings)."
-1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see "[AUTOTITLE](/actions/security-guides/encrypted-secrets)."
-1. Generate a private key for your app. For more information about generating a private key, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
+1. Find the app ID for your {% data variables.product.prodname_github_app %}. You can find the app ID on the settings page for your app. The app ID is different from the client ID. For more information about navigating to the settings page for your {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app-registration#navigating-to-your-github-app-settings).
+1. Store the app ID from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run. For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
+1. Generate a private key for your app. For more information about generating a private key, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. Store the private key, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`, from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
-{% ifversion pat-v2 %}
-1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
+1. Create a {% data variables.product.pat_generic %} with the following access. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
    * For a {% data variables.product.pat_v2 %}, grant the token:
      * Write access to the repository variables permission
      * Access to the repository where this workflow will run
    * For a {% data variables.product.pat_v1 %}, grant the token the `repo` scope.
-{% else %}
-1. Create a {% data variables.product.pat_v1 %} with the `repo` scope. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)."
-{% endif %}
 1. Store your {% data variables.product.pat_generic %} from the previous step as a {% data variables.product.prodname_actions %} secret in the repository where you want the workflow to run.
 
 ## Adding a workflow that will run the script
@@ -80,7 +76,7 @@ jobs:
       - name: Setup Node.js
         uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: '18.x'
+          node-version: '20.x'
 
       # This step installs the octokit library. The script that this workflow will run uses the octokit library.
       - name: Install dependencies
@@ -90,7 +86,7 @@ jobs:
       # - Replace `YOUR_APP_ID_SECRET_NAME` with the name of the secret where you stored your app ID.
       # - Replace `YOUR_PRIVATE_KEY_SECRET_NAME` with the name of the secret where you stored your private key.
       # - Replace `YOUR_TOKEN_SECRET_NAME` with the name of the secret where you stored your {% data variables.product.pat_generic %}.
-      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+      # - Replace `YOUR_LAST_REDELIVERY_VARIABLE_NAME` with the name that you want to use for a configuration variable that will be stored in the repository where this workflow is stored. The name can be any string that contains only alphanumeric characters and `_`, and does not start with `GITHUB_` or a number. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
       {% ifversion ghes %}# - Replace `YOUR_HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
       - name: Run script
         env:
@@ -102,18 +98,18 @@ jobs:
           WORKFLOW_REPO: {% raw %}${{ github.event.repository.name }}{% endraw %}
           WORKFLOW_REPO_OWNER: {% raw %}${{ github.repository_owner }}{% endraw %}
         run: |
-          node .github/workflows/scripts/redeliver-failed-deliveries.js
+          node .github/workflows/scripts/redeliver-failed-deliveries.mjs
 ```
 
 ## Adding the script
 
 This section demonstrates how you can write a script to find and redeliver failed deliveries.
 
-Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.js` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
+Copy this script into a file called `.github/workflows/scripts/redeliver-failed-deliveries.mjs` in the same repository where you saved the {% data variables.product.prodname_actions %} workflow file above.
 
 ```javascript copy annotate
-// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)."
-const { App, Octokit } = require("octokit");
+// This script uses {% data variables.product.company_short %}'s Octokit SDK to make API requests. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript).
+import { App, Octokit } from "octokit";
 
 //
 async function checkAndRedeliverWebhooks() {
@@ -222,7 +218,7 @@ async function checkAndRedeliverWebhooks() {
 }
 
 // This function will fetch all of the webhook deliveries that were delivered since `lastWebhookRedeliveryTime`.
-// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests)."
+// It uses the `octokit.paginate.iterator()` method to iterate through paginated results. For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript#making-paginated-requests).
 //
 // If a page of results includes deliveries that occurred before `lastWebhookRedeliveryTime`,
 // it will store only the deliveries that occurred after `lastWebhookRedeliveryTime` and then stop.
@@ -295,7 +291,7 @@ async function getVariable({ variableName, repoOwner, repoName, octokit }) {
   }
 }
 
-// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows)."
+// This function will update a configuration variable (or create the variable if it doesn't already exist). For more information, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-configuration-variables-for-multiple-workflows).
 async function updateVariable({
   variableName,
   value,
@@ -333,7 +329,7 @@ async function updateVariable({
 
 ## Testing the script
 
-You can manually trigger your workflow to test the script. For more information, see "[AUTOTITLE](/actions/using-workflows/manually-running-a-workflow)" and "[AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs)."
+You can manually trigger your workflow to test the script. For more information, see [AUTOTITLE](/actions/using-workflows/manually-running-a-workflow) and [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/using-workflow-run-logs).
 
 ## Alternative methods
 

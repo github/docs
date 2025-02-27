@@ -21,9 +21,9 @@ Limiting interactions for your personal account enables temporary interaction li
 
 {% data reusables.community.types-of-interaction-limits %}
 
-When you enable user-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)."
+When you enable user-wide activity limitations, you can't enable or disable interaction limits on individual repositories. For more information on limiting activity for an individual repository, see [AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository).
 
-You can also block users. For more information, see "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account)."
+You can also block users. For more information, see [AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-personal-account).
 
 ## Limiting interactions for your personal account
 

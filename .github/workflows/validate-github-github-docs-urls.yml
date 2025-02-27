@@ -8,15 +8,16 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '20 16 * * 1' # Run every Monday at 16:20 UTC / 8:20 PST
-  pull_request:
-    paths:
-      - 'content/**'
-      # In case a relevant dependency changes
-      - 'package*.json'
-      # The scripts
-      - 'src/links/scripts/validate-github-github-docs-urls/**'
-      # The workflow
-      - .github/workflows/validate-github-github-docs-urls.yml
+  # See https://gh.io/AAsyyao before uncommenting:
+  # pull_request:
+  #   paths:
+  #     - 'content/**'
+  #     # In case a relevant dependency changes
+  #     - 'package*.json'
+  #     # The scripts
+  #     - 'src/links/scripts/validate-github-github-docs-urls/**'
+  #     # The workflow
+  #     - .github/workflows/validate-github-github-docs-urls.yml
 
 permissions:
   contents: read

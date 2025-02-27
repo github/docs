@@ -8,7 +8,7 @@
 
 ### Using {% data variables.product.prodname_cli %} to rebuild a dev container
 
-If you've changed a dev container configuration outside of {% data variables.product.prodname_vscode_shortname %} (for example, on {% data variables.product.prodname_dotcom_the_website %} or in a JetBrains IDE), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
+If you've changed a dev container configuration outside of {% data variables.product.prodname_vscode_shortname %} (for example, on {% data variables.product.github %}), you can use {% data variables.product.prodname_cli %} to rebuild the dev container for an existing codespace.
 
 1. In a terminal, enter the following command.
 

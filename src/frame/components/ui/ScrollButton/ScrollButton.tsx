@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'react'
+import { useState, useEffect } from 'react'
 import cx from 'classnames'
 import { ChevronUpIcon } from '@primer/octicons-react'
 import styles from './ScrollButton.module.scss'
@@ -36,7 +36,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
 
   // If the window isn't tall enough, the scroll button will hide some of the content
   // A11y issue 8822
-  useLayoutEffect(() => {
+  useEffect(() => {
     function updateDocumentSize() {
       setIsTallEnough(document.documentElement.clientHeight > 400)
     }
@@ -59,7 +59,7 @@ export const ScrollButton = ({ className, ariaLabel }: ScrollButtonPropsT) => {
         onClick={onClick}
         className={cx(
           'ghd-scroll-to-top', // for data tracking, see events.ts
-          'tooltipped tooltipped-n tooltipped-no-delay color-bg-accent-emphasis color-fg-on-emphasis circle border-0',
+          'tooltipped tooltipped-n tooltipped-no-delay btn circle border-1',
           'd-flex flex-items-center flex-justify-center',
           customFocus,
         )}

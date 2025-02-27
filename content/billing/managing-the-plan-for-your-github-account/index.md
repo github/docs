@@ -1,7 +1,7 @@
 ---
 title: Managing the plan for your GitHub account
 shortTitle: Manage your plan
-intro: "{% ifversion fpt %}You can upgrade, downgrade, and view pending changes to your account's plan at any time.{% elsif ghec or ghes %}You can manage billing for {% data variables.product.product_name %} from your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.{% endif %}"
+intro: "{% ifversion fpt %}You can upgrade, downgrade, and view pending changes to your account's plan at any time.{% elsif ghec or ghes %}You can manage billing for {% data variables.product.prodname_enterprise %} from your enterprise account on {% data variables.product.prodname_dotcom %}.{% endif %}"
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-billing-for-your-github-account
   - /categories/97/articles
@@ -31,3 +31,5 @@ children:
   - /one-time-payments-for-customers-in-india
   - /discounted-plans-for-github-accounts
 ---
+
+{% ifversion fpt %}{% data reusables.billing.enhanced-billing-platform-personal-accounts %}{% endif %}

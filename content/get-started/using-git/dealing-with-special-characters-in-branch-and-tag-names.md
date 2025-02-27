@@ -10,7 +10,7 @@ shortTitle: Special characters in names
 
 ## About branch and tag names
 
-Most repositories use simple branch names, such as `main` or `update-icons`. Tag names also usually follow a basic format, such as a version number like `v1.2.3`. Both branch names and tag names may also use the path separator (`/`) for structure, for example `area/item` or `level-1/level-2/level-3`. Other than some exceptions &mdash; such as not starting or ending a name with a slash, or having consecutive slashes in the name &mdash; Git has very few restrictions on what characters may be used in branch and tag names. For more information, see "[git-check-ref-format](https://git-scm.com/docs/git-check-ref-format)" in the Git documentation.
+Most repositories use simple branch names, such as `main` or `update-icons`. Tag names also usually follow a basic format, such as a version number like `v1.2.3`. Both branch names and tag names may also use the path separator (`/`) for structure, for example `area/item` or `level-1/level-2/level-3`. Other than some exceptions &mdash; such as not starting or ending a name with a slash, or having consecutive slashes in the name &mdash; Git has very few restrictions on what characters may be used in branch and tag names. For more information, see [git-check-ref-format](https://git-scm.com/docs/git-check-ref-format) in the Git documentation.
 
 ## Why you need to escape special characters
 
@@ -40,10 +40,12 @@ If possible, create branch and tag names that don't contain special characters, 
 * The English alphabet (`a` to `z` and `A` to `Z`)
 * Numbers (`0` to `9`)
 * A limited set of punctuation characters:
+<!-- markdownlint-disable GHD034 -->
   * period (`.`)
   * hyphen (`-`)
   * underscore (`_`)
   * forward slash (`/`)
+<!-- markdownlint-enable GHD034 -->
 
 To avoid confusion, you should start branch names with a letter.
 
@@ -52,4 +54,4 @@ To avoid confusion, you should start branch names with a letter.
 {% data variables.product.prodname_dotcom %} restricts a small number of branch and tag names from being pushed up.
 Those restrictions are:
 * No names which look like Git object IDs (40 characters containing only 0-9 and A-F), to prevent confusion with actual Git object IDs.
-* No names beginning with `refs/`, to prevent confusion with the full name of Git refs. For more information about refs, see "[Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References)" in the Git documentation.
+* No names beginning with `refs/`, to prevent confusion with the full name of Git refs. For more information about refs, see [Git References](https://git-scm.com/book/en/v2/Git-Internals-Git-References) in the Git documentation.

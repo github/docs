@@ -49,21 +49,18 @@ A _subproject_ is a project that's developed and managed somewhere outside of yo
 
 In SVN, a subproject is called an _SVN external_. In Git, it's called a _Git submodule_. Although conceptually similar, Git submodules are not kept up-to-date automatically; you must explicitly ask for a new version to be brought into your project.
 
-For more information, see "[Git Tools Submodules](https://git-scm.com/book/en/Git-Tools-Submodules)" in the Git documentation.
+For more information, see [Git Tools Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) in the Git documentation.
 
 ## Preserving history
 
 SVN is configured to assume that the history of a project never changes. Git allows you to modify previous commits and changes using tools like [`git rebase`](/get-started/using-git/about-git-rebase).
 
-{% tip %}
-
-[GitHub supports Subversion clients](/get-started/working-with-subversion-on-github/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
-{% endtip %}
+> [!TIP]
+> [GitHub supports Subversion clients](/get-started/working-with-subversion-on-github/support-for-subversion-clients), which may produce some unexpected results if you're using both Git and SVN on the same project. If you've manipulated Git's commit history, those same commits will always remain within SVN's history. If you accidentally committed some sensitive data, we have [an article that will help you remove it from Git's history](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
 
 {% data reusables.subversion.sunset %}
 
 ## Further reading
 
-* ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)
-* "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)"
+* ["Branching and Merging" from the _Git SCM_ book](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
+* [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)

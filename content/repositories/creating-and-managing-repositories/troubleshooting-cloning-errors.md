@@ -45,11 +45,11 @@ Here's an example of an HTTPS error you might receive:
 
 ### Check your Git version
 
-There's no minimum Git version necessary to interact with {% data variables.product.product_name %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
+There's no minimum Git version necessary to interact with {% data variables.product.github %}, but we've found version 1.7.10 to be a comfortable stable version that's available on many platforms. You can always [download the latest version on the Git website](https://git-scm.com/downloads).
 
 ### Ensure the remote is correct
 
-The repository you're trying to fetch must exist on {% data variables.location.product_location %}, and the URL is case-sensitive.
+The repository you're trying to fetch must exist on {% data variables.location.product_location %}.
 
 You can find the URL of the local repository by opening the command line and
 typing `git remote -v`:
@@ -57,8 +57,8 @@ typing `git remote -v`:
 ```shell
 $ git remote -v
 # View existing remotes
-> origin  https://github.com/ghost/reactivecocoa.git (fetch)
-> origin  https://github.com/ghost/reactivecocoa.git (push)
+> origin  https://github.com/ghost/cocoareactive.git (fetch)
+> origin  https://github.com/ghost/cocoareactive.git (push)
 
 $ git remote set-url origin https://github.com/ghost/ReactiveCocoa.git
 # Change the 'origin' remote's URL
@@ -74,7 +74,7 @@ Alternatively, you can change the URL through our
 
 ### Provide an access token
 
-To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+To access {% data variables.product.prodname_dotcom %}, you must authenticate with a {% data variables.product.pat_generic %} instead of your password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 {% data reusables.command_line.provide-an-access-token %}
 
@@ -82,15 +82,12 @@ To access {% data variables.product.prodname_dotcom %}, you must authenticate wi
 
 When prompted for a username and password, make sure you use an account that has access to the repository.
 
-{% tip %}
-
-**Tip**: If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/getting-started-with-git/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
-
-{% endtip %}
+> [!TIP]
+> If you don't want to enter your credentials every time you interact with the remote repository, you can turn on [credential caching](/get-started/git-basics/caching-your-github-credentials-in-git). If you are already using credential caching, please make sure that your computer has the correct credentials cached. Incorrect or out of date credentials will cause authentication to fail.
 
 ### Use SSH instead
 
-If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS.  For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
+If you've previously set up SSH keys, you can use the SSH clone URL instead of HTTPS. For more information, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ## Error: Repository not found
 
@@ -98,11 +95,11 @@ If you've previously set up SSH keys, you can use the SSH clone URL instead of H
 
 ### Check your spelling
 
-Typos happen.  If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
+Typos happen. If you try to clone `git@{% data variables.product.product_url %}:owner/repotile.git`, but the repository is really named `owner/repoti1e` you will receive this error.
 
-To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)."
+To avoid this error, when cloning, always copy and paste the clone URL from the repository's page. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository).
 
-To update the remote on an existing repository, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)".
+To update the remote on an existing repository, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 ### Checking your permissions
 
@@ -118,7 +115,7 @@ Make sure that you have access to the repository in one of these ways:
 
 In rare circumstances, you may not have the proper SSH access to a repository.
 
-You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.product_name %}. You can check this by typing
+You should ensure that the SSH key you are using is attached to your personal account on {% data variables.product.github %}. You can check this by typing
 the following into the command line:
 
 ```shell
@@ -128,7 +125,7 @@ $ ssh -T git@{% data variables.product.product_url %}
 ```
 
 {% ifversion fpt or ghec %}
-If the repository belongs to an organization and you're using an SSH key generated by an {% data variables.product.prodname_oauth_app %}, {% data variables.product.prodname_oauth_app %} access may have been restricted by an organization owner. For more information, see "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)."
+If the repository belongs to an organization and you're using an SSH key generated by an {% data variables.product.prodname_oauth_app %}, {% data variables.product.prodname_oauth_app %} access may have been restricted by an organization owner. For more information, see [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions).
 {% endif %}
 
 For more information, see [Adding a new SSH key to your GitHub account](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).

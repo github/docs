@@ -24,10 +24,17 @@ export function findUnused({ absolute }: { absolute: boolean }) {
     const liquidTokens = getLiquidTokens(fileContents)
     for (const token of liquidTokens) {
       const { args, name } = token
-      if (name === 'data' && args.startsWith('reusables.')) {
-        const reusableName = path.join('data', ...args.split('.')) + '.md'
+      if (
+        (name === 'data' || name === 'indented_data_reference') &&
+        args.startsWith('reusables.')
+      ) {
+        const reusableName = path.join('data', ...args.split(' ')[0].split('.')) + '.md'
         // Special cases where we don't want them to count as reusables. It's an example in a how-to doc
-        if (reusableName.includes('foo/bar.md') || reusableName.includes('your-reusable-name.md')) {
+        if (
+          reusableName.includes('foo/bar.md') ||
+          reusableName.includes('foo/par.md') ||
+          reusableName.includes('your-reusable-name.md')
+        ) {
           continue
         }
         const reusablePath = resolveReusablePath(reusableName)

@@ -137,3 +137,7 @@
 .subnav-item[aria-current]:not([aria-current="false"]) {
   z-index: 0;
 }
+
+button.js-btn-copy.copied::after {
+  content: "Copied!";
+}

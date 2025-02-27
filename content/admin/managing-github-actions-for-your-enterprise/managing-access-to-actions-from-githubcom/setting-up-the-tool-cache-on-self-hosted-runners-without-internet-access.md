@@ -21,17 +21,14 @@ shortTitle: Tool cache for offline runners
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.product_name %}. However, self-hosted runners without internet access require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
+Most official {% data variables.product.prodname_dotcom %}-authored actions are automatically bundled with {% data variables.product.prodname_ghe_server %}. However, self-hosted runners without internet access require some configuration before they can use the included `actions/setup-LANGUAGE` actions, such as `setup-node`.
 
 The `actions/setup-LANGUAGE` actions normally need internet access to download the required environment binaries into the runner's tool cache. Self-hosted runners without internet access can't download the binaries, so you must manually populate the tool cache on the runner.
 
 You can populate the runner tool cache by running a {% data variables.product.prodname_actions %} workflow on {% data variables.product.prodname_dotcom_the_website %} that uploads a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache as an artifact, which you can then transfer and extract on your internet-disconnected self-hosted runner.
 
-{% note %}
-
-**Note:** You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-22.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 22.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see "[AUTOTITLE](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources)."
-
-{% endnote %}
+> [!NOTE]
+> You can only use a {% data variables.product.prodname_dotcom %}-hosted runner's tool cache for a self-hosted runner that has an identical operating system and architecture. For example, if you are using a `ubuntu-22.04` {% data variables.product.prodname_dotcom %}-hosted runner to generate a tool cache, your self-hosted runner must be a 64-bit Ubuntu 22.04 machine. For more information on {% data variables.product.prodname_dotcom %}-hosted runners, see [AUTOTITLE](/free-pro-team@latest/actions/using-github-hosted-runners/about-github-hosted-runners#supported-runners-and-hardware-resources).
 
 ## Prerequisites
 
@@ -75,7 +72,7 @@ You can populate the runner tool cache by running a {% data variables.product.pr
              path: {% raw %}${{runner.tool_cache}}/tool_cache.tar.gz{% endraw %}
    ```
 
-1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see "[AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts)."
+1. Download the tool cache artifact from the workflow run. For instructions on downloading artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
 1. Transfer the tool cache artifact to your self hosted runner and extract it to the local tool cache directory. The default tool cache directory is `RUNNER_DIR/_work/_tool`. If the runner hasn't processed any jobs yet, you might need to create the `_work/_tool` directories.
 
     After extracting the tool cache artifact uploaded in the above example, you should have a directory structure on your self-hosted runner that is similar to the following example:

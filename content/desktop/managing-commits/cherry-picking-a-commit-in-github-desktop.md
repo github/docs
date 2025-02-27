@@ -3,7 +3,9 @@ title: Cherry-picking a commit in GitHub Desktop
 shortTitle: Cherry-picking a commit
 intro: 'You can use {% data variables.product.prodname_desktop %} to pick a specific commit on one branch and copy the commit to another branch.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit
@@ -37,13 +39,13 @@ You can also use cherry-picking when collaborating with a team. Some projects in
 
    {% endwindows %}
 
-1. Right-click the selected commit and click **Cherry pick commit**, then select the branch that you want to copy the commit to. You can also drag the commit that you want to cherry-pick from the "History" tab to the {% octicon "git-branch" aria-hidden="true" %} **Current Branch** dropdown menu, then drop the commit on the branch that you want to copy the commit to.
+1. Right-click the selected commit and click **Cherry pick commit**, then select the branch that you want to copy the commit to. You can also drag the commit that you want to cherry-pick from the "History" tab to the **{% octicon "git-branch" aria-hidden="true" %} Current Branch** dropdown menu, then drop the commit on the branch that you want to copy the commit to.
 
-   ![Screenshot of the "History" tab and the "Current Branch" dropdown view. The cursor hovers over the "my-feature" branch, and "plus one" icons indicate the addition of one commit.](/assets/images/help/desktop/cherry-picking.png)
+   ![Screenshot of the "History" tab and the "Current Branch" dropdown. The cursor hovers over "my-feature", and "plus one" icons show one extra commit.](/assets/images/help/desktop/cherry-picking.png)
 
 1. The current branch changes to the branch onto which you cherry-picked the commit. You can now push the cherry-picked commit to the remote repository.
 
 ## Further reading
 
 * [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
-* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)

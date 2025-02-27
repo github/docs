@@ -2,35 +2,25 @@
 title: Configuring tag protection rules
 shortTitle: Tag protection rules
 intro: You can configure tag protection rules for your repository to prevent contributors from creating or deleting tags.
-product: '{% data reusables.gated-features.tag-protection-rules %}'
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
+  ghes: '<3.16'
 ---
 
-{% ifversion tag-protection-rules-deprecation %}
+>[!NOTE] Tag protection rules are {% data variables.release-phases.closing_down %} in {% data variables.product.prodname_ghe_server %} version 3.16 and later. Use rulesets instead. Any tag protection rules still in use will be auto-migrated. You can read more about this on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
 
->[!NOTE] Tag protection rules will be deprecated on August 30, 2024 in favor of rulesets. Any tag protection rules still in use after the deprecation date will be auto-migrated, but you can also migrate them manually before the deprecation date. You can read more about this deprecation on the [{% data variables.product.prodname_blog %}](https://github.blog/changelog/2024-05-29-sunset-notice-tag-protections).
+When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions, or custom roles with the "edit repository rules" permission in the repository will be able to create protected tags, and only users with admin permissions or custom roles with the "edit repository rules" permission in the repository will be able to delete protected tags. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role). {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
 
-{% endif %}
-
-## About tag protection rules
-
-When you add a tag protection rule, all tags that match the pattern provided will be protected. Only users with admin or maintain permissions{% ifversion edit-repository-rules %}, or custom roles with the "edit repository rules" permission{% endif %} in the repository will be able to create protected tags, and only users with admin permissions{% ifversion edit-repository-rules %} or custom roles with the "edit repository rules" permission{% endif %} in the repository will be able to delete protected tags. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization#permissions-for-each-role)." {% data variables.product.prodname_github_apps %} require the `Repository administration: write` permission to modify a protected tag.
-
-{% ifversion custom-repository-roles %}
-Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization)."{% endif %}
+Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 
 {% ifversion tag-protection-rules-import %}
 
 ### About importing tag protection rules to repository rulesets
 
-You can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see "[Importing tag protection rules to repository rulesets](#importing-tag-protection-rules-to-repository-rulesets)."
+You can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see [Importing tag protection rules to repository rulesets](#importing-tag-protection-rules-to-repository-rulesets).
 
 Rulesets have the following advantages over tag protection rules.
 
-* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering)."
+* Unlike protection rules, multiple rulesets can apply at the same time, so you can be confident that every rule targeting a tag in your repository will be evaluated when someone interacts with that tag. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#about-rule-layering).
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
 * With rulesets, you can restrict tag names on an organization-wide basis.

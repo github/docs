@@ -1,0 +1,60 @@
+date: '2024-11-07'
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker could leak sensitive data from the DOM by injecting malicious input through the `identity` parameter in `querySelector` handling. This allows the attacker to dynamically embed a hidden iframe on the page and exfiltrate data from DOM attributes. To execute the attack, the victim must be logged into GitHub and interact with the attacker controlled malicious webpage containing the hidden iframe. GitHub has requested CVE ID [CVE-2024-10001](https://www.cve.org/cverecord?id=CVE-2024-10001) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2025-01-27]
+    - |
+      **HIGH**: An attacker could bypass SAML single sign-on (SSO) authentication with the optional encrypted assertions feature, allowing unauthorized provisioning of users and access to the instance, by exploiting an improper verification of cryptographic signatures vulnerability in GitHub Enterprise Server. This is a follow up fix for [CVE-2024-9487](https://www.cve.org/cverecord?id=CVE-2024-9487) to further harden the encrypted assertions feature against this type of attack. Please note that encrypted assertions are not enabled by default. Instances not utilizing SAML SSO, or utilizing SAML SSO authentication without encrypted assertions, are not impacted. Additionally, an attacker would require direct network access as well as a signed SAML response or metadata document to exploit this vulnerability.
+    - |
+      **HIGH**: An attacker with Enterprise Administrator access to the GitHub Enterprise Server instance could escalate privileges to SSH root access. This is achieved by exploiting the pre-receive hook environment to bypass symlink checks in the `ghe-firejail` path and execute malicious scripts. GitHub has requested CVE ID [CVE-2024-10007](https://www.cve.org/cverecord?id=CVE-2024-10007) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2024-11-07]
+  bugs:
+    - |
+      This error message `mbind: Operation not permitted` was repeatedly showing in the `/var/log/mysql/mysql.err` MySQL logs.
+    - |
+      When saving settings in the Management Console, the configuration run would stop if the `enterprise-manage` process was restarted.
+    - |
+      A missing configuration value prevented Dependabot from creating group update pull requests.
+    - |
+      On an instance with GitHub Actions enabled, some maintenance tasks could fail due to incomplete upgrade steps during previous upgrades to new releases of GitHub Enterprise Server.
+    - |
+      The initial setup certificate generation in AWS took longer than expected due to fallback to private IPs. The time for this fallback has been reduced.
+    - |
+      If the primary instance was unreachable, running `ghe-repl-stop --force` on a replica would fail during the config apply run.
+    - |
+      When restoring from a backup, repositories that had been deleted in the last 90 days were not completely restored.
+    - |
+      Restoring Git repositories using backup-utils occasionally failed.
+    - |
+      Organizations were limited to using 100 Actions organization variables instead of 1,000.
+    - |
+      Some customers upgrading from 3.12 to 3.13 or to 3.14 may experience issues with undecryptable records during the upgrade. This issue has now been resolved. We recommend you read [Undecryptable records](/enterprise-server@3.14/admin/upgrading-your-instance/troubleshooting-upgrades/known-issues-with-upgrades-to-your-instance#undecryptable-records).
+  changes:
+    - |
+      For instances deployed on AWS, the default settings for Chrony NTP synchronization have been aligned with AWS's suggested default configurations.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      {% data reusables.release-notes.2023-11-aws-system-time %}
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
+    - |
+      The `reply.[HOSTNAME]` subdomain is falsely always displaying as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.

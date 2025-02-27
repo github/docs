@@ -35,11 +35,17 @@ import { ArticlePage } from 'src/frame/components/article/ArticlePage'
 import { ProductLanding } from 'src/landings/components/ProductLanding'
 import { ProductGuides } from 'src/landings/components/ProductGuides'
 import { TocLanding } from 'src/landings/components/TocLanding'
+import { CategoryLanding } from 'src/landings/components/CategoryLanding'
 import {
   getTocLandingContextFromRequest,
   TocLandingContext,
   TocLandingContextT,
 } from 'src/frame/components/context/TocLandingContext'
+import {
+  getCategoryLandingContextFromRequest,
+  CategoryLandingContext,
+  CategoryLandingContextT,
+} from 'src/frame/components/context/CategoryLandingContext'
 import { useEffect } from 'react'
 
 function initiateArticleScripts() {
@@ -54,6 +60,7 @@ type Props = {
   productGuidesContext?: ProductGuidesContextT
   tocLandingContext?: TocLandingContextT
   articleContext?: ArticleContextT
+  categoryLandingContext?: CategoryLandingContextT
 }
 const GlobalPage = ({
   mainContext,
@@ -61,6 +68,7 @@ const GlobalPage = ({
   productGuidesContext,
   tocLandingContext,
   articleContext,
+  categoryLandingContext,
 }: Props) => {
   const router = useRouter()
 
@@ -85,6 +93,12 @@ const GlobalPage = ({
       <ProductGuidesContext.Provider value={productGuidesContext}>
         <ProductGuides />
       </ProductGuidesContext.Provider>
+    )
+  } else if (categoryLandingContext) {
+    content = (
+      <CategoryLandingContext.Provider value={categoryLandingContext}>
+        <CategoryLanding />
+      </CategoryLandingContext.Provider>
     )
   } else if (tocLandingContext) {
     content = (
@@ -133,9 +147,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     props.productGuidesContext = getProductGuidesContextFromRequest(req)
     additionalUINamespaces.push('product_guides')
   } else if (relativePath?.endsWith('index.md')) {
-    props.tocLandingContext = getTocLandingContextFromRequest(req)
-    if (props.tocLandingContext.currentLearningTrack?.trackName) {
-      additionalUINamespaces.push('learning_track_nav')
+    if (currentLayoutName === 'category-landing') {
+      props.categoryLandingContext = getCategoryLandingContextFromRequest(req)
+    } else {
+      props.tocLandingContext = getTocLandingContextFromRequest(req)
+      if (props.tocLandingContext.currentLearningTrack?.trackName) {
+        additionalUINamespaces.push('learning_track_nav')
+      }
     }
   } else if (props.mainContext.page) {
     // All articles that might have hover cards needs this

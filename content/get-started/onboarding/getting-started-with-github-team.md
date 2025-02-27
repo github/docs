@@ -13,21 +13,21 @@ As the first steps in starting with {% data variables.product.prodname_team %}, 
 
 ### 1. About organizations
 
-Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations)."
+Organizations are shared accounts where businesses and open-source projects can collaborate across many projects at once. Owners and administrators can manage member access to the organization's data and projects with sophisticated security and administrative features. For more information on the features of organizations, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations#terms-of-service-and-data-protection-for-organizations).
 
 ### 2. Creating an organization and signing up for {% data variables.product.prodname_team %}
 
-Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."
+Before creating an organization, you will need to create a personal account or log in to your existing account on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).
 
-Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+Once your personal account is set up, you can create an organization and pick a plan. This is where you can choose a {% data variables.product.prodname_team %} subscription for your organization. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
 ### 3. Managing billing for an organization
 
-You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts)."
+You must manage billing settings, payment method, and paid features and products for each of your personal accounts and organizations separately. You can switch between settings for your different accounts using the context switcher in your settings. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github#switching-between-settings-for-your-different-accounts).
 
-Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see "[AUTOTITLE](/billing/managing-your-github-billing-settings)."
+Your organization's billing settings page allows you to manage settings like your payment method, billing cycle and billing email, or view information such as your subscription, billing date and payment history. You can also view and upgrade your storage and GitHub Actions minutes. For more information on managing your billing settings, see [AUTOTITLE](/billing/managing-your-github-billing-settings).
 
-Only organization members with the _owner_ or _billing manager_ role can access or change billing settings for your organization. A billing manager is someone  who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization)."
+Only organization members with the _owner_ or _billing manager_ role can access or change billing settings for your organization. A billing manager is someone who manages the billing settings for your organization and does not use a paid license in your organization's subscription. For more information on adding a billing manager to your organization, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
 
 ## Part 2: Adding members and setting up teams
 
@@ -83,7 +83,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.using-org-community-files-and-moderation-tools %}
 
-## Part 5: Customizing and automating your work on {% data variables.product.product_name %}
+## Part 5: Customizing and automating your work
 
 {% data reusables.getting-started.customizing-and-automating %}
 
@@ -91,7 +91,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.marketplace %}
 
-### 2. Using the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API
+### 2. Using the {% data variables.product.github %} API
 
 {% data reusables.getting-started.api %}
 
@@ -103,7 +103,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 {% data reusables.getting-started.packages %}
 
-## Part 6: Participating in {% data variables.product.prodname_dotcom %}'s community
+## Part 6: Participating in {% data variables.product.github %}'s community
 
 {% data reusables.getting-started.participating-in-community %}
 
@@ -117,7 +117,7 @@ You can help to make your organization more secure by recommending or requiring 
 
 ### 3. Reading about {% data variables.product.prodname_team %} on {% data variables.product.prodname_docs %}
 
-You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see "[AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs)."
+You can read documentation that reflects the features available with {% data variables.product.prodname_team %}. For more information, see [AUTOTITLE](/get-started/using-github-docs/about-versions-of-github-docs).
 
 ### 4. Learning with {% data variables.product.prodname_learning %}
 
@@ -133,4 +133,4 @@ You can read documentation that reflects the features available with {% data var
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/onboarding/getting-started-with-your-github-account)"
+* [AUTOTITLE](/get-started/onboarding/getting-started-with-your-github-account)

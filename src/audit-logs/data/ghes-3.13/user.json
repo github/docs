@@ -320,6 +320,21 @@
     "docs_reference_links": "/actions/deployment/targeting-different-environments/using-environments-for-deployment#deployment-protection-rules"
   },
   {
+    "action": "gist.create",
+    "description": "A gist was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.destroy",
+    "description": "A gist was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.visibility_change",
+    "description": "The visibility of a gist was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "git_signing_ssh_public_key.create",
     "description": "An SSH key was added to a user account as a Git commit signing key.",
     "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"

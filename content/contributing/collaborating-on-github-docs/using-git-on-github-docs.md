@@ -1,14 +1,16 @@
 ---
 title: Using Git on GitHub Docs
 shortTitle: Using Git
-intro: 'You can use Git on the command line to commit changes and then push them to the documentation repository.'
+intro: You can use Git on the command line to commit changes and then push them to the documentation repository.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.
 
-The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom_the_website %} or in a codespace. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui)."
+The article assumes you have already cloned the documentation repository locally and you will be making changes on your local computer rather than on {% data variables.product.prodname_dotcom %} or in a codespace. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository?tool=webui).
 
 ## Setting up your topic branch and making changes
 
@@ -39,15 +41,12 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
      git checkout -b YOUR-TOPIC-BRANCH
      ```
 
-     {% note %}
-
-     **Note**: You can use forward slashes as part of the branch name, for example to include your user name:
-
-     ```shell
-     git checkout -b my-username/new-codespace-policy
-     ```
-
-     {% endnote %}
+     > [!NOTE]
+     > You can use forward slashes as part of the branch name, for example to include your user name:
+     >
+     > ```shell
+     > git checkout -b my-username/new-codespace-policy
+     > ```
 
    * To work on an existing project, switch to your topic branch and merge changes from `main`.
 
@@ -99,17 +98,17 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 
    ```shell
    git commit -m "Commit message title (max 72 characters)
-   
-   Optional fuller description of what changed (no character limit). 
-   Note the empty line between the title and the description, 
+
+   Optional fuller description of what changed (no character limit).
+   Note the empty line between the title and the description,
    and the closing quotation mark at the end of the commit message."
    ```
 
-   This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.  
+   This commits the staged changes locally. You can now push this commit, and any other unpushed commits, to the remote repository.
 
    To remove this commit, use `git reset --soft HEAD~1`. After running this command our changes are no longer committed but the changed files remain in the staging area. You can make further changes and then `add` and `commit` again.
 
-1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push your changes to the remote repository on {% data variables.product.prodname_dotcom %}.
 
    * The first time you push your branch you can choose to add an upstream tracking branch. This allows you to use `git pull` and `git push` on that branch without additional arguments.
 
@@ -128,14 +127,13 @@ To keep your local branches in sync with their remotes and avoid merge conflicts
 * Favor commits that contain small, focused groups of changes over commits with large, unfocused groups of changes, since this will help you write commit messages that other people can easily understand. An exception is the initial commit for a new project or category. These commits are sometimes large, as they often introduce the bare versions of many articles at once to provide an organizational scheme for subsequent work.
 * If you are incorporating feedback or want to address a set of changes to a particular person or team for review, @mention the person whose suggestions you are incorporating. For example: "Incorporating feedback from @octocat," or "Updating billing configuration steps - cc @monalisa for accuracy."
 * If a commit addresses an issue, you can reference the issue number in the commit, and a link to the commit will appear in the issue conversation timeline: "Addresses #1234 - adds steps for backing up the VM before upgrading."
-  {% note %}
 
-  **Note**: We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
+  > [!NOTE]
+  > We generally don't close an issue via a commit. To close an issue, open a pull request and add "Closes #1234" to the description. The linked issue will be closed when the pull request is merged. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
-  {% endnote %}
 * Make commit messages clear, detailed, and imperative. For example: "Adds a conceptual article about 2FA," not "Add info."
 * Try not to leave uncommitted changes in your local branch when you finish working for the day. Get to a good stopping point and commit and push your changes so your work is backed up to the remote repository.
-* Only push up to {% data variables.product.prodname_dotcom_the_website %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
+* Only push up to {% data variables.product.prodname_dotcom %} after you've made a few commits. Pushing after every commit adds noise to our ops channels on Slack and causes unnecessary builds to run.
 
 ## Resolving merge conflicts
 
@@ -143,7 +141,7 @@ When you try to merge two branches that contain different changes to the same pa
 
 There are two ways to handle merge conflicts:
 * Edit the file in your text editor and choose which changes to keep. Then commit the updated file to your topic branch from the command line.
-* [Resolve the merge conflicts on {% data variables.product.prodname_dotcom_the_website %}](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-on-github).
 
 ### Resolving merge conflicts by editing the file and committing the changes
 
@@ -167,11 +165,8 @@ There are two ways to handle merge conflicts:
 
    If there are multiple files with merge conflicts, repeat the previous steps until you resolve all conflicts.
 
-   {% note %}
-
-   **Note**: You should apply care when resolving merge conflicts. Sometimes you will simply accept your own changes, sometimes you will use the upstream changes from the `main` branch, and sometimes you will combine both sets of changes. If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.
-
-   {% endnote %}
+   > [!NOTE]
+   > You should apply care when resolving merge conflicts. Sometimes you will simply accept your own changes, sometimes you will use the upstream changes from the `main` branch, and sometimes you will combine both sets of changes. If you're unsure of the best resolution, be wary of replacing the changes from upstream as these may have been made for specific reasons that you're not aware of.
 
 1. In the terminal, stage the file, or files, that you just modified.
 
@@ -185,7 +180,7 @@ There are two ways to handle merge conflicts:
    git commit -m "Resolves merge conflicts"
    ```
 
-1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom_the_website %}.
+1. Push the committed changes to the remote repository on {% data variables.product.prodname_dotcom %}.
 
    ```shell
    git push
@@ -195,10 +190,7 @@ There are two ways to handle merge conflicts:
 
 We recommend you open your pull request on {% data variables.product.prodname_dotcom %} early. Create the pull request as a draft until you are ready for it to be reviewed. Each time you push changes, your commits will be added to the pull request.
 
-{% note %}
+> [!NOTE]
+> You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom %}.
 
-**Note**: You can quickly access pull requests you've created by clicking **Pull requests** at the top of every page on {% data variables.product.prodname_dotcom_the_website %}.
-
-{% endnote %}
-
-For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request)."
+For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=webui#creating-the-pull-request).

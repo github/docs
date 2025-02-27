@@ -9,7 +9,11 @@ import findPageInSiteTree from '@/frame/lib/find-page-in-site-tree.js'
 export default async function genericToc(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('request not contextualized')
   if (!req.context.page) return next()
-  if (req.context.currentLayoutName !== 'default') return next()
+  if (
+    req.context.currentLayoutName !== 'default' &&
+    req.context.currentLayoutName !== 'category-landing'
+  )
+    return next()
   // This middleware can only run on product, category, and map topics.
   if (
     req.context.page.documentType === 'homepage' ||
@@ -92,7 +96,7 @@ export default async function genericToc(req: ExtendedRequest, res: Response, ne
     renderIntros = false
     req.context.genericTocNested = await getTocItems(treePage, req.context, {
       recurse: isRecursive,
-      renderIntros,
+      renderIntros: req.context.currentLayoutName === 'category-landing' ? true : false,
       includeHidden,
     })
   }
@@ -118,6 +122,10 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
     node.childPages.filter(filterHidden).map(async (child) => {
       const { page } = child
       const title = await page.renderProp('rawTitle', context, { textOnly: true })
+      const octicon = page.octicon ? page.octicon : null
+      const category = page.category ? page.category : null
+      const complexity = page.complexity ? page.complexity : null
+      const industry = page.industry ? page.industry : null
       let intro = null
       if (opts.renderIntros) {
         intro = ''
@@ -127,16 +135,17 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
           // Deliberately don't use `textOnly:true` here because we intend
           // to display the intro, in a table of contents component,
           // with the HTML (dangerouslySetInnerHTML).
-          intro = await page.renderProp('rawIntro', context)
+          intro = await page.renderProp(
+            'rawIntro',
+            context,
+            context.currentLayoutName === 'category-landing' ? { textOnly: true } : {},
+          )
         }
       }
 
-      let childTocItems = null
-      if (opts.recurse) {
-        childTocItems = []
-        if (child.childPages) {
-          childTocItems.push(...(await getTocItems(child, context, opts)))
-        }
+      let childTocItems = []
+      if (child.childPages) {
+        childTocItems.push(...(await getTocItems(child, context, opts)))
       }
 
       const fullPath = child.href
@@ -144,6 +153,10 @@ async function getTocItems(node: Tree, context: Context, opts: Options): Promise
         title,
         fullPath,
         intro,
+        octicon,
+        category,
+        complexity,
+        industry,
         childTocItems,
       } as ToC
     }),

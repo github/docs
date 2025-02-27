@@ -1,1 +1,1 @@
-1. If you're taking a node offline that provides data services, such as `git-server`, `pages-server`, or `storage-server`, evacuate the node. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-clustering/evacuating-a-cluster-node-running-data-services)."
+1. If you're taking a node offline that provides data services, such as `git-server`, `pages-server`, or `storage-server`, evacuate the node. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-clustering/evacuating-a-cluster-node-running-data-services).

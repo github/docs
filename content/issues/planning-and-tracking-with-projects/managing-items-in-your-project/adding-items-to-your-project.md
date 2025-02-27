@@ -3,44 +3,36 @@ title: 'Adding items to your {% data variables.projects.project_v2 %}'
 shortTitle: Adding items
 intro: 'Learn how to add pull requests, issues, and draft issues to your projects individually or in bulk.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ---
 
-{% note %}
-
-**Note:** A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically)."
-
-{% endnote %}
+> [!NOTE]
+> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
 
 ## Adding issues and pull requests to a project
 
-You have several options for adding issues and pull requests to your project. You can add them individually, automatically, or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see "[Creating draft issues](#creating-draft-issues)."
+You have several options for adding issues and pull requests to your project. You can add them individually, automatically, or in bulk. Furthermore, you can include issues and pull requests from any organization, and you also have the ability to add draft issues that can be converted into regular issues later on. For more information, see [Creating draft issues](#creating-draft-issues).
 
 {% ifversion projects-v2-timeline-events %}
 
-{% note %}
-
-**Note:** Timeline events for Projects is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Timeline events for Projects is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 When you add an issue or pull request to your project, an event will be added to the issue or pull request's timeline. Timeline events will also be added when you remove issues or pull requests and when changes are made to its `status` field for those items. Timeline events are only visible to people who have at least read permission for the project. If a change is made by a built-in workflow, the activity will be attributed to **@github-project-automation**.
 
 {% endif %}
 
-{% ifversion projects-v2-bulk-table-editing %}
-
-For more information about making bulk changes to your items after adding them, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project)."
-
-{% endif %}
+For more information about making bulk changes to your items after adding them, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/editing-items-in-your-project).
 
 ### Automatically adding issues and pull requests
 
-You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically)."
+You can configure a built-in workflow to automatically add issues and pull requests from a repository when they meet specific filter criteria. For more information about configuring a workflow, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically).
 
 ### Pasting the URL of an issue or pull request
 
@@ -101,15 +93,11 @@ You can use the command palette when viewing your project to quickly add items.
 1. Start typing "Add items" and press <kbd>Return</kbd>.
 {% data reusables.projects.bulk-add %}
 
-{% ifversion projects-v2-create-issue-modal %}
-
 ## Creating issues
 
 {% data reusables.projects.about-issue-modal %}
 
 {% data reusables.projects.create-issue-modal %}
-
-{% endif %}
 
 ## Creating draft issues
 
@@ -117,10 +105,7 @@ Draft issues are useful to quickly capture ideas. Unlike issues and pull request
 
 {% data reusables.projects.add-draft-issue %}
 
-Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues)."
+Draft issues can have a title, text body, assignees, and any custom fields from your project. In order to populate the repository, labels, or milestones for a draft issue, you must first convert the draft issue to an issue. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/converting-draft-issues-to-issues).
 
-{% note %}
-
-**Note**: Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.
-
-{% endnote %}
+> [!NOTE]
+> Users will not receive notifications when they are assigned to or mentioned in a draft issue unless the draft issue is converted to an issue.

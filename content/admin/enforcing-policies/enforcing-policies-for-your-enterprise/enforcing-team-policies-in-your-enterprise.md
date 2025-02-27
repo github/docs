@@ -22,13 +22,13 @@ shortTitle: Team policies
 
 ## About policies for teams in your enterprise
 
-You can enforce policies to control how members of your enterprise on {% data variables.product.product_name %} manage teams. You can also allow organization owners to manage policies for teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+You can enforce policies to control how members of your enterprise manage teams. You can also allow organization owners to manage policies for teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 {% ifversion team-discussions %}
 
 ## Enforcing a policy for team discussions
 
-Across all organizations owned by your enterprise, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)."
+Across all organizations owned by your enterprise, you can enable or disable team discussions, or allow owners to administer the setting on the organization level. For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

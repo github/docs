@@ -22,16 +22,13 @@ shortTitle: Add a security policy
 
 To give people instructions for reporting security vulnerabilities in your project, you can add a `SECURITY.md` file to your repository's root, `docs`, or `.github` folder. Adding this file to this part(s) of your repository automatically creates a row with a description where people can review it. When someone creates an issue in your repository, they will see a link to your project's security policy.
 
-You can create a default security policy for your organization or personal account. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."
+You can create a default security policy for your organization or personal account. For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file).
 
-{% tip %}
-
-**Tip:** To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your `README` file. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)."
-
-{% endtip %}
+> [!TIP]
+> To help people find your security policy, you can link to your `SECURITY.md` file from other places in your repository, such as your `README` file. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
 
 {% ifversion fpt or ghec %}
-After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see "[AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github)." For more information about repository security advisories, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."
+After someone reports a security vulnerability in your project, you can use {% data variables.product.prodname_security_advisories %} to disclose, fix, and publish information about the vulnerability. For more information about the process of reporting and disclosing vulnerabilities in {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/code-security/security-advisories/guidance-on-reporting-and-writing-information-about-vulnerabilities/about-coordinated-disclosure-of-security-vulnerabilities#about-reporting-and-disclosing-vulnerabilities-in-projects-on-github). For more information about repository security advisories, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
 
 {% data reusables.repositories.github-security-lab %}
 {% endif %}
@@ -56,6 +53,6 @@ For an example of a real `SECURITY.md` file, see [https://github.com/electron/el
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% ifversion fpt or ghec %}
+* [AUTOTITLE](/code-security/getting-started/securing-your-repository)
+* [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions){% ifversion fpt or ghec %}
 * [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

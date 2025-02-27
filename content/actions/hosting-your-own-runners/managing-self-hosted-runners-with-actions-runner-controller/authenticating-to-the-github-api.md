@@ -1,11 +1,11 @@
 ---
 title: Authenticating to the GitHub API
 shortTitle: Authenticating
-intro: 'Learn how to authenticate to the {% data variables.product.company_short %} API to use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.location.product_location %}.'
+intro: 'Learn how to authenticate to the {% data variables.product.company_short %} API to use {% data variables.product.prodname_actions_runner_controller %} with {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller
@@ -18,29 +18,25 @@ defaultPlatform: linux
 
 You can authenticate {% data variables.product.prodname_actions_runner_controller %} (ARC) to the {% data variables.product.prodname_dotcom %} API by using a {% data variables.product.prodname_github_app %} or by using a {% data variables.product.pat_v1 %}.
 
-{% note %}
-
-**Note:** You cannot authenticate using a {% data variables.product.prodname_github_app %} for runners at the enterprise level. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#about-runner-groups)."
-
-{% endnote %}
+> [!NOTE]
+> You cannot authenticate using a {% data variables.product.prodname_github_app %} for runners at the enterprise level. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#about-runner-groups).
 
 ## Authenticating ARC with a {% data variables.product.prodname_github_app %}
 
-1. Create a {% data variables.product.prodname_github_app %} that is owned by an organization. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)". Configure the {% data variables.product.prodname_github_app %} as follows.
+1. Create a {% data variables.product.prodname_github_app %} that is owned by an organization. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app). Configure the {% data variables.product.prodname_github_app %} as follows.
 
    1. For "Homepage URL," enter `https://github.com/actions/actions-runner-controller`.
 
    1. Under "Permissions," click **Repository permissions**. Then use the dropdown menus to select the following access permissions.
-      * **Administration**: Read and write
-        {% note %}
+      * **Administration:** Read and write
 
-        **Note**: `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
+        > [!NOTE]
+        > `Administration: Read and write` is only required when configuring {% data variables.product.prodname_actions_runner_controller %} to register at the repository scope. It is not required to register at the organization scope.
 
-        {% endnote %}
-      * **Metadata**: Read-only
+      * **Metadata:** Read-only
 
    1. Under "Permissions," click **Organization permissions**. Then use the dropdown menus to select the following access permissions.
-      * **Self-hosted runners**: Read and write
+      * **Self-hosted runners:** Read and write
 
 {% data reusables.actions.arc-app-post-install-steps %}
 
@@ -57,14 +53,13 @@ You can authenticate {% data variables.product.prodname_actions_runner_controlle
 ARC can use {% data variables.product.pat_v1_plural %} to register self-hosted runners.
 
 {% ifversion ghec or ghes %}
-{% note %}
 
-**Note:** Authenticating ARC with a {% data variables.product.pat_v1 %} is the only supported authentication method to register runners at the enterprise level.
+> [!NOTE]
+> Authenticating ARC with a {% data variables.product.pat_v1 %} is the only supported authentication method to register runners at the enterprise level.
 
-{% endnote %}
 {% endif %}
 
-1. Create a {% data variables.product.pat_v1 %} with the required scopes. The required scopes are different depending on whether you are registering runners at the repository{% ifversion ghec or ghes %}, organization, or enterprise{% else %} or organization{% endif %} level. For more information on how to create a {% data variables.product.pat_v1 %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic)."
+1. Create a {% data variables.product.pat_v1 %} with the required scopes. The required scopes are different depending on whether you are registering runners at the repository{% ifversion ghec or ghes %}, organization, or enterprise{% else %} or organization{% endif %} level. For more information on how to create a {% data variables.product.pat_v1 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token#creating-a-personal-access-token-classic).
 
     The following is the list of required {% data variables.product.pat_generic %} scopes for ARC runners.
     * Repository runners: `repo`

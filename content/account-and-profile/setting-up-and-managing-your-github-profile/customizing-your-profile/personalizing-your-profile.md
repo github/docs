@@ -1,6 +1,6 @@
 ---
 title: Personalizing your profile
-intro: 'You can share information about yourself with other {% data variables.product.product_name %} users by setting a profile picture and adding a bio to your profile.'
+intro: 'You can share information about yourself with other users by setting a profile picture and adding a bio to your profile.'
 redirect_from:
   - /articles/adding-a-bio-to-your-profile
   - /articles/setting-your-profile-picture
@@ -19,29 +19,22 @@ topics:
 shortTitle: Personalize
 ---
 
-{% note %}
-
-**Note:**
-  Any details you add to your public {% data variables.product.product_name %} profile will be visible to all {% data variables.product.product_name %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.product_name %} profile.
-
-{% endnote %}
+{% ifversion fpt or ghec %}
+> [!NOTE]
+> Any details you add to your public profile will be visible to all {% data variables.product.github %} users, including in regions where local laws, regulations, or cultural norms may pose risks to expressing your identity. We respect everyone’s decision about whether or not to share information about themselves on their {% data variables.product.github %} profile.
+{% endif %}
 
 ## Changing your profile picture
 
-Your profile picture helps identify you across {% data variables.product.product_name %} in pull requests, comments, contributions pages, and graphs.
+Your profile picture helps identify you across {% data variables.product.github %} in pull requests, comments, contributions pages, and graphs.
 
-When you sign up for an account, {% data variables.product.product_name %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
+When you sign up for an account, {% data variables.product.github %} provides you with a randomly generated "identicon". [Your identicon](https://github.com/blog/1586-identicons) generates from a hash of your user ID, so there's no way to control its color or pattern. You can replace your identicon with an image that represents you.
 
-{% note %}
+> [!NOTE] {% ifversion ghec %}
+> * {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
+{% ifversion ghec %}> * Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
 
-**Note{% ifversion ghec %}s{% endif %}**: {% ifversion ghec %}
-
-* {% endif %}Your profile picture should be a PNG, JPG, or GIF file, and it must be less than 1 MB in size and smaller than 3000 by 3000 pixels. For the best quality rendering, we recommend keeping the image at about 500 by 500 pixels.
-{% ifversion ghec %}* Gravatar profile pictures are not supported with {% data variables.product.prodname_emus %}.{% endif %}
-
-{% endnote %}
-
-If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.product_name %}, the image will be shown as your {% data variables.product.product_name %} profile picture by default (rather than an identicon). To change your {% data variables.product.product_name %} profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.product_name %} and override the Gravatar image.
+If you use Gravatar, and your Gravatar image is associated with the email you use for {% data variables.product.github %}, the image will be shown as your {% data variables.product.github %} profile picture by default (rather than an identicon). To change your profile picture, you can either upload a new image to Gravatar, or upload a new image to {% data variables.product.github %} and override the Gravatar image.
 
 ### Setting a profile picture
 
@@ -51,7 +44,7 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select {% octicon "pencil" aria-hidden="true" %} **Edit**, then click **Remove photo** to revert to your identicon.
+1. Under "Profile Picture", select **{% octicon "pencil" aria-hidden="true" %} Edit**, then click **Remove photo** to revert to your identicon.
 
    If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
 
@@ -59,14 +52,13 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 
 ## Changing your profile name
 
-You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
+You can change the name that is displayed on your profile. This name may also be displayed next to comments you make on private repositories owned by an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
 
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Note:** If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
+> [!NOTE]
+> If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, any changes to your profile name must be made through your identity provider instead of {% data variables.product.prodname_dotcom %}. {% data reusables.enterprise-accounts.emu-more-info-account %}
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.user-settings.access_settings %}
@@ -74,25 +66,18 @@ You can change the name that is displayed on your profile. This name may also be
 
 ## Adding a bio to your profile
 
-Add a bio to your profile to share information about yourself with other {% data variables.product.product_name %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
+Add a bio to your profile to share information about yourself with other {% data variables.product.github %} users. With the help of [@mentions](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) and emoji, you can include information about where you currently or have previously worked, what type of work you do, or even what kind of coffee you drink.
 
-For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)."
+For a longer-form and more prominent way of displaying customized information about yourself, you can also use a profile README. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme).
 
-{% note %}
-
-**Note:**
-  If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile)."
-
-{% endnote %}
+> [!NOTE]
+> If you have the activity overview section enabled for your profile and you @mention an organization you're a member of in your profile bio, then that organization will be featured first in your activity overview. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-an-overview-of-your-activity-on-your-profile).
 
 {% data reusables.user-settings.access_settings %}
 1. Under "Public profile", in the "Bio" field, type the content that you want displayed on your profile. The bio field is limited to 160 characters.
 
-   {% tip %}
-
-   **Tip:** When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
-
-   {% endtip %}
+   > [!TIP]
+   > When you @mention an organization, only those that you're a member of will autocomplete. You can still @mention organizations that you're not a member of, like a previous employer, but the organization name won't autocomplete for you.
 
 {% data reusables.profile.update-profile %}
 
@@ -100,7 +85,7 @@ For a longer-form and more prominent way of displaying customized information ab
 
 ## Adding pronouns to your profile
 
-Add pronouns to your public user profile to share information about yourself with other {% data variables.product.product_name %} users. {% data reusables.profile.pronouns-visibility %}
+Add pronouns to your public user profile to share information about yourself with other {% data variables.product.github %} users. {% data reusables.profile.pronouns-visibility %}
 
 {% data reusables.user-settings.access_settings %}
 1. Under **Pronouns**, add the pronouns that you want displayed on your profile. You may add custom pronouns.
@@ -109,13 +94,11 @@ Add pronouns to your public user profile to share information about yourself wit
 
 {% endif %}
 
-{% ifversion profile-time-zone %}
-
 ## Setting your location and time zone
 
 You can set a location and time zone on your profile to show other people your local time. Your location and time zone will be visible:
-* On your {% data variables.product.product_name %} profile page
-* When people hover over your username or avatar on {% data variables.product.product_name %}
+* On your profile page
+* When people hover over your username or avatar
 
 ![Screenshot of the Octocat profile page emphasizing the location, local time, and relative time fields.](/assets/images/help/profile/profile-location-and-time.png)
 
@@ -127,8 +110,6 @@ When you view your profile, you will see your location, local time, and your tim
    * Select **Display current local time**.
    * Select the **Time zone** dropdown menu, then click your local time zone.
 {% data reusables.profile.update-profile %}
-
-{% endif %}
 
 {% ifversion profile-social-links %}
 
@@ -156,29 +137,22 @@ If you're a researcher with an ORCID iD, you can identify yourself by adding you
 
 ## Setting a status
 
-You can set a status to display information about your current availability on {% data variables.product.product_name %}. Your status will show:
-* On your {% data variables.product.product_name %} profile page
-* When people hover over your username or avatar on {% data variables.product.product_name %}
-* On a team page for a team where you're a team member. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages)."
-* On the organization dashboard in an organization where you're a member. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)."
+You can set a status to display information about your current availability. Your status will show:
+* On your profile page
+* When people hover over your username or avatar
+* On a team page for a team where you're a team member. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams#team-pages).
+* On the organization dashboard in an organization where you're a member. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard).
 
-When you set your status, you can also let people know that you have limited availability on {% data variables.product.product_name %}.
+When you set your status, you can also let people know that you have limited availability.
 
-If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team)."
+If you select the "Busy" option, when people @mention your username, assign you an issue or pull request, or request a pull request review from you, a note next to your username will show that you're busy. You will also be excluded from automatic review assignment for pull requests assigned to any teams you belong to. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/managing-code-review-settings-for-your-team).
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click {% octicon "smiley" aria-hidden="true" %} **Set status** or, if you already have a status set, click your current status.
-
-{% ifversion global-nav-update %}
+1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **{% octicon "smiley" aria-hidden="true" %} Set status** or, if you already have a status set, click your current status.
 
    ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile.png)
-
-{% endif %}
 1. In the "What's happening" field, type a status message.
 1. Optionally, to set an emoji status, click {% octicon "smiley" aria-label="Choose an emoji" %}, then click an emoji from the list.
 1. Optionally, if you'd like to share that you have limited availability, select "Busy."
@@ -194,8 +168,8 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 | Badge | Program | Description |
 | --- | --- | --- |
-| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/get-started/exploring-integrations/github-developer-program). |
-| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-pro)." |
+| {% octicon "cpu" aria-label="The Developer Program icon" %} | **Developer Program Member** | If you're a registered member of the {% data variables.product.prodname_dotcom %} Developer Program, building an app with the {% data variables.product.github %} API, you'll get a Developer Program Member badge on your profile. For more information on the {% data variables.product.prodname_dotcom %} Developer Program, see [GitHub Developer](/get-started/exploring-integrations/github-developer-program). |
+| {% octicon "star-fill" aria-label="The star icon" %} | **Pro** | If you use {% data variables.product.prodname_pro %} you'll get a PRO badge on your profile. For more information about {% data variables.product.prodname_pro %}, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans#github-pro). |
 | {% octicon "lock" aria-label="The lock icon" %} | **Security Bug Bounty Hunter** | If you helped out hunting down security vulnerabilities, you'll get a Security Bug Bounty Hunter badge on your profile. For more information about the {% data variables.product.prodname_dotcom %} Security program, see [{% data variables.product.prodname_dotcom %} Security](https://bounty.github.com/). |
 | {% octicon "mortar-board" aria-label="The mortar-board icon" %} | **{% data variables.product.prodname_dotcom %} Campus Expert** | If you participate in the {% data variables.product.prodname_campus_program %}, you will get a {% data variables.product.prodname_dotcom %} Campus Expert badge on your profile. For more information about the Campus Experts program, see [Campus Experts](https://education.github.com/experts). |
 | {% octicon "shield" aria-label="The shield icon" %} | **Security advisory credit** | If a security advisory you submit to the [{% data variables.product.prodname_dotcom %} Advisory Database](https://github.com/advisories) is accepted, you'll get a Security advisory credit badge on your profile. For more information about {% data variables.product.prodname_dotcom %} Security Advisories, see [{% data variables.product.prodname_dotcom %} Security Advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories). |
@@ -208,13 +182,10 @@ When you participate in certain programs, {% data variables.product.prodname_dot
 
 Achievements celebrate specific events and actions that happen on {% data variables.product.prodname_dotcom %}. They will appear as small badges listed in the sidebar of your profile. Clicking or hovering on an achievement will show a detailed view that hints at how the achievement was earned, with a short description and links to the contributing events. The event links will only be visible to users that have access to the repository or organization that the event took place in. Event links will appear inaccessible to all users without access.
 
-To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile)."
+To stop private contributions from counting toward your Achievements, or to turn off Achievements entirely, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile).
 
-{% note %}
-
-**Note:** This feature is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% endif %}
 
@@ -295,4 +266,4 @@ The Mars 2020 Helicopter Contributor achievement was given to those who had auth
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile)

@@ -2,16 +2,14 @@
 title: Applying the GitHub-recommended security configuration in your organization
 shortTitle: Apply recommended configuration
 intro: 'Secure your code with the security enablement settings created, managed, and recommended by {% data variables.product.company_short %}.'
-permissions: '{% data reusables.security-configurations.security-configurations-permissions %}'
+permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: security-configurations
+  feature: security-configurations-cloud
 topics:
   - Advanced Security
   - Organizations
   - Security
 ---
-
-{% data reusables.security-configurations.security-configurations-beta-note-opt-out %}
 
 ## About the {% data variables.product.prodname_github_security_configuration %}
 
@@ -34,7 +32,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see "[AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table)."
+1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 1. In the repository table, select repositories with one of three methods:
      * Select each individual repository you would like to apply the {% data variables.product.prodname_security_configuration %} to.
      * To select all repositories on the current page of the repository table, select **NUMBER repositories**.
@@ -46,16 +44,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 
 {% data reusables.security-configurations.apply-configuration %}
 
-{% ifversion enforce-security-configurations %}
-
 ## Enforcing the {% data variables.product.prodname_github_security_configuration %}
-
-{% ifversion enforce-security-configurations-beta %}
-
->[!NOTE]
-> This feature is in beta, and is subject to change.
-
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
@@ -63,13 +52,10 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 1. In the "Code security configurations" section, select "{% data variables.product.company_short %} recommended".
 1. In the "Policy" section, next to "Enforce configuration", select **Enforce** from the dropdown menu.
 
->[!NOTE]
 {% data reusables.code-scanning.custom-security-configuration-enforcement-edge-cases %}
-
-{% endif %}
 
 ## Next steps
 
-After you apply the {% data variables.product.prodname_github_security_configuration %}, you can customize your organization-level security settings with {% data variables.product.prodname_global_settings %}. See "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization)."
+After you apply the {% data variables.product.prodname_github_security_configuration %}, you can customize your organization-level security settings with {% data variables.product.prodname_global_settings %}. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
 
 {% data reusables.security-configurations.troubleshooting-next-step %}

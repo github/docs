@@ -18,7 +18,7 @@ topics:
 shortTitle: Manage administrators
 ---
 
-> [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote)."
+> [!NOTE] For information about promoting a user to an organization owner, see the `ghe-org-admin-promote` section of [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-org-admin-promote).
 
 ## Considerations with external authentication
 
@@ -42,13 +42,9 @@ If you use certain external authentication features, you may not be able to mana
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
 1. In the upper-left corner of the page, in the "Find an administrator" search field, type the username of the person you want to demote.
-{%- ifversion ghes %}
 1. In the search results, find the username of the person you want to demote, then select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu and click **Convert to member**.
 
    ![Screenshot of a user in the enterprise administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
-{%- else %}
-1. In the search results, find the username of the person you want to demote, then use the {% octicon "gear" %} drop-down menu, and select **Remove owner**.
-{%- endif %}
 
 ## Promoting a user from the command line
 

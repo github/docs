@@ -17,6 +17,7 @@ on:
       - main
     paths:
       - 'data/features/**'
+      - .github/workflows/dont-delete-features.yml
 
 permissions:
   contents: read

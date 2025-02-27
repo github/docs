@@ -11,9 +11,8 @@ topics:
   - Copilot
 children:
   - /managing-the-copilot-subscription-for-your-organization
-  - /setting-policies-for-copilot-in-your-organization
+  - /managing-policies-for-copilot-in-your-organization
   - /configuring-your-proxy-server-or-firewall-for-copilot
   - /managing-access-to-github-copilot-in-your-organization
-  - /customizing-copilot-for-your-organization
   - /reviewing-activity-related-to-github-copilot-in-your-organization
 ---

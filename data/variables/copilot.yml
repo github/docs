@@ -1,9 +1,9 @@
 # Variables used in the Copilot docs that are not product names
 
-# Copilot billing: price per month for Copilot Individuals
+# Copilot billing: price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
 
-# Copilot billing: price per year for Copilot Individuals
+# Copilot billing: price per year for Copilot Pro
 cfi_price_per_year: '$100 USD'
 
 # Copilot billing: price per month for Copilot Business
@@ -12,10 +12,28 @@ cfb_price_per_month: '$19 USD'
 # Copilot billing: price per month for Copilot Enterprise
 ce_price_per_month: '$39 USD'
 
-# Copilot Chat in GitHub.com: maximum number of repos that can be indexed for an org
+# Copilot Chat in GitHub: maximum number of repos that can be indexed for an org
 max-chat-indexed-repos: '50'
 
 # Copilot partners: builders who can develop Copilot extensions
 copilot_partners: 'Copilot Partners'
 copilot_partner: 'Copilot Partner'
 copilot_partner_program: 'Copilot Partner Program'
+
+## Copilot URLs
+chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
+
+## Copilot code review - e.g. {% data variables.copilot.copilot_code-review %}
+copilot_code-review: 'GitHub Copilot code review'
+copilot_code-review_short: 'Copilot code review'
+
+## LLM models for Copilot
+copilot_claude_sonnet: 'Claude Sonnet'
+copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
+copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
+
+copilot_gemini_flash: 'Gemini 2.0 Flash'
+
+## Next edit suggestions in VS Code
+next_edit_suggestions: 'next edit suggestions'
+next_edit_suggestions_caps: 'Next edit suggestions'

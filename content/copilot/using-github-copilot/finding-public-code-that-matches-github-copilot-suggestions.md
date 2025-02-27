@@ -1,7 +1,7 @@
 ---
 title: Finding public code that matches GitHub Copilot suggestions
 shortTitle: Find matching code
-intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, you can see references to the matching code on {% data variables.product.prodname_dotcom_the_website %}.'
+intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any matching code that is found.'
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot
 topics:
@@ -10,30 +10,77 @@ versions:
   feature: copilot
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot %} code referencing is in public beta and is subject to change.
+{% webui %}
+
+This version of this article is for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For the {% data variables.product.prodname_vscode %} version of this article, click the tab above.
+
+{% endwebui %}
+
+{% vscode %}
+
+This version of this article is for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}. For the {% data variables.product.github %} website version of this article, click the tab above.
+
+{% endvscode %}
+
+## Limitations
+
+References to matching code are currently only available in {% data variables.product.prodname_vscode %} and on the {% data variables.product.github %} website.
+
+## Prerequisites
+
+References to matching code are only generated if {% data variables.product.prodname_copilot_short %} is configured to allow suggestions that match publicly available code. This is configured in either your personal{% ifversion ghec %},{% else %} or {% endif %} organization{% ifversion ghec %} or enterprise{% endif %} settings. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code){% ifversion ghec %},{% else %} or {% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#policies-for-suggestion-matching){% ifversion ghec %} or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
 ## About code referencing in {% data variables.product.prodname_copilot %}
 
-You can opt to allow {% data variables.product.prodname_copilot %} to suggest code completions that match publicly available code on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
+{% vscode %}
 
-If you have allowed suggestions that match public code, {% data variables.product.prodname_copilot %} can provide you with details about the matching code when you accept such suggestions. This feature is called code referencing. It is currently only available in {% data variables.product.prodname_vscode %}.
+If you've allowed suggestions that match public code, {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %} can provide you with details of the code that a suggestion matches. This happens:
+
+* When you accept a code completion suggestion in the editor.
+* When a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code.
+
+{% endvscode %}
+
+{% webui %}
+
+If you've allowed suggestions that match public code, then whenever a response from {% data variables.product.prodname_copilot_chat_short %} includes matching code, details of the matches will be included in the response.
+
+{% endwebui %}
+
+This feature is called code referencing.
+
+{% webui %}
+
+> [!NOTE]
+> Typically, matches to public code occur infrequently, so you should not expect to see code references in many {% data variables.product.prodname_copilot_chat_short %} responses.
+
+{% endwebui %}
+
+{% vscode %}
+
+### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
 
 When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to a {% data variables.product.prodname_copilot %} log. The log entry includes a link to a page on {% data variables.product.prodname_dotcom_the_website %} where you can view references to similar code in public {% data variables.product.prodname_dotcom %} repositories.
 
 The linked web page includes details of any license identified for the repository where the matching code was found. Having reviewed the references, you can decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
 
 > [!NOTE]
-> * Code referencing does not currently apply to code completion suggestions that you add to your code using {% data variables.product.prodname_copilot_chat %}.
-> * Code referencing currently only looks for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Matches to code you have written, or {% data variables.product.prodname_copilot_short %} suggestions you have altered, is not checked for matches to public code.
-> * Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many of the suggestions you accept.
+> * Code referencing for code completion only occurs for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Code you have written, and {% data variables.product.prodname_copilot_short %} suggestions you have altered, are not checked for matches to public code.
+> * Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many suggestions.
+
+### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+
+When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated at the end of the response with a link to display details of the matched code in the {% data variables.product.prodname_vscode_shortname %} editor.
+
+{% endvscode %}
 
 ### How code referencing finds matching code
 
-{% data variables.product.prodname_copilot_short %} code referencing searches for matches by taking the code suggestion, plus some surrounding code, and comparing it against an index of all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Code in private {% data variables.product.prodname_dotcom %} repositories, or code outside of {% data variables.product.prodname_dotcom %}, is not included in the search process. The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
+{% data variables.product.prodname_copilot_short %} code referencing searches for matches by taking the code suggestion, plus some of the code that will surround the suggestion if it is accepted, and comparing it against an index of all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Code in private {% data variables.product.prodname_dotcom %} repositories, or code outside of {% data variables.product.prodname_dotcom %}, is not included in the search process. The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
 
-## Using code referencing in {% data variables.product.prodname_vscode %}
+{% vscode %}
 
-To use code referencing you must have allowed suggestions matching public code. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
+## View code references for code completion
 
 You can access code references from one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
@@ -88,3 +135,43 @@ You can verify that code referencing is working by prompting {% data variables.p
 1. Accept the suggestion by pressing <kbd>Tab</kbd>.
 
    If code referencing finds a match to public code, a log entry is added to the **{% data variables.product.prodname_copilot %} Log** view.
+
+{% endvscode %}
+
+## View code references for {% data variables.product.prodname_copilot_chat_short %}
+
+{% vscode %}
+
+If a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code, this is indicated at the end of the response by the following text:
+
+> Similar code found with _n_ license types - **View matches**
+
+1. Click **View matches** to display details of the matched code in a new editor tab.
+
+   For each example of matching code, the editor displays:
+
+   * The license type for the matching code, if known.
+   * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the matching code was found.
+   * A code snippet showing the matching code.
+
+1. In the editor, <kbd>Ctrl</kbd>+click (Windows/Linux) or <kbd>Command</kbd>+click (Mac) a URL to view the full file on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% endvscode %}
+
+{% webui %}
+
+When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated beneath the code suggestion:
+
+> < > Public code references from _n_ repositories
+
+To see details of the matching code:
+
+1. Click the "Public code references..." text, under the code suggestion.
+
+   A list of {% data variables.product.github %} repositories containing matching code is displayed in a dropdown, together with licensing information, if found.
+
+   ![Screenshot of a code completion suggestion in {% data variables.product.prodname_copilot_chat_short %} with a link to view code references.](/assets/images/help/copilot/code-reference-dotcom.png)
+
+1. Click the name of a repository to display that repository on {% data variables.product.prodname_dotcom_the_website %}.
+
+{% endwebui %}

@@ -1,6 +1,6 @@
 ---
 title: Using the REST API to interact with your Git database
-intro: 'Use the REST API to read and write raw Git objects to your Git database on {% data variables.product.product_name %} and to list and update your references (branch heads and tags).'
+intro: 'Use the REST API to read and write raw Git objects to your Git database on {% data variables.product.github %} and to list and update your references (branch heads and tags).'
 versions:
   fpt: '*'
   ghes: '*'
@@ -17,7 +17,7 @@ redirect_from:
 This basically allows you to reimplement a lot of Git functionality with the REST API - by creating raw objects directly into the database and updating branch references you could technically do just about anything that Git can do without having Git installed.
 
 The REST API will return a `409 Conflict` if the Git repository is empty
-or unavailable.  An unavailable repository typically means {% data variables.product.product_name %} is in the process of creating the repository. For an empty repository, you can use the [`PUT /repos/{owner}/{repo}/contents/{path}`](/rest/repos/contents#create-or-update-file-contents) REST API endpoint to create content and initialize the repository so you can use the API to manage the Git database. Contact {% data variables.contact.contact_support %} if this response status persists.
+or unavailable. An unavailable repository typically means {% data variables.product.github %} is in the process of creating the repository. For an empty repository, you can use the [`PUT /repos/{owner}/{repo}/contents/{path}`](/rest/repos/contents#create-or-update-file-contents) REST API endpoint to create content and initialize the repository so you can use the API to manage the Git database. Contact {% data variables.contact.contact_support %} if this response status persists.
 
 For more information on the Git object database, please read the
 [Git Internals](https://git-scm.com/book/en/v2/Git-Internals-Plumbing-and-Porcelain) chapter of
@@ -39,11 +39,8 @@ the model and it opens up a ton of things you could potentially do with the API.
 
 ## Checking mergeability of pull requests
 
-{% warning %}
-
-**Warning!** Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git/refs#get-a-reference)  for updates to `merge` Git refs, because this content becomes outdated without warning.
-
-{% endwarning %}
+> [!WARNING]
+> Please do not depend on using Git directly or [`GET /repos/{owner}/{repo}/git/refs/{ref}`](/rest/git/refs#get-a-reference) for updates to `merge` Git refs, because this content becomes outdated without warning.
 
 A consuming API needs to explicitly request a pull request to create a _test_ merge commit. A _test_ merge commit is created when you view the pull request in the UI and the "Merge" button is displayed, or when you [get](/rest/pulls/pulls#get-a-pull-request), [create](/rest/pulls/pulls#create-a-pull-request), or [edit](/rest/pulls#update-a-pull-request) a pull request using the REST API. Without this request, the `merge` Git refs will fall out of date until the next time someone views the pull request.
 

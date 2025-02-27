@@ -13,9 +13,11 @@ topics:
   - CodeQL
 children:
   - /about-code-scanning-alerts
-  - /about-autofix-for-codeql-code-scanning
+  - /responsible-use-autofix-code-scanning
   - /disabling-autofix-for-code-scanning
-  - /managing-code-scanning-alerts-for-your-repository
+  - /assessing-code-scanning-alerts-for-your-repository
+  - /resolving-code-scanning-alerts
+  - /fixing-alerts-in-security-campaign
   - /triaging-code-scanning-alerts-in-pull-requests
   - /tracking-code-scanning-alerts-in-issues-using-task-lists
 ---

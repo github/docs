@@ -25,7 +25,7 @@ You decide what information to include in your profile README, so you have full 
 
 ![Screenshot of the profile page for @octocato. In the top-right corner, a profile README greets the viewer and lists information about the user's work.](/assets/images/help/repository/profile-with-readme.png)
 
-You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)." For a hands-on guide to customizing your profile README, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github)."
+You can format text and include emoji, images, and GIFs in your profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github). For a hands-on guide to customizing your profile README, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github).
 
 ## Prerequisites
 
@@ -36,11 +36,8 @@ You can format text and include emoji, images, and GIFs in your profile README b
 * The repository contains a file named README.md in its root.
 * The README.md file contains any content.
 
-{% note %}
-
-**Note**: If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom %} and clicking **Share to profile**.
-
-{% endnote %}
+> [!NOTE]
+> If you created a public repository with the same name as your username before July 2020, {% data variables.product.prodname_dotcom %} won't automatically show the repository's README on your profile. You can manually share the repository's README to your profile by going to the repository on {% data variables.product.prodname_dotcom %} and clicking **Share to profile**.
 
 ## Adding a profile README
 
@@ -49,7 +46,7 @@ You can format text and include emoji, images, and GIFs in your profile README b
 
   The generated README file is pre-populated with a template to give you some inspiration for your profile README.
 
-For a summary of all the available emojis and their codes, see "[Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/)."
+For a summary of all the available emojis and their codes, see [Emoji cheat sheet](https://www.webfx.com/tools/emoji-cheat-sheet/).
 
 ## Removing a profile README
 
@@ -59,12 +56,12 @@ The profile README will be removed from your {% data variables.product.prodname_
 * The repository is made private.
 * The repository name no longer matches your username due to a change in either or both names.
 
-The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility)."
+The method you choose depends upon your needs, but if you're unsure, we recommend making your repository private. For steps on how to make your repository private, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility#changing-a-repositorys-visibility).
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile#adding-a-member-only-organization-profile-readme)
 {%- ifversion enterprise-readme %}
-* "[AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)"
+* [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise)
 {%- endif %}

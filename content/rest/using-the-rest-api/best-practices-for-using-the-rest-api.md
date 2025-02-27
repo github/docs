@@ -17,21 +17,18 @@ shortTitle: Best practices
 
 {% ifversion ghes %}
 
-{% note %}
-
-**Note**: Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
-
-{% endnote %}
+> [!NOTE]
+> Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
 
 {% endif %}
 
 ## Avoid polling
 
-You should subscribe to webhook events instead of polling the API for data. This will help your integration stay within the API rate limit. For more information, see "[AUTOTITLE](/webhooks)."
+You should subscribe to webhook events instead of polling the API for data. This will help your integration stay within the API rate limit. For more information, see [AUTOTITLE](/webhooks).
 
 ## Make authenticated requests
 
-Authenticated requests have a higher primary rate limit than unauthenticated requests. To avoid exceeding the rate limit, you should make authenticated requests. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
+Authenticated requests have a higher primary rate limit than unauthenticated requests. To avoid exceeding the rate limit, you should make authenticated requests. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
 
 ## Avoid concurrent requests
 
@@ -51,9 +48,11 @@ If you receive a rate limit error, you should stop making requests temporarily a
 
 Continuing to make requests while you are rate limited may result in the banning of your integration.
 
+{% data reusables.organizations.api-insights-learn-about %}
+
 ## Follow redirects
 
-The {% data variables.product.product_name %} REST API uses HTTP redirection where appropriate. You should assume that any
+The {% data variables.product.github %} REST API uses HTTP redirection where appropriate. You should assume that any
 request may result in a redirection. Receiving an HTTP redirection is not an error, and you should follow the redirect.
 
 A `301` status code indicates permanent redirection. You should repeat your request to the URL specified by the `location` header. Additionally, you should update your code to use this URL for future requests.
@@ -66,7 +65,7 @@ Other redirection status codes may be used in accordance with HTTP specification
 
 Many API endpoints return URL values for fields in the response body. You should not try to parse these URLs or to predict the structure of future URLs. This can cause your integration to break if {% data variables.product.company_short %} changes the structure of the URL in the future. Instead, you should look for a field that contains the information that you need. For example, the endpoint to create an issue returns an `html_url` field with a value like `https://github.com/octocat/Hello-World/issues/1347` and a `number` field with a value like `1347`. If you need to know the number of the issue, use the `number` field instead of parsing the `html_url` field.
 
-Similarly, you should not try to manually construct pagination queries. Instead, you should use the link headers to determine what pages of results you can request. For more information, see "[AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api)."
+Similarly, you should not try to manually construct pagination queries. Instead, you should use the link headers to determine what pages of results you can request. For more information, see [AUTOTITLE](/rest/guides/using-pagination-in-the-rest-api).
 
 ## Use conditional requests if appropriate
 
@@ -92,5 +91,5 @@ Intentionally ignoring repeated validation errors may result in the suspension o
 
 ## Further reading
 
-* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
-* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)
+* [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)

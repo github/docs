@@ -9,5 +9,4 @@ topics:
 children:
   - /reviewing-user-activity-data-for-copilot-in-your-organization
   - /reviewing-audit-logs-for-copilot-business
-  - /reviewing-changes-to-content-exclusions-for-github-copilot
 ---

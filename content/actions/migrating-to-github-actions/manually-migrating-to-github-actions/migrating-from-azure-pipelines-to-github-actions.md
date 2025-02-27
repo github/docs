@@ -29,7 +29,7 @@ Azure Pipelines and {% data variables.product.prodname_actions %} both allow you
 * Jobs include one or more steps or individual commands.
 * Steps or tasks can be reused and shared with the community.
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
 
 ## Key differences
 
@@ -52,7 +52,7 @@ Jobs and steps in Azure Pipelines are very similar to jobs and steps in {% data 
 
 You can run a script or a shell command as a step in a workflow. In Azure Pipelines, script steps can be specified using the `script` key, or with the `bash`, `powershell`, or `pwsh` keys. Scripts can also be specified as an input to the [Bash task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/bash?view=azure-devops) or the [PowerShell task](https://docs.microsoft.com/azure/devops/pipelines/tasks/utility/powershell?view=azure-devops).
 
-In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. To select a particular shell, you can specify the `shell` key when providing the script. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun)."
+In {% data variables.product.prodname_actions %}, all scripts are specified using the `run` key. To select a particular shell, you can specify the `shell` key when providing the script. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsrun).
 
 Below is an example of the syntax for each system.
 
@@ -100,7 +100,7 @@ jobs:
 
 In Azure Pipelines, scripts can be configured to error if any output is sent to `stderr`. {% data variables.product.prodname_actions %} does not support this configuration.
 
-{% data variables.product.prodname_actions %} configures shells to "fail fast" whenever possible, which stops the script immediately if one of the commands in a script exits with an error code. In contrast, Azure Pipelines requires explicit configuration to exit immediately on an error. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference)."
+{% data variables.product.prodname_actions %} configures shells to "fail fast" whenever possible, which stops the script immediately if one of the commands in a script exits with an error code. In contrast, Azure Pipelines requires explicit configuration to exit immediately on an error. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#exit-codes-and-error-action-preference).
 
 ## Differences in the default shell on Windows
 
@@ -141,7 +141,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell)."
+For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#using-a-specific-shell).
 
 ## Migrating conditionals and expression syntax
 
@@ -182,7 +182,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 ## Dependencies between jobs
 
@@ -252,7 +252,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
 ## Migrating tasks to actions
 
@@ -293,4 +293,4 @@ jobs:
       - run: python script.py
 ```
 
-You can find actions that you can use in your workflow in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see "[AUTOTITLE](/actions/creating-actions)."
+You can find actions that you can use in your workflow in [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=actions), or you can create your own actions. For more information, see [AUTOTITLE](/actions/creating-actions).

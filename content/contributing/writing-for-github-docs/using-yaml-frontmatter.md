@@ -1,9 +1,11 @@
 ---
 title: Using YAML frontmatter
-shortTitle: YAML frontmatter # Max 31 characters
+shortTitle: YAML frontmatter
 intro: 'You can use YAML frontmatter to define versioning, add metadata, and control the layout for articles.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter
 ---
@@ -45,7 +47,7 @@ For more information, see [`lib/frontmatter.js`](https://github.com/github/docs/
 ### `versions`
 
 * Purpose: Indicates the [versions](https://github.com/github/docs/blob/main/src/versions/lib/all-versions.js) to which a page applies.
-For more information about the different types of versioning, see "[Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation)."
+For more information about the different types of versioning, see [Versioning documentation](/contributing/syntax-and-versioning-for-github-docs/versioning-documentation).
 * Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](https://github.com/github/docs/blob/main/src/frame/lib/frontmatter.js).
 * This frontmatter value is currently **required** for all pages.
 * The `*` is used to denote all releases for the version.
@@ -53,7 +55,7 @@ For more information about the different types of versioning, see "[Versioning d
 
 This frontmatter value is used by the docs site to generate "permalinks" for each version of an article. For more information, see [Permalinks](/contributing/writing-for-github-docs/using-markdown-and-liquid-in-github-docs#permalinks).
 
-Example that applies to {% data variables.product.prodname_dotcom_the_website %} and recent versions of {% data variables.product.prodname_ghe_server %}:
+Example that applies to Free, Pro, & Team and {% data variables.product.prodname_ghe_server %} version 3.11 and later:
 
 ```yaml
 title: About your personal dashboard
@@ -62,7 +64,7 @@ versions:
   ghes: '>=3.11'
 ```
 
-Example that applies to all supported versions of {% data variables.product.prodname_ghe_server %}, but not {% data variables.product.prodname_dotcom_the_website %}:
+Example that applies only to {% data variables.product.prodname_ghe_server %}:
 
 ```yaml
 title: Downloading your license
@@ -70,7 +72,7 @@ versions:
   ghes: '*'
 ```
 
-You can also version a page for a range of releases. This would version the page for {% data variables.product.prodname_dotcom_the_website %}, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
+You can also version a page for a range of releases. This would version the page for Free, Pro, & Team, and {% data variables.product.prodname_ghe_server %} versions 3.1 and 3.2 only:
 
 ```yaml
 versions:
@@ -94,7 +96,7 @@ redirect_from:
   - /articles/getting-started-with-github-for-windows
 ```
 
-For more information, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects)."
+For more information, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/configuring-redirects).
 
 ### `title`
 
@@ -214,7 +216,7 @@ defaultPlatform: linux
 
 ### `defaultTool`
 
-* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see "[AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags)." If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
+* Purpose: Override the initial tool selection for a page, where the tool refers to the application the reader is using to work with GitHub (such as GitHub.com's web UI, the GitHub CLI, or GitHub Desktop) or the GitHub APIs. For more information about the tool selector, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#tool-tags). If this frontmatter is omitted, then the tool-specific content matching the GitHub web UI is shown by default. If a user has indicated a tool preference (by clicking on a tool tab), then the user's preference will be applied instead of the default value.
 * Type: `String`, one of: `webui`, `cli`, `desktop`, `curl`, `codespaces`, `vscode`, `importer_cli`, `graphql`, `powershell`, `bash`, `javascript`.
 * Optional.
 
@@ -228,11 +230,8 @@ defaultTool: cli
 * Type: `String`. This should reference learning tracks' names defined in [`data/learning-tracks/*.yml`](https://github.com/github/docs/tree/main/data/learning-tracks).
 * Optional
 
-{% note %}
-
-**Note:** the featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
-
-{% endnote %}
+> [!NOTE]
+> The featured track is set by a specific property in the learning tracks YAML. See that [README](https://github.com/github/docs/blob/main/data/learning-tracks/README.md) for details.
 
 ### `includeGuides`
 
@@ -258,7 +257,7 @@ includeGuides:
 
 ### `topics`
 
-* Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of "[Guides for {% data variables.product.prodname_actions %}](/actions/guides#all-guides)" can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.js) will fail.
+* Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](https://github.com/github/docs/blob/main/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](https://github.com/github/docs/blob/main/src/search/tests/topics.ts) will fail.
 * Type: Array of `String`s
 * Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
@@ -274,11 +273,8 @@ includeGuides:
 * Type: `string` YEAR-MONTH-DAY e.g. 2021-10-04 is October 4th, 2021
 * Optional.
 
-{% note %}
-
-**Note:** The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
-
-{% endnote %}
+> [!NOTE]
+> The `effectiveDate` frontmatter value is for use by {% data variables.product.company_short %} staff only.
 
 ## Escaping single quotes
 
@@ -304,17 +300,14 @@ When adding a new article, make sure the filename is a [kebab-cased](https://en.
 
 Index pages are the table of contents files for the Docs site. Every product, category, and map topic subdirectory has an `index.md` file that provides an overview of the content and links to every child article. Each `index.md` must contain a `children` frontmatter property with a list of relative links to the child pages of the product, category, or map topic. Index pages require a `versions` frontmatter property, and the actual value will be computed at runtime based on the versions of children articles.
 
-{% note %}
-
-**Note**: The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
-
-{% endnote %}
+> [!NOTE]
+> The site only knows about paths included in `children` frontmatter. If a directory or article exists but is **not** included in `children`, its path will return a 404.
 
 ## Homepage
 
 The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-pages) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
 
-`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
+`childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`. The `children` in the array must be present in the `children` frontmatter property.
 
 ## Creating new product guides pages
 

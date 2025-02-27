@@ -2,12 +2,12 @@
 title: Configuring SSH connections to your instance
 shortTitle: Configure SSH connections
 intro: 'You can increase the security of {% data variables.location.product_location %} by configuring the SSH algorithms that clients can use to establish a connection.'
-permissions: 'Site administrators can configure SSH connections to a {% data variables.product.product_name %} instance.'
+permissions: Site administrators
 redirect_from:
   - /admin/configuration/configuring-your-enterprise/configuring-ssh-connections-to-your-instance
   - /admin/configuration/hardening-security-for-your-enterprise/configuring-ssh-connections-to-your-instance
 versions:
-  ghes: '>= 3.6'
+  ghes: '*'
 type: how_to
 topics:
   - Authentication
@@ -36,12 +36,12 @@ You can adjust the cutoff date. If the user uploaded the RSA key before the cuto
 
 Regardless of the setting you choose for your instance, clients can continue to connect using any RSA key signed with a SHA-2 hash function.
 
-If you use an SSH certificate authority, connections will fail if the certificate's `valid_after` date is after the cutoff date. For more information, see "[AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities)."
+If you use an SSH certificate authority, connections will fail if the certificate's `valid_after` date is after the cutoff date. For more information, see [AUTOTITLE](/organizations/managing-git-access-to-your-organizations-repositories/about-ssh-certificate-authorities).
 
 For more information, see [{% data variables.product.prodname_blog %}](https://github.blog/2022-06-28-improving-git-protocol-security-on-github-enterprise-server).
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Audit your instance's logs for connections that use unsecure algorithms or hash functions using the `ghe-find-insecure-git-operations` utility. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-find-insecure-git-operations)."
+1. Audit your instance's logs for connections that use unsecure algorithms or hash functions using the `ghe-find-insecure-git-operations` utility. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-find-insecure-git-operations).
 1. To configure a cutoff date after which {% data variables.location.product_location %} will deny connections from clients that use an RSA key uploaded after the date if the connection is signed by the SHA-1 hash function, enter the following command. Replace _**RFC-3399-UTC-TIMESTAMP**_ with a valid RFC 3399 UTC timestamp. For example, the default value, August 1, 2022, would be represented as `2022-08-01T00:00:00Z`. For more information, see [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339) on the IETF website.
 
    <pre>

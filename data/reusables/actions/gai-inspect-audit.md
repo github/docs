@@ -12,7 +12,7 @@ Listed below are some key terms that can appear in the "Pipelines" section:
 * **Partially successful** pipelines had all of the pipeline constructs converted, however, there were some individual items that were not converted automatically to their {% data variables.product.prodname_actions %} equivalent.
 * **Unsupported** pipelines are definition types that are not supported by {% data variables.product.prodname_actions_importer %}.
 * **Failed** pipelines encountered a fatal error when being converted. This can occur for one of three reasons:
-  * The pipeline was misconfigured and not valid in Bamboo.
+  * The pipeline was originally misconfigured and not valid.
   * {% data variables.product.prodname_actions_importer %} encountered an internal error when converting it.
   * There was an unsuccessful network response that caused the pipeline to be inaccessible, which is often due to invalid credentials.
 
@@ -37,7 +37,7 @@ The "Manual tasks" section contains an overview of tasks that {% data variables.
 
 Listed below are some key terms that can appear in the "Manual tasks" section:
 
-* A **secret** is a repository or organization-level secret that is used in the converted pipelines. These secrets must be created manually in {% data variables.product.prodname_actions %} for these pipelines to function properly. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+* A **secret** is a repository or organization-level secret that is used in the converted pipelines. These secrets must be created manually in {% data variables.product.prodname_actions %} for these pipelines to function properly. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 * A **self-hosted runner** refers to a label of a runner that is referenced in a converted pipeline that is not a {% data variables.product.prodname_dotcom %}-hosted runner. You will need to manually define these runners for these pipelines to function properly.
 
 #### Files

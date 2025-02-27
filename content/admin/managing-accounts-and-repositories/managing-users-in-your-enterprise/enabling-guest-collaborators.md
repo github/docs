@@ -17,8 +17,8 @@ topics:
 
 If you use **Microsoft Entra ID** (previously known as Azure AD) or **Okta** for authentication, you may need update the {% data variables.product.prodname_emus %} application in your IdP.
 
-* "[Enabling guest collaborators with Entra ID](#enabling-guest-collaborators-with-entra-id)"
-* "[Enabling guest collaborators with Okta](#enabling-guest-collaborators-with-okta)"
+* [Enabling guest collaborators with Entra ID](#enabling-guest-collaborators-with-entra-id)
+* [Enabling guest collaborators with Okta](#enabling-guest-collaborators-with-okta)
 
 ### Enabling guest collaborators with Entra ID
 
@@ -59,11 +59,9 @@ If you use **Microsoft Entra ID** (previously known as Azure AD) or **Okta** for
    },
    ```
 
-   {% note %}
+   > [!NOTE]
+   > The `id` value is critical. If another `id` value is present, the update will fail.
 
-   **Note:** The `id` value is critical. If another `id` value is present, the update will fail.
-
-   {% endnote %}
 1. Click **Save**.
 
 ### Enabling guest collaborators with Okta
@@ -87,7 +85,7 @@ When guest collaborators are enabled in your IdP, you can use SCIM to provision 
 * If you use a partner IdP, use the "Roles" attribute in the {% data variables.product.prodname_emus %} application.
 * If you use the SCIM endpoints of {% data variables.product.company_short %}'s REST API to provision users, use the `roles` user attribute.
 
-For more information about partner IdPs and other identity management systems, see "[AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+For more information about partner IdPs and other identity management systems, see [AUTOTITLE](/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
 
 ## Giving guest collaborators access to resources
 
@@ -97,18 +95,18 @@ When you have added a guest collaborator to your enterprise, you can add the use
 
 To give the user access to repositories in an organization, add the user as a **member of the organization**.
 
-* As for all members, the base permission policy for the organization determines whether the user has access to internal and private repositories by default. See "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
-* Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. See "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups)."
+* As for all members, the base permission policy for the organization determines whether the user has access to internal and private repositories by default. See [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization).
+* Guest collaborators can be members of IdP groups that are connected to {% data variables.product.prodname_dotcom %} teams, and will be added to the organization via SCIM, just like other enterprise members. See [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups).
 
 ### Add the user to a repository
 
 To give the user access to specific repositories, add the user to the repositories as a **repository collaborator**.
 
-This gives the user access to the repository without giving them access to other internal or private repositories in the same organization. For more information, see "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators)."
+This gives the user access to the repository without giving them access to other internal or private repositories in the same organization. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#outside-collaborators-or-repository-collaborators).
 
 ## Further reading
 
 * [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Entra ID documentation
-* [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/r/en-us/pingfederate-github-emu-connector/pingfederate_github_connector_configure_pingfederate_for_provisioning_and_sso) in the PingIdentity documentation
-* "[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)"
-* "[AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)"
+* [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_gh_emu_configure_pf_for_provisioning_and_sso.html) in the PingIdentity documentation
+* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)
+* [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)

@@ -5,7 +5,7 @@ redirect_from:
   - /articles/changing-a-commit-message
   - /github/committing-changes-to-your-project/changing-a-commit-message
   - /github/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
-intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.product_name %}. You can also change a commit message to add missing information.'
+intro: 'If a commit message contains unclear, incorrect, or sensitive information, you can amend it locally and push a new commit with a new message to {% data variables.product.github %}. You can also change a commit message to add missing information.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,28 +24,22 @@ If the commit only exists in your local repository and has not been pushed to {%
 1. On the command line, navigate to the repository that contains the commit you want to amend.
 1. Type `git commit --amend` and press **Enter**.
 1. In your text editor, edit the commit message, and save the commit.
-    * You can add a co-author by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors)."
+    * You can add a co-author by adding a trailer to the commit. For more information, see [AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-with-multiple-authors).
 {% ifversion fpt or ghec %}
-    * You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see "[AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization)."
+    * You can create commits on behalf of your organization by adding a trailer to the commit. For more information, see [AUTOTITLE](/pull-requests/committing-changes-to-your-project/creating-and-editing-commits/creating-a-commit-on-behalf-of-an-organization).
 {% endif %}
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push.
 
-{% tip %}
-
-You can change the default text editor for Git by changing the `core.editor` setting. For more information, see "[Basic Client Configuration](https://git-scm.com/book/en/Customizing-Git-Git-Configuration#_basic_client_configuration)" in the Git manual.
-
-{% endtip %}
+> [!TIP]
+> You can change the default text editor for Git by changing the `core.editor` setting. For more information, see [Basic Client Configuration](https://git-scm.com/book/en/v2/Customizing-Git-Git-Configuration#_basic_client_configuration) in the Git manual.
 
 ## Amending older or multiple commit messages
 
 If you have already pushed the commit to {% data variables.location.product_location %}, you will have to force push a commit with an amended message.
 
-{% warning %}
-
-We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see "[Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase)" in the Git manual.
-
-{% endwarning %}
+> [!WARNING]
+> We strongly discourage force pushing, since this changes the history of your repository. If you force push, people who have already cloned your repository will have to manually fix their local history. For more information, see [Recovering from upstream rebase](https://git-scm.com/docs/git-rebase#_recovering_from_upstream_rebase) in the Git manual.
 
 **Changing the message of the most recently pushed commit**
 
@@ -110,20 +104,14 @@ If you need to amend the message for multiple commits or an older commit, you ca
    git push --force origin EXAMPLE-BRANCH
    ```
 
-For more information on interactive rebase, see "[Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode)" in the Git manual.
+For more information on interactive rebase, see [Interactive mode](https://git-scm.com/docs/git-rebase#_interactive_mode) in the Git manual.
 
-{% tip %}
+> [!NOTE]
+> As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
 
-As before, amending the commit message will result in a new commit with a new ID. However, in this case, every commit that follows the amended commit will also get a new ID because each commit also contains the ID of its parent.
-
-{% endtip %}
-
-{% warning %}
-
-If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.product_name %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.product_name %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
-
-{% endwarning %}
+> [!WARNING]
+> If you have included sensitive information in a commit message, force pushing a commit with an amended commit may not remove the original commit from {% data variables.product.github %}. The old commit will not be a part of a subsequent clone; however, it may still be cached on {% data variables.product.github %} and accessible via the commit ID. You must contact {% data variables.contact.contact_support %} with the old commit ID to have it purged from the remote repository.
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)

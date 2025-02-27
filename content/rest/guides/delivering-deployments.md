@@ -15,7 +15,7 @@ topics:
 
 
 
-You can use the REST API to deploy your projects hosted on {% data variables.product.product_name %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see "[AUTOTITLE](/rest/deployments)." You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see "[AUTOTITLE](/rest/guides/building-a-ci-server)."
+You can use the REST API to deploy your projects hosted on {% data variables.product.github %} on a server that you own. For more information about the endpoints to manage deployments and statuses, see [AUTOTITLE](/rest/deployments). You can also use the REST API to coordinate your deployments the moment your code lands on the default branch. For more information, see [AUTOTITLE](/rest/guides/building-a-ci-server).
 
 This guide will use the REST API to demonstrate a setup that you can use.
 In our scenario, we will:
@@ -33,11 +33,10 @@ to [use it](/webhooks-and-events/webhooks/configuring-your-server-to-receive-pay
 applications to the internet.
 
 {% ifversion cli-webhook-forwarding %}
-{% note %}
 
-**Note:** Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see "[AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli)."
+> [!NOTE]
+> Alternatively, you can use webhook forwarding to set up your local environment to receive webhooks. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/receiving-webhooks-with-the-github-cli).
 
-{% endnote %}
 {% endif %}
 
 Note: you can download the complete source code for this project
@@ -77,7 +76,7 @@ Great! Click on **Let me select individual events.**, and select the following:
 * Deployment status
 * Pull Request
 
-These are the events {% data variables.product.product_name %} will send to our server whenever the relevant action
+These are the events {% data variables.product.github %} will send to our server whenever the relevant action
 occurs. We'll configure our server to _just_ handle when pull requests are merged
 right now:
 
@@ -94,7 +93,7 @@ post '/event_handler' do
 end
 ```
 
-What's going on? Every event that {% data variables.product.product_name %} sends out attached a `X-GitHub-Event`
+What's going on? Every event that {% data variables.product.github %} sends out attached a `X-GitHub-Event`
 HTTP header. We'll only care about the PR events for now. When a pull request is
 merged (its state is `closed`, and `merged` is `true`), we'll kick off a deployment.
 

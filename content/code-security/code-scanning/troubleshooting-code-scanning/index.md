@@ -19,8 +19,8 @@ children:
   - /alerts-in-generated-code
   - /analysis-takes-too-long
   - /automatic-build-failed
+  - /c-sharp-compiler-unexpectedly-failing
   - /cannot-enable-codeql-in-a-private-repository
-  - /default-setup-fails-with-a-language
   - /enabling-default-setup-takes-too-long
   - /extraction-errors-in-the-database
   - /fewer-lines-scanned-than-expected
@@ -37,3 +37,4 @@ children:
   - /unnecessary-step-found
   - /kotlin-detected-in-no-build
 ---
+

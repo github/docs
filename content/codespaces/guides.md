@@ -32,7 +32,6 @@ includeGuides:
   - /codespaces/developing-in-a-codespace/stopping-and-starting-a-codespace
   - /codespaces/developing-in-a-codespace/working-collaboratively-in-a-codespace
   - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
-  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   - /codespaces/developing-in-a-codespace/using-github-codespaces-with-github-cli
   - /codespaces/developing-in-a-codespace/using-source-control-in-your-codespace
   - /codespaces/developing-in-a-codespace/using-github-codespaces-for-pull-requests
@@ -53,7 +52,7 @@ includeGuides:
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces
   - /codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports
   - /codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces
-  - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+  - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
   - /codespaces/reference/using-the-vs-code-command-palette-in-codespaces
   - /codespaces/reference/disaster-recovery-for-github-codespaces
   - /codespaces/reference/security-in-github-codespaces

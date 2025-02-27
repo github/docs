@@ -15,7 +15,7 @@ import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
 import { nonAutomatedRestPaths } from '../lib/config.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 
 export async function getDiffOpenAPIContentRest() {
   const contentFiles = getAutomatedMarkdownFiles('content/rest')

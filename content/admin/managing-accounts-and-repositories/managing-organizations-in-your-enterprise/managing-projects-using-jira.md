@@ -1,6 +1,6 @@
 ---
 title: Managing projects using Jira
-intro: 'You can integrate Jira with {% data variables.product.product_name %} for project management.'
+intro: 'You can integrate Jira with {% data variables.product.prodname_ghe_server %} for project management.'
 redirect_from:
   - /enterprise/admin/guides/installation/project-management-using-jira
   - /enterprise/admin/articles/project-management-using-jira
@@ -25,11 +25,9 @@ shortTitle: Project management with Jira
 {% data reusables.user-settings.oauth_apps %}
 1. Click **New {% data variables.product.prodname_oauth_app %}**.
 
-   {% note %}
+   > [!NOTE]
+   > If you haven't created an app before, this button will say, **Register an application**.
 
-   **Note:** If you haven't created an app before, this button will say, **Register an application**.
-
-   {% endnote %}
 1. Fill in the application settings:
     * In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
     * In the **Homepage URL** field, type the full URL of your Jira instance.

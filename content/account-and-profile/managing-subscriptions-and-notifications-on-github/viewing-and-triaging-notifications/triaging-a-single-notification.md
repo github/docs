@@ -29,7 +29,7 @@ When you click an individual notification from your inbox, you're directed to th
 * Save the notification for later
 * Return to your notifications inbox
 
-For more information about your triage options, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options)."
+For more information about your triage options, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options).
 
 ## Customizing when to receive future updates for an issue or pull request
 

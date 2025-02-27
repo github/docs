@@ -31,7 +31,7 @@ This guide assumes you are familiar with the following AWS concepts:
 * [EC2 and Virtual Private Cloud](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html) (If you plan to launch into a Virtual Private Cloud)
 * [AWS Pricing](https://aws.amazon.com/pricing/) (For calculating and managing costs)
 
-For a diagram that provides an architectural overview, see the "[AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/enterprise/enterprise-server/installing-github-enterprise-server-on-aws.png)."
+For a diagram that provides an architectural overview, see the [AWS Architecture Diagram for Deploying GitHub Enterprise Server](/assets/images/enterprise/enterprise-server/installing-github-enterprise-server-on-aws.png).
 
 This guide recommends the principle of least privilege when setting up {% data variables.location.product_location %} on AWS. For more information, refer to the [AWS Identity and Access Management (IAM) documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/best-practices.html#grant-least-privilege).
 
@@ -41,7 +41,7 @@ This guide recommends the principle of least privilege when setting up {% data v
 
 ## Determining the instance type
 
-Before launching {% data variables.location.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum recommended requirements for {% data variables.product.prodname_ghe_server %}, see [Minimum recommended requirements](#minimum-recommended-requirements).
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
@@ -85,7 +85,7 @@ If you're setting up your AMI for the first time, you will need to create a secu
 
 1. Take note of the security group ID (`sg-xxxxxxxx`) of your newly created security group.
 
-1. Create a security group rule for each of the ports in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) in the AWS documentation.
+1. Create a security group rule for each of the ports in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports), and [authorize-security-group-ingress](https://docs.aws.amazon.com/cli/latest/reference/ec2/authorize-security-group-ingress.html) in the AWS documentation.
 
    ```shell
    aws ec2 authorize-security-group-ingress --group-id SECURITY_GROUP_ID --protocol PROTOCOL --port PORT_NUMBER --cidr SOURCE IP RANGE
@@ -97,20 +97,13 @@ If you're setting up your AMI for the first time, you will need to create a secu
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
 
-To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
+To create the instance, you'll need to launch an EC2 instance with your {% data variables.product.prodname_ghe_server %} AMI and attach an additional storage volume for your instance data. For more information, see [Hardware considerations](#hardware-considerations).
 
-{% note %}
+> [!NOTE]
+> You can encrypt the data disk to gain an extra level of security and ensure that any data you write to your instance is protected. There is a slight performance impact when using encrypted disks. If you decide to encrypt your volume, we strongly recommend doing so **before** starting your instance for the first time. For more information, see the [Amazon guide on EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
 
-**Note:** You can encrypt the data disk to gain an extra level of security and ensure that any data you write to your instance is protected. There is a slight performance impact when using encrypted disks. If you decide to encrypt your volume, we strongly recommend doing so **before** starting your instance for the first time.
- For more information, see the [Amazon guide on EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html).
-
-{% endnote %}
-
-{% warning %}
-
-**Warning:** If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
-
-{% endwarning %}
+> [!WARNING]
+> If you decide to enable encryption after you've configured your instance, you will need to migrate your data to the encrypted volume, which will incur some downtime for your users.
 
 ### Launching an EC2 instance
 
@@ -130,7 +123,7 @@ aws ec2 run-instances \
 
 If this is a production instance, we strongly recommend allocating an Elastic IP (EIP) and associating it with the instance before proceeding to {% data variables.product.prodname_ghe_server %} configuration. Otherwise, the public IP address of the instance will not be retained after instance restarts. For more information, see [Allocating an Elastic IP Address](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-allocating) and [Associating an Elastic IP Address with a Running Instance](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html#using-instance-addressing-eips-associating) in the Amazon documentation.
 
-Both primary and replica instances should be assigned separate EIPs in production High Availability configurations. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability)."
+Both primary and replica instances should be assigned separate EIPs in production High Availability configurations. For more information, see [AUTOTITLE](/admin/enterprise-management/configuring-high-availability).
 
 ## Configuring the {% data variables.product.prodname_ghe_server %} instance
 
@@ -140,11 +133,11 @@ Both primary and replica instances should be assigned separate EIPs in productio
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* [AUTOTITLE](/admin/overview/system-overview)
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)

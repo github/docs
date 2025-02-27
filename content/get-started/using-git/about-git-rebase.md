@@ -19,11 +19,8 @@ Typically, you would use `git rebase` to:
 * Combine multiple commits into one
 * Delete or revert commits that are no longer necessary
 
-{% warning %}
-
-**Warning**: Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges)."
-
-{% endwarning %}
+> [!WARNING]
+> Because changing your commit history can make things difficult for everyone else using the repository, it's considered bad practice to rebase commits when you've already pushed to a repository. To learn how to safely rebase, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/about-pull-request-merges).
 
 ## Rebasing commits against a branch
 
@@ -67,7 +64,7 @@ There are six commands available while rebasing:
 
 ## An example of using `git rebase`
 
-No matter which command you use, Git will launch [your default text editor](/get-started/getting-started-with-git/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
+No matter which command you use, Git will launch [your default text editor](/get-started/git-basics/associating-text-editors-with-git) and open a file that details the commits in the range you've chosen. That file looks something like this:
 
 ```text
 pick 1fc6c95 Patch A
@@ -103,8 +100,8 @@ Breaking this information, from top to bottom, we see that:
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)"
-* [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Branching-Rebasing)
-* [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/Git-Tools-Rewriting-History#_changing_multiple)
-* "[Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)"
-* "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)" in the {% data variables.product.prodname_desktop %} documentation
+* [AUTOTITLE](/get-started/using-git/using-git-rebase-on-the-command-line)
+* [The "Git Branching" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Branching-Rebasing)
+* [The "Interactive Rebasing" chapter from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#_changing_multiple)
+* [Squashing commits with rebase](http://gitready.com/advanced/2009/02/10/squashing-commits-with-rebase.html)
+* [AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop) in the {% data variables.product.prodname_desktop %} documentation

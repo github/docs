@@ -21,12 +21,9 @@ You can view a list of devices that have logged into your account, and revoke an
 1. To see the session details, next to the session, click **See more**.
 1. To revoke a session, in the session details, click **Revoke SAML**.
 
-  {% note %}
-
-  **Note:** When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)."
-
-  {% endnote %}
+  > [!NOTE]
+  > When you revoke a session, you remove your SAML authentication to that organization. To access the organization again, you will need to single sign-on through your identity provider. For more information, see [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on).
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)"
+* [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)

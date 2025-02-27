@@ -23,7 +23,7 @@ topics:
 
 A repository is the most basic element of {% data variables.product.prodname_dotcom %}. It's a place where you can store your code, your files, and each file's revision history. Repositories can have multiple collaborators and can be either public{% ifversion ghes or ghec %}, internal,{% endif %} or private.
 
-To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories)."
+To create a new repository, go to [https://github.com/new](https://github.com/new). For instructions, see [AUTOTITLE](/repositories/creating-and-managing-repositories/quickstart-for-repositories).
 
 ## Repository terminology
 
@@ -38,8 +38,8 @@ Clone | To download a full copy of a repository's data from {% data variables.lo
 Fork | A new repository that shares code and visibility settings with the original "upstream" repository.
 Merge | To take the changes from one branch and apply them to another.
 Pull request | A request to merge changes from one branch into another.
-Remote | A repository stored on {% data variables.product.product_name %}, not on your computer.
-Upstream | The branch on an original repository that has been forked or cloned. The corresponding branch on the cloned or forked branch is called the "downstream."
+Remote | A repository stored on {% data variables.product.github %}, not on your computer.
+Upstream | The branch on an original repository that has been forked or cloned. The corresponding branch on the cloned or forked repository is called the "downstream."
 
 {% endrowheaders %}
 
@@ -47,15 +47,15 @@ Upstream | The branch on an original repository that has been forked or cloned. 
 
 You can own repositories individually, or you can share ownership of repositories with other people in an organization.
 
-In either case, access to repositories is managed by permissions. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+In either case, access to repositories is managed by permissions. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 ## About collaboration
 
 You can use repositories to manage your work and collaborate with others.
-* You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."{% ifversion fpt or ghec %}
+* You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).{% ifversion fpt or ghec %}
 * {% data reusables.discussions.you-can-use-discussions %}{% endif %}
-* You can use pull requests to propose changes to a repository. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
-* You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."
+* You can use pull requests to propose changes to a repository. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
+* You can use {% data variables.product.prodname_projects_v2 %} to organize and prioritize your issues and pull requests. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
 
 {% ifversion fpt or ghec %}
 With {% data variables.product.prodname_free_team %} for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to {% data variables.product.prodname_pro %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_ghe_cloud %}. {% data reusables.gated-features.more-info %}
@@ -77,40 +77,50 @@ When you create a repository, you can choose to make the repository public or pr
 * Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
 {%- endif %}
 {%- ifversion ghec or ghes %}
-* Internal repositories are accessible to all enterprise members. For more information, see "[About internal repositories](#about-internal-repositories)."
+* Internal repositories are accessible to all enterprise members. For more information, see [About internal repositories](#about-internal-repositories).
 {%- endif %}
 
-Organization owners always have access to every repository created in an organization. For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+{% ifversion fpt or ghec %}
 
-People with admin permissions for a repository can change an existing repository's visibility. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility)."
+### Security considerations for repository visibility
+
+Public repositories expose your codebase to everyone, increasing the risk that attackers might exploit vulnerabilities or access sensitive information. You can mitigate these risks by enabling {% data variables.product.github %} security features such as {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_secret_scanning %}, push protection, and {% data variables.product.prodname_code_scanning %} for the repository. Additionally, you should add a security policy (a `SECURITY.md` file) to your repository, that outlines how vulnerabilities should be reported, to ensure that potential threats are addressed efficiently.
+
+Although private repositories restrict access to authorized users, it's still essential to implement strong access controls, multi-factor authentication, and regular audits to mitigate risks.
+
+For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
+
+{% endif %}
+
+Organization owners always have access to every repository created in an organization. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
+
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
 
 {% ifversion ghes or ghec %}
 
 ## About internal repositories
 
-{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper "[An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/)."
+{% data reusables.repositories.about-internal-repos %} For more information on innersource, see {% data variables.product.prodname_dotcom %}'s whitepaper [An introduction to innersource](https://resources.github.com/whitepapers/introduction-to-innersource/).
 
 {% ifversion ghec %}
-{% note %}
 
-**Note:** You can only create internal repositories if you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account. An enterprise account is a separate type of account that allows a central point of management for multiple organizations. For more information, see "[AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts)."
+> [!NOTE]
+> You can only create internal repositories if you use {% data variables.product.prodname_ghe_cloud %} with an enterprise account. An enterprise account is a separate type of account that allows a central point of management for multiple organizations. For more information, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
-{% endnote %}
 {% endif %}
 
-All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
+All enterprise members have read permissions to the internal repository, but internal repositories are not visible to people {% ifversion fpt or ghec %}outside of the enterprise{% else %}who are not members of any organization{% endif %}, including outside collaborators on organization repositories. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#enterprise-members) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
 {% ifversion ghes %}
-{% note %}
 
-**Note:** A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
+> [!NOTE]
+> A user must be part of an organization to be an enterprise member and have access to internal repositories. If a user on {% data variables.location.product_location %} is not a member of any organization, that user will not have access to internal repositories.
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.internal-repo-default %}
 
-By default, enterprise members can fork an internal repository into any organization where the user can create repositories. Organization owners can also allow users to create a fork owned by a user account, and can manage the forking policy for an organization. Enterprise owners can manage the forking policy for some or all organizations within an enterprise. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)" and "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories)."
+By default, enterprise members can fork an internal repository into any organization where the user can create repositories. Organization owners can also allow users to create a fork owned by a user account, and can manage the forking policy for an organization. Enterprise owners can manage the forking policy for some or all organizations within an enterprise. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization) and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).
 
 {% endif %}
 
@@ -118,7 +128,7 @@ By default, enterprise members can fork an internal repository into any organiza
 
 Here are some helpful resources for taking your next steps with repositories.
 
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories):" Learn how to use repositories most effectively.
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository):" Create a new repository.
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository):" Learn how to create and delete branches within your repository.
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request):" Create a pull request to propose and collaborate on changes to a repository.
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories): Learn how to use repositories most effectively.
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository): Create a new repository.
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository): Learn how to create and delete branches within your repository.
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request): Create a pull request to propose and collaborate on changes to a repository.

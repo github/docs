@@ -17,23 +17,28 @@ shortTitle: Change the default branch
 ---
 ## About changing the default branch
 
-You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch)."
+You can choose the default branch for a repository. The default branch is the base branch for pull requests and code commits. For more information about the default branch, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches#about-the-default-branch).
 
 {% ifversion ghes < 3.13 %}
-{% note %}
 
-**Note**: If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see "[AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients)" and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
+> [!NOTE]
+> If you use the Git-Subversion bridge, changing the default branch will affect your `trunk` branch contents and the `HEAD` you see when you list references for the remote repository. For more information, see [AUTOTITLE](/get-started/working-with-subversion-on-github/support-for-subversion-clients) and [git-ls-remote](https://git-scm.com/docs/git-ls-remote.html) in the Git documentation.
 
-{% endnote %}
 {% endif %}
 
-You can also rename the default branch. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch)."
+You can also rename the default branch. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/renaming-a-branch).
 
 {% data reusables.branches.set-default-branch %}
 
 ## Prerequisites
 
-To change the default branch, your repository must have more than one branch. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch)."
+To change the default branch, your repository must have more than one branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch).
+
+{% ifversion not fpt %}
+
+Rulesets at the organization{% ifversion ghec %} or enterprise{% endif %} level that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %} or [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance){% endif %}.
+
+{% endif %}
 
 Additionally, you need to have admin access to a repository to change the default branch.
 

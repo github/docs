@@ -1,0 +1,5 @@
+# Issue #17051
+# enterprise workflow rule
+versions:
+  ghec: '*'
+  ghes: '>= 3.18'

@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Codespaces with GitHub CLI
 shortTitle: GitHub CLI
-intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.product_name %} command line interface.'
+intro: 'You can work with {% data variables.product.prodname_github_codespaces %} directly from your command line by using `gh`, the {% data variables.product.github %} command line interface.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -17,9 +17,9 @@ redirect_from:
 
 ## About {% data variables.product.prodname_cli %}
 
-{% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
-You can work with {% data variables.product.prodname_github_codespaces %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_github_codespaces %} in the {% data variables.product.prodname_cli %} to:
 * [List all of your codespaces](#list-all-of-your-codespaces)
 * [Create a new codespace](#create-a-new-codespace)
 * [View details of a codespace](#view-details-of-a-codespace)
@@ -61,13 +61,10 @@ As an example of a series of commands you might use to work with {% data variabl
 
 The sections below give example commands for each of the available operations.
 
-For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for "[gh codespace](https://cli.github.com/manual/gh_codespace)." Alternatively, on the command line, use `gh codespace --help` for general help or `gh codespace SUBCOMMAND --help` for help with a specific subcommand.
+For a complete reference of `gh` commands for {% data variables.product.prodname_github_codespaces %}, including details of all available options for each command, see the {% data variables.product.prodname_cli %} online help for [gh codespace](https://cli.github.com/manual/gh_codespace). Alternatively, on the command line, use `gh codespace --help` for general help or `gh codespace SUBCOMMAND --help` for help with a specific subcommand.
 
-{% note %}
-
-**Note**: The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
-
-{% endnote %}
+> [!NOTE]
+> The `-c CODESPACE_NAME` flag, used with many commands, is optional. If you omit it a list of codespaces is displayed for you to choose from.
 
 ### List all of your codespaces
 
@@ -85,7 +82,7 @@ An asterisk at the end of the branch name for a codespace indicates that there a
 gh codespace create -r OWNER/REPO_NAME [-b BRANCH]
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)."
+For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository).
 
 ### View details of a codespace
 
@@ -112,7 +109,7 @@ For more information, see the [{% data variables.product.prodname_dotcom %} CLI 
 gh codespace stop -c CODESPACE-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace)."
+For more information, see [AUTOTITLE](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace).
 
 ### Delete a codespace
 
@@ -120,7 +117,7 @@ For more information, see "[AUTOTITLE](/codespaces/getting-started/deep-dive#clo
 gh codespace delete -c CODESPACE-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)."
+For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace).
 
 ### Rename a codespace
 
@@ -128,7 +125,7 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/del
 gh codespace edit -c CODESPACE-NAME -d 'DISPLAY-NAME'
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace?tool=cli)."
+For more information, see [AUTOTITLE](/codespaces/customizing-your-codespace/renaming-a-codespace?tool=cli).
 
 ### Rebuild a codespace
 
@@ -136,9 +133,9 @@ For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/re
 gh codespace rebuild
 ```
 
-To perform a full rebuild, add `--full` at the end of this command. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace)."
+To perform a full rebuild, add `--full` at the end of this command. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/rebuilding-the-container-in-a-codespace).
 
-When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control. For more information, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
+When you use this command to rebuild a codespace, it uses the `devcontainer.json` file that is currently saved in the codespace's system. This happens regardless of whether or not the current state of the file has been saved in source control. For more information, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 
 ### SSH into a codespace
 
@@ -148,13 +145,10 @@ To run commands on the remote codespace machine, from your terminal, you can SSH
 gh codespace ssh -c CODESPACE-NAME
 ```
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.ssh-server-installed %}
-
-<br>For more information about the `devcontainer.json` file and the default container image, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers)."
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.ssh-server-installed %}
+>
+> For more information about the `devcontainer.json` file and the default container image, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers).
 
 {% data variables.product.prodname_github_codespaces %} creates a local SSH key automatically to provide a seamless authentication experience. For more information on connecting with SSH, see [`gh codespace ssh`](https://cli.github.com/manual/gh_codespace_ssh).
 
@@ -164,7 +158,7 @@ gh codespace ssh -c CODESPACE-NAME
 gh codespace code -c CODESPACE-NAME
 ```
 
-You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code)."
+You must have {% data variables.product.prodname_vscode_shortname %} installed on your local machine. For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code).
 
 ### Open a codespace in JupyterLab
 
@@ -238,7 +232,7 @@ You can set the visibility for multiple ports with one command. For example:
 gh codespace ports visibility 80:private 3000:public 3306:org -c CODESPACE-NAME
 ```
 
-For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace)."
+For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/forwarding-ports-in-your-codespace).
 
 ### Access codespace logs
 
@@ -248,17 +242,14 @@ You can see the creation log for a codespace. After entering this command you wi
 gh codespace logs -c CODESPACE-NAME
 ```
 
-For more information about the creation log, see "[AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs#creation-logs)."
+For more information about the creation log, see [AUTOTITLE](/codespaces/troubleshooting/github-codespaces-logs#creation-logs).
 
 ### Access remote resources
 
-You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see "[Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge)."
+You can use the {% data variables.product.prodname_cli %} extension to create a bridge between a codespace and your local machine, so that the codespace can access any remote resource that is accessible from your machine. For more information on using the extension, see [Using {% data variables.product.prodname_cli %} to access remote resources](https://github.com/github/gh-net#codespaces-network-bridge).
 
-{% note %}
-
-**Note**: The {% data variables.product.prodname_cli %} extension is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_cli %} extension is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 ### Change the machine type of a codespace
 
@@ -266,4 +257,4 @@ You can use the {% data variables.product.prodname_cli %} extension to create a 
 gh codespace edit -m MACHINE-TYPE-NAME
 ```
 
-For more information, see the "{% data variables.product.prodname_cli %}" tab of "[AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace)."
+For more information, see the "{% data variables.product.prodname_cli %}" tab of [AUTOTITLE](/codespaces/customizing-your-codespace/changing-the-machine-type-for-your-codespace).

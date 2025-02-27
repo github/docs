@@ -7,8 +7,7 @@ name: Notify about production deployment
 on:
   workflow_dispatch:
   workflow_run:
-    # Note, we could do this after the "Purge Fastly" finished
-    workflows: ['Azure Production - Build and Deploy']
+    workflows: ['Purge Fastly']
     types:
       - completed
 

@@ -4,7 +4,9 @@ You can use `jobs.<job_id>.outputs` to create a `map` of outputs for a job. Job 
 
 Job outputs containing expressions are evaluated on the runner at the end of each job. Outputs containing secrets are redacted on the runner and not sent to {% data variables.product.prodname_actions %}.
 
-To use job outputs in a dependent job, you can use the `needs` context. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#needs-context)."
+If an output is skipped because it may contain a secret, you will see the following warning message: "Skip output `{output.Key}` since it may contain secret." For more information on how to handle secrets, please refer to the [Example: Masking and passing a secret between jobs or workflows](/actions/writing-workflows/choosing-what-your-workflow-does/workflow-commands-for-github-actions#example-masking-and-passing-a-secret-between-jobs-or-workflows).
+
+To use job outputs in a dependent job, you can use the `needs` context. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#needs-context).
 
 ### Example: Defining outputs for a job
 
@@ -73,6 +75,5 @@ jobs:
 
 {% endraw %}
 
-{% warning %}
-Actions does not guarantee the order that matrix jobs will run in. Ensure that the output name is unique, otherwise the last matrix job that runs will override the output value.
-{% endwarning %}
+> [!WARNING]
+> Actions does not guarantee the order that matrix jobs will run in. Ensure that the output name is unique, otherwise the last matrix job that runs will override the output value.

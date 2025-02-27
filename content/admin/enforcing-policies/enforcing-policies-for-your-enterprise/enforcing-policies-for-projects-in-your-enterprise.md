@@ -24,14 +24,17 @@ shortTitle: Projects policies
 
 ## About policies for projects in your enterprise
 
-You can enforce policies to control how enterprise members manage {% data variables.projects.projects_v2_and_v1 %}, or you can allow organization owners to manage policies for {% data variables.projects.projects_v2_and_v1 %} at the organization level.{% ifversion project-visibility-policy %}
+You can enforce policies to control how enterprise members manage {% data variables.projects.projects_v2_and_v1 %}, or you can allow organization owners to manage policies for {% data variables.projects.projects_v2_and_v1 %} at the organization level.
 
-Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" and "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."
-{% else %}For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)."{% endif %}
+{% ifversion projects-v1 %}
+
+Some policies apply to both {% data variables.product.prodname_projects_v2 %}, the new projects experience, and {% data variables.product.prodname_projects_v1 %}, the previous experience, while some apply only to {% data variables.product.prodname_projects_v1 %}. For more information about each experience, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects) and [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards).
+
+{% endif %}
 
 ## Enforcing a policy for organization-wide projects
 
-Across all organizations owned by your enterprise, you can enable or disable organization-wide {% data variables.projects.projects_v1_boards %}, or allow owners to administer the setting on the organization level.
+Across all organizations owned by your enterprise, you can enable or disable organization-wide {% data variables.projects.projects_v2 %}, or allow owners to administer the setting on the organization level.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

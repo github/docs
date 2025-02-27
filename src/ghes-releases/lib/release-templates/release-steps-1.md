@@ -17,7 +17,7 @@ labels:
 - [Prerequisites](#prerequisites)
 - [Create publication branch for a new version of GHES](#creation)
 - [Resolve check failures](#check-failures)
-- [Sync the search indices](#sync-search-indices)
+- [Scrape the search indices](#scrape-search-indices)
 - [Maintain the publication branch](#maintenance)
 - [Complete preparation for the RC and publish the docset](#publication)
 
@@ -74,13 +74,13 @@ To enable a new version of GHES on GitHub Docs, update the site's supported vers
 
   - [ ] Add and commit the changes.
 
-- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See "[About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs)".
+- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See [About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs).
 
 - [ ] Push your changes.
 
 - [ ] Create a PR. For the body, copy the contents of the body comment for the [previous release](https://github.com/github/docs-internal/pull/44684), modifying it to reflect this release.
 
-- [ ] Link your PR to this issue. See "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
+- [ ] Link your PR to this issue. See [Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar).
 
 <br/>
 <a name="check-failures">
@@ -110,11 +110,11 @@ For content from the OpenAPI schema, note the affected content with broken links
 
 <br/>
 
-<a name="sync-search-indices">
+<a name="scrape-search-indices">
 
-### [🔎](#sync-search-indices) Sync the search indices
+### [🔎](#scrape-search-indices) Scrape the search indices
 
-1. Go to the [`sync-search-elasticsearch` workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-elasticsearch.yml) ([permalink](https://github.com/github/docs-internal/blob/f8ca45703c48c7d1976a278337bc3391fb14fe9e/.github/workflows/sync-search-elasticsearch.yml) in case it moves)
+1. Go to the [`index-general-search.yml` workflow](https://github.com/github/docs-internal/actions/workflows/index-general-search.yml)
 1. Click on the **Run workflow** drop down and set the following parameters:
     - `Branch:` set to the name of the publication branch
     - `Version` set to the version you're publishing (e.g., `ghes-3.12` if you're publishing GHES 3.12)

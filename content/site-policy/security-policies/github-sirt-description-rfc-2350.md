@@ -14,7 +14,7 @@ TLP:CLEAR
 
 ### 1.1 Date of Last Update
 
-Version 1.0, updated 2023-10-01.
+Version 1.01, updated 2025-01-30.
 
 ### 1.2 Distribution List for Notifications
 
@@ -34,7 +34,7 @@ GitHub Security Incident Response Team (SIRT)
 
 Subteams:
 
-* Threat Hunting, Operations, and Response (THOR)
+* Corporate Security Incident Response Team (CSIRT)
 * Product Security Incident Response Team (PSIRT)
 * Bug Bounty
 
@@ -134,7 +134,7 @@ Some examples of GitHub products and services are:
 * GitHub Desktop
 * GitHub CLI
 * GitHub API
-* npm
+* npm <!-- markdownlint-disable-line GHD034 -->
 
 ### 3.3 Sponsorship and/or Affiliation
 
@@ -142,7 +142,7 @@ GitHub SIRT is a team within GitHub. Funding is provided by GitHub.
 
 ### 3.4 Authority
 
-GitHub SIRT operates under the authority of the Chief Security Officer of GitHub.
+GitHub SIRT operates under the authority of the Chief Information Security Officer of GitHub.
 
 ## 4. Policies
 

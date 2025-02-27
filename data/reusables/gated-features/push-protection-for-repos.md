@@ -1,6 +1,13 @@
-{%- ifversion fpt or ghec %}
+Push protection for repositories and organizations is available for the following repository types:
 
-Push protection for repositories and organizations is available for {% ifversion ghec %}user-owned {% endif %}public repositories for free. Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable push protection on their private and internal repositories.
+{% ifversion fpt or ghec %}
 
-{%- elsif ghes %}
-Push protection is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.{% endif %}
+* {% ifversion ghec %}User-owned public{% elsif fpt %}Public{% endif %} repositories for free
+* Private and internal repositories in organizations using {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion ghec %}
+* User namespace repositories belonging to {% data variables.product.prodname_emus %}{% endif %}
+
+{% elsif ghes %}
+
+* Organization-owned repositories with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled
+
+{% endif %}

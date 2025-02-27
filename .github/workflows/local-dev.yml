@@ -21,8 +21,7 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
-      - name: Install dependencies
-        run: npm install
+      - uses: ./.github/actions/node-npm-setup
 
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -34,6 +33,9 @@ jobs:
 
       - name: Disable Next.js telemetry
         run: npx next telemetry disable
+
+      - name: Install headless browser
+        run: npx playwright install --no-shell
 
       # The Playwright test, with the env vars we set here, takes care of
       # starting a server and shutting it down when it's done.

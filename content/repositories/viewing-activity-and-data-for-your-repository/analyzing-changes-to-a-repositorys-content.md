@@ -51,7 +51,5 @@ The code frequency graph displays the content additions and deletions for each w
 {% data reusables.repositories.repositories-insights-graphs-download-steps %}
 {% endif %}
 
-{% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}
-For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
-{% endif %}
+For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).

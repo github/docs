@@ -46,6 +46,12 @@ If you do not choose {% data variables.product.prodname_emus %}:
 
 Consider personal accounts if using your external identity management system as the source of truth for user and access management would add too much complexity. For example, you do not have an established process for onboarding new users in the system.
 
+## Do you need to choose where your data is stored?
+
+To help you meet compliance requirements, {% data variables.product.prodname_ghe_cloud %} includes the option to store your enterprise's code and data in a specific region, on your own subdomain of {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/about-github-enterprise-cloud-with-data-residency).
+
+If you adopt {% data variables.enterprise.data_residency %}, you **must** use {% data variables.product.prodname_emus %}.
+
 ## Is your external identity management system supported?
 
 Consider whether you already use, or can adopt, a supported identity management system.
@@ -56,19 +62,19 @@ Consider whether you already use, or can adopt, a supported identity management 
 
 If you cannot use a paved-path integration, you can use another identity management system that **meets our guidelines**.
 
-For full details, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems)."
+For full details, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).
 
 ### Personal accounts
 
 You can use any external identity management system that adheres to the **SAML 2.0** standard.
 
-{% data variables.product.company_short %} officially supports and tests some systems. See "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#supported-identity-providers)."
+{% data variables.product.company_short %} officially supports and tests some systems. See [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#supported-identity-providers).
 
 ## Do you need public repositories, gists, or {% data variables.product.prodname_pages %} sites?
 
 To prevent enterprise members from accidentally leaking corporate-owned content to the public, {% data variables.product.prodname_emus %} imposes **strong restrictions** on what users can do.
 * {% data variables.enterprise.prodname_managed_users_caps %} cannot create public repositories, gists of any visibility, or {% data variables.product.prodname_pages %} sites that are visible outside the enterprise.
-* For a full list of restrictions, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts)."
+* For a full list of restrictions, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/abilities-and-restrictions-of-managed-user-accounts).
 
 Review the restrictions with your users, and confirm whether they will hinder your existing workflows. If so, an enterprise with personal accounts may be a better choice.
 
@@ -76,7 +82,7 @@ Review the restrictions with your users, and confirm whether they will hinder yo
 
 {% data variables.enterprise.prodname_managed_users_caps %} can only contribute to repositories within your enterprise. If your developers must contribute to repositories outside of your enterprise (including private repositories), {% data variables.product.prodname_emus %} may not be right for you.
 
-For a managed user to collaborate outside your enterprise, they must also maintain a separate, personal account. The complexity of regularly switching between accounts can increase the risk of mistakenly leaking internal code to the public. For details of the required workflow, see "[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#support-developers-with-multiple-user-accounts)."
+For a managed user to collaborate outside your enterprise, they must also maintain a separate, personal account. The complexity of regularly switching between accounts can increase the risk of mistakenly leaking internal code to the public. For details of the required workflow, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users#support-developers-with-multiple-user-accounts).
 
 ## Can your enterprise tolerate migration costs?
 
@@ -86,4 +92,4 @@ The migration process may require time or cost from your team. Confirm that this
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations)"
+* [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/deciding-whether-to-configure-saml-for-your-enterprise-or-your-organizations)

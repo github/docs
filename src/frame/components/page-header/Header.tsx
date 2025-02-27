@@ -1,32 +1,28 @@
 import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
-import { ActionList, ActionMenu, Dialog, IconButton } from '@primer/react'
-import {
-  KebabHorizontalIcon,
-  LinkExternalIcon,
-  MarkGithubIcon,
-  SearchIcon,
-  ThreeBarsIcon,
-  XIcon,
-} from '@primer/octicons-react'
+import { Dialog, IconButton } from '@primer/react'
+import { MarkGithubIcon, ThreeBarsIcon } from '@primer/octicons-react'
 import dynamic from 'next/dynamic'
 
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'src/frame/components/Link'
 import { useMainContext } from 'src/frame/components/context/MainContext'
-import { useHasAccount } from 'src/frame/components/hooks/useHasAccount'
-import { LanguagePicker } from 'src/languages/components/LanguagePicker'
 import { HeaderNotifications } from 'src/frame/components/page-header/HeaderNotifications'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Search } from 'src/search/components/Search'
 import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { VersionPicker } from 'src/versions/components/VersionPicker'
 import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
 import { AllProductsLink } from 'src/frame/components/sidebar/AllProductsLink'
 
 import styles from './Header.module.scss'
+import { OldHeaderSearchAndWidgets } from './OldHeaderSearchAndWidgets'
+import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
+import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
+import { EXPERIMENTS } from '@/events/components/experiments/experiments'
+import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
+import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
 
 const DomainNameEdit = dynamic(() => import('src/links/components/DomainNameEdit'), {
   ssr: false,
@@ -39,9 +35,11 @@ export const Header = () => {
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
-  const [isSearchOpen, setIsSearchOpen] = useState(false)
+  const { queryParam: isSearchOpen, setQueryParam: setIsSearchOpen } = useQueryParam(
+    'search-overlay-open',
+    true,
+  )
   const [scroll, setScroll] = useState(false)
-  const { hasAccount } = useHasAccount()
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
   const closeSidebar = useCallback(() => setIsSidebarOpen(false), [isSidebarOpen])
@@ -50,11 +48,10 @@ export const Header = () => {
   const { asPath } = useRouter()
   const isSearchResultsPage = router.route === '/search'
   const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
-  const signupCTAVisible =
-    hasAccount === false && // don't show if `null`
-    (currentVersion === DEFAULT_VERSION || currentVersion === 'enterprise-cloud@latest')
-  const { width } = useWidth()
+  const { width } = useInnerWindowWidth()
   const returnFocusRef = useRef(null)
+
+  const showNewSearch = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
 
   useEffect(() => {
     function onScroll() {
@@ -75,6 +72,18 @@ export const Header = () => {
     window.addEventListener('keydown', close)
     return () => window.removeEventListener('keydown', close)
   }, [])
+
+  // Listen for '/' so we can open the search overlay when pressed. (only enabled for showNewSearch is true for new search experience)
+  useEffect(() => {
+    const open = (e: KeyboardEvent) => {
+      if (e.key === '/' && showNewSearch && !isSearchOpen) {
+        e.preventDefault()
+        setIsSearchOpen(true)
+      }
+    }
+    window.addEventListener('keydown', open)
+    return () => window.removeEventListener('keydown', open)
+  }, [isSearchOpen, showNewSearch])
 
   // For the UI in smaller browser widths, and focus the picker menu button when the search
   // input is closed.
@@ -120,32 +129,6 @@ export const Header = () => {
     }
   }, [])
 
-  function useWidth() {
-    const hasWindow = typeof window !== 'undefined'
-
-    function getWidth() {
-      const width = hasWindow ? window.innerWidth : null
-      return {
-        width,
-      }
-    }
-
-    const [width, setWidth] = useState(getWidth())
-
-    useEffect(() => {
-      if (hasWindow) {
-        const handleResize = function () {
-          setWidth(getWidth())
-        }
-
-        window.addEventListener('resize', handleResize)
-        return () => window.removeEventListener('resize', handleResize)
-      }
-    }, [hasWindow])
-
-    return width
-  }
-
   let homeURL = `/${router.locale}`
   if (currentVersion !== DEFAULT_VERSION) {
     homeURL += `/${currentVersion}`
@@ -172,6 +155,10 @@ export const Header = () => {
       >
         <div
           className="d-flex flex-justify-between p-2 flex-items-center flex-wrap"
+          style={{
+            // In the rare case of header overflow, create a pleasant gap between the rows
+            rowGap: '1rem',
+          }}
           data-testid="desktop-header"
         >
           <div
@@ -198,160 +185,19 @@ export const Header = () => {
               </div>
             )}
           </div>
-
-          <div className={cx('d-flex flex-items-center', isSearchOpen && styles.widgetsContainer)}>
-            {/* <!-- GitHub.com homepage and 404 page has a stylized search; Enterprise homepages do not --> */}
-            {error !== '404' && (
-              <div
-                className={cx(
-                  isSearchOpen
-                    ? styles.searchContainerWithOpenSearch
-                    : styles.searchContainerWithClosedSearch,
-                  'mr-3',
-                )}
-              >
-                <Search isSearchOpen={isSearchOpen} />
-              </div>
-            )}
-
-            <div className={cx('d-none d-lg-flex flex-items-center', signupCTAVisible && 'mr-3')}>
-              <LanguagePicker />
-            </div>
-
-            {signupCTAVisible && (
-              <div data-testid="header-signup" className="border-left">
-                <a
-                  href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                  target="_blank"
-                  rel="noopener"
-                  className="d-none d-lg-flex ml-3 btn color-fg-muted"
-                >
-                  {t`sign_up_cta`}
-                </a>
-              </div>
-            )}
-
-            <IconButton
-              className={cx(
-                'hide-lg hide-xl',
-                !isSearchOpen ? 'd-flex flex-items-center' : 'd-none',
-              )}
-              data-testid="mobile-search-button"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              aria-label="Open Search Bar"
-              aria-expanded={isSearchOpen ? 'true' : 'false'}
-              icon={SearchIcon}
+          {showNewSearch ? (
+            <HeaderSearchAndWidgets
+              isSearchOpen={isSearchOpen}
+              setIsSearchOpen={setIsSearchOpen}
+              width={width}
             />
-            <IconButton
-              className="px-3"
-              data-testid="mobile-search-button"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              aria-label="Close Search Bar"
-              aria-expanded={isSearchOpen ? 'true' : 'false'}
-              icon={XIcon}
-              sx={
-                isSearchOpen
-                  ? {
-                      // The x button to close the small width search UI when search is open, as the
-                      // browser width increases to md and above we no longer show that search UI so
-                      // the close search button is hidden as well.
-                      // breakpoint(md)
-                      '@media (min-width: 768px)': {
-                        display: 'none',
-                      },
-                    }
-                  : {
-                      display: 'none',
-                    }
-              }
+          ) : (
+            <OldHeaderSearchAndWidgets
+              isSearchOpen={isSearchOpen}
+              setIsSearchOpen={setIsSearchOpen}
+              width={width}
             />
-
-            {/* The ... navigation menu at medium and smaller widths */}
-            <div>
-              <ActionMenu aria-labelledby="menu-title">
-                <ActionMenu.Anchor>
-                  <IconButton
-                    data-testid="mobile-menu"
-                    icon={KebabHorizontalIcon}
-                    aria-label="Open Menu"
-                    sx={
-                      isSearchOpen
-                        ? // The ... menu button when the smaller width search UI is open.  Since the search
-                          // UI is open, we don't show the button at smaller widths but we do show it as
-                          // the browser width increases to md, and then at lg and above widths we hide
-                          // the button again since the pickers and sign-up button are shown in the header.
-                          {
-                            marginLeft: '8px',
-                            display: 'none',
-                            // breakpoint(md)
-                            '@media (min-width: 768px)': {
-                              display: 'inline-block',
-                              marginLeft: '4px',
-                            },
-                            // breakpoint(lg)
-                            '@media (min-width: 1012px)': {
-                              display: 'none',
-                            },
-                          }
-                        : // The ... menu button when the smaller width search UI is closed, the button is
-                          // shown up to md.  At lg and above we don't show the button since the pickers
-                          // and sign-up button are shown in the header.
-                          {
-                            marginLeft: '16px',
-                            '@media (min-width: 768px)': {
-                              marginLeft: '0',
-                            },
-                            '@media (min-width: 1012px)': {
-                              display: 'none',
-                            },
-                          }
-                    }
-                  />
-                </ActionMenu.Anchor>
-                <ActionMenu.Overlay align="start">
-                  <ActionList>
-                    <ActionList.Group data-testid="open-mobile-menu">
-                      {width && width > 544 ? (
-                        <LanguagePicker mediumOrLower={true} />
-                      ) : (
-                        <LanguagePicker xs={true} />
-                      )}
-                      <ActionList.Divider />
-                      {width && width < 545 && (
-                        <>
-                          <VersionPicker xs={true} />
-                          <ActionList.Divider />
-                          {showDomainNameEdit && (
-                            <>
-                              <Suspense>
-                                <DomainNameEdit xs={true} />
-                              </Suspense>
-                              <ActionList.Divider />
-                            </>
-                          )}
-                        </>
-                      )}
-                      {signupCTAVisible && (
-                        <ActionList.LinkItem
-                          href="https://github.com/signup?ref_cta=Sign+up&ref_loc=docs+header&ref_page=docs"
-                          target="_blank"
-                          rel="noopener"
-                          data-testid="mobile-signup"
-                          className="d-flex color-fg-muted"
-                        >
-                          {t`sign_up_cta`}
-                          <LinkExternalIcon
-                            className="height-full float-right"
-                            aria-label="(external site)"
-                          />
-                        </ActionList.LinkItem>
-                      )}{' '}
-                    </ActionList.Group>
-                  </ActionList>
-                </ActionMenu.Overlay>
-              </ActionMenu>
-            </div>
-          </div>
+          )}
         </div>
         {!isHomepageVersion && !isSearchResultsPage && (
           <div className="d-flex flex-items-center d-xxl-none mt-2" data-testid="header-subnav">

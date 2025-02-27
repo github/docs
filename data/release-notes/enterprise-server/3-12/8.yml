@@ -76,7 +76,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       If an instance is configured to forward logs to a target server with TLS enabled, certificate authority (CA) bundles that a site administrator uploads using `ghe-ssl-ca-certificate-install` are not respected, and connections to the server fail.
     - |
@@ -98,8 +98,6 @@ sections:
     - |
       The `reply.HOSTNAME` subdomain is falsely displayed as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
     - |
-      When log forwarding is enabled, some forwarded log entries may be duplicated.
-    - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
@@ -113,3 +111,7 @@ sections:
       {% data reusables.release-notes.2024-08-resolvconf-wont-start %}
 
       [Updated: 2024-08-26]
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.8 when log forwarding is enabled, some forwarded log entries may be duplicated.
+      The fix for this problem was already included in GitHub Enterprise Server [3.12.7](/admin/release-notes#3.12.7-bugs). [Updated: 2024-09-16]

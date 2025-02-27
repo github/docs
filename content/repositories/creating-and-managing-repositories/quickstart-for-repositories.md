@@ -20,15 +20,15 @@ topics:
 ---
 ## Create a repository
 
-{% data variables.product.product_name %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
+{% data variables.product.github %} repositories store a variety of projects. In this guide, you'll create a repository and commit your first change.
 
 {% webui %}
 
 {% data reusables.repositories.create_new %}
 1. Type a short, memorable name for your repository. For example, "hello-world".
 
-   ![Screenshot of the first step in creating a {% data variables.product.prodname_dotcom %} repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
-1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.product_name %}."
+   ![Screenshot of the first step in creating a repository. The "Repository name" field contains the text "hello-world" and is outlined in dark orange.](/assets/images/help/repository/create-repository-name.png)
+1. Optionally, add a description of your repository. For example, "My first repository on {% data variables.product.github %}."
 {% data reusables.repositories.choose-repo-visibility %}
 {% data reusables.repositories.initialize-with-readme %}
 {% data reusables.repositories.create-repo %}
@@ -44,7 +44,7 @@ Congratulations! You've successfully created your first repository, and initiali
 1. In the command line, navigate to the directory where you would like to create a local clone of your new project.
 1. To create a repository for your project, use the `gh repo create` subcommand. When prompted, select **Create a new repository on GitHub from scratch** and enter the name of your new project. If you want your project to belong to an organization instead of to your personal account, specify the organization name and project name with `organization-name/project-name`.
 1. Follow the interactive prompts. To clone the repository locally, confirm yes when asked if you would like to clone the remote project directory.
-1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag.  For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
+1. Alternatively, to skip the prompts supply the repository name and a visibility flag (`--public`, `--private`, or `--internal`). For example, `gh repo create project-name --public`. To clone the repository locally, pass the `--clone` flag. For more information about possible arguments, see the [GitHub CLI manual](https://cli.github.com/manual/gh_repo_create).
 
 {% endcli %}
 
@@ -66,7 +66,7 @@ Let's commit a change to the README file.
 {% data reusables.files.preview_change %}
 1. Review the changes you made to the file. If you select **Show diff**, you will see the new content in green.
 
-   ![Screenshot of the "Preview" view for a file. A checkbox labeled "Show diff" is selected, and an addition to the file is indicated by a green line marker. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
+   ![Screenshot of a file preview. The "Show diff" checkbox is enabled and additions to the file are shown with a green line. Both are outlined in orange.](/assets/images/help/repository/create-commit-review.png)
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}
 {% data reusables.files.propose_file_change %}
@@ -118,9 +118,11 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)" and "[AUTOTITLE](/get-started/getting-started-with-git/set-up-git)."
+* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 {% endwebui %}
+
+* Secure your repository using {% data variables.product.github %}'s available security features. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 
 * You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
 

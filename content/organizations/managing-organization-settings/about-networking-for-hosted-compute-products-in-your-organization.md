@@ -31,6 +31,6 @@ topics:
 
 {% endif %}
 
-For more information about how using an Azure VNET with {% data variables.product.company_short %}-hosted runners works, see "[AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)."
+For more information about how using an Azure VNET with {% data variables.product.company_short %}-hosted runners works, see [AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization).
 
 {% data reusables.actions.azure-vnet-next-steps-links %}

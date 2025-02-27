@@ -12,11 +12,10 @@ You will use a script to automate configuring your Azure resources.
 
   The `.bicep` file we provide contains the minimal set of rules to use {% data variables.product.company_short %}-hosted runners with Azure VNET. You may need to add rules for your specific use case.
 
-  {% note %}
+  If you use {% data variables.enterprise.data_residency %}, in the `AllowOutBoundGitHub` section, you must also include the ingress IP ranges for {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/network-details-for-ghecom#ranges-for-ingress-traffic).
 
-  **Note:** Alternatively, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud)." To determine the appropriate subnet IP address range,  we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
-
-  {% endnote %}
+  > [!NOTE]
+  > As an alternative to using the following file, to allow {% data variables.product.prodname_actions %} to communicate with the runners, you can allow the same firewall domains that are required for communication between self-hosted runners and {% data variables.product.github %}. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-between-self-hosted-runners-and-github-enterprise-cloud). To determine the appropriate subnet IP address range, we recommend adding a 30% buffer to the maximum job concurrency you anticipate. For instance, if your network configuration's runners are set to a maximum job concurrency of 300, it's recommended to utilize a subnet IP address range that can accommodate at least 390 runners. This buffer helps ensure that your network can handle unexpected increases in VM needs to meet job concurrency without running out of IP addresses.
 
   ```bicep copy
   @description('NSG for outbound rules')
@@ -47,7 +46,7 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 210
@@ -126,7 +125,7 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             access: 'Allow'
             priority: 220
@@ -164,6 +163,7 @@ You will use a script to automate configuring your Azure resources.
               '20.207.73.85/32'
               '20.207.73.86/32'
               '20.207.73.88/32'
+              '20.217.135.1/32'
               '20.233.83.145/32'
               '20.233.83.146/32'
               '20.233.83.147/32'
@@ -174,8 +174,9 @@ You will use a script to automate configuring your Azure resources.
               '20.248.137.50/32'
               '20.248.137.52/32'
               '20.248.137.55/32'
-              '20.26.156.215/32' 
+              '20.26.156.215/32'
               '20.26.156.216/32'
+              '20.26.156.211/32'
               '20.27.177.113/32'
               '20.27.177.114/32'
               '20.27.177.116/32'
@@ -196,6 +197,8 @@ You will use a script to automate configuring your Azure resources.
               '4.208.26.198/32'
               '4.208.26.199/32'
               '4.208.26.200/32'
+              '4.225.11.196/32'
+              '4.237.22.32/32'
             ]
           }
         }
@@ -204,26 +207,13 @@ You will use a script to automate configuring your Azure resources.
           properties: {
             protocol: '*'
             sourcePortRange: '*'
-            destinationPortRange: '*'
+            destinationPortRange: '443'
             sourceAddressPrefix: '*'
             destinationAddressPrefix: 'Storage'
             access: 'Allow'
             priority: 230
             direction: 'Outbound'
             destinationAddressPrefixes: []
-          }
-        }
-        {
-          name: 'DenyInternetOutBoundOverwrite'
-          properties: {
-            protocol: '*'
-            sourcePortRange: '*'
-            destinationPortRange: '*'
-            sourceAddressPrefix: '*'
-            destinationAddressPrefix: 'Internet'
-            access: 'Deny'
-            priority: 400
-            direction: 'Outbound'
           }
         }
       ]

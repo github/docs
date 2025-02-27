@@ -1,9 +1,11 @@
 ---
 title: Customizing the table layout
 shortTitle: Customizing tables
-intro: 'You can use the table layout to build a spreadsheet using your project''s items,  {% data variables.product.company_short %} metadata, and your custom fields.'
+intro: 'You can use the table layout to build a spreadsheet using your project''s items, {% data variables.product.company_short %} metadata, and your custom fields.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -13,7 +15,7 @@ topics:
 
 {% data reusables.projects.about-table-layout %}
 
-For more information about changing a view to use the table layout, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout)."
+For more information about changing a view to use the table layout, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view#changing-the-project-layout).
 
 ## Showing and hiding fields
 
@@ -25,7 +27,7 @@ You can also hide individual fields using the field headers.
 
 1. Next to the field you want to hide, click {% octicon "kebab-horizontal" aria-label="Status column options" %}.
    ![Screenshot showing a field header. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/modify-field-menu.png)
-1. Click {% octicon "eye-closed" aria-hidden="true" %} **Hide field**.
+1. Click **{% octicon "eye-closed" aria-hidden="true" %} Hide field**.
 
 ## Grouping by field values
 
@@ -33,13 +35,9 @@ You can group items by a custom field value. {% data reusables.projects.customiz
 
 {% data reusables.projects.customize.group-fields %}
 
-{% ifversion projects-v2-slice-panel %}
-
 ## Slicing by field values
 
 {% data reusables.projects.customize.slice-panel %}
-
-{% endif %}
 
 ## Reordering fields
 
@@ -65,22 +63,8 @@ You can change the order of rows.
 
 You can sort items by a field value.
 
-{% ifversion projects-v2-consistent-sorting %}{% else %}
-
-{% note %}
-
-**Note:** When a table is sorted, you cannot manually reorder rows.
-
-{% endnote %}
-
-{% endif %}
-
 {% data reusables.projects.customize.sort %}
-
-{% ifversion projects-v2-numeric-summary %}
 
 ## Showing the sum of a number field
 
 {% data reusables.projects.customize.sum %}
-
-{% endif %}

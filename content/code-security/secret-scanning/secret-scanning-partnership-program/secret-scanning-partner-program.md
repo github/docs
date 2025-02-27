@@ -1,6 +1,7 @@
 ---
 title: Secret scanning partner program
 intro: 'As a service provider, you can partner with {% data variables.product.prodname_dotcom %} to have your secret token formats secured through secret scanning, which searches for accidental commits of your secret format and can be sent to a service provider''s verify endpoint.'
+product: '{% data reusables.gated-features.secret-scanning-partner-alerts %}'
 redirect_from:
   - /partnerships/token-scanning
   - /partnerships/secret-scanning
@@ -21,7 +22,7 @@ shortTitle: Partner program
 
 When a match of your secret format is found in a public source, a payload is sent to an HTTP endpoint of your choice.
 
-When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)."
+When a match of your secret format is found in a private repository configured for {% data variables.product.prodname_secret_scanning %}, then repository admins and the committer are alerted and can view and manage the {% data variables.product.prodname_secret_scanning %} result on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 
 This article describes how you can partner with {% data variables.product.prodname_dotcom %} as a service provider and join the {% data variables.product.prodname_secret_scanning %} partner program.
 
@@ -34,7 +35,7 @@ The following diagram summarizes the {% data variables.product.prodname_secret_s
 ## Joining the {% data variables.product.prodname_secret_scanning %} program on {% data variables.product.prodname_dotcom %}
 
 1. Contact {% data variables.product.prodname_dotcom %} to get the process started.
-1. Identify the relevant secrets you want to scan for and create regular expressions to capture them. For more detailed information and recommendations, see "[Identify your secrets and create regular expressions](#identify-your-secrets-and-create-regular-expressions)" below.
+1. Identify the relevant secrets you want to scan for and create regular expressions to capture them. For more detailed information and recommendations, see [Identify your secrets and create regular expressions](#identify-your-secrets-and-create-regular-expressions) below.
 1. For secret matches found publicly, create a secret alert service which accepts webhooks from {% data variables.product.prodname_dotcom %} that contain the {% data variables.product.prodname_secret_scanning %} message payload.
 1. Implement signature verification in your secret alert service.
 1. Implement secret revocation and user notification in your secret alert service.
@@ -55,7 +56,7 @@ To scan for your secrets, {% data variables.product.prodname_dotcom %} needs the
   * High entropy random strings
   * A 32-bit checksum
 
-  ![Screenshot showing the breakdown of a secret into details to be considered when submitting to GitHub a regular expression to find high quality secrets.](/assets/images/help/security/regular-expression-guidance.png)
+  ![Screenshot showing the breakdown of a secret into a prefix and a 32-bit checksum.](/assets/images/help/security/regular-expression-guidance.png)
 
 * A test account for your service. This will allow us to generate and analyze examples of the secrets, further reducing false positives.
 * The URL of the endpoint that receives messages from {% data variables.product.prodname_dotcom %}. The URL doesn't have to be unique for each secret type.
@@ -81,10 +82,10 @@ Create a public, internet accessible HTTP endpoint at the URL you provided to us
 
 The message body is a JSON array that contains one or more objects, with each object representing a single secret match. Your endpoint should be able to handle requests with a large number of matches without timing out. The keys for each secret match are:
 
-* **token**: The value of the secret match.
-* **type**: The unique name you provided to identify your regular expression.
-* **url**: The public URL where the match was found (may be empty)
-* **source**: Where the token was found on {% data variables.product.prodname_dotcom %}.
+* **token:** The value of the secret match.
+* **type:** The unique name you provided to identify your regular expression.
+* **url:** The public URL where the match was found (may be empty)
+* **source:** Where the token was found on {% data variables.product.prodname_dotcom %}.
 
 The list of valid values for `source` are:
 
@@ -119,17 +120,11 @@ You can retrieve the {% data variables.product.prodname_dotcom %} secret scannin
 will provide several `key_identifier` and public keys. You can determine which public
 key to use based on the value of `Github-Public-Key-Identifier`.
 
-{% note %}
+> [!NOTE]
+> When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required) or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required) as suggested in the samples below, or use a conditional request. For more information, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests).
 
-**Note**: When you send a request to the public key endpoint above, you may hit rate limits. To avoid hitting rate limits, you can use a {% data variables.product.pat_v1 %} (no scopes required){% ifversion pat-v2 %} or a {% data variables.product.pat_v2 %} (only the automatic public repositories read access required){% endif %} as suggested in the samples below, or use a conditional request. For more information, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#conditional-requests)."
-
-{% endnote %}
-
-{% note %}
-
-**Note**: The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
-
-{% endnote %}
+> [!NOTE]
+> The signature was generated using the raw message body. So it's important you also use the raw message body for signature validation, instead of parsing and stringifying the JSON, to avoid rearranging the message or changing spacing.
 
 **Sample HTTP POST sent to verify endpoint**
 
@@ -169,11 +164,11 @@ import (
 )
 
 func main() {
-  payload := `[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]`
+  payload := `[{"source":"commit","token":"some_token","type":"some_type","url":"https://example.com/base-repo-url/"}]`
 
-  kID := "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+  kID := "bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c"
 
-  kSig := "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+  kSig := "MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg=="
 
   // Fetch the list of GitHub Public Keys
   req, err := http.NewRequest("GET", "https://api.github.com/meta/public_keys/secret_scanning", nil)
@@ -289,14 +284,14 @@ require 'json'
 require 'base64'
 
 payload = <<-EOL
-[{"token":"some_token","type":"some_type","url":"some_url","source":"some_source"}]
+[{"source":"commit","token":"some_token","type":"some_type","url":"https://example.com/base-repo-url/"}]
 EOL
 
 payload = payload
 
-signature = "MEUCIFLZzeK++IhS+y276SRk2Pe5LfDrfvTXu6iwKKcFGCrvAiEAhHN2kDOhy2I6eGkOFmxNkOJ+L2y8oQ9A2T9GGJo6WJY="
+signature = "MEQCIQDaMKqrGnE27S0kgMrEK0eYBmyG0LeZismAEz/BgZyt7AIfXt9fErtRS4XaeSt/AO1RtBY66YcAdjxji410VQV4xg=="
 
-key_id = "f9525bf080f75b3506ca1ead061add62b8633a346606dc5fe544e29231c6ee0d"
+key_id = "bcb53661c06b4728e59d897fb6165d5c9cda0fd9cdf9d09ead458168deb7518c"
 
 url = URI.parse('https://api.github.com/meta/public_keys/secret_scanning')
 
@@ -402,8 +397,5 @@ A few important points:
 * For the hashed form of the raw token, you can only use SHA-256 to hash the token, not any other hashing algorithm.
 * The label indicates whether the token is a true ("true_positive") or a false positive ("false_positive"). Only these two lowercased literal strings are allowed.
 
-{% note %}
-
-**Note:** Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.
-
-{% endnote %}
+> [!NOTE]
+> Our request timeout is set to be higher (that is, 30 seconds) for partners who provide data about false positives. If you require a timeout higher than 30 seconds, email us at <a href="mailto:secret-scanning@github.com">secret-scanning@github.com</a>.

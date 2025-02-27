@@ -8,10 +8,10 @@ If your support request is outside of the scope of what our team can help you wi
 * Configuration of external authentication systems, such as SAML identity providers
 * Open source projects
 * Writing or debugging new queries for {% data variables.product.prodname_codeql %}
-* Cloud provider configurations, such as virtual network setup, custom firewall, or proxy rules.
-* Container orchestration, such as Kubernetes setup, networking, etc.
+* Cloud provider configurations, such as virtual network setup, custom firewall, or proxy rules
+* Container orchestration, such as Kubernetes setup, or networking
 * Detailed assistance with workflows and data management
-* Beta features. Support for beta features is out of {% data variables.contact.github_support %}'s scope. {% ifversion ghec or ghes %}For support with beta features, you can contact your account manager on {% data variables.contact.contact_enterprise_sales %}.{% endif %}
+* {% data variables.release-phases.public_preview_caps %} features. Support for {% data variables.release-phases.public_preview %} features is out of {% data variables.contact.github_support %}'s scope. {% ifversion ghec or ghes %}For support with {% data variables.release-phases.public_preview %} features, you can contact your account manager on {% data variables.contact.contact_enterprise_sales %}.{% endif %}
 
 For detailed assistance with workflows and data management, consult [GitHub Expert Services](https://github.com/services/), which offer specialized support to help you optimize your use of the platform.
 

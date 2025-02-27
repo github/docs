@@ -17,5 +17,5 @@ children:
   - /managing-your-profile-readme
   - /pinning-items-to-your-profile
   - /setting-your-profile-to-private
+  - /using-your-github-profile-to-enhance-your-resume
 ---
-

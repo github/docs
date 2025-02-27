@@ -2059,34 +2059,34 @@
     "/enterprise/2.17/admin/guides/installation/about-high-availability-configuration",
     "/enterprise/2.17/admin/enterprise-management/about-high-availability-configuration"
   ],
-  "/enterprise/2.13/admin/installation/accessing-the-monitor-dashboard": [
-    "/enterprise/2.13/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.13/admin/enterprise-management/accessing-the-monitor-dashboard"
+  "/enterprise/2.13/admin/installation/about-the-monitor-dashboards": [
+    "/enterprise/2.13/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/installation/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.13/admin/enterprise-management/about-the-monitor-dashboards"
   ],
-  "/enterprise/2.14/admin/installation/accessing-the-monitor-dashboard": [
-    "/enterprise/2.14/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.14/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.14/admin/enterprise-management/accessing-the-monitor-dashboard"
+  "/enterprise/2.14/admin/installation/about-the-monitor-dashboards": [
+    "/enterprise/2.14/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.14/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.14/admin/enterprise-management/about-the-monitor-dashboards"
   ],
-  "/enterprise/2.15/admin/installation/accessing-the-monitor-dashboard": [
-    "/enterprise/2.15/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.15/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.15/admin/enterprise-management/accessing-the-monitor-dashboard"
+  "/enterprise/2.15/admin/installation/about-the-monitor-dashboards": [
+    "/enterprise/2.15/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.15/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.15/admin/enterprise-management/about-the-monitor-dashboards"
   ],
-  "/enterprise/2.16/admin/installation/accessing-the-monitor-dashboard": [
-    "/enterprise/2.16/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.16/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.16/admin/enterprise-management/accessing-the-monitor-dashboard"
+  "/enterprise/2.16/admin/installation/about-the-monitor-dashboards": [
+    "/enterprise/2.16/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.16/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.16/admin/enterprise-management/about-the-monitor-dashboards"
   ],
-  "/enterprise/2.17/admin/installation/accessing-the-monitor-dashboard": [
-    "/enterprise/2.17/admin/guides/enterprise-management/accessing-the-monitor-dashboard",
-    "/enterprise/2.17/admin/guides/installation/accessing-the-monitor-dashboard",
-    "/enterprise/2.17/admin/enterprise-management/accessing-the-monitor-dashboard"
+  "/enterprise/2.17/admin/installation/about-the-monitor-dashboards": [
+    "/enterprise/2.17/admin/guides/enterprise-management/about-the-monitor-dashboards",
+    "/enterprise/2.17/admin/guides/installation/about-the-monitor-dashboards",
+    "/enterprise/2.17/admin/enterprise-management/about-the-monitor-dashboards"
   ],
   "/enterprise/2.16/admin/clustering/cluster-network-configuration": [
     "/enterprise/2.16/admin/guides/enterprise-management/cluster-network-configuration",

@@ -29,7 +29,7 @@ You can access the migration log for a repository migration in multiple ways.
 
 When you run an organization migration, {% data variables.product.prodname_importer_proper_name %} additionally creates a repository named `gei-migration-results` in the destination organization. This repository contains information about the migration of organization-level data and duplicates the information in the "Migration Log" issues for each migrated repository.
 
-For more information about interpreting warnings in your migration log, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings)."
+For more information about interpreting warnings in your migration log, see [AUTOTITLE](/migrations/using-github-enterprise-importer/completing-your-migration-with-github-enterprise-importer/troubleshooting-your-migration-with-github-enterprise-importer#understanding-migration-log-warnings).
 
 ## Viewing a repository migration log on {% data variables.product.prodname_dotcom %}
 
@@ -59,7 +59,8 @@ If your migration source is Azure DevOps, you can download the latest migration 
 gh ado2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens)."
+* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).
+* {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}
 
@@ -69,7 +70,8 @@ If your migration source is Bitbucket Server, you can download the latest migrat
 gh bbs2gh download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens)."
+* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-bitbucket-server-to-github-enterprise-cloud/managing-access-for-a-migration-from-bitbucket-server#required-scopes-for-personal-access-tokens).
+* {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 ### Downloading a repository migration log with the {% data variables.product.prodname_gei_cli_short %}
 
@@ -79,17 +81,15 @@ If your migration source is a {% data variables.product.prodname_dotcom %} produ
 gh gei download-logs --github-target-org DESTINATION --target-repo REPOSITORY --migration-log-file FILENAME
 ```
 
-{% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens)."
+* {% data reusables.enterprise-migration-tool.add-pat-to-download-logs %} For {% data variables.product.pat_generic %} requirements, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#required-scopes-for-personal-access-tokens).
+* {% data reusables.enterprise-migration-tool.add-target-api-url %}
 
 ### Downloading all the repository migration logs for a migration script
 
-To ensure you have access to migration logs for all your migrated repositories, you can use the `--download-migration-logs` flag when generating a migration script for repository migrations. When you use this flag, the script will include the `download-logs` command for each repository migrated in the script. For more information, see "[AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer)."
+To ensure you have access to migration logs for all your migrated repositories, you can use the `--download-migration-logs` flag when generating a migration script for repository migrations. When you use this flag, the script will include the `download-logs` command for each repository migrated in the script. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer).
 
-{% note %}
-
-**Note:** You can only use the `--download-migration-logs` flag with repository migrations, not with organization migrations.
-
-{% endnote %}
+> [!NOTE]
+> You can only use the `--download-migration-logs` flag with repository migrations, not with organization migrations.
 
 ## Accessing an organization migration log
 
@@ -103,8 +103,5 @@ The `README.md` file in the root of the repository includes the following inform
 
 The`/success` and `/failure` directories contain one file for each repository that was successfully migrated or that failed to migrate, respectively. These files follow the naming convention `REPO_NAME.md`.
 
-{% note %}
-
-**Note:** The `gei-migration-results` repository is created at the beginning of the migration process but is only updated with your migration logs after the migration finishes.
-
-{% endnote %}
+> [!NOTE]
+> The `gei-migration-results` repository is created at the beginning of the migration process but is only updated with your migration logs after the migration finishes.

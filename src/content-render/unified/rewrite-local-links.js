@@ -5,7 +5,7 @@ import stripAnsi from 'strip-ansi'
 import { visit } from 'unist-util-visit'
 import { distance } from 'fastest-levenshtein'
 import { getPathWithoutLanguage, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
-import { getNewVersionedPath } from '#src/archives/lib/old-versions-utils.js'
+import { getNewVersionedPath } from '#src/archives/lib/old-versions-utils.ts'
 import patterns from '#src/frame/lib/patterns.js'
 import { deprecated, latest } from '#src/versions/lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
@@ -83,20 +83,11 @@ const AUTOTITLE = /^\s*AUTOTITLE\s*$/
 // which we use to know that we need to fall back to English.
 export class TitleFromAutotitleError extends Error {}
 
-// Matches any <a> tags with an href that starts with `/`
-const matcherInternalLinks = (node) =>
-  node.type === 'element' &&
-  node.tagName === 'a' &&
-  node.properties &&
-  node.properties.href &&
-  node.properties.href.startsWith('/')
+// Matches any link nodes with an href that starts with `/`
+const matcherInternalLinks = (node) => node.type === 'link' && node.url && node.url.startsWith('/')
 
-const matcherAnchorLinks = (node) =>
-  node.type === 'element' &&
-  node.tagName === 'a' &&
-  node.properties &&
-  node.properties.href &&
-  node.properties.href.startsWith('#')
+// Matches any link nodes with an href that starts with `#`
+const matcherAnchorLinks = (node) => node.type === 'link' && node.url && node.url.startsWith('#')
 
 // Content authors write links like `/some/article/path`, but they need to be
 // rewritten on the fly to match the current language and page version
@@ -107,67 +98,101 @@ export default function rewriteLocalLinks(context) {
 
   return async function (tree) {
     const nodes = []
-    visit(tree, matcherInternalLinks, (node) => {
-      // The context *might* have a `autotitleLanguage` which can be
-      // different from the regular `currentLanguage`.
-      // This means that AUTOTITLE links should be different from how,
-      // for example, reusables or other `{% data ... %}` Liquid tags work.
-      // Our release notes, for example, prefer to force the rendered text
-      // in English, but all AUTOTITLE links in the current language.
-      const newHref = getNewHref(node, autotitleLanguage || currentLanguage, currentVersion)
-      if (newHref) {
-        node.properties._originalHref = node.properties.href
-        node.properties.href = newHref
-      }
-      for (const child of node.children) {
-        if (child.value) {
-          if (AUTOTITLE.test(child.value)) {
-            nodes.push({
-              href: node.properties.href,
-              child,
-              originalHref: node.properties._originalHref,
-            })
-          } else if (
-            // This means CI and local dev
-            process.env.NODE_ENV !== 'production' &&
-            // But only raise this (in CI or local dev) if it's English
-            currentLanguage === 'en'
-          ) {
-            // Throw if the link text *almost*  is AUTOTITLE
-            if (
-              child.value.toUpperCase() === 'AUTOTITLE' ||
-              distance(child.value.toUpperCase(), 'AUTOTITLE') <= 2
-            ) {
-              throw new Error(
-                `Found link text '${child.value}', expected 'AUTOTITLE'. ` +
-                  `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`,
-              )
-            }
-          }
-        }
+
+    // For links using linkReference and definition, we must
+    // first get the list of definitions and later resolve
+    // the linkReferences.
+    //
+    // So, for example, a reference that looks like:
+    //    [Some link](some-reference)
+    //    [some-reference]: /abc/123
+    // Becomes:
+    //    [Some link](/abc/123)
+    // And then we can treat it like a regular 'link';
+    // see https://github.github.com/gfm/#link-reference-definitions for spec
+    const definitions = new Map()
+    visit(tree, 'definition', (node) => {
+      definitions.set(node.identifier, node)
+    })
+
+    visit(tree, 'linkReference', (node) => {
+      const definition = definitions.get(node.identifier)
+      if (definition) {
+        // Replace the LinkReference node with a Link node
+        node.type = 'link'
+        node.url = definition.url
+        node.title = definition.title
+      } else {
+        console.warn(`Definition not found for identifier: ${node.identifier}`)
       }
     })
 
-    if (!isProd) {
-      // This runs when doing local preview, link checker tests, or
-      // running a script like `update-internal-links.js`.
-      visit(tree, matcherAnchorLinks, (node) => {
-        for (const child of node.children || []) {
-          if (child.value && AUTOTITLE.test(child.value)) {
-            throw new Error(
-              `Found anchor link with text AUTOTITLE ('${node.properties.href}'). ` +
-                'Update the anchor link with text that is not AUTOTITLE.',
-            )
-          }
-        }
-      })
-    }
+    // this function handles processing the tree recursively, sometimes we have additional trees to convert
+    await processTree(tree, autotitleLanguage || currentLanguage, currentVersion, nodes, context)
+  }
+}
 
-    await Promise.all(
-      nodes.map(({ href, child, originalHref }) =>
-        getNewTitleSetter(child, href, context, originalHref),
-      ),
-    )
+async function processTree(tree, language, version, nodes, context) {
+  // internal links begin with `/something`
+  visit(tree, matcherInternalLinks, (node) => {
+    processLinkNode(node, language, version, nodes)
+  })
+
+  if (!isProd) {
+    // handles anchor links
+    visit(tree, matcherAnchorLinks, (node) => {
+      for (const child of node.children || []) {
+        if (child.value && AUTOTITLE.test(child.value)) {
+          throw new Error(
+            `Found anchor link with text AUTOTITLE ('${node.url}'). ` +
+              'Update the anchor link with text that is not AUTOTITLE.',
+          )
+        }
+      }
+    })
+  }
+
+  // nodes[] contains all the link nodes that need new titles
+  // and now we call to get those titles
+  await Promise.all(
+    nodes.map(({ url, child, originalHref }) =>
+      getNewTitleSetter(child, url, context, originalHref),
+    ),
+  )
+}
+
+function processLinkNode(node, language, version, nodes) {
+  const newHref = getNewHref(node, language, version)
+  if (newHref) {
+    node.originalHref = node.url
+    node.url = newHref
+  }
+  for (const child of node.children) {
+    if (child.value) {
+      if (AUTOTITLE.test(child.value)) {
+        nodes.push({
+          url: node.url,
+          child,
+          originalHref: node._originalHref,
+        })
+      } else if (
+        // This means CI and local dev
+        process.env.NODE_ENV !== 'production' &&
+        // But only raise this (in CI or local dev) if it's English
+        language === 'en'
+      ) {
+        // Throw if the link text *almost*  is AUTOTITLE
+        if (
+          child.value.toUpperCase() === 'AUTOTITLE' ||
+          distance(child.value.toUpperCase(), 'AUTOTITLE') <= 2
+        ) {
+          throw new Error(
+            `Found link text '${child.value}', expected 'AUTOTITLE'. ` +
+              `Find the mention of the link text '${child.value}' and change it to 'AUTOTITLE'. Case matters.`,
+          )
+        }
+      }
+    }
   }
 }
 
@@ -190,21 +215,21 @@ async function getNewTitle(href, context, child, originalHref) {
 }
 
 function getNewHref(node, languageCode, version) {
-  const { href } = node.properties
+  const { url } = node
   // Exceptions to link rewriting
-  if (href.startsWith('/assets')) return
-  if (href.startsWith('/public')) return
-  if (href in externalRedirects) return
+  if (url.startsWith('/assets')) return
+  if (url.startsWith('/public')) return
+  if (url in externalRedirects) return
 
-  let newHref = href
+  let newHref = url
   // If the link has a hardcoded plan or version in it, do not update other than adding a language code
   // Examples:
   // /enterprise-server@2.20/rest/reference/oauth-authorizations
   // /enterprise-server/rest/reference/oauth-authorizations (this redirects to the latest version)
   // /enterprise-server@latest/rest/reference/oauth-authorizations (this redirects to the latest version)
-  const firstLinkSegment = href.split('/')[1]
+  const firstLinkSegment = url.split('/')[1]
   if (supportedPlans.has(firstLinkSegment.split('@')[0])) {
-    newHref = path.posix.join('/', languageCode, href)
+    newHref = path.posix.join('/', languageCode, url)
   } else if (firstLinkSegment.includes('@')) {
     // This could mean a bad typo!
     // This can happen if you have something
@@ -215,16 +240,16 @@ function getNewHref(node, languageCode, version) {
 Warning! The first segment of the internal link has a '@' character in it
 but the plan is not recognized. This is likely a typo.
 Please inspect the link and fix it if it's a typo.
-Look for an internal link that starts with '${href}'.
+Look for an internal link that starts with '${url}'.
     `,
     )
   }
 
   // If the link includes a deprecated version, do not update other than adding a language code
   // Example: /enterprise/11.10.340/admin/articles/upgrading-to-the-latest-release
-  const oldEnterpriseVersionNumber = href.match(patterns.getEnterpriseVersionNumber)
+  const oldEnterpriseVersionNumber = url.match(patterns.getEnterpriseVersionNumber)
   if (oldEnterpriseVersionNumber && deprecated.includes(oldEnterpriseVersionNumber[1])) {
-    newHref = path.posix.join('/', languageCode, href)
+    newHref = path.posix.join('/', languageCode, url)
   }
 
   // Treat the unicorn where we have version numbers.
@@ -238,9 +263,9 @@ Look for an internal link that starts with '${href}'.
   // current number anyway.
   newHref = newHref.replace('/enterprise-server@latest/', `/enterprise-server@${latest}/`)
 
-  if (newHref === href) {
+  if (newHref === url) {
     // start clean with no language (TOC pages already include the lang codes via lib/liquid-tags/link.js)
-    const hrefWithoutLang = getPathWithoutLanguage(href)
+    const hrefWithoutLang = getPathWithoutLanguage(url)
 
     // normalize any legacy links so they conform to new link structure
     newHref = path.posix.join('/', languageCode, getNewVersionedPath(hrefWithoutLang))
@@ -249,13 +274,6 @@ Look for an internal link that starts with '${href}'.
     const versionFromHref = getVersionStringFromPath(newHref)
 
     // ------ BEGIN ONE-OFF OVERRIDES ------//
-    // dotcom-only links always point to dotcom
-    if (node.properties.className && node.properties.className.includes('dotcom-only')) {
-      // See internal issue #2672
-      console.warn('This is deprecated and will soon be removed')
-      version = nonEnterpriseDefaultVersion
-    }
-
     // desktop links always point to dotcom
     if (patterns.desktop.test(hrefWithoutLang)) {
       version = nonEnterpriseDefaultVersion

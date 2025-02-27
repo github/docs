@@ -16,18 +16,15 @@ redirect_from:
 
 After you disable SAML SSO for your enterprise, the following effects apply:
 
-* All external identities for your enterprise will be removed. For more information, see - All external identities for the enterprise will be removed. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise)."
-* Any SAML settings configured for individual organizations within the enterprise will take effect. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)."
+* All external identities for your enterprise will be removed. For more information, see - All external identities for the enterprise will be removed. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/viewing-and-managing-a-users-saml-access-to-your-enterprise).
+* Any SAML settings configured for individual organizations within the enterprise will take effect. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization).
 
 ## Disabling SAML
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-   {% note %}
-
-   **Note:** If you're unable to access the enterprise because your IdP is unavailable, you can use a recovery code to bypass SSO. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable)."
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're unable to access the enterprise because your IdP is unavailable, you can use a recovery code to bypass SSO. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable).
 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
@@ -36,4 +33,4 @@ After you disable SAML SSO for your enterprise, the following effects apply:
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users)"
+* [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/disabling-authentication-for-enterprise-managed-users)

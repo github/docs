@@ -21,7 +21,7 @@ shortTitle: View logs
 
 ## Collecting log files
 
-The location of the log files depends on the JetBrains IDE you are using. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains)."
+The location of the log files depends on the JetBrains IDE you are using. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-in-your-environment?tool=jetbrains).
 
 These steps describe how to view and collect the log files for the following JetBrains IDEs:
 
@@ -33,10 +33,10 @@ These steps describe how to view and collect the log files for the following Jet
 * RubyMine
 * WebStorm
 
-The {% data variables.product.prodname_copilot%} extension logs to the IDEA log location for IntelliJ plugins.
+The {% data variables.product.prodname_copilot %} extension logs to the IDEA log location for IntelliJ plugins.
 1. In your JetBrains IDE, open the **Help** menu.
 1. Go to **Show Log in Finder**.
-1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
+1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_copilot %}.
 
 For more information, see the [Locating IDE log files](https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files) in the IntelliJ documentation.
 
@@ -45,7 +45,7 @@ For more information, see the [Locating IDE log files](https://intellij-support.
 1. In Rider, open the **Help** menu.
 1. Go to **Diagnostic Tools**.
 1. Go to **Show Log in**.
-1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom%} or {% data variables.product.prodname_copilot%}.
+1. Open the `idea.log` in your preferred editor and look for any errors related to {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_copilot %}.
 
 ## Enabling debug mode
 
@@ -53,7 +53,7 @@ If you find the log file doesn't contain enough information to resolve an issue,
 
 1. In the menu bar, click **Help**, select **Diagnostic Tools**, and click **Debug Log Settings...**.
 
-   ![Screenshot of the menu bar in a JetBrains IDE. The "Help" menu and "Diagnostic Tools" submenu are expanded, and the "Debug Log Settings" option is highlighted in blue.](/assets/images/help/copilot/jetbrains-debug-log.png)
+   ![Screenshot of the menu bar in a JetBrains IDE. The "Help" menu and "Diagnostic Tools" submenu are expanded and "Debug Log Settings" is highlighted.](/assets/images/help/copilot/jetbrains-debug-log.png)
 
 1. In the "Custom Debug Log Configuration" window, add a new line with the following content, then click **OK**.
 
@@ -61,22 +61,22 @@ If you find the log file doesn't contain enough information to resolve an issue,
    #com.github.copilot:trace
    ```
 
-1. Keep using your IDE until you encounter the issue again, then collect the log file as described in "[Collecting log files](#collecting-log-files)."
+1. Keep using your IDE until you encounter the issue again, then collect the log file as described in [Collecting log files](#collecting-log-files).
 1. When you have the information you need, disable debug mode by removing `#com.github.copilot:trace` from the "Custom Debug Log Configuration" window.
 
 ## Viewing network connectivity diagnostics logs
 
-If you encounter problems connecting to {% data variables.product.prodname_copilot%} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
+If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
 
-1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot%}**, and click **Log Diagnostics**.
+1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot %}**, and click **Log Diagnostics**.
 1. The `idea.log` file should open in the JetBrains IDE with the diagnostics output. Alternatively, you can open the `idea.log` file in your preferred editor.
-1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can access the necessary services.
+1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot %} can access the necessary services.
 
 ## Troubleshooting certificate-related errors
 
-If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)". Then use the following troubleshooting steps.
+If you're using a custom certificate, ensure the certificate is installed correctly in the operating system, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot). Then use the following troubleshooting steps.
 
-1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot%}**, and click **Log CA Certificates**.
+1. In the menu bar, click **Tools**, select **{% data variables.product.prodname_copilot %}**, and click **Log CA Certificates**.
 1. The `idea.log` file should open in the JetBrains IDE with the trusted CA certificates logged in PEM format. You may need to refresh the `idea.log` file to view all of the output. Alternatively, you can open the `idea.log` file in your preferred editor.
 1. Check to see if the expected custom certificate is included in the certificate list output.
 
@@ -86,14 +86,14 @@ If you're using a custom certificate, ensure the certificate is installed correc
 
 ## Viewing logs in {% data variables.product.prodname_vs %}
 
-The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vs %} extensions.
+The log files for the {% data variables.product.prodname_copilot %} extension are stored in the standard log location for {% data variables.product.prodname_vs %} extensions.
 1. Open the **View** menu in {% data variables.product.prodname_vs %}.
 1. Click **Output**.
-1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
+1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot %}** from the dropdown menu.
 
 ## Further reading
 
-* "[Log all activity to the log file for troubleshooting](https://learn.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2022)" in the {% data variables.product.prodname_vs %} documentation
+* [Log all activity to the log file for troubleshooting](https://learn.microsoft.com/en-us/visualstudio/ide/reference/log-devenv-exe?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation
 
 {% endvisualstudio %}
 
@@ -101,10 +101,10 @@ The log files for the {% data variables.product.prodname_copilot%} extension are
 
 ## Viewing and collecting log files
 
-The log files for the {% data variables.product.prodname_copilot%} extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. The log files are useful for diagnosing connection issues.
+The log files for the {% data variables.product.prodname_copilot %} extension are stored in the standard log location for {% data variables.product.prodname_vscode %} extensions. The log files are useful for diagnosing connection issues.
 1. Open the **View** menu in {% data variables.product.prodname_vscode %}.
 1. Click **Output**.
-1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot%}** from the dropdown menu.
+1. On the right of the Output view pane, select **{% data variables.product.prodname_copilot %}** from the dropdown menu.
 
 Alternatively, you can open the log folder for {% data variables.product.prodname_vscode %} extensions in your system's file explorer. This is useful if you need to forward the log files to the support team.
 
@@ -117,15 +117,15 @@ Alternatively, you can open the log folder for {% data variables.product.prodnam
 
 ## Viewing network connectivity diagnostics logs
 
-If you encounter problems connecting to {% data variables.product.prodname_copilot%} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
+If you encounter problems connecting to {% data variables.product.prodname_copilot %} due to network restrictions, firewalls, or your proxy setup, use the following troubleshooting steps.
 
 1. Open the {% data variables.product.prodname_vscode_command_palette_shortname %}
    * For Mac:
       * Use: <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>P</kbd>
    * For Windows or Linux:
       * Use: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>
-1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot%}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
-1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot%} can actually access the necessary services.
+1. Type "Diagnostics", and then select **{% data variables.product.prodname_copilot %}: Collect Diagnostics** from the list. This opens a new editor with the relevant information that you can inspect yourself or share with the support team.
+1. Check the section on **Reachability** to determine if {% data variables.product.prodname_copilot %} can actually access the necessary services.
 
 ## Viewing Electron logs
 
@@ -143,17 +143,37 @@ In rare cases, errors might not be propagated to the corresponding error handler
 
 ## Further reading
 
-* "[AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)"
-* "[Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network)" in the {% data variables.product.prodname_vscode %} documentation
+* [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-network-errors-for-github-copilot)
+* [Network Connections in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/setup/network) in the {% data variables.product.prodname_vscode %} documentation
 
 {% endvscode %}
 
 {% vimneovim %}
 
-## Checking if {% data variables.product.prodname_copilot%} is operational
+## Checking if {% data variables.product.prodname_copilot %} is operational
 
 To check if GitHub Copilot is operational, run the following command in Vim/Neovim:
 
     :Copilot status
 
 {% endvimneovim %}
+
+{% xcode %}
+
+## Collecting log files
+
+The log files for the {% data variables.product.prodname_copilot %} extension for Xcode are stored in `~/Library/Logs/GitHubCopilot/`. The most recent file is named `github-copilot-for-xcode.log`.
+
+1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. At the top of the application window, click **Advanced**.
+1. In the "Logging" section, click **Open Copilot Log Folder**.
+
+## Enabling verbose logs
+
+You can enable verbose logging to help troubleshoot issues with the {% data variables.product.prodname_copilot %} extension for Xcode.
+
+1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. At the top of the application window, click **Advanced**.
+1. In the "Logging" section, next to "Verbose Logging", toggle the switch to the right.
+
+{% endxcode %}

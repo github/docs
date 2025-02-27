@@ -1,6 +1,6 @@
 ---
 title: Working with the Container registry
-intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}, which uses the package namespace `https://{% data reusables.package_registry.container-registry-hostname %}`.'
+intro: 'You can store and manage Docker and OCI images in the {% data variables.product.prodname_container_registry %}.'
 product: '{% data reusables.gated-features.packages %}'
 redirect_from:
   - /packages/managing-container-images-with-github-container-registry/pushing-and-pulling-docker-images
@@ -15,7 +15,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.5'
+  ghes: '*'
 shortTitle: Container registry
 ---
 
@@ -27,7 +27,17 @@ shortTitle: Container registry
 
 {% ifversion ghes %}
 
-To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.product_name %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see "[AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise)" and "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation)."
+To use the {% data variables.product.prodname_container_registry %} on {% data variables.product.prodname_ghe_server %}, your site administrator must first configure {% data variables.product.prodname_registry %} for your instance **and** enable subdomain isolation. For more information, see [AUTOTITLE](/admin/packages/getting-started-with-github-packages-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation).
+
+{% endif %}
+
+{% ifversion ghec %}
+
+## URL for the {% data variables.product.prodname_container_registry %}
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to {% data reusables.package_registry.container-registry-hostname %}. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "{% data reusables.package_registry.container-registry-hostname %}" with `https://containers.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
 
 {% endif %}
 
@@ -44,14 +54,11 @@ When installing or publishing a Docker image, the {% data variables.product.prod
 
 {% data reusables.package_registry.authenticate-packages %}
 
-{% ifversion packages-registries-v2 %}
-
 ### Authenticating in a {% data variables.product.prodname_actions %} workflow
 
 This registry supports granular permissions. {% data reusables.package_registry.authenticate_with_pat_for_v2_registry %}
 
 {% data reusables.package_registry.v2-actions-codespaces %}
-{% endif %}
 
 ### Authenticating with a {% data variables.product.pat_v1 %}
 
@@ -75,7 +82,7 @@ This example pushes the `2.5` version of the image.
 docker push {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:2.5
 ```
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} You can link a published package to a repository using the user interface or command line. For more information, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
 When you push a container image from the command line, the image is not linked to a repository by default. This is the case even if you tag the image with a namespace that matches the name of the repository, such as `{% ifversion fpt or ghec %}ghcr.io{% elsif ghes %}{% data reusables.package_registry.container-registry-example-hostname %}{% endif %}/octocat/my-repo:latest`.
 
@@ -99,7 +106,7 @@ To ensure you're always using the same image, you can specify the exact containe
 1. Remove image locally as needed.
 
    ```shell
-   docker rmi  {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
+   docker rmi {% data reusables.package_registry.container-registry-hostname %}/NAMESPACE/IMAGE_NAME:latest
    ```
 
 1. Pull the container image with `@YOUR_SHA_VALUE` after the image name.
@@ -176,15 +183,15 @@ Replace `NAMESPACE` with the name of the personal account or organization to whi
 
 {% data reusables.package_registry.about-annotation-keys %} Values for supported keys will appear on the package page for the image.
 
-For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/master/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
+For most images, you can use Docker labels to add the annotation keys to an image. For more information, see [LABEL](https://docs.docker.com/engine/reference/builder/#label) in the official Docker documentation and [Pre-Defined Annotation Keys](https://github.com/opencontainers/image-spec/blob/main/annotations.md#pre-defined-annotation-keys) in the `opencontainers/image-spec` repository.
 
-For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see "[Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images)."
+For multi-arch images, you can add a description to the image by adding the appropriate annotation key to the `annotations` field in the image's manifest. For more information, see [Adding a description to multi-arch images](#adding-a-description-to-multi-arch-images).
 
 The following annotation keys are supported in the {% data variables.product.prodname_container_registry %}.
 
 Key | Description
 ------|------------
-| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line)."
+| `org.opencontainers.image.source` | The URL of the repository associated with the package. For more information, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package#connecting-a-repository-to-a-container-image-using-the-command-line).
 | `org.opencontainers.image.description` | A text-only description limited to 512 characters. This description will appear on the package page, below the name of the package.
 | `org.opencontainers.image.licenses` | An SPDX license identifier such as "MIT," limited to 256 characters. The license will appear on the package page, in the "Details" sidebar. For more information, see [SPDX License List](https://spdx.org/licenses/).
 

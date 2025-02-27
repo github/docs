@@ -25,8 +25,8 @@ Once a user account has been deleted, the username will be available for use wit
 
 You cannot delete a user that is currently an **organization owner**.
 
-* **If the user is the only owner**: Transfer ownership to another person, or delete the organization. See "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)" and "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)."
-* **If there are other owners**: Remove the user from the organization. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)."
+* **If the user is the only owner:** Transfer ownership to another person, or delete the organization. See [AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership) and [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account).
+* **If there are other owners:** Remove the user from the organization. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization).
 
 You cannot delete **your own user account**. If you need to delete your own user account, ask another site administrator to delete your account for you.
 
@@ -34,13 +34,13 @@ If you have enabled SCIM provisioning on your instance, you cannot delete **user
 
 ## Should I delete or suspend a user account?
 
-{% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts. Suspending user accounts on {% data variables.product.product_name %} preserves the history of resources owned by the user account, such as repositories and pull requests, and releases the licensed seat previously consumed by the user. See "[AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users)."
+{% data variables.product.company_short %} recommends suspending users where possible, rather than deleting their accounts. Suspending user accounts on {% data variables.product.prodname_ghe_server %} preserves the history of resources owned by the user account, such as repositories and pull requests, and releases the {% ifversion enterprise-licensing-language %}license{% else %}licensed seat{% endif %} previously consumed by the user. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users).
 
-As an alternative to deleting or suspending a user account, to stop a user's repositories being permanently removed from your enterprise you can place a legal hold on the user account. See "[Placing a legal hold on a user or organization](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization)."
+As an alternative to deleting or suspending a user account, to stop a user's repositories being permanently removed from your enterprise you can place a legal hold on the user account. See [Placing a legal hold on a user or organization](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/placing-a-legal-hold-on-a-user-or-organization).
 
 ## Deleting a user from the site admin dashboard
 
-Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See "[AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance)" and "[AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository)."
+Before deleting a user account, you should consider if a backup or copy of the repositories, private forks, wikis, issues, and pull requests owned by the user account is required. See [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance) and [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -52,4 +52,4 @@ Before deleting a user account, you should consider if a backup or copy of the r
 
 ## Further reading
 
-* "[AUTOTITLE](/rest/enterprise-admin/users#delete-a-user)"
+* [AUTOTITLE](/rest/enterprise-admin/users#delete-a-user)

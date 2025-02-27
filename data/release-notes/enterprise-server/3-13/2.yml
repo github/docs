@@ -23,9 +23,9 @@ sections:
     - |
       **MEDIUM:** An attacker could have unauthorized read access to issue content inside an internal repository via GitHub projects. This attack required attacker access to the corresponding project board. GitHub has requested CVE ID [CVE-2024-5817](https://nvd.nist.gov/vuln/detail/CVE-2024-5817) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
-      An attacker could access previously executed private required workflows by changing the repository visibility from private to public. This occurred despite the repositories with the required workflows remaining private. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+      **MEDIUM**: An attacker could gain unauthorized access to secret scanning alert data because the [REST API secret scanning endpoint](/rest/secret-scanning/secret-scanning?apiVersion=2022-11-28) did not properly verify whether the user account has the business owner role. Only organization members can exploit this vulnerability, requiring a {% data variables.product.pat_generic %} (PAT) with `repo` or `security_events` scopes, limiting exposure to internal actors. Exploitation also required secret scanning to be enabled on user-owned repositories. GitHub has requested CVE ID [CVE-2024-10824](https://www.cve.org/CVERecord?id=CVE-2024-10824) for this vulnerability. [Updated: 2024-11-07]
     - |
-      A user without the enterprise owner role could view all secret scanning alerts for user-owned repositories using the REST API. Alerts in user-owned repositories are now properly restricted to only be visible to enterprise owners.
+      An attacker could access previously executed private required workflows by changing the repository visibility from private to public. This occurred despite the repositories with the required workflows remaining private. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
     - |
       Packages have been updated to the latest security versions.
   bugs:
@@ -148,7 +148,7 @@ sections:
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
-      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
     - |
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
@@ -169,3 +169,9 @@ sections:
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
     - |
       Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-08-02]
+    - |
+      Images embedded in wiki pages may stop rendering shortly after being published. [Updated: 2024-10-16]
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-29]

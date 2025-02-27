@@ -111,7 +111,7 @@ linux_job:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on)."
+For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idruns-on).
 
 ## Docker images
 
@@ -125,7 +125,7 @@ Below is an example of the syntax for each system.
 
 ```yaml
 my_job:
-  image: node:10.16-jessie
+  image: node:20-bookworm-slim
 ```
 
 {% endraw %}
@@ -137,12 +137,12 @@ my_job:
 ```yaml
 jobs:
   my_job:
-    container: node:10.16-jessie
+    container: node:20-bookworm-slim
 ```
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer).
 
 ## Condition and expression syntax
 
@@ -180,7 +180,7 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 ## Dependencies between Jobs
 
@@ -252,25 +252,23 @@ jobs:
 
 {% endraw %}
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds)."
+For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds).
 
 ## Scheduling workflows
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} allow you to run workflows at a specific interval. In GitLab CI/CD, pipeline schedules are configured with the UI, while in {% data variables.product.prodname_actions %} you can trigger a workflow on a scheduled interval with the "on" key.
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#scheduled-events)."
+For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#scheduled-events).
 
 ## Variables and secrets
 
-GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.product_name %} UI.
+GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.github %} UI.
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/variables)" and "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 
 ## Caching
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} provide a method in the configuration file to manually cache workflow files.
-
-{% ifversion actions-caching %}
 
 Below is an example of the syntax for each system.
 
@@ -311,12 +309,6 @@ jobs:
         restore-keys: v1-npm-deps-
 ```
 
-{% else %}
-
-{% data reusables.actions.caching-availability %}
-
-{% endif %}
-
 ## Artifacts
 
 Both GitLab CI/CD and {% data variables.product.prodname_actions %} can upload files and directories created by a job as artifacts. In {% data variables.product.prodname_actions %}, artifacts can be used to persist data across multiple jobs.
@@ -346,7 +338,7 @@ artifacts:
     path: math-homework.txt
 ```
 
-For more information, see "[AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts)."
+For more information, see [AUTOTITLE](/actions/using-workflows/storing-workflow-data-as-artifacts).
 
 ## Databases and service containers
 
@@ -369,7 +361,7 @@ container-job:
     POSTGRES_HOST: postgres
     # The default PostgreSQL port
     POSTGRES_PORT: 5432
-  image: node:10.18-jessie
+  image: node:20-bookworm-slim
   services:
     - postgres
   script:
@@ -385,13 +377,13 @@ container-job:
 
 {% endraw %}
 
-### {% data variables.product.prodname_actions %}  syntax for databases and service containers
+### {% data variables.product.prodname_actions %} syntax for databases and service containers
 
 ```yaml
 jobs:
   container-job:
     runs-on: ubuntu-latest
-    container: node:10.18-jessie
+    container: node:20-bookworm-slim
 
     services:
       postgres:
@@ -420,4 +412,4 @@ jobs:
           POSTGRES_PORT: 5432
 ```
 
-For more information, see "[AUTOTITLE](/actions/using-containerized-services/about-service-containers)."
+For more information, see [AUTOTITLE](/actions/using-containerized-services/about-service-containers).

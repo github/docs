@@ -1,6 +1,6 @@
 ---
 title: Checking your commit and tag signature verification status
-intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.product_name %}.'
+intro: 'You can check the verification status of your commit and tag signatures on {% data variables.product.github %}.'
 redirect_from:
   - /articles/checking-your-gpg-commit-and-tag-signature-verification-status
   - /articles/checking-your-commit-and-tag-signature-verification-status
@@ -18,7 +18,7 @@ shortTitle: Check verification status
 
 ## Checking your commit signature verification status
 
-1. On {% data variables.product.product_name %}, navigate to your pull request.
+1. On {% data variables.product.github %}, navigate to your pull request.
 {% data reusables.repositories.review-pr-commits %}
 1. Next to your commit's abbreviated commit hash, there is a box that shows whether your commit signature is verified{% ifversion fpt or ghec %}, partially verified,{% endif %} or unverified.
 
@@ -39,6 +39,6 @@ shortTitle: Check verification status
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

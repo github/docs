@@ -1,21 +1,20 @@
 ---
 title: Archiving an organization
 shortTitle: Archive an organization
-intro: 'You can archive an organization to make it read-only and indicate that it''s no longer actively maintained. You can also unarchive organizations that have been archived.'
+intro: You can archive an organization to make it read-only and indicate that it's no longer actively maintained. You can also unarchive organizations that have been archived.
 permissions: Organization owners can archive an organization.
 versions:
-  feature: archive-organizations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Organizations
 ---
 
 {% ifversion fpt or ghec %}
 
-{% note %}
-
-**Note:** You can only archive an organization if it's using {% data variables.product.prodname_free_team %} or if the organization is part of an enterprise. If you want to archive an individually-billed organization, you must downgrade your organization to {% data variables.product.prodname_free_team %} first. For more information, see "[AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription)."
-
-{% endnote %}
+> [!NOTE]
+> You can only archive an organization if it's using {% data variables.product.prodname_free_team %} or if the organization is part of an enterprise. If you want to archive an individually-billed organization, you must downgrade your organization to {% data variables.product.prodname_free_team %} first. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-github-account/downgrading-your-github-subscription).
 
 {% endif %}
 
@@ -27,11 +26,11 @@ When an organization is archived, visitors to the organization's profile will se
 
 The difference between archiving individual repositories and archiving an entire organization is that, in archived organizations, individual repositories may not be unarchived independently. The whole organization is read-only and must be unarchived for any repository to be writeable again.
 
-You can also delete an organization. Deleting your organization account permanently removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)."
+You can also delete an organization. Deleting your organization account permanently removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account).
 
 ## Archiving your organization
 
-You can archive your organization to make it read-only and indicate that it's no longer actively maintained. Prior to archiving, consider updating your organization's profile and README with context about why it's archived. To add an organization-wide README, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+You can archive your organization to make it read-only and indicate that it's no longer actively maintained. Prior to archiving, consider updating your organization's profile and README with context about why it's archived. To add an organization-wide README, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
