@@ -172,6 +172,9 @@ runs:
 
 **Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing-for-javascript-actions) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
+> [!NOTE]
+> `runs.pre` is not supported for local actions.
+
 In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
