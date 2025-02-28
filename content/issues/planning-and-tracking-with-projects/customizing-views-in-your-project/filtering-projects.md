@@ -205,6 +205,14 @@ You can filter by specific text fields or use a general text filter across all t
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
 
+For general text search across all text fields and titles, matches are based only on the beginning of a word, not any part of it.
+For example, if the issue title is **"Document full-text search"**:
+
+* **Matches**: "Doc", "full", "search"
+* **Doesn't match**: "cument", "ext", "arch"
+
+This approach helps keep general text search more precise and relevant.
+
 {% ifversion projects-v2-wildcard-text-filtering %}
 
 You can also use a <code>&ast;</code> as a wildcard.
