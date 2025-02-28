@@ -78,14 +78,17 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 ### {% data variables.product.prodname_copilot_short %} access to alternative AI models
 
 > [!NOTE] The following models are currently in {% data variables.release-phases.public_preview %} as AI models for {% data variables.product.prodname_copilot %}, and are subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of these products.
+>
+> Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
 
 By default, {% data variables.product.prodname_copilot_chat_short %} uses the GPT-4o model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the default GPT-4o model. The available alternative models are:
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini_flash %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
-* **OpenAI's o1 and o3 models**
+* **OpenAI's models:**
   * **o1**: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the GPT-4o model. Each member of your enterprise can make 10 requests to this model per day.
-  * **o3-mini**: This is the next generation of reasoning models, following from o1 and o1-mini. The o3-mini model outperforms o1 on coding benchmarks with response times that are comparable to o1-mini, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours.
+  * **o3-mini**: This is the next generation of reasoning models, following from o1 and o1-mini. The o3-mini model outperforms o1 on coding benchmarks with response times that are comparable to o1-mini, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours. {% ifversion copilot-enterprise %}
+  * **GPT-4.5**: This model is designed with advanced capabilities in intuition, writing style, and broad knowledge. It performs effectively with creative prompts and provides reliable responses to obscure knowledge queries. Each member of your enterprise can make 10 requests to this model every 12 hours. {% endif %}
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 
