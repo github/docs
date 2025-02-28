@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '@/tests/helpers/e2etest.js'
+import { DEFAULT_FASTLY_IPS } from '@/shielding/lib/fastly-ips'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
@@ -135,6 +136,51 @@ describe('rate limiting', () => {
     expect(res.statusCode).toBe(200)
     expect(res.headers['ratelimit-limit']).toBeUndefined()
     expect(res.headers['ratelimit-remaining']).toBeUndefined()
+  })
+
+  test('/api/cookies only allows 1 request per minute', async () => {
+    // Cookies only allows 1 request per minute
+    const res1 = await get('/api/cookies', {
+      headers: {
+        'fastly-client-ip': 'abc123',
+      },
+    })
+    expect(res1.statusCode).toBe(200)
+    expect(res1.headers['ratelimit-limit']).toBe('1')
+    expect(res1.headers['ratelimit-remaining']).toBe('0')
+
+    // A second request should be rate limited
+    const res2 = await get('/api/cookies', {
+      headers: {
+        'fastly-client-ip': 'abc123',
+      },
+    })
+    expect(res2.statusCode).toBe(429)
+    expect(res2.headers['ratelimit-limit']).toBe('1')
+    expect(res2.headers['ratelimit-remaining']).toBe('0')
+  })
+
+  test('Fastly IPs are not rate limited', async () => {
+    // Fastly IPs are in the form `X.X.X.X/Y`
+    // Rate limited IPs are in the form `X.X.X.X`
+    // Where the last X could be any 2-3 digit number
+    const mockFastlyIP =
+      DEFAULT_FASTLY_IPS[0].split('.').slice(0, 3).join('.') + `.${Math.floor(Math.random() * 100)}`
+    // Cookies only allows 1 request per minute
+    const res1 = await get('/api/cookies', {
+      headers: {
+        'fastly-client-ip': mockFastlyIP,
+      },
+    })
+    expect(res1.statusCode).toBe(200)
+
+    // A second request shouldn't be rate limited because it's from a Fastly IP
+    const res2 = await get('/api/cookies', {
+      headers: {
+        'fastly-client-ip': mockFastlyIP,
+      },
+    })
+    expect(res2.statusCode).toBe(200)
   })
 })
 

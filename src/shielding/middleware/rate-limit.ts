@@ -4,6 +4,7 @@ import rateLimit from 'express-rate-limit'
 
 import statsd from '@/observability/lib/statsd.js'
 import { noCacheControl } from '@/frame/middleware/cache-control.js'
+import { isFastlyIP } from '@/shielding/lib/fastly-ips'
 
 const EXPIRES_IN_AS_SECONDS = 60
 
@@ -35,8 +36,11 @@ export function createRateLimiter(max = MAX, isAPILimiter = false) {
       return getClientIPFromReq(req)
     },
 
-    skip: (req) => {
+    skip: async (req) => {
       const ip = getClientIPFromReq(req)
+      if (await isFastlyIP(ip)) {
+        return true
+      }
       // IP is empty when we are in a non-production (not behind Fastly) environment
       // In these environments, we don't want to rate limit (including tests)
       // However, if you want to test rate limiting locally, you can manually set
