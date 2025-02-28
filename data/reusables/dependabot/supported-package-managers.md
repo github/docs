@@ -1,3 +1,5 @@
+<!--Note: When making updates to this reusable, please make sure any changes are also reflected in `content/code-security/dependabot/dependabot-options-reference.md`, under the `package-ecosystem` section.-->
+
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
 | {% ifversion dependabot-bun-support %} |
