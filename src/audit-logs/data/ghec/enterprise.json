@@ -1850,6 +1850,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.advanced_security_entity_policy_update",
+    "description": "An enterprise owner updated the GitHub Advanced Security access policy for repositories owned by the organization.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
+  },
+  {
     "action": "org.advanced_security_policy_selected_member_disabled",
     "description": "An enterprise owner prevented GitHub Advanced Security features from being enabled for repositories owned by the organization.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
