@@ -66,7 +66,6 @@ jobs:
           # - links
           - observability
           # - open-source
-          - pageinfo
           # - pages
           - products
           - redirects
@@ -176,7 +175,7 @@ jobs:
 
       - uses: ./.github/actions/precompute-pageinfo
         # Only the 'pageinfo' tests include end-to-end tests about this.
-        if: ${{ matrix.name == 'pageinfo' }}
+        if: ${{ matrix.name == 'article-api' }}
         env:
           ROOT: src/fixtures/fixtures
 
@@ -194,6 +193,6 @@ jobs:
           # tests run only in English. The exception is the
           # `languages` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
-          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo') && 'src/fixtures/fixtures/translations' || '' }}
+          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api') && 'src/fixtures/fixtures/translations' || '' }}
         run: npm test -- src/${{ matrix.name }}/tests/
