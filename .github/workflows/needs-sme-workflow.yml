@@ -1,5 +1,4 @@
 name: Comment on adding "needs SME" label
-
 # **What it does**: Comment on issues and pull requests when a "needs SME" label is added. SME = subject matter expert.
 # **Why we have it**: We want to manage our queue of issues and pull requests that need sme review.
 # **Who does it impact**: Everyone that works on docs or docs-internal.
