@@ -1,7 +1,7 @@
 import express from 'express'
 import { getWebhook } from '../lib/index.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 
 const router = express.Router()
 

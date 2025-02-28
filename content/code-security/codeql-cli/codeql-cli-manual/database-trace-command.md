@@ -2,7 +2,6 @@
 title: database trace-command
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -101,6 +100,11 @@ In addition to the specified command, run the main script for extractors
 that don't depend on tracing a build process. If you're constructing
 databases for several languages with `--db-cluster`, this option should
 be given to exactly one invocation of [codeql database trace-command](/code-security/codeql-cli/codeql-cli-manual/database-trace-command).
+
+#### `--[no-]use-build-mode`
+
+Determine what to run based on the database's build mode. This option
+cannot be used in conjunction with `--index-traceless-dbs`.
 
 #### `--working-dir=<dir>`
 
@@ -206,3 +210,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

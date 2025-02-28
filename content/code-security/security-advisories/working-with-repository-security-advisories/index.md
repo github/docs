@@ -1,7 +1,7 @@
 ---
 title: Working with repository security advisories
 shortTitle: Repository security advisories
-intro: 'Discuss, fix, and disclose security vulnerabilities in your repositories using repository security advisories.'
+intro: 'Discuss, fix, and disclose security vulnerabilities in your public repositories using repository security advisories.'
 redirect_from:
   - /articles/managing-security-vulnerabilities-in-your-project
   - /github/managing-security-vulnerabilities/managing-security-vulnerabilities-in-your-project
@@ -27,5 +27,5 @@ children:
   - /publishing-a-repository-security-advisory
   - /adding-a-collaborator-to-a-repository-security-advisory
   - /removing-a-collaborator-from-a-repository-security-advisory
-  - /withdrawing-a-repository-security-advisory
+  - /deleting-a-repository-security-advisory
 ---

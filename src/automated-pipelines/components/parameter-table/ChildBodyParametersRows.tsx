@@ -23,7 +23,7 @@ export function ChildBodyParametersRows({
   childParamsGroups,
   oneOfObject = false,
 }: Props) {
-  const { t } = useTranslation(['parameter_table', 'products'])
+  const { t } = useTranslation(['parameter_table'])
   return (
     <tr className={cx(styles.childBodyParametersRows, 'color-bg-subtle border-top-0')}>
       <td className="has-nested-table">

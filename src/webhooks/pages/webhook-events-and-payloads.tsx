@@ -2,7 +2,12 @@ import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import { useEffect } from 'react'
 
-import { getMainContext, MainContext, MainContextT } from 'components/context/MainContext'
+import {
+  addUINamespaces,
+  getMainContext,
+  MainContext,
+  MainContextT,
+} from 'src/frame/components/context/MainContext'
 import {
   getAutomatedPageContextFromRequest,
   AutomatedPageContext,
@@ -71,12 +76,13 @@ export default function WebhooksEventsAndPayloads({
 
 export const getServerSideProps: GetServerSideProps<Props> = async (context) => {
   const { getInitialPageWebhooks } = await import('src/webhooks/lib')
-  const { getAutomatedPageMiniTocItems } = await import('lib/get-mini-toc-items')
+  const { getAutomatedPageMiniTocItems } = await import('src/frame/lib/get-mini-toc-items')
 
   const req = context.req as object
   const res = context.res as object
   const currentVersion = context.query.versionId as string
   const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['parameter_table', 'webhooks'])
   const { miniTocItems } = getAutomatedPageContextFromRequest(req)
 
   // Get data for initial webhooks page (i.e. only 1 action type per webhook and

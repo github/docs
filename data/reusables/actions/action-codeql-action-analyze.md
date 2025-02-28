@@ -1,1 +1,1 @@
-github/codeql-action/analyze@v2
+github/codeql-action/analyze@v3

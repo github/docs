@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { GraphqlItem } from './GraphqlItem'
 import { Table } from './Table'
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -11,15 +9,14 @@ type Props = {
 }
 
 export function Query({ item }: Props) {
-  const { locale } = useRouter()
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('graphql')
 
   return (
     <GraphqlItem item={item} headingLevel={3}>
       <div>
         <p>
           <b>{t('graphql.reference.type')}: </b>
-          <Link href={item.href} locale={locale}>
+          <Link href={item.href} makeAbsolute>
             {item.type}
           </Link>
         </p>
@@ -30,10 +27,7 @@ export function Query({ item }: Props) {
           <>
             <h4
               dangerouslySetInnerHTML={{
-                __html: t('graphql.reference.arguments').replace(
-                  '{{ GraphQLItemTitle }}',
-                  item.name,
-                ),
+                __html: t('reference.arguments').replace('{{ GraphQLItemTitle }}', item.name),
               }}
             />
             <Table fields={item.args} />

@@ -1,13 +1,13 @@
-import { jest } from '@jest/globals'
 import path from 'path'
-import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
-import { get } from '../../../../tests/helpers/e2etest.js'
-import readJsonFile from '../../../../lib/read-json-file.js'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
+import { beforeAll, describe, expect, test, vi } from 'vitest'
+
+import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
+import { get } from '#src/tests/helpers/e2etest.js'
+import readJsonFile from '#src/frame/lib/read-json-file.js'
 
 describe('developer redirects', () => {
-  jest.setTimeout(10 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in
@@ -71,14 +71,14 @@ describe('developer redirects', () => {
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // REST subresources like activity notifications don't have their own page
-    // any more, so redirect to an anchor on the resource page
+    // anymore, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity'
     expect(res.headers.location).toBe(expectedFinalPath)
 
     // REST subresources like activity notifications don't have their own page
-    // any more, so redirect to an anchor on the resource page
+    // anymore, so redirect to an anchor on the resource page
     res = await get('/en/v3/activity/notifications')
     expect(res.statusCode).toBe(301)
     expectedFinalPath = '/en/rest/activity/notifications'
@@ -101,9 +101,9 @@ describe('developer redirects', () => {
   describe('fixtures', () => {
     test.each(['developer', 'rest', 'graphql'])('%s redirects', async (label) => {
       const FIXTURES = {
-        developer: './tests/fixtures/developer-redirects.json',
-        rest: './tests/fixtures/rest-redirects.json',
-        graphql: './tests/fixtures/graphql-redirects.json',
+        developer: './src/fixtures/fixtures/developer-redirects.json',
+        rest: './src/fixtures/fixtures/rest-redirects.json',
+        graphql: './src/fixtures/fixtures/graphql-redirects.json',
       }
       if (!(label in FIXTURES)) throw new Error('unrecognized label')
       const fixtures = readJsonFile(FIXTURES[label])

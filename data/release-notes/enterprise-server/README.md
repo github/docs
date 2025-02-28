@@ -1,6 +1,6 @@
 # Release notes for GitHub Enterprise Server
 
-Rendered here: https://docs.github.com/en/enterprise-server@latest/admin/release-notes
+Rendered here: https://docs.github.com/en/enterprise-server@latest/admin/release-notes <!-- markdownlint-disable-line search-replace -->
 
 ## Adding release notes to a deprecated GitHub Enterprise Server release
 
@@ -9,7 +9,7 @@ During the deprecation of a GitHub Enterprise Server release per [this issue tem
 If a stakeholder requests an update to deprecated release notes, you can update the notes by completing the following steps.
 
 1. Check out the long-running branch <code>enterprise-<em>VERSION</em>-release</code> and create a PR to update the release notes for the deprecated version on that branch.
-2. Reach out to #docs-engineering to request a re-scrape and update of the content stored in Azure. See the section about re-scraping content in the [deprecation checklist](/src/ghes-releases/lib/deprecation-steps.md).
+1. Reach out to #docs-engineering to request a re-scrape and update of the content stored in Azure. See the section about re-scraping content in the [deprecation checklist](/src/ghes-releases/lib/deprecation-steps.md).
 
 ## How it works
 
@@ -31,7 +31,7 @@ Note that patch files can be deprecated individually (i.e., hidden on the docs s
 
 ### Middleware processing
 
-The YAML data is processed and sorted by `middleware/contextualizers/ghes-release-notes.js` and added to the `context` object.
+The YAML data is processed and sorted by `src/release-notes/middleware/context/ghes-release-notes.ts` and added to the `context` object.
 
 ### Layouts
 

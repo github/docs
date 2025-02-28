@@ -1,1 +1,1 @@
-1. Under "Organization account name", type a name for your organization account.
+1. Under "Organization name", type a name for your organization.

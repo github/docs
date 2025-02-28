@@ -1,0 +1,5 @@
+# Reference: #16452
+# Documentation for reviewers can add a comment on push protection bypass requests for secret scanning [GA]
+versions:
+  ghec: '*'
+  ghes: '>=3.16'

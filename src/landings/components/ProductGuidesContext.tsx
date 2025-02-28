@@ -7,7 +7,7 @@ export type LearningTrack = {
   title: string
   description: string
   guides?: Array<{ href: string; page?: { type: string }; title: string; intro: string }>
-} | null
+}
 
 export type ArticleGuide = {
   href: string
@@ -20,9 +20,8 @@ export type ArticleGuide = {
 export type ProductGuidesContextT = {
   title: string
   intro: string
-  learningTracks?: Array<LearningTrack>
+  learningTracks: Array<LearningTrack>
   includeGuides?: Array<ArticleGuide>
-  allTopics?: Array<string>
 }
 
 export const ProductGuidesContext = createContext<ProductGuidesContextT | null>(null)
@@ -42,14 +41,16 @@ export const useProductGuidesContext = (): ProductGuidesContextT => {
 export const getProductGuidesContextFromRequest = (req: any): ProductGuidesContextT => {
   const page = req.context.page
 
+  const learningTracks: LearningTrack[] = (page.learningTracks || []).map((track: any) => ({
+    ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
+    guides: (track.guides || []).map((guide: any) => {
+      return pick(guide, ['title', 'intro', 'href', 'page.type'])
+    }),
+  }))
+
   return {
-    ...pick(page, ['title', 'intro', 'allTopics']),
-    learningTracks: (page.learningTracks || []).map((track: any) => ({
-      ...pick(track, ['title', 'description', 'trackName', 'trackProduct']),
-      guides: (track.guides || []).map((guide: any) => {
-        return pick(guide, ['title', 'intro', 'href', 'page.type'])
-      }),
-    })),
+    ...pick(page, ['title', 'intro']),
+    learningTracks,
     includeGuides: (page.includeGuides || []).map((guide: any) => {
       return {
         ...pick(guide, ['href', 'title', 'intro']),

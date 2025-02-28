@@ -84,8 +84,8 @@ The default development container, or "dev container," for {% data variables.pro
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
 
-- Run `composer install`, after the dev container is created, to install the dependencies listed in a `composer.json` file.
-- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+* Run `composer install`, after the dev container is created, to install the dependencies listed in a `composer.json` file.
+* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 1. In the `devcontainer.json` file, delete the two commented-out lines about features:
 

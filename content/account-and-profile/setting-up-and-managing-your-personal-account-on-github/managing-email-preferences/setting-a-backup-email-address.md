@@ -1,6 +1,6 @@
 ---
 title: Setting a backup email address
-intro: 'Use a backup email address as an additional destination for security-relevant account notifications{% ifversion not ghae %} and to securely reset your password if you can no longer access your primary email address{% endif %}.'
+intro: 'Use a backup email address as an additional destination for security-relevant account notifications and to securely reset your password if you can no longer access your primary email address.'
 redirect_from:
   - /articles/setting-a-backup-email-address
   - /github/setting-up-and-managing-your-github-user-account/setting-a-backup-email-address
@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
@@ -23,5 +22,5 @@ shortTitle: Set backup email address
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials)

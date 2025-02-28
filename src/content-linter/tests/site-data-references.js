@@ -1,9 +1,9 @@
 import path from 'path'
 import { isEqual, uniqWith } from 'lodash-es'
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
-import patterns from '../../../lib/patterns.js'
-import { getDataByLanguage, getDeepDataByLanguage } from '../../../lib/get-data.js'
+import patterns from '#src/frame/lib/patterns.js'
+import { getDataByLanguage, getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 // Given syntax like {% data foo.bar %} or {% indented_data_reference foo.bar spaces=3 %},
 // the following regex returns just the dotted path: foo.bar
@@ -30,7 +30,7 @@ const getDataReferences = (content) => {
 }
 
 describe('data references', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('every data reference found in English variable files is defined and has a value', async () => {
     let errors = []

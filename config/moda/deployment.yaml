@@ -1,0 +1,59 @@
+# Deploy configuration reference: https://thehub.github.com/epd/engineering/products-and-services/internal/moda/reference/deployment-yaml/
+
+environments:
+  - name: production
+    require_pipeline: true
+    cluster_selector:
+      profile: general
+      region: iad
+
+  - name: staging-cedar
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
+    required_review_tasks: []
+    cluster_selector:
+      profile: general
+      region: iad
+
+  - name: staging-pine
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
+    required_review_tasks: []
+    cluster_selector:
+      profile: general
+      region: iad
+
+  - name: staging-spruce
+    require_pipeline: false
+    notify_still_locked: true # Notify last person to lock this after an hour
+    secret_environment: production
+    required_review_tasks: []
+    cluster_selector:
+      profile: general
+      region: iad
+
+required_builds:
+  - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
+  - docs-internal-docker-image / docs-internal-docker-image
+  - docs-internal-docker-security / docs-internal-docker-security
+
+# Make the pipeline start automatically when a PR is enqueued
+auto_start_pipeline: production_rollout
+
+pipelines:
+  production_rollout:
+    thread_notifications: true
+    notify_users_via_dm: false
+    timeout: 1200
+    stages:
+      - name: full_production
+        kind: deployment
+        config:
+          environment: production
+          timeout: 1200
+
+notifications:
+  slack_channels:
+    - '#docs-ops'

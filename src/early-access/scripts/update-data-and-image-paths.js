@@ -10,9 +10,9 @@
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
-import walkFiles from '../../../script/helpers/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 import { escapeRegExp } from 'lodash-es'
-import patterns from '../../../lib/patterns.js'
+import patterns from '#src/frame/lib/patterns.js'
 
 program
   .description('Update data and image paths.')

@@ -1,6 +1,6 @@
 ---
-title: GitHub Discussions documentation
-shortTitle: GitHub Discussions
+title: "{% data variables.product.prodname_discussions %} documentation"
+shortTitle: "{% data variables.product.prodname_discussions %}"
 intro: '{% data variables.product.prodname_discussions %} is a collaborative communication forum for the community around an{% ifversion fpt or ghec %} open source or{% endif %} internal project. Community members can ask and answer questions, share updates, have open-ended conversations, and follow along on decisions affecting the community''s way of working.'
 introLinks:
   quickstart: /discussions/quickstart
@@ -32,7 +32,9 @@ changelog:
 examples_source: data/product-examples/discussions/community-examples.yml
 layout: product-landing
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/discussions'

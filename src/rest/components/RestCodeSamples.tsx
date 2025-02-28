@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, FormEvent } from 'react'
-import { FormControl, Select, Tooltip, TabNav } from '@primer/react'
-import { CheckIcon, CopyIcon } from '@primer/octicons-react'
-import Cookies from 'components/lib/cookies'
+import { FormControl, IconButton, Select, TabNav } from '@primer/react'
+import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
+import { announce } from '@primer/live-region-element'
+import Cookies from 'src/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -21,6 +22,7 @@ import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
 import { useVersion } from 'src/versions/components/useVersion'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 
 type Props = {
   slug: string
@@ -40,9 +42,17 @@ function getLanguageHighlight(selectedLanguage: string) {
   return selectedLanguage === CodeSampleKeys.javascript ? 'javascript' : 'curl'
 }
 
+function highlightElement(element: HTMLElement) {
+  element.className = 'hljs'
+  // If the element was already highlighted, remove the dataset property
+  // otherwise the `hljs.highlightElement` function will not highlight.
+  delete element.dataset.highlighted
+  hljs.highlightElement(element)
+}
+
 export function RestCodeSamples({ operation, slug, heading }: Props) {
-  const { t } = useTranslation('products')
-  const { isEnterpriseServer } = useVersion()
+  const { t } = useTranslation(['rest_reference'])
+  const { isEnterpriseServer, isEnterpriseCloud } = useVersion()
 
   // Refs to track the request example, response example
   // and the first render
@@ -51,12 +61,15 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   const firstRender = useRef(true)
   const scrollRef = useRef<HTMLDivElement>(null)
 
+  const { currentVersion } = useVersion()
+  const { allVersions } = useMainContext()
+
   // Get format examples for each language
   const languageExamples = operation.codeExamples.map((sample) => ({
     description: sample.request.description,
-    curl: getShellExample(operation, sample),
-    javascript: getJSExample(operation, sample),
-    ghcli: getGHExample(operation, sample),
+    curl: getShellExample(operation, sample, currentVersion, allVersions),
+    javascript: getJSExample(operation, sample, currentVersion, allVersions),
+    ghcli: getGHExample(operation, sample, currentVersion, allVersions),
     response: sample.response,
   }))
 
@@ -138,7 +151,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     }
   }, [])
 
-  // Handle syntax higlighting when the language changes or
+  // Handle syntax highlighting when the language changes or
   // a cookie is set
   useEffect(() => {
     const reqElem = requestCodeExample.current
@@ -147,8 +160,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
       handleResponseResize()
     }
   }, [selectedLanguage])
@@ -168,8 +180,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
     // intersection observer syntax highlighting
     // (ClientSideHighlightJS) will have already handled highlighting
     if (reqElem && !firstRender.current) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
   }, [selectedResponse])
 
@@ -178,14 +189,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   useEffect(() => {
     const reqElem = requestCodeExample.current
     if (reqElem) {
-      reqElem.className = 'hljs'
-      hljs.highlightElement(reqElem)
+      highlightElement(reqElem)
     }
 
     const resElem = responseCodeExample.current
     if (resElem) {
-      resElem.className = 'hljs'
-      hljs.highlightElement(resElem)
+      highlightElement(resElem)
     }
   }, [selectedExample])
 
@@ -224,7 +233,19 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h3 className="mt-0 pt-0 h4" id={`${slug}--code-samples`}>
         <a href={`#${slug}--code-samples`}>{heading}</a>
       </h3>
+      {isEnterpriseCloud && selectedLanguage === CodeSampleKeys.curl ? (
+        <span className="f5">
+          <InfoIcon className="d-inline mx-1" />
+          <p
+            className="d-inline"
+            dangerouslySetInnerHTML={{ __html: t('data_residency_notice') }}
+          />
+        </span>
+      ) : null}
 
+      <h4 className="mt-3 mb-3 h5">
+        {isSingleExample ? t('request_example') : t('request_examples')}
+      </h4>
       {/* Display an example selector if more than one example */}
       {!isSingleExample && (
         <div className="pb-5 pt-2">
@@ -264,31 +285,21 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                   }}
                   href="#"
                 >
-                  {t(`rest.reference.code_sample_options.${optionKey}`)}
+                  {t(`code_sample_options.${optionKey}`)}
                 </TabNav.Link>
               ))}
             </TabNav>
           </div>
           <div className="mr-2">
-            <Tooltip
-              className="mr-2"
-              direction="w"
-              aria-label={isCopied ? t('button_text.copied') : t('button_text.copy_to_clipboard')}
-            >
-              <button
-                className="js-btn-copy btn-octicon"
-                aria-label={
-                  isCopied
-                    ? t('button_text.copied')
-                    : `${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`
-                }
-                aria-live="polite"
-                aria-atomic="true"
-                onClick={() => setCopied()}
-              >
-                {isCopied ? <CheckIcon /> : <CopyIcon />}
-              </button>
-            </Tooltip>
+            <IconButton
+              icon={isCopied ? CheckIcon : CopyIcon}
+              className="js-btn-copy btn-octicon"
+              aria-label={`${t('button_text.copy_to_clipboard')} ${selectedLanguage} request example`}
+              onClick={() => {
+                setCopied()
+                announce('Copied!')
+              }}
+            ></IconButton>
           </div>
         </div>
 
@@ -300,10 +311,14 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
             `border-top rounded-1 my-0 ${getLanguageHighlight(selectedLanguage)}`,
           )}
           data-highlight={getLanguageHighlight(selectedLanguage)}
-          // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
           tabIndex={0}
+          role="scrollbar"
+          aria-controls="example-request-code"
+          aria-valuenow={0}
         >
-          <code ref={requestCodeExample}>{displayedExample[selectedLanguage]}</code>
+          <code id="example-request-code" ref={requestCodeExample}>
+            {displayedExample[selectedLanguage]}
+          </code>
         </div>
       </div>
 
@@ -311,7 +326,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
       <h4
         className="mt-5 mb-2 h5"
         dangerouslySetInnerHTML={{
-          __html: displayedExample.response.description || t('rest.reference.response'),
+          __html: displayedExample.response.description || t('response'),
         }}
       ></h4>
       <div className="border rounded-1">
@@ -335,7 +350,7 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
                 }}
                 href="#"
               >
-                {t(`rest.reference.response_options.${optionKey}`)}
+                {t(`response_options.${optionKey}`)}
               </TabNav.Link>
             ))}
           </TabNav>
@@ -358,10 +373,12 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
               )}
               data-highlight={'json'}
               style={{ maxHeight: responseMaxHeight }}
-              // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
               tabIndex={0}
+              role="scrollbar"
+              aria-controls="example-response-code"
+              aria-valuenow={0}
             >
-              <code ref={responseCodeExample}>
+              <code id="example-response-code" ref={responseCodeExample}>
                 {selectedResponse === ResponseKeys.example
                   ? displayedExampleResponse
                   : displayedExampleSchema}

@@ -6,7 +6,6 @@ shortTitle: Advanced functionality
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -27,7 +26,7 @@ children:
   - /csv-output
   - /extractor-options
   - /exit-codes
+  - /creating-database-bundle-for-troubleshooting
 redirect_from:
   - /code-security/codeql-cli/codeql-cli-reference
 ---
-

@@ -3,7 +3,9 @@ title: Viewing insights for your discussions
 intro: 'Discussions insights provide data about your discussions'' activity, views, and contributors.'
 permissions: Repository administrators and people with maintain access to a repository can view the insights dashboard for discussions in that repository. Repository administrators and people with maintain access to the source repository for organization discussions can view the insights dashboard for discussions in that organization.
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Discussions
 shortTitle: View discussions insights
@@ -12,18 +14,15 @@ shortTitle: View discussions insights
 ## About the discussions insights dashboard
 
 You can use discussions insights to help understand the contribution activity, page views, and growth of your discussions community.
-- **Contribution activity** shows the count of total contributions to discussions, issues, and pull requests.
-- **Discussions page views** shows the total page views for discussions, segmented by logged in versus anonymous viewers.
-- **Discussions daily contributors** shows the daily count of unique users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
-- **Discussions new contributors** shows the daily count of unique new users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
+* **Contribution activity** shows the count of total contributions to discussions, issues, and pull requests.
+* **Discussions page views** shows the total page views for discussions, segmented by logged in versus anonymous viewers.
+* **Discussions daily contributors** shows the daily count of unique users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
+* **Discussions new contributors** shows the daily count of unique new users who have reacted, upvoted, marked an answer, commented, or posted in the selected time period.
 
 ![Screenshot of the "Community insights" page. A dashboard displays graphs for data related to Discussions, such as page views.](/assets/images/help/discussions/discussions-dashboard.png)
 
-{% note %}
-
-**Note:** To view the exact data for a time period, hover over that time period in the graph.
-
-{% endnote %}
+> [!NOTE]
+> To view the exact data for a time period, hover over that time period in the graph.
 
 ## Viewing discussions insights
 

@@ -36,11 +36,10 @@ A capability should have its own subject folder when it has its _own specific te
 
 A few things are harder to categorize, so there's some broad folders:
 
-- `content/`, for things that make the `content/` or `data/` directories work. And there's no more specific option.
-- `environments/`, for things that make local, testing, preview, staging, production work. And there's no more specific option.
 - `frame/`, for things that make the header, footer, global sidebar functional. And there's no more specific option.
+- `workflows/`, for things that are processes rather than the production application. And there's no more specific option.
 
-But don't hestitate to make a new subject folder if there's at least a few files related.
+But don't hesitate to make a new subject folder if there's at least a few files related.
 
 ## Where to get help
 
@@ -48,7 +47,7 @@ Check the README.md in the subject folder for questions specific to a subject.
 
 For internal folks, please ask in the Docs Engineering Slack or repository.
 
-For open source folks, please ask on the [discussion board](https://github.com/github/docs/discussions).
+For open source folks, please open an issue in the repository.
 
 ## A note on tests and required checks
 
@@ -61,3 +60,5 @@ it's important to point out two things:
 1. When you add an entry to `.github/workflows/test.yml`, and it's
    gone into `main`, don't forget to add it to the branch protection's
    required checks.
+
+❖

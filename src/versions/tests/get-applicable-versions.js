@@ -1,36 +1,39 @@
 import fs from 'fs'
 import path from 'path'
-import { describe, expect, test } from '@jest/globals'
+
+import { describe, expect, test } from 'vitest'
 
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
+import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 describe('Versions frontmatter', () => {
   test('wildcard', async () => {
     const versions = {
       fpt: '*',
-      ghae: '*',
+      ghes: '*',
     }
     const applicableVersions = getApplicableVersions(versions)
-    expect(applicableVersions.includes('github-ae@latest')).toBe(true)
+    expect(applicableVersions.includes('free-pro-team@latest')).toBe(true)
+    expect(applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
   })
 
   test('greater than', async () => {
     const versions = {
       fpt: '*',
-      ghae: '>3.2',
+      ghes: '>3.2',
     }
     const applicableVersions = getApplicableVersions(versions)
-    expect(applicableVersions.includes('github-ae@latest')).toBe(true)
+    expect(applicableVersions.includes(`enterprise-server@${latest}`)).toBe(true)
   })
 
   test('less than', async () => {
     const versions = {
       fpt: '*',
-      ghae: '<3.2',
+      ghes: '<3.2',
     }
     const applicableVersions = getApplicableVersions(versions)
-    expect(applicableVersions.includes('github-ae@latest')).toBe(false)
+    expect(applicableVersions.includes(`enterprise-server@${latest}`)).toBe(false)
   })
 })
 

@@ -4,7 +4,6 @@ descriptions: Early Access secret
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 

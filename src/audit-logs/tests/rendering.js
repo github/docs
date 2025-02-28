@@ -1,10 +1,12 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '../../../tests/helpers/e2etest.js'
+import { getDOM } from '#src/tests/helpers/e2etest.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import { getAuditLogEvents } from '../lib/index.js'
+import { getCategorizedAuditLogEvents } from '../lib'
 
 describe('audit log events docs', () => {
+  vi.setConfig({ testTimeout: 60 * 1000 })
+
   const auditLogEventPages = [
     {
       path: '/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization',
@@ -26,8 +28,11 @@ describe('audit log events docs', () => {
   test.each(auditLogEventPages)(
     'loads audit log event data for all versions on page %o',
     async (page) => {
-      for (const version in allVersions) {
-        const auditLogEvents = getAuditLogEvents(page.type, version, true)
+      for (const version of Object.keys(allVersions)) {
+        // the enterprise events page has no FPT versioned audit log data
+        if (page.type === 'enterprise' && version === 'free-pro-team@latest') continue
+
+        const auditLogEvents = getCategorizedAuditLogEvents(page.type, version, true)
 
         if (Object.keys(auditLogEvents).length === 0) {
           console.warn(`There are no audit log events for ${page.path} with version '${version}'.`)

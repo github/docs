@@ -3,7 +3,6 @@ title: diagnostic export
 intro: '[Experimental] Export diagnostic information for a failed analysis.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -68,10 +67,10 @@ The output path to write diagnostic information to.
 
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -82,9 +81,7 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
 
 #### `--diagnostic-dir=<diagnosticDirs>`
 
@@ -125,3 +122,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

@@ -94,8 +94,8 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-- Run a command, after the dev container is created, to create a new file.
-- Automatically install two {% data variables.product.prodname_vscode_shortname %} extensions in this codespace.
+* Run a command, after the dev container is created, to create a new file.
+* Automatically install two {% data variables.product.prodname_vscode_shortname %} extensions in this codespace.
 
 1. In the `devcontainer.json` file, add a comma after the `features` property.
 
@@ -186,7 +186,7 @@ With your dev container configuration added and a basic understanding of what ev
 1. Run the application by pressing `F5`.
 1. If a "toast" notification message is displayed at the bottom right corner of {% data variables.product.prodname_vscode_shortname %}, asking whether you want to switch to standard mode, click **Yes**.
 
-   ![Screenshot of a popup message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
+   ![Screenshot of the message: "Run/Debug feature requires Java language server to run in Standard mode. Do you want to switch it to Standard mode now?"](/assets/images/help/codespaces/switch-to-standard-mode.png)
 
 1. When the project files have been imported, click the **Debug Console** tab to see the program output.
 

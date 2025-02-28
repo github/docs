@@ -1,3 +1,4 @@
-GitHub {% data variables.product.prodname_codeql %} is licensed on a per-user basis upon installation. You can use {% data variables.product.prodname_codeql %} only for certain tasks under the license restrictions. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-codeql-cli/about-the-codeql-cli#about-the-github-codeql-license)."
+{% data variables.product.prodname_codeql %} is available for the following repository types:
 
-If you have a GitHub Advanced Security license, you can use {% data variables.product.prodname_codeql %} for automated analysis, continuous integration, and continuous delivery. {% data reusables.advanced-security.more-info-ghas %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}, see [GitHub CodeQL Terms and Conditions](https://github.com/github/codeql-cli-binaries/blob/main/LICENSE.md)
+* Organization-owned repositories on {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled

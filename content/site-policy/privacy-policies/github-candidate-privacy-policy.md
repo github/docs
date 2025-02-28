@@ -38,15 +38,15 @@ The Candidate Personal Information we collect, use, and maintain (or â€œprocessâ
 ## How do we use the Candidate Personal Information we collect?
 
 We use the Candidate Personal Information for the following purposes:
- - To assess your skills, qualifications and interests for employment opportunities with GitHub;
- - To verify the information provided by you or others, including checking your references;
- - To communicate with you about your application and the recruitment process, including informing you of other potential employment opportunities at GitHub;
- - If you were referred, to inform the referrer of the status of your application;
- - If you are offered a position, to prepare your offer letter and conduct a background check (to the extent permitted by applicable law);
- - If you are offered a position and where requested by you, to assist you with obtaining an immigration visa or work permit;
- - To comply with local laws, regulations, legal processes or enforceable government requests; and
- - To prepare and submit reports as required under local laws and regulations;
- - To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
+ * To assess your skills, qualifications and interests for employment opportunities with GitHub;
+ * To verify the information provided by you or others, including checking your references;
+ * To communicate with you about your application and the recruitment process, including informing you of other potential employment opportunities at GitHub;
+ * If you were referred, to inform the referrer of the status of your application;
+ * If you are offered a position, to prepare your offer letter and conduct a background check (to the extent permitted by applicable law);
+ * If you are offered a position and where requested by you, to assist you with obtaining an immigration visa or work permit;
+ * To comply with local laws, regulations, legal processes or enforceable government requests; and
+ * To prepare and submit reports as required under local laws and regulations;
+ * To manage and improve our application and recruitment process (such as making the application process more efficient and improving our diversity practices).
 
 ## How do we share your Candidate Personal Information?
 
@@ -56,7 +56,7 @@ GitHub will share your Candidate Personal Information with those who have a legi
 1. To comply with our legal obligations, regulations or contracts, or to respond to a court order, administrative or judicial process (such as subpoena, government audit or search warrant) or, in response to lawful requests by public authorities (such as national security or law enforcement);
 1. As necessary to establish, exercise, or defend against potential or pending litigation;
 1. Where necessary to protect GitHub, your vital interests (such as safety and security), or those of another person; or
-1. With your consent (such to contact your referees). It is your responsibility to obtain consent from referees before providing their personal information to GitHub.
+1. With your consent (such to contact your references). It is your responsibility to obtain consent from references before providing their personal information to GitHub.
 
 ## Your rights to your Candidate Personal Information
 

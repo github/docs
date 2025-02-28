@@ -5,7 +5,7 @@
 //
 // Usage:
 //
-//  script/markdownlint-disable.js no-generic-link-text
+//  src/content-linter/scripts/disable-rules.js no-generic-link-text
 
 import fs from 'fs'
 import { spawn } from 'child_process'

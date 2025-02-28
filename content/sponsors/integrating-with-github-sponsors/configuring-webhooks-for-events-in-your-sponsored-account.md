@@ -20,16 +20,16 @@ To monitor changes to your sponsorships, such as cancellations at the end of a p
 
 ## Adding a webhook
 
-You can add a webhook for your sponsorship. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-github-sponsors-webhook)."
+You can add a webhook for your sponsorship. For more information, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks#creating-a-github-sponsors-webhook).
 
 ## Editing a webhook
 
-You can edit a webhook to change any of the settings that were selected when the sponsorship webhook was initially created. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-github-sponsors-webhook)."
+You can edit a webhook to change any of the settings that were selected when the sponsorship webhook was initially created. For more information, see [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks#editing-a-github-sponsors-webhook).
 
 ## Disabling a webhook
 
-You can disable or delete a webhook for your sponsorship. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-github-sponsors-webhook)."
+You can disable or delete a webhook for your sponsorship. For more information, see [AUTOTITLE](/webhooks/using-webhooks/disabling-webhooks#disabling-a-github-sponsors-webhook).
 
 ## Viewing recent deliveries and responses
 
-You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries)."
+You can view details about webhook deliveries that occurred in the past {% data variables.webhooks.retention %} days. For more information, see [AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/viewing-webhook-deliveries).

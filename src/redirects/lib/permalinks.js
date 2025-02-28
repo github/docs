@@ -1,5 +1,5 @@
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { getPathWithoutVersion } from '../../../lib/path-utils.js'
+import { getPathWithoutVersion } from '#src/frame/lib/path-utils.js'
 
 export default function permalinkRedirects(permalinks, redirectFrom) {
   const redirects = {}

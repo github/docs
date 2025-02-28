@@ -1,8 +1,8 @@
 import { ArrowRightIcon, ArrowUpIcon, FileIcon, ListUnorderedIcon } from '@primer/octicons-react'
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { useProductLandingContext } from 'src/landings/components/ProductLandingContext'
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { useRouter } from 'next/router'
 
 export function ProductReleases() {
@@ -14,7 +14,7 @@ export function ProductReleases() {
   return (
     <div>
       <div className="d-lg-flex gutter-lg flex-items-stretch">
-        {ghesReleases.map((release) => {
+        {ghesReleases.slice(0, 4).map((release) => {
           const releaseNumber = release.version
           if (!enterpriseServerReleases.supported.includes(releaseNumber)) {
             return null
@@ -41,14 +41,14 @@ export function ProductReleases() {
                   <ArrowUpIcon /> {t('upgrade_from')}{' '}
                   <Link
                     className="text-bold"
-                    href={`/${router.locale}/${firstPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
+                    href={`/${router.locale}/${firstPreviousVersion}/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process`}
                   >
                     {release.firstPreviousRelease}
                   </Link>{' '}
                   or{' '}
                   <Link
                     className="text-bold"
-                    href={`/${router.locale}/${secondPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
+                    href={`/${router.locale}/${secondPreviousVersion}/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process`}
                   >
                     {release.secondPreviousRelease}
                   </Link>

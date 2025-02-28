@@ -20,7 +20,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
 
   const { t } = useTranslation('picker')
   // Remember, in this context `languages` is only the active ones
-  // that are available. I.e. no wip ones.
+  // that are available.
   // Also, if the current context has a page and that page has own ideas
   // about which languages it's available in (e.g. early-access)
   // it would already have been paired down.
@@ -33,7 +33,7 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
   const selectedLang = languages[locale]
 
   // The `router.asPath` will always be without a hash in SSR
-  // So to avoid a hydraration failure on the client, we have to
+  // So to avoid a hydration failure on the client, we have to
   // normalize it to be without the hash. That way the path is treated
   // in a "denormalized" way.
   const routerPath = router.asPath.split('#')[0]
@@ -98,7 +98,10 @@ export const LanguagePicker = ({ xs, mediumOrLower }: Props) => {
         </>
       ) : mediumOrLower ? (
         <ActionList className="hide-sm" selectionVariant="single">
-          <ActionList.Group title={t('language_picker_label')}>{languageList}</ActionList.Group>
+          <ActionList.Group>
+            <ActionList.GroupHeading>{t('language_picker_label')}</ActionList.GroupHeading>
+            {languageList}
+          </ActionList.Group>
         </ActionList>
       ) : (
         <ActionMenu>

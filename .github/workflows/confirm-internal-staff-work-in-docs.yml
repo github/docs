@@ -9,6 +9,7 @@ on:
     types:
       - opened
       - transferred
+  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
   pull_request_target:
     types:
       - opened
@@ -23,7 +24,7 @@ jobs:
     if: github.repository == 'github/docs' && github.actor != 'docs-bot'
     steps:
       - id: membership_check
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
+        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         env:
           TEAM_CONTENT_REPO: ${{ secrets.TEAM_CONTENT_REPO }}
         with:
@@ -74,7 +75,7 @@ jobs:
 
       - name: Send Slack notification if a GitHub employee who isn't on the docs team opens an issue in public
         if: ${{ steps.membership_check.outputs.did_warn && github.repository == 'github/docs' }}
-        uses: someimportantcompany/github-actions-slack-message@1d367080235edfa53df415bd8e0bbab480f29bad
+        uses: someimportantcompany/github-actions-slack-message@a975b440de2bcef178d451cc70d4c1161b5a30cd
         with:
           channel: ${{ secrets.DOCS_OPEN_SOURCE_SLACK_CHANNEL_ID }}
           bot-token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
@@ -82,7 +83,7 @@ jobs:
 
       - name: Check out repo
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'pull_request_target' }}
         with:

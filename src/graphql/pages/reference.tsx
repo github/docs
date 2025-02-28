@@ -1,8 +1,12 @@
 import { GetServerSideProps } from 'next'
-import React from 'react'
 
 import { GraphqlPage } from 'src/graphql/components/GraphqlPage'
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'src/frame/components/context/MainContext'
 import type { ObjectT, GraphqlT } from 'src/graphql/components/types'
 import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
 import {
@@ -65,9 +69,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   // Update the existing context to include the miniTocItems from GraphQL
   automatedPageContext.miniTocItems.push(...graphqlMiniTocItems)
 
+  const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['graphql'])
+
   return {
     props: {
-      mainContext: await getMainContext(req, res),
+      mainContext,
       automatedPageContext,
       schema,
       language,

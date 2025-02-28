@@ -1,4 +1,4 @@
-## Feature-based versioning
+# Feature-based versioning
 
 Feature-based versioning allows us to define and control the versions of an arbitrarily named "feature" in one place.
 
@@ -15,7 +15,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '>3.1'
-  ghae: '*'
 ```
 
 The format and allowed values are the same as the [frontmatter versions property](/content#versions).
@@ -40,7 +39,7 @@ You cannot use `feature:` to specify multiple concurrent versions, as this is no
 
 ## Schema enforcement
 
-The schema for validating the feature versioning lives in [`src/content-linter/lib/feature-versions-schema.js`](src/content-linter/lib/feature-versions-schema.js) and is exercised by [`tests/linting/lint-versioning.js`](tests/linting/lint-versioning.js).
+The schema for validating the feature versioning lives in [`src/data-directory/lib/data-schemas/features.js`](../../src/data-directory/lib/data-schemas/features.js).
 
 ## Script to remove feature tags
 

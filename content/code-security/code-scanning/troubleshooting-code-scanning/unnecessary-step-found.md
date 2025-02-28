@@ -6,21 +6,22 @@ allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 
-{% data reusables.code-scanning.beta %}
+## About this warning
 
-If you're using an old {% data variables.product.prodname_codeql %} workflow you may get the following warning in the output from the "Initialize {% data variables.product.prodname_codeql %}" action:
-
-```shell
+```text
 Warning: 1 issue was detected with this workflow: git checkout HEAD^2 is no longer
 necessary. Please remove this step as Code Scanning recommends analyzing the merge
 commit for best results.
 ```
 
-Fix this by removing the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
+If you're using an old {% data variables.product.prodname_codeql %} workflow you may receive this warning from the "Initialize {% data variables.product.prodname_codeql %}" action.
+
+## Confirm the cause of the problem
+
+Check for the following lines from the {% data variables.product.prodname_codeql %} workflow. These lines were included in the `steps` section of the `Analyze` job in initial versions of the {% data variables.product.prodname_codeql %} workflow.
 
 ```yaml
         with:
@@ -34,7 +35,9 @@ Fix this by removing the following lines from the {% data variables.product.prod
         if: {% raw %}${{ github.event_name == 'pull_request' }}{% endraw %}
 ```
 
-The revised `steps` section of the workflow will look like this:
+## Fixing the problem
+
+Remove the lines from the {% data variables.product.prodname_codeql %} workflow. The revised `steps` section of the workflow should now look like this:
 
 ```yaml
     steps:
@@ -45,7 +48,7 @@ The revised `steps` section of the workflow will look like this:
       - name: Initialize {% data variables.product.prodname_codeql %}
         uses: {% data reusables.actions.action-codeql-action-init %}
 
-      ...
+      # ...
 ```
 
-For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see  "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow)."
+For more information about editing the {% data variables.product.prodname_codeql %} workflow file, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#editing-a-code-scanning-workflow).

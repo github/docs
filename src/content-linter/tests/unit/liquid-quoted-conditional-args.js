@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { liquidQuotedConditionalArg } from '../../lib/linting-rules/liquid-quoted-conditional-arg.js'
 
@@ -93,7 +95,7 @@ describe(liquidQuotedConditionalArg.names.join(' - '), () => {
       '{% unless this %}',
       '{% ifversion ghec %}',
       '{% elseif ghes %}',
-      '{% if ghae %}',
+      '{% if ghec %}',
       '- Three',
       '{% data variables.stuff.foo%}',
     ].join('\n')

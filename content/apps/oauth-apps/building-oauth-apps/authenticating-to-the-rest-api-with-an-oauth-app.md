@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
@@ -18,25 +17,22 @@ topics:
 
 
 In this section, we're going to focus on the basics of authentication. Specifically,
-we're going to create a Ruby server (using [Sinatra][Sinatra]) that implements
-the [web flow][webflow] of an application in several different ways.
+we're going to create a Ruby server (using [Sinatra](http://www.sinatrarb.com/)) that implements
+the [web flow](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps) of an application in several different ways.
 
-{% tip %}
-
-You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
-
-{% endtip %}
+> [!TIP]
+> You can download the complete source code for this project [from the platform-samples repo](https://github.com/github/platform-samples/tree/master/api/).
 
 ## Registering your app
 
-First, you'll need to [register your application][new oauth app]. Every
+First, you'll need to [register your application](https://github.com/settings/applications/new). Every
 registered {% data variables.product.prodname_oauth_app %} is assigned a unique Client ID and Client Secret.
 The client secret is used to get an access token for the signed-in user. You must
 include the client secret in your native application, however web applications should not leak this value.
 
 You can fill out every other piece of information however you like, except the
 **Authorization callback URL**. This is the most important piece to securely setting
-up your application. It's the callback URL that {% data variables.product.product_name %}
+up your application. It's the callback URL that {% data variables.product.github %}
 returns the user to after successful authentication. Ownership of that URL is what ensures
 that users sign into your app, instead of leaking tokens to an attacker.
 
@@ -63,8 +59,8 @@ end
 ```
 
 Your client ID and client secret come from [your application's configuration
-page][app settings]. We recommend storing these values as
-[environment variables][about env vars] for ease of replacement and use --
+page](https://github.com/settings/developers). We recommend storing these values as
+[environment variables](http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables) for ease of replacement and use --
 which is exactly what we've done here.
 
 Next, in _views/index.erb_, paste this content:
@@ -88,19 +84,19 @@ Next, in _views/index.erb_, paste this content:
 </html>
 ```
 
-(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide][Sinatra guide].)
+(If you're unfamiliar with how Sinatra works, we recommend [reading the Sinatra guide](https://github.com/sinatra/sinatra-book/blob/main/book/Introduction.markdown#hello-world-application).)
 
 Also, notice that the URL uses the `scope` query parameter to define the
-[scopes][oauth scopes] requested by the application. For our application, we're
+[scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps) requested by the application. For our application, we're
 requesting `user:email` scope for reading private email addresses.
 
-Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you should be taken to {% data variables.product.product_name %}, and presented with an "Authorize application" dialog.
+Navigate your browser to `http://127.0.0.1:4567`. After clicking on the link, you should be taken to {% data variables.product.github %}, and presented with an "Authorize application" dialog.
 
 If you trust yourself, click **Authorize App**. Wuh-oh! Sinatra spits out a
 `404` error. What gives?!
 
 Well, remember when we specified a Callback URL to be `callback`? We didn't provide
-a route for it, so {% data variables.product.product_name %} doesn't know where to drop the user after they authorize
+a route for it, so {% data variables.product.github %} doesn't know where to drop the user after they authorize
 the app. Let's fix that now!
 
 ### Providing a callback
@@ -124,16 +120,16 @@ get '/callback' do
 end
 ```
 
-After a successful app authentication, {% data variables.product.product_name %} provides a temporary `code` value.
-You'll need to `POST` this code back to {% data variables.product.product_name %} with your client secret
+After a successful app authentication, {% data variables.product.github %} provides a temporary `code` value.
+You'll need to `POST` this code back to {% data variables.product.github %} with your client secret
 in exchange for an `access_token`.
-To simplify our GET and POST HTTP requests, we're using the [rest-client][REST Client].
+To simplify our GET and POST HTTP requests, we're using the [rest-client](https://github.com/archiloque/rest-client).
 Note that you'll probably never access the API through REST. For a more serious
-application, you should probably use [a library written in the language of your choice][libraries].
+application, you should probably use [a library written in the language of your choice](/rest/overview/libraries).
 
 ### Checking granted scopes
 
-Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes)."
+Users can edit the scopes you requested by directly changing the URL. This can grant your application less access than you originally asked for. Before making any requests with the token, check the scopes that were granted for the token by the user. For more information about requested and granted scopes, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps#requested-scopes-and-granted-scopes).
 
 The scopes that were granted are returned as a part of the response from
 exchanging a token.
@@ -169,10 +165,10 @@ In case that happens, API calls you expected to succeed might fail with a `404`
 or `401` status, or return a different subset of information.
 
 To help you gracefully handle these situations, all API responses for requests
-made with valid OAuth app tokens also contain an [`X-OAuth-Scopes` header][oauth scopes].
+made with valid OAuth app tokens also contain an [`X-OAuth-Scopes` header](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 This header contains the list of scopes of the token that was used to make the
-request. In addition to that, the REST API provides an endpoint to {% ifversion fpt or ghes or ghec %}
-[check a token for validity](/rest/apps#check-a-token){% else %}[check a token for validity](/rest/apps#check-an-authorization){% endif %}.
+request. In addition to that, the REST API provides an endpoint to
+[check a token for validity](/rest/apps/oauth-applications#check-a-token).
 Use this information to detect changes in token scopes, and inform your users of
 changes in available application functionality.
 
@@ -183,13 +179,13 @@ the logged in user:
 
 ``` ruby
 # fetch user information
-auth_result = JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user',
+auth_result = JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user',
                                         {:params => {:access_token => access_token}}))
 
 # if the user authorized it, fetch private emails
 if has_user_email_scope
   auth_result['private_emails'] =
-    JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+    JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                               {:params => {:access_token => access_token}}))
 end
 
@@ -223,7 +219,7 @@ time they needed to access the web page. For example, try navigating directly to
 
 What if we could circumvent the entire
 "click here" process, and just _remember_ that, as long as the user's logged into
-{% data variables.product.product_name %}, they should be able to access this application? Hold on to your hat,
+{% data variables.product.github %}, they should be able to access this application? Hold on to your hat,
 because _that's exactly what we're going to do_.
 
 Our little server above is rather simple. In order to wedge in some intelligent
@@ -272,7 +268,7 @@ get '/' do
     scopes = []
 
     begin
-      auth_result = RestClient.get('{% data variables.product.api_url_code %}/user',
+      auth_result = RestClient.get('{% data variables.product.rest_url %}/user',
                                    {:params => {:access_token => access_token},
                                     :accept => :json})
     rescue => e
@@ -293,7 +289,7 @@ get '/' do
 
     if scopes.include? 'user:email'
       auth_result['private_emails'] =
-        JSON.parse(RestClient.get('{% data variables.product.api_url_code %}/user/emails',
+        JSON.parse(RestClient.get('{% data variables.product.rest_url %}/user/emails',
                        {:params => {:access_token => access_token},
                         :accept => :json}))
     end
@@ -318,7 +314,7 @@ end
 ```
 
 Much of the code should look familiar. For example, we're still using `RestClient.get`
-to call out to the {% ifversion fpt or ghec %}{% data variables.product.prodname_dotcom %}{% else %}{% data variables.product.product_name %}{% endif %} API, and we're still passing our results to be rendered
+to call out to the {% data variables.product.github %} API, and we're still passing our results to be rendered
 in an ERB template (this time, it's called `advanced.erb`).
 
 Also, we now have the `authenticated?` method which checks if the user is already
@@ -357,19 +353,8 @@ which redirects you to `/callback`. `/callback` then sends us back to `/`,
 and since we've been authenticated, renders _advanced.erb_.
 
 We could completely simplify this roundtrip routing by simply changing our callback
-URL in {% data variables.product.product_name %} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
+URL in {% data variables.product.github %} to `/`. But, since both _server.rb_ and _advanced.rb_ are relying on
 the same callback URL, we've got to do a little bit of wonkiness to make it work.
 
-Also, if we had never authorized this application to access our {% data variables.product.product_name %} data,
+Also, if we had never authorized this application to access our {% data variables.product.github %} data,
 we would've seen the same confirmation dialog from earlier pop-up and warn us.
-
-[webflow]: /apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps
-[new oauth app]: https://github.com/settings/applications/new
-[Sinatra]: http://www.sinatrarb.com/
-[about env vars]: http://en.wikipedia.org/wiki/Environment_variable#Getting_and_setting_environment_variables
-[Sinatra guide]: https://github.com/sinatra/sinatra-book/blob/master/book/Introduction.markdown#hello-world-application
-[REST Client]: https://github.com/archiloque/rest-client
-[libraries]: /rest/overview/libraries
-[oauth scopes]: /apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps
-[platform samples]: https://github.com/github/platform-samples/tree/master/api/ruby/basics-of-authentication
-[app settings]: https://github.com/settings/developers

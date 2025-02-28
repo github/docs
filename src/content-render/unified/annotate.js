@@ -37,10 +37,26 @@ import { fromMarkdown } from 'mdast-util-from-markdown'
 import { toHast } from 'mdast-util-to-hast'
 import { header } from './code-header.js'
 
-const languages = yaml.load(fs.readFileSync('./data/variables/code-languages.yml', 'utf8'))
+const languages = yaml.load(fs.readFileSync('./data/code-languages.yml', 'utf8'))
 
 const commentRegexes = {
-  number: /^\s*#\s*/, // also known has hash or sharp; but the unicode name is "number sign"
+  // Also known has hash or sharp; but the unicode name is "number sign".
+  // The reason this has 2 variants is because the hash is used, in bash
+  // for both hash-hang and for comments.
+  // For example:
+  //
+  //     #!/bin/bash
+  //
+  // ...is not a comment.
+  // But if you only look for `#` followed by anything-but `!` it will not
+  // match if the line is just `#`.
+  //
+  //    > /^\s*#[^!]\s*/.test('#')
+  //    false
+  //
+  // Which makes sense, because the `#` is not followed by anything.
+  // That's why we use the | operator to make an "exception" for that case.
+  number: /^\s*#[^!]\s*|^\s*#$/,
   slash: /^\s*\/\/\s*/,
   xml: /^\s*<!--\s*/,
   percent: /^\s*%%?\s*/,
@@ -71,6 +87,15 @@ function createAnnotatedNode(node) {
 
   // Group groups into rows
   const rows = chunk(groups, 2)
+
+  // Check the rows are formatted correctly
+  for (const [note, code] of rows) {
+    if (note === undefined || code === undefined) {
+      throw new Error(
+        "Each annotation must have a note and a code block. If you're trying to create a blank annotation, you can use a single line comment with a space after it.",
+      )
+    }
+  }
 
   // Render the HTML
   return template({ lang, code, rows })
@@ -135,7 +160,7 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'beside',
       type: 'button',
-      className: 'BtnGroup-item btn btn-sm',
+      className: 'annotate-option',
     },
     ['Beside'],
   )
@@ -145,12 +170,12 @@ function getSubnav() {
       name: 'annotate-display',
       value: 'inline',
       type: 'button',
-      className: 'BtnGroup-item btn btn-sm',
+      className: 'annotate-option',
     },
     ['Inline'],
   )
 
-  return h('div', { className: 'BtnGroup' }, [besideBtn, inlineBtn])
+  return h('div', { className: 'annotate-toggle' }, [besideBtn, inlineBtn])
 }
 
 function template({ lang, code, rows }) {

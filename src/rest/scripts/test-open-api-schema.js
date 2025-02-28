@@ -9,20 +9,16 @@ import fs from 'fs'
 import path from 'path'
 import _ from 'lodash'
 
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import { allVersions, getDocsVersion } from '#src/versions/lib/all-versions.js'
 import { REST_DATA_DIR, REST_SCHEMA_FILENAME } from '../lib/index.js'
+import { nonAutomatedRestPaths } from '../lib/config.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
-
-const contentFiles = []
+import walkFiles from '#src/workflows/walk-files.ts'
 
 export async function getDiffOpenAPIContentRest() {
-  const contentPath = 'content/rest'
-
-  // Recursively go through the content/rest directory and add all categories/subcategories to contentFiles
-  throughDirectory(contentPath)
-
+  const contentFiles = getAutomatedMarkdownFiles('content/rest')
   // Creating the categories/subcategories based on the current content directory
   const checkContentDir = await createCheckContentDirectory(contentFiles)
 
@@ -141,23 +137,6 @@ function getDifferences(openAPISchemaCheck, contentCheck) {
   return differences
 }
 
-function throughDirectory(directory) {
-  fs.readdirSync(directory).forEach((file) => {
-    const absolute = path.join(directory, file)
-    if (fs.statSync(absolute).isDirectory()) {
-      return throughDirectory(absolute)
-    } else if (
-      !directory.includes('rest/guides') &&
-      !directory.includes('rest/overview') &&
-      !file.includes('index.md') &&
-      !file.includes('quickstart.md') &&
-      !file.includes('README.md')
-    ) {
-      return contentFiles.push(absolute)
-    }
-  })
-}
-
 function difference(obj1, obj2) {
   const diff = Object.keys(obj1).reduce((result, key) => {
     if (!Object.prototype.hasOwnProperty.call(obj2, key)) {
@@ -170,4 +149,10 @@ function difference(obj1, obj2) {
   }, Object.keys(obj2))
 
   return diff
+}
+
+export function getAutomatedMarkdownFiles(rootDir) {
+  return walkFiles(rootDir, '.md')
+    .filter((file) => !file.includes('index.md'))
+    .filter((file) => !nonAutomatedRestPaths.some((path) => file.includes(path)))
 }

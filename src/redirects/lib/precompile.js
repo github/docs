@@ -1,11 +1,11 @@
-import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
+import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
 import getExceptionRedirects from './exception-redirects.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 const EXCEPTIONS_FILE = './src/redirects/lib/static/redirect-exceptions.txt'
 
 // This function runs at server warmup and precompiles possible redirect routes.
-// It outputs them in key-value pairs within a neat Javascript object: { oldPath: newPath }
+// It outputs them in key-value pairs within a neat JavaScript object: { oldPath: newPath }
 export async function precompileRedirects(pageList) {
   const allRedirects = readCompressedJsonFileFallback('./src/redirects/lib/static/developer.json')
 

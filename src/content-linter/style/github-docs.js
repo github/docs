@@ -3,106 +3,169 @@ const githubDocsConfig = {
     // GHD001
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'internal-links-no-lang': {
     // GHD002
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'internal-links-slash': {
     // GHD003
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'image-file-kebab-case': {
     // GHD004
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'hardcoded-data-variable': {
     // GHD005
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'internal-links-old-version': {
     // GHD006
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'code-annotations': {
     // GHD007
     severity: 'error',
     'partial-markdown-files': false,
+    'yml-files': false,
   },
   'early-access-references': {
     // GHD008
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'github-owned-action-references': {
     // GHD013
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-data-references-defined': {
     // GHD014
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-data-tag-format': {
     // GHD015
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-quoted-conditional-arg': {
     // GHD016
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-syntax': {
     // GHD018
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-if-tags': {
     // GHD019
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'liquid-ifversion-tags': {
     // GHD020
     severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'warning',
     'partial-markdown-files': true,
   },
   'yaml-scheduled-jobs': {
     // GHD021
     severity: 'error',
     'partial-markdown-files': true,
-  },
-  'code-fence-line-length': {
-    // GHD030
-    severity: 'warning',
-    'partial-markdown-files': true,
+    'yml-files': true,
   },
   'image-alt-text-exclude-words': {
     // GHD031
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'image-alt-text-end-punctuation': {
     // GHD032
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'incorrect-alt-text-length': {
     // GHD033
     severity: 'warning',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'list-first-word-capitalization': {
     // GHD034
     severity: 'warning',
     'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'rai-reusable-usage': {
+    // GHD035
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'image-no-gif': {
+    // GHD036
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'expired-content': {
+    // GHD038
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'expiring-soon': {
+    // GHD039
+    severity: 'warning',
+    'partial-markdown-files': true,
+  },
+  'table-liquid-versioning': {
+    // GH040
+    severity: 'error',
+    'partial-markdown-files': true,
+  },
+  'third-party-action-pinning': {
+    // GH041
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'liquid-tag-whitespace': {
+    // GHD042
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
+  'link-quotation': {
+    // GHD043
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
   },
 }
 
@@ -111,24 +174,44 @@ export const githubDocsFrontmatterConfig = {
     // GHD009
     severity: 'error',
     'partial-markdown-files': false,
+    'yml-files': false,
   },
   'frontmatter-hidden-docs': {
     // GHD010
     severity: 'error',
     'partial-markdown-files': false,
+    'yml-files': false,
   },
   'frontmatter-video-transcripts': {
     // GHD011
     severity: 'error',
     'partial-markdown-files': false,
+    'yml-files': false,
   },
   'frontmatter-schema': {
     // GHD012
     severity: 'error',
     'partial-markdown-files': false,
+    'yml-files': false,
   },
   'frontmatter-liquid-syntax': {
     // GHD017
+    severity: 'error',
+    'partial-markdown-files': false,
+    'yml-files': false,
+  },
+  'liquid-ifversion-tags': {
+    // GHD020
+    severity: 'error',
+    'partial-markdown-files': false,
+  },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'warning',
+    'partial-markdown-files': false,
+  },
+  'link-quotation': {
+    // GHD043
     severity: 'error',
     'partial-markdown-files': false,
   },
@@ -140,10 +223,12 @@ const githubMarkdownlintConfig = {
   'no-default-alt-text': {
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'no-generic-link-text': {
     severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
 }
 
@@ -161,14 +246,16 @@ export const searchReplaceConfig = {
         severity: 'error',
         precommitSeverity: 'warning',
         'partial-markdown-files': true,
+        'yml-files': true,
       },
       {
         name: 'docs-domain',
-        message: 'Catch occurrences of docs.gitub.com domain.',
+        message: 'Catch occurrences of docs.github.com domain.',
         search: 'docs.github.com',
         searchScope: 'all',
-        severity: 'warning',
+        severity: 'error',
         'partial-markdown-files': true,
+        'yml-files': true,
       },
       {
         name: 'help-domain',
@@ -177,14 +264,7 @@ export const searchReplaceConfig = {
         searchScope: 'all',
         severity: 'error',
         'partial-markdown-files': true,
-      },
-      {
-        name: 'preview-domain',
-        message: 'Catch occurrences of preview.ghdocs.com domain.',
-        search: 'preview.ghdocs.com',
-        searchScope: 'all',
-        severity: 'error',
-        'partial-markdown-files': true,
+        'yml-files': true,
       },
       {
         name: 'developer-domain',
@@ -192,11 +272,12 @@ export const searchReplaceConfig = {
         // Do not match developer.github.com/changes or
         // developer.github.com/enterprise/[0-9] or
         // developer.github.com/enterprise/{{something}} (e.g. liquid).
-        // There are occurences that will likely always remain in the content.
+        // There are occurrences that will likely always remain in the content.
         searchPattern: '/developer\\.github\\.com(?!\\/(changes|enterprise\\/([0-9]|{))).*/g',
         searchScope: 'all',
         severity: 'error',
         'partial-markdown-files': true,
+        'yml-files': true,
       },
       {
         // Catches usage of old liquid data reusable syntax. For example:
@@ -207,6 +288,7 @@ export const searchReplaceConfig = {
         replace: '{% data $1 %}',
         severity: 'error',
         'partial-markdown-files': true,
+        'yml-files': true,
       },
       {
         // Catches usage of old octicon variable syntax. For example:
@@ -218,6 +300,7 @@ export const searchReplaceConfig = {
         searchPattern: '/{{\\s*?octicon-([a-z-]+)(\\s[\\w\\s\\d-]+)?\\s*?}}/g',
         severity: 'error',
         'partial-markdown-files': true,
+        'yml-files': true,
       },
     ],
   },

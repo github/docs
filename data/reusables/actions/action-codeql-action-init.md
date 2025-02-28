@@ -1,1 +1,1 @@
-github/codeql-action/init@v2
+github/codeql-action/init@v3

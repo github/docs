@@ -8,7 +8,7 @@
  * They both need to a whitespace-separated list of paths to content files.
  * For example:
  *
- *    export CHANGED_FILES="content/get-started/index.md content/get-started/quickstart/hello-world.md"
+ *    export CHANGED_FILES="content/get-started/index.md content/get-started/start-your-journey/hello-world.md"
  *
  * If any of the paths in there, split by ' ', don't match real files, the
  * test will fail before it even starts. Meaning, it will throw an error
@@ -31,10 +31,10 @@
 
 import path from 'path'
 
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
-import { head, get } from '../../../tests/helpers/e2etest.js'
-import { loadPages } from '../../../lib/page-data.js'
+import { head, get } from '#src/tests/helpers/e2etest.js'
+import { loadPages } from '#src/frame/lib/page-data.js'
 
 const EMPTY = Symbol('EMPTY')
 
@@ -62,17 +62,17 @@ function getContentFiles(spaceSeparatedList) {
 // It can also happen if some of the pages involves are infamously slow.
 // For example guide pages because they involved a lot of processing
 // to gather and preview linked data.
-jest.setTimeout(60 * 1000)
+vi.setConfig({ testTimeout: 60 * 1000 })
 
 describe('changed-content', () => {
   const changedContentFiles = getChangedContentFiles()
 
-  // `jest.each` will throw if the array is empty, so we need to add a dummy
+  // `test.each` will throw if the array is empty, so we need to add a dummy
   // when there are no changed files in the environment.
   if (!changedContentFiles.length) changedContentFiles.push(EMPTY)
 
   test.each(changedContentFiles)('changed-content: %s', async (file) => {
-    // Necessary because `jest.each` will throw if the array is empty
+    // Necessary because `test.each` will throw if the array is empty
     if (file === EMPTY) return
 
     const page = pageList.find((p) => {
@@ -87,7 +87,7 @@ describe('changed-content', () => {
       if (!res.ok) {
         let msg = `This error happened when rendering from: ${file}\n`
         msg +=
-          'To see the full error from jest re-run the test with DEBUG_MIDDLEWARE_TESTS=true set\n'
+          'To see the full error from vitest re-run the test with DEBUG_MIDDLEWARE_TESTS=true set\n'
         msg += `Or, to view it locally start the server (npm run dev) and visit http://localhost:4000${href}`
         console.log(msg)
         throw new Error(`Rendering ${href} failed with status ${res.statusCode}`)
@@ -99,12 +99,12 @@ describe('changed-content', () => {
 describe('deleted-content', () => {
   const deletedContentFiles = getDeletedContentFiles()
 
-  // `jest.each` will throw if the array is empty, so we need to add a dummy
+  // `test.each` will throw if the array is empty, so we need to add a dummy
   // when there are no deleted files in the environment.
   if (!deletedContentFiles.length) deletedContentFiles.push(EMPTY)
 
   test.each(deletedContentFiles)('deleted-content: %s', async (file) => {
-    // Necessary because `jest.each` will throw if the array is empty
+    // Necessary because `test.each` will throw if the array is empty
     if (file === EMPTY) return
 
     const page = pageList.find((p) => {

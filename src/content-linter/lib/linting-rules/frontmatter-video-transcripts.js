@@ -4,7 +4,7 @@ import path from 'path'
 import { getFrontmatter } from '../helpers/utils.js'
 
 export const frontmatterVideoTranscripts = {
-  names: ['GH011', 'frontmatter-video-transcripts'],
+  names: ['GHD011', 'frontmatter-video-transcripts'],
   description: 'Video transcript must be configured correctly',
   tags: ['frontmatter', 'feature', 'video-transcripts'],
   function: (params, onError) => {
@@ -23,7 +23,7 @@ export const frontmatterVideoTranscripts = {
         addError(
           onError,
           lineNumber,
-          'Video transcripts must contain an referenece to the video being transcribed. Ensure the frontmatter property `product_video` is set to the path of the video.',
+          'Video transcripts must contain an reference to the video being transcribed. Ensure the frontmatter property `product_video` is set to the path of the video.',
           null, // No context because the property is missing
           null, // No range for missing line
           null, // No fix possible

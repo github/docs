@@ -1,5 +1,5 @@
 
-{% ifversion target-runner-groups %}{% ifversion ghec or ghae or ghes %}
+{% ifversion ghec or ghes %}
 
 ## Using unique names for runner groups
 
@@ -7,29 +7,11 @@
 
 To avoid ambiguity, a workflow will fail if there are duplicate runner groups in the organization and enterprise. To address this, you can either rename one of your runner groups in the organization or enterprise, or you can update your workflow file to add a prefix to the runner group name:
 
-- `org/` or `organization/`
-- `ent/` or `enterprise/`
+* `org/` or `organization/`
+* `ent/` or `enterprise/`
 
 ### Example: Using prefixes to differentiate runner groups
 
-For example, if you have a runner group named `my-group` in the organization and another named `my-group` in the enterprise, you can update your workflow file to use `org/my-group` or `ent/my-group` to differentiate between the two.
-
-Using `org/`:
-
-```yaml
-runs-on:
-  group: org/my-group
-  labels: [ self-hosted, label-1 ]
-```
-
-Using `ent/`:
-
-```yaml
-runs-on:
-  group: ent/my-group
-  labels: [ self-hosted, label-1 ]
-```
-
-{% endif %}
+{% data reusables.actions.using-prefixes-to-differentiate-runner-groups %}
 
 {% endif %}

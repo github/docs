@@ -17,6 +17,7 @@ on:
       - main
     paths:
       - 'assets/**'
+      - '.github/workflows/dont-delete-assets.yml'
 
 permissions:
   contents: read
@@ -29,7 +30,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
@@ -37,11 +38,11 @@ jobs:
         id: comment
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: src/assets/scripts/deleted-assets-pr-comment.js
+        run: npm run deleted-assets-pr-comment
 
       - name: Find possible previous comment
         if: ${{ steps.comment.outputs.markdown != '' }}
-        uses: peter-evans/find-comment@f4499a714d59013c74a08789b48abe4b704364a0
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: findComment
         with:
           issue-number: ${{ github.event.number }}
@@ -50,7 +51,7 @@ jobs:
 
       - name: Update comment
         if: ${{ steps.comment.outputs.markdown != '' }}
-        uses: peter-evans/create-or-update-comment@3383acd359705b10cb1eeef05c0e88c056ea4666
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
           issue-number: ${{ github.event.number }}

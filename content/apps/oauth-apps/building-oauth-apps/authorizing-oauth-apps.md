@@ -13,38 +13,37 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - OAuth apps
 ---
 
-{% note %}
+> [!NOTE]
+> Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
+>
+> Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
+>
+> {% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine-grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps) and [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
-**Note**: Consider building a {% data variables.product.prodname_github_app %} instead of an {% data variables.product.prodname_oauth_app %}.
-
-Both {% data variables.product.prodname_oauth_apps %} and {% data variables.product.prodname_github_apps %} use OAuth 2.0.
-
-{% data variables.product.prodname_github_apps %} can act on behalf of a user, similar to an {% data variables.product.prodname_oauth_app %}, or as themselves, which is beneficial for automations that do not require user input. Additionally, {% data variables.product.prodname_github_apps %} use fine grained permissions, give the user more control over which repositories the app can access, and use short-lived tokens. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps)" and "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
-
-{% endnote %}
-
-{% data variables.product.product_name %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
+{% data variables.product.github %}'s OAuth implementation supports the standard [authorization code grant type](https://tools.ietf.org/html/rfc6749#section-4.1) and the OAuth 2.0 [Device Authorization Grant](https://tools.ietf.org/html/rfc8628) for apps that don't have access to a web browser.
 
 If you want to skip authorizing your app in the standard way, such as when testing your app, you can use the [non-web application flow](#non-web-application-flow).
 
 To authorize your {% data variables.product.prodname_oauth_app %}, consider which authorization flow best fits your app.
 
-- [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
-- [device flow](#device-flow):  Used for headless apps, such as CLI tools.
+* [web application flow](#web-application-flow): Used to authorize users for standard {% data variables.product.prodname_oauth_apps %} that run in the browser. (The [implicit grant type](https://tools.ietf.org/html/rfc6749#section-4.2) is not supported.)
+* [device flow](#device-flow): Used for headless apps, such as CLI tools.
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.enterprise-data-residency.access-domain %}
+
+{% endif %}
 
 ## Web application flow
 
-{% note %}
-
-**Note:** If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)" for more information.
-
-{% endnote %}
+> [!NOTE]
+> If you are building a GitHub App, you can still use the OAuth web application flow, but the setup has some important differences. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps) for more information.
 
 The web application flow to authorize users for your app is:
 
@@ -58,20 +57,23 @@ The web application flow to authorize users for your app is:
 
 This endpoint takes the following input parameters.
 
-Parameter name | Type | Description
------|------|--------------
-`client_id`|`string` | **Required**. The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}.
-`redirect_uri`|`string` | The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls).
-`login` | `string` | Suggests a specific account to use for signing in and authorizing the app.
-`scope`|`string` | A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope.
-`state` | `string` | {% data reusables.apps.state_description %}
-`allow_signup`|`string` | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups.
+| Query parameter | Type | Required? | Description |
+| --------------- | ---- | --------- | ----------- |
+| `client_id`|`string` | Required | The client ID you received from GitHub when you {% ifversion fpt or ghec %}[registered](https://github.com/settings/applications/new){% else %}registered{% endif %}. |
+| `redirect_uri`|`string` |Strongly recommended| The URL in your application where users will be sent after authorization. See details below about [redirect urls](#redirect-urls). |
+| `login` | `string` | Optional| Suggests a specific account to use for signing in and authorizing the app. |
+| `scope`|`string` |Context dependent| A space-delimited list of [scopes](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps). If not provided, `scope` defaults to an empty list for users that have not authorized any scopes for the application. For users who have authorized scopes for the application, the user won't be shown the OAuth authorization page with the list of scopes. Instead, this step of the flow will automatically complete with the set of scopes the user has authorized for the application. For example, if a user has already performed the web flow twice and has authorized one token with `user` scope and another token with `repo` scope, a third web flow that does not provide a `scope` will receive a token with `user` and `repo` scope. |
+| `state` | `string` |Strongly recommended| {% data reusables.apps.state_description %} |
+| `allow_signup`|`string` | Optional | Whether or not unauthenticated users will be offered an option to sign up for GitHub during the OAuth flow. The default is `true`. Use `false` when a policy prohibits signups. |
+|  {% ifversion oauth_account_picker %} |
+| `prompt` | `string` | Optional | Forces the account picker to appear if set to `select_account`. The account picker will also appear if the application has a non-HTTP redirect URI or if the user has multiple accounts signed in. |
+|  {% endif %} |
 
 The PKCE (Proof Key for Code Exchange) parameters `code_challenge` and `code_challenge_method` are not supported at this time. CORS pre-flight requests (OPTIONS) are not supported at this time.
 
 ### 2. Users are redirected back to your site by GitHub
 
-If the user accepts your request, {% data variables.product.product_name %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
+If the user accepts your request, {% data variables.product.github %} redirects back to your site with a temporary `code` in a code parameter as well as the state you provided in the previous step in a `state` parameter. The temporary code will expire after 10 minutes. If the states don't match, then a third party created the request, and you should abort the process.
 
 Exchange this `code` for an access token:
 
@@ -79,12 +81,12 @@ Exchange this `code` for an access token:
 
 This endpoint takes the following input parameters.
 
-Parameter name | Type | Description
------|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`client_secret` | `string` | **Required.** The client secret you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`code` | `string` | **Required.** The code you received as a response to Step 1.
-`redirect_uri` | `string` | The URL in your application where users are sent after authorization.
+Parameter name | Type | Required?| Description
+-----|------|---------|-----
+`client_id` | `string` | Required | The client ID you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`client_secret` | `string` | Required | The client secret you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`code` | `string` | Required | The code you received as a response to Step 1.
+`redirect_uri` | `string` | Strongly recommended | The URL in your application where users are sent after authorization. We can use this to match against the URI originally provided when the `code` was issued, to prevent attacks against your service.
 
 By default, the response takes the following form:
 
@@ -117,29 +119,21 @@ Accept: application/xml
 The access token allows you to make requests to the API on a behalf of a user.
 
     Authorization: Bearer OAUTH-TOKEN
-    GET {% data variables.product.api_url_code %}/user
+    GET {% data variables.product.rest_url %}/user
 
 For example, in curl you can set the Authorization header like this:
 
 ```shell
-curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -H "Authorization: Bearer OAUTH-TOKEN" {% data variables.product.rest_url %}/user
 ```
+
+Every time you receive an access token, you should use the token to revalidate the user's identity. A user can change which account they are signed into when you send them to authorize your app, and you risk mixing user data if you do not validate the user's identity after every sign in.
 
 ## Device flow
 
-{% note %}
+The device flow allows you to authorize users for a headless application, such as a CLI tool or the [Git Credential Manager](https://github.com/git-ecosystem/git-credential-manager).
 
-**Note:** The device flow is in public beta and subject to change.
-
-{% endnote %}
-
-The device flow allows you to authorize users for a headless app, such as a CLI tool or Git credential manager.
-
-{% ifversion device-flow-is-opt-in %}
-
-Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)" for {% data variables.product.prodname_github_apps %} and "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app)" for {% data variables.product.prodname_oauth_apps %}.
-
-{% endif %}
+Before you can use the device flow to authorize and identify users, you must first enable it in your app's settings. For more information about enabling the device flow in your app, see [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app) for {% data variables.product.prodname_github_apps %} and [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/modifying-an-oauth-app) for {% data variables.product.prodname_oauth_apps %}.
 
 ### Overview of the device flow
 
@@ -157,13 +151,13 @@ The endpoint takes the following input parameters.
 
 Parameter name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your app.
-`scope` | `string` | A space-delimited list of the scopes that your app is requesting access to. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.github %} for your app.
+`scope` | `string` | A space-delimited list of the scopes that your app is requesting access to. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 By default, the response takes the following form:
 
 ```shell
-device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%{% data variables.product.product_url %}%2Flogin%2Fdevice
+device_code=3584d83530557fdd1f46af8289938c8ef79f9dc5&expires_in=900&interval=5&user_code=WDJB-MJHT&verification_uri=https%3A%2F%2F{% data variables.product.product_url %}%2Flogin%2Fdevice
 ```
 
 Parameter name | Type | Description
@@ -206,7 +200,7 @@ Your device will show the user verification code and prompt the user to enter th
 
     POST {% data variables.product.oauth_host_code %}/login/oauth/access_token
 
-Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see "[Rate limits for the device flow](#rate-limits-for-the-device-flow)."
+Your app will make device authorization requests that poll `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`, until the device and user codes expire or the user has successfully authorized the app with a valid user code. The app must use the minimum polling `interval` retrieved in step 1 to avoid rate limit errors. For more information, see [Rate limits for the device flow](#rate-limits-for-the-device-flow).
 
 The user must enter a valid code within 15 minutes (or 900 seconds). After 15 minutes, you will need to request a new device authorization code with `POST {% data variables.product.oauth_host_code %}/login/device/code`.
 
@@ -216,8 +210,8 @@ The endpoint takes the following input parameters.
 
 Parameter name | Type | Description
 -----|------|--------------
-`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.product_name %} for your {% data variables.product.prodname_oauth_app %}.
-`device_code` | `string` | **Required.** The device verification code you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
+`client_id` | `string` | **Required.** The client ID you received from {% data variables.product.github %} for your {% data variables.product.prodname_oauth_app %}.
+`device_code` | `string` | **Required.** The `device_code` you received from the `POST {% data variables.product.oauth_host_code %}/login/device/code` request.
 `grant_type` | `string` | **Required.** The grant type must be `urn:ietf:params:oauth:grant-type:device_code`.
 
 By default, the response takes the following form:
@@ -250,22 +244,22 @@ Accept: application/xml
 
 When a user submits the verification code on the browser, there is a rate limit of 50 submissions in an hour per application.
 
-If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Errors for the device flow](#errors-for-the-device-flow).
+If you make more than one access token request (`POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`) within the required minimum timeframe between requests (or `interval`), you'll hit the rate limit and receive a `slow_down` error response. The `slow_down` error response adds 5 seconds to the last `interval`. For more information, see the [Error codes for the device flow](#error-codes-for-the-device-flow).
 
 ### Error codes for the device flow
 
 | Error code | Description |
 |----|----|
-| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the [`interval`](#response-parameters), which requires a minimum number of seconds between each request. |
+| `authorization_pending`| This error occurs when the authorization request is pending and the user hasn't entered the user code yet. The app is expected to keep polling the `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token` request without exceeding the `interval`, which requires a minimum number of seconds between each request. |
 | `slow_down` | When you receive the `slow_down` error, 5 extra seconds are added to the minimum `interval` or timeframe required between your requests using `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`. For example, if the starting interval required at least 5 seconds between requests and you get a `slow_down` error response, you must now wait a minimum of 10 seconds before making a new request for an OAuth access token. The error response includes the new `interval` that you must use.
 | `expired_token` | If the device code expired, then you will see the `token_expired` error. You must make a new request for a device code.
 | `unsupported_grant_type` | The grant type must be `urn:ietf:params:oauth:grant-type:device_code` and included as an input parameter when you poll the OAuth token request `POST {% data variables.product.oauth_host_code %}/login/oauth/access_token`.
 | `incorrect_client_credentials` | For the device flow, you must pass your app's client ID, which you can find on your app settings page. The `client_secret` is not needed for the device flow.
 | `incorrect_device_code` | The device_code provided is not valid.
-| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.{% ifversion device-flow-is-opt-in %}
-| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see "[Device flow](#device-flow)."{% endif %}
+| `access_denied` | When a user clicks cancel during the authorization process, you'll receive a `access_denied` error and the user won't be able to use the verification code again.
+| `device_flow_disabled` | Device flow has not been enabled in the app's settings. For more information, see [Device flow](#device-flow).
 
-For more information, see the "[OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5)."
+For more information, see the [OAuth 2.0 Device Authorization Grant](https://tools.ietf.org/html/rfc8628#section-3.5).
 
 ## Non-Web application flow
 
@@ -293,9 +287,9 @@ subdirectory of the callback URL.
 
 ### Loopback redirect urls
 
-The optional `redirect_uri` parameter can also be used for loopback URLs. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
+The optional `redirect_uri` parameter can also be used for loopback URLs, which is useful for native applications running on a desktop computer. If the application specifies a loopback URL and a port, then after authorizing the application users will be redirected to the provided URL and port. The `redirect_uri` does not need to match the port specified in the callback URL for the app.
 
-For the `http://127.0.0.1:1234/path` callback URL, you can use this `redirect_uri`:
+For the `http://127.0.0.1/path` callback URL, you can use this `redirect_uri` if your application is listening on port `1234`:
 
 ```http
 http://127.0.0.1:1234/path
@@ -323,19 +317,16 @@ To build this link, you'll need your {% data variables.product.prodname_oauth_ap
 {% data variables.product.oauth_host_code %}/settings/connections/applications/:client_id
 ```
 
-{% tip %}
-
-**Tip:** To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see "[AUTOTITLE](/rest/guides/discovering-resources-for-a-user)."
-
-{% endtip %}
+> [!TIP]
+> To learn more about the resources that your {% data variables.product.prodname_oauth_app %} can access for a user, see [AUTOTITLE](/rest/guides/discovering-resources-for-a-user).
 
 ## Troubleshooting
 
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)"
-- "[AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)"
-- "[Device flow errors](#error-codes-for-the-device-flow)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)"
+* [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-authorization-request-errors)
+* [AUTOTITLE](/apps/oauth-apps/maintaining-oauth-apps/troubleshooting-oauth-app-access-token-request-errors)
+* [Device flow errors](#error-codes-for-the-device-flow)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/token-expiration-and-revocation)
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)

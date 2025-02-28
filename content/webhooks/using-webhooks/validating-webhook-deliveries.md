@@ -13,7 +13,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Webhooks
@@ -27,44 +26,44 @@ To do this, you need to:
 
 1. Create a secret token for a webhook.
 1. Store the token securely on your server.
-1. Validate incoming webhook payloads against the token, to verify that they are coming from {% data variables.product.prodname_dotcom %} and were not tampered with.
+1. Validate incoming webhook payloads against the token, to verify that they are coming from {% data variables.product.github %} and were not tampered with.
 
 ## Creating a secret token
 
 You can create a new webhook with a secret token, or you can add a secret token to an existing webhook. When creating a secret token, you should choose a random string of text with high entropy.
 
-- _To create a new webhook with a secret token_, see "[AUTOTITLE](/webhooks/using-webhooks/creating-webhooks)."
-- _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see "[AUTOTITLE](/webhooks/using-webhooks/editing-webhooks)."
+* _To create a new webhook with a secret token_, see [AUTOTITLE](/webhooks/using-webhooks/creating-webhooks).
+* _To add a secret token to an existing webhook_, edit the webhook's settings. Under "Secret", type a string to use as a `secret` key. For more information, see [AUTOTITLE](/webhooks/using-webhooks/editing-webhooks).
 
 ## Securely storing the secret token
 
-After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code)."
+After creating a secret token, you should store it in a secure location that your server can access. Never hardcode a token into an application or push a token to any repository. For more information about how to use authentication credentials securely in your code, see [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure#use-authentication-credentials-securely-in-your-code).
 
 ## Validating webhook deliveries
 
-{% data variables.product.product_name %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see "[AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers)."
+{% data variables.product.github %} will use your secret token to create a hash signature that's sent to you with each payload. The hash signature will appear in each delivery as the value of the `X-Hub-Signature-256` header. For more information, see [AUTOTITLE](/webhooks/webhook-events-and-payloads#delivery-headers).
 
-In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that {% data variables.product.company_short %} sent with the expected hash that you calculated, and ensure that they match. For examples showing how to validate the hashes in various programming languages, see "[Examples](#examples)."
+In your code that handles webhook deliveries, you should calculate a hash using your secret token. Then, compare the hash that {% data variables.product.company_short %} sent with the expected hash that you calculated, and ensure that they match. For examples showing how to validate the hashes in various programming languages, see [Examples](#examples).
 
 There are a few important things to keep in mind when validating webhook payloads:
 
-- {% data variables.product.product_name %} uses an HMAC hex digest to compute the hash.
-- The hash signature always starts with `sha256=`.
-- The hash signature is generated using your webhook's secret token and the payload contents.
-- If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
-- Never use a plain `==` operator. Instead consider using a method like [`secure_compare`][secure_compare] or [`crypto.timingSafeEqual`][timingSafeEqual], which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
+* {% data variables.product.github %} uses an HMAC hex digest to compute the hash.
+* The hash signature always starts with `sha256=`.
+* The hash signature is generated using your webhook's secret token and the payload contents.
+* If your language and server implementation specifies a character encoding, ensure that you handle the payload as UTF-8. Webhook payloads can contain unicode characters.
+* Never use a plain `==` operator. Instead consider using a method like [`secure_compare`](https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare) or [`crypto.timingSafeEqual`](https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b), which performs a "constant time" string comparison to help mitigate certain timing attacks against regular equality operators, or regular loops in JIT-optimized languages.
 
 ### Testing the webhook payload validation
 
 You can use the following `secret` and `payload` values to verify that your implementation is correct:
 
-- `secret`: "It's a Secret to Everybody"
-- `payload`: "Hello, World!"
+* `secret`: `It's a Secret to Everybody`
+* `payload`: `Hello, World!`
 
 If your implementation is correct, the signatures that you generate should match the following signature values:
 
-- signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
-- X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
+* signature: `757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17` <!-- markdownlint-disable-line GHD034 -->
+* X-Hub-Signature-256: `sha256=757107ea0eb2509fc211221cce984b8a37570b6d7586c22c46f4379c8b043e17`
 
 ### Examples
 
@@ -169,36 +168,29 @@ function hexToBytes(hex) {
 }
 ```
 
-#### Typescript example
+#### TypeScript example
 
 For example, you can define the following `verify_signature` function and call it when you receive a webhook payload:
 
 ```javascript copy
-import * as crypto from "crypto";
+import { Webhooks } from "@octokit/webhooks";
 
-const WEBHOOK_SECRET: string = process.env.WEBHOOK_SECRET;
+const webhooks = new Webhooks({
+  secret: process.env.WEBHOOK_SECRET,
+});
 
-const verify_signature = (req: Request) => {
-  const signature = crypto
-    .createHmac("sha256", WEBHOOK_SECRET)
-    .update(JSON.stringify(req.body))
-    .digest("hex");
-  let trusted = Buffer.from(`sha256=${signature}`, 'ascii');
-  let untrusted =  Buffer.from(req.headers.get("x-hub-signature-256"), 'ascii');
-  return crypto.timingSafeEqual(trusted, untrusted);
-};
+const handleWebhook = async (req, res) => {
+  const signature = req.headers["x-hub-signature-256"];
+  const body = await req.text();
 
-const handleWebhook = (req: Request, res: Response) => {
-  if (!verify_signature(req)) {
+  if (!(await webhooks.verify(body, signature))) {
     res.status(401).send("Unauthorized");
     return;
   }
+
   // The rest of your logic here
 };
 ```
-
-[secure_compare]: https://www.rubydoc.info/gems/rack/Rack%2FUtils:secure_compare
-[timingSafeEqual]: https://nodejs.org/api/crypto.html#cryptotimingsafeequala-b
 
 ## Troubleshooting
 
@@ -206,5 +198,5 @@ const handleWebhook = (req: Request, res: Response) => {
 
 ## Further reading
 
-- "[AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)"
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* [AUTOTITLE](/webhooks/using-webhooks/handling-webhook-deliveries)
+* [AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)

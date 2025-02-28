@@ -20,6 +20,9 @@ topics:
   - User account
 shortTitle: Manage user suspension
 ---
+
+## About suspended users
+
 If employees leave the company, you can suspend their {% data variables.product.prodname_ghe_server %} accounts to open up user licenses in your {% data variables.product.prodname_enterprise %} license while preserving the issues, comments, repositories, gists, and other data they created. Suspended users cannot sign into your instance, nor can they push or pull code.
 
 When you suspend a user, the change takes effect immediately with no notification to the user. If the user attempts to pull or push to a repository, they'll receive this error:
@@ -27,19 +30,29 @@ When you suspend a user, the change takes effect immediately with no notificatio
 ```shell
 $ git clone git@[hostname]:john-doe/test-repo.git
 Cloning into 'test-repo'...
-ERROR: Your account is suspended. Please check with your installation administrator.
+ERROR: Your account is suspended. Please check with
+your installation administrator.
 fatal: The remote end hung up unexpectedly
 ```
 
-Before suspending site administrators, you must demote them to regular users. For more information, see "[AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)."
+> [!TIP] {% data variables.product.prodname_dotcom %} recommends suspending users where possible, rather than deleting their accounts.
 
-{% tip %}
+## Scenarios where you cannot suspend users
 
-**Note:** If [LDAP Sync is enabled](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync) for {% data variables.location.product_location %}, users are automatically suspended when they're removed from the LDAP directory server. When LDAP Sync is enabled for your instance, normal user suspension methods are disabled.
+Before suspending site administrators, you must demote them to regular users. See [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator).
 
-{% endtip %}
+If you use certain external authentication features, you cannot manage user suspension from the site admin dashboard or command line:
 
-## Suspending a user from the user admin dashboard
+* If LDAP Sync is enabled for {% data variables.location.product_location %}, users are automatically suspended based on the scenarios that are described in [AUTOTITLE](/admin/identity-and-access-management/using-ldap-for-enterprise-iam/using-ldap#enabling-ldap-sync).
+* If SCIM provisioning is enabled, SCIM-provisioned users must be suspended or unsuspended through your identity provider.
+
+## Viewing suspended users in the site admin dashboard
+
+{% data reusables.enterprise_site_admin_settings.access-settings %}
+1. In the left sidebar, click **Suspended users**.
+1. A list of suspended users displays.
+
+## Suspending a user from the site admin dashboard
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user %}
@@ -49,7 +62,7 @@ Before suspending site administrators, you must demote them to regular users. Fo
 1. In the "Log reason" field, type a reason to suspend the user.
 1. Click **Suspend**.
 
-## Unsuspending a user from the user admin dashboard
+## Unsuspending a user from the site admin dashboard
 
 As when suspending a user, unsuspending a user takes effect immediately. The user will not be notified.
 
@@ -79,7 +92,7 @@ You can create a custom message that suspended users will see when attempting to
 {% data reusables.enterprise-accounts.messages-tab %}
 1. To the right of "Suspended user page", click **Add message**.
 
-   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/add-message.png)
+   ![Screenshot of the "Suspend user page" section of the "Messages" settings. A button, labeled with a plus icon and "Add message," is outlined.](/assets/images/enterprise/site-admin-settings/add-message.png)
 1. In the "Suspend user message" field, type your message. You can type Markdown, or use the Markdown toolbar to style your message.
 1. To see the rendered message, click **Preview**.
 {% data reusables.enterprise_site_admin_settings.save-changes %}
@@ -95,4 +108,4 @@ You can create a custom message that suspended users will see when attempting to
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/enterprise-admin#suspend-a-user)"
+* [AUTOTITLE](/rest/enterprise-admin/users#suspend-a-user)

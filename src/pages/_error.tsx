@@ -1,6 +1,6 @@
 import type { NextPageContext } from 'next'
 
-import { GenericError } from 'components/GenericError'
+import { GenericError } from 'src/frame/components/GenericError'
 
 function Error() {
   return <GenericError />

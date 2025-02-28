@@ -1,19 +1,19 @@
-import { jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 import { slug } from 'github-slugger'
 
-import { get, getDOM } from '../../../tests/helpers/e2etest.js'
+import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import { getDiffOpenAPIContentRest } from '../scripts/test-open-api-schema.js'
 import getRest from '#src/rest/lib/index.js'
 
 describe('REST references docs', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   // This test ensures that the page component and the Markdown file are
   // in sync. It checks that every version of the /rest/checks
   // page has every operation defined in the openapi schema.
   test('loads schema data for all versions', async () => {
-    for (const version in allVersions) {
+    for (const version of Object.keys(allVersions)) {
       const calendarDate = allVersions[version].latestApiVersion
       const checksRestOperations = await getRest(version, calendarDate, 'checks', 'runs')
       const $ = await getDOM(`/en/${version}/rest/checks/runs?restVersion=${calendarDate}`)
@@ -99,7 +99,7 @@ describe('REST references docs', () => {
   })
 
   test('REST pages show the correct versions in the api version picker', async () => {
-    for (const version in allVersions) {
+    for (const version of Object.keys(allVersions)) {
       if (isApiVersioned(version)) {
         for (const apiVersion of allVersions[version].apiVersions) {
           const $ = await getDOM(`/en/${version}/rest?apiVersion=${apiVersion}`)

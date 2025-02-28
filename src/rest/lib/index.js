@@ -1,8 +1,8 @@
 import fs from 'fs'
 import path from 'path'
 
-import { readCompressedJsonFileFallback } from '../../../lib/read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
+import { readCompressedJsonFileFallback } from '#src/frame/lib/read-json-file.js'
+import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
 import { allVersions, getOpenApiVersion } from '#src/versions/lib/all-versions.js'
 import languages from '#src/languages/lib/languages.js'
 

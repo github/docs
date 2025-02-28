@@ -1,1 +1,1 @@
-1. In the left sidebar, click **Enterprise{% ifversion ghes or ghae %} overview{% endif %}**.
+1. In the left sidebar, click **Enterprise{% ifversion ghes %} overview{% endif %}**.

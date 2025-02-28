@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Security overview
   - Organizations
@@ -18,4 +17,3 @@ children:
   - /securing-code
   - /securing-builds
 ---
-

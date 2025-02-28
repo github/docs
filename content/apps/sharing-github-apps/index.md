@@ -4,7 +4,6 @@ intro: 'After you create a public {% data variables.product.prodname_github_app 
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

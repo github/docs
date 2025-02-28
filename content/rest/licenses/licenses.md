@@ -1,11 +1,12 @@
 ---
-title: Licenses
+title: REST API endpoints for licenses
+shortTitle: Licenses
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to retrieve popular open source licenses and information
   about a particular project's license file.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -23,19 +24,16 @@ If a license is matched, the license key and name returned conforms to the [SPDX
 
 **Note:** These endpoints will also return a repository's license information:
 
-- [Get a repository](/rest/repos#get-a-repository)
-- [List repositories for a user](/rest/repos#list-repositories-for-a-user)
-- [List organization repositories](/rest/repos#list-organization-repositories)
-- [List forks](/rest/repos#list-forks)
-- [List repositories watched by a user](/rest/activity#list-repositories-watched-by-a-user)
-- [List team repositories](/rest/teams#list-team-repositories)
+* [Get a repository](/rest/repos/repos#get-a-repository)
+* [List repositories for a user](/rest/repos/repos#list-repositories-for-a-user)
+* [List organization repositories](/rest/repos/repos#list-organization-repositories)
+* [List forks](/rest/repos/forks#list-forks)
+* [List repositories watched by a user](/rest/activity/watching#list-repositories-watched-by-a-user)
+* [List team repositories](/rest/teams/teams#list-team-repositories)
 
-{% warning %}
-
-GitHub is a lot of things, but it’s not a law firm. As such, {% data variables.product.company_short %} does not provide legal advice. Using the API or sending us an email about it does not constitute legal advice nor does it create an attorney-client relationship. If you have any questions about what you can and can't do with a particular license, you should consult with your own legal counsel before moving forward. In fact, you should always consult with your own lawyer before making any decisions that might have legal ramifications or that may impact your legal rights.
-
-{% data variables.product.company_short %} created these endpoints to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers (at least most of us aren't) and that we make mistakes like everyone else. For that reason, {% data variables.product.company_short %} provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
-
-{% endwarning %}
+> [!WARNING]
+> GitHub is a lot of things, but it’s not a law firm. As such, {% data variables.product.company_short %} does not provide legal advice. Using the API or sending us an email about it does not constitute legal advice nor does it create an attorney-client relationship. If you have any questions about what you can and can't do with a particular license, you should consult with your own legal counsel before moving forward. In fact, you should always consult with your own lawyer before making any decisions that might have legal ramifications or that may impact your legal rights.
+>
+> {% data variables.product.company_short %} created these endpoints to help users get information about open source licenses and the projects that use them. We hope it helps, but please keep in mind that we’re not lawyers (at least most of us aren't) and that we make mistakes like everyone else. For that reason, {% data variables.product.company_short %} provides the API on an "as-is" basis and makes no warranties regarding any information or licenses provided on or through it, and disclaims liability for damages resulting from using the API.
 
 <!-- Content after this section is automatically generated -->

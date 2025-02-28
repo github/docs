@@ -1,10 +1,11 @@
 ---
-title: Pre-receive Environments
+title: REST API endpoints for pre-receive environments
+shortTitle: Pre-receive environments
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to create, list, update and delete environments for
   pre-receive hooks.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghes: '*'
 topics:
   - API
@@ -25,7 +26,7 @@ These endpoints are only available to [authenticated](/rest/overview/authenticat
 |-----------------------|-----------|----------------------------------------------------------------------------|
 | `name`                | `string`  | The name of the environment as displayed in the UI.                        |
 | `image_url`           | `string`  | URL to the tarball that will be downloaded and extracted.                  |
-| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.product_name %}. |
+| `default_environment` | `boolean` | Whether this is the default environment that ships with {% data variables.product.github %}. |
 | `download`            | `object`  | This environment's download status.                                        |
 | `hooks_count`         | `integer` | The number of pre-receive hooks that use this environment.                 |
 

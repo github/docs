@@ -3,9 +3,10 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
+import { useRouter } from 'next/router'
 
 import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiment'
+import { initializeExperiments } from 'src/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -20,10 +21,17 @@ type MyAppProps = AppProps & {
 
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   const { theme } = useTheme()
+  const router = useRouter()
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments()
+    if (pageProps.mainContext) {
+      initializeExperiments(
+        router.locale as string,
+        pageProps.mainContext.currentVersion,
+        pageProps.mainContext.allVersions,
+      )
+    }
   }, [])
 
   useEffect(() => {
@@ -32,28 +40,28 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
     //   @media (prefers-color-scheme: dark) [data-color-mode=auto][data-dark-theme=dark] {
     //       --color-canvas-default: black;
     //   }
-    //   body {
+    //   html {
     //       background-color: var(--color-canvas-default);
     //   }
     //
     // So if that `[data-color-mode][data-dark-theme=dark]` isn't present
-    // on the body, but on a top-level wrapping `<div>` then the `<body>`
+    // on the html, but on a top-level wrapping `<div>` then the `<html>`
     // doesn't get the right CSS.
     // Normally, with Primer you make sure you set these things in the
-    // `<body>` tag and you can use `_document.tsx` for that but that's
+    // `<html>` tag and you can use `_document.tsx` for that but that's
     // only something you can do in server-side rendering. So,
-    // we use a hook to assure that the `<body>` tag has the correct
+    // we use a hook to assure that the `<html>` tag has the correct
     // dataset attribute values.
-    const body = document.querySelector('body')
-    if (body) {
-      // Note, this is the same as setting `<body data-color-mode="...">`
-      // But you can't do `body.dataset['color-mode']` so you use the
+    const html = document.querySelector('html')
+    if (html) {
+      // Note, this is the same as setting `<html data-color-mode="...">`
+      // But you can't do `html.dataset['color-mode']` so you use the
       // camelCase variant and you get the same effect.
-      // Appears Next.js can't modify <body> after server rendering:
+      // Appears Next.js can't modify <html> after server rendering:
       // https://stackoverflow.com/a/54774431
-      body.dataset.colorMode = theme.css.colorMode
-      body.dataset.darkTheme = theme.css.darkTheme
-      body.dataset.lightTheme = theme.css.lightTheme
+      html.dataset.colorMode = theme.css.colorMode
+      html.dataset.darkTheme = theme.css.darkTheme
+      html.dataset.lightTheme = theme.css.lightTheme
     }
   }, [theme])
 
@@ -70,8 +78,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
             Just remember, if you edit these images on disk, remember to
             change these numbers
          */}
-        <link rel="alternate icon" type="image/png" href="/assets/cb-600/images/site/favicon.png" />
-        <link rel="icon" type="image/svg+xml" href="/assets/cb-803/images/site/favicon.svg" />
+        <link rel="icon" type="image/png" href="/assets/cb-345/images/site/favicon.png" />
 
         <link href="/manifest.json" rel="manifest" />
 
@@ -119,7 +126,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     for (const [langCode, langObj] of Object.entries(
       req.context.languages as Record<string, LanguageItem>,
     )) {
-      if (langObj.wip) continue
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
@@ -134,7 +140,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-
   return {
     ...appProps,
     languagesContext,

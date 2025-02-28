@@ -16,17 +16,14 @@ type: how_to
 
 {% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
-For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+For information on choosing a machine type when you create a codespace, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
 ## Changing the machine type
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% webui %}
 
@@ -73,7 +70,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `literate-space-parakeet-w5vg5ww5p793g7g9`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
 
    If you're prompted to request the `codespace` scope, follow the instructions in the terminal.
 
@@ -84,7 +81,7 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `literate-space-parakeet-w5vg5ww5p793g7g9`.
 1. To change the machine type for a codespace, enter the following command.
 
    ```shell
@@ -102,7 +99,9 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/codespaces/machines)" in the REST API documentation
-- [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+* [AUTOTITLE](/rest/codespaces/machines)
+* [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)
 
 {% endcli %}

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Notifications
@@ -19,4 +18,3 @@ children:
   - /managing-subscriptions-for-activity-on-github
 shortTitle: Subscriptions & notifications
 ---
-

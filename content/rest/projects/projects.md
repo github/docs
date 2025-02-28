@@ -1,5 +1,5 @@
 ---
-title: '{% data variables.product.prodname_projects_v1_caps %}'
+title: 'REST API endpoints for {% data variables.product.prodname_projects_v1_caps %}'
 shortTitle: Boards
 allowTitleToDifferFromFilename: true
 intro: >-
@@ -7,7 +7,6 @@ intro: >-
   variables.projects.projects_v1_boards %} in a repository.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

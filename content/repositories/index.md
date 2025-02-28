@@ -3,7 +3,7 @@ title: Repositories documentation
 shortTitle: Repositories
 intro: Learn to use and manage the repositories that allow you to store and collaborate on your project's code.
 introLinks:
-  quickstart: /get-started/quickstart/create-a-repo
+  quickstart: /repositories/creating-and-managing-repositories/quickstart-for-repositories
   overview: /repositories/creating-and-managing-repositories/about-repositories
 featuredLinks:
   startHere:
@@ -28,7 +28,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

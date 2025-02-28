@@ -1,6 +1,4 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import { Notice } from './Notice'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { FieldT } from './types'
@@ -10,11 +8,9 @@ type Props = {
 }
 
 export function Table({ fields }: Props) {
-  const { locale } = useRouter()
-
-  const { t } = useTranslation('products')
-  const tableName = t('graphql.reference.name')
-  const tableDescription = t('graphql.reference.description')
+  const { t } = useTranslation('graphql')
+  const tableName = t('reference.name')
+  const tableDescription = t('reference.description')
 
   return (
     <table className="fields width-full table-fixed">
@@ -33,7 +29,7 @@ export function Table({ fields }: Props) {
                 <code>
                   <Link
                     href={field.href}
-                    locale={locale}
+                    makeAbsolute
                     aria-label={[field.name, field.type, 'type definition'].join(' ')}
                   >
                     {field.type}
@@ -65,7 +61,7 @@ export function Table({ fields }: Props) {
                   <p
                     className="pt-0 mt-0 h5"
                     dangerouslySetInnerHTML={{
-                      __html: t('graphql.reference.arguments').replace(
+                      __html: t('reference.arguments').replace(
                         '{{ GraphQLItemTitle }}',
                         field.name,
                       ),
@@ -80,7 +76,7 @@ export function Table({ fields }: Props) {
                         <p className="mt-2">
                           <code>{argument.name}</code> (
                           <code>
-                            <Link href={argument.type.href} locale={locale}>
+                            <Link href={argument.type.href} makeAbsolute>
                               {argument.type.name}
                             </Link>
                           </code>

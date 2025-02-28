@@ -5,7 +5,6 @@ intro: You can host your own runners to run workflows in a highly customizable e
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-self-hosted-runners

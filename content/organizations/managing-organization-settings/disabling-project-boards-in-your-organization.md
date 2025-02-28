@@ -1,6 +1,6 @@
 ---
-title: 'Disabling {% ifversion projects-v2 %}projects{% else %}project boards{% endif %} in your organization'
-intro: 'Organization owners can turn off {% ifversion projects-v2 %}organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% else %}organization-wide project boards and repository project boards{% endif %} in an organization.'
+title: 'Disabling projects in your organization'
+intro: 'Organization owners can turn off organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization
@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -21,7 +20,7 @@ After you disable organization-wide projects, it won’t be possible to create n
 
 After you disable repository-level {% data variables.projects.projects_v1_boards %} in an organization, it won't be possible to create new {% data variables.projects.projects_v1_boards %} in any repositories in the organization, and any existing {% data variables.projects.projects_v1_boards %} in repositories in the organization will become inaccessible at their previous URLs. {% data variables.projects.projects_v1_boards_caps %} at the organization level are not affected.
 
-When {% data variables.projects.projects_v1_boards %} are disabled, you will no longer see project board information in timelines or [audit logs](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
+When {% data variables.projects.projects_v1_boards %} are disabled, you will no longer see {% data variables.projects.projects_v1_board %} information in timelines or [audit logs](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization).
 
 {% endif %}
 
@@ -29,10 +28,10 @@ When {% data variables.projects.projects_v1_boards %} are disabled, you will no 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under **Projects{% ifversion ghes = 3.7 %} (classic){% endif %}**:
-    - To disable {% data variables.projects.projects_v2_and_v1 %}, unselect **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
-    - To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects{% ifversion ghes = 3.7 %} (classic){% endif %} for the organization**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Decide whether to disable {% data variables.projects.projects_v2_and_v1 %} in your organization. Then, under "Projects":
+    * To disable {% data variables.projects.projects_v2_and_v1 %}, deselect **Enable Projects for the organization**.
+    * To enable {% data variables.projects.projects_v2_and_v1 %} in the organization, select **Enable Projects for the organization**.
 1. Click **Save**.
 
 If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any {% data variables.projects.projects_v2_and_v1 %} that were previously added will be available.
@@ -41,22 +40,22 @@ If you decide to re-enable {% data variables.projects.projects_v2_and_v1 %}, any
 
 ## Managing {% data variables.projects.projects_v1_boards %} in your organization's repositories
 
-You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)."
+You can control whether organization members can create {% data variables.projects.projects_v1_boards %} in repositories in your organization. You can still disable {% data variables.projects.projects_v1_boards %} in individual repositories. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-label="The table icon" %} Projects**.
-1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under **{%ifversion ghes > 3.7 or ghae > 3.7 or ghec or fpt %}Projects (classic) only{% elsif ghes = 3.7 %}Repository projects{% else %}Projects{% endif %}**:
-    - To enable project boards in repositories, select **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.
-    - To disable project boards in repositories, unselect **{% ifversion ghes < 3.7 %}Enable projects for all repositories{% else %}Allow members to enable Projects (classic) for all repositories{% endif %}**.
+1. In the "Code planning, and automation" section of the sidebar, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Decide whether to allow members to create {% data variables.projects.projects_v1_boards %} in repositories in your organization. Then, under "Projects (classic) only":
+    * To enable {% data variables.projects.projects_v1_boards %} in repositories, select **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
+    * To disable {% data variables.projects.projects_v1_boards %} in repositories, deselect **Allow members to enable {% data variables.product.prodname_projects_v1_caps %} for all repositories**.
 1. Click **Save**.
 
 {% endif %}
 
 ## Further reading
 
-{% ifversion projects-v2 %}- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"{% endif %}
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board)"
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)
+{% ifversion projects-v1 %}* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/closing-a-project-board)
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/deleting-a-project-board){% endif %}
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository)

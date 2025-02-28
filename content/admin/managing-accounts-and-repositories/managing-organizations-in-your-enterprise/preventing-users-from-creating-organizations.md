@@ -9,7 +9,6 @@ redirect_from:
 intro: You can prevent users from creating organizations in your enterprise.
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Enterprise
@@ -18,10 +17,6 @@ topics:
 shortTitle: Prevent organization creation
 ---
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Users can create organizations", use the drop-down menu and click **Enabled** or **Disabled**.

@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghae: '*'
   ghes: '*'
 children:
   - /about-using-integrations
@@ -20,4 +19,3 @@ children:
   - /github-developer-program
 shortTitle: Exploring integrations
 ---
-

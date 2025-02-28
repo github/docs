@@ -13,7 +13,7 @@ featuredLinks:
     - /graphql/overview/explorer
     - /graphql/overview/public-schema
     - /graphql/overview/schema-previews
-    - /graphql/guides/using-the-graphql-api-for-discussions
+    - /graphql/guides/using-pagination-in-the-graphql-api
   guideCards:
     - /graphql/guides/migrating-from-rest-to-graphql
     - /graphql/guides/managing-enterprise-accounts
@@ -27,10 +27,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /reference
   - /guides
 ---
-

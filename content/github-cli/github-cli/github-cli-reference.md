@@ -4,7 +4,6 @@ intro: 'You can view all of the {% data variables.product.prodname_cli %} comman
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - CLI

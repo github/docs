@@ -26,7 +26,7 @@ This guide shows you how to set up an example Node.js project {% data reusables.
 1. Go to https://github.com/microsoft/vscode-remote-try-node.
 {% data reusables.codespaces.use-this-template %}
 
-When you create a codespace, your project is created on a remote virtual machine that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, and Typescript. It also includes a common set of tools, such as nvm, npm, yarn, git, wget, rsync, openssh, and nano.
+When you create a codespace, your project is created on a remote virtual machine that is dedicated to you. By default, the container for your codespace has many languages and runtimes including Node.js, JavaScript, and TypeScript. It also includes a common set of tools, such as nvm, npm, yarn, git, wget, rsync, openssh, and nano.
 
 {% data reusables.codespaces.customize-vcpus-and-ram %}
 
@@ -86,8 +86,8 @@ The default development container, or "dev container," for {% data variables.pro
 ## Step 3: Modify your devcontainer.json file
 
 With your dev container configuration added and a basic understanding of what everything does, you can now make changes to customize your environment further. In this example, you'll add properties that will:
-- Run `npm install`, after the dev container is created, to install the dependencies listed in the `package.json` file.
-- Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
+* Run `npm install`, after the dev container is created, to install the dependencies listed in the `package.json` file.
+* Automatically install a {% data variables.product.prodname_vscode_shortname %} extension in this codespace.
 
 {% data reusables.codespaces.add-comma-after-features %}
 

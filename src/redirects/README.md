@@ -12,7 +12,7 @@ Read on for more about how redirects work under the hood.
 
 Precompiled redirects account for the majority of the docs site's redirect handling.
 
-When [`lib/warm-server.js`](lib/warm-server.js) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.js) for each content file, then passes the pages to `lib/redirects/precompile.js` to create redirects. The precompile script runs `lib/redirects/permalinks.js`, which:
+When [`lib/warm-server.ts`](lib/warm-server.ts) runs on server start, it creates all pages in the site by instantiating the [`Page` class](lib/page.js) for each content file, then passes the pages to `lib/redirects/precompile.js` to create redirects. The precompile script runs `lib/redirects/permalinks.js`, which:
 
 1. Includes all legacy redirects from `static/developerjson`
 2. Loops over each page's [frontmatter `redirect_from` entries](content/README.md#redirect_from) and creates an array of legacy paths for each one (using the same handling as for permalinks).
@@ -22,7 +22,7 @@ The results comprise the `page.redirects` object, whose keys are always only the
 Sometimes it contains the specific plan/version (e.g. `/enterprise-server@3.0/v3/integrations` to `enterprise-server@3.0/developers/apps`) and sometimes it's just the plain path
 (e.g. `/articles/viewing-your-repositorys-workflows` to `/actions/monitoring-and-troubleshooting-workflows`)
 
-All of the above are merged into a global redirects object. This object gets added to `req.context` via `middleware/context.js` and is made accessible on every request.
+All of the above are merged into a global redirects object. This object gets added to `req.context` via `src/frame/middleware/context/context.ts` and is made accessible on every request.
 
 In the `handle-redirects.js` middleware, the language part of the URL is
 removed, looked up, and if matched to something, redirects with language
@@ -40,7 +40,7 @@ if (newPath) {
 
 Archived Enterprise redirects account for a much smaller percentage of redirects on the docs site.
 
-Some background on archival: a snapshot of the HTML files for each deprecated Enterprise Server version is archived in a separate repo and proxied to docs.github.com via `middleware/archived-enterprise-versions.js`.
+Some background on archival: a snapshot of the HTML files for each deprecated Enterprise Server version is archived in a separate repo and proxied to docs.github.com via `src/archives/middleware/archived-enterprise-versions.js`.
 
 Starting with Enterprise Server 2.18, we updated the archival process to start preserving frontmatter and permalink redirects. But these redirects for 2.13 to 2.17 are not recoverable.
 
@@ -58,15 +58,14 @@ As a workaround for these lost redirects, we have two files in `lib/redirects/st
   which had a record of each possible redirect candidate that we should bother
   redirecting too.
   Now, this new file has been created by accurately comparing it to the actual
-  content inside the `github/help-docs-archived-enterprise-versions` repo for the
+  content inside one of the `github/docs-ghes-<release number>` repos for the
   version range of 2.13 to 2.17. So every key in `archived-frontmatter-valid-urls.json`
   corresponds to a file that would work.
 
-Here's how the `middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in
-`help-docs-archived-enterprise-versions`.
+Here's how the `src/archives/middleware/archived-enterprise-versions.js` fallback works: if someone tries to access an article that was updated via a now-lost frontmatter redirect (for example, an article at the path `/en/enterprise/2.15/user/articles/viewing-contributions-on-your-profile-page`), the middleware will first look for a redirect in `archived-redirects-from-213-to-217.json`. If it does not find one, it will look for it in `archived-frontmatter-valid-urls.json` that contains the requested path. If it finds it, it will redirect to it to because that file knows exactly which URLs are valid in the `docs-ghes-<release number>` repos.
 
 ## Tests
 
 Redirect tests are mainly found in `tests/routing/*`, with some additional tests in `tests/rendering/server.js`.
 
-The `tests/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.
+The `src/fixtures/fixtures/*` directory includes `developer-redirects.json`, `graphql-redirects.json`, and `rest-redirects.json`.

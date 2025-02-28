@@ -1,5 +1,7 @@
 ---
-title: Actions
+title: REST API endpoints for GitHub Actions
+shortTitle: Actions
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to interact with {% data variables.product.prodname_actions
   %} for an organization or repository.
@@ -9,13 +11,13 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
 children:
   - /artifacts
   - /cache
+  - /hosted-runners
   - /oidc
   - /permissions
   - /secrets

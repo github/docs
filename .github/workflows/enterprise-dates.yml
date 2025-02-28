@@ -4,8 +4,8 @@ name: Enterprise date updater
 # src/ghes-releases/lib/enterprise-dates.json.
 # **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
 # file needs to be up-to-date for the
-# .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/search.js test.
+# Used to display deprecation banner dates and as a reference
+# for all past server release numbers.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
@@ -17,40 +17,25 @@ permissions:
   contents: write
   pull-requests: write
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable updates, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 jobs:
   open_enterprise_issue:
     name: Enterprise date updater
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-latest
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout repository code
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
-        run: |
-          src/ghes-releases/scripts/update-enterprise-dates.js
+        run: npm run update-enterprise-dates
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@5b4a9f6a9e2af26e5f02351490b90d01eb8ec1e5 # pin @v5.0.0
+        uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # pin @v7.0.3
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
@@ -71,14 +56,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
-        run: node src/workflows/enable-automerge.js
+        run: npm run enable-automerge
 
-      - if: ${{ failure() && env.FREEZE != 'true' }}
+      - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)
-        uses: dawidd6/action-delete-branch@47743101a121ad657031e6704086271ca81b1911
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branches: enterprise-server-dates-update
+        run: git push origin --delete enterprise-server-dates-update
 
       - if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         name: Approve

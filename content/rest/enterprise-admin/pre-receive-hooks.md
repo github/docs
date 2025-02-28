@@ -1,5 +1,7 @@
 ---
-title: Pre-receive Hooks
+title: REST API endpoints for pre-receive hooks
+shortTitle: Pre-receive hooks
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to create, list, update and delete pre-receive hooks.'
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghes: '*'

@@ -2,7 +2,6 @@
 title: database analyze
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -51,14 +50,14 @@ being interpreted as source-code alerts, use
 
 \[Mandatory] Path to the CodeQL database to query.
 
-#### `<querysuite|pack>...`
+#### `<query|dir|suite|pack>...`
 
 Queries to execute. Each argument is in the form `scope/name@range:path`
 where:
 
-- `scope/name` is the qualified name of a CodeQL pack.
-- `range` is a semver range.
-- `path` is a file system path.
+* `scope/name` is the qualified name of a CodeQL pack.
+* `range` is a semver range.
+* `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A
@@ -144,9 +143,36 @@ location.
 
 #### `--[no-]sarif-add-query-help`
 
-\[SARIF formats only] Include Markdown query help in the results. It
-loads query help for /path/to/query.ql from the /path/to/query.md file.
+\[SARIF formats only] \[Deprecated] Include Markdown query help for
+all queries. It loads query help for /path/to/query.ql from the
+/path/to/query.md file. If this flag is not supplied the default
+behavior is to include help only for custom queries i.e. those in query
+packs which are not of the form \`codeql/\<lang\&rt;-queries\`. This
+option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+#### `--sarif-include-query-help=<mode>`
+
+\[SARIF formats only] Specify whether to include query help in the
+SARIF output. One of:
+
+`always`: Include query help for all queries.
+
+`custom_queries_only` _(default)_: Include query help only for custom
+queries i.e. those in query packs which are not of the form
+\`codeql/\<lang\&rt;-queries\`.
+
+`never`: Do not include query help for any queries.
+
 This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+Available since `v2.15.2`.
+
+#### `--no-sarif-include-alert-provenance`
+
+\[Advanced] \[SARIF formats only] Do not include alert provenance
+information in the SARIF output.
+
+Available since `v2.18.1`.
 
 #### `--[no-]sarif-group-rules-by-pack`
 
@@ -159,6 +185,16 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 \[SARIF formats only] For alerts that have multiple causes, include
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
+
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
+#### `--sarif-run-property=<String=String>`
+
+\[SARIF formats only] A key value pair to add to the generated SARIF
+'run' property bag. Can be repeated.
 
 #### `--no-group-results`
 
@@ -176,12 +212,22 @@ A format string defining the format in which to produce file location
 URLs in DOT output. The following place holders can be used {path}
 {start:line} {start:column} {end:line} {end:column}, {offset}, {length}
 
+#### `--[no-]sublanguage-file-coverage`
+
+\[GitHub.com and GitHub Enterprise Server v3.12.0+ only] Use
+sub-language file coverage information. This calculates, displays, and
+exports separate file coverage information for languages which share a
+CodeQL extractor like C and C++, Java and Kotlin, and JavaScript and
+TypeScript.
+
+Available since `v2.15.2`.
+
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -192,13 +238,57 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
+
+#### `--no-database-extension-packs`
+
+\[Advanced] Omit extension packs stored in the database during database
+creation, either from a Code Scanning configuration file or from
+extension files stored in the 'extensions' directory of the analyzed
+codebase.
+
+#### `--no-database-threat-models`
+
+\[Advanced] Omit threat model configuration stored in the database
+during database creation from a Code Scanning configuration file.
 
 #### `--[no-]download`
 
 Download any missing queries before analyzing.
+
+### Options to control the model packs to be used
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
+
+### Options to control the threat models to be used
+
+#### `--threat-model=<name>...`
+
+A list of threat models to enable or disable.
+
+The argument is the name of a threat model, optionally preceded by a
+'!'. If no '!' is present, the named threat model and all of its
+descendants are enabled. If a '!' is present, the named threat model
+and all of its descendants are disabled.
+
+The 'default' threat model is enabled by default, but can be disabled
+by specifying '--threat-model !default'.
+
+The 'all' threat model can be used to enable or disable all threat
+models.
+
+The --threat-model options are processed in order. For example,
+'--threat-model local --threat-model !environment' enables all of
+the threat models in the 'local' group except for the 'environment'
+threat model.
+
+This option only has an effect for languages that support threat models.
+
+Available since `v2.15.3`.
 
 ### Options to control the query evaluator
 
@@ -324,7 +414,13 @@ expense of making it much less human readable.
 
 #### `-M, --ram=<MB>`
 
-Set total amount of RAM the query evaluator should be allowed to use.
+The query evaluator will try hard to keep its total memory footprint
+below this value. (However, for large databases it is possible that the
+threshold may be broken by file-backed memory maps, which can be swapped
+to disk in case of memory pressure).
+
+The value should be at least 2048 MB; smaller values will be
+transparently rounded up.
 
 ### Options to control QL compilation
 
@@ -381,6 +477,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
+
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
 
 ### Options to set up compilation environment
 
@@ -510,3 +611,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

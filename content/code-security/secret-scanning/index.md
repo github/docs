@@ -9,21 +9,18 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Secret scanning
   - Advanced Security
   - Repositories
 children:
-  - /about-secret-scanning
-  - /secret-scanning-partner-program
-  - /configuring-secret-scanning-for-your-repositories
-  - /defining-custom-patterns-for-secret-scanning
+  - /introduction
+  - /enabling-secret-scanning-features
   - /managing-alerts-from-secret-scanning
-  - /secret-scanning-patterns
-  - /push-protection-for-repositories-and-organizations
-  - /push-protection-for-users
-  - /pushing-a-branch-blocked-by-push-protection
-  - /troubleshooting-secret-scanning
+  - /working-with-secret-scanning-and-push-protection
+  - /using-advanced-secret-scanning-and-push-protection-features
+  - /copilot-secret-scanning
+  - /troubleshooting-secret-scanning-and-push-protection
+  - /secret-scanning-partnership-program
 ---

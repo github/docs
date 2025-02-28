@@ -11,10 +11,11 @@
 - /admin/enterprise-support/overview/about-github-premium-support-for-github-enterprise
 
 # FPT versioning was removed as part of github/docs-content#5166
-/rest/overview/resources-in-the-rest-api
+/rest/using-the-rest-api/getting-started-with-the-rest-api
 - /rest/overview/api-previews
 
-/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments
+- /enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 
 /enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
@@ -22,7 +23,7 @@
 - /enterprise-server@3.4/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 - /enterprise-server@3.5/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
 
-/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise
+/enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise
 - /github/setting-up-and-managing-your-enterprise/setting-policies-for-organizations-in-your-enterprise-account
 
 # As seen in PR 38572 we want specific versions to redirect to different articles
@@ -35,8 +36,21 @@
 /enterprise-server@3.6/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
 - /enterprise-server@3.6/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
 
-/github-ae@latest/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
-- /github-ae@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
+/enterprise-cloud@latest/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
+- /enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
 
-/billing/managing-your-github-billing-settings/redeeming-a-coupon
-- /enterprise-cloud@latest/billing/managing-your-github-billing-settings/redeeming-a-coupon
+/billing/using-the-billing-platform/redeeming-a-coupon
+- /enterprise-cloud@latest/billing/using-the-billing-platform/redeeming-a-coupon
+
+# As seen in PR 48753 we are restructuring the copilot docs and removing the overview category
+/copilot/about-github-copilot
+- /copilot/overview-of-github-copilot
+
+# Pages that existed *only* in github-ae need their equivalent
+/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud
+- /github-ae@latest/get-started/onboarding/getting-started-with-github-ae
+/enterprise-cloud@latest/admin/overview
+- /github-ae@latest/admin/overview/about-github-ae
+- /github-ae@latest/admin/overview/about-data-residency
+- /github-ae@latest/admin/overview/deploying-github-ae
+- /github-ae@latest/admin/overview/initializing-github-ae

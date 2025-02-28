@@ -2,7 +2,7 @@ import React from 'react'
 import cx from 'classnames'
 
 import { ActionList } from '@primer/react'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import type { TocItem } from 'src/landings/components/ProductLandingContext'
 
 type Props = {
@@ -42,14 +42,11 @@ export const TableOfContents = (props: Props) => {
       {variant === 'compact' && (
         <ActionList>
           {items.map((item) => {
-            const { fullPath: href, title, childTocItems } = item
+            const { fullPath, title, childTocItems } = item
             return (
-              <React.Fragment key={href}>
-                <ActionList.Item
-                  key={href}
-                  className="f4 color-fg-accent d-list-item d-block width-full text-underline"
-                >
-                  <Link href={href}>{title}</Link>
+              <React.Fragment key={fullPath}>
+                <ActionList.Item className="f4 color-fg-accent d-list-item d-block width-full text-underline">
+                  <Link href={fullPath}>{title}</Link>
                 </ActionList.Item>
                 {(childTocItems || []).length > 0 && (
                   <li className="f4 color-fg-accent d-list-item d-block width-full text-underline">

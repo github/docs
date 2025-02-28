@@ -7,19 +7,10 @@ name: Purge old workflow runs
 on:
   workflow_dispatch:
   schedule:
-    - cron: '20 */2 * * *' # Run every 2 hours at 20 minutes past the hour
+    - cron: '20 * * * *' # Run every hour at 20 minutes past the hour
 
 permissions:
   contents: write
-
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
 
 jobs:
   purge-old-workflow-runs:
@@ -27,17 +18,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Run purge script
-        if: ${{ env.FREEZE != 'true' }}
         env:
-          GITHUB_REPOSITORY: ${{ github.repository }}
           # Necessary to be able to delete deployment environments
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
-        run: src/workflows/purge-old-workflow-runs.js
+        run: npm run purge-old-workflow-runs
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

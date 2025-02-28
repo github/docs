@@ -1,12 +1,10 @@
 import { Tokenizer } from 'liquidjs'
 
-import { getLiquidConditionalsWithContent } from '../../../script/helpers/get-liquid-conditionals.js'
+import { getLiquidConditionalsWithContent } from './get-liquid-conditionals.js'
 import getVersionBlocks from './get-version-blocks.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
-import supportedOperators from '#src/content-render/liquid/ifversion-supported-operators.js'
 
 const supportedShortVersions = Object.values(allVersions).map((v) => v.shortName)
-const ghaeRangeRegex = new RegExp(`ghae (${supportedOperators.join('|')})`)
 const updateRangeKeepGhes = 'updateRangeKeepGhes'
 const updateRangeRemoveGhes = 'updateRangeRemoveGhes'
 const removeRangeAndContent = 'removeRangeAndContent'
@@ -17,7 +15,7 @@ const tokenize = (str) => {
   return tokenizer.readTopLevelTokens()
 }
 // This module is used by
-// src/ghes-releases/scripts/remove-version-markup.js to remove
+// `npm run remove-version-markup` to remove
 // and update Liquid conditionals when a GHES release is being deprecated. It is also used by
 // src/ghes-releases/tests/remove-liquid-statements.js.
 export default function removeLiquidStatements(content, release, nextOldestRelease, file) {
@@ -266,7 +264,5 @@ function lastIndexOfRegex(str, regex, fromIndex) {
 function canConditionalBeRemoved(supportedVersions, conditional) {
   if (typeof conditional !== 'string') throw new Error('Expecting a string.')
 
-  const containsAllVersions = supportedVersions.every((arg) => conditional.includes(arg))
-  const hasGhaeRange = ghaeRangeRegex.test(conditional)
-  return containsAllVersions && !hasGhaeRange
+  return supportedVersions.every((arg) => conditional.includes(arg))
 }

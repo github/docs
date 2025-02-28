@@ -11,13 +11,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Accounts
 children:
   - /about-your-personal-dashboard
-  - /managing-your-theme-settings
   - /managing-your-tab-size-rendering-preference
   - /changing-your-github-username
   - /permission-levels-for-a-personal-account-repository
@@ -28,7 +26,6 @@ children:
   - /managing-access-to-your-personal-accounts-project-boards
   - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
-  - /what-does-the-available-for-hire-checkbox-do
+  - /about-available-for-hire
 shortTitle: Personal account settings
 ---
-

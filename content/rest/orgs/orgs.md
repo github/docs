@@ -1,9 +1,9 @@
 ---
-title: Organizations
+title: REST API endpoints for organizations
+shortTitle: Organizations
 intro: Use the REST API to interact with organizations.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

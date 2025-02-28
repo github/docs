@@ -24,23 +24,21 @@ shortTitle: Sponsor through {% data variables.product.prodname_dotcom %}
 
 ## Sponsoring an account
 
-Before you can sponsor an account, you must have a verified email address. For more information, see "[AUTOTITLE](/get-started/signing-up-for-github/verifying-your-email-address)."
+Before you can sponsor an account, you must have a verified email address. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
 
 {% data reusables.sponsors.navigate-to-maintainer-profile %}
 {% data reusables.sponsors.navigate-to-sponsorship-dashboard %}
 {% data reusables.sponsors.sponsor-as-org %}
 {% data reusables.sponsors.select-a-tier %}
 {% data reusables.sponsors.pay-prorated-amount %}
+1. To choose a sponsorship frequency, to the right of "One-time" or "Monthly," click **Choose**.
 {% data reusables.sponsors.select-sponsorship-billing %}
 {% data reusables.sponsors.setting-an-end-date %}
 {% data reusables.sponsors.who-can-see-your-sponsorship %}
-{% data reusables.sponsors.choose-updates %}<br><br>
+{% data reusables.sponsors.choose-updates %}
 
-   {% note %}
-
-   {% data reusables.sponsors.org-email-updates %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.sponsors.org-email-updates %}
 
 {% data reusables.sponsors.sponsor-as-business %}
 {% data reusables.sponsors.sponsor-account %}
@@ -57,7 +55,7 @@ Before you can sponsor an account, you must have a verified email address. For m
 
    To sponsor these maintainers using the downloaded file, in the corresponding cells of the "Sponsorship amount in USD" column, input sponsorship amounts in US dollars for each maintainer you want to sponsor.
 
-1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**.
+1. On {% data variables.product.prodname_dotcom %}, in the "Bulk Sponsor" box above the list of developers who maintain your dependencies, click **Get started**. Organizations can also access the "Bulk Sponsor" functionality from the sponsors dashboard.
 1. Optionally, to change which account or organization you are sponsoring as, select the **Sponsor as USERNAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the desired account or organization from the options that appear.
 
     ![Screenshot of the first bulk sponsorship screen. A collapsed dropdown menu, labeled "octocat", is highlighted in dark orange.](/assets/images/help/sponsors/bulk-sponsors-sponsor-as-dropdown.png)
@@ -66,15 +64,12 @@ Before you can sponsor an account, you must have a verified email address. For m
    Alternatively, drag and drop your CSV file into the "Import a CSV" box.
 
    You can sponsor in bulk with any of the following files:
-    - The previously mentioned CSV file of developers who maintain your account's or organization's dependencies.
-    - {% data variables.product.prodname_dotcom %}'s template CSV file for bulk sponsorships edited to contain your desired sponsorships. To download the example CSV file, in the "Import a CSV" box, click **Download example CSV**.
-    - A CSV file of your own creation containing your desired sponsorships. For {% data variables.product.prodname_dotcom %} to parse your CSV file correctly, the file must contain columns labeled "Maintainer username" and "Sponsorship amount in USD."
+    * The previously mentioned CSV file of developers who maintain your account's or organization's dependencies.
+    * {% data variables.product.prodname_dotcom %}'s template CSV file for bulk sponsorships edited to contain your desired sponsorships. To download the example CSV file, in the "Import a CSV" box, click **Download example CSV**.
+    * A CSV file of your own creation containing your desired sponsorships. For {% data variables.product.prodname_dotcom %} to parse your CSV file correctly, the file must contain columns labeled "Maintainer username" and "Sponsorship amount in USD."
 
-   {% note %}
-
-   **Note:** Any errors in your file are reported at the top of the review page with instructions to resolve them.
-
-   {% endnote %}
+   > [!NOTE]
+   > Any errors in your file are reported at the top of the review page with instructions to resolve them.
 
 1. Optionally, to resolve any errors or make any changes to your sponsorship selections, click **Choose file**, then navigate to the new or updated CSV file you would like to upload. Select the CSV file, then click **Open**.
 1. To confirm your sponsorship elections, click **Continue to checkout**.
@@ -82,13 +77,10 @@ Before you can sponsor an account, you must have a verified email address. For m
 {% data reusables.sponsors.select-sponsorship-billing %}
 
 1. In the "Who can see your sponsorships?" section, choose a visibility option.
-1. Decide whether you want to receive email updates from the sponsored accounts, then select or deselect **Receive email updates from the maintainers you're sponsoring**.<br><br>
+1. Decide whether you want to receive email updates from the sponsored accounts, then select or deselect **Receive email updates from the maintainers you're sponsoring**.
 
-   {% note %}
-
-   {% data reusables.sponsors.org-email-updates %}
-
-   {% endnote %}
+   > [!NOTE]
+   > {% data reusables.sponsors.org-email-updates %}
 
 {% data reusables.sponsors.sponsor-as-business %}
 

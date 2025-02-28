@@ -1,15 +1,24 @@
 import { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
+import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'
+import { AutomatedPage } from 'src/automated-pipelines/components/AutomatedPage'
+import {
+  AutomatedPageContext,
+  AutomatedPageContextT,
+  getAutomatedPageContextFromRequest,
+} from 'src/automated-pipelines/components/AutomatedPageContext'
 import { useEffect, useRef } from 'react'
 
 type Props = {
   mainContext: MainContextT
   graphqlExplorerUrl: string
+  automatedPageContext: AutomatedPageContextT
 }
-export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) {
-  const { page } = mainContext
+export default function GQLExplorer({
+  mainContext,
+  graphqlExplorerUrl,
+  automatedPageContext,
+}: Props) {
   const graphiqlRef = useRef<HTMLIFrameElement>(null)
 
   useEffect(() => {
@@ -20,25 +29,22 @@ export default function GQLExplorer({ mainContext, graphqlExplorerUrl }: Props) 
 
   return (
     <MainContext.Provider value={mainContext}>
-      <DefaultLayout>
-        <div className="container-xl px-3 px-md-6 my-4 my-lg-4">
-          <h1 id="title-h1">{page.title}</h1>
-        </div>
-
-        <div>
-          {/* eslint-disable-next-line jsx-a11y/iframe-has-title */}
-          <iframe
-            ref={graphiqlRef}
-            style={{ height: 715 }}
-            className="border width-full"
-            scrolling="no"
-            src={graphqlExplorerUrl}
-            title="GitHub GraphQL API"
-          >
-            You must have iframes enabled to use this feature.
-          </iframe>
-        </div>
-      </DefaultLayout>
+      <AutomatedPageContext.Provider value={automatedPageContext}>
+        <AutomatedPage fullWidth={true}>
+          <div>
+            <iframe
+              ref={graphiqlRef}
+              style={{ height: 715 }}
+              className="border width-full"
+              scrolling="no"
+              src={graphqlExplorerUrl}
+              title="GitHub GraphQL API"
+            >
+              You must have iframes enabled to use this feature.
+            </iframe>
+          </div>
+        </AutomatedPage>
+      </AutomatedPageContext.Provider>
     </MainContext.Provider>
   )
 }
@@ -50,11 +56,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
     process.env.NODE_ENV === 'production'
       ? 'https://graphql.github.com/explorer'
       : 'http://localhost:3000'
+  const automatedPageContext = getAutomatedPageContextFromRequest(req)
 
   return {
     props: {
       mainContext: await getMainContext(req, res),
       graphqlExplorerUrl,
+      automatedPageContext,
     },
   }
 }

@@ -9,17 +9,19 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/overview/github-desktop-keyboard-shortcuts
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 {% mac %}
 
 GitHub Desktop keyboard shortcuts on macOS
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>,</kbd> | Go to Preferences
+|<kbd>Command</kbd>+<kbd>,</kbd> | Display the Settings window
 |<kbd>Command</kbd>+<kbd>H</kbd> | Hide the {% data variables.product.prodname_desktop %} application
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>H</kbd> | Hide all other applications
 |<kbd>Command</kbd>+<kbd>Q</kbd> | Quit {% data variables.product.prodname_desktop %}
@@ -30,6 +32,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>8</kbd> | Decrease active pane width
 |<kbd>Command</kbd>+<kbd>9</kbd> | Increase active pane width
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> | Toggle Developer Tools
+|<kbd>Shift</kbd>+<kbd>F10</kbd> | Open context menu of selected component
 
 ## Repositories
 
@@ -64,6 +67,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>U</kbd> | Update from default branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>B</kbd> | Compare to an existing branch
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>M</kbd> | Merge into current branch
+|<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>S</kbd> | Stash current changes
 |<kbd>Control</kbd>+<kbd>H</kbd> | Show or hide stashed changes
 |<kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
 |<kbd>Command</kbd>+<kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}
@@ -74,11 +78,11 @@ GitHub Desktop keyboard shortcuts on macOS
 
 GitHub Desktop keyboard shortcuts on Windows
 
-## Site wide shortcuts
+## Application wide shortcuts
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Go to Options
+|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Display the Options window
 |<kbd>F11</kbd> | Toggle full screen view
 |<kbd>Ctrl</kbd>+<kbd>0</kbd> | Reset zoom to default text size
 |<kbd>Ctrl</kbd>+<kbd>=</kbd> | Zoom in for larger text and graphics
@@ -120,6 +124,7 @@ GitHub Desktop keyboard shortcuts on Windows
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>U</kbd> | Update from default branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>B</kbd> | Compare to an existing branch
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd> | Merge into current branch
+|<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>S</kbd> | Stash current changes
 |<kbd>Ctrl</kbd>+<kbd>H</kbd> | Show or hide stashed changes
 |<kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>C</kbd> | Compare branches on {% data variables.product.prodname_dotcom %}
 |<kbd>Ctrl</kbd>+<kbd>R</kbd> | Show the current pull request on {% data variables.product.prodname_dotcom %}

@@ -1,1 +1,1 @@
-[APIs and Integrations discussions on {% data variables.product.prodname_github_community %}](https://github.com/orgs/community/discussions/categories/apis-and-integrations)
+[API and Webhooks category in GitHub's Community Discussions](https://github.com/orgs/community/discussions/categories/api-and-webhooks)

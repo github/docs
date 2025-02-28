@@ -4,7 +4,6 @@ intro: 'Learn about different features of {% data variables.product.prodname_doc
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-versions-of-github-docs

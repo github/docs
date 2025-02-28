@@ -1,16 +1,16 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
+    - /get-started/git-basics/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github
-    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
   - /github
@@ -42,14 +42,16 @@ redirect_from:
   - /github/enforcing-best-practices-with-github-policies/sharing
   - /early-access/github/enforcing-best-practices-with-github-policies/syntax
   - /github/enforcing-best-practices-with-github-policies/syntax
+  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
   - authentication
   - repositories
@@ -81,6 +83,8 @@ children:
   - support
   - video-transcripts
   - contributing
+  - github-models
+
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -98,7 +102,15 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+  - name: GitHub Copilot
+    octicon: CopilotIcon
+    children:
       - copilot
+      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
+      - copilot/copilot-chat-cookbook
+      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -118,14 +130,22 @@ childGroups:
     octicon: DeviceMobileIcon
     children:
       - github-cli
+      - get-started/using-github/github-mobile
       - desktop
   - name: Project management
     octicon: ProjectIcon
     children:
       - issues
       - issues/planning-and-tracking-with-projects
-      - issues/managing-your-tasks-with-tasklists
       - search-github
+  - name: Enterprise and Teams
+    octicon: OrganizationIcon
+    children:
+      - organizations
+      - code-security/securing-your-organization
+      - enterprise-onboarding
+      - admin
+      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -133,11 +153,8 @@ childGroups:
       - rest
       - graphql
       - webhooks
-  - name: Enterprise and Teams
-    octicon: OrganizationIcon
-    children:
-      - organizations
-      - admin
+      - copilot/building-copilot-extensions
+      - github-models
   - name: Community
     octicon: GlobeIcon
     children:
@@ -149,8 +166,8 @@ childGroups:
   - name: More docs
     octicon: PencilIcon
     children:
-      - electron
       - codeql
+      - electron
       - npm
 externalProducts:
   electron:
@@ -160,7 +177,7 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: CodeQL
+    name: CodeQL query writing
     href: 'https://codeql.github.com/docs'
     external: true
   npm:
@@ -168,5 +185,9 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
+  gh-wa:
+    id: gh-wa
+    name: GitHub Well-Architected
+    href: 'https://wellarchitected.github.com/'
+    external: true
 ---
-

@@ -1,8 +1,9 @@
 ---
-title: Repositories
+title: REST API endpoints for repositories
+shortTitle: Repositories
 intro: >-
   Use the REST API to create, manage and control the workflow of public and
-  private {% data variables.product.product_name %} repositories.
+  private {% data variables.product.github %} repositories.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/repos
@@ -10,16 +11,16 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
 children:
   - /autolinks
+  - /bypass-requests
   - /contents
+  - /custom-properties
   - /forks
   - /lfs
-  - /properties
   - /repos
   - /rule-suites
   - /rules

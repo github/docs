@@ -1,0 +1,5 @@
+* **Opt in to user feedback collection:** If enabled, users can provide feedback on {% data variables.product.prodname_copilot_short %} pull request summaries. For more information, see [AUTOTITLE](/enterprise-cloud@latest/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot).
+* **Opt in to preview features:** If enabled, users can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features include:
+
+  * {% data variables.product.prodname_copilot_autocomplete_pr %}. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
+  * {% data variables.product.prodname_copilot_short %} code review. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).

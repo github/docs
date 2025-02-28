@@ -4,7 +4,6 @@ intro: 'You can authorize third-party {% data variables.product.prodname_oauth_a
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - OAuth apps

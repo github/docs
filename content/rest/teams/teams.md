@@ -1,11 +1,12 @@
 ---
-title: Teams
+title: REST API endpoints for teams
+shortTitle: Teams
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to create and manage teams in your {% data
-  variables.product.product_name %} organization.
+  variables.product.github %} organization.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

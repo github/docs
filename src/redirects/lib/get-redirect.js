@@ -3,10 +3,11 @@ import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-defaul
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import {
   latest,
+  latestStable,
   supported,
   deprecatedWithFunctionalRedirects,
 } from '#src/versions/lib/enterprise-server-releases.js'
-import { getPathWithLanguage } from '../../../lib/path-utils.js'
+import { getPathWithLanguage, getVersionStringFromPath } from '#src/frame/lib/path-utils.js'
 
 const languagePrefixRegex = new RegExp(`^/(${languageKeys.join('|')})/`)
 const nonEnterpriseDefaultVersionPrefix = `/${nonEnterpriseDefaultVersion}`
@@ -28,6 +29,19 @@ export default function getRedirect(uri, context) {
   const { redirects, userLanguage } = context
 
   const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
+
+  if (withoutLanguage.startsWith('/github-ae@latest')) {
+    // It has a different business logic that the rest because it's a
+    // version that now will always redirect. Just a question of where to
+    // exactly.
+    const nonAERedirect = githubAERedirect(uri, context)
+    if (nonAERedirect.includes('/github-ae@latest')) {
+      // If this happened some redirect in there didn't completely
+      // get away from github-ae.
+      throw new Error('Still going to github-ae@latest URL')
+    }
+    return nonAERedirect
+  }
 
   let destination
 
@@ -64,7 +78,8 @@ export default function getRedirect(uri, context) {
   ) {
     // E.g. '/enterprise-server' or '/enterprise-server/3.0/foo'
     basicCorrection =
-      `/${language}` + withoutLanguage.replace('/enterprise-server', `/enterprise-server@${latest}`)
+      `/${language}` +
+      withoutLanguage.replace('/enterprise-server', `/enterprise-server@${latestStable}`)
     // If it's now just the version, without anything after, exit here
     if (withoutLanguage === '/enterprise-server') {
       return basicCorrection
@@ -73,7 +88,7 @@ export default function getRedirect(uri, context) {
     // E.g. '/enterprise-server@latest' or '/enterprise-server@latest/3.3/foo'
     basicCorrection =
       `/${language}` +
-      withoutLanguage.replace('/enterprise-server@latest', `/enterprise-server@${latest}`)
+      withoutLanguage.replace('/enterprise-server@latest', `/enterprise-server@${latestStable}`)
     // If it was *just* '/enterprise-server@latest' all that's needed is
     // the language but with 'latest' replaced with the value of `latest`
     if (withoutLanguage === '/enterprise-server@latest') {
@@ -178,6 +193,88 @@ export default function getRedirect(uri, context) {
     // to the destination URL.
     return `/${language}${destination}`
   }
+}
+
+function githubAERedirect(uri, context) {
+  const { redirects, userLanguage, pages } = context
+
+  const [language, withoutLanguage] = splitPathByLanguage(uri, userLanguage)
+
+  // From now on, github-ae@latest redirects to enterprise-cloud or
+  // fpt or the home page.
+  const cloudEquivalent = uri.replace('/github-ae@latest', '/enterprise-cloud@latest')
+  const fptEquivalent = uri.replace('/github-ae@latest', '')
+  const withoutVersion = withoutLanguage.replace('/github-ae@latest', '')
+  if (!withoutVersion) {
+    // That means the version home page.
+    // Don't even need to check if that exists.
+    // But if it was without language, inject the language as
+    // we go to the enterprise-cloud equivalent
+    if (uri.startsWith('/github-ae@latest')) {
+      return `/${language}${cloudEquivalent}`
+    }
+    return cloudEquivalent
+  }
+
+  // What if the only missing thing is a language prefix, then
+  // it's easy too.
+  if (uri.startsWith('/github-ae@latest')) {
+    const languageCloudEquivalent = `/${language}${cloudEquivalent}`
+    if (languageCloudEquivalent in pages) {
+      return languageCloudEquivalent
+    }
+
+    const languageFptEquivalent = `/${language}${fptEquivalent}`
+    if (languageFptEquivalent in pages) {
+      return languageFptEquivalent
+    }
+  } else {
+    // If you're here it means the URL did start with a language.
+    if (cloudEquivalent in pages) {
+      return cloudEquivalent
+    }
+    if (fptEquivalent in pages) {
+      return fptEquivalent
+    }
+  }
+
+  // There are redirect exceptions the specifically spell out github-ae
+  // in the redirect.
+  const legacyRedirect = redirects[withoutLanguage]
+  if (legacyRedirect && !legacyRedirect.includes('/github-ae@latest')) {
+    if (legacyRedirect.includes('://')) {
+      return legacyRedirect
+    }
+    return `/${language}${legacyRedirect}`
+  }
+
+  // The `redirects` are "pure" and don't specific a specific version.
+  // For example `/articles/stuff` to `/get-started/new/name`
+  // We look for those and try enterprise-cloud in it.
+  if (redirects[withoutVersion]) {
+    const cloudCandidate = `/${language}/enterprise-cloud@latest${redirects[withoutVersion]}`
+    if (cloudCandidate in pages) {
+      return cloudCandidate
+    }
+
+    const fptCandidate = `/${language}${redirects[withoutVersion]}`
+    // The lookup of redirects might yield a versioned URL, whose version
+    // might be github-ae or enterprise-server. Skip those.
+    if (fptCandidate in pages) {
+      const versionFromCandidate = getVersionStringFromPath(fptCandidate)
+      if (
+        !(
+          versionFromCandidate.startsWith('enterprise-server@') ||
+          versionFromCandidate === 'github-ae@latest'
+        )
+      ) {
+        return fptCandidate
+      }
+    }
+  }
+
+  // Note that this includes completely unknown pages
+  return `/${language}`
 }
 
 // Over time, we've developed multiple ambiguous patterns of URLs

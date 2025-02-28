@@ -5,12 +5,11 @@ intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
 children:
-  - /automated-migrations
+  - /using-github-actions-importer-to-automate-migrations
   - /manually-migrating-to-github-actions
 ---
 

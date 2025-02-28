@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema.js'
 
@@ -20,7 +22,7 @@ describe(frontmatterSchema.names.join(' - '), () => {
     expect(errors[0].lineNumber).toBe(5)
     expect(errors[0].errorRange).toEqual([1, 25])
   })
-  test('Minimum required prpoperties pass', async () => {
+  test('Minimum required properties pass', async () => {
     const markdown = ['---', 'title: Title', 'versions:', "  fpt: '*'", '---'].join('\n')
     const result = await runRule(frontmatterSchema, { strings: { markdown }, ...fmOptions })
     const errors = result.markdown

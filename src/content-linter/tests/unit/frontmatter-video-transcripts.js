@@ -1,4 +1,4 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test.js'
 import { frontmatterVideoTranscripts } from '../../lib/linting-rules/frontmatter-video-transcripts.js'
@@ -21,7 +21,7 @@ describe(frontmatterVideoTranscripts.names.join(' - '), () => {
     const errors = result[GOOD_FIXTURE_TRANSCRIPT]
     expect(errors.length).toBe(0)
   })
-  test('a video transcript with bad title and fm failes', async () => {
+  test('a video transcript with bad title and fm fails', async () => {
     const result = await runRule(frontmatterVideoTranscripts, {
       files: [BAD_FIXTURE_TRANSCRIPT],
       ...fmOptions,

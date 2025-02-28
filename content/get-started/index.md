@@ -19,27 +19,26 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 layout: product-landing
 introLinks:
-  quickstart: /get-started/quickstart
+  quickstart: /get-started/start-your-journey
 featuredLinks:
   startHere:
+    - /get-started/start-your-journey/about-github-and-git
     - /get-started/learning-about-github/githubs-plans
     - /get-started/onboarding/getting-started-with-your-github-account
     - /get-started/onboarding/getting-started-with-github-team
     - /get-started/onboarding/getting-started-with-github-enterprise-cloud
     - /get-started/onboarding/getting-started-with-github-enterprise-server
-    - /get-started/onboarding/getting-started-with-github-ae
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github
   popular:
-    - /get-started/signing-up-for-github/signing-up-for-a-new-github-account
-    - /get-started/quickstart/hello-world
-    - /get-started/quickstart/set-up-git
+    - /get-started/start-your-journey/creating-an-account-on-github
+    - /get-started/start-your-journey/hello-world
+    - /get-started/git-basics/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
-    - /get-started/quickstart/github-glossary
-    - /get-started/using-github/keyboard-shortcuts
+    - /get-started/learning-about-github/github-glossary
+    - /get-started/accessibility/keyboard-shortcuts
   guideCards:
     - /get-started/learning-about-github/types-of-github-accounts
     - /get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github
@@ -50,18 +49,19 @@ topics:
   - Notifications
   - Accounts
 children:
-  - /quickstart
+  - /start-your-journey
   - /onboarding
-  - /learning-about-github
-  - /signing-up-for-github
   - /using-github
+  - /learning-about-github
+  - /learning-to-code
+  - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
-  - /getting-started-with-git
+  - /git-basics
   - /using-git
   - /working-with-subversion-on-github
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs
+  - /showcase-your-expertise-with-github-certifications
 ---
-

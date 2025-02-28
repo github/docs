@@ -2,28 +2,32 @@ import { GetServerSideProps } from 'next'
 import { Liquid } from 'liquidjs'
 import pick from 'lodash/pick'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
-import { DefaultLayout } from 'components/DefaultLayout'
-import { GHAEReleaseNotes } from 'src/release-notes/components/GHAEReleaseNotes'
-import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
 import {
-  GHAEReleaseNotesContextT,
-  GHESReleaseNotesContextT,
-} from 'src/release-notes/components/types'
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'src/frame/components/context/MainContext'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
+import { GHESReleaseNotes } from 'src/release-notes/components/GHESReleaseNotes'
+import { GHESReleaseNotesContextT } from 'src/release-notes/components/types'
 
 const liquid = new Liquid()
 type Props = {
   mainContext: MainContextT
-  ghaeContext: GHAEReleaseNotesContextT | null
   ghesContext: GHESReleaseNotesContextT | null
 }
-export default function ReleaseNotes({ mainContext, ghesContext, ghaeContext }: Props) {
+export default function ReleaseNotes({ mainContext, ghesContext }: Props) {
+  if (!ghesContext) {
+    // (Jan 2024) If we some day have more types of release notes, we'll
+    // need to make this more forgiving.
+    // This component used to cater for GHAE too when that existed.
+    throw new Error('GHES is the only option')
+  }
   return (
     <MainContext.Provider value={mainContext}>
       <DefaultLayout>
-        {ghesContext && <GHESReleaseNotes context={ghesContext} />}
-
-        {ghaeContext && <GHAEReleaseNotes context={ghaeContext} />}
+        <GHESReleaseNotes context={ghesContext} />
       </DefaultLayout>
     </MainContext.Provider>
   )
@@ -45,9 +49,13 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   ])
 
   const { latestPatch = '', latestRelease = '' } = req.context
+
+  const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['release_notes'])
+
   return {
     props: {
-      mainContext: await getMainContext(req, res),
+      mainContext,
       ghesContext:
         currentVersion.plan === 'enterprise-server'
           ? {
@@ -71,14 +79,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
                   { latestPatch, latestRelease },
                 ),
               },
-            }
-          : null,
-      ghaeContext:
-        currentVersion.plan === 'github-ae'
-          ? {
-              currentVersion,
-              releaseNotes: req.context.ghaeReleaseNotes,
-              releases: req.context.ghaeReleases,
             }
           : null,
     },

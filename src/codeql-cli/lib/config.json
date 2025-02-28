@@ -2,7 +2,6 @@
   "frontmatterDefaults": {
       "versions": {
       "fpt": "*",
-      "ghae": "*",
       "ghec": "*",
       "ghes": "*"
     },

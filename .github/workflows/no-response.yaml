@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'github/docs'
     steps:
-      - uses: actions/stale@184e7afe930f6b5c7ce52c4b3f087692c6e912f3
+      - uses: actions/stale@28ca1036281a5e5922ead5184a1bbf96e5fc984e # v9.0.0
         with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
           only-labels: 'more-information-needed'
@@ -46,11 +46,11 @@ jobs:
             This PR has been automatically closed because there has been no response to
             to our request for more information from the original author. Please reach out
             if you have the information we requested, or open a [new issue](https://github.com/github/docs/issues/new/choose)
-            to describing your changes. Then we can begin the review process.
+            to describe your changes. Then we can begin the review process.
 
       - name: Check out repo
         if: ${{ failure() }}
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:

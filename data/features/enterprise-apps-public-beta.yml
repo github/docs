@@ -1,0 +1,6 @@
+# Reference: #15531
+# Documentation for enterprise-owned GitHub Apps
+
+versions:
+  ghec: '*'
+  ghes: '>=3.17'

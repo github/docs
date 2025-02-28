@@ -1,5 +1,5 @@
 ---
-title: Enterprise announcement banners
+title: REST API endpoints for enterprise announcement banners
 shortTitle: Enterprise
 intro: >-
   The Enterprise Announcement Banners API allows you to get, set, and remove the

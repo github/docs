@@ -1,8 +1,8 @@
 import express from 'express'
 import path from 'path'
 
-import { readCompressedJsonFileFallbackLazily } from '../../../lib/read-json-file.js'
-import { defaultCacheControl } from '../../../middleware/cache-control.js'
+import { readCompressedJsonFileFallbackLazily } from '#src/frame/lib/read-json-file.js'
+import { defaultCacheControl } from '#src/frame/middleware/cache-control.js'
 import { REST_DATA_DIR } from '../lib/index.js'
 
 const clientSideRestAPIRedirects = readCompressedJsonFileFallbackLazily(
@@ -23,7 +23,7 @@ router.get('/', function redirects(req, res) {
   defaultCacheControl(res)
 
   const redirectFrom = `${req.query.path}#${req.query.hash}`
-  res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] } || null)
+  res.status(200).send({ to: clientSideRestAPIRedirects()[redirectFrom] })
 })
 
 export default router

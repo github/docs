@@ -1,41 +1,5 @@
 import { visitParents } from 'unist-util-visit-parents'
 
-// This is the first file that uses Array.prototype.at, so we polyfill it here.
-// It first appeared in Node 16.6 which is quite old now. But we have this
-// code because at least two staff contributors were caught by this as
-// they had old versions of Node.
-// Node 16 has ends getting maintance fixes on 2023-09-11. By then
-// we can't justify this hack anymore. But for now, it minimizes the
-// friction for any contributor (staff or open source) that might not
-// have made the upgrade yet.
-if (!Array.prototype.at) {
-  console.warn('POLYFILLING Array.prototype.at.')
-  console.warn('Please consider upgrading your version of Node.')
-  // eslint-disable-next-line no-extend-native
-  Object.defineProperty(Array.prototype, 'at', {
-    value: function (index) {
-      // Convert the index to a positive integer
-      const length = this.length >>> 0
-      let relativeIndex = index >> 0
-
-      // Handle negative indices
-      if (relativeIndex < 0) {
-        relativeIndex += length
-      }
-
-      // Check if the index is within the valid range
-      if (relativeIndex >= 0 && relativeIndex < length) {
-        return this[relativeIndex]
-      }
-
-      // Return undefined if the index is out of range
-      return undefined
-    },
-    configurable: true,
-    writable: true,
-  })
-}
-
 /**
  * Where it can mutate the AST to swap from:
  *
@@ -47,7 +11,7 @@ if (!Array.prototype.at) {
  *
  *   <ol>
  *     <li>
- *       <span class="procedural-image-wrapper">
+ *       <div class="procedural-image-wrapper">
  *         <img src="..." />
  *
  *
@@ -69,7 +33,7 @@ function insideOlLi(ancestors) {
 function visitor(node, ancestors) {
   if (insideOlLi(ancestors)) {
     const shallowClone = Object.assign({}, node)
-    shallowClone.tagName = 'span'
+    shallowClone.tagName = 'div'
     shallowClone.properties = { class: 'procedural-image-wrapper' }
     shallowClone.children = [node]
     const parent = ancestors.at(-1)

@@ -14,9 +14,9 @@ redirect_from:
   - /enterprise/admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/configuring-git-large-file-storage-for-your-enterprise
   - /admin/user-management/managing-repositories-in-your-enterprise/configuring-git-large-file-storage-for-your-enterprise
+  - /admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/migrating-to-internal-repositories
 versions:
   ghes: '*'
-  ghae: '*'
 type: how_to
 topics:
   - Git
@@ -32,18 +32,14 @@ shortTitle: Configure Git LFS
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage)", "[AUTOTITLE](/repositories/working-with-files/managing-large-files)," and the [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/).
+For more information, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage), [AUTOTITLE](/repositories/working-with-files/managing-large-files), and the [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/).
 
 {% data reusables.large_files.can-include-lfs-objects-archives %}
 
 ## Configuring {% data variables.large_files.product_name_long %} for your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes or ghae %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "{% data variables.large_files.product_name_short %} access", select the drop-down menu, and click **Enabled** or **Disabled**.
 
@@ -67,14 +63,12 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
 {% data reusables.enterprise_site_admin_settings.admin-tab %}
 {% data reusables.enterprise_site_admin_settings.git-lfs-toggle %}
 
-{% ifversion ghes %}
-
 ## Configuring Git Large File Storage to use a third party server
 
 {% data reusables.large_files.storage_assets_location %}
 {% data reusables.large_files.rejected_pushes %}
 
-1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see "[Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise)."
+1. Disable {% data variables.large_files.product_name_short %} on {% data variables.location.product_location %}. For more information, see [Configuring {% data variables.large_files.product_name_long %} for your enterprise](#configuring-git-large-file-storage-for-your-enterprise).
 
 1. Create a {% data variables.large_files.product_name_short %} configuration file that points to the third party server.
 
@@ -107,11 +101,11 @@ For more information, see "[AUTOTITLE](/repositories/working-with-files/managing
    git commit -m "Adding LFS config file"
    ```
 
-1. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see "[Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server)."
+1. Migrate any existing {% data variables.large_files.product_name_short %} assets. For more information, see [Migrating to a different {% data variables.large_files.product_name_long %} server](#migrating-to-a-different-git-large-file-storage-server).
 
 ## Migrating to a different Git Large File Storage server
 
-Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see "[Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server)."
+Before migrating to a different {% data variables.large_files.product_name_long %} server, you must configure {% data variables.large_files.product_name_short %} to use a third party server. For more information, see [Configuring {% data variables.large_files.product_name_long %} to use a third party server](#configuring-git-large-file-storage-to-use-a-third-party-server).
 
 1. Configure the repository with a second remote.
 
@@ -146,8 +140,6 @@ Before migrating to a different {% data variables.large_files.product_name_long 
    > Git LFS: (16 of 16 files) 48.00 MB / 48.85 MB, 879.10 KB skipped
    ```
 
-{% endif %}
-
 ## Further reading
 
-- [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/)
+* [{% data variables.large_files.product_name_long %} project site](https://git-lfs.com/)

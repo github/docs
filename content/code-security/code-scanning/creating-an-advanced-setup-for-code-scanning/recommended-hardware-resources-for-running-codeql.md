@@ -2,13 +2,12 @@
 title: Recommended hardware resources for running CodeQL
 shortTitle: Hardware resources for CodeQL
 intro: 'Recommended specifications (RAM, CPU cores, and disk) for running {% data variables.product.prodname_codeql %} analysis on self-hosted machines, based on the size of your codebase.'
-product: '{% data reusables.gated-features.code-scanning %}'
+product: '{% data reusables.gated-features.codeql %}'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/recommended-hardware-resources-for-running-codeql
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security

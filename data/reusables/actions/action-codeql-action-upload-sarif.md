@@ -1,1 +1,1 @@
-github/codeql-action/upload-sarif@v2
+github/codeql-action/upload-sarif@v3

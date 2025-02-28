@@ -11,7 +11,7 @@ children:
   - /github-terms-for-additional-products-and-features
   - /github-community-guidelines
   - /github-community-code-of-conduct
-  - /github-copilot-pre-release-license-terms
+  - /github-pre-release-license-terms
   - /github-sponsors-additional-terms
   - /github-registered-developer-agreement
   - /github-marketplace-terms-of-service
@@ -21,4 +21,5 @@ children:
   - /github-event-terms
   - /github-event-code-of-conduct
   - /github-educational-use-agreement
+  - /github-copilot-extension-developer-policy
 ---

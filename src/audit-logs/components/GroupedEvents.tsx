@@ -1,12 +1,8 @@
 import { slug } from 'github-slugger'
 
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
-
-type AuditLogEventT = {
-  action: string
-  description: string
-}
+import type { AuditLogEventT } from '../types'
 
 type Props = {
   auditLogEvents: AuditLogEventT[]
@@ -14,7 +10,7 @@ type Props = {
 }
 
 export default function GroupedEvents({ auditLogEvents, category }: Props) {
-  const { t } = useTranslation('products')
+  const { t } = useTranslation('audit_logs')
   const eventSlug = slug(category)
   return (
     <>
@@ -24,8 +20,8 @@ export default function GroupedEvents({ auditLogEvents, category }: Props) {
       <table>
         <thead>
           <tr>
-            <th scope="col">{t('audit_logs.action')}</th>
-            <th scope="col">{t('audit_logs.description')}</th>
+            <th scope="col">{t('action')}</th>
+            <th scope="col">{t('description')}</th>
           </tr>
         </thead>
         <tbody>

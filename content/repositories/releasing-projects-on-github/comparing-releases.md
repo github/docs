@@ -5,7 +5,6 @@ permissions: People with read access to a repository can view and compare releas
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

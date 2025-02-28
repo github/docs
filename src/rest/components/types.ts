@@ -10,8 +10,18 @@ export interface Operation {
   bodyParameters: Array<BodyParameter>
   category: string
   subcategory: string
-  enabledForGitHubApps: boolean
   codeExamples: Array<CodeSample>
+  progAccess: ProgAccessT
+}
+
+export interface ProgAccessT {
+  userToServerRest?: boolean
+  serverToServer?: boolean
+  fineGrainedPat?: boolean
+  permissions: Array<Object>
+  allowPermissionlessAccess?: boolean
+  allowsPublicRead?: boolean
+  basicAuth?: boolean
 }
 
 export interface Parameter {
@@ -44,7 +54,7 @@ export interface CodeSample {
   request: {
     contentType: string
     acceptHeader: string
-    bodyParameters: Record<string, string | Array<string>>
+    bodyParameters: Record<string, string | Array<string | { [key: string]: string }>>
     parameters: Record<string, string>
     description: string
   }

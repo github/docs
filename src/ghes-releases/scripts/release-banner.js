@@ -7,14 +7,11 @@
 // [end-readme]
 
 import fs from 'fs/promises'
-import path from 'path'
 import { program } from 'commander'
-import yaml from 'js-yaml'
 
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
-const releaseCandidateFile = 'data/variables/release_candidate.yml'
-const releaseCandidateYaml = path.join(process.cwd(), releaseCandidateFile)
+const releaseCandidateJSFile = 'src/versions/lib/enterprise-server-releases.js'
 const allowedActions = ['create', 'remove']
 
 program
@@ -41,22 +38,29 @@ if (!Object.keys(allVersions).includes(options.version)) {
 }
 
 // Load the release candidate variable
-const releaseCandidateData = yaml.load(await fs.readFile(releaseCandidateYaml, 'utf8'))
+let jsCode = await fs.readFile(releaseCandidateJSFile, 'utf8')
+const lineRegex = /export const releaseCandidate = .*/
+if (!lineRegex.test(jsCode)) {
+  throw new Error(
+    `The file ${releaseCandidateJSFile} does not contain a release candidate variable. ('export const releaseCandidate = ...')`,
+  )
+}
 
 // Create or remove the variable
 if (options.action === 'create') {
-  releaseCandidateData.version = options.version
-}
-
-if (options.action === 'remove') {
-  releaseCandidateData.version = ''
+  jsCode = jsCode.replace(
+    lineRegex,
+    `export const releaseCandidate = '${options.version.split('@')[1]}'`,
+  )
+} else if (options.action === 'remove') {
+  jsCode = jsCode.replace(lineRegex, `export const releaseCandidate = null`)
 }
 
 // Update the file
-await fs.writeFile(releaseCandidateYaml, yaml.dump(releaseCandidateData))
+await fs.writeFile(releaseCandidateJSFile, jsCode)
 
 // Display next steps
-console.log(`\nDone! Commit the update to ${releaseCandidateFile}. This ${options.action}s the banner for ${options.version}.
+console.log(`\nDone! Commit the update to ${releaseCandidateJSFile}. This ${options.action}s the banner for ${options.version}.
 
 - To change the banner text, you can edit header.notices.release_candidate in data/ui.yml.
 - To change the banner styling, you can edit includes/header-notification.html.

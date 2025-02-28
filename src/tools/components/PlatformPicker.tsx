@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useArticleContext } from 'components/context/ArticleContext'
+import { useArticleContext } from 'src/frame/components/context/ArticleContext'
 import { parseUserAgent } from 'src/events/components/user-agent'
 import { InArticlePicker } from './InArticlePicker'
 

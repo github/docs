@@ -72,7 +72,7 @@ async function updateMarkdownFiles(targetDirectory, sourceContent, frontmatter, 
   // of the directories under targetDirectory
   await updateDirectory(targetDirectory, frontmatter, { indexOrder })
   // We don't want to update directories that the pipelines don't affect
-  // so we make one call to update only only the root index.md file
+  // so we make one call to update only the root index.md file
   // in targetDirectory to prevent any unintended changes
   await updateDirectory(path.dirname(targetDirectory), frontmatter, { rootDirectoryOnly: true })
 }
@@ -113,7 +113,7 @@ async function updateMarkdownFile(
 
     // Create a new object so that we don't mutate the original data
     const newData = { ...data }
-    // Only modify the versions property when a file already existss
+    // Only modify the versions property when a file already exists
     newData.versions = sourceData.versions
     const targetContent = manuallyCreatedContent + commentDelimiter + sourceContent
     const newFileContent = appendVersionComment(matter.stringify(targetContent, newData))
@@ -139,7 +139,7 @@ async function updateDirectory(
   const initialDirectoryListing = await getDirectoryInfo(directory)
   // If there are no children on disk, remove the directory
   if (initialDirectoryListing.directoryContents.length === 0 && !rootDirectoryOnly) {
-    rimraf(directory)
+    await rimraf(directory)
     return
   }
 
@@ -310,6 +310,10 @@ async function getIndexFileVersions(directory, files) {
           `File ${filepath} does not exist while assembling directory index.md files to create parent version.`,
         )
       }
+      // If not a markdown(x) file, skip it
+      if (!file.endsWith('.md') && !file.endsWith('.mdx')) {
+        return
+      }
       const { data } = matter(await readFile(filepath, 'utf-8'))
       if (!data || !data.versions) {
         throw new Error(`Frontmatter in ${filepath} does not contain versions.`)
@@ -330,15 +334,13 @@ async function getIndexFileVersions(directory, files) {
   'enterprise-server@3.4',
   'enterprise-server@3.5',
   'enterprise-server@3.6',
-  'enterprise-server@3.7',
-  'github-ae@latest'
+  'enterprise-server@3.7'
 ]
 and returns the frontmatter equivalent JSON:
-{ 
+{
   fpt: '*',
-  ghae: '*',
-  ghec: '*', 
-  ghes: '*' 
+  ghec: '*',
+  ghes: '*'
 }
 */
 export async function convertVersionsToFrontmatter(versions) {

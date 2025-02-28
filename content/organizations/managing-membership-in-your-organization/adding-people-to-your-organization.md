@@ -1,12 +1,11 @@
 ---
 title: Adding people to your organization
-intro: 'You can make anyone a member of your organization using their {% data variables.product.product_name %} username or email address.'
+intro: 'You can make anyone a member of your organization using their {% data variables.product.github %} username or email address.'
 redirect_from:
   - /articles/adding-people-to-your-organization
   - /github/setting-up-and-managing-organizations-and-teams/adding-people-to-your-organization
 versions:
   ghes: '*'
-  ghae: '*'
 permissions: Organization owners can add people to an organization.
 shortTitle: Add people to organization
 ---
@@ -16,9 +15,7 @@ shortTitle: Add people to organization
 
 {% endif %}
 
-{% ifversion not ghae %}
 If your organization [requires members to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), users must [enable two-factor authentication](/authentication/securing-your-account-with-two-factor-authentication-2fa) before you can add them to the organization.
-{% endif %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
@@ -46,4 +43,4 @@ Invitations expire after 7 days. You can retry or cancel expired invitations, ei
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)"
+* [AUTOTITLE](/organizations/organizing-members-into-teams/adding-organization-members-to-a-team)

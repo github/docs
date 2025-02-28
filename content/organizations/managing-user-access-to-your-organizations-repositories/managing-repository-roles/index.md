@@ -4,7 +4,6 @@ intro: You can control the level of access that each person has to your organiza
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations

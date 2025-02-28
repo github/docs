@@ -5,9 +5,8 @@ import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
-import { useMainContext } from 'components/context/MainContext'
 import { useVersion } from 'src/versions/components/useVersion'
-import { HeadingLink } from 'components/article/HeadingLink'
+import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
 import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
@@ -28,35 +27,17 @@ async function webhookFetcher(url: string) {
   return response.json()
 }
 
-// We manually created decorated webhooks files for GHES versions older than
-// 3.7, returns whether the given version is one of these versions of GHES.
-//
-// TODO: once 3.7 is the oldest supported version of GHES, we won't need this
-// anymore.
-function isScrapedGhesVersion(version: ReturnType<typeof useVersion>) {
-  const scrapedVersions = ['3.6', '3.5', '3.4', '3.3', '3.2']
-
-  if (!version.isEnterprise) return false
-
-  // getting the number part e.g. '3.6' from a version string like
-  // 'enterprise-server@3.6'
-  const versionNumber = version.currentVersion.split('@')[1]
-
-  return scrapedVersions.includes(versionNumber)
-}
-
 export function Webhook({ webhook }: Props) {
   // Get version for requests to switch webhook action type
   const version = useVersion()
-  const { t } = useTranslation('products')
+  const { t, tObject } = useTranslation('webhooks')
   const router = useRouter()
 
-  const context = useMainContext()
   // Get more user friendly language for the different availability options in
   // the webhook schema (we can't change it directly in the schema).  Note that
   // we specifically don't want to translate these strings with useTranslation()
   // like we usually do with strings from data/ui.yml.
-  const rephraseAvailability = context.data.ui.products.webhooks.rephrase_availability
+  const rephraseAvailability = tObject('rephrase_availability')
 
   // The param that was clicked so we can expand its property <details> element
   const [clickedBodyParameterName, setClickedBodyParameterName] = useState<undefined | string>('')
@@ -150,34 +131,23 @@ export function Webhook({ webhook }: Props) {
         <div dangerouslySetInnerHTML={{ __html: currentWebhookAction.summaryHtml }}></div>
         <h3
           dangerouslySetInnerHTML={{
-            __html: t('webhooks.availability').replace(
-              '{{ WebhookName }}',
-              currentWebhookAction.category,
-            ),
+            __html: t('availability').replace('{{ WebhookName }}', currentWebhookAction.category),
           }}
         />
         <ul>
           {currentWebhookAction.availability.map((availability) => {
-            // TODO: once 3.7 is the oldest supported version of GHES, we won't need this anymore.
-            if (isScrapedGhesVersion(version)) {
-              return (
-                <li
-                  dangerouslySetInnerHTML={{ __html: availability }}
-                  key={`availability-${availability}`}
-                ></li>
-              )
-            } else {
-              return (
-                <li key={`availability-${availability}`}>
-                  {rephraseAvailability[availability] ?? availability}
-                </li>
-              )
-            }
+            return (
+              <li key={`availability-${availability}`}>
+                {availability in rephraseAvailability
+                  ? (rephraseAvailability[availability] as string)
+                  : availability}
+              </li>
+            )
           })}
         </ul>
         <h3
           dangerouslySetInnerHTML={{
-            __html: t('webhooks.webhook_payload_object').replace(
+            __html: t('webhook_payload_object').replace(
               '{{ WebhookName }}',
               currentWebhookAction.category,
             ),
@@ -185,7 +155,7 @@ export function Webhook({ webhook }: Props) {
         />
         {error && (
           <Flash className="mb-5" variant="danger">
-            <p>{t('webhooks.action_type_switch_error')}</p>
+            <p>{t('action_type_switch_error')}</p>
             <p>
               <code className="f6" style={{ background: 'none' }}>
                 {error.toString()}
@@ -197,26 +167,20 @@ export function Webhook({ webhook }: Props) {
           <div className="mb-4">
             <div className="mb-3">
               <ActionMenu>
-                <ActionMenu.Button
-                  aria-label="Select a webhook action type"
-                  className="text-normal"
-                >
-                  {t('webhooks.action_type')}:{' '}
-                  <span className="text-bold">{currentWebhookActionType}</span>
+                <ActionMenu.Button className="text-normal">
+                  {t('action_type')}: <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">
-                    {webhook.actionTypes.map((type, index) => {
-                      return (
-                        <ActionList.Item
-                          selected={index === selectedActionTypeIndex}
-                          key={`${webhook.name}-${type}`}
-                          onSelect={() => handleActionTypeChange(type, index)}
-                        >
-                          {type}
-                        </ActionList.Item>
-                      )
-                    })}
+                    {webhook.actionTypes.map((type, index) => (
+                      <ActionList.Item
+                        key={`${webhook.name}-${type}`}
+                        selected={index === selectedActionTypeIndex}
+                        onSelect={() => handleActionTypeChange(type, index)}
+                      >
+                        {type}
+                      </ActionList.Item>
+                    ))}
                   </ActionList>
                 </ActionMenu.Overlay>
               </ActionMenu>
@@ -240,11 +204,8 @@ export function Webhook({ webhook }: Props) {
 
       {webhook.data.payloadExample && (
         <>
-          <h3>{t('webhooks.webhook_payload_example')}</h3>
-          <div
-            className={cx(styles.payloadExample, 'border rounded-1 my-0')}
-            data-highlight={'json'}
-          >
+          <h3>{t('webhook_payload_example')}</h3>
+          <div className={cx(styles.payloadExample, 'border rounded-1 my-0')} data-highlight="json">
             <code>{JSON.stringify(webhook.data.payloadExample, null, 2)}</code>
           </div>
         </>

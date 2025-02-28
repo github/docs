@@ -1,11 +1,17 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import getRedirect from '../../lib/get-redirect.js'
-import { latest, supported } from '#src/versions/lib/enterprise-server-releases.js'
+import {
+  latest,
+  latestStable,
+  supported,
+  oldestSupported,
+} from '#src/versions/lib/enterprise-server-releases.js'
+
 const previousEnterpriserServerVersion = supported[1]
 
 describe('getRedirect basics', () => {
-  it('should sometimes not correct the version prefix', () => {
+  test('should sometimes not correct the version prefix', () => {
     // This essentially tests legacy entries that come from the
     // `developer.json` file. Normally, we would have first
     // rewritten `/enterprise/3.0` to `/enterprise-server@3.0`
@@ -22,7 +28,7 @@ describe('getRedirect basics', () => {
     expect(getRedirect(uri, ctx)).toBe('/en/something/else')
   })
 
-  it('should return undefined if nothing could be found', () => {
+  test('should return undefined if nothing could be found', () => {
     const ctx = {
       pages: {},
       redirects: {},
@@ -30,22 +36,24 @@ describe('getRedirect basics', () => {
     expect(getRedirect('/foo/pizza', ctx)).toBeUndefined()
   })
 
-  it('should just inject language on version "home pages"', () => {
+  test('should just inject language on version "home pages"', () => {
     const ctx = {
       pages: {},
       redirects: {},
     }
-    expect(getRedirect('/github-ae@latest', ctx)).toBe('/en/github-ae@latest')
-
     expect(getRedirect('/enterprise-cloud@latest', ctx)).toBe('/en/enterprise-cloud@latest')
 
-    expect(getRedirect('/enterprise-server@3.7', ctx)).toBe('/en/enterprise-server@3.7')
+    expect(getRedirect(`/enterprise-server@${oldestSupported}`, ctx)).toBe(
+      `/en/enterprise-server@${oldestSupported}`,
+    )
 
-    expect(getRedirect('/enterprise-server@latest', ctx)).toBe(`/en/enterprise-server@${latest}`)
-    expect(getRedirect('/enterprise-server', ctx)).toBe(`/en/enterprise-server@${latest}`)
+    expect(getRedirect('/enterprise-server@latest', ctx)).toBe(
+      `/en/enterprise-server@${latestStable}`,
+    )
+    expect(getRedirect('/enterprise-server', ctx)).toBe(`/en/enterprise-server@${latestStable}`)
   })
 
-  it('should always "remove" the free-pro-team prefix', () => {
+  test('should always "remove" the free-pro-team prefix', () => {
     const ctx = {
       pages: {},
       redirects: {
@@ -60,7 +68,7 @@ describe('getRedirect basics', () => {
     expect(getRedirect('/free-pro-team@latest/github', ctx)).toBe('/en/github')
   })
 
-  it('should handle some odd exceptions', () => {
+  test('should handle some odd exceptions', () => {
     const ctx = {
       pages: {},
       redirects: {},
@@ -77,7 +85,7 @@ describe('getRedirect basics', () => {
     )
   })
 
-  it('should figure out redirect based on presence of pages in certain cases', () => {
+  test('should figure out redirect based on presence of pages in certain cases', () => {
     const ctx = {
       pages: {
         [`/en/enterprise-server@${previousEnterpriserServerVersion}/foo/bar`]: null,
@@ -97,7 +105,7 @@ describe('getRedirect basics', () => {
     ).toBe(`/en/enterprise-server@${previousEnterpriserServerVersion}/admin/github-management`)
   })
 
-  it('should always correct the old enterprise prefix', () => {
+  test('should always correct the old enterprise prefix', () => {
     const ctx = {
       pages: {},
       redirects: {
@@ -122,7 +130,7 @@ describe('getRedirect basics', () => {
     )
   })
 
-  it('should not do anything on some prefixes', () => {
+  test('should not do anything on some prefixes', () => {
     const ctx = {
       pages: {},
       redirects: {},
@@ -133,19 +141,22 @@ describe('getRedirect basics', () => {
     expect(getRedirect(`/en/enterprise-cloud@latest/user/foo`, ctx)).toBeUndefined()
   })
 
-  it('should redirect both the prefix and the path needs to change', () => {
+  test('should redirect both the prefix and the path needs to change', () => {
     const ctx = {
       pages: {},
       redirects: {
         [`/enterprise-server@${latest}/foo`]: `/enterprise-server@${latest}/bar`,
+        [`/enterprise-server@${latestStable}/foo`]: `/enterprise-server@${latestStable}/bar`,
       },
     }
     // Nothing's needed here because it's not /admin/guides and
     // it already has the enterprise-server prefix.
-    expect(getRedirect('/enterprise-server/foo', ctx)).toBe(`/en/enterprise-server@${latest}/bar`)
+    expect(getRedirect('/enterprise-server/foo', ctx)).toBe(
+      `/en/enterprise-server@${latestStable}/bar`,
+    )
   })
 
-  it('should work for some deprecated enterprise-server URLs too', () => {
+  test('should work for some deprecated enterprise-server URLs too', () => {
     // Starting with enterprise-server 3.0, we have made redirects become
     // a *function* rather than a lookup on a massive object.
     const ctx = {
@@ -154,5 +165,88 @@ describe('getRedirect basics', () => {
     }
     expect(getRedirect('/enterprise/3.0', ctx)).toBe('/en/enterprise-server@3.0')
     expect(getRedirect('/enterprise/3.0/foo', ctx)).toBe('/en/enterprise-server@3.0/foo')
+  })
+})
+
+describe('github-ae@latest', () => {
+  test('home page should redirect to enterprise-cloud home page', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+    expect(getRedirect('/en/github-ae@latest', ctx)).toBe('/en/enterprise-cloud@latest')
+  })
+  test('should redirect to home page for admin/release-notes', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/admin/release-notes', ctx)).toBe('/en')
+  })
+  test('a page that does exits, without correction, in enterprise-cloud', () => {
+    const ctx = {
+      pages: {
+        '/en/enterprise-cloud@latest/foo': null,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+  })
+  test("a page that doesn't exist in enterprise-cloud but in FPT", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/foo', ctx)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/foo', ctx)).toBe('/en/foo')
+  })
+  test("a page that doesn't exist in enterprise-cloud or in FPT", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+      },
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/bar', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/bar', ctx)).toBe('/en')
+  })
+  test('a URL with legacy redirects, that redirects to enterprise-cloud', () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+        '/en/enterprise-cloud@latest/foo': true,
+      },
+      redirects: {
+        '/food': '/foo',
+      },
+    }
+    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/enterprise-cloud@latest/foo')
+  })
+  test("a URL with legacy redirects, that can't redirect to enterprise-cloud", () => {
+    const ctx = {
+      pages: {
+        '/en/foo': true,
+        // Note the lack of an enterprise-cloud page here
+      },
+      redirects: {
+        '/food': '/foo',
+      },
+    }
+    expect(getRedirect('/github-ae@latest/food', ctx)).toBe('/en/foo')
+    expect(getRedirect('/en/github-ae@latest/food', ctx)).toBe('/en/foo')
+  })
+  test('should 404 if nothing matches at all', () => {
+    const ctx = {
+      pages: {},
+      redirects: {},
+    }
+    expect(getRedirect('/github-ae@latest/never/heard/of', ctx)).toBe('/en')
+    expect(getRedirect('/en/github-ae@latest/never/heard/of', ctx)).toBe('/en')
   })
 })

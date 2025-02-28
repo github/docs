@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Setting this will activate the jest tests that depend on actually
+  # Setting this will activate the vitest tests that depend on actually
   # sending real search queries to Elasticsearch
   ELASTICSEARCH_URL: http://localhost:9200/
 
@@ -38,25 +38,25 @@ jobs:
         # Note that *if you add* to this, remember to also add that
         # to the **required checks** in the branch protection rules.
         name:
-          # tests/ directory
-          - content
-          - rendering
-          - rendering-fixtures
-          - routing
-          - unit
-
           # src/ directory
           - archives
+          - article-api
           - assets
           - audit-logs
           - automated-pipelines
+          # - bookmarklets
+          - changelogs
+          # - code-scanning
           # - codeql-cli
           - color-schemes
           - content-linter
           - content-render
+          - data-directory
+          # - dev-toc
           - early-access
           - events
-          # - frame
+          - fixtures
+          - frame
           - ghes-releases
           - github-apps
           - graphql
@@ -68,13 +68,16 @@ jobs:
           # - open-source
           - pageinfo
           # - pages
+          - products
           - redirects
           - release-notes
           - rest
           - search
           - secret-scanning
           - shielding
+          # - tests
           # - tools
+          - tracking
           - versions
           - webhooks
           - workflows
@@ -90,7 +93,7 @@ jobs:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
       # Even if if doesn't do anything
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/setup-elasticsearch
         if: ${{ matrix.name == 'search' || matrix.name == 'languages' }}
@@ -103,23 +106,23 @@ jobs:
           token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
 
       - name: Check the test fixture data (if applicable)
-        if: ${{ matrix.name == 'rendering-fixtures' }}
-        run: ./script/copy-fixture-data.js --check
+        if: ${{ matrix.name == 'fixtures' }}
+        run: npm run copy-fixture-data -- --check
 
       # This keeps our fixture content/data in check
       - name: Check the test fixture content (if applicable)
-        if: ${{ matrix.name == 'rendering-fixtures' }}
+        if: ${{ matrix.name == 'fixtures' }}
         env:
-          ROOT: tests/fixtures
+          ROOT: src/fixtures/fixtures
         run: |
           # If either of these fail, it means our fixture content's internal
           # links can and should be updated.
-          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
-            tests/fixtures/content \
-            --exclude tests/fixtures/content/get-started/foo/typo-autotitling.md \
-            --exclude tests/fixtures/content/get-started/foo/anchor-autotitling.md
-          ./src/links/scripts/update-internal-links.js --dry-run --check --strict \
-            tests/fixtures/data
+          npm run update-internal-links -- --dry-run --check --strict \
+            src/fixtures/fixtures/content \
+            --exclude src/fixtures/fixtures/content/get-started/foo/typo-autotitling.md \
+            --exclude src/fixtures/fixtures/content/get-started/foo/anchor-autotitling.md
+          npm run update-internal-links -- --dry-run --check --strict \
+            src/fixtures/fixtures/data
 
       - name: Clone all translations
         if: ${{ matrix.name == 'languages' }}
@@ -169,7 +172,13 @@ jobs:
       - uses: ./.github/actions/warmup-remotejson-cache
         # Only the 'routing' tests include end-to-end tests about
         # archived enterprise server URLs.
-        if: ${{ matrix.name == 'routing' }}
+        if: ${{ matrix.name == 'redirects' }}
+
+      - uses: ./.github/actions/precompute-pageinfo
+        # Only the 'pageinfo' tests include end-to-end tests about this.
+        if: ${{ matrix.name == 'pageinfo' }}
+        env:
+          ROOT: src/fixtures/fixtures
 
       - name: Index fixtures into the local Elasticsearch
         # For the sake of saving time, only run this step if the group
@@ -180,17 +189,11 @@ jobs:
       - name: Run tests
         env:
           DIFF_FILE: get_diff_files.txt
-          CHANGELOG_CACHE_FILE_PATH: tests/fixtures/changelog-feed.json
+          CHANGELOG_CACHE_FILE_PATH: src/fixtures/fixtures/changelog-feed.json
           # By default, when `process.env.NODE_ENV === 'test'` it forces the
           # tests run only in English. The exception is the
           # `languages` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'tests/fixtures' || '' }}
-          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'rendering-fixtures' || matrix.name == 'pageinfo') && 'tests/fixtures/translations' || '' }}
-        run: |
-          if [ -d "tests/${{ matrix.name }}/" ]
-          then
-            npm test -- tests/${{ matrix.name }}/
-          else
-            npm test -- src/${{ matrix.name }}/tests/
-          fi
+          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo') && 'src/fixtures/fixtures/translations' || '' }}
+        run: npm test -- src/${{ matrix.name }}/tests/

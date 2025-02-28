@@ -1,7 +1,7 @@
-import { beforeAll } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 
-import { get } from '../../../tests/helpers/e2etest.js'
-import { SURROGATE_ENUMS } from '../../../middleware/set-fastly-surrogate-key.js'
+import { get } from '#src/tests/helpers/e2etest.js'
+import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
 const makeURL = (pathname) => `/api/pageinfo/v1?${new URLSearchParams({ pathname })}`
@@ -31,13 +31,13 @@ describe('pageinfo api', () => {
   })
 
   test('happy path', async () => {
-    const res = await get(makeURL('/en/get-started/quickstart'))
+    const res = await get(makeURL('/en/get-started/start-your-journey'))
     expect(res.statusCode).toBe(200)
     const { info } = JSON.parse(res.body)
     expect(info.product).toBe('Get started')
-    expect(info.title).toBe('Quickstart')
+    expect(info.title).toBe('Start your journey')
     expect(info.intro).toBe(
-      'Get started using GitHub to manage Git repositories and collaborate with others.',
+      'Get started using HubGit to manage Git repositories and collaborate with others.',
     )
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -82,14 +82,14 @@ describe('pageinfo api', () => {
       const res = await get(makeURL('/en/olden-days'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toBe('GitHub.com Fixture Documentation')
+      expect(info.title).toBe('HubGit.com Fixture Documentation')
     }
     // Trailing slashes are always removed
     {
       const res = await get(makeURL('/en/olden-days/'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toBe('GitHub.com Fixture Documentation')
+      expect(info.title).toBe('HubGit.com Fixture Documentation')
     }
     // Short code for latest version
     {
@@ -132,7 +132,7 @@ describe('pageinfo api', () => {
       const res = await get(makeURL('/en'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toMatch('GitHub.com Fixture Documentation')
+      expect(info.title).toMatch('HubGit.com Fixture Documentation')
     }
     // enterprise-server with language specified
     // This is important because it tests that we check for a page
@@ -144,7 +144,7 @@ describe('pageinfo api', () => {
       const res = await get(makeURL(`/en/enterprise-server@${latest}`))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toMatch('GitHub Enterprise Server Fixture Documentation')
+      expect(info.title).toMatch('HubGit Enterprise Server Fixture Documentation')
     }
   })
 
@@ -154,14 +154,14 @@ describe('pageinfo api', () => {
       const res = await get(makeURL('/'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toMatch('GitHub.com Fixture Documentation')
+      expect(info.title).toMatch('HubGit.com Fixture Documentation')
     }
     // enterprise-server without language specified
     {
       const res = await get(makeURL('/enterprise-server@latest'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
-      expect(info.title).toMatch('GitHub Enterprise Server Fixture Documentation')
+      expect(info.title).toMatch('HubGit Enterprise Server Fixture Documentation')
     }
   })
 
@@ -199,25 +199,25 @@ describe('pageinfo api', () => {
     const res = await get(makeURL('/en foo bar'))
     expect(res.statusCode).toBe(400)
     const { error } = JSON.parse(res.body)
-    expect(error).toBe("'pathname' can not contain whitespace")
+    expect(error).toBe("'pathname' cannot contain whitespace")
   })
 
   describe('translations', () => {
     test('Japanese page', async () => {
-      const res = await get(makeURL('/ja/get-started/quickstart/hello-world'))
+      const res = await get(makeURL('/ja/get-started/start-your-journey/hello-world'))
       expect(res.statusCode).toBe(200)
       const { info } = JSON.parse(res.body)
       expect(info.product).toBe('はじめに')
       expect(info.title).toBe('こんにちは World')
-      expect(info.intro).toBe('この Hello World 演習に従って、GitHub の使用を開始します。')
+      expect(info.intro).toBe('この Hello World 演習に従って、HubGit の使用を開始します。')
     })
 
     test('falls back to English if translation is not present', async () => {
-      const enRes = await get(makeURL('/en/get-started/quickstart'))
+      const enRes = await get(makeURL('/en/get-started/start-your-journey'))
       expect(enRes.statusCode).toBe(200)
       // This page doesn't have a Japanese translation. I.e. it doesn't
       // even exist on disk. So it'll fall back to English.
-      const translationRes = await get(makeURL('/ja/get-started/quickstart'))
+      const translationRes = await get(makeURL('/ja/get-started/start-your-journey'))
       expect(translationRes.statusCode).toBe(200)
       const en = JSON.parse(enRes.body)
       const translation = JSON.parse(translationRes.body)

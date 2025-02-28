@@ -1,9 +1,10 @@
 ---
-title: GPG Keys
+title: REST API endpoints for GPG keys
+shortTitle: GPG keys
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage GPG keys of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

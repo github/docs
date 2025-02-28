@@ -5,19 +5,8 @@ name: Check unallowed file changes
 # **Who does it impact**: Open source contributors.
 
 on:
+  # Needed in lieu of `pull_request` so that PRs from a fork can be notified of unallowed changes.
   pull_request_target:
-    paths:
-      - '.devcontainer/**'
-      - '.github/workflows/**'
-      - '.github/CODEOWNERS'
-      - 'assets/fonts/**'
-      - 'data/graphql/**'
-      - 'Dockerfile*'
-      - 'src/**'
-      - 'lib/redirects/**'
-      - 'package*.json'
-      - 'script/**'
-      - 'content/actions/deployment/security-hardening-your-deployments/**'
 
 permissions:
   contents: read
@@ -33,8 +22,11 @@ jobs:
       }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
       - name: Get files changed
-        uses: dorny/paths-filter@4512585405083f25c027a35db413c2b3b9006d50
+        uses: dorny/paths-filter@0bc4621a3135347011ad047f9ecf449bf72ce2bd
         id: filter
         with:
           # Base branch used to get changed files
@@ -45,59 +37,21 @@ jobs:
           list-files: json
 
           # Returns list of changed files matching each filter
-          filters: |
-            openapi:
-              - 'src/rest/data/**'
-            notAllowed:
-              - '.devcontainer/**'
-              - '.github/workflows/**'
-              - '.github/CODEOWNERS'
-              - 'assets/fonts/**'
-              - 'data/graphql/**'
-              - 'Dockerfile*'
-              - 'src/**'
-              - 'lib/redirects/**'
-              - 'package*.json'
-              - 'scripts/**'
-              - 'content/actions/deployment/security-hardening-your-deployments/**'
+          filters: 'src/workflows/unallowed-contribution-filters.yml'
+
+      - name: Set up Node and dependencies
+        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        uses: ./.github/actions/node-npm-setup
 
       # When there are changes to files we can't accept, leave a comment
       # explaining this to the PR author
       - name: "Comment about changes we can't accept"
-        if: ${{ steps.filter.outputs.notAllowed }}
-        uses: actions/github-script@98814c53be79b1d30f795b907e553d8679345975
-        with:
-          script: |
-            const badFilesArr = [
-              '.devcontainer/**',
-              '.github/workflows/**',
-              '.github/CODEOWNERS',
-              'assets/fonts/**',
-              'data/graphql/**',
-              'Dockerfile*',
-              'src/**',
-              'lib/redirects/**',
-              'package*.json',
-              'scripts/**',
-              'content/actions/deployment/security-hardening-your-deployments/**',
-            ]
-
-            const badFiles = badFilesArr.join('\n')
-
-            let reviewMessage = `👋 Hey there spelunker. It looks like you've modified some files that we can't accept as contributions. The complete list of files we can't accept are:\n${badFiles}\n\nYou'll need to revert all of the files you changed in that list using [GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/managing-commits/reverting-a-commit-in-github-desktop) or \`git checkout origin/main <file name>\`. Once you get those files reverted, we can continue with the review process. :octocat:`
-            let workflowFailMessage = "It looks like you've modified some files that we can't accept as contributions."
-
-            try {
-               createdComment = await github.rest.issues.createComment({
-                owner: context.repo.owner,
-                repo: context.repo.repo,
-                issue_number: context.payload.number,
-                body: reviewMessage,
-              })
-
-              workflowFailMessage = `${workflowFailMessage} Please see ${createdComment.data.html_url} for details.`
-            } catch(err) {
-              console.log("Error creating comment.", err)
-            }
-
-            core.setFailed(workflowFailMessage)
+        if: ${{ steps.filter.outputs.notAllowed || steps.filter.outputs.contentTypes}}
+        run: npm run unallowed-contributions
+        env:
+          REPO_OWNER_AND_NAME: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.number }}
+          FILE_PATHS_NOT_ALLOWED: ${{ steps.filter.outputs.notAllowed_files }}
+          CHANGED_FILE_PATHS: ${{ steps.filter.outputs.contentTypes_files }}
+          ADDED_CONTENT_FILES: ${{ steps.filter.outputs.added_files }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

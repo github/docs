@@ -9,7 +9,6 @@ redirect_from:
   - /account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/integrating-jira-with-your-personal-projects
 versions:
   ghes: '*'
-  ghae: '*'
 shortTitle: Integrate Jira with projects
 ---
 {% data reusables.user-settings.access_settings %}
@@ -25,5 +24,5 @@ shortTitle: Integrate Jira with projects
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board)"
-- [Connect Jira Cloud to GitHub](https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html) in the Atlassian documentation
+* [AUTOTITLE](/organizations/managing-organization-settings/integrating-jira-with-your-organization-project-board)
+* [Connect Jira Cloud to GitHub](https://confluence.atlassian.com/adminjiracloud/connect-jira-cloud-to-github-814188429.html) in the Atlassian documentation

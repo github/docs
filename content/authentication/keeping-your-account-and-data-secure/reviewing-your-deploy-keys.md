@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -20,8 +19,8 @@ shortTitle: Deploy keys
 1. In the "Security" section of the sidebar, click **{% octicon "key" aria-hidden="true" %} Deploy keys**.
 1. On the "Deploy keys" page, take note of the deploy keys associated with your account. For those that you don't recognize, or that are out of date, click **Delete**. If there are valid deploy keys you'd like to keep, click **Approve**.
 
-For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys)."
+For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys).
 
 ## Further reading
 
-- [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)
+* [Configuring notifications](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#organization-alerts-notification-options)

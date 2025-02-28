@@ -1,7 +1,7 @@
 import type { ProductGroupT } from 'src/landings/components/ProductSelections'
 
 import React from 'react'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 import * as Octicons from '@primer/octicons-react'
 import { LinkExternalIcon } from '@primer/octicons-react'
 
@@ -10,6 +10,11 @@ type ProductSelectionCardProps = {
 }
 
 export const ProductSelectionCard = ({ group }: ProductSelectionCardProps) => {
+  // Don't display the group if it has no children due to versioning
+  if (!group.children || group.children.length === 0) {
+    return null
+  }
+
   const groupIcon = {
     height: '22px',
   }

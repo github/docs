@@ -1,0 +1,1 @@
+You cannot apply a single grouping set of rules to both _version_ updates and _security_ updates. Instead, if you want to group both version updates and security updates using the same criteria, you must define two, separately named, grouping sets of rules.

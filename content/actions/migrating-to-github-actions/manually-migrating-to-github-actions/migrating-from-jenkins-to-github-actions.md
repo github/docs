@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 topics:
@@ -25,17 +24,17 @@ shortTitle: Migrate from Jenkins
 
 Jenkins and {% data variables.product.prodname_actions %} both allow you to create workflows that automatically build, test, publish, release, and deploy code. Jenkins and {% data variables.product.prodname_actions %} share some similarities in workflow configuration:
 
-- Jenkins creates workflows using _Declarative Pipelines_, which are similar to {% data variables.product.prodname_actions %} workflow files.
-- Jenkins uses _stages_ to run a collection of steps, while {% data variables.product.prodname_actions %} uses jobs to group one or more steps or individual commands.
-- Jenkins and {% data variables.product.prodname_actions %} support container-based builds. For more information, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
-- Steps or tasks can be reused and shared with the community.
+* Jenkins creates workflows using _Declarative Pipelines_, which are similar to {% data variables.product.prodname_actions %} workflow files.
+* Jenkins uses _stages_ to run a collection of steps, while {% data variables.product.prodname_actions %} uses jobs to group one or more steps or individual commands.
+* Jenkins and {% data variables.product.prodname_actions %} support container-based builds. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).
+* Steps or tasks can be reused and shared with the community.
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
+For more information, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions).
 
 ## Key differences
 
-- Jenkins has two types of syntax for creating pipelines: Declarative Pipeline and Scripted Pipeline. {% data variables.product.prodname_actions %} uses YAML to create workflows and configuration files. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions)."
-- Jenkins deployments are typically self-hosted, with users maintaining the servers in their own data centers. {% data variables.product.prodname_actions %} offers a hybrid cloud approach by hosting its own runners that you can use to run jobs, while also supporting self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+* Jenkins has two types of syntax for creating pipelines: Declarative Pipeline and Scripted Pipeline. {% data variables.product.prodname_actions %} uses YAML to create workflows and configuration files. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
+* Jenkins deployments are typically self-hosted, with users maintaining the servers in their own data centers. {% data variables.product.prodname_actions %} offers a hybrid cloud approach by hosting its own runners that you can use to run jobs, while also supporting self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ## Comparing capabilities
 
@@ -43,7 +42,7 @@ For more information, see "[AUTOTITLE](/actions/learn-github-actions/understandi
 
 Jenkins lets you send builds to a single build agent, or you can distribute them across multiple agents. You can also classify these agents according to various attributes, such as operating system types.
 
-Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
+Similarly, {% data variables.product.prodname_actions %} can send jobs to {% data variables.product.prodname_dotcom %}-hosted or self-hosted runners, and you can use labels to classify runners according to various attributes. For more information, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions#runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 ### Using sections to organize pipelines
 
@@ -69,7 +68,7 @@ Jenkins uses directives to manage _Declarative Pipelines_. These directives defi
 | [`triggers { upstreamprojects() }`](https://jenkins.io/doc/book/pipeline/syntax/#triggers) | [`jobs.<job_id>.needs`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds) |
 | [Jenkins cron syntax](https://jenkins.io/doc/book/pipeline/syntax/#cron-syntax)            | [`on.schedule`](/actions/using-workflows/workflow-syntax-for-github-actions#onschedule) |
 | [`stage`](https://jenkins.io/doc/book/pipeline/syntax/#stage)                              | [`jobs.<job_id>`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_id) <br> [`jobs.<job_id>.name`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idname) |
-| [`tools`](https://jenkins.io/doc/book/pipeline/syntax/#tools)                              | {% ifversion ghae %}The command-line tools available in `PATH` on your self-hosted runner systems. {% data reusables.actions.self-hosted-runners-software %}{% else %}[Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software) |{% endif %}
+| [`tools`](https://jenkins.io/doc/book/pipeline/syntax/#tools)                              | [Specifications for {% data variables.product.prodname_dotcom %}-hosted runners](/actions/using-github-hosted-runners/about-github-hosted-runners#supported-software) |
 | [`input`](https://jenkins.io/doc/book/pipeline/syntax/#input)                              | [`inputs`](/actions/creating-actions/metadata-syntax-for-github-actions#inputs) |
 | [`when`](https://jenkins.io/doc/book/pipeline/syntax/#when)                                | [`jobs.<job_id>.if`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idif) |
 
@@ -191,7 +190,7 @@ pipeline {
         agent { label "${PLATFORM}" }
         stages {
           stage('test') {
-            tools { nodejs "node-16" }
+            tools { nodejs "node-20" }
             steps {
               dir("scripts/myapp") {
                 sh(script: "npm install -g bats")
@@ -223,7 +222,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: 16
+          node-version: 20
       - run: npm install -g bats
       - run: bats tests
         working-directory: ./scripts/myapp

@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
@@ -18,7 +17,7 @@ shortTitle: Show an overview
 
 ## About the activity overview
 
-{% data reusables.profile.activity-overview-summary %} For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile)."
+{% data reusables.profile.activity-overview-summary %} For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile).
 
 ![Screenshot of the activity overview section of a user profile.](/assets/images/help/profile/activity-overview-section.png)
 

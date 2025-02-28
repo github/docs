@@ -2,7 +2,6 @@
 title: resolve tests
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -44,8 +43,8 @@ individual .ql and .qlref files to execute.
 
 Each argument is one of:
 
-- A `.ql` or `.qlref` file that defines a test to run.
-- A directory which will be searched recursively for tests to run.
+* A `.ql` or `.qlref` file that defines a test to run.
+* A directory which will be searched recursively for tests to run.
 
 #### `--slice=<N/M>`
 
@@ -109,3 +108,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

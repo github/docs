@@ -1,7 +1,7 @@
 name: Add docs-reviewers request to the docs-content review board
 
 # **What it does**: Adds PRs in github/github and github/audit-log-allowlists that requested a review from docs-reviewers to the docs-content review board
-# **Why we have it**: To catch docs-reviewers requests in github/github and github/audit-log-allowlists
+# **Why we have it**: To catch docs-reviewers requests in github/audit-log-allowlists
 # **Who does it impact**: docs-content maintainers
 
 on:
@@ -20,10 +20,10 @@ jobs:
 
     steps:
       - name: Check out repo content
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Setup Node.js
-        uses: actions/setup-node@8f152de45cc393bb48ce5d89d36b731f54556e65 # v4.0.0
+        uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
         with:
           node-version-file: 'package.json'
           cache: npm
@@ -31,20 +31,9 @@ jobs:
       - name: Install dependencies
         run: npm install @octokit/graphql
 
-      - name: Run script for github
-        run: |
-          node src/workflows/fr-add-docs-reviewers-requests.js
-        env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-          PROJECT_NUMBER: 2936
-          ORGANIZATION: 'github'
-          REPO: 'github'
-          REVIEWER: 'docs-reviewers'
-          FEATURE: 'OpenAPI schema update'
-
       - name: Run script for audit-log-allowlists
         run: |
-          node src/workflows/fr-add-docs-reviewers-requests.js
+          npm run fr-add-docs-reviewers-requests
         env:
           TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PROJECT_NUMBER: 2936

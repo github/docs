@@ -16,7 +16,7 @@ If the Simple Browser tab does not open automatically, you can open the Simple B
 1. In {% data variables.product.prodname_vscode_shortname %}, click the **Ports** tab.
 1. Right-click the port, then click **Preview in Editor**.
 
-   ![Screenshot of the pop-up menu in the VS Code Ports tab. The menu entry "Preview in Editor" is highlighted with a dark orange outline.](/assets/images/help/codespaces/preview-in-editor-vscode.png)
+   ![Screenshot of the pop-up menu in the {% data variables.product.prodname_vscode_shortname %} Ports tab. The menu entry "Preview in Editor" is highlighted with a dark orange outline.](/assets/images/help/codespaces/preview-in-editor-vscode.png)
 
 #### The simple browser tab does not open automatically
 
@@ -41,7 +41,7 @@ To implement the port configuration specified in `devcontainer.json`, {% data va
     }
     ```
 
-If the `settings.json` file doesn't contain these settings, check whether you have dotfiles enabled, and whether any configuration in your dotfiles is overwriting the `settings.json` file. For more information, see "[AUTOTITLE](/codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account#dotfiles)."
+If the `settings.json` file doesn't contain these settings, check whether you have dotfiles enabled, and whether any configuration in your dotfiles is overwriting the `settings.json` file. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles).
 
 #### The application does not load
 

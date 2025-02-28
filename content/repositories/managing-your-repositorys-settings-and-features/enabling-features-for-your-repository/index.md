@@ -4,7 +4,6 @@ intro: 'You can enable, configure, and disable optional features for your reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories

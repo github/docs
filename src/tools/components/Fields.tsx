@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { ActionList } from '@primer/react'
 
 import { PickerItem } from './Picker'
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
 
 import styles from './Fields.module.scss'
 
@@ -26,7 +26,7 @@ export const Fields = (fieldProps: {
             key={item.text}
             href={item.href}
             selected={item.selected === true}
-            onClick={() => {
+            onSelect={() => {
               if (onSelect) onSelect(item)
               setOpen(!open)
             }}

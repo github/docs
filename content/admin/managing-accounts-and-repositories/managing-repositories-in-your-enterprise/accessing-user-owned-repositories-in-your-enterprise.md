@@ -8,16 +8,13 @@ type: how_to
 topics:
   - Enterprise
   - Repositories
-shortTitle: Access user-owned repos
+shortTitle: Access user-owned repositories
 redirect_from:
   - /admin/user-management/managing-repositories-in-your-enterprise/accessing-user-owned-repositories-in-your-enterprise
 ---
 
-{% note %}
-
-**Note:** Temporarily accessing user-owned repositories is currently in beta for {% data variables.product.prodname_emus %} and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Temporarily accessing user-owned repositories is currently in {% data variables.release-phases.public_preview %} for {% data variables.product.prodname_emus %} and subject to change.
 
 ## About temporary access to user-owned repositories
 

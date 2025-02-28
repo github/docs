@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -22,5 +21,6 @@ children:
   - /managing-requests-for-personal-access-tokens-in-your-organization
   - /reviewing-and-revoking-personal-access-tokens-in-your-organization
   - /limiting-oauth-app-and-github-app-access-requests
+  - /viewing-api-insights-in-your-organization
 shortTitle: Manage programmatic access
 ---

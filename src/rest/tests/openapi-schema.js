@@ -1,15 +1,17 @@
 import fs from 'fs'
 import path from 'path'
 
-import { describe } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
 import { isApiVersioned, allVersions } from '#src/versions/lib/all-versions.js'
 import getRest from '../lib/index.js'
-import readFrontmatter from '../../../lib/read-frontmatter.js'
-import frontmatter from '../../../lib/frontmatter.js'
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/frontmatter.js'
 import getApplicableVersions from '../../versions/lib/get-applicable-versions.js'
+import { getAutomatedMarkdownFiles } from '../scripts/test-open-api-schema.js'
+import { nonAutomatedRestPaths } from '../lib/config.js'
 
 const schemasPath = 'src/rest/data'
 
@@ -50,14 +52,6 @@ describe('markdown for each rest version', () => {
   const openApiSchema = {}
   // All applicable version of categories based on frontmatter in the categories index.md file
   const categoryApplicableVersions = {}
-  const referenceDir = path.join(process.cwd(), 'content/rest')
-  const excludeFromResourceNameCheck = [
-    'README.md',
-    'index.md',
-    'guides',
-    'overview',
-    'quickstart.md',
-  ]
 
   function getApplicableVersionFromFile(file) {
     const currentFile = fs.readFileSync(file, 'utf8')
@@ -87,7 +81,9 @@ describe('markdown for each rest version', () => {
       }
     }
 
-    walk(referenceDir, { includeBasePath: true, directories: false })
+    // Read the versions from each index.md file to build a list of
+    // applicable versions for each category
+    walk('content/rest', { includeBasePath: true, directories: false })
       .filter((filename) => filename.includes('index.md'))
       .forEach((file) => {
         const applicableVersions = getApplicableVersionFromFile(file)
@@ -97,42 +93,40 @@ describe('markdown for each rest version', () => {
   })
 
   test('markdown file exists for every operationId prefix in all versions of the OpenAPI schema', async () => {
-    // list of REST markdown files that do not correspond to REST API resources
-    // TODO could we get this list dynamically, say via page frontmatter?
-    const filenames = fs
-      .readdirSync(referenceDir)
-      .filter(
-        (filename) =>
-          !excludeFromResourceNameCheck.find((excludedFile) => filename.endsWith(excludedFile)),
-      )
-      .map((filename) => filename.replace('.md', ''))
+    // List of categories derived from disk
+    const filenames = new Set(
+      getAutomatedMarkdownFiles('content/rest')
+        // Gets just category level files (paths directly under /rest)
+        .map((filename) => filename.split('/')[2])
+        .sort(),
+    )
 
     const missingResource =
       'Found a markdown file in content/rest that is not represented by an OpenAPI REST operation category.'
-    expect(difference(filenames, [...allCategories]), missingResource).toEqual([])
+    expect(difference([...filenames], [...allCategories]), missingResource).toEqual([])
 
     const missingFile =
       'Found an OpenAPI REST operation category that is not represented by a markdown file in content/rest.'
-    expect(difference([...allCategories], filenames), missingFile).toEqual([])
+    expect(difference([...allCategories], [...filenames]), missingFile).toEqual([])
   })
 
   test('category and subcategory exist in OpenAPI schema for every applicable version in markdown frontmatter', async () => {
-    walk(referenceDir, { includeBasePath: true, directories: false })
-      .filter(
-        (filename) => !excludeFromResourceNameCheck.some((pattern) => filename.includes(pattern)),
-      )
-      .forEach((file) => {
-        const applicableVersions = getApplicableVersionFromFile(file)
-        const { category, subCategory } = getCategorySubcategory(file)
+    const automatedFiles = getAutomatedMarkdownFiles('content/rest')
+    automatedFiles.forEach((file) => {
+      const applicableVersions = getApplicableVersionFromFile(file)
+      const { category, subCategory } = getCategorySubcategory(file)
 
-        for (const version of applicableVersions) {
-          expect(
-            Object.keys(openApiSchema[version][category]),
-            `The REST version: ${version}'s category: ${category} does not include the subcategory: ${subCategory}. Please check file: ${file}`,
-          ).toContain(subCategory)
-          expect(categoryApplicableVersions[category]).toContain(version)
-        }
-      })
+      for (const version of applicableVersions) {
+        expect(
+          Object.keys(openApiSchema[version][category]),
+          `The REST version: ${version}'s category: ${category} does not include the subcategory: ${subCategory}. Please check file: ${file}`,
+        ).toContain(subCategory)
+        expect(
+          categoryApplicableVersions[category],
+          `The versions that apply to category ${category} does not contain the ${version}, as is expected. Please check the versions for file ${file} or look at the index that governs that file (in its parent directory).`,
+        ).toContain(version)
+      }
+    })
   })
 })
 
@@ -140,9 +134,8 @@ describe('rest file structure', () => {
   test('children of content/rest/index.md are in alphabetical order', async () => {
     const indexContent = fs.readFileSync('content/rest/index.md', 'utf8')
     const { data } = readFrontmatter(indexContent)
-    const sortableChildren = data.children.filter(
-      (child) => child !== '/quickstart' && child !== '/overview' && child !== '/guides',
-    )
+    const nonAutomatedChildren = nonAutomatedRestPaths.map((child) => child.replace('/rest', ''))
+    const sortableChildren = data.children.filter((child) => !nonAutomatedChildren.includes(child))
     expect(sortableChildren).toStrictEqual([...sortableChildren].sort())
   })
 })
@@ -204,8 +197,6 @@ describe('code examples are defined', () => {
       let domain = 'https://api.github.com'
       if (version.includes('enterprise-server')) {
         domain = 'http(s)://HOSTNAME/api/v3'
-      } else if (version === 'github-ae@latest') {
-        domain = 'https://HOSTNAME/api/v3'
       }
 
       const operation = await findOperation(version, 'GET', '/repos/{owner}/{repo}')

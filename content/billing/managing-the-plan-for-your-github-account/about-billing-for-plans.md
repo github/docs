@@ -25,22 +25,19 @@ topics:
 shortTitle: About plans
 ---
 
-{% data reusables.billing.about-billing %} This article discusses the "plan" component of your bill, specifically. For more information about the other components, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+{% data reusables.billing.about-billing %} This article discusses the "plan" component of your bill, specifically. For more information about the other components, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
-For more information about the plans available for your account, see "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)."
+For more information about the plans available for your account, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
-You can see pricing and a full list of features for each plan at {% data variables.product.pricing_url %}. {% data variables.product.product_name %} does not offer custom products or plans.
+You can see pricing and a full list of features for each plan at {% data variables.product.pricing_url %}. {% data variables.product.company_short %} does not offer custom products or plans.
 
-You can choose monthly or yearly billing, and you can upgrade or downgrade your plan at any time. For more information, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account)."
+You can choose monthly or yearly billing, and you can upgrade or downgrade your plan at any time. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account).
 
-You can purchase other subscriptions and usage-based billing with your existing payment information. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github)."
+You can purchase other subscriptions and usage-based billing with your existing payment information. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
 
 {% data reusables.accounts.accounts-billed-separately %}
 
 {% data reusables.user-settings.context_switcher %}
 
-{% tip %}
-
-**Tip:** {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).
-
-{% endtip %}
+> [!TIP]
+> {% data variables.product.prodname_dotcom %} has programs for verified students and academic faculty, which include academic discounts. For more information, visit [{% data variables.product.prodname_education %}](https://education.github.com/).

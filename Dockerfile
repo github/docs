@@ -1,114 +1,131 @@
-# This Dockerfile is used for docker-based deployments to Azure for both preview environments and production
+# This Dockerfile is used solely for production deployments to Moda
+# For building this file locally, see src/deployments/production/README.md
+# Environment variables are set in the Moda configuration:
+#   config/moda/configuration/*/env.yaml
 
-# --------------------------------------------------------------------------------
-# BASE IMAGE
-# --------------------------------------------------------------------------------
-# To update the sha, run `docker pull node:$VERSION-alpine`
-# look for something like: `Digest: sha256:0123456789abcdef`
-FROM node:20-alpine@sha256:002b6ee25b63b81dc4e47c9378ffe20915c3fa0e98e834c46584438468b1d0b5 as base
+# ---------------------------------------------------------------
+# BASE STAGE: Install linux dependencies and set up the node user
+# ---------------------------------------------------------------
+# To update the sha:
+# https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20250226-135630-g5b0726056 AS base
 
-# This directory is owned by the node user
-ARG APP_HOME=/home/node/app
+# Install curl for Node install and determining the early access branch
+# Install git for cloning docs-early-access & translations repos
+# Install Node.js latest LTS
+# https://github.com/nodejs/release#release-schedule
+# Ubuntu's apt-get install nodejs is _very_ outdated
+# Must run as root
+RUN apt-get -qq update && apt-get -qq install --no-install-recommends curl git \
+  && curl -sL https://deb.nodesource.com/setup_22.x | bash - \
+  && apt-get install -y nodejs \
+  && node --version
 
-# Make sure we don't run anything as the root user
-USER node
+# Create the node user and home directory
+ARG APP_HOME="/home/node/app" # Define in base so all child stages inherit it
+RUN useradd -ms /bin/bash node \
+  && mkdir -p $APP_HOME && chown -R node:node $APP_HOME
 
+# -----------------------------------------------------------------
+# CLONES STAGE: Clone docs-internal, early-access, and translations
+# -----------------------------------------------------------------
+FROM base AS clones
+USER node:node
 WORKDIR $APP_HOME
 
+# We need to copy over content that will be merged with early-access
+COPY --chown=node:node content content/
+COPY --chown=node:node assets assets/
+COPY --chown=node:node data data/
 
-# ---------------
-# ALL DEPS
-# ---------------
-FROM base as all_deps
+# Copy in build scripts and make them executable
+COPY --chown=node:node --chmod=+x \
+  src/deployments/production/build-scripts/*.sh build-scripts/
 
+# Use the mounted --secret to:
+# - 1. Fetch the docs-internal repo
+# - 2. Fetch the docs-early-access repo & override docs-internal with early access content
+# - 3. Fetch each translations repo to the repo/translations directory
+# We use --mount-type=secret to avoid the secret being copied into the image layers for security
+# The secret passed via --secret can only be used in this RUN command
+RUN --mount=type=secret,id=DOCS_BOT_PAT_READPUBLICKEY,mode=0444 \
+  # We don't cache because Docker can't know if we need to fetch new content from remote repos
+  echo "Don't cache this step by printing date: $(date)" && \
+  . ./build-scripts/fetch-repos.sh
+
+# -----------------------------------------
+# DEPENDENCIES STAGE: Install node packages
+# -----------------------------------------
+FROM base AS dependencies
+USER node:node
+WORKDIR $APP_HOME
+
+# Copy what is needed to run npm ci
 COPY --chown=node:node package.json package-lock.json ./
 
-RUN npm ci --no-optional --registry https://registry.npmjs.org/
+RUN npm ci --omit=optional --registry https://registry.npmjs.org/
 
-# For Next.js v12+
-# This the appropriate necessary extra for node:VERSION-alpine
-# Other options are https://www.npmjs.com/search?q=%40next%2Fswc
-RUN npm i @next/swc-linux-x64-musl --no-save || npm i @next/swc-linux-arm64-musl --no-save
+# -----------------------------------------
+# BUILD STAGE: Prepare for production stage
+# -----------------------------------------
+FROM base AS build
+USER node:node
+WORKDIR $APP_HOME
 
+# Source code
+COPY --chown=node:node src src/
+COPY --chown=node:node package.json ./
+COPY --chown=node:node next.config.js ./
+COPY --chown=node:node tsconfig.json ./
 
-# ---------------
-# PROD DEPS
-# ---------------
-FROM all_deps as prod_deps
+# From the clones stage
+COPY --chown=node:node --from=clones $APP_HOME/data data/
+COPY --chown=node:node --from=clones $APP_HOME/assets assets/
+COPY --chown=node:node --from=clones $APP_HOME/content content/
+COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-RUN npm prune --production
+# From the dependencies stage
+COPY --chown=node:node --from=dependencies $APP_HOME/node_modules node_modules/
 
+# Generate build files
+RUN npm run build \
+  && npm run warmup-remotejson \
+  && npm run precompute-pageinfo -- --max-versions 2 \
+  && npm prune --production
 
-# ---------------
-# BUILDER
-# ---------------
-FROM all_deps as builder
+# -------------------------------------------------
+# PRODUCTION STAGE: What will run on the containers
+# -------------------------------------------------
+FROM base AS production
+USER node:node
+WORKDIR $APP_HOME
 
-COPY components ./components
-COPY lib ./lib
-COPY src ./src
-# The star is because it's an optional directory
-COPY .remotejson-cache* ./.remotejson-cache
-# Certain content is necessary for being able to build
-COPY content/index.md ./content/index.md
-COPY content/rest ./content/rest
-COPY data ./data
+# Source code
+COPY --chown=node:node src src/
+COPY --chown=node:node package.json ./
+COPY --chown=node:node next.config.js ./
+COPY --chown=node:node tsconfig.json ./
 
-COPY next.config.js ./next.config.js
-COPY tsconfig.json ./tsconfig.json
+# From clones stage
+COPY --chown=node:node --from=clones $APP_HOME/data data/
+COPY --chown=node:node --from=clones $APP_HOME/assets assets/
+COPY --chown=node:node --from=clones $APP_HOME/content content/
+COPY --chown=node:node --from=clones $APP_HOME/translations translations/
 
-RUN npm run build
+# From dependencies stage (*modified in build stage)
+COPY --chown=node:node --from=build $APP_HOME/node_modules node_modules/
 
-# --------------------------------------------------------------------------------
-# PREVIEW IMAGE - no translations
-# --------------------------------------------------------------------------------
-
-FROM base as preview
-
-# Copy just prod dependencies
-COPY --chown=node:node --from=prod_deps $APP_HOME/node_modules $APP_HOME/node_modules
-
-# Copy our front-end code
-COPY --chown=node:node --from=builder $APP_HOME/.next $APP_HOME/.next
-
-# We should always be running in production mode
-ENV NODE_ENV production
-
-# Preferred port for server.js
-ENV PORT 4000
-
-ENV ENABLED_LANGUAGES "en"
+# From build stage
+COPY --chown=node:node --from=build $APP_HOME/.next .next/
+COPY --chown=node:node --from=build $APP_HOME/.remotejson-cache ./
+COPY --chown=node:node --from=build $APP_HOME/.pageinfo-cache.json.br* ./
 
 # This makes it possible to set `--build-arg BUILD_SHA=abc123`
 # and it then becomes available as an environment variable in the docker run.
 ARG BUILD_SHA
 ENV BUILD_SHA=$BUILD_SHA
 
-# Copy only what's needed to run the server
-COPY --chown=node:node package.json ./
-COPY --chown=node:node assets ./assets
-COPY --chown=node:node content ./content
-COPY --chown=node:node lib ./lib
-COPY --chown=node:node src ./src
-COPY --chown=node:node .remotejson-cache* ./.remotejson-cache
-COPY --chown=node:node middleware ./middleware
-COPY --chown=node:node data ./data
-COPY --chown=node:node next.config.js ./
-COPY --chown=node:node server.js ./server.js
-COPY --chown=node:node start-server.js ./start-server.js
-
-EXPOSE $PORT
-
-CMD ["node", "server.js"]
-
-# --------------------------------------------------------------------------------
-# PRODUCTION IMAGE - includes all translations
-# --------------------------------------------------------------------------------
-FROM preview as production
-
-# Override what was set for previews
-# Make this match the default of `Object.keys(languages)` in lib/languages.js
-ENV ENABLED_LANGUAGES "en,zh,es,pt,ru,ja,fr,de,ko"
-
-# Copy in all translations
-COPY --chown=node:node translations ./translations
+# Entrypoint to start the server
+# Note: Currently we have to use tsx because
+# we have a mix of `.ts` and `.js` files with multiple import patterns
+CMD ["node_modules/.bin/tsx", "src/frame/server.ts"]

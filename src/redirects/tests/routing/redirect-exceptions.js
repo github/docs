@@ -1,8 +1,9 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import { jest } from '@jest/globals'
 
-import { get } from '../../../../tests/helpers/e2etest.js'
+import { describe, expect, test, vi } from 'vitest'
+
+import { get } from '#src/tests/helpers/e2etest.js'
 import getExceptionRedirects from '../../lib/exception-redirects.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
@@ -11,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const EXCEPTIONS_FILE = path.join(__dirname, '../../lib/static/redirect-exceptions.txt')
 
 describe('redirect exceptions', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   const redirectExceptions = getExceptionRedirects(EXCEPTIONS_FILE)
 
@@ -22,7 +23,7 @@ describe('redirect exceptions', () => {
       `/enterprise-server@${latest}`,
     )}`
     const { statusCode, headers } = await get(oldPath, { followRedirects: false })
-    expect(statusCode).toBe(302)
+    expect(statusCode, `Did not get a 302 from loading ${oldPath}`).toBe(302)
     expect(headers.location).toBe(englishNewPath)
   })
 })

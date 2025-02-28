@@ -14,7 +14,6 @@ redirect_from:
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -23,6 +22,7 @@ children:
   - /inviting-people-to-manage-your-enterprise
   - /managing-invitations-to-organizations-within-your-enterprise
   - /managing-organization-members-in-your-enterprise
+  - /about-reserved-usernames-for-github-enterprise-server
   - /promoting-or-demoting-a-site-administrator
   - /managing-support-entitlements-for-your-enterprise
   - /viewing-people-in-your-enterprise
@@ -33,9 +33,10 @@ children:
   - /removing-a-member-from-your-enterprise
   - /managing-dormant-users
   - /suspending-and-unsuspending-users
+  - /deleting-users-from-your-instance
   - /placing-a-legal-hold-on-a-user-or-organization
   - /auditing-ssh-keys
   - /rebuilding-contributions-data
+  - /enabling-guest-collaborators
 shortTitle: Manage users
 ---
-

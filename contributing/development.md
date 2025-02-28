@@ -32,25 +32,25 @@ Power users may want to read more about [debugging the docs application](./debug
 
 ### Using GitHub Codespaces
 
-As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see "[Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md)."
+As an alternative, you can simply use [GitHub Codespaces](https://docs.github.com/en/codespaces/overview). For more information about using a codespace for working on GitHub documentation, see [Working in a codespace](https://github.com/github/docs/blob/main/contributing/codespace.md).
 
-In a matter of minutes, you will be ready to edit, preview and test your changes directly from the comfort of your browser.
+In a matter of minutes, you will be ready to edit, review and test your changes directly from the comfort of your browser.
 
 ### Using browser shortcuts
 
-The [`script/bookmarklets`](../script/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`script/bookmarklets/README.md`](../script/bookmarklets/README.md) for details.
+The [`src/bookmarklets`](../src/bookmarklets) directory contains some browser shortcuts that can help with reviewing GitHub documentation. See [`src/bookmarklets/README.md`](../src/bookmarklets/README.md) for details.
 
 ### Enabling different languages
 
-By default the local server won't run with all supported languages enabled.  If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable.  For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
+By default the local server won't run with all supported languages enabled. If you need to run the server with a particular language, you can temporarily edit the `start` script in `package.json` and update the `ENABLED_LANGUAGES` variable. For example, to enable Japanese and Portuguese, you can set it to `ENABLED_LANGUAGES='en,ja,pt'` and then you need to restart the server for the change to take effect.
 
-The supported language codes are defined in [lib/languages.js](#src/languages/lib/languages.js).
+The supported language codes are defined in [lib/languages.js](../src/languages/lib/languages.js).
 
 ## Site structure
 
 This site was originally a Ruby on Rails web application. Some time later it was converted into a static site powered by [Jekyll](https://jekyllrb.com/). A few years after that it was migrated to [Nanoc](https://nanoc.app/), another Ruby static site generator.
 
-Today it's a dynamic Node.js webserver powered by Express, using [middleware](../middleware/README.md) to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of GitHub's product documentation, like GitHub.com and GitHub Enterprise Server.
+Today it's a dynamic Node.js webserver powered by Express, using middleware to support proper HTTP redirects, language header detection, and dynamic content generation to support the various flavors of GitHub's product documentation, like GitHub.com and GitHub Enterprise Server.
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved:
 
@@ -69,6 +69,5 @@ For more info about working with this site, check out these READMEs:
 - [data/README.md](../data/README.md)
 - [data/reusables/README.md](../data/reusables/README.md)
 - [data/variables/README.md](../data/variables/README.md)
-- [src/content-render/README.md](src/content-render/README.md)
-- [includes/README.md](../includes/README.md)
-- [src/README.md](src/README.md)
+- [src/content-render/README.md](../src/content-render/README.md)
+- [src/README.md](../src/README.md)

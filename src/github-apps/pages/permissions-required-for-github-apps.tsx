@@ -3,7 +3,7 @@ import {
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
 } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { MainContext, MainContextT, getMainContext } from 'components/context/MainContext'
+import { MainContext, MainContextT, getMainContext } from 'src/frame/components/context/MainContext'
 import { PermissionsList, PermissionListT } from 'src/github-apps/components/PermissionsList'
 
 type Props = {

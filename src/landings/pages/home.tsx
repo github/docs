@@ -1,9 +1,14 @@
 import React from 'react'
 import type { GetServerSideProps } from 'next'
 
-import { MainContextT, MainContext, getMainContext } from 'components/context/MainContext'
+import {
+  MainContextT,
+  MainContext,
+  getMainContext,
+  addUINamespaces,
+} from 'src/frame/components/context/MainContext'
 
-import { DefaultLayout } from 'components/DefaultLayout'
+import { DefaultLayout } from 'src/frame/components/DefaultLayout'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { ArticleList } from 'src/landings/components/ArticleList'
 import { HomePageHero } from 'src/landings/components/HomePageHero'
@@ -59,11 +64,11 @@ function HomePage(props: HomePageProps) {
         <div className="container-xl">
           <div className="gutter gutter-xl-spacious clearfix">
             <div className="col-12 col-lg-6 mb-md-4 mb-lg-0 float-left">
-              <ArticleList title={t('toc:getting_started')} articles={gettingStartedLinks} />
+              <ArticleList title={t('getting_started')} articles={gettingStartedLinks} />
             </div>
 
             <div className="col-12 col-lg-6 float-left">
-              <ArticleList title={t('toc:popular')} articles={popularLinks} />
+              <ArticleList title={t('popular')} articles={popularLinks} />
             </div>
           </div>
         </div>
@@ -76,9 +81,12 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   const req = context.req as any
   const res = context.res as any
 
+  const mainContext = await getMainContext(req, res)
+  addUINamespaces(req, mainContext.data.ui, ['homepage', 'product_landing'])
+
   return {
     props: {
-      mainContext: await getMainContext(req, res),
+      mainContext,
       productGroups: req.context.productGroups,
       gettingStartedLinks: req.context.featuredLinks.gettingStarted.map(
         ({ title, href, intro }: any) => ({ title, href, intro }),

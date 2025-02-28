@@ -1,5 +1,5 @@
 ---
-title: Community metrics
+title: REST API endpoints for community metrics
 shortTitle: Community
 allowTitleToDifferFromFilename: true
 intro: Use the REST API to retrieve information about your community profile.

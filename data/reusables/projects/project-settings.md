@@ -3,4 +3,4 @@
 
    ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
   
-1. In the menu, click {% octicon "gear" aria-hidden="true" %} **Settings** to access the project settings.
+1. In the menu, click **{% octicon "gear" aria-hidden="true" %} Settings** to access the project settings.

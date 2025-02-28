@@ -3,8 +3,8 @@ import { intersection } from 'lodash-es'
 
 import { getFrontmatter } from '../helpers/utils.js'
 import { formatAjvErrors } from '../helpers/schema-utils.js'
-import { frontmatter, deprecatedProperties } from '../../../../lib/frontmatter.js'
-import readFrontmatter from '../../../../lib/read-frontmatter.js'
+import { frontmatter, deprecatedProperties } from '#src/frame/lib/frontmatter.js'
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 
 export const frontmatterSchema = {
   names: ['GHD012', 'frontmatter-schema'],
@@ -15,7 +15,7 @@ export const frontmatterSchema = {
     if (!fm) return
 
     // Check that frontmatter does not contain any deprecated keys
-    // Currently we only deprecate top-level properties and historcially
+    // Currently we only deprecate top-level properties and historically
     // tests have only checked top-level properties. But, if more properties
     // are deprecated in the future, we'll need to do a deep check.
     const deprecatedKeys = intersection(Object.keys(fm), deprecatedProperties)

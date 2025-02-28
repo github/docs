@@ -7,18 +7,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
   - Teams
 ---
 
-{% tip %}
-
-**Tip:** Only organization owners can delete parent teams. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
-
-{% endtip %}
+> [!TIP]
+> Only organization owners can delete parent teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

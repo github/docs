@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { imageFileKebabCase } from '../../lib/linting-rules/image-file-kebab-case.js'
 

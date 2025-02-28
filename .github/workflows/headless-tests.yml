@@ -2,7 +2,7 @@ name: Headless Tests
 
 # **What it does**: This runs our browser tests to test things that depend
 #                   on client-side JavaScript.
-# **Why we have it**: Because most automated jest tests only test static
+# **Why we have it**: Because most automated vitest tests only test static
 #                     input and outputs.
 # **Who does it impact**: Docs engineering, open-source engineering contributors.
 
@@ -37,7 +37,7 @@ jobs:
     timeout-minutes: 60
     steps:
       - name: Check out repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - uses: ./.github/actions/setup-elasticsearch
 
@@ -50,6 +50,9 @@ jobs:
 
       - name: Index fixtures into the local Elasticsearch
         run: npm run index-test-fixtures
+
+      - name: Install headless browser
+        run: npx playwright install --no-shell
 
       - name: Run Playwright tests
         env:

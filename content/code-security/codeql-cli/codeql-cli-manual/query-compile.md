@@ -2,7 +2,6 @@
 title: query compile
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -45,10 +44,10 @@ output options are mostly for debugging.
 
 \[Mandatory] Queries to compile. Each argument is one of:
 
-- A .ql file to compile.
-- A directory which will be searched recursively for .ql files.
-- A .qls file that defines a particular set of queries.
-- The basename of a "well-known" .qls file exported by one of the
+* A .ql file to compile.
+* A directory which will be searched recursively for .ql files.
+* A .qls file that defines a particular set of queries.
+* The basename of a "well-known" .qls file exported by one of the
   installed QL packs.
 
 #### `-n, --check-only`
@@ -164,6 +163,11 @@ Don't check embedded query metadata in QLDoc comments for validity.
 
 \[Advanced] Override the default maximum size for a compilation cache
 directory.
+
+#### `--fail-on-ambiguous-relation-name`
+
+\[Advanced] Fail compilation if an ambiguous relation name is generated
+during compilation.
 
 ### Options to set up compilation environment
 
@@ -293,3 +297,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

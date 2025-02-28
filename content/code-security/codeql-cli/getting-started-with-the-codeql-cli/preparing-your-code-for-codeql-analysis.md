@@ -2,12 +2,12 @@
 title: Preparing your code for CodeQL analysis
 intro: 'You can build a {% data variables.product.prodname_codeql %} database containing the data needed to analyze your code.'
 shortTitle: Preparing code for analysis
+permissions: '{% data reusables.permissions.repo-checkout %}'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -33,14 +33,14 @@ Before you analyze your code using {% data variables.product.prodname_codeql %},
 
 Before you generate a {% data variables.product.prodname_codeql %} database, you need to:
 
-1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli)."
+1. Install and set up the {% data variables.product.prodname_codeql_cli %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli).
 1. Check out the code that you want to analyze:
-   - For a branch, check out the head of the branch that you want to analyze.
-   - For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
-1. Set up the environment for the codebase, making sure that any dependencies are available. For more information, see "[Creating databases for non-compiled languages](#creating-databases-for-non-compiled-languages)" and "[Creating databases for compiled languages](#creating-databases-for-compiled-languages)."
-1. Find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
+   * For a branch, check out the head of the branch that you want to analyze.
+   * For a pull request, check out either the head commit of the pull request, or check out a {% data variables.product.prodname_dotcom %}-generated merge commit of the pull request.
+1. Set up the environment for the codebase, making sure that any dependencies are available.
+1. For the best results with compiled languages, find the build command, if any, for the codebase. Typically this is available in a configuration file in the CI system.
 
-Once the codebase is ready, you can run `codeql database create` to create the database.
+Once the codebase is ready, you can run `codeql database create` to create the database. For more information, see [Creating databases for non-compiled languages](#creating-databases-for-non-compiled-languages) and [Creating databases for compiled languages](#creating-databases-for-compiled-languages).
 
 ## Running `codeql database create`
 
@@ -52,12 +52,10 @@ codeql database create <database> --language=<language-identifier>
 
 You must specify:
 
-- `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
-- `--language`: the identifier for the language to create a database for. When used with `--db-cluster`, the option accepts a comma-separated list, or can be specified more than once. {% data variables.product.prodname_codeql %} supports creating databases for the following languages:
+* `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
+* `--language`: the identifier for the language to create a database for. When used with `--db-cluster`, the option accepts a comma-separated list, or can be specified more than once. {% data variables.product.prodname_codeql %} supports creating databases for the following languages:
 
-{% data reusables.code-scanning.codeql-language-identifiers-table %}
-{% data reusables.code-scanning.beta-kotlin-or-swift-support %}
-{% data reusables.code-scanning.beta-ruby-support %}
+    {% data reusables.code-scanning.codeql-language-identifiers-table %}
 
 If your codebase has a build command or script that invokes the build process, we recommend that you specify it as well:
 
@@ -66,30 +64,34 @@ If your codebase has a build command or script that invokes the build process, w
          --language=<language-identifier>
    ```
 
+### Options for creating databases
+
 You can specify additional options depending on the location of your source file, if the code needs to be compiled, and if you want to create {% data variables.product.prodname_codeql %} databases for more than one language.
 
 | Option | Required | Usage |
 |--------|:--------:|-----|
-| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. | {% ifversion codeql-language-identifiers-311 %}
-| <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. | {% else %}
-| <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code {% ifversion codeql-kotlin-beta %} and `java` to analyze Kotlin code{% endif %}). When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. | {% endif %}
+| `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
+| <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. |
 | <code><span style="white-space: nowrap;">--command</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <code><span style="white-space: nowrap;">--source-root</span></code>. Not needed for Python and JavaScript/TypeScript analysis. |
+| {% ifversion codeql-no-build %} |
+| <code><span style="white-space: nowrap;">--build-mode</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use for {% data variables.code-scanning.no_build_support %} when not providing a `--command` to specify whether to create a CodeQL database without a build (`none`) or by attempting to automatically detect a build command (`autobuild`). By default, autobuild detection is used. For a comparison of build modes, see [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes). |
+| {% endif %} |
 | <code><span style="white-space: nowrap;">--db-cluster</span></code> | {% octicon "x" aria-label="Optional" %} | Use in multi-language codebases to generate one database for each language specified by <code><span style="white-space: nowrap;">--language</span></code>. |
 | <code><span style="white-space: nowrap;">--no-run-unnecessary-builds</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to suppress the build command for languages where the {% data variables.product.prodname_codeql_cli %} does not need to monitor the build (for example, Python and JavaScript/TypeScript). |
 | <code><span style="white-space: nowrap;">--source-root</span></code> | {% octicon "x" aria-label="Optional" %} | Use if you run the CLI outside the checkout root of the repository. By default, the `database create` command assumes that the current directory is the root directory for the source files, use this option to specify a different location. |
-| <code><span style="white-space: nowrap;">--codescanning-config</span></code> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-a-custom-configuration-file)" and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile)." |
+| <code><span style="white-space: nowrap;">--codescanning-config</span></code> | {% octicon "x" aria-label="Optional" %} | Advanced. Use if you have a configuration file that specifies how to create the {% data variables.product.prodname_codeql %} databases and what queries to run in later steps. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#using-a-custom-configuration-file) and [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create#--codescanning-configfile). |
 
 You can specify extractor options to customize the behavior of extractors that create {% data variables.product.prodname_codeql %} databases. For more information, see
-"[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options)."
+[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/extractor-options).
 
-For full details of all the options you can use when creating databases, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create)."
+For full details of all the options you can use when creating databases, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create).
 
 ### Single language example
 
 This example creates a single {% data variables.product.prodname_codeql %} database for the repository checked out at `/checkouts/example-repo`. It uses the JavaScript extractor to create a hierarchical representation of the JavaScript and TypeScript code in the repository. The resulting database is stored in `/codeql-dbs/example-repo`.
 
 ```shell
-$ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+$ codeql database create /codeql-dbs/example-repo --language=javascript-typescript \
     --source-root /checkouts/example-repo
 
 > Initializing database at /codeql-dbs/example-repo.
@@ -106,16 +108,16 @@ $ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql
 
 This example creates two {% data variables.product.prodname_codeql %} databases for the repository checked out at `/checkouts/example-repo-multi`. It uses:
 
-- `--db-cluster` to request analysis of more than one language.
-- `--language` to specify which languages to create databases for.
-- `--command` to tell the tool the build command for the codebase, here `make`.
-- `--no-run-unnecessary-builds` to tell the tool to skip the build command for languages where it is not needed (like Python).
+* `--db-cluster` to request analysis of more than one language.
+* `--language` to specify which languages to create databases for.
+* `--command` to tell the tool the build command for the codebase, here `make`.
+* `--no-run-unnecessary-builds` to tell the tool to skip the build command for languages where it is not needed (like Python).
 
 The resulting databases are stored in `python` and `cpp` subdirectories of `/codeql-dbs/example-repo-multi`.
 
 ```shell
 $ codeql database create /codeql-dbs/example-repo-multi \
-    --db-cluster --language python,{% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} \
+    --db-cluster --language python,c-cpp \
     --command make --no-run-unnecessary-builds \
     --source-root /checkouts/example-repo-multi
 Initializing databases at /codeql-dbs/example-repo-multi.
@@ -135,7 +137,7 @@ $
 
 ## Progress and results
 
-Errors are reported if there are any problems with the options you have specified. For interpreted languages, the extraction progress is displayed in the console. For each source file, the console shows if extraction was successful or if it failed. For compiled languages, the console will display the output of the build system.
+Errors are reported if there are any problems with the options you have specified. For interpreted languages and when you specify `--build-mode none` for {% data variables.code-scanning.no_build_support %}, the extraction progress is displayed in the console. For each source file, the console shows if extraction was successful or if it failed. When a compiled language is built, the console will display the output of the build system.
 
 When the database is successfully created, you’ll find a new directory at the path specified in the command. If you used the `--db-cluster` option to create more than one database, a subdirectory is created for each language. Each {% data variables.product.prodname_codeql %} database directory contains a number of subdirectories, including the relational data (required for analysis) and a source archive—a copy of the source files made at the time the database was created—which is used for displaying analysis results.
 
@@ -143,18 +145,15 @@ When the database is successfully created, you’ll find a new directory at the 
 
 The {% data variables.product.prodname_codeql_cli %} includes extractors to create databases for non-compiled languages—specifically, JavaScript (and TypeScript), Python, and Ruby. These extractors are automatically invoked when you specify JavaScript, Python, or Ruby as the `--language` option when executing `database create`. When creating databases for these languages you must ensure that all additional dependencies are available.
 
-{% note %}
-
-**Note:** When you run `database create` for JavaScript, TypeScript, Python, and Ruby, you should not specify a `--command` option. Otherwise this overrides the normal extractor invocation, which will create an empty database. If you create databases for multiple languages and one of them is a compiled language, use the `--no-run-unnecessary-builds` option to skip the command for the languages that don’t need to be compiled.
-
-{% endnote %}
+> [!NOTE]
+> When you run `database create` for JavaScript, TypeScript, Python, and Ruby, you should not specify a `--command` option. Otherwise this overrides the normal extractor invocation, which will create an empty database. If you create databases for multiple languages and one of them is a compiled language, use the `--no-run-unnecessary-builds` option to skip the command for the languages that don’t need to be compiled.
 
 ### JavaScript and TypeScript
 
-Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, you must install Node.js 6.x or later. In the command line you can specify `--language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}` to extract both JavaScript and TypeScript files:
+Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, Node.js 14 or higher must be installed and available on the `PATH` as `node`. In the command line you can specify `--language=javascript-typescript` to extract both JavaScript and TypeScript files:
 
 ```shell
-codeql database create --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --source-root <folder-to-extract> <output-folder>/javascript-database
+codeql database create --language=javascript-typescript --source-root <folder-to-extract> <output-folder>/javascript-database
 ```
 
 Here, we have specified a `--source-root` path, which is the location where database creation is executed, but is not necessarily the checkout root of the codebase.
@@ -165,10 +164,8 @@ By default, files in `node_modules` and `bower_components` directories are not e
 
 When creating databases for Python you must ensure:
 
-- You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
-- You have the version of Python used by your code installed.
-- You have access to the [pip](https://pypi.org/project/pip/) packaging management system and can install any packages that the codebase depends on.
-- You have installed the [virtualenv](https://pypi.org/project/virtualenv/) pip module.
+* You have Python 3 installed and available to the {% data variables.product.prodname_codeql %} extractor.
+* You have the version of Python used by your code installed.
 
 In the command line you must specify `--language=python`. For example:
 
@@ -190,47 +187,47 @@ Here, we have specified a `--source-root` path, which is the location where data
 
 ## Creating databases for compiled languages
 
-For compiled languages, {% data variables.product.prodname_codeql %} needs to invoke the required build system to generate a database, therefore the build method must be available to the CLI.
+For {% ifversion codeql-no-build %}most{% endif %} compiled languages, {% data variables.product.prodname_codeql %} needs to invoke the required build system to generate a database, therefore the build method must be available to the CLI. This approach creates databases that include generated code. {% data variables.product.prodname_codeql %} has two methods for building codebases:
 
-### Detecting the build system
+* [Automatic build detection (autobuild)](#automatically-detecting-the-build-system)
+* [User-specified build commands](/code-security/codeql-cli/getting-started-with-the-codeql-cli/preparing-your-code-for-codeql-analysis#specifying-build-commands)
 
-The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild-for-codeql)."
+{% ifversion codeql-no-build %}
+In addition, for {% data variables.code-scanning.no_build_support %}, there is an option to generate a database without building the code. This is particularly useful when you want to enable {% data variables.product.prodname_code_scanning %} for many repositories. For more information, see [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes).
+{% endif %}
 
-An autobuilder is invoked automatically when you execute `codeql database create` for a compiled `--language` if you don’t include a
-`--command` option. For example, for a Java codebase, you would simply run:
+### Automatically detecting the build system
+
+The {% data variables.product.prodname_codeql_cli %} includes autobuilders for {% data variables.code-scanning.compiled_languages %} code. {% data variables.product.prodname_codeql %} autobuilders allow you to build projects for compiled languages without specifying any build commands. When an autobuilder is invoked, {% data variables.product.prodname_codeql %} examines the source for evidence of a build system and attempts to run the optimal set of commands required to extract a database. For more information, see [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-autobuild).
+
+An autobuilder is invoked automatically when you execute `codeql database create` for a compiled language if you don’t include a
+`--command` option{% ifversion codeql-no-build %} or set `--build-mode none`{% endif %}. For example, for a C/C++ codebase, you could simply run:
 
 ```shell
-codeql database create --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} <output-folder>/java-database
+codeql database create --language=cpp <output-folder>/cpp-database
 ```
 
 If a codebase uses a standard build system, relying on an autobuilder is often the simplest way to create a database. For sources that require non-standard build steps, you may need to explicitly define each step in the command line.
 
-{% note %}
-
-**Notes:**
-
-- If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
-- The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
-
-{% endnote %}
+> [!NOTE]
+> * If you are building a Go database, install the Go toolchain (version 1.11 or later) and, if there are dependencies, the appropriate dependency manager (such as [dep](https://golang.github.io/dep/)).
+> * The Go autobuilder attempts to automatically detect code written in Go in a repository, and only runs build scripts in an attempt to fetch dependencies. To force {% data variables.product.prodname_codeql %} to limit extraction to the files compiled by your build script, set the environment variable `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` or use the `--command` option to specify a build command.
 
 ### Specifying build commands
 
 The following examples are designed to give you an idea of some of the build commands that you can specify for compiled languages.
 
-{% note %}
+> [!NOTE]
+> The `--command` option accepts a single argument—if you need to use more than one command, specify `--command` multiple times. If you need to pass subcommands and options, the whole argument needs to be quoted to be interpreted correctly.
 
-**Note:** The `--command` option accepts a single argument—if you need to use more than one command, specify `--command` multiple times. If you need to pass subcommands and options, the whole argument needs to be quoted to be interpreted correctly.
-
-{% endnote %}
-
-- C/C++ project built using `make`:
+* C/C++ project built using `make`:
 
   ```shell
-  codeql database create cpp-database --language={% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} --command=make
+  # Disable parallel execution via `-j1` or other techniques: https://www.gnu.org/software/make/manual/make.html#Parallel-Execution
+  codeql database create cpp-database --language=c-cpp --command=make
   ```
 
-- C# project built using `dotnet build`:
+* C# project built using `dotnet build`:
 
   It is a good idea to add `/t:rebuild` to ensure that all code will be built, or do a prior `dotnet clean` (code that is not built will not be included in the {% data variables.product.prodname_codeql %} database):
 
@@ -238,54 +235,54 @@ The following examples are designed to give you an idea of some of the build com
   codeql database create csharp-database --language=csharp --command='dotnet build /t:rebuild'
   ```
 
-- Go project built using the `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` environment variable:
+* Go project built using the `CODEQL_EXTRACTOR_GO_BUILD_TRACING=on` environment variable:
 
   ```shell
   CODEQL_EXTRACTOR_GO_BUILD_TRACING=on codeql database create go-database --language=go
   ```
 
-- Go project built using a custom build script:
+* Go project built using a custom build script:
 
   ```shell
   codeql database create go-database --language=go --command='./scripts/build.sh'
   ```
 
-- Java project built using Gradle:
+* Java project built using Gradle:
 
   ```shell
-  # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL:
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
+  # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL.
+  # To ensure isolated builds without caching, add `--no-build-cache` on persistent machines.
+  codeql database create java-database --language=java-kotlin --command='gradle --no-daemon clean test'
   ```
 
-- Java project built using Maven:
+* Java project built using Maven:
 
   ```shell
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='mvn clean install'
+  codeql database create java-database --language=java-kotlin --command='mvn clean install'
   ```
 
-- Java project built using Ant:
+* Java project built using Ant:
 
   ```shell
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='ant -f build.xml'
+  codeql database create java-database --language=java-kotlin --command='ant -f build.xml'
   ```
 
-{% ifversion codeql-swift-beta %}
-- Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
+* Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:
 
-  It's a good idea to ensure that the project is in a clean state and that there are no build artefacts available.
+  It's a good idea to ensure that the project is in a clean state and that there are no build artifacts available.
 
   ```shell
   xcodebuild clean -all
   codeql database create -l swift swift-database
   ```
 
-- Swift project built with `swift build`:
+* Swift project built with `swift build`:
 
   ```shell
   codeql database create -l swift -c "swift build" swift-database
   ```
 
-- Swift project built with `xcodebuild`:
+* Swift project built with `xcodebuild`:
 
   ```shell
   codeql database create -l swift -c "xcodebuild build -target your-target" swift-database
@@ -293,15 +290,13 @@ The following examples are designed to give you an idea of some of the build com
 
   You can pass the `archive` and `test` options to `xcodebuild`. However, the standard `xcodebuild` command is recommended as it should be the fastest, and should be all that {% data variables.product.prodname_codeql %} requires for a successful scan.
 
-- Swift project built using a custom build script:
+* Swift project built using a custom build script:
 
   ```shell
   codeql database create -l swift -c "./scripts/build.sh" swift-database
   ```
 
-{% endif %}
-
-- Project built using Bazel:
+* Project built using Bazel:
 
   ```shell
   # Navigate to the Bazel workspace.
@@ -314,8 +309,9 @@ The following examples are designed to give you an idea of some of the build com
   # `--spawn_strategy=local`: build locally, instead of using a distributed build
   # `--nouse_action_cache`: turn off build caching, which might prevent recompilation of source code
   # `--noremote_accept_cached`, `--noremote_upload_local_results`: avoid using a remote cache
+  # `--disk_cache=`: avoid using a disk cache. Note that a disk cache is no longer considered a remote cache as of Bazel 6.
   codeql database create new-database --language=<language> \
-  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results //path/to/package:target'
+  --command='bazel build --spawn_strategy=local --nouse_action_cache --noremote_accept_cached --noremote_upload_local_results --disk_cache= //path/to/package:target'
 
   # After building, stop all running Bazel server processes.
   # This ensures future build commands start in a clean Bazel server process
@@ -323,7 +319,7 @@ The following examples are designed to give you an idea of some of the build com
   bazel shutdown
   ```
 
-- Project built using a custom build script:
+* Project built using a custom build script:
 
   ```shell
   codeql database create new-database --language=<language> --command='./scripts/build.sh'
@@ -347,16 +343,13 @@ codeql database init ... --begin-tracing <database>
 
 You must specify:
 
-- `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
-- `--begin-tracing`: creates scripts that can be used to set up an environment in which build commands will be traced.
+* `<database>`: a path to the new database to be created. This directory will be created when you execute the command—you cannot specify an existing directory.
+* `--begin-tracing`: creates scripts that can be used to set up an environment in which build commands will be traced.
 
 You may specify other options for the `codeql database init` command as normal.
 
-{% note %}
-
-**Note:** If the build runs on Windows, you must set either `--trace-process-level <number>` or `--trace-process-name <parent process name>` so that the option points to a parent CI process that will observe all build steps for the code being analyzed.
-
-{% endnote %}
+> [!NOTE]
+> If the build runs on Windows, you must set either `--trace-process-level <number>` or `--trace-process-name <parent process name>` so that the option points to a parent CI process that will observe all build steps for the code being analyzed.
 
 The `codeql database init` command will output a message:
 
@@ -368,8 +361,8 @@ Based on your operating system, we recommend you run: ...
 
 The `codeql database init` command creates `<database>/temp/tracingEnvironment` with files that contain environment variables and values that will enable {% data variables.product.prodname_codeql %} to trace a sequence of build steps. These files are named `start-tracing.{json,sh,bat,ps1}`. Use one of these files with your CI system’s mechanism for setting environment variables for future steps. You can:
 
-- Read the JSON file, process it, and print out environment variables in the format expected by your CI system. For example, Azure DevOps expects `echo "##vso[task.setvariable variable=NAME]VALUE"`.
-- Or, if your CI system persists the environment,  source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
+* Read the JSON file, process it, and print out environment variables in the format expected by your CI system. For example, Azure DevOps expects `echo "##vso[task.setvariable variable=NAME]VALUE"`.
+* Or, if your CI system persists the environment, source the appropriate `start-tracing` script to set the {% data variables.product.prodname_codeql %} variables in the shell environment of the CI system.
 
 Build your code; optionally, unset the environment variables using an `end-tracing.{json,sh,bat,ps1}` script from the directory where the `start-tracing` scripts are stored; and then run the command `codeql database finalize <database>`.
 
@@ -377,13 +370,8 @@ Once you have created a {% data variables.product.prodname_codeql %} database us
 
 ### Example of creating a {% data variables.product.prodname_codeql %} database using indirect build tracing
 
-{% ifversion ghas-for-azure-devops %}
-{% note %}
-
-**Note:** If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
-
-{% endnote %}
-{% endif %}
+> [!NOTE]
+> If you use Azure DevOps pipelines, the simplest way to create a {% data variables.product.prodname_codeql %} database is to use {% data variables.product.prodname_ghas_azdo %}. For documentation, see [Configure {% data variables.product.prodname_ghas_azdo %}](https://learn.microsoft.com/en-us/azure/devops/repos/security/configure-github-advanced-security-features) in Microsoft Learn.
 
 The following example shows how you could use indirect build tracing in an Azure DevOps pipeline to create a {% data variables.product.prodname_codeql %} database:
 
@@ -459,4 +447,4 @@ steps:
 
 ## Next steps
 
-- To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries)."
+* To learn how to use the {% data variables.product.prodname_codeql_cli %} to analyze the database you created from your code, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/analyzing-your-code-with-codeql-queries).

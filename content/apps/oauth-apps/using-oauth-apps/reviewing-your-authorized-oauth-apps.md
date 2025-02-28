@@ -11,7 +11,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Identity
@@ -26,6 +25,6 @@ shortTitle: Review OAuth apps
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/exploring-integrations/about-integrations)"{% endif %}
-- "[AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)"
-- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)"
+* [AUTOTITLE](/get-started/exploring-integrations/about-integrations){% endif %}
+* [AUTOTITLE](/apps/using-github-apps/reviewing-your-authorized-integrations)
+* [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps)

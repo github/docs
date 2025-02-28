@@ -19,15 +19,6 @@ permissions:
   contents: write
   pull-requests: write
 
-# **IMPORTANT:** Do not change the FREEZE environment variable set here!
-# This workflow runs on a recurring basis. To temporarily disable it (e.g.,
-# during a docs deployment freeze), add an Actions Secret to the repo settings
-# called `FREEZE` with a value of `true`. To re-enable Audit Logs updates, simply
-# delete that Secret from the repo settings. The environment variable here
-# will duplicate that Secret's value for later evaluation.
-env:
-  FREEZE: ${{ secrets.FREEZE }}
-
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
   group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
@@ -38,17 +29,12 @@ jobs:
     if: github.repository == 'github/docs-internal'
     runs-on: ubuntu-20.04-xl
     steps:
-      - if: ${{ env.FREEZE == 'true' }}
-        run: |
-          echo 'The repo is currently frozen! Exiting this workflow.'
-          exit 1 # prevents further steps from running
-
       - name: Checkout repository code
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
         # Check out a nested repository inside of previous checkout
       - name: Checkout rest-api-description repo
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           # By default, only the most recent commit of the `main` branch
           # will be checked out
@@ -63,7 +49,7 @@ jobs:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
-          src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
@@ -87,7 +73,7 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            echo "There are no changes to commit after running `npm run sync-rest` Exiting..."
             exit 0
           fi
 
@@ -115,7 +101,8 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label github-openapi-bot
+            --label github-openapi-bot \
+            --head=$branchname \
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

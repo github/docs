@@ -1,12 +1,13 @@
 import { useRouter } from 'next/router'
-import Cookies from 'components/lib/cookies'
+import Cookies from 'src/frame/components/lib/cookies'
 import { InfoIcon } from '@primer/octicons-react'
 
-import { useMainContext } from 'components/context/MainContext'
+import { useMainContext } from 'src/frame/components/context/MainContext'
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Picker } from 'src/tools/components/Picker'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { API_VERSION_COOKIE_NAME } from 'src/rest/components/RestRedirect'
+import { apiVersionPath } from 'src/rest/lib/config.js'
 
 const API_VERSION_SUFFIX = ' (latest)'
 
@@ -30,7 +31,7 @@ export const ApiVersionPicker = () => {
   const router = useRouter()
   const { currentVersion } = useVersion()
   const { allVersions } = useMainContext()
-  const { t } = useTranslation(['products'])
+  const { t } = useTranslation('rest')
   const basePath = router.asPath.split('#')[0].split('?')[0]
   // Get current date from cookie, query path, or lastly set it to latest rest version date
   const isValidApiVersion =
@@ -69,7 +70,7 @@ export const ApiVersionPicker = () => {
     selected: false,
     href: `/${router.locale}${
       currentVersion === DEFAULT_VERSION ? '' : `/${currentVersion}`
-    }/rest/overview/api-versions`,
+    }${apiVersionPath}`,
     extra: {
       info: true,
       currentDate,

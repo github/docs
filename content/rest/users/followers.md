@@ -1,9 +1,10 @@
 ---
-title: Followers
+title: REST API endpoints for followers
+shortTitle: Followers
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to get information about followers of authenticated users.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

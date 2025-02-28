@@ -1,8 +1,8 @@
 import {
   readCompressedJsonFileFallbackLazily,
   readCompressedJsonFileFallback,
-} from '../../../lib/read-json-file.js'
-import { getAutomatedPageMiniTocItems } from '../../../lib/get-mini-toc-items.js'
+} from '#src/frame/lib/read-json-file.js'
+import { getAutomatedPageMiniTocItems } from '#src/frame/lib/get-mini-toc-items.js'
 import languages from '#src/languages/lib/languages.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 

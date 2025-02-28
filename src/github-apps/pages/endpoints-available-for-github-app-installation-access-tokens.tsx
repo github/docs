@@ -4,7 +4,7 @@ import {
   AutomatedPageContextT,
   getAutomatedPageContextFromRequest,
 } from 'src/automated-pipelines/components/AutomatedPageContext'
-import { MainContextT, getMainContext } from 'components/context/MainContext'
+import { MainContextT, getMainContext } from 'src/frame/components/context/MainContext'
 
 import { EnabledList, EnabledListT } from 'src/github-apps/components/EnabledList'
 

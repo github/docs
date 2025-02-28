@@ -10,7 +10,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Advanced Security
@@ -22,4 +21,3 @@ children:
   - /uploading-a-sarif-file-to-github
   - /sarif-support-for-code-scanning
 ---
-

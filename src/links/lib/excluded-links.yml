@@ -1,0 +1,89 @@
+# Skip GitHub search links.
+# E.g. https://github.com/search?foo=bar
+- startsWith: https://github.com/search?
+- startsWith: https://github.com/github/gitignore/search?
+
+# https://github.com/contact always redirects to support.github.com that
+# is heavily protected by rate limiting.
+- startsWith: https://github.com/contact
+# All support.github.com links are currently firewalled and you get a
+# "403 Forbidden" every time.
+- startsWith: https://support.github.com
+
+# These links require auth.
+- startsWith: https://github.com/settings/profile
+- startsWith: https://github.com/settings/billing
+- startsWith: https://github.com/github/docs/edit
+- startsWith: https://github.com/github/insights-releases/releases/latest
+- startsWith: https://classroom.github.com/videos
+
+# Oneoff links that link checkers think are broken but are not.
+- is: https://haveibeenpwned.com/
+- is: https://www.ilo.org/dyn/normlex/en/f?p=NORMLEXPUB:12100:0::NO::P12100_ILO_CODE:P029
+- is: https://www.linkedin.com/company/github
+- is: https://www.facebook.com/
+- is: https://ko-fi.com/
+- is: https://en.liberapay.com/
+- is: https://nbviewer.jupyter.org/github/bokeh/bokeh-notebooks/blob/main/tutorial/06%20-%20Linking%20and%20Interactions.ipynb
+- is: https://www.vmware.com/products/esxi-and-esx.html
+- is: https://www.ecfr.gov/cgi-bin/text-idx?SID=ad384e1f1e017076f8c0136f322f0a4c&mc=true&node=pt15.2.744&rgn=div5
+- is: https://wiki.oasis-open.org/security
+- is: https://www.ipaddressguide.com/cidr
+- is: https://crates.io/
+- is: https://opensource.org/about
+- is: https://www.openstreetmap.org/user/new
+- is: https://wiki.debian.org/chroot
+- is: https://www.adobe.com/products/coldfusion-builder.html
+- is: https://developer.android.com/studio
+- is: https://lastpass.com/
+- is: https://lastpass.com/auth/
+- is: https://zenodo.org/account/settings/github/
+- is: https://intellij-support.jetbrains.com/hc/en-us/articles/207241085-Locating-IDE-log-files
+- is: https://developer.apple.com/documentation/swift_packages
+- is: https://developer.android.com/studio/run/emulator-acceleration
+- is: https://support.discord.com/hc/en-us/articles/360045138571-Beginner-s-Guide-to-Discord
+- is: https://www.microsoft.com/en-us/edge
+- is: https://github.com/features/bitbucket-migrations/signup
+- is: https://www.servicenow.com/products/devops.html
+- is: https://daringfireball.net/projects/markdown/syntax
+- is: https://www.microsoft.com/en-us/security/mobile-authenticator-app
+- is: https://microsoft.com/powershell
+- is: https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_flush_method
+- is: https://support.pingidentity.com/s/marketplace-integration/a7i1W0000004ID3QAM/github-connector
+- is: https://www.patreon.com/
+- startsWith: https://packages.debian.org/
+- is: https://oidref.com/1.3.6.1.2.1.25.4
+- is: https://www.ilo.org/global/about-the-ilo/newsroom/news/WCMS_574717/lang--en/index.htm
+- is: https://cdrdv2-public.intel.com/671488/248966-Software-Optimization-Manual-R047.pdf
+- startsWith: https://www.lumendatabase.org/
+- startsWith: https://azure.microsoft.com/
+- startsWith: https://support.patreon.com/
+- is: https://moodle.org
+- is: https://azure.microsoft.com
+- is: https://api.octocorp.ghe.com
+- is: https://platform.openai.com/docs/guides/safety-best-practices
+- is: https://platform.openai.com/docs/guides/function-calling
+- is: https://global.rel.tunnels.api.visualstudio.com/api/version
+- is: https://www.wireguard.com/quickstart/
+- is: https://docs.openstack.org/horizon/latest/
+- is: https://packages.ubuntu.com/search?keywords=netcat&searchon=names
+- is: https://vimeo.com/333786093
+- is: https://www.gnu.org/software/bash/
+- is: https://www.gnu.org/software/bash/manual/
+- startsWith: https://github.com/actions/actions-runner-controller
+- is: https://github.com/actions/runner/pkgs/container/actions-runner
+- is: https://github.com/Codertocat/hello-world-npm/pkgs/npm/hello-world-npm
+- is: https://jsonformatter.org/
+- is: https://mvnrepository.com/artifact/org.xwiki.platform/xwiki-platform-oldcore
+- is: https://mvnrepository.com/artifact/com.google.guava/guava
+- startsWith: https://platform.openai.com/docs/models
+- startsWith: https://openai.com/index
+- is: https://github.com/github-linguist/linguist/compare/master...octocat:master
+- is: https://www.servicenow.com/docs/bundle/utah-devops/page/product/enterprise-dev-ops/concept/github-integration-dev-ops.html
+- startsWith: https://www.ilo.org
+- is: https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
+- is: https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/
+- is: https://www.nongnu.org/oath-toolkit/man-oathtool.html
+- is: https://www.gnu.org/software/emacs/
+- is: https://www.transparency.org/what-is-corruption
+- startsWith: https://platform.openai.com/docs/api-reference/

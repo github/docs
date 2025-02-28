@@ -4,7 +4,7 @@ import walk from 'walk-sync'
 import path from 'path'
 import { escapeRegExp } from 'lodash-es'
 import { Tokenizer } from 'liquidjs'
-import frontmatter from '../../../lib/read-frontmatter.js'
+import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { deprecated, oldestSupported } from '#src/versions/lib/enterprise-server-releases.js'
 
@@ -90,7 +90,6 @@ async function main() {
     const newYamlContent = makeLiquidReplacements(yamlReplacements, yamlContent)
       .replace(/("|')?free-pro-team("|')?:/g, 'fpt:')
       .replace(/("|')?enterprise-server("|')?:/g, 'ghes:')
-      .replace(/("|')?github-ae("|')?:/g, 'ghae:')
 
     if (dryRun) {
       console.log(yamlReplacements)

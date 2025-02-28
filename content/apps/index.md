@@ -4,7 +4,7 @@ shortTitle: Apps
 intro: 'Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.'
 introLinks:
   overview: /apps/overview
-  quickstart: /apps/creating-github-apps/guides/quickstart
+  quickstart: /apps/creating-github-apps/writing-code-for-a-github-app/quickstart
 layout: product-landing
 featuredLinks:
   startHere:
@@ -29,7 +29,6 @@ changelog:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub Apps

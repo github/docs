@@ -1,8 +1,8 @@
-| Parameter | Value |
-| :- | :- |
-| `title` | Custom title |
-| `file` | Filename |
-| `col` | Column number, starting at 1 |
-| `endColumn` | End column number |
-| `line` | Line number, starting at 1 |
-| `endLine` | End line number |
+| Parameter | Value | Required | Default |
+| :- | :- | :- | :- |
+| `title` | Custom title | No | None |
+| `file` | Filename | No | `.github` |
+| `col` | Column number, starting at 1 | No | None |
+| `endColumn` | End column number | No | None |
+| `line` | Line number, starting at 1 | No | `1` |
+| `endLine` | End line number | No | `1` |

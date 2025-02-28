@@ -1,6 +1,6 @@
 If you only have a raw token value, you'll need to generate a SHA-256 hash before you can search for the token.
 
-For MacOS and Linux, you can use `echo -n TOKEN | openssl dgst -sha256 -binary | base64`, replacing TOKEN with the token value.
+For macOS and Linux, you can use `echo -n TOKEN | openssl dgst -sha256 -binary | base64`, replacing TOKEN with the token value.
 
 For Powershell, you can use the following script to return a SHA-256 hash for a given string.
 

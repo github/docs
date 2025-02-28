@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -17,16 +16,13 @@ topics:
 shortTitle: Remove collaborator
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 {% ifversion fpt or ghec %}
 
-{% warning %}
-
-**Warning:**
-- When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan)."
-
-- You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
-
-{% endwarning %}
+> [!WARNING]
+> * When removing an outside collaborator from a private repository, the paid license count does not automatically downgrade. To pay for fewer licenses after removing users from your organization, follow the steps in [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/downgrading-your-accounts-plan).
+> * You are responsible for ensuring that people who have lost access to a repository delete any confidential information or intellectual property.
 
 {% endif %}
 
@@ -61,4 +57,4 @@ If you only want to remove an outside collaborator from certain repositories in 
 1. To completely remove the outside collaborator's access to the repository, in the upper right corner, click **Remove access to this repository**.
 1. To confirm, click **Remove access**.
 
-You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person)."
+You can also remove an outside collaborator from a repository in the access overview in your repository settings. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository#removing-access-for-a-team-or-person).

@@ -1,8 +1,9 @@
 ---
-title: Global Webhooks
+title: REST API endpoints for global webhooks
+shortTitle: Global webhooks
+allowTitleToDifferFromFilename: true
 intro: Use the REST API to manage global webhooks for your enterprise.
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
-  ghae: '*'
   ghes: '*'
 topics:
   - API

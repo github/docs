@@ -1,6 +1,6 @@
 ---
-title: GitHub Codespaces documentation
-shortTitle: GitHub Codespaces
+title: "{% data variables.product.prodname_codespaces %} documentation"
+shortTitle: "{% data variables.product.prodname_codespaces %}"
 intro: 'Create a codespace to start developing in a secure, configurable, and dedicated development environment that works how and where you want it to.'
 introLinks:
   overview: /codespaces/overview
@@ -11,15 +11,14 @@ featuredLinks:
     - /codespaces/getting-started/understanding-the-codespace-lifecycle
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
     - /codespaces/managing-your-codespaces/managing-repository-access-for-your-codespaces
-    - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
+    - /billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
   guideCards:
     - /codespaces/getting-started/deep-dive
     - /codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository
     - /codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template
     - /codespaces/developing-in-a-codespace/opening-an-existing-codespace
-    - /codespaces/customizing-your-codespace/personalizing-github-codespaces-for-your-account
+    - /codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account
     - /codespaces/developing-in-a-codespace/using-github-codespaces-in-visual-studio-code
-    - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
   popular:
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
     - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces
@@ -37,6 +36,8 @@ communityRedirect:
 redirect_from:
   - /github/developing-online-with-github-codespaces
   - /github/developing-online-with-codespaces
+  - /codespaces/developing-in-a-codespace/using-github-codespaces-in-your-jetbrains-ide
+  - /codespaces/reference/using-the-github-codespaces-plugin-for-jetbrains
 layout: product-landing
 versions:
   fpt: '*'
@@ -46,6 +47,7 @@ children:
   - /getting-started
   - /developing-in-a-codespace
   - /customizing-your-codespace
+  - /setting-your-user-preferences
   - /setting-up-your-project-for-codespaces
   - /prebuilding-your-codespaces
   - /managing-your-codespaces
@@ -55,4 +57,3 @@ children:
   - /the-githubdev-web-based-editor
   - /guides
 ---
-

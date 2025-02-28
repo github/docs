@@ -1,7 +1,6 @@
 ---
 title: Style guide and content model
 intro: 'Learn about how we keep GitHub''s documentation consistent, easy to follow, and maintainable.'
-product: '{% data reusables.contributing.product-note %}'
 versions:
   feature: 'contributing'
 children:

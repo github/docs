@@ -1,11 +1,11 @@
 ---
-title: Collaborators
+title: REST API endpoints for collaborators
+shortTitle: Collaborators
 intro: 'Use the REST API to add, invite, and remove collaborators from a repository.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

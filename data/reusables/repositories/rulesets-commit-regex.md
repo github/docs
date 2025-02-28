@@ -1,4 +1,6 @@
-When you add metadata restrictions, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+When you add metadata restrictions for a ruleset that targets branches or tags, you can use regular expression syntax to define patterns that the relevant metadata, such as the commit message or the branch or tag name, must or must not match.
+
+Metadata restrictions do not accept regex patterns by default. To enable this, select the **Must match a given regex pattern** restriction when you are creating the metadata restrictions for your ruleset.
 
 Rulesets support RE2 syntax. For more information, see Google's [syntax guide](https://github.com/google/re2/wiki/Syntax). To validate your expressions, you can use the validator on [regex101.com](https://regex101.com/), selecting the "Golang" flavor in the left sidebar.
 
@@ -6,11 +8,8 @@ By default, regular expressions in metadata restrictions do not consider multipl
 
 The negative lookahead assertion, denoted `?!`, is not supported. However, for cases where you need to look for a given string that is not followed by another given string, you can use the positive lookahead assertion, denoted `?`, combined with the "Must not match a given regex pattern" requirement.
 
-{% note %}
-
-**Note:** If you require contributors to sign off on commits, this may interfere with your regular expression patterns. When someone signs off, {% data variables.product.prodname_dotcom %} adds a string like `Signed-off-by: #AUTHOR-NAME <#AUTHOR-EMAIL>` to the commit message. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization)."
-
-{% endnote %}
+> [!NOTE]
+> If you require contributors to sign off on commits, this may interfere with your regular expression patterns. When someone signs off, {% data variables.product.prodname_dotcom %} adds a string like `Signed-off-by: #AUTHOR-NAME <#AUTHOR-EMAIL>` to the commit message. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-commit-signoff-policy-for-your-organization).
 
 #### Useful regular expression patterns
 

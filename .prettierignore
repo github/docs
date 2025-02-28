@@ -1,9 +1,7 @@
 data/release-notes/
-script/bookmarklets/
-src/open-source/scripts/add-pr-links.js
+src/bookmarklets/
 /.next/
 
-# jest --coverage option
 /.coverage
 /coverage
 

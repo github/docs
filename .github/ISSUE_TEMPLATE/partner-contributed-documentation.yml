@@ -20,7 +20,7 @@ body:
       label: Code of Conduct
       description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
-        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/CODE_OF_CONDUCT.md)
+        - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/.github/CODE_OF_CONDUCT.md)
           required: true
   - type: checkboxes
     attributes:
@@ -39,7 +39,7 @@ body:
           required: true
         - label: MUST emphasize how the third-party product works with GitHub.
           required: true
-        - label: MUST be written in Markdown format, using [one of the templates provided](contributing/github-partners/README.md#templates).
+        - label: MUST be written in Markdown format, using [one of the templates provided](https://docs.github.com/en/contributing/writing-for-github-docs/templates).
           required: true
         - label: MUST include the name and URL of the GitHub technology partner responsible for maintenance of the documentation being contributed. This should be added via the `contributor.name` and `contributor.URL` properties in the template's YAML frontmatter.
           required: true

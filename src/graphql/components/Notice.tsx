@@ -1,6 +1,5 @@
-import { useRouter } from 'next/router'
-
-import { Link } from 'components/Link'
+import { Link } from 'src/frame/components/Link'
+import { Alert } from 'src/frame/components/ui/Alert'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import type { GraphqlT } from './types'
 
@@ -10,29 +9,16 @@ type Props = {
 }
 
 export function Notice({ item, variant = 'preview' }: Props) {
-  const { locale } = useRouter()
-
-  const { t } = useTranslation('products')
-  const previewTitle =
-    variant === 'preview'
-      ? t('graphql.reference.preview_notice')
-      : t('graphql.reference.deprecation_notice')
-  const noticeStyle =
-    variant === 'preview'
-      ? 'ghd-spotlight-note color-border-accent-emphasis color-bg-accent'
-      : 'ghd-spotlight-warning color-border-danger-emphasis color-bg-danger'
+  const { t } = useTranslation('graphql')
   return (
-    <div className={`ghd-spotlight ${noticeStyle} border rounded-1 my-3 p-3 f5`}>
-      <p>
-        <b>{previewTitle}</b>
-      </p>
+    <Alert type={variant === 'preview' ? 'NOTE' : 'WARNING'}>
       {variant === 'preview' && item.preview ? (
         <p>
           <code>{item.name}</code> is available under the{' '}
-          <Link href={item.preview.href} locale={locale}>
+          <Link href={item.preview.href} makeAbsolute>
             {item.preview.title}
           </Link>
-          . {t('graphql.reference.preview_period')}
+          . {t('reference.preview_period')}
         </p>
       ) : item.deprecationReason ? (
         <div>
@@ -46,6 +32,6 @@ export function Notice({ item, variant = 'preview' }: Props) {
           />
         </div>
       ) : null}
-    </div>
+    </Alert>
   )
 }

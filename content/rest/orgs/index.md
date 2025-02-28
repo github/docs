@@ -1,8 +1,9 @@
 ---
-title: Organizations
+title: REST API endpoints for organizations
+shortTitle: Organizations
 intro: >-
   Use the REST API to control and manage all your {% data
-  variables.product.product_name %} organizations.
+  variables.product.github %} organizations.
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /v3/orgs
@@ -10,18 +11,21 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API
 children:
+  - /api-insights
   - /blocking
+  - /bypass-requests
+  - /custom-properties
   - /custom-roles
   - /members
+  - /network-configurations
+  - /organization-roles
   - /orgs
   - /outside-collaborators
   - /personal-access-tokens
-  - /properties
   - /rule-suites
   - /rules
   - /security-managers

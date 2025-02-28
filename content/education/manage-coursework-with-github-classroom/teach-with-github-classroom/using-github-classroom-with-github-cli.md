@@ -2,7 +2,7 @@
 title: 'Using {% data variables.product.prodname_classroom %} with {% data variables.product.prodname_cli %}'
 shortTitle: '{% data variables.product.prodname_classroom %} CLI'
 allowTitleToDifferFromFilename: true
-intro: 'You can use `gh`, the {% data variables.product.product_name %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
+intro: 'You can use `gh`, the {% data variables.product.github %} command line interface, to work with {% data variables.product.prodname_classroom %} directly from your command line.'
 versions:
   fpt: '*'
 type: how_to
@@ -10,17 +10,17 @@ type: how_to
 
 ## About {% data variables.product.prodname_classroom %} CLI <!-- omit in toc -->
 
-{% data reusables.cli.about-cli %} For more information, see "[AUTOTITLE](/github-cli/github-cli/about-github-cli)."
+{% data reusables.cli.about-cli %} For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
 
-You can work with {% data variables.product.prodname_classroom %} in the  {% data variables.product.prodname_cli %} to:
+You can work with {% data variables.product.prodname_classroom %} in the {% data variables.product.prodname_cli %} to:
 
-- [List classrooms](#list-classrooms)
-- [View classroom information](#view-classroom-information)
-- [List assignments](#list-assignments)
-- [List accepted assignments](#list-accepted-assignments)
-- [View assignment information](#view-assignment-information)
-- [Clone an assignment's starter code repository](#clone-an-assignments-starter-code-repository)
-- [Clone a student’s assignment repository](#clone-a-students-assignment-repository)
+* [List classrooms](#list-classrooms)
+* [View classroom information](#view-classroom-information)
+* [List assignments](#list-assignments)
+* [List accepted assignments](#list-accepted-assignments)
+* [View assignment information](#view-assignment-information)
+* [Clone an assignment's starter code repository](#clone-an-assignments-starter-code-repository)
+* [Clone a student’s assignment repository](#clone-a-students-assignment-repository)
 
 ## Setting up {% data variables.product.prodname_cli %} <!-- omit in toc -->
 
@@ -35,11 +35,11 @@ To install the {% data variables.product.prodname_classroom %} extension, run `g
 To use `gh` to work with {% data variables.product.prodname_classroom %}, type `gh classroom SUBCOMMAND`.
 
 As an example of a series of commands you might use to work with {% data variables.product.prodname_classroom %}, you could:
-- List your classrooms:<br>
+* List your classrooms:<br>
   `gh classroom list`
-- List the assignments for a specific classroom:<br>
+* List the assignments for a specific classroom:<br>
   `gh classroom assignments`
-- View information for a specific assignment:<br>
+* View information for a specific assignment:<br>
   `gh classroom assignment`
 
 ## `gh` subcommands for {% data variables.product.prodname_classroom %} <!-- omit in toc -->
@@ -102,6 +102,6 @@ Clones starter code repo used by an assignment. By default, the starter code is 
 gh classroom clone student-repos
 ```
 
-Clones student repositories from a given assignment. By default, the student repos are cloned into the current directory a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
+Clones student repositories from a given assignment. By default, the student repositories are cloned into the current directory a directory named after the assignment slug. To clone into a different directory, use the `--directory` flag. If the directory does not exists, it will be created.
 
-By default, results are paginated by 30. To get a different number of repositories, use the `--per-page NUMBER` flag.
+By default, all student repositories are cloned. To get a different number of repositories, use the `--page NUMBER` and `--per-page NUMBER` flags.

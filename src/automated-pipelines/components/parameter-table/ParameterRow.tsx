@@ -43,7 +43,7 @@ export function ParameterRow({
   bodyParamExpandCallback,
   clickedBodyParameterName,
 }: Props) {
-  const { t } = useTranslation(['parameter_table', 'products'])
+  const { t } = useTranslation(['parameter_table'])
 
   // This will be true if `rowParams` does not have a key called `default`
   // and it will be true if it does and its actual value is `undefined`.
@@ -52,12 +52,7 @@ export function ParameterRow({
     <>
       <tr className={`${isChild ? 'color-bg-subtle' : ''}`}>
         <td className={`${isChild ? 'px-3' : ''}`}>
-          <div
-            className={cx(
-              'pl-0 pt-1 pr-1 pb-1',
-              `${rowIndex > 0 && isChild ? 'pt-3 border-top color-border-muted' : ''}`,
-            )}
-          >
+          <div className={cx('pl-0 pt-1 pr-1 pb-1', `${rowIndex > 0 && isChild ? 'my-3' : ''}`)}>
             <div>
               {rowParams.name ? (
                 <>

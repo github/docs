@@ -2,7 +2,6 @@
 title: database interpret-results
 versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:
@@ -46,7 +45,7 @@ directory using [codeql database run-queries](/code-security/codeql-cli/codeql-c
 
 \[Mandatory] Path to the CodeQL database that has been queried.
 
-#### `<filesuite>...`
+#### `<file|dir|suite>...`
 
 Repeat the specification of which queries were executed here.
 
@@ -106,9 +105,36 @@ location.
 
 #### `--[no-]sarif-add-query-help`
 
-\[SARIF formats only] Include Markdown query help in the results. It
-loads query help for /path/to/query.ql from the /path/to/query.md file.
+\[SARIF formats only] \[Deprecated] Include Markdown query help for
+all queries. It loads query help for /path/to/query.ql from the
+/path/to/query.md file. If this flag is not supplied the default
+behavior is to include help only for custom queries i.e. those in query
+packs which are not of the form \`codeql/\<lang\&rt;-queries\`. This
+option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+#### `--sarif-include-query-help=<mode>`
+
+\[SARIF formats only] Specify whether to include query help in the
+SARIF output. One of:
+
+`always`: Include query help for all queries.
+
+`custom_queries_only` _(default)_: Include query help only for custom
+queries i.e. those in query packs which are not of the form
+\`codeql/\<lang\&rt;-queries\`.
+
+`never`: Do not include query help for any queries.
+
 This option has no effect when passed to [codeql bqrs interpret](/code-security/codeql-cli/codeql-cli-manual/bqrs-interpret).
+
+Available since `v2.15.2`.
+
+#### `--no-sarif-include-alert-provenance`
+
+\[Advanced] \[SARIF formats only] Do not include alert provenance
+information in the SARIF output.
+
+Available since `v2.18.1`.
 
 #### `--[no-]sarif-group-rules-by-pack`
 
@@ -121,6 +147,16 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 \[SARIF formats only] For alerts that have multiple causes, include
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
+
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
+#### `--sarif-run-property=<String=String>`
+
+\[SARIF formats only] A key value pair to add to the generated SARIF
+'run' property bag. Can be repeated.
 
 #### `--no-group-results`
 
@@ -138,12 +174,22 @@ A format string defining the format in which to produce file location
 URLs in DOT output. The following place holders can be used {path}
 {start:line} {start:column} {end:line} {end:column}, {offset}, {length}
 
+#### `--[no-]sublanguage-file-coverage`
+
+\[GitHub.com and GitHub Enterprise Server v3.12.0+ only] Use
+sub-language file coverage information. This calculates, displays, and
+exports separate file coverage information for languages which share a
+CodeQL extractor like C and C++, Java and Kotlin, and JavaScript and
+TypeScript.
+
+Available since `v2.15.2`.
+
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -154,9 +200,7 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
 
 #### `-j, --threads=<num>`
 
@@ -165,6 +209,13 @@ The number of threads used for computing paths.
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
 or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
+
+#### `--no-database-extension-packs`
+
+\[Advanced] Omit extension packs stored in the database during database
+creation, either from a Code Scanning configuration file or from
+extension files stored in the 'extensions' directory of the analyzed
+codebase.
 
 #### `--[no-]print-diagnostics-summary`
 
@@ -205,6 +256,14 @@ To authenticate to GitHub Enterprise Server Container registries, pass
 variable.
 
 This overrides the GITHUB\_TOKEN environment variable.
+
+### Options to specify which extensions to use when interpreting the results
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
 
 ### Options for finding QL packs (which may be necessary to interpret query suites)
 
@@ -281,3 +340,13 @@ the running subcommand.
 
 (To write a log file with a name you have full control over, instead
 give `--log-to-stderr` and redirect stderr as desired.)
+
+#### `--common-caches=<dir>`
+
+\[Advanced] Controls the location of cached data on disk that will
+persist between several runs of the CLI, such as downloaded QL packs and
+compiled query plans. If not set explicitly, this defaults to a
+directory named `.codeql` in the user's home directory; it will be
+created if it doesn't already exist.
+
+Available since `v2.15.2`.

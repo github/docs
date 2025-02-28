@@ -1,0 +1,271 @@
+date: '2025-02-25'
+release_candidate: true
+deprecated: false
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+
+  features:
+
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/5349
+        - |
+          We have optimized the monitor dashboard to help administrators quickly understand the operational health of the appliance at a glance. The newly added dashboard is concise and has actionable metrics. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
+        # https://github.com/github/releases/issues/5348
+        - |
+          GitHub Enterprise Server has Prometheus metrics exporter in the appliance. This was dark-shipped in version 3.12 and the security posture was improved in 3.16. It simplifies the process of setting up an observability and monitoring pipeline that integrates with an external Prometheus installation. Prometheus-compatible metrics can be scraped directly from the appliance. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics).
+        # https://github.com/github/releases/issues/4576
+        - |
+          Organization owners can manage security responsibilities more flexibly with updates to the security manager role. The role can be assigned directly to individual users, in addition to teams, allowing more precise control over security responsibilities. Additionally, security manager assignments are managed under Settings - Organization roles, streamlining role configuration alongside other organizational roles. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
+
+    - heading: Authentication
+      notes:
+        # https://github.com/github/releases/issues/2579
+        - |
+          Enterprise and organization administrators can set limits on token lifetimes for the {% data variables.product.pat_generic_title_case_plural %} (PATs) used against their resources. These policies mandate token rotation on a regular basis and reduce how long a compromised token is good for, while also providing a lever to reduce the use of less-secure PATs in your company. See [New PAT rotation policies preview and optional expiration for fine-grained PATs](https://github.blog/changelog/2024-10-18-new-pat-rotation-policies-preview-and-optional-expiration-for-fine-grained-pats/) on the GitHub blog.
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/5434
+        - |
+          Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
+        # https://github.com/github/releases/issues/4982
+        - |
+          Users can configure Dependabot to create pull requests to keep their repositories up to date with the .NET SDK latest version. When a new version is detected, Dependabot creates a pull request to update the `global.json` file to the new version. See [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-).
+
+    - heading: Security overview
+      notes:
+        # https://github.com/github/releases/issues/3926
+        - |
+          On the security overview dashboard, users can find a SAST vulnerabilities summary table that highlights the top 10 CodeQL and third-party open alerts by count, grouped by vulnerability type. This table helps teams prioritize remediation by showing the most widespread vulnerabilities across their codebase. The table is available for both organizations and enterprises in the Detection view. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+        # https://github.com/github/releases/issues/3956
+        - |
+          On the security overview dashboard, users can view Prevention metrics alongside Detection and Remediation metrics at both the organization and enterprise levels. See [the GitHub blog post](https://github.blog/changelog/2024-09-19-enhanced-security-overview-dashboard-detection-remediation-and-prevention-at-the-forefront/).
+        # https://github.com/github/releases/issues/3955
+        - |
+          Users can export CSV data from the "CodeQL pull request alerts" view for an organization. This expansion of the data you can export from security overview makes it easier for you to integrate the data with external systems, craft custom reports, and archive security information. See [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+        # https://github.com/github/releases/issues/5032
+        - |
+          On the security overview dashboard, accessibility enhancements improve how users interact with and understand code security insights. Updates include enhanced color contrast, full keyboard navigation, and better screen reader support, making security data more accessible to all users. See [Accessibility improvements for security overview](https://github.blog/changelog/2024-11-20-accessibility-improvements-for-security-overview/) on the GitHub blog.
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+        # https://github.com/github/releases/issues/4360
+        - |
+          Users can see job level annotations above the GitHub Actions log view, improving the discoverability of annotations.
+        # https://github.com/github/releases/issues/4225
+        - |
+          Users can control where CodeQL security analysis runs by specifying any custom label for self-hosted runners in code scanning's default setup. This update removes the previous restriction requiring the `code-scanning` label, allowing analysis to run on the desired machine(s). See [Improved support for labeled Actions runners in CodeQL code scanning](https://github.blog/changelog/2024-12-03-improved-support-for-labeled-actions-runners-in-codeql-code-scanning/) on the GitHub blog.
+        # https://github.com/github/releases/issues/4269
+        - |
+          The CI/CD Admin role is a pre-defined organization role. Organization owners and teams can delegate comprehensive CI/CD management to individuals without the need to maintain a custom role. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization#about-pre-defined-organization-roles).
+        # https://github.com/github/releases/issues/4309
+        - |
+          Enterprise administrators can authenticate with region-specific OIDC endpoints for improved compliance and performance.
+
+
+    - heading: GitHub Apps
+      notes:
+        # https://github.com/github/releases/issues/4900
+        - |
+          GitHub App developers can improve security with a 25-key limit per app, encouraging safer key management practices. Apps exceeding the limit must delete excess keys before adding new ones. Additionally, scoped tokens can access more repositories. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/4530
+        - |
+          Enterprise and organization administrators can configure policies to restrict the usage of deploy keys across all the repositories of their organizations, giving them more control and greater security over their deploy keys. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens).
+        # https://github.com/github/releases/issues/4668
+        - |
+          Enterprise owners are a bypass role in rulesets, which will allow further restrictions in rules bypassing.
+        # https://github.com/github/releases/issues/4671
+        - |
+          Custom repository properties have an “additional options” section that administrators can use to easily manage properties.
+        # https://github.com/github/releases/issues/4600
+        - |
+          Organization rulesets using custom properties include a link to the exact list of repositories targeted.
+        # https://github.com/github/releases/issues/4263
+        - |
+          Organization owners can allow users to set custom properties during repository creation. This ensures appropriate rules are enforced from the moment of creation and improves discoverability of new repositories. See [the GitHub blog post](https://github.blog/changelog/2024-09-10-push-rules-are-now-generally-available-and-updates-to-custom-properties/#custom-properties).
+
+    - heading: Security advisories
+      notes:
+        # https://github.com/github/releases/issues/3949
+        - |
+          Users who report security advisories can use the new CVSS 4.0 schema to calculate a base vulnerability score. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-cvss-levels).
+        # https://github.com/github/releases/issues/4483
+        - |
+          In the GitHub Advisory Database, users have access to an estimated probability that a vulnerability will be exploited over the next 30 days, calculated by the FIRST organization. This Exploit Prediction Scoring System (EPSS) score makes it easier for you to compare the risks of different vulnerabilities to your organization. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-epss-scores).
+
+    - heading: Code scanning
+      notes:
+       # https://github.com/github/releases/issues/4501
+        - |
+          Advanced setup for CodeQL code scanning supports using an actions dependency cache instead of downloading dependencies from registries in every run. Users should update their workflows to use a dependency cache if access to registries is unreliable or slow. Using a dependency cache reduces the risk of losing alerts when third-party registries don't work well and may produce a small performance improvement. See [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-dependency-caching-for-codeql).
+        # https://github.com/github/releases/issues/4628
+        - |
+          The CodeQL tools are available as a Zstandard archive with faster download and decompression times compared with the previous Gzipped archive.
+
+          * The time taken to set up CodeQL analysis is reduced for default and advanced setup. No action is required by users of default and advanced setup to use the Zstandard archive, as the CodeQL action will automatically download the new archive.
+          * People who use the CodeQL CLI can directly update their processes to download the new Zstandard archive. See [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/setting-up-the-codeql-cli#1-download-the-codeql-cli-tar-archive).
+
+    - heading: Secret scanning
+      notes:
+        # https://github.com/github/releases/issues/4126
+        # https://github.com/github/releases/issues/4658
+        # https://github.com/github/releases/issues/4629
+        # https://github.com/github/releases/issues/4596
+        # https://github.com/github/releases/issues/4595
+        # https://github.com/github/releases/issues/4896
+        - |
+          Repository administrators, organization owners, and security managers can specify which teams or roles have the ability to bypass push protection. These controls introduce a review and approval cycle for pushes containing secrets from all other contributors. This functionality is generally available and includes the following improvements over the preview:
+          * Organization owners and security managers can define different groups of bypass reviewers for groups of repositories using security configurations. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration).
+          * When defining bypass reviewers, organization owners and security managers have the flexibility of using a fine-grained permission, in addition to the existing role and team options. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#using-fine-grained-permissions-to-control-who-can-review-and-manage-bypass-requests).
+          * For blocked secrets, bypass reviewers see the branch and file path of the secret which makes it easier to triage bypass requests effectively. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection).
+          * Users of the REST API, webhooks, and audit logs have access to additional fields which record details for approved bypass requests resulting in secret scanning alerts. See [Push protection bypass request details are included in the REST API, webhooks, and audit logs for secret scanning alerts](https://github.blog/changelog/2024-11-12-push-protection-bypass-request-details-are-included-in-the-rest-api-webhooks-and-audit-logs-for-secret-scanning-alerts/) on the GitHub blog.
+          * Reviewers can add comments to push protection bypass requests in secret scanning. These comments help provide context, explaining the reasoning behind approving or denying a request. Requesters gain clarity on why their request was denied, and other reviewers can better understand why a request was approved or denied.
+           * Secret scanning supports delegated bypass controls for repository file uploads from the browser. When enabled, users without bypass permissions must submit a request to approved reviewers before uploading a file containing a detected secret, reducing the risk of accidental exposure. See [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection#about-delegated-bypass-for-push-protection).
+        # https://github.com/github/releases/issues/4261
+        # https://github.com/github/releases/issues/4597
+        - |
+          Automatic detection of non-provider patterns that help you uncover secrets outside of patterns tied to specific token issuers, like HTTP authentication headers, connection strings, and private keys, is generally available. This release includes the following improvement over the preview:
+          * Users can find security alerts from non-provider patterns on the "Experimental" view of the repository "Secret scanning alerts" page for a repository, and in the security overview for an organization. The new name for the view more clearly communicates the status of the alerts than the old name of "Other".
+        # https://github.com/github/releases/issues/4842
+        - |
+          Users who reopen a secret scanning alert manually have the option to add a comment explaining why the alert needs to be reopened. Any comments added will be visible in the alert UI, REST API, and webhooks, in the same way as for comments on dismissing an alert.
+        # https://github.com/github/releases/issues/4708
+        - |
+          Users can use a new REST API endpoint to report on the scanning history for a repository which is useful for auditing scans and also for troubleshooting. See [Access a repository’s secret scanning scan history with the REST API](https://github.blog/changelog/2024-11-27-access-a-repositorys-secret-scanning-scan-history-with-the-rest-api/) on the GitHub blog.
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/4288
+        - |
+          Enterprise owners can simplify and standardize the rollout of GitHub security products by creating security configurations at the enterprise-level. An enterprise configuration can be applied to repositories at the enterprise or the organization level. This gives you the option to enforce security features enterprise-wide, or to define configurations centrally but apply them locally using organization-level filtering to define a group of repositories. See [Code security configurations now available at the enterprise level](https://github.blog/changelog/2024-12-12-code-security-configurations-now-available-at-the-enterprise-level/) on the GitHub blog.
+        # https://github.com/github/releases/issues/4289
+        - |
+          Organization owners and security managers can apply security configurations to archived repositories. This makes it simpler to roll out configurations without having to filter for archived repositories, and ensures features like Dependabot, code scanning, and secret scanning are automatically reapplied if a repository is unarchived. In addition, secret scanning runs on all repositories, including archived repositories, so if you add a new custom pattern, archived repositories will be scanned for matches. See [Code security configurations now support archived repositories](https://github.blog/changelog/2024-10-03-code-security-configurations-now-support-archived-repositories/) on the GitHub blog.
+        # https://github.com/github/releases/issues/4636
+        - |
+          Organization owners and security managers with GitHub Advanced Security enabled have extra filtering options so they can select repositories based on the enablement or disablement of code security features. See [New advanced filters for code security configurations](https://github.blog/changelog/2024-09-18-new-advanced-filters-for-code-security-configurations/) on the GitHub blog.
+
+    - heading: Monitoring
+      notes:
+        # https://github.com/github/releases/issues/5349
+        - |
+          Enterprise administrators can better monitor the health of the appliance with optimized dashboards that provide concise, actionable metrics. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
+
+    - heading: Issues
+      notes:
+        # https://github.com/github/releases/issues/4033
+        # https://github.com/github/releases/issues/3121
+        - |
+          Issues and projects feature highly-requested enhancements including sub-issues, issue types, and advanced search for issues. These feature enhancements make it easy to break down work, visualize progress, categorize and find just the right issue in GitHub. See the [GitHub blog post](https://github.blog/changelog/2024-10-01-evolving-github-issues-public-beta/).
+
+    - heading: GitHub Mobile
+      notes:
+        # https://github.com/github/releases/issues/4456
+        - |
+          GitHub Mobile users can stay focused on important updates with Focused Notifications. This feature prioritizes notifications from the past 30 days, including items they've authored, direct mentions, and assigned tasks, helping reduce noise and improve productivity.
+
+  security_fixes:
+    # https://github.com/github/releases/issues/5415
+    - |
+      **HIGH**: An attacker could access environment variables in the debug artifacts uploaded by the CodeQL action after a failed code scanning workflow run. This includes any secrets that were exposed to the workflow as environment variables. The attacker requires read access to the repository to access the debug artifact. Users who do not have debug logging enabled are unaffected. The impact to GitHub Enterprise Server users is limited to internal actors. To mitigate this issue, GitHub no longer logs the complete environment by default. GitHub has requested [CVE-2025-24362](https://www.cve.org/CVERecord?id=CVE-2025-24362) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+
+  changes:
+    - |
+      The 400GB root disk requirement introduced in [Enterprise Server 3.15.0](/enterprise-server@3.15/admin/release-notes#3.15.0-features) has been reverted in 3.15.2. The 400GB root disk size is no longer a requirement for new GHES installations and upgrades. Customers on standalone or standalone HA topologies are still recommended to upgrade their root disk size to 400GB.
+    # https://github.com/github/releases/issues/4336
+    - |
+      `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
+    # https://github.com/github/releases/issues/4913
+    - |
+      When an enterprise requires two-factor authentication (2FA), members who do not use 2FA still retain membership even without 2FA, including occupying seats in the enterprise and organizations. However, these users won't be able to access the enterprise resources until they enable 2FA on their account. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization).
+    # https://github.com/github/releases/issues/4676
+    - |
+      The Debian and RedHat releases have been signed with a new GPG key. If you installed `gh` via our official package repositories, please update your keyring to the new key to continue verifying GitHub CLI releases. See the [GitHub blog post](https://github.blog/changelog/2024-09-11-github-cli-renews-gpg-signing-key-for-linux-packages/).
+    # https://github.com/github/releases/issues/5415
+    - |
+      The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
+
+  known_issues:
+    - |
+      **Note:** This list is not complete. Any new known issues that are identified for the 3.16 release will be added between now and the general availability release.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      When restoring data originally backed up from an appliance with version 3.13 or greater, the Elasticsearch indices must be reindexed before the data will display. This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page displays on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the ghe-cluster-repl-bootstrap command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      Customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", which fills the root disk with logs causing a system degradation. To prevent this, turn off the feature "[Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks)" in the management console.
+    - |
+      In a cluster, the host running restore requires access the storage nodes via their private IPs.
+    - |
+      Commenting on an issue via email is not reflected on the issue in Azure.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+
+  closing_down:
+    # https://github.com/github/releases/issues/4683
+    - |
+      As of November 6, 2024, Dependabot no longer supports Composer version 1, which has reached its end-of-life. If you continue to use Composer version 1, Dependabot will be unable to create pull requests to update your dependencies. If this affects you, we recommend updating to a supported release of Composer. As of October 2024, the newest supported version of Composer is 2.8, and the long-term supported version is 2.2. View [Composer's official documentation](https://getcomposer.org/download/) for more information about supported releases.
+    # https://github.com/github/releases/issues/3525
+    - |
+      In GitHub Enterprise Server 3.17, GitHub will migrate tag protection rules to a ruleset and the tag protection rule feature will no longer be available. Prior to upgrading to 3.17, you can use the [migration feature](https://github.blog/changelog/2023-10-18-migrate-tag-protections-to-repository-rules/) to move your tag protection rules.
+    # https://github.com/github/releases/issues/5381
+    - |
+      In GitHub Enterprise Server 3.17, GitHub will deprecate the Docker registry for GitHub Packages in favor of the GitHub Container Registry, which supports Docker packages. All packages in the Docker registry will be deleted and cannot be fetched past the deprecation date.
+    # https://github.com/github/releases/issues/5292
+    - |
+      In GitHub Enterprise Server 3.17, Dependabot will no longer support Python 3.8, which has reached its end-of-life. If you continue to use Python 3.8, Dependabot will not be able to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of Python. As of February 2025, Python 3.13 is the newest supported release.
+    # https://github.com/github/releases/issues/5204
+    - |
+      In GitHub Enterprise Server 3.17, Dependabot will no longer support NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
+   # https://github.com/github/releases/issues/4710
+    - |
+      In GitHub Enterprise Server 3.17 and later, the field `cvss` for GitHub security advisories in the REST & GraphQL APIs will be deprecated in favour of the new `cvss_severities` field.
+
+  retired:
+    - |
+      Team discussions have been removed from GitHub Enterprise Server. The sunset of this feature was announced in 2023. See the [GitHub Blog post](https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/).
+    # https://github.com/github/releases/issues/4964
+    - |
+      In GitHub Enterprise Server 3.16, the `/explore` functionality, including the Activity and Trending pages, is removed.
+    # https://github.com/github/releases/issues/4380
+    - |
+      GitHub no longer supports .NET 6 in GitHub Enterprise Server 3.16 and later.
+    # https://github.com/github/releases/issues/4535
+    - |
+      As of October 15th, 2024, you will no longer be able to enable or disable GitHub security features for repositories from the organization-level security coverage view. This feature has been deprecated and replaced with code security configurations for managing these settings. See the [GitHub blog post](https://github.blog/changelog/2024-10-17-new-code-security-configurations-let-you-set-security-features-at-the-organization-level/).

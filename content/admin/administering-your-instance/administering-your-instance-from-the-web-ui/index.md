@@ -13,6 +13,13 @@ redirect_from:
   - /enterprise/admin/configuration/accessing-the-management-console
   - /admin/configuration/accessing-the-management-console
   - /admin/configuration/administering-your-instance-from-the-management-console
+  - /enterprise/admin/articles/site-admin-dashboard
+  - /enterprise/admin/installation/site-admin-dashboard
+  - /enterprise/admin/configuration/site-admin-dashboard
+  - /admin/configuration/site-admin-dashboard
+  - /admin/configuration/configuring-your-enterprise/site-admin-dashboard
+  - /admin/administering-your-instance/site-admin-dashboard
+  - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/site-admin-dashboard
 versions:
   ghes: '*'
 type: how_to
@@ -23,7 +30,7 @@ children:
   - /managing-access-to-the-management-console
   - /accessing-the-management-console
   - /troubleshooting-access-to-the-management-console
-  - /site-admin-dashboard
+  - /managing-search-indices-for-your-instance
 shortTitle: Web UI
 ---
 

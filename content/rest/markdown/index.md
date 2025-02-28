@@ -1,9 +1,10 @@
 ---
-title: Markdown
-intro: Use the REST API to render a markdown document as an HTML page or as raw text.
+title: REST API endpoints for Markdown
+shortTitle: Markdown
+allowTitleToDifferFromFilename: true
+intro: Use the REST API to render a Markdown document as an HTML page or as raw text.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

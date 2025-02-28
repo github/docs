@@ -1,8 +1,10 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { imageAltTextEndPunctuation } from '../../lib/linting-rules/image-alt-text-end-punctuation.js'
 
 describe(imageAltTextEndPunctuation.names.join(' - '), () => {
-  test('image alt text without end punctutation errors', async () => {
+  test('image alt text without end punctuation errors', async () => {
     const markdown = [
       '# Heading',
       '',
@@ -29,7 +31,7 @@ describe(imageAltTextEndPunctuation.names.join(' - '), () => {
       insertText: '.',
     })
   })
-  test('image alt text with end punctutation passes', async () => {
+  test('image alt text with end punctuation passes', async () => {
     const markdown = [
       '# Heading',
       '',

@@ -3,7 +3,7 @@ title: Managing rulesets for repositories in your organization
 intro: 'You can edit, monitor, and delete existing rulesets to alter how people can interact with repositories in your organization.'
 versions:
   feature: repo-rules-enterprise
-permissions: 'Organization owners can manage rulesets at the organization level.'
+permissions: 'Organization owners and users with the "Manage organization ref update rules and rulesets" permission can manage rulesets at the organization level.'
 topics:
   - Organizations
 shortTitle: Manage rulesets
@@ -11,9 +11,15 @@ shortTitle: Manage rulesets
 
 ## About managing rulesets for an organization
 
-After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to the "Default Branch" of a repository will no longer allow the repository administrator to make updates to the default branch of the targeted repository.
+After creating a ruleset at the organization level, you can make changes to the ruleset to alter how people can interact with the targeted repositories. For example, you can add rules to better protect the branches or tags in those repositories, or you can switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repositories. Organizational rulesets that apply to branches of a repository will no longer allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. Repository administrators may create and delete branches so long as they have the appropriate permissions.
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/orgs/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.about-push-rule-delegated-bypass %}
+
+{% endif %}
+
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/orgs/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
 
 {% data reusables.repositories.rulesets-anyone-can-view %}
 
@@ -65,9 +71,15 @@ You can view insights for rulesets to see how rulesets are affecting the reposit
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Repository rule insights**.
+1. In the left sidebar, in the "Code, planning, and automation" section, click **{% octicon "repo" aria-hidden="true" %} Repository**, then click **Rule insights**.
 
-   ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Repository rule insights" is outlined in orange.](/assets/images/help/organizations/repository-rule-insights.png)
+   ![Screenshot of an organization's settings page. In the sidebar, a link labeled "Rule insights" is outlined in orange.](/assets/images/help/organizations/sidebar-repository-rule-insights.png)
 
-1. On the "Rule Insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
+1. On the "Rule insights" page, use the dropdown menus at the top of the page to filter the actions by ruleset, repository, actor, and time period.
 {% data reusables.repositories.rulesets-view-rule-runs %}
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.managing-delegated-bypass %}
+
+{% endif %}

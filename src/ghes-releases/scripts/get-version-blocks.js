@@ -10,7 +10,7 @@ export default function getVersionBlocks(rawBlocks) {
     const condOnly = block.conditional.replace(/{%-? /, '').replace(/ -?%}/, '')
     const condWithLiquid = block.conditional
 
-    // E.g., [ 'ghes', 'ghes < 2.21', 'ghae' ]
+    // E.g., [ 'ghes', 'ghes < 2.21' ]
     const condArgs = condOnly
       .replace('ifversion ', '')
       .replace('elsif ', '')

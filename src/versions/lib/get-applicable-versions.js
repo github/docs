@@ -2,7 +2,7 @@ import { reduce, sortBy } from 'lodash-es'
 import { allVersions } from './all-versions.js'
 import versionSatisfiesRange from './version-satisfies-range.js'
 import { next, nextNext } from './enterprise-server-releases.js'
-import { getDeepDataByLanguage } from '../../../lib/get-data.js'
+import { getDeepDataByLanguage } from '#src/data-directory/lib/get-data.js'
 
 let featureData = null
 
@@ -34,8 +34,7 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
   // and add the versions affiliated with the feature (e.g., foo) to the frontmatter versions object:
   //    fpt: '*'
   //    ghes: '>=2.23'
-  //    ghae: '*'
-  // where the feature is bringing the ghes and ghae versions into the mix.
+  // where the feature is bringing the ghes versions into the mix.
   const featureVersionsObj = reduce(
     versionsObj,
     (result, value, key) => {
@@ -89,7 +88,7 @@ function evaluateVersions(versionsObj) {
   // where versions obj is something like:
   //   fpt: '*'
   //   ghes: '>=2.19'
-  //   ghae: '*'
+  //   ghec: '*'
   // ^ where each key corresponds to a plan's short name (defined in lib/all-versions.js)
   Object.entries(versionsObj).forEach(([plan, planValue]) => {
     // For each available plan (e.g., `ghes`), get the matching versions from allVersions.

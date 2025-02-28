@@ -1,1 +1,1 @@
-github/codeql-action/autobuild@v2
+github/codeql-action/autobuild@v3

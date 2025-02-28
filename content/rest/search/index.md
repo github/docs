@@ -1,11 +1,12 @@
 ---
-title: Search
+title: REST API endpoints for search
+shortTitle: Search
+allowTitleToDifferFromFilename: true
 intro: >-
   Use the REST API to search for specific items on {% data
-  variables.product.product_name %}.
+  variables.product.github %}.
 versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 topics:

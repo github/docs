@@ -1,4 +1,4 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 import { allVersionKeys, allVersions } from '#src/versions/lib/all-versions.js'
@@ -23,7 +23,6 @@ describe('frontmatter versions are generated correctly from automated data', () 
 
     const expectedVersions = {
       fpt: '*',
-      ghae: '*',
       ghec: '*',
       ghes: expectedEnterpriseServerVersions,
     }
@@ -41,7 +40,6 @@ describe('frontmatter versions are generated correctly from automated data', () 
     const nextLatestRelease = supported[1]
     const expectedVersions = {
       fpt: '*',
-      ghae: '*',
       ghec: '*',
       ghes: `<=${nextLatestRelease}`,
     }
@@ -58,7 +56,6 @@ describe('frontmatter versions are generated correctly from automated data', () 
     const secondOldestRelease = supported[supported.length - 2]
     const expectedVersions = {
       fpt: '*',
-      ghae: '*',
       ghec: '*',
       ghes: `>=${secondOldestRelease}`,
     }
