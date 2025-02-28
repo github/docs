@@ -49,7 +49,7 @@ jobs:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
-          src/rest/scripts/update-files.js --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description
@@ -73,7 +73,7 @@ jobs:
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           if [[ $changes -eq 0 ]]; then
-            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            echo "There are no changes to commit after running `npm run sync-rest` Exiting..."
             exit 0
           fi
 
@@ -101,7 +101,8 @@ jobs:
 
             If CI does not pass or other problems arise, contact #docs-engineering on slack.' \
             --repo github/docs-internal \
-            --label github-openapi-bot
+            --label github-openapi-bot \
+            --head=$branchname \
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

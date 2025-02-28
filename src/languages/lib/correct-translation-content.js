@@ -20,11 +20,47 @@ export function correctTranslatedContentStrings(content, englishContent, context
   content = content.replaceAll('[AUTOTITLE"을 참조하세요.](', '[AUTOTITLE](')
   content = content.replaceAll('[ AUTOTITLE](', '[AUTOTITLE](')
   content = content.replaceAll('[ "AUTOTITLE](', '[AUTOTITLE](')
+  content = content.replaceAll('[«AUTOTITLE»](', '[AUTOTITLE](')
+
+  // We've seen a lot of these across different languages.
+  content = content.replaceAll('{{% octicon', '{% octicon')
+  content = content.replaceAll('{{%octicon', '{% octicon')
+  content = content.replaceAll('{{% endif %}', '{% endif %}')
+  content = content.replaceAll('{{%endif %}', '{% endif %}')
+
+  // For a short while we injected `replacedomain` into code snippets
+  // to activate the Domain Edit functionality. That was in `main` for a
+  // while and was later removed in English. But during that window of
+  // time, some translations picked it up. Let's remove it. For now.
+  // The day we re-instate editable domain, delete these lines.
+  if (content.includes('replacedomain')) {
+    content = content.replaceAll('```text replacedomain copy', '```text copy')
+    content = content.replaceAll('```shell replacedomain', '```shell')
+  }
 
   if (context.code === 'ru') {
-    // We've seen a lot of these in the Russian translations:
+    // Low-hanging fruit for the data tag
     content = content.replaceAll('{% данных variables', '{% data variables')
+    content = content.replaceAll('{% данными variables', '{% data variables')
+    content = content.replaceAll('{% данных организации variables', '{% data variables')
+    content = content.replaceAll('{% данным variables.', '{% data variables.')
+    content = content.replaceAll('{% данные variables.', '{% data variables.')
+    content = content.replaceAll('{% данных reusables', '{% data reusables')
+    content = content.replaceAll('{% данными reusables', '{% data reusables')
     content = content.replaceAll('{% variables.', '{% data variables.')
+    content = content.replaceAll('{% необработанного %}', '{% raw %}')
+    content = content.replaceAll('{%- ifversion fpt или ghec %}', '{%- ifversion fpt or ghec %}')
+    content = content.replaceAll('{% ifversion fpt или ghec %}', '{% ifversion fpt or ghec %}')
+    content = content.replaceAll('{% endif _%}', '{% endif %}')
+    content = content.replaceAll('{% конечным %}', '{% endif %}')
+    content = content.replaceAll('{% переменных данных.', '{% data variables.')
+    content = content.replaceAll('{% повторно используемых данных.', '{% data reusables.')
+    content = content.replaceAll('{% примечание %}', '{% note %}')
+    content = content.replaceAll('{% конечных головщиков %}', '{% endrowheaders %}')
+    content = content.replaceAll('{% данных для повторного использования.', '{% data reusables.')
+    content = content.replaceAll('{% еще %}', '{% else %}')
+    content = content.replaceAll('{% необработанные %}', '{% raw %}')
+    content = content.replaceAll('{% подсказки %}', '{% tip %}')
 
     // For the rather custom Russian translation of
     // the content/get-started/learning-about-github/github-glossary.md page
@@ -37,7 +73,60 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('{{ глоссарий.description }}', '{{ glossary.description }}')
   }
 
+  if (context.code === 'ja') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% データ variables', '{% data variables')
+    content = content.replaceAll('{% データvariables', '{% data variables')
+
+    // Internal issue #4160
+    content = content.replaceAll(
+      '- % data variables.product.prodname_copilot_enterprise %}',
+      '- {% data variables.product.prodname_copilot_enterprise %}',
+    )
+
+    // This might not be exclusive to Japanese but put here because, at
+    // the time of writing, it only happens on the Japanse translations.
+    // According to the Microsoft translation guidelines, they're not
+    // supposed to translate words that will be seen in the UI, but
+    // instead mention then like this:
+    //
+    //    [Save changes](THE TRANSLATION OF "Save changes" IN JAPANESE)
+    //
+    // The problem is when these are wrapped in a deliberate Markdown link.
+    // For example:
+    //
+    //    [[Save changes](THE TRANSLATION OF "Save changes" IN JAPANESE)](#some-section)
+    //
+    // A real observed example is:
+    //
+    //    [[Allow deletions](削除を許可)](#allow-deletions)
+    //
+    // Here, because "削除を許可" contains no spaces, the Markdown parser
+    // thinks "削除を許可" is the URL! But in actuality,
+    // `[Allow deletions](削除を許可)` is the text and `#allow-deletions`
+    // is the URL.
+    // This problem does not exhibit if the text "削除を許可" were to contain
+    // a space character. But we can't assume that we can just add a space.
+    // For example "削除 を許可" would be incorrect. And where do you put the
+    // space? Between which characters.
+    // Instead, we can inject a "hair space" whitespace character between
+    // the `]` and the `(`. Then, the Markdown processor does not get confused
+    // and the link is rendered correctly.
+    // The `\u200A` is the "hair space" character. Technically whitespace
+    // but not wide enough to visually appear as a space.
+    content = content.replace(/\[(\[.*?\])(\(\S+\)\]\()/g, '[$1\u200A$2')
+  }
+
+  if (context.code === 'zh') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 数据variables', '{% data variables')
+  }
+
   if (context.code === 'ko') {
+    // Low-hanging fruit for the data tag
+    content = content.replaceAll('{% 데이터 variables', '{% data variables')
+    content = content.replaceAll('{% 데이터 reusables.', '{% data reusables.')
+
     // For the rather custom Korean translation of github-glossary.md
     // Let's try to salvage based on what's in
     // docs-internal.ko-kr/content/get-started/learning-about-github/github-glossary.md
@@ -45,6 +134,11 @@ export function correctTranslatedContentStrings(content, englishContent, context
     content = content.replaceAll('용어집 %}의 용어집에 대한 {%', '{% for glossary in glossaries %}')
     content = content.replaceAll('{{ 용어집.term }}', '{{ glossary.term }}')
     content = content.replaceAll('{{ 용어집.description }}', '{{ glossary.description }}')
+  }
+
+  if (context.code === 'es') {
+    // Seen these a few times in the Spanish translations.
+    content = content.replaceAll('{% vulnerables variables.', '{% data variables.')
   }
 
   // We have seen a lot of Markdown tables, that may have Liquid tags
@@ -79,6 +173,16 @@ export function correctTranslatedContentStrings(content, englishContent, context
       '{% data variables.copilot.cfb_price_per_month %} par utilisateur et par mois.',
     )
   }
+
+  // These are common mistakes made by translations that are specific.
+  // It's prevalent in all translations so that's why it's not per-language.
+  // It's important though that this happens after the other per-language
+  // specific fixes above. For example `{{% данных variables...`
+  content = content.replaceAll('{{% data variables.', '{% data variables.')
+  content = content.replaceAll('{%%data variables.', '{% data variables.')
+  content = content.replaceAll('{{% data reusables.', '{% data reusables.')
+  content = content.replaceAll('{%%data reusables.', '{% data reusables.')
+  content = content.replaceAll('{{% ifversion ', '{% ifversion ')
 
   // A lot of Liquid tags lose their linebreak after the `}`
   // result in formatting problems, especially around Markdown tables.
@@ -225,5 +329,15 @@ export function correctTranslatedContentStrings(content, englishContent, context
       content = content.replace(keyString, '[redacted in translation]')
     }
   }
+
+  if (content.includes('{{%')) {
+    content.split('\n').forEach((line, i) => {
+      if (line.includes('{{%') && !line.includes('{{{% endraw')) {
+        console.log(context.code, 'context.relativePath', context.relativePath)
+        console.log(i, line)
+      }
+    })
+  }
+
   return content
 }

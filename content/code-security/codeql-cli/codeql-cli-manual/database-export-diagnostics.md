@@ -85,10 +85,10 @@ The output path to write diagnostic information to.
 
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -99,9 +99,7 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
 
 ### Common options
 

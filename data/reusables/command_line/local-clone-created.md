@@ -1,7 +1,7 @@
 1. Press **Enter** to create your local clone.
 
    ```shell
-   $ git clone https://{% data variables.command_line.codeblock %}/YOUR-USERNAME/YOUR-REPOSITORY
+   $ git clone https://{% data variables.product.product_url %}/YOUR-USERNAME/YOUR-REPOSITORY
    > Cloning into `Spoon-Knife`...
    > remote: Counting objects: 10, done.
    > remote: Compressing objects: 100% (8/8), done.

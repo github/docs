@@ -4,14 +4,14 @@ shortTitle: Code search syntax
 intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
 
 ## About code search query structure
 
-The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %}  code search. {% data reusables.search.non-code-search-explanation %}
+The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %} code search. {% data reusables.search.non-code-search-explanation %}
 
 Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
 
@@ -35,13 +35,13 @@ sparse index
 
 The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees`, and even a file named `index.txt` that contains the term `sparse`.
 
-Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
+Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see [Using boolean operations](#using-boolean-operations).
 
-Code search also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
+Code search also supports searching for an exact string, including whitespace. For more information, see [Query for an exact match](#query-for-an-exact-match).
 
-You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in code search, see "[Using qualifiers](#using-qualifiers)."
+You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in code search, see [Using qualifiers](#using-qualifiers).
 
-You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see [Using regular expressions](#using-regular-expressions).
 
 ## Query for an exact match
 
@@ -69,7 +69,7 @@ To search for code containing a backslash, `\`, use a double backslash, `\\`.
 
 The two escape sequences `\\` and `\"` can be used outside of quotes as well. No other escape sequences are recognized, though. A backslash that isn't followed by either `"` or `\` is included in the search, unchanged.
 
-Additional escape sequences, such as `\n` to match a newline character, are supported in regular expressions. See "[Using regular expressions](#using-regular-expressions)."
+Additional escape sequences, such as `\n` to match a newline character, are supported in regular expressions. See [Using regular expressions](#using-regular-expressions).
 
 ## Using boolean operations
 
@@ -98,13 +98,13 @@ You can use parentheses to express more complicated boolean expressions. For exa
 ## Using qualifiers
 
 You can use specialized keywords to qualify your search.
-- [Repository qualifier](#repository-qualifier)
-- [Organization and user qualifiers](#organization-and-user-qualifiers)
-- [Language qualifier](#language-qualifier)
-- [Path qualifier](#path-qualifier)
-- [Symbol qualifier](#symbol-qualifier)
-- [Content qualifier](#content-qualifier)
-- [Is qualifier](#is-qualifier)
+* [Repository qualifier](#repository-qualifier)
+* [Organization and user qualifiers](#organization-and-user-qualifiers)
+* [Language qualifier](#language-qualifier)
+* [Path qualifier](#path-qualifier)
+* [Symbol qualifier](#symbol-qualifier)
+* [Content qualifier](#content-qualifier)
+* [Is qualifier](#is-qualifier)
 
 ### Repository qualifier
 
@@ -120,11 +120,8 @@ To search within a set of repositories, you can combine multiple `repo:` qualifi
 repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
 
 ### Organization and user qualifiers
 
@@ -140,11 +137,8 @@ To search for files within a personal account, use the `user:` qualifier. For ex
 user:octocat
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
 
 ### Language qualifier
 
@@ -154,7 +148,7 @@ To narrow down to a specific languages, use the `language:` qualifier. For examp
 language:ruby OR language:cpp OR language:csharp
 ```
 
-For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
 
 ### Path qualifier
 
@@ -172,7 +166,7 @@ To match only a specific filename (and not part of the path), you could use a re
 path:/(^|\/)README\.md$/
 ```
 
-Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see [Using regular expressions](#using-regular-expressions).
 
 <br>
 
@@ -191,13 +185,13 @@ To search for JavaScript files within a `src` directory, you could use:
 path:src/*.js
 ```
 
-- By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like `app/src/main.js`. But if you prefix the expression with `/`, it will anchor to the start. For example:
+* By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like `app/src/main.js`. But if you prefix the expression with `/`, it will anchor to the start. For example:
 
     ```text
     path:/src/*.js
     ```
 
-- Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
+* Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
 
     ```text
     path:/src/**/*.js
@@ -238,18 +232,9 @@ You can also use regular expressions with the symbol qualifier. For example, the
 language:rust symbol:/^String::to_.*/
 ```
 
-Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages.
+Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages:
 
-- C#
-- Python
-- Go
-- Java
-- JavaScript
-- TypeScript
-- PHP
-- Protocol Buffers
-- Ruby
-- Rust
+{% data reusables.search.code-nav-supported-languages %}
 
 We are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source [Tree-sitter](https://github.com/tree-sitter) parser ecosystem, upon which symbol search is based.
 
@@ -267,10 +252,10 @@ This query would only match files containing the term `README.md`, rather than m
 
 To filter based on repository properties, you can use the `is:` qualifier. `is:` supports the following values:
 
-- `archived`: restricts the search to archived repositories.
-- `fork`: restricts the search to forked repositories.
-- `vendored`: restricts the search to content detected as vendored.
-- `generated`: restricts the search to content detected as generated.
+* `archived`: restricts the search to archived repositories.
+* `fork`: restricts the search to forked repositories.
+* `vendored`: restricts the search to content detected as vendored.
+* `generated`: restricts the search to content detected as generated.
 
 For example:
 
@@ -323,3 +308,11 @@ printf("hello world\n");
 Code search will give up on interpreting the parentheses and quotes as special characters and will instead search for files containing that exact code.
 
 If code search guesses wrong, you can always get the search you wanted by using quotes and spaces to make the meaning clear.
+
+## Case sensitivity
+
+By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True", you would use:
+
+```text
+/(?-i)True/
+```

@@ -1,13 +1,13 @@
-import { jest } from '@jest/globals'
 import path from 'path'
+
+import { beforeAll, describe, expect, test, vi } from 'vitest'
+
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 import readJsonFile from '#src/frame/lib/read-json-file.js'
 
-jest.useFakeTimers({ legacyFakeTimers: true })
-
 describe('developer redirects', () => {
-  jest.setTimeout(10 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   beforeAll(async () => {
     // The first page load takes a long time so let's get it out of the way in

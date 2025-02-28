@@ -31,7 +31,7 @@ In Git, the author date is when someone first creates a commit with `git commit`
 
 On your profile page, the author date is used to calculate when a commit was made. Whereas, in a repository, the commit date is used to calculate when a commit was made in the repository.
 
-Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
+Most often, the author date and commit date are the same but you may notice that your commit sequence is out of order if the commit history is changed. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)
 
 ## Viewing missing commit details from commits in your timeline
 
@@ -49,10 +49,10 @@ CommitDate: Tue Apr 10 06:25:08 2018 +0900
 If the author and commit date are different, you can manually change the commit date in the URL to see the commit details.
 
 For example:
-- This URL uses the author date of `2018-04-03`:
+* This URL uses the author date of `2018-04-03`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-03T00:00:00Z&until=2018-04-03T23:59:59Z`
-- This URL uses the commit date of `2018-04-10`:
+* This URL uses the commit date of `2018-04-10`:
 
   `https://github.com/your-organization-or-personal-account/your-repository/commits?author=octocat&since=2018-04-10T00:00:00Z&until=2018-04-10T23:59:59Z`
 
@@ -60,4 +60,4 @@ When you open the URL with the modified commit date, you can see the commit deta
 
 ## Expected commits missing in your timeline
 
-If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)"
+If you're not seeing expected commits on your timeline, it's possible the commit history in Git was rewritten and the commit author date and the commit date are different. For other possibilities, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)

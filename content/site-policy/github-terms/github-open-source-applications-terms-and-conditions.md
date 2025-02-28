@@ -58,7 +58,7 @@ GitHub reserves the right at any time and from time to time to modify or discont
 
 1. Governing Law. You agree that these Application Terms and your use of the Software are governed under California law and any dispute related to the Software must be brought in a tribunal of competent jurisdiction located in or near San Francisco, California.
 
-1. Third-Party Packages. The Software supports third-party "Packages" which may modify, add, remove, or alter the functionality of the Software.  These Packages are not covered by these Application Terms and may include their own license which governs your use of that particular package.
+1. Third-Party Packages. The Software supports third-party "Packages" which may modify, add, remove, or alter the functionality of the Software. These Packages are not covered by these Application Terms and may include their own license which governs your use of that particular package.
 
 1. No Modifications; Complete Agreement. These Application Terms may only be modified by a written amendment signed by an authorized representative of GitHub, or by the posting by GitHub of a revised version. These Application Terms, together with any applicable Open Source Licenses and Notices and GitHub's Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. These Application Terms supersede any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms.
 

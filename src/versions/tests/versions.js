@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -6,8 +6,6 @@ import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 import schema from '#src/tests/helpers/schemas/versions-schema.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
-
-jest.useFakeTimers({ legacyFakeTimers: true })
 
 const validate = getJsonValidator(schema)
 

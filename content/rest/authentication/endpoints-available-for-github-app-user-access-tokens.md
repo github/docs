@@ -2,7 +2,7 @@
 title: Endpoints available for GitHub App user access tokens
 shortTitle: Endpoints for GitHub App user tokens
 intro: Your GitHub App can make requests to the following REST endpoints with a user access token.
-permissions: 'You can use a user access token to access these endpoints using your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."'
+permissions: 'You can use a user access token to access these endpoints using your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user).'
 versions:
   fpt: '*'
   ghes: '*'

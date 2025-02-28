@@ -4,8 +4,10 @@
    git config --global user.signingkey 3AA5C34371567BD2
    ```
 
-   Alternatively, when setting a subkey include the `!` suffix. In this example, the GPG subkey ID is `4BB6D45482678BE3`:
+   Alternatively, you may want to use a subkey. In this example, the GPG subkey ID is `4BB6D45482678BE3`:
 
    ```shell
-   git config --global user.signingkey 4BB6D45482678BE3!
+   git config --global user.signingkey 4BB6D45482678BE3
    ```
+
+   If you use multiple keys and subkeys, then you should append an exclamation mark `!` to the key to tell git that this is your preferred key. Sometimes you may need to escape the exclamation mark with a back slash: `\!`.

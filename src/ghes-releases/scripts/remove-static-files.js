@@ -15,7 +15,6 @@ import walk from 'walk-sync'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { deprecated } from '#src/versions/lib/enterprise-server-releases.js'
 
-const graphqlDataDir = path.join(process.cwd(), 'data/graphql')
 const webhooksStaticDir = path.join(process.cwd(), 'src/webhooks/data')
 const graphqlStaticDir = path.join(process.cwd(), 'src/graphql/data')
 const restDecoratedDir = path.join(process.cwd(), 'src/rest/data')
@@ -40,7 +39,7 @@ const supportedMiscVersions = supportedEnterpriseVersions.map((v) => v.miscVersi
 // The miscBaseName is the same for all GHES versions (currently `ghes-`), so we can just grab the first one
 const miscBaseName = supportedEnterpriseVersions.map((v) => v.miscBaseName)[0]
 
-;[graphqlDataDir, graphqlStaticDir, webhooksStaticDir].forEach((dir) => {
+;[graphqlStaticDir, webhooksStaticDir].forEach((dir) => {
   removeFiles(dir, miscBaseName, supportedMiscVersions)
 })
 

@@ -1,8 +1,10 @@
 ---
 title: Label reference
-intro: "Labels can help you find an issue you'd like to help with."
+intro: Labels can help you find an issue you'd like to help with.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 You can use labels to locate a particular type of issue. For example, click the labels in the table to see a filtered list of open issues in the github/docs repository.

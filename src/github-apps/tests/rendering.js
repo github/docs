@@ -1,7 +1,8 @@
-import { jest, test } from '@jest/globals'
 import { readFile } from 'fs/promises'
-import { allVersions } from '#src/versions/lib/all-versions.js'
 
+import { describe, expect, test, vi } from 'vitest'
+
+import { allVersions } from '#src/versions/lib/all-versions.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { categoriesWithoutSubcategories } from '#src/rest/lib/index.js'
 import { getAppsData } from '#src/github-apps/lib/index.js'
@@ -17,7 +18,7 @@ const version = defaultVersion.version
 const apiVersion = defaultVersion.latestApiVersion
 
 describe('REST references docs', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
   // This test ensures that the page component and the Markdown file are
   // in sync. It also checks that all expected items are present.
   // For every version of /rest/overview/endpoints-available-for-github-apps

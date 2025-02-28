@@ -45,16 +45,15 @@ export const SimpleHeader = () => {
         aria-label="Main"
       >
         <div className="d-flex flex-items-center" style={{ zIndex: 3 }} id="github-logo-mobile">
-          <Link href={`/${router.locale}`} passHref legacyBehavior>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a aria-hidden="true" tabIndex={-1}>
-              <MarkGithubIcon size={32} className="color-fg-default" />
-            </a>
+          <Link href={`/${router.locale}`} aria-hidden="true" tabIndex={-1}>
+            <MarkGithubIcon size={32} className="color-fg-default" />
           </Link>
 
-          <Link href={`/${router.locale}`} passHref legacyBehavior>
-            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-            <a className="h4 color-fg-default no-underline no-wrap pl-2">GitHub Docs</a>
+          <Link
+            href={`/${router.locale}`}
+            className="no-underline h4 color-fg-default no-wrap pl-2"
+          >
+            GitHub Docs
           </Link>
         </div>
       </header>

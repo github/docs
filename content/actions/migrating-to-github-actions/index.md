@@ -9,7 +9,7 @@ versions:
 redirect_from:
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
 children:
-  - /automated-migrations
+  - /using-github-actions-importer-to-automate-migrations
   - /manually-migrating-to-github-actions
 ---
 

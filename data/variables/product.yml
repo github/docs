@@ -7,15 +7,20 @@
 company_short: 'GitHub'
 
 # GitHub's flagship products
-product_name: >-
-  {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% else %}GitHub{% endif %}
-## Use this variable when referring to the product, when the output should always be GitHub. For example, "the GitHub REST API"
+
+## Use this variable to refer generically to the "GitHub" platform or website (for example, when referring to GitHub.com, GHEC, or GHES as simply "GitHub").
+## Use another variable if it is important to specify the environment (e.g. GHES)
+github: 'GitHub'
+
+## DO NOT USE. Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
 prodname_dotcom: 'GitHub'
 
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
 prodname_enterprise: 'GitHub Enterprise'
 
 ## Use this variable only when the output should specifically be GitHub.com, to distinguish from GitHub the company or other GitHub products (e.g. connecting GHE to GitHub.com)
+## Note that many users access GitHub through a different URL
+## Do NOT use as a synonym for "The GitHub web interface" (for example, if you want to distinguish something from the GitHub Mobile interface), or in cases where the .com top-level domain is not relevant.
 prodname_dotcom_the_website: 'GitHub.com'
 
 ## Use these variables when the output should reflect one of our two specific GitHub Enterprise offerings
@@ -55,7 +60,7 @@ prodname_classroom: 'GitHub Classroom'
 prodname_classroom_with_url: '[GitHub Classroom](https://classroom.github.com/login)'
 prodname_campus_program: 'GitHub Campus Program'
 prodname_student_pack: 'GitHub Student Developer Pack'
-prodname_global_campus: 'GitHub Global Campus'
+prodname_global_campus: 'GitHub Education'
 prodname_community_exchange: 'GitHub Community Exchange'
 prodname_student_leader_program: 'GitHub Campus Experts'
 prodname_student_leader_program_singular: 'GitHub Campus Expert'
@@ -84,16 +89,15 @@ prodname_pages: 'GitHub Pages'
 
 # CodeQL
 prodname_codeql: 'CodeQL'
-prodname_ql: 'QL'
 prodname_codeql_cli: 'CodeQL CLI'
 # The CodeQL CLI version recommended for each GHES version.
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.10 %}2.12.7{% elsif ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% endif %}
-
+  {% ifversion ghes < 3.17 %}2.20.3{% endif %}
+codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
-prodname_projects_v2: '{% ifversion ghes = 3.8 or ghes = 3.9 %}Projects (beta){% else %}Projects{% endif %}'
+prodname_projects_v2: 'Projects'
 prodname_projects_v1: >-
   projects (classic)
 prodname_projects_v1_caps: >-
@@ -111,15 +115,20 @@ pat_generic_caps_plural: 'Personal access tokens'
 pat_generic_title_case: 'Personal Access Token'
 pat_generic_title_case_plural: 'Personal Access Tokens'
 pat_v2: 'fine-grained personal access token'
+pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
+pat_v2_caps_plural: 'Fine-grained personal access tokens'
 pat_v1: >-
-  {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
+  personal access token (classic)
 pat_v1_plural: >-
-  {% ifversion pat-v2 %}personal access tokens (classic){% else %}personal access tokens{% endif %}
+  personal access tokens (classic)
 pat_v1_caps: >-
-  {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
+  Personal access token (classic)
 pat_v1_caps_plural: >-
-  {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+  Personal access tokens (classic)
+pat_classic: 'token (classic)'
+pat_classic_plural: 'tokens (classic)'
+pat_classic_caps: 'Token (classic)'
 
 # Apps, GitHub Marketplace, and integrations
 prodname_marketplace: 'GitHub Marketplace'
@@ -127,6 +136,7 @@ prodname_github_app: 'GitHub App'
 prodname_github_apps: 'GitHub Apps'
 prodname_oauth_app: 'OAuth app'
 prodname_oauth_apps: 'OAuth apps'
+prodname_github_models: 'GitHub Models'
 
 # API and developer docs
 prodname_enterprise_api: 'GitHub Enterprise Server APIs'
@@ -136,6 +146,8 @@ prodname_unfurls: 'Content Attachments'
 ## Use this variable only when referring to GitHub Actions the product. When referring to the thing that someone creates using the product, call it an action (small a). See the terminology page of the Brand Guide for more.
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
+runner_required_version: >-
+  {% ifversion ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -187,6 +199,7 @@ prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
 # GitHub support
+standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
 premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
 microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
@@ -196,7 +209,7 @@ support_ticket_priority_normal: 'Normal'
 support_ticket_priority_low: 'Low'
 
 # GitHub Professional Services
-prodname_professional_services: 'GitHub Expert Services'
+prodname_professional_services: 'GitHub Professional Services'
 prodname_professional_services_team: 'Expert Services'
 
 # GitHub Security Lab
@@ -206,6 +219,18 @@ prodname_security_link: 'https://securitylab.github.com/'
 # GitHub Security Advisories
 prodname_security_advisories: 'GitHub Security Advisories'
 prodname_advisory_database: 'GitHub Advisory Database'
+
+# Security configurations and organization-level security settings
+prodname_security_configurations: 'security configurations'
+prodname_security_configurations_caps: 'Security configurations'
+prodname_security_configuration: 'security configuration'
+prodname_github_security_configuration: 'GitHub-recommended security configuration'
+prodname_custom_security_configurations: 'custom security configurations'
+prodname_custom_security_configuration: 'custom security configuration'
+prodname_custom_security_configurations_caps: 'Custom security configurations'
+prodname_custom_security_configuration_caps: 'Custom security configuration'
+prodname_global_settings: 'global settings'
+prodname_global_settings_caps: 'Global settings'
 
 # Secret scanning
 prodname_secret_scanning: 'secret scanning' # Overall feature name and name for GHES
@@ -217,6 +242,8 @@ prodname_code_scanning_caps: 'Code scanning'
 
 # Visual Studio
 prodname_vs: 'Visual Studio'
+
+# Visual Studio Code
 prodname_vscode_shortname: 'VS Code'
 prodname_vscode: 'Visual Studio Code'
 prodname_vscode_command_palette_shortname: 'VS Code Command Palette'
@@ -235,25 +262,61 @@ prodname_dependabot_updates: 'Dependabot updates'
 prodname_archive: 'GitHub Archive Program'
 prodname_arctic_vault: 'Arctic Code Vault'
 
-# GitHub Copilot
+# GitHub Copilot (product)
 prodname_copilot: 'GitHub Copilot'
 prodname_copilot_short: 'Copilot'
 prodname_copilot_for_business: 'GitHub Copilot Business'
 prodname_copilot_for_individuals: 'GitHub Copilot Individual'
+prodname_copilot_pro: 'GitHub Copilot Pro'
+prodname_copilot_pro_short: 'Copilot Pro'
 prodname_copilot_business_short: 'Copilot Business'
 prodname_copilot_individuals_short: 'Copilot Individual'
 prodname_copilot_enterprise: 'GitHub Copilot Enterprise'
 prodname_copilot_enterprise_short: 'Copilot Enterprise'
+prodname_copilot_free: 'GitHub Copilot Free'
+prodname_copilot_free_short: 'Copilot Free'
 prodname_copilot_chat: 'GitHub Copilot Chat'
 prodname_copilot_chat_short: 'Copilot Chat'
-prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub.com'
-prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub.com'
+prodname_copilot_chat_dotcom: 'GitHub Copilot Chat in GitHub'
+prodname_copilot_chat_dotcom_short: 'Copilot Chat in GitHub'
+prodname_copilot_mobile: 'GitHub Copilot Chat in GitHub Mobile'
+prodname_copilot_mobile_short: 'Copilot Chat in GitHub Mobile'
+prodname_copilot_extensions: 'GitHub Copilot Extensions'
+prodname_copilot_extension: 'GitHub Copilot Extension'
+prodname_copilot_extensions_short: 'Copilot Extensions'
+prodname_copilot_extension_short: 'Copilot Extension'
+prodname_copilot_extensions_vsc: 'Copilot-enabled Visual Studio Code extensions'
+prodname_copilot_extension_vsc: 'Copilot-enabled Visual Studio Code extension'
+prodname_copilot_extensibility_platform: 'GitHub Copilot Extensibility Platform'
+prodname_copilot_extensibility_platform_short: 'Copilot Extensibility Platform'
+prodname_copilot_agent: 'GitHub Copilot agent'
+prodname_copilot_agent_short: 'Copilot agent'
+prodname_copilot_agents: 'GitHub Copilot agents'
+prodname_copilot_agents_short: 'Copilot agents'
+prodname_copilot_skillset: 'Github Copilot skillset'
+prodname_copilot_skillset_short: 'Copilot skillset'
+prodname_copilot_skillsets: 'Github Copilot skillsets'
+prodname_copilot_skillsets_short: 'Copilot skillsets'
 prodname_copilot_cli: 'GitHub Copilot in the CLI'
 prodname_copilot_cli_short: 'Copilot in the CLI'
 prodname_copilot_for_prs: 'Copilot pull request summaries'
 prodname_copilot_prs_short: 'pull request summaries'
 prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
+prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
+prodname_copilot_autocomplete_pr: 'Copilot text completion'
+
+# Copilot branded GHAS features
+prodname_copilot_autofix: 'GitHub Copilot Autofix'
+prodname_copilot_autofix_short: 'Copilot Autofix'
+prodname_copilot_edits_vscode_short: 'Copilot Edits'
+prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
+prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
+prodname_copilot_workspace: 'Copilot Workspace'
+prodname_copilot_workspace_short: 'Workspace'
+
+# Windows
+prodname_windows_terminal: 'Windows Terminal'
 
 # Command Palette
 prodname_command_palette: 'GitHub Command Palette'
@@ -275,22 +338,14 @@ product_url: >-
   {% ifversion fpt or ghec %}github.com{% else %}HOSTNAME{% endif %}
 pricing_url: 'https://github.com/pricing'
 pricing_link: '[GitHub Pricing](https://github.com/pricing)'
-signin_link: >-
-  {% ifversion fpt or ghec %}[Sign in](https://github.com/login){% else %}Sign in (`https://HOSTNAME/login`){% endif %}
-signout_link: >-
-  {% ifversion fpt or ghec %}[Sign out](https://github.com/logout){% else %}Sign out (`https://HOSTNAME/logout`){% endif %}
 raw_github_com: >-
   {% ifversion fpt or ghec %}raw.githubusercontent.com{% else %}HOSTNAME/user/repo/raw{% endif %}
 # GitHub Enterprise Server past versions
 current-340-version: '11.10.354'
 
 # Developer site product variables
-# Use this inside command-line and other code blocks
-doc_url_pre: >-
-  {% ifversion fpt or ghec %}https://docs.github.com/rest{% elsif ghes %}https://docs.github.com/enterprise/{{ currentVersion | version_num }}/rest{% endif %}
-# Use this inside command-line code blocks
-api_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/v3{% endif %}
+rest_url: >-
+  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://HOSTNAME/api/v3{% endif %}
 # Use this inside command-line code blocks
 # Enterprise OAuth paths that don't include "/graphql" or "/api/v3"
 oauth_host_code: >-
@@ -301,12 +356,5 @@ device_authorization_url: >-
   {%- elsif ghes %}
   `http(s)://HOSTNAME/login/device`
   {%- endif %}
-# Use this all other code blocks
-api_url_code: >-
-  {% ifversion fpt or ghec %}https://api.github.com{% elsif ghes %}http(s)://HOSTNAME/api/v3{% endif %}
-# Use this inside command-line code blocks
-graphql_url_pre: >-
-  {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://<em>HOSTNAME</em>/api/graphql{% endif %}
-# Use this all other code blocks
-graphql_url_code: >-
+graphql_url: >-
   {% ifversion fpt or ghec %}https://api.github.com/graphql{% elsif ghes %}http(s)://HOSTNAME/api/graphql{% endif %}

@@ -30,14 +30,11 @@ You can see all commits made to a repository in the past year (excluding merge c
 
 The top graph shows commits for the entire year by week. The bottom graph shows the average number of commits by day of the week for the selected week.
 
-![Screenshot of both the repository commit graphs, showing a yearly and then a weekly view.](/assets/images/help/graphs/repo-commit-activity-graphs.png)
-
 ### Accessing the commits graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Commits**.
-![Screenshot of the left sidebar. The "Commits" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/commits-tab.png)
 
 ## Visualizing additions and deletion to content in a repository
 
@@ -45,20 +42,14 @@ The top graph shows commits for the entire year by week. The bottom graph shows 
 
 The code frequency graph displays the content additions and deletions for each week in a repository's history.
 
-{% ifversion fpt or ghec %}
-
-![Screenshot of the code frequency graph.](/assets/images/help/graphs/repo-code-frequency-graph-dotcom.png)
-
-{% endif %}
-
 ### Accessing the code frequency graph
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Code frequency**.
-![Screenshot of the left sidebar. The "Code frequency" tab is highlighted with a dark orange outline.](/assets/images/help/graphs/code-frequency-tab.png)
-
-{% ifversion repository-activity-view %}
-{% data reusables.repositories.activity-view %}
-For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
+{%- ifversion accessible-charts %}
+{% data reusables.repositories.repositories-insights-graphs-download-steps %}
 {% endif %}
+
+{% data reusables.repositories.activity-view %}
+For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).

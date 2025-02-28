@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import filenameToKey from '#src/data-directory/lib/filename-to-key.js'
 
 describe('filename-to-key', () => {

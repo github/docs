@@ -12,16 +12,9 @@ from https://unpkg.com/highlight.js@9.15.8/styles/github.css
   background: var(--color-canvas-subtle);
 }
 
+.hljs-comment,
 .hljs-quote {
   color: var(--color-prettylights-syntax-comment);
-}
-
-// Updating color for code comments from prettylights to codemirror due to accessibility issues: audit 4975
-// - variable fixed in 7.15.4
-// - https://github.com/primer/css/blob/main/package.json
-// TODO when above updates, upgrade the primer/css package and change this variable back
-.hljs-comment {
-  color: var(--color-codemirror-syntax-comment);
 }
 
 .hljs-keyword,

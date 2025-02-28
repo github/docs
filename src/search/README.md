@@ -4,11 +4,9 @@
 
 This site's search functionality.
 
-To see all existing search-related issues and pull requests, visit [github.com/github/docs/labels/search](https://github.com/github/docs/labels/search).
-
 ---
 
-![Screenshot of the search results page for GitHub docs with the example keywords "private key".](/assets/images/internal-docs/search-results.png)
+![Screenshot of the search results page for GitHub docs with the example keyword "git".](/assets/images/contributing/search-results.png)
 
 ---
 
@@ -16,30 +14,44 @@ To see all existing search-related issues and pull requests, visit [github.com/g
 
 The site search is part of every version of docs.github.com. This endpoint responds in JSON format, and fronts our search querying functionality. We recommend using this endpoint, as the endpoint will be more stable. On any page, you can use the search box to search the documents we've indexed.
 You can also query our search endpoint directly at:
-`https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&filters=topics:<TOPIC>&query=<QUERY>`
+`https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&query=<QUERY>`
 
-- The VERSION can be any numbered supported GitHub Enterprise Server version (e.g., `3.12`), Enterprise Cloud (`ghec`), or the Free pro team plan (`dotcom`).
-- The LANGUAGE CODE can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
-- TOPIC can be any topics in [the allowed list of topics](/data/allowed-topics.js). The values in the `topics` attribute are **not** case sensitive, so filtering on `GitHub actions` or `github actions` will return the same result. **Note:** Currently, the topics filter only works for the dotcom version in the English language. We plan to expand this search query to other languages and versions in the future.
-- Any search QUERY you'd like.
+- The `VERSION` can be any numbered supported GitHub Enterprise Server version (e.g., `3.12`), Enterprise Cloud (`ghec`), or the Free pro team plan (`dotcom`).
+- The `LANGUAGE CODE` can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
+- The `QUERY` can be any alphanumeric string value.
 
-For example, to filter on the topic `ssh` and the query `passphrases`, you'd use this search query:
+## Types of search
 
-https://docs.github.com/search?version=dotcom&language=en&filters=topics:ssh&query=passphrases
+Our backend currently supports 3 "types" of searching.
 
-To filter for the topics `oauth apps` and `github apps` and the query `install`, you'd use this search query:
+All searches accept a `query` param, e.g. `?query=how` and return results based on their type:
 
-https://docs.github.com/search?version=dotcom&language=en&filters=topics:'oauth apps'+AND+topics:'github apps'&query=install
+1. **general search**
+  - Results: The pages of our sites that match the query, sorted by popularity
+  - Example: Query = "clone" -> Results <URLs to Docs Page about cloning>
+  - Endpoint: `/api/search/v1`
+2. **general autocomplete**
+  - Results: Potential terms that can be autocompleted from the query based on previous user searches
+  - Example: Query = "cl" -> A Result = "clone"
+  - Endpoint: `/api/search/autocomplete/v1`
+3. **AI search autocomplete**
+  - Results: Human-readable full-sentence questions that best match the query. Questions are based on previous searches and popular pages
+  - Example: Query = "How do I clone" -> A Result = "How do I clone a repository?"
+  - Endpoint: `/api/search/ai-search-autocomplete/v1`
 
-### Using the topics search filter
+## Elasticsearch
 
-Using the attribute `topics` in your query will only return results that have the matching topic value. When the topic contains spaces, you must use quotes. Filters with spaces or combining filters requires special syntax.
+Elasticsearch is an external service that we use for searching. When a user types a search, our backend queries Elasticsearch for the most relevant results.
+
+### Indexing Elasticsearch
+
+In order to provide relevant results to queries, we prefill Elasticsearch with data via Indexes. See the [Indexing README](./scripts/index/README.md) for how we index on Docs.
 
 ## Production deploys
 
-A [GitHub Actions workflow](.github/workflows/sync-search-indices.yml) that runs every four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml) that runs every twenty four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
-The Actions workflow progress can be viewed (by GitHub employees) in the [Actions tab](https://github.com/github/docs/actions?query=workflow%3Asearch) of the repo.
+The workflow runs are only accessible to GitHub employees using internal resources.
 
 ## Manually triggering the search index update workflow
 
@@ -47,80 +59,25 @@ You can manually run the workflow to generate the indexes after you push your ch
 
 ### Build and sync
 
-To build all the indices (this takes about an hour):
-```
-npm run sync-search
-```
-To build indices for a specific language and/or version and sync them:
-```
-VERSION=<PLAN@RELEASE LANGUAGE=<TWO-LETTER CODE> npm run sync-search
-```
-You can set `VERSION` and `LANGUAGE` individually, too.
-
-Substitute a currently supported version for `<PLAN@RELEASE>` and a currently supported two-letter language code for `<TWO-LETTER-CODE>`. Languages and versions are lowercase. The options for version are currently `free-pro-team`, `github-ae`, and `enterprise-server`.
-
-## Label-triggered Actions workflow
-
-Docs team members can use an Actions workflow on GHES release PRs by applying a label in this format:
-```
-sync-english-index-for-<PLAN@RELEASE>
-```
-This label will run a workflow on every push that **builds and uploads ONLY** the English index for the specified version. This means:
-
-* The GHES content will be searchable at the same time the release PR is shipped, with no delay.
-* The GHES content will be searchable on staging throughout content creation.
-* No manual steps (unless you want to do a [dry run test](#build-without-sync-dry-run)).
-
-Why do we need this? For our daily shipping needs, it's tolerable that search updates aren't available for up to an hour after the content goes live. But GHES releases are more time-sensitive, and writers have a greater need to preview search data on staging.
+The preferred way to build and sync the search indices is to do so via the [GitHub Actions workflow](/.github/workflows/index-general-search.yml).
 
 ## Files
 
 ### Actions workflow files
 
-- [`.github/workflows/sync-search-indices.yml`](.github/workflows/sync-search-indices.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are committed directly to the `main` branch on both the `github/docs-internal` and `github/docs` repositories. It can also be run manually. To run it manually, click "Run workflow" button in the Actions tab.
-- [`.github/workflows/sync-single-english-index.yml`](.github/workflows/sync-single-english-index.yml) - This workflow is run when a label in the right format is applied to a PR. See "[Label-triggered Actions workflow](#label-triggered-actions-workflow)" for details.
+- [`.github/workflows/index-general-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **general search** using the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
+- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for both **general autocomplete** and **AI search autocomplete** using data from an internal repo. Runs daily. 
 
-### Code files
+### Notable code files and directories
 
-- [components/lib/search.ts](components/lib/search.ts) - The browser-side code that enables search.
-- [lib/search/client.js](lib/search/client.js) - A thin wrapper around the Node.js module for interacting with the search API.
-- [lib/search/search-index.js](lib/search/search-index.js) - A class for generating structured search data from repository content and syncing it. This class has built-in validation to ensure that all records are valid before they're uploaded. This class also takes care of removing deprecated records, and compares existing remote records with the latest local records to avoid uploading records that haven't changed.
-- [src/search/scripts/sync-search-indices.js](src/search/scripts/sync-search-indices.js) - The script used by the Actions workflow to update search indices. This can also be [run in the development environment](#development).
-- [tests/content/search.js](tests/content/search.js) - Tests!
+- [src/search/components/Search.tsx](/src/search/components/Search.tsx) - The browser-side code that enables the search.
+- [src/search/components/SearchResults.tsx](/src/search/components/SearchResults.tsx) - The browser-side code that displays search results.
+- [src/search/middleware/general-search-middleware.ts](src/search/middleware/general-search-middleware.ts) - Entrypoint to general search when you hit docs.github/search
+- [src/search/middleware/search-routes](src/search/middleware/general-search-middleware.ts) - Entrypoint to the API endpoints for our search routes
+- [src/search/scripts/](/src/search/scripts/) - Scripts used by Actions workflows or for manual operations like scraping data for indexing and performing the indexing.
+- [src/search/tests](/src/search/tests) - Tests relevant to searching.
 
-## Indices
-
-There's a separate search index for each combination of product and language. Some examples:
-
-Index Name | Description
----------- | -----------
-`github-docs-dotcom-en` | GitHub.com English
-`github-docs-dotcom-zh` | GitHub.com Chinese
-`github-docs-dotcom-es` | GitHub.com Spanish
-`github-docs-2.18-en` | GitHub Enterprise 2.18 English
-`github-docs-2.18-zh` | GitHub Enterprise 2.18 Chinese
-`github-docs-2.18-es` | GitHub Enterprise 2.18 Spanish
-`github-docs-2.17-en` | GitHub Enterprise 2.17 English
-`github-docs-2.17-zh` | GitHub Enterprise 2.17 Chinese
-`github-docs-2.17-es` | GitHub Enterprise 2.17 Spanish
-
-## Records
-
-Each record represents a section of a page. Sections are derived by splitting up pages by their headings. Each record has a `title`, `intro` (if one exists in the frontmatter), `body` content (in text, not HTML), a `url`, and a unique `objectID` that is currently just the permalink of the article. Here's an example:
-
-```javascript
-{
-  objectID: '/en/actions/creating-actions/about-actions#about-actions',
-  url: 'https://docs.github.com/en/actions/creating-actions/about-actions#about-actions',
-  slug: 'about-actions',
-  breadcrumbs: 'GitHub Actions / Creating actions / About actions',
-  heading: 'About actions',
-  title: 'About actions',
-  content: "You can create actions by writing custom code that interacts with your repository in any way you'd like..."
-}
-```
-
-## Notes
+## Miscellaneous Notes
 
 - It's not strictly necessary to set an `objectID` as the search index will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
 - Our search querying has typo tolerance. Try spelling something wrong and see what you get!

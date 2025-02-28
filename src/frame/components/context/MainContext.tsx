@@ -12,7 +12,7 @@ export type ProductT = {
   nameRendered: string
 }
 
-type VersionItem = {
+export type VersionItem = {
   // free-pro-team@latest, enterprise-cloud@latest, enterprise-server@3.3 ...
   version: string
   versionTitle: string
@@ -138,6 +138,7 @@ const DEFAULT_UI_NAMESPACES = [
   'alerts',
   'header',
   'search',
+  'old_search',
   'survey',
   'toc',
   'meta',
@@ -148,6 +149,8 @@ const DEFAULT_UI_NAMESPACES = [
   'contribution_cta',
   'support',
   'rest',
+  'domain_edit',
+  'cookbook_landing',
 ]
 
 export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {

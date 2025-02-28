@@ -18,11 +18,9 @@ shortTitle: Create accounts for people
 
 Because you access an organization by logging in to a personal account, each of your team members needs to create their own personal account. After you have usernames for each person you'd like to add to your organization, you can add the users to teams.
 
-{% ifversion fpt or ghec %}
-{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can use SAML single sign-on to centrally manage the access that personal accounts have to the organization's resources through an identity provider (IdP). For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}."{% endif %}
+{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %}{% else %}You{% endif %} can use SAML single sign-on to centrally manage the access that personal accounts have to the organization's resources through an identity provider (IdP). For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/about-identity-and-access-management-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 You can also consider {% data variables.product.prodname_emus %}. {% data reusables.enterprise-accounts.emu-short-summary %}
-{% endif %}
 
 ## Adding users to your organization
 

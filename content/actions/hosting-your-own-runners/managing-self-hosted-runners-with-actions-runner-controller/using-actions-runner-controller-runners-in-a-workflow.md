@@ -5,7 +5,7 @@ intro: 'You can use {% data variables.product.prodname_actions_runner_controller
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller
@@ -34,7 +34,7 @@ helm install "${INSTALLATION_NAME}" \
     oci://ghcr.io/actions/actions-runner-controller-charts/gha-runner-scale-set
 ```
 
-To use this configuration in a workflow, set the value of the `runs-on` key in your workflow to  `arc-runner-set`, similar to the following example.
+To use this configuration in a workflow, set the value of the `runs-on` key in your workflow to `arc-runner-set`, similar to the following example.
 
 ```yaml
 jobs:
@@ -44,9 +44,9 @@ jobs:
 
 ## Using runner scale set names
 
-Runner scale set names are unique within the runner group they belong to. To deploy multiple runner scale sets with the same name, they must belong to different runner groups. For more information about specifying runner scale set names, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)."
+Runner scale set names are unique within the runner group they belong to. To deploy multiple runner scale sets with the same name, they must belong to different runner groups. For more information about specifying runner scale set names, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller).
 
-{% data reusables.actions.actions-runner-controller-labels %} For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners)."
+{% data reusables.actions.actions-runner-controller-labels %} For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller#scaling-runners).
 
 ## Legal notice
 

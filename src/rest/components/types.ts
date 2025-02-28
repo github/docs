@@ -10,7 +10,6 @@ export interface Operation {
   bodyParameters: Array<BodyParameter>
   category: string
   subcategory: string
-  enabledForGitHubApps: boolean
   codeExamples: Array<CodeSample>
   progAccess: ProgAccessT
 }
@@ -22,6 +21,7 @@ export interface ProgAccessT {
   permissions: Array<Object>
   allowPermissionlessAccess?: boolean
   allowsPublicRead?: boolean
+  basicAuth?: boolean
 }
 
 export interface Parameter {

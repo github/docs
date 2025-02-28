@@ -15,9 +15,9 @@ Here's an inline mention of {% data variables.product.product_name %} in Liquid.
 
 | Key | Value |
 |---|---|
-{% ifversion ghes -%}
+| {% ifversion ghes %} |
 | GHES | Present |
-{%- endif -%}
-{%- ifversion not ghes -%}
+| {% endif %} |
+| {% ifversion not ghes %} |
 | GHES | Not |
-{% endif %}
+| {% endif %} |

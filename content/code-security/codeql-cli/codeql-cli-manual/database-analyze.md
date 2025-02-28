@@ -50,14 +50,14 @@ being interpreted as source-code alerts, use
 
 \[Mandatory] Path to the CodeQL database to query.
 
-#### `<querysuite|pack>...`
+#### `<query|dir|suite|pack>...`
 
 Queries to execute. Each argument is in the form `scope/name@range:path`
 where:
 
-- `scope/name` is the qualified name of a CodeQL pack.
-- `range` is a semver range.
-- `path` is a file system path.
+* `scope/name` is the qualified name of a CodeQL pack.
+* `range` is a semver range.
+* `path` is a file system path.
 
 If a `scope/name` is specified, the `range` and `path` are optional. A
 missing `range` implies the latest version of the specified pack. A
@@ -125,14 +125,6 @@ Don't print a summary of the analyzed diagnostics to standard output.
 
 Don't print a summary of the analyzed metrics to standard output.
 
-#### `--[no-]analysis-summary-v2`
-
-\[GitHub.com and GitHub Enterprise Server v3.9.0+ only] Use an improved
-version of the analysis summary. This incorporates file coverage
-information and improves the way that diagnostic results are displayed.
-
-Available since `v2.15.2`.
-
 #### `--max-paths=<maxPaths>`
 
 The maximum number of paths to produce for each alert with paths.
@@ -175,6 +167,13 @@ This option has no effect when passed to [codeql bqrs interpret](/code-security/
 
 Available since `v2.15.2`.
 
+#### `--no-sarif-include-alert-provenance`
+
+\[Advanced] \[SARIF formats only] Do not include alert provenance
+information in the SARIF output.
+
+Available since `v2.18.1`.
+
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
@@ -186,6 +185,16 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 \[SARIF formats only] For alerts that have multiple causes, include
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
+
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
+#### `--sarif-run-property=<String=String>`
+
+\[SARIF formats only] A key value pair to add to the generated SARIF
+'run' property bag. Can be repeated.
 
 #### `--no-group-results`
 
@@ -215,10 +224,10 @@ Available since `v2.15.2`.
 
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -229,9 +238,7 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
 
 #### `--no-database-extension-packs`
 
@@ -248,6 +255,14 @@ during database creation from a Code Scanning configuration file.
 #### `--[no-]download`
 
 Download any missing queries before analyzing.
+
+### Options to control the model packs to be used
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
 
 ### Options to control the threat models to be used
 

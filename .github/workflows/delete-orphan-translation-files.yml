@@ -95,7 +95,7 @@ jobs:
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
           if [[ $changes -eq 0 ]] && [[ $untracked -eq 0 ]]; then
-            echo "There are no changes to commit after running src/rest/scripts/update-files.js. Exiting..."
+            echo "There are no changes to commit or untracked files. Exiting."
             exit 0
           fi
 
@@ -129,7 +129,8 @@ jobs:
             --title "Delete orphan files ($current_daystamp)" \
             --body '👋 humans. This PR was generated from docs-internal/.github/workflows/delete-orphan-translation-files.yml.
             ' \
-            --repo "${{ matrix.language_repo }}"
+            --repo "${{ matrix.language_repo }}" \
+            --head=$branch_name
           echo "Merge created PR..."
           retry_command gh pr merge --merge --auto --delete-branch "$branch_name"
 

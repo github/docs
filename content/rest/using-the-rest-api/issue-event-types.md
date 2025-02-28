@@ -124,7 +124,7 @@ This event is available for the following issue types.
 
 ## closed
 
-The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
 This event is available for the following issue types.
 
@@ -204,12 +204,12 @@ Name | Type | Description
 `tree` | `object` | The Git tree of the commit.
 `message` | `string` | The commit message.
 `parents` | `array of objects` | A list of parent commits.
-`verification` | `object` | The result of verifying the commit's signature. For more information, see "[AUTOTITLE](/rest/git/commits#get-a-commit)."
+`verification` | `object` | The result of verifying the commit's signature. For more information, see [AUTOTITLE](/rest/git/commits#get-a-commit).
 `event` | `string` | The event value is `"committed"`.
 
 ## connected
 
-The issue or pull request was linked to another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+The issue or pull request was linked to another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 
@@ -276,7 +276,7 @@ This event is available for the following issue types.
 
 |  | REST API for issue events | REST API for timeline events |
 |---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %}|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -372,7 +372,7 @@ This event is available for the following issue types.
 
 ## disconnected
 
-The issue or pull request was unlinked from another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+The issue or pull request was unlinked from another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 

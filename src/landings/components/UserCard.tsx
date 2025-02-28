@@ -1,3 +1,7 @@
+import cx from 'classnames'
+import styles from './Landings.module.scss'
+const { hoverShadowLarge } = styles
+
 type Props = {
   user: {
     username: string
@@ -8,7 +12,10 @@ type Props = {
 export const UserCard = ({ user, href }: Props) => {
   return (
     <a
-      className="Box d-flex height-full color-shadow-medium hover-shadow-large no-underline color-fg-default p-4"
+      className={cx(
+        'Box d-flex height-full color-shadow-medium no-underline color-fg-default p-4',
+        hoverShadowLarge,
+      )}
       href={href || `https://github.com/${user.username}`}
     >
       <div className="flex-shrink-0 mr-3">

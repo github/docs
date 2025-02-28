@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { linkPunctuation } from '../../lib/linting-rules/link-punctuation.js'
 

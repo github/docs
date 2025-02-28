@@ -14,27 +14,27 @@ topics:
   - Legal
 ---
 
-Version Effective Date: September 5, 2023
+Version Effective Date: December 18, 2024
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
 By using the Additional Products and Features, you also agree to the applicable GitHub Terms for Additional Products and Features listed below. A violation of these GitHub Terms for Additional Products and Features is a violation of the Agreement. Capitalized terms not defined here have the meaning given in the Agreement.
 
 **For Enterprise users**
-- **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages, and Pages.
+* **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages, and Pages.
 
-- **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
+* **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
 
 ## Actions
 
 GitHub Actions enables you to create custom software development lifecycle workflows directly in your GitHub repository. Actions is billed on a usage basis. The [Actions documentation](/actions) includes details, including compute and storage quantities (depending on your Account plan), and how to monitor your Actions minutes usage and set usage limits.
 
-Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Polices](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/learn-github-actions/usage-limits-billing-and-administration). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
-- cryptomining;
-- disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
-- the provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
-- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
-- if using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
+Actions and any elements of the Actions product or service may not be used in violation of the Agreement, the [GitHub Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies), or the GitHub Actions service limitations set forth in the [Actions documentation](/actions/learn-github-actions/usage-limits-billing-and-administration). Additionally, regardless of whether an Action is using self-hosted runners, Actions should not be used for:
+* Cryptomining;
+* Disrupting, gaining, or attempting to gain unauthorized access to, any service, device, data, account, or network (other than those authorized by the [GitHub Bug Bounty program](https://bounty.github.com));
+* The provision of a stand-alone or integrated application or service offering the Actions product or service, or any elements of the Actions product or service, for commercial purposes;
+* Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Actions as a content delivery network or as part of a serverless application, but a low benefit Action could be ok if it’s also low burden); or
+* If using GitHub-hosted runners, any other activity unrelated to the production, testing, deployment, or publication of the software project associated with the repository where GitHub Actions are used.
 
 In order to prevent violations of these limitations and abuse of GitHub Actions, GitHub may monitor your use of GitHub Actions. Misuse of GitHub Actions may result in termination of jobs, restrictions in your ability to use GitHub Actions, disabling of repositories created to run Actions in a way that violates these Terms, or in some cases, suspension or termination of your GitHub account.
 
@@ -60,7 +60,7 @@ GitHub makes extra security features available to customers under an Advanced Se
 
 Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
 
-For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns) provides more details on which partners support the validity check.
+For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
 
 ## Advisory Database
 
@@ -79,11 +79,11 @@ The GitHub Advisory Database is licensed under the [Creative Commons Attribution
 _Note: The github.dev service, available by pressing . on a repo or navigating directly to github.dev, is governed by GitHub's Beta Terms of service._
 
 GitHub Codespaces enables you to develop code directly from your browser using the code within your GitHub repository. Codespaces and any elements of the Codespaces service may not be used in violation of the Agreement or the Acceptable Use Policies. Additionally, Codespaces should not be used for:
-- cryptomining;
-- using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
-- the provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
-- any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
-- any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
+* Cryptomining;
+* Using our servers to disrupt, or to gain or to attempt to gain unauthorized access to any service, device, data, account or network (other than those authorized by the GitHub Bug Bounty program);
+* The provision of a stand-alone or integrated application or service offering Codespaces or any elements of Codespaces for commercial purposes;
+* Any activity that places a burden on our servers, where that burden is disproportionate to the benefits provided to users (for example, don't use Codespaces as a content delivery network, as part of a serverless application, or to host any kind of production-facing application); or
+* Any other activity unrelated to the development or testing of the software project associated with the repository where GitHub Codespaces is initiated.
 
 In order to prevent violations of these limitations and abuse of GitHub Codespaces, GitHub may monitor your use of GitHub Codespaces. Misuse of GitHub Codespaces may result in termination of your access to Codespaces, restrictions in your ability to use GitHub Codespaces, or the disabling of repositories created to run Codespaces in a way that violates these Terms.
 
@@ -101,19 +101,24 @@ With GitHub Connect, you can share certain features and data between your GitHub
 
 ## GitHub Copilot
 
-To use GitHub Copilot, you need to install an extension to an integrated development environment (IDE) or editor. The code you write using the GitHub Copilot extension in an IDE or editor (“**Your Code**”) is not “Content” under the Agreement until you upload it to GitHub.com.
+For GitHub Copilot Business and Copilot Enterprise license holders, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
 
-The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not claim any rights in Suggestions, and you retain ownership of and responsibility for Your Code, including Suggestions you include in Your Code.
+For other GitHub Copilot license holders, your use of GitHub Copilot is governed by the following terms:
+To use GitHub Copilot in your code editor, you need to install the GitHub Copilot extension to that editor. To use GitHub Copilot in the CLI (Command Line Interface), you need to install the GitHub Copilot CLI extension. To use GitHub Copilot Chat on GitHub Mobile, you need to install the GitHub Mobile application. To use GitHub Copilot on the GitHub.com, you must access the website.
+
+If you customize GitHub Copilot, to include using a GitHub Copilot Extension (Extension), your use may be subject to the terms of use and privacy policy applicable to the customization.
+
+The code you write using GitHub Copilot is not “Content” under the Agreement until you upload it to GitHub.com{% ifversion ghec %} or GHE.com{% endif %}. The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not own Suggestions. You retain ownership of Your Code and you retain responsibility for Suggestions you include in Your Code. It is entirely your decision whether to use Suggestions generated by GitHub Copilot. If you use Suggestions, GitHub strongly recommends that you have reasonable policies and practices in place designed to prevent the use of a Suggestion in a way that may violate the rights of others.
 
 _Acceptable Use_
 
-Your Code is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
+Your use of GitHub Copilot is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com. If you choose to "Allow" Copilot to provide [Suggestions matching public code](/enterprise-cloud@latest/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions?tool=vscode), you must comply with cited licenses.
 
 _Data_
 
-GitHub Copilot (i) may, depending on your preferred telemetry settings, collect snippets of Your Code, and (ii) will collect additional usage information through the IDE or editor tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot FAQ](https://github.com/features/copilot#faq-privacy-copilot-for-individuals).
+GitHub Copilot (i) may collect and process data based on your settings and the specific GitHub Copilot Service you use - this may include Prompts, Suggestions, and code snippets, and (ii) will collect additional usage information through the GitHub Copilot Service you use tied to your Account - this may include Service Usage Information, Website Usage Data, and Feedback Data. Upon your instructions, we may share this data with third-party applications such as those on the [GitHub Marketplace](https://github.com/marketplace) or third-party AI models of your choosing. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
 
-For GitHub Copilot for Business users, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
+For GitHub Copilot Free users, the data collected by GitHub Copilot may be used for AI Model training where permitted and if you allow in your settings.
 
 ## GitHub Enterprise Importer
 
@@ -125,7 +130,7 @@ npm is a software package hosting service that allows you to host your software 
 
 ## Packages
 
-GitHub Packages is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. GitHub Packages is billed on a usage basis. The [Packages documentation](/packages/learn-github-packages/introduction-to-github-packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Polices](/site-policy/acceptable-use-policies/github-acceptable-use-policies).
+GitHub Packages is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. GitHub Packages is billed on a usage basis. The [Packages documentation](/packages/learn-github-packages/introduction-to-github-packages) includes details, including bandwidth and storage quantities (depending on your Account plan), and how to monitor your Packages usage and set usage limits. Packages bandwidth usage is limited by the [GitHub Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies).
 
 ## Pages
 
@@ -158,3 +163,9 @@ GitHub Sponsors allows the developer community to financially support the people
 ## SQL Server Images
 
 You may download Microsoft SQL Server Standard Edition container image for Linux files ("SQL Server Images"). You must uninstall the SQL Server Images when your right to use the Software ends. Microsoft Corporation may disable SQL Server Images at any time.
+
+## GitHub Models
+
+GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/prototyping-with-ai-models).
+
+Your use of this feature is subject to the terms of the company hosting the model and the model license.

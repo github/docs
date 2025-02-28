@@ -10,7 +10,7 @@ $colors: "default", "muted", "subtle", "accent", "success", "attention",
   padding: var(--base-size-8, 0.5rem) var(--base-size-16, 1rem);
   border-left: 0.25em solid
     var(--borderColor-default, var(--color-border-default));
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 
   p:last-child,
   ul:last-child,

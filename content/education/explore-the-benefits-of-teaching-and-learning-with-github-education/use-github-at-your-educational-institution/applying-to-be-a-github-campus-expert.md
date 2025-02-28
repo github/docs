@@ -10,31 +10,28 @@ shortTitle: Apply to Campus Experts
 
 To apply to the {% data variables.product.prodname_student_leader_program %} program, you must first submit an application form, then submit a video resume. Applications to the program open in February and August, and you’ll have a full month to apply.
 
-{% note %}
-
-**Note:** The application process helps us get to know the applicant. Here are some things we want to learn about you:
-- Motivation: What makes you tick? What drives you?
-- Interest: Why do you want to be part of the program?
-- Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
-- Contribution: What impact do you want to make on your campus?
-
-{% endnote %}
+> [!NOTE]
+> The application process helps us get to know the applicant. Here are some things we want to learn about you:
+> * Motivation: What makes you tick? What drives you?
+> * Interest: Why do you want to be part of the program?
+> * Growth and potential: What skills do you want to learn, and how will they help you grow personally and professionally?
+> * Contribution: What impact do you want to make on your campus?
 
 ### Eligibility criteria
 
 To become a {% data variables.product.prodname_student_leader_program_singular %}, you must:
 
-- Be a {% data variables.product.prodname_dotcom %} user for at least six months.
-- Be at least 18 years of age.
-- Be enrolled in a formal higher education institution.
-- Have more than one year left as a student before graduating.
-- Not be enrolled in the {% data variables.product.prodname_dotcom %} Campus Advisors Program.
-- Validate your student status through the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
+* Be a {% data variables.product.prodname_dotcom %} user for at least six months.
+* Be at least 18 years of age.
+* Be enrolled in a formal higher education institution.
+* Have more than one year left as a student before graduating.
+* Not be enrolled in the {% data variables.product.prodname_dotcom %} Campus Advisors Program.
+* Validate your student status through the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack).
 
 ### Submitting your application form
 
 In the application form, we’re looking for students to tell us about the challenges their student community faces, what opportunities they want to build for their peers, and the potential they see for growth.
-1. Go to [https://education.github.com/experts](https://education.github.com/experts).
+1. Go to [https://education.github.com/campus_experts](https://education.github.com/campus_experts).
 1. To learn if applications are open, click **Become a Campus Expert** {% octicon "arrow-right" aria-label="The right arrow icon" %}.
 1. If applications are open, a new page will appear titled “Your journey starts here”. To start your application, click **Apply Now**.
 
@@ -48,11 +45,8 @@ In the application form, we’re looking for students to tell us about the chall
 
 In your video resume, we look forward to getting to know you as an individual.
 
-{% note %}
-
-**Note:** A video using your webcam and computer microphone is more than enough! We understand this process might not be accessible to all students. If you require an alternative method to make your submission, please reach out to the GitHub Education team.
-
-{% endnote %}
+> [!NOTE]
+> A video using your webcam and computer microphone is more than enough! We understand this process might not be accessible to all students. If you require an alternative method to make your submission, please reach out to the GitHub Education team.
 
 1. Open the email you received after submitting your application form.
 1. Using the guidelines included in the application status email, record your video resume.

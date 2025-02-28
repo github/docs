@@ -19,14 +19,17 @@ When you sign up for a {% data variables.product.prodname_sponsors %} profile so
 
 {% data variables.product.prodname_sponsors %} supports these fiscal hosts:
 
-- [Open Source Collective](https://oscollective.org/)
-- [NumFOCUS](https://www.numfocus.org/)
-- [Open Collective Europe](https://opencollective.com/europe)
-- [Software Underground](https://softwareunderground.org/)
+* [Hack Club](https://hackclub.com/)
+* [NumFOCUS](https://www.numfocus.org/)
+* [Open Collective Europe](https://opencollective.com/europe)
+* [Open Source Collective](https://opencollective.com/opensource)
+* [Python Software Foundation](https://www.python.org/psf-landing/)
+* [Software in the Public Interest](https://www.spi-inc.org/)
+* [Software Underground](https://softwareunderground.org/)
 
 ## Choosing to use a fiscal host
 
-Once you navigate to the "Join the waitlist" profile setup page for the account you want sponsored, you will see the "How you receive payouts" or "Organization bank account" section, depending on which type of account you are setting up. For more information on how to sign up for a {% data variables.product.prodname_sponsors %} profile, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account)" or "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization)."
+Once you navigate to the "Join the waitlist" profile setup page for the account you want sponsored, you will see the "How you receive payouts" or "Organization bank account" section, depending on which type of account you are setting up. For more information on how to sign up for a {% data variables.product.prodname_sponsors %} profile, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account) or [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-organization).
 
 1. Under "How you receive payouts" or "Organization bank account", select the **Use a fiscal host** or **This organization is using a fiscal host** option.
 1. Use the **Select a fiscal host** dropdown to choose the fiscal host you want to use.

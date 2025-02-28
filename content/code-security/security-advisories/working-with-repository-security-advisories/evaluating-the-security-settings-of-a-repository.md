@@ -20,9 +20,11 @@ Evaluating a public repository's security settings can help security researchers
 
 If a repository is public, high level information about the repository's security settings is available to anyone. For example, you can see whether the repository has a security policy, and whether private vulnerability reporting is enabled. You can also view published and closed security advisories for the repository. If no security policy is associated with a repository, you can suggest one. If the repository has private vulnerability reporting enabled, you can privately report security vulnerabilities directly to repository maintainers.
 
-If you have admin permissions to the repository, and the repository is owned by an organization, you can see more detailed information about the repository's security settings through the security overview. For more information on the security overview, see "[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview){% ifversion ghec %}."{% else %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+If you have admin permissions to the repository, and the repository is owned by an organization, you can see more detailed information about the repository's security settings through the security overview. For more information on the security overview, see [AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/about-security-overview){% ifversion ghec %}."{% else %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
  If a repository is private, you can only see the security settings if you have admin permissions to the repository or have been granted special security permissions covering the repository, for example, as an organization-wide security manager.
+
+If you would like to evaluate the security posture of repositories at scale, you can use the API to check whether or not some security settings are enabled for repositories, such as private vulnerability reporting. For more information, see [AUTOTITLE](/rest/repos/repos#check-if-private-vulnerability-reporting-is-enabled-for-a-repository).
 
 ## Suggesting a security policy for a repository
 
@@ -34,10 +36,10 @@ If you have admin permissions to the repository, and the repository is owned by 
 1. A SECURITY.md file will be created in the repository's default branch. The file will contain a template for a security policy. You can edit the file to add your suggested security policy.
 1. When you are done, click **Commit changes**.
 1. Fill out the **Commit changes** dialog.
-    - Under "Commit message", enter a commit message.
-    - Optionally, under "Extended description", describe the changes being made.
-    - Select "Create a new branch for this commit and start a pull request"
-    - Click **Commit changes**.
+    * Under "Commit message", enter a commit message.
+    * Optionally, under "Extended description", describe the changes being made.
+    * Select "Create a new branch for this commit and start a pull request"
+    * Click **Commit changes**.
 1. Click **Create pull request**.
 1. Optionally, leave a comment.
 1. Click **Create pull request**.

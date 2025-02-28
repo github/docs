@@ -1,1 +1,0 @@
-When you attempt to push a supported secret to a repository secured by push protection, {% data variables.product.prodname_dotcom %} will block the push. You can remove the secret from your branch or follow a provided URL to allow the push.

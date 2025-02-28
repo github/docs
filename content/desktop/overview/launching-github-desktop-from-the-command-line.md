@@ -7,12 +7,14 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/launching-github-desktop-from-the-command-line
   - /desktop/installing-and-configuring-github-desktop/overview/launching-github-desktop-from-the-command-line
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 {% mac %}
 
 1. In the menu bar, select the **{% data variables.product.prodname_desktop %}** menu, then click **Install Command Line Tool**.
-![Screenshot of the menu bar on a Mac. Under the expanded "GitHub Desktop" dropdown menu, the cursor hovers over "Install command line tool", highlighted in blue.](/assets/images/help/desktop/mac-install-command-line-tool.png)
+![Screenshot of the menu bar on a Mac. Under the "GitHub Desktop" dropdown menu, the option "Install command line tool" is highlighted in blue.](/assets/images/help/desktop/mac-install-command-line-tool.png)
 1. Open Terminal.
 1. {% data reusables.desktop.launch-desktop-from-command-line %}
 

@@ -3,47 +3,58 @@ title: Managing rulesets for a repository
 intro: 'You can edit, monitor, and delete existing rulesets in a repository to alter how people can interact with specific branches and tags.'
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories
 shortTitle: Manage a ruleset
 ---
 
-After creating a ruleset, you can make changes to the ruleset to alter how people can interact with the targeted branches or tags. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.
+After creating a ruleset, you can still make changes to it. For example, you can add rules to better protect your branches or tags, or you can {% ifversion repo-rules-enterprise %}switch your ruleset from "Evaluate" mode to "Active" after testing its effects on the contributor experience for your repository{% else %}temporarily disable a ruleset to troubleshoot any unintended effects on the contributor experience for your repository{% endif %}.
 
-You can use the REST and GraphQL APIs to manage rulesets. For more information, see "[AUTOTITLE](/rest/repos/rules)" and "[AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset)."
+You can use the REST and GraphQL APIs to manage rulesets. For more information, see [AUTOTITLE](/rest/repos/rules) and [AUTOTITLE](/graphql/reference/mutations#createrepositoryruleset).
 
 {% ifversion repo-rules-enterprise %}
-{% tip %}
 
-**Tip:** If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization)."
+> [!TIP]
+> If you're the owner of an organization, you can create rulesets at the organization level. You can apply these rulesets to specific repositories in your organization, and to specific branches in those repositories. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization).
 
-{% endtip %}
 {% endif %}
 
 ## Viewing rulesets for a repository
 
-Anyone with read access to a repository can view the rulesets targeting the repository. This can be useful if you want to know why you can't commit to a branch. On the "Rulesets" page, you can view the active rulesets targeting a certain branch or tag. {% ifversion repo-rules-enterprise %}You will also see rulesets running in "Evaluate" mode, which are not enforced.{% endif %}
+On the "Rulesets" page, anyone with read access to the repository can view the active rulesets targeting a certain {% ifversion push-rulesets %}branch, tag, or push restriction.{% else %}branch or tag.{% endif %} {% ifversion repo-rules-enterprise %}You will also see rulesets running in "Evaluate" mode, which are not enforced.{% endif %}
+
+{% ifversion push-rulesets %}
+
+For push rulesets for forked repositories, the "Rulesets" page will indicate that the ruleset is managed by the source repository where the rule is applied.
+
+{% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. To the left of the branch, click {% octicon "shield-lock" aria-label="This branch is protected" %}.
+1. To the left of the branch name, click {% octicon "shield-lock" aria-label="view rules" %}.
 
-   ![Screenshot of a list of branches in a repository. Next to the "main" branch, an icon of a shield with a keyhole is highlighted with an orange outline.](/assets/images/help/repository/view-branch-rules.png)
-1. Optionally, to view the rulesets for another branch or tag, use the branch selector dropdown menu.
+   > [!TIP] Only branches that have a ruleset have a {% octicon "shield" aria-label="The shield icon" %} icon adjacent to their name.
 
-   ![Screenshot of the "Rulesets" page. Above a ruleset, a dropdown menu, labeled with a branch icon and "team-test," is highlighted with an orange outline.](/assets/images/help/repository/rulesets-branch-selector.png)
+1. Optionally, to filter the results click the tabs or use the "Search branches" search bar.
 1. Click the name of the ruleset you want to view.
+
+You can also view active ruselets:
+
+* By adding the `/rules` slug to the repository's URL. For example, to view the rules of the open source documentation repository at {% data variables.product.github %},  you would go to https://github.com/github/docs/rules.
+
+* In the merge box if there are rules blocking the merging of a pull request.
 
 ## Editing a ruleset
 
 {% ifversion repo-rules-enterprise %}
-{% note %}
 
-**Note:** If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset)."
+> [!NOTE]
+> If a ruleset was created at the organization level, you cannot edit the ruleset from the repository's settings. If you have permission to edit the ruleset, you can do so in your organization's settings. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#editing-a-ruleset).
 
-{% endnote %}
 {% endif %}
 
 {% data reusables.repositories.about-editing-rulesets %}
@@ -102,12 +113,12 @@ You can view insights for rulesets to see how rulesets are affecting a repositor
 {%- ifversion repo-rules-merge-queue %}
 1. Optionally, review merge queue details for corresponding pull requests in the same merge group.
 
-    {% note %}
-
-    **Note:** The merge queue rule is in public beta and this interface is subject to change.
-
-    {% endnote %}
+{% endif %}
 
 {% endif %}
+
+{% ifversion push-rule-delegated-bypass %}
+
+{% data reusables.repositories.managing-delegated-bypass %}
 
 {% endif %}

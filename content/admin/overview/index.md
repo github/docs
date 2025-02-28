@@ -1,6 +1,6 @@
 ---
 title: Overview
-intro: 'You can learn about {% data variables.product.product_name %} and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.'
+intro: 'Learn about {% data variables.product.prodname_enterprise %} products and manage{% ifversion ghes %} accounts and access, licenses, and{% endif %} billing.'
 redirect_from:
   - /enterprise/admin/overview
 versions:
@@ -10,6 +10,7 @@ children:
   - /about-github-for-enterprises
   - /about-github-enterprise-cloud
   - /setting-up-a-trial-of-github-enterprise-cloud
+  - /feature-overview-for-github-enterprise-cloud
   - /about-github-enterprise-server
   - /setting-up-a-trial-of-github-enterprise-server
   - /about-upgrades-to-new-releases

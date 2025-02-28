@@ -4,6 +4,7 @@ intro: 'Organization owners can change several settings, including the names of 
 redirect_from:
   - /articles/managing-organization-settings
   - /github/setting-up-and-managing-organizations-and-teams/managing-organization-settings
+  - /organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization
 versions:
   fpt: '*'
   ghes: '*'
@@ -15,18 +16,24 @@ children:
   - /verifying-or-approving-a-domain-for-your-organization
   - /renaming-an-organization
   - /transferring-organization-ownership
+  - /governing-how-people-use-repositories-in-your-organization
   - /restricting-repository-creation-in-your-organization
   - /setting-permissions-for-deleting-or-transferring-repositories
   - /restricting-repository-visibility-changes-in-your-organization
   - /managing-the-forking-policy-for-your-organization
   - /managing-pull-request-reviews-in-your-organization
   - /disabling-or-limiting-github-actions-for-your-organization
+  - /about-networking-for-hosted-compute-products-in-your-organization
+  - /about-azure-private-networking-for-github-hosted-runners-in-your-organization
+  - /configuring-private-networking-for-github-hosted-runners-in-your-organization
+  - /troubleshooting-azure-private-network-configurations-for-github-hosted-runners-in-your-organization
   - /configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization
   - /setting-permissions-for-adding-outside-collaborators
   - /allowing-people-to-delete-issues-in-your-organization
   - /enabling-or-disabling-github-discussions-for-an-organization
   - /managing-discussion-creation-for-repositories-in-your-organization
   - /managing-the-commit-signoff-policy-for-your-organization
+  - /restricting-deploy-keys-in-your-organization
   - /setting-team-creation-permissions-in-your-organization
   - /creating-an-announcement-banner-for-your-organization
   - /managing-scheduled-reminders-for-your-organization
@@ -42,7 +49,6 @@ children:
   - /integrating-jira-with-your-organization-project-board
   - /upgrading-to-the-github-customer-agreement
   - /disabling-project-boards-in-your-organization
-  - /disabling-insights-for-projects-in-your-organization
   - /managing-base-permissions-for-projects
   - /allowing-project-visibility-changes-in-your-organization
   - /creating-rulesets-for-repositories-in-your-organization

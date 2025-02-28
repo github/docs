@@ -17,7 +17,7 @@ topics:
 To determine where the key has already been used, open a terminal and type the `ssh` command. Use the `-i` flag to provide the path to the key you want to check:
 
 ```shell
-$ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+$ ssh -T -ai ~/.ssh/id_rsa git@{% data variables.product.product_url %}
 # Connect to {% data variables.location.product_location %} using a specific ssh key
 > Hi USERNAME! You've successfully authenticated, but GitHub does not
 > provide shell access.
@@ -28,7 +28,7 @@ The _username_ in the response is the account on {% data variables.location.prod
 To force SSH to use only the key provided on the command line, use `-o` to add the `IdentitiesOnly=yes` option:
 
 ```shell
-ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.command_line.codeblock %}
+ssh -v -o "IdentitiesOnly=yes" -i ~/.ssh/id_rsa git@{% data variables.product.product_url %}
 ```
 
 ## Fixing the issue
@@ -39,4 +39,4 @@ If you don't have permissions to transfer the key, and can't contact a user who 
 
 ## Deploy keys
 
-Once a key has been attached to one repository as a deploy key, it cannot be used on another repository.  If you're running into this error while setting up deploy keys, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys)."
+Once a key has been attached to one repository as a deploy key, it cannot be used on another repository. If you're running into this error while setting up deploy keys, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/managing-deploy-keys).

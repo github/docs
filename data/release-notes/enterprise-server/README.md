@@ -31,7 +31,7 @@ Note that patch files can be deprecated individually (i.e., hidden on the docs s
 
 ### Middleware processing
 
-The YAML data is processed and sorted by `src/release-notes/middleware/context/ghes-release-notes.js` and added to the `context` object.
+The YAML data is processed and sorted by `src/release-notes/middleware/context/ghes-release-notes.ts` and added to the `context` object.
 
 ### Layouts
 

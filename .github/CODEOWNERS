@@ -11,7 +11,7 @@
 src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
 
 # Requires review of #actions-oidc-integration, docs-engineering/issues/1506
-content/actions/deployment/security-hardening-your-deployments/** @github/oidc
+# content/actions/deployment/security-hardening-your-deployments/** @github/oidc
 
 # RAI - CELA
 data/reusables/rai/** @github/legal-product

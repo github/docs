@@ -11,7 +11,7 @@ import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs/promises'
 
-import { getContents } from '#src/workflows/git-utils.js'
+import { getContents } from '#src/workflows/git-utils.ts'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
@@ -19,8 +19,7 @@ const enterpriseDatesString = await fs.readFile(enterpriseDatesFile, 'utf8')
 
 // check for required PAT
 if (!process.env.GITHUB_TOKEN) {
-  console.error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
-  process.exit(1)
+  throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
 }
 
 main()
@@ -32,11 +31,11 @@ async function main() {
     rawDates = JSON.parse(
       await getContents('github', 'enterprise-releases', 'master', 'releases.json'),
     )
-  } catch {
+  } catch (error) {
     console.log(
       'Failed to get the https://github.com/github/enterprise-releases/blob/master/releases.json content. Check that your token has the correct permissions.',
     )
-    process.exit(1)
+    throw error
   }
 
   const formattedDates = {}

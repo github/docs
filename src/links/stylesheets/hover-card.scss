@@ -14,5 +14,8 @@ p.hover-card-anchor {
     mask-image: url("/assets/cb-479/images/site/hash.svg");
     mask-size: cover;
     vertical-align: middle;
+    @media (forced-colors: active) {
+      background-color: LinkText;
+    }
   }
 }

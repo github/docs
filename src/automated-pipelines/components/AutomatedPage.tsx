@@ -11,9 +11,10 @@ import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 
 type Props = {
   children: React.ReactNode
+  fullWidth?: boolean
 }
 
-export const AutomatedPage = ({ children }: Props) => {
+export const AutomatedPage = ({ children, fullWidth }: Props) => {
   const { title, intro, renderedPage, miniTocItems, product, permissions } =
     useAutomatedPageContext()
 
@@ -23,6 +24,7 @@ export const AutomatedPage = ({ children }: Props) => {
 
       <div className="container-xl px-3 px-md-6 my-4">
         <ArticleGridLayout
+          fullWidth={fullWidth}
           topper={
             <>
               <div className="d-none d-xl-block my-3 mr-auto width-full">

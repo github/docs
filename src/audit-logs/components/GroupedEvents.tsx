@@ -2,11 +2,7 @@ import { slug } from 'github-slugger'
 
 import { HeadingLink } from 'src/frame/components/article/HeadingLink'
 import { useTranslation } from 'src/languages/components/useTranslation'
-
-type AuditLogEventT = {
-  action: string
-  description: string
-}
+import type { AuditLogEventT } from '../types'
 
 type Props = {
   auditLogEvents: AuditLogEventT[]

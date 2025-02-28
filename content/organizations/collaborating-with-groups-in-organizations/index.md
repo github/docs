@@ -20,7 +20,8 @@ children:
   - /accessing-your-organizations-settings
   - /customizing-your-organizations-profile
   - /about-your-organizations-news-feed
-  - /viewing-insights-for-your-organization
+  - /viewing-insights-for-dependencies-in-your-organization
+  - /viewing-github-actions-metrics-for-your-organization
 shortTitle: Collaborate with groups
 ---
 

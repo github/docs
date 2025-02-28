@@ -17,9 +17,9 @@ topics:
 
 To pass [schema](/graphql/guides/introduction-to-graphql#schema) validation, all GraphQL API [calls](/graphql/guides/forming-calls-with-graphql) must meet these standards:
 
-- Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
-- Values of `first` and `last` must be within 1-100.
-- Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
+* Clients must supply a `first` or `last` argument on any [connection](/graphql/guides/introduction-to-graphql#connection).
+* Values of `first` and `last` must be within 1-100.
+* Individual calls cannot request more than 500,000 total [nodes](/graphql/guides/introduction-to-graphql#node).
 
 ### Calculating nodes in a call
 
@@ -133,25 +133,25 @@ These two examples show how to calculate the total nodes in a call.
 
 {% ifversion ghes %}
 
-Rate limits are disabled by default for {% data variables.product.product_name %}. Contact your site administrator to confirm the rate limits for your instance.
+Rate limits are disabled by default for {% data variables.product.prodname_ghe_server %}. Contact your site administrator to confirm the rate limits for your instance.
 
-If you are a site administrator, you can set rate limits for your instance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits)."
+If you are a site administrator, you can set rate limits for your instance. For more information, see [AUTOTITLE](/admin/configuration/configuring-user-applications-for-your-enterprise/configuring-rate-limits).
 
-If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.prodname_dotcom_the_website %} rate limits apply. For more information, see "[AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations)" in the {% data variables.product.prodname_free_user %} documentation.
+If you are developing an app for users or organizations outside of your instance, the standard {% data variables.product.github %} rate limits apply. For more information, see [AUTOTITLE](/free-pro-team@latest/graphql/overview/resource-limitations) in the {% data variables.product.prodname_free_user %} documentation.
 
 {% else %}
 
 The GraphQL API assigns points to each query and limits the points that you can use within a specific amount of time. This limit helps prevent abuse and denial-of-service attacks, and ensures that the API remains available for all users.
 
-The REST API also has a separate primary rate limit. For more information, see "[AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api)."
+The REST API also has a separate primary rate limit. For more information, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
 
 In general, you can calculate your primary rate limit for the GraphQL API based on your method of authentication:
 
-- _For users_: 5,000 points per hour per user. This includes requests made with a {% data variables.product.pat_generic %} as well as requests made by a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} on behalf of a user that authorized the app. Requests made on a user's behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour. Similarly, requests made on your behalf by an {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
-- _For {% data variables.product.prodname_github_app %} installations not on a {% data variables.product.prodname_ghe_cloud %} organization_: 5,000 points per hour per installation. Installations that have more than 20 repositories receive another 50 points per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 points per hour for each user. The rate limit cannot increase beyond 12,500 points per hour. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
-- _For {% data variables.product.prodname_github_app %} installations on a {% data variables.product.prodname_ghe_cloud %} organization_: 10,000 points per hour per installation. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
-- _For {% data variables.product.prodname_oauth_apps %}_: 5,000 points per hour, or 10,000 points per hour if the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization. This only applies when the app uses their client ID and client secret to request public data. The rate limit for OAuth access tokens generated by a {% data variables.product.prodname_oauth_app %} are dictated by the primary rate limit for users.
-- _For `GITHUB_TOKEN` in {% data variables.product.prodname_actions %} workflows_: 1,000 points per hour per repository. For requests to resources that belong to an enterprise account on GitHub.com, the limit is 15,000 points per hour per repository.
+* _For users_: 5,000 points per hour per user. This includes requests made with a {% data variables.product.pat_generic %} as well as requests made by a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} on behalf of a user that authorized the app. Requests made on a user's behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour. Similarly, requests made on your behalf by an {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 10,000 points per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
+* _For {% data variables.product.prodname_github_app %} installations not on a {% data variables.product.prodname_ghe_cloud %} organization_: 5,000 points per hour per installation. Installations that have more than 20 repositories receive another 50 points per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 points per hour for each user. The rate limit cannot increase beyond 12,500 points per hour. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
+* _For {% data variables.product.prodname_github_app %} installations on a {% data variables.product.prodname_ghe_cloud %} organization_: 10,000 points per hour per installation. The rate limit for user access tokens (as opposed to installation access tokens) are dictated by the primary rate limit for users.
+* _For {% data variables.product.prodname_oauth_apps %}_: 5,000 points per hour, or 10,000 points per hour if the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization. This only applies when the app uses their client ID and client secret to request public data. The rate limit for OAuth access tokens generated by a {% data variables.product.prodname_oauth_app %} are dictated by the primary rate limit for users.
+* _For `GITHUB_TOKEN` in {% data variables.product.prodname_actions %} workflows_: 1,000 points per hour per repository. For requests to resources that belong to an enterprise account on GitHub.com, the limit is 15,000 points per hour per repository.
 
 You can check the point value of a query or calculate the expected point value as described in the following sections. The formula for calculating points and the rate limit are subject to change.
 
@@ -212,11 +212,8 @@ You can also roughly calculate the point value of a query before you make the qu
 1. Add up the number of requests needed to fulfill each unique connection in the call. Assume every request will reach the `first` or `last` argument limits.
 1. Divide the number by **100** and round the result to the nearest whole number to get the final aggregate point value. This step normalizes large numbers.
 
-{% note %}
-
-**Note**: The minimum point value of a call to the GraphQL API is **1**.
-
-{% endnote %}
+> [!NOTE]
+> The minimum point value of a call to the GraphQL API is **1**.
 
 Here's an example query and score calculation:
 
@@ -254,10 +251,10 @@ query {
 
 This query requires 5,101 requests to fulfill:
 
-- Although we're returning 100 repositories, the API has to connect to the viewer's account **once** to get the list of repositories. So, requests for repositories = **1**
-- Although we're returning 50 issues, the API has to connect to each of the **100** repositories to get the list of issues. So, requests for issues = **100**
-- Although we're returning 60 labels, the API has to connect to each of the **5,000** potential total issues to get the list of labels. So, requests for labels = **5,000**
-- Total = **5,101**
+* Although we're returning 100 repositories, the API has to connect to the viewer's account **once** to get the list of repositories. So, requests for repositories = **1**
+* Although we're returning 50 issues, the API has to connect to each of the **100** repositories to get the list of issues. So, requests for issues = **100**
+* Although we're returning 60 labels, the API has to connect to each of the **5,000** potential total issues to get the list of labels. So, requests for labels = **5,000**
+* Total = **5,101**
 
 Dividing by 100 and rounding gives us the final score of the query: **51**
 
@@ -277,12 +274,16 @@ Continuing to make requests while you are rate limited may result in the banning
 
 To avoid exceeding a rate limit, you should pause at least 1 second between mutative requests and avoid concurrent requests.
 
-You should also subscribe to webhook events instead of polling the API for data. For more information, see "[AUTOTITLE](/webhooks)."
+You should also subscribe to webhook events instead of polling the API for data. For more information, see [AUTOTITLE](/webhooks).
 
-{% ifversion audit-log-streaming %}
+You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
-You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise)."
+## Timeouts
 
-{% endif %}
+If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a message reporting that "We couldn't respond to your request in time".
+
+{% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
+You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting a large number of objects in a single request, you can try requesting fewer objects split over multiple queries.
 
 {% endif %}

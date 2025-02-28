@@ -19,5 +19,3 @@ children:
 redirect_from:
   - /code-security/dependabot/dependabot-alert-rules
 ---
-
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}

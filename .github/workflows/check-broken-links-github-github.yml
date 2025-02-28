@@ -45,7 +45,7 @@ jobs:
           ENABLED_LANGUAGES: en
         run: |
 
-          node src/frame/server.js &
+          npm run start &
           sleep 5
           curl --retry-connrefused --retry 3 -I http://localhost:4000/
 

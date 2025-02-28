@@ -1,5 +1,0 @@
-# Issue: 9836
-# Documentation related to enabling the ability for Team accounts to manage and create additional runner groups
-versions:
-  fpt: '*'
-  ghec: '*'

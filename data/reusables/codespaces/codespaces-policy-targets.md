@@ -2,11 +2,8 @@
 
    ![Screenshot of the repository selection dropdown, showing the options "All repositories" and "Selected repositories."](/assets/images/help/codespaces/selected-repositories.png)
 
-   {% note %}
-
-   **Note**: If you're adding a constraint to an existing policy that already contains the "Maximum codespaces per user" constraint, you won't be able to apply the policy to selected repositories. This is because the "Maximum codespaces per user" constraint always applies to all repositories in the organization.
-
-   {% endnote %}
+   > [!NOTE]
+   > If you're adding a constraint to an existing policy that already contains the "Maximum codespaces per user" constraint, you won't be able to apply the policy to selected repositories. This is because the "Maximum codespaces per user" constraint always applies to all repositories in the organization.
 
    With **Selected repositories** selected:
    1. Click {% octicon "gear" aria-label="The settings icon" %}.

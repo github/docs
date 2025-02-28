@@ -2,19 +2,21 @@
 title: Using the GraphQL API for Discussions
 intro: 'Learn how to use the {% data variables.product.prodname_discussions %} GraphQL API.'
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Use GraphQL for Discussions
 ---
 
-The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)."
+The {% data variables.product.prodname_discussions %} GraphQL API allows you to get, create, edit, and delete discussion posts. For more information about {% data variables.product.prodname_discussions %}, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
 
-This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps)."
+This API is available for authenticated users, {% data variables.product.prodname_oauth_apps %}, and GitHub Apps. Access tokens require the `repo` scope for private repositories and the `public_repo` scope for public repositories. For more information, see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/scopes-for-oauth-apps).
 
 ## Fields
 
 ### Repository.discussions
 
-List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned. {% ifversion answered-fields-for-discussions %}If `answered` is not specified, both answered and unanswered discussions will be returned.{% endif %}
+List the discussions within a repository. If `categoryId` is specified, only results within that category will be returned. If `answered` is not specified, both answered and unanswered discussions will be returned.
 
 _Signature:_
 
@@ -25,9 +27,9 @@ discussions(
   first: Int,
   last: Int,
   categoryId: ID = null,
-  {%- ifversion answered-fields-for-discussions %}
+  
   answered: Boolean = null,
-  {%- endif %}
+  
   orderBy: DiscussionOrder = {field: UPDATED_AT, direction: DESC}
 ) : Discussion
 ```
@@ -70,7 +72,7 @@ enum DiscussionOrderField {
 
 ### Repository.discussionCategories
 
-Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions)."
+Return the available discussion categories defined within this repository. Each repository may have up to 25 categories. For more information about discussion categories, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions#about-categories-and-formats-for-discussions).
 
 _Signature:_
 
@@ -110,7 +112,7 @@ pinnedDiscussions(
 
 ## Objects
 
-**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see "[AUTOTITLE](/graphql/guides/introduction-to-graphql#connection)."
+**Note:** For brevity, connection types are not expanded here. Each connection type mentioned in the schema follows the same pattern as other connections in the GraphQL API. For more information, see [AUTOTITLE](/graphql/guides/introduction-to-graphql#connection).
 
 ```graphql
 query {
@@ -160,12 +162,12 @@ type Discussion implements Comment & Deletable & Lockable & Node & Reactable & R
   """
   activeLockReason: LockReason
 
-  {%- ifversion answered-fields-for-discussions %}
+  
   """
   Check if this discussion has been answered
   """
   isAnswered: Boolean!
-  {%- endif %}
+  
 
   """
   The comment chosen as this discussion's answer, if any.
@@ -988,107 +990,107 @@ mutation {
 
 Input fields:
 
-- `body: String!` The body of the new discussion.
-- `title: String!` The title of the new discussion.
-- `repositoryId: ID!` The ID of a repository in which to create the discussion.
-- `categoryId: ID!` The ID of a `DiscussionCategory` within this repository.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` The body of the new discussion.
+* `title: String!` The title of the new discussion.
+* `repositoryId: ID!` The ID of a repository in which to create the discussion.
+* `categoryId: ID!` The ID of a `DiscussionCategory` within this repository.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `discussion: Discussion` The discussion that was created.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `discussion: Discussion` The discussion that was created.
 
 ### updateDiscussion
 
 Input fields:
 
-- `discussionId: ID!` The node ID of the discussion to update.
-- `body: String` The new contents of the discussion body.
-- `title: String` The new discussion title.
-- `categoryId: ID` The node ID of a `DiscussionCategory` within the same repository to change this discussion to.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `discussionId: ID!` The node ID of the discussion to update.
+* `body: String` The new contents of the discussion body.
+* `title: String` The new discussion title.
+* `categoryId: ID` The node ID of a `DiscussionCategory` within the same repository to change this discussion to.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `discussion: Discussion` The discussion that was modified.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `discussion: Discussion` The discussion that was modified.
 
 ### deleteDiscussion
 
 Input fields:
 
-- `id: ID!` The node ID of the discussion to delete.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` The node ID of the discussion to delete.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `discussion: Discussion` The discussion that was deleted.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `discussion: Discussion` The discussion that was deleted.
 
 ### addDiscussionComment
 
 Input fields:
 
-- `body: String!` The contents of the comment.
-- `discussionId: ID!` The node ID of the discussion to comment on.
-- `replyToId: ID` The node ID of the discussion comment to reply to. If absent, the created comment will be a top-level comment.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` The contents of the comment.
+* `discussionId: ID!` The node ID of the discussion to comment on.
+* `replyToId: ID` The node ID of the discussion comment to reply to. If absent, the created comment will be a top-level comment.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `comment: DiscussionComment` The discussion comment that was created.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `comment: DiscussionComment` The discussion comment that was created.
 
 ### updateDiscussionComment
 
 Input fields:
 
-- `body: String!` The new contents of the comment body.
-- `commentId: ID!` The node ID of the discussion comment to update.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `body: String!` The new contents of the comment body.
+* `commentId: ID!` The node ID of the discussion comment to update.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `comment: DiscussionComment` The discussion comment that was updated.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `comment: DiscussionComment` The discussion comment that was updated.
 
 ### deleteDiscussionComment
 
 Input fields:
 
-- `id: ID!` The node ID of the discussion comment to delete.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` The node ID of the discussion comment to delete.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `comment: DiscussionComment` The discussion comment that was deleted.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `comment: DiscussionComment` The discussion comment that was deleted.
 
 ### markDiscussionCommentAsAnswer
 
 Input fields:
 
-- `id: ID!` The node ID of the discussion comment to mark as an answer.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` The node ID of the discussion comment to mark as an answer.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `discussion: Discussion` The discussion that includes the chosen comment.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `discussion: Discussion` The discussion that includes the chosen comment.
 
 ### unmarkDiscussionCommentAsAnswer
 
 Input fields:
 
-- `id: ID!` The node ID of the discussion comment to unmark as an answer.
-- `clientMutationId: String` A unique identifier for the client performing the mutation.
+* `id: ID!` The node ID of the discussion comment to unmark as an answer.
+* `clientMutationId: String` A unique identifier for the client performing the mutation.
 
 Return type fields:
 
-- `clientMutationId: String` The unique identifier provided as an input.
-- `discussion: Discussion` The discussion that includes the unmarked comment.
+* `clientMutationId: String` The unique identifier provided as an input.
+* `discussion: Discussion` The discussion that includes the unmarked comment.
 
 ## Search
 
-Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see "[AUTOTITLE](/graphql/reference/queries#searchresultitemconnection)" and "[AUTOTITLE](/search-github/searching-on-github/searching-discussions)."
+Discussion may be returned from the top-level `search` field. To search for discussion, specify `type` as `DISCUSSION`. The `SearchResultItemConnection` type has a `discussionCount` field to report the number of returned discussions, and the `Discussion` type is added to the `SearchResultItem` union. For more information, see [AUTOTITLE](/graphql/reference/queries#searchresultitemconnection) and [AUTOTITLE](/search-github/searching-on-github/searching-discussions).

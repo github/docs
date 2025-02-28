@@ -14,6 +14,7 @@ on:
       - closed
     paths:
       - 'content/site-policy/**'
+      - '.github/workflows/site-policy-sync.yml'
   workflow_dispatch:
 
 permissions:

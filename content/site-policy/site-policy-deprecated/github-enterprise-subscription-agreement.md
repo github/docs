@@ -14,23 +14,23 @@ _These terms apply to Customers who have executed agreements in place referencin
 
 This Agreement applies to the following GitHub offerings, as further defined below (collectively, the **"Products"**):
 
-- GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
+* GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-On Software, and GitHub Enterprise Cloud);
 
-- Any Beta Previews;
+* Any Beta Previews;
 
-- Any related Support; and
+* Any related Support; and
 
-- Any related Professional Services.
+* Any related Professional Services.
 
 This Agreement includes the following Sections and Exhibits, each of which is incorporated by reference herein:
 
-- SECTION 1: General Terms and Conditions;
+* SECTION 1: General Terms and Conditions;
 
-- SECTION 2: GitHub Enterprise Server License Terms;
+* SECTION 2: GitHub Enterprise Server License Terms;
 
-- SECTION 3: GitHub Enterprise Cloud Terms of Service;
+* SECTION 3: GitHub Enterprise Cloud Terms of Service;
 
-- EXHIBIT A: Definitions.
+* EXHIBIT A: Definitions.
 
 If Customer has purchased any Products from an authorized GitHub reseller, the following Sections of this Agreement are superseded by the terms Customer has agreed upon with the GitHub reseller: Section 1.1 (Term and Termination); 1.2 (Payment); Section 2.3 (Delivery); and Section 2.4 (Verification).
 
@@ -262,7 +262,7 @@ In order to create an account, Customer must adhere to the following:
 
 #### 3.1.3 Account Security.
 
-Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly notifying GitHub via the contact form available at [GitHub Support](https://support.github.com/) upon becoming aware of any unauthorized use of, or access to, the Service through its account.  GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
+Customer is responsible for: (i) all Content posted and activity that occurs under its Corporate Account; (ii) maintaining the security of its account login credentials; and (iii) promptly notifying GitHub via the contact form available at [GitHub Support](https://support.github.com/) upon becoming aware of any unauthorized use of, or access to, the Service through its account. GitHub will not be liable for any loss or damage from Customer’s failure to comply with this Section 3.1.3.
 
 #### 3.1.4 Additional Terms.
 
@@ -441,7 +441,7 @@ Some Service features may be subject to additional terms as set forth in the [Gi
 
 **“Scraping”** means extracting data from the Service via an automated process, such as a bot or webcrawler, and does not include the collection of information through GitHub's API.
 
-**"Service"** means the hosted GitHub Enterprise Cloud service. The Service includes:  Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time.
+**"Service"** means the hosted GitHub Enterprise Cloud service. The Service includes: Organization account(s), SAML single sign-on, access provisioning, and any applicable Documentation. This list of features and services is non-exhaustive and may be updated from time to time.
 
 **"Service Credit"** means a dollar credit, calculated as set forth below, that GitHub may credit back to an eligible account.
 

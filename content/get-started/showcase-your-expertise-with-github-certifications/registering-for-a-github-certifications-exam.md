@@ -9,11 +9,8 @@ shortTitle: Registering for an exam
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note:** {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
 
 {% endif %}
 
@@ -33,9 +30,9 @@ To gain admission to the testing center or online-proctored exam, you must prese
 
 Acceptable forms include:
 
-- International Travel Passport
-- Driver's License
-- Government ID card (with photo), such as state or provincial ID, visa, green card
+* International Travel Passport
+* Driver's License
+* Government ID card (with photo), such as state or provincial ID, visa, green card
 
 If you do not have a qualifying ID issued from the country in which you are testing, a passport from your country of citizenship is required.
 

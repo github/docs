@@ -18,9 +18,11 @@ export default {
       properties: {
         title: {
           type: 'string',
+          lintable: true,
         },
         description: {
           type: 'string',
+          lintable: true,
         },
         guides: {
           type: 'array',

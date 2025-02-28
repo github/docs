@@ -27,7 +27,7 @@ We strongly recommend using a time-based one-time password (TOTP) application to
 
 {% ifversion 2fa-check-up-period %}
 
-After you configure 2FA, your account will enter a 28-day check up period. You can leave the check up period by successfully performing 2FA in those 28 days. Otherwise, you will be prompted to perform 2FA in an existing {% data variables.product.prodname_dotcom_the_website %} session on the 28th day. If you cannot perform 2FA to pass the checkup, you must use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom_the_website %}.
+After you configure 2FA, your account will enter a 28-day check up period. You can leave the check up period by successfully performing 2FA in those 28 days. Otherwise, you will be prompted to perform 2FA in an existing {% data variables.product.prodname_dotcom %} session on the 28th day. If you cannot perform 2FA to pass the checkup, you must use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.prodname_dotcom %}.
 
 {% ifversion fpt or ghec %}
 
@@ -36,31 +36,20 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 {% endif %}
 
-{% warning %}
+> [!WARNING]
+> * If you're an outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
+> * If you're a member{% ifversion fpt or ghec %} or billing manager{% endif %} of an organization that requires 2FA, you will be unable to access that organization's resources while you have 2FA disabled.
+> * If you disable 2FA, you will automatically lose access to the organization. To regain access to the organization, if you're a member{% ifversion fpt or ghec %} or billing manager{% endif %}, you must re-enable 2FA. If you're an outside collaborator, you will also lose access to any private forks you have of the organization's private repositories after disabling 2FA, and must re-enable 2FA and contact an organization owner to have access restored.
 
-**Warning:**
-- If you're a member{% ifversion fpt or ghec %}, billing manager,{% endif %} or outside collaborator to a private repository of an organization that requires two-factor authentication, you must leave the organization before you can disable 2FA on {% data variables.location.product_location %}.
-- If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable two-factor authentication and contact an organization owner.
-
-{% endwarning %}
-
-{% ifversion 2fa-reconfiguration-inline-update %}
-{% note %}
-
-**Note:** You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
-
-{% endnote %}
-{% endif %}
+> [!NOTE]
+> You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.
 
 ## Configuring two-factor authentication using a TOTP app
 
 A time-based one-time password (TOTP) application automatically generates an authentication code that changes after a certain period of time. These apps can be downloaded to your phone or desktop. We recommend using cloud-based TOTP apps. {% data variables.product.prodname_dotcom %} is app-agnostic when it comes to TOTP apps, so you have the freedom to choose any TOTP app you prefer. Just search for `TOTP app` in your browser to find various options. You can also refine your search by adding keywords like `free` or `open source` to match your preferences.
 
-{% tip %}
-
-**Tip**: To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the {% ifversion fpt or ghec or ghes > 3.8 %}"setup key"{% else %}"text code"{% endif %}, which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
-
-{% endtip %}
+> [!TIP]
+> To configure authentication via TOTP on multiple devices, during setup, scan the QR code using each device at the same time or save the "setup key", which is the TOTP secret. If 2FA is already enabled and you want to add another device, you must re-configure your TOTP app from your security settings.
 
 1. Download a TOTP app of your choice to your phone or desktop.
 {% data reusables.user-settings.access_settings %}
@@ -81,6 +70,7 @@ A time-based one-time password (TOTP) application automatically generates an aut
 If you're unable to configure a TOTP app, you can also register your phone number to receive SMS messages.
 
 {% data reusables.two_fa.sms-warning %}
+{% data reusables.two_fa.sms-cap-note %}
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.security %}
@@ -95,15 +85,10 @@ If you're unable to configure a TOTP app, you can also register your phone numbe
 
 ## Configuring two-factor authentication using a passkey
 
-{% data reusables.passkeys.about-passkeys %}
+{% data reusables.passkeys.about-passkeys %} See [AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys).
 
-{% note %}
-
-**Note:** Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
-
-{% endnote %}
-
-For more information, see "[AUTOTITLE](/authentication/authenticating-with-a-passkey/about-passkeys)."
+> [!NOTE]
+> Platform authenticators like Windows Hello, Face ID, or Touch ID can be registered as a passkey instead.
 
 1. You must have already configured 2FA via a TOTP mobile app{% ifversion fpt or ghec %} or via SMS{% endif %}.
 {% data reusables.passkeys.adding-a-passkey %}
@@ -135,8 +120,7 @@ Registering a security key for your account is available after enabling 2FA with
 1. Under "Security keys", click **Register new security key**.
 1. Type a nickname for the security key, then click **Add**.
 1. Following your security key's documentation, activate your security key.
-1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes)."
-{% ifversion ghes < 3.9 %}{% data reusables.two_fa.test_2fa_immediately %}{% endif %}
+1. Confirm that you've downloaded and can access your recovery codes. If you haven't already, or if you'd like to generate another set of codes, download your codes and save them in a safe place. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods#downloading-your-two-factor-authentication-recovery-codes).
 
 {% ifversion fpt or ghec %}
 
@@ -148,15 +132,16 @@ Once you have configured a TOTP application, or SMS, you can also use {% data va
 
 1. You must have already configured 2FA via a TOTP mobile app or via SMS.
 1. Install [{% data variables.product.prodname_mobile %}](https://github.com/mobile).
-1. Sign in to your {% data variables.product.product_name %} account from {% data variables.product.prodname_mobile %}.
+1. Sign in to your {% data variables.product.github %} account from {% data variables.product.prodname_mobile %}.
+1. Ensure {% data variables.product.prodname_mobile %} can send push notifications. If you have not opted in to push notifications, you can turn them on within notification settings in {% data variables.product.prodname_mobile %}.
 
-After signing in, you can now use your device for 2FA.
+After signing in and turning on push notifications, you can now use your device for 2FA.
 {% endif %}
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)"
-- "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)"
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication)
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials)
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)

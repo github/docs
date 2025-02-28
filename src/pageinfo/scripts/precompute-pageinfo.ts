@@ -34,7 +34,7 @@ import { program, Option } from 'commander'
 
 import { languageKeys } from 'src/languages/lib/languages.js'
 import { loadPages, loadUnversionedTree } from 'src/frame/lib/page-data.js'
-import { CACHE_FILE_PATH, getPageInfo } from '../middleware.js'
+import { CACHE_FILE_PATH, getPageInfo } from '../middleware'
 
 program
   .description('Generates a JSON file with precompute pageinfo data by pathname')

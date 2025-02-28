@@ -1,8 +1,9 @@
+import { describe, expect, test, vi } from 'vitest'
+
 import { getDOM } from '#src/tests/helpers/e2etest.js'
-import { jest } from '@jest/globals'
 
 describe('curated homepage links', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   test('English', async () => {
     const $ = await getDOM('/en')

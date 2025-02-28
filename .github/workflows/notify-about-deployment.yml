@@ -7,8 +7,7 @@ name: Notify about production deployment
 on:
   workflow_dispatch:
   workflow_run:
-    # Note, we could do this after the "Purge Fastly" finished
-    workflows: ['Azure Production - Build and Deploy']
+    workflows: ['Purge Fastly']
     types:
       - completed
 
@@ -41,14 +40,14 @@ jobs:
 
       - name: Find last PR
         id: get-number
-        timeout-minutes: 3
+        timeout-minutes: 5
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-        run: src/workflows/find-past-built-pr.js
+        run: npm run find-past-built-pr
 
       - name: Find content directory changes comment
         if: ${{ steps.get-number.outputs.number != '' }}
-        uses: peter-evans/find-comment@d5fe37641ad8451bdd80312415672ba26c86575e
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
         id: findComment
         with:
           issue-number: ${{ steps.get-number.outputs.number }}

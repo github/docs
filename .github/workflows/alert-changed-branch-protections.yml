@@ -3,9 +3,15 @@ name: Alert Changed Branch Protections
 on:
   branch_protection_rule:
   workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * 3' # Run every Wednesday at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/alert-changed-branch-protections.yml
+      - .github/branch_protection_settings/*.json
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   check-branch-protections:
@@ -27,21 +33,53 @@ jobs:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
         run: |
           # Fetch branch protections and store them in a file
-          gh api /repos/GitHub/docs-internal/branches/${{ matrix.branch }}/protection > ${{ matrix.branch }}-actual.json
+          gh api /repos/GitHub/docs-internal/branches/${{ matrix.branch }}/protection \
+            > .github/branch_protection_settings/${{ matrix.branch }}.json
 
       - name: Format fetched settings with prettier for comparison
         id: format
         run: |
-          npx prettier --write ${{ matrix.branch }}-actual.json
+          npx prettier --write .github/branch_protection_settings/${{ matrix.branch }}.json
 
       - name: Compare branch protections
         id: compare
         run: |
-          # Compare the fetched branch protections with the committed ones
-          git diff --no-index .github/branch_protection_settings/${{ matrix.branch }}.json ${{ matrix.branch }}-actual.json
+          git diff --quiet .github/branch_protection_settings/${{ matrix.branch }}.json \
+            || echo "diff_failed=true" >> $GITHUB_ENV
+
+      - name: Create a pull request to update branch protection settings
+        if: ${{ env.diff_failed == 'true' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+        run: |
+          echo "Set git config"
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+
+          echo "Check out a new branch"
+          xbranch=update-branch-protection-settings-$(date +%s)
+          git checkout -b $xbranch
+
+          echo "Commit changes"
+          git commit -am "Update branch protection settings"
+
+          echo "Push changes"
+          git push origin $xbranch
+
+          echo "Create pull request"
+          gh pr create \
+            --title "Update branch protection settings" \
+            --body "Branch protections have changed." \
+            --head $xbranch \
+            --base main
+
+          echo "Define pr_url"
+          echo "pr_url=$(gh pr view --json url --jq .url)" >> $GITHUB_ENV
 
       - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        if: ${{ env.diff_failed == 'true' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          message: "Branch protections have changed. I've created a pull request to update them. Please review and merge, or revert the change in the GitHub UI. ${{ env.pr_url }}"
+          color: purple

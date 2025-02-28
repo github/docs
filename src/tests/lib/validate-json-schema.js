@@ -11,6 +11,16 @@ addErrors(ajv)
 ajv.addKeyword({
   keyword: 'translatable',
 })
+// Schemas can contain the custom keyword `lintable` to define
+// a property as a Markdown string that can  be linted by the
+// content linter.
+// The custom keyword does not define a custom validator function.
+// This allows the custom keyword to be present in a schema but
+// doesn't perform additional validation other than type checking.
+ajv.addKeyword({
+  keyword: 'lintable',
+  type: 'string',
+})
 
 // Custom JSON formats
 ajv.addFormat('semver', {
@@ -39,3 +49,5 @@ export function validateJson(schema, data) {
     errors: isValid ? null : structuredClone(ajv.errors),
   }
 }
+
+export default ajv

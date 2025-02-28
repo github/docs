@@ -45,10 +45,10 @@ link: <https://api.github.com/repositories/1300192/issues?page=2>; rel="prev", <
 
 The `link` header provides the URL for the previous, next, first, and last page of results:
 
-- The URL for the previous page is followed by `rel="prev"`.
-- The URL for the next page is followed by `rel="next"`.
-- The URL for the last page is followed by `rel="last"`.
-- The URL for the first page is followed by `rel="first"`.
+* The URL for the previous page is followed by `rel="prev"`.
+* The URL for the next page is followed by `rel="next"`.
+* The URL for the last page is followed by `rel="last"`.
+* The URL for the first page is followed by `rel="first"`.
 
 In some cases, only a subset of these links are available. For example, the link to the previous page won't be included if you are on the first page of results, and the link to the last page won't be included if it can't be calculated.
 
@@ -60,11 +60,11 @@ curl --include --request GET \
 --header "Accept: application/vnd.github+json"
 ```
 
-The URLs in the `link` header use query parameters to indicate which page of results to return. The query parameters in the `link` URLs may differ between endpoints, however each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the `link` header to fetch additional pages of results. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
+The URLs in the `link` header use query parameters to indicate which page of results to return. The query parameters in the `link` URLs may differ between endpoints, however each paginated endpoint will use the `page`, `before`/`after`, or `since` query parameters. (Some endpoints use the `since` parameter for something other than pagination.) In all cases, you can use the URLs in the `link` header to fetch additional pages of results. For more information about query parameters see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters).
 
 ## Changing the number of items per page
 
-If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters)."
+If an endpoint supports the `per_page` query parameter, then you can control how many results are returned on a page. For more information about query parameters see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#using-query-parameters).
 
 For example, this request uses the `per_page` query parameter to return two items per page:
 
@@ -84,7 +84,7 @@ link: <https://api.github.com/repositories/1300192/issues?per_page=2&page=2>; re
 
 Instead of manually copying URLs from the `link` header, you can write a script to fetch multiple pages of results.
 
-The following examples use JavaScript and {% data variables.product.company_short %}'s Octokit.js library. For more information about Octokit.js, see "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=javascript)" and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+The following examples use JavaScript and {% data variables.product.company_short %}'s Octokit.js library. For more information about Octokit.js, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=javascript) and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
 ### Example using the Octokit.js pagination method
 
@@ -96,16 +96,16 @@ For example, this script gets all of the issues from the `octocat/Spoon-Knife` r
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",
+  baseUrl: "{% data variables.product.rest_url %}",
 {% endif %}});
 
 const data = await octokit.paginate("GET /repos/{owner}/{repo}/issues", {
   owner: "octocat",
   repo: "Spoon-Knife",
-  per_page: 100,{% ifversion api-date-versioning %}
+  per_page: 100,
   headers: {
     "X-GitHub-Api-Version": "{{ allVersions[currentVersion].latestApiVersion }}",
-  },{% endif %}
+  },
 });
 
 console.log(data)
@@ -123,7 +123,7 @@ The `getPaginatedData` function makes a request to an endpoint with `octokit.req
 import { Octokit } from "octokit";
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",
+  baseUrl: "{% data variables.product.rest_url %}",
 {% endif %}});
 
 async function getPaginatedData(url) {
@@ -133,11 +133,11 @@ async function getPaginatedData(url) {
 
   while (pagesRemaining) {
     const response = await octokit.request(`GET ${url}`, {
-      per_page: 100,{% ifversion api-date-versioning %}
+      per_page: 100,
       headers: {
         "X-GitHub-Api-Version":
           "{{ allVersions[currentVersion].latestApiVersion }}",
-      },{% endif %}
+      },
     });
 
     const parsedData = parseData(response.data)

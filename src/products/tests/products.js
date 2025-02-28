@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { productMap } from '#src/products/lib/all-products.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'

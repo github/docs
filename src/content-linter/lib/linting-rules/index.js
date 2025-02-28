@@ -25,9 +25,14 @@ import { liquidDataReferencesDefined, liquidDataTagFormat } from './liquid-data-
 import { frontmatterSchema } from './frontmatter-schema.js'
 import { codeAnnotations } from './code-annotations.js'
 import { frontmatterLiquidSyntax, liquidSyntax } from './liquid-syntax.js'
-import { liquidIfTags, liquidIfVersionTags } from './liquid-versioning.js'
+import { liquidIfTags, liquidIfVersionTags, liquidIfVersionVersions } from './liquid-versioning.js'
 import { raiReusableUsage } from './rai-reusable-usage.js'
 import { imageNoGif } from './image-no-gif.js'
+import { expiredContent, expiringSoon } from './expired-content.js'
+import { tableLiquidVersioning } from './table-liquid-versioning.js'
+import { thirdPartyActionPinning } from './third-party-action-pinning.js'
+import { liquidTagWhitespace } from './liquid-tag-whitespace.js'
+import { linkQuotation } from './link-quotation.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
   elem.names.includes('no-default-alt-text'),
@@ -67,7 +72,14 @@ export const gitHubDocsMarkdownlint = {
     liquidSyntax,
     liquidIfTags,
     liquidIfVersionTags,
+    liquidIfVersionVersions,
     raiReusableUsage,
     imageNoGif,
+    expiredContent,
+    expiringSoon,
+    tableLiquidVersioning,
+    thirdPartyActionPinning,
+    liquidTagWhitespace,
+    linkQuotation,
   ],
 }

@@ -15,12 +15,12 @@ Being part of a community includes recognizing how your behavior affects others 
 
 We do not allow behavior that significantly or continually disrupts the experience of other users. This includes:
 
-- Posting off-topic comments
-- Opening empty or meaningless issues or pull requests
-- Starring and/or following accounts or repositories in large volume in a short period of time
-- Creating nonsensical or irrelevant code reviews
-- Engaging with platform features in a way that causes excessive notifications for other users
-- Using any other platform feature in a way that creates disruption
+* Posting off-topic comments
+* Opening empty or meaningless issues or pull requests
+* Starring and/or following accounts or repositories in large volume in a short period of time
+* Creating nonsensical or irrelevant code reviews
+* Engaging with platform features in a way that causes excessive notifications for other users
+* Using any other platform feature in a way that creates disruption
 
 While we encourage maintainers to moderate their own projects on an individual basis, GitHub staff may take further restrictive action against accounts that are engaging in these types of behaviors.
 

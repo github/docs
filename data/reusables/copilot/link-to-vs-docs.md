@@ -1,1 +1,0 @@
-For an alternative installation method, you can also use the Microsoft instructions to install the {% data variables.product.prodname_copilot %} extension. For more information, see [Installation instructions](https://learn.microsoft.com/en-gb/visualstudio/ide/visual-studio-github-copilot-extension?view=vs-2022#installation-instructions) in the Microsoft documentation.

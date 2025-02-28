@@ -41,16 +41,19 @@ jobs:
               console.log(`This issue was commented on by an external contributor.`)
               return 'false'
             }
-      - name: Label issues with new comments with 'triage'
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
-        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
-        with:
-          add-labels: 'triage'
-          ignore-if-labeled: true
 
       - name: Check out repo
-        if: ${{ failure() }}
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Label issues with new comments with 'triage'
+        uses: ./.github/actions/labeler
+        if: ${{ steps.is-internal-contributor.outputs.result == 'false' }}
+        with:
+          addLabels: 'triage'
+          ignoreIfLabeled: true
+
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() }}
         with:

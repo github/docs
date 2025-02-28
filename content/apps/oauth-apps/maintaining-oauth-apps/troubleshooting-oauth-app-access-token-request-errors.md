@@ -14,11 +14,9 @@ topics:
   - OAuth apps
 shortTitle: Troubleshoot token request
 ---
-{% note %}
 
-**Note:** These examples only show JSON responses.
-
-{% endnote %}
+> [!NOTE]
+> These examples only show JSON responses.
 
 ## Incorrect client credentials
 
@@ -34,7 +32,7 @@ receive this error response.
 ```
 
 To solve this error, make sure you have the correct credentials for your {% data variables.product.prodname_oauth_app %}. Double check the `client_id` and `client_secret` to make sure they are correct and being passed correctly
-to {% data variables.product.product_name %}.
+to {% data variables.product.github %}.
 
 ## Redirect URI mismatch
 
@@ -81,4 +79,4 @@ If the user for whom you are trying to generate a user access token has not veri
 }
 ```
 
-To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}"[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)."{% else %}"[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address)" in the  {% data variables.product.prodname_free_user %} documentation.{% endif %}
+To resolve this error, prompt the user to verify the primary email address on their {% data variables.product.company_short %} account. For more information, see {% ifversion fpt or ghec %}[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).{% else %}[AUTOTITLE](/free-pro-team@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address) in the {% data variables.product.prodname_free_user %} documentation.{% endif %}

@@ -29,6 +29,15 @@
  *
  *   /Users/peterbe/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-20231204/codeql
  *
+ * Finally, you need to install `@github/cocofix`. This is a private package,
+ * so you first need to get the `DOCS_BOT_PAT_WORKFLOW` PAT from the vault and
+ * store it in the environment variable `DOCS_BOT_PAT_WORKFLOW`.
+ * Then run the following command from the root of this repo:
+ *
+ * ```sh
+ * npm i --no-save '--@github:registry=https://npm.pkg.github.com' '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_WORKFLOW}' @github/cocofix
+ * ```
+ *
  * If you've git cloned github/codeql in /tmp/ now you can execute this script.
  * For example, to generate the Markdown
  * for Python:
@@ -44,6 +53,10 @@ import { execFileSync } from 'child_process'
 
 import chalk from 'chalk'
 import { program } from 'commander'
+// We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
+// as described above and suppress the import warning.
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' // eslint-disable-line import/no-extraneous-dependencies
+import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
 
 program
   .description('Generate a reusable Markdown for for a code scanning query language')
@@ -74,6 +87,13 @@ type Query = {
   url: string
   packs: string[]
   cwes: string[]
+  autofixSupport: 'none' | 'default'
+}
+
+type QueryExtended = Query & {
+  inDefault: boolean
+  inExtended: boolean
+  inAutofix: boolean
 }
 
 const opts = program.opts()
@@ -105,6 +125,12 @@ async function main(options: Options, language: string) {
     [id: string]: Query
   } = {}
 
+  const autofixSupportedQueryIds = await getSupportedQueries(
+    'default',
+    language as Language,
+    'CodeQL',
+  )
+
   for (const pack of options.packs) {
     const languagePack = `${language}-${pack}.qls`
     if (options.verbose) console.log(chalk.dim(`Searching for queries in ${languagePack}`))
@@ -123,12 +149,13 @@ async function main(options: Options, language: string) {
         if (id && name) {
           const cwes = getCWEs(tags || '')
           const url = getDocsLink(language, id)
+          const autofixSupport = autofixSupportedQueryIds.includes(id) ? 'default' : 'none'
 
           // Only include queries that have CWEs, since the other queries deal with code scanning
           // metadata and metrics (e.g. counting lines of code or number of files) and have no docs link
           if (cwes.length) {
             if (!(id in queries)) {
-              queries[id] = { url, name, packs: [], cwes }
+              queries[id] = { url, name, packs: [], cwes, autofixSupport }
             }
             queries[id].packs.push(pack)
           } else {
@@ -141,16 +168,43 @@ async function main(options: Options, language: string) {
     }
   }
 
-  const entries = Object.values(queries)
-  entries.sort((a, b) => a.name.localeCompare(b.name))
+  function decorate(query: Query): QueryExtended {
+    return {
+      ...query,
+      inDefault: query.packs.includes('code-scanning'),
+      inExtended: query.packs.includes('security-extended'),
+      inAutofix: query.autofixSupport === 'default',
+    }
+  }
+
+  const entries = Object.values(queries).map(decorate)
+
+  // Spec: "Queries that are both in Default and Extended should come first,
+  // in alphabetical order. Followed by the queries that are in Extended only."
+  entries.sort((a, b) => {
+    if (a.inDefault && !b.inDefault) return -1
+    else if (!a.inDefault && b.inDefault) return 1
+
+    if (a.inExtended && !b.inExtended) return -1
+    else if (!a.inExtended && b.inExtended) return 1
+
+    return a.name.localeCompare(b.name)
+  })
+
   printQueries(options, entries)
 }
 
-function printQueries(options: Options, queries: Query[]) {
-  const markdown = []
+function printQueries(options: Options, queries: QueryExtended[]) {
+  const markdown: string[] = []
   markdown.push('{% rowheaders %}')
   markdown.push('') // blank line
-  const header = ['Query name', 'Related CWEs', 'Default', 'Extended']
+  const header = [
+    'Query name',
+    'Related CWEs',
+    'Default',
+    'Extended',
+    '{% data variables.product.prodname_copilot_autofix_short %}',
+  ]
   markdown.push(`| ${header.join(' | ')} |`)
   markdown.push(`| ${header.map(() => '---').join(' | ')} |`)
 
@@ -159,17 +213,11 @@ function printQueries(options: Options, queries: Query[]) {
 
   for (const query of queries) {
     const markdownLink = `[${query.name}](${query.url})`
-    let defaultIcon = notIncludedOcticon
-    let extendedIcon = notIncludedOcticon
-    if (query.packs.includes('code-scanning')) {
-      defaultIcon = includedOcticon
-    }
-    if (query.packs.includes('security-extended')) {
-      extendedIcon = includedOcticon
-    }
-    markdown.push(
-      `| ${markdownLink} | ${query.cwes.join(', ')} | ${defaultIcon} | ${extendedIcon} |`,
-    )
+    const defaultIcon = query.inDefault ? includedOcticon : notIncludedOcticon
+    const extendedIcon = query.inExtended ? includedOcticon : notIncludedOcticon
+    const autofixIcon = query.inAutofix ? includedOcticon : notIncludedOcticon
+    const row = [markdownLink, query.cwes.join(', '), defaultIcon, extendedIcon, autofixIcon]
+    markdown.push(`| ${row.join(' | ')} |`)
   }
   markdown.push('') // blank line
   markdown.push('{% endrowheaders %}')

@@ -1,13 +1,18 @@
 #!/bin/sh
 [ -n "$CI" ] && exit 0
 
+# Ignore this check if user has DOCS_NO_AUTO_NPM set in their environment
+if [ -n "$DOCS_NO_AUTO_NPM" ]; then
+  echo "Skipping auto-npm install because DOCS_NO_AUTO_NPM is set"
+  exit 0
+fi
+
 # Same process in husky/post-checkout
-echo "Check if any packages need to be installed"
-if [[ $(node src/workflows/cmp-files.js package-lock.json .installed.package-lock.json) -eq 0 ]]
-then
-  echo "Packages are ready"
+echo "Checking if packages need to be installed..."
+if npm run cmp-files -- package-lock.json .installed.package-lock.json; then
+  echo "Packages are up-to-date"
 else
-  echo "Installing packages"
+  echo "Installing packages..."
   npm install
-  echo "Installed packages"
+  echo "Packages are now up-to-date"
 fi

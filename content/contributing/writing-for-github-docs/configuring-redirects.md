@@ -1,8 +1,11 @@
 ---
 title: Configuring redirects
-intro: "If an article's title, version, or location changes, you can create a redirect to the current content."
+shortTitle: Configure redirects
+intro: 'If an article''s title, version, or location changes, you can create a redirect to the current content.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/configuring-redirects
 ---
@@ -19,7 +22,7 @@ Within the {% data variables.product.prodname_docs %}, you can redirect from one
 
 ### Redirects across files
 
-If you change the name of an article and want its old URL to redirect to its new URL for all versions, use the `redirect_from` frontmatter with the path to the article's old name. If you change the name of an article and want different versions to redirect to different URLs, follow the steps in the "[Redirects across versions](#redirects-across-versions)" section.
+If you change the name of an article and want its old URL to redirect to its new URL for all versions, use the `redirect_from` frontmatter with the path to the article's old name. If you change the name of an article and want different versions to redirect to different URLs, follow the steps in the [Redirects across versions](#redirects-across-versions) section.
 
 In the following example, the article "All about commits" was renamed to "Creating your first commit." The `redirect_from` frontmatter redirects anyone who navigates to the old article URL to the new article URL.
 
@@ -51,7 +54,7 @@ If you want the URL for one version of an article to redirect to a URL for anoth
 
 For example, if you remove the Free, Pro, or Team (`fpt`) version of an article, the URL will automatically redirect to the next available version of the page. If you want it to redirect to a version that is lower in the order of precedence, or to a different page entirely, you must specify an exception.
 
-Each entry in the `redirect-exceptions` file should start with the path you want to redirect _to_, including the version, followed by an unordered list of the paths you want to redirect _from_. In the following example, the paths in the unordered list will redirect to the {% data variables.product.prodname_ghe_cloud %} version of "[AUTOTITLE](/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization)."
+Each entry in the `redirect-exceptions` file should start with the path you want to redirect _to_, including the version, followed by an unordered list of the paths you want to redirect _from_. In the following example, the paths in the unordered list will redirect to the {% data variables.product.prodname_ghe_cloud %} version of [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization).
 
 ```text
 /enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization

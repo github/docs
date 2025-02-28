@@ -4,8 +4,8 @@ name: Enterprise date updater
 # src/ghes-releases/lib/enterprise-dates.json.
 # **Why we have it**: The src/ghes-releases/lib/enterprise-dates.json
 # file needs to be up-to-date for the
-# .github/workflows/open-enterprise-issue.yml workflow and the
-# tests/content/search.js test.
+# Used to display deprecation banner dates and as a reference
+# for all past server release numbers.
 # **Who does it impact**: Docs engineering, docs content.
 
 on:
@@ -29,14 +29,13 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
-        run: |
-          src/ghes-releases/scripts/update-enterprise-dates.js
+        run: npm run update-enterprise-dates
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
 
       - name: Create pull request
         id: create-pull-request
-        uses: peter-evans/create-pull-request@b1ddad2c994a25fbc81a28b3ec0e368bb2021c50 # pin @v6.0.0
+        uses: peter-evans/create-pull-request@6cd32fd93684475c31847837f87bb135d40a2b79 # pin @v7.0.3
         env:
           # Disable pre-commit hooks; they don't play nicely here
           HUSKY: '0'
@@ -57,7 +56,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
-        run: node src/workflows/enable-automerge.js
+        run: npm run enable-automerge
 
       - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)

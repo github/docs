@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import React from 'react'
 import GithubSlugger from 'github-slugger'
 
 import { MainContextT, MainContext, getMainContext } from 'src/frame/components/context/MainContext'

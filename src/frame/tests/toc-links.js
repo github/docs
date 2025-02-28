@@ -1,10 +1,11 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
+
 import { loadPageMap, loadPages } from '#src/frame/lib/page-data.js'
 import { renderContent } from '#src/content-render/index.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
 describe('toc links', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   test('every toc link works without redirects', async () => {
     const pageList = await loadPages()

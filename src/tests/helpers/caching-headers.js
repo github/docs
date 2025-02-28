@@ -1,3 +1,5 @@
+import { expect } from 'vitest'
+
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 export function checkCachingHeaders(res, defaultSurrogateKey = false, minMaxAge = 60 * 60) {

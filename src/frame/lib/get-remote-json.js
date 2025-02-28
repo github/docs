@@ -13,8 +13,8 @@ const inProd = process.env.NODE_ENV === 'production'
 
 // Wrapper on `got()` that is able to both cache in memory and on disk.
 // The on-disk caching is in `.remotejson/`.
-// We use this for downloading `redirects.json` files from the
-// help-docs-archived-enterprise-versions repo as a proxy. A lot of those
+// We use this for downloading `redirects.json` files from one of the
+// docs-ghes-<release number> repos as a proxy. A lot of those
 // .json files are large and they're also static which makes them
 // ideal for caching.
 // Note that there's 2 layers of caching here:
@@ -77,7 +77,7 @@ export default async function getRemoteJSON(url, config) {
       }
       cache.set(cacheKey, JSON.parse(res.body))
 
-      // Only write to disk for testing and local preview.
+      // Only write to disk for testing and local review.
       // In production, we never write to disk. Only in-memory.
       if (!inProd) {
         fs.mkdirSync(path.dirname(onDisk), { recursive: true })

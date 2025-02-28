@@ -1,6 +1,6 @@
 ---
 title: Telling Git about your signing key
-intro: 'To sign commits locally, you need to inform Git that there''s a GPG{% ifversion ssh-commit-verification %}, SSH,{% endif %} or X.509 key you''d like to use.'
+intro: 'To sign commits locally, you need to inform Git that there''s a GPG, SSH, or X.509 key you''d like to use.'
 redirect_from:
   - /articles/telling-git-about-your-gpg-key
   - /articles/telling-git-about-your-signing-key
@@ -22,11 +22,8 @@ shortTitle: Tell Git about your signing key
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.
 
-{% note %}
-
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
-
-{% endnote %}
+> [!NOTE]
+> If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key).
 
 If you have multiple GPG keys, you need to tell Git which one to use.
 
@@ -64,11 +61,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.
 
-{% note %}
-
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
-
-{% endnote %}
+> [!NOTE]
+> If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key).
 
 If you have multiple GPG keys, you need to tell Git which one to use.
 
@@ -85,11 +79,8 @@ If you have multiple GPG keys, you need to tell Git which one to use.
 
 If you're using a GPG key that matches your committer identity and your verified email address associated with your account on {% data variables.location.product_location %}, then you can begin signing commits and signing tags.
 
-{% note %}
-
-If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)".
-
-{% endnote %}
+> [!NOTE]
+> If you don't have a GPG key that matches your committer identity, you need to associate an email with an existing key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key).
 
 If you have multiple GPG keys, you need to tell Git which one to use.
 
@@ -106,11 +97,10 @@ If you have multiple GPG keys, you need to tell Git which one to use.
    ```
 
 {% endlinux %}
-{% ifversion ssh-commit-verification %}
 
 ## Telling Git about your SSH key
 
-You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)."
+You can use an existing SSH key to sign commits and tags, or generate a new one specifically for signing. For more information, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
 
 {% data reusables.gpg.ssh-git-version %}
 
@@ -118,12 +108,20 @@ You can use an existing SSH key to sign commits and tags, or generate a new one 
 {% data reusables.gpg.configure-ssh-signing %}
 {% data reusables.gpg.paste-ssh-public-key %}
 
-{% endif %}
+{% windows %}
 
 {% data reusables.gpg.x-509-key %}
 
+{% endwindows %}
+
+{% mac %}
+
+{% data reusables.gpg.x-509-key %}
+
+{% endmac %}
+
 ## Further reading
 
-- "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)."
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-- "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* [AUTOTITLE](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account).
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

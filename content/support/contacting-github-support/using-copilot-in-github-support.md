@@ -6,7 +6,9 @@ topics:
 redirect_from:
   - /early-access/copilot/about-copilot-in-github-support
 versions:
-  feature: copilot-in-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Using Copilot in GitHub Support
 ---
 
@@ -16,7 +18,7 @@ shortTitle: Using Copilot in GitHub Support
 
 You can use {% data variables.product.prodname_copilot_in_support %} to find answers to questions about a wide range of {% data variables.product.prodname_dotcom %}'s products and features. {% data variables.product.prodname_copilot_in_support %} is not able to answer questions about billing, account access, or other account-specific issues. If {% data variables.product.prodname_copilot_in_support %} is not able to answer your question, you can submit a ticket to {% data variables.contact.github_support %} or you can speak to {% data variables.product.prodname_dotcom %} users and staff on the {% data variables.contact.community_support_forum %}.
 
-For more information about {% data variables.contact.github_support %}, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)."
+For more information about {% data variables.contact.github_support %}, see [AUTOTITLE](/support/learning-about-github-support/about-github-support).
 
 ## Using {% data variables.product.prodname_copilot_in_support %}
 
@@ -38,7 +40,7 @@ When you chat with {% data variables.product.prodname_copilot_in_support %}, rem
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_in_support %}
 
-We greatly value your feedback. As we continuously improve {% data variables.product.prodname_copilot_in_support %}, we value knowing which answers were helpful and which were not. To let us know, just click {% octicon "thumbsup" aria-label="The thumbs up icon" %} or {% octicon "thumbsdown" aria-label="The thumbs down icon" %} accompanying the last response from {% data variables.product.prodname_copilot_short %}.
+We greatly value your feedback. As we continuously improve {% data variables.product.prodname_copilot_in_support %}, we value knowing which answers were helpful and which were not. To let us know, just click {% octicon "thumbsdown" aria-label="The thumbs down icon" %} accompanying the last response from {% data variables.product.prodname_copilot_short %}.
 
 ## Further reading
 

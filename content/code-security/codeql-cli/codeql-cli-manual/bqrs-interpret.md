@@ -121,6 +121,13 @@ This option has no effect when passed to [codeql bqrs interpret](/code-security/
 
 Available since `v2.15.2`.
 
+#### `--no-sarif-include-alert-provenance`
+
+\[Advanced] \[SARIF formats only] Do not include alert provenance
+information in the SARIF output.
+
+Available since `v2.18.1`.
+
 #### `--[no-]sarif-group-rules-by-pack`
 
 \[SARIF formats only] Place the rule object for each query under its
@@ -132,6 +139,16 @@ option has no effect when passed to [codeql bqrs interpret](/code-security/codeq
 \[SARIF formats only] For alerts that have multiple causes, include
 them as a Markdown-formatted itemized list in the output in addition to
 as a plain string.
+
+#### `--no-sarif-minify`
+
+\[SARIF formats only] Produce pretty-printed SARIF output. By default,
+SARIF output is minified to reduce the size of the output file.
+
+#### `--sarif-run-property=<String=String>`
+
+\[SARIF formats only] A key value pair to add to the generated SARIF
+'run' property bag. Can be repeated.
 
 #### `--no-group-results`
 
@@ -161,10 +178,10 @@ Available since `v2.15.2`.
 
 #### `--sarif-category=<category>`
 
-\[SARIF formats only] Specify a category for this analysis to include
-in the SARIF output. A category can be used to distinguish multiple
-analyses performed on the same commit and repository, but on different
-languages or different parts of the code.
+\[SARIF formats only] \[Recommended] Specify a category for this
+analysis to include in the SARIF output. A category can be used to
+distinguish multiple analyses performed on the same commit and
+repository, but on different languages or different parts of the code.
 
 If you analyze the same version of a code base in several different ways
 (e.g., for different languages) and upload the results to GitHub for
@@ -175,9 +192,7 @@ between runs of the same analysis for _different_ versions of the code
 base.)
 
 This value will appear (with a trailing slash appended if not already
-present) as the `<run>.automationId` property in SARIF v1, the
-`<run>.automationLogicalId` property in SARIF v2, and the
-`<run>.automationDetails.id` property in SARIF v2.1.0.
+present) as the `<run>.automationDetails.id` property.
 
 #### `-j, --threads=<num>`
 
@@ -186,11 +201,6 @@ The number of threads used for computing paths.
 Defaults to 1. You can pass 0 to use one thread per core on the machine,
 or -_N_ to leave _N_ cores unused (except still use at least one
 thread).
-
-#### `--sarif-run-property=<String=String>`
-
-\[SARIF only] A key value pair to add to the generated SARIF 'run'
-property bag. Can be repeated.
 
 #### `--column-kind=<columnKind>`
 

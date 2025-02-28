@@ -12,7 +12,7 @@ topics:
 
 ## Code of Conduct
 
-By attending a GitHub event, including any of the events or activities organized by GitHub in association with the GitHub event (collectively the "Event"), you represent that you have read, understand, and agree to the following GitHub Event Code of Conduct (hereinafter “Code of Conduct”).  This Code of Conduct applies to all attendees, speakers, exhibitors, sponsors, organizers, staff, and volunteers (collectively “Event Participants”) at the Event.
+By attending a GitHub event, including any of the events or activities organized by GitHub in association with the GitHub event (collectively the "Event"), you represent that you have read, understand, and agree to the following GitHub Event Code of Conduct (hereinafter “Code of Conduct”). This Code of Conduct applies to all attendees, speakers, exhibitors, sponsors, organizers, staff, and volunteers (collectively “Event Participants”) at the Event.
 
 GitHub values the participation of all Event Participants and aims to create an event where all Event Participants have an enjoyable and fulfilling experience. Accordingly, all Event Participants are expected to show respect and courtesy to other Event Participants throughout the Event.
 
@@ -22,23 +22,23 @@ We do not tolerate harassment of Event Participants in any form, nor do we toler
 
 Examples of encouraged behavior that contributes to a positive environment include:
 
-- Using welcoming and inclusive language
-- Being respectful of differing viewpoints and experiences
-- Gracefully accepting constructive criticism
-- Focusing on what is best for everyone at the Event
-- Showing empathy towards others and Event Participants
+* Using welcoming and inclusive language
+* Being respectful of differing viewpoints and experiences
+* Gracefully accepting constructive criticism
+* Focusing on what is best for everyone at the Event
+* Showing empathy towards others and Event Participants
 
 Unacceptable behavior includes, but is not limited to:
 
-- The use of sexualized language or imagery
-- Inappropriate physical contact, sexual attention, or advances
-- Trolling, insulting or derogatory comments or behavior
-- Personal or political attacks toward Event Participants
-- Sustained disruption of talks or any other events or activities organized by GitHub in association with the Event
-- Intimidation, stalking, following, or harassing of Event Participants
-- Photography or recording of Event Participants without their consent
-- Harassment of any kind, even in a joking or ironic manner
-- Conduct which could reasonably be considered inappropriate in a professional setting
+* The use of sexualized language or imagery
+* Inappropriate physical contact, sexual attention, or advances
+* Trolling, insulting or derogatory comments or behavior
+* Personal or political attacks toward Event Participants
+* Sustained disruption of talks or any other events or activities organized by GitHub in association with the Event
+* Intimidation, stalking, following, or harassing of Event Participants
+* Photography or recording of Event Participants without their consent
+* Harassment of any kind, even in a joking or ironic manner
+* Conduct which could reasonably be considered inappropriate in a professional setting
 
 Each Event Participant is entirely responsible for their own actions.
 

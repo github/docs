@@ -14,6 +14,13 @@ on:
         description: 'Branch to pull the source files from in the codeql repo (for example codeql-cli-2.x.x).'
         type: string
         required: true
+        default: 'main'
+
+  pull_request:
+    paths:
+      - .github/workflows/generate-code-scanning-query-lists.yml
+      - src/code-scanning/scripts/generate-code-scanning-query-list.ts
+      - .github/actions/install-cocofix/action.yml
 
 permissions:
   contents: write
@@ -34,7 +41,7 @@ jobs:
         with:
           repository: github/codeql
           path: codeql
-          ref: ${{ inputs.SOURCE_BRANCH }}
+          ref: ${{ inputs.SOURCE_BRANCH || 'main' }}
 
       - name: Get the codeql SHA being synced
         id: codeql
@@ -60,6 +67,24 @@ jobs:
           sleep 3
           codeql --version
 
+      - uses: ./.github/actions/install-cocofix
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+
+      - name: Lint the code (eslint)
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
+        run: |
+          eslint --no-ignore src/code-scanning/scripts/generate-code-scanning-query-list.ts
+
+      - name: Lint the code (tsc)
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          PATH: '$PATH:${{ github.workspace }}/node_modules/.bin'
+        run: |
+          tsc --noEmit --project src/code-scanning/scripts/tsconfig.json
+
       - name: Build code scanning query list
         run: |
           for lang in "cpp" "csharp" "go" "java" "javascript" "python" "ruby" "swift"; do
@@ -72,14 +97,21 @@ jobs:
               $lang
           done
 
-      - name: Debug
+      - name: Insight into diff
         run: |
           git diff
 
       - name: Create pull request
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
+
+          # When we started, we downloaded the CodeQL CLI here in this workflow.
+          # We have no intention of checking that in but we also don't want
+          # `git status ...` to show it as an untracked file.
+          rm -fr ./codeql
+
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
           untracked=$(git status --untracked-files --short | wc -l)
@@ -97,6 +129,14 @@ jobs:
           # it doesn't "know" about branches locally, so we need to manually list them.
           branchExists=$(git ls-remote --heads origin refs/heads/$branchname | wc -l)
 
+          # When run on a pull_request, we're just testing the tooling.
+          # Exit before it actually pushes the possible changes.
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry-run mode when run in a pull request"
+            echo "See the 'Insight into diff' step for the changes it would create PR about."
+            exit 0
+          fi
+
           if [ $branchExists -ne 0 ]; then
             echo "Branch $branchname already exists in the remote repository."
             exit 0
@@ -106,7 +146,7 @@ jobs:
 
           git add data/reusables/code-scanning/codeql-query-tables
           git commit -m "Update CodeQL query tables"
-          git push origin $branchname
+          git push -u origin $branchname
 
           echo "Creating pull request..."
           gh pr create \

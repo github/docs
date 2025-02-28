@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -13,6 +15,20 @@ describe('autotitle', () => {
     })
     // There are 4 links on the `autotitling.md` content.
     expect.assertions(4)
+  })
+
+  // skipped because autotitles aren't supported in annotated code blocks yet
+  // see docs-engineering#3691
+  test.skip('internal links in codeblocks with AUTOTITLE resolves', async () => {
+    const $ = await getDOM('/get-started/foo/autotitling')
+    const links = $('#article-contents a[href]')
+    links.each((i, element) => {
+      if ($(element).attr('href').includes('/get-started/markdown')) {
+        expect($(element).text()).toContain('Markdown')
+      }
+    })
+    // There are 2 links on the `autotitling.md` content.
+    expect.assertions(2)
   })
 
   test('typos lead to error when NODE_ENV !== production', async () => {

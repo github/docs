@@ -67,8 +67,15 @@ referred to by their relative path from this directory.
 #### `--[no-]overwrite`
 
 \[Advanced] If the database already exists, delete it and proceed with
-this command instead of failing. This option should be used with caution
-as it may recursively delete the entire database directory.
+this command instead of failing. If the directory exists, but it does
+not look like a database, an error will be thrown.
+
+#### `--[no-]force-overwrite`
+
+\[Advanced] If the database already exists, delete it even if it does
+not look like a database and proceed with this command instead of
+failing. This option should be used with caution as it may recursively
+delete the entire database directory.
 
 #### `--codescanning-config=<file>`
 
@@ -99,6 +106,28 @@ GitHub API to attempt to automatically determine what languages to
 analyse. Note that to be able to do this, a GitHub PAT token must be
 supplied either in the environment variable GITHUB\_TOKEN or via standard
 input using the `--github-auth-stdin` option.
+
+#### `--build-mode=<mode>`
+
+The build mode that will be used to create the database.
+
+Choose your build mode based on the language you are analyzing:
+
+`none`: The database will be created without building the source root.
+Available for C#, Java, JavaScript/TypeScript, Python, and Ruby.
+
+`autobuild`: The database will be created by attempting to automatically
+build the source root. Available for C/C++, C#, Go, Java/Kotlin, and
+Swift.
+
+`manual`: The database will be created by building the source root using
+a manually specified build command. Available for C/C++, C#, Go,
+Java/Kotlin, and Swift.
+
+When creating a database with `--command`, there is no need to
+additionally specify '--build-mode manual'.
+
+Available since `v2.16.4`.
 
 #### `--[no-]allow-missing-source-root`
 

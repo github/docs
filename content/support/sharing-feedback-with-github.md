@@ -9,7 +9,7 @@ shortTitle: Sharing feedback
 ---
 
 > [!IMPORTANT]
-> If you're a {% data variables.product.prodname_enterprise %} customer, contact {% data variables.contact.github_support %} who will share your feedback with the Product team. For more information, see "Creating a support ticket" in either the "[{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/support/contacting-github-support/creating-a-support-ticket)" or "[{% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/support/contacting-github-support/creating-a-support-ticket)."
+> If you're a {% data variables.product.prodname_enterprise %} customer, contact {% data variables.contact.github_support %} who will share your feedback with the Product team. For more information, see "Creating a support ticket" in either the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/support/contacting-github-support/creating-a-support-ticket) or [{% data variables.product.prodname_ghe_server %} documentation](/enterprise-server@latest/support/contacting-github-support/creating-a-support-ticket).
 
 ## About sharing feedback
 
@@ -33,7 +33,7 @@ Before creating a new feedback discussion, you should search for any existing di
 
 1. After locating the correct discussion category, type some search terms in the search bar and press <kbd>Return</kbd>.
 
-    - For example, if you have feedback about how contributions are displayed on your profile, you could search for "Contributions" in the "Profile" category.
+    * For example, if you have feedback about how contributions are displayed on your profile, you could search for "Contributions" in the "Profile" category.
 
 1. Browse the search results and if you find an existing discussion that is similar to your feedback, click the title of the discussion.
 1. To add your voice and give more visibility to the discussion, click the upvote arrow at the bottom of the discussion post.
@@ -51,9 +51,9 @@ If there isn't an existing feedback discussion that you can upvote, you can crea
 1. Under "Select Topic Area", select **Product Feedback**.
 1. Under "Body", type your feedback for the {% data variables.product.company_short %} Product team.
 
-    - Include as much information as possible to help the team understand your feedback.
-    - If your feedback is related to a specific scenario or workflow, include information about what you were trying to do.
-    - You can also include screenshots to demonstrate what your feedback is about.
+    * Include as much information as possible to help the team understand your feedback.
+    * If your feedback is related to a specific scenario or workflow, include information about what you were trying to do.
+    * You can also include screenshots to demonstrate what your feedback is about.
 
 1. To confirm that you've looked for existing feedback that you could have upvoted, select **I have done a search for similar discussions**.
 1. Click **Start discussion**.

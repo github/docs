@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { describe } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 
@@ -121,7 +121,10 @@ describe('markdown for each rest version', () => {
           Object.keys(openApiSchema[version][category]),
           `The REST version: ${version}'s category: ${category} does not include the subcategory: ${subCategory}. Please check file: ${file}`,
         ).toContain(subCategory)
-        expect(categoryApplicableVersions[category]).toContain(version)
+        expect(
+          categoryApplicableVersions[category],
+          `The versions that apply to category ${category} does not contain the ${version}, as is expected. Please check the versions for file ${file} or look at the index that governs that file (in its parent directory).`,
+        ).toContain(version)
       }
     })
   })

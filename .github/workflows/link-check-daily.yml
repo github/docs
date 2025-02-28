@@ -33,7 +33,7 @@ jobs:
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
-        run: node src/early-access/scripts/what-docs-early-access-branch.js
+        run: npm run what-docs-early-access-branch
 
       - name: Check out docs-early-access too, if internal repo
         if: ${{ github.repository == 'github/docs-internal' }}
@@ -49,10 +49,20 @@ jobs:
         run: src/early-access/scripts/merge-early-access.sh
 
       - name: Restore disk-cache file for external link checking
-        uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4.0.0
+        uses: actions/cache@v4
         with:
           path: external-link-checker-db.json
-          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.js') }}
+          key: external-link-checker-${{ hashFiles('src/links/scripts/rendered-content-link-checker.ts') }}
+
+      - name: Insight into external link checker DB json file (before)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - name: Run link checker
         env:
@@ -76,15 +86,18 @@ jobs:
           # treat it as a warning and not as a broken link.
           EXTERNAL_SERVER_ERRORS_AS_WARNINGS: true
           FAIL_ON_FLAW: false
-        timeout-minutes: 30
-        run: node src/links/scripts/rendered-content-link-checker.js
+        timeout-minutes: 120
+        run: npm run rendered-content-link-checker
 
-      - name: Upload artifact(s)
-        if: ${{ always() }}
-        uses: actions/upload-artifact@c7d193f32edcb7bfad88892161225aeda64e9392
-        with:
-          name: artifacts
-          path: ./artifacts
+      - name: Insight into external link checker DB json file (after)
+        run: |
+          if [ -f external-link-checker-db.json ]; then
+            echo "external-link-checker-db.json exists"
+            echo -n "Number of URLs in cache: "
+            jq '.urls | keys_unsorted' external-link-checker-db.json | wc -l
+          else
+            echo "external-link-checker-db.json does not exist"
+          fi
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name != 'workflow_dispatch' }}

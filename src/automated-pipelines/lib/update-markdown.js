@@ -139,7 +139,7 @@ async function updateDirectory(
   const initialDirectoryListing = await getDirectoryInfo(directory)
   // If there are no children on disk, remove the directory
   if (initialDirectoryListing.directoryContents.length === 0 && !rootDirectoryOnly) {
-    rimraf(directory)
+    await rimraf(directory)
     return
   }
 
@@ -309,6 +309,10 @@ async function getIndexFileVersions(directory, files) {
         throw new Error(
           `File ${filepath} does not exist while assembling directory index.md files to create parent version.`,
         )
+      }
+      // If not a markdown(x) file, skip it
+      if (!file.endsWith('.md') && !file.endsWith('.mdx')) {
+        return
       }
       const { data } = matter(await readFile(filepath, 'utf-8'))
       if (!data || !data.versions) {

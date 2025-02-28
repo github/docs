@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, expect, describe, it } from '@jest/globals'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '#src/frame/lib/page.js'
 import languages from '#src/languages/lib/languages.js'
@@ -27,7 +27,7 @@ describe('data tag', () => {
     languages.en.dir = enDirBefore
   })
 
-  it('should render fine if data is found', async () => {
+  test('should render fine if data is found', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/good-data-variable.md',
       basePath: './src/fixtures/fixtures',
@@ -44,7 +44,7 @@ describe('data tag', () => {
     // which we control the value of here in the test.
     expect(rendered.includes('Foo')).toBeTruthy()
   })
-  it('should throw if the data tag is used with something unrecognized', async () => {
+  test('should throw if the data tag is used with something unrecognized', async () => {
     const page = await Page.init({
       relativePath: 'liquid-tags/bad-data-variable.md',
       basePath: './src/fixtures/fixtures',

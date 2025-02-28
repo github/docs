@@ -1,0 +1,6 @@
+# Reference: #13873
+# Dependabot security updates will reference private registries even if a target-branch is specified - [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.12'

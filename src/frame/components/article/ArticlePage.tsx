@@ -12,7 +12,6 @@ import { Lead } from 'src/frame/components/ui/Lead'
 import { PermissionsStatement } from 'src/frame/components/ui/PermissionsStatement'
 import { ArticleGridLayout } from './ArticleGridLayout'
 import { ArticleInlineLayout } from './ArticleInlineLayout'
-import { MeasureBrokenHashes } from './MeasureBrokenHashes'
 import { PlatformPicker } from 'src/tools/components/PlatformPicker'
 import { ToolPicker } from 'src/tools/components/ToolPicker'
 import { MiniTocs } from 'src/frame/components/ui/MiniTocs'
@@ -22,6 +21,7 @@ import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { Link } from 'src/frame/components/Link'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { LinkPreviewPopover } from 'src/links/components/LinkPreviewPopover'
+import { ReplaceDomain } from 'src/links/components/replace-domain'
 
 const ClientSideRefresh = dynamic(() => import('src/frame/components/ClientSideRefresh'), {
   ssr: false,
@@ -103,19 +103,26 @@ export const ArticlePage = () => {
     <DefaultLayout>
       <LinkPreviewPopover />
       {isDev && <ClientSideRefresh />}
-      <MeasureBrokenHashes />
       {router.pathname.includes('/rest/') && <RestRedirect />}
+      <ReplaceDomain />
       {currentLayout === 'inline' ? (
-        <ArticleInlineLayout
-          supportPortalVaIframeProps={supportPortalVaIframeProps}
-          topper={<ArticleTitle>{title}</ArticleTitle>}
-          intro={introProp}
-          introCallOuts={introCalloutsProp}
-          toc={toc}
-          breadcrumbs={<Breadcrumbs />}
-        >
-          {articleContents}
-        </ArticleInlineLayout>
+        <>
+          <ArticleInlineLayout
+            supportPortalVaIframeProps={supportPortalVaIframeProps}
+            topper={<ArticleTitle>{title}</ArticleTitle>}
+            intro={introProp}
+            introCallOuts={introCalloutsProp}
+            toc={toc}
+            breadcrumbs={<Breadcrumbs />}
+          >
+            {articleContents}
+          </ArticleInlineLayout>
+          {isLearningPath ? (
+            <div className="container-lg mt-4 px-3">
+              <LearningTrackNav track={currentLearningTrack} />
+            </div>
+          ) : null}
+        </>
       ) : (
         <div className="container-xl px-3 px-md-6 my-4">
           <div className={cx('d-none d-xxl-block mt-3 mr-auto width-full')}>

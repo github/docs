@@ -27,7 +27,7 @@ You can also customize your automated release notes, using labels to create cust
 {% data reusables.releases.create-release %}
 {% data reusables.releases.previous-release-tag %}
 {% data reusables.releases.release-title %}
-1. Above the description field, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.
+1. Above the description field, click **Generate release notes**.
 1. Check the generated notes to ensure they include all (and only) the information you want to include.
 {% data reusables.releases.finish-release %}
 
@@ -104,4 +104,4 @@ changelog:
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)"
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)

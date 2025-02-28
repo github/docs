@@ -1,0 +1,1 @@
+1. Optionally, in the confirmation dialog, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or both.

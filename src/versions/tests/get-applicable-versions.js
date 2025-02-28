@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
-import { describe, expect, test } from '@jest/globals'
+
+import { describe, expect, test } from 'vitest'
 
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'

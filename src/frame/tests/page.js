@@ -1,7 +1,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+
 import cheerio from 'cheerio'
-import { describe, expect } from '@jest/globals'
+import { beforeAll, beforeEach, describe, expect, test } from 'vitest'
 
 import Page, { FrontmatterErrorsError } from '#src/frame/lib/page.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
@@ -262,7 +263,7 @@ describe('Page class', () => {
       })
     })
 
-    it('includes videos specified in the featuredLinks frontmatter', async () => {
+    test('includes videos specified in the featuredLinks frontmatter', async () => {
       expect(page.featuredLinks.videos).toStrictEqual([
         {
           title: 'codespaces',
@@ -283,7 +284,7 @@ describe('Page class', () => {
   })
 
   describe('introLinks', () => {
-    it('includes the links specified in the introLinks frontmatter', async () => {
+    test('includes the links specified in the introLinks frontmatter', async () => {
       const page = await Page.init({
         relativePath: 'article-with-introLinks.md',
         basePath: path.join(__dirname, '../../../src/fixtures/fixtures'),
@@ -298,7 +299,7 @@ describe('Page class', () => {
   })
 
   describe('Page.parseFrontmatter()', () => {
-    it('throws an error on bad input', () => {
+    test('throws an error on bad input', () => {
       const markdown = null
       expect(() => {
         Page.parseFrontmatter('some/file.md', markdown)

@@ -1,7 +1,8 @@
 import yaml from 'js-yaml'
 import { readFile } from 'fs/promises'
+
 import walk from 'walk-sync'
-import { jest } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import { liquid } from '#src/content-render/index.js'
 
@@ -12,8 +13,6 @@ const yamlWalkOptions = {
   includeBasePath: true,
 }
 const yamlFileList = walk(learningTrackRootPath, yamlWalkOptions).sort()
-
-jest.useFakeTimers({ legacyFakeTimers: true })
 
 describe('lint learning tracks', () => {
   if (yamlFileList.length < 1) return
@@ -26,7 +25,7 @@ describe('lint learning tracks', () => {
       yamlContent = await yaml.load(fileContents)
     })
 
-    it('contains valid liquid', () => {
+    test('contains valid liquid', () => {
       const toLint = []
       Object.values(yamlContent).forEach(({ title, description }) => {
         toLint.push(title)

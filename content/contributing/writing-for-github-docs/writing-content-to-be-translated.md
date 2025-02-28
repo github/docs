@@ -1,33 +1,35 @@
 ---
 title: Writing content to be translated
 shortTitle: Write content to be translated
-intro: 'Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.'
+intro: Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About writing content that is translation-friendly
 
-Use the following guidelines to ensure the content you create can be successfully translated. For more information, see "[Style guide](/contributing/style-guide-and-content-model/style-guide)."
+Use the following guidelines to ensure the content you create can be successfully translated. For more information, see [Style guide](/contributing/style-guide-and-content-model/style-guide).
 
-- Use examples that are generic and can be understood by most people.
-- Avoid examples that are controversial or culturally specific to a group.
-- Write in active voice.
-- Write simple, short, and easy-to-understand sentences.
-- Avoid using too many pronouns that can make text unclear.
-- Avoid using slang and jokes.
-- Avoid negative sentences.
-- Use industry-standard acronyms whenever possible and explain custom acronyms.
-- Use indicative mood.
-- Eliminate redundant and wordy expressions.
-- Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which noun is the one being modified.
-- Avoid invisible plurals in which it is not clear if the first noun is meant to be singular or plural.
-- Avoid nominalization.
-- Avoid using ambiguous modal auxiliary verbs.
-- Avoid gender-specific words.
-- Avoid prepositional phrases.
-- Avoid vague nouns and pronouns (vague sentence subject).
-- Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title." Alternatively, add relevant links to a "Further reading" section at the end of the topic.
+* Use examples that are generic and can be understood by most people.
+* Avoid examples that are controversial or culturally specific to a group.
+* Write in active voice.
+* Write simple, short, and easy-to-understand sentences.
+* Avoid using too many pronouns that can make text unclear.
+* Avoid using slang and jokes.
+* Avoid negative sentences.
+* Use industry-standard acronyms whenever possible and explain custom acronyms.
+* Use indicative mood.
+* Eliminate redundant and wordy expressions.
+* Avoid the excessive use of stacked modifiers (noun strings). The translator can misunderstand which noun is the one being modified.
+* Avoid invisible plurals in which it is not clear if the first noun is meant to be singular or plural.
+* Avoid nominalization.
+* Avoid using ambiguous modal auxiliary verbs.
+* Avoid gender-specific words.
+* Avoid prepositional phrases.
+* Avoid vague nouns and pronouns (vague sentence subject).
+* Keep inline links to a minimum. If they are necessary, preface them with a phrase such as "For more information, see "Link title." Alternatively, add relevant links to a "Further reading" section at the end of the topic.
 
 ## Examples
 
@@ -72,5 +74,5 @@ Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering
 You can use this instead:
 
 ```markdown
-OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](apps/building-integrations/setting-up-and-registering-oauth-apps/) and [Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization).
 ```

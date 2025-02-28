@@ -14,10 +14,6 @@ redirect_from:
   - /rest/copilot/copilot-business
 ---
 
-{% note %}
-
-**Note:** These endpoints are in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE] These endpoints are in {% data variables.release-phases.public_preview %} and subject to change.
 
 <!-- Content after this section is automatically generated -->

@@ -1,5 +1,7 @@
 import path from 'path'
 
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import {
   liquidDataReferencesDefined,

@@ -9,11 +9,8 @@ topics:
 shortTitle: 1. Align on strategy
 ---
 
-{% note %}
-
-This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale)."
-
-{% endnote %}
+> [!NOTE]
+> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the introduction to this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
 ## Set clear goals for your company’s rollout
 
@@ -21,11 +18,11 @@ To build a foundation for the direction of your company's rollout, outline goals
 
 Here are some high-level examples of what your goals for rolling out GHAS might look like:
 
-- Reducing the number of vulnerabilities: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
-- Identifying high-risk repositories: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
-- Increasing remediation rates: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
-- Meeting compliance requirements: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
-- Preventing secrets leakage: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
+* Reducing the number of vulnerabilities: This may be in general, or because your company was recently impacted by a significant vulnerability that you believe could have been prevented by a tool like GHAS.
+* Identifying high-risk repositories: Some companies simply want to target repositories that contain the most risk, enabling them to reduce risk by remediating vulnerabilities.
+* Increasing remediation rates: To prevent the accumulation of security debt, you may wish to drive developer adoption of findings and ensure these vulnerabilities are remediated in a timely manner.
+* Meeting compliance requirements: For example, many healthcare companies use GHAS to prevent the exposure of PHI (Personal Health Information).
+* Preventing secrets leakage: Many companies want to prevent critical information from being leaked, such as software keys or financial data.
 
 ## Lead your rollout with both your security and development groups
 
@@ -61,8 +58,5 @@ If your company is interested in custom {% data variables.product.prodname_codeq
 
 When {% data variables.product.prodname_code_scanning %} is run from a pull request, the scan will include the full codebase and not just the changes made in the pull request. Scanning the entire codebase is an important step to ensure the change has been reviewed against all interactions in the codebase.
 
-{% note %}
-
-For the next article in this series, see "[AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale)."
-
-{% endnote %}
+> [!NOTE]
+> For the next article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-2-preparing-to-enable-at-scale).

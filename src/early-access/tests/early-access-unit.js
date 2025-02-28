@@ -1,4 +1,4 @@
-import { expect, jest, test } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 
 import { describeIfDocsEarlyAccess } from '#src/tests/helpers/conditional-runs.js'
@@ -7,7 +7,7 @@ import languages from '#src/languages/lib/languages.js'
 const VALID_EARLY_ACCESS_URI = '/early-access/github/save-time-with-slash-commands'
 
 describeIfDocsEarlyAccess('early access rendering', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('viewing landing page', async () => {
     const res = await get('/en/early-access')

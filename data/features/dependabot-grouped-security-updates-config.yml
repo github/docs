@@ -1,4 +1,4 @@
-# Reference: Issue #13341 Dependabot Grouped Security Updates: Configure Groups
+# Reference: Issue #13341 & 13345 Dependabot Grouped Security Updates: Configure Groups
 versions:
   fpt: '*'
   ghec: '*'

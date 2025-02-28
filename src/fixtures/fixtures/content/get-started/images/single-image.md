@@ -2,9 +2,9 @@
 title: Single image
 intro: A simple page that has 1 asset image
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 type: how_to
 ---
 

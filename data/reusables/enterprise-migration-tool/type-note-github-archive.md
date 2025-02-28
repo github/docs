@@ -1,5 +1,2 @@
-{% note %}
-
-**Note:** Make sure to use `GITHUB_ARCHIVE` for `type`.
-
-{% endnote %}
+> [!NOTE]
+> Make sure to use `GITHUB_ARCHIVE` for `type`.

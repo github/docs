@@ -9,7 +9,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/overview/github-desktop-keyboard-shortcuts
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 {% mac %}
 
@@ -19,7 +21,7 @@ GitHub Desktop keyboard shortcuts on macOS
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Command</kbd>+<kbd>,</kbd> | Go to Preferences
+|<kbd>Command</kbd>+<kbd>,</kbd> | Display the Settings window
 |<kbd>Command</kbd>+<kbd>H</kbd> | Hide the {% data variables.product.prodname_desktop %} application
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>H</kbd> | Hide all other applications
 |<kbd>Command</kbd>+<kbd>Q</kbd> | Quit {% data variables.product.prodname_desktop %}
@@ -30,6 +32,7 @@ GitHub Desktop keyboard shortcuts on macOS
 |<kbd>Command</kbd>+<kbd>8</kbd> | Decrease active pane width
 |<kbd>Command</kbd>+<kbd>9</kbd> | Increase active pane width
 |<kbd>Option</kbd>+<kbd>Command</kbd>+<kbd>I</kbd> | Toggle Developer Tools
+|<kbd>Shift</kbd>+<kbd>F10</kbd> | Open context menu of selected component
 
 ## Repositories
 
@@ -79,7 +82,7 @@ GitHub Desktop keyboard shortcuts on Windows
 
 | Keyboard shortcut | Description
 |-----------|------------
-|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Go to Options
+|<kbd>Ctrl</kbd>+<kbd>,</kbd> | Display the Options window
 |<kbd>F11</kbd> | Toggle full screen view
 |<kbd>Ctrl</kbd>+<kbd>0</kbd> | Reset zoom to default text size
 |<kbd>Ctrl</kbd>+<kbd>=</kbd> | Zoom in for larger text and graphics

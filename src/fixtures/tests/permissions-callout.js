@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('permission statements', () => {
@@ -34,7 +36,7 @@ describe('permission statements', () => {
   })
 
   test('page with permission frontmatter and product statement', async () => {
-    const $ = await getDOM('/get-started/foo/page-with-permissions-and-product-callout.md')
+    const $ = await getDOM('/get-started/foo/page-with-permissions-and-product-callout')
     const html = $('[data-testid=permissions-callout] div').html()
     // part of the UI
     expect(html).toMatch('Who can use this feature')

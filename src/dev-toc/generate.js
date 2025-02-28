@@ -7,7 +7,7 @@ import { program } from 'commander'
 import fpt from '#src/versions/lib/non-enterprise-default-version.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
-import contextualize from '#src/frame/middleware/context/context.js'
+import contextualize from '#src/frame/middleware/context/context'
 
 const layoutFilename = path.posix.join(process.cwd(), 'src/dev-toc/layout.html')
 const layout = fs.readFileSync(layoutFilename, 'utf8')

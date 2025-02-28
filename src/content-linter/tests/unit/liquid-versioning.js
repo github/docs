@@ -1,5 +1,7 @@
 import path from 'path'
 
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { liquidIfTags, liquidIfVersionTags } from '../../lib/linting-rules/liquid-versioning.js'
 import { nextNext } from '#src/versions/lib/enterprise-server-releases.js'

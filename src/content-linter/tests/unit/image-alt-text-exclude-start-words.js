@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { imageAltTextExcludeStartWords } from '../../lib/linting-rules/image-alt-text-exclude-start-words.js'
 

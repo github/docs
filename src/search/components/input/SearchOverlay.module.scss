@@ -1,0 +1,107 @@
+@use "./variables.scss" as searchVariables;
+
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+.overlayBackdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(
+    --overlay-backdrop-bgColor,
+    var(--color-primer-fg-canvas-backdrop, rgba(31, 35, 40, 0.5))
+  );
+  z-index: 1000; /* Ensure it's above other content other than overlay */
+}
+
+.overlayContainer {
+  z-index: 1001; /* Above the backdrop */
+  top: 0;
+  left: 0;
+  width: searchVariables.$smSearchOverlayWidth !important;
+  max-width: 100%;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @include breakpoint(sm) {
+    top: 0 !important;
+    left: 0 !important;
+    width: searchVariables.$smSearchOverlayWidth !important;
+  }
+
+  @include breakpoint(md) {
+    top: 0 !important;
+    left: 0 !important;
+    width: searchVariables.$mdSearchOverlayWidth !important;
+  }
+
+  @include breakpoint(lg) {
+    // Using header padding: 8px (p-2 padding) x2
+    top: 16px !important;
+    left: calc(50vw - searchVariables.$lgSearchOverlayWidth / 2) !important;
+    width: searchVariables.$lgSearchOverlayWidth !important;
+  }
+
+  @include breakpoint(xl) {
+    top: 16px !important;
+    left: calc(50vw - searchVariables.$xlSearchOverlayWidth / 2) !important;
+    width: searchVariables.$xlSearchOverlayWidth !important;
+  }
+}
+
+.header {
+  padding: 12px 14px 0px 14px !important;
+  width: 100%;
+  background-color: var(--overlay-bgColor) !important;
+}
+
+.footer {
+  padding: 5px 16px 13px 16px;
+  width: 100%;
+  background-color: var(--overlay-bgColor);
+}
+
+.betaToken {
+  color: var(--fgColor-success, var(--fgColor-open, green)) !important;
+  background-color: var(--overlay-bgColor);
+  margin-right: 1em;
+}
+
+.loadingContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.suggestionsList {
+  width: 100%;
+  max-width: 100%;
+  // In the rare viewport case where the results are taller than the viewport, scroll
+  max-height: 95vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 4px 0 4px 0 !important;
+}
+
+.errorBanner {
+  width: 100%;
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.viewAllSearchResults {
+  color: var(--color-accent-emphasis) !important;
+  padding-left: 32px !important;
+  span {
+    font-weight: 500 !important;
+  }
+}

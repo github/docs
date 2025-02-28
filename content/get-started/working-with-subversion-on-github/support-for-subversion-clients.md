@@ -18,9 +18,9 @@ GitHub supports Subversion clients via the HTTPS protocol. We use a Subversion b
 
 ### Checkout
 
-The first thing you'll want to do is a Subversion checkout.  Since Git clones keep the working directory (where you edit files) separate from the repository data, there is only one branch in the working directory at a time.
+The first thing you'll want to do is a Subversion checkout. Since Git clones keep the working directory (where you edit files) separate from the repository data, there is only one branch in the working directory at a time.
 
-Subversion checkouts are different: they mix the repository data in the working directories, so there is a working directory for each branch and tag you've checked out.  For repositories with many branches and tags, checking out everything can be a bandwidth burden, so you should start with a partial checkout.
+Subversion checkouts are different: they mix the repository data in the working directories, so there is a working directory for each branch and tag you've checked out. For repositories with many branches and tags, checking out everything can be a bandwidth burden, so you should start with a partial checkout.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.copy-clone-url %}
@@ -43,7 +43,7 @@ Subversion checkouts are different: they mix the repository data in the working 
    > Updated to revision 1.
    ```
 
-1. Get an empty checkout of the `branches` directory.  This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
+1. Get an empty checkout of the `branches` directory. This is where all of the non-`HEAD` branches live, and where you'll be making feature branches.
 
    ```shell
    $ svn up --depth empty branches
@@ -74,15 +74,7 @@ $ svn commit -m 'Added more_awesome topic branch'
 
 You can confirm that the new branch exists in the repository's branch dropdown:
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-
-{% endif %}
 
 You can also confirm the new branch via the command line:
 

@@ -7,14 +7,16 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/supported-operating-systems
   - /desktop/installing-and-configuring-github-desktop/overview/supported-operating-systems-for-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Supported OS
 ---
 ## About supported operating systems
 
 The following operating systems are supported for {% data variables.product.prodname_desktop %}.
-- {% data variables.desktop.mac-osx-versions %}
-- {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
+* {% data variables.desktop.mac-osx-versions %}
+* {% data variables.desktop.windows-versions %}. You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
 
 ## Troubleshooting problems on macOS
 

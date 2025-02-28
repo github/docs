@@ -1,6 +1,7 @@
 ---
 title: Autolinked references and URLs
 intro: 'References to URLs, issues, pull requests, and commits are automatically shortened and converted into links.'
+product: '{% data reusables.gated-features.markdown-ui %}'
 redirect_from:
   - /articles/autolinked-references-and-urls
   - /github/writing-on-github/autolinked-references-and-urls
@@ -13,23 +14,20 @@ shortTitle: Auto linked references
 ---
 ## URLs
 
-{% data variables.product.product_name %} automatically creates links from standard URLs.
+{% data variables.product.github %} automatically creates links from standard URLs.
 
 `Visit https://github.com`
 
-![Screenshot of rendered {% data variables.product.prodname_dotcom %} Markdown showing how a URL beginning with "http" becomes as a blue clickable link. The text reads, "Visit https://github.com."](/assets/images/help/writing/url-autolink-rendered.png)
+![Screenshot of rendered {% data variables.product.github %} Markdown showing how a URL is displayed as a blue clickable link, "Visit https://github.com."](/assets/images/help/writing/url-autolink-rendered.png)
 
-For more information on creating links, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links)."
+For more information on creating links, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#links).
 
 ## Issues and pull requests
 
-Within conversations on {% data variables.product.product_name %}, references to issues and pull requests are automatically converted to shortened links.
+Within conversations on {% data variables.product.github %}, references to issues and pull requests are automatically converted to shortened links.
 
-{% note %}
-
-**Note:** Autolinked references are not created in wikis or files in a repository.
-
-{% endnote %}
+> [!NOTE]
+> Autolinked references are not created in wikis or files in a repository.
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
@@ -40,7 +38,7 @@ Within conversations on {% data variables.product.product_name %}, references to
 | `Organization_name/Repository#` and issue or pull request number | github-linguist/linguist#4039 | [github-linguist/linguist#4039](https://github.com/github-linguist/linguist/pull/4039)
 
 {% ifversion fpt or ghec %}
-If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
+If you reference an issue, pull request, or discussion in a list, the reference will unfurl to show the title and state instead. For more information about task lists, see [AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists).
 {% endif %}
 
 ## Labels
@@ -53,15 +51,12 @@ The URL of a label can be found by navigating to the labels page and clicking on
 https://github.com/github/docs/labels/enhancement
 ```
 
-{% note %}
-
-**Note:** If the label name contains a period (`.`), the label will not automatically render from the label URL.
-
-{% endnote %}
+> [!NOTE]
+> If the label name contains a period (`.`), the label will not automatically render from the label URL.
 
 ## Commit SHAs
 
-References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.product_name %}.
+References to a commit's SHA hash are automatically converted into shortened links to the commit on {% data variables.product.github %}.
 
 | Reference type | Raw reference | Short link |
 | --- | --- | --- |
@@ -70,10 +65,14 @@ References to a commit's SHA hash are automatically converted into shortened lin
 | User@SHA | jlord@a5c3785ed8d6a35868bc169f07e40e889087fd2e | [jlord@a5c3785](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e)
 | `Username/Repository@SHA` | `jlord/sheetsee.js@a5c3785ed8d6a35868bc169f07e40e889087fd2e` | [`jlord/sheetsee.js@a5c3785`](https://github.com/jlord/sheetsee.js/commit/a5c3785ed8d6a35868bc169f07e40e889087fd2e) |
 
+### Troubleshooting referencing commit SHAs
+
+When referencing a commit from a private repository inside of a commit message, the commit SHA will only be shortlinked if at least one of the authors or committers of the commit have at least read access to the referenced commit.
+
 ## Custom autolinks to external resources
 
 {% data reusables.repositories.autolink-references %}
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

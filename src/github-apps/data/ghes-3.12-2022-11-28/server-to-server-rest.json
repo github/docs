@@ -1821,6 +1821,12 @@
       "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
+      "slug": "update-pre-receive-hook-enforcement-for-an-organization",
+      "subcategory": "org-pre-receive-hooks",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
       "slug": "remove-pre-receive-hook-enforcement-for-an-organization",
       "subcategory": "org-pre-receive-hooks",
       "verb": "delete",
@@ -1839,6 +1845,12 @@
       "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
     },
     {
+      "slug": "update-pre-receive-hook-enforcement-for-a-repository",
+      "subcategory": "repo-pre-receive-hooks",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/pre-receive-hooks/{pre_receive_hook_id}"
+    },
+    {
       "slug": "remove-pre-receive-hook-enforcement-for-a-repository",
       "subcategory": "repo-pre-receive-hooks",
       "verb": "delete",
@@ -1848,73 +1860,73 @@
       "slug": "list-provisioned-scim-groups-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "provision-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Groups"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-group",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-group",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-group",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "delete-a-scim-group-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Groups/{scim_group_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}"
     },
     {
       "slug": "list-scim-provisioned-identities-for-an-enterprise",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "provision-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "post",
-      "requestPath": "/scim/v2/Users"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users"
     },
     {
       "slug": "get-scim-provisioning-information-for-an-enterprise-user",
       "subcategory": "scim",
       "verb": "get",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "set-scim-information-for-a-provisioned-enterprise-user",
       "subcategory": "scim",
       "verb": "put",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "update-an-attribute-for-a-scim-enterprise-user",
       "subcategory": "scim",
       "verb": "patch",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     },
     {
       "slug": "delete-a-scim-user-from-an-enterprise",
       "subcategory": "scim",
       "verb": "delete",
-      "requestPath": "/scim/v2/Users/{scim_user_id}"
+      "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}"
     }
   ],
   "git": [
@@ -2335,7 +2347,7 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+      "slug": "closing-down---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/organizations/{organization_id}/custom_roles"
@@ -3425,7 +3437,7 @@
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
     },
     {
-      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
@@ -3617,19 +3629,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "list-tag-protection-states-for-a-repository",
+      "slug": "closing-down---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "create-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "delete-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
@@ -3681,6 +3693,12 @@
       "subcategory": "contents",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/zipball/{ref}"
+    },
+    {
+      "slug": "create-a-repository-using-a-template",
+      "subcategory": "repos",
+      "verb": "post",
+      "requestPath": "/repos/{template_owner}/{template_repo}/generate"
     },
     {
       "slug": "list-public-repositories",
@@ -3853,12 +3871,6 @@
       "subcategory": "users",
       "verb": "get",
       "requestPath": "/users"
-    },
-    {
-      "slug": "get-a-user",
-      "subcategory": "users",
-      "verb": "get",
-      "requestPath": "/users/{username}"
     },
     {
       "slug": "list-followers-of-a-user",

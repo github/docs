@@ -3,9 +3,10 @@ import App from 'next/app'
 import type { AppProps, AppContext } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
+import { useRouter } from 'next/router'
 
 import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiment'
+import { initializeExperiments } from 'src/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -20,10 +21,17 @@ type MyAppProps = AppProps & {
 
 const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   const { theme } = useTheme()
+  const router = useRouter()
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments()
+    if (pageProps.mainContext) {
+      initializeExperiments(
+        router.locale as string,
+        pageProps.mainContext.currentVersion,
+        pageProps.mainContext.allVersions,
+      )
+    }
   }, [])
 
   useEffect(() => {
@@ -118,7 +126,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
     for (const [langCode, langObj] of Object.entries(
       req.context.languages as Record<string, LanguageItem>,
     )) {
-      if (langObj.wip) continue
       // Only pick out the keys we actually need
       languagesContext.languages[langCode] = {
         name: langObj.name,
@@ -133,7 +140,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-
   return {
     ...appProps,
     languagesContext,

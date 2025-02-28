@@ -14,10 +14,14 @@ export function useHasAccount() {
   const [hasAccount, setHasAccount] = useState<boolean | null>(null)
 
   useEffect(() => {
-    const cookieValue = Cookies.get('color_mode')
-    const altCookieValue = Cookies.get('preferred_color_mode')
-    setHasAccount(Boolean(cookieValue || altCookieValue))
+    setHasAccount(isLoggedIn())
   }, [])
 
   return { hasAccount }
+}
+
+export function isLoggedIn() {
+  const cookieValue = Cookies.get('color_mode')
+  const altCookieValue = Cookies.get('preferred_color_mode')
+  return Boolean(cookieValue || altCookieValue)
 }

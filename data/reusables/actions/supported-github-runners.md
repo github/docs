@@ -1,238 +1,153 @@
-<!-- If you update this table, you should also update the table in data/reusables/actions/jobs/section-choosing-the-runner-for-a-job.md -->
+### Standard {% data variables.product.prodname_dotcom %}-hosted runners for public repositories
 
-### Standard {% data variables.product.prodname_dotcom %}-hosted runners for Public repositories
-
-For public repositories, jobs utilizing the default YAML workflow labels listed in the table below run on virtual machines with the associated specifications. The use of these runners on public repositories is free and unlimited.
+For public repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. The use of these runners on public repositories is free and unlimited.
 
 <table style="width:100%">
-<thead>
-  <tr>
-    <th scope="col" style="width:10%"><b>Virtual Machine</b></th>
-    <th scope="col" style="width:10%"><b>Processor (CPU)</b></th>
-    <th scope="col" style="width:10%"><b>Memory (RAM)</b></th>
-    <th scope="col" style="width:10%"><b>Storage (SSD)</b></th>
-    <th scope="col" style="width:20%"><b>OS (YAML workflow label)</b></th>
-    <th scope="col" style="width:40%"><b>Notes</b></th>
-  </tr>
-</thead>
-<tbody>
-<tr>
-<td>
-Linux
-</td>
-<td>
-4
-</td>
-<td>
-16 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
-</td>
-<td>
-The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
-</td>
-</tr>
-<tr>
-<td>
-Windows
-</td>
-<td>
-4
-</td>
-<td>16 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
-</td>
-<td>
-The <code>windows-latest</code> label currently uses the Windows 2022 runner image.
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-3
-</td>
-<td>
-14 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
-</td>
-<td>
-The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-4
-</td>
-<td>
-14 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>macos-13</code>
-</td>
-<td>
-N/A
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-3 (M1)
-</td>
-<td>
-7 GB
-</td>
-N/A
-<td>
-14 GB
-</td>
-<td>
-<code>macos-14</code> [Beta]
-</td>
-<td>
-N/A
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th scope="col"><b>Virtual Machine</b></th>
+      <th scope="col"><b>Processor (CPU)</b></th>
+      <th scope="col"><b>Memory (RAM)</b></th>
+      <th scope="col"><b>Storage (SSD)</b></th>
+      <th scope="col"><b>Architecture</b></th>
+      <th scope="col"><b>Workflow label</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linux</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>,
+         <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>[{% data variables.release-phases.public_preview_caps %}],
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Linux [Public preview]</td>
+      <td>4</td>
+      <td>16 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-24-image.md">ubuntu-24.04-arm</a></code>,
+        <code><a href="https://github.com/actions/partner-runner-images/blob/main/images/arm-ubuntu-22-image.md">ubuntu-22.04-arm</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>4</td>
+      <td>14 GB</td>
+      <td>14 GB</td>
+      <td> Intel </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>3 (M1)</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
+      </td>
+    </tr>
+  </tbody>
+
 </table>
 
-### Standard {% data variables.product.prodname_dotcom %}-hosted runners for Private repositories
+>[!NOTE] The arm64 Linux runner is in {% data variables.release-phases.public_preview %} and subject to change.
 
-For private repositories, jobs utilizing the default YAML workflow labels listed in the table below run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates)."
+### Standard {% data variables.product.prodname_dotcom %}-hosted runners for {% ifversion ghec %}internal and{% endif %} private repositories
+
+For {% ifversion ghec %}internal and{% endif %} private repositories, jobs using the workflow labels shown in the table below will run on virtual machines with the associated specifications. These runners use your {% data variables.product.prodname_dotcom %} account's allotment of free minutes, and are then charged at the per minute rates. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 
 <table style="width:100%">
-<thead>
-  <tr>
-    <th scope="col" style="width:10%"><b>Virtual Machine</b></th>
-    <th scope="col" style="width:10%"><b>Processor (CPU)</b></th>
-    <th scope="col" style="width:10%"><b>Memory (RAM)</b></th>
-    <th scope="col" style="width:10%"><b>Storage (SSD)</b></th>
-    <th scope="col" style="width:20%"><b>OS (YAML workflow label)</b></th>
-    <th scope="col" style="width:40%"><b>Notes</b></th>
-  </tr>
-</thead>
-<tbody>
-<td>
-Linux
-</td>
-<td>
-2
-</td>
-<td>
-7 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>ubuntu-latest</code>, <code>ubuntu-22.04</code>, <code>ubuntu-20.04</code>
-</td>
-<td>
-The <code>ubuntu-latest</code> label currently uses the Ubuntu 22.04 runner image.
-</td>
-</tr>
-<tr>
-<td>
-Windows
-</td>
-<td>
-2
-</td>
-<td>7 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>windows-latest</code>, <code>windows-2022</code>, <code>windows-2019</code>
-</td>
-<td>
-The <code>windows-latest</code> label currently uses the Windows 2022 runner image.
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-3
-</td>
-<td>
-14 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>macos-latest</code>, <code>macos-12</code>, <code>macos-11</code>
-</td>
-<td>
-The <code>macos-latest</code> workflow label currently uses the macOS 12 runner image.
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-4
-</td>
-<td>
-14 GB
-</td>
-<td>
-14 GB
-</td>
-<td>
-<code>macos-13</code>
-</td>
-<td>
-N/A
-</td>
-</tr>
-<tr>
-<td>
-macOS
-</td>
-<td>
-3 (M1)
-</td>
-<td>
-7 GB
-</td>
-N/A
-<td>
-14 GB
-</td>
-<td>
-<code>macos-14</code> [Beta]
-</td>
-<td>
-N/A
-</td>
-</tr>
-</tbody>
+  <thead>
+    <tr>
+      <th scope="col"><b>Virtual Machine</b></th>
+      <th scope="col"><b>Processor (CPU)</b></th>
+      <th scope="col"><b>Memory (RAM)</b></th>
+      <th scope="col"><b>Storage (SSD)</b></th>
+      <th scope="col"><b>Architecture</b></th>
+      <th scope="col"><b>Workflow label</b></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Linux</td>
+      <td>2</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2404-Readme.md">ubuntu-24.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md">ubuntu-22.04</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2004-Readme.md">ubuntu-20.04</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>Windows</td>
+      <td>2</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> x64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2025-Readme.md">windows-2025</a></code>[{% data variables.release-phases.public_preview_caps %}],
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2022-Readme.md">windows-2022</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/windows/Windows2019-Readme.md">windows-2019</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>4</td>
+      <td>14 GB</td>
+      <td>14 GB</td>
+      <td> Intel </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-13-Readme.md">macos-13</a></code>
+      </td>
+    </tr>
+    <tr>
+      <td>macOS</td>
+      <td>3 (M1)</td>
+      <td>7 GB</td>
+      <td>14 GB</td>
+      <td> arm64 </td>
+      <td>
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-latest</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-14-Readme.md">macos-14</a></code>,
+        <code><a href="https://github.com/actions/runner-images/blob/main/images/macos/macos-15-Readme.md">macos-15</a></code> [{% data variables.release-phases.public_preview_caps %}]
+      </td>
+    </tr>
+  </tbody>
 </table>
+
+{% ifversion ghec %}
+
+> [!NOTE] {% data reusables.actions.macos-unavailable-ghecom %}
+
+{% endif %}

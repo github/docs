@@ -1,6 +1,0 @@
-# Reference: #8528
-# General versioning for Actions configuration variables
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.8'

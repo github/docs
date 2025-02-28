@@ -2,8 +2,7 @@ import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
 import type { CodeSample, Operation } from 'src/rest/components/types'
-import { useVersion } from 'src/versions/components/useVersion'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { type VersionItem } from 'src/frame/components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 
@@ -26,17 +25,19 @@ const CURL_CONTENT_TYPE_MAPPING: { [key: string]: string } = {
   https://{hostname}/api/v3/repos/OWNER/REPO/deployments \
   -d '{"ref":"topic-branch","payload":"{ \"deploy\": \"migrate\" }","description":"Deploy request from hubot"}'
 */
-export function getShellExample(operation: Operation, codeSample: CodeSample) {
-  const { currentVersion } = useVersion()
-  const { allVersions } = useMainContext()
-  const defaultAcceptHeader = getAcceptHeader(codeSample)
+export function getShellExample(
+  operation: Operation,
+  codeSample: CodeSample,
+  currentVersion: string,
+  allVersions: Record<string, VersionItem>,
+) {
+  let contentTypeHeader = ''
 
-  // For operations that upload data using octet-stream, you need
-  // to explicitly set the content-type header.
-  const contentTypeHeader =
-    codeSample?.request?.contentType === 'application/octet-stream'
-      ? '-H "Content-Type: application/octet-stream"'
-      : ''
+  if (codeSample?.request?.contentType === 'application/octet-stream') {
+    contentTypeHeader = '-H "Content-Type: application/octet-stream"'
+  } else if (codeSample?.request?.contentType === 'multipart/form-data') {
+    contentTypeHeader = '-H "Content-Type: multipart/form-data"'
+  }
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -70,22 +71,13 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     }
   }
 
-  let authHeader
-  let apiVersionHeader
-
-  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
-    authHeader = '-u "api_key:your-password"'
-    apiVersionHeader = ''
-  } else {
-    authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
-
-    apiVersionHeader =
-      allVersions[currentVersion].apiVersions.length > 0 &&
-      allVersions[currentVersion].latestApiVersion
-        ? ` \\\n  -H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
-        : ''
-  }
-
+  let authHeader = '-H "Authorization: Bearer <YOUR-TOKEN>"'
+  let apiVersionHeader =
+    allVersions[currentVersion].apiVersions.length > 0 &&
+    allVersions[currentVersion].latestApiVersion
+      ? `-H "X-GitHub-Api-Version: ${allVersions[currentVersion].latestApiVersion}"`
+      : ''
+  let acceptHeader = `-H "Accept: ${getAcceptHeader(codeSample)}"`
   let urlArg = `${operation.serverUrl}${requestPath}`
   // If the `requestPath` contains a `?` character, if you need to escape
   // the whole URL otherwise, when you paste it into your terminal, it
@@ -93,9 +85,23 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
   if (requestPath.includes('?')) {
     urlArg = `"${urlArg}"`
   }
+
+  // Overwrite curl examples since the github enterprise related apis are seperate from the dotcom api standards
+  if (operation.subcategory === 'management-console' || operation.subcategory === 'manage-ghes') {
+    authHeader = '-u "api_key:your-password"'
+    apiVersionHeader = ''
+    acceptHeader = acceptHeader === `-H "Accept: application/vnd.github+json"` ? '' : acceptHeader
+  }
+
+  if (operation?.progAccess?.basicAuth) {
+    authHeader = '-u "<YOUR_CLIENT_ID>:<YOUR_CLIENT_SECRET>"'
+  }
+
   const args = [
     operation.verb !== 'get' && `-X ${operation.verb.toUpperCase()}`,
-    `-H "Accept: ${defaultAcceptHeader}" \\\n  ${authHeader}${apiVersionHeader}`,
+    acceptHeader,
+    authHeader,
+    apiVersionHeader,
     contentTypeHeader,
     urlArg,
     requestBodyParams,
@@ -111,13 +117,19 @@ export function getShellExample(operation: Operation, codeSample: CodeSample) {
     -X POST \
     -H "Accept: application/vnd.github+json" \
     /repos/OWNER/REPO/deployments \
-    -fref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
+    -f ref,topic-branch=0,payload,{ "deploy": "migrate" }=1,description,Deploy request from hubot=2
 */
-export function getGHExample(operation: Operation, codeSample: CodeSample) {
+export function getGHExample(
+  operation: Operation,
+  codeSample: CodeSample,
+  currentVersion: string,
+  allVersions: Record<string, VersionItem>,
+) {
+  // Basic authentication is not supported by GH CLI
+  if (operation?.progAccess?.basicAuth) return
+
   const defaultAcceptHeader = getAcceptHeader(codeSample)
   const hostname = operation.serverUrl !== 'https://api.github.com' ? '--hostname HOSTNAME' : ''
-  const { currentVersion } = useVersion()
-  const { allVersions } = useMainContext()
 
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
@@ -138,41 +150,15 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   // and the type is a string.
   const { bodyParameters } = codeSample.request
   if (bodyParameters) {
+    // There should not be a case in a REST API where only an array is sent
+    if (Array.isArray(bodyParameters)) {
+      throw new Error('Array of arrays found in body parameters')
+    }
+
     if (typeof bodyParameters === 'object') {
-      const bodyParamValues = Object.values(bodyParameters)
-      // GitHub CLI does not support sending Objects using the -F or
-      // -f flags. That support may be added in the future. It is possible to
-      // use gh api --input to take a JSON object from standard input
-      // constructed by jq and piped to gh api. However, we'll hold off on adding
-      // that complexity for now.
-      if (bodyParamValues.some((elem) => typeof elem === 'object' && !Array.isArray(elem))) {
-        return undefined
-      }
-      requestBodyParams = Object.entries(bodyParameters)
-        .map(([key, params]) => {
-          if (typeof params === 'string') {
-            return `-f ${key}='${params}' `
-          } else if (Array.isArray(params)) {
-            let cliLine = ''
-            for (const param of params) {
-              if (typeof param === 'string') {
-                cliLine += `-f "${key}[]=${param}" `
-              } else {
-                // When an array of objects is sent, the CLI takes the key and value as two separate arguments
-                // E.g. -F "properties[][property_name]=repo" -F "properties[][value]=docs-internal"
-                for (const [k, v] of Object.entries(param)) {
-                  cliLine += `-F "${key}[][${k}]=${v}" `
-                }
-              }
-            }
-            return cliLine
-          } else {
-            return `-F ${key}=${params} `
-          }
-        })
-        .join('\\\n ')
+      requestBodyParams += handleObjectParameter(bodyParameters as NestedObjectParameter)
     } else {
-      requestBodyParams = `-f '${bodyParameters}'`
+      requestBodyParams += handleSingleParameter('', bodyParameters)
     }
   }
 
@@ -189,6 +175,93 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   )}`
 }
 
+const startTransformKey = (currentKey: string): string => currentKey
+
+type TypedItem = 'string' | 'number' | 'boolean'
+type NestedObjectParameter =
+  | TypedItem
+  | { [key: string]: NestedObjectParameter }
+  | NestedObjectParameter[]
+
+function handleSingleParameter(
+  key: string,
+  value: NestedObjectParameter,
+  transformKey = startTransformKey,
+): string {
+  let cliLine = ''
+  const keyString = `${transformKey(key)}`
+  // When only a value is passed to bodyParameters we don't show the '=' since there isn't a key
+  let separator = '='
+  if (!key) {
+    separator = ''
+  }
+  if (typeof value === 'string') {
+    cliLine += ` -f "${keyString}${separator}${value}"`
+  } else if (typeof value === 'number' || typeof value === 'boolean' || value === null) {
+    cliLine += ` -F "${keyString}${separator}${value}"`
+  } else if (Array.isArray(value)) {
+    for (const param of value) {
+      if (Array.isArray(param)) {
+        throw new Error('Nested arrays are not valid in the bodyParameters')
+      }
+
+      if (typeof param === 'object' && param !== null) {
+        cliLine += handleObjectParameter(
+          param,
+          (nextKey: string): string => `${keyString}[]${nextKey}`,
+        )
+      } else {
+        // Transform key in this case needs to account for the `key` being passed in
+        cliLine += handleSingleParameter(key, param, (nextKey: string): string => `${nextKey}[]`)
+      }
+    }
+  } else if (typeof value === 'object') {
+    cliLine += handleObjectParameter(value, (nextKey) => `${keyString}[${nextKey}]`)
+  }
+  return cliLine
+}
+
+function handleObjectParameter(
+  objectParams: NestedObjectParameter,
+  transformKey = startTransformKey,
+) {
+  let cliLine = ''
+  for (const [key, value] of Object.entries(objectParams)) {
+    if (Array.isArray(value)) {
+      for (const param of value) {
+        // This isn't valid in a REST context, our REST API should not be designed to take
+        // something like { "letterSegments": [["a", "b", "c"], ["d", "e", "f"]] }
+        // If this is a possibility, we can update the code to handle it
+        if (Array.isArray(param)) {
+          throw new Error('Nested arrays are not valid in the bodyParameters')
+        }
+
+        if (typeof param === 'object' && param !== null) {
+          // When an array of objects, we want to display the key and value as two separate parameters
+          // E.g. -F "properties[][property_name]=repo" -F "properties[][value]=docs-internal"
+          for (const [nestedKey, nestedValue] of Object.entries(param)) {
+            cliLine += handleSingleParameter(
+              `${key}[][${nestedKey}]`,
+              nestedValue as NestedObjectParameter,
+              transformKey,
+            )
+          }
+        } else {
+          cliLine += handleSingleParameter(`${key}[]`, param, transformKey)
+        }
+      }
+    } else if (typeof value === 'object' && value !== null) {
+      cliLine += handleObjectParameter(
+        value as NestedObjectParameter,
+        (nextKey: string) => `${key}[${nextKey}]`,
+      )
+    } else {
+      cliLine += handleSingleParameter(key, value, transformKey)
+    }
+  }
+  return cliLine
+}
+
 /*
   Generates an octokit.js example
 
@@ -202,9 +275,12 @@ export function getGHExample(operation: Operation, codeSample: CodeSample) {
   })
 
 */
-export function getJSExample(operation: Operation, codeSample: CodeSample) {
-  const { currentVersion } = useVersion()
-  const { allVersions } = useMainContext()
+export function getJSExample(
+  operation: Operation,
+  codeSample: CodeSample,
+  currentVersion: string,
+  allVersions: Record<string, VersionItem>,
+) {
   const parameters: { [key: string]: string | object } = {}
 
   if (codeSample.request) {
@@ -257,9 +333,12 @@ export function getJSExample(operation: Operation, codeSample: CodeSample) {
   }
 
   const comment = `// Octokit.js\n// https://github.com/octokit/core.js#readme\n`
-  const require = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
+  const authOctokit = `const octokit = new Octokit(${stringify({ auth: 'YOUR-TOKEN' }, null, 2)})\n\n`
+  const oauthOctokit = `import { createOAuthAppAuth } from "@octokit/auth-oauth-app"\n\nconst octokit = new Octokit({\n  authStrategy: createOAuthAppAuth,\n  auth:{\n    clientType: 'oauth-app',\n    clientId: '<YOUR_CLIENT ID>',\n    clientSecret: '<YOUR_CLIENT SECRET>'\n  }\n})\n\n`
+  const isBasicAuth = operation?.progAccess?.basicAuth
+  const authString = isBasicAuth ? oauthOctokit : authOctokit
 
-  return `${comment}${require}await octokit.request('${operation.verb.toUpperCase()} ${
+  return `${comment}${authString}await octokit.request('${operation.verb.toUpperCase()} ${
     operation.requestPath
   }${queryParameters}', ${stringify(parameters, null, 2)})`
 }

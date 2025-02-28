@@ -21,8 +21,8 @@ You will see this error if {% data variables.product.prodname_codeql %} is unabl
 
 There are two common reasons for this error:
 
-- There is a typo in the workflow.
-- A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
+* There is a typo in the workflow.
+* A resource the workflow refers to by path was renamed, deleted, or moved to a new location.
 
 ## Fixing the problem
 

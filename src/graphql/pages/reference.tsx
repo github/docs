@@ -1,5 +1,4 @@
 import { GetServerSideProps } from 'next'
-import React from 'react'
 
 import { GraphqlPage } from 'src/graphql/components/GraphqlPage'
 import {

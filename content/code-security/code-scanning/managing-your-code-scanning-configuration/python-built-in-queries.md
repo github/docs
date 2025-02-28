@@ -2,10 +2,12 @@
 title: Python queries for CodeQL analysis
 shortTitle: Python CodeQL queries
 intro: 'Explore the queries that {% data variables.product.prodname_codeql %} uses to analyze code written in Python when you select the `default` or the `security-extended` query suite.'
-product: '{% data reusables.gated-features.code-scanning %}'
+product: '{% data reusables.gated-features.codeql %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-scanning-without-workflow
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 type: reference
 topics:
   - Code scanning

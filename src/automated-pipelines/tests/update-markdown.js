@@ -1,9 +1,10 @@
-import { expect } from '@jest/globals'
 import { tmpdir } from 'os'
-import { mkdirp } from 'mkdirp'
 import { cp, rm, readFile } from 'fs/promises'
 import { existsSync } from 'fs'
 import path from 'path'
+
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+import { mkdirp } from 'mkdirp'
 import matter from 'gray-matter'
 
 import { updateContentDirectory } from '../lib/update-markdown.js'

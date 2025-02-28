@@ -26,7 +26,6 @@ children:
   - /managing-access-to-your-personal-accounts-project-boards
   - /managing-your-cookie-preferences-for-githubs-enterprise-marketing-pages
   - /integrating-jira-with-your-personal-projects
-  - /what-does-the-available-for-hire-checkbox-do
+  - /about-available-for-hire
 shortTitle: Personal account settings
 ---
-

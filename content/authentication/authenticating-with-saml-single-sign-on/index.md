@@ -1,6 +1,6 @@
 ---
 title: Authenticating with SAML single sign-on
-intro: 'You can authenticate to {% data variables.product.product_name %} with SAML single sign-on (SSO){% ifversion ghec %} and view your active sessions{% endif %}.'
+intro: 'You can authenticate to {% data variables.product.github %} with SAML single sign-on (SSO){% ifversion ghec %} and view your active sessions{% endif %}.'
 redirect_from:
   - /articles/authenticating-to-a-github-organization-with-saml-single-sign-on
   - /articles/authenticating-with-saml-single-sign-on
@@ -10,6 +10,7 @@ versions:
 topics:
   - SSO
 children:
+  - /authenticating-with-a-managed-user-account
   - /about-authentication-with-saml-single-sign-on
   - /authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-saml-single-sign-on

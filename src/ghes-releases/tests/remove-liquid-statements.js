@@ -1,8 +1,11 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
+import fs from 'fs/promises'
+
 import cheerio from 'cheerio'
 import matter from 'gray-matter'
-import fs from 'fs/promises'
+import { describe, expect, test } from 'vitest'
+
 import removeLiquidStatements from '../scripts/remove-liquid-statements'
 import removeDeprecatedFrontmatter from '../scripts/remove-deprecated-frontmatter'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))

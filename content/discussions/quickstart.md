@@ -3,7 +3,9 @@ title: Quickstart for GitHub Discussions
 intro: 'Enable {% data variables.product.prodname_discussions %} on an existing repository or organization and start conversations with your community.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 shortTitle: Quickstart
 ---
 
@@ -24,15 +26,7 @@ When you first enable {% data variables.product.prodname_discussions %}, you wil
 1. Under your repository name, click {% octicon "gear" aria-label="The gear icon" %}
 **Settings**.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings-global-nav-update.png)
-
-{% else %}
-
-   ![Screenshot of the tabs in a {% data variables.product.company_short %} repository. The "Settings" option is outlined in dark orange.](/assets/images/help/discussions/public-repo-settings.png)
-
-{% endif %}
 
 1. Scroll down to the "Features" section and click **Set up discussions**.
 
@@ -51,13 +45,13 @@ Organization owners can enable {% data variables.product.prodname_discussions %}
 
 ## Welcoming contributions to your discussions
 
-You can welcome your community and introduce a new way to communicate in a repository or organization by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion)."
+You can welcome your community and introduce a new way to communicate in a repository or organization by creating a welcome post and pinning the post to your {% data variables.product.prodname_discussions %} page. Pinning and locking discussions helps people know that a post is meant as an announcement. You can use announcements as a way to link people to more resources and offer guidance for opening discussions in your community. For more information about pinning a discussion, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions#pinning-a-discussion).
 
 ## Setting up community guidelines for contributors
 
-For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project)" and{% endif %} "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)."
+For repository discussions, you can set contributing guidelines to encourage collaborators to have meaningful, useful conversations that are relevant to the repository. You can also update the repository's README to communicate expectations on when collaborators should open an issue or discussion. For more information about providing guidelines for your project, see{% ifversion fpt or ghec %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/adding-a-code-of-conduct-to-your-project) and{% endif %} [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions).
 
-For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+For organization discussions, you share information about how to engage with your organization by creating an organization profile README. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile).
 
 ## Creating a new discussion
 
@@ -75,16 +69,16 @@ Any authenticated user who can view a repository can create a poll. Similarly, s
 
 Repository owners and people with write access to the repository can create new categories to keep discussions organized. Similarly, since organization discussions are based on a source repository, repository owners and people with write access to the source repository can create new categories for organization discussions.
 
-Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions)."
+Collaborators participating in and creating new discussions can group discussions into the most relevant existing categories. Discussions can also be recategorized after they are created. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-categories-for-discussions).
 
 {% data reusables.discussions.you-can-label-discussions %}
 
 ## Promoting healthy conversations
 
-People with write permissions for the repository, or for the source repository for organization discussions, can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions)."
+People with write permissions for the repository, or for the source repository for organization discussions, can help surface important conversations by pinning discussions, deleting discussions that are no longer useful or are damaging to the community, and transferring discussions to more relevant repositories owned by the organization. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/managing-discussions).
 
-People with triage permissions for the repository, or for the source repository for organization discussions, can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+People with triage permissions for the repository, or for the source repository for organization discussions, can help moderate a project's discussions by marking comments as answers, locking discussions that are no longer useful or are damaging to the community, and converting issues to discussions when an idea is still in the early stages of development. For more information, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).
 
 ## Next steps
 
-Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see "[AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions)."
+Once there is a clear path to scope work out and move an idea from concept to reality, you can create an issue and start tracking your progress. For more information on creating an issue from a discussion, see [AUTOTITLE](/discussions/managing-discussions-for-your-community/moderating-discussions).

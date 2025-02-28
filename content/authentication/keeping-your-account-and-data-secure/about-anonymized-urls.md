@@ -1,6 +1,6 @@
 ---
 title: About anonymized URLs
-intro: 'If you upload an image or video to {% data variables.product.product_name %}, the URL of the image or video will be modified so your information is not trackable.'
+intro: 'If you upload an image or video to {% data variables.product.github %}, the URL of the image or video will be modified so your information is not trackable.'
 redirect_from:
   - /articles/why-do-my-images-have-strange-urls
   - /articles/about-anonymized-image-urls
@@ -14,7 +14,7 @@ topics:
   - Identity
   - Access management
 ---
-To host your images, {% data variables.product.product_name %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. The URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
+To host your images, {% data variables.product.github %} uses the [open-source project Camo](https://github.com/atmos/camo). Camo generates an anonymous URL proxy for each file which hides your browser details and related information from other users. On {% data variables.product.prodname_dotcom_the_website %}, the URL starts `https://<subdomain>.githubusercontent.com/`, with different subdomains depending on how you uploaded the image.
 
 Videos also get anonymized URLs with the same format as image URLs, but are not processed through Camo. This is because {% data variables.product.prodname_dotcom %} does not support externally hosted videos, so the anonymized URL is a link to the uploaded video hosted by {% data variables.product.prodname_dotcom %}.
 
@@ -26,11 +26,8 @@ In rare circumstances, images that are processed through Camo might not appear o
 
 {% windows %}
 
-{% tip %}
-
-Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
-
-{% endtip %}
+> [!TIP]
+> Windows users will either need to use the Git PowerShell (which is installed alongside [{% data variables.product.prodname_desktop %}](https://desktop.github.com/)) or download [curl for Windows](http://curl.haxx.se/download.html).
 
 {% endwindows %}
 
@@ -55,9 +52,9 @@ If an image is showing up in your browser but not on {% data variables.product.p
 1. Check that content type against [the list of types supported by Camo](https://github.com/atmos/camo/blob/master/mime-types.json).
 
 If your content type is not supported by Camo, you can try several actions:
-- If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
-- If you're using an external service for hosting images, contact support for that service.
-- Make a pull request to Camo to add your content type to the list.
+* If you own the server that's hosting the image, modify it so that it returns a correct content type for images.
+* If you're using an external service for hosting images, contact support for that service.
+* Make a pull request to Camo to add your content type to the list.
 
 ### An image that changed recently is not updating
 
@@ -76,8 +73,8 @@ If you changed an image recently and it's showing up in your browser but not {% 
    ```
 
 Check the value of `Cache-Control`. In this example, there's no `Cache-Control`. In that case:
-- If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
-- If you're using an external service for hosting images, contact support for that service.
+* If you own the server that's hosting the image, modify it so that it returns a `Cache-Control` of `no-cache` for images.
+* If you're using an external service for hosting images, contact support for that service.
 
 If `Cache-Control` _is_ set to `no-cache`, contact {% data variables.contact.contact_support %} or search the {% data variables.contact.community_support_forum %}.
 
@@ -101,4 +98,4 @@ To fix this, please move the image to a service that is publicly available.
 
 ## Further reading
 
-- "[Proxying user images](https://github.com/blog/1766-proxying-user-images)" on {% data variables.product.prodname_blog %}
+* [Proxying user images](https://github.com/blog/1766-proxying-user-images) on {% data variables.product.prodname_blog %}

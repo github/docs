@@ -5,10 +5,16 @@
  *
  */
 
-export function printAnnotationResults(results, { skippableRules = [] } = {}) {
+export function printAnnotationResults(
+  results,
+  { skippableRules = [], skippableFlawProperties = [] } = {},
+) {
   for (const [file, flaws] of Object.entries(results)) {
     for (const flaw of flaws) {
       if (intersection(flaw.ruleNames, skippableRules)) {
+        continue
+      }
+      if (skippableFlawProperties.some((prop) => flaw[prop])) {
         continue
       }
 
@@ -29,7 +35,13 @@ export function printAnnotationResults(results, { skippableRules = [] } = {}) {
       annotation += `${bits.join(',')}`
 
       if (flaw.errorDetail) {
-        annotation += `::${flaw.errorDetail}`
+        annotation += flaw.errorDetail.endsWith('.')
+          ? `::${flaw.errorDetail}`
+          : `::${flaw.errorDetail}.`
+      }
+
+      if (flaw.context) {
+        annotation += ` ${flaw.context}`
       }
 
       // Why console.log and not `core.error()` (from @actions/core)?
