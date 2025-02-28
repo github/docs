@@ -267,6 +267,11 @@ const keyboard = {
   additionalProperties: false,
   required: ['pressed_key', 'pressed_on'],
   properties: {
+    context,
+    type: {
+      type: 'string',
+      pattern: '^keyboard$',
+    },
     pressed_key: {
       type: 'string',
       description: 'The key the user pressed.',
