@@ -160,8 +160,6 @@ registries:
 * Dockerfiles may only receive a version update to the first `FROM` directive.
 * Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
 * {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
-* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
-* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
 
 {% ifversion dependabot-docker-compose-support %}
 
