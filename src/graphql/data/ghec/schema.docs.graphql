@@ -38632,8 +38632,8 @@ Require all commits be made to a non-target branch and submitted via a pull requ
 """
 type PullRequestParameters {
   """
-  When merging pull requests, you can allow any combination of merge commits,
-  squashing, or rebasing. At least one option must be enabled.
+  Array of allowed merge methods. Allowed values include `merge`, `squash`, and
+  `rebase`. At least one option must be enabled.
   """
   allowedMergeMethods: [String!]
 
@@ -38668,8 +38668,8 @@ Require all commits be made to a non-target branch and submitted via a pull requ
 """
 input PullRequestParametersInput {
   """
-  When merging pull requests, you can allow any combination of merge commits,
-  squashing, or rebasing. At least one option must be enabled.
+  Array of allowed merge methods. Allowed values include `merge`, `squash`, and
+  `rebase`. At least one option must be enabled.
   """
   allowedMergeMethods: [String!]
 
