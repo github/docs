@@ -25,11 +25,13 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments(
-      router.locale as string,
-      pageProps.mainContext.currentVersion,
-      pageProps.mainContext.allVersions,
-    )
+    if (pageProps.mainContext) {
+      initializeExperiments(
+        router.locale as string,
+        pageProps.mainContext.currentVersion,
+        pageProps.mainContext.allVersions,
+      )
+    }
   }, [])
 
   useEffect(() => {
@@ -138,7 +140,6 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-
   return {
     ...appProps,
     languagesContext,
