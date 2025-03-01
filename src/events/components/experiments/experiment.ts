@@ -54,7 +54,6 @@ export function shouldShowExperiment(
               ? routerQuery.feature.toLowerCase() === experiment.turnOnWithURLParam.toLowerCase()
               : false
           ) {
-            controlGroupOverride[experimentKey] = TREATMENT_VARIATION
             return true
           }
         }
@@ -115,6 +114,15 @@ export function getExperimentVariationForContext(locale: string, version: string
   const experiments = getActiveExperiments(locale, version)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
+      // If the user is using the URL param to view the experiment, include the variation in the context
+      if (
+        experiment.turnOnWithURLParam &&
+        window.location?.search
+          ?.toLowerCase()
+          .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)
+      ) {
+        return TREATMENT_VARIATION
+      }
       return getExperimentControlGroupFromSession(
         experiment.key,
         experiment.percentOfUsersToGetExperiment,
