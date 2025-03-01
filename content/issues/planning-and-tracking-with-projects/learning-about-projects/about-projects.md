@@ -43,7 +43,8 @@ There are a number of ways you can add automation to your project. Built-in work
 
 You can also use the GraphQL API and {% data variables.product.prodname_actions %} to take even greater control of your project. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions).
 
-### Viewing your project from different perspectives
+### Viewing your project from different perspectives![IMG_1367](https://github.com/user-attachments/assets/17eb53f6-0bed-4452-8faf-d7c4b739879a)
+
 
 Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer three different layout options.
 
