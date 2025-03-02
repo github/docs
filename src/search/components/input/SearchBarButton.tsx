@@ -71,17 +71,11 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
               aria-hidden
               tabIndex={-1}
             >
+              <CopilotIcon aria-hidden className="mr-1" />
               <span
                 className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
               >
-                {urlSearchInputQuery ? (
-                  urlSearchInputQuery
-                ) : (
-                  <>
-                    {t('search.input.placeholder')}
-                    <CopilotIcon aria-hidden className="mr-1 ml-1" />
-                  </>
-                )}
+                {urlSearchInputQuery ? urlSearchInputQuery : t('search.input.placeholder')}
               </span>
             </div>
             <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>

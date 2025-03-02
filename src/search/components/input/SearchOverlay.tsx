@@ -240,10 +240,13 @@ export function SearchOverlay({
     event.preventDefault()
     const newQuery = event.target.value
     setSelectedIndex(-1) // Reset selected index when query changes
-    // Whenever the query changes, we want to leave the Ask AI state
-    setSearchLoading(true)
-    updateAutocompleteResults(newQuery)
-    if (isAskAIState) {
+    // We don't need to fetch autocomplete results when asking the AI
+    if (!isAskAIState || aiSearchError || aiCouldNotAnswer) {
+      setSearchLoading(true)
+      updateAutocompleteResults(newQuery)
+    }
+    // If the query empties while we are in the AI state, we should switch back to the search state
+    if (isAskAIState && newQuery.trim() === '') {
       updateParams({
         'search-overlay-ask-ai': '',
         'search-overlay-input': newQuery,
@@ -293,7 +296,6 @@ export function SearchOverlay({
         'search-overlay-ask-ai': 'true',
         'search-overlay-input': selectedOption.term,
       })
-      setSearchLoading(true)
       setAIQuery(selectedOption.term)
       inputRef.current?.focus()
     }
@@ -462,6 +464,7 @@ export function SearchOverlay({
         <ActionList
           aria-label={t('search.overlay.suggestions_list_aria_label')}
           showDividers
+          selectionVariant="single"
           className={styles.suggestionsList}
           ref={suggestionsListHeightRef}
         >
@@ -523,11 +526,21 @@ export function SearchOverlay({
             selectedIndex,
             listElementsRef,
             askAIState,
-            searchLoading,
-            previousSuggestionsListHeight,
           )}
         </ActionList>
       </>
+    )
+  } else if (searchLoading) {
+    OverlayContents = (
+      <Box
+        role="status"
+        className={styles.loadingContainer}
+        sx={{
+          height: `${previousSuggestionsListHeight}px`,
+        }}
+      >
+        <Spinner />
+      </Box>
     )
   } else {
     OverlayContents = (
@@ -547,8 +560,6 @@ export function SearchOverlay({
           selectedIndex,
           listElementsRef,
           askAIState,
-          searchLoading,
-          previousSuggestionsListHeight,
         )}
       </ActionList>
     )
@@ -690,8 +701,6 @@ function renderSearchGroups(
     aiCouldNotAnswer: boolean
     setAICouldNotAnswer: (value: boolean) => void
   },
-  searchLoading: boolean,
-  previousSuggestionsListHeight: number | string,
 ) {
   const groups = []
 
@@ -733,21 +742,6 @@ function renderSearchGroups(
 
   if (isInAskAIStateButNoAnswer) {
     groups.push(<ActionList.Divider key="general-divider" />)
-  }
-
-  if (searchLoading) {
-    groups.push(
-      <Box
-        role="status"
-        className={styles.loadingContainer}
-        sx={{
-          height: `${previousSuggestionsListHeight}px`,
-        }}
-      >
-        <Spinner />
-      </Box>,
-    )
-    return groups
   }
 
   // We want to show general search suggestions underneath the AI Response section if the AI Could no answer

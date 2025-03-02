@@ -320,7 +320,6 @@ export function AskAIResults({
                 <ActionList.Item
                   sx={{
                     marginLeft: '0px',
-                    paddingLeft: '0px',
                   }}
                   key={`reference-${index}`}
                   tabIndex={-1}
