@@ -142,6 +142,8 @@ From AWS:
    * Add the permissions policy you created earlier to allow writes to the bucket.
    * Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
 
+        >[!NOTE] The `ENTERPRISE` value is case-sensitive. If the name of your enterprise contains uppercase letters, use the same case in the trust policy.
+
      ```json
      "Condition": {
         "StringEquals": {
