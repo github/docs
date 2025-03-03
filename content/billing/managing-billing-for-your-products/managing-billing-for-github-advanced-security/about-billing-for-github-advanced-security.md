@@ -24,19 +24,20 @@ shortTitle: Advanced Security billing
 
 ## Metered billing for {% data variables.product.prodname_GH_advanced_security %}
 
-If you started a trial of {% data variables.product.prodname_GH_advanced_security %} during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, or if your account is onboarded into metered billing outside of the trial, your billing will be usage-based. This means:
+If you started a trial of {% data variables.product.prodname_GH_advanced_security %} (GHAS) during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, or if your account is onboarded into metered billing outside of the trial, your billing will be usage-based. This means:
 
 * You pay for the number of licenses used each month.
 * This applies to both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}.
 
 There are a few key differences between metered and volume billing for {% data variables.product.prodname_GH_advanced_security %}.
 
-* **GHE Metered billing**
+* **GHAS Metered billing**
 
   * Billed per active committer, with no pre-defined license limit.
   * No overage state, pay only for what you use.
+  * Server-only users will be added to metered billing. These users are de-duplicated with email matching to avoid double billing.
 
-* **GHE Volume/Subscription billing**
+* **GHAS Volume/Subscription billing**
 
   * Purchase a defined number of licenses (for example, 100 licenses).
   * If usage exceeds purchased licenses, you will need to purchase additional licenses to cover this overage usage.
