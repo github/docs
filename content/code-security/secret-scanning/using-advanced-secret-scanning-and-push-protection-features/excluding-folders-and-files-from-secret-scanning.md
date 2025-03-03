@@ -1,6 +1,6 @@
 ---
 title: Excluding folders and files from secret scanning
-intro: 'You can customize {% data variables.product.prodname_secret_scanning %} to exclude directories or files from analysis, by configuring a `secret_scanning.yml` file in your repository.'
+intro: 'You can customize {% data variables.product.prodname_secret_scanning %} to automatically close alerts for secrets found in specific directories or files by configuring a `secret_scanning.yml` file in your repository.'
 permissions: '{% data reusables.permissions.secret-scanning-alerts %}'
 shortTitle: Exclude folders and files
 versions:
@@ -22,7 +22,7 @@ topics:
 
 You may have a reason to commit a secret to a repository, such as when you want to provide a fake secret in documentation, or in an example application. In these scenarios, you can quickly dismiss the alert and document the reasons. However, there may be cases where you want to ignore a directory entirely to avoid creating false positive alerts at scale. For example, you might have a monolithic application with several integrations containing a file of dummy keys that could set off numerous false alerts to triage.
 
-You can configure a `secret_scanning.yml` file to exclude directories from {% data variables.product.prodname_secret_scanning %}, including when you use push protection.
+You can configure a `secret_scanning.yml` file to automatically close alerts found in specific directories from {% data variables.product.prodname_secret_scanning %}, and exclude these directories included in push protection. These alerts are closed as "ignored by configuration".
 
 ## Excluding directories from {% data variables.secret-scanning.user_alerts %}
 
@@ -36,7 +36,7 @@ You can configure a `secret_scanning.yml` file to exclude directories from {% da
       - "docs/**"
     ```
 
-    This tells {% data variables.product.prodname_secret_scanning %} to ignore everything in the `docs` directory. You can use this example file as a template to add the files and folders you’d like to exclude from your own repositories.
+    This tells {% data variables.product.prodname_secret_scanning %} to automatically close alerts for everything in the `docs` directory. You can use this example file as a template to add the files and folders you’d like to exclude from your own repositories.
 
     You can also use special characters, such as `*` to filter paths. For more information about filter patterns, see [Workflow syntax for GitHub Actions](/actions/reference/workflow-syntax-for-github-actions#filter-pattern-cheat-sheet).
 
