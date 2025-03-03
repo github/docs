@@ -10,7 +10,7 @@ export default function handleNextDataPath(
   res: Response,
   next: NextFunction,
 ) {
-  if (req.path.startsWith('/_next/data') && req.path.endsWith('.json')) {
+  if (req.path.startsWith('/_next/data/') && req.path.endsWith('.json')) {
     // translate a nextjs data request to a page path that the server can use on context
     // this is triggered via client-side route transitions
     // example path:
