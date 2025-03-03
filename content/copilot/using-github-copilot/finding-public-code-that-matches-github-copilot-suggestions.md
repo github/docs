@@ -2,6 +2,7 @@
 title: Finding public code that matches GitHub Copilot suggestions
 shortTitle: Find matching code
 intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any matching code that is found.'
+defaultTool: vscode
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot
 topics:
@@ -10,21 +11,28 @@ versions:
   feature: copilot
 ---
 
-{% webui %}
 
-This version of this article is for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For the {% data variables.product.prodname_vscode %} version of this article, click the tab above.
+{% jetbrains %}
 
-{% endwebui %}
+This version of this article is for {% data variables.product.prodname_copilot_short %} in JetBrains IDEs. For {% data variables.product.prodname_copilot_short %} on other platforms, click the appropriate tab above.
+
+{% endjetbrains %}
 
 {% vscode %}
 
-This version of this article is for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}. For the {% data variables.product.github %} website version of this article, click the tab above.
+This version of this article is for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}. For {% data variables.product.prodname_copilot_short %} on other platforms, click the appropriate tab above.
 
 {% endvscode %}
 
+{% webui %}
+
+This version of this article is for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For {% data variables.product.prodname_copilot_short %} on other platforms, click the appropriate tab above.
+
+{% endwebui %}
+
 ## Limitations
 
-References to matching code are currently only available in {% data variables.product.prodname_vscode %} and on the {% data variables.product.github %} website.
+References to matching code are currently only available in JetBrains IDEs, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
 
 ## Prerequisites
 
@@ -32,12 +40,15 @@ References to matching code are only generated if {% data variables.product.prod
 
 ## About code referencing in {% data variables.product.prodname_copilot %}
 
+{% jetbrains %}
+
+{% data reusables.copilot.about-code-referencing %}
+
+{% endjetbrains %}
+
 {% vscode %}
 
-If you've allowed suggestions that match public code, {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %} can provide you with details of the code that a suggestion matches. This happens:
-
-* When you accept a code completion suggestion in the editor.
-* When a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code.
+{% data reusables.copilot.about-code-referencing %}
 
 {% endvscode %}
 
@@ -48,6 +59,20 @@ If you've allowed suggestions that match public code, then whenever a response f
 {% endwebui %}
 
 This feature is called code referencing.
+
+{% jetbrains %}
+
+### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
+
+When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the JetBrains log. The log entry includes the URLs of files containing matching code, and the name of the license that applies to that code, if any was found. This allows you to review these references and decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
+
+{% data reusables.copilot.code-referencing-note %}
+
+### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.code-referencing-in-chat %}
+
+{% endjetbrains %}
 
 {% webui %}
 
@@ -64,19 +89,69 @@ When you accept a code completion suggestion that matches code in a public {% da
 
 The linked web page includes details of any license identified for the repository where the matching code was found. Having reviewed the references, you can decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
 
-> [!NOTE]
-> * Code referencing for code completion only occurs for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Code you have written, and {% data variables.product.prodname_copilot_short %} suggestions you have altered, are not checked for matches to public code.
-> * Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many suggestions.
+{% data reusables.copilot.code-referencing-note %}
 
 ### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
 
-When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.prodname_dotcom %} repository, this is indicated at the end of the response with a link to display details of the matched code in the {% data variables.product.prodname_vscode_shortname %} editor.
+{% data reusables.copilot.code-referencing-in-chat %}
 
 {% endvscode %}
 
 ### How code referencing finds matching code
 
 {% data variables.product.prodname_copilot_short %} code referencing searches for matches by taking the code suggestion, plus some of the code that will surround the suggestion if it is accepted, and comparing it against an index of all public repositories on {% data variables.product.prodname_dotcom_the_website %}. Code in private {% data variables.product.prodname_dotcom %} repositories, or code outside of {% data variables.product.prodname_dotcom %}, is not included in the search process. The search index is refreshed every few months. As a result, newly committed code, and code from public repositories deleted before the index was created, may not be included in the search. For the same reason, the search may return matches to code that has been deleted or moved since the index was created.
+
+{% jetbrains %}
+
+## View code references for code completion
+
+You can view code references in the log file for your JetBrains IDE.
+
+1. In your JetBrains IDE, select **Help** > **Show Log in Finder/Explorer**.
+
+   The log file is displayed in your file manager. For example, for IntelliJ IDEA the log file is called `idea.log`.
+
+1. Open the log file in your JetBrains IDE.
+1. Search for "[Public Code References]."
+
+### Example log entry
+
+```text
+2025-02-26 09:22:12,045 [5581906] INFO - #copilot - [Public Code References] Text found matching public code in file:///Users/mona-lisa/git-repos/test-repo/fizzbuzz.js [Ln 1, Col 10] near fizzBuzz() ...:
+  1) [NOASSERTION] https://github.com/nixsticks/todos/blob/ae427a721c7784da64a619ba17f60637fe1cc819/Loops/fizzbuzz/fizzbuzz.js
+  2) [GPL-3.0] https://github.com/voloslg/algocasts/blob/34b423517486f908ca167b390d3b8bd05653829f/exercises/fizzbuzz/index.js
+```
+
+The log entry includes the following details:
+
+* The date and time you accepted the suggestion.
+* A "Public Code References" message telling you that matching code was found.
+* The path to the file in which the suggestion was added.
+* The line and column number where the suggestion was added.
+* A list of matches, including:
+  * The license type for the matching code—or `NOASSERTION` if no license was found.
+  * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the matching code was found.
+
+### Verifying the code referencing functionality
+
+You can verify that code referencing is working by prompting {% data variables.product.prodname_copilot_short %} to add some commonly used code and checking the output in the log file for your IDE.
+
+1. Display the log file for your JetBrains IDE, as described in the previous section.
+1. Create a file called `fizz-buzz.js` and open it in the JetBrains editor.
+1. In the editor, type:
+
+   ```javascript
+   function fizzBuzz()
+   ```
+
+   With a space after the closing parenthesis.
+
+   {% data variables.product.prodname_copilot %} should suggest code to complete the function. Typically the suggestion will be a common implementation of the fizz buzz algorithm that will match publicly available code on the {% data variables.product.github %} website.
+
+1. Accept the suggestion by pressing <kbd>Tab</kbd>.
+1. Check whether a "[Public Code References]" entry has been added to the log file.
+
+{% endjetbrains %}
 
 {% vscode %}
 
@@ -131,7 +206,10 @@ You can verify that code referencing is working by prompting {% data variables.p
    function fizzBuzz()
    ```
 
-   {% data variables.product.prodname_copilot %} should suggest code to complete the function.
+   With a space after the closing parenthesis.
+
+   {% data variables.product.prodname_copilot %} should suggest code to complete the function. Typically the suggestion will be a common implementation of the fizz buzz algorithm that will match publicly available code on the {% data variables.product.github %} website.
+
 1. Accept the suggestion by pressing <kbd>Tab</kbd>.
 
    If code referencing finds a match to public code, a log entry is added to the **{% data variables.product.prodname_copilot %} Log** view.
@@ -140,21 +218,15 @@ You can verify that code referencing is working by prompting {% data variables.p
 
 ## View code references for {% data variables.product.prodname_copilot_chat_short %}
 
+{% jetbrains %}
+
+{% data reusables.copilot.viewing-code-references-in-chat %}
+
+{% endjetbrains %}
+
 {% vscode %}
 
-If a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code, this is indicated at the end of the response by the following text:
-
-> Similar code found with _n_ license types - **View matches**
-
-1. Click **View matches** to display details of the matched code in a new editor tab.
-
-   For each example of matching code, the editor displays:
-
-   * The license type for the matching code, if known.
-   * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the matching code was found.
-   * A code snippet showing the matching code.
-
-1. In the editor, <kbd>Ctrl</kbd>+click (Windows/Linux) or <kbd>Command</kbd>+click (Mac) a URL to view the full file on {% data variables.product.prodname_dotcom_the_website %}.
+{% data reusables.copilot.viewing-code-references-in-chat %}
 
 {% endvscode %}
 
