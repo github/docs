@@ -110,7 +110,7 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Adding seats to your enterprise account
 
-If you have access to the enhanced billing platform, you can add seats to your enterprise account through the "Licensing" page. See, [AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-enterprise-account).
+If you have access to the new billing platform, you can add seats to your enterprise account through the "Licensing" page. See, [AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-enterprise-account).
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
