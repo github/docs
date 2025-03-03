@@ -136,13 +136,15 @@ You can filter closed items by their close reason.
 
 ## Filtering for when an item was last updated
 
-You can use the `{number}days` syntax to filter for when items were last updated.
+The `updated` filter field provides a more powerful and flexible way to filter items based on their last modification date.
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>last-updated:<em>NUMBER</em>days</code> | **last-updated:1day** will show items last updated one or more days ago.
-|                                               | **last-updated:7days** will show items last updated seven or more days ago.
-|                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
+| <code>updated:<em>NUMBER</em>days</code> | **updated:@today** will show items updated today.
+|                                          | **updated:@today-1d** will show items updated 1 day ago.
+|                                          | **updated:>@today-1w** will show items last updated seven or more days ago.
+|                                          | **updated:>@today-30d** will show items last updated thirty or more days ago.
+|                                          | **-updated:@today** excludes items updated today.
 
 {% data reusables.projects.last-updated-explanation %}
 
