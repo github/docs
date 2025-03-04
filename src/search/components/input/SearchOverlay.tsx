@@ -133,10 +133,7 @@ export function SearchOverlay({
 
     if (generalSearchResults.length > 0) {
       generalOptionsWithViewStatus.push({
-        title: t('search.overlay.view_all_search_results').replace(
-          '{{length}}',
-          totalGeneralSearchResults.toLocaleString('en-US'),
-        ),
+        title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
       } as any)
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
@@ -468,7 +465,7 @@ export function SearchOverlay({
           {/* Always show the AI Search UI error message when it is needed */}
           {aiSearchError && (
             <>
-              <ActionList.Divider key="general-divider" />
+              <ActionList.Divider key="error-top-divider" />
               <ActionList.GroupHeading
                 as="h3"
                 tabIndex={-1}
@@ -492,7 +489,7 @@ export function SearchOverlay({
                   role="alert"
                 />
               </Box>
-              <ActionList.Divider key="general-divider" />
+              <ActionList.Divider key="error-bottom-divider" />
             </>
           )}
           {/* Only show the autocomplete search UI error message in Dev */}
@@ -581,7 +578,7 @@ export function SearchOverlay({
             onKeyDown={handleKeyDown}
             leadingVisual={<SearchIcon />}
             aria-labelledby={overlayHeadingId}
-            placeholder={t('search.input.placeholder')}
+            placeholder={t('search.input.placeholder_no_icon')}
             trailingAction={
               <Stack
                 justify="center"
@@ -697,6 +694,7 @@ function renderSearchGroups(
 
   const askAIGroupHeading = (
     <ActionList.GroupHeading
+      key="ai-heading"
       as="h3"
       tabIndex={-1}
       aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
@@ -732,12 +730,13 @@ function renderSearchGroups(
   let isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
 
   if (isInAskAIStateButNoAnswer) {
-    groups.push(<ActionList.Divider key="general-divider" />)
+    groups.push(<ActionList.Divider key="no-answer-divider" />)
   }
 
   if (searchLoading) {
     groups.push(
       <Box
+        key="loading"
         role="status"
         className={styles.loadingContainer}
         sx={{
@@ -831,13 +830,13 @@ function renderSearchGroups(
           (option) => !option.isViewAllResults && !option.isNoResultsFound,
         ).length)
     ) {
-      groups.push(<ActionList.Divider key="general-divider" />)
+      groups.push(<ActionList.Divider key="bottom-divider" />)
     }
   }
 
   if (aiOptionsWithUserInput.length && !isInAskAIState) {
     groups.push(
-      <ActionList.Group key="ai" data-testid="ai-autocomplete-suggestions">
+      <ActionList.Group key="ai-suggestions" data-testid="ai-autocomplete-suggestions">
         <ActionList.GroupHeading
           as="h3"
           tabIndex={-1}
