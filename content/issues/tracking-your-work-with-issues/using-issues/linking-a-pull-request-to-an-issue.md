@@ -54,7 +54,7 @@ Issue in the same repository | KEYWORD #ISSUE-NUMBER | `Closes #10`
 Issue in a different repository | KEYWORD OWNER/REPOSITORY#ISSUE-NUMBER | `Fixes octo-org/octo-repo#100`
 Multiple issues | Use full syntax for each issue | `Resolves #10, resolves #123, resolves octo-org/octo-repo#100`
 
-The keywords can be capitalized and followed by colons like the form of Git trailer convention, e.g. `Closes: #10`.
+The keywords can be followed by colons or in uppercase. For example: `Closes: #10`, `CLOSES #10`, or `CLOSES: #10`.
 
 Only manually linked pull requests can be manually unlinked. To unlink an issue that you linked using a keyword, you must edit the pull request description to remove the keyword.
 
