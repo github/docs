@@ -160,6 +160,10 @@ At the end of the month, {% data variables.product.prodname_dotcom %} rounds you
 
 Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
 
+> [!NOTE]
+> Coming April 4, 2025: If you are using GitHub’s [enhanced billing platform](https://docs.github.com/en/billing/using-the-new-billing-platform/about-the-new-billing-platform), we will be updating our usage ingestion 
+> from minute to hourly.
+
 ## About spending limits
 
 {% data reusables.actions.actions-spending-limit-detailed %}
