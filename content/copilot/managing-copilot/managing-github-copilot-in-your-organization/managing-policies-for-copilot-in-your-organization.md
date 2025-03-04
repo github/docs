@@ -31,7 +31,7 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * Editor preview features, such as:
   * Vision (available to {% data variables.product.prodname_vscode_shortname %} Insiders)
   * {% data variables.copilot.next_edit_suggestions_caps %} (available in {% data variables.product.prodname_vscode_shortname %})
-  * GPT-4o {% data variables.product.prodname_copilot_short %} code completion (available in {% data variables.product.prodname_vscode_shortname %})
+  * GPT-4o {% data variables.product.prodname_copilot_short %} code completion (available in {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs)
   * {% data variables.product.prodname_copilot_short %} Edits agent mode (available in {% data variables.product.prodname_vscode_shortname %})
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
