@@ -31,6 +31,8 @@ You can trial {% data variables.product.prodname_GH_advanced_security %} as part
 
 You can end your trial at any time by purchasing {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %} if you don't already use it, or by canceling the trial. For more information, see [What happens when the trial ends?](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#what-happens-when-the-trial-ends){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 ## Define your company goals
 
 Before you start a trial of {% data variables.product.prodname_GH_advanced_security %}, you should define the purpose of the trial and identify the key questions you need to answer. Maintaining a strong focus on these goals will enable you to plan a trial that maximizes discovery and ensures that you have the information needed to decide whether or not to upgrade.

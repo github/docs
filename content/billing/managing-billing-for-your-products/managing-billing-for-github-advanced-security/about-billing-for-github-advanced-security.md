@@ -71,9 +71,13 @@ If you have further questions about using {% data variables.product.prodname_GH_
 
 For pricing details for {% data variables.product.prodname_GH_advanced_security %}, see our [pricing information](https://github.com/enterprise/advanced-security#pricing).
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 {% elsif ghec %}
 
 If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% data reusables.advanced-security.ghas-products-tip %}
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
@@ -89,6 +93,8 @@ For other billing-related questions, contact {% data variables.contact.github_su
 {% elsif ghes %}
 
 You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% data reusables.advanced-security.ghas-products-tip %}
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
