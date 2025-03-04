@@ -2,6 +2,7 @@ import { ExtendedRequestWithPageInfo } from '../types'
 import type { NextFunction, Response } from 'express'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import getRedirect from '@/redirects/lib/get-redirect.js'
+import { Page } from '#src/types.js'
 
 export const pathValidationMiddleware = (
   req: ExtendedRequestWithPageInfo,
@@ -24,7 +25,9 @@ export const pathValidationMiddleware = (
   if (/\s/.test(pathname)) {
     return res.status(400).json({ error: `'pathname' cannot contain whitespace` })
   }
-  req.pageinfo = { pathname }
+
+  // req.pageinfo.page will be defined later or it will throw
+  req.pageinfo = { pathname, page: {} as Page }
   return next()
 }
 
@@ -59,6 +62,9 @@ export const pageValidationMiddleware = (
     pathname = `/${req.context.currentLanguage}`
   }
 
+  // Initialize archived property to avoid it being undefined
+  req.pageinfo.archived = { isArchived: false }
+
   if (!(pathname in req.context.pages)) {
     // If a pathname is not a known page, it might *either* be a redirect,
     // or an archived enterprise version, or both.
@@ -76,6 +82,9 @@ export const pageValidationMiddleware = (
 
   // Remember this might yield undefined if the pathname is not a page
   req.pageinfo.page = req.context.pages[pathname]
+  if (!req.pageinfo.page && !req.pageinfo.archived.isArchived) {
+    return res.status(404).json({ error: `No page found for '${pathname}'` })
+  }
   // The pathname might have changed if it was a redirect
   req.pageinfo.pathname = pathname
 

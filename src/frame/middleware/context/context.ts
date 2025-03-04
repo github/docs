@@ -39,8 +39,6 @@ export default async function contextualize(
   req.context.process = { env: {} }
 
   if (req.pagePath && req.pagePath.endsWith('.md')) {
-    req.context.markdownRequested = true
-
     // req.pagePath is used later in the rendering pipeline to
     // locate the file in the tree so it cannot have .md
     req.pagePath = req.pagePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
