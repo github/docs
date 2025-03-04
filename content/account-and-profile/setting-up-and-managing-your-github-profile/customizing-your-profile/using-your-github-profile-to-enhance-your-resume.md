@@ -94,18 +94,9 @@ You can automate this process with {% data variables.product.prodname_dependabot
 
 ## Step 5: Share your results
 
-Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
-
-## Extra credit: Maintaining your projects
-
 Your profile is now ready to be included on your resume! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.
 
-If you want to improve your profile even more, incorporate these practices into your coding routines:
-
-* **Maintain a clean commit history**. To make your project history understandable, use descriptive commit messages and work in smaller batches.
-* **Use issues, pull requests, and {% data variables.product.prodname_projects_v2 %}**. Showcase your task management and project planning skills by tracking bugs and feature requests with issues and using {% data variables.product.prodname_projects_v2 %} to organize them.
-* **Keep dependencies updated**. Use {% data variables.product.prodname_dependabot_version_updates %} to automatically update your project's dependencies with the latest security features and bug fixes.
-* **Contribute to open source**. Open source contributions showcase your collaboration skills and prove that you can work in complex code bases. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
+Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
 
 ## Further reading
 

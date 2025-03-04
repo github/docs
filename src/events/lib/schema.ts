@@ -262,6 +262,27 @@ const exit = {
   },
 }
 
+const keyboard = {
+  type: 'object',
+  additionalProperties: false,
+  required: ['pressed_key', 'pressed_on'],
+  properties: {
+    context,
+    type: {
+      type: 'string',
+      pattern: '^keyboard$',
+    },
+    pressed_key: {
+      type: 'string',
+      description: 'The key the user pressed.',
+    },
+    pressed_on: {
+      type: 'string',
+      description: 'The element/identifier the user pressed the key on.',
+    },
+  },
+}
+
 const link = {
   type: 'object',
   additionalProperties: false,
@@ -400,6 +421,7 @@ const aiSearchResult = {
     'ai_search_result_query',
     'ai_search_result_response',
     'ai_search_result_links_json',
+    'ai_search_result_provided_answer',
   ],
   properties: {
     context,
@@ -419,6 +441,10 @@ const aiSearchResult = {
       type: 'string',
       description:
         'Dynamic JSON string of an array of "link" objects in the form: [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]',
+    },
+    ai_search_result_provided_answer: {
+      type: 'boolean',
+      description: 'Whether the GPT was able to answer the query.',
     },
   },
 }
@@ -584,6 +610,7 @@ const validation = {
 export const schemas = {
   page,
   exit,
+  keyboard,
   link,
   hover,
   search,
@@ -600,6 +627,7 @@ export const schemas = {
 export const hydroNames = {
   page: 'docs.v0.PageEvent',
   exit: 'docs.v0.ExitEvent',
+  keyboard: 'docs.v0.KeyboardEvent',
   link: 'docs.v0.LinkEvent',
   hover: 'docs.v0.HoverEvent',
   search: 'docs.v0.SearchEvent',

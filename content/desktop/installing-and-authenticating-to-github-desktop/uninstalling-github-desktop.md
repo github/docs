@@ -6,7 +6,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/uninstalling-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Uninstalling
 ---
 {% mac %}

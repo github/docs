@@ -2,7 +2,9 @@
 title: Managing your views
 intro: 'Learn how to create, save, and manage your project views.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

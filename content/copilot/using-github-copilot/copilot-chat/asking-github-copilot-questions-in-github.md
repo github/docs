@@ -24,7 +24,7 @@ On {% data variables.product.github %}, you can use {% data variables.product.pr
 
 ### Limitations
 
-* The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
+The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
 ### Viewing generated files within {% data variables.product.prodname_copilot_chat_short %}
 
@@ -37,7 +37,7 @@ For example, asking `Generate a simple calculator using HTML, CSS, and JavaScrip
 
 ## Powered by skills
 
-When using the GPT 4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
+When using the GPT-4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
 
 ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
 
@@ -65,25 +65,14 @@ You can open {% data variables.product.prodname_copilot_chat_short %} from any p
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-1. On any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon at the bottom right of the page.
+1. At the top right of any page on {% data variables.product.github %}, click the down arrow beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
 
-   The {% data variables.product.prodname_copilot_chat %} panel is displayed. To resize the panel, click and drag the top or left edge.
+   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the "New conversation" icon (a plus sign) at the top right of the panel.
-
-   ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-new-conversation-button.png)
-
-1. If the panel is headed "Chatting about OWNER/REPOSITORY," click **All repositories**.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
-
-1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is displayed in the panel, click **General purpose chat**.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with "General purpose chat" highlighted with a dark orange outline.](/assets/images/help/copilot/chat-general-purpose-button.png)
-
-1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    Some examples of general questions you could ask are:
+
    * `What are the advantages of the Go programming language?`
    * `What is Agile software development?`
    * `What is the most popular JavaScript framework?`
@@ -91,12 +80,59 @@ Depending on the question you ask, and your enterprise and organization settings
    * `Write a bash script to output today's date.`
 
 {% data reusables.copilot.stop-response-generation %}
-1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Results from Bing" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
+1. If {% data variables.product.prodname_copilot_short %} uses a Bing search to answer your question, "Using web search results for 'SEARCH QUERY'" is displayed above the response. Click this to see the search results that {% data variables.product.prodname_copilot_short %} used to answer your question.
 1. Within a conversation thread, you can ask follow-up questions. {% data variables.product.prodname_copilot_short %} will answer within the context of the conversation. For example, you could type "tell me more" to get {% data variables.product.prodname_copilot_short %} to expand on its last comment.
 
    You can use your initial question as a foundation for follow-up questions. A detailed foundational prompt can help {% data variables.product.prodname_copilot_short %} provide more relevant answers to your follow-up questions. For more information, see [Prompting {% data variables.product.prodname_copilot_chat %} to become your personal AI assistant for accessibility](https://github.blog/2023-10-09-prompting-github-copilot-chat-to-become-your-personal-ai-assistant-for-accessibility/) on the {% data variables.product.prodname_dotcom %} Blog.
 
-{% data reusables.copilot.chat-conversation-buttons %}
+1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
+1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
+
+### Using subthreads in a conversation
+
+> [!NOTE]
+> Subthreading in {% data variables.product.prodname_copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+Subthreads are branches of a conversation that are created from a point in a conversation where you asked a question. Subthreads offer more control and flexibility for exploring aspects of a topic, or new topics, all within the same thread.
+
+You can create and navigate through subthreads in {% data variables.product.prodname_copilot_chat_short %}'s immersive view. In the {% data variables.product.prodname_copilot_chat_short %} panel, if you open a conversation that contains subthreads, only the most recently edited subthread is displayed.
+
+You can create a subthread in immersive mode by either editing or retrying any of your questions in the conversation.
+
+To edit a question:
+
+1. Hover over the question you want to edit.
+1. Click the {% octicon "pencil" aria-label="Edit message" %} button that's displayed.
+
+   ![Screenshot of the 'Edit message' button, highlighted with a dark orange outline.](/assets/images/help/copilot/subthread-edit-button.png)
+
+1. Edit the question, then click **Send**.
+
+> [!NOTE]
+> You can only edit the text of a question. You can't edit any attachments.
+
+To retry a question:
+
+1. Hover over the response to a question you want to retry. Resubmitting a question to {% data variables.product.prodname_copilot_short %} may generate a different response.
+1. Click the {% octicon "sync" aria-label="Retry" %} button.
+
+   ![Screenshot of the 'Retry' button, highlighted with a dark orange outline.](/assets/images/help/copilot/subthread-retry-button.png)
+
+The response to your edited or retried question is displayed in a new subthread.
+
+To navigate between subthreads:
+
+* If you have retried a question, a retry counter is displayed under the response, alongside the retry button.
+
+  ![Screenshot of the retry counter, highlighted with a dark orange outline.](/assets/images/help/copilot/subthread-retry-counter.png)
+
+  Click {% octicon "chevron-left" aria-label="Previous response" %} or {% octicon "chevron-right" aria-label="Next response" %} to navigate to the previous or next subthread.
+
+* If you have edited a question, an edit counter is added below the question.
+
+  ![Screenshot of the edit counter, highlighted with a dark orange outline.](/assets/images/help/copilot/subthread-edit-counter.png)
+
+  Hover over the counter to display the edit and navigation buttons, then click {% octicon "chevron-left" aria-label="Previous response" %} or {% octicon "chevron-right" aria-label="Next response" %} to navigate to the previous or next subthread.
 
 ## Asking {% data variables.product.prodname_copilot_chat_short %} questions in different contexts
 
@@ -109,7 +145,7 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} different t
 To ask a question about a specific repository, you must be viewing the repository on {% data variables.product.github %}.
 
 1. Navigate to a repository on {% data variables.product.github %}.
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
+{% data reusables.copilot.open-chat-panel %}
 1. The heading at the top of the panel should read "Chatting about" followed by the name of the current repository.
 
    If the wrong repository name is displayed, because you were previously chatting about another repository, click All repositories then choose the repository you want to chat about.
@@ -128,8 +164,7 @@ You can ask {% data variables.product.prodname_copilot_short %} about a specific
 
 > [!NOTE] A "symbol" is a named entity in code. This could be a variable, function, class, module, or any other identifier that's part of a codebase.
 
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
+{% data reusables.copilot.open-chat-panel %}
 1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
 
    ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
@@ -154,8 +189,7 @@ Organization owners (with a {% data variables.product.prodname_copilot_enterpris
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
+{% data reusables.copilot.open-chat-panel %}
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
@@ -216,8 +250,7 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 {% data variables.product.prodname_copilot_short %} allows you to use natural language questions to ask about security alerts in repositories in your organization when these alerts are generated by {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).
 
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
+{% data reusables.copilot.open-chat-panel %}
 1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
@@ -245,11 +278,8 @@ You can ask {% data variables.product.prodname_copilot_short %} different questi
 ### Get a summary of a pull request
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
-
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
-
+{% data reusables.copilot.open-chat-panel %}
+{% data reusables.copilot.chat-previous-conversation %}
 1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
 ### Ask about changes to a specific file in a pull request
@@ -272,11 +302,8 @@ You can ask {% data variables.product.prodname_copilot_short %} different questi
 
 1. On {% data variables.product.github %}, navigate to a pull request in a repository.
 1. Scroll to the bottom of the page, then, next to one of the failing checks, click **Details**.
-
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
-
+{% data reusables.copilot.open-chat-panel %}
+{% data reusables.copilot.chat-previous-conversation %}
 1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, ask {% data variables.product.prodname_copilot_short %} why the pull request has failed and press <kbd>Enter</kbd>.
 
 {% data variables.product.prodname_copilot_short %} will respond with information about why the pull request failed. {% data variables.product.prodname_copilot_short %} may also provide suggestions for how to fix the issue.
@@ -290,11 +317,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 > [!NOTE] The quality of {% data variables.product.prodname_copilot_chat_short %}'s responses may be degraded when working with issues or discussions that have very long bodies or a large number of comments. For example, this may occur if you ask {% data variables.product.prodname_copilot_short %} to summarize a long-running discussion. Where this happens, {% data variables.product.prodname_copilot_short %} will warn you so you can double check its output.
 
 1. Navigate to an issue or discussion on {% data variables.product.github %}.
-
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
-
+{% data reusables.copilot.open-chat-panel %}
+{% data reusables.copilot.chat-previous-conversation %}
 1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    {% data variables.product.prodname_copilot_short %} responds to your request in the panel.
@@ -306,11 +330,8 @@ You can ask {% data variables.product.prodname_copilot_short %} to summarize or 
 You can ask {% data variables.product.prodname_copilot_short %} to explain the changes in a commit.
 
 1. Navigate to a commit on {% data variables.product.github %}.
-
-1. In the top right of the page, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-
-1. If the panel contains a previous conversation you had with {% data variables.product.prodname_copilot_short %}, click the {% octicon "plus" aria-hidden="true" %} plus sign icon at the top right of the {% data variables.product.prodname_copilot_short %} panel to start a new conversation.
-
+{% data reusables.copilot.open-chat-panel %}
+{% data reusables.copilot.chat-previous-conversation %}
 1. At the bottom of the {% data variables.product.prodname_copilot_short %} chat panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
    > [!TIP]
@@ -351,7 +372,7 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 You can share {% data variables.product.prodname_copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content. Shared conversations are read-only—the recipient can view the conversation but cannot interact.
 
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-1. To view a conversation in immersive mode, click **{% octicon "screen-full" aria-hidden="true" %} Take conversation to immersive**.
+1. To view a conversation in immersive mode, click **{% octicon "screen-full" aria-hidden="true" %} Immersive**.
 1. Once you submit your first prompt, a share button will appear in the upper right corner. Click {% octicon "share" aria-label="Share" %} to open the share dialog.
 
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The share button is highlighted with an orange outline.](/assets/images/help/copilot/chat-share-button.png)

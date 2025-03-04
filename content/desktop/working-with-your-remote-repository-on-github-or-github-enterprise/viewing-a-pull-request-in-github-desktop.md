@@ -8,7 +8,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/viewing-a-pull-request-in-github-desktop
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/viewing-a-pull-request-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About pull requests in {% data variables.product.prodname_desktop %}

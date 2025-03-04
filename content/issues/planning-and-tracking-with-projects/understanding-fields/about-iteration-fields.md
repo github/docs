@@ -3,7 +3,9 @@ title: About iteration fields
 shortTitle: About iteration fields
 intro: You can create iterations to plan upcoming work and group items.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/managing-iterations
   - /issues/planning-and-tracking-with-projects/understanding-field-types/about-iteration-fields

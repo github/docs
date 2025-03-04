@@ -28,7 +28,10 @@ copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
 
 ## LLM models for Copilot
-copilot_claude_sonnet: 'Claude 3.5 Sonnet'
+copilot_claude_sonnet: 'Claude Sonnet'
+copilot_claude_sonnet_35: 'Claude Sonnet 3.5'
+copilot_claude_sonnet_37: 'Claude Sonnet 3.7'
+
 copilot_gemini_flash: 'Gemini 2.0 Flash'
 
 ## Next edit suggestions in VS Code

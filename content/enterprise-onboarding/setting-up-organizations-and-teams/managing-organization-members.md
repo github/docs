@@ -51,4 +51,4 @@ Once you have added a user to the organization, you can grant them a specific ro
 
 ## Next steps
 
-Now you have added users to an organization, you can create teams in the organization to manage permissions, notifications, and code ownerships for groups of people. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams).
+Next, learn best practices for managing your organizations. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/managing-your-organizations).

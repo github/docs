@@ -41,4 +41,4 @@ For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions)
+Next, learn about security practices for using {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/security-hardening-for-github-actions).

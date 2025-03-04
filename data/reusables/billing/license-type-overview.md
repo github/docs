@@ -6,6 +6,7 @@ There are two types of {% data variables.product.prodname_enterprise %} (GHE) li
     * All Cloud users automatically receive a use right for {% data variables.product.prodname_ghe_server %}.
     * Billing is based on the number of active users each month.
     * Users can generate their own Server license, which covers the number of assigned Cloud seats at the time of generation and is valid for one year.
+    * Server-only users will be added to GHE (Metered) billing. These users are de-duplicated with email matching to avoid double billing.
 
 * **GHE (Volume/Subscription, also called GHE Unified)**: A bundled license for both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}.
     * One license covers both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}, allowing users to work in either or both.

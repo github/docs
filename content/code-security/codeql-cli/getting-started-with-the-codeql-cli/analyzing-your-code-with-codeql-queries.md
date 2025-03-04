@@ -90,7 +90,7 @@ This example analyzes a {% data variables.product.prodname_codeql %} database st
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
     --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
@@ -108,7 +108,7 @@ To include file coverage information with your {% data variables.product.prodnam
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
     --sarif-add-baseline-file-info \ --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
@@ -260,8 +260,6 @@ For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanc
 
 For information about creating custom query suites, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites).
 
-{% ifversion codeql-cli-threat-models %}
-
 ### Including model packs to add potential sources of tainted data
 
 {% data reusables.code-scanning.beta-threat-models-cli %}
@@ -275,8 +273,6 @@ $ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \
 ```
 
 In this example, the relevant queries in the standard query pack `codeql/java-queries` will use the `local` threat model as well as the default threat model for `remote` dataflow sources. You should use the `local` threat model if you consider data from local sources (for example: file systems, command-line arguments, databases, and environment variables) to be potential sources of tainted data for your codebase.
-
-{% endif %}
 
 ## Results
 

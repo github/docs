@@ -40,6 +40,12 @@ sections:
         - |
           ...
 
+    - heading: APIs
+      notes:
+        # LINK TO RELEASE ISSUE
+        - |
+          ...
+
     - heading: Migrations
       notes:
         # LINK TO RELEASE ISSUE

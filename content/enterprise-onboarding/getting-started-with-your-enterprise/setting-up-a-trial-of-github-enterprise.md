@@ -90,5 +90,5 @@ For help setting up the included features, once you've started your trial, see [
 
 ## Next steps
 
-1. To learn more about {% data variables.product.github %}'s enterprise products and options{% ifversion ghec %}, as well as the features available in {% data variables.product.prodname_ghe_cloud %}{% endif %}, see [AUTOTITLE](/admin/overview/about-github-for-enterprises){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/admin/overview/feature-overview-for-github-enterprise-cloud){% endif %}.
 1. Once you have completed your trial, you can purchase {% data variables.product.prodname_enterprise %} or cancel the trial. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/ending-a-trial-of-github-enterprise).
+1. To learn about billing for {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing).

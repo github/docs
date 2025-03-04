@@ -3,7 +3,9 @@ title: Changing the layout of a view
 shortTitle: Changing the layout
 intro: 'You can view your project as a high-density table, as a kanban board, or as a timeline-style roadmap.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/customizing-your-project-views
   - /issues/planning-and-tracking-with-projects/customizing-views-in-your-project/customizing-a-view

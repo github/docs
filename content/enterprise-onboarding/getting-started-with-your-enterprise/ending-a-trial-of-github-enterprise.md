@@ -48,3 +48,7 @@ You can cancel a trial at any time. Once the trial has expired, you can delete t
 {% data reusables.enterprise-accounts.settings-tab %}
 1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Profile**.
 1. At the bottom of the page, in the "Danger zone" section, click **Cancel trial** or **Delete trial**.
+
+## Next steps
+
+Now that you know how to start and end a trial of {% data variables.product.prodname_ghe_cloud %}, learn about billing. See [AUTOTITLE](/enterprise-onboarding/getting-started-with-your-enterprise/about-enterprise-billing).

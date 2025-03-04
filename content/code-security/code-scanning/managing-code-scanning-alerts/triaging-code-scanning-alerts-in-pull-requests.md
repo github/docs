@@ -169,3 +169,9 @@ An alternative way of closing an alert is to dismiss it. You can dismiss an aler
 {% data reusables.code-scanning.false-positive-fix-codeql %}
 
 For more information about dismissing alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/resolving-code-scanning-alerts#dismissing--alerts).
+
+## Further reading
+
+{%- ifversion copilot-hadron %}
+* [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/using-copilot-to-help-you-work-on-a-pull-request)
+{%- endif %}

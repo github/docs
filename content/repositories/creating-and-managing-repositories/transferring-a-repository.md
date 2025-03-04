@@ -70,7 +70,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
 * Sponsors who have access to the repository through a sponsorship tier may be affected. See [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).{% endif %}
 * Packages associated with the repository may be transferred, or may lose their link to the repository, depending on the registry they belong to. See [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-repository-transfers).
 
-See [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+See [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 ### Repository transfers and organizations
 

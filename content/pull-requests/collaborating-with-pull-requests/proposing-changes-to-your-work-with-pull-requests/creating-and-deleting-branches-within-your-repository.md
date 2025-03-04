@@ -45,15 +45,8 @@ You can create a branch in different ways on {% data variables.product.github %}
 {% else %}
 1. Select the branch selector dropdown menu.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the repository page. A dropdown menu, labeled with a branch icon and "main", is highlighted with an orange outline.](/assets/images/help/branches/branch-selection-dropdown.png)
-
-{% endif %}
 {% endif %}
 1. Optionally, if you want to create the new branch from a branch other than the default branch of the repository, click another branch, then select the branch dropdown menu again.
 1. In the "Find or create a branch..." text field, type a unique name for your new branch, then click **Create branch**.

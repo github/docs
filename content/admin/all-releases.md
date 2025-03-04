@@ -69,6 +69,7 @@ For instances with {% data variables.product.prodname_actions %} enabled, self-h
 
 | {% data variables.product.prodname_ghe_server %} version | Minimum Runner version |
 | ------------------------------------------------- | ---------------------- |
+| 3.16 | 2.321.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.321.0)) |
 | 3.15 | 2.319.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.319.1)) |
 | 3.14 | 2.317.0 ([release notes](https://github.com/actions/runner/releases/tag/v2.317.0)) |
 | 3.13 | 2.314.1 ([release notes](https://github.com/actions/runner/releases/tag/v2.314.1)) |

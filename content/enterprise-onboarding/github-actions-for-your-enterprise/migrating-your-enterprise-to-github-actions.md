@@ -88,4 +88,4 @@ Eventually, decommission and shut off the old systems, and ensure that no one wi
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud)
+Next, learn how to configure {% data variables.product.prodname_actions %} on {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud).

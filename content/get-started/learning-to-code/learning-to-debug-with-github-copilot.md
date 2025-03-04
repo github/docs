@@ -54,37 +54,37 @@ def dice_battle():
 print(dice_battle())
 ```
 
-First, we need to clone the repository locally:
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Git: Clone` and press <kbd>Enter</kbd>.
-1. Paste the URL of the `new2code/debug-with-copilot` repository:
+First, we need to create a local copy of the example repository:
 
-   ```text copy
-   https://github.com/new2code/debug-with-copilot
-   ```
-
-1. Press <kbd>Enter</kbd>, then choose a location to save the repository on your computer.
-1. When prompted, open the repository in {% data variables.product.prodname_vscode_shortname %}.
+1. [Start cloning the new2code/debug-with-copilot repository](vscode://vscode.git/clone?url=https://github.com/new2code/debug-with-copilot) in {% data variables.product.prodname_vscode_shortname %}. <!-- markdownlint-disable-line GHD003 -->
+1. Choose a location to save the repository on your computer, then click **Select as Repository Destination**.
+1. When prompted, open the repository.
 
 Now that we've cloned the repository, let's run `bugged_dice_battle.py` to see the output:
 
-1. Open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+1. Open the Command Palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
+1. In the terminal tab, paste the following command.
 
-    ```shell copy
-    python bugged_dice_battle.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+    Windows:
 
     ```shell copy
     py bugged_dice_battle.py
     ```
 
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_dice_battle.py
+    ```
+
 1. Press <kbd>Enter</kbd> to run the program.
 
-Unfortunately, we get some error text in our terminal ending with the following message: `TypeError: can only concatenate str (not "int") to str`. To understand what this means, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open {% data variables.product.prodname_copilot_chat_short %}, then paste and send the following prompt:
+Unfortunately, we get some error text in our terminal ending with the following message:
+
+> TypeError: can only concatenate str (not "int") to str
+
+To understand what this means, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) to **open {% data variables.product.prodname_copilot_chat_short %}**, then paste and send the following prompt:
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
@@ -116,18 +116,17 @@ print(f"The factorial of {number} is {factorial}")
 
 Since we've already cloned the repository locally, let's run `bugged_factorial_finder.py` to see the output:
 
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
-
-    ```shell copy
-    python bugged_factorial_finder.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+1. In the terminal you created earlier, paste the following command.
+    Windows:
 
     ```shell copy
     py bugged_factorial_finder.py
+    ```
+
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_factorial_finder.py
     ```
 
 1. Press <kbd>Enter</kbd> to run the program.
@@ -143,6 +142,14 @@ Why is the output of this code so much higher than expected? Please explain in d
 {% data variables.product.prodname_copilot_short %} will point out that, because we're using the `*=` operator, we're actually multiplying `factorial` by both `i` **and** `factorial`. In other words, we're multiplying by an extra `factorial` for each iteration of the loop.
 
 To fix this error, {% data variables.product.prodname_copilot_short %} will suggest code that removes the extra `factorial` from the equation, or that changes the `*=` operator to `=`.
+
+{% note %}
+
+Did you successfully debug `bugged_factorial_finder.py`?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}
 
 ## Debugging your own project
 

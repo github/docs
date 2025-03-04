@@ -22,7 +22,7 @@ You can either split up your push into smaller parts, or delete the Git history 
 
 You can avoid hitting the limit by breaking your push into smaller parts, each of which should be under 2 GB in size. If a branch is within this size limit, you can push it all at once. However, if a branch is larger than 2 GB, you'll need to split the push into even smaller portions and push only a few commits at a time.
 
-1. If you haven't configured the remote yet, add the repository as a new remote. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories#adding-a-remote-repository).
+1. If you haven't configured the remote yet, add the repository as a new remote. For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories#adding-a-remote-repository).
 1. To find suitable commits spread out along the history of the main branch in your local repository, run the following command:
 
    ```shell

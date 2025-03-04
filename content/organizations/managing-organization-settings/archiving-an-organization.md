@@ -1,10 +1,12 @@
 ---
 title: Archiving an organization
 shortTitle: Archive an organization
-intro: 'You can archive an organization to make it read-only and indicate that it''s no longer actively maintained. You can also unarchive organizations that have been archived.'
+intro: You can archive an organization to make it read-only and indicate that it's no longer actively maintained. You can also unarchive organizations that have been archived.
 permissions: Organization owners can archive an organization.
 versions:
-  feature: archive-organizations
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Organizations
 ---

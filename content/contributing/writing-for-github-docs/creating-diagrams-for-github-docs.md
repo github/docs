@@ -1,9 +1,11 @@
 ---
-title: Creating diagrams for {% data variables.product.prodname_docs %}
+title: 'Creating diagrams for {% data variables.product.prodname_docs %}'
 shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 allowTitleToDifferFromFilename: true
 ---
 

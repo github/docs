@@ -1,11 +1,13 @@
 ---
 title: About the content model
 shortTitle: About the content model
-intro: 'The content model describes the structure and types of content that we publish.'
+intro: The content model describes the structure and types of content that we publish.
 redirect_from:
   - /contributing/writing-for-github-docs/content-model
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Our content model explains the purpose of each type of content we create within {% data variables.product.prodname_docs %}, and what to include when you write or update an article. We use a content model to ensure that our content consistently, clearly, and comprehensively communicates the information that people need to achieve their goals with {% data variables.product.prodname_dotcom %}.

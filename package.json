@@ -32,6 +32,7 @@
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
+    "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
     "dev": "cross-env npm start",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
@@ -39,7 +40,8 @@
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
     "find-unused-variables": "tsx src/content-linter/scripts/find-unsed-variables.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
-    "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
+    "fixture-dev-debug": "cross-env NODE_ENV=development ROOT=src/fixtures/fixtures nodemon --inspect src/frame/server.ts",
+    "fixture-test": "cross-env ROOT=src/fixtures/fixtures sh -c 'npm test -- ${1:-src/fixtures/tests}' --",
     "fr-add-docs-reviewers-requests": "tsx src/workflows/fr-add-docs-reviewers-requests.ts",
     "general-search-scrape": "tsx src/search/scripts/scrape/scrape-cli.ts",
     "general-search-scrape-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
@@ -62,7 +64,7 @@
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "post-lints": "tsx src/content-linter/scripts/post-lints.js",
     "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
-    "precompute-pageinfo": "tsx src/pageinfo/scripts/precompute-pageinfo.ts",
+    "precompute-pageinfo": "tsx src/article-api/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
@@ -324,7 +326,7 @@
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
     "tcp-port-used": "1.0.2",
-    "tsx": "4.15.1",
+    "tsx": "^4.19.3",
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
@@ -394,10 +396,12 @@
     "typescript": "^5.5.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "3.0.5",
+    "vitest": "^3.0.7",
     "website-scraper": "^5.3.1"
   },
-  "overrides": {},
+  "overrides": {
+    "esbuild": "^0.25"
+  },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },

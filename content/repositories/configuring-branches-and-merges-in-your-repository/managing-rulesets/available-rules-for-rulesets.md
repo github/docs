@@ -1,13 +1,17 @@
 ---
 title: Available rules for rulesets
-intro: 'Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.'
+intro: Learn which rules you can add to a ruleset to protect specific branches and tags in a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories
 shortTitle: Available rules
+redirect_from:
+  - /actions/sharing-automations/required-workflows
 ---
 
 You can create branch or tag rulesets to control how users can interact with selected branches and tags in a repository. {% ifversion push-rulesets %}You can also create push rulesets to block pushes to a private or internal repository and that repository's entire fork network.{% endif %}

@@ -35,7 +35,7 @@ featuredLinks:
   popular:
     - /get-started/start-your-journey/creating-an-account-on-github
     - /get-started/start-your-journey/hello-world
-    - /get-started/getting-started-with-git/set-up-git
+    - /get-started/git-basics/set-up-git
     - /get-started/using-github-docs/about-versions-of-github-docs
     - /get-started/learning-about-github/github-glossary
     - /get-started/accessibility/keyboard-shortcuts
@@ -57,7 +57,7 @@ children:
   - /accessibility
   - /writing-on-github
   - /exploring-projects-on-github
-  - /getting-started-with-git
+  - /git-basics
   - /using-git
   - /working-with-subversion-on-github
   - /exploring-integrations

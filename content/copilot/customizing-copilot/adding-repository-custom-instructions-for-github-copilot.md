@@ -124,9 +124,9 @@ Answer all questions in less than 1000 characters, and words of no more than 12 
 
 The instructions in the `.github/copilot-instructions.md` file are available for use by {% data variables.product.prodname_copilot_chat_short %} as soon as you save the file. The complete set of instructions will be automatically added to chat prompts that relate to the repository containing the instructions file.
 
-In immersive mode (the [https://github.com/copilot](https://github.com/copilot) page), you can start a conversation that uses custom instructions by adding, as an attachment, the repository that contains the instructions file.
+In {% data variables.product.prodname_copilot_chat_short %}'s immersive view ([github.com/copilot](https://github.com/copilot)), you can start a conversation that uses custom instructions by adding, as an attachment, the repository that contains the instructions file.
 
-Custom instructions are not visible in {% data variables.product.prodname_copilot_chat_short %}, but you can verify that they are being used by {% data variables.product.prodname_copilot_short %} by expanding the list of references at the top of a chat response in the Chat panel. If custom instructions were added to the prompt that was sent to the model, the `.github/copilot-instructions.md` file is listed as a reference.
+Whenever custom instructions are used by {% data variables.product.prodname_copilot_chat_short %}, the instructions file is added as a reference for the response that's generated. To find out whether custom instructions were used, expand the list of references at the top of a chat response in the Chat panel and check whether the `.github/copilot-instructions.md` file is listed.
 
 ![Screenshot of an expanded References list, showing the 'copilot-instructions.md' file highlighted with a dark organge outline.](/assets/images/help/copilot/custom-instructions-ref-in-github.png)
 
