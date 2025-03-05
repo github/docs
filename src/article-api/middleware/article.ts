@@ -33,6 +33,11 @@ async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   // and is in the ExtendedRequestWithPageInfo
   const { page, pathname } = req.pageinfo
 
+  // for anything that's not an article (like index pages), don't try to render and
+  // tell the user what's going on
+  if (page.documentType !== 'article') {
+    throw new Error(`Page ${pathname} isn't yet available in markdown.`)
+  }
   // these parts allow us to render the page
   const mockedContext: Context = {}
   const renderingReq = {
@@ -69,7 +74,12 @@ router.get(
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
     // First, fetch metadata
     const metaData = await getArticleMetadata(req)
-    const bodyContent = await getArticleBody(req)
+    let bodyContent
+    try {
+      bodyContent = await getArticleBody(req)
+    } catch (error) {
+      return res.status(403).json({ error: (error as Error).message })
+    }
 
     defaultCacheControl(res)
     return res.json({
@@ -84,9 +94,14 @@ router.get(
   pathValidationMiddleware as RequestHandler,
   pageValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
-    const rendered = await getArticleBody(req)
+    let bodyContent
+    try {
+      bodyContent = await getArticleBody(req)
+    } catch (error) {
+      return res.status(403).json({ error: (error as Error).message })
+    }
     defaultCacheControl(res)
-    return res.type('text/markdown').send(rendered)
+    return res.type('text/markdown').send(bodyContent)
   }),
 )
 
