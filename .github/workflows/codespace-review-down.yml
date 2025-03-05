@@ -1,0 +1,84 @@
+name: Codespace review - Down
+
+# **What it does**: When closing or merging a pull request, if there are any associated codespaces, to shut them down.
+# **Why we have it**: To conserve resources.
+# **Who does it impact**: Contributors who open a pull request.
+
+on:
+  pull_request:
+    types:
+      - closed
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codespace-review-down:
+    runs-on: ubuntu-latest
+    if: ${{ github.repository == 'github/docs-internal' }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - name: Delete codespace
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_CODESPACE }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          LOGIN: docs-bot
+          REPO: github/docs-internal
+        run: |
+          echo "Checking if there's codespaces for this PR..."
+          names=$( \
+            gh codespace list \
+              --repo "$REPO" \
+              --limit 1000 \
+              --json "name,gitStatus,owner" \
+              --jq ".[] | select(.owner == \"$LOGIN\" and .gitStatus.ref == \"$BRANCH_NAME\") | .name" \
+          )
+          echo "- Names:"
+          echo "$(echo "$names" | sed 's/^/    /')"
+          count=$(echo "$names" | sed '/^\s*$/d' | wc -l)
+          echo "- Count: $count"
+
+          if [[ $count -gt 0 ]]
+          then
+            echo "Codespaces found for this PR"
+          else
+            echo "Codespaces not found, exiting..."
+            exit 0
+          fi
+
+          echo "Shutting down the codespaces..."
+          echo "$names" | while read -r name
+          do
+            echo "Deleting $name..."
+            gh codespace delete --codespace "$name"
+            echo "Deleted $name"
+          done
+          echo "Shut down the codespaces"
+
+      - name: Find code changes comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- AUTO_CODESPACE -->'
+
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        if: ${{ steps.findComment.outputs.comment-id }} # only update if it exists
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- AUTO_CODESPACE -->
+
+            ### Review this PR in a codespace 📦
+
+            Your pull request is now merged or closed, so I've removed all automatically created codespaces.
+
+            🤖 This comment is [automatically generated][workflow].
+
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/codespace-review-down.yml
