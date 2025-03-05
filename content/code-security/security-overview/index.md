@@ -10,7 +10,8 @@ versions:
   ghec: '*'
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 children:
   - /about-security-overview
   - /viewing-security-insights

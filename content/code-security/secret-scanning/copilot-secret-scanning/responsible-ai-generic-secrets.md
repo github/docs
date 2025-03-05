@@ -10,7 +10,7 @@ versions:
 type: rai
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - AI
   - Copilot
 redirect_from:

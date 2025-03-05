@@ -182,11 +182,11 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 ## Part 5: Building securely on {% data variables.product.github %}
 
-{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
+{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ### 1. Securing your repository
 
-As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
+As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations {% ifversion ghas-products %}with licenses for the features{% else %}where {% data variables.product.prodname_GHAS %} is enabled{% endif %}, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
 For more information on steps you can take to secure your repositories, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 

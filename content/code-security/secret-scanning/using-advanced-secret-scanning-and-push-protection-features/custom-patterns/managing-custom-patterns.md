@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
 ---
 

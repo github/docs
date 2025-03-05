@@ -10,7 +10,7 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /excluding-folders-and-files-from-secret-scanning

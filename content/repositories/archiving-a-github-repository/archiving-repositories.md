@@ -25,12 +25,8 @@ topics:
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 > [!NOTE]
-> Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
-
-{% endif %}
+> Customers who use {% data variables.product.prodname_GH_secret_protection %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 

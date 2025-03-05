@@ -2,20 +2,20 @@
 title: Exploring your enterprise trial of code scanning
 shortTitle: Trial code scanning
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_advanced_security %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
+intro: 'Introduction to the features of code and dependency scanning available with {% data variables.product.prodname_GH_code_security %} in {% data variables.product.prodname_ghe_cloud %} so you can assess their fit to your business needs.'
 type: quick_start
 topics:
-  - Advanced Security
+  - Code Security
 versions:
   fpt: '*'
   ghec: '*'
 ---
 
-This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GH_advanced_security %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
+This guide assumes that you have planned and started a trial of {% data variables.product.prodname_GHAS %} for an existing or trial {% data variables.product.github %} enterprise account, see [AUTOTITLE](/code-security/trialing-github-advanced-security/planning-a-trial-of-ghas).
 
 ## Introduction
 
-{% data variables.product.prodname_code_scanning_caps %} and dependency analysis work in the same way in public repositories and in private and internal repositories with {% data variables.product.prodname_GH_advanced_security %} enabled. In addition, {% data variables.product.prodname_GH_advanced_security %} enables you to create security campaigns where security specialists and developers can collaborate to effectively reduce technical debt.
+{% data variables.product.prodname_code_scanning_caps %} and dependency analysis work in the same way in public repositories and in private and internal repositories with {% data variables.product.prodname_GH_code_security %} enabled. In addition, {% data variables.product.prodname_GH_code_security %} enables you to create security campaigns where security specialists and developers can collaborate to effectively reduce technical debt.
 
 This article focuses on how you can combine these features with enterprise-level controls to standardize and enforce your development process.
 
@@ -56,7 +56,7 @@ There are three different types of automated analysis of pull requests built int
 These automated reviews are a valuable extension to self-review and make it easier for developers to present a more complete and secure pull request for peer review. In addition, {% data variables.product.prodname_code_scanning %} and dependency reviews can be enforced to protect the security and compliance of your code.
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
+> {% data variables.product.prodname_copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_code_security %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
 
 ### {% data variables.product.prodname_code_scanning_caps %} analysis
 
@@ -70,7 +70,7 @@ As with all rulesets, you can control exactly which organizations (enterprise-le
 
 ### Dependency review
 
-When {% data variables.product.prodname_GH_advanced_security %} and dependency graph are enabled for a repository, manifest files have a rich diff view which shows a summary of the dependencies that it adds or updates. This is a useful summary for human reviewers of the pull request but does not provide any control of which dependencies are added to the codebase.
+When {% data variables.product.prodname_GH_code_security %} and dependency graph are enabled for a repository, manifest files have a rich diff view which shows a summary of the dependencies that it adds or updates. This is a useful summary for human reviewers of the pull request but does not provide any control of which dependencies are added to the codebase.
 
 Most enterprises put automatic checks in place to block the use of dependencies with known vulnerabilities or unsupported license terms.
 
@@ -128,4 +128,4 @@ When you have finished exploring these options and {% data variables.product.pro
 * [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise)
 * [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)
-* [Enforce {% data variables.product.prodname_GH_advanced_security %} at Scale](https://wellarchitected.github.com/library/application-security/scenarios-and-recommendations/enforce-ghas-at-scale/)
+* [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/scenarios-and-recommendations/enforce-ghas-at-scale/)

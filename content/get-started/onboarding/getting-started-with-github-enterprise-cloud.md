@@ -88,13 +88,13 @@ To manage organization and team membership within your enterprise from your IdP,
 
 You can configure an allow list for specific IP addresses to restrict access to assets owned by organizations in your {% data variables.enterprise.prodname_emu_enterprise %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise).
 
-#### 4. Enforcing policies for Advanced Security features in your {% data variables.enterprise.prodname_emu_enterprise %}
+#### 4. Enforcing policies for {% data variables.product.prodname_GHAS %} features in your {% data variables.enterprise.prodname_emu_enterprise %}
 
 {% data reusables.getting-started.enterprise-advanced-security %}
 
 ### Managing security without {% data variables.product.prodname_emus %}
 
-To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization, and sign up for and enforce GitHub Advanced Security features.
+To manage security for your enterprise, you can require two-factor authentication, manage allowed IP addresses, enable SAML single sign-on and team synchronization, and sign up for and enforce {% data variables.product.prodname_GHAS %} features.
 
 #### 1. Requiring two-factor authentication and managing allowed IP addresses for organizations in your enterprise account
 
@@ -110,7 +110,7 @@ You can centrally manage access to your enterprise's resources from your IdP usi
 
 You can enable and manage team synchronization between an identity provider (IdP) and {% data variables.product.github %} to allow organizations owned by your enterprise account to manage team membership with IdP groups. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise).
 
-#### 4. Enforcing policies for Advanced Security features in your enterprise account
+#### 4. Enforcing policies for {% data variables.product.prodname_GHAS %} features in your enterprise account
 
 {% data reusables.getting-started.enterprise-advanced-security %}
 
