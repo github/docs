@@ -6,4 +6,4 @@ versions:
   ghes: '> 3.16'
   #fpt: '*'
   #ghec: '*'
-  #ghes: '>= 3.16'
+  #ghes: '> 3.16'
