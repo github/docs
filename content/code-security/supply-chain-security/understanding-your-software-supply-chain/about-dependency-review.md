@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Dependency review
   - Vulnerabilities
   - Dependencies

@@ -9,7 +9,7 @@ versions:
   fpt: '*'
 type: rai
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
   - AI
   - Copilot

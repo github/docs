@@ -10,7 +10,7 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /push-protection-for-users

@@ -9,7 +9,8 @@ versions:
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams

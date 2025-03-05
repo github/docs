@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 ---
 
@@ -44,7 +44,7 @@ To get started with {% data variables.product.prodname_code_scanning %}, see [AU
 
 {% data variables.product.prodname_code_scanning_caps %} uses {% data variables.product.prodname_actions %}, and each run of a {% data variables.product.prodname_code_scanning %} workflow consumes minutes for {% data variables.product.prodname_actions %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
-To use {% data variables.product.prodname_code_scanning %} on a private repository, you will also need a license for {% data variables.product.prodname_GH_advanced_security %}. {% data reusables.advanced-security.ghas-trial %}
+To use {% data variables.product.prodname_code_scanning %} on a private repository, you will also need a license for {% data variables.product.prodname_GH_code_security %}. {% data reusables.advanced-security.ghas-trial %}
 
 {% endif %}
 

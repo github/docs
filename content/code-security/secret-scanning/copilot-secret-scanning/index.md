@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
   - Copilot
 children:
@@ -19,4 +19,3 @@ children:
 redirect_from:
   - /code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/generic-secret-detection
 ---
-

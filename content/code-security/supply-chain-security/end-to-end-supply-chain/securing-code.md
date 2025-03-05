@@ -12,7 +12,8 @@ topics:
   - Dependabot
   - Security updates
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Secret scanning
 ---
 

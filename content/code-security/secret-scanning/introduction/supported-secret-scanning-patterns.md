@@ -9,7 +9,7 @@ versions:
 type: reference
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 redirect_from:
   - /code-security/secret-scanning/secret-scanning-partners
   - /code-security/secret-scanning/secret-scanning-patterns
