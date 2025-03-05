@@ -1,7 +1,7 @@
 ---
 title: Enforcing policies for code security and analysis for your enterprise
 intro: 'You can enforce policies to manage the use of code security and analysis features within your enterprise''s organizations.'
-permissions: 'Enterprise owners can enforce code security and analysis policies for {% data variables.product.prodname_GH_advanced_security %} in an enterprise.'
+permissions: 'Enterprise owners can define and enforce policies to control use of code security and analysis features in an enterprise.'
 product: '{% data reusables.gated-features.ghas %}'
 versions:
   ghec: '*'
@@ -33,7 +33,7 @@ shortTitle: Code security & analysis
 
 You can enforce policies to manage the use of code security and analysis features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
 
-Additionally, you can enforce policies for the use of {% data variables.product.prodname_GH_advanced_security %} in your enterprise's organizations and repositories.
+Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} in your enterprise's organizations and repositories.
 
 {% ifversion ghec %}
 

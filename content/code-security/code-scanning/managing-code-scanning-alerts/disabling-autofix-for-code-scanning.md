@@ -8,7 +8,7 @@ versions:
   feature: code-scanning-autofix
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - AI

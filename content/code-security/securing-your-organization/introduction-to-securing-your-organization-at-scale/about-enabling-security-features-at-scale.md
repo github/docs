@@ -5,7 +5,8 @@ intro: 'You can quickly secure your organization at scale with {% data variables
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---

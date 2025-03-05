@@ -6,7 +6,10 @@ import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
 import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiments/experiment'
+import {
+  initializeExperiments,
+  initializeForwardFeatureUrlParam,
+} from 'src/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
@@ -26,13 +29,27 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
   useEffect(() => {
     initializeEvents()
     if (pageProps.mainContext) {
-      initializeExperiments(
-        router.locale as string,
-        pageProps.mainContext.currentVersion,
-        pageProps.mainContext.allVersions,
-      )
+      try {
+        initializeExperiments(
+          router.locale || 'en',
+          pageProps.mainContext.currentVersion,
+          pageProps.mainContext.allVersions,
+        )
+      } catch (e) {
+        console.error('Error initializing experiments:', e)
+      }
     }
   }, [])
+
+  useEffect(() => {
+    if (pageProps.mainContext) {
+      try {
+        initializeForwardFeatureUrlParam(router, pageProps.mainContext.currentVersion)
+      } catch (e) {
+        console.error('Error initializing feature param forwarding:', e)
+      }
+    }
+  }, [router, router.query, pageProps.mainContext])
 
   useEffect(() => {
     // The CSS from primer looks something like this:

@@ -18,7 +18,7 @@ permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 versions:
   fpt: '*'
@@ -50,10 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 <!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
 {% else %}
 * It includes at least one {% data variables.product.prodname_codeql %}-supported language.{% endif %}
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-* It is publicly visible.{%- elsif ghec %}
-* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}

@@ -330,6 +330,10 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 
 {% data reusables.copilot.using-skills %}
 
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.change-the-ai-model %}
+
 ## Additional ways to access {% data variables.product.prodname_copilot_chat_short %}
 
 * **Built-in requests**. In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **{% data variables.product.prodname_copilot %}**, then selecting one of the options.
@@ -361,6 +365,8 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 {% endjetbrains %}
 
 {% xcode %}
+
+{% data reusables.copilot.xcode-chat-public-preview-note %}
 
 ## Prerequisites
 

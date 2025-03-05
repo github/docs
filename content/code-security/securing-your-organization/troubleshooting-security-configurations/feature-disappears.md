@@ -1,5 +1,5 @@
 ---
-title: A feature has disappeared from a security configuration 
+title: A feature has disappeared from a security configuration
 shortTitle: Feature disappears
 allowTitleToDifferFromFilename: true
 intro: 'Changes to your {% data variables.product.prodname_ghe_server %} instance''s installation settings by a site administrator may affect which security features are available to your configuration.'
@@ -7,7 +7,8 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations-ghes-only
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---

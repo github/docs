@@ -85,7 +85,7 @@ For more information, see [AUTOTITLE](/admin/configuration/configuring-your-ente
 
 {% data variables.product.prodname_ghe_server %} is provided as an appliance, and many of the operating system packages are modified compared to the usual Ubuntu distribution. We do not support modifying the underlying operating system for this reason (including operating system upgrades), which is aligned with the [{% data variables.product.prodname_ghe_server %} license and support agreement](https://enterprise.github.com/license), under section 11.3 Exclusions.
 
-Currently, the base operating system for {% data variables.product.prodname_ghe_server %} is Ubuntu 20 (Focal Fossa).
+Currently, the base operating system for {% data variables.product.prodname_ghe_server %} is Ubuntu 20 (Focal Fossa). Although Ubuntu 20 (Focal Fossa) will reach the end of standard support by May 2025, we will be able to use extended security maintenance and get security support beyond 2025.
 
 Regular patch updates are released on the {% data variables.product.prodname_ghe_server %} [releases](https://enterprise.github.com/releases) page, and the [release notes](/admin/release-notes) page provides more information. These patches typically contain upstream vendor and project security patches after they've been tested and quality approved by our engineering team. There can be a slight time delay from when the upstream update is released to when it's tested and bundled in an upcoming {% data variables.product.prodname_ghe_server %} patch release.
 

@@ -1,8 +1,9 @@
 ---
-title: Enabling GitHub Advanced Security for your enterprise
-shortTitle: Enabling GitHub Advanced Security
-intro: 'You can configure {% data variables.product.prodname_ghe_server %} to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code.'
+title: Enabling {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products {% endif %}for your enterprise
+shortTitle: Enabling {% data variables.product.prodname_GHAS %}
+intro: 'You can configure {% data variables.product.prodname_ghe_server %} to include {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}. This provides extra features that help users find and fix security problems in their code.'
 product: '{% data reusables.gated-features.ghas %}'
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
@@ -17,15 +18,15 @@ topics:
   - Security
 ---
 
-## About enabling {% data variables.product.prodname_GH_advanced_security %}
+## About enabling {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+When you enable {% data variables.product.prodname_GHAS %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 {% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}
 
-For guidance on a phased deployment of GitHub Advanced Security, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
+For guidance on a phased deployment of {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 

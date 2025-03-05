@@ -1,6 +1,6 @@
 ---
 title: Managing licenses {% ifversion fpt %}and plans{% endif %} for your account
-intro: Learn how to add {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %} to your {% ifversion fpt %} personal or organization{% elsif ghec %}enterprise{% endif %} account using the enhanced billing platform.
+intro: Learn how to add {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %} to your {% ifversion fpt %} personal or organization{% elsif ghec %}enterprise{% endif %} account using the new billing platform.
 versions:
   feature: enhanced-billing-platform
 redirect_from:

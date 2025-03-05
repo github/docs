@@ -9,7 +9,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Evaluate alerts

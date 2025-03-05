@@ -18,7 +18,7 @@ There are some additional {% data variables.product.prodname_secret_scanning %} 
 * [Configuring a resource link for push protection](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#configuring-a-resource-link-for-push-protection){% ifversion secret-scanning-ai-generic-secret-detection %}
 * [Configuring AI detection to find additional secrets](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#configuring-ai-detection-to-find-additional-secrets){% endif %}
 
-These additional settings only apply to repositories with both {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_secret_scanning %} enabled.
+These additional settings only apply to repositories with {% data variables.product.prodname_secret_scanning %} enabled and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_secret_protection %}{% endif %}.
 
 ## Accessing the additional settings for {% data variables.product.prodname_secret_scanning %}
 

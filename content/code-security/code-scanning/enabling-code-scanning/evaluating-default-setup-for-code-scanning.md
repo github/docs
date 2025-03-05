@@ -5,7 +5,7 @@ intro: 'Learn how to assess how code scanning is working for you, and how you ca
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 versions:
   fpt: '*'

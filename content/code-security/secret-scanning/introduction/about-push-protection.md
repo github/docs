@@ -13,7 +13,7 @@ redirect_from:
 type: overview
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Push protection

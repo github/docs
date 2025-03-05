@@ -9,7 +9,7 @@ type: how_to
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Alerts
   - Repositories
@@ -71,7 +71,7 @@ If you have access to {% data variables.product.prodname_copilot_chat_short %} t
 
 To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
 
-For example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+For example: "Use the {% data variables.product.prodname_GH_advanced_security %} skill to explain how this alert introduces a vulnerability into the code."
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}
