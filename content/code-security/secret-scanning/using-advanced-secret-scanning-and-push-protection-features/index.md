@@ -17,4 +17,5 @@ children:
   - /non-provider-patterns
   - /custom-patterns
   - /delegated-bypass-for-push-protection
+  - /enabling-delegated-alert-dismissal-for-secret-scanning
 ---
