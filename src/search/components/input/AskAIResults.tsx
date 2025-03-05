@@ -223,7 +223,7 @@ export function AskAIResults({
         </div>
       ) : (
         <article aria-busy={responseLoading} aria-live="polite">
-          {!aiCouldNotAnswer && message === '' ? (
+          {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
               {t('search.ai.disclaimer')}
             </span>
