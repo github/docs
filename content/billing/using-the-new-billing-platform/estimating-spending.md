@@ -15,6 +15,13 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Estimate spending
 ---
 
+<!-- expires 2025-04-06 -->
+
+> [!NOTE]
+> Coming April 6, 2025: Usage ingestion for {% data variables.product.github %}’s [enhanced billing platform](/billing/using-the-new-billing-platform/about-the-new-billing-platform) will change from every minute to every hour.
+
+<!-- end expires 2025-04-06 -->
+
 The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
 
 {% ifversion fpt %}
