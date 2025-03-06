@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poe Bot Interface</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            DEFAULT: '#5D5CDE',
+                            light: '#7877e6',
+                            dark: '#4a49b7'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.5/dist/purify.min.js"></script>
+</head>
+<body class="bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-200">
+    <div class="flex h-screen overflow-hidden">
+        <!-- Sidebar -->
+        <div class="hidden md:flex flex-col w-64 bg-gray-100 dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700">
+            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+                <h1 class="text-xl font-bold flex items-center">
+                    <span class="text-primary mr-2">Poe</span> Bot Interface
+                </h1>
+            </div>
+            <div class="p-4 flex-1 overflow-y-auto">
+                <div class="mb-4">
+                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">TEXT BOTS</h2>
+                    <div id="text-bots" class="space-y-2">
+                        <!-- Text bots will be added here -->
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">IMAGE BOTS</h2>
+                    <div id="image-bots" class="space-y-2">
+                        <!-- Image bots will be added here -->
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">VIDEO & AUDIO</h2>
+                    <div id="media-bots" class="space-y-2">
+                        <!-- Media bots will be added here -->
+                    </div>
+                </div>
+            </div>
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+                <button id="theme-toggle-sidebar" class="w-full flex items-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                    <i class="ri-sun-line dark:hidden w-8 h-8 flex items-center justify-center"></i>
+                    <i class="ri-moon-line hidden dark:block w-8 h-8 flex items-center justify-center"></i>
+                    <span class="ml-3 dark:hidden">Switch to Dark Mode</span>
+                    <span class="ml-3 hidden dark:block">Switch to Light Mode</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col overflow-hidden">
+            <!-- Top Bar -->
+            <div class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-4 flex justify-between items-center">
+                <div class="flex items-center">
+                    <button id="menu-button" class="md:hidden mr-2 p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="ri-menu-line"></i>
+                    </button>
+                    <div id="selected-bot-display" class="flex items-center">
+                        <!-- Selected bot info will show here -->
+                    </div>
+                </div>
+                <div>
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="ri-sun-line dark:hidden"></i>
+                        <i class="ri-moon-line hidden dark:block"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Chat Area -->
+            <div id="chat-container" class="flex-1 overflow-y-auto p-4 space-y-4">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 rounded-full bg-primary mx-auto flex items-center justify-center text-white text-2xl mb-4">
+                        <i class="ri-robot-line"></i>
+                    </div>
+                    <h2 class="text-xl font-bold mb-2">Welcome to Poe Bot Interface</h2>
+                    <p class="text-gray-600 dark:text-gray-400 mb-4">Select a bot from the sidebar and start a conversation!</p>
+                    <p class="text-sm text-gray-500 dark:text-gray-500">Powered by Poe Embed API</p>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="border-t border-gray-200 dark:border-gray-700 p-4">
+                <div class="flex items-end">
+                    <div class="flex-1 bg-gray-100 dark:bg-gray-800 rounded-lg p-2">
+                        <textarea id="message-input" rows="1" class="w-full bg-transparent border-0 outline-none resize-none text-base" placeholder="Select a bot to start chatting..." disabled></textarea>
+                    </div>
+                    <button id="send-button" class="ml-2 p-2 bg-primary hover:bg-primary-light active:bg-primary-dark text-white rounded-lg disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <i class="ri-send-plane-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu (hidden by default) -->
+        <div id="mobile-menu" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+            <div class="w-64 h-full bg-white dark:bg-gray-800 transform transition-transform duration-300 -translate-x-full" id="mobile-menu-content">
+                <div class="p-4 border-b border-gray-200 dark:border-gray-700 flex justify-between items-center">
+                    <h1 class="text-xl font-bold flex items-center">
+                        <span class="text-primary mr-2">Poe</span> Bot Interface
+                    </h1>
+                    <button id="close-menu" class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="ri-close-line"></i>
+                    </button>
+                </div>
+                <div class="p-4 flex-1 overflow-y-auto">
+                    <div class="mb-4">
+                        <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">TEXT BOTS</h2>
+                        <div id="mobile-text-bots" class="space-y-2">
+                            <!-- Mobile text bots will be added here -->
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">IMAGE BOTS</h2>
+                        <div id="mobile-image-bots" class="space-y-2">
+                            <!-- Mobile image bots will be added here -->
+                        </div>
+                    </div>
+                    <div class="mb-4">
+                        <h2 class="text-sm font-semibold text-gray-500 dark:text-gray-400 mb-2">VIDEO & AUDIO</h2>
+                        <div id="mobile-media-bots" class="space-y-2">
+                            <!-- Mobile media bots will be added here -->
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 border-t border-gray-200 dark:border-gray-700">
+                    <button id="theme-toggle-mobile" class="w-full flex items-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700">
+                        <i class="ri-sun-line dark:hidden w-8 h-8 flex items-center justify-center"></i>
+                        <i class="ri-moon-line hidden dark:block w-8 h-8 flex items-center justify-center"></i>
+                        <span class="ml-3 dark:hidden">Switch to Dark Mode</span>
+                        <span class="ml-3 hidden dark:block">Switch to Light Mode</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check for dark mode preference
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+
+        // Listen for changes in dark mode preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => {
+            if (event.matches) {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
+
+        // Toggle theme manually
+        document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-sidebar').addEventListener('click', toggleTheme);
+        document.getElementById('theme-toggle-mobile').addEventListener('click', toggleTheme);
+
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // Mobile menu functionality
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuContent = document.getElementById('mobile-menu-content');
+        const menuButton = document.getElementById('menu-button');
+        const closeMenu = document.getElementById('close-menu');
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            setTimeout(() => {
+                mobileMenuContent.classList.remove('-translate-x-full');
+            }, 10);
+        });
+
+        function closeMenuHandler() {
+            mobileMenuContent.classList.add('-translate-x-full');
+            setTimeout(() => {
+                mobileMenu.classList.add('hidden');
+            }, 300);
+        }
+
+        closeMenu.addEventListener('click', closeMenuHandler);
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                closeMenuHandler();
+            }
+        });
+
+        // Bot definitions with icons, colors, and streaming preferences
+        const bots = {
+            text: [
+                { 
+                    id: 'Claude-3.7-Sonnet', 
+                    name: 'Claude 3.7 Sonnet', 
+                    icon: 'ri-message-3-line',
+                    color: '#0066cc',
+                    shortDesc: 'Powerful reasoning and writing',
+                    stream: true
+                },
+                { 
+                    id: 'GPT-4o', 
+                    name: 'GPT-4o', 
+                    icon: 'ri-openai-fill',
+                    color: '#10a37f',
+                    shortDesc: 'Latest GPT model',
+                    stream: true
+                },
+                { 
+                    id: 'Claude-3-Opus', 
+                    name: 'Claude 3 Opus', 
+                    icon: 'ri-message-2-line',
+                    color: '#6f42c1',
+                    shortDesc: 'Most powerful Claude model',
+                    stream: true
+                },
+                { 
+                    id: 'Claude-3-Haiku', 
+                    name: 'Claude 3 Haiku', 
+                    icon: 'ri-message-line',
+                    color: '#007bff',
+                    shortDesc: 'Fast Claude model',
+                    stream: true
+                }
+            ],
+            image: [
+                { 
+                    id: 'FLUX-pro-1.1', 
+                    name: 'FLUX Pro', 
+                    icon: 'ri-image-line',
+                    color: '#ff4500',
+                    shortDesc: 'Best image generation',
+                    stream: false
+                },
+                { 
+                    id: 'DALL-E-3', 
+                    name: 'DALL-E 3', 
+                    icon: 'ri-image-edit-line',
+                    color: '#ff9900',
+                    shortDesc: 'OpenAI image generation',
+                    stream: false
+                }
+            ],
+            media: [
+                { 
+                    id: 'Runway', 
+                    name: 'Runway', 
+                    icon: 'ri-movie-line',
+                    color: '#8e44ad',
+                    shortDesc: 'Video generation',
+                    stream: false
+                },
+                { 
+                    id: 'ElevenLabs', 
+                    name: 'ElevenLabs', 
+                    icon: 'ri-volume-up-line',
+                    color: '#e74c3c',
+                    shortDesc: 'Speech synthesis',
+                    stream: false
+                }
+            ]
+        };
+
+        let selectedBot = null;
+        let handlerId = null;
+        let activeResponseId = null;
+
+        // UI elements
+        const chatContainer = document.getElementById('chat-container');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+        const selectedBotDisplay = document.getElementById('selected-bot-display');
+
+        // Initialize bot lists
+        function initializeBots() {
+            const containers = {
+                text: {
+                    desktop: document.getElementById('text-bots'),
+                    mobile: document.getElementById('mobile-text-bots')
+                },
+                image: {
+                    desktop: document.getElementById('image-bots'),
+                    mobile: document.getElementById('mobile-image-bots')
+                },
+                media: {
+                    desktop: document.getElementById('media-bots'),
+                    mobile: document.getElementById('mobile-media-bots')
+                }
+            };
+
+            // Clear containers
+            Object.values(containers).forEach(viewports => {
+                Object.values(viewports).forEach(container => {
+                    container.innerHTML = '';
+                });
+            });
+
+            // Add bots to containers
+            Object.entries(bots).forEach(([type, botList]) => {
+                botList.forEach(bot => {
+                    // Create bot item for desktop
+                    const botItem = createBotItem(bot);
+                    containers[type].desktop.appendChild(botItem);
+                    
+                    // Create bot item for mobile
+                    const mobileBotItem = createBotItem(bot);
+                    containers[type].mobile.appendChild(mobileBotItem);
+                });
+            });
+        }
+
+        function createBotItem(bot) {
+            const botItem = document.createElement('div');
+            botItem.className = 'flex items-center p-2 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer';
+            botItem.dataset.botId = bot.id;
+            botItem.innerHTML = `
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white" style="background-color: ${bot.color}">
+                    <i class="${bot.icon}"></i>
+                </div>
+                <div class="ml-3">
+                    <div class="font-medium">${bot.name}</div>
+                    <div class="text-xs text-gray-500 dark:text-gray-400">${bot.shortDesc}</div>
+                </div>
+            `;
+            
+            botItem.addEventListener('click', () => {
+                selectBot(bot);
+                closeMenuHandler(); // Close mobile menu if open
+            });
+            
+            return botItem;
+        }
+
+        function selectBot(bot) {
+            // Update selected bot
+            selectedBot = bot;
+            
+            // Update bot selection UI
+            document.querySelectorAll('[data-bot-id]').forEach(el => {
+                if (el.dataset.botId === bot.id) {
+                    el.classList.add('bg-gray-200', 'dark:bg-gray-700');
+                } else {
+                    el.classList.remove('bg-gray-200', 'dark:bg-gray-700');
+                }
+            });
+            
+            // Update top bar with selected bot
+            selectedBotDisplay.innerHTML = `
+                <div class="w-8 h-8 rounded-full flex items-center justify-center text-white" style="background-color: ${bot.color}">
+                    <i class="${bot.icon}"></i>
+                </div>
+                <span class="ml-2 font-medium">${bot.name}</span>
+            `;
+            
+            // Update message input
+            messageInput.disabled = false;
+            messageInput.placeholder = `Message ${bot.name}...`;
+            sendButton.disabled = false;
+            
+            // Register handler for this bot if not already registered
+            handlerId = `handler-${bot.id}-${Date.now()}`;
+            registerBotHandler(handlerId);
+        }
+
+        // Auto-resize textarea as user types
+        messageInput.addEventListener('input', function() {
+            this.style.height = 'auto';
+            this.style.height = (this.scrollHeight) + 'px';
+            
+            // Enable/disable send button based on content
+            sendButton.disabled = !selectedBot || this.value.trim() === '';
+        });
+
+        // Send message on button click or Enter key (without Shift)
+        sendButton.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        async function sendMessage() {
+            if (!selectedBot) return;
+            
+            const message = messageInput.value.trim();
+            if (!message) return;
+            
+            // Add user message to chat
+            addUserMessage(message);
+            
+            // Clear input
+            messageInput.value = '';
+            messageInput.style.height = 'auto';
+            sendButton.disabled = true;
+            
+            try {
+                // Create a loading message placeholder
+                activeResponseId = `response-${Date.now()}`;
+                addLoadingMessage(activeResponseId);
+                
+                // Send message to the bot via Poe API
+                await window.Poe.sendUserMessage(
+                    `@${selectedBot.id} ${message}`,
+                    {
+                        handler: handlerId,
+                        stream: selectedBot.stream,
+                        openChat: false
+                    }
+                );
+            } catch (error) {
+                console.error("Error sending message:", error);
+                
+                // Remove loading indicator and show error
+                const loadingElement = document.getElementById(activeResponseId);
+                if (loadingElement) {
+                    loadingElement.innerHTML = `
+                        <div class="flex">
+                            <div class="w-8 h-8 rounded-full flex-shrink-0 flex items-center justify-center text-white mr-2" style="background-color: ${selectedBot.color}">
+                                <i class="${selectedBot.icon}"></i>
+                            </div>
+                            <div class="max-w-[80%] md:max-w-[70%] bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 rounded-2xl rounded-tl-sm px-4 py-2">
+                                Error: ${error.message || "Failed to send message"}
+                            </div>
+                        </div>
+                    `;
+                }
+                
+                sendButton.disabled = false;
+            }
+        }
+
+        function registerBotHandler(id) {
+            window.Poe.registerHandler(id, (result)
