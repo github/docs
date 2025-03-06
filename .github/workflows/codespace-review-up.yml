@@ -214,6 +214,10 @@ jobs:
             After 4 hours, you can reactivate your codespace by applying the https://github.com/${{ env.REPO }}/labels/extend-codespace label to the pull request.
             If the label is already applied, you can remove and reapply the label to reactivate your codespace.
 
+            #### Maximum of 100 _active_ codespaces per user
+
+            Your codespace may be deleted if the limit is reached.
+
             <details><summary>Table of review links</summary>
 
             ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table.' || '' }}
