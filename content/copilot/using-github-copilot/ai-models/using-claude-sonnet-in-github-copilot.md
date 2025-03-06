@@ -22,12 +22,14 @@ redirect_from:
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.13 or later
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+* {% data variables.product.prodname_copilot_chat_short %} in JetBrains IDEs
 
 {% data variables.copilot.copilot_claude_sonnet_35 %} is currently available in:
 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.12 or later
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+* {% data variables.product.prodname_copilot_chat_short %} in JetBrains IDEs
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 
