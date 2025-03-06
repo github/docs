@@ -30,7 +30,7 @@ You can set a custom variable in two ways.
 * To define a configuration variable across multiple workflows, you can define it at the organization, repository, or environment level. For more information, see [Defining configuration variables for multiple workflows](#defining-configuration-variables-for-multiple-workflows).
 
 > [!WARNING]
-> By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+> By default, variables render unmasked in your build outputs. If you need greater security for sensitive information, such as passwords, use secrets instead. For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 ## Defining environment variables for a single workflow
 

@@ -13,8 +13,9 @@ import contextualize from '#src/frame/middleware/context/context.js'
 // for now, we're just querying pageinfo, we'll likely replace /api/pageinfo
 // with /api/meta and move or reference that code here
 async function getArticleMetadata(req: ExtendedRequestWithPageInfo) {
+  const host = req.get('x-host') || req.get('x-forwarded-host') || req.get('host')
   const queryString = new URLSearchParams(req.query as Record<string, string>).toString()
-  const apiUrl = `${req.protocol}://${req.get('host')}/api/pageinfo${queryString ? `?${queryString}` : ''}`
+  const apiUrl = `${req.protocol}://${host}/api/pageinfo${queryString ? `?${queryString}` : ''}`
 
   // Fetch the data from the pageinfo API
   const response = await fetch(apiUrl)

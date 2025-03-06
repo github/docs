@@ -101,7 +101,7 @@ If you have an enterprise account, license use for the entire enterprise is show
 
 ## About {% data variables.product.prodname_GH_advanced_security %} Certification
 
-You can highlight your code security knowledge by earning a {% data variables.product.prodname_GH_advanced_security %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. See [AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications).
+You can highlight your knowledge by earning a {% data variables.product.prodname_GH_advanced_security %} certificate with {% data variables.product.prodname_certifications %}. The certification validates your expertise in vulnerability identification, workflow security, and robust security implementation. See [AUTOTITLE](/get-started/showcase-your-expertise-with-github-certifications/about-github-certifications).
 
 {% endif %}
 

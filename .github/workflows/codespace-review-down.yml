@@ -77,8 +77,8 @@ jobs:
 
             ### Review this PR in a codespace 📦
 
-            Your pull request is now merged or closed, so I've removed all automatically created codespaces.
+            The pull request is now merged or closed, so I've removed all automatically created codespaces.
 
             🤖 This comment is [automatically generated][workflow].
 
-            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/codespace-review-down.yml
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/codespace-review-down.yml

@@ -107,7 +107,7 @@ jobs:
               gh pr comment \
                 "$branch" \
                 --repo "$REPO" \
-                --body "Thank you for your pull request. I deleted the oldest codespaces to make room for a new one. You can make a new codespace by updating your pull request or closing and reopening your pull request."
+                --body "Thank you for this pull request. I deleted the oldest codespaces to make room for a new one. You can make a new codespace by updating the pull request or closing and reopening the pull request."
               echo "Commented on branch $branch"
             done
             echo "Deleted the oldest $tocut codespaces"
@@ -205,18 +205,18 @@ jobs:
 
             ### Review this PR in a codespace 📦
 
-            Your codespace will be ready in two to three minutes and you can review changes at:
+            The codespace will be ready in two to three minutes and you can review changes at:
             ${{ env.APP_URL }}
-            Your codespace will be automatically deleted once your pull request is closed or merged.
+            The codespace will be automatically deleted once the pull request is closed or merged.
 
-            #### Your codespace will idle after 4 hours of inactivity
+            #### The codespace will idle after 4 hours of inactivity
 
-            After 4 hours, you can reactivate your codespace by applying the https://github.com/${{ env.REPO }}/labels/extend-codespace label to the pull request.
-            If the label is already applied, you can remove and reapply the label to reactivate your codespace.
+            After 4 hours, you can reactivate the codespace by applying the https://github.com/${{ env.REPO }}/labels/extend-codespace label to the pull request.
+            If the label is already applied, you can remove and reapply the label to reactivate the codespace.
 
             <details><summary>Table of review links</summary>
 
-            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. This helps you review your changes on the review server. Changes to the `data` directory are not included in this table.' || '' }}
+            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. Changes to the `data` directory are not included in this table.' || '' }}
 
             ${{ steps.changes.outputs.changesTable || '_This pull request contains code changes, so we will not generate a table of review links._' }}
 
@@ -226,4 +226,4 @@ jobs:
 
             🤖 This comment is [automatically generated][workflow].
 
-            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/codespace-review-up.yml
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/codespace-review-up.yml

@@ -1,7 +1,7 @@
 ---
 title: Editing your configuration of default setup
 shortTitle: Edit default setup
-intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your code security needs.'
+intro: 'You can edit your existing configuration of default setup for {% data variables.product.prodname_code_scanning %} to better meet your needs.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   fpt: '*'
@@ -15,7 +15,7 @@ topics:
 
 ## About editing your configuration of default setup
 
-After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your code security needs. For existing configurations of default setup, you can edit:
+After running an initial analysis of your code with default setup, you may need to make changes to your configuration to better meet your needs. For existing configurations of default setup, you can edit:
 * Which languages default setup will analyze.
 * The query suite run during analysis. For more information on the available query suites, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/codeql-query-suites).{% ifversion codeql-threat-models %}
 * The threat models ({% data variables.release-phases.public_preview %}) to use for analysis. Your choice of threat model determines which sources of tainted data are treated as a risk to your application. During the {% data variables.release-phases.public_preview %}, threat models are supported only for analysis of {% data variables.code-scanning.code_scanning_threat_model_support %}. For more information about threat models, see [Including local sources of tainted data in default setup](#including-local-sources-of-tainted-data-in-default-setup).
