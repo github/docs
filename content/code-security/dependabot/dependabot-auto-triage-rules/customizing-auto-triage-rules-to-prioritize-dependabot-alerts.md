@@ -45,7 +45,6 @@ You can create rules to target alerts using the following metadata:
 * Package name
 * Patch availability
 * Severity
-* EPSS Score
 
 ### Understanding how {% data variables.dependabot.custom_rules %} and {% data variables.product.prodname_dependabot_security_updates %} interact
 
