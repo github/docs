@@ -1,8 +1,8 @@
 ---
-title: Getting started with code security
+title: Getting started with secure coding
 shortTitle: Getting started
 allowTitleToDifferFromFilename: true
-intro: 'Introduction to code security with {% data variables.product.github %}.'
+intro: 'Introduction to secure coding with {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
