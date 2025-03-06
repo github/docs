@@ -58,8 +58,7 @@ jobs:
           fi
 
           # https://stackoverflow.com/a/70716837
-          # This might not need `| sed 's/"/\\"/g'`
-          matrix=$(echo "$branches" | jq -scR 'split("\n") | map(select(. != ""))' | sed 's/"/\\"/g')
+          matrix=$(echo "$branches" | jq -scR 'split("\n") | map(select(. != ""))')
           echo "- Matrix: $matrix"
           echo "matrix=$matrix" >> $GITHUB_OUTPUT
 
@@ -76,7 +75,7 @@ jobs:
       matrix:
         value: ${{ fromJSON(needs.codespace-review-check-find.outputs.matrix) }}
     runs-on: ubuntu-latest
-    if: ${{ github.repository == 'github/docs-internal' }}
+    if: ${{ github.repository == 'github/docs-internal' && needs.codespace-review-check-find.outputs.matrix }}
     env:
       repo: github/docs-internal
     steps:
@@ -84,6 +83,8 @@ jobs:
 
       - name: Find the pull request
         id: findPr
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_CODESPACE }}
         run: |
           echo "Looking up pull request"
           echo "- Branch: ${{ matrix.value }}"
