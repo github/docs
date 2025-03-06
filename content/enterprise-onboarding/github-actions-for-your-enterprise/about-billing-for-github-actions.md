@@ -146,6 +146,12 @@ For example, if you use 3 GB of storage for 10 days of March and 12 GB for 21 da
 At the end of the month, {% data variables.product.prodname_dotcom %} rounds your storage to the nearest MB. Therefore, your storage usage for March would be 9.097 GB.
 
 Your {% data variables.product.prodname_actions %} usage shares your account's existing billing date, payment method, and receipt. {% data reusables.dotcom_billing.view-all-subscriptions %}
+<!-- expires 2025-04-06 -->
+
+> [!NOTE]
+> Coming April 6, 2025: Usage ingestion for {% data variables.product.github %}’s [enhanced billing platform](/billing/using-the-new-billing-platform/about-the-new-billing-platform) will change from every minute to every hour.
+
+<!-- end expires 2025-04-06 -->
 
 ## About spending limits
 

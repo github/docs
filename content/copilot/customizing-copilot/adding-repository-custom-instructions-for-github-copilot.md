@@ -13,9 +13,11 @@ topics:
 
 {% webui %}
 
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+>
 {% data reusables.copilot.custom-instructions-note %}
 >
->   This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+> This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endwebui %}
 
@@ -29,6 +31,8 @@ topics:
 
 {% visualstudio %}
 
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+>
 {% data reusables.copilot.custom-instructions-note %}
 >
 >   This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->

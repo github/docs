@@ -26,7 +26,7 @@ permissions:
 
 # This allows a subsequently queued workflow run to interrupt previous runs
 concurrency:
-  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}'
+  group: '${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }} x ${{ github.event_name }}'
   cancel-in-progress: true
 
 jobs:
@@ -60,6 +60,7 @@ jobs:
         timeout-minutes: 30
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REVIEW_SERVER: o
           REVIEW_SERVER_ACCESS_TOKEN: ${{ secrets.REVIEW_SERVER_ACCESS_TOKEN }}
           APP_URL: ${{ env.APP_URL }}
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
@@ -71,7 +72,7 @@ jobs:
         uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
         with:
           comment-id: ${{ steps.findComment.outputs.comment-id }}
-          issue-number: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
+          issue-number: ${{ github.event.pull_request.number }}
           edit-mode: replace
           body: |
             <!-- REVIEW_COMMENT -->
@@ -83,10 +84,7 @@ jobs:
             * [Set up a local development environment][local]
             ${{ github.repository == 'github/docs-internal' && '* Message `#docs-engineering` on Slack for a staging server.' || '' }}
 
-            [codespace]: ${{ github.repository == 'github/docs' && 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' || 'https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md' }}
-            [local]: https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment
-
-            ${{ github.repository == 'github/docs' && 'A Hubber will need to deploy your changes internally to review.' || '' }}
+            ${{ fromJSON('["A Hubber will need to deploy your changes internally to review.",""]')[github.repository == 'github/docs-internal'] }}
 
             <details><summary>Table of review links</summary>
 
@@ -100,4 +98,8 @@ jobs:
 
             </details>
 
-            🤖 This comment is [automatically generated](https://github.com/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/review-comment.yml).
+            🤖 This comment is [automatically generated][workflow].
+
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.sha }}/.github/workflows/review-comment.yml
+            [codespace]: ${{ github.repository == 'github/docs-internal' && 'https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md' || 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' }}
+            [local]: https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment

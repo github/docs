@@ -12,7 +12,7 @@
 | {% ifversion ghec or ghes %} |
 | `business`  | Contains activities related to business settings for an enterprise. |
 | {% endif %} |
-| `business_advanced_security` | Contains activities related to {% data variables.product.prodname_GH_advanced_security %} in an enterprise. |
+| `business_advanced_security` | Contains activities related to {% data variables.product.prodname_AS %} in an enterprise. |
 | `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. |
 | `business_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an enterprise. |
 | {% ifversion secret-scanning-audit-log-custom-patterns %} |
