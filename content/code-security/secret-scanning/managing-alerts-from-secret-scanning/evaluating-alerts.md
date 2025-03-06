@@ -33,7 +33,7 @@ By default, {% data variables.product.company_short %} checks the validity of {%
 
 {% ifversion fpt %}
 
-Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+Organizations using {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 
 {% endif %}
 
