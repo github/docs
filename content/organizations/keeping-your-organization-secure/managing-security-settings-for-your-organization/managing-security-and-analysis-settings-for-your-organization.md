@@ -18,7 +18,7 @@ shortTitle: Manage security & analysis
 
 ## About management of security and analysis settings
 
-{% data variables.product.prodname_dotcom %} can help you to secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. {% ifversion ghec %}If you have a license for {% data variables.product.prodname_GH_advanced_security %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}{% endif %}{% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also manage access to these features. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).{% endif %}
+{% data variables.product.prodname_dotcom %} can help you to secure the repositories in your organization. You can manage the security and analysis features for all existing or new repositories that members create in your organization. If you have a license for {% data variables.product.prodname_GH_cs_or_sp %} then you can also manage access to these features. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.some-security-and-analysis-features-are-enabled-by-default %}
 {% ifversion security-configurations %}
@@ -37,7 +37,7 @@ shortTitle: Manage security & analysis
 
 The page that's displayed allows you to enable or disable all security and analysis features for the repositories in your organization.
 
-If you have a license for {% data variables.product.prodname_GH_advanced_security %}, the page will also contain options to enable and disable {% data variables.product.prodname_advanced_security %} features. Any repositories that use {% data variables.product.prodname_GH_advanced_security %} are listed at the bottom of the page.
+If you have a license for {% data variables.product.prodname_GHAS %}, the page will also contain options to enable and disable {% data variables.product.prodname_GHAS %} features. Any repositories that use {% data variables.product.prodname_GHAS %} are listed at the bottom of the page.
 
 ## Enabling or disabling a feature for all existing repositories
 
@@ -50,7 +50,7 @@ You can use security overview to find a set of repositories and enable or disabl
 {% data reusables.advanced-security.note-org-enable-uses-seats %}
 
 > [!NOTE]
-> If you encounter an error that reads "GitHub Advanced Security cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the GitHub Advanced Security policy for your enterprise. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+> If you encounter an error that reads "{% data variables.product.prodname_GHAS %} cannot be enabled because of a policy setting for the organization," contact your enterprise admin and ask them to change the {% data variables.product.prodname_GHAS %} policy for your enterprise. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 {% ifversion dependabot-alerts-enterprise-enablement %}
 
@@ -60,7 +60,7 @@ You can use security overview to find a set of repositories and enable or disabl
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if you have no available licenses for {% data variables.product.prodname_GH_advanced_security %}.
+1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GHAS %}" is disabled if you have no available licenses for {% data variables.product.prodname_GHAS %}.
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
@@ -118,25 +118,25 @@ To allow {% data variables.product.prodname_dependabot %} to access a private or
 
 {% endif %}
 
-## Removing access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization
+## Removing access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization
 
 {% ifversion security-configurations %}
 
-You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GH_advanced_security %} from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization).
+You can use {% data variables.product.prodname_security_configurations %} to remove access to {% data variables.product.prodname_GHAS %} features from individual repositories in an organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage#turning-off-github-advanced-security-features-on-select-repositories-in-your-organization).
 
 {% else %}
 
-You can manage access to {% data variables.product.prodname_GH_advanced_security %} features for a repository from its "Settings" tab. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository). However, you can also disable {% data variables.product.prodname_GH_advanced_security %} features for a repository from the "Settings" tab for the organization.
+You can manage access to {% data variables.product.prodname_GHAS %} features for a repository from its "Settings" tab. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository). However, you can also disable {% data variables.product.prodname_GHAS %} features for a repository from the "Settings" tab for the organization.
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GH_advanced_security %} enabled, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section.
+1. To see a list of all the repositories in your organization with {% data variables.product.prodname_GHAS %} enabled, scroll to the "{% data variables.product.prodname_GHAS %} repositories" section.
 
-  The table lists the number of unique committers for each repository. This is the number of licenses you could free up by removing access to {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
-1. To remove access to {% data variables.product.prodname_GH_advanced_security %} from a repository and free up licenses used by any active committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
-1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GH_advanced_security %}.
+  The table lists the number of unique committers for each repository. This is the number of licenses you could free up by removing access to {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+1. To remove access to {% data variables.product.prodname_GHAS %} from a repository and free up licenses used by any active committers that are unique to the repository, click the adjacent {% octicon "x" aria-label="X symbol" %}.
+1. In the confirmation dialog, click **Remove repository** to remove access to the features of {% data variables.product.prodname_GHAS %}.
 
 > [!NOTE]
-> If you remove access to {% data variables.product.prodname_GH_advanced_security %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
+> If you remove access to {% data variables.product.prodname_GHAS %} for a repository, you should communicate with the affected development team so that they know that the change was intended. This ensures that they don't waste time debugging failed runs of code scanning.
 
 {% endif %}
 
