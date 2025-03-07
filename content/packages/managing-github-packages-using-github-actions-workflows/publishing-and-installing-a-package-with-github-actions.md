@@ -168,7 +168,7 @@ jobs:
 
 {% endif %}
 
-This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab.
+This new workflow will run automatically every time you push a change to a branch named `release` in the repository. You can view the progress in the **Actions** tab. For more commands, such as `run`, in a GitHub workflow, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 
 A few minutes after the workflow has completed, the new package will be visible in your repository. To find your available packages, see [AUTOTITLE](/packages/learn-github-packages/viewing-packages#viewing-a-repositorys-packages).
 
