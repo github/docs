@@ -2774,6 +2774,39 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Access Token
+  secretType: planning_center_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Application Secret
+  secretType: planning_center_oauth_app_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center Personal Access Token
+  secretType: planning_center_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Plivo
   supportedSecret: Plivo Auth ID
   secretType: plivo_auth_id </br>plivo_auth_token
