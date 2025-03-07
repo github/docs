@@ -23,8 +23,8 @@ Organization members {% ifversion org-sec-manager-update %} and members of teams
 * Read access on all repositories in the organization, in addition to any existing repository access
 * Write access on all security alerts in the organization {% ifversion not fpt %}
 * Access to view and configure all repositories in the organization's security overview {% endif %}
-* The ability to configure settings for security features at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
-* The ability to configure settings for security features at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+* The ability to configure settings for security features at the organization level, including the ability to enable or disable {% data variables.product.prodname_GHAS %} features
+* The ability to configure settings for security features at the repository level, including the ability to enable or disable {% data variables.product.prodname_GHAS %} features
 
 {% ifversion fpt %}
 Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).

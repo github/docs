@@ -3444,6 +3444,61 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token
+  secretType: sourcegraph_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Dotcom User Gateway Access Token
+  secretType: sourcegraph_dotcom_user_gateway
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token with Instance Identifier
+  secretType: sourcegraph_instance_identifier_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph License Key Token
+  secretType: sourcegraph_license_key_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Product Subscription Token
+  secretType: sourcegraph_product_subscription_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Square
   supportedSecret: Square Access Token
   secretType: square_access_token

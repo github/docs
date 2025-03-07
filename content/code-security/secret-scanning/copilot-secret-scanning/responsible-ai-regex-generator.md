@@ -2,7 +2,7 @@
 title: Responsible generation of regular expressions with Copilot secret scanning
 shortTitle: Generate regular expressions with AI
 intro: 'Learn about the capabilities and limitations of the {% data variables.secret-scanning.custom-pattern-regular-expression-generator %} in helping you to define custom patterns to extend the capabilities of {% data variables.product.prodname_secret_scanning %}.'
-product: '{% data reusables.gated-features.copilot-secret-scanning %}'
+product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-feature %}'
 allowTitleToDifferFromFilename: true
 versions:
   feature: secret-scanning-custom-pattern-ai-generated
@@ -71,7 +71,9 @@ Note that {% data variables.secret-scanning.copilot-secret-scanning %}'s {% data
 
 ## Further reading
 
-{% ifversion fpt %}
+{% ifversion ghas-products-cloud %}
+<!-- Nothing to show because the bullets controlled by the feature version below will be visible to fpt -->
+{% elsif fpt %}
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 * [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning)
 {% endif %}
