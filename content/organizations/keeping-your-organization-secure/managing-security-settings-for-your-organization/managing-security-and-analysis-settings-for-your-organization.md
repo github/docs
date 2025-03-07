@@ -142,7 +142,7 @@ You can manage access to {% data variables.product.prodname_GH_advanced_security
 
 ## Further reading
 
-* [AUTOTITLE](/code-security/getting-started/securing-your-repository){% ifversion not fpt %}
-* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning){% endif %}
+* [AUTOTITLE](/code-security/getting-started/securing-your-repository)
+* [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)
