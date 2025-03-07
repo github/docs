@@ -51,7 +51,7 @@ The security features that you can enable and disable in this view are:
 * Dependency graph
 * {% data variables.product.prodname_dependabot_alerts %}
 * {% data variables.product.prodname_dependabot_security_updates %}
-* {% data variables.product.prodname_GH_advanced_security %}
+* {% data variables.product.prodname_GHAS %}
 * {% data variables.product.prodname_code_scanning_caps %} default setup
 * {% data variables.secret-scanning.alerts_caps %}
 * {% data variables.product.prodname_secret_scanning_caps %} as a push protection
