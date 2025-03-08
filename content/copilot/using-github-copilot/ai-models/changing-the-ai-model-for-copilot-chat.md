@@ -46,9 +46,9 @@ For more information about these models, see:
 * If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT-4o, {% data variables.copilot.copilot_claude_sonnet %}, and {% data variables.copilot.copilot_gemini_flash %} models are supported.
 * Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
-## Changing your AI model
+## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
 
-These instructions are for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website. For {% data variables.product.prodname_vs %} or {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the top of this page.
+These instructions are for the {% data variables.product.github %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -86,9 +86,9 @@ For more information about these models, see:
 * **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
 
-## Changing your AI model
+## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
 
-These instructions are for {% data variables.product.prodname_vscode_shortname %}. For {% data variables.product.prodname_vs %} or for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, click the appropriate tab at the top of this page.
+These instructions are for the {% data variables.product.prodname_vscode %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -120,9 +120,9 @@ For more information about these models, see:
 
 ## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
 
-These instructions are for {% data variables.product.prodname_vs %}. For {% data variables.product.prodname_vscode_shortname %} or for {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, click the appropriate tab at the top of this page.
+These instructions are for the {% data variables.product.prodname_vs %}. For instructions on different clients, click the appropriate tab at the top of this page.
 
-To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 2022 version 17.12 or later. See the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
+> [!IMPORTANT] To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you must use {% data variables.product.prodname_vs %} 2022 version 17.12 or later. See the [{% data variables.product.prodname_vs %} downloads page](https://visualstudio.microsoft.com/downloads/).
 
 {% data reusables.copilot.model-picker-enable-alternative-models %}
 
@@ -135,11 +135,14 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 {% jetbrains %}
 
+> [!NOTE] Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
+
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
 * {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
 * {% data reusables.copilot.model-description-gemini-flash %}
 * {% data reusables.copilot.model-description-o1 %}
@@ -159,6 +162,6 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" %} dropdown menu.
+1. In the bottom right of the chat view, select an AI model of your choice from the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu.
 
 {% endjetbrains %}
