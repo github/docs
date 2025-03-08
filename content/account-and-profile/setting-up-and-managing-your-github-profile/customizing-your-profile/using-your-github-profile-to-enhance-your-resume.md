@@ -36,7 +36,7 @@ Things you may want to add to your profile README include:
 
 To create your profile README, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme).
 
-> [!TIP] Look for ways to show off your coding skills within your profile README. For example, [@new2code](https://github.com/new2code) demonstrates knowledge of {% data variables.product.prodname_actions %} and Python scripts by automating daily updates to the [Countdown to GitHub Universe](https://github.com/new2code#countdown-to-github-universe) section.
+> [!NOTE] Updating and customizing your profile README also helps demonstrate fluency using Markdown and HTML, which are useful skills for technical jobs. To show off your skills for potential employers, look for ways to use more advanced Markdown or HTML elements in your profile README.
 
 ## Step 3: Showcase your best projects
 
@@ -66,8 +66,6 @@ Then, copy the response into a `README.md` file in the root of the repository, e
 * An example or demo of the project
 * Instructions on testing your code
 
-For example, {% data variables.product.prodname_copilot_short %} wrote the README for [@new2code](https://github.com/new2code)'s [hiking pace calculator](https://github.com/new2code/hiking-pace-calculator?tab=readme-ov-file#hiking-pace-calculator).
-
 ### Update the repository details
 
 On the main page of the repository, to the right of "About," click {% octicon "gear" aria-label="Edit repository metadata" %}. Here, you can provide information that helps hiring managers quickly understand the project:
@@ -87,10 +85,6 @@ To give the best impression, you'll want to make sure that hiring managers can u
 * Provide **tests** to validate that your code is working as expected
 
 The easiest way to follow these practices is to use {% data variables.product.prodname_copilot_short %} with {% data variables.product.prodname_vscode_shortname %}. See [Set up Visual Studio Code with Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode_shortname %} documentation.
-
-For example, {% data variables.product.prodname_copilot_short %} wrote the comments in [`update_readme.py`](https://github.com/new2code/new2code/blob/main/update_readme.py), when [@new2code](https://github.com/new2code) used the following prompt:
-
-> Help me write some helpful comments on this file so that it's easy to understand.
 
 ### Update your project's dependencies
 
