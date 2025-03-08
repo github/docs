@@ -1,7 +1,8 @@
 ---
-title: Managing GitHub Advanced Security features for your enterprise
+title: Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
+allowTitleToDifferFromFilename: true
 versions:
   ghes: '<= 3.15'
 type: how_to
@@ -11,7 +12,7 @@ topics:
   - Dependency graph
   - Secret scanning
   - Repositories
-shortTitle: Manage GitHub Advanced Security
+shortTitle: Manage {% data variables.product.prodname_GH_advanced_security %}
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
 ---

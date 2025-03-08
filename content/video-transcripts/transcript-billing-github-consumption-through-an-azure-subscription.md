@@ -29,7 +29,7 @@ If a Microsoft customer also has a Microsoft Azure Consumption Commitment, or MA
 
 So what GitHub products are eligible for Azure billing? Any GitHub consumption products are eligible today, meaning products that customers pay for based on actual usage, including things like GitHub Copilot, GitHub-hosted actions, larger hosted runners, GitHub Packages and storage, and GitHub Codespaces.
 
-Historically, GitHub Enterprise and Advanced Security were only available through an annual license. However, as of August 1, 2024, they are now also available for metered billing through Azure, for additional flexibility and pay-as-you-go pricing. For existing licensed customers, be sure to connect with your GitHub seller to learn more, as certain restrictions may apply.
+Historically, GitHub Enterprise and {% data variables.product.prodname_AS %} were only available through an annual license. However, as of August 1, 2024, they are now also available for metered billing through Azure, for additional flexibility and pay-as-you-go pricing. For existing licensed customers, be sure to connect with your GitHub seller to learn more, as certain restrictions may apply.
 
 [A table shows eligibility for Azure billing and MACCs for the products mentioned. In the table, all products eligible for Azure billing are also eligible for MACCs.]
 

@@ -10,7 +10,7 @@ type: how_to
 topics:
   - Pull requests
   - Dependency review
-  - Advanced Security
+  - Code Security
   - Vulnerabilities
   - Dependencies
 redirect_from:

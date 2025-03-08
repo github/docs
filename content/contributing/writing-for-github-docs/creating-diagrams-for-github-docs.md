@@ -61,7 +61,7 @@ To create acceptance criteria for a diagram, answer these questions.
 
 #### Who is the audience for the diagram?
 
-Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GH_advanced_security %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
+Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
 
 #### What is the scope of the diagram?
 

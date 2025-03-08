@@ -26,7 +26,9 @@ release_notes:
 search:
   input:
     aria_label: Open search overlay
-    placeholder: Search or ask Copilot
+    placeholder: Search or ask {{icon}} Copilot
+    placeholder_no_icon: Search or ask Copilot
+    shortcut: Type {{icon}} to search
   overlay:
     input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
@@ -38,7 +40,7 @@ search:
     beta_tag: Beta
     return_to_search: Return to search
     clear_search_query: Clear
-    view_all_search_results: View all {{length}} results
+    view_all_search_results: View more results
     no_results_found: No results found
   ai:
     disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
