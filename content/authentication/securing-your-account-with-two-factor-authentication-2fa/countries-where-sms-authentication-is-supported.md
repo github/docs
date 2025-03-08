@@ -20,6 +20,7 @@ If your country or region is not on this list, then we aren't currently able to 
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>Aland Islands</li>
+<li>Somalia</li>
 <li>Algeria</li>
 <li>Angola</li>
 <li>Anguilla</li>
