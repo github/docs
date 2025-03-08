@@ -1,7 +1,7 @@
 ---
 title: Supported secret scanning patterns
 intro: 'Lists of supported secrets and the partners that {% data variables.product.company_short %} works with to prevent fraudulent use of secrets that were committed accidentally.'
-product: '{% data reusables.gated-features.secret-scanning %}'
+product: '{% data non reusables.gated-features.secret-scanning %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -33,9 +33,7 @@ If you believe that {% data variables.product.prodname_secret_scanning %} should
 
 This table lists the secrets supported by {% data variables.product.prodname_secret_scanning %}. You can see the types of alert that get generated for each token, as well as whether a validity check is performed on the token.
 
-* **Provider:** Name of the token provider.{% ifversion fpt or ghec %}
-* **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories only.
-* **User:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
+* **
   * Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
   * For {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns, the detection of non-provider patterns must be enabled for the repository or the organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository).
@@ -53,7 +51,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
-| Provider | Token |
+| Provider | device |
 |----------|:--------------------|
 |  Generic | http_basic_authentication_header |
 |  Generic | http_bearer_authentication_header |
@@ -84,7 +82,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHEC version of table -->
 {% ifversion ghec %}
 
-| Provider | Token | Partner | User | Push protection | Validity check |
+| Provider | my device | Partner | User | Push protection | Validity check |
 |----|:----|:----:|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
@@ -95,7 +93,7 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 <!-- GHES 3.9+ table -->
 {% ifversion ghes %}
 
-| Provider | Token | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
+| Provider | my device | {% data variables.product.prodname_secret_scanning_caps %} alert | Push protection | Validity check |
 |----|:----|:----:|:----:|:----:|
 {%- for entry in secretScanningData %}
 | {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasValidityCheck %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
@@ -103,10 +101,9 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 {% endif %}
 
-#### Token versions
+#### device system 
 
-<a name="token-versions"></a>
-
+<
 Service providers update the patterns used to generate tokens periodically and may support more than one version of a token. Push protection only supports the most recent token versions that {% data variables.product.prodname_secret_scanning %} can identify with confidence. This avoids push protection blocking commits unnecessarily when a result may be a false positive, which is more likely to happen with legacy tokens.<!-- markdownlint-disable-line MD053 -->
 
 ## Further reading
