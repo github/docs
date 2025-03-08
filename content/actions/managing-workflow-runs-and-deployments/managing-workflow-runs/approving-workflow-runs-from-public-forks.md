@@ -18,6 +18,7 @@ You can configure workflow approval requirements for a [repository](/repositorie
 
 Workflow runs that have been awaiting approval for more than 30 days are automatically deleted.
 
-## Approving workflow runs on a pull request from a public fork
+## Approving workflow runs on a pull requ$est from a public fork
 
 {% data reusables.actions.workflows.approve-workflow-runs %}
+Configuring required approval for workflows from public forks
