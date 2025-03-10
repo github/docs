@@ -1,6 +1,6 @@
 ---
 title: Quickstart for securing your repository
-intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
+intro: 'Manage access to your code. Find and fix vulnerable code and dependencies automatically.'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
@@ -43,7 +43,7 @@ From the main page of your repository, click **{% octicon "gear" aria-hidden="tr
 {% data reusables.dependency-graph.feature-availability %} The dependency graph interprets manifest and lock files in a repository to identify dependencies.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Next to Dependency graph, click **Enable** or **Disable**.
 {% endif %}
 
@@ -61,7 +61,7 @@ For more information, see [AUTOTITLE](/code-security/supply-chain-security/under
 
 {% ifversion fpt or ghec %}
 1. Click your profile photo, then click **Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Click **Enable all** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
 
@@ -80,7 +80,7 @@ Dependency review lets you visualize dependency changes in pull requests before 
 Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/quickstart-for-securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 1. {% ifversion ghec %}If dependency graph is not already enabled, click **Enable**.{% elsif ghes %}Check that dependency graph is configured for your enterprise.{% endif %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.
 
@@ -91,7 +91,7 @@ Dependency review is a {% data variables.product.prodname_GH_code_security %} fe
 For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Next to {% data variables.product.prodname_dependabot_security_updates %}, click **Enable**.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
@@ -102,7 +102,7 @@ You can enable {% data variables.product.prodname_dependabot %} to automatically
 
 {% ifversion dependabot-settings-update-37 %}
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 1. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic `dependabot.yml` configuration file.
 1. Specify the dependencies to update and any associated configuration options, then commit the file to the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
 
@@ -118,7 +118,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.prodname_dotcom %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} {% ifversion code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}**.
+1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} {% data variables.product.UI_advanced_security %}**.
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 1. In the pop-up window that appears, review the default configuration settings for your repository, then click **Enable {% data variables.product.prodname_codeql %}**.
 
@@ -129,7 +129,7 @@ Alternatively, you can use advanced setup, which generates a workflow file you c
 {% data reusables.gated-features.secret-scanning %}
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
+1. Click **{% data variables.product.UI_advanced_security %}**.
 {% ifversion ghec or ghes %}
 1. If {% data variables.product.prodname_GH_advanced_security %} is not already enabled, click **Enable**.{% endif %}
 1. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**.

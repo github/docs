@@ -73,7 +73,7 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/secu
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
 {% else %}
 {% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}

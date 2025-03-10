@@ -92,7 +92,7 @@ For other billing-related questions, contact {% data variables.contact.github_su
 
 {% elsif ghes %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+You can make extra features available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 {% data reusables.advanced-security.ghas-products-tip %}
 

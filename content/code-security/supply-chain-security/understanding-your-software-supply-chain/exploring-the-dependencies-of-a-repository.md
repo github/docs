@@ -50,7 +50,15 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-For each dependency, you can see its ecosystem, the manifest file in which it was found, and the license (where detected). Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
+For each dependency, you can see its ecosystem, the manifest file in which it was found, and the license (where detected).
+
+* Dependencies for private repositories, private packages, or unrecognized files are shown in plain text.
+* If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
+* You can sort and filter dependencies by typing filters as `key:value` pairs into the search bar.
+
+    * Use `ecosystem: <ecosystem-name>` to display dependencies for the selected ecosystem.{% ifversion transitive-dependency-labeling-npm %}
+    * **For npm only.** Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status.{% endif %}
+
 {% endif %}
 
 {% ifversion ghes %}
@@ -97,7 +105,7 @@ The "Used by" section represents a single package from the repository. If you ha
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
+1. Under "{% data variables.product.UI_advanced_security %}", click the drop-down menu in the "Used by counter" section and choose a package.
 
 {% endif %}
 

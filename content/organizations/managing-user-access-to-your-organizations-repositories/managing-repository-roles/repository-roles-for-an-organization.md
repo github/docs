@@ -167,7 +167,7 @@ Some of the features listed below are limited to organizations using {% data var
 
 ### Access requirements for security features
 
-In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
+In this section, you can find the access required for security features, such as {% data variables.product.prodname_GHAS %} features.
 
 > [!NOTE]
 > Repository writers and maintainers can only see secret scanning alert information for their own commits.
@@ -183,7 +183,7 @@ In this section, you can find the access required for security features, such as
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
 | Create [security advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion ghes or ghec %} <!--Not available for FPT-->
-| Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->
+| Manage access to {% data variables.product.prodname_GHAS %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->
 | [Enable the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository) for a private repository | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
 | {% ifversion ghes or ghec %} |
