@@ -1,6 +1,6 @@
 ---
 title: Dependabot quickstart guide
-intro: 'You can use {% data variables.product.prodname_dependabot %} to alert you when your repository is using a software dependency with a known vulnerability. This guide will help get you started on enabling {% data variables.product.prodname_dependabot %} for a repository, and exploring reported alerts.'
+intro: 'Find and fix vulnerable dependencies you rely on with {% data variables.product.prodname_dependabot %}.'
 product: '{% data reusables.gated-features.dependabot-alerts %}'
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ shortTitle: Dependabot quickstart
 
 ## About {% data variables.product.prodname_dependabot %}
 
-This quickstart guide walks you through setting up and enabling {% data variables.product.prodname_dependabot %} and viewing {% data variables.product.prodname_dependabot_alerts %} and updates for a repository.
+This quickstart guide walks you through setting up and enabling {% data variables.product.prodname_dependabot %}, viewing {% data variables.product.prodname_dependabot_alerts %}, and updating your repository to use a secure version of the dependency.
 
 {% data reusables.dependabot.dependabot-overview %}
 

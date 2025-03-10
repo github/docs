@@ -1,7 +1,7 @@
 ---
 title: Configuring default setup for code scanning
 shortTitle: Configure code scanning
-intro: 'You can quickly secure code in your repository with default setup for {% data variables.product.prodname_code_scanning %}.'
+intro: 'Quickly set up {% data variables.product.prodname_code_scanning %} to find {% ifversion fpt or ghec %}and fix {% endif %}vulnerable code automatically.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning

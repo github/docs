@@ -1,6 +1,6 @@
 ---
 title: Quickstart for securing your repository
-intro: 'You can use a number of {% data variables.product.prodname_dotcom %} features to help keep your repository secure.'
+intro: 'Manage access to your code. Find and fix vulnerable code and dependencies automatically.'
 permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/administering-a-repository/about-securing-your-repository
