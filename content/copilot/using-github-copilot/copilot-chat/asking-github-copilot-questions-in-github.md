@@ -65,7 +65,7 @@ You can open {% data variables.product.prodname_copilot_chat_short %} from any p
 
 Depending on the question you ask, and your enterprise and organization settings, {% data variables.product.prodname_copilot_short %} may respond using information based on the results of a Bing search. By using Bing search, {% data variables.product.prodname_copilot_short %} can answer a broad range of tech-related questions with up-to-date details based on information currently available on the internet. For information on how to enable or disable Bing search integration, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber#enabling-or-disabling-web-search-for-github-copilot-chat) and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
-1. At the top right of any page on {% data variables.product.github %}, click the down arrow beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
+1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
 
    ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
@@ -146,11 +146,10 @@ To ask a question about a specific repository, you must be viewing the repositor
 
 1. Navigate to a repository on {% data variables.product.github %}.
 {% data reusables.copilot.open-chat-panel %}
-1. The heading at the top of the panel should read "Chatting about" followed by the name of the current repository.
 
-   If the wrong repository name is displayed, because you were previously chatting about another repository, click All repositories then choose the repository you want to chat about.
+   {% data variables.product.prodname_copilot_chat_short %} will open a new conversation, with the repository you are viewing selected as the context for your question.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel opened inside a repository. The specified repository is highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-in-repository.png)
 
 1. At the bottom of the panel, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
@@ -189,33 +188,19 @@ Organization owners (with a {% data variables.product.prodname_copilot_enterpris
 
 When you enter a query, {% data variables.product.prodname_copilot_short %} searches for relevant documentation snippets, synthesizes a summary of the relevant snippets to answer your question, and provides links to the source documentation for additional context.
 
-{% data reusables.copilot.open-chat-panel %}
-1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
+1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
-1. Start a conversation with {% data variables.product.prodname_copilot_short %} by either selecting a repository or clicking **General purpose chat**.
-1. Click the "Attach knowledge" button (a book icon) at the bottom of the chat panel, to view a list of the knowledge bases that you have access to.
+1. To select a knowledge base for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Knowledge base".
 
-   ![Screenshot of the "Attach knowledge" icon, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-book-icon.png)
+   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
 
-1. Click the knowledge base that you want to use as context.
-
-   For example, you could choose a knowledge base containing your organization's internal developer documentation.
-
-   You can search for a knowledge base if you don't see one you want to use.
-
-   ![Screenshot showing the "Attach knowledge" popover with a list of knowledge bases.](/assets/images/help/copilot/attach-knowledge-popover.png)
+1. In the "Search knowledge bases" box, type the name of the knowledge base you want to use as context, then click the knowledge base in the list of search results.
 
 1. At the bottom of the page, in the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
 
-1. The response will typically contain numbered references to files that {% data variables.product.prodname_copilot_short %} uses to generate the answer, from the knowledge base you selected. To list the sources that were used, click **NUMBER references**.
-
-   ![Screenshot showing an expanded list of source references.](/assets/images/help/copilot/chat-sources-list.png)
-
-1. To display information about a source reference, click its entry in the list.
-
-   Alternatively, to open the complete file, click the ellipsis (**...**), then select **Open**.
+1. At the bottom of the response, {% data variables.product.prodname_copilot_short %} provides links to the source documentation for additional context.
 
 1. Within a conversation thread, you can ask follow-up questions. Follow-up questions will continue to use the selected knowledge base as context until you explicitly detach the knowledge base or select a different one.
 
@@ -250,20 +235,17 @@ You can chat with {% data variables.product.prodname_copilot_short %} about a fi
 
 {% data variables.product.prodname_copilot_short %} allows you to use natural language questions to ask about security alerts in repositories in your organization when these alerts are generated by {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}).
 
-{% data reusables.copilot.open-chat-panel %}
-1. If the "Ask {% data variables.product.prodname_copilot_short %}" page is not displayed in the panel, click **All repositories**.
+1. At the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel page with "All repositories" highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-chat-all-repositories.png)
+   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
-1. On the "Ask {% data variables.product.prodname_copilot_short %}" page, select a repository to provide a context for your question.
+1. To select a repository for context, click {% octicon "paperclip" aria-label="Add attachments" %} at the bottom of the chat panel, then select "Repositories".
 
-   For example, you could choose a repository with security alerts you want to understand better.
+   ![Screenshot of the "Attach files or symbols" button, highlighted with a dark orange outline.](/assets/images/help/copilot/chat-paperclip-icon.png)
 
-   You can search for a repository if you don't see one you want to use.
+1. In the "Search repositories" box, type the name of the repository you want to ask about, then click the repository in the list of search results.
 
 1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
-
-   {% data variables.product.prodname_copilot_short %} replies in the chat panel.
 
    <a id="repo-indexing-note"></a>
 

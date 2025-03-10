@@ -21,7 +21,7 @@ topics:
 
 When creating a security configuration, keep in mind that:
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
-* {% data variables.product.prodname_GH_advanced_security %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GH_advanced_security %} license.
+* {% data variables.product.prodname_AS %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} license.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
 
 {% endif %}

@@ -9,11 +9,10 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /defining-custom-patterns-for-secret-scanning
   - /managing-custom-patterns
   - /metrics-for-custom-patterns
 ---
-

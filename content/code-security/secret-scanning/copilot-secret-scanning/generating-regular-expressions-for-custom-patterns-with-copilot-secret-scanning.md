@@ -8,7 +8,7 @@ versions:
   feature: secret-scanning-custom-pattern-ai-generated
 type: how_to
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
   - AI
   - Copilot

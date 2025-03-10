@@ -9,7 +9,7 @@ type: how_to
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Alerts
   - Repositories
@@ -69,9 +69,9 @@ If you want to see the code that triggered the security alert and the suggested 
 
 If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
 
-To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
+To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working with alerts, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
 
-For example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
+For example: "Use the {% data variables.product.prodname_GH_advanced_security %} skill to explain how this alert introduces a vulnerability into the code."
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

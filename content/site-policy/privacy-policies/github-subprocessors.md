@@ -26,6 +26,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Name of Subprocessor        | Description of Processing                                                      | Location of Processing  | Corporate Location |
 | --------------------------- | ------------------------------------------------------------------------------ | ----------------------- | ------------------ |
 | Amazon Web Services (AWS)   | Cloud Hosted Infrastructure and Data Hosting                                   | United States                                     | United States      |
+| Anthropic PBC               | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Azure (Microsoft)           | Cloud Hosted Infrastructure and Data Hosting                                   | United States, France,</br>Switzerland, and Japan | United States      |
 | Azure Cognitive Services    | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Cloudflare                  | Content delivery service                                                       | United States                                     | United States      |

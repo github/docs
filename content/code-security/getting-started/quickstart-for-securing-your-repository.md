@@ -15,7 +15,8 @@ topics:
   - Repositories
   - Dependencies
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: Secure repository quickstart
 ---
 
@@ -76,7 +77,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alert
 
 Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
-Dependency review is a {% data variables.product.prodname_GH_advanced_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/quickstart-for-securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_advanced_security %}.
+Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. {% ifversion fpt %}Organizations that use {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/code-security/getting-started/quickstart-for-securing-your-repository#managing-dependency-review). {% endif %}{% endif %}{% ifversion ghec or ghes %}To enable dependency review for a {% ifversion ghec %}private or internal {% endif %}repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 1. Click {% ifversion code-security-wording-only %}**Code security**{% else %}**Code security and analysis**{% endif %}.
@@ -112,7 +113,7 @@ To enable {% data variables.product.prodname_dependabot_version_updates %}, you 
 ## Configuring {% data variables.product.prodname_code_scanning %}
 
 > [!NOTE]
-> {% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_advanced_security %}.
+> {% data variables.product.prodname_code_scanning_caps %} is available {% ifversion fpt or ghec %}for all public repositories, and for private repositories owned by organizations that are part of {% ifversion ghas-products-cloud %}a team or {% endif %}an enterprise with a license for {% else %}for organization-owned repositories if your enterprise uses {% endif %}{% data variables.product.prodname_GH_code_security %}.
 
 You can configure {% data variables.product.prodname_code_scanning %} to automatically identify vulnerabilities and errors in the code stored in your repository by using a {% data variables.code-scanning.codeql_workflow %} or third-party tool. Depending on the programming languages in your repository, you can configure {% data variables.product.prodname_code_scanning %} with {% data variables.product.prodname_codeql %} using default setup, in which {% data variables.product.prodname_dotcom %} automatically determines the languages to scan, query suites to run, and events that will trigger a new scan. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
 

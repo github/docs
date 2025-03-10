@@ -126,7 +126,7 @@ Once custom deployment protection rules have been created and installed on a rep
 
 ## Environment secrets
 
-Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+Secrets stored in an environment are only available to workflow jobs that reference the environment. If the environment requires approval, a job cannot access environment secrets until one of the required reviewers approves it. For more information about secrets, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 {% ifversion fpt %}
 > [!NOTE]

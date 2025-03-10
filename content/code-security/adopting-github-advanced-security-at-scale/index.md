@@ -7,7 +7,8 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Repositories
 children:
   - /introduction-to-adopting-github-advanced-security-at-scale

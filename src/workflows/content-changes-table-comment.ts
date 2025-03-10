@@ -24,7 +24,15 @@ import { allVersionShortnames } from '@/versions/lib/all-versions.js'
 import readFrontmatter from '@/frame/lib/read-frontmatter.js'
 import { inLiquid } from './lib/in-liquid'
 
-const { GITHUB_TOKEN, REVIEW_SERVER_ACCESS_TOKEN, APP_URL } = process.env
+const {
+  GITHUB_TOKEN,
+  REVIEW_SERVER,
+  REVIEW_SERVER_ACCESS_TOKEN,
+  APP_URL,
+  HEAD_BRANCH,
+  BASE_SHA,
+  HEAD_SHA,
+} = process.env
 const context = github.context
 
 // the max size of the comment (in bytes)
@@ -46,8 +54,8 @@ if (import.meta.url.endsWith(process.argv[1])) {
   const baseOwner = context.payload.pull_request!.base.repo.owner.login
   const baseRepo = context.payload.pull_request!.base.repo.name
 
-  const baseSHA = process.env.BASE_SHA || context.payload.pull_request!.base.sha
-  const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
+  const baseSHA = BASE_SHA || context.payload.pull_request!.base.sha
+  const headSHA = HEAD_SHA || context.payload.pull_request!.head.sha
 
   const markdownTable = await main(baseOwner, baseRepo, baseSHA, headSHA, {
     isFork,
@@ -70,7 +78,6 @@ async function main(
   if (!APP_URL) {
     throw new Error(`APP_URL environment variable not set`)
   }
-  const headBranch = process.env.HEAD_BRANCH
 
   const RetryingOctokit = Octokit.plugin(retry)
   const octokit = new RetryingOctokit({
@@ -78,21 +85,27 @@ async function main(
   })
 
   // we'll attach the branch or sha right after this
-  const searchParams = new URLSearchParams({
-    'review-server-repository': isFork ? `${headOwner}/${headRepo}` : `${owner}/${repo}`,
-  })
+  let queryParams = ''
+  if (REVIEW_SERVER) {
+    const searchParams = new URLSearchParams({
+      'review-server-repository': isFork ? `${headOwner}/${headRepo}` : `${owner}/${repo}`,
+    })
 
-  // this token will be available in the internal repo only, skip it for the open source repo
-  if (REVIEW_SERVER_ACCESS_TOKEN)
-    searchParams.append('review-server-access-token', REVIEW_SERVER_ACCESS_TOKEN)
+    // this token will be available in the internal repo only, skip it for the open source repo
+    if (REVIEW_SERVER_ACCESS_TOKEN) {
+      searchParams.append('review-server-access-token', REVIEW_SERVER_ACCESS_TOKEN)
+    }
 
-  // this script compares with SHAs only, so this allows us
-  // to surface the branch name for the review server bar
-  headBranch
-    ? searchParams.append('review-server-branch', headBranch)
-    : searchParams.append('review-server-sha', headSHA)
+    // this script compares with SHAs only, so this allows us
+    // to surface the branch name for the review server bar
+    if (HEAD_BRANCH) {
+      searchParams.append('review-server-branch', HEAD_BRANCH)
+    } else if (headSHA) {
+      searchParams.append('review-server-sha', headSHA)
+    }
 
-  const queryParams = `?${searchParams.toString()}`
+    queryParams = `?${searchParams.toString()}`
+  }
 
   // get the list of file changes from the PR
   // this works even if the head commit is from a fork

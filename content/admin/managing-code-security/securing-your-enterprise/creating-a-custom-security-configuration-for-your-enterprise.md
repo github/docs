@@ -25,7 +25,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 
 When creating a security configuration, keep in mind that:
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
-* {% data variables.product.prodname_GH_advanced_security %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GH_advanced_security %} license.
+* {% data variables.product.prodname_GHAS %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} license.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
 
 {% endif %}
@@ -51,7 +51,7 @@ When creating a security configuration, keep in mind that:
     * Security updates. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
     > [!NOTE]
-    > You cannot manually change the enablement settings for vulnerable function calls. If {% data variables.product.prodname_GH_advanced_security %} features and {% data variables.product.prodname_dependabot_alerts %} are enabled, vulnerable function calls is also enabled. Otherwise, it is disabled.
+    > You cannot manually change the enablement settings for vulnerable function calls. If {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_code_security %}{% endif %} features and {% data variables.product.prodname_dependabot_alerts %} are enabled, vulnerable function calls is also enabled. Otherwise, it is disabled.
 
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for {% data variables.product.prodname_code_scanning %} default setup. To learn about default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).
 1. In the "{% data variables.product.prodname_secret_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for the following security features:
