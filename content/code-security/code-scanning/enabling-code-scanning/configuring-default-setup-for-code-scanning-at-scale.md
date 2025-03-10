@@ -9,7 +9,7 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 versions:
   fpt: '*'
@@ -46,10 +46,8 @@ A repository must meet all the following criteria to be eligible for default set
 
 * {% ifversion fpt %}{% data variables.product.prodname_code_scanning_caps %}{% else %}Advanced setup for {% data variables.product.prodname_code_scanning %}{% endif %} is not already enabled.
 * {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}
-* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}{% ifversion fpt %}
-* Publicly visible.{%- elsif ghec %}
-* Publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
@@ -77,7 +75,7 @@ When a repository uses code stored in a private registry, default setup needs ac
 
 {% ifversion security-configurations %} You can enable default setup for all eligible repositories in your organization. For more information, see [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
 {% else %}
-Through the "Code security and analysis" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
+Through the "{% data variables.product.UI_advanced_security %}" page of your organization's settings, you can enable default setup for all eligible repositories in your organization. For more information on repository eligibility, see [Eligible repositories for {% data variables.product.prodname_codeql %} default setup at scale](#eligible-repositories-default-setup).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -122,15 +120,15 @@ Through security overview for your organization, you can find eligible repositor
 
 {%- ifversion ghes > 3.12 %}
     - `code-scanning-default-setup:eligible is:public` shows repositories that have languages suitable for default setup and are eligible because they are visible to the public.
-    - `code-scanning-default-setup:eligible advanced-security:enabled` shows private or internal repositories that have languages suitable for default setup and are eligible because they have {% data variables.product.prodname_GH_advanced_security %} enabled.
-    - `code-scanning-default-setup:eligible is:private,internal advanced-security:not-enabled` shows private or internal repositories that have languages suitable for default setup but do not have {% data variables.product.prodname_GH_advanced_security %} enabled. Once you enable {% data variables.product.prodname_GH_advanced_security %} for these repositories, they can also be added to default setup.
+    - `code-scanning-default-setup:eligible advanced-security:enabled` shows private or internal repositories that have languages suitable for default setup and are eligible because they have {% data variables.product.prodname_GHAS %} enabled.
+    - `code-scanning-default-setup:eligible is:private,internal advanced-security:not-enabled` shows private or internal repositories that have languages suitable for default setup but do not have {% data variables.product.prodname_GHAS %} enabled. Once you enable {% data variables.product.prodname_GHAS %} for these repositories, they can also be added to default setup.
 {%- else %}
     - `code-scanning-default-setup:eligible advanced-security:enabled` shows which repositories can be added to default setup immediately.
-    - `code-scanning-default-setup:eligible advanced-security:not-enabled` shows which repositories have languages suitable for default setup but do not have {% data variables.product.prodname_GH_advanced_security %} enabled. Once you enable {% data variables.product.prodname_GH_advanced_security %} for these repositories, they can also be added to default setup.
+    - `code-scanning-default-setup:eligible advanced-security:not-enabled` shows which repositories have languages suitable for default setup but do not have {% data variables.product.prodname_GHAS %} enabled. Once you enable {% data variables.product.prodname_GHAS %} for these repositories, they can also be added to default setup.
     - `code-scanning-default-setup:not-eligible` shows repositories that are ineligible for default setup enablement at scale for any of the following reasons:
       - The repositories already have existing configurations of advanced setup.
       - The repositories only contain languages that cannot be analyzed by default setup.
-      - The repositories do not have {% data variables.product.prodname_GH_advanced_security %} enabled.
+      - The repositories do not have {% data variables.product.prodname_GHAS %} enabled.
 {%- endif %}
 
 You can select all of the displayed repositories, or a subset of them, and enable or disable default setup for {% data variables.product.prodname_code_scanning %} for them all at the same time. For more information, see step 5 of [Configuring default setup at scale for multiple repositories in an organization](#configuring-default-setup-at-scale-for-multiple-repositories-in-an-organization).

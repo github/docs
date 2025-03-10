@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: reference
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Integration
   - SARIF

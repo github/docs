@@ -8,7 +8,6 @@ versions:
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-insights-with-projects
 type: tutorial
-product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects

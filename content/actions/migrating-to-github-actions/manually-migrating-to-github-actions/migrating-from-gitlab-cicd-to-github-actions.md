@@ -264,7 +264,7 @@ For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigg
 
 GitLab CI/CD and {% data variables.product.prodname_actions %} support setting variables in the pipeline or workflow configuration file, and creating secrets using the GitLab or {% data variables.product.github %} UI.
 
-For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+For more information, see [AUTOTITLE](/actions/learn-github-actions/variables) and [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 ## Caching
 

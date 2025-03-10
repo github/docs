@@ -25,7 +25,6 @@ The following features are currently unavailable on {% data variables.enterprise
 | macOS runners for {% data variables.product.prodname_actions %} | Currently unavailable. | [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners/about-github-hosted-runners) |
 | Maven and Gradle support for {% data variables.product.prodname_registry %} | Currently unavailable. | [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-apache-maven-registry) |
 | Achievements | Currently unavailable. | [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile) |
-| Microsoft Teams integrations | Currently unavailable. | [AUTOTITLE](/get-started/exploring-integrations/featured-github-integrations#team-communication-tools) |
 | {% data variables.product.prodname_importer %} | Currently unavailable | [AUTOTITLE](/migrations/importing-source-code/using-github-importer/about-github-importer) |
 | {% data variables.product.prodname_copilot %} Workspaces | Currently unavailable | N/A |
 | {% data variables.product.prodname_copilot_extensions %} | Currently unavailable | [AUTOTITLE](/copilot/using-github-copilot/using-extensions-to-integrate-external-tools-with-copilot-chat) |

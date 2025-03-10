@@ -948,11 +948,11 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
-### {% data variables.product.prodname_GH_advanced_security %} (GHAS)
+### {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %} (GHAS)
 
-Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
+Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} billing.
 
-We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
+We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
 
 ### {% data variables.product.pat_generic_caps_plural %}
 
@@ -1102,7 +1102,7 @@ A release note for a change answers the following questions.
 
 #### Examples of release notes for changes
 
-* > On an instance with a {% data variables.product.prodname_GH_advanced_security %} license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+* > On an instance with a license for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_secret_protection %}{% endif %}, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
 
 * > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see [Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv).
 
@@ -1642,7 +1642,7 @@ The following documentation should reference "user accounts."
 
 * The [AUTOTITLE](/enterprise-cloud@latest/admin) product
 * Enterprise-specific billing documentation, like [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
-* Content within other products that's intended for an administrative audience, like [AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts) in the "Code security" product or [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the "Get started" product
+* Content within other products that's intended for an administrative audience, like [AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts) in the "Secure coding" product or [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the "Get started" product
 * Enterprise-specific API content, like the [AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin) REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.

@@ -23,6 +23,8 @@ shortTitle: Set up an Advanced Security trial
 
 {% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
 
 There are a few ways to trial {% data variables.product.prodname_GH_advanced_security %}:

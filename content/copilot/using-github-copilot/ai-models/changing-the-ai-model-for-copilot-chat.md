@@ -54,7 +54,7 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 > [!NOTE] If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 
-1. In the top right of any page on {% data variables.product.github %}, click the down arrow beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
+1. In the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
 
    ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
@@ -144,6 +144,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data reusables.copilot.model-description-gemini-flash %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
+
+For more information about these models, see:
 
 * **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
 * **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).

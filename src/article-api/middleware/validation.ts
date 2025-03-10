@@ -1,7 +1,41 @@
 import { ExtendedRequestWithPageInfo } from '../types'
 import type { NextFunction, Response } from 'express'
+
+import { ExtendedRequest, Page } from '#src/types.js'
 import { isArchivedVersionByPath } from '@/archives/lib/is-archived-version'
 import getRedirect from '@/redirects/lib/get-redirect.js'
+import { getVersionStringFromPath, getLangFromPath } from '#src/frame/lib/path-utils.js'
+import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
+
+// validates the path for pagelist endpoint
+// specifically, defaults to `/en/free-pro-team@latest` when those values are missing
+// when they're provided, checks and cleans them up so we don't just lookup bad lang codes or versions
+export const pagelistValidationMiddleware = (
+  req: ExtendedRequest,
+  res: Response,
+  next: NextFunction,
+) => {
+  // get version from path, fallback to default version if it can't be resolved
+  const versionFromPath = getVersionStringFromPath(req.path) || nonEnterpriseDefaultVersion
+
+  // in the rare case that this failed, probably won't be reached
+  if (!versionFromPath)
+    return res.status(400).json({ error: `Couldn't get version from the given path.` })
+
+  // get the language from path, fallback to english if it can't be resolved
+  const langFromPath = getLangFromPath(req.path) || 'en'
+
+  // in the rare case that the language fallback failed
+  if (!langFromPath)
+    return res.status(400).json({
+      error: `Couldn't get language from the from the given path.`,
+    })
+
+  // set the version and language in the context, we'll use it later
+  req.context!.currentVersion = versionFromPath
+  req.context!.currentLanguage = langFromPath
+  return next()
+}
 
 export const pathValidationMiddleware = (
   req: ExtendedRequestWithPageInfo,
@@ -24,7 +58,9 @@ export const pathValidationMiddleware = (
   if (/\s/.test(pathname)) {
     return res.status(400).json({ error: `'pathname' cannot contain whitespace` })
   }
-  req.pageinfo = { pathname }
+
+  // req.pageinfo.page will be defined later or it will throw
+  req.pageinfo = { pathname, page: {} as Page }
   return next()
 }
 
@@ -59,6 +95,9 @@ export const pageValidationMiddleware = (
     pathname = `/${req.context.currentLanguage}`
   }
 
+  // Initialize archived property to avoid it being undefined
+  req.pageinfo.archived = { isArchived: false }
+
   if (!(pathname in req.context.pages)) {
     // If a pathname is not a known page, it might *either* be a redirect,
     // or an archived enterprise version, or both.
@@ -76,6 +115,9 @@ export const pageValidationMiddleware = (
 
   // Remember this might yield undefined if the pathname is not a page
   req.pageinfo.page = req.context.pages[pathname]
+  if (!req.pageinfo.page && !req.pageinfo.archived.isArchived) {
+    return res.status(404).json({ error: `No page found for '${pathname}'` })
+  }
   // The pathname might have changed if it was a redirect
   req.pageinfo.pathname = pathname
 
