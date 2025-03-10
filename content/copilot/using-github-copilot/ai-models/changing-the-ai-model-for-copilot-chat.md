@@ -145,6 +145,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
 
+For more information about these models, see:
+
 * **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
 * **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).

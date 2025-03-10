@@ -30,7 +30,7 @@ Most enterprises choose to enable {% data variables.product.prodname_secret_scan
 
 By default, only the repository administrator and the organization owner can view all {% data variables.product.prodname_secret_scanning %} alerts in their area. You should assign the predefined security manager role to all organization teams and users who you want to access the alerts found during the trial. You may also want to give the enterprise account owner this role for each organization in the trial. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **Code security** tab for the enterprise. There are also separate views for each type of security alert, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% ifversion ghas-products-cloud %}{% data variables.product.prodname_AS %}{% else %}Code security{% endif %}** tab for the enterprise. There are also separate views for each type of security alert, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 ## Identify additional access tokens
 

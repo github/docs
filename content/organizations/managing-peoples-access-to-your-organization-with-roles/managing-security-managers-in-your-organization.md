@@ -53,7 +53,7 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 {% else %}
 {% data reusables.organizations.security-and-analysis %}
 {% endif %}
@@ -64,7 +64,7 @@ You can assign the security manager role to a maximum of 10 teams in your organi
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 {% else %}
 {% data reusables.organizations.security-and-analysis %}
 {% endif %}
