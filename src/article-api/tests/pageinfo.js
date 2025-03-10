@@ -50,7 +50,7 @@ describe('pageinfo api', () => {
 
   test('a pathname that does not exist', async () => {
     const res = await get(makeURL('/en/never/heard/of'))
-    expect(res.statusCode).toBe(400)
+    expect(res.statusCode).toBe(404)
     const { error } = JSON.parse(res.body)
     expect(error).toBe("No page found for '/en/never/heard/of'")
   })

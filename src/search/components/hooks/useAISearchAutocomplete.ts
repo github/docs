@@ -26,7 +26,7 @@ type UseCombinedSearchReturn = {
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 300 // In milliseconds
+const DEBOUNCE_TIME = 1 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
@@ -65,7 +65,7 @@ export function useCombinedSearchResults({
   useEffect(() => {
     debouncedFetchRef.current = debounce((value: string) => {
       fetchAutocompleteResults(value)
-    }, DEBOUNCE_TIME) // 300ms debounce
+    }, DEBOUNCE_TIME) // 1ms debounce
 
     return () => {
       debouncedFetchRef.current?.cancel()

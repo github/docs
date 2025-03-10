@@ -1058,6 +1058,50 @@
       },
       {
         "category": "teams",
+        "slug": "list-team-projects",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-project",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
         "slug": "get-team-member-legacy",
         "subcategory": "members",
         "verb": "get",
@@ -1504,6 +1548,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "projects",
@@ -5805,17 +5871,6 @@
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
       {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
-      {
         "category": "actions",
         "slug": "enable-a-selected-repository-for-github-actions-in-an-organization",
         "subcategory": "permissions",
@@ -8274,23 +8329,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      }
-    ]
-  },
-  "notifications": {
-    "title": "Notifications",
-    "displayTitle": "User permissions for \"Notifications\"",
-    "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
       }
     ]
   },

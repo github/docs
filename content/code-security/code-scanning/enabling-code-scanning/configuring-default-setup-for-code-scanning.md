@@ -18,7 +18,7 @@ permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 versions:
   fpt: '*'
@@ -50,10 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 <!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
 {% else %}
 * It includes at least one {% data variables.product.prodname_codeql %}-supported language.{% endif %}
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-* It is publicly visible.{%- elsif ghec %}
-* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
@@ -67,7 +64,7 @@ You can use default setup for all {% data variables.product.prodname_codeql %}-s
 
 ### Customizing default setup
 
-We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your code security needs. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
+We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your needs. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
 
 ### About adding non-compiled and compiled languages to your default setup
 

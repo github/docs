@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Actions
   - Repositories
@@ -41,10 +41,7 @@ If you do not need a highly customizable {% data variables.product.prodname_code
 
 Your repository is eligible for advanced setup if it meets these requirements.
 * It uses {% data variables.product.prodname_codeql %}-supported languages or you plan to generate code scanning results with a third-party tool.
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-* It is publicly visible.{%- elsif ghec %}
-* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion ghes %}
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, your site administrator can enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} by making the {% data variables.product.prodname_codeql %} analysis bundle available on the server. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access).

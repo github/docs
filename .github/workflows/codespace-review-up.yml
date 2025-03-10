@@ -1,0 +1,229 @@
+name: Codespace review - Up
+
+# **What it does**: On opening or updating a pull request, creates a new codespace to review changes and comments to the user with next steps. Or it will rebuild the codespace if it already exists and is idle.
+# **Why we have it**: We want to provide contributors with a way to review their changes in a codespace before merging.
+# **Who does it impact**: Contributors who open a pull request.
+
+on:
+  pull_request:
+    types:
+      - assigned
+      - unassigned
+      - labeled
+      - unlabeled
+      - opened
+      - edited
+      # - closed
+      - reopened
+      - synchronize
+      - converted_to_draft
+      - ready_for_review
+      # - locked
+      # - unlocked
+      # - milestoned
+      # - demilestoned
+      - review_requested
+      - review_request_removed
+      # - auto_merge_enabled
+      - auto_merge_disabled
+      # - enqueued
+      - dequeued
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codespace-review-up:
+    runs-on: ubuntu-latest
+    if: >-
+      ${{ github.repository == 'github/docs-internal'
+          && contains( github.event.pull_request.labels.*.name, 'auto-codespace') }}
+    env:
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_CODESPACE }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      LOGIN: docs-bot
+      REPO: github/docs-internal
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Check for existing codespace
+        id: check-codespace
+        run: |
+          echo "Checking if there's already a codespace for this pull request..."
+          names=$( \
+            gh codespace list \
+              --repo "$REPO" \
+              --limit 1000 \
+              --json "name,gitStatus,owner" \
+              --jq ".[] | select(.owner == \"$LOGIN\" and .gitStatus.ref == \"$BRANCH_NAME\") | .name" \
+          )
+          echo "- Names:"
+          echo "$(echo "$names" | sed 's/^/    /')"
+          count=$(echo "$names" | sed '/^\s*$/d' | wc -l)
+          echo "- Count: $count"
+          if [[ $count -gt 0 ]]
+          then
+            echo "Codespace found for this pull request"
+            echo "has-codespace=yes" >> $GITHUB_OUTPUT
+          else
+            echo "Codespace not found for this pull request"
+            echo "has-codespace=no" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Clean up old codespaces if needed
+        if: ${{ steps.check-codespace.outputs.has-codespace == 'no' }}
+        run: |
+          echo "Checking if there are more than 95 codespaces..."
+          spaces=$( \
+            gh codespace list \
+              --repo "$REPO" \
+              --limit 1000 \
+              --json "name,lastUsedAt,gitStatus,owner" \
+              --jq "sort_by(.lastUsedAt) | reverse | .[] | select(.owner == \"$LOGIN\") | [.name,.gitStatus.ref] | @tsv" \
+          )
+          echo "- Spaces:"
+          echo "$(echo "$spaces" | sed 's/^/    /')"
+          count=$(echo "$spaces" | sed '/^\s*$/d' | wc -l)
+          echo "- Count: $count"
+
+          if [[ $count -gt 95 ]]
+          then
+            tocut=$((count - 95))
+            echo "$count codespaces found. Deleting the oldest $tocut..."
+            oldest=$(echo "$spaces" | tail -n $tocut)
+            echo "- Oldest:"
+            echo "$(echo "$oldest" | sed 's/^/    /')"
+            echo "$oldest" | while read -r name branch
+            do
+              echo "Deleting $name..."
+              gh codespace delete --codespace "$name"
+              echo "Deleted $name"
+
+              echo "Commenting on branch $branch"
+              # We could move this to a matrix and update the AUTO_CODESPACE comment instead
+              # but that's significantly more code for a scenario I'm not sure will actually happen
+              gh pr comment \
+                "$branch" \
+                --repo "$REPO" \
+                --body "Thank you for this pull request. I deleted the oldest codespaces to make room for a new one. You can make a new codespace by updating the pull request or closing and reopening the pull request."
+              echo "Commented on branch $branch"
+            done
+            echo "Deleted the oldest $tocut codespaces"
+          else
+            echo "$count codespaces found. No deletes needed."
+          fi
+
+      - name: Create a new codespace
+        if: ${{ steps.check-codespace.outputs.has-codespace == 'no' }}
+        run: |
+          echo "Creating a new codespace..."
+          # Machine types: gh api /repos/github/docs-internal/codespaces/machines
+          name=$( \
+            gh codespace create \
+              --repo "$REPO" \
+              --branch "$BRANCH_NAME" \
+              --idle-timeout "4h" \
+              --retention-period "720h" \
+              --default-permissions \
+              --machine "standardLinux32gb" \
+          )
+          echo "- Name: $name"
+          echo "Created a new codespace"
+
+          echo "Updating port visibility..."
+          gh codespace ports visibility \
+            --codespace "$name" \
+            4000:public
+          echo "Updated port visibility"
+
+          echo "APP_URL=https://$name-4000.app.github.dev" >> $GITHUB_ENV
+
+      - name: Rebuild existing codespace
+        if: ${{ steps.check-codespace.outputs.has-codespace == 'yes' }}
+        run: |
+          echo "Checking if the codespace is in idle mode..."
+          spaces=$( \
+            gh codespace list \
+              --repo "$REPO" \
+              --limit 1000 \
+              --json "name,gitStatus,owner,state" \
+              --jq ".[] | select(.owner == \"$LOGIN\" and .gitStatus.ref == \"$BRANCH_NAME\") | [.name,.state] | @tsv" \
+          )
+          echo "- Spaces:"
+          echo "$(echo "$spaces" | sed 's/^/    /')"
+          echo "$spaces" | while read -r name state
+          do
+            echo "Codespace $name is in state $state"
+            if [[ $state == "Shutdown" ]]
+            then
+              echo "Codespace $name is in idle mode"
+              echo "Rebuilding the codespace to kick it out of idle mode..."
+              gh codespace rebuild --codespace "$name"
+              echo "Rebuilt the codespace to kick it out of idle mode"
+
+              echo "Updating port visibility..."
+              gh codespace ports visibility \
+                --codespace "$name" \
+                4000:public
+              echo "Updated port visibility"
+            else
+              echo "Codespace $name is active"
+            fi
+            echo "APP_URL=https://$name-4000.app.github.dev" >> $GITHUB_ENV
+          done
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Get changes table
+        id: changes
+        timeout-minutes: 30
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          APP_URL: ${{ env.APP_URL }}
+        run: npm run content-changes-table-comment
+
+      - name: Find code changes comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ github.event.pull_request.number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- AUTO_CODESPACE -->'
+
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ github.event.pull_request.number }}
+          edit-mode: replace
+          body: |
+            <!-- AUTO_CODESPACE -->
+
+            ### Review this PR in a codespace 📦
+
+            The codespace will be ready in two to three minutes and you can review changes at:
+            ${{ env.APP_URL }}
+            The codespace will be automatically deleted once the pull request is closed or merged.
+
+            #### The codespace will idle after 4 hours of inactivity
+
+            After 4 hours, you can reactivate the codespace by applying the https://github.com/${{ env.REPO }}/labels/extend-codespace label to the pull request.
+            If the label is already applied, you can remove and reapply the label to reactivate the codespace.
+
+            <details><summary>Table of review links</summary>
+
+            ${{ steps.changes.outputs.changesTable && 'The table shows the files in the `content` directory that were changed in this pull request. Changes to the `data` directory are not included in this table.' || '' }}
+
+            ${{ steps.changes.outputs.changesTable || '_This pull request contains code changes, so we will not generate a table of review links._' }}
+
+            ${{ steps.changes.outputs.changesTable && 'Key: **fpt**: Free, Pro, Team; **ghec**: GitHub Enterprise Cloud; **ghes**: GitHub Enterprise Server' || '' }}
+
+            </details>
+
+            🤖 This comment is [automatically generated][workflow].
+
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/codespace-review-up.yml

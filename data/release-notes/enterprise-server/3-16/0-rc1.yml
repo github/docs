@@ -24,6 +24,9 @@ sections:
         # https://github.com/github/releases/issues/4576
         - |
           Organization owners can manage security responsibilities more flexibly with updates to the security manager role. The role can be assigned directly to individual users, in addition to teams, allowing more precise control over security responsibilities. Additionally, security manager assignments are managed under Settings - Organization roles, streamlining role configuration alongside other organizational roles. See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
+        # https://github.com/github/releases/issues/4336
+        - |
+          `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
 
     - heading: Authentication
       notes:
@@ -186,9 +189,6 @@ sections:
   changes:
     - |
       The 400GB root disk requirement introduced in [Enterprise Server 3.15.0](/enterprise-server@3.15/admin/release-notes#3.15.0-features) has been reverted in 3.15.2. The 400GB root disk size is no longer a requirement for new GHES installations and upgrades. Customers on standalone or standalone HA topologies are still recommended to upgrade their root disk size to 400GB.
-    # https://github.com/github/releases/issues/4336
-    - |
-      `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
     # https://github.com/github/releases/issues/4913
     - |
       When an enterprise requires two-factor authentication (2FA), members who do not use 2FA still retain membership even without 2FA, including occupying seats in the enterprise and organizations. However, these users won't be able to access the enterprise resources until they enable 2FA on their account. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/requiring-two-factor-authentication-for-an-organization).
