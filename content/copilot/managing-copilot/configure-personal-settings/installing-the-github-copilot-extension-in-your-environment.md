@@ -240,9 +240,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ## Prerequisites
 
-* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-
-* **Compatible version of Eclipse**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have Eclipse version 2024-09 or above. For more information on the latest versions, see the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+{% data reusables.copilot.eclipse-prerequisites %}
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 
