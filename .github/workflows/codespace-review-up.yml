@@ -46,6 +46,14 @@ jobs:
       LOGIN: docs-bot
       REPO: github/docs-internal
     steps:
+      - name: Print event details
+        run: |
+          echo "github.event_name: ${{ github.event_name }}"
+          echo "github.event.action: ${{ github.event.action }}"
+          echo "github.actor: ${{ github.actor }}"
+          echo "github.event.pull_request.auto_merge: ${{ github.event.pull_request.auto_merge }}"
+          echo "github.triggering_actor: ${{ github.triggering_actor }}"
+
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
 
       - name: Check for existing codespace
