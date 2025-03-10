@@ -42,6 +42,6 @@ updates:
     groups:
       baseImages:
         patterns:
-          - '*'
+          - '*0*'
     ignore:
       - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator
