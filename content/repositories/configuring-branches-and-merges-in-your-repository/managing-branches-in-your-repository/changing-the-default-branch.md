@@ -46,7 +46,7 @@ Additionally, you need to have admin access to a repository to change the defaul
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. Under "Default branch", to the right of the default branch name, click {% octicon "arrow-switch" aria-label="Switch to another branch" %}.
+1. In the "General" tab, go to the "Default Branch" section and click {% octicon "arrow-switch" aria-label="Switch to another branch" %}.
 1. Select the branch dropdown menu and click a branch name.
 1. Click **Update**.
 1. Read the warning, then click **I understand, update the default branch.**
