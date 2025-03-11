@@ -456,7 +456,7 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 
 ## About {% data variables.product.prodname_copilot %} in Eclipse
 
-If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE. And you can use the {% data variables.product.prodname_copilot_chat_short %} panel to work with {% data variables.product.prodname_copilot_short %} as your AI pair programmer.
+If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE. You can also use the {% data variables.product.prodname_copilot_chat_short %} panel to work with {% data variables.product.prodname_copilot_short %} as your AI pair programmer.
 
 After you install {% data variables.product.prodname_copilot %} in Eclipse, you can enable or disable it, and you can configure advanced settings within the IDE.
 
