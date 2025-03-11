@@ -195,8 +195,6 @@ sections:
 
   known_issues:
     - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.16 release will be added between now and the general availability release.
-    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
