@@ -7,8 +7,10 @@ versions:
   ghec: '*'
 redirect_from:
   - /codespaces/getting-started-with-codespaces
+  - /codespaces/getting-started
 children:
-  - /quickstart
+  - /what-are-codespaces
+  - /codespaces-features
   - /understanding-the-codespace-lifecycle
   - /deep-dive
 ---

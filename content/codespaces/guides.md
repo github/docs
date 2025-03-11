@@ -8,8 +8,8 @@ versions:
   fpt: '*'
   ghec: '*'
 includeGuides:
-  - /codespaces/getting-started/quickstart
-  - /codespaces/getting-started/deep-dive
+  - /codespaces/quickstart
+  - /codespaces/about-codespaces/deep-dive
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-nodejs-project-for-codespaces
   - /codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/setting-up-your-python-project-for-codespaces

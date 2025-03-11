@@ -1,16 +1,19 @@
 ---
-title: 'Quickstart for {% data variables.product.prodname_github_codespaces %}'
-shortTitle: 'Quickstart for {% data variables.product.prodname_codespaces %}'
-intro: 'Try out {% data variables.product.prodname_github_codespaces %} in 5 minutes.'
+title: Quickstart for GitHub Codespaces
+shortTitle: Quickstart
+intro: 'Get started with {% data variables.product.prodname_github_codespaces %} quickly.'
 allowTitleToDifferFromFilename: true
+redirect_from:
+  - /codespaces/codespaces-reference/about-codespaces
+  - /github/developing-online-with-github-codespaces/about-github-codespaces
+  - /github/developing-online-with-codespaces/about-codespaces
+  - /codespaces/getting-started-with-codespaces/about-codespaces
+  - /codespaces/getting-started/quickstart
 versions:
   fpt: '*'
   ghec: '*'
-type: quick_start
 topics:
   - Codespaces
-redirect_from:
-  - /codespaces/codespaces-quickstart
 ---
 
 {% ifversion ghec %}
@@ -25,7 +28,7 @@ In this guide, you'll create a codespace from a template repository and explore 
 
 From this quickstart, you'll learn how to create a codespace, connect to a forwarded port to view your running application, publish your codespace to a new repository, and personalize your setup with extensions.
 
-For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide [AUTOTITLE](/codespaces/getting-started/deep-dive).
+For more information on exactly how {% data variables.product.prodname_github_codespaces %} works, see the companion guide [AUTOTITLE](/codespaces/about-codespaces/deep-dive).
 
 ## Creating your codespace
 
@@ -110,7 +113,7 @@ You can enable Settings Sync to sync extensions and other settings across device
 
 You've successfully created, personalized, and run your first application within a codespace but there's so much more to explore! Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_codespaces %}.
 
-* [AUTOTITLE](/codespaces/getting-started/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
+* [AUTOTITLE](/codespaces/about-codespaces/deep-dive): This quickstart presented some of the features of {% data variables.product.prodname_github_codespaces %}. The deep dive looks at these areas from a technical standpoint.
 * [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration): These guides provide information on setting up your repository to use {% data variables.product.prodname_github_codespaces %} with specific languages.
 * [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers): This guide provides details on creating a custom configuration for {% data variables.product.prodname_codespaces %} for your project.
 
