@@ -127,7 +127,6 @@ When you migrate a repository, either directly or as part of an organization mig
   * Branch protections (see [Branch protections](#branch-protections) for more details)
   * {% data variables.product.prodname_pages %} settings
   * Autolink references
-  * {% data variables.product.prodname_GH_advanced_security %} settings
   * Pull request settings
     * Automatically delete head branches
     * Allow auto-merge

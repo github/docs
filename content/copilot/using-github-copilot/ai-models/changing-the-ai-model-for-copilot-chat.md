@@ -14,8 +14,6 @@ However, you are not limited to using this model. You can choose from a selectio
 
 {% data variables.product.prodname_copilot_short %} allows you to change the model during a chat and have the alternative model used to generate responses to your prompts.
 
-Changing the model that's used by {% data variables.product.prodname_copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
-
 {% webui %}
 
 > [!NOTE]
@@ -63,6 +61,8 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 {% endwebui %}
 
 {% vscode %}
+
+Changing the model that's used by {% data variables.product.prodname_copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
 
 > [!NOTE]
 > * Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change. {% ifversion copilot-enterprise %}
@@ -135,6 +135,8 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 {% jetbrains %}
 
+Changing the model that's used by {% data variables.product.prodname_copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
+
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
@@ -164,3 +166,35 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" %} dropdown menu.
 
 {% endjetbrains %}
+
+{% eclipse %}
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
+
+* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-gemini-flash %}
+* {% data reusables.copilot.model-description-o1 %}
+* {% data reusables.copilot.model-description-o3-mini %}
+
+For more information about these models, see:
+
+* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
+* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
+
+## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
+
+These instructions are for the Eclipse IDE. For instructions on different clients, click the appropriate tab at the top of this page.
+
+{% data reusables.copilot.model-picker-enable-alternative-models %}
+
+{% data reusables.copilot.chat-model-limitations-ide %}
+
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
+1. In the popup menu, click **Open Chat**.
+1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
+
+{% endeclipse %}
