@@ -48,7 +48,7 @@ When you enable one or more security and analysis features for existing reposito
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security and analysis**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Optionally, enable or disable a feature for all existing repositories.
 
    * To the right of the feature, click **Disable all** or **Enable all**. If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available licenses for {% data variables.product.prodname_GH_advanced_security %}.

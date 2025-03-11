@@ -7,6 +7,7 @@ import catchMiddlewareError from '@/observability/middleware/catch-middleware-er
 import { ExtendedRequestWithPageInfo } from '../types'
 import { pageValidationMiddleware, pathValidationMiddleware } from './validation'
 import contextualize from '#src/frame/middleware/context/context.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 /** START helper functions */
 
@@ -59,6 +60,23 @@ async function getArticleBody(req: ExtendedRequestWithPageInfo) {
   return await page.render(renderingReq.context)
 }
 
+function incrementArticleLookup(
+  pathname: string,
+  language: string,
+  type: 'full' | 'body' | 'meta',
+) {
+  const tags = [
+    // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
+    // the max length of a tag is 200 characters. Most of ours are less than
+    // that but we truncate just to be safe.
+    `pathname:${pathname}`.slice(0, 200),
+    `language:${language}`,
+    `type:${type}`,
+  ]
+
+  statsd.increment('api.article.lookup', 1, tags)
+}
+
 /** END helper functions */
 
 /** START routes */
@@ -82,6 +100,8 @@ router.get(
       return res.status(403).json({ error: (error as Error).message })
     }
 
+    incrementArticleLookup(req.pageinfo.pathname, req.pageinfo.page.languageCode, 'full')
+
     defaultCacheControl(res)
     return res.json({
       meta: metaData,
@@ -101,6 +121,9 @@ router.get(
     } catch (error) {
       return res.status(403).json({ error: (error as Error).message })
     }
+
+    incrementArticleLookup(req.pageinfo.pathname, req.pageinfo.page.languageCode, 'body')
+
     defaultCacheControl(res)
     return res.type('text/markdown').send(bodyContent)
   }),
@@ -112,6 +135,9 @@ router.get(
   pageValidationMiddleware as RequestHandler,
   catchMiddlewareError(async function (req: ExtendedRequestWithPageInfo, res: Response) {
     const metaData = await getArticleMetadata(req)
+
+    incrementArticleLookup(req.pageinfo.pathname, req.pageinfo.page.languageCode, 'meta')
+
     defaultCacheControl(res)
     return res.json(metaData)
   }),

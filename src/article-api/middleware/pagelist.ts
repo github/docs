@@ -7,6 +7,7 @@ import { getProductStringFromPath, getVersionStringFromPath } from '#src/frame/l
 import { getLanguageCodeFromPath } from '#src/languages/middleware/detect-language.js'
 import { pagelistValidationMiddleware } from './validation'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 const router = express.Router()
 
@@ -78,6 +79,7 @@ router.get(
       return
     }
 
+    incrementPagelistLookup(req.context!.currentVersion!, req.context!.currentLanguage!)
     defaultCacheControl(res)
 
     // new line added at the end so `wc` works as expected with `-l` and `-w`.
@@ -99,6 +101,12 @@ function versionMatcher(key: string, targetVersion: string, targetLang: string) 
   }
 
   if (versionFromPermalink === targetVersion && langFromPermalink === targetLang) return key
+}
+
+function incrementPagelistLookup(version: string, language: string) {
+  const tags = [`version:${version}`, `language:${language}`]
+
+  statsd.increment('api.pagelist.lookup', 1, tags)
 }
 
 export default router

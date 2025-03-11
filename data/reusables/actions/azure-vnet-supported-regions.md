@@ -7,6 +7,7 @@ The following regions are supported on {% data variables.product.prodname_dotcom
 <ul style="-webkit-column-count: 2; -moz-column-count: 2; column-count: 2;">
 <li><code>AustraliaEast</code></li>
 <li><code>BrazilSouth</code></li>
+<li><code>CanadaCentral</code></li>
 <li><code>CentralUs</code></li>
 <li><code>EastAsia</code></li>
 <li><code>EastUs</code></li>
@@ -18,10 +19,13 @@ The following regions are supported on {% data variables.product.prodname_dotcom
 <li><code>NorthCentralUs</code></li>
 <li><code>NorthEurope</code></li>
 <li><code>NorwayEast</code></li>
+<li><code>SouthCentralUs</code></li>
 <li><code>SoutheastAsia</code></li>
+<li><code>SouthIndia</code></li>
 <li><code>SwedenCentral</code></li>
 <li><code>SwitzerlandNorth</code></li>
 <li><code>UkSouth</code></li>
+<li><code>WestUs</code></li>
 <li><code>WestUs2</code></li>
 <li><code>WestUs3</code></li>
 </ul>
@@ -30,13 +34,17 @@ Azure private networking supports GPU runners in the following regions.
 
 * `EastUs`
 * `NorthCentralUs`
+* `SouthCentralUs`
 * `WestUs`
 
 Azure private networking supports arm64 runners in the following regions.
 
+* `CentralUs`
 * `EastUs`
 * `EastUs2`
 * `NorthCentralUs`
+* `SouthCentralUs`
+* `WestUs`
 * `WestUs2`
 * `WestUs3`
 

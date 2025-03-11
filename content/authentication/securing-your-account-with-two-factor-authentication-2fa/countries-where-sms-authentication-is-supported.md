@@ -100,7 +100,7 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Portugal</li>
 <li>Qatar</li>
 <li>Romania</li>
-<li>Rwanda</li>
+<li>wanda</li>
 <li>Senegal</li>
 <li>Serbia</li>
 <li>Seychelles</li>
@@ -116,7 +116,7 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Sweden</li>
 <li>Switzerland</li>
 <li>Taiwan</li>
-<li>Tanzania</li>
+<li>thailand</li>
 <li>Togo</li>
 <li>Trinidad and Tobago</li>
 <li>Turks and Caicos Islands</li>
