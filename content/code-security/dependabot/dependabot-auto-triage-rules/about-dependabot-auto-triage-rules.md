@@ -21,7 +21,7 @@ redirect_from:
 
 ## About {% data variables.dependabot.auto_triage_rules %}
 
-{% data variables.dependabot.auto_triage_rules %} allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use {% data variables.dependabot.auto_triage_rules_short %} to automatically dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
+{% data variables.dependabot.auto_triage_rules %} allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use {% data variables.dependabot.auto_triage_rules_short %} to automatically dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so enabling rules that auto-dismiss low-risk alerts will prevent notification noise from future matching alerts.
 
 There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
