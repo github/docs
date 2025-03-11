@@ -26,7 +26,7 @@ shortTitle: Chat in IDE
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} To give you code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 {% data reusables.copilot.open-chat-vs-code %}
 
