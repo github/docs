@@ -1,13 +1,7 @@
-date: '2025-02-25'
-release_candidate: true
-deprecated: true
+date: '2025-03-11'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
   For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
@@ -236,6 +230,12 @@ sections:
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      For appliances in a high availability configuration, Elasticsearch indices are deleted in two situations:
+      * On failover
+      * When running `ghe-repl-teardown <REPLICA_HOSTNAME>` from the primary instance
+
+      All indices are recoverable, except for Audit Log indices. Since Elasticsearch itself is the source of truth for these logs, they may only be recoverable from a backup. If you need assistance, visit {% data variables.contact.contact_ent_support %}.
 
   closing_down:
     # https://github.com/github/releases/issues/4683
@@ -256,13 +256,16 @@ sections:
    # https://github.com/github/releases/issues/4710
     - |
       In GitHub Enterprise Server 3.17 and later, the field `cvss` for GitHub security advisories in the REST & GraphQL APIs will be deprecated in favour of the new `cvss_severities` field.
+   # https://github.com/github/releases/issues/4964
+    - |
+      In GitHub Enterprise Server 3.17 and later, the Trending functionality under /explore will be removed. It was supposed be removed in version 3.16.
 
   retired:
     - |
       Team discussions have been removed from GitHub Enterprise Server. The sunset of this feature was announced in 2023. See the [GitHub Blog post](https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/).
     # https://github.com/github/releases/issues/4964
     - |
-      In GitHub Enterprise Server 3.16, the `/explore` functionality, including the Activity and Trending pages, is removed.
+      In GitHub Enterprise Server 3.16, the Activity functionality under /explore is removed.
     # https://github.com/github/releases/issues/4380
     - |
       GitHub no longer supports .NET 6 in GitHub Enterprise Server 3.16 and later.

@@ -2,7 +2,7 @@ date: '2025-02-18'
 intro: |
   {% warning %}
 
-  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches or upgrades to GitHub Enterprise Server version `3.14.8` will result errors being reported in the upgrade log. We recommend waiting for the next patch release to hotpatch or upgrade.
+  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.14.8` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.14 version instead. [Updated: 2025-03-11]
 
   {% endwarning %}
 sections:
@@ -49,7 +49,7 @@ sections:
       The `ghe-live-migrations --init-target` command fails with a descriptive error message if the  specified upgrade path is not supported.
   known_issues:
     - |
-      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-02-23]
+      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-03-11]
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
@@ -80,3 +80,7 @@ sections:
       When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+  
+  errata:
+    - |
+      The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.14.8. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.14.8. [Updated: 2025-03-11]
