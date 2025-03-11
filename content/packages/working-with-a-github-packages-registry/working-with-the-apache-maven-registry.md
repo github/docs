@@ -191,7 +191,7 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
    </dependencies>
    ```
 
-1. Install the package.
+1. Install the package
 
    ```shell
    mvn install
