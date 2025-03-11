@@ -78,4 +78,4 @@ if __name__ == '__main__':
 
 ## Further reading
 
-{% data reusables.copilot.example-prompts.further-reading-items %}
+{% data reusables.copilot.example-prompts.further-reading-items %}.
