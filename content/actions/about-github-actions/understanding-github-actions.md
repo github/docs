@@ -96,7 +96,7 @@ If you need a different operating system or require a specific hardware configur
 
 For more information{% ifversion fpt or ghec %} about self-hosted runners{% endif %}, see [AUTOTITLE](/actions/hosting-your-own-runners).
 
-## Next steps
+## Next steps.
 
 {% data reusables.actions.onboarding-next-steps %}
 
