@@ -432,7 +432,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} To give you code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
 
