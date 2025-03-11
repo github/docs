@@ -52,7 +52,7 @@ Before you submit your review, your line comments are _pending_ and only visible
 
 {% codespaces %}
 
-You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/overview) to test, run, and review pull requests.
+You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/quickstart) to test, run, and review pull requests.
 
 1. Open the pull request in a codespace, as described in [AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-for-pull-requests#opening-a-pull-request-in-codespaces).
 1. In the Activity Bar, click the **{% data variables.product.github %} Pull Request** view. This view only appears when you open a pull request in a codespace.
