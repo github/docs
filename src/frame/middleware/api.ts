@@ -5,7 +5,6 @@ import events from '@/events/middleware.js'
 import anchorRedirect from '@/rest/api/anchor-redirect.js'
 import aiSearch from '@/search/middleware/ai-search'
 import search from '@/search/middleware/search-routes.js'
-import pageInfo from '@/article-api/middleware/pageinfo'
 import pageList from '@/article-api/middleware/pagelist'
 import article from '@/article-api/middleware/article'
 import webhooks from '@/webhooks/middleware/webhooks.js'
@@ -29,7 +28,6 @@ if (process.env.NODE_ENV === 'test') {
 router.use('/events', createAPIRateLimiter(eventsRouteRateLimit), events)
 router.use('/webhooks', createAPIRateLimiter(internalRoutesRateLimit), webhooks)
 router.use('/anchor-redirect', createAPIRateLimiter(internalRoutesRateLimit), anchorRedirect)
-router.use('/pageinfo', createAPIRateLimiter(3), pageInfo)
 router.use('/pagelist', createAPIRateLimiter(publicRoutesRateLimit), pageList)
 router.use('/article', createAPIRateLimiter(publicRoutesRateLimit), article)
 
