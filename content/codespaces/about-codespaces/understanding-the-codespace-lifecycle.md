@@ -1,7 +1,7 @@
 ---
 title: Understanding the codespace lifecycle
 shortTitle: The codespace lifecycle
-intro: 'You can develop in a {% data variables.product.prodname_github_codespaces %} environment and maintain your data throughout the entire codespace lifecycle.'
+intro: 'Learn how to develop in a {% data variables.product.prodname_github_codespaces %} environment, and maintain your data throughout the entire codespace lifecycle.'
 versions:
   fpt: '*'
   ghec: '*'
@@ -12,11 +12,12 @@ topics:
 redirect_from:
   - /codespaces/developing-in-codespaces/codespaces-lifecycle
   - /codespaces/developing-in-codespaces/the-codespace-lifecycle
-  - /codespaces/getting-started/the-codespace-lifecycle
+  - /codespaces/about-codespaces/the-codespace-lifecycle
+  - /codespaces/getting-started/understanding-the-codespace-lifecycle
 ---
 
 > [!NOTE]
-> This article explains the stages in the life of a codespace, from creation to deletion. If you have read the [AUTOTITLE](/codespaces/getting-started/quickstart) article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under [AUTOTITLE](/codespaces/developing-in-a-codespace).
+> This article explains the stages in the life of a codespace, from creation to deletion. If you have read the [AUTOTITLE](/codespaces/quickstart) article and you now want to start using {% data variables.product.prodname_github_codespaces %} for your own work, see the articles under [AUTOTITLE](/codespaces/developing-in-a-codespace).
 
 ## About the lifecycle of a codespace
 
