@@ -488,8 +488,6 @@ You can also open an issue in the [{% data variables.product.prodname_copilot_sh
 
 {% eclipse %}
 
-{% data reusables.copilot.eclipse-public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot %} and Eclipse
 
 This guide demonstrates how to get coding suggestions from {% data variables.product.prodname_copilot %} in Eclipse. To see instructions for other popular coding environments, use the tool switcher at the top of the page.
