@@ -1,6 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in your IDE
-intro: 'Use {% data variables.product.prodname_copilot_chat_short %} in your editor To give you code suggestions, explain code, generate unit tests, and suggest code fixes.'
+intro: 'Use {% data variables.product.prodname_copilot_chat_short %} in your editor to give you code suggestions, explain code, generate unit tests, and suggest code fixes.'
 topics:
   - Copilot
 redirect_from:
