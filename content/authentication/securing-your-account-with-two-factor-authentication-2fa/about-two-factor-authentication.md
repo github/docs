@@ -62,4 +62,4 @@ For more information, see [AUTOTITLE](/authentication/securing-your-account-with
 
 Organization owners can require that organization members{% ifversion fpt or ghec %}, billing managers,{% endif %} and outside collaborators use two-factor authentication to secure their personal accounts. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization).
 
-{% data reusables.two_fa.auth_methods_2fa %}
+{% data reusables.two_fa.auth_methods_2fa %}.
