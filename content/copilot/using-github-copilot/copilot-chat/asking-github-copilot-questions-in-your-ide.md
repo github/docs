@@ -376,7 +376,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode, you must install
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} To give you code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
 
