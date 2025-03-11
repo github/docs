@@ -2,7 +2,9 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 
 | Option | Description | Example |
 |:---|:---|:---|
+| `CVE-ID`| Displays alerts associated with this `CVE-ID` | `CVE-2020-28482` will show any alerts whose underlying advisory has this CVE ID number. |
 | `ecosystem` | Displays alerts for the selected ecosystem | Use `ecosystem:npm` to show {% data variables.product.prodname_dependabot_alerts %} for npm |
+| `GHSA-ID`| Displays alerts associated with this `GHSA-ID` | `GHSA-49wp-qq6x-g2rf` will show any alerts whose underlying advisory has this {% data variables.product.prodname_advisory_database %} ID. |
 | `has` | Displays alerts meeting the selected filter criteria | Use `has:patch` to show alerts related to advisories that have a patch |
 | `is` | Displays alerts based on their state | Use `is:open` to show open alerts |
 | `manifest` | Displays alerts for the selected manifest | Use `manifest:webwolf/pom.xml` to show alerts on the pom.xml file of the webwolf application |
