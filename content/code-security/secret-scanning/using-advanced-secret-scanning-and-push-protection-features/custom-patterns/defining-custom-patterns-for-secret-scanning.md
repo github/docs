@@ -113,7 +113,7 @@ To enable {% data variables.product.prodname_secret_scanning %} on all repositor
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
 {% else %}
 {% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
@@ -141,7 +141,7 @@ Before defining a custom pattern, you must ensure that you enable secret scannin
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.
+1. Under "{% data variables.product.UI_advanced_security_ent %}", click **Security features**.
 1. Under "Secret scanning custom patterns", click **New pattern**.
 {% data reusables.advanced-security.secret-scanning-add-custom-pattern-details %}
 1. When you're ready to test your new custom pattern, to identify matches in the enterprise without creating alerts, click **Save and dry run**.

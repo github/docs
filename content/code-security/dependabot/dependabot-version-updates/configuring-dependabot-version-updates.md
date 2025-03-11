@@ -43,7 +43,7 @@ You enable {% data variables.product.prodname_dependabot_version_updates %} by c
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic `dependabot.yml` configuration file in the `.github` directory of your repository. {% data reusables.dependabot.link-to-yml-config-file %}
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to open a basic `dependabot.yml` configuration file in the `.github` directory of your repository. {% data reusables.dependabot.link-to-yml-config-file %}
 {% else %}
 1. Create a `dependabot.yml` configuration file in the `.github` directory of your repository. You can use the snippet below as a starting point. {% data reusables.dependabot.link-to-yml-config-file %}
 {% endif %}
@@ -117,7 +117,7 @@ On a fork, you also need to explicitly enable {% data variables.product.prodname
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of "{% data variables.product.prodname_dependabot_version_updates %}", click **Enable** to allow {% data variables.product.prodname_dependabot %} to initiate version updates.
 
 ## Checking the status of version updates
 

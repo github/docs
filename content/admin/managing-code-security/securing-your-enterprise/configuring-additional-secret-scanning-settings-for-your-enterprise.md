@@ -24,7 +24,7 @@ These additional settings only apply to repositories with {% data variables.prod
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Scroll down the page to the "Additional settings" section.
 
 ### Configuring a resource link for push protection
