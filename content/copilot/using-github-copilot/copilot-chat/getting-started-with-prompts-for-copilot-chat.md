@@ -52,9 +52,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, or to insert the code at your cursor, into a new file, or into the terminal.
 
-## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} features
 
-You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
@@ -147,9 +147,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, insert the code into a new file, or preview the code output.
 
-## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} features
 
-You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
@@ -291,9 +291,9 @@ If you are asking about specific lines, you could enter:
 * `Add error handling to this code.`
 * `Write a unit test for this method.`
 
-## Ask questions about {% data variables.product.prodname_GH_advanced_security %} alerts
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} products
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} questions about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
