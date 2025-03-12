@@ -1,7 +1,7 @@
 ---
 title: About billing for GitHub Advanced Security
 intro: 'Learn how {% data variables.product.prodname_GH_advanced_security %} costs are calculated and how to get the most from your license.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
   - /billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security

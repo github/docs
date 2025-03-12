@@ -76,3 +76,7 @@ sections:
       When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
