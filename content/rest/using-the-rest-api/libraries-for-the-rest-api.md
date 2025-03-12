@@ -32,6 +32,8 @@ For more information, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-a
 * .NET: [octokit.net](https://github.com/octokit/octokit.net)
 * Terraform: [terraform-provider-github](https://github.com/integrations/terraform-provider-github)
 
+You may also want to consider [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api)
+
 <!-- markdownlint-disable GHD034 -->
 
 ## Third-party libraries
