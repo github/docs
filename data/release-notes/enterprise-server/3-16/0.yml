@@ -162,13 +162,6 @@ sections:
         - |
           Enterprise administrators can better monitor the health of the appliance with optimized dashboards that provide concise, actionable metrics. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 
-    - heading: Issues
-      notes:
-        # https://github.com/github/releases/issues/4033
-        # https://github.com/github/releases/issues/3121
-        - |
-          Issues and projects feature highly-requested enhancements including sub-issues, issue types, and advanced search for issues. These feature enhancements make it easy to break down work, visualize progress, categorize and find just the right issue in GitHub. See the [GitHub blog post](https://github.blog/changelog/2024-10-01-evolving-github-issues-public-beta/).
-
     - heading: GitHub Mobile
       notes:
         # https://github.com/github/releases/issues/4456
