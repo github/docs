@@ -5,6 +5,8 @@ import type { ExtendedRequest, Page, Context, Permalink } from '@/types'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
+import breadcrumbs from '@/frame/middleware/context/breadcrumbs.js'
+import currentProductTree from '@/frame/middleware/context/current-product-tree.js'
 import { readCompressedJsonFile } from '@/frame/lib/read-json-file.js'
 
 // If you have pre-computed page info into a JSON file on disk, this is
@@ -29,6 +31,7 @@ export async function getPageInfo(page: Page, pathname: string) {
   await contextualize(renderingReq as ExtendedRequest, res as Response, next)
   await shortVersions(renderingReq as ExtendedRequest, res as Response, next)
   renderingReq.context.page = page
+  await currentProductTree(renderingReq as ExtendedRequest, res as Response, next)
   features(renderingReq as ExtendedRequest, res as Response, next)
   const context = renderingReq.context
 
@@ -50,7 +53,12 @@ export async function getPageInfo(page: Page, pathname: string) {
   }
   const product = productPage ? await getProductPageInfo(productPage, context) : ''
 
-  return { title, intro, product }
+  // Call breadcrumbs middleware to populate renderingReq.context.breadcrumbs
+  breadcrumbs(renderingReq as ExtendedRequest, res as Response, next)
+
+  const { breadcrumbs: pageBreadcrumbs } = renderingReq.context
+
+  return { title, intro, product, breadcrumbs: pageBreadcrumbs }
 }
 
 const _productPageCache: {
