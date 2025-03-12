@@ -366,8 +366,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-chat-public-preview-note %}
-
 ## Prerequisites
 
 To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
@@ -385,6 +383,10 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give you
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Using keywords in your prompt
 
