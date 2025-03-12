@@ -1,9 +1,8 @@
 ---
-title: Enforcing policies for security features in your enterprise
-intro: 'You can enforce policies to manage the use of security features for codebases within your enterprise''s organizations.'
-allowTitleToDifferFromFilename: true
+title: Enforcing policies for code security and analysis for your enterprise
+intro: 'You can enforce policies to manage the use of code security and analysis features within your enterprise''s organizations.'
 permissions: 'Enterprise owners'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
   ghes: '*'

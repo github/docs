@@ -1,7 +1,7 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
 intro: 'You can try {% data variables.product.prodname_GH_advanced_security %} for free.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
 type: how_to
