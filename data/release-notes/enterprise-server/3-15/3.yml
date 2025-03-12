@@ -88,7 +88,10 @@ sections:
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
       Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
-  
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
   errata:
     - |
       The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.15.3. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.15.3. [Updated: 2025-03-11]
