@@ -38,3 +38,5 @@ Because the OpenAPI description is machine readable, you can use it to do things
 * Explore and interact with the REST API using third-party tools, such as Insomnia or Postman
 
 For example, {% data variables.product.company_short %} uses the OpenAPI description to generate the Octokit SDKs. {% data variables.product.company_short %} also uses the OpenAPI description to generate the REST API reference documentation for each endpoint.
+
+Note that, because the OpenAPI description is polymorphic, and because the server sometimes strips fields in responses, users of statically typed languages like Go and Kotlin may want to consider [AUTOTITLE](/rest/about-the-rest-api/comparing-githubs-rest-api-and-graphql-api) or [AUTOTITLE](/rest/using-the-rest-api/libraries-for-the-rest-api)
