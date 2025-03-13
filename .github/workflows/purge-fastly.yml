@@ -16,7 +16,7 @@ on:
       languages:
         description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
         required: false
-        default: ''
+        default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
 
 permissions:
   contents: read
