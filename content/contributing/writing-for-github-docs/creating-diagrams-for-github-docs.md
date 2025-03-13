@@ -233,6 +233,6 @@ When you create a new diagram, add it to the Diagrams project in the Docs Figma 
 
 ## Examples
 
-This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/overview){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
+This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/quickstart){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)

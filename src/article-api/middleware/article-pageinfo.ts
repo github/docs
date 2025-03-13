@@ -1,23 +1,13 @@
-import express from 'express'
-import type { RequestHandler, Response } from 'express'
+import type { Response } from 'express'
 import type { ExtendedRequestWithPageInfo } from '../types'
 
 import type { ExtendedRequest, Page, Context, Permalink } from '@/types'
-import statsd from '@/observability/lib/statsd.js'
-import { defaultCacheControl } from '@/frame/middleware/cache-control.js'
-import catchMiddlewareError from '@/observability/middleware/catch-middleware-error.js'
-import {
-  SURROGATE_ENUMS,
-  setFastlySurrogateKey,
-  makeLanguageSurrogateKey,
-} from '@/frame/middleware/set-fastly-surrogate-key.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
+import breadcrumbs from '@/frame/middleware/context/breadcrumbs.js'
+import currentProductTree from '@/frame/middleware/context/current-product-tree.js'
 import { readCompressedJsonFile } from '@/frame/lib/read-json-file.js'
-import { pathValidationMiddleware, pageValidationMiddleware } from './validation'
-
-const router = express.Router()
 
 // If you have pre-computed page info into a JSON file on disk, this is
 // where it would be expected to be found.
@@ -41,6 +31,7 @@ export async function getPageInfo(page: Page, pathname: string) {
   await contextualize(renderingReq as ExtendedRequest, res as Response, next)
   await shortVersions(renderingReq as ExtendedRequest, res as Response, next)
   renderingReq.context.page = page
+  await currentProductTree(renderingReq as ExtendedRequest, res as Response, next)
   features(renderingReq as ExtendedRequest, res as Response, next)
   const context = renderingReq.context
 
@@ -62,7 +53,12 @@ export async function getPageInfo(page: Page, pathname: string) {
   }
   const product = productPage ? await getProductPageInfo(productPage, context) : ''
 
-  return { title, intro, product }
+  // Call breadcrumbs middleware to populate renderingReq.context.breadcrumbs
+  breadcrumbs(renderingReq as ExtendedRequest, res as Response, next)
+
+  const { breadcrumbs: pageBreadcrumbs } = renderingReq.context
+
+  return { title, intro, product, breadcrumbs: pageBreadcrumbs }
 }
 
 const _productPageCache: {
@@ -96,7 +92,7 @@ type CachedPageInfo = {
 }
 
 let _cache: CachedPageInfo | null = null
-async function getPageInfoFromCache(page: Page, pathname: string) {
+export async function getPageInfoFromCache(page: Page, pathname: string) {
   let cacheInfo = ''
   if (_cache === null) {
     try {
@@ -111,12 +107,12 @@ async function getPageInfoFromCache(page: Page, pathname: string) {
     }
   }
 
-  let info = _cache[pathname]
+  let meta = _cache[pathname]
   if (!cacheInfo) {
-    cacheInfo = info ? 'hit' : 'miss'
+    cacheInfo = meta ? 'hit' : 'miss'
   }
-  if (!info) {
-    info = await getPageInfo(page, pathname)
+  if (!meta) {
+    meta = await getPageInfo(page, pathname)
     // You might wonder; why do we not store this compute information
     // into the `_cache` from here?
     // The short answer is; it won't be used again.
@@ -128,74 +124,37 @@ async function getPageInfoFromCache(page: Page, pathname: string) {
     // In CI, we use the caching because the CI runs
     // `npm run precompute-pageinfo` right before it runs vitest tests.
   }
-  info.cacheInfo = cacheInfo
-  return info
+  meta.cacheInfo = cacheInfo
+  return meta
 }
 
-router.get(
-  '/v1',
-  pathValidationMiddleware as RequestHandler,
-  pageValidationMiddleware as RequestHandler,
-  catchMiddlewareError(async function pageInfo(req: ExtendedRequestWithPageInfo, res: Response) {
-    // Remember, the `validationMiddleware` will use redirects if the
-    // `pathname` used is a redirect (e.g. /en/articles/foo or
-    // /articles or '/en/enterprise-server@latest/foo/bar)
-    // So by the time we get here, the pathname should be one of the
-    // page's valid permalinks.
-    const { page, pathname, archived } = req.pageinfo
+export async function getMetadata(req: ExtendedRequestWithPageInfo) {
+  // Remember, the `validationMiddleware` will use redirects if the
+  // `pathname` used is a redirect (e.g. /en/articles/foo or
+  // /articles or '/en/enterprise-server@latest/foo/bar)
+  // So by the time we get here, the pathname should be one of the
+  // page's valid permalinks.
+  const { page, pathname, archived } = req.pageinfo
 
-    if (archived && archived.isArchived) {
-      const { requestedVersion } = archived
-      const title = `GitHub Enterprise Server ${requestedVersion} Help Documentation`
-      const intro = ''
-      const product = 'GitHub Enterprise Server'
-      defaultCacheControl(res)
-      return res.json({ info: { intro, title, product } })
-    }
+  if (archived && archived.isArchived) {
+    const { requestedVersion } = archived
+    const title = `GitHub Enterprise Server ${requestedVersion} Help Documentation`
+    const intro = ''
+    const product = 'GitHub Enterprise Server'
+    return { meta: { intro, title, product } }
+  }
 
-    if (!page) {
-      return res.status(400).json({ error: `No page found for '${pathname}'` })
-    }
+  if (!page) {
+    throw new Error(`No page found for '${pathname}'`)
+  }
 
-    const pagePermalinks = page.permalinks.map((p: Permalink) => p.href)
-    if (!pagePermalinks.includes(pathname)) {
-      throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
-    }
+  const pagePermalinks = page.permalinks.map((p: Permalink) => p.href)
+  if (!pagePermalinks.includes(pathname)) {
+    throw new Error(`pathname '${pathname}' not one of the page's permalinks`)
+  }
 
-    const fromCache = await getPageInfoFromCache(page, pathname)
-    const { cacheInfo, ...info } = fromCache
+  const fromCache = await getPageInfoFromCache(page, pathname)
+  const { cacheInfo, ...meta } = fromCache
 
-    const tags = [
-      // According to https://docs.datadoghq.com/getting_started/tagging/#define-tags
-      // the max length of a tag is 200 characters. Most of ours are less than
-      // that but we truncate just to be safe.
-      `pathname:${pathname}`.slice(0, 200),
-      `language:${page.languageCode}`,
-      `cache:${cacheInfo}`,
-    ]
-    statsd.increment('pageinfo.lookup', 1, tags)
-
-    defaultCacheControl(res)
-
-    // This is necessary so that the `Surrogate-Key` header is set with
-    // the correct language surrogate key bit. By default, it's set
-    // from the pathname but `/api/**` URLs don't have a language
-    // (other than the default 'en').
-    // We do this so that all of these URLs are cached in Fastly by language
-    // which we need for the staggered purge.
-
-    setFastlySurrogateKey(
-      res,
-      `${SURROGATE_ENUMS.DEFAULT} ${makeLanguageSurrogateKey(page.languageCode)}`,
-      true,
-    )
-    res.status(200).json({ info })
-  }),
-)
-
-// Alias for the latest version
-router.get('/', (req, res) => {
-  res.redirect(307, req.originalUrl.replace('/pageinfo', '/pageinfo/v1'))
-})
-
-export default router
+  return { meta, cacheInfo }
+}

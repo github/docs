@@ -1,6 +1,6 @@
 date: '2025-02-25'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >
@@ -236,6 +236,10 @@ sections:
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
 
   closing_down:
     # https://github.com/github/releases/issues/4683

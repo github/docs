@@ -30,6 +30,9 @@ Once you complete this project, you should understand how to build your own comp
 Composite actions allow you to collect a series of workflow job steps into a single action which you can then run as a single job step in multiple workflows. Reusable workflows provide another way of avoiding duplication, by allowing you to run a complete workflow from within other workflows. For more information, see [AUTOTITLE](/actions/using-workflows/avoiding-duplication).
 
 ## Prerequisites
+>
+> [!NOTE]
+> This example explains how to create a composite action within a separate repository. However, it is possible to create a composite action within the same repository. For more information, see [AUTOTITLE](/actions/creating-actions/creating-a-composite-action#creating-a-composite-action-within-the-same-repository).
 
 Before you begin, you'll create a repository on {% data variables.product.github %}.
 
@@ -177,6 +180,71 @@ jobs:
 ```
 
 From your repository, click the **Actions** tab, and select the latest workflow run. The output should include: "Hello Mona the Octocat", the result of the "Goodbye" script, and a random number.
+
+## Creating a composite action within the same repository
+
+1. Create a new subfolder called `hello-world-composite-action`, this can be placed in any subfolder within the repository. However, it is recommended that this be placed in the `.github/actions` subfolder to make organization easier.
+1. In the `hello-world-composite-action` folder, do the same steps to create the `goodbye.sh` script
+
+   ```shell copy
+   echo "echo Goodbye" > goodbye.sh
+   ```
+
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-executable-linux-mac %}
+
+   {% endmac %}
+   {% windows %}
+
+   ```shell copy
+   git add --chmod=+x -- goodbye.sh
+   ```
+
+   {% endwindows %}
+   {% linux %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+
+   {% endlinux %}
+   {% mac %}
+
+   {% data reusables.actions.composite-actions-commit-file-linux-mac %}
+   {% endmac %}
+   {% windows %}
+
+   ```shell copy
+   git commit -m "Add goodbye script"
+   git push
+   ```
+
+   {% endwindows %}
+1. In the `hello-world-composite-action` folder, create the `action.yml` file based on the steps in [AUTOTITLE](/actions/creating-actions/creating-a-composite-action#creating-an-action-metadata-file).
+1. When using the action, use the relative path to the folder where the composite action's `action.yml` file is located in the `uses` key. The below example assumes it is in the `.github/actions/hello-world-composite-action` folder.
+
+```yaml copy
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+      - uses: {% data reusables.actions.action-checkout %}
+      - id: foo
+        uses: ./.github/actions/hello-world-composite-action
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number "$RANDOM_NUMBER"
+        shell: bash
+        env:
+          RANDOM_NUMBER: {% raw %}${{ steps.foo.outputs.random-number }}{% endraw %}
+```
 
 ## Example composite actions on {% data variables.product.github %}
 

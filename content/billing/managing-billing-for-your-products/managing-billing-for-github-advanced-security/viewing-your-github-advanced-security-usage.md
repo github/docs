@@ -2,7 +2,7 @@
 title: Viewing your GitHub Advanced Security usage
 intro: 'You can view usage of {% data variables.product.prodname_GH_advanced_security %} for your enterprise.'
 permissions: 'Enterprise owners can view usage for {% data variables.product.prodname_GH_advanced_security %}.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 redirect_from:
   - /billing/managing-licensing-for-github-advanced-security/viewing-your-github-advanced-security-usage
   - /admin/advanced-security/viewing-your-github-advanced-security-usage
