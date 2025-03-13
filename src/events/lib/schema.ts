@@ -422,6 +422,7 @@ const aiSearchResult = {
     'ai_search_result_response',
     'ai_search_result_links_json',
     'ai_search_result_provided_answer',
+    'ai_search_result_response_status',
   ],
   properties: {
     context,
@@ -445,6 +446,10 @@ const aiSearchResult = {
     ai_search_result_provided_answer: {
       type: 'boolean',
       description: 'Whether the GPT was able to answer the query.',
+    },
+    ai_search_result_response_status: {
+      type: 'number',
+      description: 'The status code of the GPT response.',
     },
   },
 }
