@@ -60,26 +60,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.security_center_export_code_scanning_metrics",
-    "description": "A CSV export was requested on the \"CodeQL pull request alerts\" page.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.security_center_export_coverage",
-    "description": "A CSV export was requested on the \"Coverage\" page.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.security_center_export_overview_dashboard",
-    "description": "A CSV export was requested on the \"Overview Dashboard\" page.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.security_center_export_risk",
-    "description": "A CSV export was requested on the \"Risk\" page.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.set_actions_fork_pr_approvals_policy",
     "description": "The policy for requiring approvals for workflows from public forks was changed for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-fork-pull-requests-in-your-enterprise"
@@ -670,11 +650,6 @@
     "docs_reference_links": "/apps/using-github-apps/reviewing-your-authorized-integrations"
   },
   {
-    "action": "oauth_authorization.update",
-    "description": "An authorization for an OAuth application was updated.",
-    "docs_reference_links": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
-  },
-  {
     "action": "org.add_member",
     "description": "A user joined an organization.",
     "docs_reference_links": "N/A"
@@ -707,11 +682,6 @@
   {
     "action": "org.remove_member",
     "description": "A member was removed from an organization, either manually or due to a two-factor authentication requirement.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.security_center_export_code_scanning_metrics",
-    "description": "A CSV export was requested on the CodeQL pull request alerts page.",
     "docs_reference_links": "N/A"
   },
   {

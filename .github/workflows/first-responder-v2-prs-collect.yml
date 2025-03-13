@@ -69,7 +69,7 @@ jobs:
       - name: Check if PR is connected to DIY docs issue
         id: check-diy-docs
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           ISSUE_NUMS=$(echo "${{ github.event.pull_request.body }}" | grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|#[0-9]+)' | grep -oE '[0-9]+')
           for ISSUE_NUM in $ISSUE_NUMS; do
@@ -83,7 +83,7 @@ jobs:
       - name: Add the DIY docs label if connected to a DIY docs issue
         if: ${{ env.DIY_DOCS_LABEL == 'true' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
           gh pr edit $PR_URL --add-label 'DIY docs'
