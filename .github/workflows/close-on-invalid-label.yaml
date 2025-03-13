@@ -19,7 +19,7 @@ permissions:
 
 jobs:
   close-if-invalid:
-    if: github.repository == 'github/docs' && (github.event.label.name == 'invalid' || github.event.pull_request.title == 'Revert "Repo sync"')
+    if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
 
     steps:
