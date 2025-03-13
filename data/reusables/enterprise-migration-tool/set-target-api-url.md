@@ -4,4 +4,10 @@
    export TARGET_API_URL="https://api.{% data variables.enterprise.data_residency_example_domain %}"
    ```
 
+   If you're using PowerShell, use the `$env` command.
+
+   ```shell copy
+   $env:TARGET_API_URL="https://api.{% data variables.enterprise.data_residency_example_domain %}"
+   ```
+
    You'll use this variable with the `--target-api-url` option in commands you run with the {% data variables.product.prodname_cli %}.
