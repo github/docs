@@ -68,6 +68,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. {% ifversion fpt or ghec %}For example:{% else %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
    ```yaml copy
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -76,10 +81,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0{% else %}actions/create-github-app-token@v1{% endif %}
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             {% ifversion ghes < 3.12 %}app_id{% else %}app-id{% endif %}: {% raw %}${{ vars.APP_ID }}{% endraw %}
+             {% ifversion ghes < 3.12 %}private_key{% else %}private-key{% endif %}: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
          - name: Use API
            env:
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
@@ -207,6 +212,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. For example:
 
    ```yaml
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -227,10 +237,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0{% else %}actions/create-github-app-token@v1{% endif %}
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             {% ifversion ghes < 3.12 %}app_id{% else %}app-id{% endif %}: {% raw %}${{ vars.APP_ID }}{% endraw %}
+             {% ifversion ghes < 3.12 %}private_key{% else %}private-key{% endif %}: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
 
          - name: Run script
            run: |
@@ -313,6 +323,11 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 1. Add a step to generate a token, and use that token instead of `GITHUB_TOKEN`. Note that this token will expire after 60 minutes. {% ifversion fpt or ghec %}For example:{% else %}In the following example, replace `HOSTNAME` with the name of {% data variables.location.product_location %}. Replace `REPO-OWNER` with the name of the account that owns the repository. Replace `REPO-NAME` with the name of the repository.{% endif %}
 
    ```yaml copy
+   {% ifversion ghes < 3.12 %}
+   {% data reusables.actions.actions-not-certified-by-github-comment %}
+
+   {% data reusables.actions.actions-use-sha-pinning-comment %}
+   {% endif %}
    on:
      workflow_dispatch:
    jobs:
@@ -321,10 +336,10 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
        steps:
          - name: Generate token
            id: generate-token
-           uses: actions/create-github-app-token@v1
+           uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0{% else %}actions/create-github-app-token@v1{% endif %}
            with:
-             app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
-             private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+             {% ifversion ghes < 3.12 %}app_id{% else %}app-id{% endif %}: {% raw %}${{ vars.APP_ID }}{% endraw %}
+             {% ifversion ghes < 3.12 %}private_key{% else %}private-key{% endif %}: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
 
          - name: Use API
            env:
