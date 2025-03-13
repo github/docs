@@ -36,7 +36,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
 
 {% data reusables.pull_requests.collect-co-author-commit-git-config-info %}
 
-1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add two empty lines.
+1. Type your commit message and a short, meaningful description of your changes. After your commit description, instead of a closing quotation, add an empty line.
 
    ```shell
    $ git commit -m "Refactor usability tests.
@@ -45,7 +45,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    ```
 
    > [!TIP]
-   > If you're using a text editor on the command line to type your commit message, ensure there are two newlines between the end of your commit description and the `Co-authored-by:` commit trailer.
+   > If you're using a text editor on the command line to type your commit message, ensure there is a blank line (i.e., two consecutive newlines) between the end of your commit description and the `Co-authored-by:` commit trailer.
 
 1. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
@@ -54,9 +54,8 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    ```shell
    $ git commit -m "Refactor usability tests.
    >
-   >
-   Co-authored-by: NAME <NAME@EXAMPLE.COM>
-   Co-authored-by: ANOTHER-NAME <ANOTHER-NAME@EXAMPLE.COM>"
+   > Co-authored-by: NAME <NAME@EXAMPLE.COM>
+   > Co-authored-by: ANOTHER-NAME <ANOTHER-NAME@EXAMPLE.COM>"
    ```
 
 The new commit and message will appear on {% data variables.location.product_location %} the next time you push. For more information, see [AUTOTITLE](/get-started/using-git/pushing-commits-to-a-remote-repository).
