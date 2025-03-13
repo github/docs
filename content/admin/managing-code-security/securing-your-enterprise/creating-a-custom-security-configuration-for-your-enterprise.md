@@ -40,7 +40,7 @@ When creating a security configuration, keep in mind that:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "Configurations" page, name your configuration and create a description.
 1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
@@ -73,7 +73,7 @@ When creating a security configuration, keep in mind that:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "Configurations" page, name your configuration and create a description.
 1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).

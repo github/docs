@@ -2,7 +2,7 @@
 title: Viewing committer information for GitHub Advanced Security
 intro: 'You can view information about the {% data variables.product.prodname_GH_advanced_security %} committers for your enterprise and calculate the cost for additional committers with the site admin dashboard.'
 permissions: 'Site administrators can view committer information for {% data variables.product.prodname_GH_advanced_security %}.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghes: '*'
 type: how_to

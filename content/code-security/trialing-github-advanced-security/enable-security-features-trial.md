@@ -24,7 +24,7 @@ When you planned your trial, you identified the features that you want to test a
 1. In the top-right corner of {% data variables.product.prodname_dotcom %}, click your profile photo.
 1. Depending on your environment, click **Your enterprise**, or click **Your enterprises** then click your trial enterprise.
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security** to display the security configurations page.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Click **New configuration** to create a new configuration.
 1. Give the configuration a meaningful name and description.
 1. You will see that most features are already enabled. Review the features that are **Not set** and enable any that you want to trial, for example: "Automatic dependency submission."
@@ -52,14 +52,14 @@ You may find it helpful to apply an enterprise security configuration to all rep
 ### Enterprise-level application
 
 1. Open your trial enterprise.
-1. In the sidebar, click **Settings** and then **Code security** to display the security configurations page.
+1. In the sidebar, click **Settings** and then {% ifversion ghas-products-cloud %}**{% data variables.product.prodname_AS %}**{% else %}**Code security**{% endif %} to display the security configurations page.
 1. For the configuration you want to apply, click **Apply to** and choose whether to apply the configuration to all repositories in the enterprise or just to the repositories without an existing security configuration.
 
 ### Organization-level application
 
 1. Open an organization in your trial enterprise.
 1. Click the **Settings** tab to display the organization settings.
-1. In the sidebar, click **Code security** and then **Configurations** to display the security configurations page.
+1. In the sidebar, click {% ifversion ghas-products-cloud %}**{% data variables.product.prodname_AS %}**{% else %}**Code security**{% endif %} and then **Configurations** to display the security configurations page.
 1. Optionally, select the **Apply to** dropdown menu and click either **All repositories**, to apply any configuration to all repositories in the organization, or **All repositories without configurations**, to configure just the repositories in the organization without an existing security configuration.
 1. Optionally, in the "Apply configurations" section use the "Search repositories" field or **Filter** button to filter repositories. Then select one or more repositories and use the **Apply configuration** button to choose a configuration to apply to those repositories.
 

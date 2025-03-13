@@ -1,6 +1,6 @@
 ---
 title: Asking GitHub Copilot questions in your IDE
-intro: 'Use {% data variables.product.prodname_copilot_chat_short %} in your editor to give code suggestions, explain code, generate unit tests, and suggest code fixes.'
+intro: 'Use {% data variables.product.prodname_copilot_chat_short %} in your editor to give you code suggestions, explain code, generate unit tests, and suggest code fixes.'
 topics:
   - Copilot
 redirect_from:
@@ -26,7 +26,7 @@ shortTitle: Chat in IDE
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 {% data reusables.copilot.open-chat-vs-code %}
 
@@ -180,7 +180,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
 1. In the {% data variables.product.prodname_copilot_chat_short %} window, enter a prompt, then press **Enter**. For example prompts, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
@@ -288,7 +288,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. Open the {% data variables.product.prodname_copilot_chat_short %} window by clicking the **{% data variables.product.prodname_copilot_chat %}** icon at the right side of the JetBrains IDE window.
 
@@ -366,8 +366,6 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 
 {% xcode %}
 
-{% data reusables.copilot.xcode-chat-public-preview-note %}
-
 ## Prerequisites
 
 To use {% data variables.product.prodname_copilot %} for Xcode, you must install the {% data variables.product.prodname_copilot %} for Xcode extension. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
@@ -376,7 +374,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode, you must install
 
 ## Submitting prompts
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} to give code suggestions, explain code, generate unit tests, and suggest code fixes.
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
 1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
 
@@ -385,6 +383,10 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} to give cod
 1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and submit a follow up prompt if needed.
 
    The response often includes interactive elements. For example, the response may include buttons to copy or insert a code block.
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.change-the-ai-model %}
 
 ## Using keywords in your prompt
 
@@ -419,3 +421,52 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endxcode %}
+
+{% eclipse %}
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+## Prerequisites
+
+{% data reusables.copilot.eclipse-prerequisites %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Sign in to {% data variables.product.company_short %} from Eclipse**.
+
+{% data reusables.copilot.chat-access-denied %}
+
+## Submitting prompts
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
+
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
+
+1. Enter a prompt in the prompt box, then press <kbd>Enter</kbd>.
+
+   For an introduction to the kinds of prompts you can use, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
+
+1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow up request if needed.
+
+## Using keywords in your prompt
+
+You can use special keywords to help {% data variables.product.prodname_copilot_short %} understand your prompt. For examples, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
+
+### Slash commands
+
+Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command. For example, use `/explain` to ask {% data variables.product.prodname_copilot_short %} to explain the code in the file currently displayed in the editor.
+
+To see all available slash commands, type `/` in the chat prompt box.
+
+## AI models for {% data variables.product.prodname_copilot_chat_short %}
+
+{% data reusables.copilot.change-the-ai-model %}
+
+## Further reading
+
+* [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot)
+* [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
+* [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
+* [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
+
+{% endeclipse %}

@@ -2,7 +2,7 @@
 title: Enabling {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products {% endif %}for your enterprise
 shortTitle: Enabling {% data variables.product.prodname_GHAS %}
 intro: 'You can configure {% data variables.product.prodname_ghe_server %} to include {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}. This provides extra features that help users find and fix security problems in their code.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise

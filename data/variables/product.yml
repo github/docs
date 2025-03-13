@@ -196,6 +196,8 @@ prodname_GH_cs_or_sp: '{% ifversion ghas-products %}GitHub Code Security or GitH
 prodname_AS: 'Advanced Security'
 prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Advanced Security{% endif %}'
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}'
 
 ## OLD variables, DO NOT USE
 prodname_GH_advanced_security: 'GitHub Advanced Security'

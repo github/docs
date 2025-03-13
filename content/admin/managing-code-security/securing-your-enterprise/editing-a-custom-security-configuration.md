@@ -26,7 +26,7 @@ After creating and applying a {% data variables.product.prodname_custom_security
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to edit.
 1. Edit the name and description of your {% data variables.product.prodname_custom_security_configuration %} as desired.
 1. In the "Security settings" section, edit the enablement settings of your {% data variables.product.prodname_custom_security_configuration %} as desired.

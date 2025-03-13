@@ -105,7 +105,6 @@ export function SearchOverlay({
     router,
     currentVersion,
     debug,
-    eventGroupIdRef: searchEventGroupId,
   })
 
   const { aiAutocompleteOptions, generalSearchResults, totalGeneralSearchResults } =
@@ -275,6 +274,14 @@ export function SearchOverlay({
 
   // When a general option is selected, open the article in the current window
   const generalSearchResultOnSelect = (selectedOption: GeneralSearchHit) => {
+    sendEvent({
+      type: EventType.search,
+      // TODO: Remove PII so we can include the actual query
+      search_query: 'REDACTED',
+      search_context: GENERAL_SEARCH_CONTEXT,
+      eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
+      eventGroupId: searchEventGroupId.current,
+    })
     sendEvent({
       type: EventType.searchResult,
       search_result_query: urlSearchInputQuery,

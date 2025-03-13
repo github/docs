@@ -1,7 +1,7 @@
 ---
 title: Configuring default setup for code scanning
 shortTitle: Configure code scanning
-intro: 'You can quickly secure code in your repository with default setup for {% data variables.product.prodname_code_scanning %}.'
+intro: 'Quickly set up {% data variables.product.prodname_code_scanning %} to find {% ifversion fpt or ghec %}and fix {% endif %}vulnerable code automatically.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -88,7 +88,7 @@ Compiled languages are not automatically included in default setup configuration
 {% data reusables.user-settings.security-analysis %}
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
 
-   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
+   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 
