@@ -65,7 +65,7 @@ jobs:
       - name: Purge Fastly edge cache per language
         if: ${{ !inputs.nuke_all }}
         env:
-          LANGUAGES: ${{ inputs.languages }}
+          LANGUAGES: ${{ inputs.languages || 'en' }} # Temporary, only purge English on deploy. Set to empty string for all
         run: npm run purge-fastly-edge-cache-per-language
 
       - uses: ./.github/actions/slack-alert
