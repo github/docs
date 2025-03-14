@@ -1,4 +1,4 @@
-{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
+{% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application deployment processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_actions %}:
 
 * To create a {% data variables.product.prodname_actions %} workflow, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows).
 * For continuous integration (CI) workflows, see [AUTOTITLE](/actions/automating-builds-and-tests).
