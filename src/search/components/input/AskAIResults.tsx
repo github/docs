@@ -31,6 +31,14 @@ type AIQueryResultsProps = {
   setAICouldNotAnswer: (aiCouldNotAnswer: boolean) => void
 }
 
+type AISearchResultEventParams = {
+  sources: Array<{ url: string }>
+  message: string
+  eventGroupId: string
+  couldNotAnswer?: boolean
+  status: number
+}
+
 export function AskAIResults({
   query,
   version,
@@ -67,7 +75,13 @@ export function AskAIResults({
     setResponseLoading(false)
     setAICouldNotAnswer(true)
     const cannedResponse = t('search.ai.unable_to_answer')
-    sendAISearchResultEvent([], cannedResponse, askAIEventGroupId.current, true)
+    sendAISearchResultEvent({
+      sources: [],
+      message: cannedResponse,
+      eventGroupId: askAIEventGroupId.current,
+      couldNotAnswer: true,
+      status: 400,
+    })
     setMessage(cannedResponse)
     setReferences([])
     setItem(
@@ -104,12 +118,13 @@ export function AskAIResults({
       setAICouldNotAnswer(cachedData.aiCouldNotAnswer || false)
       setInitialLoading(false)
       setResponseLoading(false)
-      sendAISearchResultEvent(
-        cachedData.sources,
-        cachedData.message,
-        askAIEventGroupId.current,
-        cachedData.aiCouldNotAnswer,
-      )
+      sendAISearchResultEvent({
+        sources: cachedData.sources,
+        message: cachedData.message,
+        eventGroupId: askAIEventGroupId.current,
+        couldNotAnswer: cachedData.aiCouldNotAnswer,
+        status: cachedData.aiCouldNotAnswer ? 400 : 200,
+      })
       return
     }
 
@@ -128,12 +143,26 @@ export function AskAIResults({
           console.error(
             `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
           )
+          sendAISearchResultEvent({
+            sources: [],
+            message: '',
+            eventGroupId: askAIEventGroupId.current,
+            couldNotAnswer: false,
+            status: response.status,
+          })
           return setAISearchError()
         } else {
           setAISearchError(false)
         }
         if (!response.body) {
           console.error(`ReadableStream not supported in this browser`)
+          sendAISearchResultEvent({
+            sources: [],
+            message: '',
+            eventGroupId: askAIEventGroupId.current,
+            couldNotAnswer: false,
+            status: response.status,
+          })
           return setAISearchError()
         }
 
@@ -197,7 +226,13 @@ export function AskAIResults({
           )
           setInitialLoading(false)
           setResponseLoading(false)
-          sendAISearchResultEvent(sourcesBuffer, messageBuffer, askAIEventGroupId.current, false)
+          sendAISearchResultEvent({
+            sources: sourcesBuffer,
+            message: messageBuffer,
+            eventGroupId: askAIEventGroupId.current,
+            couldNotAnswer: false,
+            status: 200,
+          })
         }
       }
     }
@@ -343,12 +378,13 @@ export function AskAIResults({
   )
 }
 
-function sendAISearchResultEvent(
-  sources: Array<{ url: string }>,
-  message: string,
-  eventGroupId: string,
+function sendAISearchResultEvent({
+  sources,
+  message,
+  eventGroupId,
   couldNotAnswer = false,
-) {
+  status,
+}: AISearchResultEventParams) {
   let searchResultLinksJson = '[]'
   try {
     searchResultLinksJson = generateAISearchLinksJson(sources, message)
@@ -362,6 +398,7 @@ function sendAISearchResultEvent(
     ai_search_result_response: 'REDACTED',
     ai_search_result_links_json: searchResultLinksJson,
     ai_search_result_provided_answer: couldNotAnswer ? false : true,
+    ai_search_result_response_status: status,
     eventGroupKey: ASK_AI_EVENT_GROUP,
     eventGroupId: eventGroupId,
   })
