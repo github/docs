@@ -767,7 +767,8 @@ function renderSearchGroups(
     groups.push(<ActionList.Divider key="no-answer-divider" />)
   }
 
-  if (showSpinner) {
+  // already showing spinner when streaming AI response, so don't want to show 2 here
+  if (showSpinner && !isInAskAIState) {
     groups.push(
       <Box
         key="loading"
