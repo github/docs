@@ -1,0 +1,53 @@
+name: Reviewers - Docs Engineering
+
+# **What it does**: Automatically add reviewers based on paths, but only for the docs-internal repo.
+# And sets the 'engineering' label on the PR. It also edits the PR body to add a template
+# for asking questions for the sake of being confident about the PRs rollout.
+# **Why we have it**: So we can have reviewers automatically without getting open source notifications.
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    types:
+      - edited
+      - opened
+      - ready_for_review
+      - reopened
+      - synchronize
+    paths:
+      - '**.js'
+      - '**.ts'
+      - '**.tsx'
+      - '**.scss'
+      - 'src/**'
+      - '!src/**.json' # So that Docs Engineering isn't reviewing automated pipeline data PRs
+      - '!src/**.yml' # So that Docs Engineering isn't reviewing automated pipeline data PRs
+      - '.github/**'
+      - 'config/**'
+      - '.devcontainer/**'
+      - '**Dockerfile'
+      - 'package*.json'
+      - .github/workflows/reviewers-docs-engineering.yml
+
+permissions:
+  contents: read
+  pull-requests: write
+  repository-projects: read
+
+jobs:
+  codeowners-docs-engineering:
+    if: >-
+      ${{ github.repository == 'github/docs-internal' &&
+          !github.event.pull_request.draft &&
+          !contains(github.event.pull_request.labels.*.name, 'reviewers-docs-engineering') &&
+          github.event.pull_request.head.ref != 'repo-sync' }}
+    runs-on: ubuntu-latest
+    env:
+      PR: ${{ github.event.pull_request.html_url }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+
+    steps:
+      - name: Add docs engineering as a reviewer
+        run: |
+          gh pr edit $PR --add-reviewer github/docs-engineering
+          gh pr edit $PR --add-label reviewers-docs-engineering

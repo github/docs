@@ -15,11 +15,10 @@ topics:
   - Pull requests
 children:
   - /managing-pull-requests-for-dependency-updates
+  - /about-dependabot-on-github-actions-runners
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
   - /configuring-access-to-private-registries-for-dependabot
-  - /removing-dependabot-access-to-public-registries
-  - /troubleshooting-the-detection-of-vulnerable-dependencies
-  - /troubleshooting-dependabot-errors
+  - /guidance-for-the-configuration-of-private-registries-for-dependabot
+  - /dependabot-options-reference
 ---
-

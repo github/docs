@@ -1,9 +1,10 @@
-import { get } from '../../../tests/helpers/e2etest.js'
+import { describe, expect, test } from 'vitest'
+
+import { get } from '#src/tests/helpers/e2etest.js'
 import {
   SURROGATE_ENUMS,
   makeLanguageSurrogateKey,
-} from '../../../middleware/set-fastly-surrogate-key.js'
-import { describe, expect } from '@jest/globals'
+} from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('webhooks v1 middleware', () => {
   test('basic get webhook', async () => {

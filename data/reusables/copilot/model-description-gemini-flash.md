@@ -1,0 +1,1 @@
+**{% data variables.copilot.copilot_gemini_flash %}:** This model has strong coding, math, and reasoning capabilities that makes it well suited to assist with software development. {% data reusables.copilot.gemini-model-info %}

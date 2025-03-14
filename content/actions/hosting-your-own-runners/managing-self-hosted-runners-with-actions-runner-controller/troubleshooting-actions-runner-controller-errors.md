@@ -5,13 +5,11 @@ intro: 'Learn how to troubleshoot {% data variables.product.prodname_actions_run
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: how_to
 topics:
   - Actions Runner Controller
 ---
-
-{% data reusables.actions.actions-runner-controller-beta %}
 
 [Legal notice](#legal-notice)
 
@@ -68,13 +66,13 @@ app.kubernetes.io/version= # Chart version
 
 To check the logs of the controller pod, you can use the following command.
 
-```bash{:copy}
+```bash copy
 kubectl logs -n <CONTROLLER_NAMESPACE> -l app.kubernetes.io/name=gha-runner-scale-set-controller
 ```
 
 To check the logs of the runner set listener, you can use the following command.
 
-```bash{:copy}
+```bash copy
 kubectl logs -n <CONTROLLER_NAMESPACE> -l auto-scaling-runner-set-namespace=arc-systems -l auto-scaling-runner-set-name=arc-runner-set
 ```
 
@@ -88,15 +86,15 @@ If the controller pod is running, but the listener pod is not, inspect the logs 
 
 If you have a proxy configured or you're using a sidecar proxy that's automatically injected, such as [Istio](https://istio.io/), ensure it's configured to allow traffic from the controller container (manager) to the Kubernetes API server.
 
-If you have installed the autoscaling runner set, but the listener pod is not created, verify that the `githubConfigSecret` you provided is correct and that the `githubConfigUrl` you provided is accurate. See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller)" for more information.
+If you have installed the autoscaling runner set, but the listener pod is not created, verify that the `githubConfigSecret` you provided is correct and that the `githubConfigUrl` you provided is accurate. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/deploying-runner-scale-sets-with-actions-runner-controller) for more information.
 
 ## Runner pods are recreated after a canceled workflow run
 
 Once a workflow run is canceled, the following events happen.
 
-- The cancellation signal is sent to the runners directly.
-- The runner application terminates, which also terminates the runner pods.
-- On the next poll, the cancellation signal is received by the listener.
+* The cancellation signal is sent to the runners directly.
+* The runner application terminates, which also terminates the runner pods.
+* On the next poll, the cancellation signal is received by the listener.
 
 There might be a slight delay between when the runners receive the signal and when the listener receives the signal. When runner pods start terminating, the listener tries to bring up new runners to match the desired number of runners according to the state it's in. However, when the listener receives the cancellation signal, it will act to reduce the number of runners. Eventually the listener will scale back down to the desired number of runners. In the meantime, you may see extra runners.
 
@@ -118,9 +116,9 @@ You may see this error if you're using Kubernetes mode with persistent volumes. 
 
 To fix this, you can do one of the following things.
 
-- Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
+* Use a volume type that supports `securityContext.fsGroup`. `hostPath` volumes do not support this property, whereas `local` volumes and other types of volumes do support it. Update the `fsGroup` of your runner pod to match the GID of the runner. You can do this by updating the `gha-runner-scale-set` helm chart values to include the following. Replace `VERSION` with the version of the `actions-runner` container image you want to use.
 
-    ```yaml{:copy}
+    ```yaml copy
     spec:
         securityContext:
             fsGroup: 123
@@ -130,9 +128,9 @@ To fix this, you can do one of the following things.
         command: ["/home/runner/run.sh"]
     ```
 
-- If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
+* If updating the `securityContext` of your runner pod is not a viable solution, you can work around the issue by using `initContainers` to change the mounted volume's ownership, as follows.
 
-    ```yaml{:copy}
+    ```yaml copy
     template:
     spec:
         initContainers:
@@ -147,6 +145,10 @@ To fix this, you can do one of the following things.
         image: ghcr.io/actions/actions-runner:latest
         command: ["/home/runner/run.sh"]
     ```
+
+## Error: `failed to get access token for {% data variables.product.prodname_github_app %} auth: 401 Unauthorized`
+
+A `401 Unauthorized` error when attempting to obtain an access token for a {% data variables.product.prodname_github_app %} could be a result of a Network Time Protocol (NTP) drift. Ensure that your Kubernetes system is accurately syncing with an NTP server and that there isn't a significant time drift. There is more leeway if your system time is behind {% data variables.product.github %}'s time, but if the environment is more than a few seconds ahead, 401 errors will occur when using {% data variables.product.prodname_github_app %}.
 
 ## Legal notice
 

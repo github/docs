@@ -1,0 +1,5 @@
+# Reference: Issue #9297 - Dependabot alerts and dependency graph support for pnpm
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

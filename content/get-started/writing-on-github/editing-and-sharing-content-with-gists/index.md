@@ -9,11 +9,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /creating-gists
   - /forking-and-cloning-gists
+  - /saving-gists-with-stars
+  - /moderating-gist-comments
 shortTitle: Share content with gists
 ---
-

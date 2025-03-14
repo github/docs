@@ -1,0 +1,46 @@
+name: Remove PRs from FR project v2 when FR label is removed
+
+# **What it does**: When the `docs-content-fr` label is removed from a pull request, this workflow removes the PR from the FR project v2 project.
+# **Why we have it**: Reduce busy work for the first responder.
+# **Who does it impact**: docs-content first responder.
+
+on:
+  pull_request:
+    types: [unlabeled]
+  workflow_dispatch:
+    inputs:
+      PR_NUMBER:
+        description: 'PR Number'
+        type: string
+        required: true
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  label-removed:
+    name: Remove from FR v2 project
+    runs-on: ubuntu-latest
+    if: |
+      (github.event.label.name == 'docs-content-fr')
+      && (github.repository == 'github/docs-internal')
+    steps:
+      - name: Remove issue from FR v2 project
+        env:
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          PR_NUMBER: ${{ github.event.pull_request.number || inputs.PR_NUMBER }}
+          PROJECT_NUMBER: 11672
+        run: |
+          echo "Finding item in project..."
+
+          ITEM_ID=$(gh project item-list $PROJECT_NUMBER --owner github --limit 100 --format json | jq ".items[] | select(.content.number == $PR_NUMBER).id")
+
+          if [ -n "$ITEM_ID" ]; then
+            echo "Archiving item $ITEM_ID ..."
+            gh project item-archive $PROJECT_NUMBER --owner github --id $ITEM_ID
+          else
+            echo "Pull request number $PR_NUMBER not found on FR v2 Project"
+          fi
+
+          echo "done"

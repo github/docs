@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -53,4 +52,4 @@ Default labels are included in every new repository in your organization, but an
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)"
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)

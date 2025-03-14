@@ -1,0 +1,6 @@
+# Reference: 13369
+# Documentation for metered GHE/GHAS.
+
+versions:
+  ghec: '*'
+  ghes: '>= 3.13'

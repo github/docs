@@ -1,2 +1,3 @@
-1. In the upper-right corner of the notes, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-  ![Horizontal kebab icon in upper-right corner of note](/assets/images/help/projects/note-more-options.png)
+1. In the upper-right corner of the notes, click {% octicon "kebab-horizontal" aria-label="Card menu" %}.
+
+   ![Screenshot of two cards in a project. The card menu button in the note card is highlighted with an orange outline.](/assets/images/help/projects/note-more-options.png)

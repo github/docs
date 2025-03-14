@@ -1,1 +1,1 @@
-1. Under {% ifversion ghes or ghae %} {% octicon "law" aria-label="The law icon" %} **Policies**{% else %}"{% octicon "gear" aria-label="The Settings gear" %} Settings"{% endif %}, click **Options**.
+1. Under {% ifversion ghes %} **{% octicon "law" aria-hidden="true" %} Policies**{% else %}"{% octicon "gear" aria-hidden="true" %} Settings"{% endif %}, click **Options**.

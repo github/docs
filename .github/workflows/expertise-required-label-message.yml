@@ -1,0 +1,25 @@
+name: Expertise Required label message
+
+# **What it does**: Adds a bot comment stating a certain level of expertise is required to a docs-content issue when the `contributor-expertise-required` label is applied
+# **Why we have it**: We need a method to surface a message denoting if an issue requires a certain level of expertise in order to be resolved
+# **Who does it impact**: Open Source and Hubbers
+
+on:
+  issues:
+    types:
+      - labeled
+
+jobs:
+  job:
+    name: Comment on issue with expertise required message
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    if: github.event.label.name == 'contributor-expertise-required' && github.repository == 'github/docs'
+    steps:
+      - name: Comment on issue
+        env:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          issue: ${{ github.event.issue.html_url }}
+        run: |
+          gh issue comment $issue --body 'Addressing this issue will require additional expertise from the contributor. Please make sure to review the issue carefully before opening a PR and ask any questions you might have in the issue.'

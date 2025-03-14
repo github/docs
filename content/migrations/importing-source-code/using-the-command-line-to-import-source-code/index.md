@@ -5,7 +5,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 # topics:
 children:
   - /about-source-code-imports-using-the-command-line

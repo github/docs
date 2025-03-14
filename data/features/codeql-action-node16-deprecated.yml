@@ -1,0 +1,5 @@
+# Reference: Issue #13155 https://github.com/github/docs-content/issues/13155 to update CodeQL action version
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.11'

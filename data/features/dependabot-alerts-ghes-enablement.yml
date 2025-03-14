@@ -1,0 +1,4 @@
+# Reference: issue #8959
+# Dependabot Alerts enablement at the repo, org and enterprise level for GHES
+versions:
+  ghes: '>= 3.9'

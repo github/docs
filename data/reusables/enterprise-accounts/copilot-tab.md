@@ -1,1 +1,1 @@
-1. Under "{% octicon "law" aria-label="The law icon" %} Policies", click **{% data variables.product.prodname_copilot_short %}**.
+1. In the "{% octicon "law" aria-hidden="true" %} Policies" section, click **{% data variables.product.prodname_copilot_short %}**.

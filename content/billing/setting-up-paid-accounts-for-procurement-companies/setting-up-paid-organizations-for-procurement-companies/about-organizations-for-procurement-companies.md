@@ -20,12 +20,12 @@ shortTitle: About organizations
 
 To access an organization, each member must sign into their own personal account.
 
-Organization members can have different roles, such as *owner* or *billing manager*:
+Organization members can have different roles, such as _owner_ or _billing manager_:
 
-- **Owners** have complete administrative access to an organization and its contents.
-- **Billing managers** can manage billing settings, and cannot access organization contents. Billing managers are not shown in the list of organization members.
+* **Owners** have complete administrative access to an organization and its contents.
+* **Billing managers** can manage billing settings, and cannot access organization contents. Billing managers are not shown in the list of organization members.
 
-You can also set up an enterprise account for your client. For more information, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies)."
+You can also set up an enterprise account for your client. For more information, see [AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies).
 
 ## Payments and pricing for organizations
 

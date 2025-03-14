@@ -2,12 +2,11 @@
   "frontmatterDefaults": {
       "versions": {
       "fpt": "*",
-      "ghae": "*",
       "ghec": "*",
       "ghes": "*"
     },
     "topics": [
-      "Advanced Security",
+      "Code Security",
       "Code scanning",
       "CodeQL"
     ],

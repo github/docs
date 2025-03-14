@@ -16,25 +16,22 @@ type: how_to
 
 {% data reusables.codespaces.codespaces-machine-types %} You can choose an alternative machine type either when you create a codespace or at any time after you've created a codespace.
 
-For information on choosing a machine type when you create a codespace, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository)."
+For information on choosing a machine type when you create a codespace, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository#creating-a-codespace-for-a-repository).
 
-{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/creating-a-codespace-from-a-template)."
+{% data reusables.codespaces.machine-types-for-unpublished-codespaces %} For more information, see [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-from-a-template).
 
 ## Changing the machine type
 
-{% note %}
-
-**Note**: {% data reusables.codespaces.codespaces-machine-type-availability %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.codespaces.codespaces-machine-type-availability %}
 
 {% webui %}
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
 
-   The number of cores, and the currently used storage space, are displayed for each codespace. Hover over the number of cores to display a tooltip that also shows the RAM and disk capacity of the machine.
+   The number of cores, memory, storage capacity, and currently used storage are displayed for each codespace. Some details are omitted if you are using a narrow browser window.
 
-   ![Screenshot of a list of codespaces. A tooltip for the first codespace reads "16 core, 32 GB RAM, 128 GB."](/assets/images/help/codespaces/your-codespaces-list.png)
+   ![Screenshot of a list of three codespaces on the https://github.com/codespaces page."](/assets/images/help/codespaces/your-codespaces-list.png)
 
 {% data reusables.codespaces.ellipsis-settings %}
 1. Click **Change machine type**.
@@ -57,34 +54,37 @@ For information on choosing a machine type when you create a codespace, see "[AU
 
 {% cli %}
 
+{% data reusables.codespaces.using-github-cli %}
+
 You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variables.product.prodname_cli %} command to change the machine type of a codespace. To use this command, you'll first need to find out the available machine types for your codespace.
 
 1. To view your list of codespaces, in a terminal, enter the following command.
 
-   ```
+   ```shell
    gh codespace list
    ```
+
 1. Optionally, to find the current machine type for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh api /user/codespaces/CODESPACE-NAME
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `literate-space-parakeet-w5vg5ww5p793g7g9`. The permanent names are listed under the **NAME** column in the list returned by `gh codespace list`.
 
    If you're prompted to request the `codespace` scope, follow the instructions in the terminal.
 
    Details for the current machine are listed under the `machine` field.
 1. To find the available machine types for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh api /user/codespaces/CODESPACE-NAME/machines
    ```
 
-   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `octocat-literate-space-parakeet-mld5`.
+   Replace `CODESPACE-NAME` with the permanent name of the codespace, for example `literate-space-parakeet-w5vg5ww5p793g7g9`.
 1. To change the machine type for a codespace, enter the following command.
 
-   ```
+   ```shell
    gh codespace edit --machine MACHINE-TYPE-NAME
    ```
 
@@ -99,7 +99,9 @@ You can use the `gh codespace edit --machine MACHINE-TYPE-NAME` {% data variable
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/codespaces/machines)" in the REST API documentation
-- [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+* [AUTOTITLE](/rest/codespaces/machines)
+* [`gh codespace edit`](https://cli.github.com/manual/gh_codespace_edit) in the {% data variables.product.prodname_cli %} manual
+* [AUTOTITLE](/codespaces/setting-your-user-preferences)
+* [AUTOTITLE](/codespaces/managing-your-codespaces)
 
 {% endcli %}

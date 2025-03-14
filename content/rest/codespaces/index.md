@@ -1,5 +1,7 @@
 ---
-title: Codespaces
+title: REST API endpoints for Codespaces
+shortTitle: Codespaces
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to manage {% data variables.product.prodname_github_codespaces %}.'
 versions:
   fpt: '*'

@@ -1,5 +1,5 @@
 ---
-title: Requesting organization approval for OAuth Apps
+title: Requesting organization approval for OAuth apps
 intro: 'Organization members and outside collaborators can request that an owner approve access to organization resources for {% data variables.product.prodname_oauth_apps %}.'
 redirect_from:
   - /articles/requesting-organization-approval-for-third-party-applications
@@ -13,12 +13,12 @@ versions:
   ghec: '*'
 topics:
   - Accounts
-shortTitle: Request OAuth App approval
+shortTitle: Request {% data variables.product.prodname_oauth_app %} approval
 ---
 
 ## About requesting organization approval for an {% data variables.product.prodname_oauth_app %}
 
-Organization members can always request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests.{% ifversion limit-app-access-requests %} Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use if integration access requests are enabled. For more information, see "[AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests)."{% endif %}
+Organization members can always request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use, and organization owners receive a notification of pending requests. Outside collaborators can request owner approval for {% data variables.product.prodname_oauth_apps %} they'd like to use if integration access requests are enabled. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/limiting-oauth-app-and-github-app-access-requests).
 
 ## Requesting organization approval for an {% data variables.product.prodname_oauth_app %} you've already authorized for your personal account
 
@@ -31,4 +31,4 @@ Organization members can always request owner approval for {% data variables.pro
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
+* [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)

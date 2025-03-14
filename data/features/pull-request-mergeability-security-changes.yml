@@ -1,0 +1,5 @@
+# Issue 10179 - Security Changes for Pull Request Mergeability
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

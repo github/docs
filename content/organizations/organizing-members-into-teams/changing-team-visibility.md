@@ -7,7 +7,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Organizations
@@ -16,11 +15,8 @@ topics:
 
 {% data reusables.organizations.types-of-team-visibility %}
 
-{% tip %}
-
-**Tip:** If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
-
-{% endtip %}
+> [!TIP]
+> If a team has [child or parent teams](/organizations/organizing-members-into-teams/about-teams), you cannot make it a secret team.
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}

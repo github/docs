@@ -1,0 +1,5 @@
+# Issue 5102 for the GHES release
+# Publishing Pages via custom Actions workflow in GHES >= 3.9
+# https://github.com/actions/deploy-pages?tab=readme-ov-file#compatibility
+versions:
+  ghes: '>=3.9'

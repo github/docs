@@ -1,0 +1,62 @@
+date: '2025-03-04'
+sections:
+  security_fixes:
+    - |
+      Permissions and ownership of `/etc/ssh/sshd_config` are now enforced so that the `root` identity is the only one able to read or write to the file.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Some instances with self-signed certificates encountered duplicated IP and DNS entries in their certificate.
+    - |
+      During an upgrade, encrypted record diagnostics would incorrectly flag 2FA records without associated users as undecryptable, causing misleading or unactionable error messages. In addition, in a high-availability or cluster configuration, encrypted record diagnostics were run unnecessarily on nodes other than the MySQL primary, and the resulting prompt from these diagnostics did not honor the `-y` flag.
+    - |
+      An issue with the webhook delivery system could cause missing commits on pull requests and stop GitHub Actions workflows from running reliably on certain triggers. A database replication delay in the webhook delivery system has been removed.
+    - |
+      When a pre-receive hook blocked users from making a commit in the UI, the error message did not display any `echo` messages specified in the pre-receive hook script.
+    - |
+      When users requested large amounts of data from certain API endpoints, such as [List organization repositories](/rest/repos/repos#list-organization-repositories), they sometimes received a `500` error.
+    - |
+      Domain entries could fail to load in the "Verified & Approves Domains" section of the site admin dashboard if one or more authoritative nameservers for the affected domain was unreachable or unresponsive.
+    - |
+      Team avatars and descriptions did not always appear on the team's page.
+    - |
+      Some packages failed to install when a hotpatch was applied to instances hosted on Google Cloud Platform.
+  changes:
+    - |
+      The `ghe-check-disk-usage` command has been updated to provide more valuable insights into troubleshooting disk space issues on the root and data disks.
+    - |
+      A graph for visualizing the status of repository maintenance has been added to the management console.
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.

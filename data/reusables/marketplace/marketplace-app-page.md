@@ -1,0 +1,1 @@
+>[!IMPORTANT] If you created a personal account (either on a {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} plan) after February 13, 2025, these settings are available on the "Marketplace apps" page, which is located under "{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing" in the "Access" section of the sidebar.

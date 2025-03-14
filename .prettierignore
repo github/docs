@@ -1,8 +1,7 @@
 data/release-notes/
-script/bookmarklets/
+src/bookmarklets/
 /.next/
 
-# jest --coverage option
 /.coverage
 /coverage
 

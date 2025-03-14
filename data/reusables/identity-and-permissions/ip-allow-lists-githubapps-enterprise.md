@@ -4,7 +4,7 @@ If you're using an allow list, you can also choose to automatically add to your 
 
 {% data reusables.apps.ip-allow-list-only-apps %}
 
-For more information about how to create an allow list for a {% data variables.product.prodname_github_app %} you have created, see "[AUTOTITLE](/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app)."
+For more information about how to create an allow list for a {% data variables.product.prodname_github_app %} you have created, see [AUTOTITLE](/apps/maintaining-github-apps/managing-allowed-ip-addresses-for-a-github-app).
 
 To enable automatic addition of IP addresses for {% data variables.product.prodname_github_apps %}:
 
@@ -13,9 +13,7 @@ To enable automatic addition of IP addresses for {% data variables.product.prodn
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "IP allow list", select **Enable IP allow list configuration for installed GitHub Apps**.
 
-   {% note %}
+   > [!NOTE]
+   > If you're using {% data variables.product.prodname_emus %} with OIDC, you can only allow access by GitHub Apps if you use {% data variables.product.prodname_dotcom %} for your IP allow list configuration.
 
-   **Note:** If you're using {% data variables.product.prodname_emus %} with OIDC, you can only allow access by GitHub Apps if you use {% data variables.product.prodname_dotcom %} for your IP allow list configuration.
-
-   {% endnote %}
 1. Click **Save**.

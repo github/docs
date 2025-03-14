@@ -3,5 +3,4 @@
 # PAT v2
 versions:
   ghec: '*'
-  ghes: '>=3.9'
-  ghae: '>=3.9'
+  ghes: '>=3.10'

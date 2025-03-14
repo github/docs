@@ -1,0 +1,6 @@
+# Reference: #10912
+# Documentation for security log events for OAuth access tokens.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.9'

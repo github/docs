@@ -1,0 +1,5 @@
+# Reference: #9846
+# Management Console events in the enterprise audit log
+
+versions:
+  ghes: '>=3.9'

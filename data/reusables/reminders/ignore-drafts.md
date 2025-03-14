@@ -1,1 +1,1 @@
-1. Optionally, to exclude draft pull requests from scheduled reminders, select **Ignore drafts**. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests)."
+1. Optionally, to exclude draft pull requests from scheduled reminders, select **Ignore drafts**. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).

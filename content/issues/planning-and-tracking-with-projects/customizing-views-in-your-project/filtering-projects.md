@@ -2,7 +2,9 @@
 title: 'Filtering {% data variables.projects.projects_v2 %}'
 intro: Use filters to choose which items appear in your project's views.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
 type: tutorial
@@ -11,21 +13,17 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views)."
+You can customize which items appear in your views using filters for item metadata, such as assignees and the labels applied to issues, and by the fields in your project. You can combine filters and save them as views. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/managing-your-views).
 
 To filter a view, click {% octicon "filter" aria-label="Filter by keyword or by field" %} and start typing the fields and values you would like to filter for. As you type, possible values will appear. You can also open the project command palette, by pressing {% data variables.projects.command-palette-shortcut %}, and type "Filter by" to choose from the available filters.
 
-![Screenshot showing the location of the filter icon](/assets/images/help/projects-v2/filter-example.png)
+![Screenshot of "Mona's project". A field labeled "Filter by keyword or by field" is highlighted with an orange outline.](/assets/images/help/projects-v2/filter-example.png)
 
 In board layout, you can click on item data to filter for items with that value. For example, click on an assignee to show only items for that assignee. To remove the filter, click the item data again.
 
 Using multiple filters will act as a logical AND filter. For example, `label:bug status:"In progress"` will return items with the `bug` label and the "In progress" status. You can also provide multiple values for the same field to act as a logical OR filter. For example, `label:bug,support` will return items with either the `bug` or `support` labels. {% data variables.product.prodname_projects_v2 %} does not currently support logical OR filters across multiple fields.
 
-{% ifversion projects-v2-insights %}
-
-The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)."
-
-{% endif %}
+The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects).
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
@@ -39,7 +37,7 @@ You can use filters to produce views for very specific purposes. For example, yo
 | <code>label:<em>LABEL</em></code> | **label:bug** will show items with the "bug" label applied.
 | <code>field:<em>VALUE</em></code> | **status:done** will show items with the "status" field set to "done."
 | <code>reviewers:<em>USERNAME</em> | **reviewers:octocat** will show items that have been reviewed by @octocat.
-| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"Beta release"** will show items assigned to the "Beta release" milestone.
+| <code>milestone:&quot;<em>MILESTONE</em>&quot; | **milestone:"QA release"** will show items assigned to the "QA release" milestone.
 
 ## Combining filters
 
@@ -76,6 +74,16 @@ You can invert any filter, including combinations, by prefixing with a hyphen.
 |<code>-assignee:<em>USERNAME</em></code> | **-assignee:octocat** will not show any items assigned to @octocat.
 |<code>-field:<em>VALUE</em></code> | **-status:done** will not show any items with a status of "done."
 |<code>-field:<em>VALUE,VALUE</em></code> | **-priority:1,2** will not show any items with a priority of either 1 or 2.
+
+## Filtering for items that have a value
+
+You can use `has:` to filter for items that have a value
+
+| Qualifier  | Example
+| ---------- | -------------
+|<code>has:assignee</code> | **has:assignee** will show items with an assignee.
+|<code>has:label</code> | **has:label** will show items with a label.
+|<code>has:<em>FIELD</em> | **has:priority** will show items with a priority field value.
 
 ## Filtering for items that are missing a value
 
@@ -126,27 +134,19 @@ You can filter closed items by their close reason.
 |                                          | **reason:"not planned"** will show closed items with the "not planned" reason.
 |                                          | **reason:reopened** will show items that have been reopened after previously being closed.
 
-{% ifversion projects-v2-tasklists %}
-
-## Filtering by the tracked-by field
-
-You can filter for issues that being tracked by another issue in a tasklist. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-tasklists)."
-
-| Qualifier  | Example
-| ---------- | -------------
-| <code>tracked-by:"<em>OWNER</em>/<em>REPO</em>#<em>ISSUE NUMBER</em>"</code> | **tracked-by:"octocat/game#11"** will show any issue tracked by a tasklist in issue #11 of the `octocat/game` repository.
-
-{% endif %}
-
 ## Filtering for when an item was last updated
 
-You can use the `{number}days` syntax to filter for when items were last updated.
+The `updated` filter field provides a more powerful and flexible way to filter items based on their last modification date.
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>last-updated:<em>NUMBER</em>days</code> | **last-updated:1day** will show items last updated one or more days ago.
-|                                               | **last-updated:7days** will show items last updated seven or more days ago.
-|                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
+| <code>updated:<em>NUMBER</em>days</code> | **updated:@today** will show items updated today.
+|                                          | **updated:@today-1d** will show items updated 1 day ago.
+|                                          | **updated:>@today-1w** will show items last updated seven or more days ago.
+|                                          | **updated:>@today-30d** will show items last updated thirty or more days ago.
+|                                          | **-updated:@today** excludes items updated today.
+
+{% data reusables.projects.last-updated-explanation %}
 
 ## Filtering number, date, and iteration fields
 
@@ -157,7 +157,7 @@ You can use `>`, `>=`, `<`, and `<=` to compare number, date, and iteration fiel
 | <code>field:&gt;<em>VALUE</em></code>  | **priority:&gt;1** will show items with a priority greater than 1.
 | <code>field:&gt;=<em>VALUE</em></code> | **date:&gt;=2022-06-01** will show items with a date of "2022-06-01" or later.
 | <code>field:&lt;<em>VALUE</em></code>  | **iteration:<"Iteration 5"** will show items with an iteration before "Iteration 5."
-| <code>field:&gt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
+| <code>field:&lt;=<em>VALUE</em></code> | **points:&lt;=10** will show items with 10 or less points.
 
 You can also use `..` to filter for an inclusive range. When working with a range, `*` can be supplied as a wildcard operator.
 
@@ -166,7 +166,7 @@ You can also use `..` to filter for an inclusive range. When working with a rang
 | <code>field:<em>VALUE</em>..<em>VALUE</em></code> | **priority:1..3** will show items with a priority of 1, 2, or 3.
 |                                                   | **date:2022-01-01..2022-12-31** will show items from the year 2022.
 |                                                   | **points:\*..10** will show items with an points value of anything up to and including 10.
-|                                                   | **iteration:"Iteration 1".."Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
+|                                                   | **iteration:"Iteration 1..Iteration 4"** will show items in "Iteration 1", "Iteration 2", "Iteration 3", and "Iteration 4."
 
 ## Filtering assignees and reviewers using keywords
 
@@ -202,10 +202,18 @@ You can filter by specific text fields or use a general text filter across all t
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>field:"<em>TEXT</em>"    | **title:"API deprecation"** will show items with titles that exactly match "API deprecation."
-| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete."
+| <code>field:"<em>TEXT</em>"    | **title:"Bug fix"** will show items with titles that exactly match "Bug fix".
+| <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete".
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
+
+For general text search across all text fields and titles, matches are based only on the beginning of a word, not any part of it.
+For example, if the issue title is **"Document full-text search"**:
+
+* **Matches**: "Doc", "full", "search"
+* **Doesn't match**: "cument", "ext", "arch"
+
+This approach helps keep general text search more precise and relevant.
 
 {% ifversion projects-v2-wildcard-text-filtering %}
 
@@ -216,5 +224,33 @@ You can also use a <code>&ast;</code> as a wildcard.
 | <code>field:&ast;<em>TEXT</em>&ast;    | **label:&ast;bug&ast;** will show items with a label that contains the word "bug."
 | <code>field:<em>TEXT</em>&ast;         | **title:API&ast;** will show items with a title that begins with "API."
 | <code>field:&ast;<em>TEXT</em>         | **label:&ast;support** will show items with a label that ends with "support."
+
+{% endif %}
+
+{% ifversion issue-types %}
+
+## Filtering by issue type
+
+If your organization uses issue types, you can filter for particular types.
+
+{% data reusables.issues.release-stage %}
+
+| Qualifier  | Example
+| ---------- | -------------
+| <code>type:&quot;<em>ISSUE TYPE</em>&quot;    | **type:&quot;bug&quot;** will show issues with the "bug" type.
+
+{% endif %}
+
+{% ifversion sub-issues %}
+
+## Filtering by parent issue
+
+You can filter your sub-issues by their parent issue.
+
+{% data reusables.issues.release-stage %}
+
+| Qualifier  | Example
+| ---------- | -------------
+| <code>parent-issue:<em>OWNER/REPO#ISSUE NUMBER</em></code> | **parent-issue:octocat/game#4** will show issues with issue #4 in octocat/game as their parent issue.
 
 {% endif %}

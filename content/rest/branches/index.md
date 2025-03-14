@@ -1,11 +1,11 @@
 ---
-title: Branches
+title: REST API endpoints for branches and their settings
+shortTitle: Branches
 intro: Use the REST API to modify branches and their protection settings.
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - API

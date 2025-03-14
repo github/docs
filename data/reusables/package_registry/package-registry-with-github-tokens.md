@@ -1,1 +1,0 @@
-If you are using a {% data variables.product.prodname_actions %} workflow, you can use a `GITHUB_TOKEN` to publish and consume packages in {% data variables.product.prodname_registry %} without needing to store and manage a {% data variables.product.pat_generic %}. For more information, see "[AUTOTITLE](/actions/security-guides/automatic-token-authentication)."

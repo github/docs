@@ -5,7 +5,6 @@ intro: You can host your own runners to run workflows in a highly customizable e
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 children:
   - /about-self-hosted-runners
@@ -21,6 +20,5 @@ children:
   - /monitoring-and-troubleshooting-self-hosted-runners
   - /removing-self-hosted-runners
 ---
-
-{% data reusables.actions.enterprise-beta %}
+ 
 {% data reusables.actions.enterprise-github-hosted-runners %}

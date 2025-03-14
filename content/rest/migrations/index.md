@@ -1,5 +1,7 @@
 ---
-title: Migrations
+title: REST API endpoints for migrations
+shortTitle: Migrations
+allowTitleToDifferFromFilename: true
 intro: 'Use the REST API to migrate the repositories and users of your organization from {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}.'
 redirect_from:
   - /v3/migrations
@@ -10,7 +12,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 children:

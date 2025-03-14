@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Pull requests
@@ -18,5 +17,6 @@ topics:
   - Fundamentals
 children:
   - /about-collaborative-development-models
+  - /helping-others-review-your-changes
+  - /managing-and-standardizing-pull-requests
 ---
-

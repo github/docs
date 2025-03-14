@@ -1,0 +1,6 @@
+# Reference: #12160
+# `GITHUB_ENV` cannot be used to set the `NODE_OPTIONS` environment variable
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.11'

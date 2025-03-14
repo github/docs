@@ -1,0 +1,44 @@
+name: Count translation corruptions
+
+# **What it does**: Generates a summary of Liquid corruptions per language.
+# **Why we have it**: For insights into the state of translations and things we can do to fix them
+# **Who does it impact**: Engineering
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - src/languages/scripts/count-translation-corruptions.ts
+      - src/languages/lib/correct-translation-content.js
+      - .github/workflows/count-translation-corruptions.yml
+      - .github/actions/node-npm-setup/action.yml
+      - .github/actions/clone-translations/action.yml
+      - 'package**.json'
+
+permissions:
+  contents: read
+
+jobs:
+  count-translation-corruptions:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Checkout English repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Using a PAT is necessary so that the new commit will trigger the
+          # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      # It's important because translations are often a bit behind.
+      # So if a translation is a bit behind, it might still be referencing
+      # an asset even though none of the English content does.
+      - name: Clone all translations
+        uses: ./.github/actions/clone-translations
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run count
+        run: npm run count-translation-corruptions

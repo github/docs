@@ -2,7 +2,7 @@
 
 In a terminal on your local computer, enter:
 
-```
+```shell
 curl ADDRESS -H "X-Github-Token: TOKEN"
 ```
 

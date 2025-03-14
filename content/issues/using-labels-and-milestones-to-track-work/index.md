@@ -5,7 +5,6 @@ intro: 'Use labels and milestones to categorize and track work on {% data variab
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Issues

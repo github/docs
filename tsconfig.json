@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "target": "ES2022",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -13,21 +9,22 @@
     "noImplicitThis": false,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "incremental": true
+    "incremental": true,
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "docs-internal-data",
+    "src/code-scanning/scripts/generate-code-scanning-query-list.ts"
   ],
-  "include": [
-    "*.d.ts",
-    "**/*.ts",
-    "**/*.tsx"
-  ]
+  "include": ["*.d.ts", "**/*.ts", "**/*.tsx"]
 }

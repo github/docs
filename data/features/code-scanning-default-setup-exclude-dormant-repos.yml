@@ -1,0 +1,6 @@
+# Exclude "dormant repos" from running scheduled runs via default setup
+# See code-scanning ref:13220
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '<3.13'

@@ -5,7 +5,6 @@ shortTitle: Review audit logs
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Enterprise
 children:
@@ -20,4 +19,3 @@ children:
   - /using-the-audit-log-api-for-your-enterprise
   - /audit-log-events-for-your-enterprise
 ---
-

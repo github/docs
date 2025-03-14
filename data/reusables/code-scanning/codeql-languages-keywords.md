@@ -1,1 +1,1 @@
-`cpp`, `csharp`, `go`, `java`, `javascript`, `python`, and `ruby`
+`c-cpp`, `csharp`, `go`, `java-kotlin`, `javascript-typescript`, `python`, `ruby`, and `swift`

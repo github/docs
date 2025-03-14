@@ -7,7 +7,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /queries
   - /mutations

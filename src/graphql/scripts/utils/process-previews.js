@@ -17,7 +17,7 @@ export default function processPreviews(previews) {
 
     // filter out schema members that end in `Input` or `Payload`
     preview.toggled_on = preview.toggled_on.filter(
-      (schemaMember) => !inputOrPayload.test(schemaMember)
+      (schemaMember) => !inputOrPayload.test(schemaMember),
     )
 
     // remove unnecessary leading colon

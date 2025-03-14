@@ -1,8 +1,7 @@
 ---
 title: Article
-versions: 
+versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 ---

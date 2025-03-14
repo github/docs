@@ -1,0 +1,1 @@
+As a result of this fix, `ghe-cluster-failover` identifies IPs to block from the old primary cluster and writes them to `/data/user/common/cluster-ip-blocklist`. After the failover completes, the command runs `ghe-cluster-block-ips` to block the IPs on the new active cluster.

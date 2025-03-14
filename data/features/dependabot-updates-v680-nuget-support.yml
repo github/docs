@@ -1,0 +1,5 @@
+# Reference: #13349 - Update Dependabot YML supported NuGet version
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.12'

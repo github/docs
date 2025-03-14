@@ -1,0 +1,129 @@
+name: Codespace review - Check
+
+# **What it does**: Check on a regular basis for if a codespace is about to shut down, and comment on the pull request.
+# **Why we have it**: We want to notify contributors when their codespace is about to shut down.
+# **Who does it impact**: Contributors who open a pull request.
+
+on:
+  schedule:
+    - cron: '20,35,50,5 * * * *' # Check every 15 minutes, without hitting the top of the hour
+  pull_request:
+    paths:
+      - '.github/workflows/codespace-review-check.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  codespace-review-check-find:
+    runs-on: ubuntu-latest
+    if: ${{ github.repository == 'github/docs-internal' }}
+    outputs:
+      matrix: ${{ steps.set-matrix.outputs.matrix }}
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Check codespaces
+        id: set-matrix
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_CODESPACE }}
+          LOGIN: docs-bot
+          REPO: github/docs-internal
+        run: |
+          # If its approaching 4 hours, update the comment
+          # But don't keep trying to update the comment after 5 hours cause that wastes API calls
+          from=$(date -d '285 minutes ago' -Iseconds)  # 5 * 60 - 15 = 285
+          until=$(date -d '225 minutes ago' -Iseconds)  # 4 * 60 - 15 = 225
+          echo "- Ago: $ago"
+          # on mac: date -v-225M -Iseconds
+          # -Iseconds means ISO 8601 format, to seconds
+          branches=$(
+            gh codespace list \
+              --repo "$REPO" \
+              --limit 1000 \
+              --json name,owner,lastUsedAt,gitStatus \
+              --jq ".[] | select(.owner == \"$LOGIN\" and .lastUsedAt < \"$until\" and .lastUsedAt > \"$from\") | .gitStatus.ref" \
+          )
+          echo "- Branches:"
+          echo "$(echo "$branches" | sed 's/^/    /')"
+          count=$(echo "$branches" | sed '/^\s*$/d' | wc -l)
+          echo "- Count: $count"
+
+          if [[ $count -gt 0 ]]
+          then
+            echo "Codespaces found that are idle or soon to idle"
+          else
+            echo "Codespaces not found, exiting..."
+            exit 0
+          fi
+
+          # https://stackoverflow.com/a/70716837
+          matrix=$(echo "$branches" | jq -scR 'split("\n") | map(select(. != ""))')
+          echo "- Matrix: $matrix"
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+
+  codespace-review-check-comment:
+    needs:
+      - codespace-review-check-find
+    strategy:
+      matrix:
+        value: ${{ fromJSON(needs.codespace-review-check-find.outputs.matrix) }}
+    runs-on: ubuntu-latest
+    if: ${{ github.repository == 'github/docs-internal' && needs.codespace-review-check-find.outputs.matrix }}
+    env:
+      repo: github/docs-internal
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - name: Find the pull request
+        id: findPr
+        env:
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_CODESPACE }}
+        run: |
+          echo "Looking up pull request"
+          echo "- Branch: ${{ matrix.value }}"
+          number=$(gh pr view "${{ matrix.value }}" --json number --jq '.number')
+          echo "- Number: $number"
+          echo "pr-number=$number" >> $GITHUB_OUTPUT
+
+      - name: Find code changes comment
+        uses: peter-evans/find-comment@3eae4d37986fb5a8592848f6a574fdf654e61f9e
+        id: findComment
+        with:
+          issue-number: ${{ steps.findPr.outputs.pr-number }}
+          comment-author: 'github-actions[bot]'
+          body-includes: '<!-- AUTO_CODESPACE -->'
+
+      - name: Update comment
+        uses: peter-evans/create-or-update-comment@71345be0265236311c031f5c7866368bd1eff043
+        with:
+          comment-id: ${{ steps.findComment.outputs.comment-id }}
+          issue-number: ${{ steps.findPr.outputs.pr-number }}
+          edit-mode: replace
+          body: |
+            <!-- AUTO_CODESPACE -->
+
+            ### Review this PR in a codespace 📦
+
+            The codespace is no longer active.
+            You’ve reached the 4 hour limit.
+            In order to reactivate the codespace, please update the pull request by adding the https://github.com/${{ env.REPO }}/labels/extend-codespace label.
+            If the label is already applied, you can remove and reapply the label to reactivate the codespace.
+
+            🤖 This comment is [automatically generated][workflow].
+
+            [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/codespace-review-check.yml
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

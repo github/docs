@@ -1,0 +1,7 @@
+# Reference: #12924 (Java beta)
+# Reference: #14184 (Java GA)
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

@@ -1,0 +1,1 @@
+1. On the left side of the page, in the enterprise account sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** (visible if you use the new billing platform). Alternatively, click **{% octicon "gear" aria-hidden="true" %} Settings** and then **Billing**.

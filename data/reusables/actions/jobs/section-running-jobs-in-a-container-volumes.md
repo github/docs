@@ -6,7 +6,7 @@ To specify a volume, you specify the source and destination path:
 
 The `<source>` is a volume name or an absolute path on the host machine, and `<destinationPath>` is an absolute path in the container.
 
-#### Example: Mounting volumes in a container
+### Example: Mounting volumes in a container
 
 ```yaml
 volumes:

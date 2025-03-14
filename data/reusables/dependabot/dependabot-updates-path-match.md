@@ -1,0 +1,1 @@
+This registry type will prefix-match the path provided in the `url` option. This means you can provide multiple credentials to the same host, which can be used to access distinct paths. However, if you don't have multiple registries on the same host, we recommend that you omit the path from the `url`, so that all paths to the registry will receive credentials.

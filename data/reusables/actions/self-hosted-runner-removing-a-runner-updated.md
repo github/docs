@@ -5,8 +5,8 @@
 
         The removal command does the following tasks:
 
-        * Removes the runner from {% data variables.product.product_name %}.
+        * Removes the runner from {% data variables.product.github %}.
         * Removes any self-hosted runner application configuration files on the machine.
         * Removes any services configured if not running in interactive mode.
 
-    * **If you don't have access to the machine:** Click **Force remove this runner** to force {% data variables.product.product_name %} to remove the runner.
+    * **If you don't have access to the machine:** Click **Force remove this runner** to force {% data variables.product.github %} to remove the runner.

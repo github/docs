@@ -11,7 +11,6 @@ USER node
 COPY --chown=node:node package.json /openapi-check
 COPY --chown=node:node package-lock.json /openapi-check
 ADD --chown=node:node src /openapi-check/src
-ADD --chown=node:node lib /openapi-check/lib
 ADD --chown=node:node content /openapi-check/content
 ADD --chown=node:node data /openapi-check/data
 

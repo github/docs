@@ -1,0 +1,5 @@
+# Reference: Issue #3596 Deprecation: Changes to package manifests cause Dependabot to re-run failed jobs.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.12'

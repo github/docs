@@ -5,6 +5,10 @@ allowTitleToDifferFromFilename: true
 redirect_from:
   - /github/administering-a-repository/keeping-your-dependencies-updated-automatically
   - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically
+  - /github/administering-a-repository/customizing-dependency-updates
+  - /code-security/supply-chain-security/customizing-dependency-updates
+  - /code-security/supply-chain-security/keeping-your-dependencies-updated-automatically/customizing-dependency-updates
+  - /code-security/dependabot/dependabot-version-updates/customizing-dependency-updates
 versions:
   fpt: '*'
   ghec: '*'
@@ -18,9 +22,8 @@ topics:
 children:
   - /about-dependabot-version-updates
   - /configuring-dependabot-version-updates
-  - /listing-dependencies-configured-for-version-updates
-  - /customizing-dependency-updates
-  - /configuration-options-for-the-dependabot.yml-file
+  - /optimizing-pr-creation-version-updates
+  - /customizing-dependabot-prs
+  - /controlling-dependencies-updated
 shortTitle: Dependabot version updates
 ---
-

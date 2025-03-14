@@ -1,0 +1,196 @@
+@use "./variables.scss" as searchVariables;
+
+@import "@primer/css/support/variables/layout.scss";
+@import "@primer/css/support/mixins/layout.scss";
+
+// Shown at smaller widths, just a button
+.searchIconButton {
+  display: flex !important;
+  align-items: center;
+
+  @include breakpoint(sm) {
+    display: flex !important;
+  }
+
+  @include breakpoint(md) {
+    display: flex !important;
+  }
+
+  @include breakpoint(lg) {
+    display: none !important;
+  }
+
+  @include breakpoint(xl) {
+    display: none !important;
+  }
+}
+
+// Only shown at larger widths, a button that looks like an input
+.searchInputButton {
+  position: relative;
+  z-index: 2;
+  align-items: center;
+
+  border-radius: 6px;
+  border: none;
+  padding: 0;
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  ) !important;
+
+  display: none;
+  width: searchVariables.$smHeaderSearchInputWidth !important;
+
+  @include breakpoint(sm) {
+    display: none;
+  }
+
+  @include breakpoint(md) {
+    display: none;
+  }
+
+  @include breakpoint(lg) {
+    display: flex;
+    width: searchVariables.$lgHeaderSearchInputWidth !important;
+  }
+
+  @include breakpoint(xl) {
+    display: flex;
+    width: searchVariables.$xlHeaderSearchInputWidth !important;
+  }
+}
+
+.searchInputContainer {
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+
+  pointer-events: none;
+  user-select: none;
+
+  background-color: var(
+    --bgColor-default,
+    var(--color-canvas-default, #ffffff)
+  ) !important;
+
+  border: 1px solid
+    var(
+      --control-borderColor-rest,
+      var(--borderColor-default, var(--color-border-default, #d0d7de))
+    );
+
+  border-radius: 6px;
+  border-bottom-right-radius: unset;
+  border-top-right-radius: unset;
+  border-right: none;
+}
+
+.searchInputContainer svg {
+  margin-left: 12px;
+  overflow: visible !important;
+
+  width: 16;
+  height: 16;
+
+  fill: currentColor;
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+}
+
+.queryText {
+  line-height: 2rem;
+  margin-left: var(--base-size-8, 8px) !important;
+  font-size: var(--h5-size, 14px) !important;
+
+  /* Hide overflow */
+  overflow: hidden;
+  flex: 1;
+  justify-self: start;
+  min-width: 0; /* Essential for proper truncation in some browsers */
+  text-overflow: ellipsis;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.placeholder {
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  font-weight: var(--base-text-weight-normal, 400) !important;
+}
+
+.placeholderShortcutContainer {
+  float: right;
+  color: var(--fgColor-disabled);
+  margin-right: 8px;
+}
+
+.forwardSlashIcon {
+  display: inline-grid;
+  width: var(--base-size-16, 16px);
+  height: var(--base-size-16, 16px);
+  color: var(--color-fg-default);
+
+  margin-right: 4px;
+  margin-left: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+  border-radius: var(--borderRadius-small);
+
+  border: 0.0625rem solid var(--color-fg-muted);
+  border-radius: 0.1875rem;
+  box-shadow: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.searchIconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  // Should be "flat" next to search bar
+  border: 1px solid;
+  border-radius: 6px;
+  border-top-left-radius: unset;
+  border-bottom-left-radius: unset;
+
+  min-width: 32px;
+  width: 32px;
+  height: 32px;
+
+  pointer-events: none;
+  user-select: none;
+
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+  border-color: var(
+    --button-default-borderColor-rest,
+    var(
+      --button-default-borderColor-rest,
+      var(--color-btn-border, rgba(31, 35, 40, 0.15))
+    )
+  );
+  background-color: var(
+    --button-default-bgColor-rest,
+    var(--color-btn-bg, #f6f8fa)
+  );
+  box-shadow: var(
+      --button-default-shadow-resting,
+      var(--color-btn-shadow, 0 1px 0 rgba(31, 35, 40, 0.04))
+    ),
+    var(
+      --button-default-shadow-inset,
+      var(--color-btn-inset-shadow, inset 0 1px 0 rgba(255, 255, 255, 0.25))
+    );
+}
+
+.searchIconContainer svg {
+  overflow: visible !important;
+
+  width: 16px;
+  height: 16px;
+
+  fill: currentColor;
+  color: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+}

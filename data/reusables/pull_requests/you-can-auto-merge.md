@@ -1,1 +1,1 @@
-You can configure a pull request to merge automatically when all merge requirements are met. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)."
+You can configure a pull request to merge automatically when all merge requirements are met. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request).

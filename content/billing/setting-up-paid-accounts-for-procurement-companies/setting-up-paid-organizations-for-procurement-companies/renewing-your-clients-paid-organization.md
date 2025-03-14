@@ -17,16 +17,13 @@ shortTitle: Renewing paid organization
 ---
 {% data reusables.organizations.reseller-ask-to-become-billing-manager %}
 
-{% tip %}
-
-**Tip**: Billing managers can also [change the organization's number of paid seats](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization) anytime.
-
-{% endtip %}
+> [!TIP]
+> Billing managers can also [change the organization's number of paid seats](/billing/setting-up-paid-organizations-for-procurement-companies/upgrading-or-downgrading-your-clients-paid-organization) anytime.
 
 ## Updating your organization's credit card
 
 {% data reusables.organizations.billing-settings %}
-{% data reusables.dotcom_billing.update_payment_method %}
+{% data reusables.dotcom_billing.update_payment_method_organization_account %}
 1. Under "Payment method", click **New Card**.
 ![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}

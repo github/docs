@@ -1,0 +1,5 @@
+# Issues 11279
+# Docs for the new feed
+versions:
+  fpt: '*'
+  ghec: '*'

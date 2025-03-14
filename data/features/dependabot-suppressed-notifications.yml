@@ -1,0 +1,5 @@
+# Reference: Issue #10915 Dependabot Alerts: Suppressed Notifications at First Time Enablement [GA]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

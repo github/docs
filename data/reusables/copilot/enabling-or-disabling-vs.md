@@ -4,9 +4,9 @@ The {% data variables.product.prodname_copilot %} status icon in the bottom pane
 
 1. To enable or disable {% data variables.product.prodname_copilot %}, click the {% data variables.product.prodname_copilot %} icon in the bottom panel of the {% data variables.product.prodname_vs %} window.
 
-   ![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized](/assets/images/help/copilot/editor-margin-visual-studio.png)
+   ![Screenshot of editor margin in Visual Studio with the GitHub Copilot icon emphasized.](/assets/images/help/copilot/editor-margin-visual-studio.png)
 
 1. If you are disabling {% data variables.product.prodname_copilot %}, you will be asked whether you want to disable suggestions globally, or for the language of the file you are currently editing.
 
-   - To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Enable Globally**.
-   - To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Enable for LANGUAGE**.
+   * To disable suggestions from {% data variables.product.prodname_copilot %} globally, click **Enable Globally**.
+   * To disable suggestions from {% data variables.product.prodname_copilot %} for the specified language, click **Enable for LANGUAGE**.

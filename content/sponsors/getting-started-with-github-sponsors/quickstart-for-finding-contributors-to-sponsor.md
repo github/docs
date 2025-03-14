@@ -25,16 +25,16 @@ You can see whom a user or organization sponsors on their {% data variables.prod
 ## Consider how you benefit from different contributions
 
 Consider whether you benefit from the work of open source contributions, such as:
- - Documentation
- - Design
- - Translation
- - Newsletters
- - Code reviews
- - Tutorials
- - Mentoring
- - Triaging issues and helping with project management
- - Answering questions
- - Event planning
+* Documentation
+* Design
+* Translation
+* Newsletters
+* Code reviews
+* Tutorials
+* Mentoring
+* Triaging issues and helping with project management
+* Answering questions
+* Event planning
 
 For more information on different types of open source contributions, see the [Open source guide](https://opensource.guide/how-to-contribute/#you-dont-have-to-contribute-code).
 
@@ -46,4 +46,4 @@ At https://github.com/sponsors/community, you can search by ecosystem, most used
 
 ## Next steps
 
-For more information on starting your sponsorship, see "[AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor)."
+For more information on starting your sponsorship, see [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/about-sponsorships-fees-and-taxes) and [AUTOTITLE](/sponsors/sponsoring-open-source-contributors/sponsoring-an-open-source-contributor-through-github).

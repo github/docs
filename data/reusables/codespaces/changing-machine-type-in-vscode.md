@@ -2,7 +2,7 @@
 1. Search for and select "Codespaces: Change Machine Type."
 
    ![Screenshot of "change machine" entered as a search string and "Codespaces: Change Machine Type" in the dropdown list.](/assets/images/help/codespaces/vscode-change-machine-type-option.png)
-   
+
 1. If you're not following these instructions within a codespace, click the codespace that you want to change.
 
    ![Screenshot of a dropdown list of four codespaces.](/assets/images/help/codespaces/vscode-change-machine-choose-repo.png)

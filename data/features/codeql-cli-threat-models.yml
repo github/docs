@@ -1,0 +1,6 @@
+# Reference: #12431 and #13323
+# Documentation for CodeQL threat models for CodeQL CLI
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

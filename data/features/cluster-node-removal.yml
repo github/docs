@@ -1,0 +1,5 @@
+# Issue #12966
+# ghe-remove-node command line utility
+
+versions:
+  ghes: '>=3.12'

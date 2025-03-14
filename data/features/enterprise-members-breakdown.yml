@@ -1,0 +1,6 @@
+# Reference #9272
+# Refers to the breakdown tables found at the top of the "People" page in an enterprise's settings
+
+versions:
+  ghec: '*'
+  ghes: '>=3.8'

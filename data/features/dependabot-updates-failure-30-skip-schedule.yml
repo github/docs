@@ -1,0 +1,5 @@
+# Reference: Issue #10335 Dependabot version updates will skip scheduled runs after 30 failed runs. Dependabot security updates not affected.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.11'

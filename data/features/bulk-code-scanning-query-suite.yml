@@ -1,0 +1,7 @@
+# Reference: #10637
+# Select a query suite when enabling code scanning in bulk
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.10'

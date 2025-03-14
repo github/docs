@@ -1,8 +1,7 @@
 ---
 title: 'REST'
-versions: 
+versions:
   fpt: '*'
-  ghae: '*'
   ghec: '*'
   ghes: '*'
 children:

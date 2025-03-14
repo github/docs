@@ -18,10 +18,10 @@ shortTitle: Prepare to enforce SAML SSO
 
 | Task | More information |
 | :- | :- |
-| Add or remove members from your organization | <ul><li>"[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)"</li><li>"[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)"</li></ul> |
-| Connect your IdP to your organization by enabling SAML SSO | <ul><li>"[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)"</li><li>"[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)"</li></ul> |
-| Ensure that your organization members have signed in and linked their accounts with the IdP | <ul><li>"[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)"</li></ul> |
+| Add or remove members from your organization | <ul><li>[AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization)</li><li>[AUTOTITLE](/organizations/managing-membership-in-your-organization/removing-a-member-from-your-organization)</li></ul> |
+| Connect your IdP to your organization by enabling SAML SSO | <ul><li>[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/connecting-your-identity-provider-to-your-organization)</li><li>[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enabling-and-testing-saml-single-sign-on-for-your-organization)</li></ul> |
+| Ensure that your organization members have signed in and linked their accounts with the IdP | <ul><li>[AUTOTITLE](/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization)</li></ul> |
 
-After you finish these tasks, you can enforce SAML SSO for your organization. For more information, see "[AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization)."
+After you finish these tasks, you can enforce SAML SSO for your organization. For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-on-for-your-organization/enforcing-saml-single-sign-on-for-your-organization).
 
 {% data reusables.saml.outside-collaborators-exemption %}

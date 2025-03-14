@@ -1,6 +1,6 @@
 1. Uncomment the `customizations` property and edit it as follows to install the "Code Spell Checker" {% data variables.product.prodname_vscode_shortname %} extension.
 
-   ```json{:copy}
+   ```jsonc copy
    // Configure tool-specific properties.
    "customizations": {
      // Configure properties specific to VS Code.
@@ -13,4 +13,4 @@
    }
    ```
 
-  The `devcontainer.json` file should now look similar to this, depending on which image you chose:
+   The `devcontainer.json` file should now look similar to this, depending on which image you chose:

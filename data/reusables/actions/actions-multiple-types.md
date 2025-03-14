@@ -2,9 +2,9 @@ If you specify activity types or filters for an event and your workflow triggers
 
 For example, a workflow with the following `on` value will run when:
 
-- A label is created
-- A push is made to the `main` branch in the repository
-- A push is made to a {% data variables.product.prodname_pages %}-enabled branch
+* A label is created
+* A push is made to the `main` branch in the repository
+* A push is made to a {% data variables.product.prodname_pages %}-enabled branch
 
 ```yaml
 on:

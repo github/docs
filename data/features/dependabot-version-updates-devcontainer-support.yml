@@ -1,0 +1,5 @@
+# Reference: Issue #13185 - Dependabot Version Updates Support devcontainers
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.13'

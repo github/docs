@@ -10,33 +10,32 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Get changes from a remote
 ---
 ## Options for getting changes
 
-These commands are very useful when interacting with [a remote repository](/get-started/getting-started-with-git/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
+These commands are very useful when interacting with [a remote repository](/get-started/git-basics/about-remote-repositories). `clone` and `fetch` download remote code from a repository's remote URL to your local computer, `merge` is used to merge different people's work together with yours, and `pull` is a combination of `fetch` and `merge`.
 
 ## Cloning a repository
 
 To grab a complete copy of another user's repository, use `git clone` like this:
 
 ```shell
-$ git clone https://{% data variables.command_line.codeblock %}/USERNAME/REPOSITORY.git
+$ git clone https://{% data variables.product.product_url %}/USERNAME/REPOSITORY.git
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/get-started/getting-started-with-git/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
+You can choose from [several different URLs](/get-started/git-basics/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
 
-![Screenshot of the main page of a repository. A green button, labeled "Code," is outlined in dark orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url.png)
+  ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
 
 When you run `git clone`, the following actions occur:
-- A new folder called `repo` is made
-- It is initialized as a Git repository
-- A remote named `origin` is created, pointing to the URL you cloned from
-- All of the repository's files and commits are downloaded there
-- The default branch is checked out
+* A new folder called `repo` is made
+* It is initialized as a Git repository
+* A remote named `origin` is created, pointing to the URL you cloned from
+* All of the repository's files and commits are downloaded there
+* The default branch is checked out
 
 For every branch `foo` in the remote repository, a corresponding remote-tracking branch
 `refs/remotes/origin/foo` is created in your local repository. You can usually abbreviate
@@ -44,7 +43,7 @@ such remote-tracking branch names to `origin/foo`.
 
 ## Fetching changes from a remote repository
 
-Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags *without* merging those changes into your own branches.
+Use `git fetch` to retrieve new work done by other people. Fetching from a repository grabs all the new remote-tracking branches and tags _without_ merging those changes into your own branches.
 
 If you already have a local repository with a remote URL set up for the desired project, you can grab all the new information by using `git fetch *remotename*` in the terminal:
 
@@ -53,7 +52,7 @@ $ git fetch REMOTE-NAME
 # Fetches updates made to a remote repository
 ```
 
-Otherwise, you can always add a new remote and then fetch. For more information, see "[AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories)."
+Otherwise, you can always add a new remote and then fetch. For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 
 ## Merging changes into your local branch
 
@@ -68,7 +67,7 @@ $ git merge REMOTE-NAME/BRANCH-NAME
 
 ## Pulling changes from a remote repository
 
-`git pull` is a convenient shortcut for completing both `git fetch` and `git merge `in the same command:
+`git pull` is a convenient shortcut for completing both `git fetch` and `git merge`in the same command:
 
 ```shell
 $ git pull REMOTE-NAME BRANCH-NAME
@@ -83,5 +82,5 @@ to take the branch back to where it was in before you pulled.
 
 ## Further reading
 
-- ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/Git-Basics-Working-with-Remotes)"{% ifversion fpt or ghec %}
-- "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"{% endif %}
+* ["Working with Remotes" from the _Pro Git_ book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes){% ifversion fpt or ghec %}
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems){% endif %}

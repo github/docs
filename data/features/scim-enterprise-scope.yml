@@ -1,0 +1,7 @@
+# 15609
+# Versioning for the `scim:enterprise` token scope introduced with the GA of the Open SCIM schema for EMUs
+# Used only in documentation that already includes GHES versioning
+
+versions:
+  ghec: '*'
+  ghes: '>=3.15'

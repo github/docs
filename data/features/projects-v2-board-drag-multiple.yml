@@ -1,0 +1,6 @@
+# Issue 10099
+# Ability to drag multiple items across columns on the board layout
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.10'

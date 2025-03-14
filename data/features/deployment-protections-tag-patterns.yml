@@ -1,0 +1,7 @@
+# Reference: #12183
+# Documentation for "Actions - Secure deployment rollouts to protected environments based on select tag patterns - [GA]" (docs-content#)
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.12'

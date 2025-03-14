@@ -1,0 +1,6 @@
+# Reference: #10167.
+# Documentation for Global security advisories REST API.
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>= 3.11'

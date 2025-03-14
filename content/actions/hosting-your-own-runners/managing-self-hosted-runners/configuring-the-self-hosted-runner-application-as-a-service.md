@@ -8,13 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 type: tutorial
 defaultPlatform: linux
 ---
 
-{% data reusables.actions.enterprise-beta %}
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 {% capture service_first_step %}1. Stop the self-hosted runner application if it is currently running.{% endcapture %}
@@ -22,12 +20,10 @@ defaultPlatform: linux
 
 {% capture service_nonwindows_intro %}
 
-{% note %}
+> [!NOTE]
+> You must add a runner to {% data variables.product.github %} before you can configure the self-hosted runner application as a service.
+For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 
-**Note:** You must add a runner to {% data variables.product.product_name %} before you can configure the self-hosted runner application as a service.
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-
-{% endnote %}
 {% endcapture %}
 
 {% capture service_win_name %}actions.runner.*{% endcapture %}
@@ -44,13 +40,10 @@ For Linux systems that use `systemd`, you can use the `svc.sh` script that is cr
 
 {% windows %}
 
-{% note %}
-
-**Note:** Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
-
-For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners)" and "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners)."
-
-{% endnote %}
+> [!NOTE]
+> Configuring the self-hosted runner application as a service on Windows is part of the application configuration process. If you have already configured the self-hosted runner application but did not choose to configure it as a service, you must remove the runner from {% data variables.product.prodname_dotcom %} and re-configure the application. When you re-configure the application, choose the option to configure the application as a service.
+>
+> For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/removing-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 
 You can manage the runner service in the Windows **Services** application, or you can use PowerShell to run the commands below.
 
@@ -77,9 +70,9 @@ You can manage the runner service in the Windows **Services** application, or yo
 
 1. Alternatively, the command takes an optional `user` argument to install the service as a different user.
 
-  ```shell
-  ./svc.sh install USERNAME
-  ```
+   ```shell
+   ./svc.sh install USERNAME
+   ```
 
 {% endlinux %}
 
@@ -93,6 +86,7 @@ You can manage the runner service in the Windows **Services** application, or yo
    ```shell
    ./svc.sh install
    ```
+
 {% endmac %}
 
 ## Starting the service
@@ -100,19 +94,25 @@ You can manage the runner service in the Windows **Services** application, or yo
 Start the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh start
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Start-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh start
 ```
+
 {% endmac %}
 
 ## Checking the status of the service
@@ -120,41 +120,53 @@ Start-Service "{{ service_win_name }}"
 Check the status of the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh status
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Get-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh status
 ```
+
 {% endmac %}
 
- For more information on viewing the status of your self-hosted runner, see  "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners)."
+ For more information on viewing the status of your self-hosted runner, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners).
 
 ## Stopping the service
 
 Stop the service with the following command:
 
 {% linux %}
+
 ```shell
 sudo ./svc.sh stop
 ```
+
 {% endlinux %}
 {% windows %}
+
 ```shell
 Stop-Service "{{ service_win_name }}"
 ```
+
 {% endwindows %}
 {% mac %}
+
 ```shell
 ./svc.sh stop
 ```
+
 {% endmac %}
 
 ## Uninstalling the service
@@ -163,19 +175,25 @@ Stop-Service "{{ service_win_name }}"
 1. Uninstall the service with the following command:
 
     {% linux %}
+
     ```shell
     sudo ./svc.sh uninstall
     ```
+
     {% endlinux %}
     {% windows %}
+
     ```shell
     Remove-Service "{{ service_win_name }}"
     ```
+
     {% endwindows %}
     {% mac %}
+
     ```shell
     ./svc.sh uninstall
     ```
+
     {% endmac %}
 
 {% linux %}

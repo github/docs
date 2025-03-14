@@ -1,0 +1,34 @@
+@import "./stylesheets/code.scss";
+@import "./stylesheets/headers.scss";
+@import "./stylesheets/lists.scss";
+@import "./stylesheets/table.scss";
+@import "./stylesheets/images.scss";
+
+.markdownBody {
+  :not(h1, h2, h3, h4, h5, h6, [role="tablist"]) {
+    > a {
+      text-decoration: underline;
+      text-underline-offset: 25%;
+    }
+  }
+
+  summary {
+    outline: none;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      display: inline-block;
+      margin-top: 0.5rem;
+      margin-bottom: 0.5rem;
+
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,1 +1,0 @@
-1. After you've saved your recovery codes and enabled 2FA, we recommend you sign out and back in to your account. In case of problems, such as a forgotten password or typo in your email address, you can use recovery codes to access your account and correct the problem.

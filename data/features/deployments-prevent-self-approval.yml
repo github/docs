@@ -1,0 +1,6 @@
+# Reference: #12088
+# Documentation for preventing self-review of deployments to protected environments
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.11'

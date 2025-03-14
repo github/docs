@@ -1,0 +1,5 @@
+# Reference: #15666
+# Repo deploy keys can now be disabled by default by enterprise policy [GA]
+versions:
+  ghec: '*'
+  ghes: '>= 3.16'

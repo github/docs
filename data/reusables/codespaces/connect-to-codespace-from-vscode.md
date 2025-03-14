@@ -1,1 +1,1 @@
-You can connect to your codespace directly from {% data variables.product.prodname_vscode_shortname %}. For more information, see "[AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code)."
+You can connect to your codespace directly from {% data variables.product.prodname_vscode_shortname %}. For more information, see [AUTOTITLE](/codespaces/developing-in-codespaces/using-github-codespaces-in-visual-studio-code).

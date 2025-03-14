@@ -1,6 +1,6 @@
 ---
 title: Connecting to GitHub with SSH
-intro: 'You can connect to {% data variables.product.product_name %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
+intro: 'You can connect to {% data variables.product.github %} using the Secure Shell Protocol (SSH), which provides a secure channel over an unsecured network.'
 redirect_from:
   - /key-setup-redirect
   - /linux-key-setup
@@ -14,7 +14,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -29,4 +28,3 @@ children:
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
 ---
-

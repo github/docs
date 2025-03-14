@@ -1,0 +1,26 @@
+# Contains variables to identify GitHub's release phases. These are aligned with Microsoft standards.
+# For reference: https://github.com/github/docs-team/issues/4302
+
+public_preview: >-
+  {% ifversion ghes < 3.16 %}beta{% else %}public preview{% endif %}
+
+public_preview_caps: >-
+  {% ifversion ghes < 3.16 %}Beta{% else %}Public preview{% endif %}
+
+private_preview: >-
+  {% ifversion ghes < 3.16 %}private beta{% else %}private preview{% endif %}
+
+private_preview_caps: >-
+  {% ifversion ghes < 3.16 %}Private beta{% else %}Private preview{% endif %}
+
+closing_down: >-
+  {% ifversion ghes < 3.16 %}deprecated{% else %}closing down{% endif %}
+
+closing_down_caps: >-
+  {% ifversion ghes < 3.16 %}Deprecated{% else %}Closing down{% endif %}
+
+retired: >-
+  {% ifversion ghes < 3.16 %}sunset{% else %}retired{% endif %}
+
+retired_caps: >-
+  {% ifversion ghes < 3.16 %}Sunset{% else %}Retired{% endif %}
