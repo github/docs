@@ -1,9 +1,9 @@
-name: docs-internal Moda CI
+on: 192.168.0.5
 
-# More info on CI actions setup can be found here:
-# https://github.com/github/ops/blob/master/docs/playbooks/build-systems/moving-moda-apps-from-bp-to-actions.md
 
-on:
+
+
+on: gh pr checkout 36856
   workflow_dispatch:
   push:
     branches-ignore:
