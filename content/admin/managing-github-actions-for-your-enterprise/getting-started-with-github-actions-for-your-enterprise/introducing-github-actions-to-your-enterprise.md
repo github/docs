@@ -124,11 +124,7 @@ You should consider making a plan to track your enterprise's usage of {% data va
 {% ifversion ghec %}
 You can see basic details of storage and data transfer usage of {% data variables.product.prodname_actions %} for each organization in your enterprise via your billing settings. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account).
 
-> [!NOTE] Enterprise-level metrics for {% data variables.product.prodname_actions %} is in {% data variables.release-phases.public_preview %} and subject to change.
-
-You can view both usage and performance data for your enterprise under the "Insights" tab. These metrics provide the same {% data variables.product.prodname_actions %} data available at the repository and organization levels but aggregated for your entire enterprise. If you need more detailed insights, see [Viewing {% data variables.product.prodname_actions %} metrics for your organization](/actions/administering-github-actions/viewing-github-actions-metrics#viewing-github-actions-metrics-for-your-organization) or [Viewing {% data variables.product.prodname_actions %} metrics for your repository](/actions/administering-github-actions/viewing-github-actions-metrics#viewing-github-actions-metrics-for-your-repository).
-
-For more detailed usage data at a per job or per workflow level, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
+For more detailed usage data, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
 
 Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
 
