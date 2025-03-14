@@ -62,8 +62,6 @@ You can bookmark the address of this page if you want to get back to it quickly 
    1. Click **Open in**.
    1. Click **Open in APPLICATION**.
 
-   ![Screenshot of the "Open in" dialog, with "Open in {% data variables.product.prodname_vscode %}" highlighted.](/assets/images/help/codespaces/open-codespace-in-another-editor.png)
-
    You can open the codespace in:
    * Your browser
    * {% data variables.product.prodname_vscode %}
