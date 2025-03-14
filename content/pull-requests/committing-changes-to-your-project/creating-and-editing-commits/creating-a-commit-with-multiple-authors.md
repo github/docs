@@ -45,7 +45,7 @@ You can use {% data variables.product.prodname_desktop %} to create a commit wit
    ```
 
    > [!TIP]
-   > If you're using a text editor on the command line to type your commit message, ensure there is a blank line (i.e., two consecutive newlines) between the end of your commit description and the `Co-authored-by:` commit trailer.
+   > If you're using a text editor on the command line to type your commit message, ensure there is a blank line (two consecutive newlines) between the end of your commit description and the `Co-authored-by:` commit trailer.
 
 1. On the next line of the commit message, type `Co-authored-by: name <name@example.com>` with specific information for each co-author. After the co-author information, add a closing quotation mark.
 
