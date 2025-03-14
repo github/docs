@@ -270,6 +270,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.custom_instructions_created",
+    "description": "Copilot custom instructions were created for the organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.custom_instructions_updated",
+    "description": "Copilot custom instructions were updated for the organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "copilot.knowledge_base_created",
     "description": "A knowledge base was created in the organization.",
     "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
@@ -983,6 +993,11 @@
     "action": "org.advanced_security_enabled_on_all_repos",
     "description": "GitHub Advanced Security was enabled for all repositories in an organization.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_entity_policy_update",
+    "description": "An enterprise owner updated the GitHub Advanced Security access policy for repositories owned by the organization.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
     "action": "org.advanced_security_policy_selected_member_disabled",
@@ -2818,6 +2833,16 @@
     "action": "repository_invitation.reject",
     "description": "An invitation to join a repository was declined.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_limit.reached",
+    "description": "An organization has reached their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
+  },
+  {
+    "action": "repository_limit.warning",
+    "description": "An organization is approaching their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
   },
   {
     "action": "repository_projects_change.clear",

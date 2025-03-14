@@ -1,10 +1,12 @@
 version: 2
+
 registries:
   ghcr: # Define access for a private registry
     type: docker-registry
     url: ghcr.io
     username: PAT
     password: ${{secrets.CONTAINER_BUILDER_TOKEN}}
+
 updates:
   - package-ecosystem: npm
     directory: '/'
@@ -24,7 +26,7 @@ updates:
     directory: '/'
     schedule:
       interval: weekly
-      day: wednesday
+      day: tuesday
     ignore:
       - dependency-name: '*'
         update-types:
@@ -36,11 +38,10 @@ updates:
       - ghcr
     directory: '/'
     schedule:
-      interval: weekly
-      day: thursday
+      interval: daily
     groups:
       baseImages:
         patterns:
           - '*'
     ignore:
-      - dependency-name: 'node'
+      - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator

@@ -12,7 +12,8 @@ topics:
   - Dependabot
   - Security updates
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Secret scanning
 ---
 
@@ -77,10 +78,10 @@ Code often needs to communicate with other systems over a network, and requires 
 {% ifversion fpt %}
 You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.github %} if you own:
    * Public repositories.
-   * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
+   * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GHAS_or_secret_protection %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
-If your organization uses {% data variables.product.prodname_GH_advanced_security %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
+If your organization uses {% data variables.product.prodname_GHAS_or_secret_protection %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
 
 You can also define custom patterns to detect additional secrets at the repository, organization, or enterprise level. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts#about-secret-scanning-alerts).
 {% else %}

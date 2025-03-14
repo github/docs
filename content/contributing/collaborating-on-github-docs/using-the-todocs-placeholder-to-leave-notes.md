@@ -1,9 +1,11 @@
 ---
 title: Using the TODOCS placeholder to leave notes
 shortTitle: Using the TODOCS placeholder
-intro: 'You can use the `TODOCS` placeholder to indicate work that still needs to be completed.'
+intro: You can use the `TODOCS` placeholder to indicate work that still needs to be completed.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 <!-- markdownlint-disable search-replace -->

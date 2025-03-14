@@ -28,7 +28,11 @@ Organization owners can set policies to govern how {% data variables.product.pro
 
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
-* Editor preview features
+* Editor preview features, such as:
+  * Vision (available to {% data variables.product.prodname_vscode_shortname %} Insiders)
+  * {% data variables.copilot.next_edit_suggestions_caps %} (available in {% data variables.product.prodname_vscode_shortname %})
+  * GPT-4o {% data variables.product.prodname_copilot_short %} code completion (available in {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs)
+  * {% data variables.product.prodname_copilot_short %} Edits agent mode (available in {% data variables.product.prodname_vscode_shortname %})
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * Suggestions matching public code
@@ -39,12 +43,6 @@ Organization owners can set policies to govern how {% data variables.product.pro
 
 The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 
-{% ifversion ghec %}
-
-{% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level. For more information on managing policies at the enterprise level, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
-
-{% endif %}
-
 ### Policies for suggestion matching
 
 Organization settings include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} will check potential code suggestions and the surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown.
@@ -54,6 +52,8 @@ Organization settings include an option to either allow or block code suggestion
 If an organization member is assigned a seat by multiple organizations with different suggestion matching policies under the same enterprise, {% data variables.product.prodname_copilot %} will use the most restrictive policy.{% endif %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} features in your organization
+
+>[!NOTE] {% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level.  For more information on managing policies at the enterprise level, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

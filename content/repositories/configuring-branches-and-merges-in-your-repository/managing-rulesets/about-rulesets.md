@@ -1,9 +1,11 @@
 ---
 title: About rulesets
-intro: 'Rulesets help you to control how people can interact with branches and tags in a repository.'
+intro: Rulesets help you to control how people can interact with branches and tags in a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories

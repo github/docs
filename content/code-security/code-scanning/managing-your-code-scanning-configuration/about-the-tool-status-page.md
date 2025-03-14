@@ -13,7 +13,7 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 ---

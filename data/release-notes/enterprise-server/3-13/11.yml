@@ -1,4 +1,10 @@
 date: '2025-02-18'
+intro: |
+  {% warning %}
+
+  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.13.11` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.13 version instead. [Updated: 2025-03-11]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -35,6 +41,8 @@ sections:
       The `ghe-live-migrations --init-target` command fails with a descriptive error message if the specified upgrade path is not supported.
   known_issues:
     - |
+      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-03-11]
+    - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
@@ -54,3 +62,10 @@ sections:
       When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+  errata:
+    - |
+      The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.13.11. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.13.11. [Updated: 2025-03-11]

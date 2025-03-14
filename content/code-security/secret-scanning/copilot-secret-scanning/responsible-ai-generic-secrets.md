@@ -3,14 +3,14 @@ title: Responsible detection of generic secrets with Copilot secret scanning
 shortTitle: Generic secret detection
 intro: 'Learn how {% data variables.secret-scanning.copilot-secret-scanning %} uses AI responsibly to scan and create alerts for unstructured secrets, such as passwords.'
 allowTitleToDifferFromFilename: true
-product: '{% data reusables.gated-features.copilot-secret-scanning %}'
+product: '{% data reusables.rai.secret-scanning.copilot-secret-scanning-gated-feature %}'
 versions:
   feature: secret-scanning-ai-generic-secret-detection
   fpt: '*'
 type: rai
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - AI
   - Copilot
 redirect_from:
@@ -27,9 +27,9 @@ redirect_from:
 
 {% data reusables.rai.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
-{% data variables.product.prodname_GH_advanced_security %} users can already receive {% data variables.secret-scanning.alerts %} for partner or custom patterns found in their source code, but unstructured secrets are not easily discoverable. {% data variables.secret-scanning.copilot-secret-scanning %} uses large language models (LLMs) to identify this type of secret.
+{% data variables.product.prodname_GH_secret_protection %} users can already receive {% data variables.secret-scanning.alerts %} for partner or custom patterns found in their source code, but unstructured secrets are not easily discoverable. {% data variables.secret-scanning.copilot-secret-scanning %} uses large language models (LLMs) to identify this type of secret.
 
-When a password is detected, an alert is displayed in the "Experimental" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
+When a password is detected, an alert is displayed in the "Generic" list of {% data variables.product.prodname_secret_scanning %} alerts (under the **Security** tab of the repository, organization, or enterprise), so that maintainers and security managers can review the alert and, where necessary, remove the credential or implement a fix.
 
 {% data reusables.rai.secret-scanning.generic-secret-detection-policy-note %} The feature must then be enabled for repositories and organizations.
 

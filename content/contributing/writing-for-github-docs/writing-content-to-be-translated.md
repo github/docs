@@ -1,9 +1,11 @@
 ---
 title: Writing content to be translated
 shortTitle: Write content to be translated
-intro: 'Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.'
+intro: Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About writing content that is translation-friendly

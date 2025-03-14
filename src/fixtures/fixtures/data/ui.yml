@@ -26,7 +26,9 @@ release_notes:
 search:
   input:
     aria_label: Open search overlay
-    placeholder: Search or ask Copilot
+    placeholder: Search or ask {{icon}} Copilot
+    placeholder_no_icon: Search or ask Copilot
+    shortcut: Type {{icon}} to search
   overlay:
     input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
@@ -38,20 +40,22 @@ search:
     beta_tag: Beta
     return_to_search: Return to search
     clear_search_query: Clear
+    view_all_search_results: View more results
+    no_results_found: No results found
   ai:
     disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
     references: References from these articles
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query.
+    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query or search our docs.
     copy_answer: Copy answer
     copied_announcement: Copied!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
   failure:
-    autocomplete_title: There was an error loading autocomplete results.
-    ai_title: There was an error loading the AI assistant.
+    general_title: There was an error loading search results.
+    ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
@@ -237,6 +241,7 @@ footer:
   pricing: Pricing
   expert_services: Expert services
   blog: Blog
+  machine: Some of this content may be machine- or AI-translated.
 product_landing:
   quickstart: Quickstart
   reference: Reference

@@ -1,4 +1,10 @@
 date: '2025-02-18'
+intro: |
+  {% warning %}
+
+  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.12.15` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.12 version instead. [Updated: 2025-03-11]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -25,6 +31,8 @@ sections:
       The `ghe-live-migrations --init-target` command fails with a descriptive error message if the specified upgrade path is not supported.
   known_issues:
     - |
+      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-03-11]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -48,3 +56,7 @@ sections:
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
       Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature "[Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks)" in the management console.
+  
+  errata:
+    - |
+      The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.12.15. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.12.15. [Updated: 2025-03-11]

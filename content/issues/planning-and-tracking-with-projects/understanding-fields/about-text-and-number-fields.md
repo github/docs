@@ -3,7 +3,9 @@ title: About text and number fields
 shortTitle: About text and number fields
 intro: You can add custom text and number fields to your project.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

@@ -1,8 +1,10 @@
 ---
 title: Procedural content type
-intro: 'Procedural content gives context on how a task fits into someone''s larger goal.'
+intro: Procedural content gives context on how a task fits into someone's larger goal.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Procedural content helps people complete a task from start to finish while they are using {% data variables.product.prodname_dotcom %}.

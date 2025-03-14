@@ -109,7 +109,7 @@ For more information, see the [{% data variables.product.prodname_dotcom %} CLI 
 gh codespace stop -c CODESPACE-NAME
 ```
 
-For more information, see [AUTOTITLE](/codespaces/getting-started/deep-dive#closing-or-stopping-your-codespace).
+For more information, see [AUTOTITLE](/codespaces/about-codespaces/deep-dive#closing-or-stopping-your-codespace).
 
 ### Delete a codespace
 

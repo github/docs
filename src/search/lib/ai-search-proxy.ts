@@ -3,6 +3,8 @@ import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '#src/search/lib/helpers/cse-copilot-docs-versions.js'
 
+const memoryCache = new Map<string, Buffer>()
+
 export const aiSearchProxy = async (req: Request, res: Response) => {
   const { query, version, language } = req.body
   const errors = []
@@ -32,6 +34,13 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
     return
   }
 
+  const cacheKey = `${query}:${version}:${language}`
+  if (memoryCache.has(cacheKey)) {
+    res.setHeader('Content-Type', 'application/x-ndjson')
+    res.send(memoryCache.get(cacheKey))
+    return
+  }
+
   const body = {
     chat_context: 'docs',
     docs_source: docsSource,
@@ -48,9 +57,20 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
       },
     })
 
+    const chunks: Buffer[] = []
+    stream.on('data', (chunk) => {
+      chunks.push(chunk)
+    })
+
     // Handle the upstream response before piping
     stream.on('response', (upstreamResponse) => {
-      if (upstreamResponse.statusCode !== 200) {
+      // When cse-copilot returns a 204, it means the backend received the request
+      // but was unable to answer the question. So we return a 400 to the client to be handled.
+      if (upstreamResponse.statusCode === 204) {
+        return res
+          .status(400)
+          .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
+      } else if (upstreamResponse.statusCode !== 200) {
         const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
         console.error(errorMessage)
         res.status(500).json({ errors: [{ message: errorMessage }] })
@@ -88,6 +108,7 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
 
     // Ensure response ends when stream ends
     stream.on('end', () => {
+      memoryCache.set(cacheKey, Buffer.concat(chunks as Uint8Array[]))
       res.end()
     })
   } catch (error) {

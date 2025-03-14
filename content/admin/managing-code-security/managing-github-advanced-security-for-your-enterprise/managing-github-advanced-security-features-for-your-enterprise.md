@@ -1,7 +1,8 @@
 ---
-title: Managing GitHub Advanced Security features for your enterprise
+title: Managing {% data variables.product.prodname_GH_advanced_security %} features for your enterprise
 intro: 'You can control {% data variables.product.prodname_GH_advanced_security %} features that secure and analyze code across all organizations owned by your enterprise.'
 permissions: 'Enterprise owners can manage {% data variables.product.prodname_advanced_security %} features for organizations in an enterprise.'
+allowTitleToDifferFromFilename: true
 versions:
   ghes: '<= 3.15'
 type: how_to
@@ -11,7 +12,7 @@ topics:
   - Dependency graph
   - Secret scanning
   - Repositories
-shortTitle: Manage GitHub Advanced Security
+shortTitle: Manage {% data variables.product.prodname_GH_advanced_security %}
 redirect_from:
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise
 ---
@@ -47,7 +48,7 @@ When you enable one or more security and analysis features for existing reposito
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security and analysis**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. Optionally, enable or disable a feature for all existing repositories.
 
    * To the right of the feature, click **Disable all** or **Enable all**. If the control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled, you have no available licenses for {% data variables.product.prodname_GH_advanced_security %}.

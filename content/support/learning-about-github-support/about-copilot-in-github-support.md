@@ -1,8 +1,10 @@
 ---
 title: About Copilot in GitHub Support
-intro: "{% data variables.product.prodname_copilot_in_support %} can help you by providing answers to a wide range of questions about {% data variables.product.prodname_dotcom %}'s products and features."
+intro: '{% data variables.product.prodname_copilot_in_support %} can help you by providing answers to a wide range of questions about {% data variables.product.prodname_dotcom %}''s products and features.'
 versions:
-  feature: copilot-in-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Support
 shortTitle: About Copilot in GitHub Support

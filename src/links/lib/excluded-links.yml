@@ -86,3 +86,4 @@
 - is: https://www.nongnu.org/oath-toolkit/man-oathtool.html
 - is: https://www.gnu.org/software/emacs/
 - is: https://www.transparency.org/what-is-corruption
+- startsWith: https://platform.openai.com/docs/api-reference/

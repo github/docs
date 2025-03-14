@@ -37,8 +37,8 @@ In other words, a public repository's forks will remain public in their own sepa
 
 > [!WARNING]
 > * Making a public repository private will permanently remove stars and watchers associated to users that will no longer have access to this repository. If you decide to make the repository public in the future, it will not be possible to restore these stars and watchers, and this will affect its repository rankings.
-> * Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository. Any custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_GH_advanced_security %} is enabled for this repository.
-> * {% data variables.product.prodname_code_scanning_caps %} will become unavailable.
+> * Dependency graph and {% data variables.product.prodname_dependabot_alerts %} will remain enabled with permission to perform read-only analysis on this repository. Any custom {% data variables.product.prodname_dependabot %} alert rules will be disabled unless {% data variables.product.prodname_code_security %} is enabled for this repository.
+> * {% data variables.product.prodname_code_scanning_caps %} will become unavailable unless {% data variables.product.prodname_code_security %} is enabled for this repository.
 > * Current forks will remain public and will be detached from this repository.
 
 {% ifversion ghes %}

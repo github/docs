@@ -927,12 +927,6 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -2523,6 +2517,12 @@
       "subcategory": "custom-properties",
       "verb": "patch",
       "requestPath": "/enterprises/{enterprise}/properties/schema"
+    },
+    {
+      "slug": "promote-a-custom-property-to-an-enterprise",
+      "subcategory": "custom-properties",
+      "verb": "put",
+      "requestPath": "/enterprises/{enterprise}/properties/schema/organizations/{org}/{custom_property_name}/promote"
     },
     {
       "slug": "get-a-custom-property-for-an-enterprise",
@@ -5307,10 +5307,40 @@
   ],
   "secret-scanning": [
     {
+      "slug": "list-bypass-requests-for-secret-scanning-for-an-org",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/bypass-requests/secret-scanning"
+    },
+    {
       "slug": "list-secret-scanning-alerts-for-an-organization",
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
+    },
+    {
+      "slug": "list-bypass-requests-for-secret-scanning-for-a-repository",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning"
+    },
+    {
+      "slug": "get-a-bypass-request-for-secret-scanning",
+      "subcategory": "delegated-bypass",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}"
+    },
+    {
+      "slug": "review-a-bypass-request-for-secret-scanning",
+      "subcategory": "delegated-bypass",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/bypass-requests/secret-scanning/{bypass_request_number}"
+    },
+    {
+      "slug": "dismiss-a-response-on-a-bypass-request-for-secret-scanning",
+      "subcategory": "delegated-bypass",
+      "verb": "delete",
+      "requestPath": "/repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}"
     },
     {
       "slug": "list-secret-scanning-alerts-for-a-repository",
@@ -5459,6 +5489,30 @@
       "subcategory": "external-groups",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
+    },
+    {
+      "slug": "list-team-projects",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
+    },
+    {
+      "slug": "check-team-permissions-for-a-project",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "add-or-update-team-project-permissions",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "remove-a-project-from-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "get-team-member-legacy",

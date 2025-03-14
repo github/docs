@@ -361,4 +361,4 @@ For the full list of events that you can find in the audit log for each account 
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/about-billing-for-github-actions)
+Next, learn about billing for {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/about-billing-for-github-actions).

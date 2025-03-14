@@ -1,9 +1,11 @@
 ---
 title: Using Markdown and Liquid in GitHub Docs
-shortTitle: Markdown and Liquid # Max 31 characters
+shortTitle: Markdown and Liquid
 intro: 'You can use Markdown and Liquid to format content, create reusable content, and write content for different versions on {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs
 ---
@@ -401,17 +403,17 @@ Because the site is dynamic, it does not build HTML files for each different ver
 
 For example, an article that is available in currently supported versions will have permalink URLs like the following:
 
-* `/en/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-cloud@latest/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-server@3.10/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-server@3.9/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-server@3.8/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-server@3.7/get-started/getting-started-with-git/set-up-git`
-* `/en/enterprise-server@3.6/get-started/getting-started-with-git/set-up-git`
+* `/en/get-started/git-basics/set-up-git`
+* `/en/enterprise-cloud@latest/get-started/git-basics/set-up-git`
+* `/en/enterprise-server@3.10/get-started/git-basics/set-up-git`
+* `/en/enterprise-server@3.9/get-started/git-basics/set-up-git`
+* `/en/enterprise-server@3.8/get-started/git-basics/set-up-git`
+* `/en/enterprise-server@3.7/get-started/git-basics/set-up-git`
+* `/en/enterprise-server@3.6/get-started/git-basics/set-up-git`
 
 An article that is not available in {% data variables.product.prodname_ghe_server %} will have just one permalink:
 
-* `/en/get-started/getting-started-with-git/set-up-git`
+* `/en/get-started/git-basics/set-up-git`
 
 > [!NOTE]
 > If you are a content contributor, you don't need to worry about supported versions when adding a link to a document. Following the examples above, if you want to reference an article, you can just use its relative location: `/github/getting-started-with-github/set-up-git`.

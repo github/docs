@@ -1,5 +1,5 @@
 ---
-title: Using Claude 3.5 Sonnet in Copilot Chat
+title: Using Claude Sonnet in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use {% data variables.copilot.copilot_claude_sonnet %}'
 intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
@@ -11,13 +11,19 @@ redirect_from:
   - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
 ---
 
-> [!NOTE] {% data variables.copilot.copilot_claude_sonnet %} is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+> [!NOTE] All {% data variables.copilot.copilot_claude_sonnet %} models are in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
 ## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}
 
-{% data variables.copilot.copilot_claude_sonnet %} is a large language model that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [model's capabilities](https://www.anthropic.com/claude/sonnet) or read the [model card](https://assets.anthropic.com/m/61e7d27f8c8f5919/original/Claude-3-Model-Card.pdf).
+{% data variables.copilot.copilot_claude_sonnet %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [Sonnet's capabilities](https://www.anthropic.com/claude/sonnet).
 
-{% data variables.copilot.copilot_claude_sonnet %} is currently available in:
+{% data variables.copilot.copilot_claude_sonnet_37 %} is currently available in:
+
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.13 or later
+* Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+
+{% data variables.copilot.copilot_claude_sonnet_35 %} is currently available in:
 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.12 or later
@@ -25,19 +31,23 @@ redirect_from:
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 
+Beginning March 11th, 2025, {% data variables.copilot.copilot_claude_sonnet %} will additionally be hosted by Anthropic PBC and Google Cloud Platform when used in {% data variables.product.prodname_copilot %} to provide additional model capacity and reliability.
+
 When using {% data variables.copilot.copilot_claude_sonnet %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful, offensive, or off-topic content.
 
 ## Configuring access
 
-You must enable access to {% data variables.copilot.copilot_claude_sonnet %} before you can use the model.
+You must enable access to each {% data variables.copilot.copilot_claude_sonnet %} individually before you can use the model.
 
 {% ifversion fpt %}
 
 ### Setup for individual use
 
+> [!NOTE] {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.product.prodname_copilot_free_short %}
+
 If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
 
-* The first time you choose to use {% data variables.copilot.copilot_claude_sonnet %} with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
+* The first time you choose to use {% data variables.copilot.copilot_claude_sonnet %} models with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
 
   Clicking **Allow** enables you to use {% data variables.copilot.copilot_claude_sonnet %} and updates the policy in your personal settings on {% data variables.product.github %}.
 
@@ -47,7 +57,7 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 
 ### Setup for organization {% ifversion ghec %}and enterprise{% endif %} use
 
-As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can enable or disable {% data variables.copilot.copilot_claude_sonnet %} for everyone who has been assigned a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} seat through your {% ifversion ghec %}enterprise or {% endif %}organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
+As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can enable or disable {% data variables.copilot.copilot_claude_sonnet %} models for everyone who has been assigned a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} seat through your {% ifversion ghec %}enterprise or {% endif %}organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
 ## Using {% data variables.copilot.copilot_claude_sonnet %}
 

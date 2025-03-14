@@ -1,0 +1,46 @@
+date: '2025-03-04'
+sections:
+  security_fixes:
+    - |
+      Permissions and ownership of `/etc/ssh/sshd_config` are now enforced so that the `root` identity is the only one able to read or write to the file.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Some instances with self-signed certificates encountered duplicated IP and DNS entries in their certificate.
+    - |
+      Domain entries could fail to load in the "Verified & Approves Domains" section of the site admin dashboard if one or more authoritative nameservers for the affected domain was unreachable or unresponsive.
+    - |
+      An issue with the webhook delivery system could cause missing commits on pull requests and stop GitHub Actions workflows from running reliably on certain triggers. A database replication delay in the webhook delivery system has been removed.
+    - |
+      Some packages failed to install when a hotpatch was applied to instances hosted on Google Cloud Platform.
+  changes:
+    - |
+      The `ghe-check-disk-usage` command has been updated to provide more valuable insights into troubleshooting disk space issues on the root and data disks.
+    - |
+      A graph for visualizing the status of repository maintenance has been added to the management console.
+  known_issues:
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      The `mbind: Operation not permitted` error in the `/var/log/mysql/mysql.err` file can be ignored. MySQL 8 does not gracefully handle when the `CAP_SYS_NICE` capability isn't required, and outputs an error instead of a warning.
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      The `reply.[hostname]` subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**. When regenerating the certificates with management console, the `subdomain reply.[hostname]` is missing from the ssl certification.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature "[Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks)" in the management console.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.

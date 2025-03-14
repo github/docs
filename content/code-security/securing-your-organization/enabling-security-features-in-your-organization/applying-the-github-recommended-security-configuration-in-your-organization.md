@@ -6,7 +6,8 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations-cloud
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---

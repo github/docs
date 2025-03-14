@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,zh,es,pt,ru,ja,fr,de,ko' (defaults to all)"
         required: false
         default: ''
   schedule:

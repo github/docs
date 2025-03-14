@@ -17,6 +17,20 @@ describe('autotitle', () => {
     expect.assertions(4)
   })
 
+  // skipped because autotitles aren't supported in annotated code blocks yet
+  // see docs-engineering#3691
+  test.skip('internal links in codeblocks with AUTOTITLE resolves', async () => {
+    const $ = await getDOM('/get-started/foo/autotitling')
+    const links = $('#article-contents a[href]')
+    links.each((i, element) => {
+      if ($(element).attr('href').includes('/get-started/markdown')) {
+        expect($(element).text()).toContain('Markdown')
+      }
+    })
+    // There are 2 links on the `autotitling.md` content.
+    expect.assertions(2)
+  })
+
   test('typos lead to error when NODE_ENV !== production', async () => {
     // The fixture typo-autotitling.md contains two different typos
     // of the word "AUTOTITLE", separated by `{% if version ghes %}`

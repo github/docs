@@ -16,8 +16,7 @@ redirect_from:
 
 >[!NOTE]
 >The ability to defer database seeding{% ifversion ghes < 3.13 %} was added in patch release
-{%- ifversion ghes = 3.12 %} 3.12.1{%- endif %}
-{%- ifversion ghes = 3.11 %} 3.11.7{%- endif %}
+ 3.12.1
 
  and{% endif %} is available as a {% data variables.release-phases.public_preview %}.
 

@@ -12,7 +12,7 @@ versions:
   ghes: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 allowTitleToDifferFromFilename: true
 ---

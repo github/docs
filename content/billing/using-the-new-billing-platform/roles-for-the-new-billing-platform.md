@@ -1,6 +1,6 @@
 ---
 title: Roles for the new billing platform
-intro: 'Learn about the different roles that can use the enhanced billing platform.'
+intro: 'Learn about the different roles that can use the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:

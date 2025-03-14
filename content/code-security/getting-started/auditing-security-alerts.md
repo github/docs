@@ -11,7 +11,8 @@ topics:
   - Dependencies
   - Vulnerabilities
   - Security
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: Audit security alerts
 ---
 

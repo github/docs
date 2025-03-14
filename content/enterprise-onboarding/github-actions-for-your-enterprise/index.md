@@ -1,6 +1,6 @@
 ---
 title: GitHub Actions for your enterprise
-intro: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} in your enterprise.'
+intro: 'Learn how to plan and implement a rollout of {% data variables.product.prodname_actions %} for your enterprise.'
 versions:
   ghec: '*'
 topics:

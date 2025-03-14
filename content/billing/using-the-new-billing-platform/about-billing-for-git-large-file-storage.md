@@ -1,6 +1,6 @@
 ---
 title: About billing for Git Large File Storage
-intro: 'Learn about billing for {% data variables.large_files.product_name_long %} using the enhanced billing platform.'
+intro: 'Learn about billing for {% data variables.large_files.product_name_long %} using the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:

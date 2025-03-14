@@ -154,3 +154,7 @@ Your {% data variables.product.prodname_actions %} usage shares your account's e
 For information on managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-github-actions/managing-your-spending-limit-for-github-actions).
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}
+
+## Next steps
+
+Next, learn about other features available with {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/enterprise-onboarding/feature-enhancements).

@@ -33,7 +33,7 @@ You can filter email notifications you receive for pushes to a repository. For m
 
 {% ifversion ghec %}
 
->[!NOTE] Notifications for pushes to your repository will bypass restrictions for email notifications to verified domains configured in your enterprise account or organisation.
+>[!NOTE] Notifications for pushes to your repository will bypass restrictions for email notifications to verified domains configured in your enterprise account or organization.
 
 {% endif %}
 

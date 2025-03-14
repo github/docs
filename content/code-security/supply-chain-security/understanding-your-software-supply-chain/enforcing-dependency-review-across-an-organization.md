@@ -4,10 +4,12 @@ intro: 'Dependency review lets you catch insecure dependencies before you introd
 shortTitle: Enforce dependency review
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Dependency review
   - Vulnerabilities
   - Dependencies

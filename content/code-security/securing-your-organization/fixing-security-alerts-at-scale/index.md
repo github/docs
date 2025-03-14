@@ -5,7 +5,7 @@ intro: 'Once you detect security alerts across your organization, you will want 
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 children:

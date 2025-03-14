@@ -1,9 +1,11 @@
 ---
-title: Creating diagrams for {% data variables.product.prodname_docs %}
+title: 'Creating diagrams for {% data variables.product.prodname_docs %}'
 shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 allowTitleToDifferFromFilename: true
 ---
 
@@ -59,7 +61,7 @@ To create acceptance criteria for a diagram, answer these questions.
 
 #### Who is the audience for the diagram?
 
-Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GH_advanced_security %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
+Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
 
 #### What is the scope of the diagram?
 
@@ -231,6 +233,6 @@ When you create a new diagram, add it to the Diagrams project in the Docs Figma 
 
 ## Examples
 
-This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/overview){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
+This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/quickstart){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)

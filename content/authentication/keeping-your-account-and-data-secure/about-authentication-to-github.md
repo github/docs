@@ -108,7 +108,7 @@ For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-a
 
 ## Authenticating with the command line
 
-You can access repositories on {% data variables.product.github %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+You can access repositories on {% data variables.product.github %} from the command line in two ways, HTTPS and SSH, and both have a different way of authenticating. The method of authenticating is determined based on whether you choose an HTTPS or SSH remote URL when you clone the repository. For more information about which way to access, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ### HTTPS
 
@@ -116,7 +116,7 @@ You can work with all repositories on {% data variables.product.github %} over H
 
 If you authenticate with {% data variables.product.prodname_cli %}, you can either authenticate with a {% data variables.product.pat_generic %} or via the web browser. For more information about authenticating with {% data variables.product.prodname_cli %}, see [`gh auth login`](https://cli.github.com/manual/gh_auth_login).
 
-If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.github %}, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/get-started/getting-started-with-git/caching-your-github-credentials-in-git).
+If you authenticate without {% data variables.product.prodname_cli %}, you must authenticate with a {% data variables.product.pat_generic %}. {% data reusables.user-settings.password-authentication-deprecation %} Every time you use Git to authenticate with {% data variables.product.github %}, you'll be prompted to enter your credentials, unless you cache them with a [credential helper](/get-started/git-basics/caching-your-github-credentials-in-git).
 
 ### SSH
 
