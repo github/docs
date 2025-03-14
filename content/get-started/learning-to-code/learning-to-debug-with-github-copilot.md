@@ -143,6 +143,14 @@ Why is the output of this code so much higher than expected? Please explain in d
 
 To fix this error, {% data variables.product.prodname_copilot_short %} will suggest code that removes the extra `factorial` from the equation, or that changes the `*=` operator to `=`.
 
+{% note %}
+
+Did you successfully debug `bugged_factorial_finder.py`?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}
+
 ## Debugging your own project
 
 Now that you've practiced debugging some simple programs with {% data variables.product.prodname_copilot_short %}, you can use the same methodologies to find and fix bugs hiding in your own work.
