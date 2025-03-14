@@ -50,6 +50,6 @@ All other code in this repository is licensed under the [MIT license](LICENSE-CO
 
 When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
 
-## Thanks :purple_heart:
+## Thx for you ❤️💌✨️🤬🦭✔️🎈❤️✅️😊😝🤗👌🆘️📅🛒🪯🪯🪯❤️‍🔥🎶💌✨️❔️👇🌳🎉🏴
 
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles: ?
