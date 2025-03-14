@@ -44,22 +44,7 @@ router.get(
   }),
 )
 
-/**
- * A list of pages available for a fully qualified path containing the target language and product version.
- * @route GET /api/pagelist
- * @param {string} lang - Path parameter for language code (e.g. 'en')
- * @param {string} productVersion - Path parameter for product version (e.g. 'free-pro-team@latest')
- * @returns {string} List of paths matching the language and version
- * @throws {Error} 400 - If language or version parameters are invalid. Reason is given in the error message.
- * @example
- * ❯ curl -s https://docs.github.com/api/pagelist/en/free-pro-team@latest
- * /en
- * /en/search
- * /en/get-started
- * /en/get-started/start-your-journey
- * /en/get-started/start-your-journey/about-github-and-git
- * [...]
- */
+// for a fully qualified path with language and product version, we'll serve up the pagelist
 router.get(
   '/:lang/:productVersion',
   pagelistValidationMiddleware as RequestHandler,

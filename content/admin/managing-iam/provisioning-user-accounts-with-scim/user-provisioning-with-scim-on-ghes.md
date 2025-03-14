@@ -71,7 +71,7 @@ When SCIM is enabled, you will no longer be able to delete, suspend, or promote 
 
 If you currently use SAML SSO, and you are enabling SCIM, you should be aware of what happens to existing users during SCIM provisioning.
 
-* When SCIM is enabled, users with SAML-linked identities will **not be able to sign in** until their identities have been provisioned by SCIM.{% ifversion scim-for-ghes-ga %} You will no longer be able to update the SAML `NameID` of existing users in the site admin dashboard.{% endif %}
+* When SCIM is enabled, users with SAML-linked identities will **not be able to sign in** until their identities have been provisioned by SCIM.
 * When your instance receives a SCIM request, SCIM identities are matched to existing users by **comparing the `userName` SCIM field with the {% data variables.product.prodname_dotcom %} username**. If a user with a matching username doesn't exist, {% data variables.product.prodname_dotcom %} creates a new user.
 * If {% data variables.product.prodname_dotcom %} successfully identifies a user from the IdP, but account details such as email address, first name, or last name don't match, the instance **overwrites the details** with values from the IdP. Any email addresses other than the primary email provisioned by SCIM will also be deleted from the user account.
 

@@ -29,6 +29,8 @@ If you want to use {% data variables.product.prodname_vscode %} as your default 
 {% data reusables.user-settings.codespaces-tab %}
 1. Under "Editor preference", select the option you want.
 
+   ![Screenshot of the "Editor preference" options, with "{% data variables.product.prodname_vscode %} for Web" selected.](/assets/images/help/codespaces/select-default-editor.png)
+
    * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
    * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace.

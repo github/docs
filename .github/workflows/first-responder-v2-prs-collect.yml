@@ -71,9 +71,9 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
-          ISSUE_NUMS=$(echo "${{ github.event.pull_request.body }}" | grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|#[0-9]+)' | grep -oE '[0-9]+')
+          ISSUE_NUMS=$(echo "${{ github.event.pull_request.body }}" | grep -oE '#[0-9]+' | tr -d '#')
           for ISSUE_NUM in $ISSUE_NUMS; do
-            LABELS=$(gh issue view $ISSUE_NUM --repo github/docs-content --json labels --jq '.labels[].name')
+            LABELS=$(gh issue view $ISSUE_NUM --json labels --jq '.labels[].name')
             if echo "$LABELS" | grep -q 'DIY docs'; then
               echo "DIY_DOCS_LABEL=true" >> $GITHUB_ENV
               break

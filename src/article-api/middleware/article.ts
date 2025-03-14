@@ -20,25 +20,6 @@ const router = express.Router()
 // - pathValidationMiddleware ensures the path is properly structured and handles errors when it's not
 // - pageValidationMiddleware fetches the page from the pagelist, returns 404 to the user if not found
 
-/**
- * Get article metadata and content in a single object. Equivalent to calling `/article/meta` concatenated with `/article/body`.
- * @route GET /api/article
- * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
- * @returns {object} JSON object with article metadata and content (`meta` and `body` keys)
- * @throws {Error} 403 - If the article body cannot be retrieved. Reason is given in the error message.
- * @throws {Error} 400 - If pathname parameter is invalid.
- * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
- * @example
- * ❯ curl -s "https://docs.github.com/api/article?pathname=/en/get-started/start-your-journey/about-github-and-git"
- * {
- *   "meta": {
- *     "title": "About GitHub and Git",
- *     "intro": "You can use GitHub and Git to collaborate on work.",
- *     "product": "Get started"
- *   },
- *   "body": "## About GitHub\n\nGitHub is a cloud-based platform where you can store, share, and work together with others to write code.\n\nStoring your code in a \"repository\" on GitHub allows you to:\n\n* **Showcase or share** your work.\n [...]"
- * }
- */
 router.get(
   '/',
   pathValidationMiddleware as RequestHandler,
@@ -62,23 +43,6 @@ router.get(
   }),
 )
 
-/**
- * Get the contents of an article's body.
- * @route GET /api/article/body
- * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
- * @returns {string} Article body content in markdown format.
- * @throws {Error} 403 - If the article body cannot be retrieved. Reason is given in the error message.
- * @throws {Error} 400 - If pathname parameter is invalid.
- * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
- * @example
- * ❯ curl -s https://docs.github.com/api/article/body\?pathname=/en/get-started/start-your-journey/about-github-and-git
- * ## About GitHub
- *
- * GitHub is a cloud-based platform where you can store, share, and work together with others to write code.
- *
- * Storing your code in a "repository" on GitHub allows you to:
- * [...]
- */
 router.get(
   '/body',
   pathValidationMiddleware as RequestHandler,
@@ -98,35 +62,6 @@ router.get(
   }),
 )
 
-/**
- * Get metadata about an article.
- * @route GET /api/article/meta
- * @param {string} pathname - Article path (e.g. '/en/get-started/article-name')
- * @returns {object} JSON object containing article metadata with title, intro, and product information.
- * @throws {Error} 400 - If pathname parameter is invalid.
- * @throws {Error} 404 - If the path is valid, but the page couldn't be resolved.
- * @example
- * ❯ curl -s "https://docs.github.com/api/article/meta?pathname=/en/get-started/start-your-journey/about-github-and-git"
- * {
- *   "title": "About GitHub and Git",
- *   "intro": "You can use GitHub and Git to collaborate on work.",
- *   "product": "Get started",
- *   "breadcrumbs": [
- *     {
- *       "href": "/en/get-started",
- *       "title": "Get started"
- *     },
- *     {
- *       "href": "/en/get-started/start-your-journey",
- *       "title": "Start your journey"
- *     },
- *     {
- *       "href": "/en/get-started/start-your-journey/about-github-and-git",
- *       "title": "About GitHub and Git"
- *     }
- *   ]
- * }
- */
 router.get(
   '/meta',
   pathValidationMiddleware as RequestHandler,

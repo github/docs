@@ -57,7 +57,6 @@
     "lint-content": "tsx src/content-linter/scripts/lint-content.js",
     "lint-translation": "vitest src/content-linter/tests/lint-files.js",
     "liquid-markdown-tables": "tsx src/tools/scripts/liquid-markdown-tables/index.ts",
-    "generate-article-api-docs": "tsx src/article-api/scripts/generate-api-docs.ts",
     "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
     "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
     "move-content": "tsx src/content-render/scripts/move-content.js",
