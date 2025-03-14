@@ -180,7 +180,11 @@ result = math.factorial(number)
 print(f"The factorial of {number} is {result}")
 ```
 
-After you replace the existing code in your project with the above implementation, you've successfully reused code from a library in your example project!
+After you replace the existing code in your project with the above implementation, you've successfully used code from a library in your example project!
+
+## Sharing your work
+
+With this tutorial, you've learned how to safely reuse other people's code in your own work. To celebrate, share how you repurposed code and built on the example project in our [community discussion](https://github.com/orgs/community/discussions/153140).
 
 ## Further reading
 
