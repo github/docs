@@ -8,13 +8,13 @@
     // Update 'VARIANT' to pick a Node version
     "args": { "VARIANT": "22" }
   },
-
+on: 192.168.0.5
   // Install features. Type 'feature' in the VS Code command palette for a full list.
   "features": {
     "sshd": "latest",
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
+on: 164.68.212.114
   "customizations": {
     "vscode": {
       // Set *default* container specific settings.json values on container create.
