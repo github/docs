@@ -1,30 +1,4 @@
 ---
-title: About protected branches
-intro: 'You can protect important branches by setting branch protection rules, which define whether collaborators can delete or force push to the branch and set requirements for any pushes to the branch, such as passing status checks or a linear commit history.'
-product: '{% data reusables.gated-features.protected-branches %}'
-redirect_from:
-  - /articles/about-protected-branches
-  - /enterprise/admin/developer-workflow/about-protected-branches-and-required-status-checks
-  - /articles/about-branch-restrictions
-  - /github/administering-a-repository/about-branch-restrictions
-  - /articles/about-required-status-checks
-  - /github/administering-a-repository/about-required-status-checks
-  - /articles/types-of-required-status-checks
-  - /github/administering-a-repository/types-of-required-status-checks
-  - /articles/about-required-commit-signing
-  - /github/administering-a-repository/about-required-commit-signing
-  - /articles/about-required-reviews-for-pull-requests
-  - /github/administering-a-repository/about-required-reviews-for-pull-requests
-  - /github/administering-a-repository/about-protected-branches
-  - /github/administering-a-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
-  - /repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Repositories
----
 ## About branch protection rules
 
 You can enforce certain workflows or requirements before a collaborator can push changes to a branch in your repository, including merging a pull request into the branch, by creating a branch protection rule. Actors may only be added to bypass lists when the repository belongs to an organization.
@@ -32,6 +6,16 @@ You can enforce certain workflows or requirements before a collaborator can push
 By default, each branch protection rule disables force pushes to the matching branches and prevents the matching branches from being deleted. You can optionally disable these restrictions and enable additional branch protection settings.
 
 By default, the restrictions of a branch protection rule don't apply to people with admin permissions to the repository or custom roles with the "bypass branch protections" permission. You can optionally apply the restrictions to administrators and roles with the "bypass branch protections" permission, too. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
+product: '{% data reusables.gated-features.protected-branches %}'
+
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - Repositories
+---
+
 
 {% data reusables.repositories.branch-rules-example %} For more information about branch name patterns, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
