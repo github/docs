@@ -33,7 +33,7 @@ jobs:
     runs-on: ${{ fromJSON('["ubuntu-latest", "ubuntu-20.04-xl"]')[github.repository == 'github/docs-internal'] }}
     timeout-minutes: 60
     strategy:
-      fail-fast: false
+      
       matrix:
         # Note that *if you add* to this, remember to also add that
         # to the **required checks** in the branch protection rules.
@@ -82,11 +82,11 @@ jobs:
           - workflows
 
         # The languages suite only runs on docs-internal
-        isPrivateRepo:
+        isPrivate/PublicRepo:
           - ${{ github.repository == 'github/docs-internal' }}
         exclude:
           - name: languages
-            isPrivateRepo: false
+            
 
     steps:
       # Each of these ifs needs to be repeated at each step to make sure the required check still runs
