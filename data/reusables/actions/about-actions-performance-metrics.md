@@ -1,4 +1,3 @@
-> [!NOTE] {% data variables.product.prodname_actions %} performance metrics is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 {% data variables.product.prodname_actions %} performance metrics enables you to analyze the efficiency and reliability of your workflows. You can view performance information such as average run times, average queue times, and failure rates, related to:
 
