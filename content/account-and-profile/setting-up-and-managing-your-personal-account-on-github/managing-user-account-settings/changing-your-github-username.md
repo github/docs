@@ -1,4 +1,4 @@
----
+git clone ---
 title: Changing your GitHub username
 intro: 'You can change the username for your account on {% data variables.product.prodname_dotcom %}{% ifversion ghes %} if your instance uses built-in authentication{% endif %}.'
 redirect_from:
