@@ -18,6 +18,8 @@ To create an experience on {% data variables.product.github %} that fits your ne
 
 You can decide whether you want to use some or all keyboard shortcuts, and control the display of animated images and how links are displayed.
 
+This article will help you customize your experience on the {% data variables.product.github %} website as a whole. For information on using specific {% data variables.product.github %} products with screen readers and other assistive technologies, see the [{% data variables.product.github %} Accessibility Documentation](https://accessibility.github.com/documentation).
+
 ## Managing the appearance of links
 
 You can control whether links in text blocks are underlined and therefore more distinguishable.

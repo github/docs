@@ -171,9 +171,9 @@ steps:
 - name: Install dependencies
   run: dotnet restore
 - name: Build
-  run: dotnet build
+  run: dotnet build --no-restore
 - name: Test with the dotnet CLI
-  run: dotnet test
+  run: dotnet test --no-build
 ```
 
 ## Packaging workflow data as artifacts
@@ -204,7 +204,7 @@ jobs:
         - name: Install dependencies
           run: dotnet restore
         - name: Test with dotnet
-          run: dotnet test --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
+          run: dotnet test --no-restore --logger trx --results-directory {% raw %}"TestResults-${{ matrix.dotnet-version }}"{% endraw %}
         - name: Upload dotnet test results
           uses: {% data reusables.actions.action-upload-artifact %}
           with:

@@ -8,7 +8,7 @@ export type ArchivedVersion = {
 export type ExtendedRequestWithPageInfo = ExtendedRequest & {
   pageinfo: {
     pathname: string
-    page?: Page
+    page: Page
     archived?: ArchivedVersion
   }
 }

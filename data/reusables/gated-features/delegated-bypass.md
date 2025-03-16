@@ -1,13 +1,10 @@
-Delegated bypass requires push protection to be enabled for the organization or the repository. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+Delegated bypass for push protection is available for the following repository types:
 
-Delegated bypass is available for the following repositories:
+{% ifversion fpt %}{% ifversion ghas-products-cloud %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}{% endif %}
 
 {% ifversion ghec %}
+* Organization-owned repositories on {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
 
-* Private and internal repositories in organizations using {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled
-
-{% elsif ghes %}
-
-* Organization-owned repositories with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled
-
-{% endif %}
+{% ifversion ghes %}
+* Organization-owned repositories with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}

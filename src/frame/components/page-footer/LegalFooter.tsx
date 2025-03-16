@@ -10,6 +10,7 @@ export const LegalFooter = () => {
   return (
     <section className="container-xl px-3 mt-6 pb-8 px-md-6 color-fg-muted">
       <h2 className="f4 mb-2 col-12">{t('legal_heading')}</h2>
+      {router.locale !== 'en' && <p>{t('machine')}</p>}
       <ul className="d-flex flex-wrap list-style-none">
         <li className="mr-3">&copy; {new Date().getFullYear()} GitHub, Inc.</li>
         {/* In Germany, Austria, and Switzerland, the Impressum link is legally required. */}

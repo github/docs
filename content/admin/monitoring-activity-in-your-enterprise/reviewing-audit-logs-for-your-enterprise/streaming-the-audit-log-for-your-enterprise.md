@@ -83,7 +83,7 @@ You can stream audit logs to multiple endpoints. For example, you can stream you
 
 {% ifversion ghes %}
 
->[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work.
+>[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work. Your S3 bucket can reside in other AWS regions.
 
 {% endif %}
 

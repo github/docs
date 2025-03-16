@@ -207,6 +207,12 @@ Some of the features listed below are limited to organizations using {% data var
 | {% ifversion push-protection-bypass-fine-grained-permissions %} |
 | Review and manage {% data variables.product.prodname_secret_scanning %} bypass requests (see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 
 {% endrowheaders %}
 
@@ -241,6 +247,12 @@ Some of the features listed below are limited to organizations using {% data var
 | Manage security and analysis settings (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion ghes %} |
 | View the security overview for the organization (see [AUTOTITLE](/code-security/security-overview/about-the-security-overview)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_secret_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
+| {% ifversion security-delegated-alert-dismissal %} |
+| Review and manage {% data variables.product.prodname_code_scanning %} dismissal requests | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
 | {% ifversion ghes %} |
 | Manage {% data variables.product.prodname_dependabot_security_updates %} (see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)) | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |

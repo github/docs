@@ -82,7 +82,7 @@ sections:
         - |
           ...
 
-    - heading: Code security
+    - heading: Secure coding features
       notes:
         # LINK TO RELEASE ISSUE
         - |

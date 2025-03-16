@@ -21,13 +21,18 @@ For example, you can choose to always have {% data variables.product.prodname_co
 
 Personal custom instructions apply to conversations that you, as a user, have with {% data variables.product.prodname_copilot_chat_short %} across {% data variables.product.github %}, and are different from repository custom instructions, which apply to conversations in the context of a single repository. For more information on repository instructions, see [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot).
 
-{% data reusables.copilot.repository-vs-personal-instructions-note %}
+{% data reusables.copilot.repository-vs-personal-instructions-note %} If you are concerned about response quality, you can also choose to temporarily disable repository instructions. See [AUTOTITLE](/copilot/customizing-copilot/adding-repository-custom-instructions-for-github-copilot?tool=webui#enabling-or-disabling-repository-custom-instructions).
 
 ## Adding personal custom instructions
 
-1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
-1. Select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu at the top of the Chat panel, then click **{% octicon "tools" aria-hidden="true" %} Customize {% data variables.product.prodname_copilot %}**. If in the immersive view, select the {% octicon "kebab-horizontal" aria-label="Feedback and settings" %} dropdown menu at the top right of the page, then click **{% octicon "note" aria-hidden="true" %} Personal instructions**.
+You can add personal custom instructions either in the Chat panel or in immersive mode. The same instructions will be applied in both modes.
+
+1. In the top right of any page on {% data variables.product.github %}, either:
+   * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the {% data variables.product.prodname_copilot_chat_short %} panel.
+   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.product.prodname_copilot_chat_short %} in the full-page, immersive mode.
+1. Select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu at the top right of the Chat panel, or immersive page, then click **Personal instructions**.
 1. Add natural language instructions to the text box.
 
-   The instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+   You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
+
 1. Click **Save**. Your instructions are now active, and will stay active until you change or remove them.

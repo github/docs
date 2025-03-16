@@ -7,7 +7,7 @@ versions:
   feature: secret-scanning-custom-patterns-metrics
 type: how_to
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
 ---
 

@@ -61,6 +61,7 @@ export type EventPropsByType = {
     // [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]
     ai_search_result_links_json: string
     ai_search_result_provided_answer: boolean
+    ai_search_result_response_status: number
   }
   [EventType.clipboard]: {
     clipboard_operation: string

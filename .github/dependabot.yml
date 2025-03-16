@@ -43,3 +43,5 @@ updates:
       baseImages:
         patterns:
           - '*'
+    ignore:
+      - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator

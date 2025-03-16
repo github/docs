@@ -5,7 +5,8 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: Introduction
 redirect_from:
   - /admin/advanced-security/overview-of-github-advanced-security-deployment

@@ -8,7 +8,7 @@ versions:
   feature: secret-scanning-non-provider-patterns
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /enabling-secret-scanning-for-non-provider-patterns

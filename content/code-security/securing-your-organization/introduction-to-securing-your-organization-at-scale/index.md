@@ -5,7 +5,8 @@ intro: 'Learn about securing your organization with {% data variables.product.pr
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:

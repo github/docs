@@ -19,7 +19,7 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
 
   // Any double-slashes in the URL should be removed first
   if (req.path.includes('//')) {
-    return res.redirect(301, req.path.replace(/\/\//g, '/'))
+    return res.redirect(301, req.path.replace(/(\/+)/g, '/'))
   }
 
   // blanket redirects for languageless homepage

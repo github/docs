@@ -13,9 +13,11 @@ topics:
 
 {% webui %}
 
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+>
 {% data reusables.copilot.custom-instructions-note %}
 >
->   This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
+> This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
 {% endwebui %}
 
@@ -29,6 +31,8 @@ topics:
 
 {% visualstudio %}
 
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+>
 {% data reusables.copilot.custom-instructions-note %}
 >
 >   This version of this article is for using repository custom instructions in {% data variables.product.prodname_vs %}. Click the tabs above for instructions on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
@@ -132,7 +136,7 @@ Whenever custom instructions are used by {% data variables.product.prodname_copi
 
 You can click the reference to open the file.
 
-{% data reusables.copilot.repository-vs-personal-instructions-note %}
+{% data reusables.copilot.repository-vs-personal-instructions-note %} See [AUTOTITLE](/copilot/customizing-copilot/adding-personal-custom-instructions-for-github-copilot).
 
 {% endwebui %}
 
@@ -161,6 +165,9 @@ You can choose whether or not to have custom instructions added to your chat que
 1. Click the {% octicon "kebab-horizontal" aria-label="Conversation options" %} button at the top of the Chat panel, or the top right of the immersive page.
 1. Click **Disable custom instructions** or **Enable custom instructions**.
 
+   > [!NOTE]
+   > In immersive mode, you will only see these options if you have attached a repository that contains a custom instructions file.
+
 Your choice persists until you change it.
 
 {% endwebui %}
@@ -179,7 +186,7 @@ Your choice persists until you change it.
 
    ![Screenshot of the {% data variables.product.prodname_vs %} menu bar. The "Tools" menu is expanded, and the "Options" item is highlighted with an orange outline.](/assets/images/help/copilot/vs-toolbar-options.png)
 
-1. In the "Options" dialog, type `custom instructions` in the search box.
+1. In the "Options" dialog, type `custom instructions` in the search box, then click **{% data variables.product.prodname_copilot_short %}**.
 1. Select or clear the checkbox for **(Preview) Enable custom instructions to be loaded from .github/copilot-instructions.md files and added to requests**.
 
 {% endvisualstudio %}

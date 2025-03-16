@@ -10,7 +10,7 @@ topics:
 
 ## Overview
 
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT 3.5 Turbo large language model (LLM). As an alternative, if you use {% data variables.product.prodname_vscode_shortname %}, you can choose to use a model based on GPT 4o-mini. This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT 3.5 Turbo large language model (LLM). As an alternative, you can choose to use a model based on GPT 4o-mini. This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
 
 > [!NOTE]
 > * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
@@ -46,7 +46,7 @@ The following instructions are for {% data variables.product.prodname_vscode_sho
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
 1. In the dropdown menu, select the model you want to use.
 
-Alternatively, if Command Center is enabled, you can click the down arrow beside the **{% octicon "copilot" aria-hidden="true" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
+Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
 
 ## Checking which model is being used
 

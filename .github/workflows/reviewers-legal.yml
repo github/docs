@@ -66,8 +66,5 @@ jobs:
           GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR: ${{ github.event.pull_request.html_url }}
         run: |
-          labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')
-          if ! echo "$labels" | grep -q 'reviewers-legal'; then
-            gh pr edit $PR --add-reviewer github/legal-product
-            gh pr edit $PR --add-label reviewers-legal
-          fi
+          gh pr edit $PR --add-reviewer github/legal-product
+          gh pr edit $PR --add-label reviewers-legal

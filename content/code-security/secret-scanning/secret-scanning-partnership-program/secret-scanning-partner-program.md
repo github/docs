@@ -14,7 +14,7 @@ versions:
 topics:
   - API
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 shortTitle: Partner program
 ---
 

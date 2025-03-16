@@ -261,10 +261,6 @@ You can learn more about scenarios and setup in the [{% data variables.product.p
 
 After you install the {% data variables.product.prodname_copilot %} extension, you can enable or disable it, and you can configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.github %}.
 
-## Prerequisites
-
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must install the {% data variables.product.prodname_copilot %} extension. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=vscode).
-
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
 You can use the default keyboard shortcuts for {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_copilot %}. Search keyboard shortcuts by command name in the Keyboard Shortcuts editor.
@@ -458,11 +454,11 @@ After updating the extension, Xcode must be restarted for the changes to take ef
 
 {% eclipse %}
 
-{% data reusables.copilot.eclipse-public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot %} in Eclipse
 
-If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE.  
+If you use Eclipse, {% data variables.product.prodname_copilot %} can provide code suggestions as you work in the IDE. You can also use the {% data variables.product.prodname_copilot_chat_short %} panel to work with {% data variables.product.prodname_copilot_short %} as your AI pair programmer.
+
+{% data reusables.copilot.eclipse-public-preview-note %}
 
 After you install {% data variables.product.prodname_copilot %} in Eclipse, you can enable or disable it, and you can configure advanced settings within the IDE.
 
@@ -485,8 +481,6 @@ If you don't want to use the default keyboard shortcuts for {% data variables.pr
 
 For advanced settings, you can set auto-completion behavior, configure proxy, and assign a {% data variables.product.prodname_enterprise %} authentication endpoint.
 
+{% data reusables.copilot.dotcom-settings %}
+
 {% endeclipse %}
-
-## Authenticating to an account on {% data variables.enterprise.data_residency_site %}
-
-{% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).

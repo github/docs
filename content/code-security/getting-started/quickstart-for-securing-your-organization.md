@@ -11,7 +11,8 @@ topics:
   - Organizations
   - Dependencies
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: Secure organization quickstart
 ---
 
@@ -24,7 +25,7 @@ Your organization's security needs are unique. You may want to enable a feature 
 You can enable security features across multiple repositories in an organization at the same time. For each feature you want to enable, you must decide how to roll out the feature across your organization's repositories. Different features have different effects on your organization and its contributors, so it's important to assess the impact each feature will have. For example:
 
 * Some features can generate notifications to inform your organization's members about specific vulnerabilities: to ensure these notifications are targeted and relevant, you may want to ask members to check their notification settings before you enable a feature. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
-* Some features can consume resources for each repository in which they're enabled. For example, enabling {% data variables.product.prodname_code_scanning %} in a private repository may consume a {% data variables.product.prodname_GH_advanced_security %} license, and running {% data variables.product.prodname_code_scanning %} analysis in a repository will incur usage of {% data variables.product.prodname_actions %} or another CI system.
+* Some features can consume resources for each repository in which they're enabled. For example, enabling {% data variables.product.prodname_code_scanning %} in a private repository may consume a {% data variables.product.prodname_GHAS %} license, and running {% data variables.product.prodname_code_scanning %} analysis in a repository will incur usage of {% data variables.product.prodname_actions %} or another CI system.
 
 As an organization owner, you can give certain users permission to enable or disable security features by assigning the "security manager" role to a team. Security managers can configure security settings and monitor usage of security features across your organization. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
 
@@ -32,10 +33,10 @@ As an organization owner, you can give certain users permission to enable or dis
 
 Some security features have prerequisites. For example, {% data variables.product.prodname_dependabot_alerts %} use information from the dependency graph, so enabling {% data variables.product.prodname_dependabot_alerts %} automatically enables the dependency graph.
 
-Some features are only available to enterprises that use {% data variables.product.prodname_GH_advanced_security %} and have enabled {% data variables.product.prodname_advanced_security %} as a feature for repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features).
+Some features are only available to enterprises that use {% data variables.product.prodname_GHAS %} and have enabled {% data variables.product.prodname_AS %} as a feature for repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security#about-advanced-security-features).
 
 >[!NOTE]
-> Enterprises can set a policy to manage which organizations can enable {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+> Enterprises can set a policy to manage which organizations can enable {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 There are some features you must configure for each repository individually. For example, to enable {% data variables.product.prodname_dependabot_version_updates %} in a repository, you must add a `dependabot.yml` file specifying where to find information about the project's dependencies. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
 
@@ -57,7 +58,7 @@ The quickest way to roll out a security feature is to enable it for all reposito
 Before you enable a feature for all repositories, you should consider the impact this action will have. If you're not sure about the effects a feature will have, it is safest to start by enabling the feature for a limited selection of repositories. Enabling a feature for all repositories at once is likely to be a suitable option in the following situations.
 
 * You have an overview of all the repositories in your organization, and you're confident that they'll all benefit from a certain feature.
-* If a feature requires resources such as {% data variables.product.prodname_GH_advanced_security %} licenses or {% data variables.product.prodname_actions %} minutes, you have assessed the resources that will be required and are happy to proceed.
+* If a feature requires resources such as {% data variables.product.prodname_GHAS %} licenses or {% data variables.product.prodname_actions %} minutes, you have assessed the resources that will be required and are happy to proceed.
 * If the feature generates notifications or pull requests, you're confident that these will be targeted and relevant for the members who receive them or have to review them.
 
 When you're ready to proceed, follow these steps to enable a feature for all repositories.
@@ -69,7 +70,7 @@ When you're ready to proceed, follow these steps to enable a feature for all rep
 1. Locate the feature that you want to enable and use any associated check boxes to fine-tune the options.
 1. When you are ready to enable the feature for all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
 
-When you click **Enable all**, you'll be prompted to confirm your choice. You'll also be told if the feature depends on another feature, or requires {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories).
+When you click **Enable all**, you'll be prompted to confirm your choice. You'll also be told if the feature depends on another feature, or requires {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-existing-repositories).
 
 ### Enabling a feature for a selection of repositories
 
@@ -90,7 +91,7 @@ On this view, you can use checkboxes to select specific repositories, or you can
 
 {% endif %}
 
-If you have a limited number of licenses for {% data variables.product.prodname_GH_advanced_security %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+If you have a limited number of licenses for {% data variables.product.prodname_GHAS %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 {% data reusables.security-overview.settings-limitations %}
 

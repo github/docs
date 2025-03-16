@@ -4,19 +4,6 @@ import { get } from '#src/tests/helpers/e2etest.js'
 
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import { latest } from '#src/versions/lib/enterprise-server-releases.js'
-
-test('redirects without version suffix', async () => {
-  const res = await get(`/api/pagelist`)
-  expect(res.statusCode).toBe(307)
-  expect(res.headers.location).toBe(`/api/pagelist/v1/${nonEnterpriseDefaultVersion}`)
-})
-
-test('redirects for ghes@latest', async () => {
-  const res = await get(`/api/pagelist/v1/enterprise-server@latest`)
-  expect(res.statusCode).toBe(307)
-  expect(res.headers.location).toBe(`/api/pagelist/v1/enterprise-server@${latest}`)
-})
 
 describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
   beforeAll(() => {
@@ -37,7 +24,7 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
   })
 
   // queries the pagelist API for each version
-  const res = await get(`/api/pagelist/v1/${versionKey}`)
+  const res = await get(`/api/pagelist/en/${versionKey}`)
 
   test('is reachable, returns 200 OK', async () => {
     expect(res.statusCode).toBe(200)
@@ -45,7 +32,7 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
 
   // there's a large assortment of possible URLs,
   // even "/en" is an acceptable URL, so regexes capture lots
-  test('contains valid urls', async () => {
+  test('contains valid urls matching the requested version', async () => {
     let expression
 
     // if we're testing the default version, it may be missing
@@ -62,7 +49,7 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
       })
   })
 
-  test('only returns urls that contain /en', async () => {
+  test('English requests only returns urls that contain /en', async () => {
     const expression = new RegExp(`^/en(/${nonEnterpriseDefaultVersion})?/?.*`)
     res.body
       .trim()
@@ -70,5 +57,25 @@ describe.each(allVersionKeys)('pagelist api for %s', async (versionKey) => {
       .forEach((permalink: string) => {
         expect(permalink).toMatch(expression)
       })
+  })
+})
+
+describe('Redirect Tests', () => {
+  test('redirects without version suffix', async () => {
+    const res = await get(`/api/pagelist`)
+    expect(res.statusCode).toBe(308)
+    expect(res.headers.location).toBe(`/api/pagelist/en/${nonEnterpriseDefaultVersion}`)
+  })
+
+  test('should redirect to /pagelist/en/:product@:version when URL does not include /en', async () => {
+    const res = await get('/api/pagelist/free-pro-team@latest')
+    expect(res.statusCode).toBe(308)
+    expect(res.headers.location).toBe('/api/pagelist/en/free-pro-team@latest')
+  })
+
+  test('should redirect to /pagelist/en/free-pro-team@lateset when URL does not include version', async () => {
+    const res = await get('/api/pagelist/en')
+    expect(res.statusCode).toBe(308)
+    expect(res.headers.location).toBe('/api/pagelist/en/free-pro-team@latest')
   })
 })

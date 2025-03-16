@@ -27,7 +27,7 @@ You can convert a member of an organization to an outside collaborator. For more
 
 {% data reusables.organizations.outside-collaborators-use-seats %} {% data reusables.organizations.outside_collaborator_forks %}
 
-After converting an organization member to an outside collaborator, they'll only have access to the repositories that their current team membership allows. The person will no longer be an explicit member of the organization, and will no longer be able to:
+After converting a member to an outside collaborator, they will no longer be an explicit member of the organization and will be removed from all teams. They will retain repository access to those they were directly added to, as well as those added through their former team memberships. They will no longer be able to:
 
 * Create teams
 * See all organization members and teams

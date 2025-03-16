@@ -44,6 +44,21 @@ You can set spending limits and receive alerts when your usage reaches 75%, 90%,
 
 You can manage budgets for your {% data variables.enterprise.enterprise_or_org %} by setting a budget, viewing budgets, and editing or deleting budgets.
 
+{% ifversion ghec %}
+
+### Budget scopes
+
+You can create a budget for a given {% data variables.product.github %} product and specific scope:
+
+* `Enterprise` scoped budgets track spending for all organizations, repositories, and cost centers in the enterprise
+* `Organization` scoped budgets track spending for a single organization, repositories, and cost centers in the organization
+* `Repository` scoped budgets track spending for a single repository
+* `Cost center` scoped budgets track spending for a single cost center
+
+Usage is applied towards all applicable budgets. If any applicable budget with "Stop usage when budget limit is reached" enabled becomes exhausted, additional usage will be stopped.
+
+{% endif %}
+
 ### Viewing budgets
 
 If you are an {% data variables.enterprise.enterprise_or_org %} owner or billing manager, your {% data variables.enterprise.enterprise_or_org %}'s budget will be listed at the top of the "Budgets and alerts" page{% ifversion ghec %}, followed by the budgets for your organizations and cost centers. As an organization owner, you will be able to view the budgets for your organizations, repositories, and cost centers{% endif %}.

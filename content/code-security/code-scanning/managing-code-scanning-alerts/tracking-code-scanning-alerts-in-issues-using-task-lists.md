@@ -9,7 +9,7 @@ redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Alerts
   - Repositories

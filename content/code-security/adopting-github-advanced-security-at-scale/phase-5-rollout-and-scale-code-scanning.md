@@ -5,7 +5,8 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: 5. Rollout code scanning
 ---
 

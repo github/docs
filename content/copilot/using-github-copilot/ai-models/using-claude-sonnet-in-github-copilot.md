@@ -31,6 +31,8 @@ redirect_from:
 
 {% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 
+Beginning March 11th, 2025, {% data variables.copilot.copilot_claude_sonnet %} will additionally be hosted by Anthropic PBC and Google Cloud Platform when used in {% data variables.product.prodname_copilot %} to provide additional model capacity and reliability.
+
 When using {% data variables.copilot.copilot_claude_sonnet %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful, offensive, or off-topic content.
 
 ## Configuring access

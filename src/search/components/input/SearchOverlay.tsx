@@ -84,6 +84,7 @@ export function SearchOverlay({
   const [aiSearchError, setAISearchError] = useState<boolean>(false)
   const [aiReferences, setAIReferences] = useState<AIReference[]>([] as AIReference[])
   const [aiCouldNotAnswer, setAICouldNotAnswer] = useState<boolean>(false)
+  const [showSpinner, setShowSpinner] = useState(false)
 
   // Group all events between open / close of the overlay together
   const searchEventGroupId = useRef<string>('')
@@ -104,11 +105,30 @@ export function SearchOverlay({
     router,
     currentVersion,
     debug,
-    eventGroupIdRef: searchEventGroupId,
   })
 
   const { aiAutocompleteOptions, generalSearchResults, totalGeneralSearchResults } =
     autoCompleteOptions
+
+  // Whenever "searchLoading" changes, decide whether to show the spinner after 1s.
+  useEffect(() => {
+    let timer: ReturnType<typeof setTimeout>
+
+    // If it's the initial fetch, show the spinner immediately
+    if (!aiAutocompleteOptions.length && !generalSearchResults.length) {
+      return setShowSpinner(true)
+    }
+
+    if (searchLoading) {
+      timer = setTimeout(() => setShowSpinner(true), 1000)
+    } else {
+      setShowSpinner(false)
+    }
+
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [searchLoading, aiAutocompleteOptions.length, generalSearchResults.length])
 
   // Filter out any options that match the local query and replace them with a custom user query option that include isUserQuery: true
   const filteredAIOptions = aiAutocompleteOptions.filter(
@@ -133,10 +153,7 @@ export function SearchOverlay({
 
     if (generalSearchResults.length > 0) {
       generalOptionsWithViewStatus.push({
-        title: t('search.overlay.view_all_search_results').replace(
-          '{{length}}',
-          totalGeneralSearchResults.toLocaleString('en-US'),
-        ),
+        title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
       } as any)
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
@@ -228,10 +245,10 @@ export function SearchOverlay({
 
   // When loading, capture the last height of the suggestions list so we can use it for the loading div
   const previousSuggestionsListHeight = useMemo(() => {
-    if (suggestionsListHeightRef.current?.clientHeight) {
-      return suggestionsListHeightRef.current.clientHeight
+    if (generalSearchResults.length || aiAutocompleteOptions.length) {
+      return 7 * (generalSearchResults.length + aiAutocompleteOptions.length) + ''
     } else {
-      return '250' // Default height that looks very close to 5 suggestions (in px)
+      return '150' // Default height for just 2 suggestions
     }
   }, [searchLoading])
 
@@ -257,6 +274,14 @@ export function SearchOverlay({
 
   // When a general option is selected, open the article in the current window
   const generalSearchResultOnSelect = (selectedOption: GeneralSearchHit) => {
+    sendEvent({
+      type: EventType.search,
+      // TODO: Remove PII so we can include the actual query
+      search_query: 'REDACTED',
+      search_context: GENERAL_SEARCH_CONTEXT,
+      eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
+      eventGroupId: searchEventGroupId.current,
+    })
     sendEvent({
       type: EventType.searchResult,
       search_result_query: urlSearchInputQuery,
@@ -464,11 +489,14 @@ export function SearchOverlay({
           showDividers
           className={styles.suggestionsList}
           ref={suggestionsListHeightRef}
+          sx={{
+            minHeight: `${previousSuggestionsListHeight}px`,
+          }}
         >
           {/* Always show the AI Search UI error message when it is needed */}
           {aiSearchError && (
             <>
-              <ActionList.Divider key="general-divider" />
+              <ActionList.Divider key="error-top-divider" />
               <ActionList.GroupHeading
                 as="h3"
                 tabIndex={-1}
@@ -492,7 +520,7 @@ export function SearchOverlay({
                   role="alert"
                 />
               </Box>
-              <ActionList.Divider key="general-divider" />
+              <ActionList.Divider key="error-bottom-divider" />
             </>
           )}
           {/* Only show the autocomplete search UI error message in Dev */}
@@ -523,7 +551,7 @@ export function SearchOverlay({
             selectedIndex,
             listElementsRef,
             askAIState,
-            searchLoading,
+            showSpinner,
             previousSuggestionsListHeight,
           )}
         </ActionList>
@@ -536,6 +564,9 @@ export function SearchOverlay({
         showDividers
         className={styles.suggestionsList}
         ref={suggestionsListHeightRef}
+        sx={{
+          minHeight: `${previousSuggestionsListHeight}px`,
+        }}
       >
         {renderSearchGroups(
           t,
@@ -547,7 +578,7 @@ export function SearchOverlay({
           selectedIndex,
           listElementsRef,
           askAIState,
-          searchLoading,
+          showSpinner,
           previousSuggestionsListHeight,
         )}
       </ActionList>
@@ -581,7 +612,7 @@ export function SearchOverlay({
             onKeyDown={handleKeyDown}
             leadingVisual={<SearchIcon />}
             aria-labelledby={overlayHeadingId}
-            placeholder={t('search.input.placeholder')}
+            placeholder={t('search.input.placeholder_no_icon')}
             trailingAction={
               <Stack
                 justify="center"
@@ -690,13 +721,14 @@ function renderSearchGroups(
     aiCouldNotAnswer: boolean
     setAICouldNotAnswer: (value: boolean) => void
   },
-  searchLoading: boolean,
+  showSpinner: boolean,
   previousSuggestionsListHeight: number | string,
 ) {
   const groups = []
 
   const askAIGroupHeading = (
     <ActionList.GroupHeading
+      key="ai-heading"
       as="h3"
       tabIndex={-1}
       aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
@@ -732,12 +764,14 @@ function renderSearchGroups(
   let isInAskAIStateButNoAnswer = isInAskAIState && askAIState.aiCouldNotAnswer
 
   if (isInAskAIStateButNoAnswer) {
-    groups.push(<ActionList.Divider key="general-divider" />)
+    groups.push(<ActionList.Divider key="no-answer-divider" />)
   }
 
-  if (searchLoading) {
+  // already showing spinner when streaming AI response, so don't want to show 2 here
+  if (showSpinner && !isInAskAIState) {
     groups.push(
       <Box
+        key="loading"
         role="status"
         className={styles.loadingContainer}
         sx={{
@@ -831,13 +865,13 @@ function renderSearchGroups(
           (option) => !option.isViewAllResults && !option.isNoResultsFound,
         ).length)
     ) {
-      groups.push(<ActionList.Divider key="general-divider" />)
+      groups.push(<ActionList.Divider key="bottom-divider" />)
     }
   }
 
   if (aiOptionsWithUserInput.length && !isInAskAIState) {
     groups.push(
-      <ActionList.Group key="ai" data-testid="ai-autocomplete-suggestions">
+      <ActionList.Group key="ai-suggestions" data-testid="ai-autocomplete-suggestions">
         <ActionList.GroupHeading
           as="h3"
           tabIndex={-1}

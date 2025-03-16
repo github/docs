@@ -10,7 +10,8 @@ topics:
   - Repositories
   - Dependencies
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 ---
 
 ## About {% data variables.product.prodname_dotcom %}'s security features

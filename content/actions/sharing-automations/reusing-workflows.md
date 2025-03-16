@@ -417,6 +417,12 @@ For more information on using job outputs, see [AUTOTITLE](/actions/using-workfl
 
 ## Monitoring which workflows are being used
 
+{% ifversion fpt or ghes %}
+
+Organizations that use {% data variables.product.prodname_ghe_cloud %} can interact with the audit log via the {% data variables.product.github %} REST API to monitor which workflows are being used. For more information, see [the {% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api).
+
+{% else %}
+
 You can use the {% data variables.product.prodname_dotcom %} REST API to monitor how reusable workflows are being used. The `prepared_workflow_job` audit log action is triggered when a workflow job is started. Included in the data recorded are:
 * `repo` - the organization/repository where the workflow job is located. For a job that calls another workflow, this is the organization/repository of the caller workflow.
 * `@timestamp` - the date and time that the job was started, in Unix epoch format.
@@ -425,10 +431,12 @@ You can use the {% data variables.product.prodname_dotcom %} REST API to monitor
 * `calling_workflow_shas` - an array of SHAs for all the caller workflows involved in this workflow job. The array contains the same number of items, in the same order, as the `calling_workflow_refs` array.
 * `job_workflow_ref` - the workflow file that was used, in the form `{owner}/{repo}/{path}/{filename}@{ref}`. For a job that calls another workflow, this identifies the called workflow.
 
-For information about using the REST API to query the audit log for an organization, see [AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization).
+For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#using-the-audit-log-api).
 
 > [!NOTE]
 > Audit data for `prepared_workflow_job` can only be viewed using the REST API. It is not visible in the {% data variables.product.prodname_dotcom %} web interface, or included in JSON/CSV exported audit data.
+
+{% endif %}
 
 ## Re-running workflows and jobs with reusable workflows
 

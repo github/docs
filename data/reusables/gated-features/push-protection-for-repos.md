@@ -1,13 +1,13 @@
-Push protection for repositories and organizations is available for the following repository types:
+Push protection is available for the following repository types:
 
-{% ifversion fpt or ghec %}
+{% ifversion fpt %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}{% ifversion ghas-products-cloud %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}{% endif %}
 
-* {% ifversion ghec %}User-owned public{% elsif fpt %}Public{% endif %} repositories for free
-* Private and internal repositories in organizations using {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion ghec %}
+{% ifversion ghec %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled
 * User namespace repositories belonging to {% data variables.product.prodname_emus %}{% endif %}
 
-{% elsif ghes %}
-
-* Organization-owned repositories with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled
-
-{% endif %}
+{% ifversion ghes %}
+* Organization-owned repositories with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}

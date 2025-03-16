@@ -96,6 +96,10 @@ To confirm that a user's SCIM identity is created, we recommend testing this pro
 
 If re-provisioning SCIM for users doesn't help, please contact {% data variables.product.prodname_dotcom %} Support.
 
+## Conflicting SAML identity error
+
+{% data reusables.saml.conflicting-identity %}
+
 ## Further reading
 
 * [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/troubleshooting-identity-and-access-management-for-your-enterprise)

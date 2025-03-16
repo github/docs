@@ -6,7 +6,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference

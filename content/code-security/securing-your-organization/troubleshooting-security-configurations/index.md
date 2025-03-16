@@ -5,7 +5,8 @@ intro: 'To successfully apply a {% data variables.product.prodname_security_conf
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:

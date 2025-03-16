@@ -1,0 +1,9 @@
+# Reference: #16634
+# Use for content that is only available in GitHub Cloud.
+# GitHub Advanced Security products - future release for GitHub Cloud.
+# NOTE: The GitHub Enterprise Server release version is currently unknown.
+# The value below is a placeholder.
+versions:
+  ghes: '> 3.16'
+  #fpt: '*'
+  #ghec: '*'

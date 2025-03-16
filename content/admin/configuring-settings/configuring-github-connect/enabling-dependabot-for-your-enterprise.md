@@ -83,7 +83,7 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}, y
     > [!TIP]
    > We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of realtime notifications. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
-You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for {% ifversion code-security-wording-only-enterprise %}"Code security."{% else %}"Code security and analysis."{% endif %} Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "{% data variables.product.UI_advanced_security_ent %}." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
 
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 

@@ -5,7 +5,8 @@ intro: 'You can interpret security findings and manage your security enablement 
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:

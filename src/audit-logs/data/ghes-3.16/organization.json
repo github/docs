@@ -85,36 +85,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "code_scanning.alert_appeared_in_branch",
-    "description": "Existing code scanning alerts appeared in a branch.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code_scanning.alert_closed_became_fixed",
-    "description": "Code scanning alerts were fixed.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code_scanning.alert_closed_by_user",
-    "description": "Code scanning alerts were manually dismissed.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code_scanning.alert_created",
-    "description": "Code scanning alerts were seen for the first time.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code_scanning.alert_reappeared",
-    "description": "Code scanning alerts that were previously fixed reappeared.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
-    "action": "code_scanning.alert_reopened_by_user",
-    "description": "Code scanning alerts that were previously dismissed were reopened.",
-    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
-  },
-  {
     "action": "codespaces.allow_permissions",
     "description": "A codespace using custom permissions from its devcontainer.json file was launched.",
     "docs_reference_links": "N/A"
@@ -1035,16 +1005,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org.code_scanning_autofix_third_party_tools_disabled",
-    "description": "Autofix for third party tools for code scanning alerts was disabled for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.code_scanning_autofix_third_party_tools_enabled",
-    "description": "Autofix for third party tools for code scanning alerts was enabled for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "org.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for an organization.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
@@ -1575,11 +1535,6 @@
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
-    "action": "org.security_center_export_code_scanning_metrics",
-    "description": "A CSV export was requested on the CodeQL pull request alerts page.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "org.security_center_export_coverage",
     "description": "A CSV export was requested on the Coverage page.",
     "docs_reference_links": "N/A"
@@ -1825,11 +1780,6 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
-    "action": "organization_wide_project_base_role.update",
-    "description": "An organization's default project base role was updated.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -1982,11 +1932,6 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "project_base_role.update",
-    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2377,16 +2322,6 @@
   {
     "action": "repo.code_scanning_autofix_enabled",
     "description": "Autofix for code scanning alerts was enabled for a repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.code_scanning_autofix_third_party_tools_disabled",
-    "description": "Autofix for third party tools for code scanning alerts was disabled for a repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.code_scanning_autofix_third_party_tools_enabled",
-    "description": "Autofix for third party tools for code scanning alerts was enabled for a repository.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2990,11 +2925,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "repository_vulnerability_alert.withdraw",
-    "description": "A Dependabot alert was withdrawn.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "repository_vulnerability_alerts.authorized_users_teams",
     "description": "The list of people or teams authorized to receive Dependabot alerts for the repository was updated.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts"
@@ -3057,11 +2987,6 @@
   {
     "action": "secret_scanning_alert.create",
     "description": "GitHub detected a secret and created a secret scanning alert.",
-    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
-  },
-  {
-    "action": "secret_scanning_alert.public_leak",
-    "description": "A secret scanning alert was leaked in a public repo.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {

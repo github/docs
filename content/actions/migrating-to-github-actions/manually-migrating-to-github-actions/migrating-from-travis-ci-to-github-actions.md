@@ -163,7 +163,7 @@ When migrating from Travis CI, consider the following key features in {% data va
 
 ### Storing secrets
 
-{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Deployment protection rules can require manual approval for a workflow to access environment secrets. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
+{% data variables.product.prodname_actions %} allows you to store secrets and reference them in your jobs. {% data variables.product.prodname_actions %} organizations can limit which repositories can access organization secrets. Deployment protection rules can require manual approval for a workflow to access environment secrets. For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 ### Sharing files between jobs and workflows
 

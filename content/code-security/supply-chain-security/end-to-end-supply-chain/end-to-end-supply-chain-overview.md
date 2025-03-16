@@ -12,7 +12,7 @@ topics:
   - Organizations
   - Teams
   - Dependencies
-  - Advanced Security
+  - Code Security
 ---
 
 ## What is the end-to-end supply chain?

@@ -21,6 +21,10 @@ In some situations, you may need to update values associated with a person's acc
 
 To update user SAML `NameID` mappings in bulk, you can use the `ghe-saml-mapping-csv` command. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-saml-mapping-csv).
 
+{% ifversion scim-for-ghes-ga %}
+When SCIM is enabled on your {% data variables.product.prodname_ghe_server %} instance, you cannot update user SAML `NameID` mappings.
+{% endif %}
+
 ## Updating a user's SAML `NameID`
 
 Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.github %} instance.

@@ -46,7 +46,7 @@ We hosted developer documentation for {% data variables.product.prodname_ghe_ser
 
 ## Recommended {% data variables.product.prodname_codeql_cli %} versions for code scanning
 
-For instances with a {% data variables.product.prodname_GH_advanced_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
+For instances with a {% data variables.product.prodname_GHAS_or_code_security %} license and {% data variables.product.prodname_code_scanning %} enabled, the {% data variables.product.prodname_codeql %} action for {% data variables.product.prodname_code_scanning %} analysis uses a minimum recommended version of the {% data variables.product.prodname_codeql_cli %} by default.
 
 If you run analysis in an external CI system, we recommend using the same version of the {% data variables.product.prodname_codeql_cli %}. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
 

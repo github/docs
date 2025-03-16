@@ -39,7 +39,11 @@ Typically, to do this in a Git-based workflow, you would:
 * Let Git intelligently **merge** your specific changes back into the main copy of files, so that your changes don't impact other people's updates.
 * Let Git **keep track** of your and other people's changes, so you all stay working on the most up-to-date version of the project.
 
+{% ifversion fpt %}
+To try using Git yourself, see [AUTOTITLE](/get-started/learning-to-code/getting-started-with-git).
+{% else %}
 If you want to learn more about Git, see [AUTOTITLE](/get-started/using-git/about-git).
+{% endif %}
 
 ### How do Git and {% data variables.product.github %} work together?
 

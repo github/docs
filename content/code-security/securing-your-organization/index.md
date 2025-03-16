@@ -7,7 +7,8 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:

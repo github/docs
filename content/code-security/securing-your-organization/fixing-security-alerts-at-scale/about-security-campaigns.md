@@ -8,7 +8,7 @@ type: overview
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---

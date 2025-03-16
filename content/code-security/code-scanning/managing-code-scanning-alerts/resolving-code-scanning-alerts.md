@@ -18,7 +18,7 @@ redirect_from:
   - /code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Alerts
   - Repositories

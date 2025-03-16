@@ -10,7 +10,7 @@ topics:
   - Organizations
   - Vulnerabilities
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 shortTitle: Prevent data leaks
 ---
 
@@ -78,9 +78,9 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
    * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
    * Public repositories owned by organizations
-   * Private and internal repositories owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
-   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
-   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+   * Private and internal repositories owned by organizations using {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_ghe_cloud %}, with a license for {% data variables.product.prodname_GH_code_security %}{% elsif ghec %}
+   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %}
+   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
 {% endif %}
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance).{% endif %}

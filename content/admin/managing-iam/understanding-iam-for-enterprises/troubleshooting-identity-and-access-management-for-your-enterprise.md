@@ -62,6 +62,10 @@ If users are experiencing errors when attempting to authenticate with SAML, see 
 
 {% ifversion ghec %}
 
+## Conflicting SAML identity errors
+
+{% data reusables.saml.conflicting-identity %}
+
 ## Further reading
 
 * [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/troubleshooting-team-membership-with-identity-provider-groups)

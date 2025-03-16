@@ -9,7 +9,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Dependency review
   - Vulnerabilities
   - Dependencies
@@ -52,7 +52,7 @@ The dependency review feature becomes available when you enable the dependency g
 
 {% data reusables.dependency-review.about-dependency-review-action2 %}
 
-The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GHAS_or_code_security %} enabled.
 
 {% data reusables.dependency-review.org-level-enforcement %}
 

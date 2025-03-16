@@ -30,13 +30,7 @@ jobs:
       PR: ${{ github.event.pull_request.html_url }}
 
     steps:
-      - name: Check out repo
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-
       - name: Add Dependabot Core Maintainers as reviewers
         run: |
-          labels=$(gh pr view ${{ github.event.pull_request.number }} --json labels --jq '.labels[].name')
-          if ! echo "$labels" | grep -q 'reviewers-dependabot'; then
-            gh pr edit $PR --add-reviewer github/dependabot-updates-reviewers
-            gh pr edit $PR --add-label reviewers-dependabot
-          fi
+          gh pr edit $PR --add-reviewer github/dependabot-updates-reviewers
+          gh pr edit $PR --add-label reviewers-dependabot

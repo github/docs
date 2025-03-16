@@ -9,7 +9,7 @@ redirect_from:
 - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
 topics:
   - Security overview
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
   - Organizations
   - Teams

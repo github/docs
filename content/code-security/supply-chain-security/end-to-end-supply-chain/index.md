@@ -10,7 +10,7 @@ topics:
   - Organizations
   - Teams
   - Dependencies
-  - Advanced Security
+  - Code Security
 children:
   - /end-to-end-supply-chain-overview
   - /securing-accounts

@@ -26,7 +26,7 @@ For more information on how to ask questions, see [AUTOTITLE](/copilot/using-git
 
 ## About index creation and use
 
-Indexing runs in the background and initial indexing can take up to 30 minutes for a large repository. Once a repository has been indexed for the first time, re-indexing is much quicker and the index will typically be automatically updated to include the latest changes within 5 minutes of you starting a new conversation.
+Indexing runs in the background and initial indexing can take up to 60 seconds for a large repository. Once a repository has been indexed for the first time, re-indexing is much quicker and the index will typically be automatically updated to include the latest changes within seconds of you starting a new conversation.
 
 Once an index has been created for a repository, {% data variables.product.prodname_copilot_chat_short %} uses it to answer questions asked by any {% data variables.product.prodname_copilot_short %} user in {% data variables.product.github %} and {% data variables.product.prodname_vscode %}.
 

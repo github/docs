@@ -47,7 +47,7 @@ To pay for user licenses and services, you can:
 
 You will be on our latest billing platform, which allows you to estimate spending, create cost centers to manage expenses, and pay flexibly for the services you use.
 
-You can also sign up for usage-based billing for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %} licenses, meaning you won't need to purchase a pre-defined number of licenses in advance.
+You can also sign up for usage-based billing for {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %}, meaning you won't need to purchase a pre-defined number of licenses in advance.
 
 ## Developer experience
 

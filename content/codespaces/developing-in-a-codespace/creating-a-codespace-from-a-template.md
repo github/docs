@@ -102,5 +102,5 @@ You can publish an unpublished codespace from the "Your codespaces" page on {% d
 ## Further reading
 
 * [AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository)
-* [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)
+* [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle)
 * [AUTOTITLE](/codespaces/developing-in-a-codespace/using-source-control-in-your-codespace)

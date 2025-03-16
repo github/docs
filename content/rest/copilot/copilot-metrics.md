@@ -22,4 +22,6 @@ If you currently use the [AUTOTITLE](/rest/copilot/copilot-usage), we recommend 
 
 For help getting started, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/analyzing-usage-over-time-with-the-copilot-metrics-api).
 
+{% data reusables.copilot.metrics-api-ghecom %}
+
 <!-- Content after this section is automatically generated -->

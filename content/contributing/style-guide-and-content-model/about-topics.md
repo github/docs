@@ -36,7 +36,7 @@ For more information on adding topics to an article see, [AUTOTITLE](/contributi
   * Avoid: `Actions` in an article like "Introduction to {% data variables.product.prodname_actions %}"
 * Commonly-recognized abbreviations can be used, but obscure or ambiguous abbreviations should be avoided
   * Use: `CI` instead of `Continuous integration`
-  * Avoid: `AS` instead of `Advanced Security`
+  * Avoid: `CS` instead of `{% data variables.product.prodname_code_scanning_caps %}`
 * Use the short forms of {% data variables.product.prodname_dotcom %} product names
   * Use: `Actions` instead of `GitHub Actions`
 
@@ -49,7 +49,7 @@ Consider these questions to help choose topics for an article. Not every article
    Is the article about a sub-feature (unless the product name matches the feature name)?
   * Example: `Dependabot`
 * Is the feature part of a restricted program?
-  * Example: `Advanced Security`
+  * Examples: `{% data variables.product.prodname_copilot_short %}`
 * What element of the feature or product is the article?
   * Example: `Organizations`
 * What is the broad purpose of the article?

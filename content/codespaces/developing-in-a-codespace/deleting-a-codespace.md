@@ -141,6 +141,6 @@ You can also use the REST API to delete codespaces for your organization. See [A
 
 ## Further reading
 
-* [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)
+* [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle)
 * [AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)
 * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)

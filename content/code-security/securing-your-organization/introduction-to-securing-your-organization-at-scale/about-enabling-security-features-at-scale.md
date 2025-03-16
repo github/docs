@@ -5,14 +5,15 @@ intro: 'You can quickly secure your organization at scale with {% data variables
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---
 
 ## About securing your organization
 
-{% data variables.product.company_short %} offers many code security products and features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+{% data variables.product.company_short %} offers many security features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 You can easily enable and manage {% data variables.product.company_short %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
 

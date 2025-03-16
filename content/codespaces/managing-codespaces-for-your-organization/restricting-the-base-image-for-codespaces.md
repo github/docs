@@ -14,7 +14,7 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 ## Overview
 
-When you create a codespace, a development container is automatically created on a remote virtual machine. This dev container is created from a Docker image. The image is effectively a template for Docker containers and it determines many aspects of the resulting environment provided by the codespace. For more information, see [AUTOTITLE](/codespaces/overview#what-is-a-codespace).
+When you create a codespace, a development container is automatically created on a remote virtual machine. This dev container is created from a Docker image. The image is effectively a template for Docker containers and it determines many aspects of the resulting environment provided by the codespace. For more information, see [AUTOTITLE](/codespaces/quickstart#introduction).
 
 You can choose which image you want to use for your codespaces by specifying it in the dev container configuration for a repository. You can do this, for example, by using the `image` property in the `devcontainer.json` file.
 
@@ -42,7 +42,7 @@ If the image for a codespace is specified in a Dockerfile, and does not match th
 
 > [!NOTE]
 > * The dev container base image should not be confused with the host image. The host image is the image used to build the virtual machine on which the dev container runs. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/choosing-the-stable-or-beta-host-image).
-> * The base image policy is applied when a codespace is created, and when you perform a full container rebuild. For more information, see [AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle#rebuilding-a-codespace).
+> * The base image policy is applied when a codespace is created, and when you perform a full container rebuild. For more information, see [AUTOTITLE](/codespaces/about-codespaces/understanding-the-codespace-lifecycle#rebuilding-a-codespace).
 > * The base image policy does not apply to the default image, or the image that's used to recover a codespace if an error is introduced into a dev container configuration which prevents the container from being rebuilt.
 
 ### Setting organization-wide and repository-specific policies

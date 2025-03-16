@@ -22,11 +22,15 @@ topics:
 
 ## What are enterprise accounts?
 
-<!-- expires 2025-02-28 -->
+<!-- expires 2025-06-30 -->
+
+<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
+
 {% ifversion ghec %}
 > [!NOTE] Currently, {% data variables.product.prodname_ghe_cloud %} customers who use a single organization are being automatically upgraded to an enterprise account at no additional cost. For details, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account#what-will-happen-after-i-upgrade-my-organization).
 {% endif %}
-<!-- end expires 2025-02-28 -->
+
+<!-- end expires 2025-06-30 -->
 
 An enterprise account enables centralized management for **multiple organizations**.
 
@@ -37,7 +41,7 @@ Administrators for the enterprise account can:
 * Configure security, such as single sign-on, IP allow lists, SSH certificate authorities, and two-factor authentication
 * Stream audit and Git events data
 * Use internal repositories
-* Access features like {% data variables.product.prodname_copilot_enterprise %} and {% data variables.product.prodname_advanced_security %}
+* Access features like {% data variables.product.prodname_copilot_enterprise %} and {% data variables.product.prodname_AS %}{% ifversion ghas-products %} products{% endif %}
 * Enforce policies. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
 
 {% ifversion ghec %}

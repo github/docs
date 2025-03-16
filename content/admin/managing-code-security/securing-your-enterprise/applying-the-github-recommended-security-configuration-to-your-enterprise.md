@@ -21,7 +21,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a set
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "{% data variables.product.company_short %} recommended" row of the configurations table for your enterprise, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
 {% data reusables.security-configurations.apply-configuration-by-default %}
 
@@ -33,7 +33,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a set
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, select "{% data variables.product.company_short %} recommended".
 1. In the "Policy" section, next to "Enforce configuration", select **Enforce** from the dropdown menu.
 

@@ -2835,6 +2835,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repository_limit.reached",
+    "description": "An organization has reached their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
+  },
+  {
+    "action": "repository_limit.warning",
+    "description": "An organization is approaching their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
+  },
+  {
     "action": "repository_projects_change.clear",
     "description": "The repository projects policy was removed for an organization, or all organizations in the enterprise  Organization owners can now control their repository projects settings.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise"

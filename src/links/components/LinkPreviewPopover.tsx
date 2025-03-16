@@ -38,14 +38,12 @@ const BOUNDING_TOP_MARGIN = 300
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
 
-type Info = {
+type PageMetadata = {
   product: string
   title: string
   intro: string
   anchor?: string
-}
-type APIInfo = {
-  info: Info
+  cacheInfo?: string
 }
 
 function getOrCreatePopoverGlobal() {
@@ -250,17 +248,21 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
 
   const { pathname } = new URL(element.href)
 
-  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+  fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
+    headers: {
+      'X-Request-Source': 'hovercards',
+    },
+  }).then(async (response) => {
     if (response.ok) {
-      const { info } = (await response.json()) as APIInfo
-      fillPopover(element, info, filledCallback)
+      const meta = (await response.json()) as PageMetadata
+      fillPopover(element, meta, filledCallback)
     }
   })
 }
 
 function fillPopover(
   element: HTMLLinkElement,
-  info: Info,
+  info: PageMetadata,
   callback?: (popover: HTMLDivElement) => void,
 ) {
   const { product, title, intro, anchor } = info

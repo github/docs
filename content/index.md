@@ -121,11 +121,11 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/secret-scanning
       - code-security/supply-chain-security
-      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
-      - code-security/secret-scanning
+      - code-security/security-advisories
   - name: Client apps
     octicon: DeviceMobileIcon
     children:

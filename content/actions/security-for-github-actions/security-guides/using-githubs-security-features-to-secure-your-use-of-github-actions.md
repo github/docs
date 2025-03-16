@@ -80,7 +80,7 @@ For information on how to configure {% data variables.product.prodname_dependabo
 
 ## Protecting actions you've created
 
-{% data variables.product.prodname_dotcom %} enables collaboration between people who publish and maintain actions and vulnerability reporters in order to promote code security. {% data reusables.security-advisory.security-advisory-overview %}
+{% data variables.product.prodname_dotcom %} enables collaboration between people who publish and maintain actions and vulnerability reporters in order to promote secure coding. {% data reusables.security-advisory.security-advisory-overview %}
 
 If you are someone who maintains an action that is used in other projects, you can use the following {% data variables.product.prodname_dotcom %} features to enhance the security of the actions you've published.
 

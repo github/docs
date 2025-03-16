@@ -80,17 +80,7 @@ export async function executeCombinedSearch(
   query: string,
   debug = false,
   abortSignal?: AbortSignal,
-  eventGroupId?: string,
 ) {
-  sendEvent({
-    type: EventType.search,
-    // TODO: Remove PII so we can include the actual query
-    search_query: 'REDACTED',
-    search_context: COMBINED_SEARCH_CONTEXT,
-    eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
-    eventGroupId: eventGroupId,
-  })
-
   let language = router.locale || 'en'
 
   const params = new URLSearchParams({ query: query, version, language })

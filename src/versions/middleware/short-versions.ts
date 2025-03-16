@@ -9,11 +9,11 @@
 import type { ExtendedRequest } from '@/types.js'
 import type { Response, NextFunction } from 'express'
 
-export default function shortVersions(
+export default async function shortVersions(
   req: ExtendedRequest,
   res: Response | null,
   next: NextFunction,
-): void {
+): Promise<void> {
   if (!req.context) throw new Error('No context on request')
   const { currentVersion, currentVersionObj } = req.context
   if (!currentVersionObj) {

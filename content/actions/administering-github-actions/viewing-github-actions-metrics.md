@@ -38,8 +38,6 @@ redirect_from:
 
 ## Viewing {% data variables.product.prodname_actions %} metrics for your repository
 
-> [!NOTE] Repository-level metrics for {% data variables.product.prodname_actions %} is in {% data variables.release-phases.public_preview %} and subject to change.
-
 {% data reusables.actions.actions-metrics-discrepancy-note %}
 
 {% data reusables.repositories.navigate-to-repo %}

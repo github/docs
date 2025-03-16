@@ -8,7 +8,7 @@ versions:
   feature: push-protection-delegated-bypass
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /about-delegated-bypass-for-push-protection

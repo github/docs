@@ -48,14 +48,6 @@ For more information about authenticating in a {% data variables.product.prodnam
 1. Generate a private key for your app. Store the contents of the resulting file as a secret in your repository or organization. (Store the entire contents of the file, including `-----BEGIN RSA PRIVATE KEY-----` and `-----END RSA PRIVATE KEY-----`.) In the following workflow, replace `APP_PEM` with the name of the secret. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps). For more information about storing secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 1. In the following workflow, replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`. Replace `YOUR_PROJECT_NUMBER` with your project number. To find the project number, look at the project URL. For example, `https://github.com/orgs/octo-org/projects/5` has a project number of 5. In order for this specific example to work, your project must also have a "Date posted" date field.
 
-   {% ifversion ghes < 3.12 %}
-
-   > [!NOTE]
-   > * {% data reusables.actions.actions-not-certified-by-github %}
-   > * {% data reusables.actions.actions-use-sha-pinning %}
-
-   {% endif %}
-
 ```yaml annotate copy
 #
 name: Add PR to project
@@ -68,17 +60,17 @@ jobs:
   track_pr:
     runs-on: ubuntu-latest
     steps:
-    # Uses the {% ifversion ghes < 3.12 %}[tibdex/github-app-token](https://github.com/tibdex/github-app-token){% else %}[actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token){% endif %} action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}`.
+    # Uses the [actions/create-github-app-token](https://github.com/marketplace/actions/create-github-app-token) action to generate an installation access token for your app from the app ID and private key. The installation access token is accessed later in the workflow as `{% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}`.
     #
     # Replace `APP_ID` with the name of the configuration variable that contains your app ID.
     #
     # Replace `APP_PEM` with the name of the secret that contains your app private key.
       - name: Generate token
         id: generate-token
-        uses: {% ifversion ghes < 3.12 %}tibdex/github-app-token@32691ba7c9e7063bd457bd8f2a5703138591fa58 # v1.9.0{% else %}actions/create-github-app-token@v1{% endif %}
+        uses: actions/create-github-app-token@v1
         with:
-          {% ifversion ghes < 3.12 %}app_id{% else %}app-id{% endif %}: {% raw %}${{ vars.APP_ID }}{% endraw %}
-          {% ifversion ghes < 3.12 %}private_key{% else %}private-key{% endif %}: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
+          app-id: {% raw %}${{ vars.APP_ID }}{% endraw %}
+          private-key: {% raw %}${{ secrets.APP_PEM }}{% endraw %}
       # Sets environment variables for this step.
       #
       # Replace `YOUR_ORGANIZATION` with the name of your organization. For example, `octo-org`.
@@ -255,7 +247,7 @@ jobs:
           # - To get the ID of an option called `Octoteam` for the `Team` single select field, add `echo 'OCTOTEAM_OPTION_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Team") |.options[] | select(.name=="Octoteam") |.id' project_data.json) >> $GITHUB_ENV`.
           #
           # **Note:** This workflow assumes that you have a project with a single select field called "Status" that includes an option called "Todo" and a date field called "Date posted". You must modify this section to match the fields that are present in your table.
-          
+
           echo 'PROJECT_ID='$(jq '.data.organization.projectV2.id' project_data.json) >> $GITHUB_ENV
           echo 'DATE_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Date posted") | .id' project_data.json) >> $GITHUB_ENV
           echo 'STATUS_FIELD_ID='$(jq '.data.organization.projectV2.fields.nodes[] | select(.name== "Status") | .id' project_data.json) >> $GITHUB_ENV

@@ -52,3 +52,7 @@ sections:
       When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]

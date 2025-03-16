@@ -36,7 +36,7 @@ You can certify your proficiency in automating workflows and accelerating develo
 
 ### {% data variables.product.prodname_GH_advanced_security %} Certification
 
-You can highlight your code security knowledge with the {% data variables.product.prodname_GH_advanced_security %} certificate. This exam covers:
+You can highlight your knowledge with the {% data variables.product.prodname_GH_advanced_security %} certificate. This exam covers:
 
 * Vulnerability identification
 * Workflow security

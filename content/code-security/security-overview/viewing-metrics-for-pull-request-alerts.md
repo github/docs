@@ -7,7 +7,7 @@ permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Organizations

@@ -90,6 +90,11 @@ sections:
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+
   deprecations:
     # https://github.com/github/releases/issues/4037
     - heading: Upcoming deprecation of projects (classic)

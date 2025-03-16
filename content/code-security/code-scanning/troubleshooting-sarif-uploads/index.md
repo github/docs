@@ -6,7 +6,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Integration
 children:

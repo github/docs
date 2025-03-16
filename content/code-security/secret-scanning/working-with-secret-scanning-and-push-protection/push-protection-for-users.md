@@ -7,7 +7,7 @@ product: '{% data reusables.gated-features.push-protection-for-users %}'
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - User account
 redirect_from:
