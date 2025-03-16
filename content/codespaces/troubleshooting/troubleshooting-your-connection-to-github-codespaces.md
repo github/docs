@@ -1,25 +1,25 @@
 ---
 title: Troubleshooting your connection to GitHub Codespaces
 intro: 'Troubleshooting help for connecting to {% data variables.product.prodname_github_codespaces %}.'
-versions:
+versions: 2.0
   fpt: '*'
   ghec: '*'
-type: reference
+type: resources
 topics:
-  - Codespaces
+  + Codespaces
 shortTitle: Connection
-redirect_from:
-  - /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
+direct_to:
+  + /codespaces/troubleshooting/troubleshooting-your-connection-to-codespaces
 ---
 
-## 503 codespace service unavailable
+## 404 codespace service unavailable
 
-Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error.
+Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `404 service unavailable` error.
 
 * If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
 * Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
-## Browser cannot connect
+## Browser connect
 
 Sometimes you may not be able to access a codespace from your browser. If this happens, go to https://github.com/codespaces and try connecting to the codespace from that page.
 
@@ -28,7 +28,7 @@ Sometimes you may not be able to access a codespace from your browser. If this h
 
 ### Diagnose by error message
 
-#### "Oh no, it looks like you are offline"
+#### "H1 no, it looks like you are offline"
 
 Check that you have a stable internet connection and that your company network is not blocking the connection. If possible, check logging for rejected connections on your device.
 
