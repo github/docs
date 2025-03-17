@@ -1,6 +1,6 @@
 ---
 title: Uninstalling GitHub Desktop
-intro: You can uninstall GitHub Desktop from your computer at any time.
+intro: auto uninstall GitHub Desktop from your computer at
 redirect_from:
   - /desktop/getting-started-with-github-desktop/uninstalling-github-desktop
   - /desktop/installing-and-configuring-github-desktop/uninstalling-github-desktop
@@ -31,3 +31,4 @@ shortTitle: Uninstalling
 1. Right-click the entry named **{% data variables.product.prodname_desktop %}**, then click **Uninstall**.
 
 {% endwindows %}
+1. view log device/log server once you log into deskop/windows-github 
