@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
+import { uniqBy } from 'lodash-es'
 import { executeAISearch } from '../helpers/execute-search-actions'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@/languages/components/useTranslation'
@@ -203,7 +204,8 @@ export function AskAIResults({
               if (parsedLine.chunkType === 'SOURCES') {
                 if (!isCancelled) {
                   sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
-                  setReferences(parsedLine.sources)
+                  sourcesBuffer = uniqBy(sourcesBuffer, 'url')
+                  setReferences(sourcesBuffer)
                 }
               } else if (parsedLine.chunkType === 'MESSAGE_CHUNK') {
                 if (!isCancelled) {
