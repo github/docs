@@ -11,14 +11,14 @@ import { ROOT, TRANSLATIONS_ROOT, TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/l
 dotenv.config()
 
 const possibleEnvVars = {
-  'zh-cn': process.env.TRANSLATIONS_ROOT_ZH_CN,
   'es-es': process.env.TRANSLATIONS_ROOT_ES_ES,
-  'pt-br': process.env.TRANSLATIONS_ROOT_PT_BR,
-  'ru-ru': process.env.TRANSLATIONS_ROOT_RU_RU,
   'ja-jp': process.env.TRANSLATIONS_ROOT_JA_JP,
+  'pt-br': process.env.TRANSLATIONS_ROOT_PT_BR,
+  'zh-cn': process.env.TRANSLATIONS_ROOT_ZH_CN,
+  'ru-ru': process.env.TRANSLATIONS_ROOT_RU_RU,
   'fr-fr': process.env.TRANSLATIONS_ROOT_FR_FR,
-  'de-de': process.env.TRANSLATIONS_ROOT_DE_DE,
   'ko-kr': process.env.TRANSLATIONS_ROOT_KO_KR,
+  'de-de': process.env.TRANSLATIONS_ROOT_DE_DE,
 }
 
 function getRoot(languageCode) {
@@ -51,35 +51,12 @@ const allLanguages = {
     hreflang: 'en',
     dir: getRoot('en'),
   },
-  zh: {
-    name: 'Simplified Chinese',
-    nativeName: '简体中文',
-    code: 'zh',
-    hreflang: 'zh-Hans',
-    redirectPatterns: [/^\/cn/, /^\/zh-\w{2}/],
-    dir: getRoot('zh-cn'),
-  },
   es: {
     name: 'Spanish',
     nativeName: 'Español',
     code: 'es',
     hreflang: 'es',
     dir: getRoot('es-es'),
-  },
-  pt: {
-    name: 'Portuguese',
-    nativeName: 'Português do Brasil',
-    code: 'pt',
-    hreflang: 'pt',
-    redirectPatterns: [/^\/br/],
-    dir: getRoot('pt-br'),
-  },
-  ru: {
-    name: 'Russian',
-    nativeName: 'Русский',
-    code: 'ru',
-    hreflang: 'ru',
-    dir: getRoot('ru-ru'),
   },
   ja: {
     name: 'Japanese',
@@ -89,19 +66,35 @@ const allLanguages = {
     redirectPatterns: [/^\/jp/],
     dir: getRoot('ja-jp'),
   },
+  pt: {
+    name: 'Portuguese',
+    nativeName: 'Português do Brasil',
+    code: 'pt',
+    hreflang: 'pt',
+    redirectPatterns: [/^\/br/],
+    dir: getRoot('pt-br'),
+  },
+  zh: {
+    name: 'Simplified Chinese',
+    nativeName: '简体中文',
+    code: 'zh',
+    hreflang: 'zh-Hans',
+    redirectPatterns: [/^\/cn/, /^\/zh-\w{2}/],
+    dir: getRoot('zh-cn'),
+  },
+  ru: {
+    name: 'Russian',
+    nativeName: 'Русский',
+    code: 'ru',
+    hreflang: 'ru',
+    dir: getRoot('ru-ru'),
+  },
   fr: {
     name: 'French',
     nativeName: 'Français',
     code: 'fr',
     hreflang: 'fr',
     dir: getRoot('fr-fr'),
-  },
-  de: {
-    name: 'German',
-    nativeName: 'Deutsch',
-    code: 'de',
-    hreflang: 'de',
-    dir: getRoot('de-de'),
   },
   ko: {
     name: 'Korean',
@@ -110,6 +103,13 @@ const allLanguages = {
     hreflang: 'ko',
     redirectPatterns: [/^\/kr/],
     dir: getRoot('ko-kr'),
+  },
+  de: {
+    name: 'German',
+    nativeName: 'Deutsch',
+    code: 'de',
+    hreflang: 'de',
+    dir: getRoot('de-de'),
   },
 }
 // Some markdownlint tests depend on having access to all
