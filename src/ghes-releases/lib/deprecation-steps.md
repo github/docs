@@ -175,25 +175,25 @@ This step will remove the version from the drop-down picker, effectively depreca
 
 You can clone the translation repositories directly inside of your docs-internal checkout, but I'd recommend cloning them in a separate directory. For example, create a `translations` directory at the same level as your `docs-internal` directory. Inside of the `translations` directory, clone the following repoisitories (ensure this list includes all languages that we are supporting):
 
-- [docs-internal.de-de](https://github.com/github/docs-internal.de-de)
-- [docs-internal.fr-fr](https://github.com/github/docs-internal.fr-fr)
-- [docs-internal.ko-kr](https://github.com/github/docs-internal.ko-kr)
-- [docs-internal.ru-ru](https://github.com/github/docs-internal.ru-ru)
 - [docs-internal.es-es](https://github.com/github/docs-internal.es-es)
 - [docs-internal.ja-jp](https://github.com/github/docs-internal.ja-jp)
 - [docs-internal.pt-br](https://github.com/github/docs-internal.pt-br)
 - [docs-internal.zh-cn](https://github.com/github/docs-internal.zh-cn)
+- [docs-internal.ru-ru](https://github.com/github/docs-internal.ru-ru)
+- [docs-internal.fr-fr](https://github.com/github/docs-internal.fr-fr)
+- [docs-internal.ko-kr](https://github.com/github/docs-internal.ko-kr)
+- [docs-internal.de-de](https://github.com/github/docs-internal.de-de)
 
 To map the location of each translation repository, edit your `.env` file with the mapping. For example, if following the locations suggested above, your `.env` file might look like this:
 
 ```shell
 TRANSLATIONS=/Users/mona/repos/github-repos/translations
 TRANSLATIONS_ROOT_ES_ES=${TRANSLATIONS}/docs-internal.es-es
-TRANSLATIONS_ROOT_ZH_CN=${TRANSLATIONS}/docs-internal.zh-cn
 TRANSLATIONS_ROOT_JA_JP=${TRANSLATIONS}/docs-internal.ja-jp
 TRANSLATIONS_ROOT_PT_BR=${TRANSLATIONS}/docs-internal.pt-br
-TRANSLATIONS_ROOT_FR_FR=${TRANSLATIONS}/docs-internal.fr-fr
+TRANSLATIONS_ROOT_ZH_CN=${TRANSLATIONS}/docs-internal.zh-cn
 TRANSLATIONS_ROOT_RU_RU=${TRANSLATIONS}/docs-internal.ru-ru
+TRANSLATIONS_ROOT_FR_FR=${TRANSLATIONS}/docs-internal.fr-fr
 TRANSLATIONS_ROOT_KO_KR=${TRANSLATIONS}/docs-internal.ko-kr
 TRANSLATIONS_ROOT_DE_DE=${TRANSLATIONS}/docs-internal.de-de
 ```
