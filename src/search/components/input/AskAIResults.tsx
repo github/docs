@@ -58,6 +58,7 @@ export function AskAIResults({
   const [message, setMessage] = useState('')
   const [initialLoading, setInitialLoading] = useState(true)
   const [responseLoading, setResponseLoading] = useState(false)
+  const [announcement, setAnnouncement] = useState<string>('')
   const disclaimerRef = useRef<HTMLDivElement>(null)
   // We cache up to 1000 queries, and expire them after 30 days
   const { getItem, setItem } = useAISearchLocalStorageCache<{
@@ -83,6 +84,7 @@ export function AskAIResults({
       status: 400,
     })
     setMessage(cannedResponse)
+    setAnnouncement(cannedResponse)
     setReferences([])
     setItem(
       query,
@@ -105,6 +107,7 @@ export function AskAIResults({
     }
     let isCancelled = false
     setMessage('')
+    setAnnouncement('')
     setReferences([])
     setAICouldNotAnswer(false)
     setInitialLoading(true)
@@ -118,6 +121,7 @@ export function AskAIResults({
       setAICouldNotAnswer(cachedData.aiCouldNotAnswer || false)
       setInitialLoading(false)
       setResponseLoading(false)
+
       sendAISearchResultEvent({
         sources: cachedData.sources,
         message: cachedData.message,
@@ -125,6 +129,10 @@ export function AskAIResults({
         couldNotAnswer: cachedData.aiCouldNotAnswer,
         status: cachedData.aiCouldNotAnswer ? 400 : 200,
       })
+
+      setTimeout(() => {
+        setAnnouncement(cachedData.message)
+      }, 1500)
       return
     }
 
@@ -203,6 +211,9 @@ export function AskAIResults({
                   setMessage(messageBuffer)
                 }
               }
+              if (!isCancelled) {
+                setAnnouncement('Copilot Response Loading...')
+              }
             }
           }
         }
@@ -246,18 +257,12 @@ export function AskAIResults({
 
   return (
     <div className={styles.container}>
-      {/* Hidden status message for screen readers */}
-      <span role="status" aria-live="polite" className={styles.displayForScreenReader}>
-        {initialLoading || responseLoading
-          ? t('search.ai.loading_status_message')
-          : t('search.ai.done_loading_status_message')}
-      </span>
       {initialLoading ? (
         <div className={styles.loadingContainer} role="status">
           <Spinner />
         </div>
       ) : (
-        <article aria-busy={responseLoading} aria-live="polite">
+        <article aria-busy={responseLoading} aria-live="assertive">
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
               {t('search.ai.disclaimer')}
@@ -358,6 +363,8 @@ export function AskAIResults({
                     paddingLeft: '0px',
                   }}
                   key={`reference-${index}`}
+                  id={`search-option-reference-${index + referencesIndexOffset}`}
+                  role="option"
                   tabIndex={-1}
                   onSelect={() => {
                     referenceOnSelect(source.url)
@@ -374,6 +381,22 @@ export function AskAIResults({
           </ActionList>
         </>
       ) : null}
+      <div
+        aria-live="assertive"
+        style={{
+          position: 'absolute',
+          width: '1px',
+          height: '1px',
+          padding: '0',
+          margin: '-1px',
+          overflow: 'hidden',
+          clip: 'rect(0, 0, 0, 0)',
+          whiteSpace: 'nowrap',
+          border: '0',
+        }}
+      >
+        {announcement}
+      </div>
     </div>
   )
 }
