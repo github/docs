@@ -1,7 +1,7 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
 intro: 'You can try {% data variables.product.prodname_GH_advanced_security %} for free.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
 type: how_to
@@ -23,13 +23,15 @@ shortTitle: Set up an Advanced Security trial
 
 {% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
 
 There are a few ways to trial {% data variables.product.prodname_GH_advanced_security %}:
 
 * If you are **an existing {% data variables.product.prodname_ghe_cloud %} customer** paying by credit card or PayPal, and you have not yet purchased {% data variables.product.prodname_GH_advanced_security %} or participated in a trial, you can start a trial of {% data variables.product.prodname_GH_advanced_security %} at any time. For more information, see [Setting up your trial of {% data variables.product.prodname_GH_advanced_security %}](#setting-up-your-trial-of-github-advanced-security).
 * If you are **a new {% data variables.product.prodname_ghe_cloud %} customer**, you can start a trial of {% data variables.product.prodname_ghe_cloud %}, which includes {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
-* {% ifversion ghec %}If you **pay by invoice**, contact {% data variables.contact.contact_enterprise_sales %} to discuss trialing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.{% endif %}
+* If you **pay by invoice**, contact {% data variables.contact.contact_enterprise_sales %} to discuss trialing {% data variables.product.prodname_GH_advanced_security %} for your enterprise.
 
 During a trial of {% data variables.product.prodname_GH_advanced_security %} in a {% data variables.product.prodname_ghe_cloud %} account with a paid subscription, you can add any number of committers and enable {% data variables.product.prodname_GH_advanced_security %} for any number of organizations. During a trial of {% data variables.product.prodname_ghe_cloud %}, you can enable {% data variables.product.prodname_GH_advanced_security %} for your whole enterprise.
 

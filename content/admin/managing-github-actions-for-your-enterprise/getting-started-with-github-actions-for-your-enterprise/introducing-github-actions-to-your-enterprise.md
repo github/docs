@@ -98,9 +98,7 @@ If you want more control over the networking policies for your runners, use self
 
 You also have to decide where to add each runner. You can add a self-hosted runner to an individual repository, or you can make the runner available to an entire organization or your entire enterprise. Adding runners at the organization or enterprise levels allows sharing of runners, which might reduce the size of your runner infrastructure. You can use policies to limit access to self-hosted runners at the organization and enterprise levels by assigning groups of runners to specific repositories or organizations. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups). You can also use policies to prevent people using repository-level self-hosted runners. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#disabling-repository-level-self-hosted-runners).
 
-{% ifversion ghec or ghes %}
 You should consider using autoscaling to automatically increase or decrease the number of available self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/autoscaling-with-self-hosted-runners).
-{% endif %}
 
 Finally, you should consider security hardening for self-hosted runners. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
@@ -113,11 +111,7 @@ Finally, you should consider security hardening for self-hosted runners. For mor
 You must configure external blob storage for workflow artifacts, caches, and other workflow logs. Decide which supported storage provider your enterprise will use. For more information, see [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 You can use policy settings for {% data variables.product.prodname_actions %} to customize the storage of workflow artifacts, caches, and log retention. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise).
-
-{% endif %}
 
 {% ifversion ghec %}
 Some storage is included in your subscription, but additional storage will affect your bill. You should plan for this cost. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
@@ -130,7 +124,11 @@ You should consider making a plan to track your enterprise's usage of {% data va
 {% ifversion ghec %}
 You can see basic details of storage and data transfer usage of {% data variables.product.prodname_actions %} for each organization in your enterprise via your billing settings. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/viewing-your-github-actions-usage#viewing-github-actions-usage-for-your-enterprise-account).
 
-For more detailed usage data, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
+> [!NOTE] Enterprise-level metrics for {% data variables.product.prodname_actions %} is in {% data variables.release-phases.public_preview %} and subject to change.
+
+You can view both usage and performance data for your enterprise under the "Insights" tab. These metrics provide the same {% data variables.product.prodname_actions %} data available at the repository and organization levels but aggregated for your entire enterprise. If you need more detailed insights, see [Viewing {% data variables.product.prodname_actions %} metrics for your organization](/actions/administering-github-actions/viewing-github-actions-metrics#viewing-github-actions-metrics-for-your-organization) or [Viewing {% data variables.product.prodname_actions %} metrics for your repository](/actions/administering-github-actions/viewing-github-actions-metrics#viewing-github-actions-metrics-for-your-repository).
+
+For more detailed usage data at a per job or per workflow level, you{% else %}You{% endif %} can use webhooks to subscribe to information about workflow jobs and workflow runs. For more information, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks).
 
 Make a plan for how your enterprise can pass the information from these webhooks into a data archiving system. You can consider using "CEDAR.GitHub.Collector", an open source tool that collects and processes webhook data from {% data variables.product.prodname_dotcom %}. For more information, see the [`Microsoft/CEDAR.GitHub.Collector` repository](https://github.com/microsoft/CEDAR.GitHub.Collector/).
 

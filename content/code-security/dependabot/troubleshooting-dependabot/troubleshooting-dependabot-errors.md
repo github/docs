@@ -56,9 +56,7 @@ If an error blocked {% data variables.product.prodname_dependabot %} from creati
 
 ## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, {% ifversion dependabot-job-log %} you can view the job logs list to find out more about the error {% else %} it posts the error icon on the manifest file{% endif %}.
-
-{% ifversion dependabot-job-log %}
+When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem,  you can view the job logs list to find out more about the error .
 
 {% data reusables.dependabot.dependabot-jobs-log-access %}
 
@@ -67,16 +65,6 @@ To view the full logs files for a particular job, to the right of the log entry 
 ![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs", is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
 
 For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
-
-{% else %}
-
-The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
-
-![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
-
-To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
-
-{% endif %}
 
 ## Understanding {% data variables.product.prodname_dependabot %} errors
 
@@ -169,8 +157,6 @@ To allow {% data variables.product.prodname_dependabot %} to update the dependen
 
 **Version updates only.** {% data reusables.dependabot.private-dependencies-note %} Additionally, {% data variables.product.prodname_dependabot %} doesn't support private {% data variables.product.prodname_dotcom %} dependencies for all package managers. For more information, see [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories).
 
-{% ifversion dependabot-version-updates-groups %}
-
 ### {% data variables.product.prodname_dependabot %} fails to group a set of dependencies into a single pull request for {% data variables.product.prodname_dependabot_version_updates %}
 
 {% ifversion dependabot-grouped-security-updates-config %}The [`groups`](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#groups) configuration settings in the `dependabot.yml` file can apply to version updates and security updates. Use the `applies-to` key to specify where (version updates or security updates) a set of grouping rules is applied.
@@ -251,8 +237,6 @@ If the dependency still fails to update, there may be a problem with the depende
 {% data reusables.dependabot.dependabot-ignore-dependencies %}
 
 If you continue to see CI failures, you should remove the group configuration so that {% data variables.product.prodname_dependabot %} reverts to raising individual pull requests for each dependency. Then, you should check and confirm that the update works correctly for each individual pull request.
-
-{% endif %}
 
 ## Triggering a {% data variables.product.prodname_dependabot %} pull request manually
 

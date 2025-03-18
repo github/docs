@@ -4,23 +4,25 @@ import rateLimit from 'express-rate-limit'
 
 import statsd from '@/observability/lib/statsd.js'
 import { noCacheControl } from '@/frame/middleware/cache-control.js'
+import { isFastlyIP } from '@/shielding/lib/fastly-ips'
 
 const EXPIRES_IN_AS_SECONDS = 60
 
-const MAX = process.env.RATE_LIMIT_MAX ? parseInt(process.env.RATE_LIMIT_MAX, 10) : 100
+const MAX = process.env.RATE_LIMIT_MAX ? parseInt(process.env.RATE_LIMIT_MAX, 10) : 50
 if (isNaN(MAX)) {
   throw new Error(`process.env.RATE_LIMIT_MAX (${process.env.RATE_LIMIT_MAX}) not a number`)
 }
 
-const ipv4WithPort = /^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}):\d{1,5}$/
-
-export function createRateLimiter(max = MAX) {
+// We apply this rate limiter to _all_ routes in src/shielding/index.ts except for `/api/*` routes
+// `/api/*` routes are rate limited on a more specific basis in frame/api/index.ts
+// When creating a limiter for `/api/*` routes, we need to pass `true` as the second argument
+export function createRateLimiter(max = MAX, isAPILimiter = false) {
   return rateLimit({
     // 1 minute
     windowMs: EXPIRES_IN_AS_SECONDS * 1000,
     // limit each IP to X requests per windowMs
-    // We currently have about 25 instances in production. That's routed
-    // in Azure to spread the requests to each healthy instance.
+    // We currently have about 12 instances in production. That's routed
+    // in Moda to spread the requests to each healthy instance.
     // So, the true rate limit, per `windowMs`, is this number multiplied
     // by the current number of instances.
     max: max,
@@ -31,34 +33,35 @@ export function createRateLimiter(max = MAX) {
     legacyHeaders: false,
 
     keyGenerator: (req) => {
-      let { ip } = req
-      // In our Azure preview environment, with the way the proxying works,
-      // the `x-forwarded-for` is always the origin IP with a port number
-      // attached. E.g. `75.40.90.27:56675, 169.254.129.1`
-      // This port number portion changes with every request, so we strip it.
-      ip = (ip || '').replace(ipv4WithPort, '$1')
-
-      return ip
+      return getClientIPFromReq(req)
     },
 
-    skip: (req) => {
-      // Always ignore these
-      if (req.path === '/api/events') return true
-      // Always rate limit these routes
-      const dontSkip =
-        req.originalUrl.includes('/api/search') || req.originalUrl.includes('/api/ai-search')
-      // If the query string looks totally regular, then skip
-      if (!isSuspiciousRequest(req) && !dontSkip) return true
+    skip: async (req) => {
+      const ip = getClientIPFromReq(req)
+      if (await isFastlyIP(ip)) {
+        return true
+      }
+      // IP is empty when we are in a non-production (not behind Fastly) environment
+      // In these environments, we don't want to rate limit (including tests)
+      // However, if you want to test rate limiting locally, you can manually set
+      // the `fastly-client-ip` header to your IP address to bypass this check set the
+      if (ip === '') {
+        return true
+      }
 
-      // This is so we can get a sense of how many requests are being
-      // treated as suspicious. They don't necessarily get rate limited.
-      const tags = [
-        `url:${req.url}`,
-        `ip:${req.ip}`,
-        `path:${req.path}`,
-        `qs:${req.url.split('?')[1]}`,
-      ]
+      // We handle /api/* routes with a separate rate limiter
+      // When it is a separate rate limiter, isAPILimiter will be passed as true
+      if (req.path.startsWith('/api/') || isAPILimiter) {
+        return false
+      }
 
+      // If the request is not suspicious, don't rate limit it
+      if (!isSuspiciousRequest(req)) {
+        return true
+      }
+
+      // At this point, a request is suspicious. We want to track how many are in datadog
+      const tags = [`url:${req.url}`, `ip:${ip}`, `path:${req.path}`, `qs:${req.url.split('?')[1]}`]
       statsd.increment('middleware.rate_limit_dont_skip', 1, tags)
 
       return false
@@ -70,7 +73,22 @@ export function createRateLimiter(max = MAX) {
       noCacheControl(res)
       res.status(options.statusCode).send(options.message)
     },
+
+    // Temporary so that we can see what is coming from Fastly v app level
+    statusCode: 418, // "i'm a teapot"
   })
+}
+
+function getClientIPFromReq(req: Request) {
+  // Moda forwards the client's IP using the `fastly-client-ip` header.
+  // However, in non-fastly environments, this header is not present.
+  // Staging is behind Okta, so we don't need to rate limit there.
+  let ip = req?.headers?.['fastly-client-ip'] || ''
+  // This is to satisfy TypeScript since a header could be a string array, but fastly-client-ip is not
+  if (typeof ip !== 'string') {
+    ip = ''
+  }
+  return ip
 }
 
 const RECOGNIZED_KEYS_BY_PREFIX = {
@@ -101,6 +119,9 @@ const MISC_KEYS = [
 
   // Lowercase for rest pages
   'apiversion',
+
+  // We use the query param "feature" to enable experiments in the browser
+  'feature',
 ]
 
 /**

@@ -2897,6 +2897,30 @@
       "requestPath": "/orgs/{org}/invitations/{invitation_id}/teams"
     },
     {
+      "slug": "list-issue-types-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "create-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "update-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
+    },
+    {
       "slug": "list-organization-members",
       "subcategory": "members",
       "verb": "get",
@@ -3155,6 +3179,18 @@
       "requestPath": "/orgs/{org}/rulesets/{ruleset_id}"
     },
     {
+      "slug": "get-organization-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-organization-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}"
+    },
+    {
       "slug": "list-security-manager-teams",
       "subcategory": "security-managers",
       "verb": "get",
@@ -3171,6 +3207,42 @@
       "subcategory": "security-managers",
       "verb": "delete",
       "requestPath": "/orgs/{org}/security-managers/teams/{team_slug}"
+    },
+    {
+      "slug": "list-hosted-compute-network-configurations-for-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/network-configurations"
+    },
+    {
+      "slug": "create-a-hosted-compute-network-configuration-for-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/settings/network-configurations"
+    },
+    {
+      "slug": "get-a-hosted-compute-network-configuration-for-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
+    },
+    {
+      "slug": "update-a-hosted-compute-network-configuration-for-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
+    },
+    {
+      "slug": "delete-a-hosted-compute-network-configuration-from-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
+    },
+    {
+      "slug": "get-a-hosted-compute-network-settings-resource-for-an-organization",
+      "subcategory": "network-configurations",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/settings/network-settings/{network_settings_id}"
     },
     {
       "slug": "enable-or-disable-a-security-feature-for-an-organization",
@@ -4241,6 +4313,18 @@
       "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}"
     },
     {
+      "slug": "get-repository-ruleset-history",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history"
+    },
+    {
+      "slug": "get-repository-ruleset-version",
+      "subcategory": "rules",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}"
+    },
+    {
       "slug": "list-repository-tags",
       "subcategory": "repos",
       "verb": "get",
@@ -4475,44 +4559,6 @@
       "requestPath": "/repos/{owner}/{repo}/security-advisories/{ghsa_id}/forks"
     }
   ],
-  "settings": [
-    {
-      "slug": "list-hosted-compute-network-configurations-for-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/network-configurations"
-    },
-    {
-      "slug": "create-a-hosted-compute-network-configuration-for-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "post",
-      "requestPath": "/orgs/{org}/settings/network-configurations"
-    },
-    {
-      "slug": "get-a-hosted-compute-network-configuration-for-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
-    },
-    {
-      "slug": "update-a-hosted-compute-network-configuration-for-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "patch",
-      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
-    },
-    {
-      "slug": "delete-a-hosted-compute-network-configuration-from-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "delete",
-      "requestPath": "/orgs/{org}/settings/network-configurations/{network_configuration_id}"
-    },
-    {
-      "slug": "get-a-hosted-compute-network-settings-resource-for-an-organization",
-      "subcategory": "network-configurations",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/settings/network-settings/{network_settings_id}"
-    }
-  ],
   "teams": [
     {
       "slug": "list-teams",
@@ -4525,6 +4571,30 @@
       "subcategory": "teams",
       "verb": "post",
       "requestPath": "/orgs/{org}/teams"
+    },
+    {
+      "slug": "list-team-projects",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
+    },
+    {
+      "slug": "check-team-permissions-for-a-project",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "add-or-update-team-project-permissions",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "remove-a-project-from-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "get-team-member-legacy",

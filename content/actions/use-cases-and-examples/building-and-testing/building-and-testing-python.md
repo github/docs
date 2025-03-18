@@ -233,7 +233,7 @@ steps:
 
 ### Requirements file
 
-After you update `pip`, a typical next step is to install dependencies from _requirements.txt_. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
+After you update `pip`, a typical next step is to install dependencies from `requirements.txt`. For more information, see [pip](https://pip.pypa.io/en/stable/cli/pip_install/#example-requirements-file).
 
 ```yaml copy
 steps:

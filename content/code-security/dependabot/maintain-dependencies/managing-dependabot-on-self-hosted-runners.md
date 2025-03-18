@@ -95,7 +95,7 @@ You can enable {% data variables.product.prodname_dependabot %} on self-hosted r
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on self-hosted runners" to enable the feature or deselect to disable it. This action enables or disables the feature for all new repositories in the organization.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).

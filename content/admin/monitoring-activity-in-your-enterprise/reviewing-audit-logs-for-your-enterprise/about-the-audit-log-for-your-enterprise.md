@@ -1,6 +1,6 @@
 ---
 title: About the audit log for your enterprise
-intro: 'To support debugging and internal and external compliance, {% data variables.product.product_name %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
+intro: 'To support debugging and internal and external compliance, {% data variables.product.github %} provides logs of audited{% ifversion ghes %} system,{% endif %} user, organization, and repository events.'
 shortTitle: About audit logs
 redirect_from:
   - /enterprise/admin/articles/audit-logging

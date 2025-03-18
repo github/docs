@@ -1,8 +1,9 @@
 ---
-title: Enabling GitHub Advanced Security for your enterprise
-shortTitle: Enabling GitHub Advanced Security
-intro: 'You can configure {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code.'
-product: '{% data reusables.gated-features.ghas %}'
+title: Enabling {% data variables.product.prodname_GHAS %} {% ifversion ghas-products %}products {% endif %}for your enterprise
+shortTitle: Enabling {% data variables.product.prodname_GHAS %}
+intro: 'You can configure {% data variables.product.prodname_ghe_server %} to include {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}. This provides extra features that help users find and fix security problems in their code.'
+product: '{% data reusables.gated-features.ghas-ghec %}'
+allowTitleToDifferFromFilename: true
 redirect_from:
   - /admin/advanced-security/enabling-github-advanced-security-for-your-enterprise
   - /admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise
@@ -17,15 +18,15 @@ topics:
   - Security
 ---
 
-## About enabling {% data variables.product.prodname_GH_advanced_security %}
+## About enabling {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}
 
 {% data reusables.advanced-security.ghas-helps-developers %}
 
-When you enable {% data variables.product.prodname_GH_advanced_security %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+When you enable {% data variables.product.prodname_GHAS %} for your enterprise, repository administrators in all organizations can enable the features unless you set up a policy to restrict access. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
 
 {% data reusables.secret-scanning.secret-scanning-enterprise-level-api %}
 
-For guidance on a phased deployment of GitHub Advanced Security, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
+For guidance on a phased deployment of {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
 ## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
@@ -36,7 +37,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see [AUTOTITLE]
 
 ## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
-1. Upgrade your license for {% data variables.product.product_name %} to include {% data variables.product.prodname_GH_advanced_security %}. For information about licensing, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+1. Upgrade your {% data variables.product.prodname_enterprise %} license to include {% data variables.product.prodname_GH_advanced_security %}. For information about licensing, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 1. Download the new license file. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
 1. Upload the new license file to {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).
 1. Review the prerequisites for the features you plan to enable.
@@ -55,7 +56,7 @@ For guidance on a phased deployment of GitHub Advanced Security, see [AUTOTITLE]
 1. Under "Security," select the features that you want to enable and deselect any features you want to disable.
 {% data reusables.enterprise_management_console.save-settings %}
 
-When {% data variables.product.product_name %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
+When {% data variables.product.prodname_ghe_server %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
 
 ## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
 

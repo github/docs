@@ -9,7 +9,8 @@ versions:
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams
@@ -116,11 +117,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 ### Extra filters for the "Coverage" view
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
-
 | Qualifier | Description |
 | -------- | -------- |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled or not enabled. |
+| `advanced-security` | Display data for repositories where {% data variables.product.prodname_AS %} is{% ifversion ghas-products-cloud %} products are{% endif %} enabled or not enabled. |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |

@@ -10,7 +10,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Troubleshooting
 redirect_from:
   - /code-security/secret-scanning/troubleshooting-secret-scanning

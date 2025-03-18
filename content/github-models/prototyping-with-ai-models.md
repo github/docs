@@ -18,7 +18,7 @@ To find an AI model:
 
 The model is opened in the model playground. Details of the model are displayed in the sidebar on the right. If the sidebar is not displayed, expand it by clicking the **{% octicon "sidebar-expand" aria-label="Show parameters setting" %}** icon at the right of the playground.
 
-{% data reusables.models.o1-models-preview-note %}
+> [!NOTE] Access to OpenAI's models is in {% data variables.release-phases.public_preview %} and subject to change.
 
 ## Experimenting with AI models in the playground
 
@@ -133,19 +133,22 @@ Low, high, and embedding models have different rate limits. To see which type of
   <tr>
     <th scope="col" style="width:15%"><b>Rate limit tier</b></th>
     <th scope="col" style="width:25%"><b>Rate limits</b></th>
-    <th scope="col" style="width:20%"><b>Free and Copilot Individual</b></th>
-    <th scope="col" style="width:20%"><b>Copilot Business</b></th>
-    <th scope="col" style="width:20%"><b>Copilot Enterprise</b></th>
+    <th scope="col" style="width:15%"><b>Copilot Free</b></th>
+    <th scope="col" style="width:15%"><b>Copilot Pro</b></th>
+    <th scope="col" style="width:15%"><b>Copilot Business</b></th>
+    <th scope="col" style="width:15%"><b>Copilot Enterprise</b></th>
   </tr>
   <tr>
     <th rowspan="4" scope="rowgroup"><b>Low</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>15</td>
     <td>15</td>
+    <td>15</td>
     <td>20</td>
   </tr>
   <tr>
     <th><b>Requests per day</b></th>
+    <td>150</td>
     <td>150</td>
     <td>300</td>
     <td>450</td>
@@ -154,10 +157,12 @@ Low, high, and embedding models have different rate limits. To see which type of
     <th><b>Tokens per request</b></th>
     <td>8000 in, 4000 out</td>
     <td>8000 in, 4000 out</td>
+    <td>8000 in, 4000 out</td>
     <td>8000 in, 8000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
+    <td>5</td>
     <td>5</td>
     <td>5</td>
     <td>8</td>
@@ -167,10 +172,12 @@ Low, high, and embedding models have different rate limits. To see which type of
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>10</td>
     <td>10</td>
+    <td>10</td>
     <td>15</td>
   </tr>
   <tr>
     <th><b>Requests per day</b></th>
+    <td>50</td>
     <td>50</td>
     <td>100</td>
     <td>150</td>
@@ -179,10 +186,12 @@ Low, high, and embedding models have different rate limits. To see which type of
     <th><b>Tokens per request</b></th>
     <td>8000 in, 4000 out</td>
     <td>8000 in, 4000 out</td>
+    <td>8000 in, 4000 out</td>
     <td>16000 in, 8000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
+    <td>2</td>
     <td>2</td>
     <td>2</td>
     <td>4</td>
@@ -192,10 +201,12 @@ Low, high, and embedding models have different rate limits. To see which type of
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>15</td>
     <td>15</td>
+    <td>15</td>
     <td>20</td>
   </tr>
   <tr>
     <th><b>Requests per day</b></th>
+    <td>150</td>
     <td>150</td>
     <td>300</td>
     <td>450</td>
@@ -205,9 +216,11 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>64000</td>
     <td>64000</td>
     <td>64000</td>
+    <td>64000</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
+    <td>5</td>
     <td>5</td>
     <td>5</td>
     <td>8</td>
@@ -215,12 +228,101 @@ Low, high, and embedding models have different rate limits. To see which type of
   <tr>
     <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-preview</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>Not applicable</td>
     <td>1</td>
     <td>2</td>
     <td>2</td>
   </tr>
   <tr>
     <th><b>Requests per day</b></th>
+    <td>Not applicable</td>
+    <td>8</td>
+    <td>10</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>Not applicable</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 8000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>Not applicable</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o1-mini</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>Not applicable</td>
+    <td>2</td>
+    <td>3</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>Not applicable</td>
+    <td>12</td>
+    <td>15</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>Not applicable</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>Not applicable</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o3-mini</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>Not applicable</td>
+    <td>2</td>
+    <td>3</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>Not applicable</td>
+    <td>12</td>
+    <td>15</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>Not applicable</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>Not applicable</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>DeepSeek-R1</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>8</td>
     <td>8</td>
     <td>10</td>
     <td>12</td>
@@ -229,35 +331,12 @@ Low, high, and embedding models have different rate limits. To see which type of
     <th><b>Tokens per request</b></th>
     <td>4000 in, 4000 out</td>
     <td>4000 in, 4000 out</td>
-    <td>4000 in, 8000 out</td>
-  </tr>
-  <tr>
-    <th><b>Concurrent requests</b></th>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o1-mini</b></th>
-    <th style="padding-left: 0"><b>Requests per minute</b></th>
-    <td>2</td>
-    <td>3</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <th><b>Requests per day</b></th>
-    <td>12</td>
-    <td>15</td>
-    <td>20</td>
-  </tr>
-  <tr>
-    <th><b>Tokens per request</b></th>
-    <td>4000 in, 4000 out</td>
     <td>4000 in, 4000 out</td>
     <td>4000 in, 4000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
+    <td>1</td>
     <td>1</td>
     <td>1</td>
     <td>1</td>

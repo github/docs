@@ -21,9 +21,6 @@ Issue forms are not supported for pull requests. You can create pull request tem
 
 This example YAML configuration file defines an issue form using several inputs to report a bug.
 
-> [!NOTE]
-> The `required` field key is only supported in public repositories. In private and internal repositories, all fields are optional.
-
 {% data reusables.community.issue-forms-sample %}
 
 ## Top-level syntax
@@ -38,6 +35,12 @@ body:
 
 You can set the following top-level keys for each issue form.
 
+{% ifversion issue-types %}
+
+{% data reusables.issues.release-stage %}
+
+{% endif %}
+
 | Key | Description | Required | Type |
 | :-- | :-- | :-- | :-- |
 | `name` | A name for the issue form template. Must be unique from all other templates, including Markdown templates. | Required | String |
@@ -46,9 +49,10 @@ You can set the following top-level keys for each issue form.
 | `assignees` | People who will be automatically assigned to issues created with this template. | Optional | Array or comma-delimited string |
 | `labels` | Labels that will automatically be added to issues created with this template. If a label does not already exist in the repository, it will not be automatically added to the issue. | Optional | Array or comma-delimited string |
 | `title` | A default title that will be pre-populated in the issue submission form. | Optional | String |
-| {% ifversion projects-in-issue-forms %} |
-| `projects` | Projects that any issues created with this template will automatically be added to. The format of this key is `PROJECT-OWNER/PROJECT-NUMBER`. > [!NOTE] The person opening the issue must have write permissions for the specified projects. If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see [Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically). | Optional | Array or comma-delimited string |
+| {% ifversion issue-types %} |
+| `type` |  The issue type that will be automatically added to issues created with this template. Issue types are defined at the organization level and can be used to create a shared syntax across repos. | Optional | String |
 | {% endif %} |
+| `projects` | Projects that any issues created with this template will automatically be added to. The format of this key is `PROJECT-OWNER/PROJECT-NUMBER`. > [!NOTE] The person opening the issue must have write permissions for the specified projects. If you don't expect people using this template to have write access, consider enabling your project's auto-add workflow. For more information, see [Adding items automatically](/issues/planning-and-tracking-with-projects/automating-your-project/adding-items-automatically). | Optional | Array or comma-delimited string |
 
 For the available `body` input types and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema).
 

@@ -17,7 +17,7 @@ topics:
   - Java
   - Maven
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Introduction
@@ -40,6 +40,8 @@ You may also find it helpful to have a basic understanding of the following:
 ## About package configuration
 
 The `groupId` and `artifactId` fields in the _pom.xml_ file create a unique identifier for your package that registries use to link your package to a registry. For more information see [Guide to uploading artifacts to the Central Repository](https://maven.apache.org/repository/guide-central-repository-upload.html) in the Apache Maven documentation.
+
+{% data reusables.package_registry.maven-package-naming-convention %}
 
 The _pom.xml_ file also contains configuration for the distribution management repositories that Maven will deploy packages to. Each repository must have a name and a deployment URL. Authentication for these repositories can be configured in the _.m2/settings.xml_ file in the home directory of the user running Maven.
 

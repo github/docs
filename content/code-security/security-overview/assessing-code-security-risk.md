@@ -1,13 +1,14 @@
 ---
-title: Assessing your code security risk
-shortTitle: Assess security risk to code
+title: Assessing the security risk of your code
+shortTitle: Assess security risk of code
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see which teams and repositories are affected by security alerts, and identify repositories for urgent remedial action.'
 permissions: '{% data reusables.permissions.security-overview %}'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams
@@ -18,7 +19,7 @@ redirect_from:
   - /code-security/security-overview/viewing-the-security-overview
 ---
 
-{% data reusables.security-overview.beta-org-risk-coverage %}
+
 
 ## Exploring the security risks in your code
 
@@ -30,7 +31,7 @@ You can use the different views on your **Security** tab to explore the security
 
 These views provide you with the data and filters to:
 
-* Assess the landscape of your code security across all your repositories.
+* Assess the landscape of security risk of code stored in all your repositories.
 * Identify the highest impact vulnerabilities to address.
 * Monitor your progress in remediating potential vulnerabilities. {% ifversion security-overview-export-data %}
 * Export your current selection of data for further analysis and reporting.  {% endif %}
@@ -38,7 +39,7 @@ These views provide you with the data and filters to:
 {% ifversion security-overview-dashboard %}
 For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).{% endif %}
 
-## Viewing organization-level code security risks
+## Viewing organization-level security risks in code
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
@@ -54,7 +55,7 @@ For information about the **Overview**, see [AUTOTITLE](/code-security/security-
 
 {% data reusables.security-overview.alert-differences %}
 
-## Viewing enterprise-level code security risks
+## Viewing enterprise-level security risks in code
 
 You can view data for security alerts across organizations in an enterprise.
 
@@ -77,5 +78,5 @@ You can view data for security alerts across organizations in an enterprise.
 
 ## Next steps
 
-When you have assessed your code security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+When you have assessed your security risks, you are ready to create a security campaign to collaborate with developers to remediate alerts. For information about fixing security alerts at scale, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
 {% endif %}

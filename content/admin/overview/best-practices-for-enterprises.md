@@ -16,7 +16,7 @@ topics:
 
 ## Choose an enterprise type
 
-Before you start using {% data variables.product.product_name %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
+Before you start using {% data variables.product.prodname_ghe_cloud %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
 
 For help identifying the type of enterprise that will best meet your needs, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
 
@@ -24,7 +24,7 @@ For help identifying the type of enterprise that will best meet your needs, see 
 
 ## Assign multiple owners
 
-{% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).{% endif %}
+{% data reusables.organizations.ent-ownership-recommendation %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
 ## Use policies
 

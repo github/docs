@@ -3,7 +3,9 @@ title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
 intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
 type: quick_start

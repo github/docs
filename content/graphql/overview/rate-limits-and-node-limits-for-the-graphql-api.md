@@ -278,4 +278,12 @@ You should also subscribe to webhook events instead of polling the API for data.
 
 You can also stream the audit log in order to view API requests. This can help you troubleshoot integrations that are exceeding the rate limit. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise).
 
+## Timeouts
+
+If {% data variables.product.github %} takes more than 10 seconds to process an API request, {% data variables.product.github %} will terminate the request and you will receive a timeout response and a message reporting that "We couldn't respond to your request in time".
+
+{% data variables.product.github %} reserves the right to change the timeout window to protect the speed and reliability of the API.
+
+You can check the status of the GraphQL API at [githubstatus.com](https://www.githubstatus.com/) to determine whether the timeout is due to a problem with the API. You can also try to simplify your request or try your request later. For example, if you are requesting a large number of objects in a single request, you can try requesting fewer objects split over multiple queries.
+
 {% endif %}

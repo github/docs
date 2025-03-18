@@ -23,7 +23,7 @@ If your workflow fails with `Error: "No source code was seen during the build"` 
      matrix:
        # Override automatic language detection by changing the list below.
        # Supported options are listed in a comment in the default workflow.
-       language: ['go', {% ifversion codeql-language-identifiers-311 %}'javascript-typescript'{% else %}'javascript' {% endif %}]
+       language: ['go', 'javascript-typescript']
    ```
 
    For more information, see the workflow extract in [AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/some-languages-were-not-analyzed).

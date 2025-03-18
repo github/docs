@@ -58,6 +58,19 @@ When a cache is created by a workflow run triggered on a pull request, the cache
 
 Multiple workflow runs in a repository can share caches. A cache created for a branch in a workflow run can be accessed and restored from another workflow run for the same repository and branch.
 
+{% ifversion ghes %}
+
+> [!NOTE]
+> As objects are retrieved from or put into the cache directly from runners, Actions runners must have direct connectivity to the Actions object storage configured in {% data variables.product.prodname_ghe_server %}, such as AWS S3 or Azure Blob Storage. Self-hosted runners authenticate with the blob storage provider using an access URL provided by the {% data variables.product.prodname_ghe_server %} instance. This URL supplies the blob storage provider with valid temporary authentication credentials. This process is initiated by the instance itself, which mediates all requests to the object storage.
+>
+> This means that `actions/cache` requires a HTTPS connection to the blob storage in order to work correctly.
+>
+> All the metadata are managed by the artifact cache service, which is a microservice within {% data variables.product.prodname_actions %}.
+>
+> For more information on cache storage, see [External storage requirements](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server#external-storage-requirements).
+
+{% endif %}
+
 ## Using the `cache` action
 
 The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache that _exactly_ matches the key, the action restores the cached files to the `path` you configure.

@@ -25,13 +25,11 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies.{% ifversion ghes %} You {% ifversion dependabot-alerts-ghes-enablement %} must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you {% endif %} can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
+{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies. You {% ifversion dependabot-alerts-ghes-enablement %} must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you {% endif %} can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
 {% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.product.prodname_dotcom %}. For more information about the other features, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise).
 
 ### About {% data variables.product.prodname_dependabot_alerts %}
-
-{% endif %}
 
 With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.prodname_ghe_server %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
 
@@ -42,7 +40,7 @@ After you {% ifversion dependabot-alerts-ghes-enablement %} set up {% data varia
 You can also choose to manually sync vulnerability data at any time. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise).
 
 > [!NOTE]
-> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
 When {% data variables.product.prodname_ghe_server %} receives information about a vulnerability, it identifies repositories that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -85,7 +83,7 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}, y
     > [!TIP]
    > We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of realtime notifications. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
-You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for {% ifversion code-security-wording-only-enterprise %}"Code security."{% else %}"Code security and analysis."{% endif %} Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "{% data variables.product.UI_advanced_security_ent %}." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
 
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 

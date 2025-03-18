@@ -60,8 +60,8 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
 * For authentication, your instance must use SAML SSO, or a mix of SAML and built-in authentication.
   * You cannot mix SCIM with other external authentication methods. If you use CAS or LDAP, you will need to migrate to SAML before using SCIM.
   * After you have configured SCIM, you must keep SAML authentication enabled to continue using SCIM.
-* You must have administrative access on your IdP to configure user provisioning for {% data variables.product.product_name %}.
-* You must have access to the Management Console on {% data variables.product.product_name %}.
+* You must have administrative access on your IdP.
+* You must have access to the Management Console on {% data variables.product.prodname_ghe_server %}.
 * If you are configuring SCIM on an instance with existing users, ensure you have understood how SCIM will identify and update these users. See [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#what-will-happen-to-existing-users-on-my-instance).
 
 {% endif %}
@@ -72,7 +72,7 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
 
 To ensure you can continue to sign in and configure settings when SCIM is enabled, you'll create an enterprise owner using built-in authentication.
 
-1. Sign in to {% data variables.product.product_name %} as a user with access to the Management Console.
+1. Sign in to {% data variables.product.prodname_ghe_server %} as a user with access to the Management Console.
 1. If you have **already enabled SAML authentication**, ensure your settings allow you to create and promote a built-in setup user. Go to the "Authentication" section of the Management Console and enable the following settings:
 
    * Select **Allow creation of accounts with built-in authentication**, so you can create the user.

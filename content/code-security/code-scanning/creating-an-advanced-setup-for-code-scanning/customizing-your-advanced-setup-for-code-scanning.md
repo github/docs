@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Actions
   - Repositories
@@ -196,7 +196,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [{% ifversion codeql-language-identifiers-311 %}'javascript-typescript'{% else %}'javascript'{% endif %}, 'python']
+        language: ['javascript-typescript', 'python']
 ```
 
 If your workflow does not contain a matrix called `language`, then {% data variables.product.prodname_codeql %} is configured to run analysis sequentially. If you don't specify languages in the workflow, {% data variables.product.prodname_codeql %} automatically detects, and attempts to analyze, any supported languages in the repository. If you want to choose which languages to analyze, without using a matrix, you can use the `languages` parameter under the `init` action.
@@ -204,7 +204,7 @@ If your workflow does not contain a matrix called `language`, then {% data varia
 ```yaml copy
 - uses: {% data reusables.actions.action-codeql-action-init %}
   with:
-    languages: {% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %}, csharp, python
+    languages: c-cpp, csharp, python
 ```
 
 ## Defining the alert severities that cause a check failure for a pull request
@@ -243,13 +243,11 @@ This parameter is particularly useful if you work with monorepos and have multip
 
 If you don't specify a `category` parameter in your workflow, {% data variables.product.github %} will generate a category name for you, based on the name of the workflow file triggering the action, the action name, and any matrix variables. For example:
 * The `.github/workflows/codeql-analysis.yml` workflow and the `analyze` action will produce the category `.github/workflows/codeql.yml:analyze`.
-* The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:{% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}/os:linux`.
+* The `.github/workflows/codeql-analysis.yml` workflow, the `analyze` action, and the `{language: javascript-typescript, os: linux}` matrix variables will produce the category `.github/workflows/codeql-analysis.yml:analyze/language:javascript-typescript/os:linux`.
 
 The `category` value will appear as the `<run>.automationDetails.id` property in SARIF v2.1.0. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning#runautomationdetails-object).
 
 Your specified category will not overwrite the details of the `runAutomationDetails` object in the SARIF file, if included.
-
-{% ifversion codeql-model-packs %}
 
 ## Extending {% data variables.product.prodname_codeql %} coverage with {% data variables.product.prodname_codeql %} model packs
 
@@ -274,8 +272,6 @@ To add one or more published {% data variables.product.prodname_codeql %} model 
 ```
 
 In this example, the default queries will be run for Java, as well as the queries from a version greater than or equal to `7.8.9` and less than `7.9.0` of the query pack `my-company/my-java-queries`. The dependencies modeled in the latest version of the model pack `my-repo/my-java-model-pack` will be available to both the default queries and those in `my-company/my-java-queries`.
-
-{% endif %}
 
 ## Running additional queries
 

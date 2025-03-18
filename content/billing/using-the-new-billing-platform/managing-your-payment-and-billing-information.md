@@ -1,6 +1,6 @@
 ---
 title: Managing your payment and billing information
-intro: 'Learn how to manage your payment information and history, and update your billing contacts using the enhanced billing platform.'
+intro: 'Learn how to manage your payment information and history, and update your billing contacts using the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -18,7 +18,7 @@ You can view your payment information and history, and update your billing conta
 
 * Credit card
 * PayPal
-* Azure Subscription ID
+* Azure Subscription ID (not available for personal accounts)
 
 {% ifversion fpt %}
 
@@ -71,9 +71,10 @@ The {% data variables.product.company_short %} products on your Azure invoice ar
 
 You can view and edit your billing information and update your payment method.
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.billing.org-billing-menu %}
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
+
+   * For **personal accounts**, click **Settings**, then in the **Access** section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+   * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 
 {% elsif ghec %}
 

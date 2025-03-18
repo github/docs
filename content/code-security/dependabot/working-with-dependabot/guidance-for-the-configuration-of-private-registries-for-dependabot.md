@@ -28,9 +28,12 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
+{% ifversion dependabot-bun-support %}
+* [Bun](#bun){% endif %}
 * [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
 * [Cargo](#cargo){% endif %}
-* [Docker](#docker)
+* [Docker](#docker){% ifversion dependabot-docker-compose-support %}
+* [Docker Compose](#docker-compose){% endif %}
 * [Gradle](#gradle)
 * [Maven](#maven)
 * [npm](#npm)
@@ -51,6 +54,14 @@ You'll also find recommendations for the setup of the following registry hosts:
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 ## Configuring package managers
+
+{% ifversion dependabot-bun-support %}
+
+### Bun
+
+Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
+
+{% endif %}
 
 ### Bundler
 
@@ -149,8 +160,14 @@ registries:
 * Dockerfiles may only receive a version update to the first `FROM` directive.
 * Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
 * {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
-* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
-* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
+
+{% ifversion dependabot-docker-compose-support %}
+
+### Docker Compose
+
+Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
+
+{% endif %}
 
 ### Gradle
 

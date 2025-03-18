@@ -158,7 +158,7 @@ TEXT 2
 
 Link to the sample section: [Link Text](#sample-section).
 
-Link to the helpful section: [Link Text](#thisll--be-a-helpful-section-about-the-greek-letter-Θ).
+Link to the helpful section: [Link Text](#thisll-be-a-helpful-section-about-the-greek-letter-Θ).
 
 Link to the first non-unique section: [Link Text](#this-heading-is-not-unique-in-the-file).
 
@@ -411,8 +411,6 @@ The footnote will render like this:
 > [!NOTE]
 > The position of a footnote in your Markdown does not influence where the footnote will be rendered. You can write a footnote right after your reference to the footnote, and the footnote will still render at the bottom of the Markdown. Footnotes are not supported in wikis.
 
-{% ifversion markdown-alerts %}
-
 ## Alerts
 
 Alerts are a Markdown extension based on the blockquote syntax that you can use to emphasize critical information. On {% data variables.product.github %}, they are displayed with distinctive colors and icons to indicate the significance of the content.
@@ -441,8 +439,6 @@ To add an alert, use a special blockquote line specifying the alert type, follow
 Here are the rendered alerts:
 
 ![Screenshot of rendered Markdown alerts showing how Note, Tip, Important, Warning, and Caution render with different colored text and icons.](/assets/images/help/writing/alerts-rendered.png)
-
-{% endif %}
 
 ## Hiding content with comments
 

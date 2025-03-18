@@ -3,7 +3,9 @@ title: Customizing the board layout
 shortTitle: Customizing boards
 intro: You can use the board layout to arrange your project's items over customizable columns.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -50,13 +52,9 @@ In the board layout, you can choose which columns to display. The available colu
 
 1. Select the columns you want to show.
 
-{% ifversion projects-v2-slice-panel %}
-
 ## Slicing by field values
 
 {% data reusables.projects.customize.slice-panel %}
-
-{% endif %}
 
 ## Sorting by field values
 
@@ -67,8 +65,6 @@ You can sort items by a field value.
 
 {% data reusables.projects.customize.sort %}
 
-{% ifversion projects-v2-swimlanes %}
-
 ## Grouping by field values
 
 You can use a custom field value to group items and create horizontal sections on your board. These sections provide an additional way to organize and visually separate items. Additionally, horizontal grouping allows you to differentiate work according to work streams, team members, or varying levels of urgency or priority.
@@ -76,8 +72,6 @@ You can use a custom field value to group items and create horizontal sections o
 {% data reusables.projects.customize.update-status %}
 
 {% data reusables.projects.customize.group-fields %}
-
-{% endif %}
 
 ## Showing the sum of a number field
 

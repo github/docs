@@ -19,7 +19,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Actions
@@ -278,10 +278,10 @@ For more information about the `run` keyword, see [AUTOTITLE](/actions/using-wor
 For repositories with multiple compiled languages, you can specify language-specific build commands. For example, if your repository contains C/C++, C# and Java, you might want to provide manual build steps for one language (here Java). This specifies build steps for Java while still using `autobuild` for C/C++ and C#.
 
 ```yaml
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'c-cpp'{% else %}'cpp'{% endif %} || matrix.language == 'csharp'
+- if: matrix.language == 'c-cpp' || matrix.language == 'csharp'
   name: Autobuild
   uses: {% data reusables.actions.action-codeql-action-autobuild %}
-- if: matrix.language == {% ifversion codeql-language-identifiers-311 %}'java-kotlin'{% else %}'java'{% endif %}
+- if: matrix.language == 'java-kotlin'
   name: Build Java
   run: |
     make bootstrap
@@ -337,14 +337,10 @@ On Linux and macOS, the `autobuild` step reviews the files present in the reposi
 
 #### Runner requirements for C/C++
 
-{% ifversion codeql-cpp-autoinstall-dependencies %}
 On Ubuntu Linux runners, `autobuild` may try to automatically install dependencies required by the detected configuration and build steps. By default, this behavior is enabled on {% data variables.product.prodname_dotcom %}-hosted runners and disabled on self-hosted runners. You can enable or disable this feature explicitly by setting `CODEQL_EXTRACTOR_CPP_AUTOINSTALL_DEPENDENCIES` to `true` or `false` in the environment. For more information about defining environment variables, see [AUTOTITLE](/actions/learn-github-actions/variables#defining-environment-variables-for-a-single-workflow).
-{% endif %}
 
-For self-hosted runners{% ifversion codeql-cpp-autoinstall-dependencies %}, unless automatic installation of dependencies is enabled{% endif %}, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `msvc` executables. You will also need to install the build system (for example `msbuild`, `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
-{%- ifversion codeql-cpp-autoinstall-dependencies %}
+For self-hosted runners, unless automatic installation of dependencies is enabled, you will likely need to install the `gcc` compiler, and specific projects may also require access to `clang` or `msvc` executables. You will also need to install the build system (for example `msbuild`, `make`, `cmake`, `bazel`) and utilities (such as `python`, `perl`, `lex`, and `yacc`) that your projects depend on.
 If you enable automatic installation of dependencies, you must ensure that the runner is using Ubuntu and that it can run `sudo apt-get` without requiring a password.
-{%- endif %}
 
 Windows runners require `powershell.exe` to be on the `PATH`.
 

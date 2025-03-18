@@ -95,7 +95,7 @@ For more information about Docker and the {% data variables.product.prodname_con
 
 ## Managing packages
 
-You can delete a package in the {% data variables.product.product_name %} user interface or using the REST API. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) and the [AUTOTITLE](/rest/packages). {% data reusables.package_registry.about-graphql-support %}
+You can delete a package in the {% data variables.product.github %} user interface or using the REST API. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) and the [AUTOTITLE](/rest/packages). {% data reusables.package_registry.about-graphql-support %}
 
 When you use the GraphQL API to query and delete private packages, you must use the same {% data variables.product.pat_v1 %} you use to authenticate to {% data variables.product.prodname_registry %}.
 

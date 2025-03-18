@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription
-intro: "You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
+intro: 'You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.12'
+  ghes: '*'
 shortTitle: Connect an Azure subscription
 ---
 
@@ -28,7 +28,7 @@ In this article, the instructions that you must follow to connect an Azure subsc
 
 {% ifversion ghec %}
 
-If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connection to an Azure subscription is the only way to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %}, or to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond your plan's included amounts.
+If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_GH_advanced_security %}, {% data variables.product.prodname_github_codespaces %}, or {% data variables.product.prodname_copilot %}, or to use {% data variables.product.prodname_actions %}, Git Large File Storage (LFS), or {% data variables.product.prodname_registry %} beyond your plan's included amounts.
 
 {% endif %}
 
@@ -117,9 +117,8 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an enterprise owner on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Payment Information", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
@@ -155,9 +154,8 @@ After you disconnect your Azure subscription from your organization account, you
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.

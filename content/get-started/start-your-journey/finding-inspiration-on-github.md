@@ -42,9 +42,9 @@ Once you star repositories or follow people, you will see updates on their activ
 ## Search for a topic or project on {% data variables.product.github %}
 
 1. Navigate to https://github.com/search.
-1. Type a keyword or query into the search bar. {% ifversion fpt or ghec %}For example, try "how to build a webpage", or "skills-course".{% endif %} For more detailed information on how to search {% data variables.product.github %} for specific topics, repositories, or code, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
-1. Use the left sidebar to filter the results. {% ifversion fpt or ghec %}For example, to browse all repositories in the "skills-course" topic, search "skills-course", then filter by "Topic".{% endif %}
-1. Star the repositories that match your interests.
+1. Type a keyword or query into the search bar. For example, try "green software tools." For more detailed information about searching for specific topics, repositories, or code, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+1. Use the left sidebar to filter the results. For example, to browse all repositories in the "green-software" topic, search "green-software", then filter by "Topic".
+1. Star the repositories that match your interests, such as [{% data variables.product.github %}'s Green Software Directory](https://github.com/github/GreenSoftwareDirectory).
 
 ## Following people and organizations on {% data variables.product.github %}
 

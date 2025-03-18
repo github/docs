@@ -47,7 +47,7 @@ After you finish the guide, {% ifversion ghec %}members of your enterprise{% els
 
 ## 1. Configure policies for {% data variables.product.prodname_actions %}
 
-First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec %}within your enterprise on {% data variables.product.product_name %}{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
+First, enable {% data variables.product.prodname_actions %} for all organizations, and configure a policy to restrict the actions{% ifversion actions-workflow-policy %} and reusable workflows{% endif %} that can run {% ifversion ghec %}within your enterprise{% elsif ghes %}on {% data variables.location.product_location %}{% endif %}. Optionally, organization owners can further restrict these policies for each organization.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
@@ -60,7 +60,7 @@ You can configure additional policies to restrict the actions available to {% if
 
 ## 2. Deploy the self-hosted runner for your enterprise
 
-Next, add a self-hosted runner to your enterprise. {% data variables.product.product_name %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
+Next, add a self-hosted runner to your enterprise. {% data variables.product.github %} will guide you through installation of the necessary software on the runner machine. After you deploy the runner, you can verify connectivity between the runner machine and {% ifversion ghec %}your enterprise{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.
 
 ### Adding the self-hosted runner
 
@@ -72,13 +72,12 @@ Next, add a self-hosted runner to your enterprise. {% data variables.product.pro
 
 You can create a runner group to manage access to the runner that you added to your enterprise. You'll use the group to choose which organizations can execute jobs from {% data variables.product.prodname_actions %} on the runner.
 
-{% data variables.product.product_name %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.product_name %} adds new runners to the "Default" group.
+{% data variables.product.github %} adds all new runners to a group. Runners can be in one group at a time. By default, {% data variables.product.github %} adds new runners to the "Default" group.
 
 {% data reusables.actions.runner-groups-add-to-enterprise-first-steps %}
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
 1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="Configure organizations" %}.
 1. Select the organizations you'd like to grant access to the runner group.
-{%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
    > [!WARNING]
@@ -86,7 +85,6 @@ You can create a runner group to manage access to the runner that you added to y
    >
    > For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories).
 
-{%- endif %}
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
@@ -115,7 +113,7 @@ Optionally, you can use {% data variables.product.prodname_actions_runner_contro
 
 * {% data variables.product.company_short %} recommends that you review security considerations for self-hosted runner machines. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#hardening-for-self-hosted-runners).
 
-* {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %}, you{% elsif ghes %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% ifversion ghes %}{% data variables.product.product_name %}{% elsif ghec %}{% data variables.product.prodname_ghe_server %}{% endif %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
+* {% ifversion ghec %}If you use {% data variables.product.prodname_ghe_server %}, you{% elsif ghes %}You{% endif %} can manually sync repositories on {% data variables.product.prodname_dotcom_the_website %} containing actions to your enterprise on {% data variables.product.prodname_ghe_server %}. Alternatively, you can allow members of your enterprise to automatically access actions from {% data variables.product.prodname_dotcom_the_website %} by using {% data variables.product.prodname_github_connect %}. For more information, see the following.
 
   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/manually-syncing-actions-from-githubcom){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}
   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation{% endif %}

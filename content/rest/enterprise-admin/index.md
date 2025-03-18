@@ -17,6 +17,7 @@ children:
   - /announcement
   - /audit-log
   - /billing
+  - /bypass-requests
   - /code-security-and-analysis
   - /custom-properties
   - /global-webhooks

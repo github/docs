@@ -365,6 +365,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.proxy_security_header_disabled",
+    "description": "The proxy security header was disabled for an enterprise. All users on the network can now access GitHub, unless blocked by other means.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.proxy_security_header_enabled",
     "description": "The proxy security header was enabled for an enterprise. When the header is provided in requests, only Enterprise Managed Users matching the header will be able to access GitHub.",
     "docs_reference_links": "N/A"
@@ -690,8 +695,28 @@
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
+    "action": "code_scanning.alert_closed_became_outdated",
+    "description": "Code scanning alerts were closed as outdated (all configurations they were detected in were deleted).",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
     "action": "code_scanning.alert_closed_by_user",
     "description": "Code scanning alerts were manually dismissed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_approved",
+    "description": "Dismissal of code scanning alerts was approved.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_denied",
+    "description": "Dismissal of code scanning alerts was denied.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_requested",
+    "description": "Dismissal of code scanning alerts was requested.",
     "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
@@ -1823,6 +1848,11 @@
     "action": "org.advanced_security_enabled_on_all_repos",
     "description": "GitHub Advanced Security was enabled for all repositories in an organization.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_entity_policy_update",
+    "description": "An enterprise owner updated the GitHub Advanced Security access policy for repositories owned by the organization.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
     "action": "org.advanced_security_policy_selected_member_disabled",
@@ -3175,6 +3205,16 @@
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
   },
   {
+    "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
+    "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
+    "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
@@ -3873,6 +3913,21 @@
     "action": "secret_scanning_alert.validate",
     "description": "A secret scanning alert was validated.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
+    "action": "secret_scanning_closure_request.approve",
+    "description": "A request to close a secret scanning alert was approved by a user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_closure_request.create",
+    "description": "N/A",
+    "docs_reference_links": "A user requested to close a secret scanning alert."
+  },
+  {
+    "action": "secret_scanning_closure_request.deny",
+    "description": "A request to close a secret scanning alert was denied by a user.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "secret_scanning.disable",

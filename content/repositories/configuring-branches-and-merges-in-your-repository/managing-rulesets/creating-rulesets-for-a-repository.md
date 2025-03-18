@@ -1,9 +1,11 @@
 ---
 title: Creating rulesets for a repository
-intro: 'You can add rulesets to a repository to control how people can interact with specific branches and tags.'
+intro: You can add rulesets to a repository to control how people can interact with specific branches and tags.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: '{% data reusables.repositories.repo-rules-permissions %}'
 topics:
   - Repositories

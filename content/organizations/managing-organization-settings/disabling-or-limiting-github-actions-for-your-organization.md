@@ -92,49 +92,6 @@ You can configure this behavior for an organization using the procedure below. M
 {% data reusables.actions.workflow-run-approve-link %}
 {% endif %}
 
-{% ifversion required-workflows-deprecation %}
-
-## Adding a required workflow to an organization
-
-{% data reusables.actions.workflows.required-workflow-beta %}
-
-You can configure required workflows to run in all or selected repositories in an organization where you are an owner. Required workflows are triggered by `pull_request` and `pull_request_target` default events and must pass before a pull request can be merged. For more information, see [AUTOTITLE](/actions/using-workflows/required-workflows).
-
-### Prerequisites
-
-Before configuring a required workflow, note the following prerequisites:
-
-{% data reusables.actions.workflows.required-workflow-prerequisites %}
-
-### Restrictions and behaviors for the source repository
-
-Note the following restrictions and behaviors for the source repository and workflow:
-
-{% data reusables.actions.workflows.required-workflow-source-notes %}
-
-### Restrictions and behaviors for the target repository
-
-Note the following restrictions and behaviors for the target repositories:
-
-{% data reusables.actions.workflows.required-workflow-target-notes %}
-
-### Configuring a required workflow for your organization
-
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-{% data reusables.organizations.settings-sidebar-actions-general %}
-1. To the right of "Required Workflows", click **Add workflow**.
-
-1. Under "Required workflow", use the drop-down menu to select the repository that contains the workflow. Then, enter the path to the workflow in the text field. You can reference any branch, tag, or commit SHA from the repository containing the workflow file using the `{path}@{ref}` syntax.
-
-1. Under "Apply to repositories...", use the drop-down menu to select which repositories the required workflow applies to. Select **All repositories** to apply the required workflow to all repositories in your organization, or **Selected repositories** to choose which repositories it will apply to.
-
-1. Optionally, if you chose "Selected repositories", click {% octicon "gear" aria-label="The Gear icon" %} to open the repository selection modal, then use the checkboxes to select the repositories, and click **Apply selection**. You can use filters to narrow down your search.
-
-1. To add the required workflow, click **Add workflow**.
-
-{% endif %}
-
 ## Enabling workflows for private repository forks
 
 {% data reusables.actions.private-repository-forks-overview %}

@@ -25,7 +25,7 @@ With {% data variables.product.prodname_custom_security_configurations %}, you c
 
 When creating a security configuration, keep in mind that:
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
-* {% data variables.product.prodname_GH_advanced_security %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GH_advanced_security %} license.
+* {% data variables.product.prodname_GHAS %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} license.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.
 
 {% endif %}
@@ -40,7 +40,7 @@ When creating a security configuration, keep in mind that:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "Configurations" page, name your configuration and create a description.
 1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
@@ -51,7 +51,7 @@ When creating a security configuration, keep in mind that:
     * Security updates. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
     > [!NOTE]
-    > You cannot manually change the enablement settings for vulnerable function calls. If {% data variables.product.prodname_GH_advanced_security %} features and {% data variables.product.prodname_dependabot_alerts %} are enabled, vulnerable function calls is also enabled. Otherwise, it is disabled.
+    > You cannot manually change the enablement settings for vulnerable function calls. If {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_code_security %}{% endif %} features and {% data variables.product.prodname_dependabot_alerts %} are enabled, vulnerable function calls is also enabled. Otherwise, it is disabled.
 
 1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for {% data variables.product.prodname_code_scanning %} default setup. To learn about default setup, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning#about-default-setup).
 1. In the "{% data variables.product.prodname_secret_scanning_caps %}" section of the security settings table, choose whether you want to enable, disable, or keep the existing settings for the following security features:
@@ -73,7 +73,7 @@ When creating a security configuration, keep in mind that:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. In the left sidebar, click **Code security**.
+{% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "Configurations" section, click **New configuration**.
 1. To help identify your {% data variables.product.prodname_custom_security_configuration %} and clarify its purpose on the "Configurations" page, name your configuration and create a description.
 1. In the "{% data variables.product.prodname_GH_advanced_security %} features" row, choose whether to include or exclude {% data variables.product.prodname_GH_advanced_security %} (GHAS) features. If you plan to apply a {% data variables.product.prodname_custom_security_configuration %} with GHAS features to private repositories, you must have available GHAS licenses for each active unique committer to those repositories, or the features will not be enabled. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
@@ -88,9 +88,6 @@ When creating a security configuration, keep in mind that:
     * Alerts. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).{% ifversion org-npp-enablement-security-configurations %}
     * Non-provider patterns. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
     * Push protection. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
-{% ifversion push-protection-delegated-bypass-configurations %}
-1. Optionally, under "Push protection", choose whether you want to assign bypass privileges to selected actors in your organization. By assigning bypass privileges, selected organization members can bypass push protection, and there is a review and approval process for all other contributors. For further guidance on how to configure this setting, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#configuring-delegated-bypass-for-an-organization).
-{% endif %}
 1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
 
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.

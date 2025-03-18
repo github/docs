@@ -14,13 +14,27 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: About the new billing platform
 ---
 
-The enhanced billing platform provides better spending control and detailed usage insights with granular controls.
+The new billing platform provides better spending control and detailed usage insights with granular controls.
 
 ## Available products
 
-The products shown in the enhanced billing platform are determined by your {% data variables.product.github %} plan and subscriptions.
+The products shown in the new billing platform are determined by your {% data variables.product.github %} plan and subscriptions.
 
-### {% data variables.product.prodname_team %}
+{% ifversion fpt %}
+
+### Personal accounts on {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}
+
+* {% data variables.product.prodname_actions %}
+* {% data variables.product.prodname_github_codespaces %}
+* {% data variables.product.prodname_copilot %}
+* {% data variables.product.prodname_registry %}
+* {% data variables.large_files.product_name_long %}
+* {% data variables.product.prodname_marketplace %}
+* {% data variables.product.prodname_sponsors %}
+
+{% endif %}
+
+### Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}
 
 * {% data variables.product.prodname_actions %}
 * {% data variables.product.prodname_github_codespaces %}
@@ -68,8 +82,10 @@ With the new billing platform, you can:
 
 {% ifversion fpt %}
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
+
+   * For **personal accounts**, click **Settings**.
+   * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.
 
 {% elsif ghec %}
 
@@ -77,7 +93,7 @@ With the new billing platform, you can:
 
 {% endif %}
 
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar. If you do **not** have access to the new, enhanced billing platform, to find out more about your billing platform, see [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
+If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar. If you do **not** have access to the new billing platform, to find out more about your billing platform, see [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
 
 ## Next steps
 

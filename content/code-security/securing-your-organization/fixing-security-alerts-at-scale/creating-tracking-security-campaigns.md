@@ -9,7 +9,7 @@ type: how_to
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---
@@ -32,12 +32,11 @@ The campaign templates contain filters for the most common alert selections. {% 
 1. Select one of the pre-defined filter templates to open a "New campaign from TEMPLATE_NAME template" dialog box.
 1. If the message "This looks like a big campaign" is displayed, click **Back to filters** to display the {% data variables.product.prodname_code_scanning %} alerts view with the campaign template filter shown.
    1. Add further filters to reduce the number of alerts shown, for example, filtering by "Team" or by custom property.
-   1. When there are fewer than 1000 alerts in 100 repositories, click **Create campaign** to redisplay the "New campaign" dialog.
+   1. When there are 1000 alerts or fewer, click **Create campaign** to redisplay the "New campaign" dialog.
 
    Alternatively, you can click **Continue creating a campaign** and create the campaign. {% data reusables.security-campaigns.too-many-alerts %}
-1. Edit the "Campaign name" and "Short description" to match your campaign needs and to link to any resources that support the campaign.
-1. Define a "Campaign due date" and select a "Campaign manager" as the primary contact for the campaign (an owner or security manager of this organization).
-1. When you're ready to create the campaign, click **Create campaign**.
+
+{% data reusables.security-campaigns.campaign-configuration %}
 
 The security campaign is created and the campaign overview page is displayed.
 
@@ -46,16 +45,15 @@ The security campaign is created and the campaign overview page is displayed.
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 1. In the left sidebar, under "Alerts" click **{% octicon "codescan" aria-hidden="true" %} {% data variables.product.prodname_code_scanning_caps %}** to show the alerts view.
-1. Add filters to select a subset of alerts for your campaign. When you have chosen fewer than 1000 alerts, spread across fewer than 100 repositories, you are ready to create a campaign.
+1. Add filters to select a subset of alerts for your campaign. When you have chosen 1000 alerts or fewer, you are ready to create a campaign.
 1. Above the table of alerts, click **Create campaign** to start creating a campaign.
 1. If the message "This looks like a big campaign" is displayed, click **Back to filters** to display the {% data variables.product.prodname_code_scanning %} alerts view with your existing filters.
    1. Add further filters to reduce the number of alerts shown, for example, filtering by "Team" or by custom property.
-   1. When there are fewer than 1000 alerts in 100 repositories, click **Create campaign** to redisplay the "New campaign" dialog.
+   1. When there are fewer than 1000 alerts, click **Create campaign** to redisplay the "New campaign" dialog.
 
    Alternatively, you can click **Continue creating a campaign** and create the campaign. {% data reusables.security-campaigns.too-many-alerts %}
-1. Edit the "Campaign name" and "Short description" to match your campaign needs and to link to any resources that support the campaign.
-1. Define a "Campaign due date" and select a "Campaign manager" as the primary contact for the campaign (an owner or security manager of this organization).
-1. When you're ready to create the campaign, click **Create campaign**.
+
+{% data reusables.security-campaigns.campaign-configuration %}
 
 ### Examples of useful filters
 
@@ -85,7 +83,7 @@ When you create a campaign all the alerts are automatically submitted to {% data
 
 ### How developers know a security campaign has started
 
-Everyone with **write** access to a repository that is included in the campaign is notified, according to their notification preferences, about the campaign.
+When a campaign is started, anyone with **write** access to a repository included in the campaign, and who and has subscribed to watch either "All activity" or "security alerts" in that repository, is notified.
 
 > [!NOTE] During the {% data variables.release-phases.public_preview %}, notifications are only sent to users who have email notification enabled.
 

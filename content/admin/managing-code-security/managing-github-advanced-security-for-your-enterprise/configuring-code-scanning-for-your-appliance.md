@@ -1,7 +1,7 @@
 ---
 title: '{% ifversion ghes %}Configuring code scanning for your appliance{% elsif default-setup-self-hosted-runners-GHEC %}Configuring self-hosted runners for code scanning in your enterprise{% endif %}'
 shortTitle: Configuring code scanning
-intro: 'You can enable, configure, and disable {% data variables.product.prodname_code_scanning %} for {% data variables.product.product_name %}{% ifversion default-setup-self-hosted-runners-GHEC %} without {% data variables.product.prodname_dotcom %}-hosted runners{% endif %}. {% data variables.product.prodname_code_scanning_caps %} allows users to scan code for vulnerabilities and errors.'
+intro: 'You can enable, configure, and disable {% data variables.product.prodname_code_scanning %} for your enterprise{% ifversion default-setup-self-hosted-runners-GHEC %} without {% data variables.product.prodname_dotcom %}-hosted runners{% endif %}. {% data variables.product.prodname_code_scanning_caps %} allows users to scan code for vulnerabilities and errors.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
@@ -38,7 +38,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 ## Prerequisites for {% data variables.product.prodname_code_scanning %}
 
-* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)){% endif %}
+* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
 
 * {% data variables.product.prodname_code_scanning_caps %} enabled in the management console (see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise))
 
@@ -62,7 +62,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% endif %}
 
-{% data variables.product.product_name %} can run {% data variables.product.prodname_code_scanning %} using a {% data variables.product.prodname_actions %} workflow. First, you need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. You can provision self-hosted runners at the repository, organization, or enterprise account level. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
+{% data variables.product.github %} can run {% data variables.product.prodname_code_scanning %} using a {% data variables.product.prodname_actions %} workflow. First, you need to provision one or more self-hosted {% data variables.product.prodname_actions %} runners in your environment. You can provision self-hosted runners at the repository, organization, or enterprise account level. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners) and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners).
 
 {% ifversion default-setup-self-hosted-runners-GHEC %}
 If you are provisioning a self-hosted runner for {% data variables.product.prodname_codeql %} analysis, your runner must use a {% data variables.product.prodname_codeql %}-supported operating system version and CPU architecture. See the [{% data variables.product.prodname_codeql %} system requirements](https://codeql.github.com/docs/codeql-overview/system-requirements/).

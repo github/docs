@@ -1,5 +1,5 @@
 /**
- * This exists for local previewing. Only.
+ * This exists for local reviewing. Only.
  * We load in the entire tree on startup, then that's used for things like
  * sidebars and breadcrumbs and landing pages and ToC pages (and possibly
  * more).

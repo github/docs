@@ -28,12 +28,9 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
 1. If the **Allow this organization to assign seats** button is displayed, click this button.
-1. If you see the message "Configure code policies to start adding seats":
-   1. Click **Go to policies**.
-   1. Set any policies that are currently set to "Unconfigured".
-   1. In the left sidebar, click **Access**.
-1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Enabled For: All members of the organization**.
-1. In the "Confirm seats purchase" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Purchase seats**.
+1. Click **Start adding seats**.
+1. To enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Purchase for all members**.
+1. In the "Confirm seats purchase for all members" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Purchase seats**.
 
 ## Granting access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
@@ -47,15 +44,8 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
 1. If the **Allow this organization to assign seats** button is displayed, click this button.
-1. If you see the message "Configure code policies to start adding seats":
-   1. Click **Go to policies**.
-   1. Set any policies that are currently set to "Unconfigured".
-   1. In the left sidebar, click **Access**.
-1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Enabled For: Selected members**.
-1. If you are updating user access from the **Enabled For: All members of the organization** setting, in the "Confirm policy update" dialog, select how you want to start assigning access.
-    * To unassign all members and then select those who should have access, select **Start from scratch**.
-    * To keep all members who currently have access and then select those who should not have access, select **Renew seats**.
-1. Click **Assign {% data variables.product.prodname_copilot_short %} seats**.
+1. Click **Start adding seats**.
+1. To enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Purchase for selected members**.
 1. In the "Enable Copilot access for users and teams" dialog, click one of the two tabs.
 
    ![Screenshot of the "enable access for selected members" dialog.](/assets/images/help/copilot/enable-access-for-selected-members.png)
@@ -77,6 +67,8 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 ## Using the API to grant access to {% data variables.product.prodname_copilot %}
 
 You can use {% data variables.product.prodname_dotcom %}'s REST API to grant access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. See [Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization) and [Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization).
+
+{% data reusables.copilot.self-serve-license-link %}
 
 ## Further reading
 

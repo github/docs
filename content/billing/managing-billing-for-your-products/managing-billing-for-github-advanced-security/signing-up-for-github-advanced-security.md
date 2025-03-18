@@ -21,6 +21,8 @@ shortTitle: Sign up for Advanced Security
 
 ## Purchasing {% data variables.product.prodname_GH_advanced_security %}
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}

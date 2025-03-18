@@ -3,6 +3,8 @@ sections:
   security_fixes:
     - |
       Packages have been updated to the latest security versions.
+    - |
+      **HIGH**: An attacker could leak sensitive data from the DOM by injecting malicious input through the `identity` parameter in `querySelector` handling. This allows the attacker to dynamically embed a hidden iframe on the page and exfiltrate data from DOM attributes. To execute the attack, the victim must be logged into GitHub and interact with the attacker controlled malicious webpage containing the hidden iframe. GitHub has requested CVE ID [CVE-2024-10001](https://www.cve.org/cverecord?id=CVE-2024-10001) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2025-01-27]
   bugs:
     - |
       On an instance in a cluster configuration, `ghe-repl-promote` failed if the primary node was unavailable.
@@ -88,6 +90,11 @@ sections:
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+
   deprecations:
     # https://github.com/github/releases/issues/4037
     - heading: Upcoming deprecation of projects (classic)

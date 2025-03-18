@@ -26,6 +26,9 @@ Dependency insights can help you track, report, and act on your organization's o
 
 With dependency insights you can view vulnerabilities, licenses, and other important information for the open source projects your organization depends on.
 
+> [!NOTE]
+> Dependency insights don't include information for private dependencies.
+
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.insights %}

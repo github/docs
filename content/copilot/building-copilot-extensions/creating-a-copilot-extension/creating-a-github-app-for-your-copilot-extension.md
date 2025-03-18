@@ -9,8 +9,6 @@ shortTitle: Create GitHub App
 type: how_to
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 A {% data variables.product.prodname_copilot_extension_short %} is a {% data variables.product.prodname_github_app %} that is associated with a {% data variables.product.prodname_copilot_agent_short %}. The {% data variables.product.prodname_github_app %} you associate your {% data variables.product.prodname_copilot_agent_short %} with is used to authenticate the {% data variables.product.prodname_copilot_agent_short %} with {% data variables.product.prodname_dotcom %} and to authorize the {% data variables.product.prodname_copilot_agent_short %} to access the {% data variables.product.prodname_copilot_chat_short %} API. Each {% data variables.product.prodname_copilot_agent_short %} must be associated with a unique {% data variables.product.prodname_github_app %}.
 
 ## Prerequisites

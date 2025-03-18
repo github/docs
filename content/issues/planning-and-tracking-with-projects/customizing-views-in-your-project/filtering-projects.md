@@ -2,7 +2,9 @@
 title: 'Filtering {% data variables.projects.projects_v2 %}'
 intro: Use filters to choose which items appear in your project's views.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/filtering-projects
 type: tutorial
@@ -21,11 +23,7 @@ In board layout, you can click on item data to filter for items with that value.
 
 Using multiple filters will act as a logical AND filter. For example, `label:bug status:"In progress"` will return items with the `bug` label and the "In progress" status. You can also provide multiple values for the same field to act as a logical OR filter. For example, `label:bug,support` will return items with either the `bug` or `support` labels. {% data variables.product.prodname_projects_v2 %} does not currently support logical OR filters across multiple fields.
 
-{% ifversion projects-v2-insights %}
-
 The same filters are available for charts you create using insights for {% data variables.product.prodname_projects_v2 %}, allowing you to filter the data used to create your charts. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects).
-
-{% endif %}
 
 When you filter a view and then add an item, the filtered metadata will be applied to new item. For example, if you're filtering by `status:"In progress"` and you add an item, the new item will have its status set to "In progress."
 
@@ -138,13 +136,15 @@ You can filter closed items by their close reason.
 
 ## Filtering for when an item was last updated
 
-You can use the `{number}days` syntax to filter for when items were last updated.
+The `updated` filter field provides a more powerful and flexible way to filter items based on their last modification date.
 
 | Qualifier  | Example
 | ---------- | -------------
-| <code>last-updated:<em>NUMBER</em>days</code> | **last-updated:1day** will show items last updated one or more days ago.
-|                                               | **last-updated:7days** will show items last updated seven or more days ago.
-|                                               | **-last-updated:10days** will show items that have been updated in the last ten days.
+| <code>updated:<em>NUMBER</em>days</code> | **updated:@today** will show items updated today.
+|                                          | **updated:@today-1d** will show items updated 1 day ago.
+|                                          | **updated:>@today-1w** will show items last updated seven or more days ago.
+|                                          | **updated:>@today-30d** will show items last updated thirty or more days ago.
+|                                          | **-updated:@today** excludes items updated today.
 
 {% data reusables.projects.last-updated-explanation %}
 
@@ -206,6 +206,14 @@ You can filter by specific text fields or use a general text filter across all t
 | <code>field:<em>TEXT</em>      | **note:complete** will show items with a note text field that exactly match "complete".
 | <code><em>TEXT</em></code>     | **API** will show items with "API" in the title or any other text field.
 | <code>field:<em>TEXT</em> TEXT | **label:bug rendering** will show items with the "bug" label and with "rendering" in the title or any other text field.
+
+For general text search across all text fields and titles, matches are based only on the beginning of a word, not any part of it.
+For example, if the issue title is **"Document full-text search"**:
+
+* **Matches**: "Doc", "full", "search"
+* **Doesn't match**: "cument", "ext", "arch"
+
+This approach helps keep general text search more precise and relevant.
 
 {% ifversion projects-v2-wildcard-text-filtering %}
 

@@ -26,9 +26,10 @@ Different maximum size limits for {% data variables.large_files.product_name_sho
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
 | {% data variables.product.prodname_ghe_cloud %} | 5 GB |
-| {% else %} |
+
+{% else %}
 Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
-| {% endif %} |
+{% endif %}
 
 {% data reusables.repositories.git-lfs %}
 

@@ -3,7 +3,9 @@ title: 'About {% data variables.product.prodname_projects_v2 %}'
 intro: '{% data variables.product.prodname_projects_v2 %} is an adaptable, flexible tool for planning and tracking work on {% data variables.product.company_short %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/about-projects
 type: overview
@@ -13,7 +15,7 @@ topics:
 
 ## About {% data variables.product.prodname_projects_v2 %}
 
-A project is an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests,{% ifversion projects-v2-insights %} visualize work with configurable charts,{% endif %} and add custom fields to track metadata specific to your team. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
+A project is an adaptable spreadsheet, task-board, and road map that integrates with your issues and pull requests on {% data variables.product.company_short %} to help you plan and track your work effectively. You can create and customize multiple views by filtering, sorting, grouping your issues and pull requests, visualize work with configurable charts, and add custom fields to track metadata specific to your team. Rather than enforcing a specific methodology, a project provides flexible features you can customize to your team’s needs and processes.
 
 To get started and create a project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project). To learn more about the different layouts, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).
 
@@ -43,6 +45,6 @@ You can also use the GraphQL API and {% data variables.product.prodname_actions 
 
 ### Viewing your project from different perspectives
 
-Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer two different layout options.
+Quickly answer your most pressing questions by tailoring your project view to give you the information you need. You can save these views, allowing you to quickly return to them as needed and make them available to your team. Views not only let you scope down the items listed but also offer three different layout options.
 
 You can view your project as a high-density table layout, as a kanban board, or a timeline-style roadmap. For more information about the different layout options, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view).

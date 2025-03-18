@@ -190,7 +190,7 @@ pipeline {
         agent { label "${PLATFORM}" }
         stages {
           stage('test') {
-            tools { nodejs "node-16" }
+            tools { nodejs "node-20" }
             steps {
               dir("scripts/myapp") {
                 sh(script: "npm install -g bats")
@@ -222,7 +222,7 @@ jobs:
       - uses: {% data reusables.actions.action-checkout %}
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: 16
+          node-version: 20
       - run: npm install -g bats
       - run: bats tests
         working-directory: ./scripts/myapp

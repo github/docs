@@ -52,7 +52,7 @@ Some IdPs support provisioning access to a {% data variables.product.prodname_do
 
 ## Adding members to an organization using SAML SSO
 
-After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.product_name %} or using the API. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization) and [AUTOTITLE](/rest/orgs#add-or-update-organization-membership).
+After you enable SAML SSO, there are multiple ways you can add new members to your organization. Organization owners can invite new members manually on {% data variables.product.github %} or using the API. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/inviting-users-to-join-your-organization) and [AUTOTITLE](/rest/orgs#add-or-update-organization-membership).
 
 To provision new users without an invitation from an organization owner, you can use the URL `https://github.com/orgs/ORGANIZATION/sso/sign_up`, replacing ORGANIZATION with the name of your organization. For example, you can configure your IdP so that anyone with access to the IdP can click a link on the IdP's dashboard to join your {% data variables.product.prodname_dotcom %} organization.
 

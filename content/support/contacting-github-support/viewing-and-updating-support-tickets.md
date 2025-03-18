@@ -27,7 +27,7 @@ Your capabilities in the {% data variables.contact.landing_page_portal %} depend
 
 {% data reusables.support.view-open-tickets %}
 1. Under the text box, you can read the comment history. The most recent response is at the top.
-1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Chinese (Simplified), French, German, Japanese, Portuguese (Brazil), or Spanish.
+1. Optionally, to translate the ticket comment, click {% octicon "globe" aria-label="The globe icon" %} and choose your preferred language from the dropdown menu. You can translate your support ticket into Spanish, Japanese, Portuguese (Brazil), Chinese (Simplified), French, or German.
 
    ![Screenshot of a support ticket with the dropdown menu showing the options for translation highlighted with a dark orange outline.](/assets/images/help/support/support-ticket-translation-options.png)
 
@@ -69,7 +69,7 @@ If your account includes {% data variables.contact.premium_support %}, you can r
 
 ## Requesting an escalation
 
-If your account includes {% data variables.contact.premium_support %}, you can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket).
+You can request to escalate a ticket if it was opened at a lower priority but the issue has become more urgent{% ifversion ghec %} if your account includes {% data variables.contact.premium_support %}{% endif %}. From the ticket, click **Request an escalation**. For more information about requesting an escalation, see [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support#assigning-a-priority-to-a-support-ticket).
 
 {% endif %}
 

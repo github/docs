@@ -533,7 +533,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1894,7 +1894,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1906,7 +1906,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1918,7 +1918,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2100,6 +2100,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: LinkedIn
+  supportedSecret: LinkedIn Client Secret
+  secretType: linkedin_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lob
   supportedSecret: Lob Live API Key
   secretType: lob_live_api_key
@@ -2200,6 +2211,17 @@
 - provider: Mailersend
   supportedSecret: Mailersend API Token
   secretType: mailersend_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
+  supportedSecret: Mailersend SMTP Password
+  secretType: mailersend_smtp_password
   versions:
     fpt: '*'
     ghec: '*'
@@ -2346,6 +2368,28 @@
     ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Neon
+  supportedSecret: Neon API Key
+  secretType: neon_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Neon
+  supportedSecret: Neon Connection URI
+  secretType: neon_connection_uri
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2730,6 +2774,39 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Access Token
+  secretType: planning_center_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Application Secret
+  secretType: planning_center_oauth_app_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center Personal Access Token
+  secretType: planning_center_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Plivo
   supportedSecret: Plivo Auth ID
   secretType: plivo_auth_id </br>plivo_auth_token
@@ -2991,7 +3068,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3111,7 +3188,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3123,7 +3200,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3135,7 +3212,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3147,7 +3224,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3183,7 +3260,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3303,7 +3380,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3362,6 +3439,61 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token
+  secretType: sourcegraph_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Dotcom User Gateway Access Token
+  secretType: sourcegraph_dotcom_user_gateway
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token with Instance Identifier
+  secretType: sourcegraph_instance_identifier_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph License Key Token
+  secretType: sourcegraph_license_key_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Product Subscription Token
+  secretType: sourcegraph_product_subscription_token
+  versions:
+    fpt: '*'
+    ghec: '*'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3588,7 +3720,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true

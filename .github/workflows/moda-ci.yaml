@@ -67,6 +67,7 @@ jobs:
       ci-formatted-job-name: ${{ matrix.ci_job.job }}
       vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
       # Passes 'DOCS_BOT_PAT_READPUBLICKEY' secret from Vault to docker as --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=<PAT value>
+      attest: true
       docker-build-env-secrets: 'DOCS_BOT_PAT_READPUBLICKEY'
     secrets:
       dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
@@ -99,3 +100,4 @@ permissions:
   contents: read
   statuses: read
   id-token: write
+  attestations: write

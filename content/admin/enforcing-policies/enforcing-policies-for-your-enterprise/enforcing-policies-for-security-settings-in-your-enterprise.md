@@ -24,9 +24,7 @@ shortTitle: Policies for security settings
 
 ## About policies for security settings in your enterprise
 
-You can enforce policies to control the security settings for organizations owned by your enterprise on {% data variables.product.product_name %}. By default, organization owners can manage security settings.
-
-{% ifversion ghec or ghes %}
+You can enforce policies to control the security settings for organizations owned by your enterprise. By default, organization owners can manage security settings.
 
 ## Requiring two-factor authentication for organizations in your enterprise
 
@@ -74,7 +72,6 @@ Before you require secure methods of two-factor authentication, we recommend not
 {% data reusables.organizations.secure_two_factor_authentication_confirm %}
 1. Optionally, if any outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable 2FA with a secure method before they can accept your invitation.
 
-{% endif %}
 {% endif %}
 
 ## Managing SSH certificate authorities for your enterprise

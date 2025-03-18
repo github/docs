@@ -3,7 +3,9 @@ title: About single select fields
 shortTitle: About single select fields
 intro: 'You can create single select fields with multiple options, each with a description and a color, that can be selected from a dropdown menu.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

@@ -33,10 +33,10 @@ To prevent new packages from being uploaded, you can set an ecosystem you previo
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_site_admin_settings.packages-tab %}
 1. Under "Ecosystem Toggles", for each package type, select **Enabled**, **Read-Only**, or **Disabled**.
-   {%- ifversion ghes %}
+
    > [!NOTE]
    > Subdomain isolation must be enabled to toggle the {% data variables.product.prodname_container_registry %} options.
-   {%- endif %}
+
    ![Screenshot of the "Ecosystem toggles" section on the Settings page of the Management Console.](/assets/images/enterprise/site-admin-settings/ecosystem-toggles.png)
 
 {% data reusables.enterprise_management_console.save-settings %}

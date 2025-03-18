@@ -1,6 +1,8 @@
 export enum EventType {
+  aiSearchResult = 'aiSearchResult',
   page = 'page',
   exit = 'exit',
+  keyboard = 'keyboard',
   link = 'link',
   hover = 'hover',
   search = 'search',
@@ -35,6 +37,7 @@ export type EventProps = {
     status: number
     is_logged_in: boolean
     dotcom_user: string
+    is_staff: boolean
     os: string
     os_version: string
     browser: string
@@ -45,10 +48,21 @@ export type EventProps = {
     color_mode_preference: string
     os_preference: string
     code_display_preference: string
+    event_group_key?: string
+    event_group_id?: string
   }
 }
 
 export type EventPropsByType = {
+  [EventType.aiSearchResult]: {
+    ai_search_result_query: string
+    ai_search_result_response: string
+    // Dynamic JSON string of an array of "link" objects in the form:
+    // [{ "type": "reference" | "inline", "url": "https://..", "product": "issues" | "pages" | ... }, ...]
+    ai_search_result_links_json: string
+    ai_search_result_provided_answer: boolean
+    ai_search_result_response_status: number
+  }
   [EventType.clipboard]: {
     clipboard_operation: string
     clipboard_target?: string
@@ -70,6 +84,10 @@ export type EventPropsByType = {
   [EventType.hover]: {
     hover_url: string
     hover_samesite?: boolean
+  }
+  [EventType.keyboard]: {
+    pressed_key: string
+    pressed_on: string
   }
   [EventType.link]: {
     link_url: string

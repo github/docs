@@ -1,1 +1,1 @@
-export { default, getServerSideProps } from 'src/search/pages/search'
+export { default, getServerSideProps } from 'src/search/pages/search-results'

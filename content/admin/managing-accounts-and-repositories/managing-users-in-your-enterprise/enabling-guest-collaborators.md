@@ -107,6 +107,6 @@ This gives the user access to the repository without giving them access to other
 ## Further reading
 
 * [Tutorial: Configure GitHub Enterprise Managed User for automatic user provisioning](https://learn.microsoft.com/en-us/entra/identity/saas-apps/github-enterprise-managed-user-provisioning-tutorial) in the Entra ID documentation
-* [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/vup1682006069653.html) in the PingIdentity documentation
+* [Configure PingFederate for provisioning and SSO](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_gh_emu_configure_pf_for_provisioning_and_sso.html) in the PingIdentity documentation
 * [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-with-okta)
 * [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)

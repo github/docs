@@ -27,7 +27,7 @@ When {% data variables.product.prodname_dependabot %} detects vulnerable depende
 
 {% data reusables.dependabot.no-dependabot-alerts-for-malware %}
 
-{% ifversion dependabot-suppressed-notifications %}Regardless of your notification preferences, when {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.github %} does not send notifications for all vulnerable dependencies found in your repository. Instead, you will receive notifications for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled, if your notification preferences allow it.{% endif %}
+Regardless of your notification preferences, when {% data variables.product.prodname_dependabot %} is first enabled, {% data variables.product.github %} does not send notifications for all vulnerable dependencies found in your repository. Instead, you will receive notifications for new vulnerable dependencies identified after {% data variables.product.prodname_dependabot %} is enabled, if your notification preferences allow it.
 
 {% ifversion fpt or ghec %}If you're an organization owner, you can enable or disable {% data variables.product.prodname_dependabot_alerts %} for all repositories in your organization with one click. You can also set whether {% data variables.product.prodname_dependabot_alerts %} will be enabled or disabled for newly-created repositories. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-for-all-new-repositories-when-they-are-added).
 {% endif %}
@@ -58,7 +58,9 @@ You can configure notification settings for yourself or your organization from t
 
 ## How to reduce the noise from notifications for {% data variables.product.prodname_dependabot_alerts %}
 
-If you are concerned about receiving too many notifications for {% data variables.product.prodname_dependabot_alerts %}, we recommend you opt into the weekly email digest, or turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled. You can still navigate to see your {% data variables.product.prodname_dependabot_alerts %} in your repository's **Security** tab. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
+If you are concerned about receiving too many notifications for {% data variables.product.prodname_dependabot_alerts %}, we recommend leveraging {% data variables.dependabot.auto_triage_rules %} to auto-dismiss low-risk alerts. Rules are applied before alert notifications are sent, so alerts that are auto-dismissed upon creation do not send notifications. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
+
+Alternatively, you can opt into the weekly email digest, or even completely turn off notifications while keeping {% data variables.product.prodname_dependabot_alerts %} enabled. You can still navigate to see your {% data variables.product.prodname_dependabot_alerts %} in your repository's **Security** tab. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts).
 
 ## Further reading
 

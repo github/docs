@@ -77,7 +77,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
    {% endrowheaders %}
 
-   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.product_name %} to create and configure a generic SAML 2.0 application on your IdP. See [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference).
+   Alternatively, if you don't use a partner IdP, you can use the SAML configuration reference for {% data variables.product.github %} to create and configure a generic SAML 2.0 application on your IdP. See [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/saml-configuration-reference).
 
 1. To test and configure your enterprise, assign yourself or the user that will configure SAML SSO for your enterprise on {% data variables.product.github %} to the application you configured for {% data variables.product.prodname_emus %} on your IdP.
 
@@ -96,7 +96,7 @@ To configure SAML SSO for your {% data variables.enterprise.prodname_emu_enterpr
 
 After you configure SAML SSO for {% data variables.product.prodname_emus %} on your IdP, you can configure your enterprise on {% data variables.product.github %}.
 
-After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users).
+After the initial configuration of SAML SSO, the only setting you can update on {% data variables.product.github %} for your existing SAML configuration is the SAML certificate, which can be done by any member with the enterprise owner role. If you need to update the sign-on URL or issuer URL, you must first disable SAML SSO, then reconfigure SAML SSO with the new settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users).
 
 {% data reusables.emus.sign-in-as-setup-user %}
 

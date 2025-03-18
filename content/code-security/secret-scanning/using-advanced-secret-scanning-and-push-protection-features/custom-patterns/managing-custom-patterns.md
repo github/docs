@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
 ---
 
@@ -42,9 +42,7 @@ When you remove a custom pattern, {% data variables.product.prodname_dotcom %} g
 
 ## Enabling push protection for a custom pattern
 
-You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at {% ifversion ghec or ghes %}the enterprise, organization, or repository level{% else %} the organization or repository level{% endif %}.
-
-{% ifversion ghec or ghes %}
+You can enable {% data variables.product.prodname_secret_scanning %} as a push protection for custom patterns stored at the enterprise, organization, or repository level.
 
 ### Enabling push protection for a custom pattern stored in an enterprise
 
@@ -55,7 +53,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.
+1. Under "{% data variables.product.UI_advanced_security_ent %}", click **Security features**.
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
 
    >[!NOTE] At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
@@ -66,8 +64,6 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 
    ![Screenshot of the custom pattern page with the button to enable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
 
-{% endif %}
-
 ### Enabling {% data variables.product.prodname_secret_scanning %} as a push protection in an organization for a custom pattern
 
 Before enabling push protection for a custom pattern at organization level, you must ensure that you enable {% data variables.product.prodname_secret_scanning %} for the repositories that you want to scan in your organization. To enable {% data variables.product.prodname_secret_scanning %} on all repositories in your organization, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
@@ -75,7 +71,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
 1. Under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.
 {% else %}
 {% data reusables.organizations.security-and-analysis %}

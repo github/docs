@@ -1,9 +1,11 @@
 ---
 title: Creating tool switchers in articles
 shortTitle: Create tool switchers
-intro: 'You can use a tool switcher to show how to complete tasks using specific tools.'
+intro: You can use a tool switcher to show how to complete tasks using specific tools.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/creating-tool-switchers-in-articles
 ---

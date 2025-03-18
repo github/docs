@@ -1,7 +1,7 @@
 ---
 title: About billing for GitHub Advanced Security
 intro: 'Learn how {% data variables.product.prodname_GH_advanced_security %} costs are calculated and how to get the most from your license.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 redirect_from:
   - /admin/advanced-security/about-licensing-for-github-advanced-security
   - /billing/managing-licensing-for-github-advanced-security/about-licensing-for-github-advanced-security
@@ -24,22 +24,25 @@ shortTitle: Advanced Security billing
 
 ## Metered billing for {% data variables.product.prodname_GH_advanced_security %}
 
-If you started a trial of {% data variables.product.prodname_GH_advanced_security %} during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, or if your account is onboarded into metered billing outside of the trial, your billing will be usage-based. This means:
+If you started a trial of {% data variables.product.prodname_GH_advanced_security %} (GHAS) during your {% data variables.product.prodname_ghe_cloud %} trial on or after August 1, 2024, or if your account is onboarded into metered billing outside of the trial, your billing will be usage-based. This means:
 
 * You pay for the number of licenses used each month.
 * This applies to both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}.
 
 There are a few key differences between metered and volume billing for {% data variables.product.prodname_GH_advanced_security %}.
 
-* **Metered billing:**
+* **GHAS Metered billing**
 
   * Billed per active committer, with no pre-defined license limit.
   * No overage state, pay only for what you use.
+  * Server-only users will be added to metered billing. These users are de-duplicated with email matching to avoid double billing.
 
-* **Volume billing:**
+* **GHAS Volume/Subscription billing**
 
   * Purchase a defined number of licenses (for example, 100 licenses).
   * If usage exceeds purchased licenses, you will need to purchase additional licenses to cover this overage usage.
+
+For more detailed information about these two types of billing, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
 
 ### Managing committers and repositories
 
@@ -68,9 +71,13 @@ If you have further questions about using {% data variables.product.prodname_GH_
 
 For pricing details for {% data variables.product.prodname_GH_advanced_security %}, see our [pricing information](https://github.com/enterprise/advanced-security#pricing).
 
+{% data reusables.advanced-security.ghas-products-tip %}
+
 {% elsif ghec %}
 
 If you want to use {% data variables.product.prodname_GH_advanced_security %} features on any repository apart from a public repository on {% data variables.product.prodname_dotcom_the_website %}, you will need a {% data variables.product.prodname_GH_advanced_security %} license. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% data reusables.advanced-security.ghas-products-tip %}
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}
@@ -85,7 +92,9 @@ For other billing-related questions, contact {% data variables.contact.github_su
 
 {% elsif ghes %}
 
-You can make extra features for code security available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+You can make extra features available to users by buying and uploading a license for {% data variables.product.prodname_GH_advanced_security %}. For more information about {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% data reusables.advanced-security.ghas-products-tip %}
 
 {% ifversion security-configurations %}
 {% data reusables.security-configurations.managing-GHAS-licenses %}

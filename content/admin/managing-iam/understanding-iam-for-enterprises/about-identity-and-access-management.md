@@ -1,7 +1,7 @@
 ---
 title: About identity and access management
 shortTitle: About IAM
-intro: 'Administrators for {% ifversion ghec %}{% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %} must decide how users will access {% ifversion ghec %}the enterprise''s resources{% ifversion ghec %} on {% data variables.product.prodname_dotcom_the_website %}{% endif %}{% elsif ghes %} the instance{% endif %}.'
+intro: 'Administrators must decide how users will access the enterprise''s resources on {% data variables.product.github %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -18,7 +18,7 @@ topics:
   - SSO
 ---
 
-## About IAM for {% data variables.product.product_name %}
+## About IAM for {% data variables.product.github %}
 
 {% ifversion ghec %}
 
@@ -28,19 +28,15 @@ After learning more about authentication and provisioning for each of these opti
 
 {% elsif ghes %}
 
-Administrators who configure a {% data variables.product.product_name %} instance can use local accounts and built-in authentication on the instance. Alternatively, to centralize identity and access for an enterprise's web applications, administrators can configure an external authentication method. If you use SAML, you can optionally provision user accounts on the instance from your identity provider (IdP) using System for Cross-domain Identity Management (SCIM).
+Administrators who configure a {% data variables.product.prodname_ghe_server %} instance can use local accounts and built-in authentication on the instance. Alternatively, to centralize identity and access for an enterprise's web applications, administrators can configure an external authentication method. If you use SAML, you can optionally provision user accounts on the instance from your identity provider (IdP) using System for Cross-domain Identity Management (SCIM).
 
 {% endif %}
-
-{% ifversion ghec or ghes %}
 
 ## Authentication methods
 
-{% endif %}
-
 {% ifversion ghec %}
 
-When you create an enterprise on {% data variables.product.product_name %}, you can decide how people authenticate to access your resources on {% data variables.product.prodname_dotcom_the_website %}, and who controls the user accounts.
+When you create an enterprise on {% data variables.product.github %}, you can decide how people authenticate to access your resources and who controls the user accounts.
 
 * [Authentication through {% data variables.location.product_location %}](#authentication-through-githubcom)
 * [Authentication through {% data variables.location.product_location %} with additional SAML access restriction](#authentication-through-githubcom-with-additional-saml-access-restriction)
@@ -62,7 +58,7 @@ If you need more control of the accounts for your enterprise members on {% data 
 
 {% elsif ghes %}
 
-The following authentication methods are available for {% data variables.product.product_name %}.
+The following authentication methods are available for {% data variables.product.prodname_ghe_server %}.
 
 * [Built-in authentication](#built-in-authentication)
 * [External authentication](#external-authentication)
@@ -85,11 +81,7 @@ If you choose to use external authentication, you can also configure fallback au
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## About provisioning
-
-{% endif %}
 
 {% ifversion ghec %}
 
@@ -99,7 +91,7 @@ Alternatively, if you use [{% data variables.product.prodname_emus %}](#authenti
 
 {% elsif ghes %}
 
-If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.product.product_name %} creates a user account when an authorized person signs into the instance, or "just in time" (JIT). Optionally, if you use SAML, you can provision user accounts from your identity provider (IdP) using SCIM. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
+If you configure built-in authentication, CAS, LDAP, or SAML, {% data variables.product.prodname_ghe_server %} creates a user account when an authorized person signs into the instance, or "just in time" (JIT). Optionally, if you use SAML, you can provision user accounts from your identity provider (IdP) using SCIM. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-user-provisioning-with-scim-for-your-enterprise).
 
 {% endif %}
 

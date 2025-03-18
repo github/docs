@@ -148,10 +148,9 @@ configure_github_actions:
     - >-
       /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
 configure_github_advanced_security:
-  title: Configure {% data variables.product.prodname_GH_advanced_security %}
+  title: Configure {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %}
   description: >-
-    Improve the quality and security of your developers' code with {% data
-    variables.product.prodname_GH_advanced_security %}.
+    Improve the quality and security of your developers' code with {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %}.
   versions:
     ghes: '*'
   guides:
@@ -171,7 +170,7 @@ get_started_with_your_enterprise_account:
   title: Get started with your enterprise account
   description: >-
     Get started with your enterprise account to centrally manage multiple
-    organizations on {% data variables.product.product_name %}.
+    organizations on {% data variables.product.github %}.
   versions:
     ghes: '*'
     ghec: '*'

@@ -26,6 +26,8 @@ sections:
       A model with no URL could cause a `ghe-migrator` import to fail.
     - |
       Restore could fail when restoring MySQL using backup-utils.
+    - |
+      The help documentation for the Actions Workflow editor was not loading correctly. [Updated: 2025-02-18]
   changes:
     - |
       The `ghe-remove-node` command will display the log file location when running in quiet mode.
@@ -60,3 +62,7 @@ sections:
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
       [Updated: 2024-11-29]
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
