@@ -20,6 +20,7 @@ children:
   - /bypass-requests
   - /custom-properties
   - /custom-roles
+  - /issue-types
   - /members
   - /network-configurations
   - /organization-roles
