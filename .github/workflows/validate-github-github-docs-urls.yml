@@ -35,11 +35,18 @@ jobs:
     steps:
       - name: Check out repo's default branch
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # Picking this number is a "best guess". If we make it too large,
+          # the checkout will take potentially unnecessariily long.
+          # This reduces the chance that tj-actions/changed-files has to
+          # fetch deeper history. But if it needs to, it will.
+          fetch-depth: 10
+
       - uses: ./.github/actions/node-npm-setup
 
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
           repository: github/github
           ref: master
           path: github
@@ -55,12 +62,9 @@ jobs:
       - name: Update config/docs-urls.json in github/github (possibly)
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           npm run validate-github-github-docs-urls -- generate-new-json checks.json github/config/docs-urls.json
-
-          git config --global user.name "docs-bot"
-          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           cd github
           git status
@@ -86,7 +90,7 @@ jobs:
       - name: Clean up old branches in github/github
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           npm run validate-github-github-docs-urls -- clean-up-old-branches --prefix update-docs-urls
 
@@ -104,24 +108,27 @@ jobs:
       # First, gather the URLs that were relevant
       - name: Get changed content/data files
         if: ${{ github.event_name == 'pull_request' }}
-        id: changed_files
-        uses: ./.github/actions/get-changed-files
+        id: changed-files
+        uses: tj-actions/changed-files@2f7c5bfce28377bc069a65ba478de0a74aa0ca32 # v46.0.1
         with:
+          # No need to escape the file names because we make the output of
+          # tj-actions/changed-files be set as an environment variable. Not
+          # as a direct input to the line of bash that uses it.
+          safe_output: false
           files: |
             content/**
 
       - name: Generate PR comment
-        if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.filtered_changed_files }}
+        if: ${{ github.event_name == 'pull_request' && steps.changed-files.outputs.any_changed == 'true' }}
         env:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
-            ${{ steps.changed_files.outputs.filtered_changed_files }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+            ${{ steps.changed-files.outputs.all_changed_files }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
-        run: |
-          npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
+        run: npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}
