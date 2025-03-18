@@ -179,6 +179,20 @@ If you download all workflow run's artifacts, a directory for each artifact is c
 
 For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.prodname_ghe_server %}{% endif %}.
 
+{% ifversion fpt or ghec %}
+
+## Validating artifacts
+
+Every time the upload-artifact action is used it returns an output called `digest`. This is a SHA256 digest of the Artifact you uploaded during a workflow run.
+
+When the download-artifact action is then used to download that artifact, it automatically calculates the digest for that downloaded artifact and validates that it matches the output from the upload-artifact step.
+
+If the digest does not match, the run will display a warning in the UI and in the job logs.
+
+To view the SHA256 digest you can open the logs for the upload-artifact job or check in the Artifact output that appears in the workflow run UI.
+
+{% endif %}
+
 ## Passing data between jobs in a workflow
 
 You can use the `upload-artifact` and `download-artifact` actions to share data between jobs in a workflow. This example workflow illustrates how to pass data between jobs in the same workflow. For more information, see the {% ifversion fpt or ghec %}[actions/upload-artifact](https://github.com/actions/upload-artifact) and [download-artifact](https://github.com/actions/download-artifact) actions{% else %} `actions/upload-artifact` and `download-artifact` actions on {% data variables.product.prodname_ghe_server %}{% endif %}.
