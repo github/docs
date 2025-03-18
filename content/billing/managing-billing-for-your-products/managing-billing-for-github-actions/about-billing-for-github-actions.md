@@ -90,7 +90,6 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 |  Windows 16-core       |   $0.128   |
 |  Windows 32-core       |   $0.256   |
 |  Windows 64-core       |   $0.512   |
-|  Windows 4-core GPU    |   $0.14    |
 |  macOS 12-core         |   $0.12    |
 
 #### Per-minute rates for arm64-powered {% data variables.actions.hosted_runners %}
