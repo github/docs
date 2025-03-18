@@ -53,7 +53,7 @@ jobs:
           echo "github.actor: ${{ github.actor }}"
           echo "github.triggering_actor: ${{ github.triggering_actor }}"
 
-      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Check for existing codespace
         id: check-codespace
