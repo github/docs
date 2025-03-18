@@ -8,8 +8,6 @@ versions:
 shortTitle: Manage token requests
 ---
 
-{% data reusables.user-settings.pat-v2-org-opt-in %}
-
 ## About {% data variables.product.pat_v2 %} requests
 
 When organization members create a {% data variables.product.pat_v2 %} to access resources owned by the organization, if the organization requires approval for {% data variables.product.pat_v2 %}s, then an organization owner must approve the token before it can be used to access any resources that are not public. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).
