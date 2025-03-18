@@ -1,4 +1,4 @@
----
+sudo su && git clone ---
 title: About GitHub's documentation fundamentals
 shortTitle: Documentation fundamentals
 intro: 'All content published on {% data variables.product.prodname_docs %} must meet these fundamental requirements.'
