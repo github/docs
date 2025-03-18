@@ -270,6 +270,8 @@ jobs:
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
 
+{% data reusables.actions.artifacts.artifacts-from-deleted-workflow-runs %}
+
 {% ifversion fpt or ghec %}
 
 ## Further reading
