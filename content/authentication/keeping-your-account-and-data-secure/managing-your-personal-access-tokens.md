@@ -35,40 +35,19 @@ topics:
 
 {% data variables.product.company_short %} currently supports two types of {% data variables.product.pat_generic %}s: {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %}. {% data variables.product.company_short %} recommends that you use {% data variables.product.pat_v2 %}s instead of {% data variables.product.pat_v1_plural %} whenever possible.
 
-> [!NOTE]
-> {% data variables.product.pat_v2_caps %}s, while more secure and controllable, cannot accomplish every task that a {% data variables.product.pat_v1 %} can. See the section on [{% data variables.product.pat_v2_caps_plural %} limitations](#fine-grained-personal-access-tokens-limitations) below to learn more.
-
 Both {% data variables.product.pat_v2 %}s and {% data variables.product.pat_v1_plural %} are tied to the user who generated them and will become inactive if the user loses access to the resource.
 
 Organization owners can set a policy to restrict the access of {% data variables.product.pat_v1_plural %} to their organization{% ifversion ghec or ghes %}, and enterprise owners can restrict the access of {% data variables.product.pat_v1_plural %} to the enterprise or organizations owned by the enterprise{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#restricting-access-by-personal-access-tokens).
 
 #### {% data variables.product.pat_v2_caps %}s
 
-{% data variables.product.pat_v2_caps_plural %} have several security advantages over {% data variables.product.pat_v1_plural %}, but also have limitations that may prevent you from using them in every scenario. These limits, and our plans to fix them, can be found in the [section below](#fine-grained-personal-access-tokens-limitations).
+{% data variables.product.pat_v2_caps %}s have several security advantages over {% data variables.product.pat_v1_plural %}:
 
-If you can use a {% data variables.product.pat_v2 %} for your scenario, you'll benefit from these improvements:
-
-* Each token is limited to access resources owned by a single user or organization.
-* Each token can be further limited to only access specific repositories for that user or organization.
-* Each token is granted specific, fine-grained permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
+* Each token can only access resources owned by a single user or organization.
+* Each token can only access specific repositories.
+* Each token is granted specific permissions, which offer more control than the scopes granted to {% data variables.product.pat_v1_plural %}.
 * Organization owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in the organization.{% ifversion ghec or ghes %}
 * Enterprise owners can require approval for any {% data variables.product.pat_v2 %}s that can access resources in organizations owned by the enterprise.{% endif %}
-
-##### {% data variables.product.pat_v2_caps_plural %} limitations
-
-{% data variables.product.pat_v2_caps_plural %} do not support every feature of {% data variables.product.pat_v1_plural %}. These feature gaps are not permanent - {% data variables.product.company_short %} is working to close them. You can review [our public roadmap](https://github.com/github/roadmap) for more details on when these scenarios will be supported.
-
-The seven major gaps in {% data variables.product.pat_v2 %}s are:
-
-* Using {% data variables.product.pat_v2 %} to contribute to public repos where the user is not a member.
-* Using {% data variables.product.pat_v2 %} to contribute to repositories where the user is an outside or repository collaborator.
-* Using {% data variables.product.pat_v2 %} to access multiple organizations at once.
-{% ifversion ghes or ghec %}* Using {% data variables.product.pat_v2 %} to access `internal` resources within an enterprise the user belongs to.
-* Using {% data variables.product.pat_v2 %} to call APIs that manage the Enterprise account.
-{% endif %}* Using {% data variables.product.pat_v2 %} to access Packages.
-* Using {% data variables.product.pat_v2 %} to call the Checks API.
-
-All of these gaps will be solved over time, as {% data variables.product.company_short %} continues to invest in more secure access patterns.
 
 #### {% data variables.product.pat_v1_caps_plural %}
 
@@ -94,6 +73,9 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 
 ## Creating a {% data variables.product.pat_v2 %}
 
+> [!NOTE]
+> {% data reusables.user-settings.pat-v2-beta %}
+
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
@@ -102,7 +84,7 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token. Infinite lifetimes are allowed but may be blocked by a maximum lifetime policy set by your organization or enterprise owner. For more information, See [Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens).
 1. Optionally, under **Description**, add a note to describe the purpose of the token.
-1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear if the organization has blocked the use of {% data variables.product.pat_v2 %}s. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).{% ifversion ghec %} You may be required to perform single sign-on (SSO) if the selected organization requires it and you do not already have an active session.{% endif %}
+1. Under **Resource owner**, select a resource owner. The token will only be able to access resources owned by the selected resource owner. Organizations that you are a member of will not appear unless the organization opted in to {% data variables.product.pat_v2 %}s. For more information, see [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).{% ifversion ghec %} You may be required to perform single sign-on (SSO) if the selected organization requires it and you do not already have an active session.{% endif %}
 1. Optionally, if the resource owner is an organization that requires approval for {% data variables.product.pat_v2 %}s, below the resource owner, in the box, enter a justification for the request.
 1. Under **Repository access**, select which repositories you want the token to access. You should choose the minimal repository access that meets your needs. Tokens always include read-only access to all public repositories on {% data variables.product.prodname_dotcom %}.
 1. If you selected **Only select repositories** in the previous step, under the **Selected repositories** dropdown, select the repositories that you want the token to access.
