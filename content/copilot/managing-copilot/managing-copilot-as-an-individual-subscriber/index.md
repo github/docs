@@ -8,7 +8,7 @@ topics:
   - Copilot
 children:
   - /managing-your-github-copilot-pro-subscription
-  - /about-github-copilot-free
+  - /managing-copilot-free
   - /managing-copilot-policies-as-an-individual-subscriber
   - /extending-the-capabilities-of-github-copilot-in-your-personal-account
 ---

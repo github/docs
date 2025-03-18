@@ -8,13 +8,8 @@ on:
   deployment_status:
   workflow_dispatch:
     inputs:
-      nuke_all:
-        description: "Nuke all 'every-deployment' keys independent of language"
-        required: false
-        type: boolean
-        default: false
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to en)"
         required: false
         default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
 
@@ -58,14 +53,9 @@ jobs:
           done
           echo "Production is up to date with the build commit"
 
-      - name: Purge Fastly edge cache independent of language
-        if: ${{ inputs.nuke_all }}
-        run: npm run purge-fastly-edge-cache
-
       - name: Purge Fastly edge cache per language
-        if: ${{ !inputs.nuke_all }}
         env:
-          LANGUAGES: ${{ inputs.languages }}
+          LANGUAGES: ${{ inputs.languages || 'en' }} # Temporary, only purge English on deploy. Set to empty string for all
         run: npm run purge-fastly-edge-cache-per-language
 
       - uses: ./.github/actions/slack-alert
