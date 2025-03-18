@@ -7,7 +7,7 @@ import { ExtendedRequest } from '@/types'
 // one of these.
 // These are clearly intentional "guesses" made by some sort of
 // pen-testing bot.
-const JUNK_STARTS = ['///']
+const JUNK_STARTS = ['///', '/\\']
 const JUNK_ENDS = [
   '/package.json',
   '/package-lock.json',
