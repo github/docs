@@ -246,7 +246,7 @@ To see instructions for other popular coding environments, use the tool switcher
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 
-1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/) by following the [Eclipse documentation](https://help.eclipse.org/latest/index.jsp?topic=%2Forg.eclipse.platform.doc.user%2Ftasks%2Ftasks-124.htm&cp%3D0_3_19).
+1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/). For more information, see [Installing New Software](https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm) in the Eclipse documentation.
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 
