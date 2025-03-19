@@ -18,7 +18,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-boxwood.githubapp.com/
+    extra_completed_message: ':boxwood: Review at https://docs-internal-staging-boxwood.githubapp.com/'
 
   - name: staging-cedar
     require_pipeline: false
@@ -29,7 +29,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-cedar.githubapp.com/
+    extra_completed_message: ':cedar: Review at https://docs-internal-staging-cedar.githubapp.com/'
 
   - name: staging-cypress
     require_pipeline: false
@@ -40,7 +40,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-cypress.githubapp.com/
+    extra_completed_message: ':cypress: Review at https://docs-internal-staging-cypress.githubapp.com/'
 
   - name: staging-fir
     require_pipeline: false
@@ -51,7 +51,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-fir.githubapp.com/
+    extra_completed_message: ':fir: Review at https://docs-internal-staging-fir.githubapp.com/'
 
   - name: staging-hemlock
     require_pipeline: false
@@ -62,7 +62,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-hemlock.githubapp.com/
+    extra_completed_message: ':hemlock: Review at https://docs-internal-staging-hemlock.githubapp.com/'
 
   - name: staging-holly
     require_pipeline: false
@@ -73,7 +73,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-holly.githubapp.com/
+    extra_completed_message: ':holly_: Review at https://docs-internal-staging-holly.githubapp.com/'
 
   - name: staging-juniper
     require_pipeline: false
@@ -84,7 +84,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-juniper.githubapp.com/
+    extra_completed_message: ':juniper: Review at https://docs-internal-staging-juniper.githubapp.com/'
 
   - name: staging-laurel
     require_pipeline: false
@@ -95,7 +95,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-laurel.githubapp.com/
+    extra_completed_message: ':laurel: Review at https://docs-internal-staging-laurel.githubapp.com/'
 
   - name: staging-pine
     require_pipeline: false
@@ -106,7 +106,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-pine.githubapp.com/
+    extra_completed_message: ':pine: Review at https://docs-internal-staging-pine.githubapp.com/'
 
   - name: staging-redwood
     require_pipeline: false
@@ -117,7 +117,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-redwood.githubapp.com/
+    extra_completed_message: ':redwood: Review at https://docs-internal-staging-redwood.githubapp.com/'
 
   - name: staging-sequoia
     require_pipeline: false
@@ -128,7 +128,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-sequoia.githubapp.com/
+    extra_completed_message: ':sequoia: Review at https://docs-internal-staging-sequoia.githubapp.com/'
 
   - name: staging-spruce
     require_pipeline: false
@@ -139,7 +139,7 @@ environments:
     cluster_selector:
       profile: general
       region: iad
-    extra_completed_message: Review at https://docs-internal-staging-spruce.githubapp.com/
+    extra_completed_message: ':spruce: Review at https://docs-internal-staging-spruce.githubapp.com/'
 
 required_builds:
   - docs-internal-moda-config-bundle / docs-internal-moda-config-bundle
