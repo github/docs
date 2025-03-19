@@ -1,7 +1,7 @@
 ---
-title: Adopting GitHub Advanced Security at scale
+title: 'Adopting {% data variables.product.prodname_GHAS %} at scale'
 shortTitle: Adopt GHAS at scale
-intro: A phased approach to rolling out GitHub Advanced Security at your company using industry and GitHub best practices.
+intro: A phased approach to rolling out {% data variables.product.prodname_GHAS %} at your company using industry and GitHub best practices.
 versions:
   ghes: '*'
   ghec: '*'

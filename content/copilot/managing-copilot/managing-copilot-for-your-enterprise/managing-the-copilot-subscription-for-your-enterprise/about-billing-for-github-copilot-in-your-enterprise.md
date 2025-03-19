@@ -11,22 +11,15 @@ topics:
   - Copilot
 ---
 
-## About pricing for {% data variables.product.prodname_copilot_short %} in your enterprise
+## About {% data variables.product.prodname_copilot_short %} plans for your enterprise
 
-Enterprises on {% data variables.product.prodname_ghe_cloud %} can subscribe to either {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}. For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+{% data variables.product.company_short %} offers the following plans for enterprise accounts:
+* **{% data variables.product.prodname_copilot_business_short %}** at {% data variables.copilot.cfb_price_per_month %} per user per month
+* **{% data variables.product.prodname_copilot_enterprise_short %}** at {% data variables.copilot.ce_price_per_month %} per user per month
 
-### Pricing for {% data variables.product.prodname_copilot_for_business %}
+When you subscribe to {% data variables.product.prodname_copilot_enterprise_short %} at the enterprise level, you can choose which plan to enable for each organization in your enterprise.
 
-Subscriptions to {% data variables.product.prodname_copilot_business_short %} are available on a monthly cycle. The subscriptions are billed to the enterprise account at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
-
-### Pricing for {% data variables.product.prodname_copilot_enterprise %}
-
-With a {% data variables.product.prodname_copilot_enterprise %} subscription, you can choose to assign either {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} to each individual organization in the enterprise.
-
-Subscriptions to {% data variables.product.prodname_copilot_enterprise_short %} are available on a monthly cycle. The subscriptions are billed to the enterprise account at the end of each cycle, at the following prices:
-
-* For organizations in the enterprise that are assigned a **{% data variables.product.prodname_copilot_for_business %}** subscription: {% data variables.copilot.cfb_price_per_month %} per user per month.
-* For organizations in the enterprise that are assigned a **{% data variables.product.prodname_copilot_enterprise %}** subscription: {% data variables.copilot.ce_price_per_month %} per user per month.
+For guidance, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot).
 
 ## About the billing cycle for {% data variables.product.prodname_copilot_short %} in your enterprise
 

@@ -31,7 +31,23 @@ if [ -z "$DIFF" ]; then
   echo "__ using branch name $INPUT_HEAD __"
   git fetch origin main --depth 1
   echo "__ running git diff __"
-  DIFF=$(git diff --name-only origin/main $INPUT_HEAD)
+
+  temp_file=$(mktemp)
+  git diff --name-only origin/main $INPUT_HEAD > "$temp_file" 2>/dev/null
+  GIT_EXIT_CODE=$?
+
+  DIFF=$(cat "$temp_file")
+  rm -f "$temp_file"
+
+  if [ $GIT_EXIT_CODE -ne 0 ]; then
+    echo "__ git diff failed with exit code $GIT_EXIT_CODE, fetching unshallow __"
+    git fetch --depth=100 origin $INPUT_HEAD
+    git diff --name-only origin/main $INPUT_HEAD > "$temp_file" 2>/dev/null
+    DIFF=$(cat "$temp_file")
+    rm -f "$temp_file"
+  else
+    echo "__ git diff succeeded __"
+  fi
 fi
 
 # So we can inspect the output
@@ -58,23 +74,25 @@ if [ "$FILTER" != "." ]; then
   echo "$DIFF"
 fi
 
-# Format the output
 echo "__ formatting output __"
-FORMATTED_DIFF=$(echo $DIFF | tr '\n' ' ' | tr -s ' ')
-echo "$FORMATTED_DIFF"
+FORMATTED_DIFF=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
+echo "Formatted diff: '$FORMATTED_DIFF'"
 
 # Set the output for GitHub Actions
-if [[ -n "$GITHUB_OUTPUT" ]]; then
-  ALL_FORMATTED=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ')
-  echo "all_changed_files=$ALL_FORMATTED" >> "$GITHUB_OUTPUT"
-  echo "filtered_changed_files=$FORMATTED_DIFF" >> "$GITHUB_OUTPUT"
-else
-  echo "all_changed_files=$DIFF"
-  echo "filtered_changed_files=$FORMATTED_DIFF"
-fi
-
-# If output file is specified, write the filtered changes to it
 if [[ -n "$INPUT_OUTPUT_FILE" ]]; then
-  echo "$FORMATTED_DIFF" > "$INPUT_OUTPUT_FILE"
-  echo "__ wrote changes to $INPUT_OUTPUT_FILE __"
+  ALL_FORMATTED=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
+
+  # Only set outputs if there are actually changed files
+  if [[ -z "$ALL_FORMATTED" ]]; then
+    echo "No changed files detected, setting empty outputs"
+    echo "all_changed_files=" >> "$INPUT_OUTPUT_FILE"
+    echo "filtered_changed_files=" >> "$INPUT_OUTPUT_FILE"
+  else
+    echo "Setting non-empty outputs"
+    echo "all_changed_files=$ALL_FORMATTED" >> "$INPUT_OUTPUT_FILE"
+    echo "filtered_changed_files=$FORMATTED_DIFF" >> "$INPUT_OUTPUT_FILE"
+  fi
+else
+  echo "all_changed_files='$DIFF'"
+  echo "filtered_changed_files='$FORMATTED_DIFF'"
 fi

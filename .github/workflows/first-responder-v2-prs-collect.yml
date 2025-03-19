@@ -65,29 +65,6 @@ jobs:
         run: |
           gh pr edit $PR_URL --add-label docs-content-fr
 
-      # Check if the PR is connected to an issue that has the DIY docs label. If yes, then add the DIY docs label to the PR.
-      - name: Check if PR is connected to DIY docs issue
-        id: check-diy-docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-        run: |
-          ISSUE_NUMS=$(echo "${{ github.event.pull_request.body }}" | grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|#[0-9]+)' | grep -oE '[0-9]+')
-          for ISSUE_NUM in $ISSUE_NUMS; do
-            LABELS=$(gh issue view $ISSUE_NUM --repo github/docs-content --json labels --jq '.labels[].name')
-            if echo "$LABELS" | grep -q 'DIY docs'; then
-              echo "DIY_DOCS_LABEL=true" >> $GITHUB_ENV
-              break
-            fi
-          done
-
-      - name: Add the DIY docs label if connected to a DIY docs issue
-        if: ${{ env.DIY_DOCS_LABEL == 'true' }}
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: |
-          gh pr edit $PR_URL --add-label 'DIY docs'
-
       # Add to the FR project
       # and set type to "Maintenance" or "External contributor PR"
       # and set date to now
