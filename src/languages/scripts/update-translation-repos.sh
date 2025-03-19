@@ -5,57 +5,49 @@
 
 set -ex
 
-# 1
-pushd de-de
-git diff --exit-code
-git checkout main
-git pull origin main
-popd
-
-# 2
 pushd es-es
 git diff --exit-code
 git checkout main
 git pull origin main
 popd
 
-# 3
-pushd fr-fr
-git diff --exit-code
-git checkout main
-git pull origin main
-popd
-
-# 4
 pushd ja-jp
 git diff --exit-code
 git checkout main
 git pull origin main
 popd
 
-# 5
-pushd ko-kr
-git diff --exit-code
-git checkout main
-git pull origin main
-popd
-
-# 6
 pushd pt-br
 git diff --exit-code
 git checkout main
 git pull origin main
 popd
 
-# 7
+pushd zh-cn
+git diff --exit-code
+git checkout main
+git pull origin main
+popd
+
 pushd ru-ru
 git diff --exit-code
 git checkout main
 git pull origin main
 popd
 
-# 8
-pushd zh-cn
+pushd fr-fr
+git diff --exit-code
+git checkout main
+git pull origin main
+popd
+
+pushd ko-kr
+git diff --exit-code
+git checkout main
+git pull origin main
+popd
+
+pushd de-de
 git diff --exit-code
 git checkout main
 git pull origin main

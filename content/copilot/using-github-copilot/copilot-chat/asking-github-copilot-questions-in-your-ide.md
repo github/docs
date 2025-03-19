@@ -140,7 +140,7 @@ For more information, see [{% data variables.product.prodname_copilot_edits_vsco
 
 ## Vision
 
-> [!NOTE] Vision is currently available to [{% data variables.product.prodname_vscode_shortname %} Insiders](https://code.visualstudio.com/insiders) as a {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
 
@@ -248,6 +248,16 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 In addition to submitting prompts through the chat window, you can submit prompts inline. To start an inline chat, right click in your editor window and select **Ask {% data variables.product.prodname_copilot_short %}**.
 
 See [Ask questions in the inline chat view](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat#ask-questions-in-the-inline-chat-view) in the {% data variables.product.prodname_vs %} documentation for more details.
+
+## Vision
+
+> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
+
+You can attach images to your chat prompts to help {% data variables.product.prodname_copilot_short %} understand your question. For example, you can attach a screenshot of a code snippet to ask {% data variables.product.prodname_copilot_short %} to explain the code, or share mockups of new designs to ask {% data variables.product.prodname_copilot_short %} to generate code.
+
+You can drag and drop images into the chat window, or attach them through the {% data variables.product.prodname_vs %} UI.
 
 ## Sharing feedback
 

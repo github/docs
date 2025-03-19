@@ -1,9 +1,8 @@
-import { Suspense, useCallback, useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { Dialog, IconButton } from '@primer/react'
 import { MarkGithubIcon, ThreeBarsIcon } from '@primer/octicons-react'
-import dynamic from 'next/dynamic'
 
 import { DEFAULT_VERSION, useVersion } from 'src/versions/components/useVersion'
 import { Link } from 'src/frame/components/Link'
@@ -23,10 +22,6 @@ import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { EXPERIMENTS } from '@/events/components/experiments/experiments'
 import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
-
-const DomainNameEdit = dynamic(() => import('src/links/components/DomainNameEdit'), {
-  ssr: false,
-})
 
 export const Header = () => {
   const router = useRouter()
@@ -134,8 +129,6 @@ export const Header = () => {
     homeURL += `/${currentVersion}`
   }
 
-  const showDomainNameEdit = currentVersion.startsWith('enterprise-server@')
-
   return (
     <div
       data-container="header"
@@ -176,14 +169,6 @@ export const Header = () => {
             <div className="hide-sm border-left pl-3">
               <VersionPicker />
             </div>
-
-            {showDomainNameEdit && (
-              <div className="hide-sm xborder-left pl-3">
-                <Suspense>
-                  <DomainNameEdit />
-                </Suspense>
-              </div>
-            )}
           </div>
           {showNewSearch ? (
             <HeaderSearchAndWidgets
