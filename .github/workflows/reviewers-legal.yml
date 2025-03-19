@@ -39,6 +39,7 @@ jobs:
         uses: ./.github/actions/get-changed-files
         with:
           files: 'content/**'
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Node and dependencies
         if: steps.changed_files.outputs.filtered_changed_files

@@ -146,7 +146,7 @@ For an example of an article that uses code annotations on {% data variables.pro
 
 ## Octicons
 
-Octicons are icons used across {% data variables.product.prodname_dotcom %}’s interface. We reference Octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific Octicons on the [Octicons site](https://primer.style/Octicons).
+Octicons are icons used across {% data variables.product.prodname_dotcom %}’s interface. We reference Octicons when documenting the user interface and to indicate binary values in tables. Find the name of specific Octicons on the [Octicons site](https://primer.style/octicons).
 
 If you're referencing an Octicon that appears in the UI, identify whether the Octicon is the entire label of the UI element (for example, a button that is labeled only with "+") or whether it's only decorative, in addition to another label (for example, a button is labeled "+ Add message").
 
