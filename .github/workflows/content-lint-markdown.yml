@@ -25,40 +25,37 @@ jobs:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          # Picking this number is a "best guess". If we make it too large,
-          # the checkout will take potentially unnecessariily long.
-          # This reduces the chance that tj-actions/changed-files has to
-          # fetch deeper history. But if it needs to, it will.
           fetch-depth: 10
 
       - name: Set up Node and dependencies
         uses: ./.github/actions/node-npm-setup
 
       - name: Get changed content/data files
-        id: changed-files
+        id: changed_files
         uses: ./.github/actions/get-changed-files
         with:
           files: |
             content/**
             data/**
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print content linter annotations if changed content/data files
-        if: steps.changed-files.outputs.filtered_changed_files
+        if: steps.changed_files.outputs.filtered_changed_files
         env:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
-            ${{ steps.changed-files.outputs.filtered_changed_files }}
+            ${{ steps.changed_files.outputs.filtered_changed_files }}
         # If there are errors, using `--print-annotations` will make it
         # so it does *not* exit non-zero.
         # This is so that all warnings and errors are printed.
         run: npm run lint-content -- --print-annotations --paths $CHANGED_FILES
 
       - name: Run content linter if changed content/data files
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.changed_files.outputs.any_changed == 'true'
         env:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
-            ${{ steps.changed-files.outputs.filtered_changed_files }}
+            ${{ steps.changed_files.outputs.filtered_changed_files }}
         run: npm run lint-content -- --errors-only --paths $CHANGED_FILES
