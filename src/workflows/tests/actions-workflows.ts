@@ -8,7 +8,7 @@ import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'
 
 const githubOwnedActionsRegex =
-  /^(actions\/(cache|checkout|download-artifact|upload-artifact)@v\d+(\.\d+)*)|(octokit\/(request-action)@v\d+(\.\d+)*)$/
+  /^(actions\/(cache|checkout|download-artifact|upload-artifact)@v\d+(\.\d+)*)$/
 const actionHashRegexp = /^[A-Za-z0-9-/]+@[0-9a-f]{40}$/
 const checkoutRegexp = /^[actions/checkout]+@(v\d+(\.\d+)*|[0-9a-f]{40})$/
 const permissionsRegexp = /(read|write)/

@@ -7,7 +7,13 @@ name: 'Content Lint Markdown'
 on:
   pull_request:
   merge_group:
-
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: The branch containing the changes we want to lint.
+        required: true
+        type: string
+        default: main
 permissions:
   contents: read
 
@@ -30,23 +36,19 @@ jobs:
 
       - name: Get changed content/data files
         id: changed-files
-        uses: tj-actions/changed-files@40853de9f8ce2d6cfdc73c1b96f14e22ba44aec4 # v45.0.0
+        uses: ./.github/actions/get-changed-files
         with:
-          # No need to escape the file names because we make the output of
-          # tj-actions/changed-files be set as an environment variable. Not
-          # as a direct input to the line of bash that uses it.
-          safe_output: false
           files: |
             content/**
             data/**
 
       - name: Print content linter annotations if changed content/data files
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.changed-files.outputs.filtered_changed_files
         env:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
-            ${{ steps.changed-files.outputs.all_changed_files }}
+            ${{ steps.changed-files.outputs.filtered_changed_files }}
         # If there are errors, using `--print-annotations` will make it
         # so it does *not* exit non-zero.
         # This is so that all warnings and errors are printed.
@@ -58,5 +60,5 @@ jobs:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
-            ${{ steps.changed-files.outputs.all_changed_files }}
+            ${{ steps.changed-files.outputs.filtered_changed_files }}
         run: npm run lint-content -- --errors-only --paths $CHANGED_FILES

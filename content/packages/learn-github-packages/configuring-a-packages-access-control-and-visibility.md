@@ -193,6 +193,8 @@ For registries that support granular permissions, you can choose the visibility 
     * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
     * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
 
+   {% data reusables.package_registry.maven-package-visibility %}
+
 ## Configuring visibility of packages for an organization
 
 When you first publish a package, the default visibility is private and only you can see the package. You can grant users or teams different access roles for your package through the access settings. Once you make your package public, you cannot make your package private again.

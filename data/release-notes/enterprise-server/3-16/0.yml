@@ -2,6 +2,12 @@ date: '2025-03-11'
 release_candidate: false
 deprecated: false
 intro: |
+  {% warning %}
+
+  **Warning**: Customers who have security products enabled by default at the organization level will experience issues when upgrading from 3.14 to 3.16.0. We recommend waiting for the next 3.16 patch to upgrade.
+
+  {% endwarning %}
+ 
   For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
@@ -187,6 +193,8 @@ sections:
       The CodeQL Action has been updated to v3.28.6 to enable uploading artifacts in debug mode without logging the complete environment when running CodeQL CLI v2.20.3+.
 
   known_issues:
+    - |
+      {% data reusables.release-notes.2025-03-security-product-transition-bug %} [Updated: 2025-03-17]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

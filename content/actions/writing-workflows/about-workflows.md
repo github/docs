@@ -8,6 +8,7 @@ versions:
   ghec: '*'
 type: overview
 redirect_from:
+  - /articles/configuring-workflows
   - /actions/learn-github-actions/managing-complex-workflows
   - /actions/using-workflows/advanced-workflow-features
   - /actions/using-workflows/about-workflows

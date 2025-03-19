@@ -74,3 +74,20 @@ If undecryptable records are detected, you will be prompted whether you want to 
 
 If you have any questions during the upgrade, you can reach out to {% data variables.contact.github_support %}. Once you have had the time and opportunity to understand the impact, you can retrigger the upgrade.
 {% endif %}
+
+{% ifversion ghes > 3.13 and ghes < 3.17 %}
+
+## Upgrading from 3.14 to 3.16.0
+
+If you are using {% data variables.product.prodname_ghe_server %} 3.14, and you have enabled security products by default at the organization level, you cannot upgrade directly from 3.14 to 3.16.0. To determine your upgrade eligibility, run the following command:
+
+```shell
+ghe-console -y
+Organization.any? { |o| [o.vulnerability_updates_enabled_for_new_repos?, o.security_alerts_enabled_for_new_repos?, o.dependency_graph_enabled_for_new_repos?, o.advanced_security_enabled_on_new_repos?, SecretScanning::Features::Org::TokenScanning.new(o).secret_scanning_enabled_for_new_repos?, SecretScanning::Features::Org::PushProtection.new(o).enabled_for_new_repos?].any? }
+```
+
+If the command returns `true`, a direct upgrade from 3.14 to 3.16.0 will fail, and we recommend you wait for the next 3.16 patch to upgrade.
+
+Alternatively, you can move to 3.16.0 now by first upgrading from 3.14 to 3.15, then from 3.15 to 3.16.0.
+
+{% endif %}

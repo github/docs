@@ -38,3 +38,5 @@ You can also define a custom retention period for individual artifacts using the
 ## Finding the expiration date of an artifact
 
 You can use the API to confirm the date that an artifact is scheduled to be deleted. For more information, see the `expires_at` value returned by the REST API. For more information, see [AUTOTITLE](/rest/actions/artifacts).
+
+{% data reusables.actions.artifacts.artifacts-from-deleted-workflow-runs %}

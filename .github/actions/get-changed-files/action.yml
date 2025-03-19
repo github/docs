@@ -1,0 +1,31 @@
+name: Get changed files
+description: Get a list of changed files
+
+inputs:
+  files:
+    description: 'Files or directories to check for changes'
+    required: false
+    default: '.'
+  head:
+    description: 'Head ref to check for changes against'
+    required: false
+
+outputs:
+  all_changed_files:
+    description: 'List of all changed files (unfiltered)'
+    value: ${{ steps.get_changes.outputs.all_changed_files }}
+  filtered_changed_files:
+    description: 'List of changed files matching the filter'
+    value: ${{ steps.get_changes.outputs.filtered_changed_files }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Gather changed files
+      id: get_changes
+      env:
+        INPUT_FILES: ${{ inputs.files }}
+        PR: ${{ github.event.pull_request.number }}
+        HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref || inputs.head || github.ref_name }}
+      shell: bash
+      run: ${{ github.action_path }}/get-changed-files.sh

@@ -17,7 +17,7 @@ You can also query our search endpoint directly at:
 `https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&query=<QUERY>`
 
 - The `VERSION` can be any numbered supported GitHub Enterprise Server version (e.g., `3.12`), Enterprise Cloud (`ghec`), or the Free pro team plan (`dotcom`).
-- The `LANGUAGE CODE` can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
+- The `LANGUAGE CODE` can be one of: `es`, `ja`, `pt`, `zh`, `ru`, `fr`, `ko`, `de`
 - The `QUERY` can be any alphanumeric string value.
 
 ## Types of search

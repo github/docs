@@ -9,19 +9,15 @@ redirect_from:
   - /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-personal-access-tokens-in-your-enterprise
 ---
 
-> [!NOTE]
-> {% data reusables.user-settings.pat-v2-beta %}
->
-> During the {% data variables.release-phases.public_preview %}, enterprises must opt in to {% data variables.product.pat_v2_plural %}. If your enterprise has not already opted-in, then you will be prompted to opt-in and set policies when you follow the steps below.
->
-> Organizations within an enterprise can opt in to {% data variables.product.pat_v2_plural %}, even if the enterprise has not. All users, including {% data variables.product.prodname_emus %}, can create {% data variables.product.pat_v2_plural %} that can access resources owned by the user (such as repositories created under their account) regardless of the enterprise's opt in status.
-
 ## Restricting access by {% data variables.product.pat_generic_plural %}
 
 Enterprise owners can prevent their members from using {% data variables.product.pat_generic_plural %} to access resources owned by the enterprise. You can configure these restrictions for {% data variables.product.pat_v1_plural %} and {% data variables.product.pat_v2_plural %} independently with the following options:
-* **Allow organizations to configure access requirements:** Each organization owned by the enterprise can decide whether to restrict or permit access by {% data variables.product.pat_generic_plural %}.
+
+* **Allow organizations to configure access requirements:** Each organization owned by the enterprise can decide whether to restrict or permit access by {% data variables.product.pat_generic_plural %}. This is the default setting.
 * **Restrict access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_generic_caps_plural %} cannot access organizations owned by the enterprise. SSH keys created by these {% data variables.product.pat_generic_plural %} will continue to work. Organizations cannot override this setting.
 * **Allow access via {% data variables.product.pat_generic_plural %}:** {% data variables.product.pat_generic_caps_plural %} can access organizations owned by the enterprise. Organizations cannot override this setting.
+
+By default, organizations and enterprises allow access by both {% data variables.product.pat_v2_plural %} and {% data variables.product.pat_v1_plural %}.
 
 Regardless of the chosen policy, {% data variables.product.pat_generic_caps_plural %} will have access to public resources within the organizations managed by your enterprise.
 
@@ -62,9 +58,12 @@ When you set a policy, tokens with non-compliant lifetimes will be blocked from 
 ## Enforcing an approval policy for {% data variables.product.pat_v2_plural %}
 
 Enterprise owners can manage approval requirements for each {% data variables.product.pat_v2 %} with the following options:
-* **Allow organizations to configure approval requirements:** Enterprise owners can allow each organization in the enterprise to set its own approval requirements for the tokens.
+
+* **Allow organizations to configure approval requirements:** Enterprise owners can allow each organization in the enterprise to set its own approval requirements for the tokens. This is the default.
 * **Require approval:** Enterprise owners can require that all organizations within the enterprise must approve each {% data variables.product.pat_v2 %} that can access the organization. These tokens can still read public resources within the organization without needing approval.
 * **Disable approval:** {% data variables.product.pat_v2_caps %}s created by organization members can access organizations owned by the enterprise without prior approval. Organizations cannot override this setting.
+
+By default, organizations require approval of {% data variables.product.pat_v2_plural %}, but are able to disable this requirement. Using the settings above, you can force your organizations to have approvals enabled or disabled.
 
 > [!NOTE]
 > Only {% data variables.product.pat_v2 %}s, not {% data variables.product.pat_v1_plural %}, are subject to approval. Any {% data variables.product.pat_v1 %} can access organization resources without prior approval, unless the organization or enterprise has restricted access by {% data variables.product.pat_v1_plural %} For more information about restricting {% data variables.product.pat_v1_plural %}, see [Restricting access by {% data variables.product.pat_generic_plural %}](#restricting-access-by-personal-access-tokens) on this page and [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization).

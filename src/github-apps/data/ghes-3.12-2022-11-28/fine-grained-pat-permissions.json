@@ -3960,7 +3960,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -3969,7 +3969,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -3978,7 +3978,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -3987,7 +3987,7 @@
         "subcategory": "secrets",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -3996,7 +3996,7 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4005,7 +4005,7 @@
         "subcategory": "variables",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4014,7 +4014,7 @@
         "subcategory": "variables",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4023,7 +4023,7 @@
         "subcategory": "variables",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4032,7 +4032,7 @@
         "subcategory": "variables",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4041,7 +4041,7 @@
         "subcategory": "variables",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]
@@ -5846,51 +5846,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}",
         "additional-permissions": false,
         "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-secrets",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-public-key",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "create-or-update-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
       }
     ]
   },
@@ -5950,51 +5905,6 @@
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}",
         "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "create-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "update-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
         "access": "write"
       }
     ]

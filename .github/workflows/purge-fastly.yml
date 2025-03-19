@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     inputs:
       languages:
-        description: "Comma separated languages. E.g. 'en,zh,es,pt,ru,ja,fr,de,ko' (defaults to en)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to en)"
         required: false
         default: 'en' # Temporary, only purge English on deploy. Set to empty string for all
 

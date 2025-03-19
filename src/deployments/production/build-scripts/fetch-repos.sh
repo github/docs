@@ -35,7 +35,7 @@ cd translations
 
 # Iterate over each language
 echo "Fetching translations..."
-for lang in "zh-cn" "es-es" "pt-br" "ru-ru" "ja-jp" "fr-fr" "de-de" "ko-kr"
+for lang in  "es-es" "ja-jp" "pt-br" "zh-cn" "ru-ru" "fr-fr" "ko-kr" "de-de"
 do
   translations_repo="docs-internal.$lang"
   clone_or_use_cached_repo "$lang" "$translations_repo" "main"

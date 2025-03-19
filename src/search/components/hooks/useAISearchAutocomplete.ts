@@ -25,7 +25,7 @@ type UseCombinedSearchReturn = {
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 250 // In milliseconds
+const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API

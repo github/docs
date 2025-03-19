@@ -3371,6 +3371,30 @@
       "requestPath": "/orgs/{org}/invitations/{invitation_id}/teams"
     },
     {
+      "slug": "list-issue-types-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "create-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/issue-types"
+    },
+    {
+      "slug": "update-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
+    },
+    {
+      "slug": "delete-issue-type-for-an-organization",
+      "subcategory": "issue-types",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/issue-types/{issue_type_id}"
+    },
+    {
       "slug": "list-organization-members",
       "subcategory": "members",
       "verb": "get",
