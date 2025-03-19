@@ -31,7 +31,23 @@ if [ -z "$DIFF" ]; then
   echo "__ using branch name $INPUT_HEAD __"
   git fetch origin main --depth 1
   echo "__ running git diff __"
-  DIFF=$(git diff --name-only origin/main $INPUT_HEAD)
+
+  temp_file=$(mktemp)
+  git diff --name-only origin/main $INPUT_HEAD > "$temp_file" 2>/dev/null
+  GIT_EXIT_CODE=$?
+
+  DIFF=$(cat "$temp_file")
+  rm -f "$temp_file"
+
+  if [ $GIT_EXIT_CODE -ne 0 ]; then
+    echo "__ git diff failed with exit code $GIT_EXIT_CODE, fetching unshallow __"
+    git fetch --depth=100 origin $INPUT_HEAD
+    git diff --name-only origin/main $INPUT_HEAD > "$temp_file" 2>/dev/null
+    DIFF=$(cat "$temp_file")
+    rm -f "$temp_file"
+  else
+    echo "__ git diff succeeded __"
+  fi
 fi
 
 # So we can inspect the output
