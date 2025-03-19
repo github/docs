@@ -1,7 +1,7 @@
 ---
 title: Evaluating the security settings of a repository
 intro: Security researchers can assess the security settings of a public repository, suggest a security policy and report a vulnerability.
-permissions: Anyone can view a public repository's security settings, and contact the repository maintainers regarding security issues.
+permissions: '{% data reusables.permissions.repository-security-advisory-evaluate %}'
 versions:
   fpt: '*'
   ghec: '*'

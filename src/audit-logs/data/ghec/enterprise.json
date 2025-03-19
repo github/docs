@@ -4255,21 +4255,6 @@
     "docs_reference_links": "An enterprise managed user unclaimed an email address."
   },
   {
-    "action": "user_license.create",
-    "description": "A seat license for a user in an enterprise was created.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.destroy",
-    "description": "A seat license for a user in an enterprise was deleted.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.update",
-    "description": "A seat license type for a user in an enterprise was changed.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "vulnerability_alert_rule.create",
     "description": "A Dependabot rule was created.",
     "docs_reference_links": "N/A"
