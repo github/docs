@@ -58,23 +58,25 @@ if [ "$FILTER" != "." ]; then
   echo "$DIFF"
 fi
 
-# Format the output
 echo "__ formatting output __"
-FORMATTED_DIFF=$(echo $DIFF | tr '\n' ' ' | tr -s ' ')
-echo "$FORMATTED_DIFF"
+FORMATTED_DIFF=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
+echo "Formatted diff: '$FORMATTED_DIFF'"
 
 # Set the output for GitHub Actions
-if [[ -n "$GITHUB_OUTPUT" ]]; then
-  ALL_FORMATTED=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ')
-  echo "all_changed_files=$ALL_FORMATTED" >> "$GITHUB_OUTPUT"
-  echo "filtered_changed_files=$FORMATTED_DIFF" >> "$GITHUB_OUTPUT"
-else
-  echo "all_changed_files=$DIFF"
-  echo "filtered_changed_files=$FORMATTED_DIFF"
-fi
-
-# If output file is specified, write the filtered changes to it
 if [[ -n "$INPUT_OUTPUT_FILE" ]]; then
-  echo "$FORMATTED_DIFF" > "$INPUT_OUTPUT_FILE"
-  echo "__ wrote changes to $INPUT_OUTPUT_FILE __"
+  ALL_FORMATTED=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
+
+  # Only set outputs if there are actually changed files
+  if [[ -z "$ALL_FORMATTED" ]]; then
+    echo "No changed files detected, setting empty outputs"
+    echo "all_changed_files=" >> "$INPUT_OUTPUT_FILE"
+    echo "filtered_changed_files=" >> "$INPUT_OUTPUT_FILE"
+  else
+    echo "Setting non-empty outputs"
+    echo "all_changed_files=$ALL_FORMATTED" >> "$INPUT_OUTPUT_FILE"
+    echo "filtered_changed_files=$FORMATTED_DIFF" >> "$INPUT_OUTPUT_FILE"
+  fi
+else
+  echo "all_changed_files='$DIFF'"
+  echo "filtered_changed_files='$FORMATTED_DIFF'"
 fi

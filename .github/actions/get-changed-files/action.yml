@@ -2,7 +2,7 @@ name: Get changed files
 description: Get a list of changed files
 
 inputs:
-  file_filter:
+  files:
     description: 'Files or directories to check for changes, supports names, directories, trailing slashes, and single trailing wildcard'
     required: false
     default: '.'
