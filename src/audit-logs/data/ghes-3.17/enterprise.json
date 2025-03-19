@@ -10,28 +10,23 @@
     "docs_reference_links": "/billing/managing-the-plan-for-your-github-account/about-billing-for-plans"
   },
   {
+    "action": "account_recovery_token.confirm",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "account_recovery_token.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "account_recovery_token.recover",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "actions_cache.delete",
     "description": "A GitHub Actions cache was deleted using the REST API.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "advisory_credit.accept",
-    "description": "Credit was accepted for a security advisory.",
-    "docs_reference_links": "/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory"
-  },
-  {
-    "action": "advisory_credit.create",
-    "description": "Someone was added to the credit section of a security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "advisory_credit.decline",
-    "description": "Credit was declined for a security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "advisory_credit.destroy",
-    "description": "Someone was removed from the credit section of a security advisory.",
     "docs_reference_links": "N/A"
   },
   {
@@ -65,16 +60,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "auto_approve_personal_access_token_requests.disable",
-    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources. See also: personal_access_token.auto_approve_grant_requests_disabled",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
-  },
-  {
-    "action": "auto_approve_personal_access_token_requests.enable",
-    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval. See also: personal_access_token.auto_approve_grant_requests_enabled",
-    "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
-  },
-  {
     "action": "billing.change_billing_type",
     "description": "The way the account pays for GitHub was changed.",
     "docs_reference_links": "/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method"
@@ -105,19 +90,9 @@
     "docs_reference_links": "/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise"
   },
   {
-    "action": "business.add_billing_manager",
-    "description": "A billing manager was added to an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.add_organization",
     "description": "An organization was added to an enterprise.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.add_support_entitlee",
-    "description": "A support entitlement was added to a member of an enterprise.",
-    "docs_reference_links": "/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise"
   },
   {
     "action": "business_advanced_security.disabled",
@@ -170,36 +145,6 @@
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
   },
   {
-    "action": "business.audit_log_export",
-    "description": "An export of the enterprise audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise"
-  },
-  {
-    "action": "business.audit_log_git_event_export",
-    "description": "An export of the enterprise's Git events was created.",
-    "docs_reference_links": "admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/exporting-audit-log-activity-for-your-enterprise"
-  },
-  {
-    "action": "business.cancel_admin_invitation",
-    "description": "An invitation for someone to be an owner of an enterprise was canceled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.cancel_billing_manager_invitation",
-    "description": "An invitation for someone to be an billing manager of an enterprise was canceled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.cancel_trial",
-    "description": "The trial of GitHub Enterprise Cloud was canceled.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
-  },
-  {
-    "action": "business.change_seats_plan_type",
-    "description": "The seats plan type was changed for an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.clear_actions_settings",
     "description": "An enterprise owner or site administrator cleared GitHub Actions policy settings for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise"
@@ -230,38 +175,8 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.connect_usage_metrics_export",
-    "description": "Server statistics were exported for the enterprise.",
-    "docs_reference_links": "/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/exporting-server-statistics"
-  },
-  {
-    "action": "business.convert_trial",
-    "description": "The enterprise account on a trial of GitHub Enterprise Cloud was upgraded to a paid enterprise account.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
-  },
-  {
     "action": "business.create",
     "description": "An enterprise was created.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.create_trial",
-    "description": "A trial of GitHub Enterprise Cloud began.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
-  },
-  {
-    "action": "business.delete",
-    "description": "The enterprise was deleted.",
-    "docs_reference_links": "/admin/overview/deleting-an-enterprise-account"
-  },
-  {
-    "action": "business_dependabot_alerts.disable",
-    "description": "Dependabot alerts were disabled for your enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business_dependabot_alerts.enable",
-    "description": "Dependabot alerts were enabled for your enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -280,18 +195,8 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.disable_oidc",
-    "description": "OIDC single sign-on was disabled for an enterprise.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
-  },
-  {
     "action": "business.disable_open_scim",
     "description": "SCIM provisioning for custom integrations that use the REST API was disabled for the enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.disable_saml",
-    "description": "SAML single sign-on was disabled for an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -305,18 +210,8 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.enable_oidc",
-    "description": "OIDC single sign-on was enabled for an enterprise.",
-    "docs_reference_links": "/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/configuring-oidc-for-enterprise-managed-users"
-  },
-  {
     "action": "business.enable_open_scim",
     "description": "SCIM provisioning for custom integrations that use the REST API was enabled for the enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.enable_saml",
-    "description": "SAML single sign-on was enabled for an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -327,31 +222,6 @@
   {
     "action": "business.enable_two_factor_requirement",
     "description": "The requirement for members to have two-factor authentication enabled to access an enterprise was enabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.enterprise_server_license_download",
-    "description": "A GitHub Enterprise Server license was downloaded.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.expire_trial",
-    "description": "The trial of GitHub Enterprise Cloud expired.",
-    "docs_reference_links": "/admin/overview/setting-up-a-trial-of-github-enterprise-cloud"
-  },
-  {
-    "action": "business.import_license_usage",
-    "description": "License usage information was imported from a GitHub Enterprise Server instance to an enterprise account on GitHub.com.",
-    "docs_reference_links": "/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud#manually-uploading-github-enterprise-server-license-usage"
-  },
-  {
-    "action": "business.invite_admin",
-    "description": "An invitation for someone to be an enterprise owner of an enterprise was sent.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.invite_billing_manager",
-    "description": "An invitation for someone to be an billing manager of an enterprise was sent.",
     "docs_reference_links": "N/A"
   },
   {
@@ -370,64 +240,9 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.proxy_security_header_disabled",
-    "description": "The proxy security header was disabled for an enterprise. All users on the network can now access GitHub, unless blocked by other means.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.proxy_security_header_enabled",
-    "description": "The proxy security header was enabled for an enterprise. When the header is provided in requests, only Enterprise Managed Users matching the header will be able to access GitHub.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.proxy_security_header_unsatisfied",
-    "description": "A user outside the enterprise tried to access GitHub while the proxy security header was enabled and provided in the request.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.recovery_code_failed",
-    "description": "An enterprise owner failed to sign into a enterprise with an external identity provider (IdP) using a recovery code.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable"
-  },
-  {
-    "action": "business.recovery_code_used",
-    "description": "An enterprise owner successfully signed into an enterprise with an external identity provider (IdP) using a recovery code.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/accessing-your-enterprise-account-if-your-identity-provider-is-unavailable"
-  },
-  {
-    "action": "business.recovery_codes_downloaded",
-    "description": "An enterprise owner downloaded the enterprise's SSO recovery codes.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "business.recovery_codes_generated",
-    "description": "An enterprise owner generated the enterprise's SSO recovery codes.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "business.recovery_codes_printed",
-    "description": "An enterprise owner printed the enterprise's SSO recovery codes.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "business.recovery_codes_viewed",
-    "description": "An enterprise owner viewed the enterprise's SSO recovery codes.",
-    "docs_reference_links": "/admin/identity-and-access-management/managing-recovery-codes-for-your-enterprise/downloading-your-enterprise-accounts-single-sign-on-recovery-codes"
-  },
-  {
     "action": "business.remove_admin",
     "description": "An enterprise owner was removed from an enterprise.",
     "docs_reference_links": "/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise"
-  },
-  {
-    "action": "business.remove_billing_manager",
-    "description": "A billing manager was removed from an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.remove_member",
-    "description": "A member was removed from an enterprise.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "business.remove_organization",
@@ -435,23 +250,8 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "business.remove_support_entitlee",
-    "description": "A support entitlement was removed from a member of an enterprise.",
-    "docs_reference_links": "/admin/user-management/managing-users-in-your-enterprise/managing-support-entitlements-for-your-enterprise"
-  },
-  {
     "action": "business.rename_slug",
     "description": "The slug for the enterprise URL was renamed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.restore",
-    "description": "The deleted enterprise was restored.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.revoke_external_identity",
-    "description": "The external identity for a member in an enterprise was revoked.",
     "docs_reference_links": "N/A"
   },
   {
@@ -518,16 +318,6 @@
     "action": "business_secret_scanning.enabled_for_new_repos",
     "description": "Secret scanning was enabled for new repositories in your enterprise.",
     "docs_reference_links": "/admin/code-security/managing-github-advanced-security-for-your-enterprise/managing-github-advanced-security-features-for-your-enterprise"
-  },
-  {
-    "action": "business_secret_scanning_generic_secrets.disabled",
-    "description": "Generic secrets have been disabled at the business level",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business_secret_scanning_generic_secrets.enabled",
-    "description": "Generic secrets have been enabled at the business level",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "business_secret_scanning_non_provider_patterns.disabled",
@@ -645,11 +435,6 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions"
   },
   {
-    "action": "business.update_emu_repo_self_hosted_runners_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "business.update_member_repository_creation_permission",
     "description": "The repository creation setting was updated for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-creation"
@@ -658,21 +443,6 @@
     "action": "business.update_member_repository_invitation_permission",
     "description": "The policy setting for enterprise members inviting outside collaborators to repositories was updated.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-inviting-outside-collaborators-to-repositories"
-  },
-  {
-    "action": "business.update_repo_self_hosted_runners_policy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.update_saml_provider_settings",
-    "description": "The SAML single sign-on provider settings for an enterprise were updated.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "business.upgrade_from_organization",
-    "description": "The organization was upgraded to an enterprise account.",
-    "docs_reference_links": "/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan"
   },
   {
     "action": "checks.auto_trigger_disabled",
@@ -750,16 +520,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "codespaces.attempted_to_create_from_prebuild",
-    "description": "An attempt to create a codespace from a prebuild was made.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "codespaces.business_enablement_updated",
-    "description": "Enterprise setting for Codespaces ownership was updated.",
-    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization"
-  },
-  {
     "action": "codespaces.connect",
     "description": "Credentials for a codespace were refreshed.",
     "docs_reference_links": "N/A"
@@ -777,21 +537,6 @@
   {
     "action": "codespaces.export_environment",
     "description": "A codespace was exported to a branch on GitHub.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "codespaces.policy_group_created",
-    "description": "Policies were applied to codespaces in an organization or enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "codespaces.policy_group_deleted",
-    "description": "Policies were removed from codespaces in an organization or enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "codespaces.policy_group_updated",
-    "description": "Policies were updated for codespaces in an organization or enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -813,36 +558,6 @@
     "action": "codespaces.trusted_repositories_access_update",
     "description": "A personal account's access and security setting for Codespaces were updated.",
     "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
-  },
-  {
-    "action": "commit_comment.destroy",
-    "description": "A commit comment was deleted.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "commit_comment.update",
-    "description": "A commit comment was updated.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.access_revoked",
-    "description": "Copilot access was revoked for the organization or enterprise due to its Copilot subscription ending, an issue with billing the entity, the entity being marked spammy, or the entity being suspended.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.cfb_enterprise_org_enablement_changed",
-    "description": "The Copilot enablement policy changed at the enterprise level to either allow or disable access for all organizations, or to allow access for selected organizations.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.cfb_enterprise_settings_changed",
-    "description": "Copilot feature settings were changed at the enterprise level.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.cfb_org_settings_changed",
-    "description": "Copilot feature settings were changed at the organization level.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "copilot.cfb_seat_added",
@@ -877,51 +592,6 @@
   {
     "action": "copilot.cfb_seat_cancelled_by_staff",
     "description": "A user's Copilot Business or Copilot Enterprise seat was canceled manually by GitHub staff, and the user no longer has access to Copilot.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.cfb_seat_management_changed",
-    "description": "The seat management setting was changed at the organization level to either enable or disable Copilot access for all members of the organization, or to enable Copilot access for selected members or teams.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.clickwrap_save_event",
-    "description": "The GitHub Copilot Product Terms or Pre-Release Preview Terms were accepted.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.content_exclusion_changed",
-    "description": "The excluded paths for GitHub Copilot were updated.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.enterprise_enablement_changed",
-    "description": "Copilot access was enabled or disabled at the enterprise level.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "copilot.knowledge_base_created",
-    "description": "A knowledge base was created in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_deleted",
-    "description": "A knowledge base was deleted from the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.knowledge_base_updated",
-    "description": "A knowledge base was updated in the organization.",
-    "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
-  },
-  {
-    "action": "copilot.plan_changed",
-    "description": "The plan for GitHub Copilot was updated.",
-    "docs_reference_links": "/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot"
-  },
-  {
-    "action": "copilot.plan_downgrade_scheduled",
-    "description": "The plan for GitHub Copilot was scheduled to be downgraded.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1035,21 +705,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "discussion_comment.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "discussion_comment.update",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "discussion.destroy",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "discussion_post.destroy",
     "description": "Triggered when a team discussion post is deleted.",
     "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#deleting-a-comment"
@@ -1110,16 +765,6 @@
     "docs_reference_links": "/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise#verifying-a-domain-for-your-enterprise-account"
   },
   {
-    "action": "enterprise_installation.create",
-    "description": "The GitHub App associated with a GitHub Connect connection was created.",
-    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
-  },
-  {
-    "action": "enterprise_installation.destroy",
-    "description": "The GitHub App associated with a GitHub Connect connection was deleted.",
-    "docs_reference_links": "/admin/configuration/configuring-github-connect/managing-github-connect"
-  },
-  {
     "action": "enterprise.register_self_hosted_runner",
     "description": "A new GitHub Actions self-hosted runner was registered.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-a-repository"
@@ -1140,11 +785,6 @@
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group"
   },
   {
-    "action": "enterprise.runner_group_renamed",
-    "description": "A GitHub Actions self-hosted runner group was renamed.",
-    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group"
-  },
-  {
     "action": "enterprise.runner_group_runner_removed",
     "description": "The REST API was used to remove a GitHub Actions self-hosted runner from a group.",
     "docs_reference_links": "/rest/actions#remove-a-self-hosted-runner-from-a-group-for-an-organization"
@@ -1163,11 +803,6 @@
     "action": "enterprise.runner_group_updated",
     "description": "The configuration of a GitHub Actions self-hosted runner group was changed.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group"
-  },
-  {
-    "action": "enterprise.runner_group_visiblity_updated",
-    "description": "The visibility of a GitHub Actions self-hosted runner group was updated via the REST API.",
-    "docs_reference_links": "/rest/actions#update-a-self-hosted-runner-group-for-an-organization"
   },
   {
     "action": "enterprise.self_hosted_runner_offline",
@@ -1350,6 +985,21 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "gist.create",
+    "description": "A gist was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.destroy",
+    "description": "A gist was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gist.visibility_change",
+    "description": "The visibility of a gist was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "git.clone",
     "description": "A repository was cloned.",
     "docs_reference_links": "N/A"
@@ -1365,6 +1015,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "git_signing_ssh_public_key.create",
+    "description": "An SSH key was added to a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+  },
+  {
+    "action": "git_signing_ssh_public_key.delete",
+    "description": "An SSH key was removed from a user account as a Git commit signing key.",
+    "docs_reference_links": "/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key"
+  },
+  {
     "action": "github_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
@@ -1376,6 +1036,16 @@
   },
   {
     "action": "github_hosted_runner.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gpg_key.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "gpg_key.destroy",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -1438,16 +1108,6 @@
     "action": "integration_installation.repositories_removed",
     "description": "Repositories were removed from a GitHub App.",
     "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
-  },
-  {
-    "action": "integration_installation_request.close",
-    "description": "A request to install a GitHub App was either approved or denied by an owner, or canceled by the member who opened the request.",
-    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
-  },
-  {
-    "action": "integration_installation_request.create",
-    "description": "A member requested that an owner install a GitHub App.",
-    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
   },
   {
     "action": "integration_installation.suspend",
@@ -1515,16 +1175,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "ip_allow_list.disable_idp_ip_allowlist_for_web",
-    "description": "Identity Provider based IP allow list for web interactions was disabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "ip_allow_list.disable_skip_idp_ip_allowlist_app_access",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "ip_allow_list.disable_user_level_enforcement",
     "description": "IP allow list user level enforcement was disabled.",
     "docs_reference_links": "N/A"
@@ -1537,16 +1187,6 @@
   {
     "action": "ip_allow_list.enable_for_installed_apps",
     "description": "An IP allow list was enabled for installed GitHub Apps.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "ip_allow_list.enable_idp_ip_allowlist_for_web",
-    "description": "Identity Provider based IP allow list for web interactions was enabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "ip_allow_list.enable_skip_idp_ip_allowlist_app_access",
-    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
@@ -1568,56 +1208,6 @@
     "action": "ip_allow_list_entry.update",
     "description": "An IP address or its description was changed.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "ip_allow_list.update_ip_allowlist_configuration",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "issue_comment.destroy",
-    "description": "A comment on an issue was deleted from the repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "issue_comment.update",
-    "description": "A comment on an issue (other than the initial one) changed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "issue.destroy",
-    "description": "An issue was deleted from the repository.",
-    "docs_reference_links": "/issues/tracking-your-work-with-issues/deleting-an-issue"
-  },
-  {
-    "action": "issue.pinned",
-    "description": "An issue was pinned to a repository.",
-    "docs_reference_links": "/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository"
-  },
-  {
-    "action": "issue.transfer",
-    "description": "An issue was transferred to another repository.",
-    "docs_reference_links": "/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository"
-  },
-  {
-    "action": "issue.unpinned",
-    "description": "An issue was unpinned from a repository.",
-    "docs_reference_links": "/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository"
-  },
-  {
-    "action": "issues.deletes_disabled",
-    "description": "The ability for enterprise members to delete issues was disabled  Members cannot delete issues in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues"
-  },
-  {
-    "action": "issues.deletes_enabled",
-    "description": "The ability for enterprise members to delete issues was enabled  Members can delete issues in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues"
-  },
-  {
-    "action": "issues.deletes_policy_cleared",
-    "description": "An enterprise owner cleared the policy setting for allowing members to delete issues in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-deleting-issues"
   },
   {
     "action": "marketplace_agreement_signature.create",
@@ -1645,6 +1235,26 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "marketplace_listing_plan.create",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "marketplace_listing_plan.publish",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "marketplace_listing_plan.retire",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "marketplace_listing_plan.update",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "marketplace_listing.redraft",
     "description": "A listing was sent back to draft state.",
     "docs_reference_links": "N/A"
@@ -1653,56 +1263,6 @@
     "action": "marketplace_listing.reject",
     "description": "A listing was not accepted for inclusion in GitHub Marketplace.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "members_can_create_pages.disable",
-    "description": "The ability for members to publish GitHub Pages sites was disabled.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
-  },
-  {
-    "action": "members_can_create_pages.enable",
-    "description": "The ability for members to publish GitHub Pages sites was enabled.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
-  },
-  {
-    "action": "members_can_create_public_pages.disable",
-    "description": "The ability for members to publish public GitHub Pages was disabled  Members cannot publish public GitHub Pages in an organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
-  },
-  {
-    "action": "members_can_create_public_pages.enable",
-    "description": "The ability for members to publish public GitHub Pages was enabled  Members can publish public GitHub Pages in an organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-publication-of-github-pages-sites-for-your-organization"
-  },
-  {
-    "action": "members_can_delete_repos.clear",
-    "description": "An enterprise owner cleared the policy setting for deleting or transferring repositories in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer"
-  },
-  {
-    "action": "members_can_delete_repos.disable",
-    "description": "The ability for enterprise members to delete repositories was disabled  Members cannot delete or transfer repositories in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer"
-  },
-  {
-    "action": "members_can_delete_repos.enable",
-    "description": "The ability for enterprise members to delete repositories was enabled  Members can delete or transfer repositories in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-repository-deletion-and-transfer"
-  },
-  {
-    "action": "members_can_view_dependency_insights.clear",
-    "description": "An enterprise owner cleared the policy setting for viewing dependency insights in any organizations in an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "members_can_view_dependency_insights.disable",
-    "description": "The ability for enterprise members to view dependency insights was disabled. Members cannot view dependency insights in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise"
-  },
-  {
-    "action": "members_can_view_dependency_insights.enable",
-    "description": "The ability for enterprise members to view dependency insights was enabled. Members can view dependency insights in any organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-dependency-insights-in-your-enterprise"
   },
   {
     "action": "merge_queue.pull_request_dequeued",
@@ -1745,29 +1305,24 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "migration.destroy_file",
-    "description": "A migration file for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance was deleted.",
+    "action": "oauth_access.create",
+    "description": "An OAuth access token was generated.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps, /authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+  },
+  {
+    "action": "oauth_access.destroy",
+    "description": "An OAuth access token was deleted.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps"
+  },
+  {
+    "action": "oauth_access.regenerate",
+    "description": "An OAuth access token was regenerated.",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "migration.download",
-    "description": "A migration file for transferring data from a source location (such as a GitHub.com organization or a GitHub Enterprise Server instance) to a target GitHub Enterprise Server instance was downloaded.",
+    "action": "oauth_access.update",
+    "description": "An OAuth access token was updated.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "network_configuration.create",
-    "description": "A network configuration for a hosted compute service was created.",
-    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
-  },
-  {
-    "action": "network_configuration.delete",
-    "description": "A network configuration for a hosted compute service was deleted.",
-    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
-  },
-  {
-    "action": "network_configuration.update",
-    "description": "A network configuration for a hosted compute service was updated.",
-    "docs_reference_links": "/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-networking-for-hosted-compute-products"
   },
   {
     "action": "oauth_application.create",
@@ -1805,9 +1360,34 @@
     "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
   },
   {
+    "action": "oauth_application.suspend",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "oauth_application.transfer",
     "description": "An OAuth application was transferred from one account to another.",
     "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_application.unsuspend",
+    "description": "An OAuth application was unsuspended for a user or organization account.",
+    "docs_reference_links": "/apps/oauth-apps/building-oauth-apps/authenticating-to-the-rest-api-with-an-oauth-app#registering-your-app"
+  },
+  {
+    "action": "oauth_authorization.create",
+    "description": "An authorization for an OAuth application was created.",
+    "docs_reference_links": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
+  },
+  {
+    "action": "oauth_authorization.destroy",
+    "description": "An authorization for an OAuth application was deleted.",
+    "docs_reference_links": "/apps/using-github-apps/reviewing-your-authorized-integrations"
+  },
+  {
+    "action": "oauth_authorization.update",
+    "description": "An authorization for an OAuth application was updated.",
+    "docs_reference_links": "/apps/oauth-apps/using-oauth-apps/authorizing-oauth-apps"
   },
   {
     "action": "org.accept_business_invitation",
@@ -1870,14 +1450,9 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
-    "action": "org.audit_log_export",
-    "description": "An export of the organization audit log was created. If the export included a query, the log will list the query used and the number of audit log entries matching that query.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/reviewing-the-audit-log-for-your-organization#exporting-the-audit-log"
-  },
-  {
-    "action": "org.audit_log_git_event_export",
-    "description": "An export of the organization's Git events was created.",
-    "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization"
+    "action": "org.async_delete",
+    "description": "A user initiated a background job to delete an organization.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.billing_signup_error",
@@ -1935,46 +1510,6 @@
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale"
   },
   {
-    "action": "org.codespaces_access_updated",
-    "description": "Access to use Codespaces on internal and private repositories was updated for an organization.",
-    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization"
-  },
-  {
-    "action": "org.codespaces_ownership_updated",
-    "description": "Ownership and payment for codespaces was updated for an organization.",
-    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/choosing-who-owns-and-pays-for-codespaces-in-your-organization"
-  },
-  {
-    "action": "org.codespaces_team_access_allowed",
-    "description": "A team has been allowed to use Codespaces for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.codespaces_team_access_revoked",
-    "description": "A team has been prevented from using Codespaces for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.codespaces_trusted_repo_access_granted",
-    "description": "GitHub Codespaces was granted trusted repository access to all other repositories in an organization.",
-    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
-  },
-  {
-    "action": "org.codespaces_trusted_repo_access_revoked",
-    "description": "GitHub Codespaces trusted repository access to all other repositories in an organization was revoked.",
-    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
-  },
-  {
-    "action": "org.codespaces_user_access_allowed",
-    "description": "A user has been allowed to use Codespaces for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.codespaces_user_access_revoked",
-    "description": "A user has been prevented from using Codespaces for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "org.config.disable_collaborators_only",
     "description": "The interaction limit for collaborators only for an organization was disabled.",
     "docs_reference_links": "/communities/moderating-comments-and-conversations/limiting-interactions-in-your-organization#limiting-interactions-in-your-organization"
@@ -2020,36 +1555,6 @@
     "docs_reference_links": "/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch"
   },
   {
-    "action": "org.create_actions_secret",
-    "description": "A GitHub Actions secret was created for an organization.",
-    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
-  },
-  {
-    "action": "org.create_actions_variable",
-    "description": "A GitHub Actions variable was created for an organization.",
-    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
-  },
-  {
-    "action": "org.create_integration_secret",
-    "description": "A Codespaces or Dependabot secret was created for an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org_credential_authorization.deauthorize",
-    "description": "A member removed the SSO (SAML or OIDC) authorization from a credential that had access to your organization.",
-    "docs_reference_links": "/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on"
-  },
-  {
-    "action": "org_credential_authorization.grant",
-    "description": "A member authorized credentials for use with SAML or OIDC single sign-on.",
-    "docs_reference_links": "/authentication/authenticating-with-saml-single-sign-on"
-  },
-  {
-    "action": "org_credential_authorization.revoke",
-    "description": "An owner revoked authorized credentials.",
-    "docs_reference_links": "/organizations/granting-access-to-your-organization-with-saml-single-sign-on/viewing-and-managing-a-members-saml-access-to-your-organization"
-  },
-  {
     "action": "org.delete",
     "description": "An organization was deleted by a user or staff.",
     "docs_reference_links": "N/A"
@@ -2058,11 +1563,6 @@
     "action": "org.disable_member_team_creation_permission",
     "description": "Team creation was limited to owners.",
     "docs_reference_links": "/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization"
-  },
-  {
-    "action": "org.disable_oauth_app_restrictions",
-    "description": "Third-party application access restrictions for an organization were disabled.",
-    "docs_reference_links": "/organizations/managing-oauth-access-to-your-organizations-data/disabling-oauth-app-access-restrictions-for-your-organization"
   },
   {
     "action": "org.disable_reader_discussion_creation_permission",
@@ -2093,11 +1593,6 @@
     "action": "org.enable_member_team_creation_permission",
     "description": "Team creation by members was allowed.",
     "docs_reference_links": "/organizations/managing-organization-settings/setting-team-creation-permissions-in-your-organization"
-  },
-  {
-    "action": "org.enable_oauth_app_restrictions",
-    "description": "Third-party application access restrictions for an organization were enabled.",
-    "docs_reference_links": "/organizations/managing-oauth-access-to-your-organizations-data/enabling-oauth-app-access-restrictions-for-your-organization"
   },
   {
     "action": "org.enable_reader_discussion_creation_permission",
@@ -2145,64 +1640,14 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org.oauth_app_access_approved",
-    "description": "Access to an organization was granted for an OAuth App.",
-    "docs_reference_links": "/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization"
-  },
-  {
-    "action": "org.oauth_app_access_blocked",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.oauth_app_access_denied",
-    "description": "Access was disabled for an OAuth App that was previously approved.",
-    "docs_reference_links": "/organizations/managing-oauth-access-to-your-organizations-data/denying-access-to-a-previously-approved-oauth-app-for-your-organization"
-  },
-  {
-    "action": "org.oauth_app_access_requested",
-    "description": "An organization member requested that an owner grant an OAuth App access to an organization.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.oauth_app_access_unblocked",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "org.rate_limited_invites",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org.recovery_code_failed",
-    "description": "An organization owner failed to sign into a organization with an external identity provider (IdP) using a recovery code.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
-  },
-  {
-    "action": "org.recovery_code_used",
-    "description": "An organization owner successfully signed into an organization with an external identity provider (IdP) using a recovery code.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/accessing-your-organization-if-your-identity-provider-is-unavailable"
-  },
-  {
-    "action": "org.recovery_codes_downloaded",
-    "description": "An organization owner downloaded the organization's SSO recovery codes.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "org.recovery_codes_generated",
-    "description": "An organization owner generated the organization's SSO recovery codes.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "org.recovery_codes_printed",
-    "description": "An organization owner printed the organization's SSO recovery codes.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
-  },
-  {
-    "action": "org.recovery_codes_viewed",
-    "description": "An organization owner viewed the organization's SSO recovery codes.",
-    "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/downloading-your-organizations-saml-single-sign-on-recovery-codes"
+    "action": "org.recreate",
+    "description": "An organization was restored.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.register_self_hosted_runner",
@@ -2210,24 +1655,9 @@
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/adding-self-hosted-runners#adding-a-self-hosted-runner-to-an-organization"
   },
   {
-    "action": "org.remove_actions_secret",
-    "description": "A GitHub Actions secret was removed from an organization.",
-    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
-  },
-  {
-    "action": "org.remove_actions_variable",
-    "description": "A GitHub Actions variable was removed from an organization.",
-    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
-  },
-  {
     "action": "org.remove_billing_manager",
     "description": "A billing manager was removed from an organization, either manually or due to a two-factor authentication requirement.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization, /organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization"
-  },
-  {
-    "action": "org.remove_integration_secret",
-    "description": "A Codespaces or Dependabot secret was removed from an organization.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "org.remove_member",
@@ -2255,21 +1685,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org.required_workflow_create",
-    "description": "Triggered when a required workflow is created.",
-    "docs_reference_links": "/actions/using-workflows/required-workflows"
-  },
-  {
-    "action": "org.required_workflow_delete",
-    "description": "Triggered when a required workflow is deleted.",
-    "docs_reference_links": "/actions/using-workflows/required-workflows"
-  },
-  {
-    "action": "org.required_workflow_update",
-    "description": "Triggered when a required workflow is updated.",
-    "docs_reference_links": "/actions/using-workflows/required-workflows"
-  },
-  {
     "action": "org.restore_member",
     "description": "An organization member was restored.",
     "docs_reference_links": "/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization"
@@ -2283,11 +1698,6 @@
     "action": "org.runner_group_removed",
     "description": "A self-hosted runner group was removed.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#removing-a-self-hosted-runner-group"
-  },
-  {
-    "action": "org.runner_group_renamed",
-    "description": "A self-hosted runner group was renamed.",
-    "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group"
   },
   {
     "action": "org.runner_group_runner_removed",
@@ -2308,11 +1718,6 @@
     "action": "org.runner_group_updated",
     "description": "The configuration of a self-hosted runner group was changed.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#changing-the-access-policy-of-a-self-hosted-runner-group"
-  },
-  {
-    "action": "org.runner_group_visiblity_updated",
-    "description": "The visibility of a self-hosted runner group was updated via the REST API.",
-    "docs_reference_links": "/rest/actions#update-a-self-hosted-runner-group-for-an-organization"
   },
   {
     "action": "org_secret_scanning_automatic_validity_checks.disabled",
@@ -2353,16 +1758,6 @@
     "action": "org_secret_scanning_custom_pattern.update",
     "description": "Changes to a custom pattern were saved and a dry run was executed for secret scanning in an organization.",
     "docs_reference_links": "/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning#editing-a-custom-pattern"
-  },
-  {
-    "action": "org_secret_scanning_generic_secrets.disabled",
-    "description": "Generic secrets have been disabled at the organization level",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org_secret_scanning_generic_secrets.enabled",
-    "description": "Generic secrets have been enabled at the organization level",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "org_secret_scanning_non_provider_patterns.disabled",
@@ -2430,6 +1825,26 @@
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
   },
   {
+    "action": "org.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the CodeQL pull request alerts page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_coverage",
+    "description": "A CSV export was requested on the Coverage page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_overview_dashboard",
+    "description": "A CSV export was requested on the Overview Dashboard page.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.security_center_export_risk",
+    "description": "A CSV export was requested on the Risk page.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.self_hosted_runner_offline",
     "description": "The runner application was stopped. This event is not available in the web interface, only via the REST API, audit log streaming, or JSON/CSV exports.",
     "docs_reference_links": "/actions/hosting-your-own-runners/managing-self-hosted-runners/monitoring-and-troubleshooting-self-hosted-runners#checking-the-status-of-a-self-hosted-runner"
@@ -2485,14 +1900,9 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "org.transfer",
-    "description": "An organization was transferred between enterprise accounts.",
-    "docs_reference_links": "/admin/user-management/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
-  },
-  {
-    "action": "org.transfer_outgoing",
-    "description": "An organization was transferred between enterprise accounts.",
-    "docs_reference_links": "/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/adding-organizations-to-your-enterprise#transferring-an-organization-between-enterprise-accounts"
+    "action": "org.transform",
+    "description": "A user account was converted into an organization.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization"
   },
   {
     "action": "org.unblock_user",
@@ -2500,28 +1910,13 @@
     "docs_reference_links": "/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization"
   },
   {
-    "action": "org.update_actions_secret",
-    "description": "A GitHub Actions secret was updated for an organization.",
-    "docs_reference_links": "/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-an-organization"
-  },
-  {
     "action": "org.update_actions_settings",
     "description": "An organization owner or site administrator updated GitHub Actions policy settings for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization"
   },
   {
-    "action": "org.update_actions_variable",
-    "description": "A GitHub Actions variable was updated for an organization.",
-    "docs_reference_links": "/actions/learn-github-actions/variables#creating-configuration-variables-for-an-organization"
-  },
-  {
     "action": "org.update_default_repository_permission",
     "description": "The default repository permission level for organization members was changed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "org.update_integration_secret",
-    "description": "A Codespaces or Dependabot secret was updated for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2540,11 +1935,6 @@
     "docs_reference_links": "/organizations/managing-organization-settings/setting-permissions-for-adding-outside-collaborators"
   },
   {
-    "action": "org.update_new_repository_default_branch_setting",
-    "description": "The name of the default branch was changed for new repositories in the organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization"
-  },
-  {
     "action": "org.update_saml_provider_settings",
     "description": "An organization's SAML provider settings were updated.",
     "docs_reference_links": "N/A"
@@ -2553,21 +1943,6 @@
     "action": "org.update_terms_of_service",
     "description": "An organization changed between the Standard Terms of Service and the GitHub Customer Agreement.",
     "docs_reference_links": "/organizations/managing-organization-settings/upgrading-to-the-github-customer-agreement"
-  },
-  {
-    "action": "organization_default_label.create",
-    "description": "A default label was created for repositories in an organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#creating-a-default-label"
-  },
-  {
-    "action": "organization_default_label.destroy",
-    "description": "A default label was deleted for repositories in an organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#deleting-a-default-label"
-  },
-  {
-    "action": "organization_default_label.update",
-    "description": "A default label was edited for repositories in an organization.",
-    "docs_reference_links": "/organizations/managing-organization-settings/managing-default-labels-for-repositories-in-your-organization#editing-a-default-label"
   },
   {
     "action": "organization_domain.approve",
@@ -2588,71 +1963,6 @@
     "action": "organization_domain.verify",
     "description": "A domain was verified for an organization.",
     "docs_reference_links": "/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization#verifying-a-domain-for-your-organization"
-  },
-  {
-    "action": "organization_moderators.add_team",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "organization_moderators.add_user",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "organization_moderators.remove_team",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "organization_moderators.remove_user",
-    "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "organization_projects_change.clear",
-    "description": "An enterprise owner cleared the policy setting for organization-wide project boards in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards"
-  },
-  {
-    "action": "organization_projects_change.disable",
-    "description": "Organization projects were disabled for all organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards"
-  },
-  {
-    "action": "organization_projects_change.enable",
-    "description": "Organization projects were enabled for all organizations in an enterprise.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise#enforcing-a-policy-for-organization-wide-project-boards"
-  },
-  {
-    "action": "organization_role.assign",
-    "description": "An organization role was assigned to a user or team.",
-    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
-  },
-  {
-    "action": "organization_role.create",
-    "description": "A custom organization role was created in an organization.",
-    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
-  },
-  {
-    "action": "organization_role.destroy",
-    "description": "A custom organization role was deleted in an organization.",
-    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
-  },
-  {
-    "action": "organization_role.revoke",
-    "description": "A user or team was unassigned an organization role.",
-    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
-  },
-  {
-    "action": "organization_role.update",
-    "description": "A custom organization role was edited in an organization.",
-    "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
-  },
-  {
-    "action": "organization_wide_project_base_role.update",
-    "description": "An organization's default project base role was updated.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "packages.package_deleted",
@@ -2690,6 +2000,16 @@
     "docs_reference_links": "/pages/configuring-a-custom-domain-for-your-github-pages-site/verifying-your-custom-domain-for-github-pages"
   },
   {
+    "action": "passkey.register",
+    "description": "A new passkey was added.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "passkey.remove",
+    "description": "A new passkey was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "payment_method.create",
     "description": "A new payment method was added, such as a new credit card or PayPal account.",
     "docs_reference_links": "N/A"
@@ -2715,6 +2035,26 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
   },
   {
+    "action": "personal_access_token.create",
+    "description": "Triggered when you create a fine-grained personal access token.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.credential_regenerated",
+    "description": "Triggered when you regenerate a fine-grained personal access token.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.credential_revoked",
+    "description": "A fine-grained personal access token was revoked by GitHub Advanced Security.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#secret-scanning-alerts-for-users"
+  },
+  {
+    "action": "personal_access_token.destroy",
+    "description": "Triggered when you delete a fine-grained personal access token.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "personal_access_token.request_cancelled",
     "description": "A pending request for a fine-grained personal access token to access organization resources was canceled.",
     "docs_reference_links": "N/A"
@@ -2730,24 +2070,9 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
   {
-    "action": "prebuild_configuration.create",
-    "description": "A GitHub Codespaces prebuild configuration for a repository was created.",
-    "docs_reference_links": "/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
-  },
-  {
-    "action": "prebuild_configuration.destroy",
-    "description": "A GitHub Codespaces prebuild configuration for a repository was deleted.",
-    "docs_reference_links": "/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
-  },
-  {
-    "action": "prebuild_configuration.run_triggered",
-    "description": "A user initiated a run of a GitHub Codespaces prebuild configuration for a repository branch.",
-    "docs_reference_links": "/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
-  },
-  {
-    "action": "prebuild_configuration.update",
-    "description": "A GitHub Codespaces prebuild configuration for a repository was edited.",
-    "docs_reference_links": "/codespaces/prebuilding-your-codespaces/about-github-codespaces-prebuilds"
+    "action": "personal_access_token.update",
+    "description": "A fine-grained personal access token was updated.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#fine-grained-personal-access-tokens"
   },
   {
     "action": "premium_runner.create",
@@ -2762,21 +2087,6 @@
   {
     "action": "premium_runner.update",
     "description": "N/A",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "private_repository_forking.clear",
-    "description": "An enterprise owner cleared the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "private_repository_forking.disable",
-    "description": "An enterprise owner disabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are never allowed to be forked.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "private_repository_forking.enable",
-    "description": "An enterprise owner enabled the policy setting for allowing forks of private and internal repositories, for a repository, organization or enterprise. Private and internal repositories are always allowed to be forked.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2807,11 +2117,6 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "project_base_role.update",
-    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2955,6 +2260,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "protected_branch.update_allow_deletions_enforcement_level",
+    "description": "Branch deletion was enabled or disabled for a protected branch.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "protected_branch.update_allow_force_pushes_enforcement_level",
     "description": "Force pushes were enabled or disabled for a branch.",
     "docs_reference_links": "N/A"
@@ -2963,6 +2273,11 @@
     "action": "protected_branch.update_ignore_approvals_from_contributors",
     "description": "Ignoring of approvals from contributors to a pull request was enabled or disabled for a branch.",
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
+  },
+  {
+    "action": "protected_branch.update_linear_history_requirement_enforcement_level",
+    "description": "Required linear commit history was enabled or disabled for a branch.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "protected_branch.update_lock_allows_fetch_and_merge",
@@ -3235,13 +2550,8 @@
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
   },
   {
-    "action": "repo.codespaces_trusted_repo_access_granted",
-    "description": "GitHub Codespaces was granted trusted repository access to this repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repo.codespaces_trusted_repo_access_revoked",
-    "description": "GitHub Codespaces trusted repository access to this repository was revoked.",
+    "action": "repo.collaborators_only",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
@@ -3305,9 +2615,34 @@
     "docs_reference_links": "/repositories/creating-and-managing-repositories/deleting-a-repository"
   },
   {
+    "action": "repo.disk_archive",
+    "description": "A repository was archived on disk.",
+    "docs_reference_links": "/repositories/archiving-a-github-repository/archiving-repositories"
+  },
+  {
     "action": "repo.download_zip",
     "description": "A source code archive of a repository was downloaded as a ZIP file.",
     "docs_reference_links": "/repositories/working-with-files/using-files/downloading-source-code-archives"
+  },
+  {
+    "action": "repo.hide_from_discovery",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.noindex",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.override_unlock",
+    "description": "The repository was unlocked.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.pages_build",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "repo.pages_cname",
@@ -3400,7 +2735,7 @@
     "docs_reference_links": "/repositories/creating-and-managing-repositories/renaming-a-repository"
   },
   {
-    "action": "repo.rename_branch",
+    "action": "repo.require_login",
     "description": "N/A",
     "docs_reference_links": "N/A"
   },
@@ -3520,46 +2855,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "repository_advisory.close",
-    "description": "Someone closed a security advisory.",
-    "docs_reference_links": "/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories"
-  },
-  {
-    "action": "repository_advisory.cve_request",
-    "description": "Someone requested a CVE (Common Vulnerabilities and Exposures) number from GitHub for a draft security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.github_broadcast",
-    "description": "GitHub made a security advisory public in the GitHub Advisory Database.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.github_withdraw",
-    "description": "GitHub withdrew a security advisory that was published in error.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.open",
-    "description": "Someone opened a draft security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.publish",
-    "description": "Someone published a security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.reopen",
-    "description": "Someone reopened as draft security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_advisory.update",
-    "description": "Someone edited a draft or published security advisory.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "repository_branch_protection_evaluation.disable",
     "description": "Branch protections were disabled for the repository.",
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
@@ -3568,26 +2863,6 @@
     "action": "repository_branch_protection_evaluation.enable",
     "description": "Branch protections were enabled for this repository.",
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
-  },
-  {
-    "action": "repository_content_analysis.disable",
-    "description": "Data use settings were disabled for a private repository.",
-    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
-  },
-  {
-    "action": "repository_content_analysis.enable",
-    "description": "Data use settings were enabled for a private repository.",
-    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
-  },
-  {
-    "action": "repository_dependency_graph.disable",
-    "description": "The dependency graph was disabled for a private repository.",
-    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-fea tures-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
-  },
-  {
-    "action": "repository_dependency_graph.enable",
-    "description": "The dependency graph was enabled for a private repository.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "repository_image.create",
@@ -3617,21 +2892,6 @@
   {
     "action": "repository_invitation.reject",
     "description": "An invitation to join a repository was declined.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_projects_change.clear",
-    "description": "The repository projects policy was removed for an organization, or all organizations in the enterprise  Organization owners can now control their repository projects settings.",
-    "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise"
-  },
-  {
-    "action": "repository_projects_change.disable",
-    "description": "Repository projects were disabled for a repository, all repositories in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_projects_change.enable",
-    "description": "Repository projects were enabled for a repository, all repositories in an organization, or all organizations in an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3700,16 +2960,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "repository_secret_scanning_generic_secrets.disabled",
-    "description": "Generic secrets have been disabled at the repository level",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_secret_scanning_generic_secrets.enabled",
-    "description": "Generic secrets have been enabled at the repository level",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "repository_secret_scanning_non_provider_patterns.disabled",
     "description": "Secret scanning for non-provider patterns was disabled at the repository level.",
     "docs_reference_links": "/code-security/secret-scanning/secret-scanning-patterns#non-provider-patterns"
@@ -3770,96 +3020,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "repository_visibility_change.clear",
-    "description": "The repository visibility change setting was cleared for an organization or enterprise.",
-    "docs_reference_links": "/organizations/managing-organization-settings/restricting-repository-visibility-changes-in-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-changes-to-repository-visibility"
-  },
-  {
-    "action": "repository_visibility_change.disable",
-    "description": "The ability for enterprise members to update a repository's visibility was disabled. Members are unable to change repository visibilities in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_visibility_change.enable",
-    "description": "The ability for enterprise members to update a repository's visibility was enabled. Members are able to change repository visibilities in an organization, or all organizations in an enterprise.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alert.auto_dismiss",
-    "description": "A Dependabot alert was automatically dismissed because its metadata matches an enabled Dependabot rule.",
-    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts"
-  },
-  {
-    "action": "repository_vulnerability_alert.auto_reopen",
-    "description": "A previously auto-dismissed Dependabot alert was automatically reopened because its metadata no longer matches an enabled Dependabot rule.",
-    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/using-alert-rules-to-prioritize-dependabot-alerts"
-  },
-  {
-    "action": "repository_vulnerability_alert.create",
-    "description": "GitHub created a Dependabot alert because the repository uses a vulnerable dependency.",
-    "docs_reference_links": "/code-security/dependabot/dependabot-alerts/about-dependabot-alerts"
-  },
-  {
-    "action": "repository_vulnerability_alert.dismiss",
-    "description": "A Dependabot alert was manually dismissed.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alert.reintroduce",
-    "description": "A Dependabot alert was automatically reopened because the repository resumed use of a vulnerable dependency.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alert.reopen",
-    "description": "A Dependabot alert was manually reopened.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alert.resolve",
-    "description": "Changes were pushed to update and resolve a Dependabot alert in a project dependency.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alert.withdraw",
-    "description": "A Dependabot alert was withdrawn.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alerts.authorized_users_teams",
-    "description": "The list of people or teams authorized to receive Dependabot alerts for the repository was updated.",
-    "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts"
-  },
-  {
-    "action": "repository_vulnerability_alerts_auto_dismissal.disable",
-    "description": "Automatic dismissal of low-impact Dependabot alerts was disabled for the repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alerts_auto_dismissal.enable",
-    "description": "Automatic dismissal of low-impact Dependabot alerts was enabled for the repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alerts.disable",
-    "description": "Dependabot alerts was disabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_vulnerability_alerts.enable",
-    "description": "Dependabot alerts was enabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "required_status_check.create",
-    "description": "A status check was marked as required for a protected branch.",
-    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging"
-  },
-  {
-    "action": "required_status_check.destroy",
-    "description": "A status check was no longer marked as required for a protected branch.",
-    "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-status-checks-before-merging"
-  },
-  {
     "action": "restrict_notification_delivery.disable",
     "description": "Email notification restrictions for an organization or enterprise were disabled.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise"
@@ -3870,39 +3030,14 @@
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/restricting-email-notifications-for-your-organization, /admin/policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise"
   },
   {
-    "action": "role.create",
-    "description": "A new custom repository role was created.",
-    "docs_reference_links": "/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization"
-  },
-  {
-    "action": "role.destroy",
-    "description": "A custom repository role was deleted.",
-    "docs_reference_links": "/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization"
-  },
-  {
-    "action": "role.update",
-    "description": "A custom repository role was edited.",
-    "docs_reference_links": "/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization"
-  },
-  {
     "action": "secret_scanning_alert.create",
     "description": "GitHub detected a secret and created a secret scanning alert.",
-    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
-  },
-  {
-    "action": "secret_scanning_alert.public_leak",
-    "description": "A secret scanning alert was leaked in a public repo.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
-  },
-  {
-    "action": "secret_scanning_alert.report",
-    "description": "A leaked secret was reported to the secret's provider by secret scanning.",
-    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
   },
   {
     "action": "secret_scanning_alert.resolve",
@@ -3918,21 +3053,6 @@
     "action": "secret_scanning_alert.validate",
     "description": "A secret scanning alert was validated.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
-  },
-  {
-    "action": "secret_scanning_closure_request.approve",
-    "description": "A request to close a secret scanning alert was approved by a user.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "secret_scanning_closure_request.create",
-    "description": "N/A",
-    "docs_reference_links": "A user requested to close a secret scanning alert."
-  },
-  {
-    "action": "secret_scanning_closure_request.deny",
-    "description": "A request to close a secret scanning alert was denied by a user.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "secret_scanning.disable",
@@ -4007,6 +3127,16 @@
   {
     "action": "security_configuration.update",
     "description": "A security configuration was updated",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_key.register",
+    "description": "A security key was registered for an account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "security_key.remove",
+    "description": "A security key was removed from an account.",
     "docs_reference_links": "N/A"
   },
   {
@@ -4090,6 +3220,11 @@
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers"
   },
   {
+    "action": "sponsors.sponsored_developer_update_newsletter_send",
+    "description": "Triggered when you send an email update to your sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/contacting-your-sponsors"
+  },
+  {
     "action": "sponsors.sponsors_patreon_user_create",
     "description": "A Patreon account was linked to a user account for use with GitHub Sponsors.",
     "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/enabling-sponsorships-through-patreon#linking-your-patreon-account-to-your-github-account"
@@ -4108,6 +3243,11 @@
     "action": "sponsors.update_tier_welcome_message",
     "description": "The welcome message for a GitHub Sponsors tier for an organization was updated.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "sponsors.waitlist_join",
+    "description": "You join the waitlist to join GitHub Sponsors.",
+    "docs_reference_links": "/sponsors/receiving-sponsorships-through-github-sponsors/setting-up-github-sponsors-for-your-personal-account"
   },
   {
     "action": "sponsors.withdraw_agreement_signature",
@@ -4135,16 +3275,6 @@
     "docs_reference_links": "/organizations/managing-git-access-to-your-organizations-repositories/managing-your-organizations-ssh-certificate-authorities, /admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-ssh-certificate-authorities-for-your-enterprise"
   },
   {
-    "action": "sso_redirect.disable",
-    "description": "Automatic redirects for users to single sign-on (SSO) was disabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "sso_redirect.enable",
-    "description": "Automatic redirects for users to single sign-on (SSO) was enabled.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "staff.set_domain_token_expiration",
     "description": "The verification code expiry time for an organization or enterprise domain was set.",
     "docs_reference_links": "N/A"
@@ -4158,6 +3288,36 @@
     "action": "staff.verify_domain",
     "description": "An organization or enterprise domain was verified.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "successor_invitation.accept",
+    "description": "Triggered when you accept a succession invitation.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+  },
+  {
+    "action": "successor_invitation.cancel",
+    "description": "Triggered when you cancel a succession invitation.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+  },
+  {
+    "action": "successor_invitation.create",
+    "description": "Triggered when you create a succession invitation.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+  },
+  {
+    "action": "successor_invitation.decline",
+    "description": "Triggered when you decline a succession invitation.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
+  },
+  {
+    "action": "successor_invitation.destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "successor_invitation.revoke",
+    "description": "Triggered when you revoke a succession invitation.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/maintaining-ownership-continuity-of-your-personal-accounts-repositories"
   },
   {
     "action": "team.add_member",
@@ -4240,13 +3400,203 @@
     "docs_reference_links": "/organizations/managing-saml-single-sign-on-for-your-organization/managing-team-synchronization-for-your-organization, /admin/identity-and-access-management/using-saml-for-enterprise-iam/managing-team-synchronization-for-organizations-in-your-enterprise"
   },
   {
-    "action": "team_sync_tenant.update_okta_credentials",
-    "description": "The Okta credentials for team synchronization with a tenant were changed.",
+    "action": "team.update_repository_permission",
+    "description": "A team's permission to a repository was changed.",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "team.update_repository_permission",
-    "description": "A team's permission to a repository was changed.",
+    "action": "trusted_device.register",
+    "description": "A new trusted device was added.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "trusted_device.remove",
+    "description": "A trusted device was removed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.abort",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.complete",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.ignore",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.staff_approve",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.staff_decline",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.start",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_account_recovery.two_factor_destroy",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.add_factor",
+    "description": "A secondary authentication factor was added to a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+  },
+  {
+    "action": "two_factor_authentication.disabled",
+    "description": "Two-factor authentication was disabled for a user account.",
+    "docs_reference_links": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/disabling-two-factor-authentication-for-your-personal-account"
+  },
+  {
+    "action": "two_factor_authentication.enabled",
+    "description": "Two-factor authentication was enabled for a user account.",
+    "docs_reference_links": "https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+  },
+  {
+    "action": "two_factor_authentication.password_reset_fallback_sms",
+    "description": "A one-time password code was sent to a user account fallback phone number.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.recovery_codes_regenerated",
+    "description": "Two factor recovery codes were regenerated for a user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.remove_factor",
+    "description": "A secondary authentication factor was removed from a user account.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication"
+  },
+  {
+    "action": "two_factor_authentication.sign_in_fallback_sms",
+    "description": "A one-time password code was sent to a user account fallback phone number.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "two_factor_authentication.update_fallback",
+    "description": "The two-factor authentication fallback for a user account was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.add_email",
+    "description": "An email address was added to a user account.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account"
+  },
+  {
+    "action": "user.async_delete",
+    "description": "An asynchronous job was started to destroy a user account, eventually triggering a user.delete event.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.audit_log_export",
+    "description": "Audit log entries were exported.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.block_user",
+    "description": "A user was blocked by another user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.change_password",
+    "description": "A user changed their password.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.codespaces_trusted_repo_access_granted",
+    "description": "Triggered when you allow the codespaces you create for a repository to access other repositories owned by your personal account.",
+    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
+  },
+  {
+    "action": "user.codespaces_trusted_repo_access_revoked",
+    "description": "Triggered when you disallow the codespaces you create for a repository to access other repositories owned by your personal account.",
+    "docs_reference_links": "/codespaces/managing-codespaces-for-your-organization/managing-repository-access-for-your-organizations-codespaces"
+  },
+  {
+    "action": "user.correct_password_from_unrecognized_device",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.correct_password_from_unrecognized_device_and_location",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.correct_password_from_unrecognized_location",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.create",
+    "description": "A new user account was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.create_integration_secret",
+    "description": "A user secret for Codespaces was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.creation_rate_limit_exceeded",
+    "description": "The rate of creation of user accounts, applications, issues, pull requests or other resources exceeded the configured rate limits, or too many users were followed too quickly.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.delete",
+    "description": "A user account was destroyed by an asynchronous job.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.demote",
+    "description": "A site administrator was demoted to an ordinary user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.destroy",
+    "description": "A user deleted his or her account, triggering user.async_delete.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_failure",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_requested",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.device_verification_success",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.disable_collaborators_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.disable_contributors_only",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.disable_sockpuppet_disallowed",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
@@ -4260,38 +3610,218 @@
     "docs_reference_links": "An enterprise managed user unclaimed an email address."
   },
   {
-    "action": "vulnerability_alert_rule.create",
-    "description": "A Dependabot rule was created.",
+    "action": "user.enable_collaborators_only",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.delete",
-    "description": "A Dependabot rule was deleted.",
+    "action": "user.enable_contributors_only",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.disable",
-    "description": "A Dependabot rule was disabled for a single repository or disabled by default for an organization.",
+    "action": "user.enable_sockpuppet_disallowed",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.enable",
-    "description": "A Dependabot rule was enabled for a single repository or enabled by default for an organization.",
+    "action": "user.failed_login",
+    "description": "A user tried to sign in with an incorrect username, password, or two-factor authentication code.",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.force_disable",
-    "description": "A Dependabot rule was enabled for an organization and cannot be disabled for its repositories.",
+    "action": "user.flag_as_large_scale_contributor",
+    "description": "A user account was flagged as a large scale contributor. Only contributions from public repositories the user owns will be shown in their contribution graph, in order to prevent timeouts.",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.force_enable",
-    "description": "A Dependabot rule was disabled for an organization and cannot be enabled for its repositories.",
+    "action": "user.forgot_password",
+    "description": "A user requested a password reset.",
+    "docs_reference_links": "/authentication/keeping-your-account-and-data-secure/updating-your-github-access-credentials"
+  },
+  {
+    "action": "user.grant_github_developer",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
-    "action": "vulnerability_alert_rule.update",
-    "description": "A Dependabot rule's conditions, actions, or metadata changed.",
+    "action": "user.hide_private_contributions_count",
+    "description": "A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now hidden.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+  },
+  {
+    "action": "user.login",
+    "description": "A user signed in.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.logout",
+    "description": "A user signed out.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.minimize_comment",
+    "description": "A comment made by a user was minimized.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.new_device_used",
+    "description": "A user signed in from a new device.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.partial_two_factor_email_followup",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.promote",
+    "description": "An ordinary user account was promoted to a site administrator.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.recreate",
+    "description": "A user's account was restored.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.remove_email",
+    "description": "An email address was removed from a user account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.remove_integration_secret",
+    "description": "A user secret for Codespaces was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.remove_large_scale_contributor_flag",
+    "description": "A user account was no longer flagged as a large scale contributor.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.rename",
+    "description": "A username was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.report_abuse",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.report_content",
+    "description": "Triggered when you report an issue or pull request, or a comment on an issue, pull request, or commit.",
+    "docs_reference_links": "/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam"
+  },
+  {
+    "action": "user.reset_password",
+    "description": "A user reset their account password.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_session.country_change",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.show_private_contributions_count",
+    "description": "A user changed the visibility of their private contributions. The number of contributions to private repositories on the user's profile are now shown.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/showing-your-private-contributions-and-achievements-on-your-profile"
+  },
+  {
+    "action": "user.sign_in_from_unrecognized_device",
+    "description": "A user signed in from an unrecognized device.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.sign_in_from_unrecognized_device_and_location",
+    "description": "A user signed in from an unrecognized device and location.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.sign_in_from_unrecognized_location",
+    "description": "A user signed in from an unrecognized location.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_status.destroy",
+    "description": "Triggered when you clear the status on your profile.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user_status.update",
+    "description": "Triggered when you set or change the status on your profile.",
+    "docs_reference_links": "/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#setting-a-status"
+  },
+  {
+    "action": "user.suspend",
+    "description": "A user account was suspended.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.toggle_warn_private_email",
+    "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_challenge_failure",
+    "description": "A 2FA challenge issued for a user account failed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_challenge_success",
+    "description": "A 2FA challenge issued for a user account succeeded.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recover",
+    "description": "A user used their 2FA recovery codes.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_downloaded",
+    "description": "A user downloaded 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_printed",
+    "description": "A user printed 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_recovery_codes_viewed",
+    "description": "A user viewed 2FA recovery codes for their account.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.two_factor_requested",
+    "description": "A user was prompted for a two-factor authentication code.",
+    "docs_reference_links": "/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication"
+  },
+  {
+    "action": "user.unblock_user",
+    "description": "A user was unblocked by another user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.unminimize_comment",
+    "description": "A comment made by a user was unminimized.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.unsuspend",
+    "description": "A user account was unsuspended.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.update_integration_secret",
+    "description": "A user secret for Codespaces was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "user.update_new_repository_default_branch_setting",
+    "description": "N/A",
     "docs_reference_links": "N/A"
   },
   {
