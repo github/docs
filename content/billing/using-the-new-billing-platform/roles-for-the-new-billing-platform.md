@@ -63,7 +63,7 @@ The invited person will receive an invitation email asking them to become a bill
 {% data reusables.profile.org_settings %}
 1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Click the link in the text box, **Enterprise account billing settings**, which will direct you to your organizations billing settings page.
-1. On the left side of the page, in the enterprise account sidebar, click **{% octicon "person" aria-hidden="true" %} People**.
+1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "person" aria-hidden="true" %} **People**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "person" aria-hidden="true" %} **People**{% endif %}.
 1. Under "People", click **Administrators**.
 1. Above the list of administrators, click **Invite admin**.
 1. Type the username, full name, or email address of the person you want to invite, then select the appropriate person from the results.
