@@ -3,7 +3,7 @@ title: Creating a custom model for GitHub Copilot
 shortTitle: Create a custom model
 intro: "You can fine-tune {% data variables.product.prodname_copilot_short %} code completion by creating a custom model based on code in your organization's repositories."
 permissions: "Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}."
-product: "The organization must belong to an enterprise with a {% data variables.product.prodname_copilot_enterprise_short %} subscription."
+product: '{% data reusables.copilot.ce-product-callout %}'
 versions:
   feature: copilot-custom-models
 topics:

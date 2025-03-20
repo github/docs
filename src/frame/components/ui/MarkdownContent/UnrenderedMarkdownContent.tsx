@@ -68,13 +68,10 @@ export const UnrenderedMarkdownContent = ({
     )
   }
   return (
-    <ReactMarkdown
-      remarkPlugins={[remarkGfm]}
-      {...restProps}
-      className={cx('markdown-body', className)}
-      components={components}
-    >
-      {children}
-    </ReactMarkdown>
+    <div className={cx('markdown-body', className)}>
+      <ReactMarkdown remarkPlugins={[remarkGfm]} {...restProps} components={components}>
+        {children}
+      </ReactMarkdown>
+    </div>
   )
 }

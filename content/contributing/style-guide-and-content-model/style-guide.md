@@ -1374,7 +1374,7 @@ For tables that use symbols:
 
 * Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
 * Use octicons or SVG. Do not use emoji. For more information about octicons, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons).
-* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use a [check mark](https://primer.style/octicons/icon/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/icon/x-16) for negative values ("No", "Optional", "Unsupported").
 * Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page [AUTOTITLE](/support/learning-about-github-support/about-github-support), some features are marked as "Available to purchase".

@@ -140,7 +140,7 @@ For more information, see [{% data variables.product.prodname_copilot_edits_vsco
 
 ## Vision
 
-> [!NOTE] Vision is currently available to [{% data variables.product.prodname_vscode_shortname %} Insiders](https://code.visualstudio.com/insiders) as a {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 
 Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
 
@@ -172,8 +172,11 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 * **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
-* **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-* **{% data variables.product.prodname_copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+* _For {% data variables.product.prodname_vs %} 17.8 and 17.9:_
+  * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+  * **{% data variables.product.prodname_copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+
+  _{% data variables.product.prodname_vs %} 17.10 and later have the {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_copilot_chat %} extensions built in. You don't need to install them separately._
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
 
 {% data reusables.copilot.chat-access-denied %}
@@ -248,6 +251,16 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 In addition to submitting prompts through the chat window, you can submit prompts inline. To start an inline chat, right click in your editor window and select **Ask {% data variables.product.prodname_copilot_short %}**.
 
 See [Ask questions in the inline chat view](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat#ask-questions-in-the-inline-chat-view) in the {% data variables.product.prodname_vs %} documentation for more details.
+
+## Vision
+
+> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
+
+You can attach images to your chat prompts to help {% data variables.product.prodname_copilot_short %} understand your question. For example, you can attach a screenshot of a code snippet to ask {% data variables.product.prodname_copilot_short %} to explain the code, or share mockups of new designs to ask {% data variables.product.prodname_copilot_short %} to generate code.
+
+You can drag and drop images into the chat window, or attach them through the {% data variables.product.prodname_vs %} UI.
 
 ## Sharing feedback
 

@@ -2,6 +2,12 @@ date: '2025-03-11'
 release_candidate: false
 deprecated: false
 intro: |
+  {% warning %}
+
+  **Warning**: Customers who have security products enabled by default at the organization level will experience issues when upgrading from 3.14 to 3.16.0. We recommend waiting for the next 3.16 patch to upgrade.
+
+  {% endwarning %}
+
   For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
 sections:
 
@@ -188,6 +194,8 @@ sections:
 
   known_issues:
     - |
+      {% data reusables.release-notes.2025-03-security-product-transition-bug %} [Updated: 2025-03-17]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
@@ -222,11 +230,9 @@ sections:
     - |
       After a geo-replica is promoted to primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
-      For appliances in a high availability configuration, Elasticsearch indices are deleted in two situations:
-      * On failover
-      * When running `ghe-repl-teardown <REPLICA_HOSTNAME>` from the primary instance
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
 
-      All indices are recoverable, except for Audit Log indices. Since Elasticsearch itself is the source of truth for these logs, they may only be recoverable from a backup. If you need assistance, visit {% data variables.contact.contact_ent_support %}.
+      [Updated: 2025-03-19]
 
   closing_down:
     # https://github.com/github/releases/issues/4683

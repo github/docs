@@ -2,6 +2,7 @@
 title: Browsing security advisories in the GitHub Advisory Database
 intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.'
 shortTitle: Browse Advisory Database
+permissions: '{% data reusables.permissions.global-security-advisories-browse %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/browsing-security-vulnerabilities-in-the-github-advisory-database
   - /code-security/supply-chain-security/browsing-security-vulnerabilities-in-the-github-advisory-database

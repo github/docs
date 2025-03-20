@@ -18,7 +18,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  close-if-invalid:
+  close-on-adding-invalid-label:
     if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
 

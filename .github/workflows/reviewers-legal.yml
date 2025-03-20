@@ -33,31 +33,23 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          # Picking this number is a "best guess". If we make it too large,
-          # the checkout will take potentially unnecessarily long.
-          # This reduces the chance that tj-actions/changed-files has to
-          # fetch deeper history. But if it needs to, it will.
-          fetch-depth: 10
 
       - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@40853de9f8ce2d6cfdc73c1b96f14e22ba44aec4 # v45.0.0
+        id: changed_files
+        uses: ./.github/actions/get-changed-files
         with:
           files: 'content/**'
-          output_renamed_files_as_deleted_and_added: true
 
       - name: Set up Node and dependencies
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.changed_files.outputs.filtered_changed_files
         uses: ./.github/actions/node-npm-setup
 
       - name: Check content type
-        if: steps.changed-files.outputs.any_changed == 'true'
+        if: steps.changed_files.outputs.filtered_changed_files
         id: checkContentType
         run: npm run check-content-type
         env:
-          # all_changed_files does not include deleted files
-          CHANGED_FILE_PATHS: ${{ steps.changed-files.outputs.all_changed_files }}
+          CHANGED_FILE_PATHS: ${{ steps.changed_files.outputs.filtered_changed_files }}
           CONTENT_TYPE: 'rai'
 
       - name: Check for reviewers-legal label, add if missing and request review
