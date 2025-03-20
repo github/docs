@@ -20,6 +20,7 @@ You can block a user in your account settings or from the user's profile. {% dat
 > If you're blocking a user because of a heated conversation, consider locking the conversation so only collaborators can comment. For more information, see [AUTOTITLE](/communities/moderating-comments-and-conversations/locking-conversations).
 
 When you block a user:
+
 * The user stops following you
 * The user stops watching and unpins your repositories
 * The user's stars and issue assignments are removed from your repositories
@@ -34,6 +35,7 @@ When you block a user:
 * You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
 
 After you've blocked a user, they cannot:
+
 * Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
 * Comment on or edit issues or pull requests that you've created
 * React to your comments on issues, pull requests, and commits
@@ -48,6 +50,7 @@ After you've blocked a user, they cannot:
 * Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
 
 In repositories you own, blocked users also cannot:
+
 * Open issues
 * Send, close, or merge pull requests
 * Comment on issues, pull requests, or commits
@@ -57,6 +60,7 @@ In repositories you own, blocked users also cannot:
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.blocked_users %}
+
 1. Under "Block a user", type the username of the user you'd like to block, then click **Block user**.
 1. Optionally, to add a note to describe why a user was blocked, click **Add Note**. The note will only be visible to you.
 1. Optionally, you can display a warning when you visit a repository where a blocked user is a contributor. Under "Blocked users", select **Warn me when a blocked user is a prior contributor to a repository**.
@@ -65,6 +69,7 @@ In repositories you own, blocked users also cannot:
 
 {% data reusables.profile.user_profile_page_navigation %}
 {% data reusables.profile.user_profile_page_block_or_report %}
+
 1. Optionally, add a note to describe why a user was blocked. The note will only be visible to you.
 1. Click **Block user**.
 
