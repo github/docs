@@ -46,7 +46,6 @@ Once your {% data variables.product.prodname_global_campus %} access expires, yo
 
 ![Screenshot of a profile menu on the GitHub Education website. The "Your benefits application" menu option is outlined in red.](/assets/images/help/education/your-benefits-application.png)
 
-
 For more information, see the [{% data variables.product.prodname_student_pack %}](https://education.github.com/pack) page.
 
 To see when your free access to the {% data variables.product.prodname_student_pack %} expires, visit your account's [billing settings](https://github.com/settings/billing).
