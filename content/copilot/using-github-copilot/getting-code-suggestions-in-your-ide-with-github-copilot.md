@@ -199,6 +199,44 @@ Alternatively, you can show alternate suggestions by pressing <kbd>Alt</kbd>+<kb
 
 {% data reusables.copilot.accept-or-reject-suggestion %}
 
+## Getting comment suggestions
+
+> [!NOTE]
+> * Comment suggestions are currently in {% data variables.release-phases.public_preview %} and are subject to change.
+> * Comment suggestions are available in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later.
+
+{% data variables.product.prodname_copilot %} can suggest comments for your code, by analyzing the code you write and generating comments that describe what the code does. For {% data variables.product.prodname_copilot_free_short %} users, comment suggestions count towards your monthly {% data variables.product.prodname_copilot_chat_short %} usage, not your code suggestions usage.
+
+Comment suggestions are available in the following languages:
+
+* C#
+* C++
+
+### Enabling comment suggestions
+
+To enable comment suggestions, you need to configure the comment style in {% data variables.product.prodname_vs %}.
+
+#### For C++
+
+1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
+1. In the left-side panel, click **Text Editor**.
+1. Click **C++**, then **Code Style**, then **General**.
+1. Under "Comments", select **Xml Doc Comments** from the dropdown.
+1. Select **Insert existing comment style at the start of new lines when writing comments** and **Continue single line comments.**
+
+#### For C#
+
+1. In {% data variables.product.prodname_vs %}, in the **Tools** menu, click **Options**.
+1. In the left-side panel, click **Text Editor**.
+1. Click **C#**, then **Advanced**.
+1. Under "Comments", select **Generate XML documentation comments for ///**, **Insert // at the start of new lines when writing // comments**, and **Insert \* at the start of new lines when writing /\* \*/ comments.**
+
+### Using comment suggestions
+
+To initiate comment suggestions, type the standard comment initiator for the language you are writing in (for example, `///`), before the code you want to comment, and wait for the suggestion to appear.
+
+To accept the suggestion, press <kbd>Tab</kbd>. To modify the suggestion, press <kbd>Alt</kbd>+<kbd>/</kbd>. To reject the suggestion, press <kbd>Esc</kbd>.
+
 {% endvisualstudio %}
 
 {% vscode %}
@@ -487,8 +525,6 @@ You can also open an issue in the [{% data variables.product.prodname_copilot_sh
 {% endxcode %}
 
 {% eclipse %}
-
-{% data reusables.copilot.eclipse-public-preview-note %}
 
 ## About {% data variables.product.prodname_copilot %} and Eclipse
 

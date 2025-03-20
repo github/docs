@@ -2,7 +2,7 @@
 title: Securing your enterprise
 shortTitle: Securing your enterprise
 intro: '{% ifversion security-configurations-cloud %}Enable the {% data variables.product.prodname_github_security_configuration %} or c{% elsif security-configurations-ghes-only %}C{% endif %}reate and apply {% data variables.product.prodname_custom_security_configurations %} to quickly secure your enterprise.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   feature: security-configuration-enterprise-level
 topics:

@@ -25,8 +25,6 @@ If you want to use {% data variables.product.prodname_copilot_short %} in your I
 
 ## 3. Install the {% data variables.product.prodname_copilot_short %} extension for the command line
 
->[!NOTE] {% data reusables.gated-features.copilot-free-availability %}
-
 If you want to use {% data variables.product.prodname_copilot_short %} in the command line, install the {% data variables.product.prodname_copilot_short %} extension for the {% data variables.product.prodname_cli %}. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli).
 
 ## 4. Use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %}

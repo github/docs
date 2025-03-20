@@ -138,28 +138,6 @@ describe('rate limiting', () => {
     expect(res.headers['ratelimit-remaining']).toBeUndefined()
   })
 
-  test('/api/cookies only allows 1 request per minute', async () => {
-    // Cookies only allows 1 request per minute
-    const res1 = await get('/api/cookies', {
-      headers: {
-        'fastly-client-ip': 'abc123',
-      },
-    })
-    expect(res1.statusCode).toBe(200)
-    expect(res1.headers['ratelimit-limit']).toBe('1')
-    expect(res1.headers['ratelimit-remaining']).toBe('0')
-
-    // A second request should be rate limited
-    const res2 = await get('/api/cookies', {
-      headers: {
-        'fastly-client-ip': 'abc123',
-      },
-    })
-    expect(res2.statusCode).toBe(429)
-    expect(res2.headers['ratelimit-limit']).toBe('1')
-    expect(res2.headers['ratelimit-remaining']).toBe('0')
-  })
-
   test('Fastly IPs are not rate limited', async () => {
     // Fastly IPs are in the form `X.X.X.X/Y`
     // Rate limited IPs are in the form `X.X.X.X`

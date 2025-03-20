@@ -14,7 +14,6 @@ type UseCombinedSearchProps = {
   router: NextRouter
   currentVersion: string
   debug: boolean
-  eventGroupIdRef: React.MutableRefObject<string>
 }
 
 type UseCombinedSearchReturn = {
@@ -26,7 +25,7 @@ type UseCombinedSearchReturn = {
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 1 // In milliseconds
+const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
@@ -46,7 +45,6 @@ export function useCombinedSearchResults({
   router,
   currentVersion,
   debug,
-  eventGroupIdRef,
 }: UseCombinedSearchProps): UseCombinedSearchReturn {
   const [searchOptions, setSearchOptions] = useState<SearchOptions>({
     aiAutocompleteOptions: [],
@@ -102,7 +100,6 @@ export function useCombinedSearchResults({
           queryValue,
           debug,
           controller.signal, // Pass in the signal to allow the request to be aborted
-          eventGroupIdRef.current,
         )
 
         const results = {

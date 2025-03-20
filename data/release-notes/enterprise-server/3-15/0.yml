@@ -203,6 +203,10 @@ sections:
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
     - |
       On Azure instances, a failed pre-upgrade check due to insufficient user disk size can result in the Management Console displaying an `Internal Server Error`. To restore access to the Management Console, run `sudo rm /var/log/preflight-check-report.json` to remove the file. If enabled, the `automatic update checks` need to be disabled from the Management Console until user disk size is increased to minimum 500 GB. To increase the user disk size, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity#increasing-the-data-partition-size).
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
 
   closing_down:
     # https://github.com/github/releases/issues/3525

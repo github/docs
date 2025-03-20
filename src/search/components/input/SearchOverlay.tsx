@@ -39,6 +39,7 @@ import { EventType } from '@/events/types'
 import { ASK_AI_EVENT_GROUP, SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
+import { focusTrap } from '@primer/behaviors'
 
 type Props = {
   searchOverlayOpen: boolean
@@ -88,6 +89,14 @@ export function SearchOverlay({
 
   // Group all events between open / close of the overlay together
   const searchEventGroupId = useRef<string>('')
+  const overlayRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    if (searchOverlayOpen && overlayRef.current) {
+      focusTrap(overlayRef.current, inputRef.current || undefined)
+    }
+  }, [searchOverlayOpen])
+
   useEffect(() => {
     searchEventGroupId.current = uuidv4()
   }, [searchOverlayOpen])
@@ -105,7 +114,6 @@ export function SearchOverlay({
     router,
     currentVersion,
     debug,
-    eventGroupIdRef: searchEventGroupId,
   })
 
   const { aiAutocompleteOptions, generalSearchResults, totalGeneralSearchResults } =
@@ -275,6 +283,14 @@ export function SearchOverlay({
 
   // When a general option is selected, open the article in the current window
   const generalSearchResultOnSelect = (selectedOption: GeneralSearchHit) => {
+    sendEvent({
+      type: EventType.search,
+      // TODO: Remove PII so we can include the actual query
+      search_query: 'REDACTED',
+      search_context: GENERAL_SEARCH_CONTEXT,
+      eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
+      eventGroupId: searchEventGroupId.current,
+    })
     sendEvent({
       type: EventType.searchResult,
       search_result_query: urlSearchInputQuery,
@@ -479,6 +495,7 @@ export function SearchOverlay({
       <>
         <ActionList
           aria-label={t('search.overlay.suggestions_list_aria_label')}
+          id="search-suggestions-list"
           showDividers
           className={styles.suggestionsList}
           ref={suggestionsListHeightRef}
@@ -594,6 +611,7 @@ export function SearchOverlay({
         role="dialog"
         aria-modal="true"
         aria-labelledby={overlayHeadingId}
+        ref={overlayRef}
       >
         <Header className={styles.header}>
           <TextInput
@@ -602,9 +620,17 @@ export function SearchOverlay({
             ref={inputRef}
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
-            onKeyDown={handleKeyDown}
             leadingVisual={<SearchIcon />}
             aria-labelledby={overlayHeadingId}
+            role="combobox"
+            aria-controls="search-suggestions-list"
+            aria-expanded={combinedOptions.length > 0}
+            aria-activedescendant={
+              selectedIndex >= 0
+                ? `search-option-${combinedOptions[selectedIndex].group}-${selectedIndex}`
+                : undefined
+            }
+            onKeyDown={handleKeyDown}
             placeholder={t('search.input.placeholder_no_icon')}
             trailingAction={
               <Stack
@@ -760,7 +786,8 @@ function renderSearchGroups(
     groups.push(<ActionList.Divider key="no-answer-divider" />)
   }
 
-  if (showSpinner) {
+  // already showing spinner when streaming AI response, so don't want to show 2 here
+  if (showSpinner && !isInAskAIState) {
     groups.push(
       <Box
         key="loading"
@@ -785,6 +812,8 @@ function renderSearchGroups(
         items.push(
           <ActionList.Item
             key={`general-${index}`}
+            id={`search-option-general-${index}`}
+            role="option"
             className={styles.noResultsFound}
             tabIndex={-1}
             aria-label={t('search.overlay.no_results_found')}
@@ -800,6 +829,9 @@ function renderSearchGroups(
         items.push(
           <ActionList.Item
             key={`general-${index}`}
+            id={`search-option-general-${index}`}
+            role="option"
+            aria-describedby="search-suggestions-list"
             onSelect={() =>
               option.isViewAllResults ? performGeneralSearch() : generalSearchResultOnSelect(option)
             }
@@ -835,11 +867,7 @@ function renderSearchGroups(
 
     groups.push(
       <ActionList.Group key="general" data-testid="general-autocomplete-suggestions">
-        <ActionList.GroupHeading
-          as="h3"
-          tabIndex={-1}
-          aria-label={t('search.overlay.general_suggestions_list_aria_label')}
-        >
+        <ActionList.GroupHeading as="h3" tabIndex={-1} id="search-suggestions-list">
           {t('search.overlay.general_suggestions_list_heading')}
         </ActionList.GroupHeading>
         {items}
@@ -864,11 +892,7 @@ function renderSearchGroups(
   if (aiOptionsWithUserInput.length && !isInAskAIState) {
     groups.push(
       <ActionList.Group key="ai-suggestions" data-testid="ai-autocomplete-suggestions">
-        <ActionList.GroupHeading
-          as="h3"
-          tabIndex={-1}
-          aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
-        >
+        <ActionList.GroupHeading as="h3" id="copilot-suggestions" tabIndex={-1}>
           <CopilotIcon className="mr-1" />
           {t('search.overlay.ai_autocomplete_list_heading')}
         </ActionList.GroupHeading>
@@ -879,6 +903,9 @@ function renderSearchGroups(
           const item = (
             <ActionList.Item
               key={`ai-${indexWithOffset}`}
+              id={`search-option-ai-${indexWithOffset}`}
+              role="option"
+              aria-describedby="copilot-suggestions"
               onSelect={() => aiAutocompleteOnSelect(option)}
               active={isActive}
               tabIndex={-1}

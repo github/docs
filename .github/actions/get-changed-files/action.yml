@@ -1,0 +1,42 @@
+name: Get changed files
+description: Get a list of changed files
+
+inputs:
+  file_filter:
+    description: 'Files or directories to check for changes, supports names, directories, trailing slashes, and single trailing wildcard'
+    required: false
+    default: '.'
+  head:
+    description: 'Head ref to check for changes against'
+    required: false
+  pr:
+    description: 'The PR to check for changes against'
+    required: false
+  token:
+    description: 'The token'
+    required: true
+  output_file:
+    description: 'Optional file path to write the changes to'
+    required: false
+
+outputs:
+  all_changed_files:
+    description: 'List of all changed files (unfiltered)'
+    value: ${{ steps.get_changes.outputs.all_changed_files }}
+  filtered_changed_files:
+    description: 'List of changed files matching the `files` filter'
+    value: ${{ steps.get_changes.outputs.filtered_changed_files }}
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Gather changed files
+      id: get_changes
+      env:
+        INPUT_FILES: ${{ inputs.files }}
+        INPUT_PR: ${{ inputs.pr || github.event.pull_request.number }}
+        INPUT_HEAD: ${{ inputs.head || github.event.pull_request.head.ref || github.event.merge_group.head_ref ||  github.ref_name }}
+        INPUT_OUTPUT_FILE: ${{ inputs.output_file }}
+        GH_TOKEN: ${{ inputs.token }}
+      shell: bash
+      run: ${{ github.action_path }}/get-changed-files.sh

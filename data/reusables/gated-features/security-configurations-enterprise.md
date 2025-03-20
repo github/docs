@@ -1,15 +1,9 @@
-{% data variables.product.prodname_security_configurations_caps %} is available for the following repositories:
+{% data variables.product.prodname_security_configurations_caps %} are available for the following repository types:
 
-{% ifversion ghec %}
+{%- ifversion ghec %}
+* Organization-owned repositories on {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_cs_or_sp %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion secret-scanning-user-owned-repos %}
+* User-owned repositories for {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}{% endif %}
 
-  * Public repositories
-  * Private and internal repositories in organizations using {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion secret-scanning-user-owned-repos %}
-
-{% endif %}
-
-{% elsif ghes %}
-
-* Organization-owned repositories with [{% data variables.product.prodname_GH_advanced_security %}](/get-started/learning-about-github/about-github-advanced-security) enabled
-* {% ifversion secret-scanning-user-owned-repos %}User-owned repositories{% endif %} for an enterprise with {% data variables.product.prodname_GH_advanced_security %} enabled
-
-{% endif %}
+{% ifversion ghes %}
+* Organization-owned repositories with [{% data variables.product.prodname_GH_cs_or_sp %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion secret-scanning-user-owned-repos %}
+* User-owned repositories for enterprises with [{% data variables.product.prodname_GH_cs_or_sp %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}{% endif %}

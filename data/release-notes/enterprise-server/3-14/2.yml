@@ -84,9 +84,11 @@ sections:
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
       [Updated: 2024-11-29]
-      
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+
   deprecations:
     - |
       The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed. [Updated: 2024-11-20]
-      
-  

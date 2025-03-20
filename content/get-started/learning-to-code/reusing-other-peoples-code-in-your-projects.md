@@ -156,7 +156,7 @@ When enabled, {% data variables.product.prodname_dependabot_alerts %} are automa
 
 Turn {% data variables.product.prodname_dependabot_alerts %} on for your repository now. Click the **Security** tab for your project's {% data variables.product.github %} repository. Next to {% data variables.product.prodname_dependabot_alerts %}, click **Enable {% data variables.product.prodname_dependabot_alerts %}**. You can access {% data variables.product.prodname_dependabot_alerts %} from the **{% data variables.product.prodname_dependabot %}** tab of the sidebar.
 
-  ![Screenshot of the "Security" page of a repository. The "Security" tab, "{% data variables.product.prodname_dependabot %}" tab, and "Enable {% data variables.product.prodname_dependabot_alerts %}" button are all outlined in dark orange.](/assets/images/help/dependabot/learners-enable-dependabot.png)
+  ![Screenshot of the "Security" page of a repository. The "Security" tab, "{% data variables.product.prodname_dependabot %}" tab, and "Enable {% data variables.product.prodname_dependabot_alerts %}" button are outlined in orange.](/assets/images/help/dependabot/learners-enable-dependabot.png)
 
 ### 3. Implementing code from a library
 
@@ -180,7 +180,11 @@ result = math.factorial(number)
 print(f"The factorial of {number} is {result}")
 ```
 
-After you replace the existing code in your project with the above implementation, you've successfully reused code from a library in your example project!
+After you replace the existing code in your project with the above implementation, you've successfully used code from a library in your example project!
+
+## Sharing your work
+
+With this tutorial, you've learned how to safely reuse other people's code in your own work. To celebrate, share how you repurposed code and built on the example project in our [community discussion](https://github.com/orgs/community/discussions/153140).
 
 ## Further reading
 

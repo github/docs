@@ -47,6 +47,7 @@ function logError(file, line, message, title = 'Error') {
 }
 
 function getFrontmatterOffset(filePath) {
+  if (!fs.existsSync(filePath)) return 0
   const rawContent = fs.readFileSync(filePath, 'utf-8')
   let delimiters = 0
   let count = 0

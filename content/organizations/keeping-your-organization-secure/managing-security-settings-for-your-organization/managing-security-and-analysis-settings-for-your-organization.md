@@ -60,7 +60,7 @@ You can use security overview to find a set of repositories and enable or disabl
 {% endif %}
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GHAS %}" is disabled if you have no available licenses for {% data variables.product.prodname_GHAS %}.
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of the feature, click **Disable all** or **Enable all** to display a confirmation dialog box. The control for "{% data variables.product.prodname_GHAS %}" is disabled if you have no available licenses for {% data variables.product.prodname_GHAS %}.
 1. Review the information in the dialog box.
 1. Optionally, if you are enabling private vulnerability reporting, dependency graph, or {% data variables.product.prodname_dependabot %}, select **Enable by default for new repositories**.
 
@@ -80,7 +80,7 @@ You can use security overview to find a set of repositories and enable or disabl
 ## Enabling or disabling a feature automatically when new repositories are added
 
 1. Go to the security and analysis settings for your organization. For more information, see [Displaying the security and analysis settings](#displaying-the-security-and-analysis-settings).
-1. Under "Code security and analysis", locate the feature, enable or disable the feature by default for new repositories in your organization.
+1. Under "{% data variables.product.UI_advanced_security %}", locate the feature, enable or disable the feature by default for new repositories in your organization.
 
 {% endif %}
 

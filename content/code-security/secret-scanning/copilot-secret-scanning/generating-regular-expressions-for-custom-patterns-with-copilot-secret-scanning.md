@@ -38,7 +38,7 @@ redirect_from:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 {% data reusables.advanced-security.secret-scanning-new-custom-pattern-org %}
 {% data reusables.advanced-security.secret-scanning-generate-regular-expression-custom-pattern %}
 1. When you're ready to test your new custom pattern, to identify matches in selected repositories without creating alerts, click **Save and dry run**.
