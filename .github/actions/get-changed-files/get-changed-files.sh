@@ -2,10 +2,8 @@
 
 # Required environment variables:
 # $INPUT_FILES: Pattern(s) to filter files by (e.g., "content/** data/**")
-# $INPUT_PR: Pull request number (if running in PR context)
 # $INPUT_HEAD: Current branch or SHA for git diff
 # $INPUT_OUTPUT_FILE: Optional file to redirect output to.
-# $GH_TOKEN: the access token
 
 # Default value for files parameter if not provided
 FILTER=${INPUT_FILES:-.}
@@ -14,63 +12,156 @@ FILTER=${INPUT_FILES:-.}
 echo "__ using filter: __"
 echo "$FILTER"
 
-# Find the file diff in the pull request or merge group
-# If its a pull request, use the faster call to the GitHub API
-# For push, workflow_dispatch, and merge_group, use git diff
-if [ -n "$INPUT_PR" ]
-then
-  echo "__ running gh pr diff __"
-  DIFF=$(gh pr diff $INPUT_PR --name-only)
-  if [ -z "$DIFF" ]; then
-    echo "__ gh pr diff failed, falling back to git diff __"
-    HEAD=$(gh pr view $INPUT_PR --json headRefName --jq .headRefName)
-  fi
-fi
+# Ensure we have the latest from the remote
+echo "__ fetching latest changes __"
+git fetch --depth=1 origin main
+git fetch --depth=1 origin ${INPUT_HEAD:-HEAD}
 
-if [ -z "$DIFF" ]; then
-  # If HEAD was set from gh pr view but INPUT_HEAD is empty, use HEAD instead
-  if [ -z "$INPUT_HEAD" ] && [ -n "$HEAD" ]; then
-    INPUT_HEAD=$HEAD
-  fi
-  echo "__ using branch name $INPUT_HEAD __"
-  git fetch origin $INPUT_HEAD:refs/remotes/origin/$INPUT_HEAD
-  echo "__ running git diff __"
+# Get diff with status information
+echo "__ running git diff with status __"
+DIFF_OUTPUT=$(git diff --name-status origin/main origin/${INPUT_HEAD:-HEAD})
 
-  DIFF=$(git diff --name-only origin/main origin/$INPUT_HEAD)
-fi
+# Function to extract files by pattern from diff output
+extract_files() {
+  local pattern=$1
+  local field=$2
+  echo "$DIFF_OUTPUT" | grep -E "$pattern" | cut -f$field
+}
 
-# So we can inspect the output
-echo "__ DIFF found __"
-echo "$DIFF"
+# Extract files by status
+echo "__ extracting files by status __"
+MODIFIED_FILES=$(extract_files "^[AM]" 2)
+DELETED_FILES=$(extract_files "^D" 2)
+RENAMED_OLD_FILES=$(extract_files "^R[0-9]+" 2)
+RENAMED_NEW_FILES=$(extract_files "^R[0-9]+" 3)
 
-# Filter the DIFF to just the directories specified in the input files
-if [ "$FILTER" != "." ]; then
-  echo "__ filtering DIFF to only include $FILTER __"
-  FILTERED_DIFF=""
+# Create paired renames in format "oldname=>newname"
+create_rename_pairs() {
+  local old_files=$1
+  local new_files=$2
+  local pairs=()
+
   IFS=$'\n'
-  for file in $DIFF; do
+  for i in $(seq 1 $(echo "$old_files" | wc -l)); do
+    OLD=$(echo "$old_files" | sed -n "${i}p")
+    NEW=$(echo "$new_files" | sed -n "${i}p")
+    pairs+=("$OLD=>$NEW")
+  done
+  unset IFS
+
+  printf "%s\n" "${pairs[@]}"
+}
+
+RENAMED_FILES_WITH_HISTORY=$(create_rename_pairs "$RENAMED_OLD_FILES" "$RENAMED_NEW_FILES")
+
+# Combine files for different outputs
+DIFF=$(echo -e "$MODIFIED_FILES\n$RENAMED_NEW_FILES" | sort | uniq)
+ALL_DIFF=$(echo -e "$MODIFIED_FILES\n$DELETED_FILES\n$RENAMED_NEW_FILES" | sort | uniq)
+
+# Debug output
+echo "__ MODIFIED files found __"
+echo "$MODIFIED_FILES"
+echo "__ DELETED files found __"
+echo "$DELETED_FILES"
+echo "__ RENAMED files found (with history) __"
+echo "$RENAMED_FILES_WITH_HISTORY"
+echo "__ ALL changed files __"
+echo "$ALL_DIFF"
+
+# Function to filter files by pattern
+filter_files() {
+  local files=$1
+  local result=""
+
+  IFS=$'\n'
+  for file in $files; do
     while IFS= read -r pattern || [ -n "$pattern" ]; do
       clean_pattern=${pattern%/}
       if [[ $file == $clean_pattern || $file == $clean_pattern/* ]]; then
-        FILTERED_DIFF="$FILTERED_DIFF $file"
+        result="$result $file"
         break
       fi
     done <<< "$FILTER"
   done
   unset IFS
+
+  echo "$result"
+}
+
+# Function to filter rename pairs
+filter_renames() {
+  local new_files=$1
+  local old_files=$2
+  local result=""
+
+  IFS=$'\n'
+  for i in $(seq 1 $(echo "$new_files" | wc -l)); do
+    NEW=$(echo "$new_files" | sed -n "${i}p")
+    OLD=$(echo "$old_files" | sed -n "${i}p")
+
+    while IFS= read -r pattern || [ -n "$pattern" ]; do
+      clean_pattern=${pattern%/}
+      if [[ $NEW == $clean_pattern || $NEW == $clean_pattern/* ]]; then
+        result="$result $OLD=>$NEW"
+        break
+      fi
+    done <<< "$FILTER"
+  done
+  unset IFS
+
+  echo "$result"
+}
+
+# Filter the files to just the directories specified in the input files
+if [ "$FILTER" != "." ]; then
+  echo "__ filtering files to only include $FILTER __"
+
+  FILTERED_MODIFIED=$(filter_files "$MODIFIED_FILES")
+  FILTERED_DELETED=$(filter_files "$DELETED_FILES")
+  FILTERED_RENAMED=$(filter_renames "$RENAMED_NEW_FILES" "$RENAMED_OLD_FILES")
+
+  # For filtered_changed_files (non-deleted files)
+  FILTERED_DIFF="$FILTERED_MODIFIED"
+  for new_file in $(echo "$FILTERED_RENAMED" | grep -o "=>[^[:space:]]*" | sed 's/=>//g'); do
+    FILTERED_DIFF="$FILTERED_DIFF $new_file"
+  done
+
+  MODIFIED_FILES=$FILTERED_MODIFIED
+  DELETED_FILES=$FILTERED_DELETED
+  RENAMED_FILES_WITH_HISTORY=$FILTERED_RENAMED
   DIFF=$FILTERED_DIFF
-  echo "__ filtered DIFF __"
-  echo "$DIFF"
+
+  echo "__ filtered MODIFIED files __"
+  echo "$MODIFIED_FILES"
+  echo "__ filtered DELETED files __"
+  echo "$DELETED_FILES"
+  echo "__ filtered RENAMED files (with history) __"
+  echo "$RENAMED_FILES_WITH_HISTORY"
+  echo "__ filtered changed files (non-deleted) __"
+  echo "$FILTERED_DIFF"
 fi
 
+# Function to format output (standardize whitespace)
+format_output() {
+  local input=$1
+  echo "$input" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//'
+}
+
 echo "__ formatting output __"
-FORMATTED_DIFF=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
-echo "Formatted diff: '$FORMATTED_DIFF'"
+FORMATTED_MODIFIED=$(format_output "$MODIFIED_FILES")
+FORMATTED_DELETED=$(format_output "$DELETED_FILES")
+FORMATTED_DIFF=$(format_output "$DIFF")
+FORMATTED_RENAMED=$(format_output "$RENAMED_FILES_WITH_HISTORY")
+ALL_FORMATTED=$(format_output "$ALL_DIFF")
+
+echo "Formatted modified: '$FORMATTED_MODIFIED'"
+echo "Formatted deleted: '$FORMATTED_DELETED'"
+echo "Formatted renamed: '$FORMATTED_RENAMED'"
+echo "Formatted non-deleted changes: '$FORMATTED_DIFF'"
 
 # Set the output for GitHub Actions
-ALL_FORMATTED=$(echo "$DIFF" | tr '\n' ' ' | tr -s ' ' | sed 's/^ *//' | sed 's/ *$//')
 HAS_CHANGES=true
-if [[ -z "$ALL_FORMATTED" ]]; then
+if [[ -z "$FORMATTED_DIFF" && -z "$FORMATTED_DELETED" ]]; then
   echo "No changed files detected"
   HAS_CHANGES=false
 fi
@@ -83,6 +174,8 @@ set_outputs() {
     echo "Setting empty outputs to $target"
     echo "all_changed_files=" >> "$target"
     echo "filtered_changed_files=" >> "$target"
+    echo "filtered_deleted_files=" >> "$target"
+    echo "filtered_renamed_files=" >> "$target"
   else
     echo "Setting non-empty outputs to $target"
     echo "all_changed_files<<EOF" >> "$target"
@@ -91,6 +184,14 @@ set_outputs() {
 
     echo "filtered_changed_files<<EOF" >> "$target"
     echo "$FORMATTED_DIFF" >> "$target"
+    echo "EOF" >> "$target"
+
+    echo "filtered_deleted_files<<EOF" >> "$target"
+    echo "$FORMATTED_DELETED" >> "$target"
+    echo "EOF" >> "$target"
+
+    echo "filtered_renamed_files<<EOF" >> "$target"
+    echo "$FORMATTED_RENAMED" >> "$target"
     echo "EOF" >> "$target"
   fi
 }

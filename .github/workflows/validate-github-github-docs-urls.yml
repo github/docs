@@ -106,7 +106,6 @@ jobs:
         with:
           files: |
             content/**
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Generate PR comment
         if: ${{ github.event_name == 'pull_request' && steps.changed_files.outputs.filtered_changed_files }}
