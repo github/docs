@@ -50,12 +50,16 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 | The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
 
+Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.
+
 > [!NOTE]
 > Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
 
 ### Limitations of content exclusions
 
 {% data reusables.copilot.content-exclusion-limitations %}
+
+Currently, content exclusions do not apply to symbolic links (symlinks).
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
 
