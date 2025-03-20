@@ -133,8 +133,6 @@ jobs:
         if: ${{ matrix.name == 'content-linter' }}
         uses: ./.github/actions/get-changed-files
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          pr: ${{ github.event.pull_request.number }}
           head: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
           output_file: get_diff_files.txt
 
