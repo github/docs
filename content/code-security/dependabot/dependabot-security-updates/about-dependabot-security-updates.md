@@ -1,30 +1,61 @@
----
-title: About Dependabot security updates
-intro: '{% data variables.product.prodname_dependabot %} can fix vulnerable dependencies for you by raising pull requests with security updates.'
-product: '{% data reusables.gated-features.dependabot-security-updates %}'
-shortTitle: Dependabot security updates
-redirect_from:
-  - /github/managing-security-vulnerabilities/about-github-dependabot-security-updates
-  - /github/managing-security-vulnerabilities/about-dependabot-security-updates
-  - /code-security/supply-chain-security/about-dependabot-security-updates
-  - /code-security/supply-chain-security/managing-vulnerabilities-in-your-projects-dependencies/about-dependabot-security-updates
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
-type: overview
-topics:
-  - Dependabot
-  - Security updates
-  - Vulnerabilities
-  - Repositories
-  - Dependencies
-  - Pull requests
----
+###############################################################################
+# Set default behavior for command prompt diff.
+#
+# This is need for earlier builds of msysgit that does not have it on by
+# default for csharp files.
+# Note: This is only used by command line
+###############################################################################
+#*.cs     diff=csharp
 
-<!--Marketing-LINK: From /features/security/software-supply-chain page "About Dependabot security updates".-->
+###############################################################################
+# Set the merge driver for project and solution files
+#
+# Merging from the command prompt will add diff markers to the files if there
+# are conflicts (Merging from VS is not affected by the settings below, in VS
+# the diff markers are never inserted). Diff markers may cause the following 
+# file extensions to fail to load in VS. An alternative would be to treat
+# these files as binary and thus will always conflict and require user
+# intervention with every merge. To do so, just uncomment the entries below
+###############################################################################
+#*.sln       merge=binary
+#*.csproj    merge=binary
+#*.vbproj    merge=binary
+#*.vcxproj   merge=binary
+#*.vcproj    merge=binary
+#*.dbproj    merge=binary
+#*.fsproj    merge=binary
+#*.lsproj    merge=binary
+#*.wixproj   merge=binary
+#*.modelproj merge=binary
+#*.sqlproj   merge=binary
+#*.wwaproj   merge=binary
 
-{% data reusables.dependabot.enterprise-enable-dependabot %}
+###############################################################################
+# behavior for image files
+#
+# image files are treated as binary by default.
+###############################################################################
+#*.jpg   binary
+#*.png   binary
+#*.gif   binary
+
+###############################################################################
+# diff behavior for common document formats
+# 
+# Convert binary document formats to text before diffing them. This feature
+# is only available from the command line. Turn it on by uncommenting the 
+# entries below.
+###############################################################################
+#*.doc   diff=astextplain
+#*.DOC   diff=astextplain
+#*.docx  diff=astextplain
+#*.DOCX  diff=astextplain
+#*.dot   diff=astextplain
+#*.DOT   diff=astextplain
+#*.pdf   diff=astextplain
+#*.PDF   diff=astextplain
+#*.rtf   diff=astextplain
+#*.RTF   diff=astextplain
 
 ## About {% data variables.product.prodname_dependabot_security_updates %}
 
