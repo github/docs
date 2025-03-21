@@ -12,6 +12,45 @@ topics:
 
 By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT 3.5 Turbo large language model (LLM). As an alternative, you can choose to use a model based on GPT 4o-mini. This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
 
+<details>
+  <summary>View the list of programming languages and technologies included in the training data.</summary>
+
+  * C  
+  * C#  
+  * C++  
+  * Clojure  
+  * CSS  
+  * Dart  
+  * Dockerfile  
+  * Elixir  
+  * Emacs Lisp  
+  * Go  
+  * Haskell  
+  * HTML  
+  * Java  
+  * JavaScript  
+  * Julia  
+  * Jupyter Notebook  
+  * Kotlin  
+  * Lua  
+  * MATLAB  
+  * Objective-C  
+  * Perl  
+  * PHP  
+  * PowerShell  
+  * Python  
+  * R  
+  * Ruby  
+  * Rust  
+  * Scala  
+  * Shell  
+  * Swift  
+  * TeX  
+  * TypeScript  
+  * Vue
+
+</details>
+
 > [!NOTE]
 > * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
 > * Currently the ability to switch AI model is available in the latest releases of {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
