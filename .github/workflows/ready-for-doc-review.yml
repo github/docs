@@ -50,7 +50,12 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
         run: |
           echo "Extracting issue numbers from PR description..."
-          ISSUE_NUMS=$(echo "${{ github.event.pull_request.body }}" | grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|github/docs-content#[0-9]+|#[0-9]+)' | grep -oE '[0-9]+$')
+
+          # Clean up PR description to avoid syntax errors in grep command
+          PR_BODY="${{ github.event.pull_request.body }}"
+          echo "PR description to use in the script: $PR_BODY"
+
+          ISSUE_NUMS=$(echo "$PR_BODY" | grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|github/docs-content#[0-9]+|#[0-9]+)' | grep -oE '[0-9]+$')
           echo "Extracted issue numbers: $ISSUE_NUMS"
 
           if [ -n "$ISSUE_NUMS" ]; then
@@ -67,7 +72,7 @@ jobs:
                   echo "DIY_DOCS_LABEL=true" >> $GITHUB_ENV
                   break
                 else
-                  echo "DIY docs label not found for issue #$ISSUE_NUM."
+                  echo "DIY docs label not found for issue $ISSUE_NUM."
                 fi
               else
                 echo "Issue $ISSUE_NUM does not exist in the docs-content repository."
