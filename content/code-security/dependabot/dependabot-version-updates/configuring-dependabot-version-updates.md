@@ -1,4 +1,12 @@
----
+---# To get started with Dependabot version updates, you'll need to specify which
+# package ecosystems to update and where the package manifests are located.
+
+version: 2
+updates:
+- package-ecosystem: "" # See documentation for possible values
+  directory: "/" # Location of package manifests
+  schedule:
+    interval: "weekly"
 title: Configuring Dependabot version updates
 intro: 'You can configure your repository so that {% data variables.product.prodname_dependabot %} automatically updates the packages you use.'
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
