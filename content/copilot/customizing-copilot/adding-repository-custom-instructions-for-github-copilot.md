@@ -197,7 +197,7 @@ Your choice persists until you change it.
 
 > [!NOTE] Prompt files are {% data variables.release-phases.public_preview %} and subject to change.
 
-Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file that mimics the existing format of writing prompts in {% data variables.product.prodname_copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
+Prompt files let you build and share reusable prompt instructions with additional context. A prompt file is a Markdown file, stored in your workspace, that mimics the existing format of writing prompts in {% data variables.product.prodname_copilot_chat_short %} (for example, `Rewrite #file:x.ts`). This allows blending natural language instructions, additional context, and even linking to other prompt files as dependencies.
 
 While custom instructions help to add codebase-wide context to each AI workflow, prompt files let you add instructions to a specific chat interaction.
 
@@ -208,11 +208,13 @@ Common use cases include:
 * **Team collaboration**. Document patterns and guidelines with references to specs and documentation.
 * **Onboarding**. Create step-by-step guides for complex processes or project-specific patterns.
 
+You can have multiple prompt files in your workspace, each of which defines a prompt for a different purpose.
+
 ### Prompt file examples
 
 The following examples demonstrate how to use prompt files.
 
-* `react-form.prompt.md` - documents a reusable task for generating a form.
+* `New React form.prompt.md` - contains instructions for a reusable task to generate a form using React.
 
   ```markdown
   Your goal is to generate a new React form component.
@@ -231,7 +233,7 @@ The following examples demonstrate how to use prompt files.
     - Customize UX-friendly validation rules
   ```
 
-* `security-api.prompt.md` - documents reusable security practices for REST APIs, which can be used to do security reviews of REST APIs.
+* `API security review.prompt.md` - contains reusable information about security practices for REST APIs, which can be used to do security reviews of REST APIs.
 
   ```markdown
   Secure REST API review:
@@ -242,22 +244,34 @@ The following examples demonstrate how to use prompt files.
   …
   ```
 
+### Enabling prompt files
+
+To enable prompt files, configure the workspace settings.
+
+1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
+1. Type "Open Workspace Settings (JSON)" and select the option that's displayed.
+1. In the `settings.json` file, add `"chat.promptFiles": true` to enable the `.github/prompts` folder as the location for prompt files. This folder will be created if it does not already exist.
+
+### Creating prompt files
+
+1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
+1. Type "prompt" and select **Chat: Create Prompt**.
+1. Enter a name for the prompt file, excluding the `.prompt.md` file name extension. The name can contain alphanumeric characters and spaces and should describe the purpose of the prompt information the file will contain.
+1. Write the prompt instructions, using Markdown formatting.
+
+   You can reference other files in the workspace by using Markdown links—for example, `[index](../../web/index.ts)`—or by using the `#file:../../web/index.ts` syntax. Paths are relative to the prompt file. Referencing other files allows you to provide additional context, such as API specifications or product documentation.
+
 ### Using prompt files
 
-To enable prompt files, configure the `chat.promptFiles` {% data variables.product.prodname_vscode_shortname %} setting. Set it to `true` or use the `{ "/path/to/folder": boolean }` notation to specify a different path. Relative paths are resolved from the root folder(s) of your workspace, and the default value of `.github/prompts` is used if no other path is provided. For more detailed instructions, see [{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %} settings reference](https://code.visualstudio.com/docs/copilot/copilot-settings) in the {% data variables.product.prodname_vscode %} documentation.
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} view, click the **Attach context** icon ({% octicon "paperclip" aria-hidden="true" %}).
+1. In the dropdown menu, click **Prompt...** and choose the prompt file you want to use.
+1. Optionally, attach additional files, including prompt files, to provide more context.
+1. Optionally, type additional information in the chat prompt box.
 
-1. Create a `.prompt.md` file in the `.github/prompts` directory of your workspace.
-1. Write prompt instructions by using Markdown formatting.
+   Whether you need to do this or not depends on the contents of the prompt you are using.
 
-   Reference additional workspace files as Markdown links (`[index](../index.ts)`), or as `#file:../index.ts` references within the prompt file. You can also reference other `.prompt.md` files.
+1. Submit the chat prompt.
 
-1. Select the attach icon, then select **Prompt...** and choose the prompt file to attach it in {% data variables.product.prodname_copilot_chat_short %} or {% data variables.product.prodname_copilot_edits_vscode_short %}.
-1. Optionally, attach additional context files required for the task.
-1. Send the chat prompt.
-
-   * For reusable tasks, send the prompt without any additional instructions.
-   * Include additional instructions to provide more context for the task at hand.
-
-> [!TIP] Reference additional context files like API specs or documentation by using Markdown links to provide {% data variables.product.prodname_copilot_short %} with more complete information.
+For more information about prompt files, see [Custom instructions for GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}

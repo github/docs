@@ -66,7 +66,7 @@ You can view the enterprise account's current license limits and usage.
 
 {% endif %}
 {%- ifversion ghec -%}
-1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, in the enterprise account sidebar, click **Billing**.
+1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, click {% octicon "credit-card" aria-hidden="true" %} **Billing & Licensing**.
 
    In the “{% data variables.product.prodname_GH_advanced_security %}” section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
 {% endif %}

@@ -61,4 +61,8 @@ sections:
     - |
       Admins setting up cluster high availability (HA) may encounter a spokes error when running ghe-cluster-repl-status if a new organization and repositories are created before using the ghe-cluster-repl-bootstrap command. To avoid this issue, complete the cluster HA setup with ghe-cluster-repl-bootstrap before creating new organizations and repositories.
     - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-19]
+    - |
       After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.

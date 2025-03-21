@@ -181,7 +181,7 @@ Keys should be used to explain shapes, colors, or other visual elements. Keys ca
 
 ### Colors
 
-If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/design/foundations/color). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
+If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
 
 The preferred colors for diagrams in {% data variables.product.prodname_docs %} are:
 
@@ -205,7 +205,7 @@ If you need to create a diagram that is difficult to view at small resolutions, 
 
 ## Tools for creating diagrams
 
-The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/design/foundations/color#how-to-use-color-for-product-ui).
+The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage).
 
 ## Accessibility
 
