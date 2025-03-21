@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
 // -
 {
-  "name": "docs.github.com",
+  "name": "Martyb166",
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version
@@ -65,7 +65,7 @@
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "node",
+  "remoteUser": "Martyb166",
 
   "hostRequirements": {
     "memory": "16gb",
