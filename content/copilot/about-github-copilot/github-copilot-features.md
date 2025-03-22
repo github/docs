@@ -54,11 +54,11 @@ Bringing the power of industry leading large and small language models to users 
 
 AI-generated code review suggestions to help you write better code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
-### {% data variables.product.prodname_copilot_edits_vscode_short %}
+### {% data variables.product.prodname_copilot_edits_short %}
 
-{% data variables.product.prodname_copilot_edits_vscode_short %} is available in {% data variables.product.prodname_vscode %}. {% data reusables.copilot.about-copilot-edits %}
+{% data variables.product.prodname_copilot_edits_short %} is available in {% data variables.product.prodname_vscode %} and JetBrains IDEs. {% data reusables.copilot.copilot-edits.about-copilot-edits %}
 
-For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+For more information about {% data variables.product.prodname_copilot_edits_short %} in {% data variables.product.prodname_vscode %}, see [{% data variables.product.prodname_copilot_edits_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 

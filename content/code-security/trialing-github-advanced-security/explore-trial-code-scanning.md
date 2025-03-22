@@ -128,4 +128,4 @@ When you have finished exploring these options and {% data variables.product.pro
 * [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions)
 * [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise)
 * [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-repositories-in-your-enterprise/governing-how-people-use-repositories-in-your-enterprise)
-* [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/scenarios-and-recommendations/enforce-ghas-at-scale/)
+* [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/)

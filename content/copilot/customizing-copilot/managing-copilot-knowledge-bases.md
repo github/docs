@@ -4,6 +4,7 @@ shortTitle: Manage knowledge bases
 intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
 versions:
   ghec: '*'
+product: '{% data reusables.copilot.ce-product-callout %}'
 topics:
   - Copilot
 redirect_from:

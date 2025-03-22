@@ -39,17 +39,6 @@ Before you use {% data variables.product.prodname_importer_proper_name %}, under
 
 ## Data that is migrated from {% data variables.product.prodname_ghe_server %}
 
-> [!WARNING]
-> The Wikis migration is currently unavailable.
-> As a workaround, you can migrate manually:
->
-> ```shell copy
-> git clone --mirror OLD-REPOSITORY-URL
-> cd OLD-REPOSITORY-NAME
-> git remote add new-origin NEW-REPOSITORY-URL
-> git push new-origin --mirror
-> ```
-
 To migrate from {% data variables.product.prodname_ghe_server %} (GHES), you must have GHES version 3.4.1 or higher. The data that is migrated depends on the version you're using.
 
 Item | GHES 3.4.1+ | GHES 3.5.0+ |

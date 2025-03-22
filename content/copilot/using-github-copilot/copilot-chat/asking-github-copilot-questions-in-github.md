@@ -26,14 +26,16 @@ On {% data variables.product.github %}, you can use {% data variables.product.pr
 
 The quality of the results from {% data variables.product.prodname_copilot_chat_short %} may, in some situations, be degraded if very large files, or a large number of files, are used as a context for a question.
 
-### Viewing generated files within {% data variables.product.prodname_copilot_chat_short %}
+### Viewing and editing generated files within {% data variables.product.prodname_copilot_chat_short %}
 
 > [!NOTE]
 > This feature is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
-When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.product.prodname_copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view the files in the panel, or download them to your computer.
+When you ask a question, {% data variables.product.prodname_copilot_short %} may generate one or more files as part of its response. In the {% data variables.product.prodname_copilot_chat_short %} panel, the files are displayed inline, within the chat response. In immersive view (that is, at [https://github.com/copilot](https://github.com/copilot)), the generated files are displayed in a side panel. You can view and edit the files in the panel, or download them to your computer.
 
 For example, asking `Generate a simple calculator using HTML, CSS, and JavaScript` may generate multiple files, such as `index.html`, `styles.css`, and `script.js`.
+
+In immersive view, you can also preview how some file formats, such as Markdown, render by toggling to the "Preview" tab in the side panel.
 
 ## Powered by skills
 
