@@ -43,7 +43,6 @@ In addition to the README you're reading right now, this repo includes other REA
 - [src/README.md](src/README.md)
 
 ## License
-
 The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
 
 All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
