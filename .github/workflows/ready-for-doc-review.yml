@@ -45,6 +45,7 @@ jobs:
 
       # Check if the PR is connected to an issue that has the DIY docs label. The grep command parses through the PR description to find issue numbers that are linked in the PR description. The GitHub CLI command then checks if the issue exists in the docs-content repo, then checks if the linked docs-content issues have the DIY docs label. If the linked issues have the DIY docs label, the DIY_DOCS_LABEL environment variable is set to true.
       - name: Check if PR is connected to DIY docs issue
+        if: github.repository == 'github/docs-internal'
         id: check-diy-docs
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
@@ -74,7 +75,7 @@ jobs:
 
       # If the PR description contains a link to a DIY docs issue, add the DIY docs label to the PR.
       - name: Add the DIY docs label if connected to a DIY docs issue
-        if: ${{ env.DIY_DOCS_LABEL == 'true' }}
+        if: ${{ env.DIY_DOCS_LABEL == 'true' }} && github.repository == 'github/docs-internal'
         env:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
