@@ -73,6 +73,13 @@ jobs:
             echo "No DIY docs issues found in the PR description."
           fi
 
+      # Debug step to confirm environment variables are set correctly
+      - name: Debug environment variables
+        run: |
+          echo "Current environment variables:"
+          echo "DIY_DOCS_LABEL: $DIY_DOCS_LABEL"
+          echo "Repository: ${{ github.repository }}"
+
       # If the PR description contains a link to a DIY docs issue, add the DIY docs label to the PR.
       - name: Add the DIY docs label if connected to a DIY docs issue
         if: ${{ env.DIY_DOCS_LABEL == 'true' }} && github.repository == 'github/docs-internal'
@@ -80,6 +87,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           PR_URL: ${{ github.event.pull_request.html_url }}
         run: |
+          # Debugging output
+          echo "Condition check:"
+          echo "DIY_DOCS_LABEL is: $DIY_DOCS_LABEL"
+          echo "github.repository is: ${{ github.repository }}"
+          echo "Adding the DIY docs label..."
           gh pr edit $PR_URL --add-label 'DIY docs'
 
       - name: Run script
