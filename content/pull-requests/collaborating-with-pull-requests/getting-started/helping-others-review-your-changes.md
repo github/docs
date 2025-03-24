@@ -18,7 +18,7 @@ When you create a pull request, you’re asking your team to review your changes
 
 Clear context in your pull requests helps reviewers quickly see what you’ve changed and why it matters. This makes the review process faster and smoother, with less back-and-forth, and helps your team give better feedback and make confident decisions. For information on creating a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-### Write small PRs
+### Write small pull requests
 
 Aim to create small, focused pull requests that fulfill a single purpose. Smaller pull requests are easier and faster to review and merge, leave less room to introduce bugs, and provide a clearer history of changes.
 
@@ -61,7 +61,7 @@ You can use {% data variables.product.prodname_copilot_short %} to generate a su
 
 1. On {% data variables.product.github %}, create a pull request or navigate to an existing pull request.
 
-   > [!NOTE] {% data variables.product.prodname_copilot %} does not take into account any existing content in the pull request description, so it is best to start with a blank description.
+   > [!NOTE] {% data variables.product.prodname_copilot_short %} does not take into account any existing content in the pull request description, so it is best to start with a blank description.
 
 1. Navigate to the text field where you want to add the pull request summary.
 
@@ -73,9 +73,11 @@ You can use {% data variables.product.prodname_copilot_short %} to generate a su
 
    ![Screenshot of the form for creating a pull request. A Copilot icon is highlighted, and a box appears with the "Summary" command.](/assets/images/help/copilot/copilot-description-suggestion.png)
 
-1. Wait for {% data variables.product.prodname_copilot %} to produce the summary, then check over the results carefully.
+1. Wait for {% data variables.product.prodname_copilot_short %} to produce the summary, then check over the results carefully.
 1. Add any additional context that will help people viewing your pull request.
 1. When you're happy with the description, click **Create pull request** on a new pull request, or **Update comment** if you're editing an existing description.
+
+> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to turn your work into a discussion or blog post. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
 
 {% endif %}
 
