@@ -21,6 +21,8 @@ topics:
 
 _We recommend that organizations initially apply the {% data variables.product.prodname_github_security_configuration %}_. After you have applied the {% data variables.product.prodname_github_security_configuration %} to repositories in your organization, you can evaluate the security findings for each repository and determine if you instead want to create and apply a {% data variables.product.prodname_custom_security_configuration %}.
 
+Currently, only one {% data variables.product.prodname_security_configuration %} can be applied to a repository at a time.
+
 ## Choosing the {% data variables.product.prodname_github_security_configuration %}
 
 The {% data variables.product.prodname_github_security_configuration %} offers a number of benefits:
