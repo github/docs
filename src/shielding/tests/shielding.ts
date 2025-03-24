@@ -72,24 +72,24 @@ describe('index.md and .md suffixes', () => {
   })
 
   // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
-  test.skip('any URL that ends with /.md redirects', async () => {
+  test('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {
       const res = await get('/en/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/en/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
     }
     // Without language prefix
     {
       const res = await get('/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
     // With query string
     {
       const res = await get('/get-started/hello.md?foo=bar')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello?foo=bar')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
   })
 })
