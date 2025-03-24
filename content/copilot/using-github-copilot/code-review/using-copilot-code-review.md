@@ -68,9 +68,6 @@ These instructions explain how to use {% data variables.copilot.copilot_code-rev
 
 ### Requesting a pull request review from {% data variables.product.prodname_copilot_short %}
 
-> [!NOTE]
-> To access the {% data variables.release-phases.public_preview %} of this feature, see [Join the preview for {% data variables.copilot.copilot_code-review_short %}-powered code reviews](https://gh.io/copilot-code-review-waitlist).
-
 1. On {% data variables.product.prodname_dotcom_the_website %}, create a pull request or navigate to an existing pull request.
 1. Open the **Reviewers** menu, then select **{% data variables.product.prodname_copilot_short %}**.
 
@@ -155,9 +152,6 @@ You can request an initial review of a highlighted selection of code in {% data 
    ![Screenshot of a comment from {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode %}.](/assets/images/help/copilot/code-review/vscode-comment@2x.png)
 
 ### Reviewing changes
-
-> [!NOTE]
-> To access the {% data variables.release-phases.public_preview %} of this feature, see [Join the preview for {% data variables.copilot.copilot_code-review_short %}-powered code reviews](https://gh.io/copilot-code-review-waitlist).
 
 You can request a review for your staged or unstaged changes in {% data variables.product.prodname_vscode %}.
 

@@ -12,4 +12,5 @@ children:
   - /explaining-legacy-code
   - /explaining-complex-algorithms-or-logic
   - /syncing-documentation-with-code-changes
+  - /writing-discussions-or-blog-posts
 ---
