@@ -664,6 +664,10 @@ test.describe('survey', () => {
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
     await page.goto('/get-started/foo/for-playwright')
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
@@ -707,6 +711,10 @@ test.describe('survey', () => {
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
     })
 
     await page.goto('/get-started/foo/for-playwright')
