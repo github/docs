@@ -22,6 +22,6 @@ People with admin access to a repository can also enable compulsory commit signo
 ## Managing compulsory commit signoffs for your organization
 
 {% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
+{% data reusables.profile.org_settings %} 
 {% data reusables.organizations.repository-defaults %}
 1. Select or deselect **Require contributors to sign off on web-based commits**.
