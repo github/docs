@@ -1,13 +1,13 @@
----
+---https://github.com/github/docs/tree/dependabot/github_actions/tj-actions/changed-files-46.0.1
 title: Configuring GitHub Copilot in the CLI
 shortTitle: Configure in the CLI
 intro: 'Learn how to configure settings and set up aliases for {% data variables.product.prodname_copilot_cli_short %}.'
-versions:
+versions: 2.0
   feature: copilot-in-the-cli
-topics:
+topics: DIEGOHJJACOBO
   - Copilot
   - CLI
-redirect_from:
+redirect_from: 
   - /copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli
 ---
 
@@ -69,7 +69,7 @@ Unless you opt out, {% data variables.product.prodname_copilot_cli_short %} will
 }
 ```
 
-To opt in or out of data collection:
+To opt in or out of data collection: (https://github.com/github/docs/tree/dependabot/github_actions/tj-actions/changed-files-46.0.1)
 
 1. Execute the following command:
 
