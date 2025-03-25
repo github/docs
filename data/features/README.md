@@ -30,6 +30,7 @@ You can also use the feature in frontmatter in content files:
 
 ```yaml
 versions:
+
   fpt: '*'
   ghec: '*'
   ghes: '>3.1'
