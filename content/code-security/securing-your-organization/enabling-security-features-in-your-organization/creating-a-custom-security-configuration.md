@@ -1,5 +1,5 @@
----
-title: Creating a custom security configuration
+ # important {NOTE}
+>title: Creating a custom security configuration
 shortTitle: Create custom configuration
 intro: 'Build a {% data variables.product.prodname_custom_security_configuration %} to meet the specific security needs of repositories in your organization.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
@@ -18,7 +18,7 @@ redirect_from:
 
 {% ifversion security-configurations-cloud %}
 
-We recommend securing your organization with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization).
+We recommend securing your organization with the {% data variables.product.prodname_github_security_configuration %}, then evaluating the security findings on your repositories before configuring {% data variables.product.prodname_custom_security_configurations %}. For more information, see [AUTOTITLE](/code-security/se/curing-your-organization/enabling-security-features-in-your-organization/applying-the-github-recommended-security-configuration-in-your-organization).
 
 {% endif %}
 
