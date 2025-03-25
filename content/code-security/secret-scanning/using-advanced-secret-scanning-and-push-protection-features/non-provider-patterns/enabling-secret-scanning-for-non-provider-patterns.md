@@ -19,7 +19,7 @@ shortTitle: Enable for non-provider patterns
 
 {% data reusables.secret-scanning.non-provider-patterns-beta %}
 
-You can enable scanning for non-provider patterns. Non-provider patterns correspond to secrets such as private keys and they have a higher ratio of false positives.
+You can enable scanning for non-provider patterns. Non-provider patterns correspond to secrets such as private keys.
 
 For more information about non-provider patterns, see "{% ifversion fpt or ghec %}[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#about-user--alerts){% else %}[AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#about-secret-scanning-alerts){% endif %}."
 
