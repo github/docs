@@ -10,7 +10,7 @@ You can sort and filter {% data variables.product.prodname_dependabot_alerts %} 
 | `manifest` | Displays alerts for the selected manifest | Use `manifest:webwolf/pom.xml` to show alerts on the pom.xml file of the webwolf application |
 | `package` | Displays alerts for the selected package | Use `package:django` to show alerts for django |
 | {% ifversion transitive-dependency-labeling-npm %} |
-| `relationship` |  Displays alerts of the selected relationship status<br>Note that this filter is only available for npm.  | Use `relationship:direct` to show alerts for direct dependencies (marked with the `Direct` label). |
+| `relationship` |  Displays alerts of the selected relationship status<br>Note that this filter is only available for ecosystems with transitive support.  | Use `relationship:direct` to show alerts for direct dependencies (marked with the `Direct` label). |
 | {% endif %} |
 | `resolution` | Displays alerts of the selected resolution status | Use `resolution:no-bandwidth` to show alerts previously parked due to lack of resources or time to fix them |
 | `repo` |  Displays alerts based on the repository they relate to</br>Note that this filter is only available for security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview) | Use `repo:octocat-repo` to show alerts in the repository called `octocat-repo` |

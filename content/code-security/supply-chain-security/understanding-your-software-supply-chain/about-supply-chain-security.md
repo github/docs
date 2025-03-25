@@ -39,7 +39,7 @@ The supply chain features on {% data variables.product.github %} are:
   * **{% data variables.product.prodname_dependabot_security_updates %}**
   * **{% data variables.product.prodname_dependabot_version_updates %}**
 
-The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. You can see your repository’s dependencies and some of their properties, like vulnerability information, on the dependency graph for the repository.
+The dependency graph is central to supply chain security. The dependency graph identifies all upstream dependencies and public downstream dependents of a repository or package. Your repository’s dependency graph tracks and displays its dependencies and some of their properties, like vulnerability information.
 
 Other supply chain features on {% data variables.product.prodname_dotcom %} rely on the information provided by the dependency graph.
 
@@ -53,12 +53,13 @@ For best practice guides on end-to-end supply chain security including the prote
 
 ## Feature overview
 
-### What is the dependency graph
+### What is the dependency graph?
 
 To generate the dependency graph, {% data variables.product.company_short %} looks at a repository’s explicit dependencies declared in the manifest and lockfiles. When enabled, the dependency graph automatically parses all known package manifest files in the repository, and uses this to construct a graph with known dependency names and versions.
 
 * The dependency graph includes information on your _direct_ dependencies and _transitive_ dependencies.
 * The dependency graph is automatically updated when you push a commit to {% data variables.product.company_short %} that changes or adds a supported manifest or lock file to the default branch, and when anyone pushes a change to the repository of one of your dependencies.
+* The dependency graph can also include information you provide as your project is building using {% data variables.product.prodname_actions %}. Some package ecosystems pull in most of their transitive dependencies at build time, so submitting dependency information as the build is happening provides a more complete view of the supply chain.
 * You can see the dependency graph by opening the repository's main page on {% data variables.product.github %}, and navigating to the **Insights** tab.
 * {% data reusables.dependency-graph.sbom-export %}
 
@@ -66,7 +67,7 @@ To generate the dependency graph, {% data variables.product.company_short %} loo
 
 For more information about the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
 
-### What is dependency review
+### What is dependency review?
 
 Dependency review helps reviewers and contributors understand dependency changes and their security impact in every pull request.
 
@@ -75,9 +76,9 @@ Dependency review helps reviewers and contributors understand dependency changes
 
 For more information about dependency review, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
-### What is Dependabot
+### What is Dependabot?
 
-{% data variables.product.prodname_dependabot %} keeps your dependencies up to date by informing you of any security vulnerabilities in your dependencies, and automatically opens pull requests to upgrade your dependencies to the next available secure version when a {% data variables.product.prodname_dependabot %} alert is triggered, or to the latest version when a release is published.
+{% data variables.product.prodname_dependabot %} keeps your dependencies up to date by informing you of any security vulnerabilities in your dependencies and automatically opening pull requests to upgrade your dependencies. {% data variables.product.prodname_dependabot %} pull requests will target the next available secure version when a {% data variables.product.prodname_dependabot %} alert is triggered, or to the latest version when a release is published.
 
 The term "{% data variables.product.prodname_dependabot %}" encompasses the following features:
 * {% data variables.product.prodname_dependabot_alerts %}: Displayed notification on the **Security** tab for the repository, and in the repository's dependency graph. The alert includes a link to the affected file in the project, and information about a fixed version.
@@ -103,7 +104,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
 
 {% data reusables.dependabot.dependabot-actions-support %} For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
-#### What are Dependabot alerts
+#### What are Dependabot alerts?
 
 {% data variables.product.prodname_dependabot_alerts %} highlight repositories affected by a newly discovered vulnerability based on the dependency graph and the {% data variables.product.prodname_advisory_database %}, which contains advisories for known vulnerabilities.
 
@@ -116,7 +117,7 @@ For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dep
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
-#### What are Dependabot updates
+#### What are Dependabot updates?
 
 There are two types of {% data variables.product.prodname_dependabot_updates %}: {% data variables.product.prodname_dependabot %} _security_ updates and _version_ updates. {% data variables.product.prodname_dependabot %} generates automatic pull requests to update your dependencies in both cases, but there are several differences.
 
