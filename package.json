@@ -373,7 +373,7 @@
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.0.1",
     "eslint-import-resolver-typescript": "^4.2.1",
-    "eslint-plugin-github": "^5.0.2",
+    "eslint-plugin-github": "^6.0.0",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
     "eslint-plugin-primer-react": "^6.1.2",
