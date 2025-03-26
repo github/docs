@@ -18,7 +18,7 @@ versions:
 
 ## About {% data variables.product.prodname_copilot %} in JetBrains IDEs
 
-If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.github %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other JetBrains IDEs may differ.
+If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can help you with a variety of tasks, including generating code suggestions, explaining how the code in your editor works, and suggesting code fixes. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within your IDE or on {% data variables.product.github %}. This article describes how to configure {% data variables.product.prodname_copilot %} in the IntelliJ IDE, but the user interfaces of other JetBrains IDEs may differ.
 
 ## Prerequisites
 
@@ -196,7 +196,7 @@ You can also add a configuration to make the `languageAllowList` readonly in the
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}
 
-If you use {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vs %} or on {% data variables.product.github %}.
+If you use {% data variables.product.prodname_vs %}, {% data variables.product.prodname_copilot %} can help you with a variety of tasks, including generating code suggestions, explaining how the code in your editor works, and suggesting code fixes. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within {% data variables.product.prodname_vs %} or on {% data variables.product.github %}.
 
 ## Prerequisites
 
@@ -252,14 +252,9 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 ## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-If you use {% data variables.product.prodname_vscode %}, you can use {% data variables.product.prodname_copilot %} to:
-* Generate code
-* Learn from the code {% data variables.product.prodname_copilot_short %} generates
-* Help you configure your editor
+If you use {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_copilot %} can help you with a variety of tasks, including generating code suggestions, explaining how the code in your editor works, and suggesting edits based on your instructions. You can enable or disable {% data variables.product.prodname_copilot %}, and configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.github %}.
 
 You can learn more about scenarios and setup in the [{% data variables.product.prodname_vscode_shortname %} documentation](https://code.visualstudio.com/docs/copilot/overview#_use-cases-for-github-copilot-in-vs-code).
-
-After you install the {% data variables.product.prodname_copilot %} extension, you can enable or disable it, and you can configure advanced settings within {% data variables.product.prodname_vscode %} or on {% data variables.product.github %}.
 
 ## Keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -404,7 +399,7 @@ You can rebind the keyboard shortcuts in Vim/Neovim when using {% data variables
 
 ## About {% data variables.product.prodname_copilot %} in Xcode
 
-If you use Xcode, {% data variables.product.prodname_copilot %} can autocomplete code as you type. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within Xcode or on {% data variables.product.github %}.
+If you use Xcode, {% data variables.product.prodname_copilot %} can help you with a variety of tasks, including generating code suggestions, explaining how the code in your editor works, and suggesting code fixes. After installation, you can enable or disable {% data variables.product.prodname_copilot %}, and you can configure advanced settings within Xcode or on {% data variables.product.github %}.
 
 ## Prerequisites
 
