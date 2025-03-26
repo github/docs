@@ -2371,6 +2371,94 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Access Key ID
+  secretType: navercloud_gov_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secret Key
+  secretType: navercloud_gov_access_key_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service
+  secretType: navercloud_gov_sts
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service Secret
+  secretType: navercloud_gov_sts_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Access Key ID
+  secretType: navercloud_pub_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secret Key
+  secretType: navercloud_pub_access_key_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service
+  secretType: navercloud_pub_sts
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service Secret
+  secretType: navercloud_pub_sts_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Neon
   supportedSecret: Neon API Key
   secretType: neon_api_key
