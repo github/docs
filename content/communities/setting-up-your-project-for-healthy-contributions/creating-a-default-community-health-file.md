@@ -25,6 +25,7 @@ You can add default community health files to a public repository called `.githu
 - The `.github` folder
 - The `docs` folder
 
+on : Whatisthis
 For example, anyone who creates an issue or pull request in a repository that does not have its own CONTRIBUTING file will see a link to the default CONTRIBUTING file. If a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, including issue templates or a _config.yml_ file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used.
 
 Default files won’t appear in the file browser or Git history and are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
@@ -34,6 +35,9 @@ Default files won’t appear in the file browser or Git history and are not incl
 As a repository maintainer, you can use the community standards checklist to see if your project meets the recommended community standards to help people use and contribute to your project. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 
 {% endif %}
+======<
+Default files won’t appear in the file browser or Git history and are not included in clones, packages, or downloads of individual repositories because they are stored only in the `.github` repository.
+>---- gh-readonly-queue/main/pr-26243-6c202a7a14e9eaf54ce050500a213d9f42e90f39
 
 ## Supported file types
 
