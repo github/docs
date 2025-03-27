@@ -98,7 +98,7 @@ export async function executeCombinedSearch(
     // Allow the caller to pass in an AbortSignal to cancel the request
     signal: abortSignal || undefined,
   })
-  if (!response.ok) {
+  if (!response?.ok) {
     throw new Error(
       `Failed to fetch ai autocomplete search results.\nStatus ${response.status}\n${response.statusText}`,
     )

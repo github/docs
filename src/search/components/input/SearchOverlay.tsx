@@ -123,6 +123,10 @@ export function SearchOverlay({
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>
 
+    if (autoCompleteSearchError) {
+      return setShowSpinner(false)
+    }
+
     // If it's the initial fetch, show the spinner immediately
     if (!aiAutocompleteOptions.length && !generalSearchResults.length) {
       return setShowSpinner(true)
@@ -137,7 +141,12 @@ export function SearchOverlay({
     return () => {
       clearTimeout(timer)
     }
-  }, [searchLoading, aiAutocompleteOptions.length, generalSearchResults.length])
+  }, [
+    searchLoading,
+    aiAutocompleteOptions.length,
+    generalSearchResults.length,
+    autoCompleteSearchError,
+  ])
 
   // Filter out any options that match the local query and replace them with a custom user query option that include isUserQuery: true
   const filteredAIOptions = aiAutocompleteOptions.filter(
@@ -147,7 +156,14 @@ export function SearchOverlay({
   // Create new arrays that prepend the user input
   const userInputOptions =
     urlSearchInputQuery.trim() !== ''
-      ? [{ term: urlSearchInputQuery, highlights: [], isUserQuery: true }]
+      ? [
+          {
+            term: urlSearchInputQuery,
+            title: urlSearchInputQuery,
+            highlights: [],
+            isUserQuery: true,
+          },
+        ]
       : []
 
   // Combine options for key navigation
@@ -165,6 +181,13 @@ export function SearchOverlay({
         title: t('search.overlay.view_all_search_results'),
         isViewAllResults: true,
       } as any)
+    } else if (autoCompleteSearchError) {
+      if (urlSearchInputQuery.trim() !== '') {
+        generalOptionsWithViewStatus.push({
+          ...(userInputOptions[0] || {}),
+          isSearchDocsOption: true,
+        } as unknown as GeneralSearchHit)
+      }
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
       generalOptionsWithViewStatus.push({
         title: t('search.overlay.no_results_found'),
@@ -205,6 +228,7 @@ export function SearchOverlay({
     aiSearchError,
     aiReferences,
     isAskAIState,
+    autoCompleteSearchError,
   ])
 
   // Rather than use `initialFocusRef` to have our Primer <Overlay> component auto-focus our input
@@ -432,7 +456,10 @@ export function SearchOverlay({
       ) {
         const selectedItem = combinedOptions[selectedIndex]
         if (selectedItem.group === 'general') {
-          if ((selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults) {
+          if (
+            (selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults ||
+            (selectedItem.option as GeneralSearchHitWithOptions).isSearchDocsOption
+          ) {
             pressedOnContext = 'view-all'
             performGeneralSearch()
           } else {
@@ -500,7 +527,11 @@ export function SearchOverlay({
           className={styles.suggestionsList}
           ref={suggestionsListHeightRef}
           sx={{
-            minHeight: `${previousSuggestionsListHeight}px`,
+            // When there is an error and nothing is typed in by the user, show an empty list with no height
+            minHeight:
+              autoCompleteSearchError && !generalOptionsWithViewStatus.length
+                ? '0'
+                : `${previousSuggestionsListHeight}px`,
           }}
         >
           {/* Always show the AI Search UI error message when it is needed */}
@@ -533,27 +564,9 @@ export function SearchOverlay({
               <ActionList.Divider key="error-bottom-divider" />
             </>
           )}
-          {/* Only show the autocomplete search UI error message in Dev */}
-          {process.env.NODE_ENV === 'development' && autoCompleteSearchError && !aiSearchError && (
-            <Box
-              sx={{
-                padding: '0 16px 0 16px',
-              }}
-            >
-              <Banner
-                tabIndex={0}
-                className={styles.errorBanner}
-                title={t('search.failure.general_title')}
-                description={t('search.failure.description')}
-                variant="info"
-                aria-live="assertive"
-                role="alert"
-              />
-            </Box>
-          )}
           {renderSearchGroups(
             t,
-            autoCompleteSearchError ? [] : generalOptionsWithViewStatus,
+            generalOptionsWithViewStatus,
             aiSearchError ? [] : aiOptionsWithUserInput,
             generalSearchResultOnSelect,
             aiSearchOptionOnSelect,
@@ -713,6 +726,7 @@ interface AutocompleteSearchHitWithUserQuery extends AutocompleteSearchHit {
 interface GeneralSearchHitWithOptions extends GeneralSearchHit {
   isViewAllResults?: boolean
   isNoResultsFound?: boolean
+  isSearchDocsOption?: boolean
 }
 
 // Render the autocomplete suggestions with AI suggestions first, headings, and a divider between the two
@@ -824,6 +838,40 @@ function renderSearchGroups(
         )
         // There should be no more items after the no results found item
         break
+        // This is a special case where there is an error loading search results and we want to be able to search the docs using the user's query
+      } else if (option.isSearchDocsOption) {
+        const isActive = selectedIndex === index
+        items.push(
+          <ActionList.Item
+            key={`general-${index}`}
+            id={`search-option-general-${index}`}
+            role="option"
+            tabIndex={-1}
+            active={isActive}
+            onSelect={() => performGeneralSearch()}
+            aria-label={t('search.overlay.search_docs_with_query').replace('{query}', option.title)}
+            ref={(element) => {
+              if (listElementsRef.current) {
+                listElementsRef.current[index] = element
+              }
+            }}
+          >
+            <ActionList.LeadingVisual aria-hidden>
+              <SearchIcon />
+            </ActionList.LeadingVisual>
+            {option.title}
+            <ActionList.TrailingVisual
+              aria-hidden
+              sx={{
+                // Hold the space even when not visible to prevent layout shift
+                visibility: isActive ? 'visible' : 'hidden',
+                width: '1rem',
+              }}
+            >
+              <ArrowRightIcon />
+            </ActionList.TrailingVisual>
+          </ActionList.Item>,
+        )
       } else if (option.title) {
         const isActive = selectedIndex === index
         items.push(
@@ -877,13 +925,15 @@ function renderSearchGroups(
     // Don't show the bottom divider if:
     // 1. We are in the AI could not answer state
     // 2. We are in the AI Search error state
+    // 3. There are no AI suggestions to show in suggestions state
     if (
       !askAIState.aiCouldNotAnswer &&
       !askAIState.aiSearchError &&
       (!askAIState.isAskAIState ||
         generalSearchOptions.filter(
           (option) => !option.isViewAllResults && !option.isNoResultsFound,
-        ).length)
+        ).length) &&
+      aiOptionsWithUserInput.length
     ) {
       groups.push(<ActionList.Divider key="bottom-divider" />)
     }
