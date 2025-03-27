@@ -104,7 +104,7 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Billing managers for individual organizations
 * Anyone with a pending invitation to become a billing manager
 * Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
-* Guest collaborators who are not organization members (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
+* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
 * Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
 * Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
 
