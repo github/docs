@@ -487,15 +487,6 @@
         "access": "read"
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -681,15 +672,6 @@
         "subcategory": "copilot-metrics",
         "verb": "get",
         "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
         "additional-permissions": true,
         "access": "read"
       },
@@ -923,15 +905,6 @@
       },
       {
         "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
@@ -945,15 +918,6 @@
         "subcategory": "copilot-metrics",
         "verb": "get",
         "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
         "additional-permissions": true,
         "access": "read"
       }
@@ -2807,15 +2771,6 @@
       },
       {
         "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
         "slug": "re-run-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "post",
@@ -4065,15 +4020,6 @@
     "title": "Checks",
     "displayTitle": "Repository permissions for \"Checks\"",
     "permissions": [
-      {
-        "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
       {
         "category": "checks",
         "slug": "create-a-check-run",
@@ -5397,8 +5343,8 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "deployments",

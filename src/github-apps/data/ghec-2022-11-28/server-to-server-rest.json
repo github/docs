@@ -1899,12 +1899,6 @@
       "requestPath": "/orgs/{org}/copilot/metrics"
     },
     {
-      "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/usage"
-    },
-    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -1915,12 +1909,6 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
-    },
-    {
-      "slug": "get-a-summary-of-copilot-usage-for-a-team",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage"
     }
   ],
   "dependabot": [
