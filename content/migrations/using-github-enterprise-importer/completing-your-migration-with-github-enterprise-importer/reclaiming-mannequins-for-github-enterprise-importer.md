@@ -24,7 +24,7 @@ Each mannequin only has a display name, which comes from the display name in the
 
 Reclaiming is optional and can happen any time after a migration is finished. For this reason, you can allow your team to begin working in migrated repositories before reclaiming.
 
-Mannequins are not used for Git commit attribution. For more details about commit attribution, see [Managing authorship for Git commits](#managing-authorship-for-git-commits) below.
+Mannequins are not used for Git commit attribution. For more details about commit attribution, see [Managing authorship for commit commits](#managing-authorship-for-git-commits) below.
 
 ## Reclaiming mannequins
 
