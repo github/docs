@@ -3036,6 +3036,40 @@
       ]
     },
     {
+      "name": "createIssueType",
+      "kind": "mutations",
+      "id": "createissuetype",
+      "href": "/graphql/reference/mutations#createissuetype",
+      "description": "<p>Creates a new issue type.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "CreateIssueTypeInput!",
+          "id": "createissuetypeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#createissuetypeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueType",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype",
+          "description": "<p>The newly created issue type.</p>"
+        }
+      ]
+    },
+    {
       "name": "createLabel",
       "kind": "mutations",
       "id": "createlabel",
@@ -3942,6 +3976,40 @@
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string",
           "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
+      "name": "deleteIssueType",
+      "kind": "mutations",
+      "id": "deleteissuetype",
+      "href": "/graphql/reference/mutations#deleteissuetype",
+      "description": "<p>Delete an issue type.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "DeleteIssueTypeInput!",
+          "id": "deleteissuetypeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#deleteissuetypeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "deletedIssueTypeId",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "description": "<p>The ID of the deleted issue type.</p>"
         }
       ]
     },
@@ -8660,6 +8728,74 @@
       ]
     },
     {
+      "name": "updateIssueIssueType",
+      "kind": "mutations",
+      "id": "updateissueissuetype",
+      "href": "/graphql/reference/mutations#updateissueissuetype",
+      "description": "<p>Updates the issue type on an issue.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIssueIssueTypeInput!",
+          "id": "updateissueissuetypeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateissueissuetypeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issue",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue",
+          "description": "<p>The updated issue.</p>"
+        }
+      ]
+    },
+    {
+      "name": "updateIssueType",
+      "kind": "mutations",
+      "id": "updateissuetype",
+      "href": "/graphql/reference/mutations#updateissuetype",
+      "description": "<p>Update an issue type.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "UpdateIssueTypeInput!",
+          "id": "updateissuetypeinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#updateissuetypeinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        },
+        {
+          "name": "issueType",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype",
+          "description": "<p>The updated issue type.</p>"
+        }
+      ]
+    },
+    {
       "name": "updateLabel",
       "kind": "mutations",
       "id": "updatelabel",
@@ -10046,7 +10182,9 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectCard",
@@ -16764,7 +16902,9 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectCard",
@@ -17844,6 +17984,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "packageUrl",
+          "description": "<p>Public preview: The dependency package URL.</p>",
+          "type": "URI",
+          "id": "uri",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#uri"
         },
         {
           "name": "relationship",
@@ -26880,7 +27028,7 @@
       "kind": "objects",
       "id": "filepathrestrictionparameters",
       "href": "/graphql/reference/objects#filepathrestrictionparameters",
-      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
       "fields": [
         {
           "name": "restrictedFilePaths",
@@ -28924,6 +29072,14 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "issueType",
+          "description": "<p>The issue type for this Issue.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        },
+        {
           "name": "labels",
           "description": "<p>A list of labels associated with the object.</p>",
           "type": "LabelConnection",
@@ -29181,7 +29337,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectItems",
@@ -30744,6 +30902,14 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "type",
+          "description": "<p>The suggested issue type.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
         }
       ]
     },
@@ -30900,6 +31066,390 @@
           "id": "issuetimelineitems",
           "kind": "unions",
           "href": "/graphql/reference/unions#issuetimelineitems"
+        }
+      ]
+    },
+    {
+      "name": "IssueType",
+      "kind": "objects",
+      "id": "issuetype",
+      "href": "/graphql/reference/objects#issuetype",
+      "description": "<p>Represents the type of Issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "color",
+          "description": "<p>The issue type's color.</p>",
+          "type": "IssueTypeColor!",
+          "id": "issuetypecolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuetypecolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The issue type's description.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueType object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "isEnabled",
+          "description": "<p>The issue type's enabled state.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether the issue type is publicly visible.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Private issue types are being deprecated and can no longer be created. Removal on 2025-04-01 UTC.</p>"
+        },
+        {
+          "name": "issues",
+          "description": "<p>The issues with this issue type in the given repository.</p>",
+          "type": "IssueConnection!",
+          "id": "issueconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issueconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "filterBy",
+              "description": "<p>Filtering options for issues returned from the connection.</p>",
+              "type": {
+                "name": "IssueFilters",
+                "id": "issuefilters",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuefilters"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "labels",
+              "description": "<p>A list of label names to filter the pull requests by.</p>",
+              "type": {
+                "name": "[String!]",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issues returned from the connection.</p>",
+              "type": {
+                "name": "IssueOrder",
+                "id": "issueorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issueorder"
+              }
+            },
+            {
+              "name": "repositoryId",
+              "description": "<p>Target repository to load the issues from.</p>",
+              "type": {
+                "name": "ID!",
+                "id": "id",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#id"
+              }
+            },
+            {
+              "name": "states",
+              "description": "<p>A list of states to filter the issues by.</p>",
+              "type": {
+                "name": "[IssueState!]",
+                "id": "issuestate",
+                "kind": "enums",
+                "href": "/graphql/reference/enums#issuestate"
+              }
+            }
+          ]
+        },
+        {
+          "name": "name",
+          "description": "<p>The issue type's name.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeAddedEvent",
+      "kind": "objects",
+      "id": "issuetypeaddedevent",
+      "href": "/graphql/reference/objects#issuetypeaddedevent",
+      "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueTypeAddedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueType",
+          "description": "<p>The issue type added.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeChangedEvent",
+      "kind": "objects",
+      "id": "issuetypechangedevent",
+      "href": "/graphql/reference/objects#issuetypechangedevent",
+      "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueTypeChangedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueType",
+          "description": "<p>The issue type added.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        },
+        {
+          "name": "prevIssueType",
+          "description": "<p>The issue type removed.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeConnection",
+      "kind": "objects",
+      "id": "issuetypeconnection",
+      "href": "/graphql/reference/objects#issuetypeconnection",
+      "description": "<p>The connection type for IssueType.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[IssueTypeEdge]",
+          "id": "issuetypeedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetypeedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[IssueType]",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeEdge",
+      "kind": "objects",
+      "id": "issuetypeedge",
+      "href": "/graphql/reference/objects#issuetypeedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeRemovedEvent",
+      "kind": "objects",
+      "id": "issuetyperemovedevent",
+      "href": "/graphql/reference/objects#issuetyperemovedevent",
+      "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>",
+      "implements": [
+        {
+          "name": "Node",
+          "id": "node",
+          "href": "/graphql/reference/interfaces#node"
+        }
+      ],
+      "fields": [
+        {
+          "name": "actor",
+          "description": "<p>Identifies the actor who performed the event.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "createdAt",
+          "description": "<p>Identifies the date and time when the object was created.</p>",
+          "type": "DateTime!",
+          "id": "datetime",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "id",
+          "description": "<p>The Node ID of the IssueTypeRemovedEvent object.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id"
+        },
+        {
+          "name": "issueType",
+          "description": "<p>The issue type removed.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype"
         }
       ]
     },
@@ -32696,7 +33246,7 @@
       "kind": "objects",
       "id": "maxfilepathlengthparameters",
       "href": "/graphql/reference/objects#maxfilepathlengthparameters",
-      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "maxFilePathLength",
@@ -32713,7 +33263,7 @@
       "kind": "objects",
       "id": "maxfilesizeparameters",
       "href": "/graphql/reference/objects#maxfilesizeparameters",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
       "fields": [
         {
           "name": "maxFileSize",
@@ -34046,6 +34596,14 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "descriptionHTML",
+          "description": "<p>The HTML rendered description of the milestone using GitHub Flavored Markdown.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "dueOn",
           "description": "<p>Identifies the due date of the milestone.</p>",
           "type": "DateTime",
@@ -34519,7 +35077,9 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectCard",
@@ -40890,6 +41450,66 @@
           "href": "/graphql/reference/scalars#boolean"
         },
         {
+          "name": "issueTypes",
+          "description": "<p>A list of the organization's issue types.</p>",
+          "type": "IssueTypeConnection",
+          "id": "issuetypeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetypeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue types returned from the connection.</p>",
+              "type": {
+                "name": "IssueTypeOrder",
+                "id": "issuetypeorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuetypeorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "itemShowcase",
           "description": "<p>Showcases a selection of repositories and gists that the profile owner has\neither curated or that have been selected automatically based on popularity.</p>",
           "type": "ProfileItemShowcase!",
@@ -43065,7 +43685,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "viewerCanCreateRepositories",
@@ -51719,7 +52341,9 @@
                 "href": "/graphql/reference/scalars#int"
               }
             }
-          ]
+          ],
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectItems",
@@ -53135,10 +53759,18 @@
         {
           "name": "allowedMergeMethods",
           "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and\n<code>rebase</code>. At least one option must be enabled.</p>",
-          "type": "[String!]",
-          "id": "string",
+          "type": "[PullRequestAllowedMergeMethods!]",
+          "id": "pullrequestallowedmergemethods",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestallowedmergemethods"
+        },
+        {
+          "name": "automaticCopilotCodeReviewEnabled",
+          "description": "<p>This field is in beta and subject to change. Automatically request review from\nCopilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "dismissStaleReviewsOnPush",
@@ -57171,7 +57803,9 @@
           "type": "Project",
           "id": "project",
           "kind": "objects",
-          "href": "/graphql/reference/objects#project"
+          "href": "/graphql/reference/objects#project",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectColumnName",
@@ -62626,6 +63260,86 @@
           "href": "/graphql/reference/objects#issuetemplate"
         },
         {
+          "name": "issueType",
+          "description": "<p>Returns a single issue type by name.</p>",
+          "type": "IssueType",
+          "id": "issuetype",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetype",
+          "arguments": [
+            {
+              "name": "name",
+              "description": "<p>Issue type name.</p>",
+              "type": {
+                "name": "String!",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
+        },
+        {
+          "name": "issueTypes",
+          "description": "<p>A list of the repository's issue types.</p>",
+          "type": "IssueTypeConnection",
+          "id": "issuetypeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issuetypeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "orderBy",
+              "description": "<p>Ordering options for issue types returned from the connection.</p>",
+              "type": {
+                "name": "IssueTypeOrder",
+                "id": "issuetypeorder",
+                "kind": "input-objects",
+                "href": "/graphql/reference/input-objects#issuetypeorder"
+              }
+            }
+          ]
+        },
+        {
           "name": "issues",
           "description": "<p>A list of issues that have been opened in the repository.</p>",
           "type": "IssueConnection!",
@@ -64445,7 +65159,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "viewerCanSubscribe",
@@ -66542,6 +67258,14 @@
           "id": "dependabotupdate",
           "kind": "objects",
           "href": "/graphql/reference/objects#dependabotupdate"
+        },
+        {
+          "name": "dependencyRelationship",
+          "description": "<p>The relationship of an alert's dependency.</p>",
+          "type": "RepositoryVulnerabilityAlertDependencyRelationship",
+          "id": "repositoryvulnerabilityalertdependencyrelationship",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyrelationship"
         },
         {
           "name": "dependencyScope",
@@ -78680,7 +79404,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "viewerCanFollow",
@@ -82012,7 +82738,9 @@
           "type": "ID!",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id"
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "project",
@@ -82124,7 +82852,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "projectsUrl",
@@ -82132,7 +82862,9 @@
           "type": "URI!",
           "id": "uri",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#uri"
+          "href": "/graphql/reference/scalars#uri",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         },
         {
           "name": "viewerCanCreateProjects",
@@ -82140,7 +82872,9 @@
           "type": "Boolean!",
           "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#boolean"
+          "href": "/graphql/reference/scalars#boolean",
+          "isDeprecated": true,
+          "deprecationReason": "<p>Projects (classic) is being deprecated in favor of the new Projects experience, see: <a href=\"https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/\">https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/</a>. Removal on 2025-04-01 UTC.</p>"
         }
       ]
     },
@@ -85961,6 +86695,18 @@
           "description": "<p>Represents a comment on an Issue.</p>"
         },
         {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
+        },
+        {
           "name": "LABELED_EVENT",
           "description": "<p>Represents a<code>labeled</code>event on a given issue or pull request.</p>"
         },
@@ -86055,6 +86801,64 @@
         {
           "name": "USER_BLOCKED_EVENT",
           "description": "<p>Represents a<code>user_blocked</code>event on a given user.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeColor",
+      "kind": "enums",
+      "id": "issuetypecolor",
+      "href": "/graphql/reference/enums#issuetypecolor",
+      "description": "<p>The possible color for an issue type.</p>",
+      "values": [
+        {
+          "name": "BLUE",
+          "description": "<p>blue.</p>"
+        },
+        {
+          "name": "GRAY",
+          "description": "<p>gray.</p>"
+        },
+        {
+          "name": "GREEN",
+          "description": "<p>green.</p>"
+        },
+        {
+          "name": "ORANGE",
+          "description": "<p>orange.</p>"
+        },
+        {
+          "name": "PINK",
+          "description": "<p>pink.</p>"
+        },
+        {
+          "name": "PURPLE",
+          "description": "<p>purple.</p>"
+        },
+        {
+          "name": "RED",
+          "description": "<p>red.</p>"
+        },
+        {
+          "name": "YELLOW",
+          "description": "<p>yellow.</p>"
+        }
+      ]
+    },
+    {
+      "name": "IssueTypeOrderField",
+      "kind": "enums",
+      "id": "issuetypeorderfield",
+      "href": "/graphql/reference/enums#issuetypeorderfield",
+      "description": "<p>Properties by which issue type connections can be ordered.</p>",
+      "values": [
+        {
+          "name": "CREATED_AT",
+          "description": "<p>Order issue types by creation time.</p>"
+        },
+        {
+          "name": "NAME",
+          "description": "<p>Order issue types by name.</p>"
         }
       ]
     },
@@ -87366,6 +88170,10 @@
           "description": "<p>Date.</p>"
         },
         {
+          "name": "ISSUE_TYPE",
+          "description": "<p>Issue type.</p>"
+        },
+        {
           "name": "ITERATION",
           "description": "<p>Iteration.</p>"
         },
@@ -87713,6 +88521,27 @@
       ]
     },
     {
+      "name": "PullRequestAllowedMergeMethods",
+      "kind": "enums",
+      "id": "pullrequestallowedmergemethods",
+      "href": "/graphql/reference/enums#pullrequestallowedmergemethods",
+      "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and <code>rebase</code>. At least one option must be enabled.</p>",
+      "values": [
+        {
+          "name": "MERGE",
+          "description": "<p>Add all commits from the head branch to the base branch with a merge commit.</p>"
+        },
+        {
+          "name": "REBASE",
+          "description": "<p>Add all commits from the head branch onto the base branch individually.</p>"
+        },
+        {
+          "name": "SQUASH",
+          "description": "<p>Combine all commits from the head branch into a single commit in the base branch.</p>"
+        }
+      ]
+    },
+    {
       "name": "PullRequestBranchUpdateMethod",
       "kind": "enums",
       "id": "pullrequestbranchupdatemethod",
@@ -88011,6 +88840,18 @@
         {
           "name": "ISSUE_COMMENT",
           "description": "<p>Represents a comment on an Issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_ADDED_EVENT",
+          "description": "<p>Represents a<code>issue_type_added</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_CHANGED_EVENT",
+          "description": "<p>Represents a<code>issue_type_changed</code>event on a given issue.</p>"
+        },
+        {
+          "name": "ISSUE_TYPE_REMOVED_EVENT",
+          "description": "<p>Represents a<code>issue_type_removed</code>event on a given issue.</p>"
         },
         {
           "name": "LABELED_EVENT",
@@ -88781,7 +89622,7 @@
         },
         {
           "name": "FILE_PATH_RESTRICTION",
-          "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>"
+          "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>"
         },
         {
           "name": "LOCK_BRANCH",
@@ -88789,11 +89630,11 @@
         },
         {
           "name": "MAX_FILE_PATH_LENGTH",
-          "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>"
+          "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>"
         },
         {
           "name": "MAX_FILE_SIZE",
-          "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>"
+          "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>"
         },
         {
           "name": "MAX_REF_UPDATES",
@@ -88925,6 +89766,27 @@
         {
           "name": "PUBLIC",
           "description": "<p>The repository is visible to everyone.</p>"
+        }
+      ]
+    },
+    {
+      "name": "RepositoryVulnerabilityAlertDependencyRelationship",
+      "kind": "enums",
+      "id": "repositoryvulnerabilityalertdependencyrelationship",
+      "href": "/graphql/reference/enums#repositoryvulnerabilityalertdependencyrelationship",
+      "description": "<p>The possible relationships of an alert's dependency.</p>",
+      "values": [
+        {
+          "name": "DIRECT",
+          "description": "<p>A direct dependency of your project.</p>"
+        },
+        {
+          "name": "TRANSITIVE",
+          "description": "<p>A transitive dependency of your project.</p>"
+        },
+        {
+          "name": "UNKNOWN",
+          "description": "<p>The relationship is unknown.</p>"
         }
       ]
     },
@@ -89117,6 +89979,10 @@
         },
         {
           "name": "ISSUE",
+          "description": "<p>Returns results matching issues in repositories.</p>"
+        },
+        {
+          "name": "ISSUE_ADVANCED",
           "description": "<p>Returns results matching issues in repositories.</p>"
         },
         {
@@ -91555,6 +92421,21 @@
           "href": "/graphql/reference/objects#issuecomment"
         },
         {
+          "name": "IssueTypeAddedEvent",
+          "id": "issuetypeaddedevent",
+          "href": "/graphql/reference/objects#issuetypeaddedevent"
+        },
+        {
+          "name": "IssueTypeChangedEvent",
+          "id": "issuetypechangedevent",
+          "href": "/graphql/reference/objects#issuetypechangedevent"
+        },
+        {
+          "name": "IssueTypeRemovedEvent",
+          "id": "issuetyperemovedevent",
+          "href": "/graphql/reference/objects#issuetyperemovedevent"
+        },
+        {
           "name": "LabeledEvent",
           "id": "labeledevent",
           "href": "/graphql/reference/objects#labeledevent"
@@ -92555,6 +93436,21 @@
           "name": "IssueComment",
           "id": "issuecomment",
           "href": "/graphql/reference/objects#issuecomment"
+        },
+        {
+          "name": "IssueTypeAddedEvent",
+          "id": "issuetypeaddedevent",
+          "href": "/graphql/reference/objects#issuetypeaddedevent"
+        },
+        {
+          "name": "IssueTypeChangedEvent",
+          "id": "issuetypechangedevent",
+          "href": "/graphql/reference/objects#issuetypechangedevent"
+        },
+        {
+          "name": "IssueTypeRemovedEvent",
+          "id": "issuetyperemovedevent",
+          "href": "/graphql/reference/objects#issuetyperemovedevent"
         },
         {
           "name": "LabeledEvent",
@@ -96534,6 +97430,15 @@
           "href": "/graphql/reference/scalars#string"
         },
         {
+          "name": "issueTypeId",
+          "description": "<p>The Node ID of the issue type for this issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "labelIds",
           "description": "<p>An array of Node IDs of labels for this issue.</p>",
           "type": "[ID!]",
@@ -96585,6 +97490,72 @@
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "CreateIssueTypeInput",
+      "kind": "inputObjects",
+      "id": "createissuetypeinput",
+      "href": "/graphql/reference/input-objects#createissuetypeinput",
+      "description": "<p>Autogenerated input type of CreateIssueType.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "color",
+          "description": "<p>Color for the issue type.</p>",
+          "type": "IssueTypeColor",
+          "id": "issuetypecolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuetypecolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>Description of the new issue type.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isEnabled",
+          "description": "<p>Whether or not the issue type is enabled on the org level.</p>",
+          "type": "Boolean!",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the issue type is restricted to issues in private repositories</p>\n<p><strong>Upcoming Change on 2025-04-01 UTC</strong>\n<strong>Description:</strong> <code>isPrivate</code> will be removed.\n<strong>Reason:</strong> Private issue types are being deprecated and can no longer be created.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "name",
+          "description": "<p>Name of the new issue type.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "ownerId",
+          "description": "<p>The ID for the organization on which the issue type is created.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
         }
       ]
     },
@@ -97969,6 +98940,32 @@
       ]
     },
     {
+      "name": "DeleteIssueTypeInput",
+      "kind": "inputObjects",
+      "id": "deleteissuetypeinput",
+      "href": "/graphql/reference/input-objects#deleteissuetypeinput",
+      "description": "<p>Autogenerated input type of DeleteIssueType.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the issue type to delete.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
       "name": "DeleteLabelInput",
       "kind": "inputObjects",
       "id": "deletelabelinput",
@@ -99178,7 +100175,7 @@
       "kind": "inputObjects",
       "id": "filepathrestrictionparametersinput",
       "href": "/graphql/reference/input-objects#filepathrestrictionparametersinput",
-      "description": "<p>Prevent commits that include changes in specified file paths from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits that include changes in specified file and folder paths from\nbeing pushed to the commit graph. This includes absolute paths that contain file names.</p>",
       "inputFields": [
         {
           "name": "restrictedFilePaths",
@@ -99649,6 +100646,31 @@
       ]
     },
     {
+      "name": "IssueTypeOrder",
+      "kind": "inputObjects",
+      "id": "issuetypeorder",
+      "href": "/graphql/reference/input-objects#issuetypeorder",
+      "description": "<p>Ordering options for issue types connections.</p>",
+      "inputFields": [
+        {
+          "name": "direction",
+          "description": "<p>The ordering direction.</p>",
+          "type": "OrderDirection!",
+          "id": "orderdirection",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#orderdirection"
+        },
+        {
+          "name": "field",
+          "description": "<p>The field to order issue types by.</p>",
+          "type": "IssueTypeOrderField!",
+          "id": "issuetypeorderfield",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuetypeorderfield"
+        }
+      ]
+    },
+    {
       "name": "LabelOrder",
       "kind": "inputObjects",
       "id": "labelorder",
@@ -99979,7 +101001,7 @@
       "kind": "inputObjects",
       "id": "maxfilepathlengthparametersinput",
       "href": "/graphql/reference/input-objects#maxfilepathlengthparametersinput",
-      "description": "<p>Prevent commits that include file paths that exceed a specified character limit from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits that include file paths that exceed the specified character limit from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "maxFilePathLength",
@@ -99996,7 +101018,7 @@
       "kind": "inputObjects",
       "id": "maxfilesizeparametersinput",
       "href": "/graphql/reference/input-objects#maxfilesizeparametersinput",
-      "description": "<p>Prevent commits that exceed a specified file size limit from being pushed to the commit graph.</p>",
+      "description": "<p>Prevent commits with individual files that exceed the specified limit from being pushed to the commit graph.</p>",
       "inputFields": [
         {
           "name": "maxFileSize",
@@ -101097,10 +102119,18 @@
         {
           "name": "allowedMergeMethods",
           "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and\n<code>rebase</code>. At least one option must be enabled.</p>",
-          "type": "[String!]",
-          "id": "string",
+          "type": "[PullRequestAllowedMergeMethods!]",
+          "id": "pullrequestallowedmergemethods",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#pullrequestallowedmergemethods"
+        },
+        {
+          "name": "automaticCopilotCodeReviewEnabled",
+          "description": "<p>This argument is in beta and subject to change. Automatically request review\nfrom Copilot for new pull requests, if the author has access to Copilot code review.</p>",
+          "type": "Boolean",
+          "id": "boolean",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#string"
+          "href": "/graphql/reference/scalars#boolean"
         },
         {
           "name": "dismissStaleReviewsOnPush",
@@ -105577,6 +106607,15 @@
           "isDeprecated": false
         },
         {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the Issue Type for this issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
           "name": "labelIds",
           "description": "<p>An array of Node IDs of labels for this issue.</p>",
           "type": "[ID!]",
@@ -105613,6 +106652,107 @@
         {
           "name": "title",
           "description": "<p>The title for the issue.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        }
+      ]
+    },
+    {
+      "name": "UpdateIssueIssueTypeInput",
+      "kind": "inputObjects",
+      "id": "updateissueissuetypeinput",
+      "href": "/graphql/reference/input-objects#updateissueissuetypeinput",
+      "description": "<p>Autogenerated input type of UpdateIssueIssueType.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "issueId",
+          "description": "<p>The ID of the issue to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the issue type to update on the issue.</p>",
+          "type": "ID",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        }
+      ]
+    },
+    {
+      "name": "UpdateIssueTypeInput",
+      "kind": "inputObjects",
+      "id": "updateissuetypeinput",
+      "href": "/graphql/reference/input-objects#updateissuetypeinput",
+      "description": "<p>Autogenerated input type of UpdateIssueType.</p>",
+      "inputFields": [
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "color",
+          "description": "<p>Color for the issue type.</p>",
+          "type": "IssueTypeColor",
+          "id": "issuetypecolor",
+          "kind": "enums",
+          "href": "/graphql/reference/enums#issuetypecolor"
+        },
+        {
+          "name": "description",
+          "description": "<p>The description of the issue type.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "isEnabled",
+          "description": "<p>Whether or not the issue type is enabled for the organization.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "isPrivate",
+          "description": "<p>Whether or not the issue type is restricted to issues in private repositories</p>\n<p><strong>Upcoming Change on 2025-04-01 UTC</strong>\n<strong>Description:</strong> <code>isPrivate</code> will be removed.\n<strong>Reason:</strong> Private issue types are being deprecated and can no longer be created.</p>",
+          "type": "Boolean",
+          "id": "boolean",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#boolean"
+        },
+        {
+          "name": "issueTypeId",
+          "description": "<p>The ID of the issue type to update.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "name",
+          "description": "<p>The name of the issue type.</p>",
           "type": "String",
           "id": "string",
           "kind": "scalars",
