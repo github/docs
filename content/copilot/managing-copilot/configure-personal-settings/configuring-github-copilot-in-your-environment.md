@@ -22,7 +22,7 @@ If you use a JetBrains IDE, {% data variables.product.prodname_copilot %} can he
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=jetbrains).
+To configure {% data variables.product.prodname_copilot %} in a JetBrains IDE, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=jetbrains).
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 
@@ -200,7 +200,7 @@ If you use {% data variables.product.prodname_vs %}, {% data variables.product.p
 
 ## Prerequisites
 
-To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot?tool=visualstudio).
+To configure {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}, you must install the {% data variables.product.prodname_copilot %} plugin. For more information, see [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment?tool=visualstudio).
 
 ## Using or rebinding keyboard shortcuts for {% data variables.product.prodname_copilot %}
 

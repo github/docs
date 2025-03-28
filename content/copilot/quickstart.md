@@ -4,6 +4,17 @@ intro: 'Quickly learn how to use {% data variables.product.prodname_copilot %}.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: copilot
+redirect_from:
+  - /copilot/getting-started-with-github-copilot
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
+  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
+  - /copilot/using-github-copilot/getting-started-with-github-copilot
 shortTitle: Quickstart
 topics:
   - Copilot

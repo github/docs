@@ -8,7 +8,9 @@ topics:
   - Copilot
 redirect_from:
   - /copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
+  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
   - /copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom
+  - /copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
   - /copilot/github-copilot-chat/copilot-chat-in-github
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom
   - /copilot/using-github-copilot/asking-github-copilot-questions-in-github
