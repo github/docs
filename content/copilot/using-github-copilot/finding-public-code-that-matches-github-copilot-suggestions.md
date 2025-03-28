@@ -1,7 +1,7 @@
 ---
 title: Finding public code that matches GitHub Copilot suggestions
 shortTitle: Find matching code
-intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any matching code that is found.'
+intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, {% data variables.product.prodname_copilot_short %} will display references to any similar code that is found.'
 defaultTool: vscode
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot
@@ -30,9 +30,15 @@ This version of this article is for {% data variables.product.prodname_copilot_s
 
 {% endwebui %}
 
+{% visualstudio %}
+
+This version of this article is for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}. For {% data variables.product.prodname_copilot_short %} on other platforms, click the appropriate tab above.
+
+{% endvisualstudio %}
+
 ## Limitations
 
-References to matching code are currently only available in JetBrains IDEs, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
+References to matching code are currently available in JetBrains IDEs, {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on the {% data variables.product.github %} website.
 
 ## Prerequisites
 
@@ -58,13 +64,17 @@ If you've allowed suggestions that match public code, then whenever a response f
 
 {% endwebui %}
 
+{% visualstudio %}
+
+{% data reusables.copilot.about-code-referencing %}
+
+{% endvisualstudio %}
+
 This feature is called code referencing.
 
 {% jetbrains %}
 
 ### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
-
-When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the JetBrains log. The log entry includes the URLs of files containing matching code, and the name of the license that applies to that code, if any was found. This allows you to review these references and decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
 
 {% data reusables.copilot.code-referencing-note %}
 
@@ -85,10 +95,6 @@ When you accept a code completion suggestion that matches code in a public {% da
 
 ### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
 
-When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to a {% data variables.product.prodname_copilot %} log. The log entry includes a link to a page on {% data variables.product.prodname_dotcom_the_website %} where you can view references to similar code in public {% data variables.product.prodname_dotcom %} repositories.
-
-The linked web page includes details of any license identified for the repository where the matching code was found. Having reviewed the references, you can decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
-
 {% data reusables.copilot.code-referencing-note %}
 
 ### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
@@ -96,6 +102,18 @@ The linked web page includes details of any license identified for the repositor
 {% data reusables.copilot.code-referencing-in-chat %}
 
 {% endvscode %}
+
+{% visualstudio %}
+
+### Code referencing for {% data variables.product.prodname_copilot_short %} code completion
+
+{% data reusables.copilot.code-referencing-note %}
+
+### Code referencing for {% data variables.product.prodname_copilot_chat_short %}
+
+When {% data variables.product.prodname_copilot_chat_short %} provides a response that includes code that matches code in a public {% data variables.product.github %} repository, this is indicated below the suggested code, with a link to display details of the matched code in the output log.
+
+{% endvisualstudio %}
 
 ### How code referencing finds matching code
 
@@ -125,7 +143,7 @@ You can view code references in the log file for your JetBrains IDE.
 The log entry includes the following details:
 
 * The date and time you accepted the suggestion.
-* A "Public Code References" message telling you that matching code was found.
+* A "Public Code References" message telling you that similar code was found.
 * The path to the file in which the suggestion was added.
 * The line and column number where the suggestion was added.
 * A list of matches, including:
@@ -134,22 +152,7 @@ The log entry includes the following details:
 
 ### Verifying the code referencing functionality
 
-You can verify that code referencing is working by prompting {% data variables.product.prodname_copilot_short %} to add some commonly used code and checking the output in the log file for your IDE.
-
-1. Display the log file for your JetBrains IDE, as described in the previous section.
-1. Create a file called `fizz-buzz.js` and open it in the JetBrains editor.
-1. In the editor, type:
-
-   ```javascript
-   function fizzBuzz()
-   ```
-
-   With a space after the closing parenthesis.
-
-   {% data variables.product.prodname_copilot %} should suggest code to complete the function. Typically the suggestion will be a common implementation of the fizz buzz algorithm that will match publicly available code on the {% data variables.product.github %} website.
-
-1. Accept the suggestion by pressing <kbd>Tab</kbd>.
-1. Check whether a "[Public Code References]" entry has been added to the log file.
+{% data reusables.copilot.code-referencing-verifying %}
 
 {% endjetbrains %}
 
@@ -157,14 +160,11 @@ You can verify that code referencing is working by prompting {% data variables.p
 
 ## View code references for code completion
 
-You can access code references from one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
+You can find code references in one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
 1. In {% data variables.product.prodname_vscode %}, open the **Output** window by selecting **View** > **Output** from the menu bar.
-1. In the dropdown menu at the right of the **Output** window, select **{% data variables.product.prodname_copilot %} Log**.
-
-   ![Screenshot of the Output window with "{% data variables.product.prodname_copilot %} Log" selected from the dropdown menu.](/assets/images/help/copilot/copilot-log-selected.png)
-
-1. Leave the **{% data variables.product.prodname_copilot %} Log** view displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
+1. In the dropdown menu at the right of the **Output** window, select **{% data variables.product.prodname_copilot %} Log (Code References)**.
+1. Leave the **{% data variables.product.prodname_copilot %} Log (Code References)** view displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
 
    When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
 
@@ -172,49 +172,56 @@ You can access code references from one of the {% data variables.product.prodnam
 
    * The date and time you accepted the suggestion.
    * The name of the file in which the suggestion was added.
-   * A message telling you that similar code was found, with the number and type of licenses.
-   * A link to a page on {% data variables.product.prodname_dotcom_the_website %}.
-   * The location in the file where the suggestion was added.
-   * A snippet of part of the code that was suggested and added.
+   * "Similar code at" followed by the location in the file where the suggestion was added.
+   * An extract of the code that was added by code completion.
+   * The license type for the matching code, if found, otherwise `unknown`.
+   * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the similar code was found.
 
-   ![Screenshot of the Output window showing a code referencing log entry.](/assets/images/help/copilot/copilot-code-referencing-log.png)
+### Example log entry
 
-   > [!NOTE] The {% data variables.product.prodname_copilot %} log is flushed when you close the editor.
-
-1. In the log entry, <kbd>Ctrl</kbd>+click (Windows/Linux) or <kbd>Command</kbd>+click (Mac) the link to view the code references on {% data variables.product.prodname_dotcom_the_website %}.
-
-   The page lists the matches that were found, showing an excerpt from the relevant file. You can click on the file name to view the whole file.
-
-   ![Screenshot of code references listed on {% data variables.product.prodname_dotcom_the_website %}.](/assets/images/help/copilot/code-references-webpage.png)
-
-   Matches may be found in multiple repositories with different, sometimes conflicting, licenses. You can use the checkboxes on the left of the page to show only the matches associated with a particular license.
-
-   You should review all license information within a repository to verify that it applies to the matching code, as repositories may contain multiple licenses and these licenses are subject to human and non-human error.
-
-   > [!NOTE] The web page displaying the full set of details will remain available for three months.
+```text
+2025-03-27 12:17:54.759 [info] file:///Users/monalisa/fizzbuzz.js Similar code at  [Ln 2, Col 8] let i = 1; i <= 100; i++) {  let output = '';  if (i % 3 === 0) {  output += 'Fizz';...
+2025-03-27 12:17:54.759 [info] License: unknown, URL: https://github.com/octo-org/octo-repo/blob/8563f3b1d4f33952b22212b86e745539d1567ed1/examples/fizzBuzz.js
+2025-03-27 12:17:54.759 [info] License: MIT, URL: https://github.com/octo-org/monalisa/blob/7e974691f4c8e6bc55f9b50688f05d746d1bc52b/exercises/2/fizz-buzz.js
+```
 
 ### Verifying the code referencing functionality
 
-You can verify that code referencing is working by prompting {% data variables.product.prodname_copilot_short %} to add some commonly used code and checking the output in the {% data variables.product.prodname_copilot_short %} log.
-
-1. In {% data variables.product.prodname_vscode %}, create a file called `fizz-buzz.js`.
-1. Open the **Output** window by selecting **View** > **Output** from the menu bar.
-1. In the dropdown menu at the right of the **Output** window, select **{% data variables.product.prodname_copilot %} Log**.
-1. In the editor, type:
-
-   ```javascript
-   function fizzBuzz()
-   ```
-
-   With a space after the closing parenthesis.
-
-   {% data variables.product.prodname_copilot %} should suggest code to complete the function. Typically the suggestion will be a common implementation of the fizz buzz algorithm that will match publicly available code on the {% data variables.product.github %} website.
-
-1. Accept the suggestion by pressing <kbd>Tab</kbd>.
-
-   If code referencing finds a match to public code, a log entry is added to the **{% data variables.product.prodname_copilot %} Log** view.
+{% data reusables.copilot.code-referencing-verifying %}
 
 {% endvscode %}
+
+{% visualstudio %}
+
+## View code references for code completion
+
+You can find code references in the {% data variables.product.prodname_copilot %} log in {% data variables.product.prodname_vs %}.
+
+1. In the menu bar, click **View**.
+1. In the dropdown menu, click **Output**.
+1. In Output view, click the box to the right of "Show output from" and select **{% data variables.product.prodname_copilot %}**.
+1. Leave the log displayed while you use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}.
+
+   When you accept a code completion suggestion that matches code in a public {% data variables.product.prodname_dotcom %} repository, an entry is added to the log.
+
+   The log entry includes the following details:
+
+   * The time you accepted the suggestion. Click the "Show Timestamp" clock icon if the time is not displayed.
+   * The description `[Completions Public Code Match Information]`.
+   * The license type for the matching code, if found, otherwise `NOASSERTION`.
+   * The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the similar code was found.
+
+### Example log entry
+
+```text
+09:39:16:203	[Completions Public Code Match Information] Similar code with license type [MIT] https://github.com/octo-org/octo-repo/blob/34deb75eb6a2e22483ed465a6aec38c02eb2536e/routines/quicksort.js
+```
+
+### Verifying the code referencing functionality
+
+{% data reusables.copilot.code-referencing-verifying %}
+
+{% endvisualstudio %}
 
 ## View code references for {% data variables.product.prodname_copilot_chat_short %}
 
@@ -229,6 +236,52 @@ You can verify that code referencing is working by prompting {% data variables.p
 {% data reusables.copilot.viewing-code-references-in-chat %}
 
 {% endvscode %}
+
+{% visualstudio %}
+
+If a response in {% data variables.product.prodname_copilot_chat_short %} includes matching code, this is below the suggested code by the following text:
+
+> Found similar code in public repos. **View matches**
+
+Click **View matches** to open the {% data variables.product.prodname_copilot %} log, if it is not already open, and add details of the matched code.
+
+The details include:
+
+* The time you added the details to the log. Click the "Show Timestamp" clock icon if the time is not displayed.
+* The description `[Code Match]` as the first log entry before the list of matching code.
+* The license type—if found—for each instance of similar code.
+* The URL of the file on {% data variables.product.prodname_dotcom_the_website %} where the matching code was found.
+* A code snippet showing the matching code.
+
+### Logging example
+
+```text
+09:24:10:525	[Code Match] Similar code with 2 license type(s) [MIT, NOASSERTION]
+09:24:10:525	## License: MIT
+09:24:10:525	https://github.com/octo-org/octo-repo/tree/127aac4ab27a42706af01be80f7aae3b83f44fbc/buzzfizz.py
+09:24:10:525	```
+09:24:10:525	for i in range(1, n + 1):
+09:24:10:525	        if i % 3 == 0 and i % 5 == 0:
+09:24:10:525	            print('FizzBuzz')
+09:24:10:525	        elif i % 3 == 0:
+09:24:10:525	            print('Fizz')
+09:24:10:525	        elif i % 5 == 0:
+09:24:10:525	```
+09:24:10:525	## License: NOASSERTION
+09:24:10:525	https://github.com/octo-org/monalisa/tree/011308746e53b26b128fa53c044a2527c39231f0/fizz-buzz.py
+09:24:10:525	```
+09:24:10:525	i % 3 == 0 and i % 5 == 0:
+09:24:10:525	            print('FizzBuzz')
+09:24:10:525	        elif i % 3 == 0:
+09:24:10:525	            print('Fizz')
+09:24:10:525	        elif i % 5 == 0:
+09:24:10:525	            print('Buzz')
+09:24:10:525	        else:
+09:24:10:525	            print(i)
+09:24:10:525	```
+```
+
+{% endvisualstudio %}
 
 {% webui %}
 
