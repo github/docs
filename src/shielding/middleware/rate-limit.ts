@@ -72,8 +72,7 @@ export function createRateLimiter(max = MAX, isAPILimiter = false) {
       res.status(options.statusCode).send(options.message)
     },
 
-    // Temporary so that we can see what is coming from Fastly v app level
-    statusCode: 418, // "i'm a teapot"
+    message: 'Express rate limiter: Too Many Requests',
   })
 }
 
