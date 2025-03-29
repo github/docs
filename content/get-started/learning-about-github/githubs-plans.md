@@ -1,4 +1,4 @@
----
+f599c75e418e580d92809ce71405eeb8a6104eea---
 title: GitHub’s plans
 intro: 'An overview of {% data variables.product.prodname_dotcom %}''s pricing plans.'
 redirect_from:
