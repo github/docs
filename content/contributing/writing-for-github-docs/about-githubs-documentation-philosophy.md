@@ -1,4 +1,12 @@
----
+const requestOptions = {
+  method: "get",
+}
+
+fetch("https://pro-api.solscan.io/v2.0/token/list?page=1&page_size=10", requestOptions)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+    ---
 title: About GitHub's documentation philosophy
 shortTitle: Documentation philosophy
 intro: Our documentation philosophy guides what content we create and how we create it.
