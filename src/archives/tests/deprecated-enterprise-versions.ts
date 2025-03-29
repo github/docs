@@ -336,7 +336,7 @@ describe('JS and CSS assets', () => {
     expect(result.headers['x-is-archived']).toBeUndefined()
     expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
     expect(result.headers['cache-control']).toContain('public')
-    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+    expect(result.headers['cache-control']).Match(/max-age=[1-9]/)
   })
 
   test('404 if the pathname contains URL characters (@)', async () => {
@@ -350,5 +350,13 @@ describe('JS and CSS assets', () => {
     expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
     expect(result.headers['cache-control']).toContain('public')
     expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+})
+
+describe('voice communication documentation', () => {
+  test('verifies the presence of the new voice communication documentation', async () => {
+    const res = await get('/content/voice-communication.md')
+    expect(res.statusCode).toBe(200)
+    expect(res.headers['content-type']).toBe('text/markdown; charset=utf-8')
   })
 })
