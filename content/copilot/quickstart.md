@@ -265,9 +265,9 @@ After you've installed the {% data variables.product.prodname_copilot %} plugin,
 > [!NOTE] {% data reusables.copilot.chat-access-denied %}
 
 1. Open an existing code file.
-1. Open the {% data variables.product.prodname_copilot_chat_short %} window by clicking the **{% data variables.product.prodname_copilot_chat_short %}** icon at the right side of the JetBrains IDE window.
+1. Open the {% data variables.product.prodname_copilot_chat_short %} window by clicking the {% data variables.product.prodname_copilot_chat %} icon at the right side of the JetBrains IDE window.??????
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
+   ![Screenshot of the {% data variables.product.prodname_copilot_chat %} icon in the Activity Bar.](/assets/images/help/copilot/jetbrains-copilot-chat-icon.png)
 
 1. In the {% data variables.product.prodname_copilot_chat_short %} window, type `what does this file do` then press <kbd>Enter</kbd>.
 
