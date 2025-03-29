@@ -29,6 +29,10 @@ If you're having trouble with your GitHub account, contact [Support](https://sup
 
 That's how you can easily become a member of the GitHub Docs community. :sparkles:
 
+## Voice Communication
+
+To set up and use voice communication, refer to the [Voice Communication Documentation](content/voice-communication.md).
+
 ## READMEs
 
 In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:

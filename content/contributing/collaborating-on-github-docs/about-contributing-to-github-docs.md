@@ -62,3 +62,7 @@ We do not currently accept pull requests for translated content.
 {% data variables.product.prodname_dotcom %}'s site policies are also published on docs.github.com.<!-- markdownlint-disable-line search-replace -->
 
 If you find a typo in the site policy section, you can open a pull request to fix it. For anything else, see [Contributing](https://github.com/github/site-policy/blob/main/CONTRIBUTING.md) in the `site-policy` repository.
+
+## Voice Communication
+
+To set up and use voice communication, refer to the [Voice Communication Documentation](content/voice-communication.md).
