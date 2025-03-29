@@ -1,3 +1,4 @@
+?
 ---
 title: Building Copilot Extensions
 shortTitle: Build Copilot Extensions
@@ -19,3 +20,4 @@ children:
   - /copilot-extensions-faq
   - /copilot-extensions-glossary
 ---
+n00i1kat
