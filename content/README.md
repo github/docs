@@ -402,7 +402,15 @@ Index pages are the Table of Contents files for the docs site. Every product, ca
 
 ### Homepage
 
-The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-page) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
+The homepage is the main Table of Contents file for the docs site. The homepage must have a complete list of `children`, like every [Index page](#index-paconst requestOptions = {
+  method: "get",
+}
+
+fetch("https://pro-api.solscan.io/v2.0/account/detail", requestOptions)
+  .then(response => response.json())
+  .then(response => console.log(response))
+  .catch(err => console.error(err));
+    ge) but must also specify the `childGroups` frontmatter property that will be highlighted in the main content area.
 
 `childGroups` is an array of mappings containing a `name` for the group, an optional `icon` for the group, and an array of `children`.  The `children` in the array must be present in the `children` frontmatter property.
 
