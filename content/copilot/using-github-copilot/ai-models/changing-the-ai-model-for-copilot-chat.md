@@ -27,8 +27,8 @@ The following models are currently available in the immersive mode of {% data va
 
 * {% data reusables.copilot.model-description-gpt-4o %} {% ifversion copilot-enterprise %}
 * {% data reusables.copilot.model-description-gpt-4-5 %} {% endif %}
-* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-gemini-flash %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
@@ -74,8 +74,8 @@ The following models are currently available through multi-model {% data variabl
 
 * {% data reusables.copilot.model-description-gpt-4o %} {% ifversion copilot-enterprise %}
 * {% data reusables.copilot.model-description-gpt-4-5 %} {% endif %}
-* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-gemini-flash %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
@@ -108,8 +108,8 @@ These instructions are for {% data variables.product.prodname_vscode_shortname %
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
 * {% data reusables.copilot.model-description-gpt-4o %}
-* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
 
@@ -169,19 +169,25 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 {% eclipse %}
 
+> [!NOTE]
+> * Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.{% ifversion copilot-enterprise %}
+> * Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.{% endif %}
+
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-gpt-4o %}{% ifversion copilot-enterprise %}
+* {% data reusables.copilot.model-description-gpt-4-5 %}{% endif %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-gemini-flash %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
 
 For more information about these models, see:
 
-* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
+* **OpenAI's GPT-4o, {% ifversion copilot-enterprise %} GPT-4.5,{% endif %} o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
 * **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
 
@@ -201,22 +207,26 @@ These instructions are for the Eclipse IDE. For instructions on different client
 
 {% xcode %}
 
-> [!NOTE] Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE]
+> * Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.{% ifversion copilot-enterprise %}
+> * Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.{% endif %}
 
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data reusables.copilot.model-description-gpt-4o %}
+* {% data reusables.copilot.model-description-gpt-4o %}{% ifversion copilot-enterprise %}
+* {% data reusables.copilot.model-description-gpt-4-5 %}{% endif %}
 * {% data reusables.copilot.model-description-claude-sonnet-35 %}
+* {% data reusables.copilot.model-description-claude-sonnet-37 %}
 * {% data reusables.copilot.model-description-o1 %}
 * {% data reusables.copilot.model-description-o3-mini %}
 * {% data reusables.copilot.model-description-gemini-flash %}
 
 For more information about these models, see:
 
-* **OpenAI's GPT-4o, o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
-* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **OpenAI's GPT-4o, {% ifversion copilot-enterprise %} GPT-4.5,{% endif %} o1, and o3-mini models**: [Models](https://platform.openai.com/docs/models) in the OpenAI Platform documentation.
+* **Anthropic's {% data variables.copilot.copilot_claude_sonnet %} models**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **Google's {% data variables.copilot.copilot_gemini_flash %} model**: [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
 
 ## Changing the AI model for {% data variables.product.prodname_copilot_chat_short %}
