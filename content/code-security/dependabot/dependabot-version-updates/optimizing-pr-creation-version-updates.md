@@ -35,7 +35,7 @@ However, to reduce distraction, or to better organize time and resources for rev
 
 You can use `schedule` with a combination of options to modify the frequency and timings of when {% data variables.product.prodname_dependabot %} checks for version updates
 
-The example `dependabot.yml` file below changes the npm configuration to specify that {% data variables.product.prodname_dependabot %} should check for version updates to npm dependencies every Tuesday at 02:00 Japanese Standard Time (UTC +09:00).
+The example `dependabot.yml` file below changes the npm configuration to specify that {% data variables.product.prodname_dependabot %} should check for version updates to npm dependencies every day at 02:00 Japanese Standard Time (UTC +09:00).
 
 ```yaml copy
 # `dependabot.yml` file with
