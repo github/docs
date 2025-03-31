@@ -53,16 +53,6 @@ If you're sure you want to use the repository, a site administrator can unlock t
 
 The source repository is not locked by default, only if the `--lock` argument is specified when preparing the repository for export with the `ghe-migrator add` command. To unlock the repository, use the `ghe-migrator unlock` command. For more information, see [AUTOTITLE](/migrations/using-ghe-migrator/migrating-data-to-github-enterprise-server#unlocking-repositories-on-the-source).
 
-## Repositories locked by Enterprise Cloud Importer
-
-When you use Enterprise Cloud Importer, the destination repository is locked by default and is not automatically unlocked.
-
-If the import succeeded, you can unlock the repository by clicking the **Unlock** button in Enterprise Cloud Importer.
-
-If the import failed, you cannot unlock the repository yourself. Because a failed migration means that not all of your data has been migrated, we recommend deleting the repository and retrying the migration, to prevent data loss.
-
-If you’re sure you want to unlock the repository, contact {% data variables.contact.contact_support %}.
-
 ## Repositories locked by the `startImport` GraphQL mutation
 
 When you use the `startImport` GraphQL mutation, the destination repository is locked by default and is not automatically unlocked.
