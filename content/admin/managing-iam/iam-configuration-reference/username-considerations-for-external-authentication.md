@@ -69,7 +69,7 @@ When you provision a new user from your identity provider, the new {% data varia
 
 If you use {% data variables.enterprise.data_residency %}, when you create an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.enterprise.data_residency_site %}, your enterprise's shortcode is randomly generated.
 
-* Although the shortcode is not visible in the user interface, it is still appended as a suffix to the usernames of provisioned users. This suffix is not displayed to the users in the UI, but it remains part of their usernames.
+* For {% data variables.enterprise.prodname_managed_users %} with {% data variables.enterprise.data_residency_short %}, the shortcode is hidden on {% data variables.enterprise.data_residency_site %} but still part of usernames.
 * The only place you are likely to see the shortcode is in the username of the setup admin, which will look like `2abvd19d_admin`.
 
 > [!NOTE]
