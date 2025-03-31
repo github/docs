@@ -80,7 +80,14 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
 
     // Handle the upstream response before piping
     stream.on('response', (upstreamResponse) => {
-      if (upstreamResponse.statusCode !== 200) {
+      // When cse-copilot returns a 204, it means the backend received the request
+      // but was unable to answer the question. So we return a 400 to the client to be handled.
+      if (upstreamResponse.statusCode === 204) {
+        statsd.increment('ai-search.unable_to_answer_query', 1, diagnosticTags)
+        return res
+          .status(400)
+          .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
+      } else if (upstreamResponse.statusCode !== 200) {
         const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
         console.error(errorMessage)
         statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
