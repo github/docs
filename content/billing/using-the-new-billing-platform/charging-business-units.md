@@ -169,7 +169,7 @@ The following table illustrates how spending for each user is allocated to a cos
 
 {% endrowheaders %}
 
-## Limitations of the Cost Center API
+## Limitations of the cost center API
 
 There are a few current limitations when working with cost centers and the API:
 
