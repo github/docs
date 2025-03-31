@@ -14,6 +14,8 @@ sections:
       For instances in a high availability configuration, Elasticsearch indices were deleted on failover and when `ghe-repl-teardown REPLICA_HOSTNAME` was run from the primary instance. All indices are recoverable except audit log indices, whose source of truth is Elasticsearch itself.
     - |
       On instances with a GitHub Advanced Security license, some secret scanning alerts were opened incorrectly despite the relevant folders or files being excluded from secret scanning.
+    - |
+      For appliances in a high availability configuration, Elasticsearch indices were deleted either on failover, or when running `ghe-repl-teardown <REPLICA_HOSTNAME>` from the primary instance.
   changes:
     - |
       Elasticsearch shards are excluded from the replica node when stopping replication via `ghe-repl-stop`. To prevent Elasticsearch from being stopped before all shards have been removed, Elasticsearch is polled until the shard count on the replica node is zero instead of waiting for a maximum timeout of 30 seconds.
