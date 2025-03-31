@@ -435,19 +435,15 @@ export function SearchOverlay({
       let pressedGroupId = searchEventGroupId
       let pressedOnContext = ''
 
+      // When enter is pressed and no option is manually selected (-1), perform an AI search with the user input
       if (selectedIndex === -1) {
         if (isAskAIState) {
           pressedOnContext = AI_SEARCH_CONTEXT
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
-          // When we are in the Ask AI state, we want to ask another AI Search query
-          aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
-        } else if (generalSearchResults.length > 0) {
-          pressedOnContext = GENERAL_SEARCH_CONTEXT
-          // Nothing manually selected, so general search the typed suggestion
-          performGeneralSearch()
         }
-        return sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
       }
 
       if (
@@ -456,28 +452,30 @@ export function SearchOverlay({
         selectedIndex < combinedOptions.length
       ) {
         const selectedItem = combinedOptions[selectedIndex]
+        let action = () => {} // Execute the action after we send the event
         if (selectedItem.group === 'general') {
           if (
             (selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults ||
             (selectedItem.option as GeneralSearchHitWithOptions).isSearchDocsOption
           ) {
             pressedOnContext = 'view-all'
-            performGeneralSearch()
+            action = performGeneralSearch
           } else {
             pressedOnContext = 'general-option'
-            generalSearchResultOnSelect(selectedItem.option as GeneralSearchHit)
+            action = () => generalSearchResultOnSelect(selectedItem.option as GeneralSearchHit)
           }
         } else if (selectedItem.group === 'ai') {
           pressedOnContext = 'ai-option'
-          aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
+          action = () => aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
         } else if (selectedItem.group === 'reference') {
           // On a reference select, we are in the Ask AI State / Screen
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
           pressedOnContext = 'reference-option'
-          referenceOnSelect(selectedItem.url || '')
+          action = () => referenceOnSelect(selectedItem.url || '')
         }
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        return action()
       }
     } else if (event.key === 'Escape') {
       event.preventDefault()
