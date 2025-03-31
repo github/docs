@@ -28,6 +28,9 @@ You may be verifying a domain you own, which is currently in use by another user
 
 ## Verifying a domain for your user site
 
+> [!NOTE]
+> If you don’t see the options described below, make sure you’re in your **Profile settings**, not your repository settings. Domain verification happens at the profile level.
+
 {% data reusables.user-settings.access_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" %} Pages**.
 {% data reusables.pages.settings-verify-domain-setup %}
@@ -42,6 +45,9 @@ You may be verifying a domain you own, which is currently in use by another user
 ## Verifying a domain for your organization site
 
 Organization owners can verify custom domains for their organization.
+
+> [!NOTE]
+> If you don’t see the options described below, check that you’re in your **Organization settings**. Domain verification doesn’t take place in repository settings.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
