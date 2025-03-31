@@ -73,7 +73,7 @@ If you use {% data variables.enterprise.data_residency %}, when you create an {%
 * The only place you are likely to see the shortcode is in the username of the setup admin, which will look like `2abvd19d_admin`.
 
 > [!NOTE]
-> Due to the inclusion of the hidden shortcode, the character limit for usernames is reduced from 39 characters to 30 characters for GitHub Enterprise Cloud with Data Residency.
+> Due to the inclusion of the hidden shortcode, the character limit for usernames is reduced from 39 characters to 30 characters for {% data variables.enterprise.data_residency %}.
 
 ## About normalized usernames
 
