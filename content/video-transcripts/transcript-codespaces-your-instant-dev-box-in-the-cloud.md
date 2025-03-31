@@ -1,5 +1,6 @@
 ---
-title: Transcript - "Codespaces - Your instant dev box in the cloud"
+title: Transcript - "Codespaces - Your instant dev box in the cloud" 
+
 intro: Audio and visual transcript.
 shortTitle: Codespaces
 allowTitleToDifferFromFilename: true
