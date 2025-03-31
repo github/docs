@@ -42,7 +42,7 @@ export function executeGeneralSearch(
     params.delete('search-overlay-open')
   }
   asPath += `?${params}`
-  router.push(asPath)
+  router.push(asPath, undefined, { shallow: false })
 }
 
 export async function executeAISearch(
