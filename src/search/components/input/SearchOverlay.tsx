@@ -9,7 +9,6 @@ import {
   Overlay,
   Spinner,
   Stack,
-  Text,
   TextInput,
   Token,
 } from '@primer/react'
@@ -690,50 +689,28 @@ export function SearchOverlay({
           }}
         />
         <footer key="description" className={styles.footer}>
-          <Box
+          <Token
+            as="span"
+            text="Beta"
+            className={styles.betaToken}
             sx={{
-              display: 'flex',
-              alignContent: 'start',
-              alignItems: 'start',
+              backgroundColor: 'var(--overlay-bg-color)',
             }}
-          >
-            <Token
-              as="span"
-              text="Beta"
-              className={styles.betaToken}
-              sx={{
-                backgroundColor: 'var(--overlay-bg-color)',
-              }}
-            />
-            <Link
-              onClick={async () => {
-                if (await getIsStaff()) {
-                  // Hubbers users use an internal discussion for feedback
-                  window.open(
-                    'https://github.com/github/docs-engineering/discussions/5295',
-                    '_blank',
-                  )
-                } else {
-                  // TODO: On ship date set this value
-                  // window.open('TODO', '_blank')
-                }
-              }}
-              as="button"
-            >
-              {t('search.overlay.give_feedback')}
-            </Link>
-          </Box>
-          <Text
-            as="p"
-            sx={{
-              // eslint-disable-next-line primer-react/new-color-css-vars
-              color: 'var(--color-fg-muted)',
-              marginTop: 2,
-              marginBottom: 0,
-              fontSize: 'small',
-            }}
-            dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
+          <Link
+            onClick={async () => {
+              if (await getIsStaff()) {
+                // Hubbers users use an internal discussion for feedback
+                window.open('https://github.com/github/docs-engineering/discussions/5295', '_blank')
+              } else {
+                // TODO: On ship date set this value
+                // window.open('TODO', '_blank')
+              }
+            }}
+            as="button"
+          >
+            {t('search.overlay.give_feedback')}
+          </Link>
         </footer>
       </Overlay>
     </>

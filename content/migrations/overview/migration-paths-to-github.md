@@ -18,13 +18,6 @@ Some migration paths require tools that are only available with expert-led migra
 
 In our recommendations, we'll assume that you want the highest level of fidelity if possible, which includes source, history, and metadata.
 
-<!-- expires 2025-06-30 -->
-
-> [!NOTE]
-> Enterprise Cloud Importer (ECI) and the GraphQL endpoints for importing migration data to {% data variables.product.prodname_ghe_cloud %} from an archive are closing down on March 31, 2025. After this date, these tools can not be used to import repository data into GitHub's cloud-based products. We recommend using {% data variables.product.prodname_importer_proper_name %} (GEI). See [AUTOTITLE](/migrations/using-github-enterprise-importer/understanding-github-enterprise-importer/about-github-enterprise-importer).
-
-<!-- end expires 2025-06-30 -->
-
 ## Migrations to {% data variables.product.prodname_dotcom_the_website %}
 
 You can review the scope and tooling for your migration to {% data variables.product.prodname_dotcom_the_website %}, which includes migrations to {% data variables.product.prodname_ghe_cloud %}. You can also review any additional information or caveats.
@@ -111,16 +104,16 @@ Migrations from {% data variables.product.prodname_dotcom_the_website %} include
   * [AUTOTITLE](/migrations/using-github-enterprise-importer)
   * [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
-  * {% data reusables.migrations.large-repositories-require-expert-services %}
+  * For complex repositories larger than around 5 GB, you may need to use `bbs-exporter` and Enterprise Cloud Importer instead. Enterprise Cloud Importer is only available for expert-led migrations.
   * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
 
 ### GitLab to {% data variables.product.prodname_dotcom_the_website %}
 
 * **Scope:** Source, history, and metadata
-* **Tooling:** {% data variables.product.prodname_importer_proper_name %}
+* **Tooling:** `gl-exporter`, then Enterprise Cloud Importer (expert-led migrations only)
 * **More information:** [{% data variables.product.prodname_expert_services %}](https://github.com/services/) website
 * **Caveats:**
-  * If you want to migrate GitLab repositories to GitHub using {% data variables.product.prodname_importer_proper_name %}, please contact our {% data variables.product.prodname_expert_services %} team.
+  * Enterprise Cloud Importer is only available for expert-led migrations.
   * {% data reusables.migrations.migration-instructions-for-any-git-repository-to-githubcom %}
 
 ### Any Git repository to {% data variables.product.prodname_dotcom_the_website %}
@@ -171,7 +164,7 @@ This path is not currently supported with our official tools. Please contact {% 
 
 If you're migrating to {% data variables.enterprise.data_residency %}, your migration destination is {% data variables.enterprise.data_residency_site %}.
 
-Migrations to {% data variables.enterprise.data_residency_site %} use similar tools as migrations to {% data variables.product.prodname_dotcom_the_website %}. However, the {% data variables.product.prodname_importer %} is not available.
+Migrations to {% data variables.enterprise.data_residency_site %} use similar tools as migrations to {% data variables.product.prodname_dotcom_the_website %}. However, the {% data variables.product.prodname_importer %} and Enterprise Cloud Importer are not available.
 
 Follow a link below to review the scope and tooling for your migration to {% data variables.enterprise.data_residency_site %}, plus any additional information or caveats.
 

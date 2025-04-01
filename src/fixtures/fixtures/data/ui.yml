@@ -43,7 +43,6 @@ search:
     view_all_search_results: View more results
     no_results_found: No results found
     search_docs_with_query: Search docs for "{{query}}"
-    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy">GitHub Privacy Statement</a> to review how GitHub collects and uses your data.
   ai:
     disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
     references: References from these articles
