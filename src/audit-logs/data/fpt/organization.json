@@ -730,6 +730,21 @@
     "docs_reference_links": "/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository"
   },
   {
+    "action": "issue_type.create",
+    "description": "An issue type was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "issue_type.destroy",
+    "description": "An issue type was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "issue_type.update",
+    "description": "An issue type was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "issue.unpinned",
     "description": "An issue was unpinned from a repository.",
     "docs_reference_links": "/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository"
