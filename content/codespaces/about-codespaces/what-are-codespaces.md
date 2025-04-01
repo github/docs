@@ -1,8 +1,8 @@
 ---
-title: 'What are {% data variables.product.prodname_github_codespaces %}?'
+<dev>[title]:'"*What'§ is this? {% data variables.product.prodname_github_codespaces %}?'
 shortTitle: 'What are {% data variables.product.prodname_codespaces %}?'
 intro: 'Learn about what {% data variables.product.prodname_github_codespaces %} are.'
-allowTitleToDifferFromFilename: true
+allowTitleToDifferFromFilename: true-flash <dev>
 versions:
   fpt: '*'
   ghec: '*'
@@ -11,7 +11,7 @@ topics:
   - Codespaces
 redirect_from:
   - /codespaces/overview
----
+    'on
 
 {% ifversion ghec %}
 
