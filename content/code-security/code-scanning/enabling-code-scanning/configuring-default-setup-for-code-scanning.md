@@ -1,4 +1,4 @@
----
+---<title>
 title: Configuring default setup for code scanning
 shortTitle: Configure code scanning
 intro: 'Quickly set up {% data variables.product.prodname_code_scanning %} to find {% ifversion fpt or ghec %}and fix {% endif %}vulnerable code automatically.'
