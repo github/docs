@@ -33,7 +33,7 @@ If you need to change any other aspects of your {% data variables.product.prodna
 1. In the "{% data variables.product.prodname_codeql %} analysis" row of the "{% data variables.product.UI_code_security_scanning %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" %} View {% data variables.product.prodname_codeql %} configuration**.
 1. In the "{% data variables.product.prodname_codeql %} default configuration" window, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
 1. Optionally, in the "Languages" section, select or deselect languages for analysis.
-1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.{% ifversion codeql-threat-models %}
+1. Optionally, in the "Query suite" row of the "Scan settings" section, select a different query suite to run against your code.
 
 {% ifversion code-scanning-default-setup-customize-labels %}
 
@@ -41,8 +41,12 @@ If you need to change any other aspects of your {% data variables.product.prodna
 
 {% endif %}
 
-1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**.
+{% ifversion codeql-threat-models %}
+
+1. ({% data variables.release-phases.public_preview_caps %}) Optionally, in the "Threat model" row of the "Scan settings" section, select **Remote and local sources**. This option is only available for repositories with code in a supported language: {% data variables.code-scanning.code_scanning_threat_model_support %}.
+
 {% endif %}
+
 1. To update your configuration, as well as run an initial analysis of your code with the new configuration, click **Save changes**. All future analyses will use your new configuration.
 
 ## Defining the alert severities that cause a check failure for a pull request
