@@ -4,6 +4,7 @@ shortTitle: View secret scanning metrics
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see how {% data variables.product.prodname_secret_scanning %} push protection is performing in repositories across your organization{% ifversion security-overview-enterprise-secret-scanning-metrics %} or enterprise{% endif %}, and to identify repositories where you may need to take action.'
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 type: how_to
 redirect_from:
 - /code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection-in-your-organization
@@ -14,7 +15,9 @@ topics:
   - Organizations
   - Teams
 versions:
-  feature: security-overview-push-protection-metrics-page
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 {% data reusables.secret-scanning.push-protection-org-metrics-beta %}
@@ -61,12 +64,12 @@ The metrics are based on activity from the default period or your selected perio
 
 You can view metrics for {% data variables.product.prodname_secret_scanning %} push protection across organizations in an enterprise. {% data reusables.security-overview.information-varies-GHAS %}
 
-{% data reusables.security-overview.enterprise-filters-tip %}
-
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. In the sidebar, click **{% data variables.product.prodname_secret_scanning_caps %} metrics**.
 1. Click on an individual secret type or repository to see the associated {% data variables.secret-scanning.alerts %} for your enterprise.
 {% data reusables.security-overview.filter-secret-scanning-metrics %}
+
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% endif %}

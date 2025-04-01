@@ -250,6 +250,7 @@ product_landing:
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
+  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides

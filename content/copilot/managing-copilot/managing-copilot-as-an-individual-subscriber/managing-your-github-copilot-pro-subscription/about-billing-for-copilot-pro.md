@@ -20,9 +20,9 @@ The {% data variables.product.prodname_copilot_pro %} subscription is available 
 
 You can change to a monthly or yearly billing cycle at any time. The change will take effect from the start of your next billing cycle.
 
-{% ifversion billing-auth-and-capture %}
-
 {% data reusables.billing.authorization-charge %}
+
+{% ifversion billing-auth-and-capture %}
 
 > [!NOTE] If you are an eligible student, teacher, or open-source maintainer, you can access {% data variables.product.prodname_copilot_pro %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 
