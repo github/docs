@@ -55,6 +55,7 @@ search:
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
+    back_to_search: Back to search
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
