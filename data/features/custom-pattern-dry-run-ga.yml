@@ -1,6 +1,0 @@
-# Secret scanning: custom pattern dry run GA #7527
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>3.6'
