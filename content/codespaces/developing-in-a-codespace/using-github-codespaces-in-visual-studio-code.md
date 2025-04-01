@@ -11,7 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+type: root_to
 topics:
   - Codespaces
   - Visual Studio Code
