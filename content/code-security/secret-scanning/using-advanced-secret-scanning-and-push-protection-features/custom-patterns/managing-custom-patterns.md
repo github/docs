@@ -4,6 +4,7 @@ shortTitle: Manage custom patterns
 intro: 'You can view, edit, and remove custom patterns, as well as enable push protection for custom patterns.'
 permissions: '{% data reusables.permissions.security-enterprise-enable %}'
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -21,24 +22,22 @@ At the enterprise level, only the creator of a custom pattern can edit the patte
 When you save a change to a custom pattern, this closes all the {% data variables.secret-scanning.alerts %} that were created using the previous version of the pattern.
 
 {% data reusables.secret-scanning.view-custom-pattern %}
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
+1. Under {% ifversion ghas-products %}"Custom patterns"{% else %}"{% data variables.product.prodname_secret_scanning_caps %}"{% endif %}, to the right of the custom pattern you want to edit, click {% octicon "pencil" aria-label="Edit pattern" %}.
 1. When you're ready to test your edited custom pattern, to identify matches without creating alerts, click **Save and dry run**.
-1. When you have reviewed and tested your changes, click **Publish changes**.{% ifversion secret-scanning-push-protection-custom-patterns %}
+1. When you have reviewed and tested your changes, click **Publish changes**.
 {% data reusables.advanced-security.secret-scanning-enable-push-protection-custom-pattern %}
 1. Optionally, to disable push protection for your custom pattern, click **Disable**.
 
-   ![Screenshot of the custom pattern page with the button to disable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png){% endif %}
+   ![Screenshot of the custom pattern page with the button to disable push protection highlighted with a dark orange outline.](/assets/images/help/repository/secret-scanning-disable-push-protection-custom-pattern.png)
 
 ## Removing a custom pattern
 
-When you remove a custom pattern, {% data variables.product.prodname_dotcom %} gives you the option to close the {% data variables.secret-scanning.alerts %} relating to the pattern, or keep these alerts.
+When you remove a custom pattern, {% data variables.product.github %} gives you the option to close the {% data variables.secret-scanning.alerts %} relating to the pattern, or keep these alerts.
 
 {% data reusables.secret-scanning.view-custom-pattern %}
 1. To the right of the custom pattern you want to remove, click {% octicon "trash" aria-label="Remove pattern" %}.
 1. Review the confirmation, and select a method for dealing with any open alerts relating to the custom pattern.
 1. Click **Yes, delete this pattern**.
-
-{% ifversion secret-scanning-push-protection-custom-patterns %}
 
 ## Enabling push protection for a custom pattern
 
@@ -89,13 +88,12 @@ Before enabling push protection for a custom pattern at repository level, you mu
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+1. Under "{% data variables.product.prodname_secret_protection %}", under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.{% else %}
 {% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
+{% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}{% endif %}
 1. To enable push protection for your custom pattern, scroll down to "Push Protection", and click **Enable**.
 
    {% data reusables.secret-scanning.custom-pattern-push-protection-enable-button %}
 
    ![Screenshot of the "Push protection" section of the custom pattern page. A button, labeled "Enable", is outlined in dark orange.](/assets/images/help/repository/secret-scanning-custom-pattern-enable-push-protection.png)
-
-{% endif %}
