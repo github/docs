@@ -5,6 +5,7 @@ import {
   ActionList,
   Box,
   Header,
+  IconButton,
   Link,
   Overlay,
   Spinner,
@@ -20,6 +21,7 @@ import {
   CopilotIcon,
   FileIcon,
   ArrowRightIcon,
+  ArrowLeftIcon,
 } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -483,6 +485,15 @@ export function SearchOverlay({
     }
   }
 
+  const onBackButton = () => {
+    // Leave the Ask AI state when the user clicks the back button
+    setSelectedIndex(-1)
+    updateParams({
+      'search-overlay-ask-ai': '',
+      'search-overlay-input': urlSearchInputQuery,
+    })
+  }
+
   // We render the AI Result in the searchGroups call, so we pass the props down via an object
   // TODO: Move stateful logic to Context since we now have so many props:
   const askAIState = {
@@ -626,6 +637,20 @@ export function SearchOverlay({
         ref={overlayRef}
       >
         <Header className={styles.header}>
+          <Box
+            sx={{
+              display: isAskAIState ? 'flex' : 'none',
+              marginRight: '8px',
+              fontWeight: 'bolder',
+            }}
+          >
+            <IconButton
+              aria-label={t('search.ai.back_to_search')}
+              icon={ArrowLeftIcon}
+              onClick={onBackButton}
+              variant="invisible"
+            ></IconButton>
+          </Box>
           <TextInput
             className="width-full"
             data-testid="overlay-search-input"
