@@ -45,6 +45,10 @@ sections:
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-19]
+    - |
       After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.

@@ -28,6 +28,12 @@ Community members can upvote discussions and top-level comments inside discussio
 
 For more information about participation in discussions, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/participating-in-a-discussion).
 
+{% ifversion copilot %}
+
+> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+
+{% endif %}
+
 ## Prerequisites
 
 To collaborate with maintainers in repository discussions, a repository administrator or project maintainer must enable {% data variables.product.prodname_discussions %} for the repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/enabling-or-disabling-github-discussions-for-a-repository).

@@ -10,11 +10,50 @@ topics:
 
 ## Overview
 
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT 3.5 Turbo large language model (LLM). As an alternative, you can choose to use a model based on GPT 4o-mini. This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT-4o {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+
+<details>
+  <summary>View the list of programming languages and technologies included in the training data.</summary>
+
+  * C  
+  * C#  
+  * C++  
+  * Clojure  
+  * CSS  
+  * Dart  
+  * Dockerfile  
+  * Elixir  
+  * Emacs Lisp  
+  * Go  
+  * Haskell  
+  * HTML  
+  * Java  
+  * JavaScript  
+  * Julia  
+  * Jupyter Notebook  
+  * Kotlin  
+  * Lua  
+  * MATLAB  
+  * Objective-C  
+  * Perl  
+  * PHP  
+  * PowerShell  
+  * Python  
+  * R  
+  * Ruby  
+  * Rust  
+  * Scala  
+  * Shell  
+  * Swift  
+  * TeX  
+  * TypeScript  
+  * Vue
+
+</details>
 
 > [!NOTE]
 > * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Currently the ability to switch AI model is available in the latest releases of {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
+> * You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later, and in the latest JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
 
 ## Effects of switching the AI model
 
@@ -36,32 +75,23 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 
 {% data reusables.copilot.editor-preview-settings %}
 
-{% vscode %}
+{% visualstudio %}
 
 ## Changing the AI model for code completion
 
-The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
+The following instructions are for {% data variables.product.prodname_vs %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
 
-1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
-1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
-1. In the dropdown menu, select the model you want to use.
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the top right corner.
+1. Click **Settings**, then click **Options**.
+1. Under **{% data variables.product.prodname_copilot_short %} Completions**, use the dropdown menu to select the model you want to use.
 
-Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
-
-## Checking which model is being used
-
-1. Open the Settings editor by pressing <kbd>Ctrl</kbd>+<kbd>,</kbd> (Linux/Windows) / <kbd>Command</kbd>+<kbd>,</kbd> (Mac).
-1. Type `copilot completion` and look for the "{% data variables.product.github %} > {% data variables.product.prodname_copilot_short %}: Selected Completion Model" section.
-
-   The field in this section displays the currently selected model. If the field is empty, the default model is being used.
-
-{% endvscode %}
+{% endvisualstudio %}
 
 {% jetbrains %}
 
 ## Changing the AI model for code completion
 
-The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the start of this article.
+The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vs %}, click the appropriate tab at the start of this article.
 
 1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
 1. In the popup menu, click **Edit Model for Completion**.

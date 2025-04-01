@@ -164,7 +164,7 @@ If you use {% data variables.visual_studio.prodname_vss_ghe %}, the list of pend
 
 ## Viewing suspended members
 
-If your enterprise uses {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}SCIM provisioning{% endif %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the application or deleted on the identity provider.
+If your enterprise uses {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}SCIM provisioning{% endif %}, you can view suspended users. Suspended users are members who have been deprovisioned after being unassigned from the application or deleted on the identity provider.{% ifversion ghec %} Currently, it is not possible to remove suspended users from an enterprise that uses {% data variables.product.prodname_emus %}.{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}

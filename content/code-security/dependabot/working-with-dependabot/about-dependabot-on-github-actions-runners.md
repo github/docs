@@ -29,7 +29,7 @@ Using {% data variables.product.prodname_actions %} runners allows you to more e
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * {% data variables.product.prodname_dotcom %}-hosted runners
 * {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
-* Self-hosted runners
+* Self-hosted runners. For more information on assigning a `dependabot` label on self-hosted runners, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 {% data reusables.dependabot.vnet-arc-note %}
 

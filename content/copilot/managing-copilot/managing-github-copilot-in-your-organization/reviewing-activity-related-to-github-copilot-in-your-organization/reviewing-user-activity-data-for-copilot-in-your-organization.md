@@ -64,12 +64,6 @@ Processing new telemetry events and updating a user's `last_activity_at` date ca
 
 If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
 
-For more information about enabling telemetry in various IDEs, see:
-
-* [Enable or disable usage data collection for Azure Data Studio](https://learn.microsoft.com/azure-data-studio/usage-data-collection) in the Microsoft documentation
-* [Data Sharing](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) in the JetBrains documentation
-* [Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry) in the {% data variables.product.prodname_vscode_shortname %} documentation
-
 ## Further reading
 
 {% ifversion ghec %}

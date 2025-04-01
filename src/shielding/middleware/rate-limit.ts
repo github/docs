@@ -14,8 +14,6 @@ if (isNaN(MAX)) {
 }
 
 // We apply this rate limiter to _all_ routes in src/shielding/index.ts except for `/api/*` routes
-// `/api/*` routes are rate limited on a more specific basis in frame/api/index.ts
-// When creating a limiter for `/api/*` routes, we need to pass `true` as the second argument
 export function createRateLimiter(max = MAX, isAPILimiter = false) {
   return rateLimit({
     // 1 minute
@@ -74,8 +72,7 @@ export function createRateLimiter(max = MAX, isAPILimiter = false) {
       res.status(options.statusCode).send(options.message)
     },
 
-    // Temporary so that we can see what is coming from Fastly v app level
-    statusCode: 418, // "i'm a teapot"
+    message: 'Express rate limiter: Too Many Requests',
   })
 }
 

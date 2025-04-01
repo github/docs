@@ -28,17 +28,13 @@ shortTitle: Chat in IDE
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-{% data reusables.copilot.open-chat-vs-code %}
+1. To open the chat view, click the **{% octicon "copilot" aria-hidden="true" %}** icon in the title bar of {% data variables.product.prodname_vscode %}. If the **{% octicon "copilot" aria-hidden="true" %}** icon is not displayed, right-click the title bar and make sure that **Command Center** is selected.
 
-   ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} icon in the Activity Bar.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
-
-   > [!TIP]
-   >
-   > For additional ways to access {% data variables.product.prodname_copilot_chat_short %}, including inline with your code, see [Additional ways to access {% data variables.product.prodname_copilot_chat_short %}](#additional-ways-to-access-copilot-chat) below.
+   ![Screenshot of the '{% data variables.product.prodname_copilot_chat_short %}' button, highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
 1. Enter a prompt in the prompt box, or click one of the suggested prompts. For an introduction to the kinds of prompts you can use, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
-1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow up request if needed.
+1. Evaluate {% data variables.product.prodname_copilot_short %}'s response, and make a follow-up request if needed.
 
    The response may contain text, code blocks, buttons, images, URIs, and file trees. The response often includes interactive elements. For example, the response may include a menu to insert a code block, or a button to invoke a {% data variables.product.prodname_vscode %} command.
 
@@ -78,9 +74,6 @@ To see all available chat variables, type `#` in the chat prompt box. See also [
 
 ## Using {% data variables.product.prodname_dotcom %} skills for {% data variables.product.prodname_copilot_short %}
 
-> [!NOTE]
-> This functionality is available with the {% data variables.product.prodname_copilot_chat_short %} extension v0.20.3 or later and {% data variables.product.prodname_vscode_shortname %} or {% data variables.product.prodname_vscode_shortname %} Insiders 1.93 or later.
-
 {% data reusables.copilot.using-skills %}
 
 {% ifversion ghec %}
@@ -108,35 +101,35 @@ You can tell {% data variables.product.prodname_copilot_short %} to answer a que
 
 In addition to submitting prompts through the chat view, you can submit prompts in other ways:
 
+* **Quick chat:** To open the quick chat dropdown, enter <kbd>⇧</kbd>+<kbd>⌥</kbd>+<kbd>⌘</kbd>+<kbd>L</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Alt</kbd>+<kbd>L</kbd> (Windows/Linux).
 * **Inline:** To start an inline chat directly in the editor or integrated terminal, enter <kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Ctrl</kbd>+<kbd>i</kbd> (Windows/Linux).
-* **Quick chat:** To open the quick chat dropdown, enter <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>i</kbd> (Mac) / <kbd>Shift</kbd>+<kbd>Ctrl</kbd>+<kbd>i</kbd> (Windows/Linux).
 * **Smart actions:** To submit prompts via the context menu, right click in your editor, select **{% data variables.product.prodname_copilot_short %}** in the menu that appears, then select one of the actions. Smart actions can also be accessed via the sparkle icon that sometimes appears when you select a line of code.
 
 See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inline-chat), [quick chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_quick-chat), and [chat smart actions](https://code.visualstudio.com/docs/copilot/copilot-chat#_chat-smart-actions) in the {% data variables.product.prodname_vscode %} documentation for more details.
 
-## {% data variables.product.prodname_copilot_edits_vscode_short %}
+## {% data variables.product.prodname_copilot_edits_short %}
 
-{% data reusables.copilot.about-copilot-edits %}
+{% data reusables.copilot.copilot-edits.about-copilot-edits %}
 
 ### Using edit mode
 
-1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_vscode_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. Optionally, add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on.
-1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_vscode_short %} determines which files in your _working set_ to change and adds a short description of the change.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Apply** or **Discard** the edits for each file.
 
-For more detailed instructions, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
+For more detailed instructions, see [{% data variables.product.prodname_copilot_edits_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
 
 ### Using agent mode
 
 {% data reusables.copilot.agent-mode-public-preview-note %}
 
-1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_vscode_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. Select **Agent** from the mode dropdown menu.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
-For more information, see [{% data variables.product.prodname_copilot_edits_vscode_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
+For more information, see [{% data variables.product.prodname_copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Vision
 
@@ -172,8 +165,11 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 
 * **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_vs %} 2022 version 17.8 or later**. See [Install {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/install/install-visual-studio) in the {% data variables.product.prodname_vs %} documentation.
-* **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
-* **{% data variables.product.prodname_copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+* _For {% data variables.product.prodname_vs %} 17.8 and 17.9:_
+  * **{% data variables.product.prodname_copilot %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+  * **{% data variables.product.prodname_copilot_chat %} extension**. See [Install {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states) in the {% data variables.product.prodname_vs %} documentation.
+
+  _{% data variables.product.prodname_vs %} 17.10 and later have the {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_copilot_chat %} extensions built in. You don't need to install them separately._
 * **Sign in to {% data variables.product.company_short %} in {% data variables.product.prodname_vs %}**. If you experience authentication issues, see [AUTOTITLE](/copilot/troubleshooting-github-copilot/troubleshooting-issues-with-github-copilot-chat#troubleshooting-authentication-issues-in-your-editor).
 
 {% data reusables.copilot.chat-access-denied %}
@@ -349,6 +345,18 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 * **Built-in requests**. In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **{% data variables.product.prodname_copilot %}**, then selecting one of the options.
 * **Inline**. You can submit a chat prompt inline, and scope it to a highlighted code block or your current file.
    * To start an inline chat, right click on a code block or anywhere in your current file, hover over **{% data variables.product.prodname_copilot %}**, then select **{% octicon "plus" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}: Inline Chat**, or enter <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
+
+## {% data variables.product.prodname_copilot_edits_short %}
+
+{% data reusables.copilot.copilot-edits.about-copilot-edits-jetbrains %}
+
+### Using edit mode
+
+1. To start an edit session, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
+1. At the top of the chat panel, click **{% data variables.product.prodname_copilot_edits_short %}**.  
+1. Add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on. You can add all open files by clicking **Add all open files** or individually search for single files.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
+1. Review the changes and **Accept** or **Discard** the edits for each file.
 
 ## Sharing feedback
 

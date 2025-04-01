@@ -5,6 +5,7 @@ import { Router } from 'next/router'
 import { isLoggedIn } from 'src/frame/components/hooks/useHasAccount'
 import { getExperimentVariationForContext } from './experiments/experiment'
 import { EventType, EventPropsByType } from '../types'
+import { isHeadless } from './is-headless'
 
 const COOKIE_NAME = '_docs-events'
 
@@ -73,6 +74,8 @@ export function sendEvent<T extends EventType>({
   eventGroupKey?: string
   eventGroupId?: string
 } & EventPropsByType[T]) {
+  if (isHeadless()) return
+
   const body = {
     type,
 

@@ -29,6 +29,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
 * The content in affected files will not inform {% data variables.product.prodname_copilot_chat %}'s responses.
+* Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
 
 ### Who can configure content exclusion
 
@@ -44,11 +45,13 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | JetBrains IDEs                                  | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | Vim/Neovim                                      | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
-| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |                          Not applicable                          |
-| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  | {% octicon "x" aria-label="Not supported" %} |
+| Xcode                                           | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
+| Eclipse                                         | {% octicon "check" aria-label="Supported" %}  |           {% octicon "x" aria-label="Not supported" %}           |
 | Azure Data Studio                               | {% octicon "x" aria-label="Not supported" %}  |                          Not applicable                          |
 | The {% data variables.product.github %} website |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_mobile %}    |                Not applicable                 |           {% octicon "check" aria-label="Supported" %}           |
+
+Content exclusions also apply to {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website.
 
 > [!NOTE]
 > Content exclusion is in {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website and in {% data variables.product.prodname_mobile %} and is subject to change.
@@ -56,6 +59,8 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 ### Limitations of content exclusions
 
 {% data reusables.copilot.content-exclusion-limitations %}
+
+Currently, content exclusions do not apply to symbolic links (symlinks).
 
 ### Data sent to {% data variables.product.prodname_dotcom %}
 

@@ -26,7 +26,7 @@ redirect_from:
 
 * Code completion in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Vim/Neovim, Xcode, and Azure Data Studio
   * {% data variables.copilot.next_edit_suggestions_caps %}, which will predict the location of the next edit you are likely to make and suggest a completion for it. (**only in {% data variables.product.prodname_vscode_shortname %}**)
-  * {% data variables.product.prodname_copilot_edits_vscode_short %} to make changes across multiple files. {% data variables.product.prodname_copilot_edits_vscode_short %} is available in two modes: edit mode and agent mode. (**only in {% data variables.product.prodname_vscode_shortname %}**)
+  * {% data variables.product.prodname_copilot_edits_short %} to make changes across multiple files. {% data variables.product.prodname_copilot_edits_short %} is available in two modes: edit mode and agent mode. **(edit mode in {% data variables.product.prodname_vscode %} and JetBrains IDEs, agent mode only in {% data variables.product.prodname_vscode %})**
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, {% data variables.product.prodname_mobile %}, and {% data variables.product.prodname_dotcom_the_website %}
   * Custom instructions (**only in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_dotcom_the_website %}**)
   * Prompt files (**only in {% data variables.product.prodname_vscode_shortname %}**)

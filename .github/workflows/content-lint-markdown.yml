@@ -24,8 +24,6 @@ jobs:
     steps:
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          fetch-depth: 10
 
       - name: Set up Node and dependencies
         uses: ./.github/actions/node-npm-setup
@@ -37,7 +35,6 @@ jobs:
           files: |
             content/**
             data/**
-          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Print content linter annotations if changed content/data files
         if: steps.changed_files.outputs.filtered_changed_files
@@ -52,7 +49,7 @@ jobs:
         run: npm run lint-content -- --print-annotations --paths $CHANGED_FILES
 
       - name: Run content linter if changed content/data files
-        if: steps.changed_files.outputs.any_changed == 'true'
+        if: steps.changed_files.outputs.filtered_changed_files
         env:
           # Make it an environment variable so that its value doesn't need to be escaped.
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable

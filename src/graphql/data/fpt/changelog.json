@@ -4,6 +4,94 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>CreateIssueTypeInput</code> was added</p>",
+          "<p>Type <code>CreateIssueTypePayload</code> was added</p>",
+          "<p>Type <code>DeleteIssueTypeInput</code> was added</p>",
+          "<p>Type <code>DeleteIssueTypePayload</code> was added</p>",
+          "<p>Type <code>IssueType</code> was added</p>",
+          "<p>Type <code>IssueTypeAddedEvent</code> was added</p>",
+          "<p>Type <code>IssueTypeChangedEvent</code> was added</p>",
+          "<p>Type <code>IssueTypeColor</code> was added</p>",
+          "<p>Type <code>IssueTypeConnection</code> was added</p>",
+          "<p>Type <code>IssueTypeEdge</code> was added</p>",
+          "<p>Type <code>IssueTypeOrder</code> was added</p>",
+          "<p>Type <code>IssueTypeOrderField</code> was added</p>",
+          "<p>Type <code>IssueTypeRemovedEvent</code> was added</p>",
+          "<p>Type <code>PullRequestAllowedMergeMethods</code> was added</p>",
+          "<p>Type <code>RepositoryVulnerabilityAlertDependencyRelationship</code> was added</p>",
+          "<p>Type <code>UpdateIssueIssueTypeInput</code> was added</p>",
+          "<p>Type <code>UpdateIssueIssueTypePayload</code> was added</p>",
+          "<p>Type <code>UpdateIssueTypeInput</code> was added</p>",
+          "<p>Type <code>UpdateIssueTypePayload</code> was added</p>",
+          "<p>Input field <code>issueTypeId</code> of type <code>ID</code> was added to input object type <code>CreateIssueInput</code></p>",
+          "<p>Field <code>packageUrl</code> was added to object type <code>DependencyGraphDependency</code></p>",
+          "<p>Field <code>issueType</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>type</code> was added to object type <code>IssueTemplate</code></p>",
+          "<p>Member <code>IssueTypeAddedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueTypeChangedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Member <code>IssueTypeRemovedEvent</code> was added to Union type <code>IssueTimelineItems</code></p>",
+          "<p>Enum value 'ISSUE_TYPE_ADDED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_TYPE_CHANGED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_TYPE_REMOVED_EVENT<code>was added to enum</code>IssueTimelineItemsItemType'</p>",
+          "<p>Field <code>descriptionHTML</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>createIssueType</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>deleteIssueType</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateIssueIssueType</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>updateIssueType</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>issueTypes</code> was added to object type <code>Organization</code></p>",
+          "<p>Enum value 'ISSUE_TYPE<code>was added to enum</code>ProjectV2FieldType'</p>",
+          "<p>Field <code>automaticCopilotCodeReviewEnabled</code> was added to object type <code>PullRequestParameters</code></p>",
+          "<p>Field <code>PullRequestParameters.allowedMergeMethods</code> changed type from '[String!]<code>to</code>[PullRequestAllowedMergeMethods!]'</p>",
+          "<p>Input field <code>automaticCopilotCodeReviewEnabled</code> of type <code>Boolean</code> was added to input object type <code>PullRequestParametersInput</code></p>",
+          "<p>Input field <code>PullRequestParametersInput.allowedMergeMethods</code> changed type from '[String!]<code>to</code>[PullRequestAllowedMergeMethods!]'</p>",
+          "<p>Member <code>IssueTypeAddedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>IssueTypeChangedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Member <code>IssueTypeRemovedEvent</code> was added to Union type <code>PullRequestTimelineItems</code></p>",
+          "<p>Enum value 'ISSUE_TYPE_ADDED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_TYPE_CHANGED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Enum value 'ISSUE_TYPE_REMOVED_EVENT<code>was added to enum</code>PullRequestTimelineItemsItemType'</p>",
+          "<p>Field <code>issueType</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>issueTypes</code> was added to object type <code>Repository</code></p>",
+          "<p>Field <code>dependencyRelationship</code> was added to object type <code>RepositoryVulnerabilityAlert</code></p>",
+          "<p>Enum value 'ISSUE_ADVANCED<code>was added to enum</code>SearchType'</p>",
+          "<p>Input field <code>issueTypeId</code> of type <code>ID</code> was added to input object type <code>UpdateIssueInput</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [
+      {
+        "title": "The following changes will be made to the schema:",
+        "changes": [
+          "<p>On member <code>AddedToProjectEvent.project</code>:<code>project</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ConvertedNoteToIssueEvent.project</code>:<code>project</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>CreateIssueTypeInput.isPrivate</code>:<code>isPrivate</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>Issue.projectCards</code>:<code>projectCards</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>IssueType.isPrivate</code>:<code>isPrivate</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>MovedColumnsInProjectEvent.project</code>:<code>project</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>Organization.viewerCanCreateProjects</code>:<code>viewerCanCreateProjects</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectCardArchivedState.ARCHIVED</code>:<code>ARCHIVED</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectCardArchivedState.NOT_ARCHIVED</code>:<code>NOT_ARCHIVED</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectOwner.id</code>:<code>id</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectOwner.projectsResourcePath</code>:<code>projectsResourcePath</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectOwner.projectsUrl</code>:<code>projectsUrl</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>ProjectOwner.viewerCanCreateProjects</code>:<code>viewerCanCreateProjects</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>PullRequest.projectCards</code>:<code>projectCards</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>RemovedFromProjectEvent.project</code>:<code>project</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>Repository.viewerCanCreateProjects</code>:<code>viewerCanCreateProjects</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>UpdateIssueTypeInput.isPrivate</code>:<code>isPrivate</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>User.viewerCanCreateProjects</code>:<code>viewerCanCreateProjects</code> will be removed. <strong>Effective 2025-04-01</strong>.</p>",
+          "<p>On member <code>SearchType.ISSUE_ADVANCED</code>:<code>ISSUE_ADVANCED</code> will be removed. <strong>Effective 2025-09-04</strong>.</p>"
+        ]
+      }
+    ],
+    "date": "2025-03-27"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>repository</code> was removed from object type <code>UserNamespaceRepository</code></p>"
         ]
       }

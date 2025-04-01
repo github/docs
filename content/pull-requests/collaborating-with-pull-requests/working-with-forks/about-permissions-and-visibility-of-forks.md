@@ -18,17 +18,17 @@ If you fork a private repository that belongs to a personal account, external co
 
 {% ifversion fpt or ghec %}
 
-If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}, there are further restrictions on the repositories you can fork. {% ifversion ghec %}{% data reusables.enterprise-accounts.emu-forks %}{% endif %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 {% endif %}
 
-Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations.{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}."{% else %} and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).{% endif %}
+Organizations can allow or prevent the forking of any private repositories owned by the organization{% ifversion ghec or ghes %}, and enterprises can enforce policies to specify where members can create forks of private or internal repositories. Policies control the options available to the enterprise's organizations{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization){% ifversion fpt %}.{% else %} and [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-forking-private-or-internal-repositories).{% endif %}
 
 ## About visibility of forks
 
 A fork is a new repository that shares code and visibility settings with the upstream repository. All forks of public repositories are public. You cannot change the visibility of a fork.
 
-All repositories belong to a repository network. A repository network contains the upstream repository, the upstream repository's direct forks, and all forks of those forks. All forks in the repository network have the same visibility setting. For more information, see “[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).”
+All repositories belong to a repository network. A repository network contains the upstream repository, the upstream repository's direct forks, and all forks of those forks. All forks in the repository network have the same visibility setting. For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
 
 If you delete a repository or change the repository's visibility settings, you will affect the repository's forks. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/working-with-forks/what-happens-to-forks-when-a-repository-is-deleted-or-changes-visibility)
 

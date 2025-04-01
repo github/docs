@@ -66,4 +66,4 @@ When you have enabled the additional controls for {% data variables.product.prod
 
 ## Further reading
 
-* [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/scenarios-and-recommendations/enforce-ghas-at-scale/)
+* [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/)

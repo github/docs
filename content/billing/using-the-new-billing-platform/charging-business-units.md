@@ -16,6 +16,8 @@ To drive accountability and control costs, the new billing platform lets you cre
 
 If your account is billed to Azure, you will have the option to add an Azure subscription ID. Cost centers allows for multiple Azure subscription IDs so that different business units, within an enterprise, can directly pay for their usage.
 
+To learn more about roles authorized to create and manage cost centers, see [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform).
+
 ## Creating a cost center
 
 Create cost centers to monitor and manage expenses for specific organizations or repositories. Multiple organizations, repositories, and users can be assigned to one cost center.
@@ -166,6 +168,16 @@ The following table illustrates how spending for each user is allocated to a cos
 | Enterprise Only (default) | {% octicon "dash" aria-label="Not applicable" %} | `user-2`, `user-4` | `user-2`, `user-4` | These users aren't directly assigned to a cost center, so GHAS and GHE default to enterprise spending. |
 
 {% endrowheaders %}
+
+## Limitations of the cost center API
+
+There are a few current limitations when working with cost centers and the API:
+
+* You **cannot** create cost centers using the API. Administrators must create them through the UI.
+* Once a cost center is created in the UI, administrators can use the API to add **members** only.
+* It’s **not currently possible** to add **organizations** or **repositories** to cost centers using the API.
+* You **cannot** add members to cost centers through the UI.
+* A single **organization**, **repository**, or **member** can only be assigned to one cost center at a time.
 
 ## Further reading
 
