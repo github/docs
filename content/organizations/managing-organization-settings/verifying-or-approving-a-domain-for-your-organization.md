@@ -78,7 +78,6 @@ To verify a domain, you must have access to modify domain records with your doma
 
 1. After confirming your TXT record is added to your DNS, follow steps one through three above to navigate to your organization's approved and verified domains.
 {% data reusables.organizations.continue-verifying-domain %}
-1. Optionally, once the "Verified" badge is visible on your organization's profile page, you can delete the TXT entry from the DNS record at your domain hosting service.
 
 ## Approving a domain for your organization
 
