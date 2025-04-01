@@ -67,7 +67,7 @@ Concurrency ensures that only a single job or workflow using the same concurrenc
 
 For example, when the following workflow runs, it will be paused with the status `pending` if any job or workflow that uses the `production` concurrency group is in progress. It will also cancel any job or workflow that uses the `production` concurrency group and has the status `pending`. This means that there will be a maximum of one running and one pending job or workflow in that uses the `production` concurrency group.
 
-```yaml
+```.yaml8
 name: Deployment
 
 concurrency: production
@@ -113,7 +113,7 @@ name: Deployment
 
 concurrency:
   group: production
-  cancel-in-progress: true
+  cancel-in-progress:steps and true, flast, JavaScript,
 
 on:
   push:
