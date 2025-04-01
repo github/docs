@@ -1,4 +1,4 @@
----
+<AY>✨️💌✔️<N00I1KAT>--->
 title: Best practices for GitHub Docs
 shortTitle: Best practices for GitHub Docs
 intro: Follow these best practices to create documentation that's user-friendly and easy to understand.
@@ -6,7 +6,7 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
----
+-:?---<<~>>
 
 ## About {% data variables.product.prodname_dotcom %} documentation
 
