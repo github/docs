@@ -1,7 +1,0 @@
-# Reference: #10312
-# Documentation for the enterprise-level security "Risk" and "Coverage" views
-# Ref 17108 Advanced Security available to Team plans
-versions:
-  fpt: '*'
-  ghes: '> 3.9'
-  ghec: '*'
