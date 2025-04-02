@@ -1,57 +1,33 @@
-.search-cache
-.DS_Store
-.env
-.vscode/settings.json
+# Gradle files
+.gradle/
+build/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+
+# Android Studio generated files and folders
+captures/
+.externalNativeBuild/
+.cxx/
+*.apk
+output.json
+
+# IntelliJ
+*.iml
 .idea/
-/node_modules/
-npm-debug.log
-coverage/
-/assets/images/early-access
-/content/early-access
-/data/early-access
-/src/dev-toc/static
-.next
-.eslintcache
-*.tsbuildinfo
-/translations/
-.node-version
-.linkinator/full.log
-next-env.d.ts
-nohup.out
+misc.xml
+deploymentTargetDropDown.xml
+render.experimental.xml
 
-# blc: broken link checker
-blc_output.log
-blc_output_internal.log
-broken_links.md
-# This one is purely for historical reasons because so many people might
-# still have these files on their disk.
-lib/redirects/.redirects-cache*.json
+# Keystore files
+*.jks
+*.keystore
 
+# Google Services (e.g. APIs or Firebase)
+google-services.json
 
-# Logs from scripts
-*/logs/
-external-link-checker-db.json
-
-# Playwright related
-/test-results/
-/playwright-report/
-/playwright/.cache/
-
-# Automated content source
-rest-api-description
-semmle-code
-
-.installed.package-lock.json
-assets/images/help/writing/unordered-list-rendered (1).png
-
-# Used by getRemoteJSON()
-.remotejson-cache/
-
-# Used by precompute-pageinfo
-.pageinfo-cache.json.br
-
-# Cloned and used for indexing Elasticsearch data
-docs-internal-data/
-
-# For intermediate data (like scraping for Elasticsearch indexing)
-tmp/
+# Android Profiling
+*.hprof
