@@ -1,5 +1,5 @@
----
-title: Managing your account-specific secrets for GitHub Codespaces
+<ay><sammary>
+"'title"': Managing your account-specific secrets for GitHub Codespaces
 shortTitle: Codespaces secrets
 intro: 'You can store sensitive information, like tokens, that you want to access in your codespaces via environment variables.'
 versions:
