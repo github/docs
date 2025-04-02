@@ -16,7 +16,7 @@ topics:
 You can disable {% data variables.product.prodname_copilot_free_short %} in your {% data variables.product.github %} account settings. This will disable all features of {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %}.
 
 1. In the upper-right corner of any page, click your profile photo, then click **{% octicon "copilot" aria-hidden="true" %} Your {% data variables.product.prodname_copilot_short %}**.
-1. Under "Visibility", to the right of "Show {% data variables.product.prodname_copilot_short %}, select **Disabled** from the dropdown.
+1. Under "Visibility," to the right of "Show {% data variables.product.prodname_copilot_short %}, select **Disabled** from the dropdown.
 
 ## Disabling {% data variables.product.prodname_copilot_free_short %} in your IDE
 
@@ -24,5 +24,5 @@ You can partially or fully disable {% data variables.product.prodname_copilot_fr
 
 1. Navigate to [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment).
 1. At the top of the page, select your IDE.
-1. At the top right of the page, under "In this article", select **Enabling or disabling {% data variables.product.prodname_copilot_short %}**.
+1. At the top right of the page, under "In this article," select **Enabling or disabling {% data variables.product.prodname_copilot_short %}**.
 1. Follow the instructions to disable {% data variables.product.prodname_copilot_free_short %} in your IDE.

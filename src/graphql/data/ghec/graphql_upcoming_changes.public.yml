@@ -674,6 +674,14 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: AddedToProjectEvent.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: AddedToProjectEvent.projectCard
     description: '`projectCard` will be removed.'
     reason:
@@ -730,6 +738,14 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: vaindil
+  - location: ConvertedNoteToIssueEvent.project
+    description: '`project` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: ConvertedNoteToIssueEvent.projectCard
     description: '`projectCard` will be removed.'
     reason:
@@ -738,6 +754,12 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: CreateIssueTypeInput.isPrivate
+    description: '`isPrivate` will be removed.'
+    reason: Private issue types are being deprecated and can no longer be created.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/issues
   - location: Enterprise.announcement
     description:
       '`announcement` will be removed. Use the `announcementBanner` object
@@ -802,6 +824,20 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: authentication
+  - location: Issue.projectCards
+    description: '`projectCards` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: IssueType.isPrivate
+    description: '`isPrivate` will be removed.'
+    reason: Private issue types are being deprecated and can no longer be created.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/issues
   - location: MovedColumnsInProjectEvent.databaseId
     description: '`databaseId` will be removed.'
     reason:
@@ -812,6 +848,14 @@ upcoming_changes:
     owner: github/memex
   - location: MovedColumnsInProjectEvent.previousProjectColumnName
     description: '`previousProjectColumnName` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: MovedColumnsInProjectEvent.project
+    description: '`project` will be removed.'
     reason:
       'Projects (classic) is being deprecated in favor of the new Projects experience,
       see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
@@ -1012,6 +1056,14 @@ upcoming_changes:
     owner: github/memex
   - location: Organization.projects
     description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: Organization.viewerCanCreateProjects
+    description: '`viewerCanCreateProjects` will be removed.'
     reason:
       'Projects (classic) is being deprecated in favor of the new Projects experience,
       see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
@@ -1250,6 +1302,22 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: ProjectCardArchivedState.ARCHIVED
+    description: '`ARCHIVED` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectCardArchivedState.NOT_ARCHIVED
+    description: '`NOT_ARCHIVED` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: ProjectColumn.cards
     description: '`cards` will be removed.'
     reason:
@@ -1330,6 +1398,14 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: ProjectOwner.id
+    description: '`id` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: ProjectOwner.project
     description: '`project` will be removed.'
     reason:
@@ -1340,6 +1416,30 @@ upcoming_changes:
     owner: github/memex
   - location: ProjectOwner.projects
     description: '`projects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectOwner.projectsResourcePath
+    description: '`projectsResourcePath` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectOwner.projectsUrl
+    description: '`projectsUrl` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: ProjectOwner.viewerCanCreateProjects
+    description: '`viewerCanCreateProjects` will be removed.'
     reason:
       'Projects (classic) is being deprecated in favor of the new Projects experience,
       see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
@@ -1442,8 +1542,24 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: dewski
+  - location: PullRequest.projectCards
+    description: '`projectCards` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: RemovedFromProjectEvent.databaseId
     description: '`databaseId` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: RemovedFromProjectEvent.project
+    description: '`project` will be removed.'
     reason:
       'Projects (classic) is being deprecated in favor of the new Projects experience,
       see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
@@ -1474,6 +1590,14 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: Repository.viewerCanCreateProjects
+    description: '`viewerCanCreateProjects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
   - location: SearchShortcutQueryProjectTerm.project
     description: '`project` will be removed.'
     reason:
@@ -1482,6 +1606,12 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: UpdateIssueTypeInput.isPrivate
+    description: '`isPrivate` will be removed.'
+    reason: Private issue types are being deprecated and can no longer be created.
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/issues
   - location: User.project
     description: '`project` will be removed.'
     reason:
@@ -1498,6 +1628,22 @@ upcoming_changes:
     date: '2025-04-01T00:00:00+00:00'
     criticality: breaking
     owner: github/memex
+  - location: User.viewerCanCreateProjects
+    description: '`viewerCanCreateProjects` will be removed.'
+    reason:
+      'Projects (classic) is being deprecated in favor of the new Projects experience,
+      see: https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/.'
+    date: '2025-04-01T00:00:00+00:00'
+    criticality: breaking
+    owner: github/memex
+  - location: SearchType.ISSUE_ADVANCED
+    description: '`ISSUE_ADVANCED` will be removed.'
+    reason:
+      Search for issues and pull requests will be overridden by advanced search
+      on September 4, 2025. You can read more about this change on https://github.blog/changelog/2025-03-06-github-issues-projects-api-support-for-issues-advanced-search-and-more/.
+    date: '2025-09-04'
+    criticality: breaking
+    owner: github/issues_advanced_search
   - location: SecurityAdvisory.cvss
     description:
       '`cvss` will be removed. New `cvss_severities` field will now contain

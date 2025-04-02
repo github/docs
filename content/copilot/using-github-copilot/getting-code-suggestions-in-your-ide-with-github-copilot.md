@@ -3,16 +3,6 @@ title: Getting code suggestions in your IDE with GitHub Copilot
 shortTitle: Get code suggestions
 intro: 'Use {% data variables.product.prodname_copilot %} to get code suggestions in your editor.'
 redirect_from:
-  - /copilot/getting-started-with-github-copilot
-  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
-  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
-  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
-  - /github/copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
-  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio-code
-  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-a-jetbrains-ide
-  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-neovim
-  - /copilot/getting-started-with-github-copilot/getting-started-with-github-copilot-in-visual-studio
-  - /copilot/using-github-copilot/getting-started-with-github-copilot
   - /copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor
 versions:
   feature: copilot
@@ -255,6 +245,8 @@ The examples in this guide use JavaScript, however other languages will work sim
 ## Prerequisites
 
 * **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you need either an active {% data variables.product.prodname_copilot_short %} subscription (such as {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_enterprise_short %}, or {% data variables.product.prodname_copilot_business_short %}) or access through {% data variables.product.prodname_copilot_free_short %}, which provides limited functionality. {% data reusables.copilot.subscription-prerequisite %}
+
+* **Sign in to {% data variables.product.github %} in {% data variables.product.prodname_vscode %}**. See [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode_shortname %} documentation..
 
 * **{% data variables.product.prodname_vscode %}**. To use {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}, you must have {% data variables.product.prodname_vscode %} installed. For more information, see the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
 

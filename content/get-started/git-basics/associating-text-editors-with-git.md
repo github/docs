@@ -93,21 +93,6 @@ shortTitle: Associate text editors
 
 {% endlinux %}
 
-{% mac %}
-
-## Using TextMate as your editor
-
-1. Install [TextMate](https://macromates.com/).
-1. Install TextMate's `mate` shell utility. For more information, see [`mate` and `rmate`](https://macromates.com/blog/2011/mate-and-rmate/) in the TextMate documentation.
-{% data reusables.command_line.open_the_multi_os_terminal %}
-1. Type this command:
-
-   ```shell
-   git config --global core.editor "mate -w"
-   ```
-
-{% endmac %}
-
 {% windows %}
 
 ## Using Notepad++ as your editor

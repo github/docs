@@ -86,8 +86,8 @@ test('open new search, and perform a general search', async ({ page }) => {
   // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
   // to allow an unnecessary request when there are no search results. Easier to wait 1 second
   await page.waitForTimeout(1000)
-  // Press enter to perform  general search
-  await page.keyboard.press('Enter')
+  // Scroll down to "View all results" then press enter
+  await page.getByText('View more results').click()
 
   await expect(page).toHaveURL(
     /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -664,6 +664,10 @@ test.describe('survey', () => {
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
     await page.goto('/get-started/foo/for-playwright')
 
     // The label is visually an SVG. Finding it by its `for` value feels easier.
@@ -707,6 +711,10 @@ test.describe('survey', () => {
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
     })
 
     await page.goto('/get-started/foo/for-playwright')

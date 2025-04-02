@@ -14,7 +14,7 @@ redirect_from:
 ---
 
 > [!NOTE]
-> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. To access the {% data variables.release-phases.public_preview %}, see [Join the preview for {% data variables.copilot.copilot_code-review_short %}-powered code reviews](https://gh.io/copilot-code-review-waitlist).
+> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change.
 > * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
 
 ## About {% data variables.copilot.copilot_code-review %}

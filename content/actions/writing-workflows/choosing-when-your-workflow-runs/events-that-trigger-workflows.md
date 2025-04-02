@@ -299,7 +299,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
+| [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned`<br/> - `typed`<br/> - `untyped` | Last commit on default branch | Default branch |
 
 > [!NOTE]
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). {% data reusables.developer-site.limit_workflow_to_activity_types %}

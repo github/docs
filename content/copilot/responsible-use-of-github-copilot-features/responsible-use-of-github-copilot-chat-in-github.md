@@ -8,10 +8,6 @@ topics:
   - Copilot
 type: rai
 redirect_from:
-  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
-  - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
-  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
-  - /copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom
 ---
 

@@ -27,7 +27,7 @@ You can find apps and actions on {% data variables.product.prodname_marketplace 
 
 ## Searching across {% data variables.product.prodname_dotcom %}
 
-Anytime you search across all of {% data variables.product.prodname_dotcom %}, you can filter the results to see matching apps and actions from {% data variables.product.prodname_marketplace %}.
+Anytime you search across all of {% data variables.product.prodname_dotcom %}, you can filter the results to see matching apps, actions, and models from {% data variables.product.prodname_marketplace %}.
 
 1. Navigate to https://github.com/search.
 1. Type any keywords and press **Enter**.
@@ -36,6 +36,9 @@ Anytime you search across all of {% data variables.product.prodname_dotcom %}, y
 
 ## Further reading
 
+{%- ifversion fpt %}
+* [AUTOTITLE](/search-github/searching-on-github/searching-github-models)
+{%- endif %}
 * [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)
 * [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)

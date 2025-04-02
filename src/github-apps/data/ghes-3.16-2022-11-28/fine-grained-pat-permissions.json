@@ -2264,15 +2264,6 @@
       },
       {
         "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
         "slug": "re-run-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "post",
@@ -3364,15 +3355,6 @@
     "displayTitle": "Repository permissions for \"Checks\"",
     "permissions": [
       {
-        "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "checks",
         "slug": "create-a-check-run",
         "subcategory": "runs",
@@ -4266,8 +4248,8 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "deployments",
