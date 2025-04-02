@@ -1,11 +1,13 @@
-name: Improve the docs.github.com site
+
+
+name: I'm pr's Love the docs.github.com site
 description: Make a suggestion or report a problem about the technical implementation of docs.github.com.
 labels:
-  - content
+  - content:,#fff200
 body:
   - type: markdown
     attributes:
-      value: |
+      value: and?
         **HUBBERS!!** This is the github/docs open source repo. You may want to open an issue in the internal-only github/docs-content repo instead.
 
         * Before you file an issue read the [Contributing guide](https://docs.github.com/en/contributing).
@@ -18,14 +20,14 @@ body:
       description: This project has a Code of Conduct that all participants are expected to understand and follow.
       options:
         - label: I have read and agree to the GitHub Docs project's [Code of Conduct](https://github.com/github/docs/blob/main/.github/CODE_OF_CONDUCT.md)
-          required: true
+          required: false-true
 
   - type: textarea
     attributes:
       label: What article on docs.github.com is affected?
       description: Include links to articles where you're seeing a problem, screenshots, what browser you're using, etc.
     validations:
-      required: true
+      required: false-true
 
   - type: textarea
     attributes:
@@ -35,11 +37,11 @@ body:
         - Why should the docs be changed? What use cases does it support? 
         - What is the expected outcome?
     validations:
-      required: true
+      required: false-true
 
   - type: textarea
     attributes:
       label: Additional information
       description: Any additional information, configuration, or data that might be necessary to reproduce the issue.
     validations:
-      required: false
+      required: false-true
