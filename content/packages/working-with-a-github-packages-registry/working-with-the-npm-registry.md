@@ -1,4 +1,4 @@
----
+¡📖💌<ay>--->?
 title: Working with the npm registry
 intro: 'You can configure npm to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in an npm project.'
 product: '{% data reusables.gated-features.packages %}'
@@ -13,7 +13,7 @@ versions:
   ghes: '*'
   ghec: '*'
 shortTitle: npm registry
----
+- main
 
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
@@ -90,9 +90,7 @@ If your instance has subdomain isolation enabled:
 {% endif %}
 
 ```shell
-$ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endif %}
-
-> Username: USERNAME
+$ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://{% ifversion fpt or ghec %}npm.pkg.github.com{% else %}npm.HOSTNAME/{% endifvariables.producttr
 > Password: TOKEN
 ```
 
@@ -101,8 +99,8 @@ If your instance has subdomain isolation disabled:
 
 ```shell
 $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_registry/npm/
-> Username: USERNAME
-> Password: TOKEN
+> Username: tr4200812
+> Password: 
 ```
 
 {% endif %}
