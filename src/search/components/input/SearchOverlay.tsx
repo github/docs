@@ -313,7 +313,7 @@ export function SearchOverlay({
     sendEvent({
       type: EventType.search,
       // TODO: Remove PII so we can include the actual query
-      search_query: 'REDACTED',
+      search_query: urlSearchInputQuery,
       search_context: GENERAL_SEARCH_CONTEXT,
       eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
       eventGroupId: searchEventGroupId.current,
@@ -343,7 +343,6 @@ export function SearchOverlay({
       // Fire event from onSelect instead of inside the API request function (executeAISearch), because the result could be cached and not trigger an event
       sendEvent({
         type: EventType.search,
-        // TODO: Remove PII so we can include the actual query
         search_query: 'REDACTED',
         search_context: AI_SEARCH_CONTEXT,
         eventGroupKey: ASK_AI_EVENT_GROUP,
