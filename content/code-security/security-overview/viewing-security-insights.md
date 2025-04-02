@@ -3,6 +3,7 @@ title: Viewing security insights
 shortTitle: View security insights
 intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
   feature: security-overview-dashboard
 type: how_to
@@ -88,7 +89,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 ## Understanding the overview dashboard
 
 {% ifversion security-overview-3-tab-dashboard %}
-<!--Content for GHEC and GHES 3.16+ see next HTML comment for GHES =< 3.15-->
+<!--Content for FPT, GHEC, and GHES 3.16+ see next HTML comment for GHES =< 3.15-->
 
 * [Detection tab](#detection-tab)
 * [Remediation tab](#remediation-tab)

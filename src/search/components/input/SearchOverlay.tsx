@@ -5,6 +5,7 @@ import {
   ActionList,
   Box,
   Header,
+  IconButton,
   Link,
   Overlay,
   Spinner,
@@ -20,6 +21,7 @@ import {
   CopilotIcon,
   FileIcon,
   ArrowRightIcon,
+  ArrowLeftIcon,
 } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -311,7 +313,7 @@ export function SearchOverlay({
     sendEvent({
       type: EventType.search,
       // TODO: Remove PII so we can include the actual query
-      search_query: 'REDACTED',
+      search_query: urlSearchInputQuery,
       search_context: GENERAL_SEARCH_CONTEXT,
       eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
       eventGroupId: searchEventGroupId.current,
@@ -341,7 +343,6 @@ export function SearchOverlay({
       // Fire event from onSelect instead of inside the API request function (executeAISearch), because the result could be cached and not trigger an event
       sendEvent({
         type: EventType.search,
-        // TODO: Remove PII so we can include the actual query
         search_query: 'REDACTED',
         search_context: AI_SEARCH_CONTEXT,
         eventGroupKey: ASK_AI_EVENT_GROUP,
@@ -481,6 +482,15 @@ export function SearchOverlay({
       event.preventDefault()
       onClose() // Close the input overlay when Escape is pressed
     }
+  }
+
+  const onBackButton = () => {
+    // Leave the Ask AI state when the user clicks the back button
+    setSelectedIndex(-1)
+    updateParams({
+      'search-overlay-ask-ai': '',
+      'search-overlay-input': urlSearchInputQuery,
+    })
   }
 
   // We render the AI Result in the searchGroups call, so we pass the props down via an object
@@ -626,6 +636,20 @@ export function SearchOverlay({
         ref={overlayRef}
       >
         <Header className={styles.header}>
+          <Box
+            sx={{
+              display: isAskAIState ? 'flex' : 'none',
+              marginRight: '8px',
+              fontWeight: 'bolder',
+            }}
+          >
+            <IconButton
+              aria-label={t('search.ai.back_to_search')}
+              icon={ArrowLeftIcon}
+              onClick={onBackButton}
+              variant="invisible"
+            ></IconButton>
+          </Box>
           <TextInput
             className="width-full"
             data-testid="overlay-search-input"

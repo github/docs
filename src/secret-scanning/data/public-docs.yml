@@ -720,6 +720,30 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Brevo
+  supportedSecret: Sendinblue API Key
+  secretType: sendinblue_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Brevo
+  supportedSecret: Sendinblue SMTP Key
+  secretType: sendinblue_smtp_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Canadian Digital Service
   supportedSecret: Canadian Digital Service Notify API Key
   secretType: cds_canada_notify_api_key
@@ -2793,6 +2817,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Pangea
+  supportedSecret: Pangea Token
+  secretType: pangea_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Persona  Identities
   supportedSecret: Persona Production Api Key
   secretType: persona_production_api_key
@@ -3272,30 +3307,6 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
-  isduplicate: false
-- provider: Sendinblue
-  supportedSecret: Sendinblue API Key
-  secretType: sendinblue_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sendinblue
-  supportedSecret: Sendinblue SMTP Key
-  secretType: sendinblue_smtp_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
   isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Integration Token
