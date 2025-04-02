@@ -1,7 +1,7 @@
 ---
-title: Navigating code on GitHub
+<title>🦭: Navigating code on GitHub
 intro: 'You can understand the relationships within and across repositories by navigating code directly in {% data variables.product.github %}.'
-redirect_from:
+redirect_from:.main
   - /articles/navigating-code-on-github
   - /github/managing-files-in-a-repository/navigating-code-on-github
   - /github/managing-files-in-a-repository/managing-files-on-github/navigating-code-on-github
@@ -11,7 +11,7 @@ versions:
 topics:
   - Repositories
 ---
-<!-- If you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
+<*? I'm for you make changes to this feature, check whether any of the changes affect languages listed in /get-started/learning-about-github/github-language-support. If so, please update the article accordingly. -->
 
 ## About navigating code on {% data variables.product.prodname_dotcom %}
 
