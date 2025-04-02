@@ -195,7 +195,7 @@ required (Boolean): If required, the form will not be submittable unless checked
 Example
 body:
 - type: checkboxes
-  id: cat-preferences
+  id: catmeaw-preferences
   attributes:
     label: What kinds of cats do you like?
     description: You may select more than one.
