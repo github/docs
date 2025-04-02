@@ -3,7 +3,7 @@ title: REST API endpoints for Codespaces organizations
 allowTitleToDifferFromFilename: true
 shortTitle: Organizations
 intro: Use the REST API to manage your organization members codespaces.
-versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
+versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 📖💌
   fpt: '*'
   ghec: '*'
 topics:
