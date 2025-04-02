@@ -41,6 +41,9 @@ uv        | `uv`            | Not applicable               | {% octicon "check" 
 > [!TIP]
 > For package managers such as `pipenv` and `poetry`, you need to use the `pip` YAML value. For example, if you use `poetry` to manage your Python dependencies and want {% data variables.product.prodname_dependabot %} to monitor your dependency manifest file for new versions, use `package-ecosystem: "pip"` in your `dependabot.yml` file.
 
+> [!IMPORTANT]
+> The [PEP 621](https://python-poetry.org/blog/announcing-poetry-2.0.0/#supporting-the-project-section-in-pyprojecttoml-pep-621) `project` section is not yet supported for `poetry`
+
 For further information about ecosystem support for {% data variables.product.prodname_dependabot_security_updates %}, see also [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
 
 {% ifversion dependabot-bun-support %}
