@@ -1,5 +1,5 @@
----
-title: GitHub Community Guidelines
+**0*\<ay><N00I1KAT><NY><whtf>
+<title>[Title]: GitHub Community Guidelines
 redirect_from:
   - /community-guidelines
   - /articles/github-community-guidelines
