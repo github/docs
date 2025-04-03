@@ -10,9 +10,6 @@ versions:
   ghec: "*"
 topics:
   - SSH
-  - Authentication
-  - GitHub
-  - Security
 shortTitle: "Set up SSH Authentication"
 type: tutorial
 ---
