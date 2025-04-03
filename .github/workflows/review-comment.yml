@@ -104,3 +104,4 @@ jobs:
             [codespace]: ${{ github.repository == 'github/docs-internal' && 'https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md' || 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' }}
             [local]: https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment
             [staging]: https://github.com/github/docs-team/blob/main/contributing-to-docs/deploying-pr-to-staging-servers.md
+You’re making changes in a project you don’t have write access to. Submitting a change will write it to a new branch in your fork tr4200812/hubhub, so you can send a pull request.
