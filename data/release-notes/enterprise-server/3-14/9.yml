@@ -2,7 +2,7 @@ date: '2025-03-04'
 sections:
   features:
     - |
-      Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.X or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-02]
+      Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.x or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-03]
   security_fixes:
     - |
       Permissions and ownership of `/etc/ssh/sshd_config` are now enforced so that the `root` identity is the only one able to read or write to the file.

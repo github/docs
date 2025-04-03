@@ -28,9 +28,7 @@ sections:
         - |
           `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
         - |
-          We now support the VMware ESXi 8.0 hypervisor. If your {% data variables.product.prodname_ghe_server %} installation is on VMware ESXi 7.X or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-02]
-        - |
-          Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.X or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-02]
+          Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.x or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-03]
 
     - heading: Dependabot
       notes:
