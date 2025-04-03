@@ -10,6 +10,7 @@ children:
   - /extending-the-capabilities-of-github-copilot-in-your-organization
   - /adding-repository-custom-instructions-for-github-copilot
   - /adding-personal-custom-instructions-for-github-copilot
+  - /extending-copilot-chat-with-mcp
   - /managing-copilot-knowledge-bases
   - /creating-a-custom-model-for-github-copilot
 redirect_from:

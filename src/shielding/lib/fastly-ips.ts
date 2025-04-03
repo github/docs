@@ -1,11 +1,7 @@
 // Logic to get and store the current list of public Fastly IPs from the Fastly API: https://www.fastly.com/documentation/reference/api/utils/public-ip-list/
 
-import ipaddr, { IPv4, IPv6 } from 'ipaddr.js'
-
-type IPRangeArr = [IPv4 | IPv6, number][]
-
 // Default returned from ➜ curl "https://api.fastly.com/public-ip-list"
-export const DEFAULT_FASTLY_IPS: IPRangeArr = [
+export const DEFAULT_FASTLY_IPS: string[] = [
   '23.235.32.0/20',
   '43.249.72.0/22',
   '103.244.50.0/24',
@@ -25,21 +21,22 @@ export const DEFAULT_FASTLY_IPS: IPRangeArr = [
   '185.31.16.0/22',
   '199.27.72.0/21',
   '199.232.0.0/16',
-].map((cidr) => ipaddr.parseCIDR(cidr))
+]
 
-let ipRangeCache: IPRangeArr = []
+let ipCache: string[] = []
 
-export async function getPublicFastlyIPs(): Promise<IPRangeArr> {
+export async function getPublicFastlyIPs(): Promise<string[]> {
   // Don't fetch the list in dev & testing, just use the defaults
   if (process.env.NODE_ENV !== 'production') {
-    ipRangeCache = DEFAULT_FASTLY_IPS
+    ipCache = DEFAULT_FASTLY_IPS
   }
 
-  if (ipRangeCache.length) {
-    return ipRangeCache
+  if (ipCache.length) {
+    return ipCache
   }
 
   const endpoint = 'https://api.fastly.com/public-ip-list'
+  let ips: string[] = []
   let attempt = 0
 
   while (attempt < 3) {
@@ -50,8 +47,8 @@ export async function getPublicFastlyIPs(): Promise<IPRangeArr> {
       }
       const data = await response.json()
       if (data && Array.isArray(data.addresses)) {
-        ipRangeCache = data.addresses.map((cidr: string) => ipaddr.parseCIDR(cidr))
-        return ipRangeCache
+        ips = data.addresses
+        break
       } else {
         throw new Error('Invalid response structure')
       }
@@ -60,11 +57,14 @@ export async function getPublicFastlyIPs(): Promise<IPRangeArr> {
         `Failed to fetch Fastly IPs: ${error.message}. Retrying ${3 - attempt} more times`,
       )
       attempt++
+      if (attempt >= 3) {
+        ips = DEFAULT_FASTLY_IPS
+      }
     }
   }
 
-  ipRangeCache = DEFAULT_FASTLY_IPS
-  return ipRangeCache
+  ipCache = ips
+  return ips
 }
 
 // The IPs we check in the rate-limiter are in the form `X.X.X.X`
@@ -72,10 +72,10 @@ export async function getPublicFastlyIPs(): Promise<IPRangeArr> {
 // For an IP in the rate-limiter, we want `X.X.X.*` to match `X.X.X.X/Y`
 export async function isFastlyIP(ip: string): Promise<boolean> {
   // If IPs aren't initialized, fetch them
-  if (!ipRangeCache.length) {
+  if (!ipCache.length) {
     await getPublicFastlyIPs()
   }
-  if (!ip) return false // localhost
-  const addr = ipaddr.parse(ip)
-  return ipRangeCache.some((range) => addr.match(range))
+  const parts = ip.split('.')
+  const prefix = parts.slice(0, 3).join('.')
+  return ipCache.some((fastlyIP) => fastlyIP.startsWith(prefix))
 }

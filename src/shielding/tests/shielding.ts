@@ -2,6 +2,7 @@ import { describe, expect, test } from 'vitest'
 
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '@/tests/helpers/e2etest.js'
+import { DEFAULT_FASTLY_IPS } from '@/shielding/lib/fastly-ips'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
@@ -104,7 +105,7 @@ describe('rate limiting', () => {
       headers: {
         // Rate limiting only happens in production, so we need to
         // make the environment look like production.
-        'fastly-client-ip': '0.0.0.0',
+        'fastly-client-ip': 'abc',
       },
     })
     expect(res.statusCode).toBe(200)
@@ -117,7 +118,7 @@ describe('rate limiting', () => {
     {
       const res = await get('/robots.txt?foo=buzz', {
         headers: {
-          'fastly-client-ip': '0.0.0.0',
+          'fastly-client-ip': 'abc',
         },
       })
       expect(res.statusCode).toBe(200)
@@ -141,7 +142,8 @@ describe('rate limiting', () => {
     // Fastly IPs are in the form `X.X.X.X/Y`
     // Rate limited IPs are in the form `X.X.X.X`
     // Where the last X could be any 2-3 digit number
-    const mockFastlyIP = '23.235.32.0'
+    const mockFastlyIP =
+      DEFAULT_FASTLY_IPS[0].split('.').slice(0, 3).join('.') + `.${Math.floor(Math.random() * 100)}`
     // Cookies only allows 1 request per minute
     const res1 = await get('/api/cookies', {
       headers: {
