@@ -1,6 +1,7 @@
 ---
-title: This is an article
-intro: 'I've got broken frontmatter'
+title: "This is an article"
+intro: "I've got broken frontmatter"
 versions:
-  free-pro-team: '*'
+  free-pro-team: "*"
+type: "article"
 ---
