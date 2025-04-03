@@ -1,16 +1,20 @@
 ---
-title: Setting Up SSH Authentication for GitHub
+title: "Setting Up SSH Authentication for GitHub"
 intro: "Learn how to securely connect to GitHub using SSH keys for seamless repository access and code pushing."
+redirect_from:
+  - /articles/setting-up-ssh-authentication-for-github
+  - /github/authenticating-to-github/setting-up-ssh-authentication-for-github
 versions:
-  free-pro-team: "*"
-  enterprise-server: "*"
-  enterprise-cloud: "*"
-type: tutorial
+  fpt: "*"
+  ghes: "*"
+  ghec: "*"
 topics:
   - SSH
   - Authentication
   - GitHub
   - Security
+shortTitle: "Set up SSH Authentication"
+type: tutorial
 ---
 
 # Step-by-Step: Setting Up SSH Authentication for GitHub
