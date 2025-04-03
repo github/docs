@@ -11,6 +11,7 @@ redirect_from:
   - /articles/generating-an-ssh-key
   - /articles/connecting-to-github-with-ssh
   - /github/authenticating-to-github/connecting-to-github-with-ssh
+  - /setting-up-ssh-authentication-for-github 
 versions:
   fpt: '*'
   ghes: '*'
