@@ -63,14 +63,6 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 | `owner` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&visibility=public` creates a public repository owned by the "avocado-corp" organization. | Any valid organization name or username. Alternatively, while signed in use `@me` to specify your user account as the owner. |
 | `template_owner` and `template_name` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&template_owner=avocado-corp&template_name=octo-repo` creates a repository owned by the "avocado-corp" using the avocado-corp's template "octo-repo". | The username of the template owner and the name of the repository template. |
 
-{% ifversion copilot %}
-
-## Creating a new repository from {% data variables.product.prodname_copilot_chat_short %}
-
-You can create a new repository from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot//extending-copilot-chat-with-mcp).
-
-{% endif %}
-
 ## Further reading
 
 * [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository)
