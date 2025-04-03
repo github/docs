@@ -1,4 +1,4 @@
-/* eslint-disable camelcase */
+/* eslint-disable camelcase, no-unreachable */
 import Cookies from 'src/frame/components/lib/cookies'
 import { parseUserAgent } from './user-agent'
 import { Router } from 'next/router'
@@ -75,6 +75,9 @@ export function sendEvent<T extends EventType>({
   eventGroupId?: string
 } & EventPropsByType[T]) {
   if (isHeadless()) return
+
+  // Early return to disable event tracking
+  return
 
   const body = {
     type,
