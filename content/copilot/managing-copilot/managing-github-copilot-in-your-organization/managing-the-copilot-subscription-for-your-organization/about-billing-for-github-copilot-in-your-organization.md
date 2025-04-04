@@ -15,6 +15,10 @@ topics:
 
 Subscriptions to {% data variables.product.prodname_copilot_business_short %} are available on a monthly cycle. The subscriptions are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
 
+## Premium requests
+
+Paid {% data variables.product.prodname_copilot_short %} plans include premium requests. Premium requests use advanced models and features and are subject to monthly allowances or potential overage costs. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+
 ## About the billing cycle for {% data variables.product.prodname_copilot_short %} in your organization
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.

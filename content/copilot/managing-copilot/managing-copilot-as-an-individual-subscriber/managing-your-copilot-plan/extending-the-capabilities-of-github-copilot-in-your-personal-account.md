@@ -10,6 +10,7 @@ type: how_to
 redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions/installing-github-copilot-extensions-for-your-personal-account
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/installing-github-copilot-extensions-for-your-personal-account
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/extending-the-capabilities-of-github-copilot-in-your-personal-account
 ---
 
 ## About {% data variables.product.prodname_copilot_extensions %} for your personal account

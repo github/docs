@@ -1,0 +1,1 @@
+GPT-4o is a strong default choice for common development tasks that benefit from speed, responsiveness, and general-purpose reasoning. If you're working on tasks that require broad knowledge, fast iteration, or basic code understanding, GPT-4o is likely the best model to use.
