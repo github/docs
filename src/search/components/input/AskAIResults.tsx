@@ -195,6 +195,18 @@ export function AskAIResults({
               let parsedLine
               try {
                 parsedLine = JSON.parse(line)
+                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
+                if (parsedLine?.errors) {
+                  sendAISearchResultEvent({
+                    sources: [],
+                    message: JSON.stringify(parsedLine.errors),
+                    eventGroupId: askAIEventGroupId.current,
+                    couldNotAnswer: false,
+                    status: 500,
+                  })
+                  setAISearchError()
+                  return
+                }
               } catch (e) {
                 console.error(
                   'Failed to parse JSON:',
