@@ -30,6 +30,10 @@ A chat interface that lets you ask coding-related questions. {% data variables.p
 
 A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
 
+### {% data variables.product.prodname_copilot %} code review
+
+AI-generated code review suggestions to help you write better code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
+
 ### {% data variables.product.prodname_copilot_for_prs %}
 
 AI-generated summaries of the changes that were made in a pull request, which files they impact, and what a reviewer should focus on when they conduct their review. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-for-pull-requests/creating-a-pull-request-summary-with-github-copilot).
@@ -49,10 +53,6 @@ AI-generated text completion to help you write pull request descriptions quickly
 ### GitHub Models ({% data variables.release-phases.public_preview %})
 
 Bringing the power of industry leading large and small language models to users directly on {% data variables.product.github %}. For more information, see [AUTOTITLE](/github-models).
-
-### {% data variables.product.prodname_copilot %} code review ({% data variables.release-phases.public_preview %})
-
-AI-generated code review suggestions to help you write better code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
 ### {% data variables.product.prodname_copilot_edits_short %}
 
