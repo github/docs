@@ -131,7 +131,7 @@ export function SearchOverlay({
     }
 
     // If it's the initial fetch, show the spinner immediately
-    if (!aiAutocompleteOptions.length && !generalSearchResults.length) {
+    if (!aiAutocompleteOptions.length && !generalSearchResults.length && searchLoading) {
       return setShowSpinner(true)
     }
 
