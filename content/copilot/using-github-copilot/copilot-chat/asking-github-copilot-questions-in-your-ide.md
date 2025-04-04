@@ -131,15 +131,21 @@ For more detailed instructions, see [{% data variables.product.prodname_copilot_
 
 For more information, see [{% data variables.product.prodname_copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
-## Vision
+## Using images in {% data variables.product.prodname_copilot_chat_short %}
 
-> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+{% data reusables.copilot.using-images-in-chat %}
 
-Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
+### Attaching images to your chat prompt
 
-You can attach images to your chat prompts to help {% data variables.product.prodname_copilot_short %} understand your question. For example, you can attach a screenshot of a code snippet to ask {% data variables.product.prodname_copilot_short %} to explain the code, or share mockups of new designs to ask {% data variables.product.prodname_copilot_short %} to generate code.
+1. Make sure GPT-4o is selected in the model picker at the bottom right of the chat view.
 
-You can drag and drop images into the chat window, or attach them through the {% data variables.product.prodname_vscode_shortname %} UI.
+1. Do one of the following:
+
+   * Copy an image and paste it into the chat view.
+   * Drag and drop one or more image file from your operating system's file explorer—or from the Explorer in {% data variables.product.prodname_vscode_shortname %}—into the chat view.
+   * Right-click an image file in the {% data variables.product.prodname_vscode_shortname %} Explorer and click **{% data variables.product.prodname_copilot_short %}** then **Add File to Chat**.
+
+{% data reusables.copilot.type-prompt-for-image %}
 
 ## Sharing feedback
 
@@ -245,15 +251,22 @@ In addition to submitting prompts through the chat window, you can submit prompt
 
 See [Ask questions in the inline chat view](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-chat#ask-questions-in-the-inline-chat-view) in the {% data variables.product.prodname_vs %} documentation for more details.
 
-## Vision
+## Using images in {% data variables.product.prodname_copilot_chat_short %}
 
-> [!NOTE] Vision is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+{% data reusables.copilot.using-images-in-chat %}
 
-Vision requires that you use the GPT-4o model and upload one of the following file types: JPEG (`.jpg`, `.jpeg`), PNG (`.png`), GIF (`.gif`), or WEBP (`.webp`).
+### Attaching images to your chat prompt
 
-You can attach images to your chat prompts to help {% data variables.product.prodname_copilot_short %} understand your question. For example, you can attach a screenshot of a code snippet to ask {% data variables.product.prodname_copilot_short %} to explain the code, or share mockups of new designs to ask {% data variables.product.prodname_copilot_short %} to generate code.
+1. Make sure GPT-4o is selected in the model picker at the bottom right of the chat view.
 
-You can drag and drop images into the chat window, or attach them through the {% data variables.product.prodname_vs %} UI.
+1. Do one of the following:
+
+   * Copy an image and paste it into the chat view.
+   * Click the paperclip icon at the bottom right of the chat view, click **Upload Image**, browse to the image file you want to attach, select it and click **Open**.
+
+   You can add multiple images if required.
+
+1. Type your prompt into the chat view to accompany the image. For example, `explain this image`, or `describe each of these images in detail`.
 
 ## Sharing feedback
 

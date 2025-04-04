@@ -109,7 +109,7 @@ By following these practices, you can significantly reduce the risk posed by out
 
 **Security overview**
 
-   * You can keep an eye on the dashboards on the security overview page, which provide  insights about your organization or enterprise's security landscape and progress. It helps users identify repositories that need attention and monitor the health of their application security program.{% ifversion ghec or ghes %} For example, you can see a summary of an organization's security risk, trends in detection, remediation, and prevention of security alerts, as well as the enablement status of {% data variables.product.github %}'s security features.{% endif %} For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
+   * You can keep an eye on the dashboards on the security overview page, which provide  insights about your organization or enterprise's security landscape and progress. It helps users identify repositories that need attention and monitor the health of their application security program. For example, you can see a summary of an organization's security risk, trends in detection, remediation, and prevention of security alerts, as well as the enablement status of {% data variables.product.github %}'s security features. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
 
 **Security policy**
 

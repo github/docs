@@ -29,7 +29,7 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview features, such as:
-  * Vision (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
+  * Using images in {% data variables.product.prodname_copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
   * {% data variables.copilot.next_edit_suggestions_caps %} (available in {% data variables.product.prodname_vscode_shortname %})
   * GPT-4o {% data variables.product.prodname_copilot_short %} code completion (available in {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs)
   * {% data variables.product.prodname_copilot_short %} Edits agent mode (available in {% data variables.product.prodname_vscode_shortname %})
