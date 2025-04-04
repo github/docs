@@ -113,11 +113,7 @@ See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inlin
 
 ### Using edit mode
 
-1. To start an edit session, select **Open Chat** from the {% data variables.product.prodname_copilot_chat_short %} menu.
-1. At the bottom of the chat panel, select **Edit** from the mode dropdown.
-
-   ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} mode dropdown. The "Edit" option is outlined in dark orange.](/assets/images/help/copilot/chat-mode-vscode.png)
-
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. Optionally, add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Apply** or **Discard** the edits for each file.
@@ -126,8 +122,10 @@ For more detailed instructions, see [{% data variables.product.prodname_copilot_
 
 ### Using agent mode
 
-1. To start an edit session, select **Open Chat** from the {% data variables.product.prodname_copilot_chat_short %} menu.
-1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+{% data reusables.copilot.agent-mode-public-preview-note %}
+
+1. To start an edit session, select **Open {% data variables.product.prodname_copilot_edits_short %}** from the {% data variables.product.prodname_copilot_chat_short %} menu.
+1. Select **Agent** from the mode dropdown menu.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
