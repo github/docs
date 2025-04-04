@@ -20,7 +20,12 @@ Subscriptions to {% data variables.product.prodname_copilot_for_business %} are 
 
 ## {% data variables.product.prodname_copilot %} as an individual
 
-Subscriptions to {% data variables.product.prodname_copilot_pro %} are available on a monthly or yearly cycle, for either {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual).
+Subscriptions to {% data variables.product.prodname_copilot_pro %} and {% data variables.product.prodname_copilot_pro_plus %} are available on a monthly or yearly cycle:
+
+* **{% data variables.product.prodname_copilot_pro_short %}**: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.
+* **{% data variables.product.prodname_copilot_pro_plus_short %}**: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.
+
+See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual).
 
 > [!NOTE] {% data reusables.copilot.copilot-one-account %}
 
