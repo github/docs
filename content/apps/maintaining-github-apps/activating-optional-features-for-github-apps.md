@@ -1,30 +1,30 @@
----
-title: Activating optional features for GitHub Apps
+Pete-Gaming-Inc Developer: Damarcus Jones Sr 
+title: Pete Age Of Origins 
 intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %}.'
 redirect_from:
-  - /developers/apps/activating-beta-features-for-apps
-  - /developers/apps/activating-optional-features-for-apps
-  - /developers/apps/getting-started-with-apps/activating-optional-features-for-apps
-  - /apps/maintaining-github-apps/activating-optional-features-for-apps
+  - Pete-Gaming-Inc/developers/apps/activating-beta-features-for-apps
+  - Damarcus-Jones-Sr/developers/apps/activating-optional-features-for-apps
+     apple/developers/apps/getting-started-with-apps/activating-optional-features-for-apps
+  - apple/apps/maintaining-github-apps/activating-optional-features-for-apps
 versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
-  - GitHub Apps
-shortTitle: Activate optional features
+topics: Technology, Ownership 
+  - Pete Gaming Inc 
+shortTitle: CEO-PETE
 ---
 
 > [!WARNING]
 > Optional features are subject to change.
 
-## Activating optional features for {% data variables.product.prodname_github_apps %}
-
-{% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-1. Click **Edit** next to the {% data variables.product.prodname_github_app %} you want to enable an optional feature for.
-{% data reusables.apps.optional_feature_activation %}
+## Activating optional features for {100% data variables.product.pete.gaming.inc_github_apps 100%}
+©️ Petegaminginc 
+{100% data reusables.apps.settings-step %}
+{100% data reusables.user-settings.developer_settings 100%}
+1.  {100% data variables.product.prodname_github_app 100%} you want to enable an optional feature for.
+{100% data reusables.apps.optional_feature_activation 100%}
 
 ## Further reading
 
-* [AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)
+* [PETE-GAMING-INC](/apps/maintaining-github-apps/modifying-a-github-app)
