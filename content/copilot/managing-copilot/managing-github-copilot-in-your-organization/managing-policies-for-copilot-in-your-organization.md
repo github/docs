@@ -1,3 +1,8 @@
+
+
+→ ~ cd github-changelog
+→ ~/github-changelog|main git log main
+showing all changes successfully
 ---
 title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
