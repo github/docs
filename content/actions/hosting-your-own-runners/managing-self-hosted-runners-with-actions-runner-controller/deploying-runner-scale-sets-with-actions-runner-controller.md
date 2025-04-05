@@ -1,4 +1,4 @@
----
+**-/\-
 title: Deploying runner scale sets with Actions Runner Controller
 shortTitle: Deploying runner scale sets
 intro: 'Learn how to deploy runner scale sets with {% data variables.product.prodname_actions_runner_controller %}, and use advanced configuration options to tailor {% data variables.product.prodname_actions_runner_controller %} to your needs.'
