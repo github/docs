@@ -1,3 +1,6 @@
+-----------------------------------------------------
+end of the stream or a document separator is expected-----------------------------------------------------
+-----------------------------------------------------
 name: Check unallowed file changes
 
 # **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
