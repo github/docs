@@ -1,6 +1,3 @@
-----------------------------------------------------------------------------------------------------------
-managing-releases-in-a-repository.md -----------------------------------------------------
-----------------------------------------------------------------------------------------------------------
 ---
 title: Managing releases in a repository
 intro: You can create releases to bundle and deliver iterations of a project to users.

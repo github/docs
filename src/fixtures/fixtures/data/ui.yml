@@ -46,10 +46,10 @@ search:
     privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy">GitHub Privacy Statement</a> to review how GitHub collects and uses your data.
   ai:
     disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
-    references: Additional docs
+    references: References from these articles
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    unable_to_answer: Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different query.
+    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query or search our docs.
     copy_answer: Copy answer
     copied_announcement: Copied!
     thumbs_up: This answer was helpful

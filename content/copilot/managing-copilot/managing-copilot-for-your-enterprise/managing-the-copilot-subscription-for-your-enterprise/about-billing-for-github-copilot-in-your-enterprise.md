@@ -21,10 +21,6 @@ When you subscribe to {% data variables.product.prodname_copilot_enterprise_shor
 
 For guidance, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot).
 
-## Premium requests
-
-Paid {% data variables.product.prodname_copilot_short %} plans include premium requests. Premium requests use advanced models and features and are subject to monthly allowances or potential overage costs. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
-
 ## About the billing cycle for {% data variables.product.prodname_copilot_short %} in your enterprise
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
