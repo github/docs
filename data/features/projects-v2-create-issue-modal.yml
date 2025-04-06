@@ -1,6 +1,0 @@
-# Issue 9065
-# Create issue modal via project
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.9'

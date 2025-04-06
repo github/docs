@@ -15,45 +15,50 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 <details>
   <summary>View the list of programming languages and technologies included in the training data.</summary>
 
-  * C  
-  * C#  
-  * C++  
-  * Clojure  
-  * CSS  
-  * Dart  
-  * Dockerfile  
-  * Elixir  
-  * Emacs Lisp  
-  * Go  
-  * Haskell  
-  * HTML  
-  * Java  
-  * JavaScript  
-  * Julia  
-  * Jupyter Notebook  
-  * Kotlin  
-  * Lua  
-  * MATLAB  
-  * Objective-C  
-  * Perl  
-  * PHP  
-  * PowerShell  
-  * Python  
-  * R  
-  * Ruby  
-  * Rust  
-  * Scala  
-  * Shell  
-  * Swift  
-  * TeX  
-  * TypeScript  
+  * C
+  * C#
+  * C++
+  * Clojure
+  * CSS
+  * Dart
+  * Dockerfile
+  * Elixir
+  * Emacs Lisp
+  * Go
+  * Haskell
+  * HTML
+  * Java
+  * JavaScript
+  * Julia
+  * Jupyter Notebook
+  * Kotlin
+  * Lua
+  * MATLAB
+  * Objective-C
+  * Perl
+  * PHP
+  * PowerShell
+  * Python
+  * R
+  * Ruby
+  * Rust
+  * Scala
+  * Shell
+  * Swift
+  * TeX
+  * TypeScript
   * Vue
 
 </details>
 
 > [!NOTE]
-> * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later, and in the latest JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
+Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
+
+{% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
+
+{% visualstudio %} You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later. {% endvisualstudio %}
+
+{% jetbrains %} You can switch AI models in the latest releases of JetBrains IDEs with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endjetbrains %}
 
 ## Effects of switching the AI model
 
@@ -74,6 +79,27 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 {% endif %}
 
 {% data reusables.copilot.editor-preview-settings %}
+
+{% vscode %}
+
+## Changing the AI model for code completion
+
+The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
+
+1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
+1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
+1. In the dropdown menu, select the model you want to use.
+
+Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
+
+## Checking which model is being used
+
+1. Open the Settings editor by pressing <kbd>Ctrl</kbd>+<kbd>,</kbd> (Linux/Windows) / <kbd>Command</kbd>+<kbd>,</kbd> (Mac).
+1. Type `copilot completion` and look for the "{% data variables.product.github %} > {% data variables.product.prodname_copilot_short %}: Selected Completion Model" section.
+
+   The field in this section displays the currently selected model. If the field is empty, the default model is being used.
+
+{% endvscode %}
 
 {% visualstudio %}
 

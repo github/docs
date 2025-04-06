@@ -20,12 +20,16 @@ sections:
       Domain entries could fail to load in the "Verified & Approves Domains" section of the site admin dashboard if one or more authoritative nameservers for the affected domain was unreachable or unresponsive due to inefficient DNS queries.
     - |
       On instances with a GitHub Advanced Security license, some secret scanning alerts were opened incorrectly despite the relevant folders or files being excluded from secret scanning.
+    - |
+      For appliances in a high availability configuration, Elasticsearch indices were deleted either on failover, or when running `ghe-repl-teardown <REPLICA_HOSTNAME>` from the primary instance.
   changes:
     - |
       Elasticsearch shards are excluded from the replica node when stopping replication via `ghe-repl-stop`. To prevent Elasticsearch from being stopped before all shards have been removed, Elasticsearch is polled until the shard count on the replica node is zero instead of waiting for a maximum timeout of 30 seconds.
     - |
       Update the bundled `actions/setup-dotnet` with the latest versions from https://github.com/actions/setup-dotnet.
   known_issues:
+    - |
+      Upgrades to 3.16.1 may fail due to an error while migrating a secret scanning database. The `ghe-migrations` command output will include a `DelegatedBypassConfigurationNotNil` error. To recover, you can restore from a backup, fail over to a replica, or reach out to GitHub Support if you encounter this issue. [Updated: 2025-04-03]
     - |
       Custom firewall rules are removed during the upgrade process.
     - |

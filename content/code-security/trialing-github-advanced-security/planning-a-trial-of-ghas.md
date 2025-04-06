@@ -2,7 +2,7 @@
 title: 'Planning a trial of {% data variables.product.prodname_GHAS %}'
 shortTitle: 'Plan GHAS trial'
 allowTitleToDifferFromFilename: true
-intro: 'Ensure that your trial gives you the answers you need to make a decision on whether or not {% data variables.product.prodname_GHAS %} products meet your business needs.'
+intro: 'Make the most of your trial so you can decide whether {% data variables.product.prodname_AS %} products meet your business needs.'
 type: overview
 topics:
   - Code Security
@@ -20,25 +20,33 @@ You can trial {% data variables.product.prodname_GHAS %} independently, or worki
 
 ### Existing {% data variables.product.prodname_ghe_cloud %} users
 
-{% data reusables.advanced-security.ghas-trial-availability %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+{% data reusables.advanced-security.ghas-trial-availability %} For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/setting-up-a-trial-of-github-advanced-security#setting-up-your-trial-of-github-advanced-security).
 
 {% data reusables.advanced-security.ghas-trial-invoiced %}
 
 ### Users on other GitHub plans
 
-You can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+You can trial {% data variables.product.prodname_GHAS %} as part of a trial of {% data variables.product.prodname_ghe_cloud %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
 
 ### When the trial ends
 
-You can end your trial at any time by purchasing {% data variables.product.prodname_GHAS_cs_or_sp %}. If you don't already use {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_enterprise %} you will need to upgrade your plan. Alternatively, you can cancel the trial at any time. For more information, see [What happens when the trial ends?](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud#what-happens-when-the-trial-ends){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+{% ifversion fpt %}
 
-{% data reusables.advanced-security.ghas-products-tip %}
+If you don't already use {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}, you will need to upgrade your plan to continue using {% data variables.product.prodname_GH_cs_or_sp %} in private repositories when the trial ends.
+
+{% data variables.product.prodname_GH_cs_and_sp %} are billed by usage of unique committers to repositories with {% data variables.product.prodname_cs_or_sp %} enabled. For more information, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+
+{% elsif ghec %}
+
+You can end your trial at any time by purchasing {% data variables.product.prodname_GH_cs_or_sp %}. If you don't already use {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %}, you will need to upgrade your plan. Alternatively, you can cancel the trial at any time.
+
+{% endif %}
 
 ## Define your company goals
 
-Before you start a trial of {% data variables.product.prodname_GHAS %}, you should define the purpose of the trial and identify the key questions you need to answer. Maintaining a strong focus on these goals will enable you to plan a trial that maximizes discovery and ensures that you have the information needed to decide whether or not to upgrade.
+Before you start a trial, you should define the purpose of the trial and identify the key questions you need to answer. Maintaining a strong focus on these goals will enable you to plan a trial that maximizes discovery and ensures that you have the information needed to decide whether or not to upgrade.
 
-If your company already uses {% data variables.product.github %}, consider what needs are currently unmet that {% data variables.product.prodname_GHAS %} might address. You should also consider your current application security posture and longer term aims. For inspiration, see [Design Principles for Application security](https://wellarchitected.github.com/library/application-security/design-principles/) in the {% data variables.product.github %} well-architected documentation.
+If your company already uses {% data variables.product.github %}, consider what needs are currently unmet that {% data variables.product.prodname_cs_or_sp %} might address. You should also consider your current application security posture and longer term aims. For inspiration, see [Design Principles for Application security](https://wellarchitected.github.com/library/application-security/design-principles/) in the {% data variables.product.github %} well-architected documentation.
 
 {% rowheaders %}
 
@@ -62,9 +70,13 @@ You may also find it helpful to identify a champion for each company need that y
 
 ## Determine whether preliminary research is needed
 
-If members of your trial team have not yet used the core features of {% data variables.product.prodname_GHAS %}, it may be helpful to add an experimentation phase in public repositories before you start a trial. Many of the primary features of {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} can be used on public repositories. Having a good understanding of the core features will allow you to focus your trial period on private repositories, and exploring the additional features and control available with {% data variables.product.prodname_GHAS %}.
+If members of your trial team have not yet used the core features of {% data variables.product.prodname_GHAS %}, it may be helpful to add an experimentation phase in public repositories before you start a trial. Many of the primary features of {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %} can be used on public repositories. Having a good understanding of the core features will allow you to focus your trial period on private repositories, and exploring the additional features and control available with {% data variables.product.prodname_cs_and_sp %}.
 
-For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning), [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security), and [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning), [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning), and [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
+
+{% ifversion secret-risk-assessment %}
+
+Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in their organization for leaked secrets. This can help you understand the current exposure of the repositories in your organization to leaked secrets, as well as see how many existing secret leaks could have been prevented by {% data variables.product.prodname_secret_protection %}. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}
 
 ## Agree the organizations and repositories to test
 

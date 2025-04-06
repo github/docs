@@ -174,3 +174,38 @@ If the user account you used to sign into Azure does not have adequate permissio
 > GitHub Inc needs permission to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
 
 To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review [Prerequisites](#prerequisites).
+
+{% ifversion ghec %}
+
+## Frequently asked questions about Azure subscriptions
+
+The following are answers to some common questions about connecting an Azure subscription to your account on {% data variables.product.prodname_dotcom %}.
+
+### Can I connect more than one enterprise or cost center to the same Azure subscription?
+
+Yes. There’s no limit to the number of enterprises or cost centers you can connect to a single Azure subscription. For details on how charges are applied to cost centers, see [AUTOTITLE](/billing/using-the-new-billing-platform/charging-business-units).
+
+### Can I connect multiple Azure subscriptions to one enterprise?
+
+Yes. You can connect multiple Azure subscriptions to a single enterprise account by creating **cost centers**. Cost centers let you allocate metered usage across different Azure subscriptions.
+
+### How are charges split in Azure for multiple enterprises?
+
+Azure usage is separated by **SKU** and either **enterprise ID** or **cost center ID**. The format used is `enterprise:sku` or `costcenter:sku`.
+
+> [!NOTE]
+> Azure currently shows internal IDs, which may make it difficult to identify the corresponding enterprise or cost center.
+
+### What happens if I don’t assign an Azure subscription to a cost center?
+
+Charges will fall back to the **enterprise-level Azure subscription**. This also happens if a cost center becomes invalid or is deleted—any future usage from those resources is billed to the enterprise-level subscription.
+
+### Can billing managers connect to Azure subscriptions?
+
+Yes. Billing managers for organizations or enterprises can connect Azure subscriptions.
+
+### Can I use metered products during an {% data variables.product.prodname_emu %} trial without connecting an Azure subscription?
+
+Yes. During an **{% data variables.product.prodname_emu %} trial**, you can use metered products up to the included limits. To exceed the included limits, you’ll need to link an Azure subscription.
+
+{% endif %}

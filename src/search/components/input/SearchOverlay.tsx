@@ -5,10 +5,12 @@ import {
   ActionList,
   Box,
   Header,
+  IconButton,
   Link,
   Overlay,
   Spinner,
   Stack,
+  Text,
   TextInput,
   Token,
 } from '@primer/react'
@@ -19,6 +21,7 @@ import {
   CopilotIcon,
   FileIcon,
   ArrowRightIcon,
+  ArrowLeftIcon,
 } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
@@ -128,7 +131,7 @@ export function SearchOverlay({
     }
 
     // If it's the initial fetch, show the spinner immediately
-    if (!aiAutocompleteOptions.length && !generalSearchResults.length) {
+    if (!aiAutocompleteOptions.length && !generalSearchResults.length && searchLoading) {
       return setShowSpinner(true)
     }
 
@@ -310,7 +313,7 @@ export function SearchOverlay({
     sendEvent({
       type: EventType.search,
       // TODO: Remove PII so we can include the actual query
-      search_query: 'REDACTED',
+      search_query: urlSearchInputQuery,
       search_context: GENERAL_SEARCH_CONTEXT,
       eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
       eventGroupId: searchEventGroupId.current,
@@ -340,7 +343,6 @@ export function SearchOverlay({
       // Fire event from onSelect instead of inside the API request function (executeAISearch), because the result could be cached and not trigger an event
       sendEvent({
         type: EventType.search,
-        // TODO: Remove PII so we can include the actual query
         search_query: 'REDACTED',
         search_context: AI_SEARCH_CONTEXT,
         eventGroupKey: ASK_AI_EVENT_GROUP,
@@ -434,19 +436,15 @@ export function SearchOverlay({
       let pressedGroupId = searchEventGroupId
       let pressedOnContext = ''
 
+      // When enter is pressed and no option is manually selected (-1), perform an AI search with the user input
       if (selectedIndex === -1) {
         if (isAskAIState) {
           pressedOnContext = AI_SEARCH_CONTEXT
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
-          // When we are in the Ask AI state, we want to ask another AI Search query
-          aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
-        } else if (generalSearchResults.length > 0) {
-          pressedOnContext = GENERAL_SEARCH_CONTEXT
-          // Nothing manually selected, so general search the typed suggestion
-          performGeneralSearch()
         }
-        return sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
       }
 
       if (
@@ -455,33 +453,44 @@ export function SearchOverlay({
         selectedIndex < combinedOptions.length
       ) {
         const selectedItem = combinedOptions[selectedIndex]
+        let action = () => {} // Execute the action after we send the event
         if (selectedItem.group === 'general') {
           if (
             (selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults ||
             (selectedItem.option as GeneralSearchHitWithOptions).isSearchDocsOption
           ) {
             pressedOnContext = 'view-all'
-            performGeneralSearch()
+            action = performGeneralSearch
           } else {
             pressedOnContext = 'general-option'
-            generalSearchResultOnSelect(selectedItem.option as GeneralSearchHit)
+            action = () => generalSearchResultOnSelect(selectedItem.option as GeneralSearchHit)
           }
         } else if (selectedItem.group === 'ai') {
           pressedOnContext = 'ai-option'
-          aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
+          action = () => aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
         } else if (selectedItem.group === 'reference') {
           // On a reference select, we are in the Ask AI State / Screen
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
           pressedOnContext = 'reference-option'
-          referenceOnSelect(selectedItem.url || '')
+          action = () => referenceOnSelect(selectedItem.url || '')
         }
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
+        return action()
       }
     } else if (event.key === 'Escape') {
       event.preventDefault()
       onClose() // Close the input overlay when Escape is pressed
     }
+  }
+
+  const onBackButton = () => {
+    // Leave the Ask AI state when the user clicks the back button
+    setSelectedIndex(-1)
+    updateParams({
+      'search-overlay-ask-ai': '',
+      'search-overlay-input': urlSearchInputQuery,
+    })
   }
 
   // We render the AI Result in the searchGroups call, so we pass the props down via an object
@@ -627,6 +636,20 @@ export function SearchOverlay({
         ref={overlayRef}
       >
         <Header className={styles.header}>
+          <Box
+            sx={{
+              display: isAskAIState ? 'flex' : 'none',
+              marginRight: '8px',
+              fontWeight: 'bolder',
+            }}
+          >
+            <IconButton
+              aria-label={t('search.ai.back_to_search')}
+              icon={ArrowLeftIcon}
+              onClick={onBackButton}
+              variant="invisible"
+            ></IconButton>
+          </Box>
           <TextInput
             className="width-full"
             data-testid="overlay-search-input"
@@ -691,28 +714,50 @@ export function SearchOverlay({
           }}
         />
         <footer key="description" className={styles.footer}>
-          <Token
-            as="span"
-            text="Beta"
-            className={styles.betaToken}
+          <Box
             sx={{
-              backgroundColor: 'var(--overlay-bg-color)',
+              display: 'flex',
+              alignContent: 'start',
+              alignItems: 'start',
             }}
-          />
-          <Link
-            onClick={async () => {
-              if (await getIsStaff()) {
-                // Hubbers users use an internal discussion for feedback
-                window.open('https://github.com/github/docs-engineering/discussions/5295', '_blank')
-              } else {
-                // TODO: On ship date set this value
-                // window.open('TODO', '_blank')
-              }
-            }}
-            as="button"
           >
-            {t('search.overlay.give_feedback')}
-          </Link>
+            <Token
+              as="span"
+              text="Beta"
+              className={styles.betaToken}
+              sx={{
+                backgroundColor: 'var(--overlay-bg-color)',
+              }}
+            />
+            <Link
+              onClick={async () => {
+                if (await getIsStaff()) {
+                  // Hubbers users use an internal discussion for feedback
+                  window.open(
+                    'https://github.com/github/docs-engineering/discussions/5295',
+                    '_blank',
+                  )
+                } else {
+                  // TODO: On ship date set this value
+                  // window.open('TODO', '_blank')
+                }
+              }}
+              as="button"
+            >
+              {t('search.overlay.give_feedback')}
+            </Link>
+          </Box>
+          <Text
+            as="p"
+            sx={{
+              // eslint-disable-next-line primer-react/new-color-css-vars
+              color: 'var(--color-fg-muted)',
+              marginTop: 2,
+              marginBottom: 0,
+              fontSize: 'small',
+            }}
+            dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
+          />
         </footer>
       </Overlay>
     </>

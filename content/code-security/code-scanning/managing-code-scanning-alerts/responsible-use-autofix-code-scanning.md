@@ -26,7 +26,7 @@ redirect_from:
 
 {% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 
-In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see {% ifversion ghas-products-cloud %}[AUTOTITLE](/code-security/security-overview/viewing-security-insights#autofix-suggestions){% elsif fpt %}[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights#autofix-suggestions).
 
 ## Developer experience
 

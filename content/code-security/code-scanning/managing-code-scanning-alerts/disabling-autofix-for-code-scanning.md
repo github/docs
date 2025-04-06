@@ -56,5 +56,5 @@ If {% data variables.product.prodname_copilot_autofix_short %} is allowed at the
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. In the "{% data variables.product.UI_code_security_scanning %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.

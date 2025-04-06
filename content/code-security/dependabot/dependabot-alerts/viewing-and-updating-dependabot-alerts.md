@@ -71,7 +71,7 @@ The alert details page of alerts on development-scoped packages shows a "Tags" s
 
 {% data reusables.dependabot.where-to-view-dependabot-alerts %} You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
 
-{% ifversion ghec or ghes %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations).{% endif %}
+To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

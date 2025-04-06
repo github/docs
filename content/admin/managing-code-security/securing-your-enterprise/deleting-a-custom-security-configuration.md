@@ -24,5 +24,5 @@ If you no longer need a {% data variables.product.prodname_custom_security_confi
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the configurations table, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to delete.
-1. In the "Edit configuration" page, scroll to the bottom of the "Policy" section, then click **Delete configuration**.
+1. In the "Edit configuration" page, scroll to the bottom of the page, then click **Delete configuration**.
 1. Ensure you read the warning in the "Delete this configuration?" dialog, to confirm you are comfortable deleting the {% data variables.product.prodname_custom_security_configuration %}, then click **Delete configuration**.

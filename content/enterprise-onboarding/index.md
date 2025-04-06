@@ -15,7 +15,6 @@ featuredLinks:
 layout: product-landing
 versions:
   ghec: '*'
-  ghes: '*'
 topics:
   - Administrator
   - Enterprise

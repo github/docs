@@ -125,7 +125,7 @@ If {% data variables.product.prodname_dotcom %} blocks a secret that you believe
 
 {% data reusables.secret-scanning.push-protection-allow-email %}
 
-If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/enterprise-cloud@latest/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+If you don't see the option to bypass the block, the repository administrator or organization owner has configured tighter controls around push protection. Instead, you should remove the secret from the commit{% ifversion push-protection-delegated-bypass %}, or submit a request for "bypass privileges" in order to push the blocked secret. For more information, see [Requesting bypass privileges](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#requesting-bypass-privileges){% endif %}.
 
 {% data reusables.secret-scanning.push-protection-visit-URL %}
 {% data reusables.secret-scanning.push-protection-choose-allow-secret-options %}

@@ -1,7 +1,6 @@
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
-* Third party integrations, such as Jira
-* Enterprise Cloud Importer (available only with expert-led migrations){% ifversion ghes %}
+* Third party integrations, such as Jira{% ifversion ghes %}
 * Hardware setup{% endif %}
 * CI/CD, such as Jenkins
 * Writing scripts
