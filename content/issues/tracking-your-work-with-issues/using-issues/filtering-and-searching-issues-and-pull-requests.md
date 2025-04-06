@@ -71,7 +71,7 @@ You can filter issues and pull requests to find:
 
 ## Building advanced filters for issues
 
-You can build advanced filters using boolean and nested queries on your repository's issues page{% ifversion issues-dashboard %} and the issues dashboard{% endif %}. As you type your filter, {% data variables.product.github %} will show available qualifiers, suggest values, and warn when there is a problem with your filter.
+You can build advanced filters using boolean and nested queries on your repository's issues page. As you type your filter, {% data variables.product.github %} will show available qualifiers, suggest values, and warn when there is a problem with your filter.
 
 ### Using boolean operators
 
@@ -89,7 +89,7 @@ To return results where either statement is true, use `OR`. In the example below
 assignee:octocat OR assignee:hubot
 ```
 
-If you choose not to use `AND` and `OR` operators, {% data variables.product.github %} will treat a space between statements as an `AND` operator{% ifversion ghes < 3.18 %} unless you are using an `org`, `repo`, or `user` field to filter by ownership, in which case any spaces will be treated as an `OR` operator{% endif %}.
+If you choose not to use `AND` and `OR` operators, {% data variables.product.github %} will treat a space between statements as an `AND` operator unless you are using an `org`, `repo`, or `user` field to filter by ownership where any spaces will be treated as an `OR` operator.
 
 ### Using parentheses for more complicated filters
 
@@ -99,7 +99,7 @@ You can also use parentheses to nest filters and group qualifiers. In the exampl
 (type:"Bug" AND assignee:octocat) OR (type:"Enhancement" AND assignee:hubot)
 ```
 
-You can nest filters using parentheses up to five levels deep.{% ifversion ghes < 3.18 %} It's not currently possible to include the `repo`, `org`, or `user` qualifiers within parentheses.{% endif %}
+You can nest filters using parentheses up to five levels deep. It's not currently possible to include the `repo`, `org`, or `user` qualifiers within parentheses.
 
 {% endwebui %}
 

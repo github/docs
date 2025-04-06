@@ -26,7 +26,6 @@ If no policy is chosen at the enterprise level, and multiple organizations withi
 
 You can configure any of the following policies for your enterprise:
 
-* [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
@@ -36,14 +35,6 @@ You can configure any of the following policies for your enterprise:
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
 * [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
-
-### Additional {% data variables.product.prodname_copilot_short %} premium requests
-
-<!-- expires 2025-05-05 -->
-{% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
-
-If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -90,7 +81,7 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 >
 > Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
+By default, {% data variables.product.prodname_copilot_chat_short %} uses the GPT-4o model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the default GPT-4o model. The available alternative models are:
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini_flash %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
