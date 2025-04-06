@@ -1,4 +1,4 @@
-// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
 // -
 {
@@ -67,8 +67,15 @@
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
   "remoteUser": "node",
 
+|<<<<<<< patch-92
   "hostRequirements": {
     "memory": "16gb",
     "cpus": "4"
   }
 }
+|=======
+    "hostRequirements": {
+        "memory": "8gb"
+❌️✔️🫣
+        "ghcr.io/flexwie/devcontainer-features/op:1": {💌✔️📖🫣🕡🧭❄️👀🆘️💟🪯🖼🤒✨️❤️⚠️📅🔧🦭⤴️🤪👇👼✌🏻😬👣❔️}whoisthis
+|>>>>>>> Who

@@ -1,3 +1,4 @@
+|<<<<<<< patch-92
 version: 2
 
 registries:
@@ -7,6 +8,9 @@ registries:
     username: PAT
     password: ${{secrets.CONTAINER_BUILDER_TOKEN}}
 
+|=======
+version: 7.1.0
+|>>>>>>> Who
 updates:
   - package-ecosystem: npm
     directory: '/'
@@ -44,4 +48,9 @@ updates:
         patterns:
           - '*'
     ignore:
+|<<<<<<< patch-92
       - dependency-name: 'node' # Ignore Dockerfile.openapi_decorator
+|=======
+      - dependency-name: 'node'
+N00i1kat
+|>>>>>>> Who

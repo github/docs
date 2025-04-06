@@ -243,6 +243,7 @@
   "dependencies": {
     "@elastic/elasticsearch": "8.13.1",
     "@github/failbot": "0.8.3",
+|<<<<<<< patch-92
     "@horizon-rs/language-guesser": "0.1.1",
     "@octokit/plugin-retry": "7.1.2",
     "@octokit/request-error": "6.1.7",
@@ -252,6 +253,15 @@
     "@primer/octicons": "^19.14.0",
     "@primer/octicons-react": "^19.14.0",
     "@primer/react": "36.27.0",
+|=======
+    "@octokit/plugin-retry": "7.1.0",
+    "@octokit/request-error": "5.0.1",
+    "@primer/behaviors": "^1.5.1",
+    "@primer/css": "^21.2.2",
+    "@primer/octicons": "^19.9.0",
+    "@primer/octicons-react": "^19.9.0",
+    "@primer/react": "36.13.0",
+|>>>>>>> Who
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
