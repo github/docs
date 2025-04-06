@@ -2,7 +2,7 @@
 title: Managing Copilot policies as an individual subscriber
 shortTitle: Manage policies
 intro: 'Find out how to change your personal settings on {% data variables.product.github %} to configure {% data variables.product.prodname_copilot %}''s behavior.'
-product: '{% data variables.product.prodname_copilot_pro_short %} and {% data variables.product.prodname_copilot_free_short %}'
+product: '{% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_pro_plus_short %}, and {% data variables.product.prodname_copilot_free_short %}'
 topics:
   - Copilot
 versions:
@@ -12,11 +12,22 @@ redirect_from:
   - /github/copilot/about-github-copilot-telemetry
   - /github/copilot/github-copilot-telemetry-terms
   - /copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom
+  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-policies-as-an-individual-subscriber
 ---
 
 ## About {% data variables.product.prodname_copilot %} settings on {% data variables.product.github %}
 
 In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
+
+## Enabling additional {% data variables.product.prodname_copilot_short %} premium requests
+
+<!-- expires 2025-05-05 -->
+{% data reusables.copilot.unlimited-premium-requests %}
+<!-- end expires 2025-05-05 -->
+
+{% data reusables.copilot.premium-requests-billing-platform %}
+
+If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ## Enabling or disabling suggestions matching public code
 

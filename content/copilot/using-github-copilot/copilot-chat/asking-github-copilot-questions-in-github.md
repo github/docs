@@ -325,6 +325,28 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Using images in {% data variables.product.prodname_copilot_chat_short %}
+
+> [!NOTE]
+> * Attaching images to chat prompts is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> * You can only attach an image in the immersive view of {% data variables.product.prodname_copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)), not in the chat panel.
+
+You can attach an image to {% data variables.product.prodname_copilot_short %} and then ask about the image. For example, you can attach:
+
+{% data reusables.copilot.image-questions-and-file-types %}
+
+### Attaching an image to your chat prompt
+
+1. Go to the immersive view of {% data variables.product.prodname_copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
+1. Make sure you have **GPT-4o** selected in the AI model picker at the top of the page.
+1. Do one of the following:
+
+   * Copy an image and paste it into the prompt box at the bottom of the page.
+   * Click {% octicon "paperclip" aria-label="Add attachment" %} in the prompt box, then click **Image**. Browse to the image file you want to attach, select it and click **Open**.
+   * Drag and drop an image file from your operating system's file explorer into the prompt box.
+
+{% data reusables.copilot.type-prompt-for-image %}
+
 ## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
 
 You can ask {% data variables.product.prodname_copilot_short %} a question about an entire repository by typing your question in the main search box of the repository.
