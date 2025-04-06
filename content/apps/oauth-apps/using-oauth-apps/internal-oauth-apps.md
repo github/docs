@@ -16,13 +16,16 @@ These internal apps will appear in the user security log, but will not appear in
 
 These {% data variables.product.prodname_oauth_apps %} are :
 
-- Git Credentials Manager
-- GitHub Android
-- {% data variables.product.prodname_cli %}
-- {% data variables.product.prodname_desktop %}
-- GitHub for Unity
-- GitHub for VSCode
-- GitHub iOS
-- GitHub Mac
-- GitHub Windows
-- Visual Studio
+* Gist
+* Git Credential Manager
+* GitHub Android
+* GitHub CLI
+* GitHub Codespaces for JetBrains
+* GitHub Desktop
+* GitHub Education
+* github-importer-production
+* GitHub iOS
+* GitHub Support
+* JetBrains IDE Integration
+* Visual Studio
+* Visual Studio Code

@@ -16,9 +16,9 @@ You can view details about webhook deliveries that occurred in the past {% data 
 
 For each webhook delivery, you can view:
 
-- the request headers and payload that {% data variables.product.company_short %} sent
-- the time at which the request was sent
-- the response that {% data variables.product.company_short %} received from your server
+* the request headers and payload that {% data variables.product.company_short %} sent
+* the time at which the request was sent
+* the response that {% data variables.product.company_short %} received from your server
 
 You can also redeliver recent webhook deliveries. For more information, see "[AUTOTITLE](/webhooks/testing-and-troubleshooting-webhooks/redelivering-webhooks)."
 

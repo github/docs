@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import Permalink from '#src/frame/lib/permalink.js'
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'

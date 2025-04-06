@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { listFirstWordCapitalization } from '../../lib/linting-rules/list-first-word-capitalization.js'
 

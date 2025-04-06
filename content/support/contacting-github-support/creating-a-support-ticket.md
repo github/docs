@@ -54,13 +54,13 @@ After you create your ticket, you can view your ticket and the responses from {%
 
 {% data variables.contact.github_support %} does not have access to any private or internal {% data variables.product.company_short %} resources. Providing {% data variables.contact.github_support %} with everything they need to understand, locate, and reproduce an issue will allow for a faster resolution and less back-and-forth between yourself and the support team. To ensure {% data variables.contact.github_support %} can assist you, consider the following points when you write your ticket:
 
-- Obtain information that can help {% data variables.contact.github_support %} track, prioritize, reproduce, or investigate the issue.
-- Include full URLs, repository names, and usernames wherever possible.
-- Reproduce the issue if applicable and be prepared to share the steps.
-- Be prepared to provide a full description of the issue and expected results.
-- Copy exact wording of all error messages related to your issue.
-- Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
-- Include relevant logs and attach any screenshots that demonstrate the issue.
+* Obtain information that can help {% data variables.contact.github_support %} track, prioritize, reproduce, or investigate the issue.
+* Include full URLs, repository names, and usernames wherever possible.
+* Reproduce the issue if applicable and be prepared to share the steps.
+* Be prepared to provide a full description of the issue and expected results.
+* Copy exact wording of all error messages related to your issue.
+* Determine if there is an existing ticket number in any ongoing communications with {% data variables.contact.github_support %}.
+* Include relevant logs and attach any screenshots that demonstrate the issue.
 
 {% ifversion ghes %}
 
@@ -68,10 +68,10 @@ After you create your ticket, you can view your ticket and the responses from {%
 
 Especially for tickets with {% data variables.product.support_ticket_priority_urgent %} priority, the person contacting {% data variables.contact.github_support %} should:
 
-- Be knowledgeable in your internal systems, tools, policies, and practices.
-- Be a proficient user of {% data variables.product.product_name %}.
-- Have full access and permissions to any services that are required to troubleshoot the issue.
-- Be authorized to make the recommended changes to your network and any applicable products.
+* Be knowledgeable in your internal systems, tools, policies, and practices.
+* Be a proficient user of {% data variables.product.product_name %}.
+* Have full access and permissions to any services that are required to troubleshoot the issue.
+* Be authorized to make the recommended changes to your network and any applicable products.
 
 {% endif %}
 
@@ -85,9 +85,9 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 1. Navigate to the {% data variables.contact.contact_landing_page_portal %} and choose one of the following options:
 
-   - To sign in with your {% data variables.product.prodname_dotcom %} account, click **Sign in with {% data variables.product.prodname_dotcom %}**.
-   - To sign up for {% data variables.product.prodname_dotcom %}, click **Sign up for {% data variables.product.prodname_dotcom %}**.
-   - If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process.{% ifversion ghec or ghes %} You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."{% endif %}
+   * To sign in with your {% data variables.product.prodname_dotcom %} account, click **Sign in with {% data variables.product.prodname_dotcom %}**.
+   * To sign up for {% data variables.product.prodname_dotcom %}, click **Sign up for {% data variables.product.prodname_dotcom %}**.
+   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process.{% ifversion ghec or ghes %} You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."{% endif %}
 
 {% data reusables.support.submit-a-ticket %}
 
@@ -102,9 +102,9 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 1. Choose one of the following options:
 
-   - To sign in with your {% data variables.product.prodname_dotcom %} account, click **Sign in with {% data variables.product.prodname_dotcom %}**.
-   - To sign up for {% data variables.product.prodname_dotcom %}, click **Sign up for {% data variables.product.prodname_dotcom %}**.
-   - If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process. You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
+   * To sign in with your {% data variables.product.prodname_dotcom %} account, click **Sign in with {% data variables.product.prodname_dotcom %}**.
+   * To sign up for {% data variables.product.prodname_dotcom %}, click **Sign up for {% data variables.product.prodname_dotcom %}**.
+   * If you can't sign in or sign up, click **Can't sign in?** and fill out the form. You will be guided through an email verification process. You will need to upload your {% data variables.product.prodname_enterprise %} license. For more information, see "[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise)."
 
 1. If you'd like to include diagnostics with your support ticket, Under "Diagnostics", click **Download diagnostic info** and save the file locally. You'll attach this file to your support ticket later.
 1. To complete your ticket and display the {% data variables.contact.enterprise_portal %}, under "Open Support Request", click **New support request**.
@@ -114,4 +114,4 @@ Especially for tickets with {% data variables.product.support_ticket_priority_ur
 
 ## Further reading
 
-- "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"
+* "[AUTOTITLE](/support/learning-about-github-support/about-github-support)"

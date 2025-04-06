@@ -1,8 +1,9 @@
-import { expect, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
+
 import { post } from '#src/tests/helpers/e2etest.js'
 
 describe('POST /events', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   async function checkEvent(data) {
     const body = JSON.stringify(data)

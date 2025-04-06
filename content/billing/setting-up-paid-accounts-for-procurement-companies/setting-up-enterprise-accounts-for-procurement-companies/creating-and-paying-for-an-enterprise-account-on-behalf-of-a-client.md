@@ -12,13 +12,15 @@ topics:
 shortTitle: On behalf of a client
 ---
 
+>[!NOTE] If you are a Microsoft Cloud Solution Provider (CSP) partner and want to create an enterprise account for your customer, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/creating-an-enterprise-account-as-a-microsoft-csp-partner)."
+
 ## Requirements
 
 Before you start, make sure you know:
-- The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
-- The name your client would like to use for the enterprise account
-- The email address where you would like receipts to be sent
-- The number of paid seats your client would like you to purchase for the enterprise account (see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)")
+* The {% data variables.product.prodname_dotcom %} username of the client who will become the owner of the enterprise account you create
+* The name your client would like to use for the enterprise account
+* The email address where you would like receipts to be sent
+* The number of paid seats your client would like you to purchase for the enterprise account (see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)")
 
 ## Step 1: Create your personal account on {% data variables.product.prodname_dotcom %}
 
@@ -54,13 +56,9 @@ Invite your client to become an enterprise owner. For more information, see "[AU
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
 {% data reusables.enterprise-accounts.administrators-tab %}
-1. Confirm that your client is listed as an enterprise owner.
-1. To the right of your username, select the {% octicon "kebab-horizontal" aria-label="Administrator settings" %} dropdown menu, then click **Change role**.
-
-   ![Screenshot of a user in the administrators list. A dropdown menu, labeled with a kebab icon, is highlighted with an orange outline.](/assets/images/help/business-accounts/administrator-settings.png)
-1. Select **Billing manager**, then click **Change role**.
+{% data reusables.enterprise-accounts.change-role-to-billing-manager %}
 
 ## Next steps
 
-1. If you would like your credit card to be removed from the enterprise account so that it's not charged again, contact {% data variables.contact.contact_support %}.
-1. When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account)."
+{% ifversion fpt %}1. If you would like your credit card to be removed from the enterprise account so that it's not charged again, contact {% data variables.contact.contact_support %}.
+1. {% endif %}When it's time to renew your client's paid subscription, see "[AUTOTITLE](/billing/setting-up-paid-accounts-for-procurement-companies/setting-up-enterprise-accounts-for-procurement-companies/renewing-your-clients-enterprise-account)."

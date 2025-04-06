@@ -15,10 +15,10 @@ type: how_to
 ---
 
 On the settings page, you can set your editor preference so that when you create a codespace, or open an existing codespace, it is opened in your choice of:
-- {% data variables.product.prodname_vscode %} (desktop application)
-- {% data variables.product.prodname_vscode %} (web client application)
-- JetBrains Gateway - for opening codespaces in a JetBrains IDE
-- JupyterLab - the web interface for Project Jupyter
+* {% data variables.product.prodname_vscode %} (desktop application)
+* {% data variables.product.prodname_vscode %} (web client application)
+* JetBrains Gateway - for opening codespaces in a JetBrains IDE
+* JupyterLab - the web interface for Project Jupyter
 
 {% data reusables.codespaces.template-codespaces-default-editor %}
 
@@ -34,15 +34,13 @@ If you want to work on a codespace in a JetBrains IDE you must install the JetBr
 
    ![Screenshot of the "Editor preference" options, with "{% data variables.product.prodname_vscode %} for Web" selected.](/assets/images/help/codespaces/select-default-editor.png)
 
-   - {% data reusables.codespaces.application-installed-locally %}<br><br>
+   * {% data reusables.codespaces.application-installed-locally %}<br><br>
 
-   - If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace.
+   * If you choose **{% data variables.product.prodname_vscode %}**, {% data variables.product.prodname_github_codespaces %} will automatically open in the desktop application when you next create or open a codespace.
 
      You may need to allow access to both your browser and {% data variables.product.prodname_vscode %} for it to open successfully.<br><br>
 
-   - If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace.
-
-   - If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace.
+   * If you choose **JetBrains Gateway**, the Gateway application will automatically open when you next create or open a codespace.
 
      The first time you open a codespace this way you must give permission to open the application.
 
@@ -50,9 +48,9 @@ If you want to work on a codespace in a JetBrains IDE you must install the JetBr
 
      To connect to a codespace from the Gateway application, you must have an SSH server running on the codespace. {% indented_data_reference reusables.codespaces.ssh-server-installed spaces=5 %}
 
-   - If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
+   * If you choose **JupyterLab**, the JupyterLab application must be installed in the codespaces you open. {% data reusables.codespaces.jupyterlab-in-default-image %}
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/customizing-your-codespace)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces)"
+* "[AUTOTITLE](/codespaces/customizing-your-codespace)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces)"

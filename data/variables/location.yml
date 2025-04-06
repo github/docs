@@ -1,4 +1,5 @@
 ## Use these variables when referring specifically to a location within a product
+## Unless the extra precision is needed, consider using `product.github` ("GitHub") instead
 product_location: >-
   {% ifversion ghes %}your GitHub Enterprise Server instance{% else %}GitHub.com{% endif %}
 

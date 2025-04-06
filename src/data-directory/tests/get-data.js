@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { expect, test, describe, beforeAll, afterAll } from '@jest/globals'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import languages from '#src/languages/lib/languages.js'
 import {
@@ -14,7 +14,7 @@ import { DataDirectory } from '#src/tests/helpers/data-directory.js'
 describe('get-data', () => {
   let dd
   const enDirBefore = languages.en.dir
-  // Only `en` is available in jest tests, so pretend we also have Japanese
+  // Only `en` is available in tests, so pretend we also have Japanese
   languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {
@@ -221,7 +221,7 @@ front: >'matter
 describe('get-data on corrupt translations', () => {
   let dd
   const enDirBefore = languages.en.dir
-  // Only `en` is available in jest tests, so pretend we also have Japanese
+  // Only `en` is available in vitest tests, so pretend we also have Japanese
   languages.ja = Object.assign({}, languages.en, {})
 
   beforeAll(() => {

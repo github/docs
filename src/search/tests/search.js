@@ -1,9 +1,9 @@
-import { expect, jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('search results page', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('says something if no query is provided', async () => {
     const $ = await getDOM('/en/search')

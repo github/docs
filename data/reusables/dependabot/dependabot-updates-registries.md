@@ -1,7 +1,7 @@
 There are 2 locations in the `dependabot.yml` file where you can use the `registries` key:
 
-- At the top level, where you define the registries and their access information, if needed.
-- Within the `updates` blocks, where you can use `registries: "*"` to tell {% data variables.product.prodname_dependabot %} to use any or all of the registries you defined at the top level.
+* At the top level, where you define the registries and their access information, if needed.
+* Within the `updates` blocks, where you can use `registries: "*"` to tell {% data variables.product.prodname_dependabot %} to use any or all of the registries you defined at the top level.
 
 ```yaml
 # registries: gradle-artifactory - provides access details for the gradle-artifactory registry

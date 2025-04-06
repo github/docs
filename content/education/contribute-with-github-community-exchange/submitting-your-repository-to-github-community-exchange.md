@@ -12,9 +12,9 @@ Only public repositories owned by personal accounts can be submitted to {% data 
 
 There are three types of repository submissions:
 
-- **Learn.** A repository to share step-by-step instructions to build a project.
-- **Collaborate.** A repository seeking collaborators to work on a project.
-- **Learn and Collaborate.** A repository which is a combination of `Learn` and `Collaborate`.
+* **Learn.** A repository to share step-by-step instructions to build a project.
+* **Collaborate.** A repository seeking collaborators to work on a project.
+* **Learn and Collaborate.** A repository which is a combination of `Learn` and `Collaborate`.
 
 Consider what the main purpose of your repository is when choosing the type of submission for your repository.
 
@@ -27,17 +27,17 @@ Once a repository has been submitted to {% data variables.product.prodname_commu
 Your repository must meet a minimum set of requirements for a submission to be accepted. During the submission process, if the submission criteria hasn't been met for your selected repository, you will be notified of the missing items.
 
 For a submission with a purpose of `Learn`, your repository must have:
-- A description.
-- A LEARN.md file to provide step-by-step instructions, with text and/or media, on how you built your project. Ideally, your LEARN.md file will deconstruct your project into small components and provide thorough details of each step, so that other students can code their project by following your instructions.
-- A README.md file to provide a detailed description of your project.
-- A License so others are aware of what they can and cannot do with your source code.
+* A description.
+* A LEARN.md file to provide step-by-step instructions, with text and/or media, on how you built your project. Ideally, your LEARN.md file will deconstruct your project into small components and provide thorough details of each step, so that other students can code their project by following your instructions.
+* A README.md file to provide a detailed description of your project.
+* A License so others are aware of what they can and cannot do with your source code.
 
 For a submission with a purpose of `Collaborate`, your repository must have:
-- A description.
-- A README.md file to provide a detailed description of your project.
-- A License so others are aware of what they can and cannot do with your source code.
-- One or more issues for collaborators to work on.
-- CONTRIBUTING.md file to communicate how to contribute to your project.
+* A description.
+* A README.md file to provide a detailed description of your project.
+* A License so others are aware of what they can and cannot do with your source code.
+* One or more issues for collaborators to work on.
+* CONTRIBUTING.md file to communicate how to contribute to your project.
 
 A good repository submission for both `Learn` and `Collaborate` purposes, is a repository that follows community standards. For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 

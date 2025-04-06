@@ -1,0 +1,33 @@
+name: Labeler
+
+description: Adds labels to an Issue or PR
+inputs:
+  token:
+    description: defaults to GITHUB_TOKEN, otherwise can use a PAT
+    required: false
+    default: ${{ github.token }}
+  addLabels:
+    description: array of labels to apply
+    required: false
+  removeLabels:
+    description: array of labels to remove
+    required: false
+  ignoreIfAssigned:
+    description: don't apply labels if there are assignees
+    required: false
+  ignoreIfLabeled:
+    description: don't apply labels if there are already labels added
+    required: false
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Add label to an issue or pr
+      run: node .github/actions/labeler/labeler.js
+      shell: bash
+      env:
+        GITHUB_TOKEN: ${{ inputs.token }}
+        ADD_LABELS: ${{ inputs.addLabels }}
+        REMOVE_LABELS: ${{ inputs.removeLabels }}
+        IGNORE_IF_ASSIGNED: ${{ inputs.ignoreIfAssigned }}
+        IGNORE_IF_LABELED: ${{ inputs.ignoreIfLabeled }}

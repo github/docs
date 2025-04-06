@@ -22,9 +22,9 @@ For more information about upgrading and downgrading as it relates to billing, s
 ## Step 1. Pricing plan change event
 
 GitHub send the `marketplace_purchase` webhook with the `changed` action to your app, when a customer makes any of these changes to their {% data variables.product.prodname_marketplace %} order:
-- Upgrades to a more expensive pricing plan or downgrades to a lower priced plan.
-- Adds or removes seats to their existing plan.
-- Changes the billing cycle.
+* Upgrades to a more expensive pricing plan or downgrades to a lower priced plan.
+* Adds or removes seats to their existing plan.
+* Changes the billing cycle.
 
 GitHub will send the webhook when the change takes effect. For example, when a customer downgrades a plan, GitHub sends the webhook at the end of the customer's billing cycle. GitHub sends a webhook to your app immediately when a customer upgrades their plan to allow them access to the new service right away. If a customer switches from a monthly to a yearly billing cycle, it's considered an upgrade. See "[AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/billing-customers)" to learn more about what actions are considered an upgrade or downgrade.
 

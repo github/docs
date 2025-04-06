@@ -24,11 +24,13 @@ By default, authorized users can access your organization's resources from any I
 
 **Notes:**
 
-- Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
-- If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
+* Only organizations that use {% data variables.product.prodname_ghe_cloud %} can use IP allow lists. {% data reusables.enterprise.link-to-ghec-trial %}
+* If you configure an IP allow list for your organization you won't be able to use {% data variables.product.prodname_github_codespaces %} for repositories owned by the organization.
 
 {% endnote %}
 {% endif %}
+
+{% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
 
 ## About IP allow list management
 
@@ -46,9 +48,9 @@ You can also configure allowed IP addresses at the enterprise account level, and
 
 As a best practice, to ensure both secure and reliable access to your enterprise and organization resources when creating an IP allow list, consider the following:
 
-- Maintaining more than one owner of the enterprise account or organization that the IP allow list will be enforced for.
-- Using CIDR notation to specify a range of IP addresses that will include dynamically assigned addresses, to minimize the number of allow list entries.
-- Including a static network in your allowed IP addresses, for backup access in case of problems.
+* Maintaining more than one owner of the enterprise account or organization that the IP allow list will be enforced for.
+* Using CIDR notation to specify a range of IP addresses that will include dynamically assigned addresses, to minimize the number of allow list entries.
+* Including a static network in your allowed IP addresses, for backup access in case of problems.
 
 ## Adding an allowed IP address
 

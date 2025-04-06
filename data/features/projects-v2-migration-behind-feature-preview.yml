@@ -1,0 +1,4 @@
+# Migrating from projects (classic) requires enabling the option via feature preview
+versions:
+  fpt: '*'
+  ghec: '*'

@@ -33,5 +33,5 @@ You can use {% data variables.product.prodname_dotcom %} Flavored Markdown with 
 
 ## Further reading
 
-- [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
-- [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
+* [kramdown Documentation](https://kramdown.gettalong.org/documentation.html)
+* [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)

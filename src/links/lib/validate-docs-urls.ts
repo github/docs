@@ -1,31 +1,23 @@
+import type { Response } from 'express'
 import cheerio from 'cheerio'
 
-import warmServer from '@/frame/lib/warm-server.js'
+import warmServer from '@/frame/lib/warm-server'
 import { liquid } from '@/content-render/index.js'
 import shortVersions from '@/versions/middleware/short-versions.js'
-import contextualize from '@/frame/middleware/context/context.js'
+import contextualize from '@/frame/middleware/context/context'
 import features from '@/versions/middleware/features.js'
 import findPage from '@/frame/middleware/find-page.js'
 import { createMinimalProcessor } from '@/content-render/unified/processor.js'
 import getRedirect from '@/redirects/lib/get-redirect.js'
+import type { ExtendedRequest, Page } from '@/types'
 
 export type DocsUrls = {
   [identifier: string]: string
 }
 
-type Page = {
-  permalinks: Permalink[]
-  relativePath: string
-  rawIntro: string
-  rawPermissions?: string
-  markdown: string
-}
 type Permalink = {
   href: string
   languageCode: string
-}
-type PageMap = {
-  [href: string]: Page
 }
 type Redirects = {
   [from: string]: string
@@ -48,7 +40,7 @@ export type Check = {
 
 export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = false } = {}) {
   const site = await warmServer(['en'])
-  const pages: PageMap = site.pages
+  const pages = site.pages
   const redirects: Redirects = site.redirects
 
   const checks: Check[] = []
@@ -76,6 +68,10 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
         redirects,
         pages,
       })
+      if (redirect && isEnterpriseCloudRedirectOnly(pageURL, redirect)) {
+        // Ignore this one. It just added enterprise-cloud@latest to the URL.
+        continue
+      }
       if (redirect) {
         redirectedPage = pages[redirect]
         if (!redirectedPage) {
@@ -111,6 +107,12 @@ export async function validateDocsUrl(docsUrls: DocsUrls, { checkFragments = fal
   return checks
 }
 
+function isEnterpriseCloudRedirectOnly(originalUrl: string, redirectUrl: string) {
+  // A lot of URLs don't work in free-pro-team so all they do is redirect
+  // from {OLD-URL} to "/enterprise-count@latest/{OLD-URL}"
+  return redirectUrl.replace('/enterprise-cloud@latest', '') === originalUrl
+}
+
 async function renderInnerHTML(page: Page, permalink: Permalink) {
   const next = () => {}
   const res = {}
@@ -125,10 +127,10 @@ async function renderInnerHTML(page: Page, permalink: Permalink) {
     // Here it just exists for the sake of TypeScript.
     context: {},
   }
-  await contextualize(req, res, next)
-  await shortVersions(req, res, next)
+  await contextualize(req as ExtendedRequest, res as Response, next)
+  await shortVersions(req as ExtendedRequest, res as Response, next)
   await findPage(req, res, next)
-  await features(req, res, next)
+  features(req as ExtendedRequest, res as Response, next)
 
   const markdown = await liquid.parseAndRender(page.markdown, req.context)
   const processor = createMinimalProcessor(req.context)

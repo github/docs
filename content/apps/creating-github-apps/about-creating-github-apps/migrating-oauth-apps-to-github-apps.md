@@ -20,10 +20,10 @@ shortTitle: 'Migrate from {% data variables.product.prodname_oauth_apps %}'
 
 {% data variables.product.prodname_github_apps %} are the recommended way to integrate with {% data variables.product.company_short %}. {% data variables.product.prodname_github_apps %} offer many advantages over {% data variables.product.prodname_oauth_apps %}, including:
 
-- enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
-- the ability to act independently of or on behalf of a user
-- scalable rate limits
-- built-in webhooks
+* enhanced security features, like fine-grained permissions, choice over repository access, and short lived tokens
+* the ability to act independently of or on behalf of a user
+* scalable rate limits
+* built-in webhooks
 
 For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps#using-a-github-app-instead-of-an-oauth-app)."
 
@@ -43,11 +43,11 @@ Register a new {% data variables.product.prodname_github_app %}. For more inform
 
 Compared to an {% data variables.product.prodname_oauth_app %}, you have more control over {% data variables.product.prodname_github_app %} settings. Some key additions are:
 
-- Unlike an {% data variables.product.prodname_oauth_app %}, which always acts on behalf of a user, you can make your {% data variables.product.prodname_github_app %} take actions as itself or on behalf of a user. If you do not want your new {% data variables.product.prodname_github_app %} to take actions on behalf of a user, you can skip the "Identifying and authorizing users" settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
+* Unlike an {% data variables.product.prodname_oauth_app %}, which always acts on behalf of a user, you can make your {% data variables.product.prodname_github_app %} take actions as itself or on behalf of a user. If you do not want your new {% data variables.product.prodname_github_app %} to take actions on behalf of a user, you can skip the "Identifying and authorizing users" settings. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app)."
 
-- You can use webhooks to notify your {% data variables.product.prodname_github_app %} when specific events occur. Unlike webhooks for {% data variables.product.prodname_oauth_apps %}, which you must configure via the API for each repository or organization, webhooks are built into {% data variables.product.prodname_github_apps %}. When you register your {% data variables.product.prodname_github_app %}, you can select the webhook events that you want to receive. Additionally, if your {% data variables.product.prodname_oauth_app %} currently uses polling to determine if an event had occurred, consider subscribing to webhooks instead to help your {% data variables.product.prodname_github_app %} stay within the rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
+* You can use webhooks to notify your {% data variables.product.prodname_github_app %} when specific events occur. Unlike webhooks for {% data variables.product.prodname_oauth_apps %}, which you must configure via the API for each repository or organization, webhooks are built into {% data variables.product.prodname_github_apps %}. When you register your {% data variables.product.prodname_github_app %}, you can select the webhook events that you want to receive. Additionally, if your {% data variables.product.prodname_oauth_app %} currently uses polling to determine if an event had occurred, consider subscribing to webhooks instead to help your {% data variables.product.prodname_github_app %} stay within the rate limit. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)."
 
-- With an {% data variables.product.prodname_oauth_app %}, you request scopes when a user authorizes your app. With a {% data variables.product.prodname_github_app %}, you specify permissions in the app settings. These permissions are more granular than scopes and enable you to only select the permissions that your app needs. Additionally, these permissions are mapped to REST API endpoints and webhook events, so you can easily determine what permissions your {% data variables.product.prodname_github_app %} needs in order to access a specific REST API endpoint or subscribe to a specific webhook. Permissions are not currently documented for GraphQL requests. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
+* With an {% data variables.product.prodname_oauth_app %}, you request scopes when a user authorizes your app. With a {% data variables.product.prodname_github_app %}, you specify permissions in the app settings. These permissions are more granular than scopes and enable you to only select the permissions that your app needs. Additionally, these permissions are mapped to REST API endpoints and webhook events, so you can easily determine what permissions your {% data variables.product.prodname_github_app %} needs in order to access a specific REST API endpoint or subscribe to a specific webhook. Permissions are not currently documented for GraphQL requests. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/choosing-permissions-for-a-github-app)."
 
 ### 3. Modify the code for your app
 
@@ -57,9 +57,9 @@ Once you have registered a {% data variables.product.prodname_github_app %}, ada
 
 You will need to update your app's code to handle API authentication for your {% data variables.product.prodname_github_app %}. A {% data variables.product.prodname_github_app %} can authenticate in three ways:
 
-- As the app itself, in order to get or modify details about the {% data variables.product.prodname_github_app %} registration or to create an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)."
-- As an app installation, in order to take actions on behalf of itself. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
-- On behalf of a user, in order to attribute actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
+* As the app itself, in order to get or modify details about the {% data variables.product.prodname_github_app %} registration or to create an installation access token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app)."
+* As an app installation, in order to take actions on behalf of itself. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-as-a-github-app-installation)."
+* On behalf of a user, in order to attribute actions to a user. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/authenticating-with-a-github-app-on-behalf-of-a-user)."
 
 If you are using {% data variables.product.company_short %}'s official Octokit.js library, you can use the built-in `App` object to authenticate. For examples, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/apps/creating-github-apps/guides/building-a-github-app-that-responds-to-webhook-events)."
 
@@ -91,8 +91,8 @@ To help your users install your {% data variables.product.prodname_github_app %}
 
 To pre-select any repositories your {% data variables.product.prodname_oauth_app %} had access to, you can append `/permissions` and query parameters to the install URL. This helps users grant your {% data variables.product.prodname_github_app %} access to repositories that your {% data variables.product.prodname_oauth_app %} already has access to. The query parameters are:
 
-- `suggested_target_id`: The ID of the user or organization that is installing your {% data variables.product.prodname_github_app %}. This parameter is required.
-- `repository_ids[]`: The repository IDs to select for the installation. If omitted, all repositories are selected. The maximum number of repositories that can be pre-selected is 100. To get a list of repositories that your {% data variables.product.prodname_oauth_app %} has access to, use the [List repositories for the authenticated user](/rest/repos/repos#list-repositories-for-the-authenticated-user) and [List organization repositories](/rest/repos/repos#list-organization-repositories) endpoints.
+* `suggested_target_id`: The ID of the user or organization that is installing your {% data variables.product.prodname_github_app %}. This parameter is required.
+* `repository_ids[]`: The repository IDs to select for the installation. If omitted, all repositories are selected. The maximum number of repositories that can be pre-selected is 100. To get a list of repositories that your {% data variables.product.prodname_oauth_app %} has access to, use the [List repositories for the authenticated user](/rest/repos/repos#list-repositories-for-the-authenticated-user) and [List organization repositories](/rest/repos/repos#list-organization-repositories) endpoints.
 
 For example: `{% data variables.product.oauth_host_code %}/{% ifversion ghes %}github-apps{% else %}apps{% endif %}/YOUR_APP_NAME/installations/new/permissions?suggested_target_id=ID_OF_USER_OR_ORG&repository_ids[]=REPO_A_ID&repository_ids[]=REPO_B_ID`.
 

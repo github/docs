@@ -26,9 +26,9 @@ Review, build, and test your own pull request before submitting it. This will al
 
 Write clear titles and descriptions for your pull requests so that reviewers can quickly understand what the pull request does. In the pull request body, include:
 
-- the purpose of the pull request
-- an overview of what changed
-- links to any additional context such as tracking issues or previous conversations
+* the purpose of the pull request
+* an overview of what changed
+* links to any additional context such as tracking issues or previous conversations
 
 To help reviewers, share the type of feedback you need. For example, do you need a quick look or a deeper critique?
 
@@ -42,7 +42,7 @@ If you are a repository maintainer, take these steps to manage and standardize t
 
 Pull request templates let you customize and standardize the information you'd like to be included when someone creates a pull request in your repository. When you add a pull request template to your repository, project contributors will automatically see the template's contents in the pull request body. For more information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository)."
 
-{% ifversion task-lists-v1 %} You can use pull request templates to standardize the review process for your repository. For example, you can include a list of tasks that you would like authors to complete before merging their pull requests, by adding a task list to the template. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."{% endif %}
+You can use pull request templates to standardize the review process for your repository. For example, you can include a list of tasks that you would like authors to complete before merging their pull requests, by adding a task list to the template. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
 You can request that contributors include an issue reference in their pull request body, so that merging the pull request will automatically close the issue. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)."
 
@@ -55,6 +55,16 @@ You can define individuals or teams that you consider responsible for code or fi
 ### Use protected branches
 
 You can use protected branches to prevent pull requests from being merged into important branches, such as `main`, until certain conditions are met. For example, you can require passing CI tests or an approving review. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches)."
+
+{% ifversion push-rulesets %}
+
+### Use push rulesets
+
+{% data reusables.repositories.push-rulesets-overview %}
+
+For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets#push-rulesets)."
+
+{% endif %}
 
 ### Use automated tools to review code styling
 

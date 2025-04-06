@@ -1,11 +1,10 @@
-import { forEachInlineChild } from 'markdownlint-rule-helpers'
-
-import { addFixErrorDetail } from '../helpers/utils.js'
+import { addFixErrorDetail, forEachInlineChild } from '../helpers/utils.js'
 
 export const imageFileKebabCase = {
   names: ['GHD004', 'image-file-kebab-case'],
   description: 'Image file names must use kebab-case',
   tags: ['images'],
+  parser: 'markdownit',
   function: (params, onError) => {
     forEachInlineChild(params, 'image', async function forToken(token) {
       const imageFileName = token.attrs[0][1].split('/').pop().split('.')[0]

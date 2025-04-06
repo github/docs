@@ -1,6 +1,6 @@
 ---
 title: Finding public code that matches GitHub Copilot suggestions
-shortTitle: Finding matching code
+shortTitle: Find matching code
 intro: 'If you allow {% data variables.product.prodname_copilot %} to make suggestions that match publicly available code, you can see references to the matching code on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /early-access/copilot/code-referencing-in-github-copilot
@@ -10,15 +10,11 @@ versions:
   feature: copilot
 ---
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_copilot %} code referencing is in public beta and is subject to change.
-
-{% endnote %}
+> [!NOTE] {% data variables.product.prodname_copilot %} code referencing is in public beta and is subject to change.
 
 ## About code referencing in {% data variables.product.prodname_copilot %}
 
-You can opt to allow {% data variables.product.prodname_copilot %} to suggest code completions that match publicly available code on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom#enabling-or-disabling-duplication-detection)."
+You can opt to allow {% data variables.product.prodname_copilot %} to suggest code completions that match publicly available code on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
 
 If you have allowed suggestions that match public code, {% data variables.product.prodname_copilot %} can provide you with details about the matching code when you accept such suggestions. This feature is called code referencing. It is currently only available in {% data variables.product.prodname_vscode %}.
 
@@ -26,15 +22,10 @@ When you accept a code completion suggestion that matches code in a public {% da
 
 The linked web page includes details of any license identified for the repository where the matching code was found. Having reviewed the references, you can decide how to proceed. For example, you can decide what attribution to use, or whether you want to remove this code from your project.
 
-{% note %}
-
-**Notes**:
-
-- Code referencing does not currently apply to code completion suggestions that you add to your code using {% data variables.product.prodname_copilot_chat %}.
-- Code referencing currently only looks for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Matches to code you have written, or {% data variables.product.prodname_copilot_short %} suggestions you have altered, is not checked for matches to public code.
-- Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many of the suggestions you accept.
-
-{% endnote %}
+> [!NOTE]
+> * Code referencing does not currently apply to code completion suggestions that you add to your code using {% data variables.product.prodname_copilot_chat %}.
+> * Code referencing currently only looks for matches of accepted {% data variables.product.prodname_copilot_short %} suggestions. Matches to code you have written, or {% data variables.product.prodname_copilot_short %} suggestions you have altered, is not checked for matches to public code.
+> * Typically, matches to public code occur in less than one percent of {% data variables.product.prodname_copilot_short %} suggestions, so you should not expect to see code references for many of the suggestions you accept.
 
 ### How code referencing finds matching code
 
@@ -42,7 +33,7 @@ The linked web page includes details of any license identified for the repositor
 
 ## Using code referencing in {% data variables.product.prodname_vscode %}
 
-To use code referencing you must have allowed suggestions matching public code. For more information, see "[Enabling or disabling duplication detection](/copilot/configuring-github-copilot/configuring-github-copilot-settings-on-githubcom#enabling-or-disabling-duplication-detection)."
+To use code referencing you must have allowed suggestions matching public code. For more information, see "[AUTOTITLE](/copilot/configuring-github-copilot/configuring-your-personal-github-copilot-settings-on-githubcom#enabling-or-disabling-suggestions-matching-public-code)."
 
 You can access code references from one of the {% data variables.product.prodname_copilot %} logs in {% data variables.product.prodname_vscode %}.
 
@@ -57,20 +48,16 @@ You can access code references from one of the {% data variables.product.prodnam
 
    The log entry includes the following details:
 
-   - The date and time you accepted the suggestion.
-   - The name of the file in which the suggestion was added.
-   - A message telling you that similar code was found, with the number and type of licenses.
-   - A link to a page on {% data variables.product.prodname_dotcom_the_website %}.
-   - The location in the file where the suggestion was added.
-   - A snippet of part of the code that was suggested and added.
+   * The date and time you accepted the suggestion.
+   * The name of the file in which the suggestion was added.
+   * A message telling you that similar code was found, with the number and type of licenses.
+   * A link to a page on {% data variables.product.prodname_dotcom_the_website %}.
+   * The location in the file where the suggestion was added.
+   * A snippet of part of the code that was suggested and added.
 
    ![Screenshot of the Output window showing a code referencing log entry.](/assets/images/help/copilot/copilot-code-referencing-log.png)
 
-   {% note %}
-
-   **Note:** The {% data variables.product.prodname_copilot %} log is flushed when you close the editor.
-
-   {% endnote %}
+   > [!NOTE] The {% data variables.product.prodname_copilot %} log is flushed when you close the editor.
 
 1. In the log entry, <kbd>Ctrl</kbd>+click (Windows/Linux) or <kbd>Command</kbd>+click (Mac) the link to view the code references on {% data variables.product.prodname_dotcom_the_website %}.
 
@@ -82,11 +69,7 @@ You can access code references from one of the {% data variables.product.prodnam
 
    You should review all license information within a repository to verify that it applies to the matching code, as repositories may contain multiple licenses and these licenses are subject to human and non-human error.
 
-   {% note %}
-
-   **Note**: The web page displaying the full set of details will remain available for three months.
-
-   {% endnote %}
+   > [!NOTE] The web page displaying the full set of details will remain available for three months.
 
 ### Verifying the code referencing functionality
 

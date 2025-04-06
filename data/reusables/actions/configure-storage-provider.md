@@ -1,12 +1,12 @@
 1. Configure the external storage connection by entering the following commands, replacing the placeholder values with actual values for your connection.
 
-   - Azure Blob Storage:
+   * Azure Blob Storage:
 
      ```shell copy
      ghe-config secrets.actions.storage.azure.connection-string "CONNECTION STRING"
      ```
 
-   - Amazon S3:
+   * Amazon S3:
 
      ```shell copy
      ghe-config secrets.actions.storage.s3.bucket-name "S3 BUCKET NAME"
@@ -22,7 +22,7 @@
      ```
 
 {%- ifversion actions-ghes-gcp-storage %}
-   - Google Cloud Storage:
+   * Google Cloud Storage:
 
      ```shell copy
      ghe-config secrets.actions.storage.gcs.service-url "SERVICE URL"

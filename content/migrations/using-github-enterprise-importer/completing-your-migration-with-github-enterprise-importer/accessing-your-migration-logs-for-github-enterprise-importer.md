@@ -17,15 +17,15 @@ Each time you run a migration with {% data variables.product.prodname_importer_p
 
 The migration log lists the steps that were completed as part of the migration and includes additional information.
 
-- Migration warnings, representing data (such as issues, pull requests, or comments) that didn't migrate as expected
-- Who ran the migration
-- The source of the migration
-- How long the migration took
+* Migration warnings, representing data (such as issues, pull requests, or comments) that didn't migrate as expected
+* Who ran the migration
+* The source of the migration
+* How long the migration took
 
 You can access the migration log for a repository migration in multiple ways.
 
-- On {% data variables.product.prodname_dotcom %}, by viewing the "Migration Log" issue in the migrated repository. You can use this issue to discuss any warnings with your team and record any decisions.
-- By downloading a log file using the {% data variables.product.prodname_cli %}.
+* On {% data variables.product.prodname_dotcom %}, by viewing the "Migration Log" issue in the migrated repository. You can use this issue to discuss any warnings with your team and record any decisions.
+* By downloading a log file using the {% data variables.product.prodname_cli %}.
 
 When you run an organization migration, {% data variables.product.prodname_importer_proper_name %} additionally creates a repository named `gei-migration-results` in the destination organization. This repository contains information about the migration of organization-level data and duplicates the information in the "Migration Log" issues for each migrated repository.
 
@@ -45,9 +45,9 @@ Organization owners and organization members with the migrator role can download
 
 You can download the latest migration log for an individual repository with the `download-logs` command. The exact command depends on your migration source.
 
-- [Downloading a repository migration log with the {% data variables.product.prodname_ado2gh_cli_short %}](#downloading-a-repository-migration-log-with-the-ado2gh-extension)
-- [Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}](#downloading-a-repository-migration-log-with-the-bbs2gh-extension)
-- [Downloading a repository migration log with the {% data variables.product.prodname_gei_cli_short %}](#downloading-a-repository-migration-log-with-the-gei-extension)
+* [Downloading a repository migration log with the {% data variables.product.prodname_ado2gh_cli_short %}](#downloading-a-repository-migration-log-with-the-ado2gh-extension)
+* [Downloading a repository migration log with the {% data variables.product.prodname_bbs2gh_cli_short %}](#downloading-a-repository-migration-log-with-the-bbs2gh-extension)
+* [Downloading a repository migration log with the {% data variables.product.prodname_gei_cli_short %}](#downloading-a-repository-migration-log-with-the-gei-extension)
 
 Migration logs are available to download for 24 hours after the migration is completed.
 
@@ -98,8 +98,8 @@ Owners of the destination organization can access the migration log for an organ
 To access the migration log for an organization migration, navigate to the repository named `gei-migration-results` in your destination organization.
 
 The `README.md` file in the root of the repository includes the following information about the organization migration:
-- Any warnings or errors related to the migration of organization-level data, such as settings and teams
-- The number of repositories that were successfully migrated and the number of repositories that failed to migrate
+* Any warnings or errors related to the migration of organization-level data, such as settings and teams
+* The number of repositories that were successfully migrated and the number of repositories that failed to migrate
 
 The`/success` and `/failure` directories contain one file for each repository that was successfully migrated or that failed to migrate, respectively. These files follow the naming convention `REPO_NAME.md`.
 

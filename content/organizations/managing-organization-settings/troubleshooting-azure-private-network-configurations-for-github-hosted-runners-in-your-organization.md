@@ -3,7 +3,7 @@ title: Troubleshooting Azure private network configurations for GitHub-hosted ru
 shortTitle: Troubleshooting Azure private networking
 intro: 'Learn how to fix common issues while creating Azure private network configurations to use {% data variables.product.company_short %}-hosted runners with an Azure VNET.'
 versions:
-  fpt: '*'
+  feature: actions-private-networking-azure-vnet
 type: how_to
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 topics:

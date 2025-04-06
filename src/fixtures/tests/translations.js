@@ -1,7 +1,7 @@
-import { expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { TRANSLATIONS_FIXTURE_ROOT } from '#src/frame/lib/constants.js'
-import { getDOM } from '#src/tests/helpers/e2etest.js'
+import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 
 if (!TRANSLATIONS_FIXTURE_ROOT) {
   let msg = 'You have to set TRANSLATIONS_FIXTURE_ROOT to run this test.'
@@ -102,5 +102,43 @@ describe('translations', () => {
     // Its "flaws" have to be corrected at runtime.
     const stillAutotitle = texts.filter((text) => /autotitle/i.test(text))
     expect(stillAutotitle.length).toBe(0)
+  })
+
+  test('markdown link looking constructs inside links', async () => {
+    // On this page, the translators had written:
+    //
+    //   [[Bar](バー)](/get-started/foo/bar)
+    //
+    // which needs to become:
+    //
+    //   <a href="/ja/get-started/foo/bar">[Bar](バー)</a>
+    const $ = await getDOM('/ja/get-started/start-your-journey/hello-world')
+    const links = $('#article-contents a[href]')
+    const texts = links
+      .filter((i, element) => $(element).attr('href').includes('get-started/foo/bar'))
+      .map((i, element) => $(element).text())
+      .get()
+    expect(texts.includes('[Bar] (バー)')).toBeTruthy()
+  })
+
+  describe('localized category versioning', () => {
+    test('category page works in all children versions', async () => {
+      {
+        // for translated content, we expect this to be OK
+        const res = await head('/ja/get-started')
+        expect(res.statusCode).toBe(200)
+      }
+      {
+        // The actual versioning for get-started/empty-categories
+        // does not specify ghes, so it should 404.
+        const res = await head('/ja/enterprise-server@latest/get-started/empty-categories')
+        expect(res.statusCode).toBe(404)
+      }
+      {
+        // Yet this nested page shoudl work.
+        const res = await head('/ja/enterprise-cloud@latest/get-started/empty-categories/only-ghec')
+        expect(res.statusCode).toBe(200)
+      }
+    })
   })
 })

@@ -25,9 +25,10 @@ Different maximum size limits for {% data variables.large_files.product_name_sho
 | {% data variables.product.prodname_free_user %} | 2 GB |
 | {% data variables.product.prodname_pro %} | 2 GB |
 | {% data variables.product.prodname_team %} | 4 GB |
-| {% data variables.product.prodname_ghe_cloud %} | 5 GB |{% else %}
+| {% data variables.product.prodname_ghe_cloud %} | 5 GB |
+| {% else %} |
 Using {% data variables.large_files.product_name_short %}, you can store files up to 5 GB in your repository.
-{% endif %}
+| {% endif %} |
 
 {% data reusables.repositories.git-lfs %}
 
@@ -50,11 +51,11 @@ It tracks the `version` of {% data variables.large_files.product_name_short %} y
 {% note %}
 
 **Notes**:
-- {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
-- {% data variables.large_files.product_name_short %} cannot be used with template repositories.
+* {% data variables.large_files.product_name_short %} cannot be used with {% data variables.product.prodname_pages %} sites.
+* {% data variables.large_files.product_name_short %} cannot be used with template repositories.
 
 {% endnote %}
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files/collaboration-with-git-large-file-storage)"

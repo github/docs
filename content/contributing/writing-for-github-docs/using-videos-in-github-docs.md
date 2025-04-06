@@ -1,6 +1,6 @@
 ---
 title: Using videos in GitHub Docs
-shortTitle: Using videos
+shortTitle: Use videos
 intro: 'This guide explains how to create videos that support user needs for {% data variables.product.prodname_docs %}.'
 versions:
   feature: 'contributing'
@@ -20,12 +20,12 @@ The Docs team does not create or maintain video content. Videos are purely suppl
 
 Use this checklist to quickly determine if a video might be appropriate to add to an article or landing page.
 
-- Is the video the only way to communicate the information?
-- Does {% data variables.product.prodname_dotcom %} own the video?
-- Is the video well produced? (See the "[Best practices](#best-practices)" section for more information.)
-- Is the video accessible to the broadest group of users possible? (See the "[Accessibility requirements](#accessibility-requirements)" section for more information.)
-- Is the video less than five minutes long?
-- Does the video have a specific audience and purpose in the docs? If it is only relevant to a particular product or feature, you must version it. See the "[Versioning](#versioning)" section for more information.
+* Is the video the only way to communicate the information?
+* Does {% data variables.product.prodname_dotcom %} own the video?
+* Is the video well produced? (See the "[Best practices](#best-practices)" section for more information.)
+* Is the video accessible to the broadest group of users possible? (See the "[Accessibility requirements](#accessibility-requirements)" section for more information.)
+* Is the video less than five minutes long?
+* Does the video have a specific audience and purpose in the docs? If it is only relevant to a particular product or feature, you must version it. See the "[Versioning](#versioning)" section for more information.
 
 If you answer "no" to any of these items, the video is not suitable for adding to the {% data variables.product.prodname_docs %}.
 
@@ -45,24 +45,24 @@ Videos are broadly grouped into three categories: product overviews, feature vid
 
 ### Product overviews
 
-- **Purpose**: Briefly explain what the product is, showcase the main functionality, and get people interested
-- **Length**: Less than a minute
-- **Possible audiences**: People who want to know if a feature is useful for their goals, people who are new to {% data variables.product.company_short %} and trying to understand what the products do
-- **Possible locations in the docs**: Landing pages and guides
+* **Purpose**: Briefly explain what the product is, showcase the main functionality, and get people interested
+* **Length**: Less than a minute
+* **Possible audiences**: People who want to know if a feature is useful for their goals, people who are new to {% data variables.product.company_short %} and trying to understand what the products do
+* **Possible locations in the docs**: Landing pages and guides
 
 ### Feature videos
 
-- **Purpose**: Supplement conceptual or procedural content
-- **Length**: As short as possible, without exceeding five minutes. Break longer content into multiple shorter, focused videos
-- **Possible audiences**: People who are learning about or how to use a feature
-- **Possible locations in the docs**: Guides, conceptual articles, procedural articles
+* **Purpose**: Supplement conceptual or procedural content
+* **Length**: As short as possible, without exceeding five minutes. Break longer content into multiple shorter, focused videos
+* **Possible audiences**: People who are learning about or how to use a feature
+* **Possible locations in the docs**: Guides, conceptual articles, procedural articles
 
 ### Tutorials
 
-- **Purpose**: Help novice users get going with a product, drive adoption, or explain complex functionalities
-- **Length**: Individual videos should be five minutes or less. Complex topics can have a series of shorter videos spread across an article. Total length should be a maximum of 15 minutes
-- **Possible audiences**: New users of features or products
-- **Possible locations**: Guides
+* **Purpose**: Help novice users get going with a product, drive adoption, or explain complex functionalities
+* **Length**: Individual videos should be five minutes or less. Complex topics can have a series of shorter videos spread across an article. Total length should be a maximum of 15 minutes
+* **Possible audiences**: New users of features or products
+* **Possible locations**: Guides
 
 ## When to use videos
 
@@ -80,14 +80,14 @@ Do not use videos for features that change quickly and may make videos out of da
 
 These are the minimum requirements for a video to be included in the {% data variables.product.prodname_docs %}. If a video violates any of these requirements, it cannot be added to the docs.
 
-- No flashing or strobe effects
-- Must have closed captions. See "[Creating video captions](#creating-video-captions)" below for more information
-- No graphics overlap with where captions appear
-- Typography must be legible
-- Any overlays must have sufficient contrast ratios
-- Any text must be on the screen long enough to be read (the text should appear onscreen for longer than it takes to read it out loud twice)
-- Must have proofread descriptive transcripts for what happens scene-by-scene. See "[Creating video transcripts](#creating-video-transcripts)" below for more information
-- Videos do not autoplay
+* No flashing or strobe effects
+* Must have closed captions. See "[Creating video captions](#creating-video-captions)" below for more information
+* No graphics overlap with where captions appear
+* Typography must be legible
+* Any overlays must have sufficient contrast ratios
+* Any text must be on the screen long enough to be read (the text should appear onscreen for longer than it takes to read it out loud twice)
+* Must have proofread descriptive transcripts for what happens scene-by-scene. See "[Creating video transcripts](#creating-video-transcripts)" below for more information
+* Videos do not autoplay
 
 ### Creating video captions
 
@@ -119,12 +119,12 @@ Creating transcripts is part of the process of producing videos that can be acce
 
 You can use captions as the foundation for a transcript. Edit the captions to remove any timestamps and include the relevant information detailed below. A descriptive transcript includes a text version of both audio and visual information needed to understand the content of a video.
 
-- If a video has multiple speakers, identify the speakers in the transcript.
-- If a speaker's gender is known, you can use their preferred pronouns when describing their actions. For example, `She points to the computer screen.` If the speaker's gender is unknown or irrelevant to the visual being described, you can use the singular they pronoun.
-- Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video.
-- Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`.
-- Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article.
-- At the end of the transcript, write `End of transcript.` and link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`.
+* If a video has multiple speakers, identify the speakers in the transcript.
+* If a speaker's gender is known, you can use their preferred pronouns when describing their actions. For example, `She points to the computer screen.` If the speaker's gender is unknown or irrelevant to the visual being described, you can use the singular they pronoun.
+* Format the transcript in logical paragraphs, lists, and sections. If it helps people understand the content, you may add headers to sections. Consider how someone would get information from the transcript if they are not also viewing the video.
+* Add any onscreen text, relevant visual elements, or non-speech sounds that are not included in the captions. Place these descriptions after the spoken text that accompanies them in the video. Format visual information in brackets. For example, `[Background music plays. The narrator clicks the Code button and then the "+ New codespace" button.]`.
+* Add a `product_video` property to the transcript article's YAML frontmatter. The value of the `product_video` property is the YouTube URL of the video. The video's YouTube URL will display as an external link in the transcript article.
+* At the end of the transcript, write `End of transcript.` and link to the landing page for the product the video is about using the pattern `For more information about PRODUCT, see the ["Product" documentation](link/to/landing-page).`.
 
 See "[Text Transcript with Description of Visuals](https://www.w3.org/WAI/perspective-videos/captions/#transcript)" in the W3C docs for more examples of audio and visual transcriptions.
 

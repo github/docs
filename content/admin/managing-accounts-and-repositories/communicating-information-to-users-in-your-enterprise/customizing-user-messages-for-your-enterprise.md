@@ -25,9 +25,9 @@ You can create global announcement banners, which appear at the top of every pag
 {% else %}
 
 There are several types of user messages.
-- Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page
-- Mandatory messages, which appear once in a pop-up window that must be dismissed
-- Announcement banners, which appear at the top of every page
+* Messages that appear on the {% ifversion ghes %}sign in or {% endif %}sign out page
+* Mandatory messages, which appear once in a pop-up window that must be dismissed
+* Announcement banners, which appear at the top of every page
 
 {% endif %}
 
@@ -78,9 +78,9 @@ You can create a mandatory message that {% data variables.product.product_name %
 
 Mandatory messages have a variety of uses.
 
-- Providing onboarding information for new employees
-- Telling users how to get help with {% data variables.location.product_location %}
-- Ensuring that all users read your terms of service for using {% data variables.location.product_location %}
+* Providing onboarding information for new employees
+* Telling users how to get help with {% data variables.location.product_location %}
+* Ensuring that all users read your terms of service for using {% data variables.location.product_location %}
 
 If you include Markdown checkboxes in the message, all checkboxes must be selected before the user can dismiss the message. For example, if you include your terms of service in the mandatory message, you can require that each user selects a checkbox to confirm the user has read the terms.
 

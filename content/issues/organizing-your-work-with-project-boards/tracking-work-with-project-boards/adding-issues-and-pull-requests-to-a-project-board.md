@@ -16,9 +16,9 @@ allowTitleToDifferFromFilename: true
 {% data reusables.projects.project_boards_old %}
 
 You can add issue or pull request cards to your {% data variables.projects.projects_v1_board %} by:
-- Dragging cards from the **Triage** section in the sidebar.
-- Typing the issue or pull request URL in a card.
-- Searching for issues or pull requests in the {% data variables.projects.projects_v1_board %} search sidebar.
+* Dragging cards from the **Triage** section in the sidebar.
+* Typing the issue or pull request URL in a card.
+* Searching for issues or pull requests in the {% data variables.projects.projects_v1_board %} search sidebar.
 
 You can put a maximum of 2,500 cards into each project column. If a column has reached the maximum number of cards, no cards can be moved into that column.
 
@@ -42,8 +42,8 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
    {% tip %}
 
    **Tips:**
-   - You can also add an issue or pull request by typing the URL in a card.
-   - If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
+   * You can also add an issue or pull request by typing the URL in a card.
+   * If you're working on a specific feature, you can apply a label to each related issue or pull request for that feature, and then easily add cards to your {% data variables.projects.projects_v1_board %} by searching for the label name. For more information, see "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)."
 
    {% endtip %}
 1. From the filtered list of issues and pull requests, drag the card you'd like to add to your {% data variables.projects.projects_v1_board %} and drop it in the correct column. Alternatively, you can move cards using keyboard shortcuts. {% data reusables.project-management.for-more-info-project-keyboard-shortcuts %}
@@ -68,6 +68,6 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
-- "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-project-boards)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/editing-a-project-board)"
+* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/tracking-work-with-project-boards/filtering-cards-on-a-project-board)"

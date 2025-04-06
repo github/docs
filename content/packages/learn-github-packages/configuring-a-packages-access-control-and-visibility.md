@@ -13,20 +13,9 @@ shortTitle: Access control & visibility
 ---
 {% data reusables.package_registry.container-registry-ghes-beta %}
 
-{% ifversion packages-registries-v2 %}
-
 A package can inherit its visibility and access permissions from a repository, or, for registries that support granular permissions, you can set the visibility and permissions of the package separately from a repository.
 
 For the list of registries that support granular permissions, and for more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
-
-{% else %}
-A package inherits the permissions and visibility of the repository in which the package is published.
-
-For more information about permissions for packages, packages-related scopes for PATs, or managing permissions for your {% data variables.product.prodname_actions %} workflows, see "[AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages)."
-
-{% endif %}
-
-{% ifversion packages-registries-v2 %}
 
 ## About inheritance of access permissions
 
@@ -43,8 +32,6 @@ If you publish a package in a registry that only supports repository-scoped perm
 ## About setting visibility and access permissions for packages
 
 {% data reusables.package_registry.visibility-and-access-permissions %}
-
-{% endif %}
 
 ## Configuring access to packages for your personal account
 
@@ -70,8 +57,6 @@ If your package is private or internal and scoped to an organization, then you c
 {% data reusables.package_registry.package-settings-user-access %}
 
 The selected users or teams will automatically be given access and don't need to accept an invitation first.
-
-{% ifversion packages-registries-v2 %}
 
 ## Selecting whether a package inherits permissions from a repository
 
@@ -107,8 +92,6 @@ When a package inherits permissions from a repository, to grant or remove access
 {% data reusables.package_registry.package-settings-option %}
 {% data reusables.package_registry.disable-auto-inheritance-step %}
 
-{% endif %}
-
 {% ifversion packages-inherit-permissions %}
 
 ## Disabling automatic inheritance of access permissions in an organization
@@ -125,8 +108,6 @@ If you disable automatic inheritance of access permissions, new packages scoped 
 
 {% endif %}
 
-{% ifversion packages-registries-v2 %}
-
 ## Ensuring workflow access to your package
 
 For packages scoped to a personal account or an organization, to ensure that a {% data variables.product.prodname_actions %} workflow has access to your package, you must give explicit access to the repository where the workflow is stored.
@@ -140,9 +121,9 @@ If you publish a package that is linked to a repository, {% data variables.produ
 {% note %}
 
 **Notes:**
-- Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
-- You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
-- {% data reusables.package_registry.public-forks-private-packages %}
+* Syncing your package with a repository {% data variables.package_registry.package-settings-actions-access-menu %} is different than connecting your package to a repository. For more information about linking a repository to your package, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+* You can choose to limit permissions to workflow jobs usings the `permissions` key and `packages` scope. For more information, see "[AUTOTITLE](/actions/using-jobs/assigning-permissions-to-jobs)."
+* {% data reusables.package_registry.public-forks-private-packages %}
 
 {% endnote %}
 
@@ -164,7 +145,6 @@ To further customize access to your package, see "[Configuring access to package
 {% data reusables.package_registry.package-settings-actions-access-role-repo %}
 
 To further customize access to your package, see "[Configuring access to packages for an organization](#configuring-access-to-packages-for-an-organization)."
-{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -201,13 +181,13 @@ When you first publish a package that is scoped to your personal account, the de
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility**.
 1. Select a visibility setting:
-   - To make the package visible to anyone, select **Public**.
+   * To make the package visible to anyone, select **Public**.
      {% warning %}
 
      **Warning:** Once you make a package public, you cannot make it private again.
 
      {% endwarning %}
-   - To make the package visible to a custom selection of people, select **Private**.
+   * To make the package visible to a custom selection of people, select **Private**.
 1. To confirm, type the name of the package, then click **I understand the consequences, change package visibility**.
 
 ## Package creation visibility for organization members
@@ -218,9 +198,9 @@ For registries that support granular permissions, you can choose the visibility 
 {% data reusables.profile.org_settings %}
 1. On the left, click **Packages**.
 1. Under "Package Creation", choose whether you want to enable the creation of public, private, or internal packages.
-    - To enable organization members to create public packages, click **Public**.
-    - To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
-    - To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
+    * To enable organization members to create public packages, click **Public**.
+    * To enable organization members to create private packages that are only visible to other organization members, click **Private**. You can further customize the visibility of private packages.
+    * To enable organization members to create internal packages that are visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.
 
 ## Configuring visibility of packages for an organization
 
@@ -229,7 +209,7 @@ When you first publish a package, the default visibility is private and only you
 {% data reusables.package_registry.package-settings-from-org-level %}
 {% data reusables.package_registry.package-settings-option %}
 1. At the bottom of the page, under "Danger Zone", click **Change visibility** and choose a visibility setting:
-    - To make the package visible to anyone, click **Public**.
+    * To make the package visible to anyone, click **Public**.
 
       {% warning %}
 
@@ -237,5 +217,5 @@ When you first publish a package, the default visibility is private and only you
 
       {% endwarning %}
 
-    - To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
-    - To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}
+    * To make the package visible to a custom selection of people in your organization, click **Private**.{% ifversion not fpt %}
+    * To make the package visible to all organization members, click **Internal**. If the organization belongs to an enterprise, the packages will be visible to all enterprise members.{% endif %}

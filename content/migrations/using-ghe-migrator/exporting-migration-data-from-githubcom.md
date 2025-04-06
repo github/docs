@@ -45,25 +45,25 @@ The Migrations API is currently in a preview period, which means that the endpoi
 1. Notify members of your organization that you'll be performing a migration. The export can take several minutes, depending on the number of repositories being exported. The full migration including import may take several hours so we recommend doing a trial run in order to determine how long the full process will take. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/about-ghe-migrator#types-of-migrations)."
 
 1. Start a migration by sending a `POST` request to [the migration endpoint](/free-pro-team@latest/rest/migrations#start-an-organization-migration). You'll need:
-    - Your access token for authentication.
-    - A [list of the repositories](/free-pro-team@latest/rest/repos#list-organization-repositories) you want to migrate:
+    * Your access token for authentication.
+    * A [list of the repositories](/free-pro-team@latest/rest/repos#list-organization-repositories) you want to migrate:
 
       ```shell
       curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
       -X POST \
       -H "Accept: application/vnd.github+json" \
-      -d'{"lock_repositories":true,"repositories":["ORG_NAME</em>/REPO_NAME", "ORG_NAME/REPO_NAME"]}' \
+      -d'{"lock_repositories":true,"repositories":["ORG_NAME/REPO_NAME", "ORG_NAME/REPO_NAME"]}' \
       https://api.github.com/orgs/ORG_NAME/migrations
       ```
 
-    - If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
-    - You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
+    * If you want to lock the repositories before migrating them, make sure `lock_repositories` is set to `true`. This is highly recommended.
+    * You can exclude file attachments by passing `exclude_attachments: true` to the endpoint. {% data reusables.enterprise_migrations.exclude-file-attachments %} The final archive size must be less than 20 GB.
 
    This request returns a unique `id` which represents your migration. You'll need it for subsequent calls to the Migrations API.
 
 1. Send a `GET` request to [the migration status endpoint](/free-pro-team@latest/rest/migrations#get-an-organization-migration-status) to fetch the status of a migration. You'll need:
-    - Your access token for authentication.
-    - The unique `id` of the migration:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
 
       ```shell
       curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
@@ -72,14 +72,14 @@ The Migrations API is currently in a preview period, which means that the endpoi
       ```
 
    A migration can be in one of the following states:
-   - `pending`, which means the migration hasn't started yet.
-   - `exporting`, which means the migration is in progress.
-   - `exported`, which means the migration finished successfully.
-   - `failed`, which means the migration failed.
+   * `pending`, which means the migration hasn't started yet.
+   * `exporting`, which means the migration is in progress.
+   * `exported`, which means the migration finished successfully.
+   * `failed`, which means the migration failed.
 
 1. After your migration has exported, download the migration archive by sending a `GET` request to [the migration download endpoint](/free-pro-team@latest/rest/migrations#download-an-organization-migration-archive). You'll need:
-    - Your access token for authentication.
-    - The unique `id` of the migration:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
 
       ```shell
       curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \
@@ -89,8 +89,8 @@ The Migrations API is currently in a preview period, which means that the endpoi
       ```
 
 1. The migration archive is automatically deleted after seven days. If you would prefer to delete it sooner, you can send a `DELETE` request to [the migration archive delete endpoint](/free-pro-team@latest/rest/migrations#delete-an-organization-migration-archive). You'll need:
-    - Your access token for authentication.
-    - The unique `id` of the migration:
+    * Your access token for authentication.
+    * The unique `id` of the migration:
 
       ```shell
       curl -H "Authorization: Bearer GITHUB_ACCESS_TOKEN" \

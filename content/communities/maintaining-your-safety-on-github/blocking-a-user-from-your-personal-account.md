@@ -23,38 +23,38 @@ You can block a user in your account settings or from the user's profile. {% dat
 {% endtip %}
 
 When you block a user:
-- The user stops following you
-- The user stops watching and unpins your repositories
-- The user's stars and issue assignments are removed from your repositories
-- The user's votes on discussions or comments in your repositories are deleted
-- The user is removed as a collaborator on your repositories
-- The user's contributions to your repositories are no longer counted as contributions for them
-- Your contributions to the blocked user's repositories are no longer counted as contributions for you
-- You are removed as a collaborator on their repositories
-- Their sponsorship of you is canceled
-- Any pending repository or account successor invitations to or from the blocked user are canceled
-- The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
-- You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
+* The user stops following you
+* The user stops watching and unpins your repositories
+* The user's stars and issue assignments are removed from your repositories
+* The user's votes on discussions or comments in your repositories are deleted
+* The user is removed as a collaborator on your repositories
+* The user's contributions to your repositories are no longer counted as contributions for them
+* Your contributions to the blocked user's repositories are no longer counted as contributions for you
+* You are removed as a collaborator on their repositories
+* Their sponsorship of you is canceled
+* Any pending repository or account successor invitations to or from the blocked user are canceled
+* The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
+* You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
 
 After you've blocked a user, they cannot:
-- Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
-- Comment on or edit issues or pull requests that you've created
-- React to your comments on issues, pull requests, and commits
-- Follow you or see your content in their activity feed
-- Assign you to issues or pull requests
-- Invite you as a collaborator on their repositories
-- Invite you as a collaborator on a security advisory
-- Cross-reference your repositories in comments
-- Fork, watch, pin, or star your repositories
-- Sponsor you
-- Add you as a collaborator on their projects and {% data variables.projects.projects_v1_boards %}
-- Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
+* Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
+* Comment on or edit issues or pull requests that you've created
+* React to your comments on issues, pull requests, and commits
+* Follow you or see your content in their activity feed
+* Assign you to issues or pull requests
+* Invite you as a collaborator on their repositories
+* Invite you as a collaborator on a security advisory
+* Cross-reference your repositories in comments
+* Fork, watch, pin, or star your repositories
+* Sponsor you
+* Add you as a collaborator on their projects and {% data variables.projects.projects_v1_boards %}
+* Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
 
 In repositories you own, blocked users also cannot:
-- Open issues
-- Send, close, or merge pull requests
-- Comment on issues, pull requests, or commits
-- Add or edit wiki pages
+* Open issues
+* Send, close, or merge pull requests
+* Comment on issues, pull requests, or commits
+* Add or edit wiki pages
 
 ## Blocking a user in your account settings
 
@@ -79,9 +79,9 @@ If you're being harassed, visit {% data variables.contact.contact_support_page %
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
-- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/viewing-users-youve-blocked-from-your-personal-account)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-personal-account)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/blocking-a-user-from-your-organization)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/unblocking-a-user-from-your-organization)"
+* "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/limiting-interactions-in-your-repository)"

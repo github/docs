@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { IconButton, TextInput } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
@@ -9,7 +9,9 @@ import { useQuery } from 'src/search/components/useQuery'
 import { useBreakpoint } from 'src/search/components/useBreakpoint'
 import { EventType, sendEvent } from 'src/events/components/events'
 
-export function Search() {
+type Props = { isSearchOpen: boolean }
+
+export function Search({ isSearchOpen }: Props) {
   const router = useRouter()
   const { query, debug } = useQuery()
   const [localQuery, setLocalQuery] = useState(query)
@@ -30,6 +32,15 @@ export function Search() {
     asPath += `?${params}`
     router.push(asPath)
   }
+
+  const inputRef = useRef<HTMLInputElement>(null)
+  useEffect(() => {
+    if (!atMediumViewport && isSearchOpen) {
+      // This adds focus in particular for iOS to focus and bring
+      // up the keyboard when you touch the search input text area.
+      inputRef.current?.focus()
+    }
+  }, [atMediumViewport, isSearchOpen])
 
   return (
     <div data-testid="search">
@@ -61,8 +72,7 @@ export function Search() {
                 e.currentTarget.setCustomValidity('Please enter a search query.')
               }}
               data-testid="site-search-input"
-              // This adds focus in particular for iOS to focus and bring up the keyboard when you touch the search input text area
-              ref={(inputRef) => !atMediumViewport && inputRef && inputRef.focus()}
+              ref={inputRef}
               type="search"
               placeholder={t`placeholder`}
               autoComplete="off"

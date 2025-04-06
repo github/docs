@@ -23,8 +23,8 @@ You can configure read access to other {% data variables.product.prodname_dotcom
 
 **Notes**:
 
-- You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocatrepository`, then you'll be able to grant read permissions for other repositories, such `asocto-org/octodemo`, if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
-- You can't use wildcards to specify repositories. You must define permissions for each repository for which you want to grant access.
+* You can only authorize read permissions in this way, and the owner of the target repository must be the same as the owner of the repository for which you're creating a prebuild. For example, if you're creating a prebuild configuration for the `octo-org/octocatrepository`, then you'll be able to grant read permissions for other repositories, such `asocto-org/octodemo`, if this is specified in the `devcontainer.json` file, and provided you have the permissions yourself.
+* You can't use wildcards to specify repositories. You must define permissions for each repository for which you want to grant access.
 
 {% endnote %}
 
@@ -63,5 +63,5 @@ The {% data variables.product.pat_generic %} will be used for all subsequent pre
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
-- "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"
+* "[AUTOTITLE](/codespaces/prebuilding-your-codespaces/configuring-prebuilds)"
+* "[AUTOTITLE](/codespaces/troubleshooting/troubleshooting-prebuilds)"

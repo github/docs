@@ -23,13 +23,13 @@ You can use the REST API to return different types of events triggered by activi
 Events are optimized for polling with the "ETag" header. If no new events have been triggered, you will see a "304 Not Modified" response, and your current rate limit will be untouched. There is also an "X-Poll-Interval" header that specifies how often (in seconds) you are allowed to poll. In times of high server load, the time may increase. Please obey the header.
 
 ``` shell
-$ curl -I {% data variables.product.api_url_pre %}/users/tater/events
+$ curl -I {% data variables.product.rest_url %}/users/tater/events
 > HTTP/2 200
 > X-Poll-Interval: 60
 > ETag: "a18c3bded88eb5dbb5c849a489412bf3"
 
 # The quotes around the ETag value are important
-$ curl -I {% data variables.product.api_url_pre %}/users/tater/events \
+$ curl -I {% data variables.product.rest_url %}/users/tater/events \
 $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > HTTP/2 304
 > X-Poll-Interval: 60

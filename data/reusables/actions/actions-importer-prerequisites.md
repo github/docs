@@ -1,6 +1,6 @@
-- An environment where you can run Linux-based containers, and can install the necessary tools.
-  - Docker is [installed](https://docs.docker.com/get-docker/) and running.
-  - [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
+* An environment where you can run Linux-based containers, and can install the necessary tools.
+  * Docker is [installed](https://docs.docker.com/get-docker/) and running.
+  * [{% data variables.product.prodname_dotcom %} CLI](https://cli.github.com) is installed.
 
   {% note %}
 

@@ -108,4 +108,4 @@ You can change the display order of your recommended templates in the "Create pr
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/creating-projects/creating-a-project)"

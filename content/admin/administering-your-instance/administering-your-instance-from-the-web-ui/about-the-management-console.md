@@ -34,12 +34,13 @@ When someone performs an action in the {% data variables.enterprise.management_c
 
 In the {% data variables.enterprise.management_console %}, you can perform administrative tasks for {% data variables.location.product_location %}, including:
 
-- **Initial setup**: Walk through the initial setup process when first launching {% data variables.location.product_location %} by visiting {% data variables.location.product_location %}'s IP address in your browser.
+* **Initial setup**: Walk through the initial setup process when first launching {% data variables.location.product_location %} by visiting {% data variables.location.product_location %}'s IP address in your browser.
 {%- ifversion enterprise-management-console-multi-user-auth %}
-- **Identity and access management**: Improve the security of {% data variables.location.product_location %} by creating dedicated user accounts for the {% data variables.enterprise.management_console %}. The root site administrator account can control these user accounts' access by assigning either the editor or operator role. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console)."
+* **Identity and access management**: Improve the security of {% data variables.location.product_location %} by creating dedicated user accounts for the {% data variables.enterprise.management_console %}. {% ifversion management-console-editor %}The root site administrator account can control these user accounts' access by assigning either the editor or operator role. {% endif %}For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console)."{% ifversion management-console-editor %}
+  {% data reusables.enterprise.editor-role-note %}{% endif %}
 {%- endif %}
-- **Configuring authentication policies for the {% data variables.enterprise.management_console %}**: Set rate limits for login attempts, and the lockout duration if someone exceeds the rate limit. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."
-- **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
-- **Scheduling maintenance windows**: Take {% data variables.location.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
-- **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
-- **License management**: View or update your {% data variables.product.prodname_enterprise %} license.
+* **Configuring authentication policies for the {% data variables.enterprise.management_console %}**: Set rate limits for login attempts, and the lockout duration if someone exceeds the rate limit. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/managing-access-to-the-management-console#configuring-rate-limits-for-authentication-to-the-management-console)."
+* **Configuring basic settings for your instance**: Configure DNS, hostname, SSL, user authentication, email, monitoring services, and log forwarding on the Settings page.
+* **Scheduling maintenance windows**: Take {% data variables.location.product_location %} offline while performing maintenance using the {% data variables.enterprise.management_console %} or administrative shell.
+* **Troubleshooting**: Generate a support bundle or view high level diagnostic information.
+* **License management**: View or update your {% data variables.product.prodname_enterprise %} license.

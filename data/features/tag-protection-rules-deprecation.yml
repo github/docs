@@ -1,0 +1,6 @@
+# Reference: Issue #12436 - Tag protection rules deprecation
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.16'

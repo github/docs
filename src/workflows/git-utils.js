@@ -83,26 +83,37 @@ export async function getContentsForBlob(owner, repo, sha) {
     file_sha: sha,
   })
   // decode blob contents
-  return Buffer.from(data.content, 'base64')
+  return Buffer.from(data.content, 'base64').toString()
 }
 
 // https://docs.github.com/rest/reference/repos#get-repository-content
 export async function getContents(owner, repo, ref, path) {
+  const { data } = await getContent(owner, repo, ref, path)
+  if (!data.content) {
+    return await getContentsForBlob(owner, repo, data.sha)
+  }
+  // decode Base64 encoded contents
+  return Buffer.from(data.content, 'base64').toString()
+}
+
+// https://docs.github.com/rest/reference/repos#get-repository-content
+export async function getContentAndData(owner, repo, ref, path) {
+  const { data } = await getContent(owner, repo, ref, path)
+  const content = data.content
+    ? Buffer.from(data.content, 'base64').toString()
+    : await getContentsForBlob(owner, repo, data.sha)
+  // decode Base64 encoded contents
+  return { content, blobSha: data.sha }
+}
+
+async function getContent(owner, repo, ref, path) {
   try {
-    const { data } = await github.repos.getContent({
+    return await github.repos.getContent({
       owner,
       repo,
       ref,
       path,
     })
-
-    if (!data.content) {
-      const blob = await getContentsForBlob(owner, repo, data.sha)
-      // decode Base64 encoded contents
-      return Buffer.from(blob, 'base64').toString()
-    }
-    // decode Base64 encoded contents
-    return Buffer.from(data.content, 'base64').toString()
   } catch (err) {
     console.log(`error getting ${path} from ${owner}/${repo} at ref ${ref}`)
     throw err

@@ -15,17 +15,17 @@ shortTitle: External Git repo
 ---
 Before you start, make sure you know:
 
-- Your {% data variables.product.product_name %} username
-- The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
+* Your {% data variables.product.product_name %} username
+* The clone URL for the external repository, such as `https://external-host.com/user/repo.git` or `git://external-host.com/user/repo.git` (perhaps with a `user@` in front of the `external-host.com` domain name)
 
 {% tip %}
 
 For purposes of demonstration, we'll use:
 
-- An external account named **extuser**
-- An external Git host named `https://external-host.com`
-- A {% data variables.product.product_name %} personal account named **ghuser**
-- A repository on {% data variables.location.product_location %} named **repo.git**
+* An external account named **extuser**
+* An external Git host named `https://external-host.com`
+* A {% data variables.product.product_name %} personal account named **ghuser**
+* A repository on {% data variables.location.product_location %} named **repo.git**
 
 {% endtip %}
 
@@ -41,7 +41,7 @@ For purposes of demonstration, we'll use:
 
    ```shell
    $ cd REPO.git
-   $ git push --mirror https://{% data variables.command_line.codeblock %}/USER/REPO.git
+   $ git push --mirror https://{% data variables.product.product_url %}/USER/REPO.git
    # Pushes the mirror to the new repository on {% data variables.location.product_location %}
    ```
 
@@ -58,5 +58,5 @@ If the repository you are importing contains large files, you may run into a war
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
 {% endif %}

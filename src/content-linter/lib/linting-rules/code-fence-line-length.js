@@ -4,6 +4,7 @@ export const codeFenceLineLength = {
   names: ['GHD030', 'code-fence-line-length'],
   description: 'Code fence lines should not exceed a maximum length',
   tags: ['code', 'accessibility'],
+  parser: 'markdownit',
   function: (params, onError) => {
     const MAX_LINE_LENGTH = String(params.config.maxLength || 60)
     filterTokens(params, 'fence', (token) => {

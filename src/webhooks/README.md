@@ -9,20 +9,28 @@ The pipeline is used to generate data that is used by the docs.github.com site w
 ![A flow chart describing how the automation pipeline for webhooks generates documentation](./webhooks-pipeline-flowchart.png)
 
 A [workflow](.github/workflows/sync-openapi.yml) is used to trigger the automation of the webhooks documentation. The workflow runs automatically on a schedule. The workflow that triggers the webhooks pipeline also triggers other automation pipelines that use the OpenAPI as the source data:
+
 - GitHub Apps
 - REST
 - Webhooks
 
 The workflow automatically creates a pull request with the changes (for all three pipelines) and the label `github-openapi-bot`.
 
-The workflow runs the `src/rest/scripts/update-files.js` script, which then calls the `src/webhooks/scripts/sync.js` script.
+The workflow runs the `npm run sync-rest` script, which then calls the `src/webhooks/scripts/sync.ts` script.
+
+## Manually running the pipeline
+
+You will need to first wait for the OpenAPI to be merged into `github/rest-api-description`.
+
+Then, you can manually sync the data used by the REST, Webhooks, and GitHub App pipelines before the scheduled daily run [here](https://github.com/github/docs-internal/actions/workflows/sync-openapi.yml). Use the default input options.
 
 ## Local development
 
 To run the webhooks pipeline locally:
 
 1. Clone the [`github/rest-api-description`](https://github.com/github/rest-api-description) repository inside your local `docs-internal` repository. 
-1. Run `src/rest/scripts/update-files.js -s rest-api-description -o webhooks`.
+1. Set a `GITHUB_TOKEN` in your `.env` with (classic) `repo` scopes & enable SSO for the github org. 
+1. Run `npm run sync-rest -- -s rest-api-description -o webhooks`.
 
 ## About this directory
 
@@ -30,7 +38,7 @@ To run the webhooks pipeline locally:
 - `src/webhooks/lib` - The source code used in production to display the webhook docs and configuration files edited by content and engineering team members.
   - `src/webhooks/lib/config.json` - A configuration file used to specify metadata about the webhooks pipeline.
 - `src/webhooks/scripts` - The scripts and source code used run the webhooks pipeline, which updates the `src/webhooks/data` directory. 
-  - `src/webhooks/scripts/sync.js` - The entrypoint script that runs the webhooks pipeline.
+  - `src/webhooks/scripts/sync.ts` - The entrypoint script that runs the webhooks pipeline.
 - `src/webhooks/tests` - The tests used to verify the webhooks pipeline.
 
 ## Configuring the pipeline

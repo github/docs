@@ -14,8 +14,8 @@ topics:
   - Pull requests
 ---
 The ability to delete issues depends on whether the repository is owned by a personal account or an organization:
-- The only account that can delete issues in a repository owned by a personal account is that account.
-- Only accounts with admin or owner permissions can delete issues in a repository owned by an organization.
+* The only account that can delete issues in a repository owned by a personal account is that account.
+* Only accounts with admin or owner permissions can delete issues in a repository owned by an organization.
 
   To delete an issue in a repository owned by an organization, an organization owner must enable deleting issues for the organization's repositories. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/allowing-people-to-delete-issues-in-your-organization)" and "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization)."
 
@@ -29,4 +29,4 @@ Collaborators do not receive a notification when issues are deleted. When visiti
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)"
+* "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)"

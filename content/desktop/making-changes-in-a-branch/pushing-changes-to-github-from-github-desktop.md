@@ -31,8 +31,8 @@ Repository administrators can also enable rulesets for a branch, which will prev
 
 **Note:** {% data variables.product.prodname_desktop %} will reject a push if it exceeds certain limits.
 
-- A push contains a large file over {% data variables.large_files.max_github_size %} in size.
-- A push is over {% data variables.large_files.max_file_size %} in total size.
+* A push contains a large file over {% data variables.large_files.max_github_size %} in size.
+* A push is over {% data variables.large_files.max_file_size %} in total size.
 
 If you configure {% data variables.large_files.product_name_long %} to track your large files, you can push large files that would normally be rejected. For more information, see "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/about-git-large-file-storage-and-github-desktop)."
 
@@ -46,6 +46,6 @@ If you configure {% data variables.large_files.product_name_long %} to track you
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary
-- "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)"
-- "[AUTOTITLE](/get-started/using-git)"
+* "[AUTOTITLE](/get-started/learning-about-github/github-glossary#push)" in the {% data variables.product.prodname_dotcom %} glossary
+* "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)"
+* "[AUTOTITLE](/get-started/using-git)"

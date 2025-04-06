@@ -23,11 +23,11 @@ Saved notifications are kept indefinitely and can be viewed by clicking **Saved*
 ## Investigating a notification
 
 When you click an individual notification from your inbox, you're directed to the conversation that prompted the notification. From the top of the page, you can:
-- Mark the individual notification as done
-- Unsubscribe from future notifications
-- Mark the notification as read
-- Save the notification for later
-- Return to your notifications inbox
+* Mark the individual notification as done
+* Unsubscribe from future notifications
+* Mark the notification as read
+* Save the notification for later
+* Return to your notifications inbox
 
 For more information about your triage options, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/viewing-and-triaging-notifications/managing-notifications-from-your-inbox#triaging-options)."
 

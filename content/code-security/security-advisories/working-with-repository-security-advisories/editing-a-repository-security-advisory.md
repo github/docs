@@ -37,15 +37,15 @@ You can also use the REST API to edit repository security advisories. For more i
 {% data reusables.repositories.security-advisory-edit-cwe %}
 1. Optionally, under "Credits", remove existing credits, or use the search box to find additional people you want to credit on the security advisory, then click their username to add them.
 {% ifversion security-advisories-credit-types %}
-   - Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."
+   * Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."
 
      ![Screenshot of a draft security advisory. A dropdown menu, labeled "Choose a credit type," is highlighted with an orange outline.](/assets/images/help/security/security-advisories-choose-credit-type.png)
 
-   - Optionally, to remove someone, click the {% octicon "x" aria-label="The icon to remove a credit to someone" %} next to the credit type.{% endif %}
+   * Optionally, to remove someone, click the {% octicon "x" aria-label="The icon to remove a credit to someone" %} next to the credit type.{% endif %}
 1. Click **Update security advisory**.
 
 {% data reusables.repositories.security-advisory-credits-notification %}
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"
+* "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"

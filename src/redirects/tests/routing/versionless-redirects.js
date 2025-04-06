@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 import getExceptionRedirects from '../../lib/exception-redirects.js'
@@ -19,7 +19,7 @@ const VERSIONLESS_REDIRECTS_FILE = path.join(
 // (That exceptions file still exists but is much smaller now that we've added the default fallbacks.
 // It only contains "true" exceptions now. Those are tested in tests/routing/redirect-exceptions.js.)
 describe('versioned redirects', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   const versionlessRedirects = getExceptionRedirects(VERSIONLESS_REDIRECTS_FILE)
 

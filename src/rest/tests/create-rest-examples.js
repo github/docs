@@ -1,4 +1,5 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
+
 import getCodeSamples, { mergeExamples } from '../scripts/utils/create-rest-examples.js'
 import {
   operation,

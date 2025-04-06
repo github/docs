@@ -2,17 +2,17 @@ The table below summarizes whether dependency scope is supported for various eco
 
 | **Language** | **Ecosystem** | **Manifest file** | **Dependency scope supported** |
 |:---|:---:|:---:|:---|
-{%- ifversion dependency-graph-dart-support %}
+| {% ifversion dependency-graph-dart-support %} |
 | Dart | pub | pubspec.yaml |  {% octicon "check" aria-label="Supported" %} |
 | Dart | pub | pubspec.lock |  {% octicon "check" aria-label="Supported" %} |
-{%- endif %}
+| {% endif %} |
 | Go | Go modules | go.mod | No, defaults to runtime |
 | Java | Maven | pom.xml | {% octicon "check" aria-label="Supported" %} `test` maps to development, else scope defaults to runtime |
 | JavaScript | npm | package.json | {% octicon "check" aria-label="Supported" %} |
 | JavaScript | npm | package-lock.json | {% octicon "check" aria-label="Supported" %} |
-{%- ifversion dependabot-dependency-graph-pnpm %}
+| {% ifversion dependabot-dependency-graph-pnpm %} |
 | JavaScript | npm | pnpm-lock.yaml | {% octicon "check" aria-label="Supported" %} |
-{%- endif %}
+| {% endif %} |
 | JavaScript |	yarn v1 | yarn.lock | No, defaults to runtime |
 | PHP | Composer | composer.json | {% octicon "check" aria-label="Supported" %} |
 | PHP | Composer | composer.lock | {% octicon "check" aria-label="Supported" %} |

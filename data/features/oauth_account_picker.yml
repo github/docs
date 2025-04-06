@@ -1,0 +1,6 @@
+# Reference: #14694
+# Detailing the account picker behavior during OAuth
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.14'

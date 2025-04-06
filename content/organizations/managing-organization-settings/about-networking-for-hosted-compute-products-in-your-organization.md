@@ -4,7 +4,7 @@ shortTitle: About private networking
 intro: 'You can manage private networking for {% data variables.product.company_short %}-hosted products using network configurations in your organization.'
 permissions: '{% data reusables.actions.azure-vnet-organization-permissions %}'
 versions:
-  fpt: '*'
+  feature: actions-private-networking-azure-vnet
 type: how_to
 topics:
   - Actions
@@ -25,6 +25,12 @@ topics:
 
 {% data reusables.actions.azure-vnet-network-configuration-intro %}
 
-For more information about using an Azure VNET with {% data variables.product.company_short %}-hosted runners works, see{% ifversion ghec %} "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/about-azure-private-networking-for-github-hosted-runners-in-your-enterprise)."{% else %} "[AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)."{% endif %}
+{% ifversion ghec %}
+
+{% data reusables.actions.azure-vnet-enterprise-policy %}
+
+{% endif %}
+
+For more information about how using an Azure VNET with {% data variables.product.company_short %}-hosted runners works, see "[AUTOTITLE](/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization)."
 
 {% data reusables.actions.azure-vnet-next-steps-links %}

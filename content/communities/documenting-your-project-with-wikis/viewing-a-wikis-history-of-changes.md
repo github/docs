@@ -18,9 +18,9 @@ shortTitle: View a history of changes
 ## Viewing wiki history
 
 Wiki history includes:
-- The user who made the change
-- The commit message they provided
-- When the change was made
+* The user who made the change
+* The commit message they provided
+* When the change was made
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-wiki %}

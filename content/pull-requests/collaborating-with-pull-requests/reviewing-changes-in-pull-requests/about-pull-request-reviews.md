@@ -29,9 +29,9 @@ For an introduction to requesting and providing pull request reviews, see the [R
 {% ifversion fpt or ghec %}You can schedule reminders for pull requests that need to be reviewed. For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/managing-scheduled-reminders-for-your-team)."{% endif %}
 
 A review has three possible statuses:
-- **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
-- **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
-- **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
+* **Comment**: Submit general feedback without explicitly approving the changes or requesting additional changes.
+* **Approve**: Submit feedback and approve merging the changes proposed in the pull request.
+* **Request changes**: Submit feedback that must be addressed before the pull request can be merged.
 
 {% data reusables.repositories.request-changes-tips %}
 
@@ -59,6 +59,6 @@ You can view all of the reviews a pull request has received in the Conversation 
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)"

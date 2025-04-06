@@ -1,0 +1,3 @@
+> [!NOTE] If the repository you are migrating has rulesets that the incoming repository doesn't match, the migration will be blocked. To bypass these rulesets and allow the migration, you can apply a ruleset bypass for all deploy keys in the target organization.
+>
+> Repository rulesets can be set at the organization level. If the incoming repository does not match any of these rulesets, you will need to use the deploy key bypass for each one. See "[AUTOTITLE](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#granting-bypass-permissions-for-your-branch-or-tag-ruleset)."

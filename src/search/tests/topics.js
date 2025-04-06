@@ -1,8 +1,11 @@
 import path from 'path'
 import fs from 'fs'
-import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
+
+import { describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { difference } from 'lodash-es'
+
+import readFrontmatter from '#src/frame/lib/read-frontmatter.js'
 import allowedTopics from '../../../data/allowed-topics.js'
 
 const contentDir = path.join(process.cwd(), 'content')

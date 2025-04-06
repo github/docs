@@ -1,3 +1,5 @@
+import { describe, test } from 'vitest'
+
 const runningActionsOnInternalRepo =
   process.env.GITHUB_ACTIONS === 'true' && process.env.GITHUB_REPOSITORY === 'github/docs-internal'
 

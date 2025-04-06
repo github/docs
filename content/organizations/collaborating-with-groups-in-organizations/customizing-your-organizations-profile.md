@@ -38,8 +38,8 @@ You can share information about how to engage with your organization by creating
 
 You can choose what information to include in your organization profile README. Here are some examples of information that may be helpful.
 
-- An "About" section that describes your organization
-- Guidance for getting help in the organization
+* An "About" section that describes your organization
+* Guidance for getting help in the organization
 
 You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
 
@@ -75,11 +75,11 @@ You can pin repositories that you want to feature, such as those that are freque
    ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
 1. Navigate to the settings for pinned repositories.
 
-   - If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
+   * If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
 
    ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize-pins-link.png)
 
-   - If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
+   * If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
    ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-org-link.png)
 
@@ -109,5 +109,5 @@ You can replace the identicon with an image that represents your organization. T
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)"
+* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)"

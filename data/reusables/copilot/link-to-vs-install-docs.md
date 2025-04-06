@@ -1,0 +1,1 @@
+For instructions on how to install the {% data variables.product.prodname_copilot_short %} extension, see "[Install GitHub Copilot in Visual Studio](https://learn.microsoft.com/visualstudio/ide/visual-studio-github-copilot-install-and-states)" in the Microsoft documentation.

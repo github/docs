@@ -62,8 +62,6 @@ export function header(lang, code, subnav) {
           class: ['js-btn-copy', 'btn', 'btn-sm', 'tooltipped', 'tooltipped-nw'],
           'aria-label': `Copy ${languages[lang]?.name} code to clipboard`,
           'data-clipboard': codeId,
-          'aria-live': 'polite',
-          'aria-atomic': 'true',
         },
         btnIcon(),
       ),

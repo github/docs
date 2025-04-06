@@ -31,16 +31,19 @@ You can also see a list of people who have contributed to the project's Python d
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 1. In the left sidebar, click **Contributors**.
-   ![Screenshot of the "Contributors" tab. The tab is highlighted with a dark orange outline.](/assets/images/help/graphs/contributors-tab.png)
+{%- ifversion accessible-charts %}
+1. Optionally, to view contributors during a specific time period, to the right of "Contributors," click **Period: All**. Then select a time period.
+{% data reusables.repositories.repositories-insights-graphs-download-steps %}
+{%- else %}
 1. Optionally, to view contributors during a specific time period, click, then drag until the time period is selected. The contributors graph sums weekly commit numbers onto each Sunday, so your time period must include a Sunday.
-   ![Screenshot of a selection of a specific time period in the contributors graph. The selection is highlighted with a dark orange outline.](/assets/images/help/graphs/repo-contributors-click-drag-graph.png)
+{% endif %}
 
 ## Troubleshooting contributors
 
 If you don't appear in a repository's contributors graph, it may be because:
-- You aren't one of the top 100 contributors.
-- Your commits haven't been merged into the default branch.
-- The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
+* You aren't one of the top 100 contributors.
+* Your commits haven't been merged into the default branch.
+* The email address you used to author the commits isn't connected to your account on {% data variables.product.product_name %}.
 
 {% tip %}
 

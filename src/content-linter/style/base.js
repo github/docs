@@ -25,9 +25,9 @@ export const baseConfig = {
   'ul-style': {
     // MD004
     severity: 'error',
-    style: 'dash',
+    style: 'asterisk',
     'partial-markdown-files': true,
-    'yml-files': true,
+    'yml-files': false,
   },
   'no-trailing-spaces': {
     // MD009
@@ -120,6 +120,7 @@ export const baseConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
     allowed_languages: allowedCodeFenceLanguages,
+    context: `When you add a fenced code block, you must specify the code language. Allowed languages are: ${allowedCodeFenceLanguages.join(', ')}. You can add allowed languages by updating data/code-languages.yml.`,
   },
   'no-empty-links': {
     // MD042

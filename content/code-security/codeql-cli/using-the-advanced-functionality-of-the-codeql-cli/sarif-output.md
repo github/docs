@@ -37,9 +37,9 @@ This article is intended to be read alongside the detailed SARIF specification. 
 
 The output produced for a given specific format type (for example, `sarifv2.1.0`) may change in future {% data variables.product.prodname_codeql %} releases. We will endeavor to maintain backwards compatibility with consumers of the generated SARIF by ensuring that:
 
-- Fields that are marked as always being generated will never be removed.
+* Fields that are marked as always being generated will never be removed.
 
-- For fields that are marked as not always being generated, the circumstances under which the fields are generated may change. Consumers of the {% data variables.product.prodname_codeql %} SARIF output should be robust to the presence or absence of these fields.
+* For fields that are marked as not always being generated, the circumstances under which the fields are generated may change. Consumers of the {% data variables.product.prodname_codeql %} SARIF output should be robust to the presence or absence of these fields.
 
 New output fields may be added in future releases under the same format type–these are not considered to break backwards compatibility, and consumers should be robust to the presence of newly added fields.
 
@@ -146,9 +146,9 @@ The composition of the results is dependent on the options provided to {% data v
 
 There are two types of `region` object produced by {% data variables.product.prodname_codeql %}:
 
-- Line/column offset regions
+* Line/column offset regions
 
-- Character offset and length regions
+* Character offset and length regions
 
 Any region produced by {% data variables.product.prodname_codeql %} may be specified in either format, and consumers should robustly handle either type.
 

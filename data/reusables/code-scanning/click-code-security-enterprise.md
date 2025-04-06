@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.
+1. On the left side of the page, in the enterprise account sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.

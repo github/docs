@@ -95,18 +95,6 @@ for (const pipeline of pipelines) {
     )
   }
 
-  // Temp workaround to only add files during a release. This will be removed
-  // when we migrate these files to the src/graphql/data directory.
-  if (addFiles.length && !removeFiles.length) {
-    await cp(
-      `data/graphql/ghes-${previousReleaseNumber}`,
-      `data/graphql/ghes-${currentReleaseNumber}`,
-      {
-        recursive: true,
-      },
-    )
-  }
-
   for (const base of numberedReleaseBaseNames) {
     const dirToAdd = addFiles.find((item) => item.startsWith(base))
     if (!dirToAdd) continue

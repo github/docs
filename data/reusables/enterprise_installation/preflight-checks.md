@@ -1,0 +1,1 @@
+When upgrading, pre-flight checks evaluate if the minimum requirements for system hardware resources, such as memory, CPU cores, and user and root disk storage, are available to your instance. If pre-flight checks determine there are insufficient resources, or otherwise fail, you are notified and the upgrade is aborted.

@@ -31,4 +31,4 @@ When you set the base permission for projects in your organization's settings, t
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-your-project/managing-access-to-your-projects)"

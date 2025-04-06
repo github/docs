@@ -22,5 +22,5 @@ You can also manage repository discussions. For more information, see "[AUTOTITL
 
 ## Further reading
 
-- "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
-- "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"
+* "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)"
+* "[AUTOTITLE](/discussions/managing-discussions-for-your-community)"

@@ -1,4 +1,4 @@
-import { describe, expect } from '@jest/globals'
+import { describe, expect, test } from 'vitest'
 
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 import { allVersionKeys, allVersions } from '#src/versions/lib/all-versions.js'

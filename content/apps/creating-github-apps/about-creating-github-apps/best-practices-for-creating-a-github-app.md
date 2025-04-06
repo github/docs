@@ -74,9 +74,21 @@ An installation access token is restricted based on the {% data variables.produc
 
 Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
 
-## Validate organization access for every new authentication
+## Authorize thoroughly and durably
 
-When you use a user access token, you should track which organizations the token is authorized for. If an organization uses SAML SSO and a user has not performed SAML SSO, the user access token should not have access to that organization. You can use the `GET /user/installations` REST API endpoint to verify which organizations a user access token has access to. If the user is not authorized to access an organization, you should reject their access until they perform SAML SSO. For more information, see "[AUTOTITLE](/rest/apps/installations#list-app-installations-accessible-to-the-user-access-token)."
+After signing in a user, app developers must take additional steps to ensure that the user is meant to have access to the data in your system. Each sign in requires fresh checks around their memberships, access, and their current SSO status.
+
+### Use the durable, unique `id` to store the user
+
+{% data reusables.apps.best-practice-use-durable-id %}
+
+### Validate organization access for every new authentication
+
+{% data reusables.apps.best-practice-validate-org-access %}
+
+### Store user data with organizational and enterprise contexts
+
+{% data reusables.apps.best-practice-store-data-with-context %}
 
 ## Expire tokens
 
@@ -135,8 +147,8 @@ If your {% data variables.product.prodname_github_app %} is available to other u
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
 {% endif %}
-- "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
-- "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"
+* "[AUTOTITLE](/webhooks/using-webhooks/best-practices-for-using-webhooks)"
+* "[AUTOTITLE](/rest/guides/best-practices-for-integrators)"

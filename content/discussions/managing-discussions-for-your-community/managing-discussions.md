@@ -186,7 +186,7 @@ To transfer a discussion, you must have permissions to create discussions in the
 
 You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
 
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or, for organization discussions, the source repository.
+1. Navigate to the main page of the repository or, for organization discussions, the source repository.
 {% data reusables.repositories.sidebar-issues %}
 {% data reusables.project-management.labels %}
 1. Next to the label you want to convert to issues, click **Convert issues**.

@@ -33,6 +33,8 @@ sections:
       {% data reusables.release-notes.scheduled-reminders-unintentional %} [Updated: 2024-02-22]
     - |
       {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
   errata:
     - |
       "[Known issues](/admin/release-notes#3.11.2-known-issues)" incorrectly indicated that an upgrade to GitHub Enterprise Server 3.11 may fail. This issue does not impact GitHub Enterprise Server instances when upgrading to version 3.11.1 or later. [Updated: 2024-01-26]

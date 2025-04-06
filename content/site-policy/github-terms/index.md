@@ -21,4 +21,5 @@ children:
   - /github-event-terms
   - /github-event-code-of-conduct
   - /github-educational-use-agreement
+  - /github-copilot-extension-developer-policy
 ---

@@ -26,7 +26,7 @@ github_support: 'GitHub Support'
 # The team that provides Premium Support
 premium_support: 'GitHub Premium Support'
 
-# Enterprise Support portal (previously the Zendesk portal at enterprise.githubsupport.com)
+# Enterprise Support portal
 enterprise_portal: 'GitHub Support portal'
 contact_enterprise_portal: '[GitHub Support portal](https://support.github.com)'
 

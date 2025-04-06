@@ -17,5 +17,5 @@ After you configure {% data variables.large_files.product_name_short %} to track
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
-- "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"
+* "[AUTOTITLE](/repositories/working-with-files/managing-large-files)"

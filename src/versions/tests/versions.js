@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'

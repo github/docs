@@ -30,8 +30,8 @@ We also support payments through PayPal. For more information, see "[AUTOTITLE](
 
 Your bank can provide additional information about declined payments if you specifically ask about the attempted transaction. If there are restrictions on your card and you need to call your bank, provide this information to your bank:
 
-- **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts)."
-- **The date when {% data variables.product.product_name %} bills you.** Your account's billing date appears on your receipts.
-- **The transaction ID number.** Your account's transaction ID appears on your receipts.
-- **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
-- **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.
+* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see "[AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts)."
+* **The date when {% data variables.product.product_name %} bills you.** Your account's billing date appears on your receipts.
+* **The transaction ID number.** Your account's transaction ID appears on your receipts.
+* **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.
+* **The error message your bank sent with the declined charge.** You can find your bank's error message on the email we send you when a charge is declined.

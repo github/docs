@@ -20,6 +20,6 @@ You can avoid being prompted for your password by configuring Git to [cache your
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)."
-- "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
-- "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"
+* "[AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories)"
+* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github)"
+* "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)"

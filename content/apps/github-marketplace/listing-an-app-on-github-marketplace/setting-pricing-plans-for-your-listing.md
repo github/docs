@@ -48,22 +48,22 @@ To create a pricing plan for your {% data variables.product.prodname_marketplace
 
 When you click **New draft plan**, you'll see a form that allows you to customize your pricing plan. You'll need to configure the following fields to create a pricing plan:
 
-- **Plan name** - Your pricing plan's name will appear on your {% data variables.product.prodname_marketplace %} app's landing page. You can customize the name of your pricing plan to align with the plan's resources, the size of the company that will use the plan, or anything you'd like.
+* **Plan name** - Your pricing plan's name will appear on your {% data variables.product.prodname_marketplace %} app's landing page. You can customize the name of your pricing plan to align with the plan's resources, the size of the company that will use the plan, or anything you'd like.
 
-- **Pricing models** - There are three types of pricing plan: free, flat-rate, and per-unit. All plans require you to process new purchase and cancellation events from the marketplace API. In addition, for paid plans:
+* **Pricing models** - There are three types of pricing plan: free, flat-rate, and per-unit. All plans require you to process new purchase and cancellation events from the marketplace API. In addition, for paid plans:
 
-  - You must set a price for both monthly and yearly subscriptions in US dollars.
-  - Your app must process plan change events.
-  - You must request verification to publish a listing with a paid plan.
-  - {% data reusables.marketplace.marketplace-pricing-free-trials %}
+  * You must set a price for both monthly and yearly subscriptions in US dollars.
+  * Your app must process plan change events.
+  * You must request verification to publish a listing with a paid plan.
+  * {% data reusables.marketplace.marketplace-pricing-free-trials %}
 
   For detailed information, see "[AUTOTITLE](/apps/github-marketplace/selling-your-app-on-github-marketplace/pricing-plans-for-github-marketplace-apps)" and "[AUTOTITLE](/apps/github-marketplace/using-the-github-marketplace-api-in-your-app)."
 
-- **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal accounts and organizations**, **Personal accounts only**, or **Organizations only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organizations only** because there is no way to assign seats to people in an organization from a personal account.
+* **Available for** - {% data variables.product.prodname_marketplace %} pricing plans can apply to **Personal accounts and organizations**, **Personal accounts only**, or **Organizations only**. For example, if your pricing plan is per-unit and provides multiple seats, you would select **Organizations only** because there is no way to assign seats to people in an organization from a personal account.
 
-- **Short description** - Write a brief summary of the details of the pricing plan. The description might include the type of customer the plan is intended for or the resources the plan includes.
+* **Short description** - Write a brief summary of the details of the pricing plan. The description might include the type of customer the plan is intended for or the resources the plan includes.
 
-- **Bullets** - You can write up to four bullets that include more details about your pricing plan. The bullets might include the use cases of your app or list more detailed information about the resources or features included in the plan.
+* **Bullets** - You can write up to four bullets that include more details about your pricing plan. The bullets might include the use cases of your app or list more detailed information about the resources or features included in the plan.
 
 {% data reusables.marketplace.free-plan-note %}
 

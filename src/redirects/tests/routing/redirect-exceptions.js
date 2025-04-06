@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
-import { jest } from '@jest/globals'
+
+import { describe, expect, test, vi } from 'vitest'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 import getExceptionRedirects from '../../lib/exception-redirects.js'
@@ -11,7 +12,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const EXCEPTIONS_FILE = path.join(__dirname, '../../lib/static/redirect-exceptions.txt')
 
 describe('redirect exceptions', () => {
-  jest.setTimeout(5 * 60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   const redirectExceptions = getExceptionRedirects(EXCEPTIONS_FILE)
 

@@ -1,11 +1,12 @@
-import { filterTokens, addError } from 'markdownlint-rule-helpers'
+import { addError, filterTokens } from 'markdownlint-rule-helpers'
 
-import { getRange, isStringQuoted, doesStringEndWithPeriod } from '../helpers/utils.js'
+import { doesStringEndWithPeriod, getRange, isStringQuoted } from '../helpers/utils.js'
 
 export const linkPunctuation = {
   names: ['GHD001', 'link-punctuation'],
   description: 'Internal link titles must not contain punctuation',
   tags: ['links', 'url'],
+  parser: 'markdownit',
   function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       const { children, line } = token

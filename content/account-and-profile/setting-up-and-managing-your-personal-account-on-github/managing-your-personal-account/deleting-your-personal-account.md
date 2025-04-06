@@ -45,9 +45,14 @@ If you're the only owner of an organization, you must transfer ownership to anot
 
 For more information, see the following articles.
 
-- "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)"
-- "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)"
+* "[AUTOTITLE](/organizations/managing-organization-settings/transferring-organization-ownership)"
+* "[AUTOTITLE](/organizations/managing-organization-settings/deleting-an-organization-account)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-membership-in-organizations/removing-yourself-from-an-organization)"
+
+{% ifversion ghes %}
+> [!NOTE]
+> * You should contact an enterprise owner before deleting your account on {% data variables.product.product_name %}.
+{% endif %}
 
 ## Back up your account data
 
@@ -64,10 +69,10 @@ Before you delete your personal account, make a copy of all repositories, privat
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.account_settings %}
 1. At the bottom of the Account Settings page, under "Delete account", click **Delete your account**. Before you can delete your personal account:
-    - If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
-    - If there are other organization owners in the organization, you must remove yourself from the organization.
+    * If you're the only owner in the organization, you must transfer ownership to another person or delete your organization.
+    * If there are other organization owners in the organization, you must remove yourself from the organization.
 1. In the "Make sure you want to do this" dialog box, complete the steps to confirm you understand what happens when your account is deleted:
-   {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted and your billing will end immediately, and your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.{% else %}
-    - Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.{% endif %}
-    - In the first field, type your {% data variables.product.product_name %} username or email.
-    - In the second field, type the phrase from the prompt.
+   {% ifversion fpt or ghec %}- Recall that all repositories, forks of private repositories, wikis, issues, pull requests and {% data variables.product.prodname_pages %} sites owned by your account will be deleted. Your billing will end immediately. Your username will be available to anyone for use on {% data variables.product.product_name %} after 90 days.{% else %}
+    * Recall that all repositories, forks of private repositories, wikis, issues, pull requests and pages owned by your account will be deleted, and your username will be available for use on {% data variables.product.product_name %}.{% endif %}
+    * In the first field, type your {% data variables.product.product_name %} username or email.
+    * In the second field, type the phrase from the prompt.

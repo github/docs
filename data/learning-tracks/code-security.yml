@@ -112,27 +112,36 @@ secret_scanning:
     Set up secret scanning to guard against accidental check-ins of tokens,
     passwords, and other secrets to your repository.
   guides:
-    - /code-security/secret-scanning/about-secret-scanning
+    - /code-security/secret-scanning/introduction/about-secret-scanning
+    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository
+    - /code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository
     - >-
-      /code-security/secret-scanning/configuring-secret-scanning-for-your-repositories
+      {% ifversion secret-scanning-validity-check-partner-patterns %}
+      /code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository{% endif %}
     - >-
       {% ifversion not fpt
-      %}/code-security/secret-scanning/defining-custom-patterns-for-secret-scanning{%
+      %}/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning{%
       endif %}
     - /code-security/secret-scanning/managing-alerts-from-secret-scanning
-    - /code-security/secret-scanning/secret-scanning-patterns
+    - /code-security/secret-scanning/introduction/supported-secret-scanning-patterns
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/push-protection-for-repositories-and-organizations{%
+      %}/code-security/secret-scanning/introduction/about-push-protection{%
       endif %}
     - >-
       {% ifversion secret-scanning-push-protection-for-users
-      %}/code-security/secret-scanning/push-protection-for-users{% endif %}
+      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users{%
+      endif %}
     - >-
       {% ifversion secret-scanning-push-protection
-      %}/code-security/secret-scanning/pushing-a-branch-blocked-by-push-protection{%
+      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line{%
       endif %}
-    - /code-security/secret-scanning/troubleshooting-secret-scanning
+    - >-
+      {% ifversion secret-scanning-push-protection
+      %}/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui{%
+      endif %}
+    - >-
+      /code-security/secret-scanning/troubleshooting-secret-scanning-and-push-protection/troubleshooting-secret-scanning
 security_alerts:
   title: Explore and manage security alerts
   description: Learn where to find and resolve security alerts.

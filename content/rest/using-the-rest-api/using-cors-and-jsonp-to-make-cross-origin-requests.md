@@ -22,7 +22,7 @@ Here's a sample request sent from a browser hitting
 `http://example.com`:
 
 ```shell
-$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com"
+$ curl -I {% data variables.product.rest_url %} -H "Origin: http://example.com"
 HTTP/2 302
 Access-Control-Allow-Origin: *
 Access-Control-Expose-Headers: ETag, Link, x-ratelimit-limit, x-ratelimit-remaining, x-ratelimit-reset, X-OAuth-Scopes, X-Accepted-OAuth-Scopes, X-Poll-Interval
@@ -31,7 +31,7 @@ Access-Control-Expose-Headers: ETag, Link, x-ratelimit-limit, x-ratelimit-remain
 This is what the CORS preflight request looks like:
 
 ```shell
-$ curl -I {% data variables.product.api_url_pre %} -H "Origin: http://example.com" -X OPTIONS
+$ curl -I {% data variables.product.rest_url %} -H "Origin: http://example.com" -X OPTIONS
 HTTP/2 204
 Access-Control-Allow-Origin: *
 Access-Control-Allow-Headers: Authorization, Content-Type, If-Match, If-Modified-Since, If-None-Match, If-Unmodified-Since, X-Requested-With
@@ -46,7 +46,7 @@ You can send a `?callback` parameter to any GET call to have the results
 wrapped in a JSON function. This is typically used when browsers want to embed {% data variables.product.product_name %} content in web pages and avoid cross-domain problems. The response includes the same data output as the regular API, plus the relevant HTTP Header information.
 
 ```shell
-$ curl {% data variables.product.api_url_pre %}?callback=foo
+$ curl {% data variables.product.rest_url %}?callback=foo
 
 > /**/foo({
 >   "meta": {
@@ -55,7 +55,7 @@ $ curl {% data variables.product.api_url_pre %}?callback=foo
 >     "x-ratelimit-remaining": "4966",
 >     "x-ratelimit-reset": "1372700873",
 >     "Link": [ // pagination headers and other links
->       ["{% data variables.product.api_url_pre %}?page=2", {"rel": "next"}]
+>       ["{% data variables.product.rest_url %}?page=2", {"rel": "next"}]
 >     ]
 >   },
 >   "data": {
@@ -78,7 +78,7 @@ function foo(response) {
 }
 
 var script = document.createElement('script');
-script.src = '{% data variables.product.api_url_code %}?callback=foo';
+script.src = '{% data variables.product.rest_url %}?callback=foo';
 
 document.getElementsByTagName('head')[0].appendChild(script);
 </script>

@@ -8,7 +8,7 @@ You can use {% data variables.product.prodname_discussions %} to create organiza
 
 {% endnote %}
 
-{% elsif ghes > 3.9 %}
+{% elsif ghes %}
 
 {% note %}
 

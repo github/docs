@@ -20,5 +20,5 @@ After you disable insights for projects in your organization, it won't be possib
 
 ## Further reading
 
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-- "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
+* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/about-insights-for-projects)"

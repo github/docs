@@ -36,7 +36,7 @@ body:
     required: true
 ```
 
-You can set the following top-level keys for each issue form.
+You can set the following top-level keys for each discussion category form.
 
 | Key | Description | Required | Type |
 | :-- | :-- | :-- | :-- |

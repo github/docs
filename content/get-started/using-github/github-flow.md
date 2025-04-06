@@ -41,7 +41,7 @@ To follow {% data variables.product.prodname_dotcom %} flow, you will need a {% 
 
 ### Make changes
 
-On your branch, make any desired changes to the repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/renaming-a-file)", "[AUTOTITLE](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)", or "[AUTOTITLE](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)".
+On your branch, make any desired changes to the repository. For more information, see "[AUTOTITLE](/repositories/working-with-files/managing-files/creating-new-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/editing-files)", "[AUTOTITLE](/repositories/working-with-files/managing-files/renaming-a-file)", "[AUTOTITLE](/repositories/working-with-files/managing-files/moving-a-file-to-a-new-location)", or "[AUTOTITLE](/repositories/working-with-files/managing-files/deleting-files-in-a-repository)."
 
 Your branch is a safe place to make changes. If you make a mistake, you can revert your changes or push additional changes to fix the mistake. Your changes will not end up on the default branch until you merge your branch.
 

@@ -45,5 +45,5 @@ You can also use cherry-picking when collaborating with a team. Some projects in
 
 ## Further reading
 
-- [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
-- "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"
+* [git-cherry-pick](https://git-scm.com/docs/git-cherry-pick) in the Git documentation
+* "[AUTOTITLE](/desktop/managing-commits/options-for-managing-commits-in-github-desktop)"

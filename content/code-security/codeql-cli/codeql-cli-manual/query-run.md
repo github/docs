@@ -357,6 +357,14 @@ variable.
 
 This overrides the GITHUB\_TOKEN environment variable.
 
+### Options to control the extension packs
+
+#### `--model-packs=<`<name@range>>...
+
+A list of CodeQL pack names, each with an optional version range, to be
+used as model packs to customize the queries that are about to be
+evaluated.
+
 ### Common options
 
 #### `-h, --help`

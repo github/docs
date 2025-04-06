@@ -102,6 +102,12 @@ Before you can use Jekyll to create a {% data variables.product.prodname_pages %
    The correct version Jekyll will be installed as a dependency of the `github-pages` gem.
 1. Save and close the Gemfile.
 1. From the command line, run `bundle install`.
+1. Open the `.gitignore` file that Jekyll created and ignore the gems lock file by adding this line:
+
+   ```shell
+   Gemfile.lock
+   ```
+
 1. Optionally, make any necessary edits to the `_config.yml` file. This is required for relative paths when the repository is hosted in a subdirectory.  For more information, see "[AUTOTITLE](/get-started/using-git/splitting-a-subfolder-out-into-a-new-repository)."
 
    ```yaml

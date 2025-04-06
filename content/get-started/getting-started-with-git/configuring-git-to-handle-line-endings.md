@@ -69,8 +69,8 @@ The `.gitattributes` file must be created in the root of the repository and comm
 
 A `.gitattributes` file looks like a table with two columns:
 
-- On the left is the file name for Git to match.
-- On the right is the line ending configuration that Git should use for those files.
+* On the left is the file name for Git to match.
+* On the right is the line ending configuration that Git should use for those files.
 
 ### Example
 
@@ -95,13 +95,13 @@ Here's an example `.gitattributes` file. You can use it as a template for your r
 
 You'll notice that files are matched—`*.c`, `*.sln`, `*.png`—, separated by a space, then given a setting—`text`, `text eol=crlf`, `binary`. We'll go over some possible settings below.
 
-- `text=auto` Git will handle the files in whatever way it thinks is best. This is a good default option.
+* `text=auto` Git will handle the files in whatever way it thinks is best. This is a good default option.
 
-- `text eol=crlf` Git will always convert line endings to `CRLF` on checkout. You should use this for files that must keep `CRLF` endings, even on OSX or Linux.
+* `text eol=crlf` Git will always convert line endings to `CRLF` on checkout. You should use this for files that must keep `CRLF` endings, even on OSX or Linux.
 
-- `text eol=lf` Git will always convert line endings to `LF` on checkout. You should use this for files that must keep LF endings, even on Windows.
+* `text eol=lf` Git will always convert line endings to `LF` on checkout. You should use this for files that must keep LF endings, even on Windows.
 
-- `binary` Git will understand that the files specified are not text, and it should not try to change them. The `binary` setting is also an alias for `-text -diff`.
+* `binary` Git will understand that the files specified are not text, and it should not try to change them. The `binary` setting is also an alias for `-text -diff`.
 
 ## Refreshing a repository after changing line endings
 
@@ -138,7 +138,7 @@ To ensure that all the line endings in your repository match your new configurat
 
 ## Further reading
 
-- [Customizing Git - Git Attributes](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) in the Pro Git book
-- [git-config](https://git-scm.com/docs/git-config) in the man pages for Git
-- [Getting Started - First-Time Git Setup](https://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup) in the Pro Git book
-- [Mind the End of Your Line](http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) by [Tim Clem](https://github.com/tclem)
+* [Customizing Git - Git Attributes](https://git-scm.com/book/en/Customizing-Git-Git-Attributes) in the Pro Git book
+* [git-config](https://git-scm.com/docs/git-config) in the man pages for Git
+* [Getting Started - First-Time Git Setup](https://git-scm.com/book/en/Getting-Started-First-Time-Git-Setup) in the Pro Git book
+* [Mind the End of Your Line](http://adaptivepatchwork.com/2012/03/01/mind-the-end-of-your-line/) by [Tim Clem](https://github.com/tclem)

@@ -8,17 +8,10 @@ const { NODE_ENV } = process.env
 
 type Props = {
   locale?: string
-  disableClientTransition?: boolean
   makeAbsolute?: boolean
 } & ComponentProps<'a'>
 export function Link(props: Props) {
-  const {
-    href,
-    locale,
-    disableClientTransition = false,
-    makeAbsolute = false,
-    ...restProps
-  } = props
+  const { href, locale, makeAbsolute = false, ...restProps } = props
   const router = useRouter()
   const { currentVersion } = useVersion()
 
@@ -38,17 +31,12 @@ export function Link(props: Props) {
     url = `/${locale}${href}`
   }
 
-  if (disableClientTransition) {
-    return (
-      /* eslint-disable-next-line jsx-a11y/anchor-has-content */
-      <a href={url} rel={isExternal ? 'noopener' : ''} {...restProps} />
-    )
-  }
-
   return (
-    <NextLink href={url} locale={locale || false} passHref legacyBehavior>
-      {/* eslint-disable-next-line jsx-a11y/anchor-has-content */}
-      <a rel={isExternal ? 'noopener' : ''} {...restProps} />
-    </NextLink>
+    <NextLink
+      href={url}
+      locale={locale || false}
+      rel={isExternal ? 'noopener' : ''}
+      {...restProps}
+    ></NextLink>
   )
 }

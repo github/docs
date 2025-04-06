@@ -36,6 +36,6 @@ The authorization can only be revoked by the person who authorized the {% data v
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)"
-- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)"
-- "[AUTOTITLE](/apps/using-github-apps/internal-github-apps)"
+* "[AUTOTITLE](/apps/using-github-apps/reviewing-and-modifying-installed-github-apps)"
+* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/reviewing-your-authorized-applications-oauth)"
+* "[AUTOTITLE](/apps/using-github-apps/internal-github-apps)"

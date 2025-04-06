@@ -1,4 +1,4 @@
-import { afterAll, beforeAll, expect, describe } from '@jest/globals'
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import Page from '#src/frame/lib/page.js'
 import languages from '#src/languages/lib/languages.js'

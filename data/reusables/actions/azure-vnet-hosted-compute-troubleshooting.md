@@ -1,3 +1,11 @@
+{% ifversion ghec %}
+
+### Enabling creation of network configurations for organizations in an enterprise
+
+{% data reusables.actions.azure-vnet-enterprise-policy %}
+
+{% endif %}
+
 ### Configuring Azure resources before creating a network configuration in {% data variables.product.company_short %}
 
 Ensure your Azure resources have been configured _before_ adding a network configuration in {% data variables.product.company_short %}.
@@ -8,7 +16,7 @@ Ensure your Azure resources have been configured _before_ adding a network confi
 
 ### Runner failed to connect to the internet
 
-{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.prodname_dotcom_the_website %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
+{% data variables.product.company_short %}-hosted runners need to be able to make outbound connections to {% data variables.product.github %} as well as other necessary URLs for {% data variables.product.prodname_actions %}.
 
 If {% data variables.product.prodname_actions %} cannot communicate with the runners, the pool will never be able to bring runners online and so no jobs will be picked up. In this case, the pool will have the following error code.
 
@@ -16,7 +24,7 @@ If {% data variables.product.prodname_actions %} cannot communicate with the run
 VNetInjectionFailedToConnectToInternet
 ```
 
-To fix this, ensure that you have configured your Azure resources according to the "Configuring your Azure resources" procedures.{% ifversion ghec %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-private-networking-for-hosted-compute-products/configuring-private-networking-for-github-hosted-runners-in-your-enterprise#configuring-your-azure-resources)."{% else %} For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/configuring-private-networking-for-github-hosted-runners-in-your-organization#configuring-your-azure-resources)."{% endif %}
+To fix this, ensure that you have configured your Azure resources according to the "Configuring your Azure resources" procedures.
 
 ### Deployment scope is locked
 

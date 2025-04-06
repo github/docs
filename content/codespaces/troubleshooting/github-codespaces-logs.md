@@ -23,9 +23,9 @@ Information on {% data variables.product.prodname_github_codespaces %} is output
 
 {% webui %}
 
-- Codespace logs
-- Creation logs
-- Browser console logs (for the {% data variables.product.prodname_vscode_shortname %} web client)
+* Codespace logs
+* Creation logs
+* Browser console logs (for the {% data variables.product.prodname_vscode_shortname %} web client)
 
 Extension logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %}. Click the "{% data variables.product.prodname_vscode %}" tab above for details.
 
@@ -33,9 +33,9 @@ Extension logs are available if you are using {% data variables.product.prodname
 
 {% vscode %}
 
-- Codespace logs
-- Creation logs
-- Extension logs (for the {% data variables.product.prodname_vscode_shortname %} desktop application)
+* Codespace logs
+* Creation logs
+* Extension logs (for the {% data variables.product.prodname_vscode_shortname %} desktop application)
 
 Browser logs are available if you are using {% data variables.product.prodname_github_codespaces %} in your browser. Click the "Web browser" tab above for details.
 
@@ -43,8 +43,8 @@ Browser logs are available if you are using {% data variables.product.prodname_g
 
 {% cli %}
 
-- Codespace logs
-- Creation logs
+* Codespace logs
+* Creation logs
 
 Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
 
@@ -52,7 +52,7 @@ Other logs are available if you are using {% data variables.product.prodname_git
 
 {% jetbrains_beta %}
 
-- Creation logs
+* Creation logs
 
 Other logs are available if you are using {% data variables.product.prodname_github_codespaces %} in {% data variables.product.prodname_vscode_shortname %} or in your web browser. Click the tabs above for details.
 
@@ -174,5 +174,5 @@ You can download logs for the remote JetBrains IDE and the local client applicat
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
-- "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/reviewing-your-organizations-audit-logs-for-github-codespaces)"
+* "[AUTOTITLE](/codespaces/managing-your-codespaces/reviewing-your-security-logs-for-github-codespaces)"

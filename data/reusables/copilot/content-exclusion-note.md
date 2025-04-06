@@ -1,2 +1,1 @@
-- Excluding content from {% data variables.product.prodname_copilot %} is currently in public beta and is subject to change.
-- This feature is supported in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, JetBrains IDEs, and neovim. For details of supported JetBrains IDEs, see "[AUTOTITLE](/copilot/getting-started-with-github-copilot?tool=jetbrains#prerequisites)."
+> [!NOTE] Excluding content from {% data variables.product.prodname_copilot %} is currently in public beta and is subject to change.

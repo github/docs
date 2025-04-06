@@ -1,6 +1,6 @@
 ---
 title: Using code scanning with your existing CI system
-intro: 'You can analyze your code with the {% data variables.product.prodname_codeql_cli %} or another tool in a third-party continuous integration system and upload the results to {% data variables.location.product_location %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
+intro: 'You can analyze your code with the {% data variables.product.prodname_codeql_cli %} or another tool in a third-party continuous integration system and upload the results to {% data variables.product.github %}. The resulting {% data variables.product.prodname_code_scanning %} alerts are shown alongside any alerts generated within {% data variables.product.product_name %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
 redirect_from:
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/using-codeql-code-scanning-with-your-existing-ci-system

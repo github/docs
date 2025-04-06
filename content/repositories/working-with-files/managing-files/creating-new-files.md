@@ -14,8 +14,11 @@ topics:
 ---
 When creating a file on {% data variables.product.product_name %}, consider the following:
 
-- If you try to create a new file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
-- File names created via the web interface can only contain alphanumeric characters and hyphens (`-`). To use other characters, [create and commit the files locally, then push them to the repository on {% data variables.product.product_name %}](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+* If you try to create a new file in a repository that you don’t have access to, we will fork the project to your personal account and help you send [a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to the original repository after you commit your change.
+* File names created via the web interface can only contain alphanumeric characters and hyphens (`-`). To use other characters, [create and commit the files locally, then push them to the repository on {% data variables.product.product_name %}](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).
+{%- ifversion push-rulesets %}
+* {% data reusables.repositories.rulesets-push-rules-general-info-for-related-articles %}
+{% endif %}
 
 {% data reusables.repositories.sensitive-info-warning %}
 
@@ -25,7 +28,7 @@ When creating a file on {% data variables.product.product_name %}, consider the 
 1. In the file name field, type the name and extension for the file. To create subdirectories, type the `/` directory separator.
 1. In the file contents text box, type content for the file.
 1. To review the new content, above the file contents, click **Preview**.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
    ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/help/repository/new-file-preview.png)
 {% else %}
    ![Screenshot of a file in edit mode. Above the text box for editing file contents, a tab, labeled "Preview", outlined in dark orange.](/assets/images/enterprise/repository/new-file-preview.png)

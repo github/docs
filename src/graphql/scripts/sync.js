@@ -11,7 +11,6 @@ import processUpcomingChanges from './utils/process-upcoming-changes.js'
 import processSchemas from './utils/process-schemas.js'
 import { prependDatedEntry, createChangelogEntry } from './build-changelog.js'
 
-const graphqlDataDir = 'data/graphql'
 const graphqlStaticDir = 'src/graphql/data'
 const dataFilenames = JSON.parse(await fs.readFile('src/graphql/scripts/utils/data-filenames.json'))
 
@@ -34,7 +33,6 @@ async function main() {
     // 1. UPDATE PREVIEWS
     const previewsPath = getDataFilepath('previews', graphqlVersion)
     const safeForPublicPreviews = yaml.load(await getRemoteRawContent(previewsPath, graphqlVersion))
-    await updateFile(previewsPath, yaml.dump(safeForPublicPreviews))
     const previewsJson = processPreviews(safeForPublicPreviews)
     await updateStaticFile(
       previewsJson,
@@ -54,10 +52,10 @@ async function main() {
 
     // 3. UPDATE SCHEMAS
     // note: schemas live in separate files per version
-    const schemaPath = getDataFilepath('schemas', graphqlVersion)
-    const previousSchemaString = await fs.readFile(schemaPath, 'utf8')
-    const latestSchema = await getRemoteRawContent(schemaPath, graphqlVersion)
-    await updateFile(schemaPath, latestSchema)
+    const previewFilePath = getDataFilepath('schemas', graphqlVersion)
+    const previousSchemaString = await fs.readFile(previewFilePath, 'utf8')
+    const latestSchema = await getRemoteRawContent(previewFilePath, graphqlVersion)
+    await updateFile(previewFilePath, latestSchema)
     const schemaJsonPerVersion = await processSchemas(latestSchema, safeForPublicPreviews) // This is slow!
     await updateStaticFile(
       schemaJsonPerVersion,
@@ -113,20 +111,16 @@ async function getRemoteRawContent(filepath, graphqlVersion) {
 
 // find the relevant filepath in src/graphql/scripts/util/data-filenames.json
 function getDataFilepath(id, graphqlVersion) {
-  const versionType = getVersionType(graphqlVersion)
+  const versionType = getVersionName(graphqlVersion)
 
   // for example, dataFilenames['schema']['ghes'] = schema.docs-enterprise.graphql
   const filename = dataFilenames[id][versionType]
 
-  // dotcom files live at the root of data/graphql
-  // non-dotcom files live in data/graphql/<version_subdir>
-  const dataSubdir = graphqlVersion === 'fpt' ? '' : graphqlVersion
-
-  return path.join(graphqlDataDir, dataSubdir, filename)
+  return path.join(graphqlStaticDir, graphqlVersion, filename)
 }
 
 async function getBranchAsRef(options, graphqlVersion, branch = false) {
-  const versionType = getVersionType(graphqlVersion)
+  const versionType = getVersionName(graphqlVersion)
   const defaultBranch = 'master'
 
   const branches = {
@@ -154,7 +148,7 @@ async function getBranchAsRef(options, graphqlVersion, branch = false) {
 
 // given a GraphQL version like `ghes-2.22`, return `ghes`;
 // given a GraphQL version like `dotcom`, return as is
-function getVersionType(graphqlVersion) {
+function getVersionName(graphqlVersion) {
   return graphqlVersion.split('-')[0]
 }
 

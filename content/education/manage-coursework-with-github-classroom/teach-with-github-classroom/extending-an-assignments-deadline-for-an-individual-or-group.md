@@ -13,8 +13,8 @@ If you set a cutoff date for an assignment in {% data variables.product.prodname
 {% note %}
 
 **Notes:**
-- If your assignment has a deadline, but it does not have a cutoff date, you will not be able to grant students extensions. Instead, you can inform the student or group of their extension directly and ignore the "Late" label applied to the student or group's entry on the assignment overview.
-- If you grant a student or group an extension, and they submit their work after the initial cutoff date, the assignment will still be marked "Late". You can ignore the "Late" label, as it will not affect the student or group's grade, or write access to their assignment repository.
+* If your assignment has a deadline, but it does not have a cutoff date, you will not be able to grant students extensions. Instead, you can inform the student or group of their extension directly and ignore the "Late" label applied to the student or group's entry on the assignment overview.
+* If you grant a student or group an extension, and they submit their work after the initial cutoff date, the assignment will still be marked "Late". You can ignore the "Late" label, as it will not affect the student or group's grade, or write access to their assignment repository.
 
 {% endnote %}
 

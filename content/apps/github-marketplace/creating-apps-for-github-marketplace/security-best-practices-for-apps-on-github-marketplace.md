@@ -21,8 +21,8 @@ topics:
 
 Before listing an app on {% data variables.product.prodname_marketplace %}, you should follow the best practices for the type of app that you are listing:
 
-- "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
-- "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app)"
+* "[AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)"
+* "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app)"
 
 Additionally, you should have the capability to notify {% data variables.product.product_name %} within 24 hours of a confirmed security incident.
 

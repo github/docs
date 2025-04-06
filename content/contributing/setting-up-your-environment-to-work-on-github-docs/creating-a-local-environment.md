@@ -14,11 +14,11 @@ Today it's a dynamic Node.js webserver powered by Express, using middleware to s
 
 The tooling for this site has changed over the years, but many of the tried-and-true authoring conventions of the original Jekyll site have been preserved.
 
-- Content is written in Markdown files, which live in the `content` directory.
+* Content is written in Markdown files, which live in the `content` directory.
 <!-- - Content can use the [Liquid templating language](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-for-github-docs).-->
-- Files in the `data` directory are available to templates via the {% raw %}`{% data %}`{% endraw %} tag.
-- Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
-- The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
+* Files in the `data` directory are available to templates via the {% raw %}`{% data %}`{% endraw %} tag.
+* Markdown files can contain [frontmatter](https://jekyllrb.com/docs/front-matter).
+* The [`redirect_from`](https://github.com/jekyll/jekyll-redirect-from) Jekyll plugin behavior is supported.
 
 ## Setting up your local environment
 
@@ -56,8 +56,8 @@ When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> i
 {% note %}
 
 **Note:** You should typically only need to run `npm ci` and `npm run build` each time you pull the latest version of a branch.
- - `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file.
- - `npm run build` creates static assets, such as JavaScript and CSS files.
+ * `npm ci` does a clean install of dependencies, without updating the `package-lock.json` file.
+ * `npm run build` creates static assets, such as JavaScript and CSS files.
 
 {% endnote %}
 
@@ -89,7 +89,7 @@ For more information about using a codespace for working on {% data variables.pr
 
 ## Further reading
 
-- [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)
-- [Components](https://github.com/github/docs/blob/main/src/frame/components/README.md)
-- [Data](https://github.com/github/docs/blob/main/data/README.md)
-- [Tests](https://github.com/github/docs/blob/main/src/tests/README.md)
+* [AUTOTITLE](/contributing/writing-for-github-docs/creating-reusable-content)
+* [Components](https://github.com/github/docs/blob/main/src/frame/components/README.md)
+* [Data](https://github.com/github/docs/blob/main/data/README.md)
+* [Tests](https://github.com/github/docs/blob/main/src/tests/README.md)

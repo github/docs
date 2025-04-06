@@ -39,14 +39,11 @@ You can use markdown to add formatting, links, emojis, and more. For more inform
 
 ![Screenshot of the new issue form, with a title and body filled in.](/assets/images/help/issues/issue-title-body.png)
 
-{% ifversion task-lists-v1 %}
-
 ## Adding a task list
 
 It can be helpful to break large issues into smaller tasks, or to track multiple related issues in a single larger issue. Add a task list to your issue by prefacing list items with `[ ]`. Reference existing issues by issue number or URL. You can use plain text to track tasks that don't have a corresponding issue and convert them to issues later. For more information, see "[AUTOTITLE](/get-started/writing-on-github/working-with-advanced-formatting/about-task-lists)."
 
 ![Screenshot of the new issue form, with the title and body filled in. The body includes the Markdown for a task list.](/assets/images/help/issues/issue-task-list-raw.png)
-{% endif %}
 
 ## Adding labels
 
@@ -88,13 +85,13 @@ After your issue is created, continue the conversation by adding comments to the
 
 You can use issues for a wide range of purposes. For example:
 
-- Tracking ideas
-- Collecting feedback
-- Planning tasks
-- Reporting bugs
+* Tracking ideas
+* Collecting feedback
+* Planning tasks
+* Reporting bugs
 
 Here are some helpful resources for taking your next steps with {% data variables.product.prodname_github_issues %}:
 
-- To learn more about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
-- To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[AUTOTITLE](/issues/organizing-your-work-with-project-boards)."{% endif %}
-- To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."
+* To learn more about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
+* To learn more about how projects can help you with planning and tracking, see {% ifversion projects-v2 %}"[AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)."{% else %}"[AUTOTITLE](/issues/organizing-your-work-with-project-boards)."{% endif %}
+* To learn more about using issue templates{% ifversion fpt or ghec %} and issue forms{% endif %} to encourage contributors to provide specific information, see "[AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests)."

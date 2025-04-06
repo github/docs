@@ -31,9 +31,9 @@ shortTitle: Project management with Jira
 
    {% endnote %}
 1. Fill in the application settings:
-    - In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
-    - In the **Homepage URL** field, type the full URL of your Jira instance.
-    - In the **Authorization callback URL** field, type the full URL of your Jira instance.
+    * In the **Application name** field, type "Jira" or any name you would like to use to identify the Jira instance.
+    * In the **Homepage URL** field, type the full URL of your Jira instance.
+    * In the **Authorization callback URL** field, type the full URL of your Jira instance.
 1. Click **Register application**.
 1. At the top of the page, note the **Client ID** and **Client Secret**. You will need these for configuring your Jira instance.
 
@@ -44,12 +44,12 @@ shortTitle: Project management with Jira
 1. In the left sidebar, under **Integrations**, click **DVCS accounts**.
 1. Click **Link Bitbucket Cloud or {% data variables.product.prodname_dotcom %} account**.
 1. In the **Add New Account** modal, fill in your {% data variables.product.prodname_enterprise %} settings:
-    - From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
-    - In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
-    - In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
-    - In the **OAuth Secret** field, type the Client Secret for your {% data variables.product.prodname_enterprise %} developer application.
-    - If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
-    - If you don't want to enable smart commits, deselect **Enable Smart Commits**.
-    - Click **Add**.
+    * From the **Host** dropdown menu, choose **{% data variables.product.prodname_enterprise %}**.
+    * In the **Team or User Account** field, type the name of your {% data variables.product.prodname_enterprise %} organization or user account.
+    * In the **OAuth Key** field, type the Client ID of your {% data variables.product.prodname_enterprise %} developer application.
+    * In the **OAuth Secret** field, type the Client Secret for your {% data variables.product.prodname_enterprise %} developer application.
+    * If you don't want to link new repositories owned by your {% data variables.product.prodname_enterprise %} organization or user account, deselect **Auto Link New Repositories**.
+    * If you don't want to enable smart commits, deselect **Enable Smart Commits**.
+    * Click **Add**.
 1. Review the permissions you are granting to your {% data variables.product.prodname_enterprise %} account and click **Authorize application**.
 1. If necessary, type your password to continue.

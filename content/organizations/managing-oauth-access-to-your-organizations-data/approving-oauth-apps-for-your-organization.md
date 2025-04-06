@@ -27,4 +27,4 @@ When {% data variables.product.prodname_oauth_app %} access restrictions are ena
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"
+* "[AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions)"

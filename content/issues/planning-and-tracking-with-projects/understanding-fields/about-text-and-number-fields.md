@@ -23,12 +23,8 @@ Number fields can also be used in filters. You can use `>`, `>=`, `<`, `<=`, and
 1. Select **Text**.
 1. Click **Save**.
 
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."
-
 ## Adding a number field
 
 {% data reusables.projects.new-field %}
 1. Select **Number**.
 1. Click **Save**.
-
-Alternatively, open the project command palette by pressing {% data variables.projects.command-palette-shortcut %} and start typing "Create new field."

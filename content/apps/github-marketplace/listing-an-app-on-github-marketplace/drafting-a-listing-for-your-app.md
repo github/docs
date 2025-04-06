@@ -29,9 +29,9 @@ shortTitle: Draft an app listing
 
 You can only create draft listings for apps that are public. Before creating your draft listing, you can read the following guidelines for writing and configuring settings in your {% data variables.product.prodname_marketplace %} listing:
 
-- [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
-- [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
-- [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
+* [Writing {% data variables.product.prodname_marketplace %} listing descriptions](/apps/github-marketplace/listing-an-app-on-github-marketplace/writing-a-listing-description-for-your-app)
+* [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)
+* [Configuring the {% data variables.product.prodname_marketplace %} Webhook](/apps/github-marketplace/listing-an-app-on-github-marketplace/configuring-a-webhook-to-notify-you-of-plan-changes)
 
 To create a {% data variables.product.prodname_marketplace %} listing:
 

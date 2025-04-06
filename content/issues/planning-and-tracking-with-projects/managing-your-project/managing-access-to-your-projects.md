@@ -45,10 +45,10 @@ The default base role is `write`, meaning that everyone in the organization can 
 
    ![Screenshot showing the "Who has access" settings. The dropdown for setting the base role is highlighted with an orange outline.](/assets/images/help/projects-v2/base-role.png)
 
-   - **No access**: Only organization owners and users granted individual access can see the project. Organization owners are also admins for the project.
-   - **Read**: Everyone in the organization can see the project. Organization owners are also admins for the project.
-   - **Write**: Everyone in the organization can see and edit the project. Organization owners are also admins for the project.
-   - **Admin**: Everyone in the organization is an admin for the project.
+   * **No access**: Only organization owners and users granted individual access can see the project. Organization owners are also admins for the project.
+   * **Read**: Everyone in the organization can see the project. Organization owners are also admins for the project.
+   * **Write**: Everyone in the organization can see and edit the project. Organization owners are also admins for the project.
+   * **Admin**: Everyone in the organization is an admin for the project.
 
 ### Managing access for teams and individual members of your organization
 
@@ -69,9 +69,9 @@ You can only invite an individual user to collaborate on your organization-level
    ![Screenshot showing searching for a collaborator.](/assets/images/help/projects-v2/access-search.png)
 
 1. Select the role for the collaborator.
-   - **Read**: The team or individual can view the project.
-   - **Write**: The team or individual can view and edit the project.
-   - **Admin**: The team or individual can view, edit, and add new collaborators to the project.
+   * **Read**: The team or individual can view the project.
+   * **Write**: The team or individual can view and edit the project.
+   * **Admin**: The team or individual can view, edit, and add new collaborators to the project.
 1. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project
@@ -104,9 +104,9 @@ This only affects collaborators for your project, not for repositories in your p
    ![Screenshot showing searching for a collaborator.](/assets/images/help/projects-v2/access-search.png)
 
 1. Select the role for the collaborator.
-   - **Read**: The individual can view the project.
-   - **Write**: The individual can view and edit the project.
-   - **Admin**: The individual can view, edit, and add new collaborators to the project.
+   * **Read**: The individual can view the project.
+   * **Write**: The individual can view and edit the project.
+   * **Admin**: The individual can view, edit, and add new collaborators to the project.
 1. Click **Invite**.
 
 ### Managing access of an existing collaborator on your project

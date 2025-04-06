@@ -42,4 +42,4 @@ When you cancel a pending change, your plan will not change until your next bill
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"
+* "[AUTOTITLE](/get-started/learning-about-github/githubs-plans)"

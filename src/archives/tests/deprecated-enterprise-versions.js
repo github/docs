@@ -1,11 +1,11 @@
-import { describe, jest, test } from '@jest/globals'
+import { describe, expect, test, vi } from 'vitest'
 
 import enterpriseServerReleases from '#src/versions/lib/enterprise-server-releases.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 
 describe('enterprise deprecation', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('redirects language-prefixed requests for deprecated enterprise content', async () => {
     const res = await get('/en/enterprise/2.12')
@@ -307,5 +307,44 @@ describe('JS and CSS assets', () => {
     })
     expect(result.statusCode).toBe(404)
     expect(result.headers['x-is-archived']).toBeUndefined()
+  })
+
+  test('404 if the pathname contains URL characters (..)', async () => {
+    const result = await get('/enterprise/2.18/dist/index..css', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+
+  test('404 if the pathname contains URL characters (://)', async () => {
+    const result = await get('/enterprise/2.18/dist/index.csshttp://example.com', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
+  })
+
+  test('404 if the pathname contains URL characters (@)', async () => {
+    const result = await get('/enterprise/2.18/dist/index.css:password@example.com', {
+      headers: {
+        Referrer: '/en/enterprise/2.18',
+      },
+    })
+    expect(result.statusCode).toBe(404)
+    expect(result.headers['x-is-archived']).toBeUndefined()
+    expect(result.headers['content-type']).toBe('text/plain; charset=utf-8')
+    expect(result.headers['cache-control']).toContain('public')
+    expect(result.headers['cache-control']).toMatch(/max-age=[1-9]/)
   })
 })

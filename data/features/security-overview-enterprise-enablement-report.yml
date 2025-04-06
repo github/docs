@@ -1,0 +1,5 @@
+# Reference: #14354
+# Documentation for the enterprise-level Enablement trends report (for security products) [Public Beta]
+versions:
+  ghes: '>3.13'
+  ghec: '*'

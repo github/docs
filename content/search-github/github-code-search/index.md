@@ -3,7 +3,7 @@ title: GitHub Code Search
 intro: 'Learn how to use code search to find, navigate, and understand code across {% data variables.product.prodname_dotcom %}.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 children:

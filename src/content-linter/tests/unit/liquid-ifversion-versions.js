@@ -1,3 +1,5 @@
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import {
   liquidIfVersionVersions,
@@ -155,6 +157,32 @@ describe('test validateIfversionConditionalsVersions function', () => {
     }
     const errors = validateIfversionConditionalsVersions(condition, allFeatures)
     expect(errors.length).toBe(1)
+  })
+  test('less or equal than a future version', () => {
+    const condition = 'ghec or fpt or some-feature'
+    const latestToday = parseFloat(supported.at(-1))
+    const allFeatures = {
+      'some-feature': {
+        versions: {
+          ghes: `<=${latestToday + 0.1}`,
+        },
+      },
+    }
+    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
+    expect(errors.length).toBe(0)
+  })
+  test('less than a future version', () => {
+    const condition = 'ghec or fpt or some-feature'
+    const latestToday = parseFloat(supported.at(-1))
+    const allFeatures = {
+      'some-feature': {
+        versions: {
+          ghes: `<${latestToday + 0.1}`,
+        },
+      },
+    }
+    const errors = validateIfversionConditionalsVersions(condition, allFeatures)
+    expect(errors.length).toBe(0)
   })
   test('combined with feature it is eventually all versions (1)', () => {
     const condition = `ghec or fpt or ghes >${supported.at(-1)} or some-feature`

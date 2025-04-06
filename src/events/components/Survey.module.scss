@@ -3,13 +3,8 @@
   margin: -0.4em;
 }
 
-.customRadio + label:before {
-  content: "X";
-  color: transparent;
-  margin: 0px -33px 0px -17px;
-  padding: 7px 20px 7px 20px;
-}
-
-.customRadio:focus + label:before {
-  outline: 1px auto -webkit-focus-ring-color;
+.customRadio:focus + label {
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline-offset: -2px;
+  box-shadow: 0 0 0 3px inset;
 }

@@ -33,6 +33,6 @@ Please note that we cannot authorize out-of-scope testing in the name of third p
 
 That said, if legal action is initiated by a third party, including law enforcement, against you because of your participation in this bug bounty program, and you have sufficiently complied with our bug bounty policy (i.e. have not made intentional or bad faith violations), we will take steps to make it known that your actions were conducted in compliance with this policy. While we consider submitted reports both confidential and potentially privileged documents, and protected from compelled disclosure in most circumstances, please be aware that a court could, despite our objections, order us to share information with a third party.
 
-## 3. Limited Waiver of Other Site Polices
+## 3. Limited Waiver of Other Site Policies
 
 To the extent that your security research activities are inconsistent with certain restrictions in our [relevant site policies](/site-policy) but consistent with the terms of our bug bounty program, we waive those restrictions for the sole and limited purpose of permitting your security research under this bug bounty program. Just like above, if in doubt, ask us first!

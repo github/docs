@@ -1,1 +1,5 @@
-To manage users in your enterprise with your identity provider, your enterprise must be enabled for {% data variables.product.prodname_emus %}, which is available with {% data variables.product.prodname_ghe_cloud %}. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+{% ifversion ghec %}
+
+{% data variables.product.prodname_emus %} is available for new enterprise accounts on {% data variables.product.prodname_ghe_cloud %}. See "[AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)."
+
+{% endif %}

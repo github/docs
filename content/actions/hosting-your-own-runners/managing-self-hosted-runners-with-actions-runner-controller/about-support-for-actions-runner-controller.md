@@ -23,20 +23,21 @@ GitHub only supports the latest Autoscaling Runner Sets version of ARC. Support 
 
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
-- The legacy community-maintained version of ARC
-- Template spec customization
-- Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
-- Applying Kubernetes policies
-- Managed Kubernetes providers or provider-specific configurations
-- [Runner Container Hooks](https://github.com/actions/runner-container-hooks) in conjunction with ARC's `kubernetes` mode
-- Installation tooling other than Helm
-- Storage provisioners and PersistentVolumeClaims (PVCs)
-- Best practices, such as configuring metrics servers, image caching, etc.
+* The legacy community-maintained version of ARC
+* Installing, configuring, or maintaining dependencies
+* Template spec customization
+* Container orchestration, such as Kubernetes setup, networking, building images in ARC (DinD), etc.
+* Applying Kubernetes policies
+* Managed Kubernetes providers or provider-specific configurations
+* [Runner Container Hooks](https://github.com/actions/runner-container-hooks) in conjunction with ARC's `kubernetes` mode
+* Installation tooling other than Helm
+* Storage provisioners and PersistentVolumeClaims (PVCs)
+* Best practices, such as configuring metrics servers, image caching, etc.
 
 While ARC may be deployed successfully with different tooling and configurations, your support request is possibly out of {% data variables.contact.github_support %}'s scope if ARC has been deployed with:
 
-- Installation tooling other than Helm
-- Service account and/or template spec customization
+* Installation tooling other than Helm
+* Service account and/or template spec customization
 
 If you're uncertain if the issue is out of scope, open a ticket and we're happy to help you determine the best way to proceed.
 
@@ -46,8 +47,8 @@ For more information about contacting {% data variables.contact.github_support %
 
 **Note:**
 
-- OpenShift clusters are currently unsupported.
-- ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
+* OpenShift clusters are currently unsupported.
+* ARC is only supported on GitHub Enterprise Server versions 3.9 and greater.
 
 {% endnote %}
 

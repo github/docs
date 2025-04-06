@@ -15,7 +15,7 @@ topics:
 shortTitle: Organization's profile
 ---
 
-You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories. You can customize your organization's public profile by adding a README.md file. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
+You can optionally choose to add a description, location, website, and email address for your organization, and pin important repositories. You can customize your organization's public profile by adding a `README.md` file. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/customizing-your-organizations-profile)."
 
 {% ifversion fpt %}
 Organizations that use {% data variables.product.prodname_ghe_cloud %} can confirm their organization's identity and display a "Verified" badge on their organization's profile page by verifying the organization's domains with {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization)" in the {% data variables.product.prodname_ghe_cloud %} documentation.
@@ -27,4 +27,4 @@ To confirm your organization's identity and display a "Verified" badge on your o
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"

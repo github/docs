@@ -35,4 +35,4 @@ Optionally, to learn more about the program, contact your closest {% data variab
 
 ## Further reading
 
-- “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)”
+* “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)”

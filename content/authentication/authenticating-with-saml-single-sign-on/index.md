@@ -10,6 +10,7 @@ versions:
 topics:
   - SSO
 children:
+  - /authenticating-with-a-managed-user-account
   - /about-authentication-with-saml-single-sign-on
   - /authorizing-an-ssh-key-for-use-with-saml-single-sign-on
   - /authorizing-a-personal-access-token-for-use-with-saml-single-sign-on

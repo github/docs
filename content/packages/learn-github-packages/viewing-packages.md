@@ -60,4 +60,4 @@ You can find and view any package you've published across all organizations and 
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)"
+* "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)"

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { frontmatterSchema } from '../../lib/linting-rules/frontmatter-schema.js'
 

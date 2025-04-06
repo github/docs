@@ -33,8 +33,12 @@ A `dependabot.yml` file with a customized Bundler configuration, which has been 
 version: 2
 updates:
   # Keep bundler dependencies up to date
-  - package-ecosystem: "bundler"
-    directory: "/"
+  - package-ecosystem: "bundler"{% ifversion dependabot-updates-multidirectory-support %}
+    directories:
+      - "/frontend"
+      - "/backend"
+      - "/admin"{% else %}
+    directory: "/"{% endif %}
     schedule:
       interval: "weekly"
     # Create a group of dependencies to be updated together in one pull request

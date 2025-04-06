@@ -7,11 +7,11 @@
  *   ELASTICSEARCH_URL=http://localhost:9200 npm run index-test-fixtures
  *
  * This will replace any "real" Elasticsearch indexes you might have so
- * once you're done working on jest tests you need to index real
+ * once you're done working on vitest tests you need to index real
  * content again.
  */
 
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
 import { get, getDOM } from '#src/tests/helpers/e2etest.js'
@@ -26,7 +26,7 @@ if (!process.env.ELASTICSEARCH_URL) {
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search rendering page', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('happy path', async () => {
     // To see why this will work,
@@ -138,5 +138,20 @@ describeIfElasticsearchURL('search rendering page', () => {
     expect($('[data-testid="search-results"]').text()).toMatch('Cannot have multiple values')
     const results = $('[data-testid="search-result"]')
     expect(results.length).toBe(0)
+  })
+
+  test("search with 'toplevel' query string", async () => {
+    const $ = await getDOM('/en/search?query=foo&toplevel=Baring')
+    expect($('h1').text()).toMatch(/\d+ Search results for "foo"/)
+
+    // Note it testid being 'search-result', not 'search-results'
+    const results = $('[data-testid="search-result"]')
+    expect(results.length).toBeGreaterThan(0)
+    const result = results.first()
+    expect($('h2', result).text()).toBe('Bar')
+    const paragraph = $('p', result)
+    expect(paragraph.text()).toMatch('baring')
+    const link = $('a', result)
+    expect(link.html()).toMatch('Bar')
   })
 })

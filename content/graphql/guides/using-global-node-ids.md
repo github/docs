@@ -34,7 +34,7 @@ Let's walk through an example.
 If you [request the authenticated user](/rest/users/users#get-the-authenticated-user):
 
 ```shell
-curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.api_url_pre %}/user
+curl -i --header "Authorization: Bearer YOUR-TOKEN" {% data variables.product.rest_url %}/user
 ```
 
 you'll get a response that includes the `node_id` of the authenticated user:

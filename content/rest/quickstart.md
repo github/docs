@@ -56,7 +56,7 @@ jobs:
       - env:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
-          gh api {% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}
+          gh api {% data variables.product.rest_url %}{% data variables.rest.example_request_url %}
 ```
 
 ### Authenticating with a {% data variables.product.prodname_github_app %}
@@ -89,7 +89,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
            env:
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
            run: |
-             gh api {% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}
+             gh api {% data variables.product.rest_url %}{% data variables.rest.example_request_url %}
    ```
 
 {% endcli %}
@@ -122,7 +122,7 @@ You can use Octokit.js to interact with the {% data variables.product.prodname_d
 
    ```javascript copy
    const octokit = new Octokit({ {% ifversion ghes %}
-     baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+     baseUrl: "{% data variables.product.rest_url %}",{% endif %}
      auth: 'YOUR-TOKEN'
    });
    ```
@@ -187,7 +187,7 @@ The following is an example JavaScript script with the file path `.github/action
 import { Octokit } from "octokit"
 
 const octokit = new Octokit({ {% ifversion ghes %}
-  baseUrl: "{% data variables.product.api_url_code %}",{% endif %}
+  baseUrl: "{% data variables.product.rest_url %}",{% endif %}
   auth: process.env.TOKEN
 });
 
@@ -287,7 +287,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
 
    ```shell copy
    curl --request GET \
-   --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+   --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer YOUR-TOKEN"
    ```
@@ -321,7 +321,7 @@ jobs:
           GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           curl --request GET \
-          --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+          --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
           --header "Accept: application/vnd.github+json" \
           --header "Authorization: Bearer $GH_TOKEN"
 ```
@@ -358,7 +358,7 @@ If you are authenticating with a {% data variables.product.prodname_github_app %
              GH_TOKEN: {% raw %}${{ steps.generate-token.outputs.token }}{% endraw %}
            run: |
              curl --request GET \
-             --url "{% data variables.product.api_url_code %}{% data variables.rest.example_request_url %}" \
+             --url "{% data variables.product.rest_url %}{% data variables.rest.example_request_url %}" \
              --header "Accept: application/vnd.github+json" \
              --header "Authorization: Bearer $GH_TOKEN"
 

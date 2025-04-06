@@ -1,0 +1,1 @@
+You can use fnmatch pattern matching notation to specify file paths. Patterns are case insensitive. See "[File](https://ruby-doc.org/core-2.5.1/File.html#method-c-fnmatch)" in the ruby-doc.org documentation.

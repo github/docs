@@ -1,11 +1,11 @@
-import { jest, test, expect } from '@jest/globals'
+import { expect, test, vi } from 'vitest'
 
 import { describeIfElasticsearchURL } from '#src/tests/helpers/conditional-runs.js'
 import { get } from '#src/tests/helpers/e2etest.js'
 
 // This suite only runs if $ELASTICSEARCH_URL is set.
 describeIfElasticsearchURL('search v1 middleware in non-English', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   test('basic search in Japanese', async () => {
     const sp = new URLSearchParams()

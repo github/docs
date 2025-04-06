@@ -1,0 +1,3 @@
+# Versions for which the enhanced billing platform is available
+versions:
+  ghec: '*'

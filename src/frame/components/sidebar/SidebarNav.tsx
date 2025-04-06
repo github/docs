@@ -3,6 +3,7 @@ import { useRouter } from 'next/router'
 
 import { useMainContext } from 'src/frame/components/context/MainContext'
 import { SidebarProduct } from 'src/landings/components/SidebarProduct'
+import { SidebarSearchAggregates } from 'src/search/components/SidebarSearchAggregates'
 import { AllProductsLink } from './AllProductsLink'
 import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
 import { Link } from 'src/frame/components/Link'
@@ -25,6 +26,8 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
   // the side nav header (which is taller when we show the API version picker)
   // so we don't cut off the bottom of the sidebar
   const sidebarPaddingBottom = isRestPage ? '250px' : '185px'
+
+  const isSearch = currentProduct?.id === 'search'
 
   return (
     <div
@@ -60,6 +63,8 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
           style={{ width: 326, height: 'calc(100vh - 175px)', paddingBottom: sidebarPaddingBottom }}
         >
           <SidebarProduct key={router.asPath} />
+
+          {isSearch && <SidebarSearchAggregates />}
         </div>
       </nav>
     </div>

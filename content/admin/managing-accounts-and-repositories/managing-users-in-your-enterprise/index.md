@@ -33,10 +33,10 @@ children:
   - /removing-a-member-from-your-enterprise
   - /managing-dormant-users
   - /suspending-and-unsuspending-users
+  - /deleting-users-from-your-instance
   - /placing-a-legal-hold-on-a-user-or-organization
   - /auditing-ssh-keys
   - /rebuilding-contributions-data
   - /enabling-guest-collaborators
 shortTitle: Manage users
 ---
-

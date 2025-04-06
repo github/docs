@@ -1,5 +1,5 @@
 # Reference: #11915
 # Ruleset management public beta
 versions:
+  fpt: '*'
   ghec: '*'
-  ghes: '>=3.12'

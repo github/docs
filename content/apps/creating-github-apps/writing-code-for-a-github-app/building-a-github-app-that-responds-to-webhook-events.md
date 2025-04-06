@@ -40,9 +40,9 @@ This tutorial assumes you have a basic understanding of JavaScript and ES6 synta
 
 The following sections will lead you through setting up the following components:
 
-- a repository to store the code for your app
-- a way to receive webhooks locally
-- a {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
+* a repository to store the code for your app
+* a way to receive webhooks locally
+* a {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
 
 ### Create a repository to store code for your app
 
@@ -65,10 +65,10 @@ In order to develop your app locally, you can use a webhook proxy URL to forward
 
 For this tutorial, you must have a {% data variables.product.prodname_github_app %} registration that:
 
-- Has webhooks active
-- Uses a webhook URL that you can receive locally
-- Has the "Pull request" repository permission
-- Subscribes to the "Pull request" webhook event
+* Has webhooks active
+* Uses a webhook URL that you can receive locally
+* Has the "Pull request" repository permission
+* Subscribes to the "Pull request" webhook event
 
 The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
 

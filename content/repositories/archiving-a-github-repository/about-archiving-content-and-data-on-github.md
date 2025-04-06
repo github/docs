@@ -16,8 +16,8 @@ shortTitle: Archive content & data
 
 {% data variables.product.product_name %} intends to keep your public repositories available unless you remove them. In some cases, we may make public content unavailable, for example if:
 
-- We receive a [DMCA Takedown Notice](/free-pro-team@latest/site-policy/content-removal-policies/dmca-takedown-policy) for content in a repository.
-- We determine that a repository's content violates our [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines) or [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
+* We receive a [DMCA Takedown Notice](/free-pro-team@latest/site-policy/content-removal-policies/dmca-takedown-policy) for content in a repository.
+* We determine that a repository's content violates our [Community Guidelines](/free-pro-team@latest/site-policy/github-terms/github-community-guidelines) or [Terms of Service](/free-pro-team@latest/site-policy/github-terms/github-terms-of-service).
 
 Academics and researchers can reference this information in data management plans.
 

@@ -1,10 +1,10 @@
 You can publish up to 10 one-time sponsorship tiers and 10 monthly tiers for sponsors to choose from. Each tier has its own one-time or monthly payment amount in US dollars. Publishing tiers is optional.
 
 You can customize the rewards for each tier. For example, rewards for a tier could include:
-- Early access to new versions
-- Logo or name in README
-- Weekly newsletter updates
-- Other rewards your sponsors would enjoy ✨
+* Early access to new versions
+* Logo or name in README
+* Weekly newsletter updates
+* Other rewards your sponsors would enjoy ✨
 
 {% data reusables.sponsors.sponsors-only-repos %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
 

@@ -20,7 +20,7 @@ If the action finds any broken links, it opens an internal issue for the Docs Co
         <pre>
         curl -Lso /dev/null -w "%{http_code}\n" <em>URL</em>
         </pre>
-  A `200` response is success. 
+  A `200` response is success.
 
 - You can see a comprehensive list of HTTP response codes [here](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status).
   - For external links that now `404` or have otherwise gone missing entirely, you may be able to use the [Wayback Machine](https://web.archive.org) to see the page before it went offline.
@@ -39,4 +39,4 @@ Before you decide whether to exclude a link from the daily link checker, you sho
 - Has it has been flagged as a broken link for more than a week, but the URL works when a real user opens it in their browser?
 - Has the URL been available for more than 3 months? You can check using the [Wayback Machine](https://web.archive.org).
 
-If you are confident that the URL for the article should work for real users, then you can open a pull request to add it to the `src/links/lib/excluded-links.js` file.
+If you are confident that the URL for the article should work for real users, then you can open a pull request to add it to the `src/links/lib/excluded-links.ts` file.

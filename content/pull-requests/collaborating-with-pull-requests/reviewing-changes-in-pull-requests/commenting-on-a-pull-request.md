@@ -36,8 +36,8 @@ To reply to an existing line {% ifversion pull-request-comment-on-file %}or file
 {% tip %}
 
 **Tips:**
-- Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
-- You can add reactions to comments in pull requests in the **Files changed** tab.
+* Pull request comments support the same [formatting](/get-started/writing-on-github) as regular comments on {% data variables.product.product_name %}, such as @mentions, emoji, and references.
+* You can add reactions to comments in pull requests in the **Files changed** tab.
 
 {% endtip %}
 
@@ -47,6 +47,7 @@ To reply to an existing line {% ifversion pull-request-comment-on-file %}or file
 1. In the list of pull requests, click the pull request where you'd like to leave line comments.
 {% data reusables.repositories.changed-files %}
 {% data reusables.repositories.start-line-comment %}
+{% data reusables.repositories.multiple-lines-comment %}
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
 {% ifversion pull-request-comment-on-file %}
@@ -59,6 +60,6 @@ Anyone watching the pull request or repository will receive a notification of yo
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/writing-on-github)"
+* "[AUTOTITLE](/get-started/writing-on-github)"
 {% ifversion fpt or ghec %}- "[AUTOTITLE](/communities/maintaining-your-safety-on-github/reporting-abuse-or-spam)"
 {% endif %}

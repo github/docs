@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { codeFenceLineLength } from '../../lib/linting-rules/code-fence-line-length.js'
 

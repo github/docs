@@ -1,6 +1,6 @@
 ---
 title: Exploring user activity in your enterprise
-intro: 'You can view user and system activity by leveraging dashboards, webhooks and log forwarding.'
+intro: 'You can view user {% ifversion ghes%}and system {% endif %}activity with {% ifversion ghes%}dashboards, log forwarding, and {% endif %}webhooks.'
 versions:
   ghec: '*'
   ghes: '*'

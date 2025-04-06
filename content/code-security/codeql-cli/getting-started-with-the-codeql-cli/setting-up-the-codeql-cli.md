@@ -41,25 +41,13 @@ tools](https://developer.apple.com/downloads/index.action) and [Rosetta 2](https
 
 {% endnote %}
 
-### 1. Download the {% data variables.product.prodname_codeql_cli %} zip package
+### 1. Download the {% data variables.product.prodname_codeql_cli %} tar archive
 
-{% data reusables.codeql-cli.download-codeql-cli-zip %}
+{% data reusables.codeql-cli.download-codeql-cli %}
 
-You should always use the {% data variables.product.prodname_codeql %} bundle as this ensures compatibility and also gives much better performance than a separate download of the {% data variables.product.prodname_codeql_cli %} and checkout of the {% data variables.product.prodname_codeql %} queries. If you will only be running the CLI on one specific platform, download the appropriate `codeql-bundle-PLATFORM.tar.gz` file. Alternatively, you can download `codeql-bundle.tar.gz`, which contains the CLI for all supported platforms.
+### 2. Extract the {% data variables.product.prodname_codeql_cli %} tar archive
 
-{% data reusables.code-scanning.beta-codeql-packs-cli %}
-
-#### Download information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.download-info-macos-catalina-or-newer %}
-
-### 2. Extract the zip archive
-
-For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply extract the zip archive.
-
-#### Extraction information for macOS "Catalina" (or newer) users
-
-{% data reusables.codeql-cli.extraction-info-macos-catalina-or-newer %}
+Extract the {% data variables.product.prodname_codeql_cli %} tar archive to a directory of your choosing.
 
 ### 3. Launch `codeql`
 
@@ -68,7 +56,7 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 {% note %}
 
 **Note:** If you add `codeql` to your `PATH`, it can be accessed by {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} to compile and run queries.
- For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[Setting up {% data variables.product.prodname_codeql %} in {% data variables.product.prodname_vscode %}](https://codeql.github.com/docs/codeql-for-visual-studio-code/setting-up-codeql-in-visual-studio-code/#setting-up-codeql-in-visual-studio-code)."
+ For more information about configuring {% data variables.product.prodname_vscode_shortname %} to access the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
 
  {% endnote %}
 
@@ -76,8 +64,8 @@ For Linux, Windows, and macOS users (version 10.14 "Mojave", and earlier) simply
 
 After you extract the {% data variables.product.prodname_codeql_cli %} bundle, you can run the following command to verify that the CLI is correctly configured to create and analyze databases:
 
-- `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
-- `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
+* `codeql resolve qlpacks` if `/<extraction-root>/codeql` is on the `PATH`.
+* `/<extraction-root>/codeql/codeql resolve qlpacks` otherwise.
 
 You should see output similar to the extract below, if successful:
 
@@ -107,10 +95,7 @@ You should check that the output contains the expected languages and also that t
 
 You can also run `codeql resolve languages` to show which languages are available for database creation. This will list the languages supported by default in your {% data variables.product.prodname_codeql_cli %} package.
 
-{% ifversion codeql-packs %}
 Optionally, you can download some CodeQL packs containing pre-compiled queries you would like to run. For more information, see "[AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs)."
-
-{% endif %}
 
 ## Next steps
 

@@ -21,10 +21,10 @@ shortTitle: Remove self-hosted runners
 
 **Notes:**
 
-- {% data reusables.actions.self-hosted-runner-removal-impact %}
-- {% data reusables.actions.self-hosted-runner-auto-removal %}
+* {% data reusables.actions.self-hosted-runner-removal-impact %}
+* {% data reusables.actions.self-hosted-runner-auto-removal %}
 {%- ifversion actions-single-use-tokens %}
-- {% data reusables.actions.jit-runner-removal %}
+* {% data reusables.actions.jit-runner-removal %}
 {%- endif %}
 
 {% endnote %}
@@ -48,10 +48,10 @@ For information about how to remove a self-hosted runner with the REST API, see 
 
 **Notes:**
 
-- {% data reusables.actions.self-hosted-runner-removal-impact %}
-- {% data reusables.actions.self-hosted-runner-auto-removal %}
+* {% data reusables.actions.self-hosted-runner-removal-impact %}
+* {% data reusables.actions.self-hosted-runner-auto-removal %}
 {%- ifversion actions-single-use-tokens %}
-- {% data reusables.actions.jit-runner-removal %}
+* {% data reusables.actions.jit-runner-removal %}
 {%- endif %}
 
 {% endnote %}
@@ -77,10 +77,10 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 
 **Notes:**
 
-- {% data reusables.actions.self-hosted-runner-removal-impact %}
-- {% data reusables.actions.self-hosted-runner-auto-removal %}
+* {% data reusables.actions.self-hosted-runner-removal-impact %}
+* {% data reusables.actions.self-hosted-runner-auto-removal %}
 {%- ifversion actions-single-use-tokens %}
-- {% data reusables.actions.jit-runner-removal %}
+* {% data reusables.actions.jit-runner-removal %}
 {%- endif %}
 {% endnote %}
 

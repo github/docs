@@ -3,7 +3,9 @@ title: Testing custom queries
 intro: 'You can set up tests for your {% data variables.product.prodname_codeql %} queries to ensure that they continue to return the expected results with new releases of the {% data variables.product.prodname_codeql_cli %}.'
 product: '{% data reusables.gated-features.codeql %}'
 versions:
-  feature: codeql-packs
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
   - Advanced Security
   - Code scanning
@@ -46,8 +48,8 @@ these libraries and queries.
 
 Each `test` directory is configured as a test {% data variables.product.prodname_codeql %} pack with two subdirectories:
 
-- `query-tests` a series of subdirectories with tests for queries stored in the `src` directory. Each subdirectory contains test code and a QL reference file that specifies the query to test.
-- `library-tests` a series of subdirectories with tests for QL library files. Each subdirectory contains test code and queries that were written as unit tests for a library.
+* `query-tests` a series of subdirectories with tests for queries stored in the `src` directory. Each subdirectory contains test code and a QL reference file that specifies the query to test.
+* `library-tests` a series of subdirectories with tests for QL library files. Each subdirectory contains test code and queries that were written as unit tests for a library.
 
 After creating the `qlpack.yml` file, you need to make sure that all of the dependencies are downloaded and available to the CLI. Do this by running the following command in the same directory as the `qlpack.yml` file:
 
@@ -62,11 +64,11 @@ This will generate a `codeql-pack.lock.yml` file that specifies all of the trans
 For each query you want to test, you should create a sub-directory in the test {% data variables.product.prodname_codeql %} pack.
 Then add the following files to the subdirectory before you run the test command:
 
-- A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/query-reference-files)."
+* A query reference file (`.qlref` file) defining the location of the query to test. The location is defined relative to the root of the {% data variables.product.prodname_codeql %} pack that contains the query. Usually, this is a {% data variables.product.prodname_codeql %} pack specified in the `dependencies` block of the test pack. For more information, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/query-reference-files)."
 
    You do not need to add a query reference file if the query you want to test is stored in the test directory, but it is generally good practice to store queries separately from tests. The only exception is unit tests for QL libraries, which tend to be stored in test packs, separate from queries that generate alerts or paths.
 
-- The example code you want to run your query against. This should consist of one or more files containing examples of the code the query is designed to identify.
+* The example code you want to run your query against. This should consist of one or more files containing examples of the code the query is designed to identify.
 
 You can also define the results you expect to see when you run the query against
 the example code, by creating a file with the extension `.expected`. Alternatively, you can leave the test command to create the `.expected` file for you.
@@ -77,11 +79,11 @@ For an example showing how to create and test a query, see the [example](#exampl
 
 **Note:** Your `.ql`, `.qlref`, and `.expected` files must have consistent names:
 
-- If you want to directly specify the `.ql` file itself in the test command, it must have the same base name as the corresponding `.expected` file. For example, if the query is `MyJavaQuery.ql`, the expected results file must be `MyJavaQuery.expected`.
+* If you want to directly specify the `.ql` file itself in the test command, it must have the same base name as the corresponding `.expected` file. For example, if the query is `MyJavaQuery.ql`, the expected results file must be `MyJavaQuery.expected`.
 
-- If you want to specify a `.qlref` file in the command, it must have the same base name as the corresponding `.expected` file, but the query itself may have a different name.
+* If you want to specify a `.qlref` file in the command, it must have the same base name as the corresponding `.expected` file, but the query itself may have a different name.
 
-- The names of the example code files don’t have to be consistent with the other test files. All example code files found next to the `.qlref` (or `.ql`) file and in any subdirectories will be used to create a test database. Therefore, for simplicity, we recommend you don’t save test files in directories that are ancestors of each other.
+* The names of the example code files don’t have to be consistent with the other test files. All example code files found next to the `.qlref` (or `.ql`) file and in any subdirectories will be used to create a test database. Therefore, for simplicity, we recommend you don’t save test files in directories that are ancestors of each other.
 
 {% endnote %}
 
@@ -95,13 +97,13 @@ codeql test run <test|dir>
 
 The `<test|dir>` argument can be one or more of the following:
 
-- Path to a `.ql` file.
-- Path to a `.qlref` file that references a `.ql` file.
-- Path to a directory that will be searched recursively for `.ql` and `.qlref` files.
+* Path to a `.ql` file.
+* Path to a `.qlref` file that references a `.ql` file.
+* Path to a directory that will be searched recursively for `.ql` and `.qlref` files.
 
 You can also specify:
 
-- `--threads:` optionally, the number of threads to use when running queries. The default option is `1`. You can specify more threads to speed up query execution. Specifying `0` matches the number of threads to the number of logical processors.
+* `--threads:` optionally, the number of threads to use when running queries. The default option is `1`. You can specify more threads to speed up query execution. Specifying `0` matches the number of threads to the number of logical processors.
 
 For full details of all the options you can use when testing queries, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run)."
 
@@ -203,9 +205,9 @@ When the test runs, it:
 
 {% data variables.product.prodname_codeql %} generates the following files in the `EmptyThen` directory:
 
-- `EmptyThen.actual`, a file that contains the actual results generated by the
+* `EmptyThen.actual`, a file that contains the actual results generated by the
 query.
-- `EmptyThen.testproj`, a test database that you can load into {% data variables.product.prodname_vscode_shortname %} and use to debug failing tests. When tests complete successfully, this database is deleted in a housekeeping step. You can override this step by running `test run` with the `--keep-databases` option.
+* `EmptyThen.testproj`, a test database that you can load into {% data variables.product.prodname_vscode_shortname %} and use to debug failing tests. When tests complete successfully, this database is deleted in a housekeeping step. You can override this step by running `test run` with the `--keep-databases` option.
 
 In this case, the failure was expected and is easy to fix. If you open the `EmptyThen.actual` file, you can see the results of the test:
 
@@ -227,9 +229,9 @@ This information may be sufficient to debug trivial test failures.
 
 For failures that are harder to debug, you can import `EmptyThen.testproj`
 into {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %}, execute `EmptyThen.ql`, and view the results in the
-`Test.java` example code. For more information, see "[Analyzing your projects](https://codeql.github.com/docs/codeql-for-visual-studio-code/analyzing-your-projects/#analyzing-your-projects)" in the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode_shortname %} help.
+`Test.java` example code. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#choosing-a-database-to-analyze)."
 
 ## Further reading
 
-- "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)"
-- "[Testing {% data variables.product.prodname_codeql %} queries in {% data variables.product.prodname_vscode %}](https://codeql.github.com/docs/codeql-for-visual-studio-code/testing-codeql-queries-in-visual-studio-code/#testing-codeql-queries-in-visual-studio-code)."
+* [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)
+* "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/testing-codeql-queries-in-vs-code)."

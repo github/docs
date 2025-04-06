@@ -1,12 +1,30 @@
+import { join } from 'path'
+import { existsSync } from 'fs'
 import fs from 'fs/promises'
 
-export default async function getPopularPages(filePath, redirects) {
-  const popularPagesRaw = await fs.readFile(filePath, 'utf-8')
+export default async function getPopularPages(dirPath, redirects, version, language) {
+  // The dirPath is the path to the github/docs-internal-data repo.
+  // We make assumptions about the structure of the repo. In particular,
+  // the pageviews rollups live in
+  // `hydro/rollups/pageviews/$language/$versionprefix/rollup.json`
+  // For example
+  // `hydro/rollups/pageviews/en/enterprise-cloud/rollup.json`
+  const versionPrefix = version.split('@')[0]
+  let filePath = join(dirPath, 'hydro/rollups/pageviews', language, versionPrefix, 'rollup.json')
+  if (!existsSync(filePath) && language !== 'en') {
+    console.warn("Trying the rollup for 'en'")
+    language = 'en'
+    filePath = join(dirPath, 'hydro/rollups/pageviews', language, versionPrefix, 'rollup.json')
+  }
+  if (!existsSync(filePath)) {
+    throw new Error(`No rollup found for version '${versionPrefix}'. Tried ${filePath}`)
+  }
+  const rollupRaw = await fs.readFile(filePath, 'utf-8')
 
   // Firt iterate through the array of objects, not making an assumption
   // that the first one is the biggest one.
   const all = {}
-  for (const { path_article: path, path_count: count } of JSON.parse(popularPagesRaw)) {
+  for (const [path, count] of Object.entries(JSON.parse(rollupRaw))) {
     if (!path) {
       // Can happen if the SQL query is, for some unknown reason, finding
       // a path that is either `null` or an empty string. Treat it as a

@@ -24,6 +24,30 @@ For more information about migrating an existing {% data variables.product.prodn
 
 Your {% data variables.product.prodname_oauth_app %} should only request the scopes that the app needs to perform its intended functionality. If any tokens for your app become compromised, this will limit the amount of damage that can occur. For more information, see "[AUTOTITLE](/apps/oauth-apps/building-oauth-apps/authorizing-oauth-apps)."
 
+## Authorize thoroughly and durably
+
+After signing in a user, app developers must take additional steps to ensure that the user is meant to have access to the data in your system. Each sign in requires fresh checks around their memberships, access, and their current SSO status.
+
+### Use the durable, unique `id` to store the user
+
+{% data reusables.apps.best-practice-use-durable-id %}
+
+### Validate organization access for every new authentication
+
+{% data reusables.apps.best-practice-validate-org-access %}
+
+### Store user data with organizational and enterprise contexts
+
+{% data reusables.apps.best-practice-store-data-with-context %}
+
+### Verify a user's access to your app
+
+Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
+
+To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)."
+
+{% data reusables.emus.oauth-app-note %}
+
 ## Secure your app's credentials
 
 With a client secret, your app can authorize a user and generate user access tokens. These tokens can be used to make API requests on behalf of a user.
@@ -54,14 +78,6 @@ In the event that your app's client secret is compromised, you will need to gene
 
 In the event that user access tokens are compromised, you should immediately revoke these tokens. For more information, see "[AUTOTITLE](/rest/apps/oauth-applications#delete-an-app-token)."
 
-## Verify a user's access to your organizations
-
-Your OAuth app can be accessed by users outside your organization or enterprise. If you intend an app to be used only by members of your organization or enterprise, you should check the user's membership status when the user signs in to your app.
-
-To find the list of organizations a user is a member of, you can use the "List organizations for the authenticated user" endpoint. Then you can validate this list against a list of approved organizations for your app. For more information, see "[AUTOTITLE](/rest/orgs/orgs#list-organizations-for-the-authenticated-user)."
-
-{% data reusables.emus.oauth-app-note %}
-
 ## Conduct regular vulnerability scans
 
 {% data reusables.apps.app-scans %}
@@ -86,7 +102,7 @@ If your app is available to other users, you should give users a way to delete t
 
 ## Further reading
 
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
-- "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/security-best-practices-for-apps)"
+* "[AUTOTITLE](/apps/publishing-apps-to-github-marketplace/creating-apps-for-github-marketplace/customer-experience-best-practices-for-apps)"
 
 {% endif %}

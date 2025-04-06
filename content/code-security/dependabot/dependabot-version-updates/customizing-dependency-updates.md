@@ -28,12 +28,12 @@ shortTitle: Customize updates
 
 After you've enabled version updates, you can customize how {% data variables.product.prodname_dependabot %} maintains your dependencies by adding further options to the `dependabot.yml` file. For example, you could:
 
-- Specify which day of the week to open pull requests for version updates: `schedule.day`
-- Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`{%- ifversion dependabot-version-updates-groups %}
-- Create groups of dependencies (per package ecosystem), so that {% data variables.product.prodname_dependabot %} updates the group of dependencies in a single pull request: `groups`{% endif %}
-- Define a versioning strategy for changes to each manifest file: `versioning-strategy`
-- Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
-- Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
+* Specify which day of the week to open pull requests for version updates: `schedule.day`
+* Set reviewers, assignees, and labels for each package manager: `reviewers`, `assignees`, and `labels`{%- ifversion dependabot-version-updates-groups %}
+* Create groups of dependencies (per package ecosystem), so that {% data variables.product.prodname_dependabot %} updates the group of dependencies in a single pull request: `groups`{% endif %}
+* Define a versioning strategy for changes to each manifest file: `versioning-strategy`
+* Change the maximum number of open pull requests for version updates from the default of 5: `open-pull-requests-limit`
+* Open pull requests for version updates to target a specific branch, instead of the default branch: `target-branch`
 
 For more information about the configuration options, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
 
@@ -171,16 +171,16 @@ For more information about configuring dependency groups in the `dependabot.yml`
 
 If you are not ready to adopt changes from dependencies in your project, you can configure {% data variables.product.prodname_dependabot %} to ignore those dependencies when it opens pull requests for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can do this using one of the following methods.
 
-- Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
-- Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
+* Configure the `ignore` option for the dependency in your `dependabot.yml` file. You can use this to ignore updates for specific dependencies, versions, and types of updates. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
+* Use `@dependabot ignore` comment commands on a {% data variables.product.prodname_dependabot %} pull request for version updates{% ifversion dependabot-grouped-security-updates-config %} and security updates{% endif %}. You can use comment commands to ignore updates for specific dependencies and versions. For more information, see "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/managing-pull-requests-for-dependency-updates#managing-dependabot-pull-requests-with-comment-commands)."
 
 If you would like to un-ignore a dependency or ignore condition, you can delete the ignore conditions from the `dependabot.yml` file or reopen the pull request.
 
 {% ifversion dependabot-version-updates-groups %}For pull requests for grouped {% ifversion dependabot-grouped-security-updates-config %}{% else %}version {% endif %}updates, you can also use `@dependabot unignore` comment commands. The `@dependabot unignore` comment commands enable you to do the following by commenting on a {% data variables.product.prodname_dependabot %} pull request:
 
-- Un-ignore a specific ignore condition
-- Un-ignore a specific dependency
-- Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
+* Un-ignore a specific ignore condition
+* Un-ignore a specific dependency
+* Un-ignore all ignore conditions for all dependencies in a {% data variables.product.prodname_dependabot %} pull request
 
 {% ifversion dependabot-grouped-security-updates-config %}{% else %}
 {% note %}

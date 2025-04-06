@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { describe } from '@jest/globals'
+import { beforeAll, describe, expect, test } from 'vitest'
 import walk from 'walk-sync'
 import { isPlainObject, difference } from 'lodash-es'
 

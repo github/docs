@@ -1,0 +1,6 @@
+# Reference: #13599
+# Copilot extensions (external tooling integrations for Copilot Chat) limited public beta
+
+versions:
+  fpt: '*'
+  ghec: '*'

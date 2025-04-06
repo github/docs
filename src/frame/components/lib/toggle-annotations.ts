@@ -19,7 +19,7 @@ function validateMode(mode?: string) {
 }
 
 export default function toggleAnnotation() {
-  const annotationButtons = Array.from(document.querySelectorAll('div.BtnGroup button'))
+  const annotationButtons = Array.from(document.querySelectorAll('.annotate-toggle button'))
   if (!annotationButtons.length) return
 
   const cookie = validateMode(Cookies.get('annotate-mode')) // will default to beside

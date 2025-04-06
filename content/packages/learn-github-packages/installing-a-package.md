@@ -17,7 +17,7 @@ versions:
 
 ## About package installation
 
-You can search on {% data variables.location.product_location %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)."
+You can search on {% data variables.product.github %} to find packages in {% data variables.product.prodname_registry %} that you can install in your own project. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-for-packages)."
 
 After you find a package, you can read the package's description and installation and usage instructions on the package page.
 

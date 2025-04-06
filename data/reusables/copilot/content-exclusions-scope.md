@@ -1,3 +1,11 @@
-{% data variables.product.prodname_copilot %} content exclusion settings do not apply to everyone who uses {% data variables.product.prodname_copilot_short %}.
+{% ifversion fpt %}
 
-A content exclusion setting only applies to people who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription and are members of the same {% ifversion fpt %}organization{% else %}enterprise{% endif %} in which the content exclusion is configured. Other users who can access the specified files will not be affected by the content exclusion and will still see code completion suggestions.
+Content exclusion settings only apply to members of the organization in which the content exclusion is configured, who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+
+{% else %}
+
+You can only specify content exclusions in the settings for an organization or repository, not in the settings for an enterprise. Content exclusion settings defined in an organization or repository within an enterprise will apply to all members of the enterprise who have been granted a seat as part of a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription.
+
+{% endif %}
+
+Anyone else who can access the specified files will still see code completion suggestions and {% data variables.product.prodname_copilot_chat %} responses referencing the specified files.

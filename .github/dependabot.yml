@@ -12,7 +12,6 @@ updates:
     schedule:
       interval: weekly
       day: tuesday
-    open-pull-requests-limit: 20 # default is 5
     ignore:
       # Because this is so dependent on the remote server we use
       - dependency-name: '@elastic/elasticsearch'

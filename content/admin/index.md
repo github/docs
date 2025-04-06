@@ -71,29 +71,29 @@ changelog:
   label: enterprise
 featuredLinks:
   startHere:
-    - '{% ifversion ghec %}/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
-    - /admin/identity-and-access-management/understanding-iam-for-enterprises/about-identity-and-access-management
+    - '{% ifversion ghec %}/admin/managing-iam/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud{% endif %}'
+    - /admin/managing-iam/understanding-iam-for-enterprises/about-identity-and-access-management
     - '{% ifversion ghec %}/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise{% endif %}'
     - /admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise
-    - '{% ifversion ghes %}/admin/overview/about-upgrades-to-new-releases{% endif %}'
-  guideCards:
-    - '{% ifversion ghes %}/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
-    - '{% ifversion ghes %}/admin/packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
-    - '{% ifversion ghes %}/admin/code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
-  popular:
-    - /admin/overview/about-github-enterprise-server
-    - '{% ifversion ghes %}/admin/overview/setting-up-a-trial-of-github-enterprise-server{% endif %}'
-    - '{% ifversion ghes %}/admin/installation{% endif %}'
+    - '{% ifversion ghes %}/admin/getting-started-with-enterprise/about-upgrades-to-new-releases{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise{% endif %}'
-    - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
-    - '{% ifversion ghec %}/admin/configuration/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
-    - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise{% endif %}'
+  guideCards:
+    - '{% ifversion ghes %}/admin/managing-github-actions-for-your-enterprise/getting-started-with-github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/configuring-packages/getting-started-with-github-packages-for-your-enterprise{% endif %}'
+    - '{% ifversion ghes %}/admin/managing-code-security/managing-github-advanced-security-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise{% endif %}'
+    - '{% ifversion ghec %}/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise{% endif %}'
+  popular:
+    - /admin/getting-started-with-enterprise/about-github-enterprise-server
+    - '{% ifversion ghes %}/admin/getting-started-with-enterprise/setting-up-a-trial-of-github-enterprise-server{% endif %}'
+    - '{% ifversion ghes %}/admin/installing-your-enterprise-server{% endif %}'
+    - '{% ifversion ghec %}/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
+    - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
     - '{% ifversion ghec %}/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise{% endif %}'
     - /support/learning-about-github-support/about-github-support
+    - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
 layout: product-landing
 versions:
   ghec: '*'
@@ -101,18 +101,20 @@ versions:
 children:
   - /overview
   - /managing-your-enterprise-account
-  - /installation
-  - /configuration
+  - /installing-your-enterprise-server
+  - /configuring-settings
   - /administering-your-instance
-  - /identity-and-access-management
+  - /managing-iam
   - /managing-accounts-and-repositories
+  - /upgrading-your-instance
   - /backing-up-and-restoring-your-instance
-  - /policies
+  - /enforcing-policies
   - /monitoring-activity-in-your-enterprise
-  - /monitoring-managing-and-updating-your-instance
-  - /github-actions
-  - /packages
-  - /code-security
+  - /monitoring-and-managing-your-instance
+  - /managing-github-actions-for-your-enterprise
+  - /configuring-packages
+  - /managing-code-security
+  - /copilot-business-only
   - /guides
   - /release-notes
   - /all-releases

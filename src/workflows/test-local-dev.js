@@ -12,7 +12,7 @@ import got from 'got'
  * We use this in CI to make sure the local development server works.
  * There are certain things that only work and happen when in
  * local dev, that don't make sense to test in regular end-to-end tests
- * such as `jest` rendering.
+ * such as `vitest` rendering.
  *
  * For engineers to test this locally do the following:
  *
@@ -139,6 +139,20 @@ async function testSiteSearch() {
     const $ = cheerio.load(res.body)
     assert(/0 Search results for "gobligook"/.test($('h1').text()))
     assert($('[data-testid="search-result"]').length === 0)
+  }
+  // Using the search API
+  {
+    const res = await get('/api/search?query=github')
+    const results = JSON.parse(res.body)
+    assert(results.meta)
+    assert(results.hits)
+  }
+  // Using the autocomplete search API
+  {
+    const res = await get('/api/search/autocomplete?query=gi')
+    const results = JSON.parse(res.body)
+    assert(results.meta)
+    assert(results.hits)
   }
 }
 

@@ -1,6 +1,6 @@
 {% data reusables.actions.registry-credentials %}
 
-#### Example: Defining credentials for a container registry
+### Example: Defining credentials for a container registry
 
 {% raw %}
 

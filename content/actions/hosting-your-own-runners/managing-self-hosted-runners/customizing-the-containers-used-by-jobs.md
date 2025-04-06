@@ -27,10 +27,10 @@ This customization is only available for Linux-based self-hosted runners, and ro
 
 {% data variables.product.prodname_actions %} includes the following commands for container customization:
 
-- [`prepare_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
-- [`cleanup_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
-- [`run_container_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
-- [`run_script_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
+* [`prepare_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#prepare_job): Called when a job is started.
+* [`cleanup_job`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#cleanup_job): Called at the end of a job.
+* [`run_container_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_container_step): Called once for each container action in the job.
+* [`run_script_step`](/actions/hosting-your-own-runners/managing-self-hosted-runners/customizing-the-containers-used-by-jobs#run_script_step): Runs any step that is not a container action.
 
 Each of these customization commands must be defined in its own JSON file. The file name must match the command name, with the extension `.json`. For example, the `prepare_job` command is defined in `prepare_job.json`. These JSON files will then be run together on the self-hosted runner, as part of the main `index.js` script. This process is described in more detail in "[Generating the customization script](#generating-the-customization-script)."
 
@@ -42,50 +42,50 @@ The `prepare_job` command is called when a job is started. {% data variables.pro
 
 {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `prepare_job` command:
 
-- Prune anything from previous jobs, if needed.
-- Create a network, if needed.
-- Pull the job and service containers.
-- Start the job container.
-- Start the service containers.
-- Write to the response file any information that {% data variables.product.prodname_actions %} will need:
-  - Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
-  - Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
-- Return `0` when the health checks have succeeded and the job/service containers are started.
+* Prune anything from previous jobs, if needed.
+* Create a network, if needed.
+* Pull the job and service containers.
+* Start the job container.
+* Start the service containers.
+* Write to the response file any information that {% data variables.product.prodname_actions %} will need:
+  * Required: State whether the container is an `alpine` linux container (using the `isAlpine` boolean).
+  * Optional: Any context fields you want to set on the job context, otherwise they will be unavailable for users to use. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#job-context)."
+* Return `0` when the health checks have succeeded and the job/service containers are started.
 
 #### Arguments for `prepare_job`
 
-- `jobContainer`: **Optional**. An object containing information about the specified job container.
-  - `image`: **Required**. A string containing the Docker image.
-  - `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `systemMountVolumes`: **Required**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `registry` **Optional**. The Docker registry credentials for a private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
-- `services`: **Optional**. An array of service containers to spin up.
-  - `contextName`: **Required**. The name of the service in the Job context.
-  - `image`: **Required**. A string containing the Docker image.
-  - `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `environmentVariables`: **Optional**. Sets a map of key environment variables.
-  - `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
-    - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-    - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-    - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-  - `registry` **Optional**. The Docker registry credentials for the private container registry.
-    - `username`: **Optional**. The username of the registry account.
-    - `password`: **Optional**. The password to the registry account.
-    - `serverUrl`: **Optional**. The registry URL.
-  - `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+* `jobContainer`: **Optional**. An object containing information about the specified job container.
+  * `image`: **Required**. A string containing the Docker image.
+  * `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
+  * `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  * `environmentVariables`: **Optional**. Sets a map of key environment variables.
+  * `userMountVolumes`: **Optional**. An array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+    * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
+    * `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
+    * `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+  * `systemMountVolumes`: **Required**. An array of mounts to mount into the container, same fields as above.
+    * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
+    * `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
+    * `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+  * `registry` **Optional**. The Docker registry credentials for a private container registry.
+    * `username`: **Optional**. The username of the registry account.
+    * `password`: **Optional**. The password to the registry account.
+    * `serverUrl`: **Optional**. The registry URL.
+  * `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
+* `services`: **Optional**. An array of service containers to spin up.
+  * `contextName`: **Required**. The name of the service in the Job context.
+  * `image`: **Required**. A string containing the Docker image.
+  * `createOptions`: **Optional**. The optional _create_ options specified in the  YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  * `environmentVariables`: **Optional**. Sets a map of key environment variables.
+  * `userMountVolumes`: **Optional**. An array of mounts to mount into the container, same fields as above.
+    * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
+    * `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
+    * `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+  * `registry` **Optional**. The Docker registry credentials for the private container registry.
+    * `username`: **Optional**. The username of the registry account.
+    * `password`: **Optional**. The password to the registry account.
+    * `serverUrl`: **Optional**. The registry URL.
+  * `portMappings`: **Optional**. A key value hash of _source:target_ ports to map into the container.
 
 #### Example input for `prepare_job`
 
@@ -208,11 +208,11 @@ This example output is the contents of the `responseFile` defined in the input a
 
 The `cleanup_job` command is called at the end of a job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `cleanup_job` command:
 
-- Stop any running service or job containers (or the equivalent pod).
-- Stop the network (if one exists).
-- Delete any job or service containers (or the equivalent pod).
-- Delete the network (if one exists).
-- Cleanup anything else that was created for the job.
+* Stop any running service or job containers (or the equivalent pod).
+* Stop the network (if one exists).
+* Delete any job or service containers (or the equivalent pod).
+* Delete the network (if one exists).
+* Cleanup anything else that was created for the job.
 
 #### Arguments for `cleanup_job`
 
@@ -243,34 +243,34 @@ No output is expected for `cleanup_job`.
 
 The `run_container_step` command is called once for each container action in your job. {% data variables.product.prodname_actions %} assumes that you will do the following tasks in the `run_container_step` command:
 
-- Pull or build the required container (or fail if you cannot).
-- Run the container action and return the exit code of the container.
-- Stream any step logs output to stdout and stderr.
-- Cleanup the container after it executes.
+* Pull or build the required container (or fail if you cannot).
+* Run the container action and return the exit code of the container.
+* Stream any step logs output to stdout and stderr.
+* Cleanup the container after it executes.
 
 #### Arguments for `run_container_step`
 
-- `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
-- `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
-- `entryPointArgs`: **Optional**. A list containing the entry point args.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `systemMountVolumes`: **Required**. An array of mounts to mount into the container, using the same fields as above.
-  - `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
-  - `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
-  - `readOnly`: **Required**. Determines whether or not the mount should be read-only.
-- `registry` **Optional**. The Docker registry credentials for a private container registry.
-  - `username`: **Optional**. The username of the registry account.
-  - `password`: **Optional**. The password to the registry account.
-  - `serverUrl`: **Optional**. The registry URL.
-- `portMappings`: **Optional**. A key value hash of the _source:target_ ports to map into the container.
+* `image`: **Optional**. A string containing the docker image. Otherwise a dockerfile must be provided.
+* `dockerfile`: **Optional**. A string containing the path to the dockerfile, otherwise an image must be provided.
+* `entryPointArgs`: **Optional**. A list containing the entry point args.
+* `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
+* `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
+* `createOptions`: **Optional**. The optional _create_ options specified in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+* `environmentVariables`: **Optional**. Sets a map of key environment variables.
+* `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
+* `userMountVolumes`: **Optional**. an array of user mount volumes set in the YAML. For more information, see "[AUTOTITLE](/actions/using-jobs/running-jobs-in-a-container#example-running-a-job-within-a-container)."
+  * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
+  * `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
+  * `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+* `systemMountVolumes`: **Required**. An array of mounts to mount into the container, using the same fields as above.
+  * `sourceVolumePath`: **Required**. The source path to the volume that will be mounted into the Docker container.
+  * `targetVolumePath`: **Required**. The target path to the volume that will be mounted into the Docker container.
+  * `readOnly`: **Required**. Determines whether or not the mount should be read-only.
+* `registry` **Optional**. The Docker registry credentials for a private container registry.
+  * `username`: **Optional**. The username of the registry account.
+  * `password`: **Optional**. The password to the registry account.
+  * `serverUrl`: **Optional**. The registry URL.
+* `portMappings`: **Optional**. A key value hash of the _source:target_ ports to map into the container.
 
 #### Example input for image
 
@@ -432,16 +432,16 @@ No output is expected for `run_container_step`.
 
 {% data variables.product.prodname_actions %} assumes that you will do the following tasks:
 
-- Invoke the provided script inside the job container and return the exit code.
-- Stream any step log output to stdout and stderr.
+* Invoke the provided script inside the job container and return the exit code.
+* Stream any step log output to stdout and stderr.
 
 #### Arguments for `run_script_step`
 
-- `entryPointArgs`: **Optional**. A list containing the entry point arguments.
-- `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
-- `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
-- `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
-- `environmentVariables`: **Optional**. Sets a map of key environment variables.
+* `entryPointArgs`: **Optional**. A list containing the entry point arguments.
+* `entryPoint`: **Optional**. The container entry point to use if the default image entrypoint should be overwritten.
+* `prependPath`: **Optional**. An array of additional paths to prepend to the `$PATH` variable.
+* `workingDirectory`: **Required**. A string containing the absolute path of the working directory.
+* `environmentVariables`: **Optional**. Sets a map of key environment variables.
 
 #### Example input for `run_script_step`
 
@@ -486,9 +486,9 @@ No output is expected for `run_script_step`.
 
 1. The `examples/` directory contains some existing customization commands, each with its own JSON file. You can review these examples and use them as a starting point for your own customization commands.
 
-   - `prepare_job.json`
-   - `run_script_step.json`
-   - `run_container_step.json`
+   * `prepare_job.json`
+   * `run_script_step.json`
+   * `run_container_step.json`
 
 1. Build the npm packages. These commands generate the `index.js` files inside `packages/docker/dist` and `packages/k8s/dist`.
 
@@ -510,7 +510,7 @@ The custom script must be located on the runner, but should not be stored in the
 
 The script is automatically executed when the runner has the following environment variable containing an absolute path to the script:
 
-- `ACTIONS_RUNNER_CONTAINER_HOOKS`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
+* `ACTIONS_RUNNER_CONTAINER_HOOKS`: The script defined in this environment variable is triggered when a job has been assigned to a runner, but before the job starts running.
 
 To set this environment variable, you can either add it to the operating system, or add it to a file named `.env` within the self-hosted runner application directory. For example, the following `.env` entry will have the runner automatically run the script at `/Users/octocat/runner/index.js` before each container-based job runs:
 

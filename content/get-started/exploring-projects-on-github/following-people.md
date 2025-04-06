@@ -48,6 +48,6 @@ You can unfollow someone if you do not wish to see their public activity on {% d
 
 ## Further reading
 
-- "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"
-- "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"
+* "[AUTOTITLE](/get-started/exploring-projects-on-github/saving-repositories-with-stars)"
+* "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)"
 {% endif %}

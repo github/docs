@@ -2,7 +2,7 @@
 
    ```shell
    curl --request GET \
-   --url "{% data variables.product.api_url_pre %}/user" \
+   --url "{% data variables.product.rest_url %}/user" \
    --header "Accept: application/vnd.github+json" \
    --header "Authorization: Bearer USER_ACCESS_TOKEN" \
    --header "X-GitHub-Api-Version: {{ allVersions[currentVersion].latestApiVersion }}"

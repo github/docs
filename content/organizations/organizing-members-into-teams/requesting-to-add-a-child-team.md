@@ -42,6 +42,6 @@ If you're an organization owner or you have team maintainer permissions in both 
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
-- "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/moving-a-team-in-your-organizations-hierarchy)"
+* "[AUTOTITLE](/organizations/organizing-members-into-teams/requesting-to-add-or-change-a-parent-team)"

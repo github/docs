@@ -11,8 +11,8 @@ redirect_from:
 
 {% data variables.product.prodname_desktop %} will show a system notification for events that occur in the currently selected repository. Notifications will be shown when:
 
-- Pull request checks have failed.
-- A pull request review is left with a comment, approval, or requested changes.
+* Pull request checks have failed.
+* A pull request review is left with a comment, approval, or requested changes.
 
 Clicking the notification will switch application focus to {% data variables.product.prodname_desktop %} and provide more detailed information.
 

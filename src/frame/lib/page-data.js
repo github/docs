@@ -63,6 +63,7 @@ export async function loadUnversionedTree(languagesOnly = []) {
           langObj,
           unversionedTree.en,
         )
+        setCategoryApplicableVersions(unversionedTree[langObj.code])
       }),
   )
 

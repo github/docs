@@ -22,18 +22,13 @@ You can decide whether you want to use some or all keyboard shortcuts on {% ifve
 
 You can control whether links in text blocks on {% data variables.location.product_location %} are underlined and therefore more distinguishable.
 
-{% note %}
-
-**Note:** The option to show link underlines is currently in beta and subject to change.
-
-{% endnote %}
-
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Content", manage settings for link appearance.
 
-    - To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
-    - To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
+    * To enable underlines on links in text blocks, under "Link underlines", select **Show link underlines**.
+    * To disable underlines on links in text blocks, under "Link underlines", select **Hide link underlines**.
+    * To disable hovercards for previewing link content, deselect **Hovercards**.
 
 {% endif %}
 
@@ -47,10 +42,10 @@ By default, all keyboard shortcuts are enabled on {% data variables.product.prod
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Keyboard shortcuts", manage settings for your keyboard shortcuts.
 
-   - To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
-     - If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
+   * To disable shortcut keys that don't use modifiers keys like <kbd>Control</kbd> or <kbd>Command</kbd>, under "General", deselect **Character keys**.
+     * If you disable character keys, you may still be able to trigger shortcuts for your web browser, and you can still trigger shortcuts for {% data variables.product.product_name %} that use a modifier key.
    {%- ifversion command-palette %}
-   - To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
+   * To customize the keyboard shortcuts for triggering the command palette, under "Command palette", use the drop-down menus to choose a keyboard shortcut. For more information, see "[AUTOTITLE](/get-started/accessibility/github-command-palette)."
    {%- endif %}
 
 {% ifversion motion-management %}
@@ -65,6 +60,6 @@ By default, {% data variables.product.product_name %} syncs with your system-lev
 {% data reusables.user-settings.accessibility_settings %}
 1. Under "Motion", manage settings for motion.
 
-   - To control how {% data variables.product.product_name %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
+   * To control how {% data variables.product.product_name %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
 
 {% endif %}

@@ -25,6 +25,6 @@ When you create a new organization from scratch, it doesn't have any repositorie
 ## Further reading
 
 {% ifversion fpt or ghec %}
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)"{% endif %}
-- "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
-- "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email)"{% endif %}
+* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations)"
+* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/converting-a-user-into-an-organization)"

@@ -29,4 +29,4 @@ You can view a list of devices that have logged into your account, and revoke an
 
 ## Further reading
 
-- "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)"
+* "[AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)"

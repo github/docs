@@ -14,14 +14,14 @@ shortTitle: Reference & cite content
 ---
 ## Issuing a persistent identifier for your repository with Zenodo
 
-To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://about.zenodo.org/) to archive a repository on {% data variables.location.product_location %} and issue a DOI for the archive.
+To make your repositories easier to reference in academic literature, you can create persistent identifiers, also known as Digital Object Identifiers (DOIs). You can use the data archiving tool [Zenodo](https://about.zenodo.org/) to archive a repository on {% data variables.product.prodname_dotcom %} and issue a DOI for the archive.
 
 {% tip %}
 
 **Tips:**
-- Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
-- If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) for the Zenodo application.
-- Make sure to include a [license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) in your repository so readers know how they can reuse your work.
+* Zenodo can only access public repositories, so make sure the repository you want to archive is [public](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/setting-repository-visibility).
+* If you want to archive a repository that belongs to an organization, the organization owner may need to [approve access](/organizations/managing-oauth-access-to-your-organizations-data/approving-oauth-apps-for-your-organization) for the Zenodo application.
+* Make sure to include a [license](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository) in your repository so readers know how they can reuse your work.
 
 {% endtip %}
 

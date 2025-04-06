@@ -21,9 +21,9 @@ shortTitle: Delete a codespace
 {% data reusables.codespaces.automatic-deletion %} For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces?tool=webui)."
 
 You can manually delete a codespace in a variety of ways:
-- In the terminal by using {% data variables.product.prodname_cli %}
-- In {% data variables.product.prodname_vscode %}
-- In your web browser
+* In the terminal by using {% data variables.product.prodname_cli %}
+* In {% data variables.product.prodname_vscode %}
+* In your web browser
 
 Use the tabs at the top of this article to display instructions for each of these ways of deleting a codespace.
 
@@ -133,8 +133,8 @@ For more information, click the "{% data variables.product.prodname_cli %}" tab 
 {% cli %}
 
 1. Enter one of these commands to display a list of codespaces.
-   - `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
-   - `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
+   * `gh codespace delete --org ORGANIZATION` - Lists the current codespaces in the specified organization.
+   * `gh codespace delete --org ORGANIZATION --user USER` - Lists only those codespaces created by the specified user.
    You must be an owner of the specified organization.
 1. In the list of codespaces, navigate to the codespace you want to delete.
 1. To delete the selected codespace press <kbd>Enter</kbd>.
@@ -147,6 +147,6 @@ You can also use the REST API to delete codespaces for your organization. For mo
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
-- "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)"
-- "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+* "[AUTOTITLE](/codespaces/getting-started/understanding-the-codespace-lifecycle)"
+* "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)"
+* "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"

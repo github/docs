@@ -17,11 +17,11 @@ shortTitle: Leaving your company
 
 Before you leave your company, make sure you update the following information in your personal account:
 
-- Unverify your company email address by [deleting it in your Email settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
-- [Change your primary email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address) from your company email to your personal email.
-- [Verify your new primary email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
-- [Change your GitHub username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username) to remove any references to your company or organization, if necessary.
-- If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+* Unverify your company email address by [deleting it in your Email settings](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address). You can then re-add it without verifying to keep any associated commits linked to your account.
+* [Change your primary email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address) from your company email to your personal email.
+* [Verify your new primary email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
+* [Change your GitHub username](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/changing-your-github-username) to remove any references to your company or organization, if necessary.
+* If you've enabled two-factor (2FA) authentication for your personal account, make sure that you (not your company) control the 2FA authentication method you have configured. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Leaving organizations
 
@@ -33,10 +33,10 @@ Unless you're using a {% data variables.enterprise.prodname_managed_user %}, you
 
 If you've been collaborating professionally with another person on repositories that belong to their personal account, you'll want to [remove yourself as a collaborator](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository) from those repositories.
 
-- [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
-- [Transfer repositories you own](/repositories/creating-and-managing-repositories/transferring-a-repository) that others may need to continue working on after you leave.
-- [Delete forks that belong to you](/repositories/creating-and-managing-repositories/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
-- Delete local copies of your forks that may exist on your computer:
+* [Stop watching repositories](https://github.com/watching) related to your work. You won't want those notifications anymore!
+* [Transfer repositories you own](/repositories/creating-and-managing-repositories/transferring-a-repository) that others may need to continue working on after you leave.
+* [Delete forks that belong to you](/repositories/creating-and-managing-repositories/deleting-a-repository) that are related to the work you were doing. Don't worry, deleting a fork doesn't delete the upstream repository.
+* Delete local copies of your forks that may exist on your computer:
 
 ```shell
 rm -rf WORK_DIRECTORY

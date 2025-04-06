@@ -40,9 +40,9 @@ You must run {% data variables.product.prodname_codeql %} inside the container i
 
 You may have difficulty running {% data variables.product.prodname_code_scanning %} if the container you're using is missing certain dependencies (for example, Git must be installed and added to the PATH variable). If you encounter dependency issues, review the list of software typically included on {% data variables.product.prodname_dotcom %}'s runner images. For more information, see the version-specific `readme` files in these locations:
 
-- Linux: https://github.com/actions/runner-images/tree/main/images/ubuntu
-- macOS: https://github.com/actions/runner-images/tree/main/images/macos
-- Windows: https://github.com/actions/runner-images/tree/main/images/windows
+* Linux: https://github.com/actions/runner-images/tree/main/images/ubuntu
+* macOS: https://github.com/actions/runner-images/tree/main/images/macos
+* Windows: https://github.com/actions/runner-images/tree/main/images/windows
 
 ## Example workflow
 

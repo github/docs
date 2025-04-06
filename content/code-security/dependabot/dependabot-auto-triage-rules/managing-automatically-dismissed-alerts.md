@@ -16,8 +16,6 @@ redirect_from:
   - /code-security/dependabot/dependabot-alert-rules/managing-automatically-dismissed-alerts
 ---
 
-{% data reusables.dependabot.dependabot-auto-triage-rules-beta %}
-
 ## Managing automatically dismissed alerts
 
 {% note %}

@@ -36,13 +36,13 @@ Enabling GHAS across a large organization can be broken down into six core phase
 
 1. [Rollout and scale {% data variables.product.prodname_secret_scanning %}](/code-security/adopting-github-advanced-security-at-scale/phase-6-rollout-and-scale-secret-scanning): Roll out {% data variables.product.prodname_secret_scanning %}, which involves less configuration and is therefore simpler to adopt than {% data variables.product.prodname_code_scanning %}. Still, it's critical to have a strategy for handling new and old results.
 
-## {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services_team %}
+## {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services %}
 
 If you encounter any issues or have any questions during your implementation, you can search our documentation for solutions or engage with {% data variables.contact.github_support %}. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support)."
 
-If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
+If you prefer to have guidance throughout the rollout process, {% data variables.product.prodname_professional_services_team %} can partner with you for a successful rollout and implementation of {% data variables.product.prodname_GH_advanced_security %}. We offer a variety of {% data variables.product.prodname_professional_services %} options for guidance and support. We also have training and bootcamps available to help your company to optimize the value of {% data variables.product.prodname_GH_advanced_security %}.
 
-Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services_team %} options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
+Speak with your sales representative for more information about all the {% data variables.product.prodname_professional_services %} options available. For more information, contact {% data variables.contact.contact_enterprise_sales %}.
 
 {% note %}
 

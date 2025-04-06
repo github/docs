@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { githubOwnedActionReferences } from '../../lib/linting-rules/github-owned-action-references.js'
 

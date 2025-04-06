@@ -9,8 +9,8 @@ versions:
 topics:
   - Actions Runner Controller
 children:
-  - /quickstart-for-actions-runner-controller
   - /about-actions-runner-controller
+  - /quickstart-for-actions-runner-controller
   - /authenticating-to-the-github-api
   - /deploying-runner-scale-sets-with-actions-runner-controller
   - /using-actions-runner-controller-runners-in-a-workflow

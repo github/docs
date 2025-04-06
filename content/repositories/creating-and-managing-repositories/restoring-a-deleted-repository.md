@@ -56,6 +56,6 @@ Restoring a repository will not restore release attachments or team permissions.
 
 ## Further reading
 
-- "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)"
+* "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)"
 
 {% endif %}

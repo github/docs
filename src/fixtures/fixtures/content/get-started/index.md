@@ -26,6 +26,7 @@ children:
   - /images
   - /versioning
   - /learning-about-github
+  - /empty-categories
 communityRedirect:
   name: Provide HubGit Feedback
   href: 'https://hubgit.com/orgs/community/discussions/categories/get-started'

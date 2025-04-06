@@ -38,10 +38,19 @@ jobs:
         id: compare
         run: |
           # Compare the fetched branch protections with the committed ones
-          git diff --no-index .github/branch_protection_settings/${{ matrix.branch }}.json ${{ matrix.branch }}-actual.json
+          git diff --no-index .github/branch_protection_settings/${{ matrix.branch }}.json ${{ matrix.branch }}-actual.json || echo "diff_failed=true" >> $GITHUB_ENV
+
+      - name: Set failure message
+        if: env.diff_failed == 'true'
+        run: |
+          message="Alert due to changes in branch protections for ${{ matrix.branch }}. Please review the changes and ensure they are intentional. If valid, update the branch protection settings in .github/branch_protection_settings/${{ matrix.branch }}.json to match the diff in this workflow."
+          echo "failure_message=$message" >> $GITHUB_ENV
+          echo "$message"
 
       - uses: ./.github/actions/slack-alert
-        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        if: ${{ env.diff_failed == 'true' && github.event_name != 'workflow_dispatch' }}
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+          message: ${{ env.failure_message }}
+          color: purple

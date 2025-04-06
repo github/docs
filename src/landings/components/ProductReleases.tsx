@@ -41,14 +41,14 @@ export function ProductReleases() {
                   <ArrowUpIcon /> {t('upgrade_from')}{' '}
                   <Link
                     className="text-bold"
-                    href={`/${router.locale}/${firstPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
+                    href={`/${router.locale}/${firstPreviousVersion}/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process`}
                   >
                     {release.firstPreviousRelease}
                   </Link>{' '}
                   or{' '}
                   <Link
                     className="text-bold"
-                    href={`/${router.locale}/${secondPreviousVersion}/admin/enterprise-management/upgrading-github-enterprise-server`}
+                    href={`/${router.locale}/${secondPreviousVersion}/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process`}
                   >
                     {release.secondPreviousRelease}
                   </Link>

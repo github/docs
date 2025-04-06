@@ -1,6 +1,6 @@
 ---
 title: Setting up GitHub Sponsors for your personal account
-intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.location.product_location %}.'
+intro: 'You can become a sponsored developer by joining {% data variables.product.prodname_sponsors %}, completing your sponsored developer profile, creating sponsorship tiers, submitting your bank and tax information, and enabling two-factor authentication for your account on {% data variables.product.prodname_dotcom %}.'
 redirect_from:
   - /articles/becoming-a-sponsored-developer
   - /github/supporting-the-open-source-community-with-github-sponsors/becoming-a-sponsored-developer
@@ -24,12 +24,10 @@ To join {% data variables.product.prodname_sponsors %} as an organization, see "
 
 {% data reusables.sponsors.navigate-to-github-sponsors %}
 1. If you are an organization owner, you have more than one eligible account. Click **Get sponsored**, then in the list of accounts, find your personal account.
-1. Click **Join the waitlist**.
+1. Click **Get sponsored**.
 {% data reusables.sponsors.contact-info %}
 {% data reusables.sponsors.payout-choice %}
 {% data reusables.sponsors.accept-legal-terms %}
-
-If you have a bank account in a supported region, {% data variables.product.prodname_dotcom %} will review your application within two weeks.
 
 ## Completing your sponsored developer profile
 
@@ -81,7 +79,7 @@ If you choose to receive payouts to a bank account, your region of residence and
 
 ## Enabling two-factor authentication (2FA) on your {% data variables.product.prodname_dotcom %} account
 
-Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.location.product_location %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+Before you can become a sponsored developer, you must enable 2FA for your account on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
 
 ## Submitting your application to {% data variables.product.prodname_dotcom %} for approval
 

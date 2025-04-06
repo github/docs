@@ -1,4 +1,4 @@
-import { jest } from '@jest/globals'
+import { beforeAll, describe, expect, test, vi } from 'vitest'
 
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
 import schema from '#src/tests/helpers/schemas/site-tree-schema.js'
@@ -12,7 +12,7 @@ const latestEnterpriseRelease = EnterpriseServerReleases.latest
 const siteTreeValidate = getJsonValidator(schema.childPage)
 
 describe('siteTree', () => {
-  jest.setTimeout(3 * 60 * 1000)
+  vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
   let siteTree
   beforeAll(async () => {
@@ -39,7 +39,9 @@ describe('siteTree', () => {
       // TODO: use new findPageInSiteTree helper when it's available
       const pageWithDynamicTitle = ghesSiteTree.childPages
         .find((child) => child.href === `/en/${ghesLatest}/admin`)
-        .childPages.find((child) => child.href === `/en/${ghesLatest}/admin/installation`)
+        .childPages.find(
+          (child) => child.href === `/en/${ghesLatest}/admin/installing-your-enterprise-server`,
+        )
 
       // Confirm the raw title contains Liquid
       expect(pageWithDynamicTitle.page.title).toEqual(

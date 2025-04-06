@@ -3,7 +3,6 @@ user_migrations_intro: >-
 organization_migrations_intro: >-
   You can use these endpoints to export one or more repositories so you can move them to a{% ifversion ghes %}nother{% endif %} {% data variables.product.prodname_ghe_server %} instance. For more information, see "[AUTOTITLE](/migrations/using-ghe-migrator/exporting-migration-data-from-githubcom)."
 source_imports_intro: >-
-  You can use these endpoints to start an import from a Git, Subversion,
-  Mercurial, or Team Foundation Version Control source repository. This is the same
+  You can use these endpoints to start an import from a Git repository hosted with another service. This is the same
   functionality as the {% data variables.product.prodname_dotcom %}
   Importer. For more information, see "[AUTOTITLE](/migrations/importing-source-code/using-github-importer/importing-a-repository-with-github-importer)."

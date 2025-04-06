@@ -78,5 +78,5 @@ If the administrator you want to remove is a member of any organizations owned b
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-membership-in-your-organization)"
-- "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles)"
+* "[AUTOTITLE](/organizations/managing-membership-in-your-organization)"
+* "[AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles)"

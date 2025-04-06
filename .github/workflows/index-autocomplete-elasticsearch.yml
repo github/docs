@@ -1,0 +1,52 @@
+name: Index autocomplete Elasticsearch
+
+# **What it does**: Indexes autocomplete data into Elasticsearch.
+# **Why we have it**: So we can power the API for autocomplete.
+# **Who does it impact**: docs-engineering
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
+  pull_request:
+    paths:
+      - .github/workflows/index-autocomplete-elasticsearch.yml
+      - 'src/search/scripts/index/**'
+      - 'package*.json'
+
+permissions:
+  contents: read
+
+jobs:
+  index-autocomplete-elasticsearch:
+    if: ${{ github.repository == 'github/docs-internal' }}
+    runs-on: ubuntu-20.04-xl
+    steps:
+      - name: Checkout
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - uses: ./.github/actions/setup-elasticsearch
+        if: ${{ github.event_name == 'pull_request' }}
+
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          repository: github/docs-internal-data
+          path: docs-internal-data
+
+      - name: Check that Elasticsearch is accessible
+        if: ${{ github.event_name == 'pull_request' }}
+        run: curl --fail --retry-connrefused --retry 5 -I http://localhost:9200
+
+      - name: Run indexing
+        env:
+          ELASTICSEARCH_URL: ${{ github.event_name == 'pull_request' && 'http://localhost:9200' || secrets.ELASTICSEARCH_URL }}
+        run: npm run index -- autocomplete docs-internal-data
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name == 'schedule' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

@@ -42,7 +42,7 @@ $ ghe-announce -d -s MESSAGE
 > Announcement message set.
 # Removes a previously set message
 $ ghe-announce -u
-> Removed the announcement message, which was user 
+> Removed the announcement message, which was user
 > dismissible: MESSAGE
 ```
 
@@ -58,10 +58,10 @@ This utility displays information on background jobs, both active and in the que
 
 This utility can help identify whether the Aqueduct server is having problems processing background jobs. Any of the following scenarios might be indicative of a problem with Aqueduct:
 
-- The number of background jobs is increasing, while the active jobs remain the same.
-- The event feeds are not updating.
-- Webhooks are not being triggered.
-- The web interface is not updating after a Git push.
+* The number of background jobs is increasing, while the active jobs remain the same.
+* The event feeds are not updating.
+* Webhooks are not being triggered.
+* The web interface is not updating after a Git push.
 
 If you suspect Aqueduct is failing, visit {% data variables.contact.contact_ent_support %} for help.
 
@@ -118,7 +118,7 @@ With this utility, you can both retrieve and modify the configuration settings o
 $ ghe-config core.github-hostname
 # Gets the configuration value of `core.github-hostname`
 $ ghe-config core.github-hostname URL
-# Sets the configuration value of `core.github-hostname` 
+# Sets the configuration value of `core.github-hostname`
 # to the specified URL
 $ ghe-config -l
 # Lists all the configuration values
@@ -254,10 +254,10 @@ Use this command to give organization owner privileges to users with site admin 
 
 You can use these options with the utility:
 
-- The `-u` flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the `-u` flag to promote all site admins to the specified organization.
-- The `-o` flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the `-o` flag to give owner permissions in all organizations to the specified site admin.
-- The `-a` flag gives owner privileges in all organizations to all site admins.
-- The `-y` flag bypasses the manual confirmation.
+* The `-u` flag specifies a username. Use this flag to give organization owner privileges to a specific user. Omit the `-u` flag to promote all site admins to the specified organization.
+* The `-o` flag specifies an organization. Use this flag to give owner privileges in a specific organization. Omit the `-o` flag to give owner permissions in all organizations to the specified site admin.
+* The `-a` flag gives owner privileges in all organizations to all site admins.
+* The `-y` flag bypasses the manual confirmation.
 
 This utility cannot promote a non-site admin to be an owner of all organizations. You can promote an ordinary user account to a site admin with [ghe-user-promote](#ghe-user-promote).
 
@@ -515,8 +515,8 @@ SSL-Session:
 ```
 
 You can use these additional options with the utility:
-- The `-r` flag allows you to uninstall a CA certificate.
-- The `-h` flag displays more usage information.
+* The `-r` flag allows you to uninstall a CA certificate.
+* The `-h` flag displays more usage information.
 
 ```shell
 ghe-ssl-ca-certificate-install -c CERTIFICATE_PATH
@@ -661,7 +661,7 @@ $ ghe-cluster-maintenance -u
 
 ### ghe-cluster-repl-bootstrap
 
-This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
+This utility configures high availability replication to a secondary set of cluster nodes. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster)."
 
 ```shell
 ghe-cluster-repl-bootstrap
@@ -669,7 +669,7 @@ ghe-cluster-repl-bootstrap
 
 ### ghe-cluster-repl-teardown
 
-This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
+This utility disables replication to replica nodes for a cluster in a high availability configuration. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster#disabling-high-availability-replication-for-a-cluster)."
 
 ```shell
 ghe-cluster-repl-teardown
@@ -721,6 +721,58 @@ To send a bundle to {% data variables.contact.github_support %} and associate th
 ssh -p 122 admin@HOSTNAME -- 'ghe-cluster-support-bundle -t TICKET_ID'
 ```
 
+### ghe-cluster-failover
+
+{% ifversion ghes < 3.13 %}
+
+{% data reusables.enterprise_clustering.cluster-ip-note %}
+
+{% endif %}
+
+With the `ghe-cluster-failover` utility, you can fail over to your replica cluster. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initiating-a-failover-to-your-replica-cluster)."
+
+```shell
+ghe-cluster-failover
+```
+
+{% ifversion ghes < 3.13 %}
+
+### ghe-cluster-block-ips
+
+This utility allows you to block all the IPs in the `/data/user/common/cluster-ip-blocklist` file. The command reads the list of IPs and blocks each IP by calling `ghe-cluster-block-ip` on each node in the current cluster.
+
+The `/data/user/common/cluster-ip-blocklist` file only supports IPv4 addresses.
+
+```shell
+ghe-cluster-block-ips
+```
+
+### ghe-cluster-block-ip
+
+This utility allows you to block a specific IP address on a specific node. You can't block the IP of the current host, or any of the IPs for the hosts in the current `cluster.conf`.
+
+```shell
+ghe-cluster-block-ip IPV4 ADDRESS
+```
+
+### ghe-cluster-unblock-ips
+
+This utility allows you to unblock all the IPs currently blocked on each node in the cluster.
+
+```shell
+ghe-cluster-unblock-ips
+```
+
+### ghe-cluster-unblock-ip
+
+This utility allows you to unblock a specific IP address on a specific node.
+
+```shell
+ghe-cluster-unblock-ip IPV4 ADDRESS
+```
+
+{% endif %}
+
 ### ghe-dpages
 
 This utility allows you to manage the distributed {% data variables.product.prodname_pages %} server.
@@ -745,17 +797,17 @@ ghe-dpages evacuate pages-server-UUID
 
 ### ghe-remove-node
 
-This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node)."
+This utility removes a node from a cluster. If you're replacing a node, after you've set up a replacement node, you can use this command to take the old node offline. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/replacing-a-cluster-node)."
 
-You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
+You must run this command from the primary MySQL node in your cluster, which is typically the node designated as `mysql-master` in your cluster configuration file (`cluster.conf`). You can use this command to remove any node, with the exception of the `mysql-master` or `redis-master` node. For more information, see "[AUTOTITLE](/admin/monitoring-and-managing-your-instance/configuring-clustering/initializing-the-cluster#about-the-cluster-configuration-file)."
 
 ```shell
 ghe-remove-node HOSTNAME
 ```
 
 The command does the following things:
-- Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
-- Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
+* Evacuates data from any data services running on the node, so that the remaining nodes in your cluster contain copies of the data
+* Marks the node as offline in your configuration, applies this change to the rest of the nodes in the cluster, and stops traffic being routed to the node
 
 You can run the command with the following flags.
 
@@ -769,8 +821,8 @@ Flag | Description
 
 **Notes:**
 
-- This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
-- This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
+* This command can only be used to remove a node from a cluster configuration. It cannot be used to remove a node from a high availability configuration.
+* This command does not support parallel execution. To remove multiple nodes, you must wait until this command has finished before running it for another node.
 
 {% endnote %}
 
@@ -906,7 +958,7 @@ ghe-btop [ <port number> | --help | --usage ]
 
 #### ghe-governor
 
-This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.community/t/analyzing-git-traffic-using-governor/13516) in {% data variables.product.prodname_github_community %}.
+This utility helps to analyze Git traffic. It queries _Governor_ data files, located under `/data/user/gitmon`. {% data variables.product.company_short %} holds one hour of data per file, retained for two weeks. For more information, see [Analyzing Git traffic using Governor](https://github.com/orgs/community/discussions/34220) in {% data variables.product.prodname_github_community %}.
 
 ```bash
 ghe-governor <subcommand> <column> [options]
@@ -941,10 +993,16 @@ ghe-repo USERNAME/REPONAME
 
 This utility manually repackages a repository network to optimize pack storage. If you have a large repository, running this command may help reduce its overall size. {% data variables.product.prodname_enterprise %} automatically runs this command throughout your interaction with a repository network.
 
-You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing [previously expunged sensitive information](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository).
-
 ```shell
 ghe-repo-gc USERNAME/REPONAME
+```
+
+You can add the optional `--prune` argument to remove unreachable Git objects that aren't referenced from a branch, tag, or any other ref. This is particularly useful for immediately removing previously expunged sensitive information. See "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository)."
+
+If you use a deployment topology with multiple nodes, to prevent sensitive data from persisting on other nodes and potentially being exposed during a failover, you must run the command on all nodes. For example, for a cluster configuration, you can use the following command.
+
+```shell
+ghe-cluster-each -r git -- "ghe-repo-gc --prune USERNAME/REPONAME"
 ```
 
 ## {% data variables.product.prodname_actions %}
@@ -1007,8 +1065,8 @@ This utility stops {% data variables.product.prodname_actions %} from running on
 
 **Notes**:
 
-- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-- In high availability configurations, run this command from the primary.
+* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+* In high availability configurations, run this command from the primary.
 
 {% endnote %}
 
@@ -1020,8 +1078,8 @@ This utility starts {% data variables.product.prodname_actions %} on {% data var
 
 **Notes**:
 
-- {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
-- In high availability configurations, run this command from the primary.
+* {% data reusables.enterprise_enterprise_support.support_will_ask_you_to_run_command %}
+* In high availability configurations, run this command from the primary.
 
 {% endnote %}
 
@@ -1071,9 +1129,9 @@ Run this utility on an existing node to begin enabling a high availability confi
 
 After running the utility, the following configuration occurs on the node.
 
-- An encrypted WireGuard VPN tunnel is established for communication between the nodes.
-- Database services are configured for replication and started.
-- Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
+* An encrypted WireGuard VPN tunnel is established for communication between the nodes.
+* Database services are configured for replication and started.
+* Application services are disabled. Attempts to access the replica node over HTTP or HTTPS, Git, or other supported protocols will display "Server in replication mode" message, a maintenance page, or an error message.
 
 When running this utility, replace PRIMARY-NODE-IP with the IP address of your instance's primary node.
 
@@ -1093,10 +1151,10 @@ ghe-repl-start
 
 This utility displays the status of replication on a node, returning an `OK`, `WARNING` or `CRITICAL` status for each datastore's replication stream. For more information, see "[AUTOTITLE](/admin/enterprise-management/configuring-high-availability/monitoring-a-high-availability-configuration)."
 
-- If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
-- If you have not started replication, the command will exit with code `1`.
-- If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
-- The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
+* If any of the replication channels are in a `WARNING` state, the command will exit with code `1`.
+* If you have not started replication, the command will exit with code `1`.
+* If any of the channels are in a `CRITICAL` state, the command will exit with code `2`.
+* The output conforms to the expectations of Nagios' check_by_ssh plugin. For more information, see the [check_by_ssh plugin](https://nagios-plugins.org/doc/man/check_by_ssh.html) on the official Nagios plugins page.
 
 ```shell
 ghe-repl-status
@@ -1123,6 +1181,17 @@ This utility completely disables replication on an existing replica node, removi
 ```shell
 ghe-repl-teardown
 ```
+
+{% ifversion ghes > 3.13 %}
+
+### ghe-repl-stop-all
+
+This utility disables replication of all datastores on all replica nodes. Run this utility from the primary node before upgrading replicas. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package)."
+
+### ghe-repl-start-all
+
+This utility begins replication of all datastores on all replica nodes. Run this utility from the primary node after upgrading replicas. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package)."
+{% endif %}
 
 ## Import and export
 
@@ -1321,7 +1390,7 @@ During an upgrade to a feature release, this utility displays the status of back
 {% ifversion ghes < 3.12 %}
 {% note %}
 
-**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.9 %}7{% elsif ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
+**Note:** To use `ghe-check-background-upgrade-jobs` with {% data variables.product.product_name %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
 
 {% endnote %}
 {% endif %}
@@ -1372,7 +1441,7 @@ ssh -p 122 admin@HOSTNAME -- 'ghe-update-check'
 
 ### ghe-upgrade
 
-This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server)."
+This utility installs or verifies an upgrade package. You can also use this utility to roll back a patch release if an upgrade fails or is interrupted. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process)."
 
 To verify an upgrade package:
 
@@ -1392,7 +1461,7 @@ ghe-upgrade UPGRADE-PACKAGE-FILENAME
 
 This utility manages scheduled installation of upgrade packages. You can show, create new, or remove scheduled installations. You must create schedules using cron expressions. For more information, see the [Cron Wikipedia entry](https://en.wikipedia.org/wiki/Cron#Overview).
 
-The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrading-github-enterprise-server#upgrading-with-an-upgrade-package)"
+The `ghe-upgrade-scheduler` utility is best suited for scheduling hotpatch upgrades, which do not require maintenance mode or a reboot in most cases. This utility is not practical for full package upgrades, which require an administrator to manually set maintenance mode, reboot the instance, and unset maintenance mode. For more information about the different types of upgrades, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/upgrading-with-an-upgrade-package)"
 
 To schedule a new installation for a package:
 

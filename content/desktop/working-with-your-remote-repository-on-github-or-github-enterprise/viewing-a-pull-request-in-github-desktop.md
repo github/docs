@@ -49,9 +49,9 @@ You cannot comment on a pull request from {% data variables.product.prodname_des
 
 When you have checked out a pull request branch, you can use {% data variables.product.prodname_desktop %} and your local editor to view the contributor's changes or make further changes to the branch. For example, you can:
 
-- [Open the branch in your editor](#open-the-branch-in-your-editor)
-- [View the commit history](#view-the-commit-history)
-- [View and re-run checks](#view-and-re-run-checks)
+* [Open the branch in your editor](#open-the-branch-in-your-editor)
+* [View the commit history](#view-the-commit-history)
+* [View and re-run checks](#view-and-re-run-checks)
 
 ### Open the branch in your editor
 

@@ -29,11 +29,11 @@ Alternatively, you can link to the "Resume codespace" page, which provides a qui
 
 You can use these URLs to link to the codespace creation page for your repository. Replace the text in uppercase letters.
 
-- Create a codespace for the default branch of the repository:
+* Create a codespace for the default branch of the repository:
   `https://codespaces.new/OWNER/REPO-NAME`
-- Create a codespace for a specific branch of the repository:
+* Create a codespace for a specific branch of the repository:
   `https://codespaces.new/OWNER/REPO-NAME/tree/BRANCH-NAME`
-- Create a codespace for the topic branch of a pull request:
+* Create a codespace for the topic branch of a pull request:
   `https://codespaces.new/OWNER/REPO-NAME/pull/PR-SHA`
 
 ### Configuring more options
@@ -70,8 +70,8 @@ For example, the URL `https://codespaces.new/octo-org/octo-repo?quickstart=1` op
 
 **Notes**:
 
-- If the `codespaces.new` URL already contains a query string, add `&quickstart=1` at the end of the query string.
-- This type of URL will always open a codespace in the {% data variables.product.prodname_vscode_shortname %} web client, even if this is not set as your default editor for {% data variables.product.prodname_github_codespaces %}.
+* If the `codespaces.new` URL already contains a query string, add `&quickstart=1` at the end of the query string.
+* This type of URL will always open a codespace in the {% data variables.product.prodname_vscode_shortname %} web client, even if this is not set as your default editor for {% data variables.product.prodname_github_codespaces %}.
 
 {% endnote %}
 

@@ -4,7 +4,7 @@ shortTitle: Code search syntax
 intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: code-search-code-view
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
@@ -98,13 +98,13 @@ You can use parentheses to express more complicated boolean expressions. For exa
 ## Using qualifiers
 
 You can use specialized keywords to qualify your search.
-- [Repository qualifier](#repository-qualifier)
-- [Organization and user qualifiers](#organization-and-user-qualifiers)
-- [Language qualifier](#language-qualifier)
-- [Path qualifier](#path-qualifier)
-- [Symbol qualifier](#symbol-qualifier)
-- [Content qualifier](#content-qualifier)
-- [Is qualifier](#is-qualifier)
+* [Repository qualifier](#repository-qualifier)
+* [Organization and user qualifiers](#organization-and-user-qualifiers)
+* [Language qualifier](#language-qualifier)
+* [Path qualifier](#path-qualifier)
+* [Symbol qualifier](#symbol-qualifier)
+* [Content qualifier](#content-qualifier)
+* [Is qualifier](#is-qualifier)
 
 ### Repository qualifier
 
@@ -191,13 +191,13 @@ To search for JavaScript files within a `src` directory, you could use:
 path:src/*.js
 ```
 
-- By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like `app/src/main.js`. But if you prefix the expression with `/`, it will anchor to the start. For example:
+* By default, glob expressions are not anchored to the start of the path, so the above expression would still match a path like `app/src/main.js`. But if you prefix the expression with `/`, it will anchor to the start. For example:
 
     ```text
     path:/src/*.js
     ```
 
-- Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
+* Note that `*` doesn't match the `/` character, so for the above example, all results will be direct descendants of the `src` directory. To match within subdirectories, so that results include deeply nested files such as `/src/app/testing/utils/example.js`, you can use `**`. For example:
 
     ```text
     path:/src/**/*.js
@@ -238,18 +238,9 @@ You can also use regular expressions with the symbol qualifier. For example, the
 language:rust symbol:/^String::to_.*/
 ```
 
-Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages.
+Note that this qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. Symbol extraction is supported for the following languages:
 
-- C#
-- Python
-- Go
-- Java
-- JavaScript
-- TypeScript
-- PHP
-- Protocol Buffers
-- Ruby
-- Rust
+{% data reusables.search.code-nav-supported-languages %}
 
 We are working on adding support for more languages. If you would like to help contribute to this effort, you can add support for your language in the open source [Tree-sitter](https://github.com/tree-sitter) parser ecosystem, upon which symbol search is based.
 
@@ -267,10 +258,10 @@ This query would only match files containing the term `README.md`, rather than m
 
 To filter based on repository properties, you can use the `is:` qualifier. `is:` supports the following values:
 
-- `archived`: restricts the search to archived repositories.
-- `fork`: restricts the search to forked repositories.
-- `vendored`: restricts the search to content detected as vendored.
-- `generated`: restricts the search to content detected as generated.
+* `archived`: restricts the search to archived repositories.
+* `fork`: restricts the search to forked repositories.
+* `vendored`: restricts the search to content detected as vendored.
+* `generated`: restricts the search to content detected as generated.
 
 For example:
 

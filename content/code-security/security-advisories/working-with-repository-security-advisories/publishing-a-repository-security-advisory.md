@@ -45,16 +45,16 @@ Before you publish a security advisory, you can privately collaborate to fix the
 
 We recommend you take the following steps in these different situations:
 
-- If a fix version is imminently available, and you are able to, wait to disclose the issue when the fix is ready.
-- If a fix version is in development but not yet available, mention this in the advisory, and edit the advisory later, after publication.
-- If you are not planning to fix the issue, be clear about it in the advisory so that your users don't contact you to ask when a fix will be made. In this case, it is helpful to include steps users can take to mitigate the issue.
+* If a fix version is imminently available, and you are able to, wait to disclose the issue when the fix is ready.
+* If a fix version is in development but not yet available, mention this in the advisory, and edit the advisory later, after publication.
+* If you are not planning to fix the issue, be clear about it in the advisory so that your users don't contact you to ask when a fix will be made. In this case, it is helpful to include steps users can take to mitigate the issue.
 
 {% endwarning %}
 
 When you publish a draft advisory from a public repository, everyone is able to see:
 
-- The current version of the advisory data.
-- Any advisory credits that the credited users have accepted.
+* The current version of the advisory data.
+* Any advisory credits that the credited users have accepted.
 
 {% note %}
 
@@ -102,4 +102,4 @@ Publishing a security advisory deletes the temporary private fork for the securi
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"
+* "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"

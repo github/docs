@@ -30,4 +30,4 @@ When you create a new repository on {% data variables.location.product_location 
 
 ## Further reading
 
-- "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"
+* "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-default-branch-name-for-repositories-in-your-organization)"

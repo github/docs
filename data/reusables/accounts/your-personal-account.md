@@ -1,1 +1,1 @@
-Every person who uses {% data variables.location.product_location %} signs in to a personal account. Your personal account is your identity on {% data variables.location.product_location %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).
+Every person who uses {% data variables.product.github %} signs in to a user account. Your user account is your identity on {% data variables.product.github %} and has a username and profile. For example, see [@octocat's profile](https://github.com/octocat).

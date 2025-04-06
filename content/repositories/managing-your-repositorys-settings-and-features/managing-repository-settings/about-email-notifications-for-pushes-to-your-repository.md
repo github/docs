@@ -21,15 +21,21 @@ shortTitle: Email notifications for pushes
 
 Each email notification for a push to a repository lists the new commits and links to a diff containing just those commits. In the email notification you'll see:
 
-- The name of the repository where the commit was made
-- The branch a commit was made in
-- The SHA1 of the commit, including a link to the diff in {% data variables.product.product_name %}
-- The author of the commit
-- The date when the commit was made
-- The files that were changed as part of the commit
-- The commit message
+* The name of the repository where the commit was made
+* The branch a commit was made in
+* The SHA1 of the commit, including a link to the diff in {% data variables.product.product_name %}
+* The author of the commit
+* The date when the commit was made
+* The files that were changed as part of the commit
+* The commit message
 
 You can filter email notifications you receive for pushes to a repository. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#filtering-email-notifications)."
+
+{% ifversion ghec %}
+
+>[!NOTE] Notifications for pushes to your repository will bypass restrictions for email notifications to verified domains configured in your enterprise account or organisation.
+
+{% endif %}
 
 ## Enabling email notifications for pushes to your repository
 
@@ -42,4 +48,4 @@ You can filter email notifications you receive for pushes to a repository. For m
 
 ## Further reading
 
-- "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"
+* "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/about-notifications)"

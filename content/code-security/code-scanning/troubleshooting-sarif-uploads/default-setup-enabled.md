@@ -10,7 +10,9 @@ topics:
   - SARIF
   - Troubleshooting
 versions:
-  feature: code-scanning-tool-status-page
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /code-security/code-scanning/troubleshooting-sarif/default-setup-enabled
 ---

@@ -26,22 +26,23 @@ Members of your organization's Owners team can give _billing manager_ permission
 
 Billing managers can:
 
-- Upgrade or downgrade the account
-- Add, update, or remove payment methods
-- View payment history
-- Download receipts
-- View, invite, and remove billing managers
-- Start, modify, or cancel sponsorships
+* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
+* Add, update, or remove payment methods
+* View payment history
+* Download receipts
+* View, invite, and remove billing managers
+* Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
 Billing managers **are not** able to:
 
-- Create or access repositories in your organizations
-- See private members of your organization
-- Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
+* Upgrade to {% data variables.product.prodname_enterprise %} or downgrade an enterprise account
+* Create or access repositories in your organizations
+* See private members of your organization
+* Be seen in the list of organization members
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 
 {% tip %}
 
@@ -67,4 +68,4 @@ The invited person will receive an invitation email asking them to become a bill
 
 ## Further reading
 
-- "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* "[AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

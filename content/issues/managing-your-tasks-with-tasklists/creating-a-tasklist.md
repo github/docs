@@ -45,13 +45,13 @@ You can also use the **Add tasklist** button while editing your issue to insert 
 
 Once you have started editing your tasklist Markdown, you can add new tasks by preceding each new task with `- [ ] ` and then adding either:
 
-- A draft task. Draft tasks are text that can later be converted into issues.
-- The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
+* A draft task. Draft tasks are text that can later be converted into issues.
+* The full link to an issue or pull request.  For example, `https://github.com/octo-org/octo-repo/issues/45`. If an issue or pull request is in the same repository as your tasklist, you can use the #ISSUE-NUMBER shorthand syntax. For example, `#45`.
 
 If you add a draft task, it must meet these requirements:
 
-- Draft tasks can be formatted using Markdown.
-- Draft tasks must not exceed 512 characters in length.
+* Draft tasks can be formatted using Markdown.
+* Draft tasks must not exceed 512 characters in length.
 
 Your tasklist will be rendered by {% data variables.product.product_name %} when you preview your changes and when you save the issue. You can then make changes and add issues and draft tasks using the {% data variables.product.product_name %} UI. If you edit the issue description, you will be able to modify the Markdown directly or copy the Markdown to duplicate the tasklist in other issues.
 
@@ -62,7 +62,7 @@ When you create a new tasklist, the default title is "Tasks." You can modify the
 1. In the top-right of the issue body, select {% octicon "kebab-horizontal" aria-label="Show options" %} and click **Edit**.
 
    ![Screenshot of the header of an issue comment. In the right corner, a horizontal kebab icon is outlined in dark orange.](/assets/images/help/issues/comment-menu.png)
-1. In the fenced code block that starts with ````[tasklist]`, add a header with your new title, such as `### My new title`.
+1. In the fenced code block that starts with `` ```[tasklist] ``, add a header with your new title, such as `### My new title`.
 
    ![Screenshot of an issue comment in edit mode. Under the line that says "```tasklist", a line that says "### My new title" is outlined in dark orange.](/assets/images/help/issues/edit-tasklist-title.png)
 

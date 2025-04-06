@@ -1,8 +1,9 @@
-import { beforeAll } from '@jest/globals'
 import yaml from 'js-yaml'
 import { readFileSync } from 'fs'
-import walk from 'walk-sync'
 import { extname, basename } from 'path'
+
+import walk from 'walk-sync'
+import { beforeAll, describe, expect, test } from 'vitest'
 
 import { getJsonValidator, validateJson } from '#src/tests/lib/validate-json-schema.js'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'

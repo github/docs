@@ -64,16 +64,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
         // permissions
         for (const permissionSet of progAccessData[operation.operationId].permissions) {
           for (const [permissionName, readOrWrite] of Object.entries(permissionSet)) {
-            const tempTitle = permissionName.replace(/_/g, ' ')
-            const permissionNameExists = progActorResources[permissionName]
-            if (!permissionNameExists) {
-              console.warn(
-                `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
-              )
-            }
-            const title = progActorResources[permissionName]?.title || tempTitle
-            const resourceGroup = progActorResources[permissionName]?.resource_group || ''
-            const displayTitle = getDisplayTitle(title, resourceGroup)
+            const { title, displayTitle } = getDisplayTitle(permissionName, progActorResources)
             const additionalPermissions =
               progAccessData[operation.operationId].permissions.length > 1 ||
               progAccessData[operation.operationId].permissions.some(
@@ -153,7 +144,7 @@ export async function syncGitHubAppsData(openApiSource, sourceSchemas, progAcces
   }
 }
 
-export async function getProgAccessData(progAccessSource) {
+export async function getProgAccessData(progAccessSource, isRest = false) {
   const useRemoteGitHubFiles = progAccessSource === 'rest-api-description'
   // check for required PAT
   if (useRemoteGitHubFiles && !process.env.GITHUB_TOKEN) {
@@ -163,7 +154,6 @@ export async function getProgAccessData(progAccessSource) {
   }
 
   let progAccessDataRaw
-  // config/locales/programmatic_actor_fine_grained_resources.en.yml
   let progActorResources
   const progAccessFilepath = 'config/access_control/programmatic_access.yaml'
   const progActorFilepath = 'config/locales/programmatic_actor_fine_grained_resources.en.yml'
@@ -190,12 +180,30 @@ export async function getProgAccessData(progAccessSource) {
       userToServerRest: operation.user_to_server.enabled,
       serverToServer: operation.server_to_server.enabled,
       fineGrainedPat: operation.user_to_server.enabled && !operation.disabled_for_patv2,
-      permissions: operation.permission_sets || [],
+      permissions: isRest
+        ? getDisplayPermissions(operation.permission_sets || [], progActorResources)
+        : operation.permission_sets || [],
       allowPermissionlessAccess: operation.allows_permissionless_access,
       allowsPublicRead: operation.allows_public_read,
+      basicAuth: operation.basic_auth,
     }
   }
+
   return { progAccessData, progActorResources }
+}
+
+function getDisplayPermissions(permissionSets, progActorResources) {
+  const displayPermissions = permissionSets.map((permissionSet) => {
+    const displayPermissionSet = {}
+    Object.entries(permissionSet).forEach(([key, value]) => {
+      const { displayTitle } = getDisplayTitle(key, progActorResources, true)
+      displayPermissionSet[displayTitle] = value
+    })
+
+    return displayPermissionSet
+  })
+
+  return displayPermissions
 }
 
 function sortObjectByKeys(obj) {
@@ -224,15 +232,31 @@ function sortObjectByTitle(obj) {
     }, {})
 }
 
-function getDisplayTitle(title, resourceGroup) {
+function getDisplayTitle(permissionName, progActorResources, isRest = false) {
+  const tempTitle = permissionName.replace(/_/g, ' ')
+  const permissionNameExists = progActorResources[permissionName]
+  if (!permissionNameExists) {
+    console.warn(
+      `The permission ${permissionName} is missing from config/locales/programmatic_actor_fine_grained_resources.en.yml. Creating a placeholder value of ${tempTitle} until it's added.`,
+    )
+  }
+  const title = progActorResources[permissionName]?.title || tempTitle
+  const resourceGroup = progActorResources[permissionName]?.resource_group || ''
+
   if (!title) {
     console.warn(`No title found for title ${title} resource group ${resourceGroup}`)
     return ''
   }
 
-  return !resourceGroup
-    ? sentenceCase(title) + ' permissions'
-    : sentenceCase(resourceGroup) + ' permissions for ' + `"${title}"`
+  const displayTitle = isRest
+    ? !resourceGroup
+      ? sentenceCase(title) + ' permissions'
+      : `"${sentenceCase(title)}" ` + resourceGroup + ' permissions'
+    : !resourceGroup
+      ? sentenceCase(title) + ' permissions'
+      : sentenceCase(resourceGroup) + ' permissions for ' + `"${title}"`
+
+  return { title, displayTitle }
 }
 
 function sentenceCase(str) {

@@ -56,6 +56,6 @@ For an example of a real `SECURITY.md` file, see [https://github.com/electron/el
 
 ## Further reading
 
-- "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}
+* "[AUTOTITLE](/code-security/getting-started/securing-your-repository)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions)"{% ifversion fpt or ghec %}
+* [{% data variables.product.prodname_security %}]({% data variables.product.prodname_security_link %}){% endif %}

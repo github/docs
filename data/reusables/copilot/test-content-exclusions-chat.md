@@ -1,0 +1,1 @@
+1. Ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.

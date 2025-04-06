@@ -1,6 +1,6 @@
 ---
 title: Annotating code examples
-shortTitle: Annotating code examples
+shortTitle: Annotate code examples
 intro: "You can annotate longer code examples to explain how they work and how people can customize them for other uses."
 layout: inline
 versions:
@@ -27,23 +27,23 @@ You can annotate multiple code examples in a single article, but keep in mind th
 1. Create a code example using triple backticks.
 1. Specify a language for the code example after the triple backtick, followed by `annotate`. For example, ` ```yaml annotate` or ` ```ruby annotate`.
 1. Add annotations using comment tags (`#`, `//`, <code><&#33--</code>, `%%`) within the code example. You must use the comment tag for the language that the code sample is written in. For example, `#` for YAML and `//` for JavaScript.
-   - An annotated code example must start with a single line annotation. You can start with a blank annotation if you do not want to add an annotation to the first line of code.
-   - Annotations apply to the code from the line below the comment tag to the next comment tag or the end of the code block.
+   * An annotated code example must start with a single line annotation. You can start with a blank annotation if you do not want to add an annotation to the first line of code.
+   * Annotations apply to the code from the line below the comment tag to the next comment tag or the end of the code block.
 
 ### Annotation rules
 
 The following rules apply to all code annotations.
 
-- Multiline-style comments, such as `/*` are not supported.
-- You can include any number of spaces before the comment tag starts.
-- You can include any number of spaces after the comment tag ends.
-- To create a blank annotation, insert a comment tag with no text after it. Blank annotations are useful if some lines of a sample don't require an annotation.
-- Strings that begin with `#!` will render in the code block and are not treated as comments.
-- Anything after the comment tag will be parsed with Markdown. Links, versioning, and other styling will render as if they were written in Markdown.
-- Multiple sequential comments will create a single annotation.
-- Lines that do not start with a comment tag and are empty or only contain spaces will be ignored.
-- You must start the code section with a single line comment. If the first line (or section) of the code does not need an annotation, you can use a comment tag with no text to create a blank annotation.
-- For HTML style, you should include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting.
+* Multiline-style comments, such as `/*` are not supported.
+* You can include any number of spaces before the comment tag starts.
+* You can include any number of spaces after the comment tag ends.
+* To create a blank annotation, insert a comment tag with no text after it. Blank annotations are useful if some lines of a sample don't require an annotation.
+* Strings that begin with `#!` will render in the code block and are not treated as comments.
+* Anything after the comment tag will be parsed with Markdown. Links, versioning, and other styling will render as if they were written in Markdown.
+* Multiple sequential comments will create a single annotation.
+* Lines that do not start with a comment tag and are empty or only contain spaces will be ignored.
+* You must start the code section with a single line comment. If the first line (or section) of the code does not need an annotation, you can use a comment tag with no text to create a blank annotation.
+* For HTML style, you should include a closing tag, `<!-- -->`, after your annotations to maintain syntax highlighting.
 
 ## Code annotations best practices
 

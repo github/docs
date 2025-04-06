@@ -1,4 +1,4 @@
-import { main } from './start-server.js'
+import { main } from './start-server'
 
 try {
   await main()

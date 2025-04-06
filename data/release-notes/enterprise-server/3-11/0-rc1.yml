@@ -26,7 +26,7 @@ sections:
 
           - "[AUTOTITLE](/rest/overview/troubleshooting#insufficient-permissions-errors)"
           - "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)"
-          - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)
+          - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)"
 
     - heading: Audit logs
       notes:

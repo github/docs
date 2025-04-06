@@ -45,12 +45,12 @@ The network graph displays the branch history of the entire repository network, 
 ## Listing the forks of a repository
 
 The{% ifversion repositories-forks-page-improvement %} forks page {% else %} Members graph {% endif %} lists the forks of a repository. {% ifversion repositories-forks-page-improvement %}For each fork, you can see:
-- how many times the fork has been starred
-- the number of direct forks (of the fork)
-- the number of open issues
-- the number of open pull requests
-- when the fork was last updated (that is, the last push to any branch)
-- when the fork was created
+* how many times the fork has been starred
+* the number of direct forks (of the fork)
+* the number of open issues
+* the number of open pull requests
+* when the fork was last updated (that is, the last push to any branch)
+* when the fork was created
 
 You can filter the list of forks to display active, inactive, starred, or archived forks, or to only display forks that have been updated within a specified time period (up to a period of five years). To view the most useful or most active forks, you can sort the list of forks by most starred forks or most recently updated forks, or by the number of open issues or open pull requests.
 

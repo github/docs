@@ -19,10 +19,10 @@ You can enable or disable reported content for public repositories owned by an o
 {% data reusables.repositories.sidebar-moderation-reported-content %}
 1. Under "Reported content", select a reporting permissions setting, then click **Save**.
 
-   - **Prior contributors and collaborators** will be selected by default for repositories created after March 3, 2023.
+   * **Prior contributors and collaborators** will be selected by default for repositories created after March 3, 2023.
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)"
-- "[AUTOTITLE](/communities/moderating-comments-and-conversations)"
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations/managing-reported-content-in-your-organizations-repository)"
+* "[AUTOTITLE](/communities/moderating-comments-and-conversations)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)"

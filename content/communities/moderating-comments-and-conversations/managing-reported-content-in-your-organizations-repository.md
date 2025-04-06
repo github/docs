@@ -52,4 +52,4 @@ After you finish moderating disruptive content, you can mark the report as resol
 
 ## Further reading
 
-- "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)"
+* "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-management-and-moderation)"

@@ -20,9 +20,9 @@ redirect_from:
 {% ifversion fpt or ghec %}There are two types of advisories: global security advisories and repository security advisories. For more information about repository security advisories, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories)."{% endif %}
 
 Global security advisories are grouped into these categories: {% data variables.product.company_short %}-reviewed advisories,{% ifversion GH-advisory-db-supports-malware %} unreviewed advisories, and malware advisories{% else %} and unreviewed advisories{% endif %}.
-- {% data reusables.advisory-database.github-reviewed-overview %}
-- {% data reusables.advisory-database.unreviewed-overview %}{% ifversion GH-advisory-db-supports-malware %}
-- {% data reusables.advisory-database.malware-overview %}
+* {% data reusables.advisory-database.github-reviewed-overview %}
+* {% data reusables.advisory-database.unreviewed-overview %}{% ifversion GH-advisory-db-supports-malware %}
+* {% data reusables.advisory-database.malware-overview %}
 
 {% note %}
 

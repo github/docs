@@ -27,7 +27,7 @@ If the file or directory you deleted contains sensitive data, the data will stil
 ## Deleting a file
 
 1. Browse to the file in your repository that you want to delete.
-{% ifversion code-search-code-view %}
+{% ifversion code-view-ui %}
 1. In the top-right corner, select the {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %} dropdown menu, then click **Delete file**.
 
    ![Screenshot of the file list for a directory. To the right of the directory name, a button, labeled with a kebab icon, is outlined in dark orange.](/assets/images/help/repository/delete-file-button.png)

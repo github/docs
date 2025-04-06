@@ -1,10 +1,13 @@
-import { addError, forEachInlineChild } from 'markdownlint-rule-helpers'
+import { addError } from 'markdownlint-rule-helpers'
+
+import { forEachInlineChild } from '../helpers/utils.js'
 
 export const imageNoGif = {
   names: ['GHD036', 'image-no-gif'],
   description:
     'Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images',
   tags: ['images'],
+  parser: 'markdownit',
   function: (params, onError) => {
     forEachInlineChild(params, 'image', function forToken(token) {
       const imageFileName = token.attrs[0][1]

@@ -11,17 +11,17 @@ topics:
 shortTitle: About licenses
 ---
 
+{% ifversion metered-ghe-ghas %}
+
+{% data reusables.billing.usage-based-billing %}
+
+{% endif %}
+
 ## About licensing for {% data variables.product.prodname_enterprise %}
 
 {% data reusables.enterprise.about-deployment-methods %}
 
-{% ifversion ghec %}
-
-{% data reusables.enterprise.invoiced-customer-to-access-ghes %}
-
-{% endif %}
-
-{% data reusables.enterprise-licensing.unique-user-licensing-model %} For more information about per-user pricing, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)." For more about the price of {% data variables.product.prodname_enterprise %} licenses, see [Pricing](https://github.com/pricing) on the {% data variables.product.prodname_dotcom %} website.
+{% data reusables.enterprise-licensing.unique-user-licensing-model %} To understand how {% data variables.product.company_short %} bills you for consumed licensed seats, see "[AUTOTITLE](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing)." For more about the price of {% data variables.product.prodname_enterprise %} licenses, see [Pricing](https://github.com/pricing) on the {% data variables.product.prodname_dotcom %} website.
 
 To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} deployments.
 
@@ -45,6 +45,7 @@ If you have any questions about renewing your license, contact {% data variables
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
-- [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website
-- "[Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)"
+* "[AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)"
+* The [People that consume a license](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#people-that-consume-a-license)" section in "About per-user pricing"
+* "[Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)"
+* The [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website

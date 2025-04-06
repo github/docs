@@ -1,4 +1,4 @@
-1. On {% data variables.location.product_location %}, navigate to the main page of the repository or organization where you want to start a discussion.
+1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the repository or organization where you want to start a discussion.
 {% data reusables.discussions.discussions-tab %}
 1. On the right side of the page, click **New discussion**.
 1. Select a discussion category by clicking **Get started**.

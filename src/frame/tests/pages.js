@@ -1,18 +1,21 @@
-import { jest } from '@jest/globals'
 import path from 'path'
+
+import { beforeAll, describe, expect, test, vi } from 'vitest'
+import GithubSlugger from 'github-slugger'
+import { decode } from 'html-entities'
+import { chain, pick } from 'lodash-es'
+
 import { loadPages } from '#src/frame/lib/page-data.js'
 import libLanguages from '#src/languages/lib/languages.js'
 import { liquid } from '#src/content-render/index.js'
 import patterns from '#src/frame/lib/patterns.js'
-import GithubSlugger from 'github-slugger'
-import { decode } from 'html-entities'
-import { chain, pick } from 'lodash-es'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
+
 const languageCodes = Object.keys(libLanguages)
 const slugger = new GithubSlugger()
 
 describe('pages module', () => {
-  jest.setTimeout(60 * 1000)
+  vi.setConfig({ testTimeout: 60 * 1000 })
 
   let pages
 

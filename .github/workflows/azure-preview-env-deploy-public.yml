@@ -1,0 +1,163 @@
+name: Azure - Deploy Preview Environment (public)
+
+# NOTE! This is specifically and only for github/docs.
+
+# **What it does**: Build and deploy an Azure preview environment for this PR in github/docs
+# **Why we have it**: It's our preview environment deploy mechanism, to docs public repo
+# **Who does it impact**: All open source contributors.
+
+# !!!
+# ! This worflow has access to secrets, runs in the public repository, and clones untrusted user code.
+# ! Modify with extreme caution
+# !!!
+
+on:
+  pull_request_target:
+    # Note that if someone makes a PR that touches `Dockerfile`
+    # and `content/index.md`, this use of `paths` will still run.
+    # It would run even if we appended `- '!Dockerfile'` to the list.
+    # But if someone makes a PR that touches `Dockerfile` only, the
+    # workflow will not run.
+    paths:
+      - 'content/**'
+      - 'data/**'
+      - 'assets/**'
+  merge_group:
+
+permissions:
+  contents: read
+  deployments: write
+
+# This allows one deploy workflow to interrupt another
+concurrency:
+  group: 'preview-env @ ${{ github.head_ref || github.run_id }} for ${{ github.event.number || inputs.PR_NUMBER }}'
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy-azure-preview-public:
+    name: Build and deploy Azure preview environment (public)
+    runs-on: ubuntu-latest
+    if: github.repository == 'github/docs'
+    timeout-minutes: 15
+    environment:
+      name: preview-env-${{ github.event.number }}
+      # The environment variable is computer later in this job in
+      # the "Get preview app info" step.
+      # That script sets environment variables which is used by Actions
+      # to link a PR to a list of environments later.
+      url: ${{ env.APP_URL }}
+    env:
+      PR_NUMBER: ${{ github.event.number || github.run_id }}
+      COMMIT_REF: ${{ github.event.pull_request.head.sha }}
+      BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+      NONPROD_REGISTRY_USERNAME: ghdocs
+
+    steps:
+      - name: 'Az CLI login'
+        uses: azure/login@6c251865b4e6290e7b78be643ea2d005bc51f69a # pin @v2
+        with:
+          creds: ${{ secrets.NONPROD_AZURE_CREDENTIALS }}
+
+      - name: 'Docker login'
+        uses: azure/docker-login@15c4aadf093404726ab2ff205b2cdd33fa6d054c
+        with:
+          login-server: ${{ secrets.NONPROD_REGISTRY_SERVER }}
+          username: ${{ env.NONPROD_REGISTRY_USERNAME }}
+          password: ${{ secrets.NONPROD_REGISTRY_PASSWORD }}
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@988b5a0280414f521da01fcc63a27aeeb4b104db
+
+      - name: Check out main branch
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          ref: 'main'
+          persist-credentials: 'false'
+
+      - name: Get preview app info
+        env:
+          APP_NAME_SEED: ${{ secrets.PREVIEW_ENV_NAME_SEED }}
+        run: src/workflows/get-preview-app-info.sh
+
+      - name: 'Set env vars'
+        run: |
+          # Image tag is unique to each workflow run so that it always triggers a new deployment
+          echo "DOCKER_IMAGE=${{ secrets.NONPROD_REGISTRY_SERVER }}/${IMAGE_REPO}:${{ env.COMMIT_REF }}-${{ github.run_number }}-${{ github.run_attempt }}" >> $GITHUB_ENV
+
+      - name: Check out user code to temp directory
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          path: ./user-code
+          ref: ${{ env.COMMIT_REF }}
+
+      # Move acceptable user changes into our main branch checkout
+      - name: Move acceptable user changes
+        run: |
+          # Make sure recursive path expansion is enabled
+          shopt -s globstar
+          rsync -rptovR ./user-code/content/./**/*.md ./content
+          rsync -rptovR ./user-code/assets/./**/*.png ./assets
+          rsync -rptovR ./user-code/data/./**/*.{yml,md} ./data
+
+      - uses: ./.github/actions/warmup-remotejson-cache
+        with:
+          restore-only: true
+
+      - uses: ./.github/actions/precompute-pageinfo
+        with:
+          restore-only: true
+
+      # In addition to making the final image smaller, we also save time by not sending unnecessary files to the docker build context
+      - name: 'Prune for preview env'
+        run: src/workflows/prune-for-preview-env.sh
+
+      - name: 'Build and push image'
+        uses: docker/build-push-action@16ebe778df0e7752d2cfcbd924afdbbd89c1a755
+        with:
+          context: .
+          push: true
+          target: preview
+          tags: ${{ env.DOCKER_IMAGE }}
+          # we only pull the `main` cache image
+          cache-from: type=registry,ref=${{ secrets.NONPROD_REGISTRY_SERVER }}/${{ github.repository }}:main-preview
+          # `main-docker-cache.yml` handles updating the remote cache so we don't pollute it with PR specific code
+          cache-to: ''
+          build-args: |
+            BUILD_SHA=${{ env.COMMIT_REF }}
+
+      # Succeed despite any non-zero exit code (e.g. if there is no deployment to cancel)
+      - name: 'Cancel any existing deployments for this PR'
+        run: |
+          az deployment group cancel --name ${{ env.DEPLOYMENT_NAME }} -g ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }} || true
+
+      # Deploy ARM template is idempotent
+      # Note: once the resources exist the image tag must change for a new deployment to occur (the image tag includes workflow run number, run attempt, as well as sha)
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@a1361c2c2cd398621955b16ca32e01c65ea340f5
+        with:
+          scope: resourcegroup
+          resourceGroupName: ${{ secrets.PREVIEW_ENV_RESOURCE_GROUP }}
+          subscriptionId: ${{ secrets.NONPROD_SUBSCRIPTION_ID }}
+          template: ./src/workflows/azure-preview-env-template.json
+          deploymentName: ${{ env.DEPLOYMENT_NAME }}
+          parameters: appName="${{ env.APP_NAME }}"
+            containerImage="${{ env.DOCKER_IMAGE }}"
+            dockerRegistryUrl="${{ secrets.NONPROD_REGISTRY_SERVER }}"
+            dockerRegistryUsername="${{ env.NONPROD_REGISTRY_USERNAME }}"
+            dockerRegistryPassword="${{ secrets.NONPROD_REGISTRY_PASSWORD }}"
+
+      - name: Check that it can be reached
+        # This introduces a necessary delay. Because the preview evironment
+        # URL is announced to the pull request as soon as all the steps
+        # finish, what sometimes happens is that a viewer of the PR clicks
+        # that link too fast and are confronted with a broken page.
+        # It's because there's a delay between the `azure/arm-deploy`
+        # and when the server is actually started and can receive and
+        # process requests.
+        # By introducing a slight "delay" here we avoid announcing a
+        # preview environment URL that isn't actually working just yet.
+        # Note the use of `--fail`. It which means that if it actually
+        # did connect but the error code was >=400, the command will fail.
+        # The `--fail --retry N` combination means that a 4xx response
+        # code will exit immediately but a 5xx will exhaust the retries.
+        run: curl --fail --retry-connrefused --retry 5 -I ${{ env.APP_URL }}

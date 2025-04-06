@@ -1,0 +1,4 @@
+# Issue 15735 - Secret scanning push protection bypasses show branch and file path information [GA]
+versions:
+  ghec: '*'
+  ghes: '>=3.16'

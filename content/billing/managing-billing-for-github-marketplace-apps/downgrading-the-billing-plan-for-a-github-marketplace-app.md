@@ -58,4 +58,4 @@ When you downgrade an app, your subscription remains active until the end of you
 
 ## Further reading
 
-- "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app)"
+* "[AUTOTITLE](/billing/managing-billing-for-github-marketplace-apps/canceling-a-github-marketplace-app)"

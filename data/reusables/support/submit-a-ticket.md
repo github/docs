@@ -11,12 +11,30 @@
    {% note %}
 
    **Notes:**
-   - For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
-   - To see a list of your enterprise accounts with a {% data variables.contact.premium_support %} plan, you must be signed into the {% data variables.contact.enterprise_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal)."
+   * For Premium, Premium Plus, or Engineering Direct support, you need to choose an enterprise account with a {% data variables.contact.premium_support %} plan. If you don't see an Enterprises section in the dropdown menu, you're not entitled to open support tickets on behalf of an enterprise account. For more information, see "[AUTOTITLE](/support/learning-about-github-support/about-github-support#about-support-entitlement)"
+   * To see a list of your enterprise accounts with a {% data variables.contact.premium_support %} plan, you must be signed into the {% data variables.contact.enterprise_portal %}. For more information, see "[AUTOTITLE](/support/contacting-github-support/getting-your-enterprise-started-with-the-github-support-portal)."
 
    {% endnote %}
 {% endif %}
 1. Select the **From** dropdown menu and click the email address you'd like {% data variables.contact.github_support %} to contact.
+
+{%- ifversion ghec or ghes %}
+
+   Adding CC emails to your ticket:
+      - An admin or a support entitled user can add up to 10 additional email addresses to a ticket on CC directly from the ticket form.
+     - To add more email addresses, loop them in directly via email.
+
+   CC recipients’ abilities:
+     - Those on CC can read every conversation and attachment related to the ticket.
+     - They can also send a reply to the ticket.
+  
+   Support Portal visibility:
+     - CCing an email address does not automatically display the ticket in the support portal for that email address.
+
+   Admins, support entitled users:
+      - Admins and support entitled users can view tickets created by members of their enterprise or organization on the portal. However, they still need to be CC’d on such tickets to be able to comment on them.
+{%- endif %}
+
 {%- ifversion ghec or ghes %}
 1. Select the **Product** dropdown menu and click {% ifversion ghes %}**{% data variables.product.prodname_ghe_server %} (self-hosted)**{% else %}**{% data variables.product.prodname_ghe_cloud %}**{% endif %}.
 {%- endif %}
@@ -42,9 +60,9 @@
 1. Under "How can we help", provide any additional information that will help the Support team troubleshoot the problem. You can use markdown to format your message.
 
    Helpful information may include:
-    - Steps to reproduce the issue
-    - Any special circumstances surrounding the discovery of the issue (for example, the first occurrence or occurrence after a specific event, frequency of occurrence, business impact of the problem, and suggested urgency)
-    - Exact wording of error messages
+    * Steps to reproduce the issue
+    * Any special circumstances surrounding the discovery of the issue (for example, the first occurrence or occurrence after a specific event, frequency of occurrence, business impact of the problem, and suggested urgency)
+    * Exact wording of error messages
 
    You can attach files up to 50MB.{% ifversion ghes %} For larger attachments, such as support bundles, see "[AUTOTITLE](/support/contacting-github-support/providing-data-to-github-support#creating-and-sharing-support-bundles)."{% endif %}
 

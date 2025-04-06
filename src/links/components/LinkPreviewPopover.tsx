@@ -72,6 +72,7 @@ function getOrCreatePopoverGlobal() {
     // focus trapped
     wrapper.setAttribute('role', 'dialog')
     wrapper.setAttribute('aria-modal', 'true')
+    wrapper.setAttribute('aria-label', 'user hovercard')
     wrapper.setAttribute('aria-labelledby', TITLE_ID)
 
     // this extra element and its event listener are used to help us direct
@@ -97,6 +98,7 @@ function getOrCreatePopoverGlobal() {
     product.classList.add('color-fg-muted')
 
     const headingLink = document.createElement('a')
+    headingLink.style.textDecoration = 'underline'
     headingLink.href = ''
     // the id is necessary since we're intercepting natural focus order,
     // so when focus enters the topBumper, we'll manually move it to the link
@@ -306,7 +308,13 @@ function fillPopover(
         // All a.href attributes are always full absolute URLs, as a string.
         // We assume that the "product landing page" is the first
         // portion of all links.
-        productHeadLink.href = linkURL.pathname.split('/').slice(0, 3).join('/')
+        const regex = /^\/(?<lang>\w{2}\/)?(?<version>[\w-]+@[\w-.]+\/)?(?<product>[\w-]+\/)?/
+        const match = regex.exec(linkURL.pathname)
+        if (match?.groups) {
+          const { lang, version, product } = match.groups
+          const productURL = [lang, version, product].map((n) => n || '').join('')
+          productHeadLink.href = `${linkURL.origin}/${productURL}`
+        }
         productHead.style.display = 'block'
       }
     } else {

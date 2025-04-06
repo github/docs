@@ -1,9 +1,12 @@
 import { visit, SKIP } from 'unist-util-visit'
+import { IMAGE_DENSITY } from '../../assets/lib/image-density.js'
 
 // This number must match a width we're willing to accept in a dynamic
 // asset URL.
 // (note this is exported for the sake of end-to-end tests' assertions)
 export const MAX_WIDTH = 1440
+
+const DEFAULT_IMAGE_DENSITY = '2x'
 
 // Matches any <img> tags with an href that starts with `/assets/`
 const matcher = (node) =>
@@ -32,11 +35,16 @@ export default function rewriteAssetImgTags() {
       if (node.properties.src.endsWith('.png')) {
         const copyPNG = structuredClone(node)
 
+        const originalSrc = node.properties.src
+        const originalSrcWithoutCb = originalSrc.replace(/cb-\w+\//, '')
+        const webpSrc = injectMaxWidth(node.properties.src.replace(/\.png$/, '.webp'), MAX_WIDTH)
+        const srcset = `${webpSrc} ${IMAGE_DENSITY[originalSrcWithoutCb] || DEFAULT_IMAGE_DENSITY}`
+
         const sourceWEBP = {
           type: 'element',
           tagName: 'source',
           properties: {
-            srcset: injectMaxWidth(node.properties.src.replace(/\.png$/, '.webp'), MAX_WIDTH),
+            srcset,
             type: 'image/webp',
           },
           children: [],

@@ -55,7 +55,7 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites' // eslint-disable-line import/no-extraneous-dependencies
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' // eslint-disable-line import/no-extraneous-dependencies
 import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
 
 program
@@ -191,23 +191,20 @@ async function main(options: Options, language: string) {
     return a.name.localeCompare(b.name)
   })
 
-  // At the moment, our chosen business logic is that we omit the Autofix
-  // column if there are no queries that support it.
-  // In a future rendition we might revisit this to make it configurable
-  // instead.
-  const includeAutofix = entries.some((query) => query.autofixSupport !== 'none')
-  console.warn(`${includeAutofix ? 'Including' : 'Excluding'} 'Autofix' column for ${language}`)
-  printQueries(options, entries, includeAutofix)
+  printQueries(options, entries)
 }
 
-function printQueries(options: Options, queries: QueryExtended[], includeAutofix: boolean) {
+function printQueries(options: Options, queries: QueryExtended[]) {
   const markdown: string[] = []
   markdown.push('{% rowheaders %}')
   markdown.push('') // blank line
-  const header = ['Query name', 'Related CWEs', 'Default', 'Extended']
-  if (includeAutofix) {
-    header.push('Autofix')
-  }
+  const header = [
+    'Query name',
+    'Related CWEs',
+    'Default',
+    'Extended',
+    '{% data variables.product.prodname_copilot_autofix_short %}',
+  ]
   markdown.push(`| ${header.join(' | ')} |`)
   markdown.push(`| ${header.map(() => '---').join(' | ')} |`)
 
@@ -219,10 +216,7 @@ function printQueries(options: Options, queries: QueryExtended[], includeAutofix
     const defaultIcon = query.inDefault ? includedOcticon : notIncludedOcticon
     const extendedIcon = query.inExtended ? includedOcticon : notIncludedOcticon
     const autofixIcon = query.inAutofix ? includedOcticon : notIncludedOcticon
-    const row = [markdownLink, query.cwes.join(', '), defaultIcon, extendedIcon]
-    if (includeAutofix) {
-      row.push(autofixIcon)
-    }
+    const row = [markdownLink, query.cwes.join(', '), defaultIcon, extendedIcon, autofixIcon]
     markdown.push(`| ${row.join(' | ')} |`)
   }
   markdown.push('') // blank line

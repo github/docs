@@ -1,0 +1,1 @@
+If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 2 minutes. Any existing unfinished connections at this time will be disconnected.

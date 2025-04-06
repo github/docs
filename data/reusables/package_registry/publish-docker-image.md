@@ -2,8 +2,8 @@
 
 **Notes:**
 
-- {% data reusables.actions.actions-not-certified-by-github %}
-- {% data reusables.actions.actions-use-sha-pinning %}
+* {% data reusables.actions.actions-not-certified-by-github %}
+* {% data reusables.actions.actions-use-sha-pinning %}
 
 {% endnote %}
 
@@ -29,6 +29,8 @@ jobs:
     permissions:
       contents: read
       packages: write
+      {% ifversion artifact-attestations %}attestations: write{% endif %}
+      {% ifversion artifact-attestations %}id-token: write{% endif %}
       # 
     steps:
       - name: Checkout repository
@@ -50,10 +52,20 @@ jobs:
       # It uses the `context` parameter to define the build's context as the set of files located in the specified path. For more information, see "[Usage](https://github.com/docker/build-push-action#usage)" in the README of the `docker/build-push-action` repository.
       # It uses the `tags` and `labels` parameters to tag and label the image with the output from the "meta" step.
       - name: Build and push Docker image
+        id: push
         uses: docker/build-push-action@f2a1d5e99d037542a71f64918e516c093c6f3fc4
         with:
           context: .
           push: true
           tags: {% raw %}${{ steps.meta.outputs.tags }}{% endraw %}
           labels: {% raw %}${{ steps.meta.outputs.labels }}{% endraw %}
+      {% ifversion artifact-attestations %}
+      # This step generates an artifact attestation for the image, which is an unforgeable statement about where and how it was built. It increases supply chain security for people who consume the image. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)." 
+      - name: Generate artifact attestation
+        uses: actions/attest-build-provenance@v1
+        with:
+          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
+          push-to-registry: true
+      {% endif %}
 ```

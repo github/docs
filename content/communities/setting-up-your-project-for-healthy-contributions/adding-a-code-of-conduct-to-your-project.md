@@ -16,8 +16,8 @@ A _code of conduct_ defines standards for how to engage in a community. It signa
 
 Before adopting a code of conduct for your project:
 
-- Research different codes of conduct designed for open source projects. Choose one that reflects your community's standards.
-- Consider carefully whether you are willing and able to enforce it.
+* Research different codes of conduct designed for open source projects. Choose one that reflects your community's standards.
+* Consider carefully whether you are willing and able to enforce it.
 
 You can add a code of conduct to your project by using a template or manually creating a custom code of conduct. Your code of conduct will be available either way, but "Code of conduct" will only be marked as complete in your repository's community profile if you use a template. If you use a code of conduct written by another person or organization, be sure to follow any attribution guidelines from the source. For more information about community profiles, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/about-community-profiles-for-public-repositories)."
 
@@ -47,9 +47,9 @@ If the code of conduct you want to use isn't available in the provided templates
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
 1. In the file name field, type the name and extension for the file.
-    - To make your code of conduct visible in the repository's root directory, type _CODE_OF_CONDUCT_ in the file name field.
-    - To make your code of conduct visible in the repository's `docs` directory, type _docs/CODE_OF_CONDUCT_.
-    - To make your code of conduct visible in the repository's `.github` directory, type _.github/CODE_OF_CONDUCT_.
+    * To make your code of conduct visible in the repository's root directory, type _CODE_OF_CONDUCT_ in the file name field.
+    * To make your code of conduct visible in the repository's `docs` directory, type _docs/CODE_OF_CONDUCT_.
+    * To make your code of conduct visible in the repository's `.github` directory, type _.github/CODE_OF_CONDUCT_.
 1. In the new file, add your custom code of conduct.
 {% data reusables.files.write_commit_message %}
 {% data reusables.files.choose_commit_branch %}

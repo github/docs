@@ -1,3 +1,5 @@
+import { afterAll, beforeAll, describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { raiReusableUsage } from '../../lib/linting-rules/rai-reusable-usage.js'
 

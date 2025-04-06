@@ -16,8 +16,8 @@ shortTitle: Search GitHub Marketplace
 
 You can find apps and actions on {% data variables.product.prodname_marketplace %} in two ways:
 
-- Search from in {% data variables.product.prodname_marketplace %}.
-- Search across all of {% data variables.product.prodname_dotcom_the_website %} and then filter the results.
+* Search from in {% data variables.product.prodname_marketplace %}.
+* Search across all of {% data variables.product.prodname_dotcom_the_website %} and then filter the results.
 
 ## Searching in {% data variables.product.prodname_marketplace %}
 
@@ -36,8 +36,8 @@ Anytime you search across all of {% data variables.product.prodname_dotcom_the_w
 
 ## Further reading
 
-- "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
-- "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)"
-- "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)"
-- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)"
-- "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)"
+* "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions)"
+* "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account)"
+* "[AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations)"
+* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-personal-account)"
+* "[AUTOTITLE](/apps/oauth-apps/using-oauth-apps/installing-an-oauth-app-in-your-organization)"

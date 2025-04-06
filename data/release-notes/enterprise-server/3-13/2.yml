@@ -1,0 +1,171 @@
+date: '2024-07-19'
+intro: |
+
+    >[!NOTE] Due to a bug that caused hotpatch upgrades to fail for instances on Microsoft Azure, the previous patch release in this series (**3.13.1**) is not available for download. The following release notes include the updates introduced in that release.
+sections:
+  security_fixes:
+    - |
+      **HIGH**: An attacker could cause unbounded resource exhaustion on the instance by sending a large payload to the Git server. To mitigate this issue, GitHub has limited the count of "have" and "want" lines for Git read operations. GitHub has requested CVE ID [CVE-2024-5795](https://www.cve.org/cverecord?id=CVE-2024-5795) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An improper privilege management vulnerability allowed users to migrate private repositories without having appropriate scopes defined on the related {% data variables.product.pat_generic %}. GitHub has requested CVE ID [CVE-2024-5566](https://www.cve.org/cverecord?id=CVE-2024-5566) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An attacker could have unauthorized access in a public repository using a suspended GitHub App via a scoped user access token. This was only exploitable in public repositories while private repositories were not impacted. GitHub has requested CVE ID [CVE-2024-5816](https://www.cve.org/cverecord?id=CVE-2024-5816) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **MEDIUM:** An attacker could execute a Cross Site Request Forgery (CSRF) attack to perform write operations on a victim-owned repository in GitHub Enterprise Server by exploiting incorrect request types. A mitigating factor is that the attacker has to be a trusted user and the victim has to visit a tag in the attacker's fork of their own repository. GitHub has requested CVE ID [CVE-2024-5815](https://nvd.nist.gov/vuln/detail/CVE-2024-5815) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      **MEDIUM:** An attacker could disclose the name of a private repository on the GitHub Enterprise Server appliance when the private repository has a deploy key associated to it. GitHub has requested CVE ID [CVE-2024-6395](https://www.cve.org/cverecord?id=CVE-2024-6395) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com).
+    - |
+      **LOW:** Instance administrators could see fine-grained {% data variables.product.pat_generic_plural %} in plaintext in the babeld and gitauth logs.
+    - |
+      **LOW:** An attacker with read access to a project could use the REST API to view a list of all members in an organization, including members who had made their membership private. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
+    - |
+      **LOW:** An attacker could include MathJax syntax in Markdown to bypass GitHubs normal restrictions on CSS properties in Markdown. This vulnerability was reported via the [GitHub Bug Bounty](https://bounty.github.com/) program.
+    - |
+      **MEDIUM:** An attacker could have unauthorized read access to issue content inside an internal repository via GitHub projects. This attack required attacker access to the corresponding project board. GitHub has requested CVE ID [CVE-2024-5817](https://nvd.nist.gov/vuln/detail/CVE-2024-5817) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      An attacker could access previously executed private required workflows by changing the repository visibility from private to public. This occurred despite the repositories with the required workflows remaining private. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      A user without the enterprise owner role could view all secret scanning alerts for user-owned repositories using the REST API. Alerts in user-owned repositories are now properly restricted to only be visible to enterprise owners.
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      When an instance hosted on Azure was upgraded with a hotpatch, the upgrade failed with an `rsync` error.
+    - |
+      On an instance with GitHub Actions enabled, remote blob storage could fill up with large amounts of data because cleanup jobs were skipped on old hosts.
+    - |
+      The `ghe-cluster-repl-status` command could be run on instance configurations other than high-availability clusters, resulting in an incorrect or incomplete status.
+    - |
+      The threshold set by `server_rejoin_age_max` for single-node GHES deployments was too low.
+    - |
+      On an instance in a cluster configuration, former primary nodes were able to access the newly promoted nodes after failover.
+    - |
+      In some cases, commands run in an administrative SSH shell were not written to the audit log.
+    - |
+      When an administrator submitted support data to GitHub Support, spokesd keys were incorrectly sanitized.
+    - |
+      When log forwarding was enabled, some specific service logs, including babeld, gitauth, unicorn, and resqued, were duplicated.
+    - |
+      During the initial boot of an instance, a data disk attached as `/dev/sdb` may not have been recognized as an available disk.
+    - |
+      In a high availablity configuration, running `ghe-repl-node` multiple times from a node that didnt have replication running had the potential to overwrite the configuration on the primary node.
+    - |
+      Configuration history is only generated for instances in a cluster, high availability (HA) cluster, or standalone HA configuration. The current node must be a primary or replica node with replication running.
+    - |
+      In some cases, the HAProxy `kill_timeout` setting caused service outages during upgrades or large transactions.
+    - |
+      The `ssh-audit-log.sh` script did not effectively log SSH commands, and the `ghe-sanitize-log.psed` script inadequately sanitized password-related logs.
+    - |
+      For an instance running on Microsoft Azure, the user disk service failed to start because the attached volume could not be found.
+    - |
+      When analyzing a repository with code scanning, the extractor logs only contained warnings and errors for some languages.
+    - |
+      The `GitHub Desktop` option in the `Open with...` edit menu was not shown unless `github.dev` was also enabled.
+    - |
+      When transferring a repository, the required properties for one organization continued to be displayed even after a user chose a different owner.
+    - |
+      Establishing a new GitHub Connect connection could fail with a 500 error.
+    - |
+      When using `ghe-migrator` to migrate a repository, the links for pull requests merge commits were not imported.
+    - |
+      When a user used the REST API endpoints that returned secret scanning alerts at the repository or organization level with non-cursor-based pagination (for example, without `before` or `after` query parameters), the REST API endpoints for secret scanning returned incorrect `Link` headers.
+    - |
+      On certain branch names, the branch info bar was causing frozen string errors.
+    - |
+      On instances with SAML authentication configured, users were unable to sign out and became stuck in an infinite SAML SSO loop.
+    - |
+      On instances with SCIM enabled, the administrator was unable to view users without an external identity record (for example, because they were provisioned before SCIM was enabled on the instance) in stafftools.
+    - |
+      On instances enrolled in the SCIM private beta, built-in authentication users can be added to organizations and teams. Organization owners will no longer see the misleading message that the organization membership is managed by the SAML identity provider when updating organization memberships.
+    - |
+      Enterprise owners managed by an identity provider were asked to authenticate within GitHub when performing privileged actions.
+    - |
+      On an instance that restricts emails to verified domains, secret scanning emails would sometimes be sent to an unverified domain.
+    - |
+      In some cases, on the "Files" tab of a pull request, a comment on the first line did not render.
+    - |
+      Some organizations were not recognized as part of an instance's enterprise account.
+    - |
+      Some users would encounter an error when navigating to their personal security settings page at `https://HOSTNAME/settings/security`.
+    - |
+      The `SpokesSyncCacheReplicaJob` could not initialize in some cases, resulting in an exception when handling the error.
+    - |
+      In the sidebar menu that is displayed when a user clicks their profile picture, users who are not enterprise owners saw an "Enterprise settings" option, linking to the main page of an enterprise. This option is now labeled "Your enterprise".
+    - |
+      On the "Code scanning" page of a repository, the branch filter did not correctly display all branches.
+    - |
+      The video player did not load a video that was uploaded to an issue.
+    - |
+      The warning message `irb: warn: cant alias delete from irb_delete` would appear during Support Bundle creation and upload.
+    - |
+      When including a `.gitignore` or `README.md` file on repository creation failed due to a ruleset or pre-receive hook, no error message displayed.
+    - |
+      On an instance with a GitHub Advanced Security license, requests to the `/enterprises/{enterprise}/settings/billing/advanced-security` REST API endpoint could fail due to timeout.
+    - |
+      The global enterprise overview page contained a "Give feedback" link that was only intended for GitHub Enterprise Cloud.
+    - |
+      Organizations named "C" were incorrectly routed to the GitHub Enterprise Server contact page instead of their organization page.
+    - |
+      On an instance with a GitHub Advanced Security license, commits made by users who do not belong to an organization were not counted.
+    - |
+      Due to a regression, adding `../` when editing a files name did not result in the file being moved up a directory level.
+    - |
+      When servers responded with unsupported characters, webhook deliveries were not displayed in the UI.
+    - |
+      Chat integrations required frequent reauthentication, as a result of new app installations overwriting previous ones.
+    - |
+      On an instance in a cluster configuration, the `ghe-spokesctl ssh` command did not select the correct Nomad container when running a command within a git repository.
+    - |
+      On an instance with a GitHub Advanced Security license, contributions were not tracked on public repositories.
+    - |
+      The "Adjust configuration" step failed when enabling code scanning with default setup on self-hosted Windows runners.
+    - |
+      Migration of the `issue_edits` table caused intermittent failures during the upgrade to GitHub Enterprise Server version 3.13, resulting in the error message `ActiveRecord::ConcurrentMigrationError: Failed to release advisory lock.` [Updated: 2024-08-14]
+  changes:
+    - |
+      In a high availability configuration, users can only run `ghe-config-apply` or `ghe-cluster-config-apply` on a replica node if replication is already running (from `ghe-repl-start`). If replication isnt running on the node, the user will be instructed to start replication.
+    - |
+      Configuration history has been extended. When `ghe-config-apply`, `ghe-cluster-config-apply`, or `ghe-config-archive` is run: `secrets.conf` is captured, a sha256sum for each of the current configuration files is included, the existing patch that is generated includes `secrets.conf`, and an additional sanitized patch that excludes `secrets.conf` is also generated.
+    - |
+      The timeout for requests made to the REST API endpoints for secret scanning has been extended.
+    - |
+      A more specific error message is shown when a non-provisioned user tried to sign in to an instance with SCIM enabled.
+    - |
+      A more specific error message is shown when a deprovisioned user attempts signing into an instance with SCIM enabled.
+    - |
+      In the audit logs, administrators can see more context for failed user authentication attempts using LDAP.
+    - |
+      The system logs provide more context for authentication failures related to multi-factor authentication.
+    - |
+      When using the `ghe-webhook-logs` utility, webhook delivery logs can be filtered by event and action. Users can use `ghe-webhook-logs --event issues` to filter by event, or `ghe-webhook-logs --event issues.opened` to filter by event and action.
+    - |
+      To avoid excessive log volume and associated disk pressure, requests for `GetCacheKey` are no longer logged. Previously, the high frequency of these requests caused significant log accumulation.
+  known_issues:
+    - |
+      When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the Elasticsearch indices need to be reindexed before some data will appear. This happens via a nightly scheduled job. It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      Custom firewall rules are removed during the upgrade process.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
+      Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
+    - |
+      For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
+    - |
+      `TokenScanningServiceMetricsApiError` errors may appear after the upgrade.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Memory utilization may increase after the upgrade. During periods of high traffic, interruptions in service may occur due to insufficient memory allocations for internal components.
+    - |
+      Running a config apply as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
+    - |
+      Following an upgrade, Elasticsearch search migrations are sometimes incorrectly reported as failing in the audit log, even though the migrations completed successfully. [Updated: 2024-08-02]

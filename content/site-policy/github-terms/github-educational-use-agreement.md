@@ -102,7 +102,7 @@ You agree: (i) not to resell the GitHub Products, or to charge any service or ot
 
 ### 3.2 GitHub Product Support.
 
-GitHub’s obligation to provide technical or other support to Qualified Users is limited to that described in the [GitHub Customer Agreement](https://github.com/customer-terms) or as set forth in an Order Form. GitHub shall have no liability to you or any Qualified Users for loss or damages arising from or relating to use and access of the Services.
+GitHub is not obligated to provide any technical or other support to Qualified Users unless specifically set forth in an Order Form. GitHub shall have no liability to you or any Qualified Users for loss or damages arising from or relating to use and access of the Services.
 
 ## 4. Trademark Release.
 

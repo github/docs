@@ -23,12 +23,12 @@ The REST API might not provide all of the data that you want, and requires some 
 
 You can download CSV files that report the following information:
 
-- All users
-- All active users
-- All [dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)
-- All users who have been suspended
-- All organizations
-- All repositories
+* All users
+* All active users
+* All [dormant users](/admin/user-management/managing-users-in-your-enterprise/managing-dormant-users)
+* All users who have been suspended
+* All organizations
+* All repositories
 
 ## Downloading reports programmatically
 

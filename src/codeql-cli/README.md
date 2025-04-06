@@ -24,9 +24,9 @@ To run the CodeQL CLI pipeline locally:
 
 ## About this directory
 
-- `src/rest/lib/config.json` - A configuration file used to specify metadata about the REST pipeline.
-- `src/rest/scripts` - The scripts and source code used run the CodeQL CLI pipeline. 
-  - `src/rest/scripts/sync.js` - The entrypoint script that runs the CodeQL CLI pipeline.
+- `src/codeql-cli/lib/config.json` - A configuration file used to specify metadata about the CodeQL CLI pipeline.
+- `src/codeql-cli/scripts` - The scripts and source code used run the CodeQL CLI pipeline. 
+  - `src/codeql-cli/scripts/sync.js` - The entrypoint script that runs the CodeQL CLI pipeline.
 
 ## Content team
 

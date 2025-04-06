@@ -24,8 +24,8 @@ To track where your sponsorships are coming from, you can use custom URLs with m
 
 Metadata must use the `key=value` format and can be added to the end of these URLs.
 
-- Sponsored account profile: `https://github.com/sponsors/{account}`
-- Sponsorship checkout: `https://github.com/sponsors/{account}/sponsorships`
+* Sponsored account profile: `https://github.com/sponsors/{account}`
+* Sponsorship checkout: `https://github.com/sponsors/{account}/sponsorships`
 
 The metadata will persist in the URL as a potential sponsor switches accounts to sponsor with, selects monthly or one-time payments, and chooses a different tier.
 
@@ -33,12 +33,12 @@ The metadata will persist in the URL as a potential sponsor switches accounts to
 
 Your metadata must meet the following requirements, which do not apply to any other URL parameters that are passed.
 
-- Keys must be prefixed by `metadata_`, such as `metadata_campaign`. In your transaction export, the `metadata_` prefix will be removed from the key.
-- Keys and values must only contain alphanumeric values, dashes, or underscores. If non-accepted characters are passed in either keys or values, a 404 error will be presented.
-- Whitespaces are not allowed.
-- A maximum of **10** key-value pairs are accepted per request. If more are passed, only the first 10 will be saved.
-- A maximum of **25** characters per key are accepted. If more than that are passed, only the first 25 will be saved.
-- A maximum of **100** characters per value are accepted. If more than that are passed, only the first 100 will be saved.
+* Keys must be prefixed by `metadata_`, such as `metadata_campaign`. In your transaction export, the `metadata_` prefix will be removed from the key.
+* Keys and values must only contain alphanumeric values, dashes, or underscores. If non-accepted characters are passed in either keys or values, a 404 error will be presented.
+* Whitespaces are not allowed.
+* A maximum of **10** key-value pairs are accepted per request. If more are passed, only the first 10 will be saved.
+* A maximum of **25** characters per key are accepted. If more than that are passed, only the first 25 will be saved.
+* A maximum of **100** characters per value are accepted. If more than that are passed, only the first 100 will be saved.
 
 For example, you can use `https://github.com/sponsors/{account}?metadata_campaign=myblog` to track sponsorships that originate from your blog. `metadata_campaign` is the key and `myblog` is the value. In the metadata column of your transaction export, the key will be listed as `campaign`.
 

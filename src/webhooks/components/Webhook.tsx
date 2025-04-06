@@ -167,25 +167,20 @@ export function Webhook({ webhook }: Props) {
           <div className="mb-4">
             <div className="mb-3">
               <ActionMenu>
-                <ActionMenu.Button
-                  aria-label="Select a webhook action type"
-                  className="text-normal"
-                >
+                <ActionMenu.Button className="text-normal">
                   {t('action_type')}: <span className="text-bold">{currentWebhookActionType}</span>
                 </ActionMenu.Button>
                 <ActionMenu.Overlay>
                   <ActionList selectionVariant="single">
-                    {webhook.actionTypes.map((type, index) => {
-                      return (
-                        <ActionList.Item
-                          selected={index === selectedActionTypeIndex}
-                          key={`${webhook.name}-${type}`}
-                          onSelect={() => handleActionTypeChange(type, index)}
-                        >
-                          {type}
-                        </ActionList.Item>
-                      )
-                    })}
+                    {webhook.actionTypes.map((type, index) => (
+                      <ActionList.Item
+                        key={`${webhook.name}-${type}`}
+                        selected={index === selectedActionTypeIndex}
+                        onSelect={() => handleActionTypeChange(type, index)}
+                      >
+                        {type}
+                      </ActionList.Item>
+                    ))}
                   </ActionList>
                 </ActionMenu.Overlay>
               </ActionMenu>

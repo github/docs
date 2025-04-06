@@ -21,9 +21,9 @@ If you have remaining monthly included usage of {% data variables.product.prodna
 You can also create a codespace for any private repository to which you have at least read access, provided this private repository is owned by a personal account. If a repository is private {% ifversion ghec %}or internal {% endif %}and is owned by an organization, you may or may not be able to create a codespace for that repository, depending on the settings of the organization or its parent enterprise.
 
 If you can't create a codespace for a repository, this may be due to one of the following organization or enterprise settings.
-- Organization and enterprise owners can choose which users can access {% data variables.product.prodname_github_codespaces %} in an organization's private {% ifversion ghec %}and internal {% endif %} repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
-- Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."{% ifversion ghec %}
-- {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
+* Organization and enterprise owners can choose which users can access {% data variables.product.prodname_github_codespaces %} in an organization's private {% ifversion ghec %}and internal {% endif %} repositories. For more information, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization)."
+* Organization and enterprise owners can disable forking for some or all of an organization's private {% ifversion ghec %}and internal {% endif %}repositories. If you only have read access to a repository, and you cannot fork it, then you cannot create a codespace for that repository. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/managing-the-forking-policy-for-your-organization)."{% ifversion ghec %}
+* {% data reusables.codespaces.emus-create-codespaces %}{% endif %}
 
 For information about other organization and enterprise settings that can affect whether you can create a codespace, see "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/enabling-or-disabling-github-codespaces-for-your-organization#prerequisites-for-enabling-github-codespaces)."
 
@@ -60,11 +60,11 @@ If you create a codespace and the creation fails:
    {% note %}
 
    **Note**: To view the logs during a build:
-   - **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
+   * **In the browser**, if the initial steps of the build process take more than a few seconds, the "Setting up your codespace" page is displayed. Click **View logs.**
 
      ![Screenshot of the "Setting up your codespace" page in a browser. The link "View logs" is highlighted with a dark orange outline.](/assets/images/help/codespaces/web-ui-view-logs.png)
 
-   - **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
+   * **In the {% data variables.product.prodname_vscode_shortname %} desktop application**, click **Building codespace** in the "Setting up remote connection" popup message that's displayed.
 
      ![Screenshot of a popup message in {% data variables.product.prodname_vscode_shortname %}, reading "Setting up remote connection: Building codespace."](/assets/images/help/codespaces/vs-code-building-codespace.png)
 
@@ -76,9 +76,9 @@ If you create a codespace and the creation fails:
 ## Deleting codespaces
 
 A codespace can only be deleted by:
-- The person who created the codespace.
-- An organization owner for an organization-owned codespace.
-- Automatic deletion at the end of a retention period.
+* The person who created the codespace.
+* An organization owner for an organization-owned codespace.
+* Automatic deletion at the end of a retention period.
 
 For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/deleting-a-codespace)" and "[AUTOTITLE](/codespaces/setting-your-user-preferences/configuring-automatic-deletion-of-your-codespaces)."
 
@@ -86,15 +86,15 @@ For more information, see "[AUTOTITLE](/codespaces/developing-in-a-codespace/del
 
 When you create a codespace, it has a finite amount of storage and over time it may be necessary for you to free up space. Try running any of the following commands in the {% data variables.product.prodname_github_codespaces %} terminal to free up storage space.
 
-- Remove packages that are no longer used by using `sudo apt autoremove`.
-- Clean the apt cache by using `sudo apt clean`.
-- See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
-- Delete unneeded files, such as build artifacts and logs.
+* Remove packages that are no longer used by using `sudo apt autoremove`.
+* Clean the apt cache by using `sudo apt clean`.
+* See the top 10 largest files in the codespace with`sudo find / -printf '%s %p\n'| sort -nr | head -10`.
+* Delete unneeded files, such as build artifacts and logs.
 
 Some more destructive options:
 
-- Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
-- Remove untracked files from working tree: `git clean -i`.
+* Remove unused Docker images, networks, and containers by using `docker system prune` (append `-a` if you want to remove all images, and `--volumes` if you want to remove all volumes).
+* Remove untracked files from working tree: `git clean -i`.
 
 ## Configuration
 

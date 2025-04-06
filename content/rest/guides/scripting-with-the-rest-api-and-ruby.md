@@ -329,5 +329,5 @@ puts "A comment was added to the pull request: #{comment_url}"
 
 To learn more about working with the {% data variables.product.company_short %} REST API and Octokit.rb, explore the following resources:
 
-- To learn more about Octokit.rb see [the Octokit.rb documentation](https://github.com/octokit/octokit.rb/#readme).
-- To find detailed information about {% data variables.product.company_short %}'s available REST API endpoints, including their request and response structures, see the [AUTOTITLE](/rest).
+* To learn more about Octokit.rb see [the Octokit.rb documentation](https://github.com/octokit/octokit.rb/#readme).
+* To find detailed information about {% data variables.product.company_short %}'s available REST API endpoints, including their request and response structures, see the [AUTOTITLE](/rest).

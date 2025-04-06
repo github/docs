@@ -20,20 +20,20 @@ Each REST API endpoint is documented individually, and the endpoints are categor
 
 **If you are new to REST APIs**, you may find it helpful to refer to the Quickstart or Getting Started guide for an introduction. For more information, see:
 
-- "[AUTOTITLE](/rest/quickstart)"
-- "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api)"
+* "[AUTOTITLE](/rest/quickstart)"
+* "[AUTOTITLE](/rest/guides/getting-started-with-the-rest-api)"
 
 **If you are familiar with REST APIs** but new to {% data variables.product.company_short %}'s REST API, you may find it helpful to refer to the authentication documentation. For more information, see:
 
-- "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)"
+* "[AUTOTITLE](/rest/overview/authenticating-to-the-rest-api)"
 
 **If you are building scripts or applications** that use the REST API, you may find some of the following guides helpful. For examples of scripting with the REST API, see:
 
-- "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)"
-- "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)"
-- "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)"
-- "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app)"
-- "[AUTOTITLE](/webhooks/using-webhooks/automatically-redelivering-failed-deliveries-for-a-repository-webhook)"
+* "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)"
+* "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)"
+* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events)"
+* "[AUTOTITLE](/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app)"
+* "[AUTOTITLE](/webhooks/using-webhooks/automatically-redelivering-failed-deliveries-for-a-repository-webhook)"
 
 For a list of libraries to facilitate scripting with the REST API, see "[AUTOTITLE](/rest/overview/libraries-for-the-rest-api)."
 
@@ -41,7 +41,7 @@ If you are building scripts or applications that use the REST API, you might als
 
 ## Further reading
 
-- "[AUTOTITLE](/rest/overview/comparing-githubs-rest-api-and-graphql-api)"
-- "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)"
-- "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
-- "[AUTOTITLE](/rest/overview/troubleshooting-the-rest-api)"
+* "[AUTOTITLE](/rest/overview/comparing-githubs-rest-api-and-graphql-api)"
+* "[AUTOTITLE](/rest/guides/best-practices-for-using-the-rest-api)"
+* "[AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)"
+* "[AUTOTITLE](/rest/overview/troubleshooting-the-rest-api)"

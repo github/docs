@@ -2,7 +2,7 @@ When you first configure a group, you specify a group name that will display in 
 
 Option | Description |
 -------|-------------|
-| `applies-to` | Use to specify a whether the rules in the group apply to version updates or security updates. `applies-to` can be `version-updates` or `security-updates`. |
+| `applies-to` | Use to specify whether the rules in the group apply to version updates or security updates. `applies-to` can be `version-updates` or `security-updates`. |
 | `dependency-type` | Use to specify a dependency type to be included in the group. `dependency-type` can be `development` or `production`. |
 | `patterns` | Use to define strings of characters that match with a dependency name (or multiple dependency names) to include those dependencies in the group. |
 | `exclude-patterns` | Use to exclude certain dependencies from the group. If a dependency is excluded from a group, {% data variables.product.prodname_dependabot %} will continue to raise single pull requests to update the dependency to its latest version. |

@@ -89,10 +89,27 @@ function main(root: string, options: Options) {
 }
 
 function getContentAndDataFiles(root: string) {
-  return [
-    ...walkFiles(path.join(root, 'content'), ['.md']),
-    ...walkFiles(path.join(root, 'data'), ['.md', '.yml']),
-  ]
+  // The reason we're only looking at content files, and not data files,
+  // is because data files can be *included* in content files.
+  // Best illustrated with an imaginary example:
+  //
+  // Suppose there exists, in English, a `content/some-page.md` and
+  // a `data/variables/some-var.yml`.
+  // The English content contains: `{% data variables.some-var.some-thing %}`
+  // Soon enough, this is present in the translations too.
+  // Then, the English writer decides to stop referencing that variable
+  // in `content/some-page.md`. And additionally, since no content references
+  // the file, they also decide to `git rm data/variables/some-var.yml`.
+  // At this point, there's technically an "orphan" file in the translation
+  // repo that doesn't have an equivalent in the English repo. But! The
+  // translation's copy of `content/some-page.md` might still *refer*
+  // to `{% data variables.some-var.some-thing %}` since it hasn't yet
+  // picked up that the English content changed.
+  //
+  // In conclusion, we need to be OK with the data files in translations
+  // being potentially "full of orphans" because they might still be
+  // referred to the in the content files.
+  return walkFiles(path.join(root, 'content'), ['.md'])
 }
 
 function formatFileSize(bytes: number) {

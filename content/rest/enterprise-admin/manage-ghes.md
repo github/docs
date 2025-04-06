@@ -18,6 +18,8 @@ You can manage {% data variables.location.product_location %} using the Manage {
 
 Specify the port number when making API calls to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API. If your instance uses TLS, the port number is 8443. Otherwise, the port number is 8080. If you cannot provide a port number, you'll need to configure your client to automatically follow redirects. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
 
+You can also use the {% data variables.product.prodname_ghe_server %} extension of the {% data variables.product.prodname_cli %} to invoke endpoints in the Manage {% data variables.product.prodname_ghe_server %} API. For more information, see the [`github/gh-es`](https://github.com/github/gh-es/blob/main/README.md) repository.
+
 ### Authentication
 
 To authenticate requests to endpoints for the Manage {% data variables.product.prodname_ghe_server %} API, specify the password for the instance's root site administrator account as an authentication token. Use standard HTTP authentication to send the password. The `api_key` user identifies the root site administrator. The following example demonstrates authentication for this API. Replace ROOT-SITE-ADMINISTRATOR-PASSWORD with the password, and ADMINISTRATION-PORT with either 8443 or 8080.

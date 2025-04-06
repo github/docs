@@ -19,11 +19,11 @@ You can search for issues and pull requests globally across all of {% data varia
 {% tip %}
 
 **Tips:**{% ifversion ghes %}
-- This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
-- For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
-- Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
-- Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
-- {% data reusables.search.search_issues_and_pull_requests_shortcut %}
+* This article contains example searches on the {% data variables.product.prodname_dotcom %}.com website, but you can use the same search filters on {% data variables.location.product_location %}.{% endif %}
+* For a list of search syntaxes that you can add to any search qualifier to further improve your results, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/understanding-the-search-syntax)".
+* Use quotations around multi-word search terms. For example, if you want to search for issues with the label "In progress," you'd search for `label:"in progress"`. Search is not case sensitive.
+* Use a minus (hyphen) symbol to exclude results that match a qualifier. For example, to ignore issues created by the "octocat" user, you'd use `-author:octocat` in your search. Note that this does not work for [missing metadata qualifiers](#search-by-missing-metadata).
+* {% data reusables.search.search_issues_and_pull_requests_shortcut %}
 
   {% endtip %}
 
@@ -96,10 +96,12 @@ You can filter issues based on the reason given when the issue was closed, using
 
 You can filter by the visibility of the repository containing the issues and pull requests using the `is` qualifier. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)."
 
-| Qualifier  | Example
+| Qualifier  | Example |
 | ------------- | ------------- |
-| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories.{% ifversion ghes or ghec %}
-| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories.{% endif %}
+| `is:public` | [**is:public**](https://github.com/search?q=is%3Apublic&type=Issues) matches issues and pull requests in public repositories. |
+| {% ifversion ghes or ghec %} |
+| `is:internal` | [**is:internal**](https://github.com/search?q=is%3Ainternal&type=Issues) matches issues and pull requests in internal repositories. |
+| {% endif %} |
 | `is:private` | [**is:private cupcake**](https://github.com/search?q=is%3Aprivate+cupcake&type=Issues) matches issues and pull requests that contain the word "cupcake" in private repositories you can access.
 
 ## Search by author
@@ -362,10 +364,10 @@ You can search for an issue or pull request that has a locked conversation using
 
 You can narrow your search to issues and pull requests that are missing certain metadata, using the `no` qualifier. These qualifiers cannot be combined with the minus (hyphen) symbol to exclude items that are missing metadata. That metadata includes:
 
-- Labels
-- Milestones
-- Assignees
-- Projects
+* Labels
+* Milestones
+* Assignees
+* Projects
 
 | Qualifier        | Example
 | ------------- | -------------
@@ -376,4 +378,4 @@ You can narrow your search to issues and pull requests that are missing certain 
 
 ## Further reading
 
-- "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
+* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"

@@ -1,6 +1,6 @@
 ---
 title: Creating diagrams for {% data variables.product.prodname_docs %}
-shortTitle: Creating diagrams
+shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
   feature: 'contributing'
@@ -21,18 +21,18 @@ Diagrams are creative. If you have an idea for a diagram that helps people, no m
 
 To be included in {% data variables.product.prodname_docs %}, a diagram must meet the following criteria.
 
-- The diagram can be accessed by as many users as possible.
-  - Diagrams have clear starting points and are easy to follow.
-  - Diagrams are preceded or followed by complete text descriptions in the article in which they appear, with no information conveyed entirely in visual form.
-  - Diagrams have appropriate contrast.
-  - Diagrams have appropriate alternate text.
-  - Diagrams are clear and crisp with elements as legible as possible.
-- The diagram has acceptance criteria and meets them.
-  - Diagrams have an audience.
-  - Diagrams have the right amount of information and density.
-- The diagram is visually sound.
-  - Diagrams follow the style set forth in this content model.
-  - Diagrams have enough information to be easy to understand and navigate, but they are not overly decorated or needlessly complex.
+* The diagram can be accessed by as many users as possible.
+  * Diagrams have clear starting points and are easy to follow.
+  * Diagrams are preceded or followed by complete text descriptions in the article in which they appear, with no information conveyed entirely in visual form.
+  * Diagrams have appropriate contrast.
+  * Diagrams have appropriate alternate text.
+  * Diagrams are clear and crisp with elements as legible as possible.
+* The diagram has acceptance criteria and meets them.
+  * Diagrams have an audience.
+  * Diagrams have the right amount of information and density.
+* The diagram is visually sound.
+  * Diagrams follow the style set forth in this content model.
+  * Diagrams have enough information to be easy to understand and navigate, but they are not overly decorated or needlessly complex.
 
 ## Maintaining diagrams
 
@@ -46,10 +46,10 @@ Diagrams are not a substitute for text. They compliment written information in a
 
 Diagrams can be used in {% data variables.product.prodname_docs %} when they help people and are not just visual adornment. To determine if a diagram is helpful, it needs acceptance criteria that include the following:
 
-- Who is the audience for the diagram?
-- What is the scope of the diagram?
-- How does the diagram complements the accompanying text?
-- How will you evaluate the diagram's effectiveness?
+* Who is the audience for the diagram?
+* What is the scope of the diagram?
+* How does the diagram complements the accompanying text?
+* How will you evaluate the diagram's effectiveness?
 
 A diagram must always be accompanied by text that fully conveys the same information.
 
@@ -81,15 +81,15 @@ Different people will find different diagrams valuable and there is as much art 
 
 If you are creating a diagram to explain when or how something happens, consider one of these diagram types.
 
-- [Flowchart](https://en.wikipedia.org/wiki/Flowchart): Flowcharts are useful for showing the steps in a process. In this example, the rectangles represent steps in a process and the diamond represents a decision point where the chart branches into two possible endpoints.
+* [Flowchart](https://en.wikipedia.org/wiki/Flowchart): Flowcharts are useful for showing the steps in a process. In this example, the rectangles represent steps in a process and the diamond represents a decision point where the chart branches into two possible endpoints.
 
   ![An example flowchart that uses rectangles to represent steps in a process and a diamond to represent a decision point where the chart branches into two possible endpoints.](/assets/images/help/diagrams/flowchart-example.png)
 
-- [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart): Gantt charts are useful for showing how long tasks take and when they overlap. In this example, the horizontal axis is labelled "Time" and the blue rectangles represent three discrete tasks. Task 1 and task 2 overlap, which means that at least part of the tasks happen at the same time. Task 3 does not overlap with the other tasks, which means that it happens after the first two are completed.
+* [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart): Gantt charts are useful for showing how long tasks take and when they overlap. In this example, the horizontal axis is labelled "Time" and the blue rectangles represent three discrete tasks. Task 1 and task 2 overlap, which means that at least part of the tasks happen at the same time. Task 3 does not overlap with the other tasks, which means that it happens after the first two are completed.
 
   ![An example Gantt chart that has three tasks arranged on a horizontal axis labeled "Time".](/assets/images/help/diagrams/gantt-example.png)
 
-- [Journey map](https://en.wikipedia.org/wiki/User_journey): Journey maps are useful for showing how the state of something over time. In this example, the horizontal axis is labelled "Time" and the vertical axis is labelled "Something observed or measured." Blue dots mark measurements at specific times and they are connected with a line to illustrate the trend over time.
+* [Journey map](https://en.wikipedia.org/wiki/User_journey): Journey maps are useful for showing how the state of something over time. In this example, the horizontal axis is labelled "Time" and the vertical axis is labelled "Something observed or measured." Blue dots mark measurements at specific times and they are connected with a line to illustrate the trend over time.
 
   ![An example journey map that has a line on two axes tracking events over time that we want to observe or measure something about.](/assets/images/help/diagrams/journey-example.png)
 
@@ -97,15 +97,15 @@ If you are creating a diagram to explain when or how something happens, consider
 
 If you are creating a diagram to explain what or where things are, consider one of these diagram types.
 
-- [Block diagram](https://en.wikipedia.org/wiki/Block_diagram): Block diagrams are useful for showing how things are organized by putting items within other items. This example shows how content is organized in {% data variables.product.prodname_docs %} with the largest rectangle labelled "Category," a rectangle within that labelled "Map topics," and a rectangle within that labelled "Articles."
+* [Block diagram](https://en.wikipedia.org/wiki/Block_diagram): Block diagrams are useful for showing how things are organized by putting items within other items. This example shows how content is organized in {% data variables.product.prodname_docs %} with the largest rectangle labelled "Category," a rectangle within that labelled "Map topics," and a rectangle within that labelled "Articles."
 
   ![A block diagram of the GitHub Docs content model with overlapping squares showing articles within map topics within categories.](/assets/images/help/diagrams/block-example.png)
 
-- [Concept map](https://en.wikipedia.org/wiki/Concept_map): Concept maps are useful for showing relationships between things. Different lines with or without labels show how things are connected or affect each other. In this example, the four blue rectangles represent concepts and the lines between them show different relationships between them.
+* [Concept map](https://en.wikipedia.org/wiki/Concept_map): Concept maps are useful for showing relationships between things. Different lines with or without labels show how things are connected or affect each other. In this example, the four blue rectangles represent concepts and the lines between them show different relationships between them.
 
   ![An example concept map that shows relationships between four blue rectangles labeled A, B, C, and D.](/assets/images/help/diagrams/concept-map-example.png)
 
-- [Hierarchy](https://en.wikipedia.org/wiki/Hierarchy#Visually_representing_hierarchies): Hierarchies are useful for showing relationships between categories and subcategories. In this example, three levels of a hierarchy are organized vertically.
+* [Hierarchy](https://en.wikipedia.org/wiki/Hierarchy#Visually_representing_hierarchies): Hierarchies are useful for showing relationships between categories and subcategories. In this example, three levels of a hierarchy are organized vertically.
 
   ![An example hierarchy that shows two levels of subcategories beneath a main category.](/assets/images/help/diagrams/hierarchy-example.png)
 
@@ -113,15 +113,15 @@ If you are creating a diagram to explain what or where things are, consider one 
 
 If you are creating a diagram to explain why something is the way that it is, consider one of these diagram types.
 
-- [Continuum diagram](https://en.wikipedia.org/wiki/Continuum_(measurement)): Continuum diagrams are useful for showing where things fall on a linear spectrum. In this example, the blue rectangle shows that the item of interest is closer to Option 2 than Option 1 on the continuum.
+* [Continuum diagram](https://en.wikipedia.org/wiki/Continuum_(measurement)): Continuum diagrams are useful for showing where things fall on a linear spectrum. In this example, the blue rectangle shows that the item of interest is closer to Option 2 than Option 1 on the continuum.
   
   ![An example continuum with a horizontal axis representing the continuum between two options and the position of an item on the continuum.](/assets/images/help/diagrams/continuum-example.png)
 
-- [Quadrant diagram](https://en.wikipedia.org/wiki/Quadrant_(plane_geometry)): Quadrant diagrams are useful for explaining the relationship between two axes and where things fall on both axes. In this example, the horizontal axis is labelled "Purely decorative" on the left and "Meets a specific acceptance criteria" on the right. The vertical axis is labelled "Compliment written text" on the top and "The only way information is presented" on the bottom. The blue square labelled "Diagrams in the {% data variables.product.prodname_docs %}" is in the upper right quadrant formed by the overlap of "Compliment written text" and "Meets a specific acceptance criteria," which means that it has those two properties.
+* [Quadrant diagram](https://en.wikipedia.org/wiki/Quadrant_(plane_geometry)): Quadrant diagrams are useful for explaining the relationship between two axes and where things fall on both axes. In this example, the horizontal axis is labelled "Purely decorative" on the left and "Meets a specific acceptance criteria" on the right. The vertical axis is labelled "Compliment written text" on the top and "The only way information is presented" on the bottom. The blue square labelled "Diagrams in the {% data variables.product.prodname_docs %}" is in the upper right quadrant formed by the overlap of "Compliment written text" and "Meets a specific acceptance criteria," which means that it has those two properties.
 
   ![An example quadrant diagram with four quadrants created by two axes and a blue rectangle in the upper right quadrant.](/assets/images/help/diagrams/quadrant-example.png)
 
-- [Venn diagram](https://en.wikipedia.org/wiki/Venn_diagram): Venn diagrams are useful for showing shared traits or overlap of ideas. Circles represent concepts or things, and the area where the circles overlap represent shared traits between things. In this example, the overlap between the circle labelled "Octopus" and the circle labelled "Cat" is labelled "Octocat," which is a combination of an octopus and a cat.
+* [Venn diagram](https://en.wikipedia.org/wiki/Venn_diagram): Venn diagrams are useful for showing shared traits or overlap of ideas. Circles represent concepts or things, and the area where the circles overlap represent shared traits between things. In this example, the overlap between the circle labelled "Octopus" and the circle labelled "Cat" is labelled "Octocat," which is a combination of an octopus and a cat.
 
   ![An example Venn diagram that shows two circles overlapping. One circle is labelled "Octopus" and the other is labelled "Cat". The overlapping section of the circles is labelled "Octocat".](/assets/images/help/diagrams/venn-diagram-example.png)
 
@@ -137,18 +137,18 @@ You can use elements from the {% data variables.product.prodname_dotcom %} UI su
 
 For custom diagram shapes, use these shapes for their associated meanings.
 
-- Rectangles: Things, objects, ideas.
-- Stack of rectangles: Multiples of alike things.
-- Diamonds: Decisions someone makes while following the diagram's flow.
-- Circles, stars, or other shapes: Unique things that need to be different from anything represented by a rectangle.
+* Rectangles: Things, objects, ideas.
+* Stack of rectangles: Multiples of alike things.
+* Diamonds: Decisions someone makes while following the diagram's flow.
+* Circles, stars, or other shapes: Unique things that need to be different from anything represented by a rectangle.
 
 The arrangement of shapes can convey meaning.
 
-- Shape within another shape: This is part of that.
-- Shape with an arrow pointing to another shape: This leads to that.
-- Shape indented under shape: This is a type of that.
-- Shape with a line to another shape: This relates to that. The thickness of the line can convey further meaning with thick lines indicating a strong connection and dotted lines a tenuous connection.
-- Shape overlapping another shape: This is the same as that.
+* Shape within another shape: This is part of that.
+* Shape with an arrow pointing to another shape: This leads to that.
+* Shape indented under shape: This is a type of that.
+* Shape with a line to another shape: This relates to that. The thickness of the line can convey further meaning with thick lines indicating a strong connection and dotted lines a tenuous connection.
+* Shape overlapping another shape: This is the same as that.
 
 ### Lines
 
@@ -156,13 +156,13 @@ Lines represent relationships between shapes in a diagram.
 
 Use different types of lines to convey additional meaning of relationships.
 
-- Non-directional lines: Associations
+* Non-directional lines: Associations
   ![Two blue rectangles connected by a non-directional line.](/assets/images/help/diagrams/non-directional-line-example.png)
-- One-way lines that end with an arrow: Show sequences or point to objects.
+* One-way lines that end with an arrow: Show sequences or point to objects.
   ![Two blue rectangles connected by a line with an arrow on the right end.](/assets/images/help/diagrams/directional-line-example.png)
-- Two-way lines that have an arrow on each side: Indicate reciprocation.
+* Two-way lines that have an arrow on each side: Indicate reciprocation.
   ![Two blue rectangles connected by a line with an arrow on both ends.](/assets/images/help/diagrams/two-way-line-example.png)
-- Brackets: Establish hierarchy. In general, organize brackets vertically so that they are easier to navigate on a webpage. Indent each level of a hierarchy.
+* Brackets: Establish hierarchy. In general, organize brackets vertically so that they are easier to navigate on a webpage. Indent each level of a hierarchy.
   ![Two examples of blue rectangles connected by brackets. One has three rectangles arranged in a vertical bracket with two rectangles indented and connected to the top rectangle with lines. The other has two rectangles arranged horizontally connected to a rectangle above with lines.](/assets/images/help/diagrams/brackets-example.png)
 
 ### Labels
@@ -194,10 +194,10 @@ The preferred colors for diagrams in {% data variables.product.prodname_docs %} 
 
 ### Technical specifications
 
-- PNG file format
-- Static images only (no GIFs)
-- File size of 250 KB or less
-- Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
+* PNG file format
+* Static images only (no GIFs)
+* File size of 250 KB or less
+* Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
 
 If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location.{% ifversion actions-runner-controller %} See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" for an example.{% endif %}
 

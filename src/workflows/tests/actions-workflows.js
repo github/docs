@@ -1,6 +1,8 @@
 import { fileURLToPath } from 'url'
 import path from 'path'
 import fs from 'fs'
+
+import { describe, expect, test } from 'vitest'
 import yaml from 'js-yaml'
 import { flatten } from 'flat'
 import { chain, get } from 'lodash-es'

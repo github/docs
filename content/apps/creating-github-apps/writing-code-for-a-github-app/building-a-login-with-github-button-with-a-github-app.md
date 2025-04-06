@@ -173,10 +173,10 @@ These steps lead you through writing code to generate a user access token. To sk
 
    This code adds logic to exchange the `code` parameter for a user access token:
 
-   - The `parse_response` function parses the response from the GitHub API.
-   - The `exchange_code` function exchanges the `code` parameter for a user access token.
-   - The handler for the callback URL request now calls `exchange_code` to exchange the code parameter for a user access token.
-   - The callback page now shows text to indicate that a token was generated. If the token generation was not successful, the page will indicate that failure.
+   * The `parse_response` function parses the response from the GitHub API.
+   * The `exchange_code` function exchanges the `code` parameter for a user access token.
+   * The handler for the callback URL request now calls `exchange_code` to exchange the code parameter for a user access token.
+   * The callback page now shows text to indicate that a token was generated. If the token generation was not successful, the page will indicate that failure.
 
    ```ruby copy
    require "sinatra"
@@ -249,7 +249,7 @@ These steps lead you through writing code to generate a user access token. To sk
 
    ```ruby copy
    def user_info(token)
-     uri = URI("{% data variables.product.api_url_code %}/user")
+     uri = URI("{% data variables.product.rest_url %}/user")
 
      result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
        body = {"access_token" => token}.to_json
@@ -332,7 +332,7 @@ def exchange_code(code)
 end
 
 def user_info(token)
-  uri = URI("{% data variables.product.api_url_code %}/user")
+  uri = URI("{% data variables.product.rest_url %}/user")
 
   result = Net::HTTP.start(uri.host, uri.port, use_ssl: true) do |http|
     body = {"access_token" => token}.to_json
@@ -403,9 +403,9 @@ This tutorial used a callback URL starting with `http://localhost:4567`. However
 
 This tutorial used a single callback URL, but your app can have up to 10 callback URLs. If you want to use multiple callback URLs:
 
-- Add the additional callback URLs to your app. For more information about adding callback URLs, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
-- When you link to `{% data variables.product.oauth_host_code %}/login/oauth/authorize`, use the `redirect_uri` query parameter to redirect users to the desired callback URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-web-application-flow-to-generate-a-user-access-token)."
-- In your app code, handle each callback URL, similar to the code block starting in `get "CALLBACK_URL" do`.
+* Add the additional callback URLs to your app. For more information about adding callback URLs, see "[AUTOTITLE](/apps/maintaining-github-apps/modifying-a-github-app)."
+* When you link to `{% data variables.product.oauth_host_code %}/login/oauth/authorize`, use the `redirect_uri` query parameter to redirect users to the desired callback URL. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-a-user-access-token-for-a-github-app#using-the-web-application-flow-to-generate-a-user-access-token)."
+* In your app code, handle each callback URL, similar to the code block starting in `get "CALLBACK_URL" do`.
 
 ### Specify additional parameters
 

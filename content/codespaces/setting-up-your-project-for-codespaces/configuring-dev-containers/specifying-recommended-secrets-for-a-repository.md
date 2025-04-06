@@ -16,7 +16,7 @@ topics:
 
 If a project needs user-specific secrets to be set up, you can prompt people to do this when they create a codespace. You do this by adding a setting to a dev container configuration file for the repository.
 
-After you specify recommended secrets, if people have not already created those secrets in their personal settings for {% data variables.product.prodname_codespaces %}, they will be prompted to do so when they use the advanced options method of creating a codespace. This is done on {% data variables.product.prodname_dotcom_the_website %} by clicking the **{% octicon "code" aria-hidden="true" %} Code** button, then clicking the **Codespaces** tab, then selecting {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and clicking **New with options**.
+After you specify recommended secrets, if people have not already created those secrets in their personal settings for {% data variables.product.prodname_codespaces %}, they will be prompted to do so when they use the advanced options method of creating a codespace. This is done on {% data variables.product.github %} by clicking the **{% octicon "code" aria-hidden="true" %} Code** button, then clicking the **Codespaces** tab, then selecting {% octicon "kebab-horizontal" aria-label="Codespace repository configuration" %} and clicking **New with options**.
 
 ![Screenshot of the options dropdown in the "{% data variables.product.prodname_codespaces %}" tab, with the option "New with options" highlighted.](/assets/images/help/codespaces/default-machine-type.png)
 
@@ -32,9 +32,9 @@ Recommended secrets are listed at the bottom of the page.
 
 Each recommended secret is displayed in one of three ways:
 
-- If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional.
-- If the person has already created the recommended secret but has not associated it with this repository, they can select a checkbox to add this association. Doing so is optional.
-- If the person has already created the recommended secret and associated it with this repository, a preselected checkbox is displayed.
+* If the person has not set the recommended secret in their {% data variables.product.prodname_codespaces %} settings, an input box is displayed, allowing them to create the secret now. A description and link to more information are displayed if you have configured them. Entering a value is optional.
+* If the person has already created the recommended secret but has not associated it with this repository, they can select a checkbox to add this association. Doing so is optional.
+* If the person has already created the recommended secret and associated it with this repository, a preselected checkbox is displayed.
 
 ### When to specify recommended secrets for a project
 
@@ -67,4 +67,4 @@ Alternatively, for development environment secrets that the owner of the reposit
 
 ## Further reading
 
-- "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)"
+* "[AUTOTITLE](/codespaces/developing-in-a-codespace/creating-a-codespace-for-a-repository?tool=webui#creating-a-codespace-for-a-repository)"

@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { parseUserAgent } from '../components/user-agent.ts'
 
 describe('parseUserAgent', () => {

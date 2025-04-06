@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { runRule } from '../../lib/init-test.js'
 import { internalLinksOldVersion } from '../../lib/linting-rules/internal-links-old-version.js'
 

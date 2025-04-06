@@ -1,10 +1,12 @@
-import { filterTokens, addError } from 'markdownlint-rule-helpers'
+import { addError, filterTokens } from 'markdownlint-rule-helpers'
+
 import { getRange } from '../helpers/utils.js'
 
 export const internalLinksOldVersion = {
   names: ['GHD006', 'internal-links-old-version'],
   description: 'Internal links must not have a hardcoded version using old versioning syntax',
   tags: ['links', 'url', 'versioning'],
+  parser: 'markdownit',
   function: (params, onError) => {
     filterTokens(params, 'inline', (token) => {
       if (

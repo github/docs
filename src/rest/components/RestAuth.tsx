@@ -16,11 +16,10 @@ const FINE_GRAINED_TOKEN_PATH =
 type Props = {
   progAccess: ProgAccessT
   slug: string
-  heading: string
+  operationTitle: string
 }
 
-export function RestAuth({ progAccess, slug, heading }: Props) {
-  const router = useRouter()
+export function RestAuth({ progAccess, slug, operationTitle }: Props) {
   const { currentVersion } = useVersion()
   const { t } = useTranslation('rest_reference')
 
@@ -29,16 +28,76 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
   if (currentVersion === 'enterprise-server@3.9' || currentVersion === 'enterprise-server@3.8')
     return null
 
+  // There are some operations that have no progAccess access defined
+  // For those operations, we shouldn't display this component
+  if (!progAccess) return null
+  const { userToServerRest, serverToServer, fineGrainedPat, basicAuth = false } = progAccess
+  const noFineGrainedAcccess = !(userToServerRest || serverToServer || fineGrainedPat)
+
+  const heading = basicAuth ? t('basic_auth_heading') : t('fine_grained_access')
+  const headingId = heading.replace('{{ RESTOperationTitle }}', operationTitle)
+  const authSlug = basicAuth
+    ? `${slug}--basic-authentication`
+    : `${slug}--fine-grained-access-tokens`
+
+  return (
+    <>
+      <h3 className="mt-4 mb-3 pt-3 h4" id={authSlug}>
+        <a href={`#${authSlug}`}>{headingId}</a>
+      </h3>
+      {noFineGrainedAcccess ? (
+        <NoFineGrainedAccess basicAuth={basicAuth} />
+      ) : (
+        <FineGrainedAccess progAccess={progAccess} />
+      )}
+    </>
+  )
+}
+
+function NoFineGrainedAccess({ basicAuth }: { basicAuth: boolean }) {
+  const { t } = useTranslation('rest_reference')
+
+  if (basicAuth) return <p dangerouslySetInnerHTML={{ __html: t('basic_auth') }}></p>
+  return <p>{t('no_fine_grained_access')}</p>
+}
+
+type FineGrainedProps = {
+  progAccess: ProgAccessT
+}
+
+function FineGrainedAccess({ progAccess }: FineGrainedProps) {
+  const router = useRouter()
+  const { currentVersion } = useVersion()
+  const { t } = useTranslation('rest_reference')
+
+  // progAccess.permissions is an array of objects
+  // For example: [ {'"Actions" repository permissions': 'read', '"Administration" organization permissions': 'write'}, {'"Secrets" organization permissions"': 'write'} ]
+  // Each object represents a set of permissions containing one
+  // or more key-value pairs. All permissions in a set are required.
+  // If there is more than one set of permissions, any set can be used.
+  const formattedPermissions = progAccess.permissions.map((permissionSet: Object, index) => {
+    // Given the example above, the first object is now an array of tuples
+    // [['"Actions" repository permissions', 'read'], ['"Administration" organization permissions', 'read']]
+    // that can be formatted as a string like `"Administration" organization permissions (write)'
+    const permissionSetPairs = Object.entries(permissionSet)
+    const numPermissionSetPairs = permissionSetPairs.length
+
+    return (
+      <li key={`token-permissions-${index}`}>
+        {permissionSetPairs.map(([key, value], setIndex) => (
+          <span key={`token-permissions-text-${index}-${setIndex}`}>
+            <span>{`${key} (${value})`}</span>
+            {setIndex < numPermissionSetPairs - 1 && <span> and </span>}
+          </span>
+        ))}
+      </li>
+    )
+  })
+
   let basePath = `/${router.locale}`
   if (currentVersion !== DEFAULT_VERSION) {
     basePath += `/${currentVersion}`
   }
-
-  // There are some operations that have no progAccess access defined
-  // For those operations, we shouldn't display this component
-  if (!progAccess) return null
-  const { userToServerRest, serverToServer, fineGrainedPat } = progAccess
-  const noFineGrainedAcccess = !(userToServerRest || serverToServer || fineGrainedPat)
 
   // Pluralize the message if needed or customize it
   // when no permissions are defined
@@ -53,33 +112,10 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
     numPermissionSets === 0
       ? t('allows_public_read_access_no_permissions')
       : t('allows_public_read_access')
-  // progAccess.permissions is an array of objects
-  // For example: [ {'actions': 'read', 'packages': 'read'}, {'read': 'repo'} ]
-  // Each object represents a set of permissions containing one
-  // or more key-value pairs. All permissions in a set are required.
-  // If there is more than one set of permissions, any set can be used.
-  const formattedPermissions = progAccess.permissions.map((permissionSet: Object, index) => {
-    // Given the example above, the first object is now an array of tuples
-    // [['actions', 'read'], ['packages', 'read']]
-    // that can be formatted as a string like `actions:read` and `packages:read`
-    const permissionSetPairs = Object.entries(permissionSet)
-    const numPermissionSetPairs = permissionSetPairs.length
 
-    return (
-      <li key={`token-permissions-${index}`}>
-        {permissionSetPairs.map(([key, value], setIndex) => (
-          <span key={`token-permissions-text-${index}-${setIndex}`}>
-            <code>{key + ':' + value}</code>
-            {setIndex < numPermissionSetPairs - 1 && <span> and </span>}
-          </span>
-        ))}
-      </li>
-    )
-  })
-
-  const fineGrainedData = (
+  return (
     <>
-      <p>{t('works_with_tokens')}:</p>
+      <p>{t('works_with_fine_grained_tokens')}:</p>
       <ul>
         {progAccess.userToServerRest && (
           <li>
@@ -104,15 +140,6 @@ export function RestAuth({ progAccess, slug, heading }: Props) {
       <p>{permissionMsg}</p>
       {formattedPermissions.length > 0 && <ul>{formattedPermissions}</ul>}
       {progAccess.allowsPublicRead && <p>{publicAccessMsg}</p>}
-    </>
-  )
-
-  return (
-    <>
-      <h3 className="mt-4 mb-3 pt-3 h4" id={`${slug}--fine-grained-access-tokens`}>
-        <a href={`#${slug}--fine-grained-access-tokens`}>{heading}</a>
-      </h3>
-      {noFineGrainedAcccess ? <p>{t('no_fine_grained_access')}</p> : fineGrainedData}
     </>
   )
 }

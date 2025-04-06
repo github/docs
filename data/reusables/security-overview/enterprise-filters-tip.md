@@ -1,0 +1,2 @@
+> [!TIP]
+> You can use the `owner` filter in the search field to filter the data by organization. {% ifversion ghec %}If you're an owner of an {% data variables.enterprise.prodname_emu_enterprise %}, you can use the `owner-type` filter to filter the data by the type of repository owner, so that you can view data from either organization-owned repositories or user-owned repositories. {% endif %}For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview#repository-owner-name-and-type-filters)."

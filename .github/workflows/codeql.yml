@@ -10,6 +10,9 @@ on:
       - main
     paths:
       - '**/*.js'
+      - '**/*.ts'
+      - '**/*.jsx'
+      - '**/*.tsx'
       - '.github/workflows/codeql.yml'
   # This is so that when CodeQL runs on a pull request, it can compare
   # against the state of the base branch.
@@ -33,13 +36,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-      - uses: github/codeql-action/init@b374143c1149a9115d881581d29b8390bbcbb59c # v3.22.11
+      - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         with:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
           config: |
             paths-ignore:
               - 'src/open-source/scripts/add-pr-links.js'
-      - uses: github/codeql-action/analyze@b374143c1149a9115d881581d29b8390bbcbb59c # v3.22.11
+      - uses: github/codeql-action/analyze@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         continue-on-error: true
 
       - uses: ./.github/actions/slack-alert

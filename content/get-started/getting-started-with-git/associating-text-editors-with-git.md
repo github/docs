@@ -111,7 +111,7 @@ shortTitle: Associate text editors
 
 ## Using Notepad++ as your editor
 
-1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://npp-user-manual.org/docs/getting-started/)" in the Notepad++ documentation.
+1. Install Notepad++ from https://notepad-plus-plus.org/. For more information, see "[Getting started](https://github.com/notepad-plus-plus/npp-usermanual/blob/master/content/docs/getting-started.md)" in the Notepad++ documentation.
 {% data reusables.command_line.open_the_multi_os_terminal %}
 1. Type this command:
 

@@ -20,7 +20,7 @@ sections:
 
           - "[AUTOTITLE](/rest/overview/troubleshooting#insufficient-permissions-errors)"
           - "[AUTOTITLE](/rest/overview/permissions-required-for-fine-grained-personal-access-tokens)"
-          - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)
+          - "[AUTOTITLE](/rest/overview/permissions-required-for-github-apps)"
 
     - heading: Audit logs
       notes:
@@ -145,6 +145,9 @@ sections:
 
     - heading: GitHub Actions
       notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %} [Updated: 2024-04-25]
         # https://github.com/github/releases/issues/3247
         - |
           To better navigate, trace, understand, and monitor deployments, users can view and track the full history of deployments in a repository or filter across environments. For more information, see "[AUTOTITLE](/actions/deployment/managing-your-deployments/viewing-deployment-history)."
@@ -335,6 +338,8 @@ sections:
       {% data reusables.release-notes.2024-01-ha-proxy-out-of-memory %} [Updated 2024-01-23]
     - |
       {% data reusables.release-notes.2024-03-increased-log-volume-in-syslog %} [Updated: 2024-03-08]
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
 
   deprecations:
     # https://github.com/github/releases/issues/3259
@@ -358,6 +363,12 @@ sections:
       notes:
         - |
           GitHub will deprecate team discussions for users in GitHub Enterprise Server 3.13. In GitHub Enterprise Server 3.11, a banner appears atop teams' discussions with information about the deprecation, including a link to tooling to migrate existing team discussions to GitHub Discussions. For more information, see "[AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions)" and "[AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions)." [Updated: 2024-03-04]
+
+    # https://github.com/github/docs-content/issues/14995
+    - heading: Elasticsearch index `repository-stack` is no longer in use
+      notes:
+        - |
+          The Elasticsearch index `repository-stacks` is no longer in use. [Updated: 2024-06-24]
 
   errata:
     - 'The "[Changes](/admin/release-notes#3.11.0-changes)" section previously indicated that users should update GitHub Actions workflows and actions to run on Node.js 16. Node.js 16 has reached end of life, and users should instead update actions and workflows to run on Node.js 20 or later. [Updated: 2024-03-05]'

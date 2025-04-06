@@ -82,5 +82,5 @@ There is no supported, documented way to restore migration archives on {% data v
 
 A number of self-service tools exist that automate backups of repositories. Backup tools will download data from _specific_ repositories and organize it within a new branch or directory.
 
-For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?category=backup-utilities).
+For more information about self-service backup tools, see the [Backup Utilities category on {% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&category=backup-utilities).
 {% endif %}

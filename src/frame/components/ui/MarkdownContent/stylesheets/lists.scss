@@ -8,6 +8,7 @@ $ol-circled-reduce-diameter: 2px;
   > ol:not(:global(.no-styling)) {
     // We will remove the default list style and use contrasting circled counter instead
     list-style: none;
+    counter-reset: markdown-ordered-list;
 
     // So that list items have the same margin regardless of `li > p` or `li > [text]`
     > li {
@@ -16,7 +17,8 @@ $ol-circled-reduce-diameter: 2px;
 
     // This is the contrasting circled counter for the list item
     > li::before {
-      content: counter(list-item);
+      counter-increment: markdown-ordered-list;
+      content: counter(markdown-ordered-list);
       float: left;
       width: calc(1.5rem - $ol-circled-reduce-diameter);
       margin-left: -2rem;

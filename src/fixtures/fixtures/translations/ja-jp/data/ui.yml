@@ -55,7 +55,6 @@ survey:
   comment_no_label: 改善の方法をお知らせください
   optional: オプション
   required: 必須
-  email_placeholder: email@example.com
   email_label: さらにお尋ねするためにご連絡してもよろしければ、メール アドレスを入力してください
   email_validation: 有効な電子メール アドレスを入力してください
   send: Send

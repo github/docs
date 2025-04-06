@@ -15,6 +15,8 @@ topics:
 shortTitle: Cancel collaborator invitation
 ---
 
+{% data reusables.enterprise-managed.repo-collaborators-note %}
+
 You can view a list of all people with pending invitations to become an outside collaborator on any repository owned by your organization.
 
 For each pending collaborator, you can cancel all invitations to join organization repositories at the same time.

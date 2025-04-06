@@ -5,7 +5,9 @@ allowTitleToDifferFromFilename: true
 intro: The {% data variables.code-scanning.tool_status_page %} shows useful information about all of your code scanning tools. If code scanning is not working as you'd expect, the {% data variables.code-scanning.tool_status_page %} is a good starting point for debugging problems.
 product: '{% data reusables.gated-features.code-scanning %}'
 versions:
-  feature: code-scanning-tool-status-page
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 redirect_from:
   - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/about-the-tool-status-page
 type: overview
@@ -73,10 +75,10 @@ The tool status page will calculate the percentage of files that were scanned by
 
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can download detailed reports from the {% data variables.code-scanning.tool_status_page %} in CSV format. This will show:
 
-- Which configuration was used to scan each file.
-- The file path.
-- The programming language of the file.
-- Whether the file was successfully extracted.
+* Which configuration was used to scan each file.
+* The file path.
+* The programming language of the file.
+* Whether the file was successfully extracted.
 
 To download a report, select a tool you're interested in. Then on the top right of the page, click the **{% octicon "download" aria-label="Download language CSV report" %}** button.
 
@@ -84,10 +86,10 @@ To download a report, select a tool you're interested in. Then on the top right 
 
 You can download the list of rules that {% data variables.product.prodname_code_scanning %} is checking against, in CSV format. This will show:
 
-- The configuration used.
-- The rule source.
-- The SARIF identifier.
-- How many alerts were found.
+* The configuration used.
+* The rule source.
+* The SARIF identifier.
+* How many alerts were found.
 
 To download a report, select a configuration you're interested in. Then click **{% octicon "kebab-horizontal" aria-label="Configuration menu"  %}** on the top right of the page, and select **{% octicon "download" aria-hidden="true"  %} Download list of rules used**.
 
@@ -109,9 +111,9 @@ If you see that there is a problem with your analysis from the {% data variables
 
 For integrated tools such as {% data variables.product.prodname_codeql %}, you can also use file coverage information to improve your analysis. For each language displayed on the {% data variables.code-scanning.tool_status_page %}:
 
-- If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
-- If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by {% data variables.product.prodname_codeql %} for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
-- If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by {% data variables.product.prodname_codeql %} but not currently being analyzed with {% data variables.product.prodname_codeql %}. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)."
+* If the language has a high scanned percentage, this shows that code scanning is scanning that language as expected.
+* If the language has a low scanned percentage, you may wish to investigate diagnostic output produced by {% data variables.product.prodname_codeql %} for that language: for more information see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning/codeql-scanned-fewer-lines-than-expected)."
+* If the language has a scanned percentage of zero, you may have source code in your repository written in languages supported by {% data variables.product.prodname_codeql %} but not currently being analyzed with {% data variables.product.prodname_codeql %}. In this case, you may wish to update your setup to start analyzing these additional languages. For more information, see "[AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning#changing-the-languages-that-are-analyzed)."
 
 {% note %}
 
@@ -119,4 +121,4 @@ For integrated tools such as {% data variables.product.prodname_codeql %}, you c
 
 {% endnote %}
 
-For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning){% ifversion code-scanning-tool-status-page %}" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads){% endif %}."
+For more information, see "[AUTOTITLE](/code-security/code-scanning/troubleshooting-code-scanning)" and "[AUTOTITLE](/code-security/code-scanning/troubleshooting-sarif-uploads)."

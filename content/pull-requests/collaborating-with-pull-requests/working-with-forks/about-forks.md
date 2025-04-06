@@ -16,7 +16,7 @@ topics:
 
 ## About forks
 
-{% data reusables.repositories.about-forks %} A fork can be owned by either a personal account or an organization.
+{% data reusables.repositories.about-forks %} A fork can exist in either a personal account or an organization.
 
 When you view a forked repository on {% data variables.product.product_name %}, the upstream repository is indicated below the name of the fork.
 
@@ -24,7 +24,7 @@ When you view a forked repository on {% data variables.product.product_name %}, 
 
 In open source projects, forks are often used to iterate on ideas or changes before incorporating the changes into the upstream repository. {% data reusables.repositories.about-giving-access-to-forks %}
 
-Deleting a fork will not delete the original upstream repository. You can make any changes you want to your fork, and there will be no effect on the upstream. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
+Deleting a fork will not delete the original upstream repository. Code pushed to a fork will be visible from the upstream, but changes won't have any immediate effect on the upstream branches. For example, you can add collaborators, rename files, or generate {% data variables.product.prodname_pages %} on the fork without affecting the upstream branches. {% ifversion fpt or ghec %} After a fork is deleted, you cannot restore the fork. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/restoring-a-deleted-repository)."{% endif %} If you delete a private repository, all forks of the repository are deleted.
 
 {% data reusables.repositories.forks-page %}
 
@@ -46,14 +46,15 @@ If you want to create a new repository from the contents of an existing reposito
 
 Forking a repository is similar to duplicating a repository, with the following differences.
 
-- You can use a pull request to suggest changes from your fork to the upstream repository.
-- You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
-- Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
-- Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
+* Code pushed to a fork is visible to all repositories in the fork network, even after that fork is deleted.
+* You can use a pull request to suggest changes from your fork to the upstream repository.
+* You can bring changes from the upstream repository to your fork by synchronizing your fork with the upstream repository.
+* Forks have their own members, branches, tags, labels, policies, issues, pull requests, discussions, actions, projects, and wikis.
+* Forks inherit the restrictions of their upstream repositories. For example, branch protection rules cannot be passed down if the upstream repository belongs to an organization on a {% data variables.product.prodname_free_team %} plan.
 
 ## Further reading
 
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
-- "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
-- [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
-- [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models)"
+* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork)"
+* [Open Source Guides](https://opensource.guide/){% ifversion fpt or ghec %}
+* [{% data variables.product.prodname_learning %}]({% data variables.product.prodname_learning_link %}){% endif %}

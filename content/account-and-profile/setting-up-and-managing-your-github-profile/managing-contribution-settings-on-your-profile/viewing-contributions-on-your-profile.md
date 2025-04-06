@@ -27,14 +27,14 @@ Your contribution graph and Achievements show activity from public repositories.
 
 On your profile page, certain actions count as contributions:
 
-- Committing to a repository's default branch or `gh-pages` branch
-- Creating a branch
-- Opening an issue
-- Opening a discussion
-- Answering a discussion
-- Proposing a pull request
-- Submitting a pull request review{% ifversion ghes %}
-- Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
+* Committing to a repository's default branch or `gh-pages` branch
+* Creating a branch
+* Opening an issue
+* Opening a discussion
+* Answering a discussion
+* Proposing a pull request
+* Submitting a pull request review{% ifversion ghes %}
+* Co-authoring commits in a repository's default branch or `gh-pages` branch{% endif %}
 
 {% data reusables.pull_requests.pull_request_merges_and_contributions %}
 
@@ -54,8 +54,8 @@ Your contributions calendar shows your contribution activity.
 
 ### Viewing contributions from specific times
 
-- Click on a day's square to show the contributions made during that 24-hour period.
-- Press _Shift_ and click on another day's square to show contributions made during that time span.
+* Click on a day's square to show the contributions made during that 24-hour period.
+* Press _Shift_ and click on another day's square to show contributions made during that time span.
 
 {% note %}
 
@@ -68,8 +68,8 @@ Your contributions calendar shows your contribution activity.
 ### How contribution event times are calculated
 
 Timestamps are calculated differently for commits and pull requests:
-- **Commits** use the time zone information in the commit timestamp. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline)."
-- **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
+* **Commits** use the time zone information in the commit timestamp. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/troubleshooting-commits-on-your-timeline)."
+* **Pull requests** and **issues** opened on {% data variables.product.product_name %} use your browser's time zone. Those opened via the API use the timestamp or time zone [specified in the API call](https://developer.github.com/changes/2014-03-04-timezone-handling-changes).
 
 ## Activity overview
 

@@ -9,6 +9,5 @@ versions:
 children:
   - /about-github-importer
   - /importing-a-repository-with-github-importer
-  - /updating-commit-author-attribution-with-github-importer
 shortTitle: GitHub Importer
 ---

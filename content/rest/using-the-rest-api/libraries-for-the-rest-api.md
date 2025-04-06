@@ -27,10 +27,10 @@ You can use libraries to extend and simplify the way your application interacts 
 
 For more information, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-ruby)."
 
-- JavaScript: [octokit.js](https://github.com/octokit/octokit.js)
-- Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
-- .NET: [octokit.net](https://github.com/octokit/octokit.net)
-- Terraform: [terraform-provider-github](https://github.com/integrations/terraform-provider-github)
+* JavaScript: [octokit.js](https://github.com/octokit/octokit.js)
+* Ruby: [octokit.rb](https://github.com/octokit/octokit.rb)
+* .NET: [octokit.net](https://github.com/octokit/octokit.net)
+* Terraform: [terraform-provider-github](https://github.com/integrations/terraform-provider-github)
 
 <!-- markdownlint-disable GHD034 -->
 
@@ -42,83 +42,83 @@ These third-party libraries are not maintained by {% data variables.product.comp
 
 ### Clojure
 
-- Tentacles: [clj-commons/tentacles](https://github.com/clj-commons/tentacles)
+* Tentacles: [clj-commons/tentacles](https://github.com/clj-commons/tentacles)
 
 ### Dart
 
-- github.dart: [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)
+* github.dart: [SpinlockLabs/github.dart](https://github.com/SpinlockLabs/github.dart)
 
 ### Emacs Lisp
 
-- gh.el: [sigma/gh.el](https://github.com/sigma/gh.el)
+* gh.el: [sigma/gh.el](https://github.com/sigma/gh.el)
 
 ### Go
 
-- go-github: [google/go-github](https://github.com/google/go-github)
+* go-github: [google/go-github](https://github.com/google/go-github)
 
 ### Haskell
 
-- haskell-github: [haskell-github/github](https://github.com/fpco/github)
+* haskell-github: [haskell-github/github](https://github.com/fpco/github)
 
 ### Java
 
-- GitHub API for Java, an object oriented representation of the GitHub API: [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)
-- JCabi GitHub API, based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API: [github.jcabi.com (Personal Website)](http://github.jcabi.com)
+* GitHub API for Java, an object oriented representation of the GitHub API: [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)
+* JCabi GitHub API, based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API: [github.jcabi.com (Personal Website)](http://github.jcabi.com)
 
 ### JavaScript
 
-- NodeJS GitHub library: [pksunkara/octonode](https://github.com/pksunkara/octonode)
-- Github.js wrapper around the GitHub API: [github-tools/github](https://github.com/github-tools/github)
-- Promise-Based CoffeeScript library for the Browser or NodeJS: [philschatz/github-client](https://github.com/philschatz/github-client)
+* NodeJS GitHub library: [pksunkara/octonode](https://github.com/pksunkara/octonode)
+* Github.js wrapper around the GitHub API: [github-tools/github](https://github.com/github-tools/github)
+* Promise-Based CoffeeScript library for the Browser or NodeJS: [philschatz/github-client](https://github.com/philschatz/github-client)
 
 ### Julia
 
-- GitHub.jl: [JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
+* GitHub.jl: [JuliaWeb/GitHub.jl](https://github.com/JuliaWeb/GitHub.jl)
 
 ### OCaml
 
-- ocaml-github: [mirage/ocaml-github](https://github.com/mirage/ocaml-github)
+* ocaml-github: [mirage/ocaml-github](https://github.com/mirage/ocaml-github)
 
 ### Perl
 
-- Pithub: [plu/Pithub](https://github.com/plu/Pithub)
-- Net::GitHub: [fayland/perl-net-github](https://github.com/fayland/perl-net-github)
+* Pithub: [plu/Pithub](https://github.com/plu/Pithub)
+* Net::GitHub: [fayland/perl-net-github](https://github.com/fayland/perl-net-github)
 
 ### PHP
 
-- PHP GitHub API: [KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
-- GitHub Joomla! Package: [joomla-framework/github-api](https://github.com/joomla-framework/github-api)
-- GitHub bridge for Laravel: [GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
+* PHP GitHub API: [KnpLabs/php-github-api](https://github.com/KnpLabs/php-github-api)
+* GitHub Joomla! Package: [joomla-framework/github-api](https://github.com/joomla-framework/github-api)
+* GitHub bridge for Laravel: [GrahamCampbell/Laravel-GitHub](https://github.com/GrahamCampbell/Laravel-GitHub)
 
 ### PowerShell
 
-- PowerShellForGitHub: [microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
+* PowerShellForGitHub: [microsoft/PowerShellForGitHub](https://github.com/microsoft/PowerShellForGitHub)
 
 ### Python
 
-- gidgethub: [gidgethub/gidgethub](https://github.com/gidgethub/gidgethub)
-- ghapi: [fastai/ghapi](https://github.com/fastai/ghapi)
-- PyGithub: [PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
-- libsaas: [duckboard/libsaas](https://github.com/ducksboard/libsaas)
-- github3.py: [sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py)
-- agithub: [mozilla/agithub](https://github.com/mozilla/agithub)
-- github-flask: [github-flask (Official Website)](http://github-flask.readthedocs.org)
-- githubkit: [yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)
-- octokit.py: [khornberg/octokit.py](https://github.com/khornberg/octokit.py)
+* gidgethub: [gidgethub/gidgethub](https://github.com/gidgethub/gidgethub)
+* ghapi: [fastai/ghapi](https://github.com/fastai/ghapi)
+* PyGithub: [PyGithub/PyGithub](https://github.com/PyGithub/PyGithub)
+* libsaas: [duckboard/libsaas](https://github.com/ducksboard/libsaas)
+* github3.py: [sigmavirus24/github3.py](https://github.com/sigmavirus24/github3.py)
+* agithub: [mozilla/agithub](https://github.com/mozilla/agithub)
+* github-flask: [github-flask (Official Website)](http://github-flask.readthedocs.org)
+* githubkit: [yanyongyu/githubkit](https://github.com/yanyongyu/githubkit)
+* octokit.py: [khornberg/octokit.py](https://github.com/khornberg/octokit.py)
 
 ### Ruby
 
-- GitHub API Gem: [piotrmurach/github](https://github.com/piotrmurach/github)
+* GitHub API Gem: [piotrmurach/github](https://github.com/piotrmurach/github)
 
 ### Rust
 
-- Octocrab: [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
-- Octocat: [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)
+* Octocrab: [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
+* Octocat: [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)
 
 ### Scala
 
-- Github4s: [47deg/github4s](https://github.com/47deg/github4s)
+* Github4s: [47deg/github4s](https://github.com/47deg/github4s)
 
 ### Shell
 
-- ok.sh: [whiteinge/ok.sh](https://github.com/whiteinge/ok.sh)
+* ok.sh: [whiteinge/ok.sh](https://github.com/whiteinge/ok.sh)

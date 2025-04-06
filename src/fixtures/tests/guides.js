@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { get, getDOMCached as getDOM } from '#src/tests/helpers/e2etest.js'
 
 describe('guides', () => {

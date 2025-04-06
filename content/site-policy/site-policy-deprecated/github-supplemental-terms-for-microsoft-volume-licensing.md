@@ -16,21 +16,21 @@ The following GitHub Supplemental Terms (including any applicable Order Forms) s
 
 These Supplemental Terms apply to the following GitHub Offerings, as further defined below (collectively, the "**Products**"):
 
-- GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
+* GitHub Enterprise (comprised of GitHub Enterprise Server, which may include Add-on Software, and GitHub Enterprise Cloud);
 
-- Any related Support; and
+* Any related Support; and
 
-- Any related Professional Services.
+* Any related Professional Services.
 
 These GitHub Supplemental Terms include the following Sections and Exhibits, each of which is incorporated by reference herein:
 
-- SECTION 1: GitHub Enterprise Server License Terms;
+* SECTION 1: GitHub Enterprise Server License Terms;
 
-- SECTION 2: GitHub Enterprise Cloud Terms of Service;
+* SECTION 2: GitHub Enterprise Cloud Terms of Service;
 
-- SECTION 3: General Provisions; and
+* SECTION 3: General Provisions; and
 
-- EXHIBIT A: Definitions.
+* EXHIBIT A: Definitions.
 
 ## SECTION 1: GITHUB ENTERPRISE SERVER LICENSE TERMS
 

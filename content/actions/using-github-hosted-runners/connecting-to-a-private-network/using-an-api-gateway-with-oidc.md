@@ -26,7 +26,7 @@ The main disadvantages of this approach are that you must implement the API gate
 
 The following advantages apply.
 
-- You don't need to configure any firewalls, or modify the routing of your private network.
-- The API gateway is stateless and scales horizontally to handle high availability and high throughput.
+* You don't need to configure any firewalls, or modify the routing of your private network.
+* The API gateway is stateless and scales horizontally to handle high availability and high throughput.
 
 For more information, see [a reference implementation of an API Gateway](https://github.com/github/actions-oidc-gateway-example) in the github/actions-oidc-gateway repository. This implementation requires customization for your use case and is not ready-to-run as-is). For more information, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)."

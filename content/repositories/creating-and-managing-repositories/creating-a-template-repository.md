@@ -17,7 +17,7 @@ shortTitle: Create a template repo
 
 ## About template repositories
 
-{% data reusables.repositories.about-template-repositories %}.
+{% data reusables.repositories.about-template-repositories %}
 
 ## Creating a template repository
 

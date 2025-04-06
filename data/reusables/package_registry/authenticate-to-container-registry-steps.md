@@ -7,9 +7,9 @@
 
    {% endwarning %}
 
-   - Select the `read:packages` scope to download container images and read their metadata.
-   - Select the `write:packages` scope to download and upload container images and read and write their metadata.
-   - Select the `delete:packages` scope to delete container images.
+   * Select the `read:packages` scope to download container images and read their metadata.
+   * Select the `write:packages` scope to download and upload container images and read and write their metadata.
+   * Select the `delete:packages` scope to delete container images.
 
    For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
 

@@ -24,4 +24,4 @@ You can also disable updates from accounts your organization sponsors. For more 
 
 ## Further reading
 
-- "[AUTOTITLE](/sponsors)"
+* "[AUTOTITLE](/sponsors)"

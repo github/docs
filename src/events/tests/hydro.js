@@ -1,4 +1,5 @@
-import { afterEach } from '@jest/globals'
+import { afterEach, describe, expect, test } from 'vitest'
+
 import nock from 'nock'
 import { publish } from '../lib/hydro.js'
 

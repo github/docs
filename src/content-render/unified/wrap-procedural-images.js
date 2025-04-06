@@ -11,7 +11,7 @@ import { visitParents } from 'unist-util-visit-parents'
  *
  *   <ol>
  *     <li>
- *       <span class="procedural-image-wrapper">
+ *       <div class="procedural-image-wrapper">
  *         <img src="..." />
  *
  *
@@ -33,7 +33,7 @@ function insideOlLi(ancestors) {
 function visitor(node, ancestors) {
   if (insideOlLi(ancestors)) {
     const shallowClone = Object.assign({}, node)
-    shallowClone.tagName = 'span'
+    shallowClone.tagName = 'div'
     shallowClone.properties = { class: 'procedural-image-wrapper' }
     shallowClone.children = [node]
     const parent = ancestors.at(-1)

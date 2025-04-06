@@ -16,15 +16,15 @@ redirect_from:
 
 Codespaces are set to stop after 30 minutes without any activity. If you try to interact with a codespace after it has stopped, you may see a `503 service unavailable` error.
 
-- If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
-- Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
+* If a **Start** button is shown in {% data variables.product.prodname_vscode %} or in your browser window, click **Start** to reconnect to the codespace.
+* Reset your codespace by reloading the window. From the [Command Palette](/codespaces/reference/using-the-vs-code-command-palette-in-codespaces#accessing-the-command-palette) in {% data variables.product.prodname_vscode %}, click **Developer: Reload Window**.
 
 ## Browser cannot connect
 
 Sometimes you may not be able to access a codespace from your browser. If this happens, go to https://github.com/codespaces and try connecting to the codespace from that page.
 
-- If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created.
-- If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
+* If the codespace is not listed on that page, check that you are the owner of the codespace you are trying to connect to. You can only open a codespace that you created.
+* If the codespace is listed but you cannot connect from that page, check whether you can connect using a different browser.
 
 ### Diagnose by error message
 
@@ -67,7 +67,9 @@ If you cannot connect to a codespace from {% data variables.product.prodname_vsc
    1. Select the {% data variables.product.prodname_github_codespaces %} extension to display the extension's overview page.
    1. If an update is available, a button is shown, click **Update to X.X.X** to upgrade to the latest version.
 1. Check whether you are using the stable build of {% data variables.product.prodname_vscode %} or the [{% data variables.product.prodname_vscode %} Insiders](https://code.visualstudio.com/insiders/) release (nightly updates). If you are using the insiders release, try installing the [stable build](https://code.visualstudio.com/).
-1. Your company network may be blocking the connection. If possible, check any logging for rejected connections on your device.
+1. Make sure your company network is not blocking the connection.
+   1. If you receive errors like `connect EACCES`, `connect ECONNREFUSED`, `getaddrinfo ENOTFOUND`, or other similar errors, your firewall is likely blocking connections to our connection service. To verify this, please visit [this URL](https://global.rel.tunnels.api.visualstudio.com/api/version). If the request fails or you see no data, you likely need to work with your system administrator add `*.visualstudio.com` to your firewall's IP allow list.
+   1. If you see the error `Tunnel service HTTPS certificate is invalid. This may be caused by the use of a self-signed certificate or a firewall intercepting the connection` it's likely that your firewall is doing TLS inspection and injecting a self-signed certificate which {% data variables.product.prodname_dotcom %} is not able to verify. To resolve this, your system administrator will either need to allow `*.visualstudio.com` to bypass the inspection or install the root CA that the firewall is injecting on your local machine.
 
 If you still cannot connect, {% data reusables.codespaces.contact-support %}
 

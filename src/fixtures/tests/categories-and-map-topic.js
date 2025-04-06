@@ -1,3 +1,5 @@
+import { describe, expect, test } from 'vitest'
+
 import { getDOM, head } from '#src/tests/helpers/e2etest.js'
 
 describe('map topics', () => {

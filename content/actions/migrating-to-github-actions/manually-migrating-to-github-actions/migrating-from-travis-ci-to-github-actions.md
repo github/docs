@@ -28,8 +28,8 @@ This guide helps you migrate from Travis CI to {% data variables.product.prodnam
 
 Before starting your migration to {% data variables.product.prodname_actions %}, it would be useful to become familiar with how it works:
 
-- For a quick example that demonstrates a {% data variables.product.prodname_actions %} job, see "[AUTOTITLE](/actions/quickstart)."
-- To learn the essential {% data variables.product.prodname_actions %} concepts, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
+* For a quick example that demonstrates a {% data variables.product.prodname_actions %} job, see "[AUTOTITLE](/actions/quickstart)."
+* To learn the essential {% data variables.product.prodname_actions %} concepts, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions)."
 
 ## Comparing job execution
 
@@ -184,12 +184,12 @@ The concurrent jobs and workflow execution times in {% data variables.product.pr
 ### Using different languages in {% data variables.product.prodname_actions %}
 
 When working with different languages in {% data variables.product.prodname_actions %}, you can create a step in your job to set up your language dependencies. For more information about working with a particular language, see the specific guide:
-- [Building and testing Node.js](/actions/automating-builds-and-tests/building-and-testing-nodejs)
-- [Building and testing Python](/actions/automating-builds-and-tests/building-and-testing-python)
-- [Building and testing PowerShell](/actions/automating-builds-and-tests/building-and-testing-powershell)
-- [Building and testing Java with Maven](/actions/automating-builds-and-tests/building-and-testing-java-with-maven)
-- [Building and testing Java with Gradle](/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
-- [Building and testing Java with Ant](/actions/automating-builds-and-tests/building-and-testing-java-with-ant)
+* [Building and testing Node.js](/actions/automating-builds-and-tests/building-and-testing-nodejs)
+* [Building and testing Python](/actions/automating-builds-and-tests/building-and-testing-python)
+* [Building and testing PowerShell](/actions/automating-builds-and-tests/building-and-testing-powershell)
+* [Building and testing Java with Maven](/actions/automating-builds-and-tests/building-and-testing-java-with-maven)
+* [Building and testing Java with Gradle](/actions/automating-builds-and-tests/building-and-testing-java-with-gradle)
+* [Building and testing Java with Ant](/actions/automating-builds-and-tests/building-and-testing-java-with-ant)
 
 ## Executing scripts
 
