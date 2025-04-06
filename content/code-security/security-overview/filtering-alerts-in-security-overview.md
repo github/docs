@@ -2,8 +2,10 @@
 title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 allowTitleToDifferFromFilename: true
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -119,7 +121,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 | Qualifier | Description |
 | -------- | -------- |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_AS %} is{% ifversion ghas-products-cloud %} products are{% endif %} enabled or not enabled. |
+| {% ifversion ghes < 3.17 %} |
+| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
+| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |

@@ -25,5 +25,5 @@ If you no longer need a {% data variables.product.prodname_custom_security_confi
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the configurations table, click the name of the {% data variables.product.prodname_custom_security_configuration %} you want to delete.
-1. Scroll to the bottom of the "Security settings" section, then click **Delete configuration**.
+1. Scroll to the bottom of the page, then click **Delete configuration**.
 1. In the "Delete this configuration?" window, read the warning to confirm you are comfortable deleting the {% data variables.product.prodname_custom_security_configuration %}, then click **Delete configuration**.

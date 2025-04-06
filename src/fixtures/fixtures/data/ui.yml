@@ -55,6 +55,7 @@ search:
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
+    back_to_search: Back to search
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
@@ -250,6 +251,7 @@ product_landing:
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
+  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides

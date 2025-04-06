@@ -2,8 +2,8 @@
 title: Viewing security information for your organization or enterprise
 shortTitle: Security overview
 allowTitleToDifferFromFilename: true
-intro: 'View, sort, and filter security alerts and coverage information from across your organization or enterprise, and enable security features for their repositories.'
-product: '{% data reusables.gated-features.security-overview %}'
+intro: 'Visualize adoption rates for {% data variables.product.prodname_GHAS %} features, alert discovery, and remediation for your organization or enterprise.'
+product: '{% data reusables.gated-features.security-overview-general %}'
 versions:
   fpt: '*'
   ghes: '*'

@@ -1,1 +1,5 @@
+|<<<<<<< patch-80
+1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "shield" aria-hidden="true" %} Security**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.{% endif %}
+|=======
 1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "shield" aria-hidden="true" %} Code Security**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.{% endif %}
+|>>>>>>> main

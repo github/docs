@@ -52,8 +52,18 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 </details>
 
 > [!NOTE]
+|<<<<<<< patch-80
+Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
+
+{% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
+
+{% visualstudio %} You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later. {% endvisualstudio %}
+
+{% jetbrains %} You can switch AI models in the latest releases of JetBrains IDEs with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endjetbrains %}
+=======
 > * Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
 > * You can switch AI models in {% data variables.product.prodname_vs %} 17.14 Preview 2 and later, and in the latest JetBrains IDEs, with the latest version of the {% data variables.product.prodname_copilot %} extension.
+|>>>>>>> main
 
 ## Effects of switching the AI model
 
@@ -74,6 +84,18 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 {% endif %}
 
 {% data reusables.copilot.editor-preview-settings %}
+
+{% visualstudio %}
+
+## Changing the AI model for code completion
+
+The following instructions are for {% data variables.product.prodname_vs %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
+
+1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the top right corner.
+1. Click **Settings**, then click **Options**.
+1. Under **{% data variables.product.prodname_copilot_short %} Completions**, use the dropdown menu to select the model you want to use.
+
+{% endvisualstudio %}
 
 {% visualstudio %}
 
