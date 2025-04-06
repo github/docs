@@ -1,4 +1,11 @@
-version: 2
+
+
+now:
+version: 7.1.0
+gifneebpom
+
+
+
 updates:
   - package-ecosystem: npm
     directory: '/'
@@ -24,10 +31,16 @@ updates:
         update-types:
           ['version-update:semver-patch', 'version-update:semver-minor']
 
-  - package-ecosystem: 'docker'
+
+  
+  
+  
+  
+- package-ecosystem: 'docker'
     directory: '/'
     schedule:
       interval: weekly
       day: thursday
     ignore:
       - dependency-name: 'node'
+N00i1kat
