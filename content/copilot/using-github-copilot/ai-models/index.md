@@ -11,6 +11,4 @@ children:
   - /changing-the-ai-model-for-copilot-code-completion
   - /using-claude-sonnet-in-github-copilot
   - /using-gemini-flash-in-github-copilot
-  - /choosing-the-right-ai-model-for-your-task
-  - /comparing-ai-models-using-different-tasks
 ---
