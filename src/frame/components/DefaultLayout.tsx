@@ -59,7 +59,7 @@ export const DefaultLayout = (props: Props) => {
 
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
-  const SOCIAL_CATEGORIES = new Set(['security', 'actions', 'issues', 'copilot'])
+  const SOCIAL_CATEGORIES = new Set(['code-security', 'actions', 'issues', 'copilot'])
   const SOCIAL_CARD_IMG_BASE_URL = '/assets/cb-345/images/social-cards'
 
   function getCategoryImageUrl(category: string): string {
