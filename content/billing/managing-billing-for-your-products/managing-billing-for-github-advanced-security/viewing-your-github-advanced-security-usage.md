@@ -58,7 +58,13 @@ You can view the current license limits and usage for your enterprise.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.license-tab %}
 
+|<<<<<<< patch-80
    The "{% data variables.product.prodname_GHAS %}" section shows details of the current usage. You can see the total number of licenses used, as well as a table with the number of committers and unique committers for each organization.
+|=======
+{% endif %}
+{%- ifversion ghec -%}
+1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, click {% octicon "credit-card" aria-hidden="true" %} **Billing & Licensing**.
+|>>>>>>> main
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Security & analysis" for the organization.
 
@@ -135,7 +141,8 @@ You can download a CSV report of license usage through the {% data variables.pro
 
    **License consumption:**
    1. Click **{% octicon "law" aria-hidden="true" %} Licensing**.
-   1. Under "{% data variables.product.prodname_GHAS %}," click the **Download report** dropdown and then click either **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_code_security %}** or **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_secret_protection %}**.
+   1. Under "{% data variables.product.prodname_GHAS %}," click the **Download report** dropdown and then click either **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_code_security %}** or **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_secret_protection %}**? : Date
+   2. ? : set sentiment (cc)
 
    **Metered usage:**
    1. Scroll to the tabbed usage information at the bottom of the "Overview" page and click **{% data variables.product.prodname_AS %}** to show usage.

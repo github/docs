@@ -7,10 +7,9 @@ versions:
 topics:
   - Copilot
 children:
-  - /managing-copilot-as-an-individual-subscriber
-  - /managing-github-copilot-in-your-organization
   - /managing-copilot-for-your-enterprise
-  - /monitoring-usage-and-entitlements
+  - /managing-github-copilot-in-your-organization
+  - /managing-copilot-as-an-individual-subscriber
   - /configure-personal-settings
   - /configuring-and-auditing-content-exclusion
 ---

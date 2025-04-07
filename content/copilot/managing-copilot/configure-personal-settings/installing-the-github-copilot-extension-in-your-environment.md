@@ -11,9 +11,14 @@ redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
 ---
 
-## Prerequisite
+## Getting access to {% data variables.product.prodname_copilot %}
 
-To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.product.prodname_copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+There are different ways to get access to {% data variables.product.prodname_copilot_short %}.
+
+| Type of user | How to get access to {% data variables.product.prodname_copilot_short %} |
+| --- | --- |
+| Individual | <ul><li>Set up {% data variables.product.prodname_copilot_free %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid {% data variables.product.prodname_copilot_short %} subscription to get unlimited completions and chat interactions. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot_short %} for free</span></a> with a one-time 30-day trial.</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options.</li></ul>  |
+| Organization{% ifversion ghec %}/Enterprise member{% endif %} | <ul><li>If you are a member of an organization{% ifversion ghec %} or enterprise{% endif %} that has a subscription to {% data variables.product.prodname_copilot_short %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to https://github.com/settings/copilot and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable {% data variables.product.prodname_copilot_short %} for your organization.</li>{% ifversion ghec %}<li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise) to enable {% data variables.product.prodname_copilot_short %} for your enterprise.</li>{% endif %}</ul> |
 
 {% azure_data_studio %}
 
