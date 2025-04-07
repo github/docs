@@ -156,3 +156,35 @@ updates:
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts)
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#supported-package-ecosystems)
+
+
+# Example configuration file that:
+#  - Has a private registry
+#  - Ignores lodash dependency
+#  - Disables version-updates
+#  - Defines a group by package name, for security updates for golang dependencies
+
+version: 2
+registries:
+  example:
+    type: npm-registry
+    url: https://example.com
+    token: ${{secrets.NPM_TOKEN}}
+updates:
+  - package-ecosystem: "npm"
+    directory: "/src/npm-project"
+    schedule:
+      interval: "daily"
+    # For Lodash, ignore all updates
+    ignore:
+      - dependency-name: "lodash"
+    # Disable version updates for npm dependencies
+    open-pull-requests-limit: 0
+    registries:
+      - example
+  - package-ecosystem: "gomod"
+    groups:
+      golang:
+        applies-to: security-updates
+        patterns:
+          - "golang.org*"
