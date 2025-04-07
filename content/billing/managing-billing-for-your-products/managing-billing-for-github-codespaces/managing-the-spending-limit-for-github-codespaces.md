@@ -1,7 +1,7 @@
 ---
 title: Managing the spending limit for GitHub Codespaces
 intro: 'You can set a spending limit for {% data variables.product.prodname_github_codespaces %} usage.'
-shortTitle: Spending limit
+shortTitle: Spending limited
 versions:
   fpt: '*'
   ghec: '*'
