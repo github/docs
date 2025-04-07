@@ -27,12 +27,8 @@ sections:
         # https://github.com/github/releases/issues/4336
         - |
           `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
-
-    - heading: Authentication
-      notes:
-        # https://github.com/github/releases/issues/2579
         - |
-          Enterprise and organization administrators can set limits on token lifetimes for the {% data variables.product.pat_generic_title_case_plural %} (PATs) used against their resources. These policies mandate token rotation on a regular basis and reduce how long a compromised token is good for, while also providing a lever to reduce the use of less-secure PATs in your company. See [New PAT rotation policies preview and optional expiration for fine-grained PATs](https://github.blog/changelog/2024-10-18-new-pat-rotation-policies-preview-and-optional-expiration-for-fine-grained-pats/) on the GitHub blog.
+          Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.x or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-03]
 
     - heading: Dependabot
       notes:
@@ -75,13 +71,6 @@ sections:
         # https://github.com/github/releases/issues/4309
         - |
           Enterprise administrators can authenticate with region-specific OIDC endpoints for improved compliance and performance.
-
-
-    - heading: GitHub Apps
-      notes:
-        # https://github.com/github/releases/issues/4900
-        - |
-          GitHub App developers can improve security with a 25-key limit per app, encouraging safer key management practices. Apps exceeding the limit must delete excess keys before adding new ones. Additionally, scoped tokens can access more repositories. See [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 
     - heading: Repositories
       notes:
@@ -269,3 +258,9 @@ sections:
     # https://github.com/github/releases/issues/4535
     - |
       As of October 15th, 2024, you will no longer be able to enable or disable GitHub security features for repositories from the organization-level security coverage view. This feature has been deprecated and replaced with code security configurations for managing these settings. See the [GitHub blog post](https://github.blog/changelog/2024-10-17-new-code-security-configurations-let-you-set-security-features-at-the-organization-level/).
+
+  errata:
+    - |
+      The release notes previously mentioned GitHub App private key limits, which did not ship in 3.16 and will ship in 3.17. Similarly, PAT rotation policies were mentioned but will ship instead in 3.17. [Updated: 2025-03-21]
+    - |
+      The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]

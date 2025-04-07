@@ -116,12 +116,7 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 
 {% endif %}
 
-{% ifversion dependabot-alerts-enterprise-enablement %}
-
-> [!NOTE]
-> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization and repository level settings for {% data variables.product.prodname_dependabot_alerts %}.
-
-{% endif %}
+{% ifversion ghes < 3.16 %}
 
 {% ifversion dependabot-alerts-enterprise-enablement or ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -129,4 +124,18 @@ You can enable or disable {% data variables.product.prodname_dependabot_alerts %
 {% data reusables.enterprise-accounts.advanced-security-tab %}
 1. In the "{% data variables.product.prodname_dependabot %}" section, to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Disable all** or **Enable all**.
 1. Optionally, select **Automatically enable for new repositories** to enable {% data variables.product.prodname_dependabot_alerts %} by default for your organizations' new repositories.
+{% endif %}
+
+{% ifversion dependabot-alerts-enterprise-enablement or security-configuration-enterprise-level %}
+
+> [!NOTE]
+> When {% data variables.product.prodname_dependabot_alerts %} are enabled or disabled at the enterprise level, it overrides the organization and repository level settings for {% data variables.product.prodname_dependabot_alerts %}.
+
+{% data variables.product.prodname_security_configurations_caps %}, which are collections of security settings,  allow you to manage {% data variables.product.prodname_dependabot_alerts %} for your enterprise. You can:
+
+* Use the {% data variables.product.prodname_github_security_configuration %}. This configuration is maintained by {% data variables.product.github %} and is a set of industry best practices and features that provide a robust, baseline security posture for enterprises. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/applying-the-github-recommended-security-configuration-to-your-enterprise).
+* Configure your own {% data variables.product.prodname_custom_security_configuration %} if you prefer the enablement settings to meet the specific security needs of your enterprise. See [AUTOTITLE](/admin/managing-code-security/securing-your-enterprise/creating-a-custom-security-configuration-for-your-enterprise).
+
+{% endif %}
+
 {% endif %}

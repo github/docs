@@ -1,5 +1,7 @@
 # Reference: #13509
 # Documentation for: Additional data for the overview page [Public Beta]
+# Ref 17108 Advanced Security available to Team plans
 versions:
+  fpt: '*'
   ghes: '>3.12'
   ghec: '*'

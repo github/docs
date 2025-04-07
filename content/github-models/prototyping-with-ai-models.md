@@ -65,7 +65,7 @@ The steps to use each model are similar. In general, you will need to:
 1. Either open a codespace, or set up your local environment:
    * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
-      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token should not have any scopes or permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token needs to have `models:read` permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
       * Save your token as an environment variable.
       * Install the dependencies for the SDK, if required.
 1. Use the example code to make a request to the model.

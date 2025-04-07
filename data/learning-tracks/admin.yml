@@ -148,9 +148,9 @@ configure_github_actions:
     - >-
       /admin/managing-github-actions-for-your-enterprise/advanced-configuration-and-troubleshooting/using-a-staging-environment
 configure_github_advanced_security:
-  title: Configure {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %}
+  title: Configure {% data variables.product.prodname_GHAS %} products
   description: >-
-    Improve the quality and security of your developers' code with {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %}.
+    Improve the quality and security of your developers' code with {% data variables.product.prodname_GHAS %} products.
   versions:
     ghes: '*'
   guides:

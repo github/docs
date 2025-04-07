@@ -10,7 +10,7 @@ topics:
   - Advanced Security
   - Alerts
   - Repositories
-shortTitle: Enable delegated alert dismissal
+shortTitle: Delegated alert dismissal
 ---
 
 ## About enabling delegated alert dismissal
@@ -26,16 +26,14 @@ shortTitle: Enable delegated alert dismissal
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-
-1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click **Enable** for "Prevent direct alert dismissals".
+1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Prevent direct alert dismissals", click **Enable**.
 
 ## Configuring delegated dismissal for an organization
 
 You must configure delegated dismissal for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
 1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
-1. When creating the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menus for "Alerts" and "Prevent direct alert dismissals" are set to **Enabled**.
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menu for "Prevent direct alert dismissals" is set to **Enabled**.
 1. Click **Save configuration**.
 1. Apply the security configuration to all (or selected) repositories in your organization. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/applying-a-custom-security-configuration).
 

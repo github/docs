@@ -1320,6 +1320,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "oauth_access.revoke",
+    "description": "An OAuth access token was revoked.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "oauth_access.update",
     "description": "An OAuth access token was updated.",
     "docs_reference_links": "N/A"
