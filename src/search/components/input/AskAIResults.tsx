@@ -38,7 +38,6 @@ type AISearchResultEventParams = {
   eventGroupId: string
   couldNotAnswer?: boolean
   status: number
-  connectedEventId?: string
 }
 
 export function AskAIResults({
@@ -68,13 +67,10 @@ export function AskAIResults({
     message: string
     sources: AIReference[]
     aiCouldNotAnswer: boolean
-    connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
-
-  const [conversationId, setConversationId] = useState<string>('')
 
   const handleAICannotAnswer = () => {
     setInitialLoading(false)
@@ -133,7 +129,6 @@ export function AskAIResults({
         eventGroupId: askAIEventGroupId.current,
         couldNotAnswer: cachedData.aiCouldNotAnswer,
         status: cachedData.aiCouldNotAnswer ? 400 : 200,
-        connectedEventId: cachedData.connectedEventId,
       })
 
       setTimeout(() => {
@@ -146,7 +141,6 @@ export function AskAIResults({
     async function fetchData() {
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
-      let conversationIdBuffer = ''
 
       try {
         const response = await executeAISearch(router, version, query, debug)
@@ -195,18 +189,6 @@ export function AskAIResults({
               let parsedLine
               try {
                 parsedLine = JSON.parse(line)
-                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
-                if (parsedLine?.errors) {
-                  sendAISearchResultEvent({
-                    sources: [],
-                    message: JSON.stringify(parsedLine.errors),
-                    eventGroupId: askAIEventGroupId.current,
-                    couldNotAnswer: false,
-                    status: 500,
-                  })
-                  setAISearchError()
-                  return
-                }
               } catch (e) {
                 console.error(
                   'Failed to parse JSON:',
@@ -230,9 +212,6 @@ export function AskAIResults({
                   messageBuffer += parsedLine.text
                   setMessage(messageBuffer)
                 }
-              } else if (parsedLine.chunkType === 'CONVERSATION_ID') {
-                conversationIdBuffer = parsedLine.conversation_id
-                setConversationId(parsedLine.conversation_id)
               }
               if (!isCancelled) {
                 setAnnouncement('Copilot Response Loading...')
@@ -254,7 +233,6 @@ export function AskAIResults({
               message: messageBuffer,
               sources: sourcesBuffer,
               aiCouldNotAnswer: false,
-              connectedEventId: conversationIdBuffer,
             },
             version,
             router.locale || 'en',
@@ -267,7 +245,6 @@ export function AskAIResults({
             eventGroupId: askAIEventGroupId.current,
             couldNotAnswer: false,
             status: 200,
-            connectedEventId: conversationIdBuffer,
           })
         }
       }
@@ -322,7 +299,6 @@ export function AskAIResults({
                 survey_vote: true,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
                 eventGroupId: askAIEventGroupId.current,
-                survey_connected_event_id: conversationId,
               })
             }}
           ></IconButton>
@@ -344,7 +320,6 @@ export function AskAIResults({
                 survey_vote: false,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
                 eventGroupId: askAIEventGroupId.current,
-                survey_connected_event_id: conversationId,
               })
             }}
           ></IconButton>
@@ -434,7 +409,6 @@ function sendAISearchResultEvent({
   eventGroupId,
   couldNotAnswer = false,
   status,
-  connectedEventId,
 }: AISearchResultEventParams) {
   let searchResultLinksJson = '[]'
   try {
@@ -444,10 +418,12 @@ function sendAISearchResultEvent({
   }
   sendEvent({
     type: EventType.aiSearchResult,
+    // TODO: Remove PII so we can include the actual data
+    ai_search_result_query: 'REDACTED',
+    ai_search_result_response: 'REDACTED',
     ai_search_result_links_json: searchResultLinksJson,
     ai_search_result_provided_answer: couldNotAnswer ? false : true,
     ai_search_result_response_status: status,
-    ai_search_result_connected_event_id: connectedEventId,
     eventGroupKey: ASK_AI_EVENT_GROUP,
     eventGroupId: eventGroupId,
   })
