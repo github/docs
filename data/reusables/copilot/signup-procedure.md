@@ -4,7 +4,6 @@
 
    If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial or paid subscription, you will automatically be taken to step 5.
 
-1. To enable usage beyond your included premium request allowance, click **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %} premium requests**. You can change this setting at any time.
 1. Follow the steps to enter and confirm your payment details, then click **Submit**.
 1. Select your preferences, then click **Save and complete setup**.
 

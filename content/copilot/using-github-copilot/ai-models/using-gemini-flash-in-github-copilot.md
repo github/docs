@@ -9,6 +9,8 @@ topics:
   - Copilot
 ---
 
+> [!NOTE] {% data variables.copilot.copilot_gemini_flash %} is in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+
 ## About {% data variables.copilot.copilot_gemini_flash %} in {% data variables.product.prodname_copilot %}
 
 {% data variables.copilot.copilot_gemini_flash %} is a large language model (LLM) that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_gemini_flash %} is a responsive LLM that can empower you to build apps faster and more easily, so you can focus on great experiences for your users. {% data reusables.copilot.gemini-model-info %}

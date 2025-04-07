@@ -89,68 +89,27 @@ export function updateContentFiles() {
 
     if (appliesToNoSupportedGhesReleases) {
       if (Object.keys(data.versions).length === 1) {
-        removeFileUpdateParent(file)
-      } else {
-        // Remove the ghes property from versions Fm and return
-        delete data.versions.ghes
-        console.log('Removing GHES version from: ', file)
-        fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
+        console.log('Removing file: ', file)
+        fs.unlinkSync(file)
+        const indexFile = file.replace(path.basename(file), 'index.md')
+        const indexFileContent = fs.readFileSync(indexFile, 'utf8')
+        const { content, data } = frontmatter(indexFileContent) as {
+          content: string | undefined
+          data: { children: string[] } | undefined
+        }
+        if (!data) continue
+        data.children = data.children.filter((child) => child !== '/' + path.basename(file, '.md'))
+        console.log('..Updating children in: ', indexFile)
+        fs.writeFileSync(
+          indexFile,
+          frontmatter.stringify(content || '', data, { lineWidth: -1 } as any),
+        )
+        continue
       }
+      // Remove the ghes property from versions Fm and return
+      delete data.versions.ghes
+      console.log('Removing GHES version from: ', file)
+      fs.writeFileSync(file, frontmatter.stringify(content, data, { lineWidth: -1 } as any))
     }
   }
-}
-
-function removeFileUpdateParent(filePath: string) {
-  console.log('Removing file: ', filePath)
-  fs.unlinkSync(filePath)
-  const filePathDirectory = path.dirname(filePath)
-  if (fs.readdirSync(filePathDirectory).length === 0) {
-    fs.rmdirSync(filePathDirectory)
-  }
-  const parentFilePath = getParentFilePath(filePath)
-  if (!parentFilePath) return
-  const indexFileContent = fs.readFileSync(parentFilePath, 'utf8')
-  const { content, data } = frontmatter(indexFileContent) as {
-    content: string | undefined
-    data: { children: string[] } | undefined
-  }
-  if (!data) return
-  // Children paths are relative to the index.md file's directory
-  const childPath = filePath.endsWith('index.md')
-    ? '/' + path.basename(path.dirname(filePath))
-    : '/' + path.basename(filePath, '.md')
-
-  // Remove the childPath from the parent index.md file's children frontmatter
-  data.children = data.children.filter((child) => child !== childPath)
-
-  // If removing the childPath leaves the parent index.md file empty, remove it
-  if (data.children.length === 0) {
-    removeFileUpdateParent(parentFilePath)
-  } else {
-    console.log('..Updating children in: ', parentFilePath)
-    fs.writeFileSync(
-      parentFilePath,
-      frontmatter.stringify(content || '', data, { lineWidth: -1 } as any),
-    )
-  }
-}
-
-// Gets the next parent file path.
-// If the filePath is an article (e.g., doesn't end with index.md),
-// then the parent file is the index.md file in the same directory.
-// If the filePath is a category or subcategory (e.g., ends with index.md),
-// the parent is the index.md file in the next directory up.
-function getParentFilePath(filePath: string) {
-  // This is the root index.md file, it has no parent
-  if (!filePath || filePath === 'content/index.md') return null
-  // Handle index.md files with index.md parent in directory above
-  if (filePath.endsWith('index.md')) {
-    const pathParts = filePath.split('/')
-    pathParts.pop()
-    pathParts.pop()
-    pathParts.push('index.md')
-    return pathParts.join('/')
-  }
-  // Handle articles with a parent index.md file
-  return filePath.replace(path.basename(filePath), 'index.md')
 }

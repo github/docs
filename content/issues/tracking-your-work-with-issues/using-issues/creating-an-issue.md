@@ -171,14 +171,6 @@ If you're using issues to track and prioritize your work, you can use issues to 
 
 {% endif %}
 
-{% ifversion copilot %}
-
-## Creating an issue from {% data variables.product.prodname_copilot_chat_short %}
-
-You can create an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
-
-{% endif %}
-
 ## Further reading
 
 * [AUTOTITLE](/get-started/writing-on-github)
