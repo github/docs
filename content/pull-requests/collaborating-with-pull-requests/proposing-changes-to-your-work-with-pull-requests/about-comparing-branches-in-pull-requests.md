@@ -11,7 +11,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Pull requests
+--- Pull requests
 shortTitle: Compare branches
 ---
 
