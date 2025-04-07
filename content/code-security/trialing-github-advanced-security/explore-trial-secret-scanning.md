@@ -69,4 +69,10 @@ You can enable validity checks to check whether detected tokens are still active
 When you have enabled the additional controls for {% data variables.product.prodname_secret_protection %}, you're ready to test them against your business needs, and explore further. You may also be ready to look into exploring the options available with {% data variables.product.prodname_GH_code_security %}.
 
 * [AUTOTITLE](/code-security/trialing-github-advanced-security/explore-trial-code-scanning)
+|<<<<<<< patch-80
+=======
+
+## Further reading
+
+|>>>>>>> main
 * [Enforce {% data variables.product.prodname_GHAS %} at Scale](https://wellarchitected.github.com/library/application-security/recommendations/enforce-ghas-at-scale/)
