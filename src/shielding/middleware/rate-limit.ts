@@ -14,7 +14,7 @@ if (isNaN(MAX)) {
 }
 
 // We apply this rate limiter to _all_ routes in src/shielding/index.ts except for `/api/*` routes
-export function createRateLimiter(max = MAX, isAPILimiter = false) {
+export function createRateLimiter(max = MAX) {
   return rateLimit({
     // 1 minute
     windowMs: EXPIRES_IN_AS_SECONDS * 1000,
@@ -47,14 +47,9 @@ export function createRateLimiter(max = MAX, isAPILimiter = false) {
         return true
       }
 
-      // We handle /api/* routes with a separate rate limiter
-      // When it is a separate rate limiter, isAPILimiter will be passed as true
-      if (req.path.startsWith('/api/') || isAPILimiter) {
-        return false
-      }
-
-      // If the request is not suspicious, don't rate limit it
-      if (!isSuspiciousRequest(req)) {
+      // If the query string looks totally regular and is not a
+      // search endpoint, then skip
+      if (!isSuspiciousSearchRequest(req)) {
         return true
       }
 
@@ -137,7 +132,14 @@ const MISC_KEYS = [
  * @param {Request} req
  * @returns boolean
  */
-function isSuspiciousRequest(req: Request) {
+function isSuspiciousSearchRequest(req: Request) {
+  if (
+    req.originalUrl.includes('/api/search') ||
+    req.originalUrl.includes('/api/ai-search') ||
+    req.originalUrl.includes('/api/combined-search')
+  )
+    return false
+
   const keys = Object.keys(req.query)
 
   // Since this function can only speculate by query strings (at the

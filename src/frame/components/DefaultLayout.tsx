@@ -59,6 +59,20 @@ export const DefaultLayout = (props: Props) => {
 
   const metaDescription = page.introPlainText ? page.introPlainText : t('default_description')
 
+  const SOCIAL_CATEGORIES = new Set(['security', 'actions', 'issues', 'copilot'])
+  const SOCIAL_CARD_IMG_BASE_URL = '/assets/cb-345/images/social-cards'
+
+  function getCategoryImageUrl(category: string): string {
+    return `${SOCIAL_CARD_IMG_BASE_URL}/${category}.png`
+  }
+
+  function getSocialCardImage(): string {
+    if (currentProduct && SOCIAL_CATEGORIES.has(currentProduct.id)) {
+      return getCategoryImageUrl(currentProduct.id)
+    }
+    return getCategoryImageUrl('default')
+  }
+
   return (
     <DomainNameEditProvider>
       <Head>
@@ -111,10 +125,7 @@ export const DefaultLayout = (props: Props) => {
             <meta property="og:title" content={page.fullTitle} />
             <meta property="og:type" content="article" />
             <meta property="og:url" content={fullUrl} />
-            <meta
-              property="og:image"
-              content="https://github.githubassets.com/images/modules/open_graph/github-logo.png"
-            />
+            <meta property="og:image" content={getSocialCardImage()} />
           </>
         )}
       </Head>
