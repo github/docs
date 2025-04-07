@@ -100,12 +100,6 @@ If you are an **owner or security manager** for an organization, you can see dat
 
 If you are an **organization or team member**, you can view security overview for the organization and see data for repositories where you have an appropriate level of access.
 
-{% ifversion secret-risk-assessment %}
-
-> [!TIP] The Assessments view, which is not shown in the table below, is only available to organization owners and security managers.
-
-{% endif %}
-
 {% ifversion security-overview-dashboard %}
 {% rowheaders %}
 

@@ -10,7 +10,7 @@ topics:
 
 ## About automatic code review
 
-By default, {% data variables.product.prodname_copilot_short %} will only review a pull request if it's assigned to the pull request in the same way you would assign a human reviewer. However, repository owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository that are created by people with access to {% data variables.product.prodname_copilot_short %}. Organization owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization where the pull request is created by a {% data variables.product.prodname_copilot_short %} user.
+By default, {% data variables.product.prodname_copilot_short %} will only review a pull request when it is assigned to the pull request in the same way you would assign a human reviewer. However, repository owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in the repository. Organization owners can configure {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in some or all of the repositories in the organization.
 
 ### Triggering an automatic pull request review
 
@@ -24,10 +24,6 @@ After you configure automatic code review, {% data variables.product.prodname_co
 
 > [!NOTE]
 > {% data variables.product.prodname_copilot_short %} only automatically reviews a pull request once. If you make changes to the pull request after it has been automatically reviewed and you want {% data variables.product.prodname_copilot_short %} to re-review the pull request, you must request this manually. To do this, click the {% octicon "sync" aria-label="Re-request review" %} button next to {% data variables.product.prodname_copilot_short %}'s name in the **Reviewers** menu.
-
-### Limits on automatic pull request reviews
-
-{% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota. When {% data variables.product.prodname_copilot_short %} carries out an automatic review, it uses one premium request from the quota of the user who created the pull request. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review#maximum-code-reviews-per-month).
 
 ## Configuring automatic code review for a single repository
 

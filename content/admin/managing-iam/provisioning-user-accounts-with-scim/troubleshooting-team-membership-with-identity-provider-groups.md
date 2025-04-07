@@ -24,8 +24,6 @@ redirect_from:
 
 {% data reusables.emus.about-team-management-with-idp %} You can review a list of teams that you've synchronized to IdP groups from your enterprise's settings. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams).
 
-{% data variables.product.github %} also runs a reconciliation job once per day, which synchronizes team membership with IdP group membership that is stored on {% data variables.product.github %}, based on information previously sent from the IdP via SCIM. If this job finds that a user is a member of an IdP group in the enterprise, but they are not a member of the mapped team or its organization, the job will attempt to add the user to the organization and team.
-
 If {% data variables.product.prodname_dotcom %} is unable to synchronize team membership with a group on your IdP, you can view an error message and troubleshoot the problem.
 
 ## Viewing errors for team synchronization with an IdP group

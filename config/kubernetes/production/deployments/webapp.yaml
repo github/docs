@@ -23,10 +23,10 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 2000m
+              memory: 6Gi
             limits:
-              cpu: 16000m
+              cpu: 8000m
               memory: 16Gi
           ports:
             - name: http

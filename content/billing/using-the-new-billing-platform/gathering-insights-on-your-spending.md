@@ -40,16 +40,7 @@ You can view the usage of your personal account and download the usage data for 
 
    >[!NOTE] The usage graph is configured to represent the start of the month to the end of the month, not your specific billing period.
 
-1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
-
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
-    <!-- expires 2025-05-05 -->
-    {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-05 -->
-
-   You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
+1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page. You can choose a pre-selected option or use the Custom range option to specify a date range of up to 31 days.
 
 {% endif %}
 
@@ -82,16 +73,7 @@ You can view the usage of your {% data variables.enterprise.enterprise_or_org %}
 
    >[!NOTE] The usage graph is configured to represent the start of the month to the end of the month, not your specific billing period.
 
-1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page.
-
-   * For a breakdown of all metered usage, click **Metered billing usage report**.
-   * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
-    <!-- expires 2025-05-05 -->
-    {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-05 -->
-
-   You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
+1. To request a CSV usage report, select **Get usage report** in the upper-right corner of the page. You can choose a pre-selected option or use the Custom range option to specify a date range of up to 31 days.
 
 ## Viewing license usage
 

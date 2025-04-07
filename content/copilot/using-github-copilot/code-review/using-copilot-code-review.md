@@ -14,6 +14,25 @@ redirect_from:
   - /early-access/copilot/code-reviews/using-copilot-code-reviews
 ---
 
+>[!NOTE]
+> {% data reusables.copilot.code-review.preview-note %}
+
+## Receiving access
+
+{% webui %}
+
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} on the {% data variables.product.github %} website if an owner of your organization has enabled **{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %} > Opt in to preview features** in the organization policies. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
+{% endwebui %}
+
+{% vscode %}
+
+If you get a {% data variables.product.prodname_copilot_short %} subscription from an organization, you will only be able to participate in the {% data variables.release-phases.public_preview %} in {% data variables.product.prodname_vscode_shortname %} if an owner of your organization has enabled **Editor preview features** in the organization policies. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+
+{% endvscode %}
+
+If an enterprise owner has explicitly enabled or disabled preview features, organizations in the enterprise will not be able to change the policy. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+
 ## About {% data variables.copilot.copilot_code-review_short %}
 
 {% data variables.product.prodname_copilot %} can review your code and provide feedback. Where possible, {% data variables.product.prodname_copilot_short %}'s feedback includes suggested changes which you can apply with a couple of clicks.
@@ -27,38 +46,15 @@ The current functionality and availability of the two types of review is summari
 
 {% rowheaders %}
 
-| Feature                          | Review selection                                                                                  | Review changes                                                                                                                                                                                                                                                                                                                   |
-|----------------------------------|---------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Environment                      | {% data variables.product.prodname_vscode %}                                                      | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website                                                                                                                                                                                                                                 |
-| Description                      | Initial review of a highlighted section of code with feedback and suggestions                     | Deeper review of all changes                                                                                                                                                                                                                                                                                                     |
-| Language support                 | All                                                                                               | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript <br><br> {% data variables.release-phases.public_preview_caps %} support for C, C++, Kotlin, and Swift.                                                                                                                                                             |
-| Custom coding guidelines support | No                                                                                                | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines)                                                                                                                                                                |
-| Availability                     | Standard feature available to all {% data variables.product.prodname_copilot_short %} subscribers | Premium feature. Available with {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_pro_plus_short %}, {% data variables.product.prodname_copilot_business_short %}, and {% data variables.product.prodname_copilot_enterprise_short %} subscriptions. Per-person monthly quota. |
+| Feature   | Review selection  | Review changes  |
+| --------- | ----------------- | --------------- |
+| Environment | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
+| Description | Initial review of a highlighted section of code with feedback and suggestions  | Deeper review of all changes |
+| Language support | All | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript |
+| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines) |
+| Availability | {% data variables.release-phases.public_preview_caps %}, available to all {% data variables.product.prodname_copilot_short %} subscribers | {% data variables.release-phases.public_preview_caps %}, available with {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_business_short %}, and {% data variables.product.prodname_copilot_enterprise_short %} subscriptions. |
 
 {% endrowheaders %}
-
-### Premium requests
-
-{% data variables.product.prodname_copilot_short %} code review uses multiple models behind the scenes. The initial request is made using the o3-mini model. As {% data variables.product.prodname_copilot_short %} generates suggestions throughout the pull request, it may use GPT-4o or other models, depending on the code and type of review.
-
-Because different models have different multipliers, the number of premium requests used during a code review will vary based on the size of the pull request and the amount of code {% data variables.product.prodname_copilot_short %} needs to analyze and respond to. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
-
-### Maximum code reviews per month
-
-The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
-
-<!-- expires 2025-05-05 -->
-> [!NOTE]
-> The per-person quota for Copilot code review will commence on May 5th, 2025.
-<!-- end expires 2025-05-05 -->
-
-When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request.
-
-If a repository is configured to automatically request a code review from {% data variables.product.prodname_copilot_short %} for all new pull requests, the premium request usage is applied to the quota of the pull request author. If a pull request is created by {% data variables.product.prodname_actions %} or by a bot, the usage will apply to the user who triggered the workflow (if identifiable), or to a designated billing owner.
-
-When you reach your monthly quota you will not be  able to get a code review from {% data variables.product.prodname_copilot_short %} until your quota resets—unless you upgrade your {% data variables.product.prodname_copilot_short %} plan or enable additional {% data variables.product.prodname_copilot_short %} premium requests. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
-
-### Validating {% data variables.product.prodname_copilot_short %} code reviews
 
 > [!WARNING] {% data variables.product.prodname_copilot_short %} isn't guaranteed to spot all problems or issues in a pull request, and sometimes it will make mistakes. Always validate {% data variables.product.prodname_copilot_short %}'s feedback carefully, and supplement {% data variables.product.prodname_copilot_short %}'s feedback with a human review.
 
