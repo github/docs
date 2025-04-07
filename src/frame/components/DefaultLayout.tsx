@@ -128,6 +128,13 @@ export const DefaultLayout = (props: Props) => {
             <meta property="og:image" content={getSocialCardImage()} />
           </>
         )}
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta property="twitter:domain" content={new URL(fullUrl).hostname} />
+        <meta property="twitter:url" content={fullUrl} />
+        <meta name="twitter:title" content={page.fullTitle} />
+        {page.introPlainText && <meta name="twitter:description" content={page.introPlainText} />}
+        <meta name="twitter:image" content={getSocialCardImage()} />
       </Head>
       <a
         href="#main-content"
