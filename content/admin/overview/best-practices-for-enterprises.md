@@ -56,10 +56,6 @@ You can manage the display of usernames within your enterprise's private reposit
 
 {% endif %}
 
-## Maintain ownership continuity
-
-Organizations can have more than one organization owner to avoid lapses in ownership. We recommend that at least two people within each organization have the owner role. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization).
-
 ## Further reading
 
 * [AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)

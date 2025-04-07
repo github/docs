@@ -103,12 +103,6 @@ Even if you change your organizational structure, you can still prepare a script
 
 {% data reusables.enterprise-migration-tool.organization-structure-tasks %}
 
-## What is our plan for the enterprise and organization names?
-
-If you are migrating between accounts on {% data variables.product.prodname_dotcom_the_website %}, keep in mind that there are naming constraints for user, organization, and enterprise accounts. If you need to re-use an organization or enterprise name for the migration, we recommend renaming accounts before as opposed to deleting them. Renaming makes a user, organization or enterprise account name available immediately for re-use.
-
-Organization accounts on {% data variables.product.prodname_enterprise %} share the same namespace; two user/organization accounts cannot have the same name. Enterprise accounts on {% data variables.product.prodname_enterprise %} share the same namespace; two enterprise accounts cannot have the same name.
-
 ## Running your migrations
 
 {% data reusables.enterprise-migration-tool.running-your-migrations %}
