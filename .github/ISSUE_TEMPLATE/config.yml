@@ -1,5 +1,7 @@
-blank_issues_enabled: false
+blank_issues_enabled: true
 contact_links:
-  - name: GitHub Support
-    url: https://support.github.com/contact
-    about: Contact Support if you're having trouble with your GitHub account.
+    name: GitHub 
+    url: https://github.com
+    about: support on queue
+ if disbaled: contact support.
+ 
