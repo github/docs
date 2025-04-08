@@ -60,10 +60,7 @@ jobs:
             exit 0
           fi
 
-          # Why only 5?
-          # Because, we're not in a hurry and anything larger than that would
-          # make the PR too intimidatingly big to review.
-          npm run find-orphaned-features -- delete --max 5 --verbose /tmp/orphaned-features.json
+          npm run find-orphaned-features -- delete --verbose /tmp/orphaned-features.json
 
           git status
 

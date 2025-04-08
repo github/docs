@@ -9,7 +9,7 @@ topics:
   - Copilot
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is currently in limited {% data variables.release-phases.public_preview %}. The waitlist for admission to this preview is currently closed.
+> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is in limited {% data variables.release-phases.public_preview %}. The waitlist for admission to this preview is currently closed.
 
 ## About using {% data variables.product.prodname_copilot_short %} to help you work on your pull requests
 
