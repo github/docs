@@ -37,7 +37,7 @@ You can only detach forks with the leave network option when:
 {% data reusables.repositories.sidebar-settings %}
 1. On the "General" settings page (which is selected by default), scroll down to the "Danger Zone" section, and click **Leave fork network**.
 1. Read the warnings and click **I have read and understand these effects**.
-1. To verify that you're deleting the correct repository, in the text box, type the name of the fork.
+1. To verify that you're detaching the correct repository, in the text box, type the name of the fork.
 1. Click **Leave fork network**.
 
 While the fork is being detached, some operations will be briefly unavailable until the fork has been transitioned to a standalone repository.
