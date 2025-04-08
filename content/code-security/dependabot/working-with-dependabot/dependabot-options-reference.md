@@ -399,7 +399,7 @@ Package manager | YAML value      | Supported versions |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
-| uv           | `uv`             | Not applicable |
+| uv           | `uv`             | v0 |
 | yarn         | `npm`            | v1, v2, v3       |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
