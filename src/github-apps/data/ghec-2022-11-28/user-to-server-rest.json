@@ -1355,6 +1355,38 @@
       "requestPath": "/repos/{owner}/{repo}/merges"
     }
   ],
+  "campaigns": [
+    {
+      "slug": "list-campaigns-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "create-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "get-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "update-a-campaign",
+      "subcategory": "campaigns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "delete-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    }
+  ],
   "checks": [
     {
       "slug": "create-a-check-run",
