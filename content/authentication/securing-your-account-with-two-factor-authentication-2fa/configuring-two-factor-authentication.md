@@ -36,16 +36,10 @@ If you're a member of an {% data variables.enterprise.prodname_emu_enterprise %}
 {% endif %}
 {% endif %}
 
-{% ifversion ghes < 3.17 %}
-> [!WARNING]
-> * If you're a member or outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
-> * If you disable 2FA, you will automatically lose access to the organization and any private forks you have of the organization's private repositories. To regain access to the organization and your forks, re-enable 2FA and contact an organization owner.
-{% else %}
 > [!WARNING]
 > * If you're an outside collaborator to a private repository of an organization that requires 2FA, you must leave the organization before you can disable 2FA.
 > * If you're a member{% ifversion fpt or ghec %} or billing manager{% endif %} of an organization that requires 2FA, you will be unable to access that organization's resources while you have 2FA disabled.
 > * If you disable 2FA, you will automatically lose access to the organization. To regain access to the organization, if you're a member{% ifversion fpt or ghec %} or billing manager{% endif %}, you must re-enable 2FA. If you're an outside collaborator, you will also lose access to any private forks you have of the organization's private repositories after disabling 2FA, and must re-enable 2FA and contact an organization owner to have access restored.
-{% endif %}
 
 > [!NOTE]
 > You can reconfigure your 2FA settings without disabling 2FA entirely, allowing you to keep both your recovery codes and your membership in organizations that require 2FA.

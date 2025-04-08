@@ -323,7 +323,7 @@ function getFilesToLint(paths) {
         fileList.yml.push(...walkFiles(absPath, ['.yml']))
       }
     } else {
-      if (isInDir(absPath, contentDir) || isAFixtureMdFile(absPath)) {
+      if (isInDir(absPath, contentDir)) {
         fileList.content.push(absPath)
       } else if (isInDir(absPath, dataDir)) {
         if (absPath.endsWith('.yml')) {
@@ -690,8 +690,4 @@ function isOptionsValid() {
     }
   }
   return true
-}
-
-function isAFixtureMdFile(filePath) {
-  return filePath.includes('/src') && filePath.includes('/fixtures') && filePath.endsWith('.md')
 }

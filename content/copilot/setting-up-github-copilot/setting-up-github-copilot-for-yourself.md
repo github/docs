@@ -3,6 +3,7 @@ title: 'Setting up GitHub Copilot for yourself'
 shortTitle: Set up for self
 intro: "Follow these steps to start using Copilot."
 permissions: Individuals
+product: 'Individual user accounts with access to a {% data variables.product.prodname_copilot_enterprise_short %}, {% data variables.product.prodname_copilot_business_short %}, {% data variables.product.prodname_copilot_pro_short %}, or {% data variables.product.prodname_copilot_free_short %} subscription'
 versions:
   feature: copilot
 topics:
@@ -13,16 +14,10 @@ topics:
 
 There are a few ways that you can get access to {% data variables.product.prodname_copilot %}:
 
-* **Use {% data variables.product.prodname_copilot_free_short %}**. Get a limited experience of {% data variables.product.prodname_copilot_short %} with up to 2,000 code completions and 50 chats or premium requests per month-no subscription required. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
-
-* **Sign up for a paid plan**. You can subscribe to either:
-
-  * **{% data variables.product.prodname_copilot_pro_short %}**, which includes a <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>one-time 30-day free trial</span></a> and 300 monthly premium requests.
-  * **{% data variables.product.prodname_copilot_pro_plus_short %}**, which includes 1,500 monthly premium requests and full access to all available models. [Subscribe to {% data variables.product.prodname_copilot_pro_plus_short %}](https://github.com/github-copilot/signup?ref_cta=Copilot+Pro%2B&ref_loc=subscriptions+page&ref_page=docs).
-
-* **Use {% data variables.product.prodname_copilot_short %} through your organization or enterprise**. If you're part of an organization or enterprise with a {% data variables.product.prodname_copilot_short %} subscription, you can request access at [https://github.com/settings/copilot](https://github.com/settings/copilot) under "Get {% data variables.product.prodname_copilot_short %} from an organization."
-
-* **Verified students, teachers, or open source maintainers**. You may be eligible to use {% data variables.product.prodname_copilot_short %} for free. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
+* _Set up {% data variables.product.prodname_copilot_free %}_. You can set up {% data variables.product.prodname_copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* _Sign up for a subscription to {% data variables.product.prodname_copilot_pro %}_. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use.
+* _If you are a member of an organization or enterprise_ that has a subscription to {% data variables.product.prodname_copilot %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
+* _If you are a verified student, teacher, or maintainer of a popular open source project_, {% data variables.product.prodname_copilot %} is free to use. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
 
 ## 2. Install the {% data variables.product.prodname_copilot_short %} extension for your IDE
 
