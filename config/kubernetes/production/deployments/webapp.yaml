@@ -23,8 +23,15 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 4000m
+              # Absolute minimum to start app is 1000m
+              # Node is single-threaded but we want more CPUs
+              # for OS and image resizing, and other binary executions
+              # Better to increase replicas or memory than CPU
+              memory: 8Gi
+              # Absolute minimum to start app is 4500Mi
+              # Would increase with more pages, versions, or languages supported
+              # The additional memory helps during traffic surges
             limits:
               cpu: 16000m
               memory: 16Gi
