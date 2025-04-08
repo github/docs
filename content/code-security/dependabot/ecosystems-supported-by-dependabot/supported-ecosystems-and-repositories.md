@@ -1,3 +1,7 @@
+
+
+https://github.com/user-attachments/assets/6ae75d5b-64e0-4ebb-b15a-b651afdea80e
+
 ---
 title: Dependabot supported ecosystems and repositories
 shortTitle: Dependabot ecosystem support # Max 31 characters
