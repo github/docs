@@ -46,6 +46,7 @@ children:
   - /apps
   - /billing
   - /branches
+  - /campaigns
   - /checks
   - /classroom
   - /code-scanning

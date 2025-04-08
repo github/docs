@@ -63,7 +63,7 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can mak
 
 To decide if you will benefit from a higher allowance for premium requests, compare the goals of your rollout to **development tasks** that each model is specialized in. For example, the o1 model is focused on math and science. Teams who work in specialized areas may require more requests to premium models. To learn about the benefits of different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-Regardless of your plan, you will be able to enable premium requests over the allowance by enabling overage billing. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
+Regardless of your plan, you can enable premium requests over the allowance by enabling additional premium requests. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
 
 ## Making a decision
 

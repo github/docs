@@ -3,7 +3,7 @@
 | | {% data variables.product.prodname_copilot_free_short %} | {% data variables.product.prodname_copilot_pro_short %} | {% data variables.product.prodname_copilot_pro_plus_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
 | Pricing | Not applicable | {% data variables.copilot.cfi_price_per_month %} per month, or<br>{% data variables.copilot.cfi_price_per_year %} per year<br>(free for some users) | {% data variables.copilot.cpp_price_per_month %} per month, or<br>{% data variables.copilot.cpp_price_per_year %} per year<br> | {% data variables.copilot.cfb_price_per_month %} per granted seat per month | {% data variables.copilot.ce_price_per_month %} per granted seat per month |
-| Premium requests | 50 per month | 300 per month | 1500 per month | 300 per month | 1000 per month |
+| Premium requests | 50 per month | 300 per month | 1500 per month | 300 per user per month | 1000 per user per month |
 | Purchase additional premium requests at $0.04/request| {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}
@@ -26,7 +26,7 @@
 
 | Chat | {% data variables.product.prodname_copilot_free_short %} | {% data variables.product.prodname_copilot_pro_short %} | {% data variables.product.prodname_copilot_pro_plus_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
-| {% data variables.product.prodname_copilot_chat_short %} in IDEs[^1] | 50 messages per month | Unlimited with base model[^2]| Unlimited with base model | Unlimited with base model | Unlimited with base model |
+| {% data variables.product.prodname_copilot_chat_short %} in IDEs[^1] [^2] | 50 messages per month | Unlimited with base model | Unlimited with base model | Unlimited with base model | Unlimited with base model |
 | Inline chat | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Slash commands | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_mobile_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -89,8 +89,8 @@
 | --- | --- | --- | --- | --- | --- |
 | {% data variables.product.prodname_copilot_for_prs %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Audit logs                                  | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} |{% octicon "check" aria-label="Included" %}  | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.product.prodname_copilot_short %} knowledge bases |{% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| Fine tuning a custom large language model (limited {% data variables.release-phases.public_preview %})[^6] | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
+| {% data variables.product.prodname_copilot_short %} knowledge bases |{% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
+| Fine tuning a custom large language model (limited {% data variables.release-phases.public_preview %})[^6] | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_cli_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

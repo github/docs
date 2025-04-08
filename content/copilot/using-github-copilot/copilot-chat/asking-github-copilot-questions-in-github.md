@@ -92,6 +92,17 @@ Depending on the question you ask, and your enterprise and organization settings
 1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
 1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
 
+### Regenerating a response with a different model
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+After {% data variables.product.prodname_copilot_short %} responds to your question, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
+
+You can switch between responses to compare the results from different models.
+
+For help deciding which model to use, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
+
 ### Using subthreads in a conversation
 
 > [!NOTE]

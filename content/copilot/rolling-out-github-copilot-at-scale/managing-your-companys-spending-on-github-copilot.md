@@ -28,28 +28,28 @@ We recommend that you identify the people with this role and communicate with th
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
-Premium requests over the allowance are rejected unless you have enabled overage billing. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
+Premium requests over the allowance are rejected unless you have enabled additional premium requests. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
 
-If you enable overage billing, premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
+If you enable additional premium requests, premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
 
 For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
-### Enabling overage billing
+### Enabling additional premium requests
 
-You can enable or disable overage billing for all users in your enterprise, or for your organization if you use an organization that is not part of an enterprise account.
+You can enable or disable the ability for users in your enterprise or organization to make premium requests over your plan's allowance.
 
 1. Go to the {% data variables.product.prodname_copilot_short %} policies page in your organization or enterprise.
    * Enterprise: Go to the enterprise, click **{% octicon "law" aria-hidden="true" %} Policies**, click **{% data variables.product.prodname_copilot_short %}** in the left sidebar, then click the **Policies** tab.
    * Organization: Go to the organization, click **Settings**, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the left sidebar, then click **Policies**.
-1. Next to "Additional {% data variables.product.prodname_copilot_short %} premium requests", click the toggle to enable overages.
+1. Next to "Additional {% data variables.product.prodname_copilot_short %} premium requests", click the toggle to enable premium requests over the allowance included in your plan.
 
 ### Tracking premium requests
 
 You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:
 
-* Understand if developers are frequently hitting the limit and would benefit from you enabling overage billing or upgrading your plan.
+* Understand if developers are frequently hitting the limit and would benefit from you enabling additional premium requests or upgrading your plan.
 * Identify users who are making a large number of premium requests over the limit, and follow up to the users to understand their use cases and requirements.
-* After enabling overage billing, track usage to determine if it would be more cost effective to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}.
+* After enabling additional premium requests, track usage to determine if it would be more cost effective to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}.
 
 You can download the report for an enterprise account, or for an organization that is not part of an enterprise.
 
