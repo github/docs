@@ -289,6 +289,7 @@ Write-Output "::add-mask::Mona The Octocat"
 
 > [!WARNING]
 > Make sure you register the secret with 'add-mask' before outputting it in the build logs or using it in any other workflow commands.
+> This will still leak the string initialy as part of the echo statment.
 
 ### Example: Masking an environment variable
 
@@ -323,6 +324,9 @@ jobs:
 ```
 
 {% endpowershell %}
+
+> [!WARNING]
+> This will still leak the string as part of the env.
 
 ### Example: Masking a generated output within a single job
 
