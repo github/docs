@@ -332,6 +332,9 @@ export function SearchOverlay({
     if (searchParams.has('search-overlay-open')) {
       searchParams.delete('search-overlay-open')
     }
+    if (searchParams.has('search-overlay-input')) {
+      searchParams.delete('search-overlay-input')
+    }
     router.push(`${selectedOption.url}?${searchParams.toString()}` || '')
     onClose()
   }
@@ -373,11 +376,8 @@ export function SearchOverlay({
       eventGroupId: askAIEventGroupId.current,
     })
     setSelectedIndex(-1)
-    const searchParams = new URLSearchParams((router.query as Record<string, string>) || {})
-    if (searchParams.has('search-overlay-open')) {
-      searchParams.delete('search-overlay-open')
-    }
-    window.open(`${url}?${searchParams.toString()}` || '', '_blank')
+    // hardcode the feature to ai_search for now, delete when GA is ready
+    window.open(`${url}?feature=ai_search` || '', '_blank')
   }
 
   // Handle keyboard navigation of suggestions

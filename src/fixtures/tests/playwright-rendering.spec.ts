@@ -123,9 +123,7 @@ test('open new search, and select a general search article', async ({ page }) =>
   await page.keyboard.press('Enter')
 
   // We should now be on the page for "For Playwright"
-  await expect(page).toHaveURL(
-    /\/get-started\/foo\/for-playwright\?search-overlay-input=serve\+playwright$/,
-  )
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
 

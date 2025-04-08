@@ -26,7 +26,7 @@
 
 | Chat | {% data variables.product.prodname_copilot_free_short %} | {% data variables.product.prodname_copilot_pro_short %} | {% data variables.product.prodname_copilot_pro_plus_short %} | {% data variables.product.prodname_copilot_business_short %} | {% data variables.product.prodname_copilot_enterprise_short %} |
 | --- | --- | --- | --- | --- | --- |
-| {% data variables.product.prodname_copilot_chat_short %} in IDEs[^1] | 50 messages per month | Unlimited with base model[^2]| Unlimited with base model | Unlimited with base model | Unlimited with base model |
+| {% data variables.product.prodname_copilot_chat_short %} in IDEs[^1] [^2] | 50 messages per month | Unlimited with base model | Unlimited with base model | Unlimited with base model | Unlimited with base model |
 | Inline chat | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | Slash commands | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | {% data variables.product.prodname_copilot_mobile_short %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
