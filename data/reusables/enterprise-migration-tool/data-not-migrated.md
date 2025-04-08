@@ -9,6 +9,7 @@
 * {% data variables.product.prodname_actions %} secrets, variables, environments, self-hosted runners, {% data variables.actions.hosted_runner %}s, or workflow run history
 * GitHub Apps and GitHub App installations
 * {% data variables.large_files.product_name_short %} objects and large binaries (repositories using {% data variables.large_files.product_name_short %} are still supported, see [Limitations of {% data variables.product.prodname_importer_proper_name %}](#limitations-of-github-enterprise-importer))
+* Links from commits to pull requests that were rebase merged
 * Packages in {% data variables.product.prodname_registry %}
 * Projects (classic) at the organization level
 * {% data variables.product.prodname_projects_v2 %} (the new projects experience)
