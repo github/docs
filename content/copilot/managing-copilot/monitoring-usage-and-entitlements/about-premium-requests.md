@@ -41,13 +41,12 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 | Model               | Premium requests |
 |--------------------------------------|------------|
-| Base model[^1]     | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
+| Base model (GPT-4o)[^1]     | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}          | 1         |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}          | 1         |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | 1.25      |
 | {% data variables.copilot.copilot_gemini_flash %}              | 0.25      |
 | GPT-4.5                       | 50        |
-| GPT-4o                        | 1         |
 | o1                            | 10         |
 | o3-mini                       | 0.33      |
 

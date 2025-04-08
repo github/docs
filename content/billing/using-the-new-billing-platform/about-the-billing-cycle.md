@@ -29,6 +29,8 @@ At the end of each month, your metered usage is calculated and scheduled to be b
 
 {% ifversion fpt %}For personal accounts and organizations, your bill cycle day is typically the day you started a paid plan (not necessarily when the account was created).{% elsif ghec %}Your bill cycle day is typically determined by when you converted from a trial to a paid enterprise account.{% endif %} For example, if you {% ifversion fpt %}started a paid plan{% elsif ghec %}converted from a trial{% endif %} on the 15th of a month, you will be billed on the 15th of each subsequent month.
 
+> [!NOTE] If you are paying via an Azure subscription ID, your **billing period** will run from the first day of each month to the last day of the month. To access your specific **bill cycle day**, please visit the Azure commerce portal.
+
 ## Billing cycles for volume-based products
 
 Volume-based licenses may follow a different billing cycle, even if your account is on the new billing platform. These products are often billed based on the anniversary date of your subscription rather than by calendar month.

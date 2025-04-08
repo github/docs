@@ -5,13 +5,6 @@
 {% else %}
 1. Above the list of files, click **{% octicon "git-branch" aria-hidden="true" %} Branches**.
 
-{% ifversion global-nav-update %}
-
    ![Screenshot of the repository page. A link, labeled "55 branches", is highlighted with an orange outline.](/assets/images/help/branches/branches-overview-link-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the repository page. A link, labeled "55 branches", is highlighted with an orange outline.](/assets/images/help/branches/branches-overview-link.png)
-
-{% endif %}
 {% endif %}

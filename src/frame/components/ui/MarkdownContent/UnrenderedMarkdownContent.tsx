@@ -60,6 +60,15 @@ export const UnrenderedMarkdownContent = ({
         {...props}
         href={href}
         target={openLinksInNewTab ? '_blank' : undefined}
+        rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
+        onClick={(e) => {
+          // For some reason we need to override the default onClick to get these links to open in a new tab
+          if (openLinksInNewTab) {
+            e.stopPropagation()
+            e.preventDefault()
+            window.open(href, '_blank')
+          }
+        }}
         data-group-key={eventGroupKey}
         data-group-id={eventGroupId}
       >
