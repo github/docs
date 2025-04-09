@@ -237,7 +237,7 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% data variables.copilot.copilot_claude_sonnet_37 %} is Anthropic's most advanced model to date. {% data variables.copilot.copilot_claude_sonnet_37 %} is a powerful model that excels in development tasks that require structured reasoning across large or complex codebases. Its hybrid approach to reasoning responds quickly when needed, while still supporting slower step-by-step analysis for deeper tasks.
 
-For more information about {% data variables.copilot.copilot_claude_sonnet_37 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/sonn).
+For more information about {% data variables.copilot.copilot_claude_sonnet_37 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/sonnet).
 For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 
 ### Use cases
