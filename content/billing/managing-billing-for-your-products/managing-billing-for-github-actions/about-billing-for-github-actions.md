@@ -81,11 +81,13 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 |  Linux 16-core         |   $0.064   |
 |  Linux 32-core         |   $0.128   |
 |  Linux 64-core         |   $0.256   |
+| Linux 96-core          |   $0.384   |
 |  Windows 4-core        |   $0.032   |
 |  Windows 8-core        |   $0.064   |
 |  Windows 16-core       |   $0.128   |
 |  Windows 32-core       |   $0.256   |
 |  Windows 64-core       |   $0.512   |
+| Windows 96-core        |   $0.786   |
 |  macOS 12-core         |   $0.12    |
 
 #### Per-minute rates for arm64-powered {% data variables.actions.hosted_runners %}

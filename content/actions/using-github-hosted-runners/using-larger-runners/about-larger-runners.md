@@ -86,6 +86,7 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | 32  | 128 GB        | 1200 GB       | x64, arm64   | Ubuntu, Windows       |
 | 64  | 208 GB        | 2040 GB       | arm64        | Ubuntu, Windows       |
 | 64  | 256 GB        | 2040 GB       | x64          | Ubuntu, Windows       |
+| 96 | 384 GB         | 2040 GB       | x64          | Ubuntu, Windows        |
 
 >[!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or Windows 11 Desktop image.
 
