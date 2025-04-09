@@ -1,5 +1,4 @@
-
-<---
+---
 title: Checking out pull requests locally
 intro: 'When someone sends you a pull request from a fork or branch of your repository, you can merge it locally to resolve a merge conflict or to test and verify the changes before merging on {% data variables.product.github %}.'
 redirect_from:
