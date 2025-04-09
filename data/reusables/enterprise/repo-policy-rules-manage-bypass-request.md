@@ -1,10 +1,8 @@
 ## Managing requests to bypass push rules
 
-You can view and manage all requests for bypass privileges on the “Bypass Requests" page, located under the **Rules** settings of the repository.
+[!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% data reusables.repositories.navigate-to-repo %}
-{% data reusables.repositories.sidebar-settings %}
-1. Click **Bypass Requests**.
+You can view and manage all requests for bypass privileges on the “Bypass Requests" page, located under the **Policy** settings.
 
 You can filter requests by approver (member of the bypass list), requester (contributor making the request), timeframe, and status. The following statuses are assigned to a request:
 

@@ -380,6 +380,17 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Accessing {% data variables.product.prodname_copilot_chat_short %} from the dashboard
+
+You can access {% data variables.product.prodname_copilot_short %}'s immersive view from the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit https://github.com while logged in.
+
+1. Go to the dashboard at [https://github.com](https://github.com).
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+
+   ![Screenshot of the dashboard with the "Ask Copilot" box highlighted with an orange outline.](/assets/images/help/copilot/copilot-chat-dashboard.png)
+
+   You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} will respond to your request.
+
 ## Extending {% data variables.product.prodname_copilot_chat_dotcom_short %}
 
 {% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
