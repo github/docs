@@ -1,4 +1,4 @@
----
+<---
 title: About billing for GitHub Actions
 intro: 'If you want to use {% data variables.product.prodname_actions %} beyond the storage or minutes included in your account, you will be billed for additional usage.'
 redirect_from:
@@ -14,7 +14,7 @@ topics:
   - Actions
   - Spending limits
 shortTitle: Billing for GitHub Actions
----
+--->
 
 {% data reusables.billing.enhanced-billing-platform %}
 
