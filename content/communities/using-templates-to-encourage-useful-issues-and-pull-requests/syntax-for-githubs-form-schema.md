@@ -13,6 +13,8 @@ topics:
 
 > [!NOTE]
 > {% data variables.product.company_short %}'s form schema is currently in {% data variables.release-phases.public_preview %} and subject to change.
+>
+> The forms schema can also be found as a [JSON Schema](https://json.schemastore.org/github-issue-forms.json) document.
 
 ## About {% data variables.product.company_short %}'s form schema
 
