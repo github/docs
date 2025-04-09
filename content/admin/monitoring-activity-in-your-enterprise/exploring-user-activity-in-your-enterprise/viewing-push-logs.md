@@ -44,5 +44,5 @@ For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-fo
 1. In the appropriate Git repository, open the audit log file:
 
    ```shell
-   ghe-repo OWNER/REPOSITORY -c "cat audit_log"
+   ghe-spokesctl ssh --primary OWNER/REPOSITORY -- cat audit_log
    ```

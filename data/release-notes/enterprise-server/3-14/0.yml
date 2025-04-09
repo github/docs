@@ -231,6 +231,8 @@ sections:
       The Manage GHES API reached feature parity with the Management Console API in GHES 3.12. As a result, we will remove the Management Console API in GitHub Enterprise Server 3.15. For information about updating tooling that relies on the Management Console API, see [AUTOTITLE](/rest/enterprise-admin/management-console).
     - |
       Team discussions have been removed from {% data variables.product.prodname_ghe_server %}. The sunset of this feature was announced in 2023. See the [GitHub Blog post](https://github.blog/changelog/2023-02-08-sunset-notice-team-discussions/). [Updated: 2025-02-13]
+    - |
+      Node 16 support ended in September 2023. Actions that used Node 16 now default to Node 20. Running a workflow that uses Node 16 results in a warning on the workflow summary page. [Updated: 2025-04-02]
 
   errata:
     - |

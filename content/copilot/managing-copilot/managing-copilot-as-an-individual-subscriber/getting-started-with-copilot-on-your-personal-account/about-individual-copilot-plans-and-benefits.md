@@ -60,7 +60,7 @@ The following table highlights the key differences between individual {% data va
 | Real-time code suggestions with the base model | Up to 2,000 per month | Unlimited | Unlimited |
 | Premium requests | 50 per month | 300 per month | 1,500 per month |
 | Purchase additional premium requests at {% data variables.copilot.additional_premium_requests %} per request | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| {% data variables.product.prodname_copilot_chat_short %} interactions | Up to 50 per month | Unlimited with base model[^1] | Unlimited with base model |
+| {% data variables.product.prodname_copilot_chat_short %} interactions[^1] | Up to 50 per month | Unlimited with base model | Unlimited with base model |
 | Access to premium models | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} Full access |
 
 {% endrowheaders %}

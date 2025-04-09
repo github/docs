@@ -44,12 +44,6 @@ export const UnrenderedMarkdownContent = ({
       if (existingURLParams.get('feature')) {
         newParams.set('feature', existingURLParams.get('feature') || '')
       }
-      if (existingURLParams.get('search-overlay-ask-ai')) {
-        newParams.set('search-overlay-ask-ai', existingURLParams.get('search-overlay-ask-ai') || '')
-      }
-      if (existingURLParams.get('search-overlay-input')) {
-        newParams.set('search-overlay-input', existingURLParams.get('search-overlay-input') || '')
-      }
       // Combine new and existing query parameters
       if (newParams.toString()) {
         href = `${href}?${existingAnchorParams}&${newParams.toString()}`
