@@ -10,8 +10,6 @@ shortTitle: 'Managing issue types'
 permissions: 'Organization owners can modify issue types.'
 ---
 
-{% data reusables.issues.release-stage %}
-
 You can use issue types to classify and manage different types of issues across your organization. You can create up to {% data variables.projects.issue_type_limit %} issue types that your organization members can apply to issues, making it easier for you and your members to find issues and plan work.
 
 Default issue types are included in every organization, but these can edited, disabled, or deleted. The default types are task, bug, and feature.

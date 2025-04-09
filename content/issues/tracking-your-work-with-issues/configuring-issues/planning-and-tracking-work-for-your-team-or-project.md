@@ -88,8 +88,6 @@ Below we have added a task list to our Project Octocat issue, breaking it down i
 
 ### Breaking down your work with sub-issues
 
-{% data reusables.issues.release-stage %}
-
 {% data reusables.issues.about-sub-issues %} See [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/adding-sub-issues) and [AUTOTITLE](/issues/tracking-your-work-with-issues/using-issues/browsing-sub-issues).
 
 {% endif %}
