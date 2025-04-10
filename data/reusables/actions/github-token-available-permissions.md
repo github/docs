@@ -12,8 +12,8 @@ permissions:
   discussions: read|write|none
   packages: read|write|none
   pages: read|write|none
-  pull-requests: read|write|none
-  repository-projects: read|write|none
+  pull-requests: read|write|none{% ifversion projects-v1 %}
+  repository-projects: read|write|none{% endif %}
   security-events: read|write|none
   statuses: read|write|none
 ```

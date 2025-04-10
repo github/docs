@@ -95,7 +95,9 @@ The following table shows the permissions granted to the `GITHUB_TOKEN` by defau
 | packages      | read/write  | read | read |
 | pages         | read/write  | none | read |
 | pull-requests | read/write  | none | read |
+| {% ifversion projects-v1 %} |
 | repository-projects | read/write | none | read |
+| {% endif %} |
 | security-events     | read/write | none | read |
 | statuses      | read/write  | none | read |
 
