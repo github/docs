@@ -3,9 +3,6 @@
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
 
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
-
-Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
 
 ## Contributing
 
@@ -21,7 +18,8 @@ You can also contribute by creating a local environment or opening a Codespace. 
 
 For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
 
-If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
+If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.![1000075416](https://github.com/user-attachments/assets/68692f7f-dac2-4c2a-875c-3ffb018a28e9)
+
 
 ### And that's it!
 
@@ -53,3 +51,5 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+Most helpful
+Be sure to mark someone’s comment as an answer if it helps you resolve your question — they deserve the credit! two_hearts![1000075618](https://github.com/user-attachments/assets/fdff5a56-c09a-40fb-b6d9-067cbd421a4b)
