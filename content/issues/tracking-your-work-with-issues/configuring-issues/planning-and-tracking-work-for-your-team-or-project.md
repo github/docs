@@ -16,7 +16,7 @@ redirect_from:
 
 You can use {% data variables.product.prodname_dotcom %} repositories, issues, projects, and other tools to plan and track your work, whether working on an individual project or cross-functional team.
 
-In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates and forms, open issues and use task lists to break down work, and establish a {% data variables.projects.projects_v1_board %} for organizing and tracking issues.
+In this guide, you will learn how to create and set up a repository for collaborating with a group of people, create issue templates and forms, open issues and use task lists to break down work, and establish a {% data variables.projects.project_v2 %} for organizing and tracking issues.
 
 ## Creating a repository
 
@@ -153,7 +153,7 @@ Below is an example of a `front-end` label that we created and added to the issu
 
 ![Screenshot of an issue called "Front-end work for Project Octocat." In the right sidebar, in the "Labels" section, the "front-end" label is applied.](/assets/images/help/issues/quickstart-add-label-to-issue.png)
 
-## Adding issues to a {% data variables.projects.projects_v2 %}
+## Adding issues to a {% data variables.projects.project_v2 %}
 
 You can use {% data variables.projects.projects_v2 %} on {% data variables.product.prodname_dotcom %} to plan and track the work for your team. A project is a customizable spreadsheet that integrates with your issues and pull requests on {% data variables.product.prodname_dotcom %}, automatically staying up-to-date with the information on {% data variables.product.prodname_dotcom %}. You can customize the layout by filtering, sorting, and grouping your issues and PRs. To get started with projects, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/quickstart-for-projects).
 

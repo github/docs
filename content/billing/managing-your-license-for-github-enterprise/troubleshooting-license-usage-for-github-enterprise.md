@@ -61,14 +61,14 @@ The license usage report for your enterprise is a CSV file that contains the fol
 | github_com_saml_name_id | The SAML username |
 | github_com_orgs_with_pending_invites | All pending invitations for the user's GHEC account to join organizations within your enterprise |
 | {% ifversion ghas-in-license-sync %} |
-| github_com_advanced_security_license_user | Whether or not the user consumes a {% data variables.product.prodname_GH_advanced_security %} license on GHEC |
+| github_com_advanced_security_license_user | Whether or not the user consumes a {% data variables.product.prodname_GHAS_cs_or_sp %} license on GHEC |
 | {% endif %} |
 | license_type | Can be one of: `Visual Studio subscription` or `Enterprise`
 | enterprise_server_user| Whether or not the user has at least one account on GHES |
 | enterprise_server_primary_emails | The primary email addresses associated with each of the user's GHES accounts |
 | enterprise_server_user_ids | For each of the user's GHES accounts, the account's user ID
 | {% ifversion ghas-in-license-sync %} |
-| enterprise_server_advanced_security_user_ids | The GHES instances where the user is using {% data variables.product.prodname_GH_advanced_security %} {% ifversion ghec %}(only present if you are using GHES version 3.12 or later, and have enabled license sync){% endif %} |
+| enterprise_server_advanced_security_user_ids | The GHES instances where the user is using {% data variables.product.prodname_GHAS_cs_or_sp %} {% ifversion ghec %}(only present if you are using GHES version 3.12 or later, and have enabled license sync){% endif %} |
 | {% endif %} |
 | total_user_accounts | The total number of accounts the person has across both GHEC and GHES
 | visual_studio_subscription_user | Whether or not the user is a {% data variables.visual_studio.prodname_vs_subscriber %} |

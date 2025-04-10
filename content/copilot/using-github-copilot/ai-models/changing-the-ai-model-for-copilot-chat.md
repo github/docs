@@ -56,6 +56,8 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 1. At the top of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
+1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
+
 {% endwebui %}
 
 {% vscode %}
