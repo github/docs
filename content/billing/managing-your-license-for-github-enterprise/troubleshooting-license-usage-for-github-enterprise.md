@@ -41,6 +41,11 @@ First, we check the primary email address of each user on {% data variables.prod
 
 If there is no match, or if SAML authentication or SCIM provisioning is not in use, we attempt to match the primary email address on {% data variables.product.prodname_ghe_server %} with a verified email address for a user account on {% data variables.product.prodname_ghe_cloud %}. For more information about verification of email addresses on {% data variables.product.prodname_ghe_cloud %}, see [AUTOTITLE](/enterprise-cloud@latest/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
+{% ifversion scim-for-ghes-ga %}
+> [!NOTE]
+> If SAML with SCIM is enabled, the `scim-admin` setup user will not consume a license. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#1-create-a-built-in-setup-user).
+{% endif %}
+
 ## Fields in the consumed license files
 
 The {% data variables.product.prodname_ghe_cloud %} license usage report and {% data variables.product.prodname_ghe_server %} exported license usage file include a variety of fields to help you troubleshoot license usage for your enterprise.

@@ -65,7 +65,7 @@ During the {% data variables.release-phases.private_preview %}, your account tea
 
 {% data reusables.enterprise_user_management.scim-manages-user-lifecycle %}
 
-When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.
+When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.{% ifversion scim-for-ghes-ga %} If an issue arises with your IdP and you need to manage a user directly, you will need to use the SCIM REST API to manage the user identities on your appliance (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)).{% endif %}
 
 To view suspended members, navigate to the "Suspended Members" tab of your enterprise settings.  This page will be present when SCIM is enabled on {% data variables.product.prodname_ghe_server %}.
 
@@ -78,6 +78,7 @@ To view suspended members, navigate to the "Suspended Members" tab of your enter
 If you currently use SAML SSO, and you are enabling SCIM, you should be aware of what happens to existing user accounts on {% data variables.product.prodname_ghe_server %} once SCIM is enabled.
 
 * Existing users with SAML mappings will **not be able to sign in** until their identities have been provisioned by SCIM.
+* Existing users created with **Built in authentication** will only be able to sign in if **Built in authentication** is still enabled.
 {%- ifversion scim-for-ghes-ga %}
 * {% data variables.product.prodname_ghe_server %} will no longer store SAML mappings for users. Instead, SCIM identities will be stored for users when a user is provisioned.
 * You will no longer see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. It will not be possible to view or update SAML NameID mappings that were previously visible in this section, since these stored SAML mappings are no longer evaluated during SAML authentication when SCIM is enabled.

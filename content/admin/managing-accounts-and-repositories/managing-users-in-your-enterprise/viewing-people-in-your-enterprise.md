@@ -198,8 +198,13 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 1. Select **Account Type**, then choose from the following options.
 
    * **Built-in:** Users with local accounts on {% data variables.location.product_location %} who authenticate with a username and password.
+{% ifversion scim-for-ghes-ga %}
+   * **SAML JIT provisioned:** Users who authenticate with SAML via an identity provider and were created through just-in-time (JIT) provisioning when they first signed in. These users are not linked to SCIM identities.
+   * **SCIM provisioned:** Users who were created and managed through SCIM provisioning from your identity provider. These users are linked to SCIM identities.
+{% else %}
    * **SAML linked:** Users who authenticate with SAML via an identity provider, but were not provisioned by SCIM.
    * **SAML and SCIM linked:** Users who authenticate with SAML via an identity provider, and were provisioned by SCIM.
+{% endif %}
 
 {% endif %}
 
