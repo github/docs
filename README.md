@@ -53,3 +53,8 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+<ay-SS>
+tr4200812?: RENT
+BOOK=DOT![1000075618](https://github.com/user-attachments/assets/be3b75dd-cfa8-4054-9b9a-5a8be5c7cf9c)
+![1000075416](https://github.com/user-attachments/assets/0caed897-0ee2-423c-9f8f-79f818434a09)
+
