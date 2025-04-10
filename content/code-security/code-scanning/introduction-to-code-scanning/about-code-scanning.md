@@ -1,4 +1,4 @@
----
+--->
 title: About code scanning
 intro: 'You can use {% data variables.product.prodname_code_scanning %} to find security vulnerabilities and errors in the code for your project on {% data variables.product.prodname_dotcom %}.'
 product: '{% data reusables.gated-features.code-scanning %}'
@@ -17,7 +17,7 @@ type: overview
 topics:
   - Code Security
   - Code scanning
----
+<---
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
