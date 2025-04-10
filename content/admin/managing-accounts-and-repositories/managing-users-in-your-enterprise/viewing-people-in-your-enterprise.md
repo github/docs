@@ -208,6 +208,10 @@ If you use SAML authentication and SCIM provisioning, you can filter members bas
 
 {% endif %}
 
+{% ifversion scim-for-ghes-ga %}
+{% data reusables.scim.ghe-scim-identities-csv %}
+{% endif %}
+
 ## Viewing members without an email address from a verified domain
 
 You can view a list of members in your enterprise who don't have an email address from a verified domain associated with their user account.
