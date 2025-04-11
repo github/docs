@@ -8,7 +8,8 @@ permissions:
   contents: read|write|none
   deployments: read|write|none{% ifversion fpt or ghec %}
   id-token: write|none{% endif %}
-  issues: read|write|none
+  issues: read|write|none{% ifversion not ghes %}
+  models: read|none{% endif %}
   discussions: read|write|none
   packages: read|write|none
   pages: read|write|none

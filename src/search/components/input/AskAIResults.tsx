@@ -41,7 +41,7 @@ type AISearchResultEventParams = {
   connectedEventId?: string
 }
 
-const MAX_REFERENCES_TO_SHOW = 4
+const MAX_REFERENCES_TO_SHOW = 5
 
 export function AskAIResults({
   query,
