@@ -382,6 +382,9 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
 | {% endif %} |
+| {% ifversion dependabot-helm-support %} |
+| Helm Charts            | `helm`            | v3               |
+| {% endif %} |
 | Hex            | `mix`            | v1               |
 | elm-package    | `elm`            | v0.19            |
 | git submodule  | `gitsubmodule`   | Not applicable |
