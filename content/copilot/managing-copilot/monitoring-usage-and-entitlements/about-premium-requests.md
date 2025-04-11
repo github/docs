@@ -39,16 +39,17 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 Each model has a premium request multiplier, based on its complexity and resource usage. Your premium request allowance is deducted according to this multiplier.
 
-| Model               | Premium requests |
-|--------------------------------------|------------|
-| Base model (GPT-4o)[^1]     | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
-| {% data variables.copilot.copilot_claude_sonnet_35 %}          | 1         |
-| {% data variables.copilot.copilot_claude_sonnet_37 %}          | 1         |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | 1.25      |
-| {% data variables.copilot.copilot_gemini_flash %}              | 0.25      |
-| GPT-4.5                       | 50        |
-| o1                            | 10         |
-| o3-mini                       | 0.33      |
+| Model                                                          | Premium requests                                                             |
+|----------------------------------------------------------------|------------------------------------------------------------------------------|
+| Base model (GPT-4o)[^1]                                        | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
+| {% data variables.copilot.copilot_claude_sonnet_35 %}          | 1                                                                            |
+| {% data variables.copilot.copilot_claude_sonnet_37 %}          | 1                                                                            |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | 1.25                                                                         |
+| {% data variables.copilot.copilot_gemini_flash %}              | 0.25                                                                         |
+| {% data variables.copilot.copilot_gemini_25_pro %}             | 1                                                                            |
+| GPT-4.5                                                        | 50                                                                           |
+| o1                                                             | 10                                                                           |
+| o3-mini                                                        | 0.33                                                                         |
 
 [^1]: Response times may vary during periods of high usage.
 

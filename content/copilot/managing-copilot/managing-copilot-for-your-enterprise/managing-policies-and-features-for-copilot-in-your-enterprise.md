@@ -93,7 +93,7 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
-* **{% data variables.copilot.copilot_gemini_flash %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
+* **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
 * **OpenAI's models:**
   * **o1**: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the GPT-4o model. Each member of your enterprise can make 10 requests to this model per day.
   * **o3-mini**: This is the next generation of reasoning models, following from o1 and o1-mini. The o3-mini model outperforms o1 on coding benchmarks with response times that are comparable to o1-mini, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours. {% ifversion copilot-enterprise %}
