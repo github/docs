@@ -47,8 +47,6 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
-      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
-    - |
       The `reply.[HOSTNAME]` subdomain is falsely always displaying as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
@@ -57,3 +55,9 @@ sections:
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
  
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.11, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+      

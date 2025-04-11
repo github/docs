@@ -29,7 +29,7 @@ You can click a model name in the list below to jump to a detailed overview of i
 * [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-35-sonnet)
 * [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-37-sonnet)
 * [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
-
+* [{% data variables.copilot.copilot_gemini_25_pro %}](#gemini-25-pro)
 > [!NOTE] Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
 ## GPT-4o
@@ -278,8 +278,8 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% data variables.copilot.copilot_gemini_flash %} is Google’s high-speed, multimodal model optimized for real-time, interactive applications that benefit from visual input and agentic reasoning. In {% data variables.product.prodname_copilot_chat_short %}, {% data variables.copilot.copilot_gemini_flash %} enables fast responses and cross-modal understanding.
 
-For more information about {% data variables.copilot.copilot_gemini_flash %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/gemini-v2).
-For more information on using Gemini in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
+For more information about {% data variables.copilot.copilot_gemini_flash %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-0-flash).
+For more information on using {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
 
 ### Use cases
 
@@ -311,6 +311,44 @@ The following table summarizes when an alternative model may be a better choice:
 |------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
 | Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.      | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
 | Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.|
+
+{% endrowheaders %}
+
+## {% data variables.copilot.copilot_gemini_25_pro %}
+
+{% data variables.copilot.copilot_gemini_25_pro %} is Google's latest AI model, designed to handle complex tasks with advanced reasoning and coding capabilities. It also works well for heavy research workflows that require long-context understanding and analysis.
+
+For more information about {% data variables.copilot.copilot_gemini_25_pro %}, see [Google's documentation](https://cloud.google.com/vertex-ai/generative-ai/docs/models/gemini/2-5-pro).
+For more information on using {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
+
+### Use cases
+
+{% data reusables.copilot.model-use-cases.gemini-25-pro %}
+
+### Strengths
+
+The following table summarizes the strengths of {% data variables.copilot.copilot_gemini_25_pro %}:
+
+{% rowheaders %}
+
+| Task                      | Description                                                       | Why {% data variables.copilot.copilot_gemini_flash %} is a good fit |
+|---------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------|
+| Complex code generation   | Write full functions, classes, or multi-file logic.               | Provides better structure, consistency, and fewer logic errors.     |
+| Debugging complex systems | Isolate and fix performance bottlenecks or multi-file issues.     | Provides step-by-step analysis and high reasoning accuracy.         |
+| Scientific research       | Analyze data and generate insights across scientific disciplines. | Supports complex analysis with heavy researching capabilities.      |
+| Long-context processing   | Analyze extensive documents, datasets, or codebases.              | 	Handles long-context inputs effectively.                           |
+
+{% endrowheaders %}
+
+### Alternative options
+
+The following table summarizes when an alternative model may be a better choice:
+
+{% rowheaders %}
+
+| Task                      | Description                                        | Why another model may be better                                                                            |
+|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------|
+| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | o3-mini or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.  |
 
 {% endrowheaders %}
 
