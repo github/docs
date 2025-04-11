@@ -22,8 +22,6 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
-      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
-    - |
       The reply.[hostname] subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**. When regenerating the certificates with management console, the `subdomain reply.[hostname]` is missing from the ssl certification.
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
@@ -35,3 +33,9 @@ sections:
       Attempting to stop replications after stopping GitHub Actions on a GitHub Enterprise Server instance would fail, reporting that MSSQL was not responding. The can be avoided by start MSSQL prior to stopping replication  `/usr/local/share/enterprise/ghe-nomad-jobs queue /etc/nomad-jobs/mssql/mssql.hcl`
     - |
       Some customers upgrading from 3.11.x or 3.12.x may experience a bug with the feature "Automatic update checks", filling the root disk with logs causing a system degradation. To prevent this, you can turn off the feature [Enable automatic update check](/admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks#enabling-automatic-update-checks) in the management console.
+
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.12, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
