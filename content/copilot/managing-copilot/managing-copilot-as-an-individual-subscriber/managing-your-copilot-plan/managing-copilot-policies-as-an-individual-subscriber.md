@@ -54,7 +54,7 @@ You can choose whether your prompts and {% data variables.product.prodname_copil
 You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
 
 * {% data variables.copilot.copilot_claude_sonnet %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot)
-* {% data variables.copilot.copilot_gemini_flash %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot)
+* {% data variables.copilot.copilot_gemini %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of the model name, select the dropdown menu, then click **Enabled** or **Disabled**.

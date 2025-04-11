@@ -92,7 +92,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% endif %} |
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s in your organization. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 | `profile_picture`| Contains all activities related to your organization's profile picture.
-| `project` | Contains all activities related to {% data variables.projects.projects_v1_boards %}.
+| `project` | Contains all activities related to {% data variables.projects.projects_v2_and_v1 %}.
 | `protected_branch` | Contains all activities related to protected branches.
 | `repo` | Contains activities related to the repositories owned by your organization.
 | {% ifversion fpt or ghec %} |

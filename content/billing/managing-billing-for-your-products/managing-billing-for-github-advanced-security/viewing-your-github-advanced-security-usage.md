@@ -1,6 +1,6 @@
 ---
 title: Viewing and downloading licensed use of {% data variables.product.prodname_AS %}
-intro: 'You can view and download consumption of {% data variables.product.prodname_GH_advanced_security %} licenses by your {% data variables.enterprise.enterprise_or_org %}: volume/subscription licenses or metered usage.'
+intro: 'You can view and download consumption of {% data variables.product.prodname_GHAS %} licenses by your {% data variables.enterprise.enterprise_or_org %}: volume/subscription licenses or metered usage.'
 allowTitleToDifferFromFilename: true
 permissions: '{% ifversion fpt %}Organization{% else %}Enterprise{% endif %} owners with {% data variables.product.prodname_AS %}'
 product: '{% data reusables.gated-features.ghas-billing %}'
@@ -42,7 +42,7 @@ You can view the current license limits and usage for your enterprise.
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
 
-   On the "Global code security settings" page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization. See [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
+   On the "Global code security settings" page, scroll to the "{% data variables.product.prodname_GHAS_cs_or_sp %} repositories" section to see a detailed breakdown of usage by repository for this organization. See [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
 
 {% elsif ghes and security-configurations %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -52,7 +52,7 @@ You can view the current license limits and usage for your enterprise.
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
 
-   On the "Global code security settings" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
+   On the "Global code security settings" settings page, scroll to the "{% data variables.product.prodname_GHAS_cs_or_sp %} repositories" section to see a detailed breakdown of usage by repository for this organization, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/managing-your-github-advanced-security-license-usage).
 
 {% elsif pre-security-configurations %}
 {% data reusables.enterprise-accounts.access-enterprise %}
@@ -62,7 +62,7 @@ You can view the current license limits and usage for your enterprise.
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Security & analysis" for the organization.
 
-   * On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GH_advanced_security %} repositories" section to see a detailed breakdown of usage by repository for this organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+   * On the "Security & analysis" settings page, scroll to the "{% data variables.product.prodname_GHAS %} repositories" section to see a detailed breakdown of usage by repository for this organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 {% endif %}
 
 {% endif %}

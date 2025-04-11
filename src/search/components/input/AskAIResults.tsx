@@ -41,6 +41,8 @@ type AISearchResultEventParams = {
   connectedEventId?: string
 }
 
+const MAX_REFERENCES_TO_SHOW = 5
+
 export function AskAIResults({
   query,
   version,
@@ -389,27 +391,34 @@ export function AskAIResults({
               >
                 {t('search.ai.references')}
               </ActionList.GroupHeading>
-              {references.map((source, index) => (
-                <ActionList.Item
-                  sx={{
-                    marginLeft: '0px',
-                    paddingLeft: '0px',
-                  }}
-                  key={`reference-${index}`}
-                  id={`search-option-reference-${index + referencesIndexOffset}`}
-                  role="option"
-                  tabIndex={-1}
-                  onSelect={() => {
-                    referenceOnSelect(source.url)
-                  }}
-                  active={index + referencesIndexOffset === selectedIndex}
-                >
-                  <ActionList.LeadingVisual aria-hidden="true">
-                    <FileIcon />
-                  </ActionList.LeadingVisual>
-                  {source.title}
-                </ActionList.Item>
-              ))}
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  return (
+                    <ActionList.Item
+                      sx={{
+                        marginLeft: '0px',
+                        paddingLeft: '0px',
+                      }}
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      role="option"
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={index + referencesIndexOffset === selectedIndex}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
             </ActionList.Group>
           </ActionList>
         </>
