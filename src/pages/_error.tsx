@@ -93,7 +93,7 @@ Error.getInitialProps = async (ctx: NextPageContext) => {
         // could go wrong, but that's a story for another try/catch.
         // Basically, this catch it just to avoid other errors that
         // might prevent the pretty error page to render at all.
-        console.warn('Failed to send error to FailBot.', error)
+        console.warn('Failed to send error to FailBot.', error);
       }
     }
   }
