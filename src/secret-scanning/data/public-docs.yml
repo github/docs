@@ -186,6 +186,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -236,7 +237,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Authress
@@ -332,7 +333,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Azure
@@ -533,7 +534,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -656,7 +657,7 @@
     ghes: '>=3.14'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Azure
@@ -680,7 +681,7 @@
     ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Baidu
@@ -704,7 +705,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Bitbucket
@@ -717,6 +718,41 @@
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Brevo
+  supportedSecret: Sendinblue API Key
+  secretType: sendinblue_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Brevo
+  supportedSecret: Sendinblue SMTP Key
+  secretType: sendinblue_smtp_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.5'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Buildkite
+  supportedSecret: Buildkite User Access Token
+  secretType: buildkite_user_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Canadian Digital Service
@@ -785,6 +821,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -811,7 +848,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
 - provider: Chief Tools
@@ -904,6 +941,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -938,6 +976,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -949,6 +988,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -972,6 +1012,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1017,6 +1058,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -1259,7 +1301,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Dynatrace
@@ -1283,7 +1325,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: EasyPost
@@ -1331,7 +1373,7 @@
     ghes: '>3.8'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Facebook
@@ -1439,7 +1481,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: FullStory
@@ -1632,6 +1674,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1646,7 +1689,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Google
@@ -1670,7 +1713,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Grafana
@@ -1883,6 +1926,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1894,7 +1938,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1906,7 +1950,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -1918,7 +1962,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -2048,6 +2092,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2059,6 +2104,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2100,6 +2146,18 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: LinkedIn
+  supportedSecret: LinkedIn Client Secret
+  secretType: linkedin_client_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Lob
   supportedSecret: Lob Live API Key
   secretType: lob_live_api_key
@@ -2121,7 +2179,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Localstack
@@ -2209,6 +2267,17 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Mailersend
+  supportedSecret: Mailersend SMTP Password
+  secretType: mailersend_smtp_password
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Mailersend
   supportedSecret: Mailersend SMTP Username
   secretType: mailersend_smtp_username
   versions:
@@ -2228,7 +2297,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: true
 - provider: Mailgun
@@ -2344,8 +2413,119 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Access Key ID
+  secretType: navercloud_gov_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secret Key
+  secretType: navercloud_gov_access_key_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service
+  secretType: navercloud_gov_sts
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service Secret
+  secretType: navercloud_gov_sts_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Access Key ID
+  secretType: navercloud_pub_access_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secret Key
+  secretType: navercloud_pub_access_key_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service
+  secretType: navercloud_pub_sts
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Naver Cloud
+  supportedSecret: Naver Cloud Secure Token Service Secret
+  secretType: navercloud_pub_sts_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Neon
+  supportedSecret: Neon API Key
+  secretType: neon_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Neon
+  supportedSecret: Neon Connection URI
+  secretType: neon_connection_uri
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: false
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -2355,6 +2535,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2429,7 +2610,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: npm
@@ -2582,6 +2763,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2644,6 +2826,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Pangea
+  supportedSecret: Pangea Token
+  secretType: pangea_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Persona  Identities
@@ -2730,6 +2923,42 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Access Token
+  secretType: planning_center_oauth_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center OAuth Application Secret
+  secretType: planning_center_oauth_app_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Planning Center
+  supportedSecret: Planning Center Personal Access Token
+  secretType: planning_center_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Plivo
   supportedSecret: Plivo Auth ID
   secretType: plivo_auth_id </br>plivo_auth_token
@@ -2748,6 +2977,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2759,6 +2989,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2770,6 +3001,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2781,6 +3013,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2792,6 +3025,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2803,6 +3037,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2913,7 +3148,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: PyPI
@@ -2934,6 +3169,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2945,6 +3181,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2956,6 +3193,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -2991,7 +3229,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3018,7 +3256,18 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: RunPod
+  supportedSecret: RunPod API Key
+  secretType: runpod_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Samsara
@@ -3081,40 +3330,16 @@
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
-- provider: Sendinblue
-  supportedSecret: Sendinblue API Key
-  secretType: sendinblue_api_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
-- provider: Sendinblue
-  supportedSecret: Sendinblue SMTP Key
-  secretType: sendinblue_smtp_key
-  versions:
-    fpt: '*'
-    ghec: '*'
-    ghes: '>=3.5'
-  isPublic: true
-  isPrivateWithGhas: true
-  hasPushProtection: true
-  hasValidityCheck: false
-  isduplicate: false
 - provider: Sentry
   supportedSecret: Sentry Integration Token
   secretType: sentry_integration_token
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Sentry
@@ -3123,10 +3348,10 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Sentry
@@ -3135,10 +3360,10 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Sentry
@@ -3147,10 +3372,10 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Shippo
@@ -3183,10 +3408,10 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Shopify
@@ -3210,7 +3435,7 @@
     ghes: '>3.4'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Shopify
@@ -3246,7 +3471,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Shopify
@@ -3282,7 +3507,7 @@
     ghes: '>3.4'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Shopify
@@ -3294,7 +3519,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Siemens
@@ -3303,7 +3528,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3326,6 +3551,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3364,6 +3590,66 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token
+  secretType: sourcegraph_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Dotcom User Gateway Access Token
+  secretType: sourcegraph_dotcom_user_gateway
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Access Token with Instance Identifier
+  secretType: sourcegraph_instance_identifier_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph License Key Token
+  secretType: sourcegraph_license_key_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Sourcegraph
+  supportedSecret: Sourcegraph Product Subscription Token
+  secretType: sourcegraph_product_subscription_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+    ghes: '>=3.17'
+  isPublic: true
+  isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
@@ -3376,7 +3662,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
 - provider: Square
@@ -3388,7 +3674,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Square
@@ -3400,7 +3686,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: SSLMate
@@ -3412,7 +3698,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
 - provider: SSLMate
@@ -3424,7 +3710,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Stripe
@@ -3484,7 +3770,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
   isduplicate: false
 - provider: Stripe
@@ -3520,7 +3806,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Tailscale
@@ -3529,6 +3815,7 @@
   versions:
     fpt: '*'
     ghec: '*'
+    ghes: '>=3.17'
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
@@ -3588,7 +3875,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-    ghes: '>=3.15'
+    ghes: '>=3.16'
   isPublic: false
   isPrivateWithGhas: true
   hasPushProtection: true
@@ -3759,7 +4046,7 @@
     ghes: '>=3.12'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
 - provider: Yandex
@@ -3771,7 +4058,7 @@
     ghes: '*'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Yandex
@@ -3831,7 +4118,7 @@
     ghes: '*'
   isPublic: false
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Yandex

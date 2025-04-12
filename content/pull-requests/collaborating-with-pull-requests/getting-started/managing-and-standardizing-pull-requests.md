@@ -22,13 +22,21 @@ You can request that contributors include an issue reference in their pull reque
 
 ## Defining code owners
 
-You may want to make sure that specific individuals always review changes to certain code or files in your repository. For example, you may want a technical writer on your team to always review changes in the `docs` directory.
+You may want to make sure that specific individuals always review changes to certain code or files in your repository. For example, you may want to ensure that a member of the security team always reviews changes to your `SECURITY.md` file or `dependabot.yml` file.
 
 You can define individuals or teams that you consider responsible for code or files in a repository to be code owners. Code owners will automatically be requested for review when someone opens a pull request that modifies the files that they own. You can define code owners for specific types of files or directories, as well as for different branches in a repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners).
 
 ## Using protected branches
 
-You can use protected branches to prevent pull requests from being merged into important branches, such as `main`, until certain conditions are met. For example, you can require passing CI tests or an approving review. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
+You can use protected branches to prevent pull requests from being merged into important branches, such as `main`, until certain conditions are met. For example, you can require an approving review, or require that all status checks are passing. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches).
+
+## Using rulesets
+
+Working alongside protected branches, rulesets let you enforce policies across your repository, such as requiring status checks or workflows to pass before a pull request can be merged.
+
+Rulesets are especially useful for maintaining repository security when combined with other automated security checks. For example:
+* You can use rulesets to enforce the dependency review action, a workflow that blocks pull requests that are introducing vulnerable dependencies into your codebase. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/enforcing-dependency-review-across-an-organization). {% ifversion code-scanning-merge-protection-rulesets %}
+* If your repository is configured with {% data variables.product.prodname_code_scanning %}, you can use rulesets to set {% data variables.product.prodname_code_scanning %} merge protection, which prevents pull requests from being merged if there is a {% data variables.product.prodname_code_scanning %} alert of a certain severity, or if a {% data variables.product.prodname_code_scanning %} analysis is still in progress. See [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/set-code-scanning-merge-protection).{% endif %}
 
 {% ifversion push-rulesets %}
 

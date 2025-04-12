@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Actions
   - Repositories
@@ -41,10 +41,7 @@ If you do not need a highly customizable {% data variables.product.prodname_code
 
 Your repository is eligible for advanced setup if it meets these requirements.
 * It uses {% data variables.product.prodname_codeql %}-supported languages or you plan to generate code scanning results with a third-party tool.
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-* It is publicly visible.{%- elsif ghec %}
-* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion ghes %}
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, your site administrator can enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} by making the {% data variables.product.prodname_codeql %} analysis bundle available on the server. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance#configuring-codeql-analysis-on-a-server-without-internet-access).
@@ -65,13 +62,21 @@ You can customize your {% data variables.product.prodname_codeql %} analysis by 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. Scroll down to the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. Scroll down to "{% data variables.product.UI_code_security_scanning %}", in the "{% data variables.product.prodname_codeql %} analysis" row select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Advanced**.
 
    > [!NOTE]
-   > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_code_scanning_caps %}" section, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "workflow" aria-hidden="true" %} Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
+   > If you are switching from default setup to advanced setup, in the "{% data variables.product.prodname_codeql %} analysis" row, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "workflow" aria-hidden="true" %} Switch to advanced**. In the pop-up window that appears, click **Disable {% data variables.product.prodname_codeql %}**.
 
-   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
+   {% ifversion ghas-products %}
+
+   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup.png)
+
+   {% else %}
+
+    ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Advanced setup" button is highlighted with an orange outline.](/assets/images/help/security/advanced-code-scanning-setup-ghas.png)
+
+    {% endif %}
 
 1. To customize how {% data variables.product.prodname_code_scanning %} scans your code, edit the workflow.
 
@@ -114,6 +119,8 @@ For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning
 1. Follow any instructions in the workflow to customize it to your needs. For more general assistance about workflows, click **Documentation** on the right pane of the workflow page.
 
    ![Screenshot showing a workflow template file open for editing. The "Documentation" button is highlighted with an orange outline.](/assets/images/help/security/actions-workflows-documentation.png)
+
+1. When you have finished defining your configuration, add the new workflow to your default branch.
 
    For more information, see [AUTOTITLE](/actions/learn-github-actions/using-starter-workflows#choosing-and-using-a-starter-workflow) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/customizing-your-advanced-setup-for-code-scanning).
 

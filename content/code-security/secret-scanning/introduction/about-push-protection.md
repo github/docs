@@ -13,7 +13,7 @@ redirect_from:
 type: overview
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Push protection
@@ -31,6 +31,13 @@ You can enable push protection:
 
 * At repository/organization level, if you are a repository administrator or an organization owner. You will see alerts in the **Security** tab of your repository when a contributor to the repository bypasses push protection.
 * For your account on {% data variables.product.prodname_dotcom %}, as a user. This type of push protection is referred to as "push protection for users". It protects you from pushing secrets to _any_ public repository on {% data variables.product.prodname_dotcom %}, but no alerts are generated.
+
+{% endif %}
+
+{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+
+> [!TIP]
+> Regardless of the enablement status of push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. The report also tells you how many secret leaks in your organization could have been prevented by push protection. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}
 
 {% endif %}
 
@@ -69,7 +76,7 @@ By default, anyone with write access to the repository can choose to bypass push
 
 * **Integration with CI/CD pipelines:** Push Protection can be integrated into your Continuous Integration/Continuous Deployment (CI/CD) pipelines, ensuring that every push is scanned for secrets before it gets deployed. This adds an extra layer of security to your DevOps practices.
 
-{% ifversion secret-scanning-push-protection-custom-patterns %}* **Ability to detect custom patterns:** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push Protection can effectively identify and block even non-standard secrets.{% endif %}
+* **Ability to detect custom patterns:** Organizations can define custom patterns for detecting secrets unique to their environment. This customization ensures that push Protection can effectively identify and block even non-standard secrets.
 
 {% ifversion push-protection-delegated-bypass %}* **Delegated bypass for flexibility:** For cases where false positives occur or when certain patterns are necessary, the delegated bypass feature allows designated users to approve specific pushes. This provides flexibility without compromising overall security.{% endif %}
 
@@ -87,13 +94,9 @@ Once push protection is enabled, you can customize it further:
 
 Integrate push protection with your Continuous Integration/Continuous Deployment (CI/CD) pipelines to ensure that it runs scans during automated processes. This typically involves adding steps in your pipeline configuration file to call GitHub's APIs or using {% data variables.product.prodname_actions %}.
 
-{% ifversion secret-scanning-push-protection-custom-patterns %}
-
 ### Define custom patterns
 
 Define custom patterns that push protection can use to identify secrets and block pushes containing these secrets. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
-
-{% endif %}
 
 {% ifversion push-protection-delegated-bypass %}
 
@@ -107,6 +110,6 @@ Define contributors who can bypass push protection and add an approval process f
 
 * [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-push-protection-for-your-repository)
 * [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line)
-* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui){% ifversion secret-scanning-push-protection-custom-patterns %}
-* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning){% endif %}{% ifversion push-protection-delegated-bypass %}
+* [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-in-the-github-ui)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning){% ifversion push-protection-delegated-bypass %}
 * [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection){% endif %}

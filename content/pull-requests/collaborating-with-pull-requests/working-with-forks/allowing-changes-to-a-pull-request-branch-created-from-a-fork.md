@@ -25,15 +25,9 @@ You can set commit permissions when you first create a pull request from a fork.
 
 1. On {% data variables.product.github %}, navigate to the main page of the upstream repository of your pull request.
 1. Under the upstream repository name, click **{% octicon "git-pull-request" aria-hidden="true" %} Pull requests**.
-{% ifversion global-nav-update %}
 
    ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Pull requests," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-pull-requests-global-nav-update.png)
 
-{% else %}
-
-   ![Screenshot of the main page of a repository. In the horizontal navigation bar, a tab, labeled "Pull requests," is outlined in dark orange.](/assets/images/help/repository/repo-tabs-pull-requests.png)
-
-{% endif %}
 1. In the list of pull requests, navigate to the pull request that you'd like to allow commits on.
 {% data reusables.repositories.allow-maintainers-user-forks %}
 

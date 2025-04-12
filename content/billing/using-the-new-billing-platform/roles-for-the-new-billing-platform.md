@@ -1,6 +1,6 @@
 ---
 title: Roles for the new billing platform
-intro: 'Learn about the different roles that can use the enhanced billing platform.'
+intro: 'Learn about the different roles that can use the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -12,7 +12,9 @@ topics:
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
 
-The following roles have access to the new billing platform: {% ifversion ghec %}enterprise owners, {% endif %}billing managers, and organization owners. {% ifversion fpt %}See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).{% elsif ghec %}See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).{% endif %}
+In an {% data variables.enterprise.enterprise_and_org %}, the following roles have access to the new billing platform: {% ifversion ghec %}enterprise owners, {% endif %}billing managers, and organization owners. {% ifversion fpt %}See [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization).{% elsif ghec %}See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/roles-in-an-enterprise).{% endif %}
+
+{% ifversion fpt %}Personal accounts also have access to the new billing platform for their personal usage.{% endif %}
 
 {% ifversion ghec %}
 
@@ -37,7 +39,7 @@ You have full administrative access to your organization. You can:
 * Download CSV usage reports.{% ifversion ghec %}
 * Create cost centers by grouping repositories you manage.
 * View promotions and discounts.
-* View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_GH_advanced_security %} based on your usage.
+* View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_AS %} based on your usage.
 {% endif %}
 
 {% ifversion fpt %}
@@ -61,7 +63,7 @@ The invited person will receive an invitation email asking them to become a bill
 {% data reusables.profile.org_settings %}
 1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Click the link in the text box, **Enterprise account billing settings**, which will direct you to your organizations billing settings page.
-1. On the left side of the page, in the enterprise account sidebar, click **{% octicon "person" aria-hidden="true" %} People**.
+1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "person" aria-hidden="true" %} **People**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "person" aria-hidden="true" %} **People**{% endif %}.
 1. Under "People", click **Administrators**.
 1. Above the list of administrators, click **Invite admin**.
 1. Type the username, full name, or email address of the person you want to invite, then select the appropriate person from the results.

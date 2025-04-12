@@ -25,12 +25,8 @@ topics:
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 > [!NOTE]
-> Customers who use {% data variables.product.prodname_GH_advanced_security %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
-
-{% endif %}
+> Customers who use {% data variables.product.prodname_GH_secret_protection %} can enable {% data variables.product.prodname_secret_scanning %} on archived repositories. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
 {% data reusables.repositories.archiving-repositories-recommendation %}
 
@@ -40,9 +36,7 @@ When a repository is archived, its issues, pull requests, code, labels, mileston
 
 You can search for archived repositories. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-for-repositories#search-based-on-whether-a-repository-is-archived). You can also search for issues and pull requests within archived repositories. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests#search-based-on-whether-a-repository-is-archived).
 
-{% ifversion archive-organizations %}
 To archive all repositories in an organization at once, you can archive the entire organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/archiving-an-organization).
-{% endif %}
 
 ## Archiving a repository
 

@@ -9,7 +9,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/overview/keyboard-shortcuts
   - /desktop/installing-and-configuring-github-desktop/overview/github-desktop-keyboard-shortcuts
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 {% mac %}
 

@@ -118,9 +118,11 @@ You have now created a repository, including a _README_ file, and created your f
 
 {% webui %}
 
-* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+* You can now clone a {% data variables.product.prodname_dotcom %} repository to create a local copy on your computer. From your local repository you can commit, and create a pull request to update the changes in the upstream repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository) and [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 {% endwebui %}
+
+* Secure your repository using {% data variables.product.github %}'s available security features. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 
 * You can find interesting projects and repositories on {% data variables.product.prodname_dotcom %} and make changes to them by creating a fork of the repository. {% data reusables.getting-started.fork-a-repository %}
 

@@ -1,6 +1,6 @@
 ---
 title: Enabling Dependabot for your enterprise
-intro: 'You can allow users to find and fix vulnerabilities in code dependencies by {% ifversion dependabot-alerts-ghes-enablement %} setting up {% else %}enabling{% endif %} {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
+intro: 'You can allow users to find and fix vulnerabilities in code dependencies by setting up {% data variables.product.prodname_dependabot_alerts %}{% ifversion ghes %} and {% data variables.product.prodname_dependabot_updates %}{% endif %}.'
 shortTitle: Dependabot
 redirect_from:
   - /enterprise/admin/installation/enabling-security-alerts-for-vulnerable-dependencies-on-github-enterprise-server
@@ -12,7 +12,7 @@ redirect_from:
   - /admin/configuration/managing-connections-between-your-enterprise-accounts/enabling-the-dependency-graph-and-dependabot-alerts-on-your-enterprise-account
   - /admin/configuration/configuring-github-connect/enabling-the-dependency-graph-and-dependabot-alerts-for-your-enterprise
   - /admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise
-permissions: 'Enterprise owners can{% ifversion dependabot-alerts-ghes-enablement %} set up{% else %} enable{% endif %} {% data variables.product.prodname_dependabot %}.'
+permissions: 'Enterprise owners can set up {% data variables.product.prodname_dependabot %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -25,24 +25,22 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} for {% data variables.product.prodname_ghe_server %}
 
-{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies.{% ifversion ghes %} You {% ifversion dependabot-alerts-ghes-enablement %} must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you {% endif %} can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
+{% data variables.product.prodname_dependabot %} helps users find and fix vulnerabilities in their dependencies. You must first set up {% data variables.product.prodname_dependabot %} for your enterprise, and then you can enable {% data variables.product.prodname_dependabot_alerts %} to notify users about vulnerable dependencies and {% data variables.product.prodname_dependabot_updates %} to fix the vulnerabilities and keep dependencies updated to the latest version.
 
 {% data variables.product.prodname_dependabot %} is just one of many features available to harden supply chain security for {% data variables.product.prodname_dotcom %}. For more information about the other features, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/about-supply-chain-security-for-your-enterprise).
 
 ### About {% data variables.product.prodname_dependabot_alerts %}
 
-{% endif %}
-
 With {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dotcom %} identifies insecure dependencies in repositories and creates alerts on {% data variables.product.prodname_ghe_server %}, using data from the {% data variables.product.prodname_advisory_database %} and the dependency graph service.
 
 {% data reusables.repositories.tracks-vulnerabilities %}
 
-After you {% ifversion dependabot-alerts-ghes-enablement %} set up {% data variables.product.prodname_dependabot %}{% else %} enable {% data variables.product.prodname_dependabot_alerts %}{% endif %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
+After you set up {% data variables.product.prodname_dependabot %} for your enterprise, vulnerability data is synced from the {% data variables.product.prodname_advisory_database %} to your instance once every hour. Only {% data variables.product.company_short %}-reviewed advisories are synchronized. {% data reusables.security-advisory.link-browsing-advisory-db %}
 
 You can also choose to manually sync vulnerability data at any time. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/viewing-the-vulnerability-data-for-your-enterprise).
 
 > [!NOTE]
-> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %}.
+> When you enable {% data variables.product.prodname_dependabot_alerts %}, no code or information about code from {% data variables.product.prodname_ghe_server %} is uploaded to {% data variables.product.prodname_dotcom_the_website %} or {% data variables.enterprise.data_residency_site %}.
 
 When {% data variables.product.prodname_ghe_server %} receives information about a vulnerability, it identifies repositories that use the affected version of the dependency and generates {% data variables.product.prodname_dependabot_alerts %}. You can choose whether or not to notify users automatically about new {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -68,14 +66,13 @@ With {% data variables.product.prodname_dependabot_updates %}, {% data variables
 
 ## Enabling {% data variables.product.prodname_dependabot_alerts %}
 
-{% ifversion dependabot-alerts-ghes-enablement %}
-Before you can enable {% data variables.product.prodname_dependabot_alerts %}, you must first set up {% data variables.product.prodname_dependabot %} for your enterprise{% else %}Before you can enable {% data variables.product.prodname_dependabot_alerts %}{% endif %}:
+Before you can enable {% data variables.product.prodname_dependabot_alerts %}, you must first set up {% data variables.product.prodname_dependabot %} for your enterprise:
 * You must enable {% data variables.product.prodname_github_connect %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/managing-github-connect).
 * You must enable the dependency graph. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.github-connect-tab %}
-1. Under "{% data variables.product.prodname_dependabot %}", to the right of {% ifversion dependabot-alerts-ghes-enablement %}"Periodically download the {% data variables.product.prodname_advisory_database %} so that users can receive vulnerability alerts for open source code dependencies"{% else %}"Users can receive vulnerability alerts for open source code dependencies"{% endif %}, select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
+1. Under "{% data variables.product.prodname_dependabot %}", to the right of "Periodically download the {% data variables.product.prodname_advisory_database %} so that users can receive vulnerability alerts for open source code dependencies", select the dropdown menu and click **Enabled without notifications**. Optionally, to enable alerts with notifications, click **Enabled with notifications**.
 
    ![Screenshot of the "Enable" dropdown menu for {% data variables.product.prodname_dependabot_alerts %}, showing the available options.](/assets/images/enterprise/site-admin-settings/dependabot-alerts-setup-dropdown.png)
 
@@ -85,7 +82,7 @@ Before you can enable {% data variables.product.prodname_dependabot_alerts %}, y
     > [!TIP]
    > We recommend configuring {% data variables.product.prodname_dependabot_alerts %} without notifications for the first few days to avoid an overload of realtime notifications. After a few days, you can enable notifications to receive {% data variables.product.prodname_dependabot_alerts %} as usual.
 
-You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for {% ifversion code-security-wording-only-enterprise %}"Code security."{% else %}"Code security and analysis."{% endif %} Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
+You can now enable {% data variables.product.prodname_dependabot_alerts %} for all existing or new private and internal repositories in the enterprise settings page for "{% data variables.product.UI_advanced_security_ent %}." Alternatively, repository administrators and organization owners can enable {% data variables.product.prodname_dependabot_alerts %} for each repository and organization. Public repositories are always enabled by default. For more information, see [AUTOTITLE](/enterprise-server@latest/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts).
 
 ## Enabling {% data variables.product.prodname_dependabot_updates %}
 

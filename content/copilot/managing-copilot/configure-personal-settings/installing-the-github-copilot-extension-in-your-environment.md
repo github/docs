@@ -1,7 +1,7 @@
 ---
 title: Installing the GitHub Copilot extension in your environment
 shortTitle: Install Copilot extension
-intro: 'To use {% data variables.product.prodname_copilot_short %} in your preferred coding environment, you must install the {% data variables.product.prodname_copilot %} extension.'
+intro: 'To use {% data variables.product.prodname_copilot_short %} in your preferred coding environment, follow the steps for your chosen IDE.'
 versions:
   feature: copilot
 defaultTool: vscode
@@ -10,6 +10,10 @@ topics:
 redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
 ---
+
+## Prerequisite
+
+To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.product.prodname_copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 
 {% azure_data_studio %}
 
@@ -162,37 +166,33 @@ Starting from {% data variables.product.prodname_vs %} 2022 Version 17.10, the u
 
 {% vscode %}
 
-## About the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
+## About {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. It also automatically installs the {% data variables.product.prodname_copilot_chat %} extension, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+{% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-### Version compatibility
+## Setting up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}
 
-{% data reusables.copilot.vscode-version-compatibility %}
+When you set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %} for the first time, the required extensions are installed automatically. You don't need to download or install them manually.
 
-## Installing the {% data variables.product.prodname_copilot %} extension in {% data variables.product.prodname_vscode %}
+For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup#_set-up-copilot-in-vs-code) in the {% data variables.product.prodname_vscode %} documentation.
 
-1. Make sure you have access to {% data variables.product.prodname_copilot %}. For information, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
-
-1. Install {% data variables.product.prodname_vscode %}. See the [{% data variables.product.prodname_vscode %} download page](https://code.visualstudio.com/Download).
-
-1. Install the [{% data variables.product.prodname_copilot %} extension](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) in {% data variables.product.prodname_vscode %}. For detailed instructions, see [Set up {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/docs/copilot/setup) in the {% data variables.product.prodname_vscode %} documentation.
-
-   >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code).
+>[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=vscode#authenticating-from-vs-code).
 
 {% endvscode %}
 
 {% xcode %}
-
-{% data reusables.copilot.xcode-beta-note %}
 
 ## About the {% data variables.product.prodname_copilot %} extension for Xcode
 
 Installing the {% data variables.product.prodname_copilot %} extension for Xcode allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+{% data reusables.copilot.xcode-prerequisites %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
@@ -222,6 +222,38 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 1. Click **Login to {% data variables.product.github %}** and follow the prompts to authorize the extension.
 
 {% endxcode %}
+
+{% eclipse %}
+
+## About {% data variables.product.prodname_copilot %} in Eclipse
+
+Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+
+{% data reusables.copilot.eclipse-public-preview-note %}
+
+To see instructions for other popular coding environments, use the tool switcher at the top of the page.
+
+## Prerequisites
+
+{% data reusables.copilot.eclipse-prerequisites %}
+
+## Installing {% data variables.product.prodname_copilot %} in Eclipse
+
+1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/). For more information, see [Installing New Software](https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm) in the Eclipse documentation.
+
+1. After the extension is installed, restart Eclipse to apply the changes.
+
+1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+
+1. In the "Sign In to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy Code and Open**.
+
+1. A device activation window will open in your browser. Paste the device code, then click **Continue**.
+
+1. {% data variables.product.prodname_dotcom %} will request the necessary permissions for {% data variables.product.prodname_copilot %}. To approve these permissions, click **Authorize {% data variables.product.prodname_copilot %} Plugin**.
+
+1. After the permissions have been approved, Eclipse will show a confirmation. To begin using {% data variables.product.prodname_copilot %}, click **OK**.
+
+{% endeclipse %}
 
 ## Next steps
 

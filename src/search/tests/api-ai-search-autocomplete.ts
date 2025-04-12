@@ -66,7 +66,7 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     const sp = new URLSearchParams()
     sp.set('query', 'fo')
     sp.set('version', 'never-heard-of')
-    const res = await get(`${aiSearchEndpoint}?{sp}`)
+    const res = await get(`${aiSearchEndpoint}?${sp}`)
     expect(res.statusCode).toBe(400)
     expect(JSON.parse(res.body).error).toBeTruthy()
   })
@@ -134,31 +134,24 @@ describeIfElasticsearchURL('search/ai-search-autocomplete v1 middleware', () => 
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
     const results = JSON.parse(res.body) as AutocompleteSearchResponse
-    console.log(JSON.stringify(results, null, 2))
     const hit = results.hits[0]
     expect(hit.term).toBe('How do I clone a repository?')
     expect(hit.highlights).toBeTruthy()
     expect(hit.highlights[0]).toBe('How do I <mark>clone</mark> a repository?')
   })
 
-  test('invalid query', async () => {
+  test('support empty query', async () => {
     const sp = new URLSearchParams()
     // No query at all
     {
       const res = await get(getSearchEndpointWithParams(sp))
-      expect(res.statusCode).toBe(400)
+      expect(res.statusCode).toBe(200)
     }
     // Empty query
     {
       sp.set('query', '')
       const res = await get(getSearchEndpointWithParams(sp))
-      expect(res.statusCode).toBe(400)
-    }
-    // Empty when trimmed
-    {
-      sp.set('query', '  ')
-      const res = await get(getSearchEndpointWithParams(sp))
-      expect(res.statusCode).toBe(400)
+      expect(res.statusCode).toBe(200)
     }
   })
 })

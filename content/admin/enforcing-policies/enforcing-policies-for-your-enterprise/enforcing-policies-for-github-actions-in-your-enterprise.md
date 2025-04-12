@@ -157,17 +157,17 @@ You can control how users can run workflows on `pull_request` events in private 
 
 If a policy is enabled for an enterprise, the policy can be selectively disabled in individual organizations or repositories. If a policy is disabled for an enterprise, individual organizations or repositories cannot enable it.
 
-{% ifversion ghec or ghes %}
-
 ## Workflow permissions
 
 In the "Workflow permissions" section, you can set the **default** permissions granted to the `GITHUB_TOKEN`.
 
-* **Read and write permissions:** By default, `GITHUB_TOKEN` has read and write access for all scopes.
+* **Read and write permissions:** The default permissions for the `GITHUB_TOKEN` depend on when the enterprise or organization was created:
+
+  * **Created on or after February 2, 2023** – Defaults to **read-only** access for all scopes.
+  * **Created before February 2, 2023** – Defaults to **read and write** access for all scopes.
+
 * **Read repository contents and packages permissions:** By default, `GITHUB_TOKEN` has only read access for the `contents` and `packages` scopes. The more permissive setting cannot be chosen as the default for individual organizations or repositories.
 
 Anyone with write access to a repository can still modify the permissions granted to the `GITHUB_TOKEN` for a specific workflow, by editing the `permissions` key in the workflow file.
 
 **Allow GitHub Actions to create and approve pull requests** is disabled by default. If you enable this setting, `GITHUB_TOKEN` can create and approve pull requests.
-
-{% endif %}

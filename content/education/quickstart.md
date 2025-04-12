@@ -40,11 +40,9 @@ Next, you'll sign up for teacher benefits and resources from {% data variables.p
 > In addition to individual discounts, {% data variables.product.company_short %} offers partnerships with educational institutions through the {% data variables.product.prodname_campus_program %}. For more information, see the [{% data variables.product.prodname_campus_program %}](https://education.github.com/schools) website.
 
 {% data reusables.education.benefits-page %}
-{% data reusables.education.click-get-teacher-benefits %}
 {% data reusables.education.select-email-address %}
 {% data reusables.education.upload-proof-status %}
 {% data reusables.education.school-name %}
-{% data reusables.education.plan-to-use-github %}
 {% data reusables.education.submit-application %}
 
 Once you are a verified {% data variables.product.prodname_global_campus %} educator, you can access {% data variables.product.prodname_global_campus %} anytime by going to the [{% data variables.product.prodname_education %} website](https://education.github.com).

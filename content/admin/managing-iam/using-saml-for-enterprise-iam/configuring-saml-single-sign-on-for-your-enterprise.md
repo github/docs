@@ -2,7 +2,7 @@
 title: Configuring SAML single sign-on for your enterprise
 shortTitle: Configure SAML SSO
 intro: 'You can control and secure access to {% ifversion ghec %}resources like repositories, issues, and pull requests within your enterprise''s organizations{% elsif ghes %}{% data variables.location.product_location %}{% endif %} by {% ifversion ghec %}enforcing{% elsif ghes %}configuring{% endif %} SAML single sign-on (SSO) through your identity provider (IdP).'
-permissions: '{% ifversion ghes %}Site administrators{% elsif ghec %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec %}an enterprise on {% data variables.product.product_name %}{% elsif ghes %}a {% data variables.product.product_name %} instance{% endif %}.'
+permissions: '{% ifversion ghes %}Site administrators{% elsif ghec %}Enterprise owners{% endif %} can configure SAML SSO for {% ifversion ghec %}an enterprise on {% data variables.product.github %}{% elsif ghes %}a {% data variables.product.prodname_ghe_server %} instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -53,7 +53,7 @@ For more information, see [AUTOTITLE](/organizations/managing-saml-single-sign-o
 
 {% elsif ghes %}
 
-SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.product_name %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.product_name %} validates the response from your IdP, then grants access to the user.
+SAML SSO allows you to centrally control and secure access to {% data variables.location.product_location %} from your SAML IdP. When an unauthenticated user visits {% data variables.location.product_location %} in a browser, {% data variables.product.github %} will redirect the user to your SAML IdP to authenticate. After the user successfully authenticates with an account on the IdP, the IdP redirects the user back to {% data variables.location.product_location %}. {% data variables.product.github %} validates the response from your IdP, then grants access to the user.
 
 After a user successfully authenticates on your IdP, the user's SAML session for {% data variables.location.product_location %} is active in the browser for 24 hours. After 24 hours, the user must authenticate again with your IdP.
 
@@ -109,7 +109,7 @@ For more detailed information about how to enable SAML using Okta, see [AUTOTITL
 
 ## Configuring SAML SSO
 
-You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings for {% data variables.product.product_name %} in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
+You can enable or disable SAML authentication for {% data variables.location.product_location %}, or you can edit an existing configuration. You can view and edit authentication settings in the {% data variables.enterprise.management_console %}. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
 
 > [!NOTE]
 > {% data reusables.enterprise.test-in-staging %}
@@ -139,8 +139,6 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## Further reading
 
 {%- ifversion ghec %}
@@ -149,5 +147,3 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 {%- ifversion ghes %}
 * [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)
 {%- endif %}
-
-{% endif %}

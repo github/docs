@@ -68,7 +68,7 @@ jobs:
               repo: process.env.TEAM_CONTENT_REPO,
               title: `@${context.payload.sender.login} confirm that \#${issueNo} should be in the public github/docs repo`,
               body: `@${context.payload.sender.login} opened https://github.com/github/docs/issues/${issueNo} publicly in the github/docs repo, instead of the private github/${process.env.TEAM_CONTENT_REPO} repo.\n\n@${context.payload.sender.login}, please confirm that this belongs in the public repo and that no sensitive information was disclosed by commenting below and closing the issue.\n\nIf this was not intentional and sensitive information was shared, please delete https://github.com/github/docs/issues/${issueNo} and notify us in the \#docs-open-source channel.\n\nThanks!`,
-              labels: ['OS confirmation'],
+              labels: ['OS confirmation', 'skip FR board'],
             });
 
             core.setOutput('did_warn', 'true')

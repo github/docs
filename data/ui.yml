@@ -15,6 +15,7 @@ header:
     ghes_release_notes_upgrade_patch_and_release: 📣 This is not the <a href="#{{ latestPatch }}">latest patch release</a> of this release series, and this is not the <a href="/enterprise-server@{{ latestRelease }}/admin/release-notes">latest release</a> of Enterprise Server.
   sign_up_cta: Sign up
   menu: Menu
+  open_menu_label: Open menu
   go_home: Home
 picker:
   language_picker_label: Language
@@ -23,6 +24,43 @@ picker:
 release_notes:
   banner_text: GitHub began rolling these changes out to enterprises on
 search:
+  input:
+    aria_label: Open search overlay
+    placeholder: Search or ask {{icon}} Copilot
+    placeholder_no_icon: Search or ask Copilot
+    shortcut: Type {{icon}} to search
+  overlay:
+    input_aria_label: Search or ask Copilot
+    suggestions_list_aria_label: Search suggestions
+    ai_suggestions_list_aria_label: Copilot search suggestions
+    general_suggestions_list_aria_label: Docs search suggestions
+    general_suggestions_list_heading: Search docs
+    ai_autocomplete_list_heading: Ask Copilot
+    give_feedback: Give feedback
+    beta_tag: Beta
+    return_to_search: Return to search
+    clear_search_query: Clear
+    view_all_search_results: View more results
+    no_results_found: No results found
+    search_docs_with_query: Search docs for "{{query}}"
+    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy">GitHub Privacy Statement</a> to review how GitHub collects and uses your data.
+  ai:
+    disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
+    references: Additional docs
+    loading_status_message: Loading Copilot response...
+    done_loading_status_message: Done loading Copilot response
+    unable_to_answer: Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different query.
+    copy_answer: Copy answer
+    copied_announcement: Copied!
+    thumbs_up: This answer was helpful
+    thumbs_down: This answer was not helpful
+    thumbs_announcement: Thank you for your feedback!
+    back_to_search: Back to search
+  failure:
+    general_title: There was an error loading search results.
+    ai_title: There was an error loading Copilot.
+    description: You can still use this field to search our docs.
+old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
   label: Search GitHub Docs
@@ -206,12 +244,14 @@ footer:
   pricing: Pricing
   expert_services: Expert services
   blog: Blog
+  machine: Some of this content may be machine- or AI-translated.
 product_landing:
   quickstart: Quickstart
   reference: Reference
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
+  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides
@@ -280,3 +320,10 @@ domain_edit:
   snippet_about: Updating will include the new domain name in all code snippets across GitHub Docs.
   learn_more: Learn more
   submission_failed: Submission failed. Please try again in a minute.
+cookbook_landing:
+  spotlight: Spotlight
+  explore_articles: Explore {{ number }} prompt articles
+  reset_filters: Reset filters
+  search_articles: Search articles
+  category: Category
+  complexity: Complexity

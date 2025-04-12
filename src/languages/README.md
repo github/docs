@@ -1,6 +1,6 @@
 # Languages
 
-Languages refers to the different translations we support on docs.github.com. Currently, our supported languages include Chinese, Spanish, Portuguese, Russian, Japanese, French, German, and Korean.
+Languages refers to the different translations we support on docs.github.com. Currently, our supported languages include Spanish, Japanese, Portuguese, Chinese, Russian, French, Korean, and German.
 
 ## TLDR: How translations work
 
@@ -26,7 +26,7 @@ Periodically, translators read the `content/**` and `data/**` directories from `
 
 ## Deployment of translated content
 
-In the deployment workflow, we [checkout](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/.github/workflows/azure-prod-build-deploy.yml#L90-L92) each and every translation repo and put their contents into the `translations/` directory.
+During the build step of our deployment, we checkout every translation repo into the `translations/` directory.
 
 The enabled languages and their source directories are interpreted in [`src/languages/lib/languages.js`](https://github.com/github/docs-internal/blob/a8e52aad1a6b67f41da92d314bd7fd8cd84193a4/src/languages/lib/languages.js), which ensures English and translated content are in the same Docker image we deploy.
 
@@ -106,14 +106,14 @@ This section assumes you want your local environment to replicate the structure 
     cd docs-internal
     mkdir translations && cd translations
 
-    git clone <zh-cn-repo-url> zh-cn
-    git clone <ja-jp-repo-url> ja-jp
     git clone <es-es-repo-url> es-es
+    git clone <ja-jp-repo-url> ja-jp
     git clone <pt-br-repo-url> pt-br
-    git clone <de-de-repo-url> de-de
-    git clone <fr-fr-repo-url> fr-fr
+    git clone <zh-cn-repo-url> zh-cn
     git clone <ru-ru-repo-url> ru-ru
+    git clone <fr-fr-repo-url> fr-fr
     git clone <ko-kr-repo-url> ko-kr
+    git clone <de-de-repo-url> de-de
     ```
 1. Start the development server with `npm run start-all-languages`. If you need to enable specific languages, you can set `ENABLED_LANGUAGES`. For example, to start the server with English, Japanese, and Spanish only, use: `ENABLED_LANGUAGES=en,ja,es NODE_ENV=development nodemon server.js`
 

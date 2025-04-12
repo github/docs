@@ -44,9 +44,9 @@ You can also invite a user as a billing manager. A billing manager can view the 
 
 You can configure SAML single sign-on to require users to authenticate to an external identity management system in addition to their personal account. See [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
-## Linking an Azure subscription
+## Adding a payment method
 
-{% data reusables.copilot-business-for-non-ghe.link-azure-subscription %}
+{% data reusables.copilot-business-for-non-ghe.add-payment-method %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} for the enterprise
 

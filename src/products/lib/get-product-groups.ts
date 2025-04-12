@@ -70,7 +70,7 @@ async function getPage(
     }
     // Either the page didn't have a `rawShortTitle` or it was empty when
     // rendered out with Liquid. Either way, have to fall back to `rawTitle`.
-    if (!name) {
+    if (!name || !page.rawShortTitle) {
       name = await renderContentWithFallback(page, 'rawTitle', context, {
         textOnly: true,
       })

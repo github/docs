@@ -3,7 +3,9 @@ title: Creating a local environment
 shortTitle: Create a local environment
 intro: 'You can run the {% data variables.product.prodname_docs %} application locally on your computer.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About {% data variables.product.prodname_docs %} site structure
@@ -49,7 +51,7 @@ npm ci
 npm start
 ```
 
-You should now have a running server. To access your local preview environment, visit [localhost:4000](http://localhost:4000) in your browser.
+You should now have a running server. To access your local environment, visit [localhost:4000](http://localhost:4000) in your browser.
 
 When you're ready to stop your local server, type <kbd>Ctrl</kbd>+<kbd>C</kbd> in your terminal window.
 

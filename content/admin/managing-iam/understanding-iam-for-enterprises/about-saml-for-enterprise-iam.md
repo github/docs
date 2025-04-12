@@ -68,7 +68,7 @@ After you configure SAML, people who use {% data variables.location.product_loca
 
 {% endif %}
 
-For more information about the configuration of SAML SSO on {% data variables.product.product_name %}, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
+For more information about the configuration of SAML SSO on {% data variables.product.github %}, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise).
 
 {% ifversion ghes %}
 
@@ -99,11 +99,7 @@ Shibboleth | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-
 
 {% data reusables.saml.saml-supported-idps %}
 
-{% ifversion ghes %}
-
-If your IdP supports encrypted assertions, you can configure encrypted assertions on {% data variables.product.product_name %} for increased security during the authentication process.
-
-{% endif %}
+If your IdP supports encrypted assertions, you can configure encrypted assertions on {% data variables.product.prodname_ghe_server %} for increased security during the authentication process.
 
 {% data reusables.saml.saml-single-logout-not-supported %}
 

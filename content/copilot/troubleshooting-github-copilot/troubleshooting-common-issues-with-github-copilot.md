@@ -60,6 +60,16 @@ This error suggests that a classic or fine-grained {% data variables.product.pat
 
 For more information, see the [{% data variables.product.prodname_copilot_cli_short %} extension repository](https://github.com/github/gh-copilot).
 
+## Error: "Sorry, your request was rate-limited."
+
+This error suggests that you have exceeded the rate limit for {% data variables.product.prodname_copilot_short %} requests. {% data variables.product.github %} uses rate limits to ensure everyone has fair access to the {% data variables.product.prodname_copilot_short %}  service and to protect against abuse.
+
+Most people see rate limiting for preview models, like OpenAI’s o1 and o3-mini, which are rate-limited due to limited capacity.
+
+Service-level request rate limits ensure high service quality for all {% data variables.product.prodname_copilot_short %}  users and should not affect typical or even deeply engaged {% data variables.product.prodname_copilot_short %} usage. We are aware of some use cases that are affected by it. {% data variables.product.github %} is iterating on {% data variables.product.prodname_copilot_short %}’s rate-limiting heuristics to ensure it doesn’t block legitimate use cases.
+
+In case you experience repeated rate-limiting in {% data variables.product.prodname_copilot_short %}, contact {% data variables.contact.contact_support_page %}.
+
 ## Further reading
 
 * [AUTOTITLE](/free-pro-team@latest/site-policy/other-site-policies/github-and-trade-controls)

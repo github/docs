@@ -3,7 +3,9 @@ title: 'Best practices for {% data variables.product.prodname_projects_v2 %}'
 intro: Learn tips for managing your projects.
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/best-practices-for-managing-projects
 type: overview

@@ -34,17 +34,15 @@ For information about renewing your {% data variables.product.prodname_global_ca
 ## Applying to {% data variables.product.prodname_global_campus %}
 
 {% data reusables.education.benefits-page %}
-1. Under "Individuals", click **Get student benefits**.
-1. Under "Select the academic status", select **Student**.
-{% data reusables.education.select-email-address %}
+1. Under "Select your role in education", select **Student**.
 {% data reusables.education.school-name %}
-{% data reusables.education.plan-to-use-github %}
+{% data reusables.education.select-email-address %}
 {% data reusables.education.upload-proof-status %}
 {% data reusables.education.submit-application %}
 
 ## Expiration and renewals
 
-Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, simply return to https://education.github.com, click your profile picture, then click **Your benefits application**.
+Once your {% data variables.product.prodname_global_campus %} access expires, you may reapply if you're still eligible, although some of our partner offers for {% data variables.product.prodname_student_pack %} cannot renew. Most of the timed offers from our partners start once you set them up. To reapply, first make sure that you are signed in to your {% data variables.product.prodname_education %} account. Then, navigate to https://education.github.com/learner/learn, click your profile picture, then click **Your benefits application**.
 
 ![Screenshot of a profile menu on the GitHub Education website. The "Your benefits application" menu option is outlined in red.](/assets/images/help/education/your-benefits-application.png)
 

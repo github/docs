@@ -6,7 +6,7 @@ redirect_from:
   - /admin/enterprise-management/configuring-high-availability-replication-for-a-cluster
   - /admin/monitoring-managing-and-updating-your-instance/configuring-clustering/configuring-high-availability-replication-for-a-cluster
 versions:
-  ghes: '>= 3.9'
+  ghes: '*'
 type: how_to
 topics:
   - Clustering

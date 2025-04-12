@@ -23,13 +23,13 @@ redirect_from:
 
 {% data reusables.scim.ghes-beta-note %}
 
-## About user provisioning for {% data variables.product.product_name %}
+## About user provisioning for {% data variables.product.prodname_ghe_server %}
 
 If you use SAML single sign-on (SSO) for {% data variables.location.product_location %}, you can configure SCIM to automatically create or suspend user accounts and grant access to your instance when you assign or unassign the application on your IdP. For more information about SCIM, see [System for Cross-domain Identity Management: Protocol (RFC 7644)](https://tools.ietf.org/html/rfc7644) on the IETF website.
 
-If you do not configure user provisioning with SCIM, your IdP will not communicate with {% data variables.product.product_name %} automatically when you assign or unassign the application to a user. Without SCIM, {% data variables.product.product_name %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.product_name %} and signs in by authenticating through your IdP.
+If you do not configure user provisioning with SCIM, your IdP will not communicate with {% data variables.product.prodname_ghe_server %} automatically when you assign or unassign the application to a user. Without SCIM, {% data variables.product.prodname_ghe_server %} creates a user account using SAML Just-in-Time (JIT) provisioning the first time someone navigates to {% data variables.product.prodname_ghe_server %} and signs in by authenticating through your IdP.
 
-To configure provisioning for your enterprise, you must enable provisioning on {% data variables.product.product_name %}, then {% ifversion scim-for-ghes-public-beta %}either {% endif %}install and configure a provisioning application on your IdP{% ifversion scim-for-ghes-public-beta %}, or configure SCIM provisioning manually using {% data variables.product.company_short %}'s REST API endpoints for SCIM{% endif %}.
+To configure provisioning for your enterprise, you must enable provisioning on {% data variables.product.prodname_ghe_server %}, then {% ifversion scim-for-ghes-public-beta %}either {% endif %}install and configure a provisioning application on your IdP{% ifversion scim-for-ghes-public-beta %}, or configure SCIM provisioning manually using {% data variables.product.company_short %}'s REST API endpoints for SCIM{% endif %}.
 
 ## Supported identity providers
 
@@ -57,7 +57,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 
 {% else %}
 
-During the {% data variables.release-phases.private_preview %}, your account team will provide documentation for the configuration of SCIM for {% data variables.product.product_name %} on a supported IdP.
+During the {% data variables.release-phases.private_preview %}, your account team will provide documentation for the configuration of SCIM for {% data variables.product.prodname_ghe_server %} on a supported IdP.
 
 {% endif %}
 
@@ -65,43 +65,64 @@ During the {% data variables.release-phases.private_preview %}, your account tea
 
 {% data reusables.enterprise_user_management.scim-manages-user-lifecycle %}
 
-When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.product_name %}. You must manage these processes from your IdP.
+When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.{% ifversion scim-for-ghes-ga %} If an issue arises with your IdP and you need to manage a user directly, you will need to use the SCIM REST API to manage the user identities on your appliance (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)).{% endif %}
 
-## What will happen to existing users on my instance?
+To view suspended members, navigate to the "Suspended Members" tab of your enterprise settings.  This page will be present when SCIM is enabled on {% data variables.product.prodname_ghe_server %}.
 
-If you currently use SAML SSO, and you are enabling SCIM, you should be aware of what happens to existing users during SCIM provisioning.
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.people-tab %}
+1. Click **Suspended Members**.
 
-* When SCIM is enabled, users with SAML-linked identities will **not be able to sign in** until their identities have been provisioned by SCIM.
-* When your instance receives a SCIM request, SCIM identities are matched to existing users by **comparing the `userName` SCIM field with the {% data variables.product.prodname_dotcom %} username**. If a user with a matching username doesn't exist, {% data variables.product.prodname_dotcom %} creates a new user.
-* If {% data variables.product.prodname_dotcom %} successfully identifies a user from the IdP, but account details such as email address, first name, or last name don't match, the instance **overwrites the details** with values from the IdP. Any email addresses other than the primary email provisioned by SCIM will also be deleted from the user account.
+## What happens when I enable SCIM?
+
+If you currently use SAML SSO, and you are enabling SCIM, you should be aware of what happens to existing user accounts on {% data variables.product.prodname_ghe_server %} once SCIM is enabled.
+
+* Existing users with SAML mappings will **not be able to sign in** until their identities have been provisioned by SCIM.
+* Existing users created with **Built in authentication** will only be able to sign in if **Built in authentication** is still enabled.
+{%- ifversion scim-for-ghes-ga %}
+* {% data variables.product.prodname_ghe_server %} will no longer store SAML mappings for users. Instead, SCIM identities will be stored for users when a user is provisioned.
+* You will no longer see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. It will not be possible to view or update SAML NameID mappings that were previously visible in this section, since these stored SAML mappings are no longer evaluated during SAML authentication when SCIM is enabled.
+{%- endif %}
+* When your instance receives a SCIM request, SCIM identities are matched to existing users by **comparing the SCIM `userName` attribute value with the {% data variables.product.prodname_ghe_server %} username**. This means that an existing {% data variables.product.prodname_ghe_server %} user account, regardless of whether it was originally created as a local user account or via SAML JIT-provisioning, can be converted into a SCIM-linked user account if these two values match.
+  * If a user account with a matching username does exist, {% data variables.product.prodname_ghe_server %} links the SCIM identity to this user account.
+  * If a user account with a matching username doesn't exist, {% data variables.product.prodname_ghe_server %} creates a new user account and links it to this SCIM identity.
+* If {% data variables.product.prodname_dotcom %} successfully matches a user who is authenticating via SAML with an existing user account, but account details such as email address, first name, or last name don't match, the instance **overwrites the details** with values from the IdP. Any email addresses other than the primary email provisioned by SCIM will also be deleted from the user account.
+{% ifversion scim-for-ghes-ga %}* {% data reusables.scim.ghe-scim-identities-csv %}{% endif %}
 
 ## What happens during SAML authentication?
 
-After an IdP administrator grants a person access to {% data variables.location.product_location %}, the user can authenticate through the IdP to access {% data variables.product.product_name %} using SAML SSO.
+After an IdP administrator grants a person access to {% data variables.location.product_location %}, the user can authenticate through the IdP to access {% data variables.product.prodname_ghe_server %} using SAML SSO.
 
 * When a user authenticates through SAML, to associate a user with a SAML identity, {% data variables.product.prodname_dotcom %} compares a normalized `NameID` claim from the IdP (or another value you have configured) to the account's username. For details about normalization, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication#about-username-normalization).
 * If there is no account with a matching username on the instance, the user will fail to sign in.
-  * To make this match, {% data variables.product.product_name %} compares the SAML `NameId` claim from the IdP to the SCIM `userName` attribute for each user account provisioned by SCIM on the instance.
-  * Additionally, for Entra ID, {% data variables.product.product_name %} compares the object identifier from the SAML request with an existing SCIM external ID.
-* If your environment does not use `NameID` to uniquely identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.product_name %} will respect this mapping when SCIM is configured. For more information about mapping user attributes, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
+  * To make this match, {% data variables.product.prodname_ghe_server %} compares the SAML `NameId` claim from the IdP to the SCIM `userName` attribute for each user account provisioned by SCIM on the instance.
+  * Additionally, for Entra ID, {% data variables.product.prodname_ghe_server %} compares the object identifier from the SAML request with an existing SCIM external ID.
+* If your environment does not use `NameID` to uniquely identify users, a site administrator can configure custom user attributes for the instance. {% data variables.product.prodname_ghe_server %} will respect this mapping when SCIM is configured. For more information about mapping user attributes, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
 {% ifversion scim-for-ghes-public-beta %}
 
 ## What happens if I disable SCIM?
 
-SCIM will be disabled on your instance if any of the following things happens.
+SCIM will be disabled on {% data variables.product.prodname_ghe_server %} if any of the following things happens.
 
 * The **Enable SCIM configuration** checkbox is unselected on the "Authentication security" page in the enterprise settings.
 * The **SAML** radio button is unselected in the "Authentication" section of the Management Console.
 * The SAML **Issuer** or **Single sign-on URL** field is updated in the "Authentication" section of the Management Console.
 
-If SCIM is disabled on the instance:
+When SCIM is disabled on {% data variables.product.prodname_ghe_server %}:
 
+* All linked SCIM identities and SCIM-provisioned groups will be deleted from the instance.
 * Requests to the SCIM API endpoints on your instance will no longer succeed.
-* SCIM-provisioned users will remain unchanged and will not be suspended.
+* All SCIM external identities on {% data variables.product.prodname_ghe_server %} will be deleted.
+* All user accounts will remain with the same usernames, and they will not be suspended when SCIM is disabled.
+* All of the external groups that were previously provisioned by SCIM will be deleted.
+* All user accounts, including SCIM-provisioned user accounts, will remain on the instance and will not be suspended.
 * Site administrators will be able to manage the lifecycle of SCIM-provisioned users, such as suspension and deletion, from the site admin dashboard.
 * Users will still be able to sign on via SAML, if enabled.
-* Users will be unlinked from their external identity record, and the record will be deleted.
+* The "Suspended Members" page in your enterprise settings will no longer be present. Suspended members can still be seen in the [Site Admin dashboard](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users#viewing-suspended-users-in-the-site-admin-dashboard)
+{%- ifversion scim-for-ghes-ga %}
+* You will be able to see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. If any SAML mappings were previously created for users on the {% data variables.product.prodname_ghe_server %} before SCIM was enabled, it will be possible to once again view and update them in this section.
+{%- endif %}
 
 {% endif %}
 
@@ -126,13 +147,13 @@ To get started with SCIM, you will:
 
 * Your IdP must support making SCIM calls to a Service Provider (SP).
 
-* You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.product_name %}.
+* You must have administrative access on your IdP to configure the application for user provisioning for {% data variables.product.prodname_ghe_server %}.
 
 ## Enabling user provisioning for your enterprise
 
 To perform provisioning actions on your instance, you will create a built-in user account and promote the account to an enterprise owner.
 
-After you enable SCIM on a {% data variables.product.product_name %} instance, all user accounts are suspended. The built-in user account will continue to perform provisioning actions. After you grant a user access to your instance from your IdP, the IdP will communicate with the instance using SCIM to unsuspend the user's account.
+After you enable SCIM on a {% data variables.product.prodname_ghe_server %} instance, all user accounts are suspended. The built-in user account will continue to perform provisioning actions. After you grant a user access to your instance from your IdP, the IdP will communicate with the instance using SCIM to unsuspend the user's account.
 
 1. Create a built-in user account to perform provisioning actions on your instance. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
 1. Promote the dedicated user account to an enterprise owner. For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise#adding-an-enterprise-administrator-to-your-enterprise-account).
@@ -159,6 +180,6 @@ After you enable SCIM on a {% data variables.product.product_name %} instance, a
    ```
 
    The command should return an empty array.
-1. Configure user provisioning in the application for {% data variables.product.product_name %} on your IdP. To request documentation for a supported IdP, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. If your IdP is unsupported, you must create the application and configure SCIM manually.
+1. Configure user provisioning in the application for {% data variables.product.prodname_ghe_server %} on your IdP. To request documentation for a supported IdP, contact your account manager on {% data variables.contact.contact_enterprise_sales %}. If your IdP is unsupported, you must create the application and configure SCIM manually.
 
 {% endif %}

@@ -1,5 +1,7 @@
 # Reference: #14347
 # Documentation for org-level CodeQL PR alerts report
+# Ref 17108 Advanced Security available to Team plans
 versions:
-  ghes: '> 3.14'
+  fpt: '*'
   ghec: '*'
+  ghes: '> 3.14'

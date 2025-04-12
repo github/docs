@@ -29,6 +29,7 @@ import annotate from './annotate.js'
 import alerts from './alerts.js'
 import replaceDomain from './replace-domain.js'
 import removeHtmlComments from 'remark-remove-comments'
+import remarkStringify from 'remark-stringify'
 
 export function createProcessor(context) {
   return (
@@ -38,6 +39,7 @@ export function createProcessor(context) {
       .use(gfm)
       // Markdown AST below vvv
       .use(parseInfoString)
+      .use(rewriteLocalLinks, context)
       .use(emoji)
       // Markdown AST above ^^^
       .use(remark2rehype, { allowDangerousHtml: true })
@@ -71,7 +73,6 @@ export function createProcessor(context) {
       .use(rewriteForRowheaders)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
-      .use(rewriteLocalLinks, context)
       .use(alerts)
       // HTML AST above ^^^
       .use(html)
@@ -79,13 +80,17 @@ export function createProcessor(context) {
   )
 }
 
+export function createMarkdownOnlyProcessor(context) {
+  return unified().use(remarkParse).use(gfm).use(rewriteLocalLinks, context).use(remarkStringify)
+}
+
 export function createMinimalProcessor(context) {
   return unified()
     .use(remarkParse)
     .use(gfm)
+    .use(rewriteLocalLinks, context)
     .use(remark2rehype, { allowDangerousHtml: true })
     .use(slug)
     .use(raw)
-    .use(rewriteLocalLinks, context)
     .use(html)
 }

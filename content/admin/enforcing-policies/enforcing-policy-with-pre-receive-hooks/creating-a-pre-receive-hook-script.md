@@ -71,6 +71,9 @@ The following variables are always available in the pre-receive hook environment
 | Variable | Description | Example value |
 | :- | :- | :- |
 |  <pre>$GIT_DIR</pre> | Path to the remote repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git |
+|  <pre>$GIT_OBJECT_DIRECTORY</pre> | Path to a temporary directory containing the objects from the push | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/<br>objects/ghq_luvYC864B9j |
+|  <pre>$GIT_QUARANTINE_PATH</pre> | Contains the same value as `$GIT_OBJECT_DIRECTORY` | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/<br>objects/ghq_luvYC864B9j |
+|  <pre>$GIT_ALTERNATE_OBJECT_<br>DIRECTORIES</pre> | Path to the object directory of the repository on the instance | /data/user/repositories/a/ab/<br>a1/b2/34/100001234/1234.git/objects |
 |  <pre>$GIT_PUSH_OPTION_COUNT</pre> | The number of push options that were sent by the client with `--push-option`. For more information, see [git-push](https://git-scm.com/docs/git-push#Documentation/git-push.txt---push-optionltoptiongt) in the Git documentation. | 1 |
 | <pre>$GIT\_PUSH\_OPTION\_N</pre> | Where N is an integer starting at 0, this variable contains the push option string that was sent by the client. The first option that was sent is stored in `GIT_PUSH_OPTION_0`, the second option that was sent is stored in `GIT_PUSH_OPTION_1`, and so on. For more information about push options, see [git-push](https://git-scm.com/docs/git-push#git-push---push-optionltoptiongt) in the Git documentation. | abcd |
 |  <pre>$GIT_USER_AGENT</pre> | User-agent string sent by the Git client that pushed the changes | git/2.0.0 |

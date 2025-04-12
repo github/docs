@@ -1,9 +1,11 @@
 ---
 title: Creating reusable content
 shortTitle: Create reusable content
-intro: 'You can create reusable content that can be referenced in multiple content files.'
+intro: You can create reusable content that can be referenced in multiple content files.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About reusables

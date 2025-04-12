@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -21,13 +21,13 @@ redirect_from:
 
 {% data variables.product.prodname_codeql %} packs are used to create, share, depend on, and run {% data variables.product.prodname_codeql %} queries and libraries. {% data variables.product.prodname_codeql %} packs contain queries, library files, query suites, and metadata. With {% data variables.product.prodname_codeql %} packs and the package management commands in the {% data variables.product.prodname_codeql_cli %}, you can publish your custom queries and integrate them into your codebase analysis.
 
-There are{% ifversion codeql-model-packs %} three{% else %} two{% endif %} types of {% data variables.product.prodname_codeql %} packs: {% ifversion codeql-model-packs %}query packs, library packs, and model packs{% else %} query packs and library packs{% endif %}.
+There are three types of {% data variables.product.prodname_codeql %} packs: query packs, library packs, and model packs.
 
 * Query packs are designed to be run. When a query pack is published, the bundle includes all the transitive dependencies and pre-compiled representations of each query, in addition to the query sources. This ensures consistent and efficient execution of the queries in the pack.
 
-* Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled separately.{% ifversion codeql-model-packs %}
+* Library packs are designed to be used by query packs (or other library packs) and do not contain queries themselves. The libraries are not compiled separately.
 
-* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see [Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack).{% endif %}
+* Model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. Model packs are currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, model packs are available for {% data variables.code-scanning.codeql_model_packs_support %} analysis. For more information about creating your own model packs, see [Creating a {% data variables.product.prodname_codeql %} model pack](#creating-a-codeql-model-pack).
 
 You can use the `pack` command in the {% data variables.product.prodname_codeql_cli %} to create {% data variables.product.prodname_codeql %} packs, add dependencies to packs, and install or update dependencies. You can also publish and download {% data variables.product.prodname_codeql %} packs using the `pack` command. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs).
 
@@ -70,8 +70,6 @@ You must specify:
 
 The `codeql pack init` command creates the directory structure and configuration files for a {% data variables.product.prodname_codeql %} pack. By default, the command creates a query pack. If you want to create a library pack, you must edit the `qlpack.yml` file to explicitly declare the file as a library pack by including the `library:true` property.
 
-{% ifversion codeql-model-packs %}
-
 ## Creating a {% data variables.product.prodname_codeql %} model pack
 
 {% data reusables.code-scanning.beta-model-packs %}
@@ -100,8 +98,6 @@ dataExtensions:
 In this example, the model pack will inject all the data extensions in `models/**/` into a `codeql/java-all` query pack that is at a version from `1.2.3` up to and including `1.3.0`, and a `codeql/util` query pack that is at a version from `4.5.6` up to and including `4.6.0`. For more information, see [Using semantic versioning](https://docs.npmjs.com/about-semantic-versioning#using-semantic-versioning-to-specify-update-types-your-package-can-accept) in the npm documentation and the [Semantic versioning specification](https://semver.org/).
 
 Once you've created a model pack, you can publish it in the same way as other {% data variables.product.prodname_codeql %} packs. For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/publishing-and-using-codeql-packs). You can then use published model packs in a {% data variables.product.prodname_code_scanning %} analysis with the `--model-packs` option. For more information, see [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/customizing-analysis-with-codeql-packs#using-model-packs-to-analyze-calls-to-custom-dependencies).
-
-{% endif %}
 
 ## Adding and installing dependencies on a {% data variables.product.prodname_codeql %} pack
 

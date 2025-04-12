@@ -4,13 +4,13 @@ intro: 'If a pull request contains changes to dependencies, you can view a summa
 product: '{% data reusables.gated-features.dependency-review %}'
 versions:
   fpt: '*'
-  ghes: '>= 3.2'
+  ghes: '*'
   ghec: '*'
 type: how_to
 topics:
   - Pull requests
   - Dependency review
-  - Advanced Security
+  - Code Security
   - Vulnerabilities
   - Dependencies
 redirect_from:
@@ -25,7 +25,7 @@ shortTitle: Review dependency changes
 
 {% data reusables.dependency-review.feature-overview %}
 
-{% ifversion ghec %}Before you can use dependency review in a private repository, you must enable the dependency graph. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph-for-a-private-repository).{% endif %}
+{% ifversion ghec %}Before you can use dependency review in a private or internal repository, or a public fork, you must enable the dependency graph. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).{% endif %}
 
 {% ifversion ghes %}Before you can use dependency review, you must enable the dependency graph and connect {% data variables.location.product_location %} to {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).{% endif %}
 

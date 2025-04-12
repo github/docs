@@ -267,15 +267,6 @@ export const searchReplaceConfig = {
         'yml-files': true,
       },
       {
-        name: 'preview-domain',
-        message: 'Catch occurrences of preview.ghdocs.com domain.',
-        search: 'preview.ghdocs.com',
-        searchScope: 'all',
-        severity: 'error',
-        'partial-markdown-files': true,
-        'yml-files': true,
-      },
-      {
         name: 'developer-domain',
         message: 'Catch occurrences of developer.github.com domain.',
         // Do not match developer.github.com/changes or

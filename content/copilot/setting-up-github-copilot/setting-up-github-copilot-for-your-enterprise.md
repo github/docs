@@ -14,9 +14,14 @@ redirect_from:
   - /copilot/github-copilot-enterprise/overview/enabling-github-copilot-enterprise-features
 ---
 
-## 1. Subscribe your enterprise to {% data variables.product.prodname_copilot %}
+## 1. Enable {% data variables.product.prodname_copilot %} in your Enterprise through payment verification
 
-Set up a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} for your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise).
+{% data reusables.enterprise-accounts.access-enterprise %}
+{% data reusables.enterprise-accounts.settings-tab %}
+1. Click the **{% octicon "check-circle" aria-hidden="true" %} Getting Started** tab.
+1. Under "Next steps", click **Verify your payment method**. This will enable {% data variables.product.prodname_copilot %} in your enterprise.
+
+After you've completed these steps, you will be able to confirm that {% data variables.product.prodname_copilot %} is enabled in your enterprise's **{% octicon "law" aria-hidden="true" %} Policies** tab.
 
 ## 2. Set policies
 

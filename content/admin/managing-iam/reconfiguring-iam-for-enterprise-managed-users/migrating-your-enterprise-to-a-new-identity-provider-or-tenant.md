@@ -24,6 +24,10 @@ While using {% data variables.product.prodname_emus %}, you may need to migrate 
 
 Before you migrate to a new authentication and provisioning configuration, review the prerequisites and guidelines for preparation. When you're ready to migrate, you'll disable authentication and provisioning for your enterprise, then reconfigure both. You cannot edit your existing configuration for authentication and provisioning.
 
+{% data variables.product.prodname_dotcom %} will delete the existing SCIM identities associated with your enterprise's {% data variables.enterprise.prodname_managed_users %} when authentication is disabled for the enterprise. For more details on the impact of disabling authentication for an enterprise with enterprise managed users, See [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/disabling-authentication-and-provisioning-for-enterprise-managed-users#about-disabled-authentication-for-enterprise-managed-users).
+
+After authentication and provisioning is reconfigured at the end of the migration, users and groups must be re-provisioned from the new IdP/tenant. When the users are re-provisioned, {% data variables.product.github %} will compare the normalized SCIM `userName` attribute values to the GitHub usernames (the portion before the `_[shortcode]`) in the enterprise in order to link the SCIM identities from the new IdP/tenant to existing enterprise managed user accounts. For more information, see [AUTOTITLE](/admin/managing-iam/iam-configuration-reference/username-considerations-for-external-authentication#about-normalized-usernames).
+
 ## Prerequisites
 
 * {% data reusables.enterprise-managed.emu-prerequisite %}
@@ -34,13 +38,15 @@ Before you migrate to a new authentication and provisioning configuration, revie
 
 To migrate to a new configuration for authentication and provisioning, you must first disable authentication and provisioning for your enterprise. Before you disable your existing configuration, review the following considerations:
 
-* {% data variables.product.prodname_dotcom %} will reset the SCIM records associated with your enterprise's {% data variables.enterprise.prodname_managed_users %}. Before you migrate, determine whether the values of the normalized SCIM `userName` attribute will remain the same for {% data variables.enterprise.prodname_managed_users %} in the new environment. For more information, see [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication).
+* Before you migrate, determine whether the values of the normalized SCIM `userName` attribute will remain the same for {% data variables.enterprise.prodname_managed_users %} in the new environment. These normalized SCIM `userName` attribute values must remain the same for users in order for the SCIM identities provisioned from the new IdP/tenant to get properly linked to the existing enterprise managed user accounts. For more information, see [AUTOTITLE](/admin/identity-and-access-management/iam-configuration-reference/username-considerations-for-external-authentication).
 
   * If the normalized SCIM `userName` values will remain the same after the migration, you can complete the migration yourself.
   * If the normalized SCIM `userName` values will change after the migration, {% data variables.product.company_short %} will need to help with your migration. For more information, see [Migrating when the normalized SCIM `userName` values will change](#migrating-when-the-normalized-scim-username-values-will-change).
 * Do not remove any users or groups from the application for {% data variables.product.prodname_emus %} on your identity management system until after your migration is complete.
-* {% data variables.product.product_name %} will delete any {% data variables.product.pat_generic_plural %} or SSH keys associated with your enterprise's {% data variables.enterprise.prodname_managed_users %}. Plan for a migration window after reconfiguration during which you can create and provide new credentials to any external integrations.
-* {% data variables.product.product_name %} will remove connections between teams on {% data variables.product.prodname_dotcom %} and IdP groups, and does not reinstate the connections after migration. {% data variables.product.prodname_dotcom %} will also remove all members from the team and leave the team unconnected to your IdP. You may experience disruption if you use groups on your identity management system to manage access to organizations or licenses. {% data variables.product.company_short %} recommends that you use the REST API to list team connections and group membership before you migrate, and to reinstate connections afterwards. For more information, see [AUTOTITLE](/rest/teams/external-groups) in the REST API documentation.
+* {% data variables.product.github %} will delete any {% data variables.product.pat_generic_plural %} or SSH keys associated with your enterprise's {% data variables.enterprise.prodname_managed_users %}. Plan for a migration window after reconfiguration during which you can create and provide new credentials to any external integrations.
+* As part of the migration steps below, {% data variables.product.github %} will delete all of the SCIM-provisioned groups in your enterprise when authentication is disabled for the enterprise. For more information, see [AUTOTITLE](/admin/managing-iam/configuring-authentication-for-enterprise-managed-users/disabling-authentication-and-provisioning-for-enterprise-managed-users#about-disabled-authentication-for-enterprise-managed-users).
+
+If any of these SCIM-provisioned IdP groups are linked to teams in your enterprise, this will remove the link between these teams on {% data variables.product.prodname_dotcom %} and IdP groups, and these links are not automatically reinstated after the migration. {% data variables.product.prodname_dotcom %} will also remove all members from the previously linked teams. You may experience disruption if you use groups on your identity management system to manage access to organizations or licenses. {% data variables.product.github %} recommends that you use the REST API to list team connections and group membership before you migrate, and to reinstate connections afterwards. For more information, see [AUTOTITLE](/rest/teams/external-groups) in the REST API documentation.
 
 ## Migrating to a new IdP or tenant
 
@@ -49,7 +55,7 @@ To migrate to a new IdP or tenant, you must complete the following tasks.
 1. [Validate matching SCIM `userName` attributes](#1-validate-matching-scim-username-attributes).
 1. [Download single sign-on recovery codes](#2-download-single-sign-on-recovery-codes).
 1. [Disable provisioning on your current IdP](#3-disable-provisioning-on-your-current-idp).
-1. [Disable authentication and provisioning for your enterprise](#4-disable-authentication-and-provisioning-for-your-enterprise).
+1. [Disable authentication for your enterprise](#4-disable-authentication-for-your-enterprise).
 1. [Validate suspension of your enterprise's members](#5-validate-suspension-of-your-enterprises-members).
 1. [Reconfigure authentication and provisioning](#6-reconfigure-authentication-and-provisioning).
 
@@ -69,20 +75,18 @@ If you don't already have single sign-on recovery codes for your enterprise, dow
     * If you use PingFederate, navigate to the channel settings in the application. From the **Activation & Summary** tab, click **Active** or **Inactive** to toggle the provisioning status, and then click **Save**. For more information about managing provisioning, see [Reviewing channel settings](https://docs.pingidentity.com/pingfederate/11.2/administrators_reference_guide/help_saaschanneltasklet_saasactivationstate.html) and [Managing channels](https://docs.pingidentity.com/pingfederate/latest/administrators_reference_guide/help_saasmanagementtasklet_saasmanagementstate.html) in the PingFederate documentation.
     * If you use another identity management system, consult the system's documentation, support team, or other resources.
 
-### 4. Disable authentication and provisioning for your enterprise
+### 4. Disable authentication for your enterprise
 
 1. Use a recovery code to sign into {% data variables.product.prodname_dotcom %} as the setup user, whose username is your enterprise's shortcode suffixed with `_admin`. For more information about the setup user, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/getting-started-with-enterprise-managed-users).
-1. Disable authentication and provisioning for your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users#disabling-authentication).
-1. Wait up to an hour for {% data variables.product.product_name %} to reset your enterprise's SCIM records and suspend your enterprise's members.
+1. Disable authentication for your enterprise. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users/disabling-authentication-for-enterprise-managed-users#disabling-authentication).
+1. Wait up to an hour for {% data variables.product.github %} to suspend your enterprise's members, delete the linked SCIM identities, and delete the SCIM-provisioned IdP groups.
 
 ### 5. Validate suspension of your enterprise's members
 
-After you disable authentication and provisioning, {% data variables.product.product_name %} will suspend all of the {% data variables.enterprise.prodname_managed_users %} for your enterprise. You can validate suspension of your enterprise's members using the web UI.
+After you disable authentication in your {% data variables.product.github %} enterprise settings, {% data variables.product.github %} will suspend all of the {% data variables.enterprise.prodname_managed_users %} (with the exception of the setup user account) in your enterprise. You can validate suspension of your enterprise's members on {% data variables.product.prodname_dotcom %}.
 
 1. View the suspended members in your enterprise. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise#viewing-suspended-members).
-1. If all of your enterprise's members are not yet suspended, continue waiting, and review the logs on your SCIM provider.
-
-   * If you use Entra ID, suspension of your members can take up to 40 minutes. To expedite the process for an individual user, click the **Provision on Demand** button in the "Provisioning" tab of the application for {% data variables.product.prodname_emus %}.
+1. If all of the managed user accounts in your enterprise are not yet suspended, continue waiting and monitoring in {% data variables.product.prodname_dotcom %} before proceeding with the next step.
 
 ### 6. Reconfigure authentication and provisioning
 
@@ -91,7 +95,14 @@ After you validate the suspension of your enterprise's members, reconfigure auth
 1. Configure authentication using SAML or OIDC SSO. For more information, see [AUTOTITLE](/admin/identity-and-access-management/configuring-authentication-for-enterprise-managed-users).
 1. Configure SCIM provisioning. For more information, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
 
-To unsuspend your {% data variables.enterprise.prodname_managed_users %} and allow them to sign in to {% data variables.product.product_name %}, your SCIM provider must reprovision their accounts.
+### 7. Make sure users and groups are reprovisioned from the new IdP/tenant
+
+1. To unsuspend your {% data variables.enterprise.prodname_managed_users %} and allow them to sign in to {% data variables.product.github %}, the users must be reprovisioned from the new IdP/tenant. This links the SCIM identities from the new IdP/tenant to the existing enterprise managed user accounts. An enterprise managed user must have a linked SCIM identity in order to sign in.
+   * When reprovisioning the IdP user accounts, if a user has been successfully linked to their SCIM identity from the new IdP/tenant, you will see an `SSO identity linked` link on their page in your enterprise settings, which will show a `SCIM identity` section with SCIM attributes. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise).
+   * You can also review related `external_identity.*` and `user.unsuspend` events in the enterprise audit log. For more information, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)
+1. Groups must be reprovisioned from the new IdP/tenant as well.
+   * When reprovisioning the IdP groups, monitor the progress in {% data variables.product.prodname_dotcom %}, and review related `external_group.provision`, `external_group.scim_api_failure`, and `external_group.scim_api_success` events in the enterprise audit log. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/managing-team-memberships-with-identity-provider-groups#viewing-idp-groups-group-membership-and-connected-teams) and [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_group).
+1. Once IdP groups have been reprovisioned to the enterprise, admins can link the groups to teams in the enterprise as needed.
 
 ## Migrating when the normalized SCIM `userName` values will change
 

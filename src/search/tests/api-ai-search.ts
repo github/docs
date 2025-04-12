@@ -1,6 +1,3 @@
-// IMPORTANT: If you add more tests to this that make requests to
-// http://localhost:4000/api/ai-search/v1 make sure you increment the rate limit
-// value when NODE_ENV === 'test' in src/search/middleware/ai-search.ts
 import { expect, test, describe, beforeAll, afterAll } from 'vitest'
 
 import { post } from 'src/tests/helpers/e2etest.js'
@@ -82,41 +79,6 @@ describe('AI Search Routes', () => {
     expect(receivedMessage).toBe(expectedMessage)
   })
 
-  // We can't actually trigger a full rate limit because
-  // then all other tests will all fail. And we can't rely on this
-  // test always being run last.
-  test('should respect rate limiting', async () => {
-    let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
-
-    const response = await fetch('http://localhost:4000/api/ai-search/v1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apiBody),
-    })
-
-    expect(response.ok).toBe(true)
-    expect(response.status).toBe(200)
-    const limit = parseInt(response.headers.get('ratelimit-limit') || '0')
-    const remaining = parseInt(response.headers.get('ratelimit-remaining') || '0')
-    expect(limit).toBeGreaterThan(0)
-    expect(remaining).toBeLessThan(limit)
-
-    const response2 = await fetch('http://localhost:4000/api/ai-search/v1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apiBody),
-    })
-
-    expect(response2.ok).toBe(true)
-    expect(response2.status).toBe(200)
-    const newLimit = parseInt(response2.headers.get('ratelimit-limit') || '0')
-    const newRemaining = parseInt(response2.headers.get('ratelimit-remaining') || '0')
-    expect(newLimit).toBe(limit)
-    // Can't rely on `newRemaining == remaining - 1` because of
-    // concurrency of test-running.
-    expect(newRemaining).toBeLessThan(remaining)
-  })
-
   test('should handle validation errors: query missing', async () => {
     let body = { language: 'en', version: 'dotcom' }
     const response = await post('/api/ai-search/v1', {
@@ -182,18 +144,5 @@ describe('AI Search Routes', () => {
         message: `Invalid 'language' in request body 'fr'. Must be one of: en`,
       },
     ])
-  })
-
-  test('should rate limit when total number of requests exceeds max amount', async () => {
-    let apiBody = { query: 'How do I create a Repository?', language: 'en', version: 'dotcom' }
-
-    const response = await fetch('http://localhost:4000/api/ai-search/v1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(apiBody),
-    })
-
-    expect(response.ok).toBe(false)
-    expect(response.status).toBe(429)
   })
 })

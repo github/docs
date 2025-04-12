@@ -4,6 +4,6 @@ The following `qlpack.yml` file states that `my-github-user/my-query-tests` depe
 name: my-github-user/my-query-tests
 dependencies:
   my-github-user/my-custom-queries: ^1.2.3
-extractor: {% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %}
+extractor: java-kotlin
 tests: .
 ```

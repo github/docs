@@ -3,6 +3,8 @@ sections:
   security_fixes:
     - |
       Packages have been updated to the latest security versions.
+    - |
+      **HIGH**: An attacker could leak sensitive data from the DOM by injecting malicious input through the `identity` parameter in `querySelector` handling. This allows the attacker to dynamically embed a hidden iframe on the page and exfiltrate data from DOM attributes. To execute the attack, the victim must be logged into GitHub and interact with the attacker controlled malicious webpage containing the hidden iframe. GitHub has requested CVE ID [CVE-2024-10001](https://www.cve.org/cverecord?id=CVE-2024-10001) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2025-01-27]
   bugs:
     - |
       On an instance in a cluster configuration, `ghe-repl-promote` failed if the primary node was unavailable.
@@ -63,8 +65,6 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
-      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
-    - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
@@ -88,9 +88,21 @@ sections:
       An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
     - |
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+
   deprecations:
     # https://github.com/github/releases/issues/4037
     - heading: Upcoming deprecation of projects (classic)
       notes:
         - |
           Projects (classic) will be removed from GitHub Enterprise Server 3.16 and later. For more information, see [Sunset Notice – Projects (classic)](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic).
+
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.15.1, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+      

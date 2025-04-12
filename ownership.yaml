@@ -1,7 +1,7 @@
 ---
 version: 1
 ownership:
-  - team: github/docs-engineering
+  - team: github/docs
     repo: https://github.com/github/docs-internal
     name: docs-internal
     kind: moda
@@ -9,6 +9,7 @@ ownership:
     description: Please use <https://catalog.githubapp.com/services/docs> instead.
     exec_sponsor: nerdneha
     product_manager: docs-bot
+    maintainer: anjuan
     team_slack: docs
     qos: best_effort
     tier: 2

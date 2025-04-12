@@ -593,17 +593,6 @@
         "additional-permissions": true
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
         "category": "orgs",
         "slug": "list-app-installations-for-an-organization",
         "subcategory": "orgs",
@@ -737,6 +726,28 @@
       },
       {
         "category": "orgs",
+        "slug": "get-organization-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "get-organization-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
         "slug": "list-security-manager-teams",
         "subcategory": "security-managers",
         "verb": "get",
@@ -813,17 +824,6 @@
         "additional-permissions": true
       },
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
         "category": "orgs",
         "slug": "enable-or-disable-a-security-feature-for-an-organization",
         "subcategory": "orgs",
@@ -879,6 +879,67 @@
         "subcategory": "blocking",
         "verb": "delete",
         "requestPath": "/orgs/{org}/blocks/{username}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      }
+    ]
+  },
+  "organization_campaigns": {
+    "title": "Campaigns",
+    "displayTitle": "Organization permissions for \"Campaigns\"",
+    "permissions": [
+      {
+        "category": "campaigns",
+        "slug": "list-campaigns-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/campaigns",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "campaigns",
+        "slug": "create-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/campaigns",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "campaigns",
+        "slug": "get-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "campaigns",
+        "slug": "update-a-campaign",
+        "subcategory": "campaigns",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "campaigns",
+        "slug": "delete-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
@@ -1097,17 +1158,6 @@
       },
       {
         "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-        "subcategory": "copilot-usage",
-        "verb": "get",
-        "requestPath": "/orgs/{org}/copilot/usage",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "copilot",
         "slug": "get-copilot-seat-assignment-details-for-a-user",
         "subcategory": "copilot-user-management",
         "verb": "get",
@@ -1127,17 +1177,56 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": true
-      },
+      }
+    ]
+  },
+  "issue_types": {
+    "title": "Issue Types",
+    "displayTitle": "Organization permissions for \"Issue Types\"",
+    "permissions": [
       {
-        "category": "copilot",
-        "slug": "get-a-summary-of-copilot-usage-for-a-team",
-        "subcategory": "copilot-usage",
+        "category": "orgs",
+        "slug": "list-issue-types-for-an-organization",
+        "subcategory": "issue-types",
         "verb": "get",
-        "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage",
+        "requestPath": "/orgs/{org}/issue-types",
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "create-issue-type-for-an-organization",
+        "subcategory": "issue-types",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/issue-types",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "update-issue-type-for-an-organization",
+        "subcategory": "issue-types",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/issue-types/{issue_type_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "orgs",
+        "slug": "delete-issue-type-for-an-organization",
+        "subcategory": "issue-types",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/issue-types/{issue_type_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
       }
     ]
   },
@@ -1455,6 +1544,50 @@
       },
       {
         "category": "teams",
+        "slug": "list-team-projects",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-project",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
         "slug": "get-team-member-legacy",
         "subcategory": "members",
         "verb": "get",
@@ -1515,7 +1648,7 @@
     "displayTitle": "Organization permissions for \"Network configurations\"",
     "permissions": [
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "list-hosted-compute-network-configurations-for-an-organization",
         "subcategory": "network-configurations",
         "verb": "get",
@@ -1526,7 +1659,7 @@
         "additional-permissions": false
       },
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "create-a-hosted-compute-network-configuration-for-an-organization",
         "subcategory": "network-configurations",
         "verb": "post",
@@ -1537,7 +1670,7 @@
         "additional-permissions": false
       },
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "get-a-hosted-compute-network-configuration-for-an-organization",
         "subcategory": "network-configurations",
         "verb": "get",
@@ -1548,7 +1681,7 @@
         "additional-permissions": false
       },
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "update-a-hosted-compute-network-configuration-for-an-organization",
         "subcategory": "network-configurations",
         "verb": "patch",
@@ -1559,7 +1692,7 @@
         "additional-permissions": false
       },
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "delete-a-hosted-compute-network-configuration-from-an-organization",
         "subcategory": "network-configurations",
         "verb": "delete",
@@ -1570,7 +1703,7 @@
         "additional-permissions": false
       },
       {
-        "category": "settings",
+        "category": "orgs",
         "slug": "get-a-hosted-compute-network-settings-resource-for-an-organization",
         "subcategory": "network-configurations",
         "verb": "get",
@@ -2078,6 +2211,28 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "access": "admin",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": true
       },
       {
         "category": "projects",
@@ -3258,17 +3413,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       },
       {
         "category": "actions",
@@ -4531,6 +4675,28 @@
         "additional-permissions": false
       },
       {
+        "category": "repos",
+        "slug": "get-repository-ruleset-history",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "repos",
+        "slug": "get-repository-ruleset-version",
+        "subcategory": "rules",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/rulesets/{ruleset_id}/history/{version_id}",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "security-advisories",
         "slug": "create-a-temporary-private-fork",
         "subcategory": "repository-advisories",
@@ -4773,17 +4939,6 @@
     "title": "Checks",
     "displayTitle": "Repository permissions for \"Checks\"",
     "permissions": [
-      {
-        "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
       {
         "category": "checks",
         "slug": "create-a-check-run",
@@ -6396,10 +6551,10 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "access": "read",
+        "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "deployments",
@@ -6493,7 +6648,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6504,7 +6659,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6515,7 +6670,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6526,7 +6681,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6537,7 +6692,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6548,7 +6703,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6559,7 +6714,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6570,7 +6725,7 @@
         "access": "read",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6581,7 +6736,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       },
       {
         "category": "actions",
@@ -6592,7 +6747,7 @@
         "access": "write",
         "user-to-server": true,
         "server-to-server": true,
-        "additional-permissions": true
+        "additional-permissions": false
       }
     ]
   },
@@ -7123,17 +7278,6 @@
     "title": "Metadata",
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
-      },
       {
         "category": "actions",
         "slug": "enable-a-selected-repository-for-github-actions-in-an-organization",
@@ -8995,61 +9139,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-secrets",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-public-key",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "create-or-update-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       }
     ]
   },
@@ -9122,61 +9211,6 @@
         "user-to-server": true,
         "server-to-server": true,
         "additional-permissions": false
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "create-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "update-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "access": "write",
-        "user-to-server": true,
-        "server-to-server": true,
-        "additional-permissions": true
       }
     ]
   },
@@ -9908,23 +9942,6 @@
         "user-to-server": true,
         "server-to-server": false,
         "additional-permissions": false
-      }
-    ]
-  },
-  "notifications": {
-    "title": "Notifications",
-    "displayTitle": "User permissions for \"Notifications\"",
-    "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "access": "read",
-        "user-to-server": true,
-        "server-to-server": false,
-        "additional-permissions": true
       }
     ]
   },

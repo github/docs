@@ -56,7 +56,6 @@ on: pull_request
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
 
 jobs:
   dependabot:
@@ -65,7 +64,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       # The following properties are now available:
@@ -93,7 +92,6 @@ on: pull_request
 permissions:
   pull-requests: write
   issues: write
-  repository-projects: write
 
 jobs:
   dependabot:
@@ -102,7 +100,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Add a label for all production dependencies
@@ -136,7 +134,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Approve a PR
@@ -173,7 +171,7 @@ jobs:
     steps:
       - name: Dependabot metadata
         id: metadata
-        uses: dependabot/fetch-metadata@4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d
+        uses: dependabot/fetch-metadata@d7267f607e9d3fb96fc2fbe83e0af444713e90b7
         with:
           github-token: "${{ secrets.GITHUB_TOKEN }}"
       - name: Enable auto-merge for Dependabot PRs

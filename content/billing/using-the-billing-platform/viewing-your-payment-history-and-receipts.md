@@ -21,6 +21,8 @@ topics:
 shortTitle: View history & receipts
 ---
 
+{% data reusables.billing.enhanced-billing-platform-personal-accounts %}
+
 ## Viewing receipts for your personal account
 
 {% data reusables.user-settings.access_settings %}

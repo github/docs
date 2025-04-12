@@ -1,1 +1,1 @@
-actions/cache@v3
+actions/cache@v4

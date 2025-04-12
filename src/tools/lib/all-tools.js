@@ -8,6 +8,7 @@ export const allTools = {
   codespaces: 'Codespaces',
   curl: 'curl',
   desktop: 'Desktop',
+  eclipse: 'Eclipse',
   importer_cli: 'GitHub Enterprise Importer CLI',
   javascript: 'JavaScript',
   jetbrains: 'JetBrains IDEs',

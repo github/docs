@@ -1,6 +1,6 @@
 ---
 title: Estimating spending
-intro: 'Use the enhanced billing platform to understand where your spending is trending based on the usage across products.'
+intro: 'Use the new billing platform to understand where your spending is trending based on the usage across products.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -15,9 +15,34 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Estimate spending
 ---
 
-The enhanced billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
+The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
 
-## Viewing your spending
+{% ifversion fpt %}
+
+## Viewing your spending for your personal account
+
+{% data reusables.user-settings.access_settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+
+On this page, you can view your usage in the following categories:
+
+* **Current metered usage:** The card on the top left shows the gross metered usage for your personal account.
+* **Metered usage:** The graph shows the gross metered usage for your personal account.
+
+   To view a different time period, select **Time Frame**, then choose a time period. You can also download an image or CSV of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
+
+* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage versus billable usage (minus any discounts that may apply).
+* **By products:** You can use the product tabs to view usage and discounts for different products.
+
+    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
+
+Additionally, you can change your plan by clicking **Upgrade to Pro** or **Downgrade to Free** in the "Current plan" section.
+
+At the top of the page, under "Next payment due", you can see the date of your next billing cycle.
+
+{% endif %}
+
+## Viewing your spending for your {% data variables.enterprise.enterprise_or_org %}
 
 The "Overview" page provides a high-level view of your spending and budgets.
 
@@ -42,9 +67,9 @@ On this page, you can view your usage in the following categories:
    To view a different time period, select **Time Frame**, then choose a time period. You can also download an image or CSV of the graph by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} on the right.
 
 {% ifversion fpt %}
-* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
+* **By repository:** The card under the graph shows the top five repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
 {% elsif ghec %}
-* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage.
+* **By organization** and **by repository:** The two cards under the graph show the top five organizations and repositories that generate the most usage. You can click {% octicon "kebab-horizontal" aria-label="Open column options" %} in the upper-right corner of each card to view all usage, including a break down by gross usage verse billable usage (minus any discounts that may apply).
 {% endif %}
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 

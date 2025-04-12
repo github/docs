@@ -34,7 +34,7 @@ The foundation of your bill is the number of user accounts using your{% ifversio
 
 To ensure the same user isn't consuming more than one license for multiple enterprise deployments, you can synchronize license usage between your {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %} environments. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise).
 
-In addition to {% ifversion enterprise-licensing-language %}showing billable {% data variables.product.prodname_enterprise %} licenses{% else %}licensed seats{% endif %}, your bill may include other charges, such as {% data variables.product.prodname_GH_advanced_security %}. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
+In addition to {% ifversion enterprise-licensing-language %}showing billable {% data variables.product.prodname_enterprise %} licenses{% else %}licensed seats{% endif %}, your bill may include other charges, such as {% data variables.product.prodname_GHAS %}. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
 {% endif %}
 
 {% ifversion metered-ghe-ghas %}
@@ -66,6 +66,7 @@ If you currently pay for your {% data variables.product.prodname_enterprise %} l
 > * {% data variables.product.company_short %} counts each outside collaborator once for billing purposes, even if the user account has access to multiple repositories owned by your organization.
 > * {% data reusables.organizations.org-invite-scim %}
 > * Inviting an outside collaborator to a repository using their email address temporarily uses an available seat, even if they already have access to other repositories. After they accept the invite, the seat will be freed up again. However, inviting them using their username does not temporarily use a seat.
+> * If a user receives a {% data variables.product.prodname_copilot_short %} license from multiple organizations in the same enterprise, the enterprise will only be billed once per billing cycle for that user. One of the organizations that assigned {% data variables.product.prodname_copilot_short %} to the user will be chosen at random each month to be billed for the seat.
 
 {% data variables.product.company_short %} does not bill for the following people:
 
@@ -104,9 +105,10 @@ If your enterprise does not use {% data variables.product.prodname_emus %}, you 
 * Billing managers for individual organizations
 * Anyone with a pending invitation to become a billing manager
 * Anyone with a pending invitation to become an outside collaborator on a public repository owned by your organization
-* Guest collaborators who are not organization members (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
+* Guest collaborators who are not organization members or repository collaborators (see [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/roles-in-an-enterprise#guest-collaborators))
 * Users of {% data variables.visual_studio.prodname_vss_ghe %} whose accounts on {% data variables.product.prodname_dotcom %} are not linked, and who do not meet any of the other criteria for per-user pricing
 * Users who have been provisioned with a {% data variables.enterprise.prodname_managed_user %}, but are not members of any organizations in the enterprise
+* The `scim-admin` setup user, when SCIM is enabled on your {% data variables.product.prodname_ghe_server %} appliance. For more information, see the SCIM configuration guide [AUTOTITLE](/enterprise-server@latest/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#1-create-a-built-in-setup-user).
 
 ### Accounts that consume a license on {% data variables.product.prodname_ghe_server %}
 

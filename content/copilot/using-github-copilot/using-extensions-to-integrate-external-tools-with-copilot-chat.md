@@ -14,13 +14,11 @@ redirect_from:
   - /copilot/github-copilot-chat/github-copilot-extensions
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot_extensions %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot).
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment).
 
 You can get started with {% data variables.product.prodname_copilot_extensions_short %} in one of two ways:
 * Build your own {% data variables.product.prodname_copilot_extension_short %}. See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
@@ -39,28 +37,6 @@ You can interact with your custom-built or installed extension in a {% data vari
 ### Supported clients and IDEs
 
 {% data reusables.copilot.copilot-extensions.supported-clients-and-ides-table %}
-
-## About context passing in {% data variables.product.prodname_copilot_extensions %}
-
-{% data reusables.copilot.copilot-extensions.context-passing-public-preview-note %}
-
-{% data variables.product.prodname_copilot_extensions %} can access certain contextual information depending on where you're using them. This context passing happens automatically when you interact with an extension, but requires your explicit authorization through {% data variables.product.prodname_github_app %} permissions for use in any organization-owned repositories.
-
-Context passing helps extensions understand your current work environment to provide more relevant assistance, while maintaining security through permission controls. Context passing respects content exclusions, which refers to any files listed in your context exclusion settings, including files that begin with `.`.
-
-The following table shows the contexts that are passed to {% data variables.product.prodname_copilot_extensions %} based on the client or IDE you are using.
-
-{% rowheaders %}
-
-| Client or IDE   | client.file | client.selection | github.repository | github.current-url | Additional contexts                               |
-| ------------------ | ----------- | ---------------- | ----------------- | ------------------ | ------------------------------------------------- |
-| {% data variables.product.prodname_vscode %} | Yes           | Yes                | Yes                 |      No              | Repository owner and branch                       |
-| {% data variables.product.prodname_vs %}      | Yes           | Yes                | Yes                 |         No           | Repository owner and branch                       |
-| {% data variables.product.prodname_dotcom_the_website %}         |    No         |        No          | Yes                 | Yes                  | Repository information and other {% data variables.product.github %} resources |
-| {% data variables.product.prodname_mobile %}      |        No     |     No            |     No              | Yes                  |             Not applicable                                        |
-| JetBrains IDEs     |         No    |       No           |           No        | No                  |                      Not applicable                             |
-
-{% endrowheaders %}
 
 ## Prerequisites
 

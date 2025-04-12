@@ -39,7 +39,7 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
 
 {% else %}
 
-The general prerequisites for using SCIM on {% data variables.product.product_name %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
+The general prerequisites for using SCIM on {% data variables.product.prodname_ghe_server %} apply. See the "Prerequisites" section in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#prerequisites).
 
 {% endif %}
 
@@ -49,7 +49,7 @@ In addition:
 * To configure SCIM, you must have completed **steps 1 to 4** in [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users).
   * You will need the {% data variables.product.pat_v1 %} created for the setup user to authenticate requests from PingFederate.
 {%- endif %}
-* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the provisioner](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/wie1563995015164.html) in the PingIdentity documentation.
+* You must have installed the "GitHub EMU connector" on PingFederate. To download and install the connector, see [Install the provisioner](https://docs.pingidentity.com/integrations/github/github_emu_provisioner/pf_gh_emu_install_the_provisioner.html) in the PingIdentity documentation.
 * To provision users with SCIM, you must use an LDAP server as the backing data store.
 * You may need to configure the firewall in PingFederate to allow outbound connections to {% ifversion ghes %}the `https://HOSTNAME/api/v3/scim/v2` endpoint on your {% data variables.product.prodname_ghe_server %} instance.{% else %}the SCIM endpoints on {% data variables.product.github %}:
   * For **{% data variables.product.prodname_dotcom_the_website %}**: `https://api.github.com/scim/v2/enterprises/ENTERPRISE`

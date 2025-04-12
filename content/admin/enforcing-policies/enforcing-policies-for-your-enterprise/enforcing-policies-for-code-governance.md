@@ -16,8 +16,6 @@ topics:
 
 ## Introduction
 
->[!NOTE] Enterprise code rulesets are currently in public preview and subject to change.
-
 You can create rulesets to control how users can interact with code in repositories across your enterprise. You can:
 
 * Create a **branch or tag ruleset** to control things like who can push commits to a certain branch, how commits must be formatted, or who can delete or rename a tag.
@@ -25,13 +23,11 @@ You can create rulesets to control how users can interact with code in repositor
 
 To learn more, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
-## Importing prebuilt rulesets
+## Importing rulesets
 
 To import a prebuilt ruleset created by {% data variables.product.company_short %}, see [`github/ruleset-recipes`](https://github.com/github/ruleset-recipes).
 
-{% ifversion repo-rules-management %}
 {% data reusables.repositories.import-a-ruleset-conceptual %} For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization#using-ruleset-history).
-{% endif %}
 
 ## How will I define where my ruleset applies?
 

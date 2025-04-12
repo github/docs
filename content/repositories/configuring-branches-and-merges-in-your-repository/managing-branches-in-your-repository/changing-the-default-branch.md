@@ -34,6 +34,12 @@ You can also rename the default branch. For more information, see [AUTOTITLE](/r
 
 To change the default branch, your repository must have more than one branch. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository#creating-a-branch).
 
+{% ifversion not fpt %}
+
+Rulesets at the organization{% ifversion ghec %} or enterprise{% endif %} level that apply to branches of a repository will not allow the repository administrator to rename branches of the targeted repository or change the default branch to another branch. See [AUTOTITLE](/organizations/managing-organization-settings/managing-rulesets-for-repositories-in-your-organization){% ifversion ghec %} or [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-governance){% endif %}.
+
+{% endif %}
+
 Additionally, you need to have admin access to a repository to change the default branch.
 
 ## Changing the default branch
