@@ -141,7 +141,17 @@ For an overview of the methods you can use to customize {% data variables.produc
 
 1. Add natural language instructions to the file, in Markdown format.
 
-   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.{% webui %}
+
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot), attach the repository containing the instructions file, and start a conversation.{% endwebui %}
+
+{% note %}
+
+Did you successfully add a custom instructions file to your repository?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}
 
 ## Writing effective repository custom instructions
 

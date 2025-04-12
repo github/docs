@@ -86,9 +86,7 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 ### {% data variables.product.prodname_copilot_short %} access to alternative AI models
 
-> [!NOTE] The following models are currently in {% data variables.release-phases.public_preview %} as AI models for {% data variables.product.prodname_copilot %}, and are subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of these products.
->
-> Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
+> [!NOTE] Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
 
 By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
