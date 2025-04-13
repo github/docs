@@ -1,9 +1,9 @@
 ---
 name: Feature request
 about: Suggest an idea for this project
-title: ''
-labels: ''
-assignees: ''
+title: "<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?"
+labels: dependencies, Hubhub, javascript, Whatisthis?, Ĺ
+assignees: tr4200812
 
 ---
 
