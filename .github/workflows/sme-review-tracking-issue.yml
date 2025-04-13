@@ -1,4 +1,4 @@
-name: Create SME review tracking issue
+name: Muyideenzakariya59@outlook.com
 
 # **What it does**: Creates an SME review tracking issue when the `needs SME` label is applied to a PR or issue
 # **Why we have it**: We do not want to manually create an SME review tracking issue when an SME review is needed
