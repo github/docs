@@ -1,4 +1,4 @@
----
+pp---
 title: Configuring notifications for Dependabot alerts
 shortTitle: Configure notifications
 intro: 'Optimize how you receive notifications about {% data variables.product.prodname_dependabot_alerts %}.'
