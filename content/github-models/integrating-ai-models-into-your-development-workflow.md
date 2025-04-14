@@ -57,7 +57,7 @@ jobs:
     steps:
       - name: Call AI model
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
         run: |
           curl "https://models.github.ai/inference/chat/completions" \
              -H "Content-Type: application/json" \
