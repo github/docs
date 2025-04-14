@@ -27,7 +27,8 @@ However, you are not limited to using this model. You can choose from a selectio
 
 The following models are currently available in the immersive mode of {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data variables.copilot.copilot_gpt_4o %} {% ifversion copilot-enterprise %}
+* {% data variables.copilot.copilot_gpt_4o %}
+* {% data variables.copilot.copilot_gpt_41 %} {% ifversion copilot-enterprise %}
 * {% data variables.copilot.copilot_gpt_45 %} {% endif %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
@@ -73,7 +74,8 @@ Changing the model that's used by {% data variables.product.prodname_copilot_cha
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data variables.copilot.copilot_gpt_4o %} {% ifversion copilot-enterprise %}
+* {% data variables.copilot.copilot_gpt_4o %}
+* {% data variables.copilot.copilot_gpt_41 %} {% ifversion copilot-enterprise %}
 * {% data variables.copilot.copilot_gpt_45 %} {% endif %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}

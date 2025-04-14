@@ -46,6 +46,7 @@ copilot_gemini_flash: 'Gemini 2.0 Flash'
 copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 
 copilot_gpt_4o: 'GPT-4o'
+copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_45: 'GPT-4.5'
 copilot_gpt_o1: 'o1'
 copilot_gpt_o3_mini: 'o3-mini'

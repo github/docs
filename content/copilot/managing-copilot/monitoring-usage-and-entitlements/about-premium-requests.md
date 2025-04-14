@@ -47,6 +47,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking | 1.25                                                                         |
 | {% data variables.copilot.copilot_gemini_flash %}              | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}             | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_41 %}                    | 1                                                                            |
 | GPT-4.5                                                        | 50                                                                           |
 | o1                                                             | 10                                                                           |
 | o3-mini                                                        | 0.33                                                                         |

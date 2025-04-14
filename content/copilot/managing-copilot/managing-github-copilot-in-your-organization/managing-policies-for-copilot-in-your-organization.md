@@ -38,7 +38,7 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
   * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
   * Google {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}
-  * OpenAI o1 and o3 models in {% data variables.product.prodname_copilot_short %}
+  * OpenAI models in {% data variables.product.prodname_copilot_short %}
 
 The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 
