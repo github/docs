@@ -43,7 +43,7 @@ From the main page of your repository, click **{% octicon "gear" aria-hidden="tr
 {% data reusables.dependency-graph.feature-availability %} The dependency graph interprets manifest and lock files in a repository to identify dependencies.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.
+1. Click **{% data variables.product.UI_code_security_scanning %}**.
 1. Next to Dependency graph, click **Enable** or **Disable**.
 {% endif %}
 
