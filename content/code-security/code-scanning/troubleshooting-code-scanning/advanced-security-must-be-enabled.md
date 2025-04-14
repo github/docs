@@ -54,7 +54,7 @@ If {% data variables.product.prodname_GH_code_security %} is blocked by a policy
 
 ### Requesting access to {% data variables.product.prodname_GH_code_security %}
 
-1. In the "{% data variables.product.prodname_code_security %}" settings, click the enterprise name to display a list of users with access to edit the policy that controls access to {% data variables.product.prodname_advanced_security %} products. For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-the-use-of-github-advanced-security-in-your-enterprises-organizations).
+1. In the "{% data variables.product.prodname_code_security %}" settings, click the enterprise name to display a list of users with access to edit the policy that controls access to {% data variables.product.prodname_advanced_security %} products. For more information, see [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise#enforcing-a-policy-for-the-availability-of-advanced-security-in-your-enterprises-organizations).
 1. Follow your company's policy for requesting access to additional features.
 
 ### Enabling {% data variables.product.prodname_GH_code_security %}
