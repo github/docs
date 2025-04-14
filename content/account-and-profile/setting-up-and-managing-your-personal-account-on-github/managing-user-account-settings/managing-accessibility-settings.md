@@ -59,3 +59,4 @@ By default, {% data variables.product.github %} syncs with your system-level pre
 1. Under "Motion", manage settings for motion.
 
    * To control how {% data variables.product.github %} displays animated images, under "Autoplay animated images", select **Sync with system**, **Enabled**, or **Disabled**.
+ 
