@@ -61,7 +61,7 @@ For more information, see [AUTOTITLE](/code-security/supply-chain-security/under
 
 {% ifversion fpt or ghec %}
 1. Click your profile photo, then click **Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.
+1. Click **{% data variables.product.UI_code_security_scanning %}**.
 1. Click **Enable** next to {% data variables.product.prodname_dependabot_alerts %}.
 {% endif %}
 
@@ -80,7 +80,7 @@ Dependency review is a {% data variables.product.prodname_GH_code_security %} fe
 To enable dependency review for a repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.{% ifversion fpt or ghec %}
+1. Click **{% data variables.product.UI_code_security_scanning %}**.{% ifversion fpt or ghec %}
 1. To the right of {% data variables.product.prodname_code_security %}, click **Enable**.
 1. Under {% data variables.product.prodname_code_security %}, check that dependency graph is enabled for the repository.
    * For public repositories, dependency graph is always enabled.{% elsif ghes %}
@@ -91,7 +91,7 @@ To enable dependency review for a repository, ensure that the dependency graph i
 For any repository that uses {% data variables.product.prodname_dependabot_alerts %}, you can enable {% data variables.product.prodname_dependabot_security_updates %} to raise pull requests with security updates when vulnerabilities are detected.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.
+1. Click **{% data variables.product.UI_code_security_scanning %}**.
 1. Next to {% data variables.product.prodname_dependabot_security_updates %}, click **Enable**.
 
 For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates).
@@ -102,7 +102,7 @@ You can enable {% data variables.product.prodname_dependabot %} to automatically
 
 {% ifversion dependabot-settings-update-37 %}
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.
+1. Click **{% data variables.product.UI_code_security_scanning %}**.
 1. Next to {% data variables.product.prodname_dependabot_version_updates %}, click **Enable** to create a basic `dependabot.yml` configuration file.
 1. Specify the dependencies to update and any associated configuration options, then commit the file to the repository. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#enabling-dependabot-version-updates).
 
@@ -137,7 +137,7 @@ As an alternative to default setup, you can use advanced setup, which generates 
 {% ifversion ghas-products %}{% data variables.product.prodname_GH_secret_protection %} includes {% data variables.product.prodname_secret_scanning %} and push protection, as well as other features that help you detect and prevent secret leaks in your repository.{% endif %}
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.
+1. Click **{% data variables.product.UI_code_security_scanning %}**.
 1. If {% data variables.product.prodname_secret_protection %} is not already enabled, click **Enable**.{% ifversion ghes < 3.17 %}
 1. Next to {% data variables.product.prodname_secret_scanning_caps %}, click **Enable**.{% endif %}{% ifversion ghas-products %}
 1. Choose whether you want to enable additional features, such as validity checks, scanning for non-provider patterns, and push protection.{% endif %}
