@@ -56,18 +56,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call AI model
-      run: |
-         curl -X POST "https://models.inference.ai.azure.com/chat/completions" \
-            -H "Content-Type: application/json" \
-            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-            -d '{
-               "messages": [
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl "https://models.github.ai/inference/chat/completions" \
+             -H "Content-Type: application/json" \
+             -H "Authorization: Bearer $GITHUB_TOKEN" \
+             -d '{
+              "messages": [
                   {
                      "role": "user",
                      "content": "Explain the concept of recursion."
                   }
                ],
-               "model": "gpt-4o"
+               "model": "openai/gpt-4o"
             }'
 ```
 
