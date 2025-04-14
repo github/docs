@@ -35,7 +35,7 @@ You can enforce policies to manage the use of security features within organizat
 
 Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} in your enterprise's organizations and repositories.
 
-## Enforcing a policy for the availablity of {% data variables.product.prodname_AS %} in your enterprise's organizations
+## Enforcing a policy for the availability of {% data variables.product.prodname_AS %} in your enterprise's organizations
 
 {% data variables.product.github %} bills for {% data variables.product.prodname_AS %} products on a per-committer basis. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#managing-committers-and-costs).
 
