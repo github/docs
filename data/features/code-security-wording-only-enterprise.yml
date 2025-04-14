@@ -1,5 +1,0 @@
-# Reference: 16625
-
-versions:
-  ghec: '*'
-  ghes: '>= 3.15'
