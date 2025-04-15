@@ -338,6 +338,9 @@ export function SearchOverlay({
     if (searchParams.has('search-overlay-ask-ai')) {
       searchParams.delete('search-overlay-ask-ai')
     }
+    if (searchParams.has('query')) {
+      searchParams.delete('query')
+    }
     router.push(`${selectedOption.url}?${searchParams.toString()}` || '')
     onClose()
   }
@@ -388,6 +391,9 @@ export function SearchOverlay({
     }
     if (searchParams.has('search-overlay-ask-ai')) {
       searchParams.delete('search-overlay-ask-ai')
+    }
+    if (searchParams.has('query')) {
+      searchParams.delete('query')
     }
     window.open(`${url}?${searchParams.toString()}` || '', '_blank')
   }
