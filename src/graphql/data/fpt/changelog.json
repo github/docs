@@ -4,6 +4,32 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>ActorConnection</code> was added</p>",
+          "<p>Type <code>ActorEdge</code> was added</p>",
+          "<p>Type <code>AssigneeConnection</code> was added</p>",
+          "<p>Type <code>AssigneeEdge</code> was added</p>",
+          "<p>Type <code>ReplaceActorsForAssignableInput</code> was added</p>",
+          "<p>Type <code>ReplaceActorsForAssignablePayload</code> was added</p>",
+          "<p>Field <code>assignedActors</code> was added to interface <code>Assignable</code></p>",
+          "<p>Field <code>suggestedActors</code> was added to interface <code>Assignable</code></p>",
+          "<p>Field <code>assignedActors</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>suggestedActors</code> was added to object type <code>Issue</code></p>",
+          "<p>Field <code>replaceActorsForAssignable</code> was added to object type <code>Mutation</code></p>",
+          "<p>Field <code>assignedActors</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>suggestedActors</code> was added to object type <code>PullRequest</code></p>",
+          "<p>Field <code>suggestedActors</code> was added to object type <code>Repository</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-04-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>AnnouncementBannerI</code> was removed</p>",
           "<p>Input field <code>isPrivate</code> was removed from input object type <code>CreateIssueTypeInput</code></p>",
           "<p><code>Enterprise</code> object type no longer implements <code>AnnouncementBannerI</code> interface</p>",

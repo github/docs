@@ -6434,6 +6434,40 @@
       ]
     },
     {
+      "name": "replaceActorsForAssignable",
+      "kind": "mutations",
+      "id": "replaceactorsforassignable",
+      "href": "/graphql/reference/mutations#replaceactorsforassignable",
+      "description": "<p>Replaces all actors for assignable object.</p>",
+      "inputFields": [
+        {
+          "name": "input",
+          "type": "ReplaceActorsForAssignableInput!",
+          "id": "replaceactorsforassignableinput",
+          "kind": "input-objects",
+          "href": "/graphql/reference/input-objects#replaceactorsforassignableinput"
+        }
+      ],
+      "returnFields": [
+        {
+          "name": "assignable",
+          "type": "Assignable",
+          "id": "assignable",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#assignable",
+          "description": "<p>The item that was assigned.</p>"
+        },
+        {
+          "name": "clientMutationId",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>"
+        }
+      ]
+    },
+    {
       "name": "reprioritizeSubIssue",
       "kind": "mutations",
       "id": "reprioritizesubissue",
@@ -10016,6 +10050,72 @@
   ],
   "objects": [
     {
+      "name": "ActorConnection",
+      "kind": "objects",
+      "id": "actorconnection",
+      "href": "/graphql/reference/objects#actorconnection",
+      "description": "<p>The connection type for Actor.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[ActorEdge]",
+          "id": "actoredge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#actoredge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Actor]",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ActorEdge",
+      "kind": "objects",
+      "id": "actoredge",
+      "href": "/graphql/reference/objects#actoredge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Actor",
+          "id": "actor",
+          "kind": "interfaces",
+          "href": "/graphql/reference/interfaces#actor"
+        }
+      ]
+    },
+    {
       "name": "ActorLocation",
       "kind": "objects",
       "id": "actorlocation",
@@ -10488,6 +10588,72 @@
           "href": "/graphql/reference/objects#user",
           "isDeprecated": true,
           "deprecationReason": "<p>Assignees can now be mannequins. Use the <code>assignee</code> field instead. Removal on 2020-01-01 UTC.</p>"
+        }
+      ]
+    },
+    {
+      "name": "AssigneeConnection",
+      "kind": "objects",
+      "id": "assigneeconnection",
+      "href": "/graphql/reference/objects#assigneeconnection",
+      "description": "<p>The connection type for Assignee.</p>",
+      "fields": [
+        {
+          "name": "edges",
+          "description": "<p>A list of edges.</p>",
+          "type": "[AssigneeEdge]",
+          "id": "assigneeedge",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeedge"
+        },
+        {
+          "name": "nodes",
+          "description": "<p>A list of nodes.</p>",
+          "type": "[Assignee]",
+          "id": "assignee",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#assignee"
+        },
+        {
+          "name": "pageInfo",
+          "description": "<p>Information to aid in pagination.</p>",
+          "type": "PageInfo!",
+          "id": "pageinfo",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#pageinfo"
+        },
+        {
+          "name": "totalCount",
+          "description": "<p>Identifies the total count of items in the connection.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "AssigneeEdge",
+      "kind": "objects",
+      "id": "assigneeedge",
+      "href": "/graphql/reference/objects#assigneeedge",
+      "description": "<p>An edge in a connection.</p>",
+      "fields": [
+        {
+          "name": "cursor",
+          "description": "<p>A cursor for use in pagination.</p>",
+          "type": "String!",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
+          "name": "node",
+          "description": "<p>The item at the end of the edge.</p>",
+          "type": "Assignee",
+          "id": "assignee",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#assignee"
         }
       ]
     },
@@ -28669,6 +28835,56 @@
           "href": "/graphql/reference/enums#lockreason"
         },
         {
+          "name": "assignedActors",
+          "description": "<p>A list of actors assigned to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "assignees",
           "description": "<p>A list of Users assigned to this object.</p>",
           "type": "UserConnection!",
@@ -29646,6 +29862,66 @@
           "id": "subissuessummary",
           "kind": "objects",
           "href": "/graphql/reference/objects#subissuessummary"
+        },
+        {
+          "name": "suggestedActors",
+          "description": "<p>A list of suggested actors to assign to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>If provided, searches users by login or profile name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "timeline",
@@ -52531,6 +52807,56 @@
           "href": "/graphql/reference/scalars#int"
         },
         {
+          "name": "assignedActors",
+          "description": "<p>A list of actors assigned to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "assignees",
           "description": "<p>A list of Users assigned to this object.</p>",
           "type": "UserConnection!",
@@ -53982,6 +54308,66 @@
           "id": "statuscheckrollup",
           "kind": "objects",
           "href": "/graphql/reference/objects#statuscheckrollup"
+        },
+        {
+          "name": "suggestedActors",
+          "description": "<p>A list of suggested actors to assign to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>If provided, searches users by login or profile name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            }
+          ]
         },
         {
           "name": "suggestedReviewers",
@@ -66931,6 +67317,76 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "suggestedActors",
+          "description": "<p>A list of suggested actors that can be attributed to content in this repository.</p>",
+          "type": "ActorConnection!",
+          "id": "actorconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#actorconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "loginNames",
+              "description": "<p>A comma separated list of login names to filter actors by. Only the first 10 logins will be used.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>Search actors with query on user name and login.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -83420,6 +83876,56 @@
       "description": "<p>An object that can have users assigned to it.</p>",
       "fields": [
         {
+          "name": "assignedActors",
+          "description": "<p>A list of actors assigned to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
           "name": "assignees",
           "description": "<p>A list of Users assigned to this object.</p>",
           "type": "UserConnection!",
@@ -83465,6 +83971,66 @@
                 "id": "int",
                 "kind": "scalars",
                 "href": "/graphql/reference/scalars#int"
+              }
+            }
+          ]
+        },
+        {
+          "name": "suggestedActors",
+          "description": "<p>A list of suggested actors to assign to this object.</p>",
+          "type": "AssigneeConnection!",
+          "id": "assigneeconnection",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#assigneeconnection",
+          "arguments": [
+            {
+              "name": "after",
+              "description": "<p>Returns the elements in the list that come after the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "before",
+              "description": "<p>Returns the elements in the list that come before the specified cursor.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
+              }
+            },
+            {
+              "name": "first",
+              "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "last",
+              "description": "<p>Returns the last <em>n</em> elements from the list.</p>",
+              "type": {
+                "name": "Int",
+                "id": "int",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#int"
+              }
+            },
+            {
+              "name": "query",
+              "description": "<p>If provided, searches users by login or profile name.</p>",
+              "type": {
+                "name": "String",
+                "id": "string",
+                "kind": "scalars",
+                "href": "/graphql/reference/scalars#string"
               }
             }
           ]
@@ -104987,6 +105553,41 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        }
+      ]
+    },
+    {
+      "name": "ReplaceActorsForAssignableInput",
+      "kind": "inputObjects",
+      "id": "replaceactorsforassignableinput",
+      "href": "/graphql/reference/input-objects#replaceactorsforassignableinput",
+      "description": "<p>Autogenerated input type of ReplaceActorsForAssignable.</p>",
+      "inputFields": [
+        {
+          "name": "actorIds",
+          "description": "<p>The ids of the actors to replace the existing assignees.</p>",
+          "type": "[ID!]!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "assignableId",
+          "description": "<p>The id of the assignable object to replace the assignees for.</p>",
+          "type": "ID!",
+          "id": "id",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#id",
+          "isDeprecated": false
+        },
+        {
+          "name": "clientMutationId",
+          "description": "<p>A unique identifier for the client performing the mutation.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         }
       ]
     },
