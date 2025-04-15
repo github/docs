@@ -14,7 +14,7 @@
     "sshd": "latest",
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
-
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/github/docs/tree/94fb2fbba927e772870eaa8e5f556305d9498808?quickstart=1)
   "customizations": {
     "vscode": {
       // Set *default* container specific settings.json values on container create.
