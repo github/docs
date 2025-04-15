@@ -16,13 +16,14 @@ This article helps you compare the available models, understand the strengths of
 
 The best model depends on your use case:
 
-* For **balance between cost and performance**, try GPT-4o or {% data variables.copilot.copilot_claude_sonnet_35 %}.
+* For **balance between cost and performance**, try {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_claude_sonnet_37 %}.
 * For **fast, low-cost support for basic tasks**, try o3-mini or {% data variables.copilot.copilot_claude_sonnet_35 %}.
 * For **deep reasoning or complex coding challenges**, try o1, GPT-4.5, or {% data variables.copilot.copilot_claude_sonnet_37 %}.
 * For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or GPT-4o.
 
 You can click a model name in the list below to jump to a detailed overview of its strengths and use cases.
 * [GPT-4o](#gpt-4o)
+* [{% data variables.copilot.copilot_gpt_41 %}](#gpt-41)
 * [GPT-4.5](#gpt-45)
 * [o1](#o1)
 * [o3-mini](#o3-mini)
@@ -74,6 +75,42 @@ The following table summarizes when an alternative model may be a better choice:
 | System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.              |
 
 {% endrowheaders %}
+
+## {% data variables.copilot.copilot_gpt_41 %}
+
+{% data reusables.copilot.gpt-41-public-preview-note %}
+
+OpenAI’s latest model, {% data variables.copilot.copilot_gpt_41 %}, is now available in {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_github_models %}, bringing OpenAI’s newest model to your coding workflow. This model outperforms GPT-4o across the board, with major gains in coding, instruction following, and long-context understanding. It has a larger context window and features a refreshed knowledge cutoff of June 2024.
+
+OpenAI has optimized {% data variables.copilot.copilot_gpt_41 %} for real-world use based on direct developer feedback about: frontend coding, making fewer extraneous edits, following formats reliably, adhering to response structure and ordering, consistent tool usage, and more. This model is a strong default choice for common development tasks that benefit from speed, responsiveness, and general-purpose reasoning.
+
+### Use cases
+
+{% data reusables.copilot.model-use-cases.gpt-41 %}
+
+### Strengths
+
+The following table summarizes the strengths of {% data variables.copilot.copilot_gpt_41 %}:
+
+{% rowheaders %}
+
+| Task                              | Description                                                         | Why {% data variables.copilot.copilot_gpt_41 %} is a good fit   |
+|-----------------------------------|---------------------------------------------------------------------|-----------------------------------------------------------------|
+| Code explanation                  | Understand what a block of code does or walk through logic.         | Fast and accurate explanations.                                 |
+| Code commenting and documentation | Generate or refine comments and documentation.                      | Writes clear, concise explanations.                             |
+| Bug investigation                 | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.                               |
+| Code snippet generation           | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly.                          |
+| Multilingual prompts              | Work with non-English prompts or identifiers.                       | Improved multilingual comprehension.                            |
+
+{% endrowheaders %}
+
+### Alternative options
+
+| Task                               | Description                                                       | Why another model may be better                                                                        |
+|------------------------------------|-------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
+| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.           | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
+| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.                                           |
+| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.                |
 
 ## GPT-4.5
 
