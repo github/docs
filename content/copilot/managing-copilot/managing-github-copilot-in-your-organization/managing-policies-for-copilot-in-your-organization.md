@@ -31,7 +31,6 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview features, such as:
   * Using images in {% data variables.product.prodname_copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
-  * GPT-4o {% data variables.product.prodname_copilot_short %} code completion (available in {% data variables.product.prodname_vscode_shortname %} and JetBrains IDEs)
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * Suggestions matching public code
