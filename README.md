@@ -1,4 +1,4 @@
- >idocaSee by arai<
+ [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/tr4200812/hubhub/tree/dependabot%2Fnpm_and_yarn%2Fplaywright%2Ftest-1.44.0?quickstart=1)>idocaSee by arai<
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
