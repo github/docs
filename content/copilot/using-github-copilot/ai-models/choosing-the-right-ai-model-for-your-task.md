@@ -368,7 +368,7 @@ The following table summarizes the strengths of {% data variables.copilot.copilo
 
 {% rowheaders %}
 
-| Task                      | Description                                                       | Why {% data variables.copilot.copilot_gemini_flash %} is a good fit |
+| Task                      | Description                                                       | Why {% data variables.copilot.copilot_gemini_25_pro %} is a good fit |
 |---------------------------|-------------------------------------------------------------------|---------------------------------------------------------------------|
 | Complex code generation   | Write full functions, classes, or multi-file logic.               | Provides better structure, consistency, and fewer logic errors.     |
 | Debugging complex systems | Isolate and fix performance bottlenecks or multi-file issues.     | Provides step-by-step analysis and high reasoning accuracy.         |
