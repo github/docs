@@ -67350,16 +67350,6 @@
               }
             },
             {
-              "name": "capabilities",
-              "description": "<p>A list of capabilities to filter actors by.</p>",
-              "type": {
-                "name": "[RepositorySuggestedActorFilter!]!",
-                "id": "repositorysuggestedactorfilter",
-                "kind": "enums",
-                "href": "/graphql/reference/enums#repositorysuggestedactorfilter"
-              }
-            },
-            {
               "name": "first",
               "description": "<p>Returns the first <em>n</em> elements from the list.</p>",
               "type": {
@@ -92400,23 +92390,6 @@
         {
           "name": "TAG",
           "description": "<p>Tag.</p>"
-        }
-      ]
-    },
-    {
-      "name": "RepositorySuggestedActorFilter",
-      "kind": "enums",
-      "id": "repositorysuggestedactorfilter",
-      "href": "/graphql/reference/enums#repositorysuggestedactorfilter",
-      "description": "<p>The possible filters for suggested actors in a repository.</p>",
-      "values": [
-        {
-          "name": "CAN_BE_ASSIGNED",
-          "description": "<p>Actors that can be assigned to issues and pull requests.</p>"
-        },
-        {
-          "name": "CAN_BE_AUTHOR",
-          "description": "<p>Actors that can be the author of issues and pull requests.</p>"
         }
       ]
     },

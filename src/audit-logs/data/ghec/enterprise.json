@@ -222,12 +222,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.code_security_enablement_policy_update",
     "description": "The policy for Code Security enablement was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.connect_usage_metrics_export",
@@ -3568,16 +3568,6 @@
     "action": "repository_branch_protection_evaluation.enable",
     "description": "Branch protections were enabled for this repository.",
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
-  },
-  {
-    "action": "repository_code_security.disable",
-    "description": "Code security was disabled for a repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_code_security.enable",
-    "description": "Code security was enabled for a repository.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "repository_content_analysis.disable",

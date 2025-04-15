@@ -2815,16 +2815,6 @@
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
-    "action": "repository_code_security.disable",
-    "description": "Code security was disabled for a repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "repository_code_security.enable",
-    "description": "Code security was enabled for a repository.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "repository_content_analysis.disable",
     "description": "Data use settings were disabled for a private repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"

@@ -167,12 +167,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.code_security_enablement_policy_update",
     "description": "The policy for Code Security enablement was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.create",
