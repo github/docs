@@ -50841,6 +50841,11 @@ type Repository implements Node & PackageOwner & ProjectOwner & ProjectV2Recent 
     before: String
 
     """
+    A list of capabilities to filter actors by.
+    """
+    capabilities: [RepositorySuggestedActorFilter!]!
+
+    """
     Returns the first _n_ elements from the list.
     """
     first: Int
@@ -52886,6 +52891,21 @@ enum RepositoryRulesetTarget {
   Tag
   """
   TAG
+}
+
+"""
+The possible filters for suggested actors in a repository
+"""
+enum RepositorySuggestedActorFilter {
+  """
+  Actors that can be assigned to issues and pull requests
+  """
+  CAN_BE_ASSIGNED
+
+  """
+  Actors that can be the author of issues and pull requests
+  """
+  CAN_BE_AUTHOR
 }
 
 """
