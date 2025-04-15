@@ -6,7 +6,7 @@ layout: inline
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller
@@ -101,7 +101,8 @@ You can find the definition of ARC's runner image in [this Dockerfile](https://g
 
 You can create your own runner image that meets your requirements. Your runner image must fulfill the following conditions.
 
-* Use a base image that can run the self-hosted runner application. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+* Use a base image that can run the self-hosted runner application. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners).
+
 * The [runner binary](https://github.com/actions/runner/releases) must be placed under `/home/runner/` and launched using `/home/runner/run.sh`.
 * If you use Kubernetes mode, the [runner container hooks](https://github.com/actions/runner-container-hooks/releases) must be placed under `/home/runner/k8s`.
 

@@ -13,10 +13,6 @@ redirect_from:
   - /early-access/copilot/code-reviews/responsible-use-of-copilot-code-reviews
 ---
 
-> [!NOTE]
-> * {% data variables.copilot.copilot_code-review %} is in {% data variables.release-phases.public_preview %} and subject to change. To join the waitlist, see [Join the {% data variables.copilot.copilot_code-review_short %} waitlist](https://gh.io/copilot-code-review-waitlist).
-> * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
-
 ## About {% data variables.copilot.copilot_code-review %}
 
 {% data variables.copilot.copilot_code-review %} is an AI-powered feature that reviews code and provides feedback.

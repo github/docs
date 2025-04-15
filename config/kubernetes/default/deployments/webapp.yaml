@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: webapp
+  template:
+    metadata:
+      labels:
+        app: webapp
+      annotations:
+        # Our internal logs aren't structured so we use logfmt_sloppy to just log stdout and error
+        # See https://thehub.github.com/epd/engineering/dev-practicals/observability/logging/ for more details
+        fluentbit.io/parser: logfmt_sloppy
+        observability.github.com/splunk_index: docs-internal
+    spec:
+      dnsPolicy: Default
+      containers:
+        - name: webapp
+          image: docs-internal
+          resources:
+            requests:
+              cpu: 1000m
+              memory: 4500Mi
+            limits:
+              cpu: 8000m
+              memory: 16Gi
+          ports:
+            - name: http
+              containerPort: 4000
+              protocol: TCP
+          envFrom:
+            - secretRef:
+                name: vault-secrets
+            - configMapRef:
+                name: kube-cluster-metadata
+            # application-config is created at deploy time from
+            # configuration set in config/moda/configuration/*/env.yaml
+            - configMapRef:
+                name: application-config
+          # Zero-downtime deploys
+          # https://thehub.github.com/engineering/products-and-services/internal/moda/feature-documentation/pod-lifecycle/#required-prestop-hook
+          # https://kubernetes.io/docs/concepts/containers/container-lifecycle-hooks/#container-hooks
+          lifecycle:
+            preStop:
+              exec:
+                command: ['sleep', '5']
+          readinessProbe:
+            initialDelaySeconds: 5
+            httpGet:
+              # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
+              # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
+              path: /healthcheck
+              port: http

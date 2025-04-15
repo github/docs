@@ -9,7 +9,7 @@ topics:
   - Copilot
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is in limited {% data variables.release-phases.public_preview %}. The waitlist for admission to this preview is currently closed.
 
 ## About using {% data variables.product.prodname_copilot_short %} to help you work on your pull requests
 
@@ -38,13 +38,12 @@ After you create a pull request, you can continue working on the PR on the {% da
 
 ## Prerequisites
 
-Using {% data variables.product.prodname_copilot_workspace %} requires:
+Using {% data variables.product.prodname_copilot_workspace %} requires an existing pull request on the {% data variables.product.github %} website and either of the following:
 
-* A {% data variables.product.prodname_copilot_short %} subscription. For more information, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
-* Admission to the {% data variables.release-phases.public_preview %} from the waitlist. To apply to join the waitlist, see [Join the Copilot code review waitlist](https://gh.io/copilot-code-review-waitlist).
-* An existing pull request on the {% data variables.product.github %} website. If you need help on creating a pull request, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
+* Access to this {% data variables.release-phases.public_preview %} from the waitlist (now closed).
+* Access to {% data variables.product.prodname_GHAS %} (GHAS) features on a private repository owned by an organization on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. See [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
-Without access {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
+Without access to {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
 
 ## Editing files in a pull request
 

@@ -9,7 +9,8 @@ topics:
 redirect_from:
   - /copilot/using-github-copilot/example-use-cases
 children:
-  - /getting-started-with-prompts-for-copilot-chat
   - /refactoring-code-with-github-copilot
+  - /using-copilot-to-migrate-a-project
   - /writing-tests-with-github-copilot
+  - /modernizing-legacy-code-with-github-copilot
 ---

@@ -62,3 +62,11 @@ If you set a dynamic list by name, you'll add one or more naming patterns using 
 ### Policies
 
 {% data reusables.enterprise.repo-policy-rules-policies-section %}
+
+### Delegating bypass of policies
+
+{% data reusables.enterprise.repo-policy-rules-delegated-bypass %}
+
+#### Managing bypass requests
+
+{% data reusables.enterprise.repo-policy-rules-manage-bypass-request %}

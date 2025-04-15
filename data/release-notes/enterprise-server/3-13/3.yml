@@ -131,6 +131,10 @@ sections:
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
       [Updated: 2024-11-29]
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
 
   errata:
     - |

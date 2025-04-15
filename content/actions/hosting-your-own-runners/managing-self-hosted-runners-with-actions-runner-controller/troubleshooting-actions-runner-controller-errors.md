@@ -5,7 +5,7 @@ intro: 'Learn how to troubleshoot {% data variables.product.prodname_actions_run
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: how_to
 topics:
   - Actions Runner Controller
@@ -145,6 +145,10 @@ To fix this, you can do one of the following things.
         image: ghcr.io/actions/actions-runner:latest
         command: ["/home/runner/run.sh"]
     ```
+
+## Error: `failed to get access token for {% data variables.product.prodname_github_app %} auth: 401 Unauthorized`
+
+A `401 Unauthorized` error when attempting to obtain an access token for a {% data variables.product.prodname_github_app %} could be a result of a Network Time Protocol (NTP) drift. Ensure that your Kubernetes system is accurately syncing with an NTP server and that there isn't a significant time drift. There is more leeway if your system time is behind {% data variables.product.github %}'s time, but if the environment is more than a few seconds ahead, 401 errors will occur when using {% data variables.product.prodname_github_app %}.
 
 ## Legal notice
 

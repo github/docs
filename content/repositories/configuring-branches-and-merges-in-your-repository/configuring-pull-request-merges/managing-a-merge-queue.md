@@ -2,7 +2,9 @@
 title: Managing a merge queue
 intro: You can increase development velocity with a merge queue for pull requests in your repository.
 versions:
-  feature: merge-queue
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: People with admin permissions can manage merge queues for pull requests targeting selected branches of a repository.
 product: '{% data reusables.gated-features.merge-queue %}'
 topics:

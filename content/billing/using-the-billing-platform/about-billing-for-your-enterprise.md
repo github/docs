@@ -20,8 +20,6 @@ shortTitle: Billing for your enterprise
 
 ## About billing for your enterprise
 
-{% ifversion ghec or ghes %}
-
 {% ifversion ghec %}
 
 When you use an enterprise account on {% data variables.product.prodname_dotcom %}, the enterprise account is the central point for all billing within your enterprise, including the organizations that your enterprise owns.
@@ -54,8 +52,6 @@ Administrators for your enterprise account on {% data variables.product.prodname
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 {% endif %}
 
-{% endif %}
-
 {% ifversion enhanced-billing-platform %}
 
 ## How do I know which billing platform I'm using?
@@ -68,7 +64,7 @@ To check if you have access:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the enterprise account sidebar.
+If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option {% ifversion horizontal-nav %}at the top of the page.{% else %}in the enterprise account sidebar.{% endif %}
 
 {% endif %}
 

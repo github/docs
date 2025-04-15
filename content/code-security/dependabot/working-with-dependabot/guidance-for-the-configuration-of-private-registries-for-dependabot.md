@@ -28,10 +28,14 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
+{% ifversion dependabot-bun-support %}
+* [Bun](#bun){% endif %}
 * [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
 * [Cargo](#cargo){% endif %}
-* [Docker](#docker)
-* [Gradle](#gradle)
+* [Docker](#docker){% ifversion dependabot-docker-compose-support %}
+* [Docker Compose](#docker-compose){% endif %}
+* [Gradle](#gradle){% ifversion dependabot-helm-support %}
+* [Helm Charts](#helm-charts){% endif %}
 * [Maven](#maven)
 * [npm](#npm)
 * [NuGet](#nuget){% ifversion dependabot-updates-pub-private-registry %}
@@ -51,6 +55,14 @@ You'll also find recommendations for the setup of the following registry hosts:
 {% data reusables.dependabot.dependabot-on-actions-self-hosted-link %}
 
 ## Configuring package managers
+
+{% ifversion dependabot-bun-support %}
+
+### Bun
+
+Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
+
+{% endif %}
 
 ### Bundler
 
@@ -149,8 +161,54 @@ registries:
 * Dockerfiles may only receive a version update to the first `FROM` directive.
 * Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
 * {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
-* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
-* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
+
+{% ifversion dependabot-docker-compose-support %}
+
+### Docker Compose
+
+Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
+
+{% endif %}
+
+{% ifversion dependabot-helm-support %}
+
+### Helm Charts
+
+Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
+
+Snippet of `dependabot.yml` file using a username and password.
+
+{% raw %}
+
+```yaml copy
+registries:
+  helm_registry:
+    type: helm-registry
+    url: https://registry.example.com
+    username: octocat
+    password: ${{secrets.MY_REGISTRY_PASSWORD}}
+```
+
+{% endraw %}
+
+#### Notes
+
+{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [Helm Registry Login](https://helm.sh/docs/helm/helm_registry_login/) in the Helm docs.
+
+{% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For more information, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+
+When configuring Dependabot for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+
+#### Limitations and workarounds
+
+* {% data variables.product.prodname_dependabot %} only updates dependencies in `Chart.yaml` files.
+* Images in `values.yaml` files and `Chart.yaml` files are updated.
+* Helm dependency updates are first attempted via the Helm CLI, with fallback to searching `index.yaml`.
+* Images that have an array of versions in the YAML cannot be updated.
+* Image names may not always be detected in Helm files or YAML files.
+* For Helm v2 updates, use the [Docker ecosystem](#docker).
+
+{% endif %}
 
 ### Gradle
 

@@ -8,7 +8,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -61,7 +61,7 @@ You must specify `<database>`, `--format`, and `--output`. You can specify addit
 | Option | Required | Usage |
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check" aria-label="Required" %} | Specify the path for the directory that contains the {% data variables.product.prodname_codeql %} database to analyze. |
-| `<packs,queries>` | {% octicon "x" aria-label="Optional" %} | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, look in `/<extraction-root>/qlpacks/codeql/<language>-queries/codeql-suites`. For information about creating your own query suite, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites) in the documentation for the {% data variables.product.prodname_codeql_cli %}. |
+| `<packs,queries>` | {% octicon "x" aria-label="Optional" %} | Specify {% data variables.product.prodname_codeql %} packs or queries to run. To run the standard queries used for {% data variables.product.prodname_code_scanning %}, omit this parameter. To see the other query suites included in the {% data variables.product.prodname_codeql_cli %} bundle, run `codeql resolve queries`. The suites listed there can be provided with or without the `.qls` extension. For information about creating your own query suite, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites) in the documentation for the {% data variables.product.prodname_codeql_cli %}. |
 | <code><span style="white-space: nowrap;">--format</span></code> | {% octicon "check" aria-label="Required" %} | Specify the format for the results file generated during analysis. A number of different formats are supported, including CSV, [SARIF](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#sarif-file), and graph formats. For upload to {% data variables.product.company_short %} this should be: {% ifversion fpt or ghec %}`sarif-latest`{% else %}`sarifv2.1.0`{% endif %}. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning). |
 | <code><span style="white-space: nowrap;">--output</span></code> | {% octicon "check" aria-label="Required" %} | Specify the location where you want to save the SARIF results file, including the desired filename with the `.sarif` extension. |
 | <code><span style="white-space: nowrap;">--sarif-category</span></code> | {% octicon "question" aria-label="Required with multiple results sets" %} | Optional for single database analysis. Required to define the language when you analyze multiple databases for a single commit in a repository.<br><br>Specify a category to include in the SARIF results file for this analysis. A category is used to distinguish multiple analyses for the same tool and commit, but performed on different languages or different parts of the code. |
@@ -90,7 +90,7 @@ This example analyzes a {% data variables.product.prodname_codeql %} database st
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
     --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} --output=/temp/example-repo-js.sarif
 
 > Running queries.
@@ -108,7 +108,7 @@ To include file coverage information with your {% data variables.product.prodnam
 
 ```shell
 $ codeql database analyze /codeql-dbs/example-repo \
-    javascript-code-scanning.qls --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+    javascript-code-scanning.qls --sarif-category=javascript-typescript \
     --sarif-add-baseline-file-info \ --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
@@ -260,8 +260,6 @@ For more information, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanc
 
 For information about creating custom query suites, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-codeql-query-suites).
 
-{% ifversion codeql-cli-threat-models %}
-
 ### Including model packs to add potential sources of tainted data
 
 {% data reusables.code-scanning.beta-threat-models-cli %}
@@ -275,8 +273,6 @@ $ codeql database analyze /codeql-dbs/my-company --format=sarif-latest \
 ```
 
 In this example, the relevant queries in the standard query pack `codeql/java-queries` will use the `local` threat model as well as the default threat model for `remote` dataflow sources. You should use the `local` threat model if you consider data from local sources (for example: file systems, command-line arguments, databases, and environment variables) to be potential sources of tainted data for your codebase.
-
-{% endif %}
 
 ## Results
 

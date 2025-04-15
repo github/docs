@@ -26,15 +26,24 @@ If no policy is chosen at the enterprise level, and multiple organizations withi
 
 You can configure any of the following policies for your enterprise:
 
+* [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
+* [Editor preview features](#editor-preview-features)
 * [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
 * [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
-* [{% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}](#copilot-access-to-claude-35-sonnet)
-* [{% data variables.product.prodname_copilot_short %} access to the o1 family of models](#copilot-access-to-the-o1-family-of-models)
+* [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
+
+### Additional {% data variables.product.prodname_copilot_short %} premium requests
+
+<!-- expires 2025-05-05 -->
+{% data reusables.copilot.unlimited-premium-requests %}
+<!-- end expires 2025-05-05 -->
+
+If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -55,13 +64,15 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 
 You can chat with {% data variables.product.prodname_copilot %} in your IDE to get code suggestions and answers to coding-related questions without context switching.
 
+### Editor preview features
+
+Some features of {% data variables.product.prodname_copilot_short %} are available as preview features in your editor. You can enable or disable these features for your enterprise.
+
 ### {% data variables.product.prodname_copilot_mobile %}
 
 {% data variables.product.prodname_copilot_mobile %} is a chat interface that lets you interact with {% data variables.product.prodname_copilot %} to ask and receive answers to coding-related questions within {% data variables.product.prodname_mobile %}.
 
 ### {% data variables.product.prodname_copilot_extensions %}
-
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
 
 {% data variables.product.prodname_copilot_extensions %} integrate external tools with {% data variables.product.prodname_copilot_chat %}, helping members of your enterprise reduce context switching, interact with tools using natural language, and customize their {% data variables.product.prodname_copilot_chat_short %} experience.
 
@@ -71,26 +82,17 @@ You can chat with {% data variables.product.prodname_copilot %} in your IDE to g
 
 ### Give {% data variables.product.prodname_copilot_short %} access to Bing
 
-> [!NOTE] Bing search integration into {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_vscode_shortname %}, and {% data variables.product.prodname_vs %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
-
 {% data variables.product.prodname_copilot_chat %} can use Bing to provide enhanced responses by searching the internet for information related to a question. Bing search is particularly helpful when discussing new technologies or highly specific subjects.
 
-### {% data variables.product.prodname_copilot_short %} access to {% data variables.copilot.copilot_claude_sonnet %}
+### {% data variables.product.prodname_copilot_short %} access to alternative AI models
 
-{% data reusables.copilot.claude-sonnet-preview-note %}
+> [!NOTE] Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to **Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}**, members of your enterprise can choose to use this model rather than the default `GPT 4o` model. See [AUTOTITLE](/copilot/using-github-copilot/using-claude-sonnet-in-github-copilot).
+By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
-### {% data variables.product.prodname_copilot_short %} access to the o1 family of models
-
-{% data reusables.models.o1-models-preview-note %}
-
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the `GPT 4o` model. If you grant access to the o1 family of models, members of your enterprise can select to use these models rather than the default `GPT 4o` model.
-
-The o1 family of models includes three models:
-
-* `o1`/`o1-preview`: These models are focused on advanced reasoning and solving complex problems, in particular in math and science. They respond more slowly than the `gpt-4o` model. Each member of your enterprise can make 10 requests to each of these models per day.
-* `o1-mini`: This is the faster version of the `o1` model, balancing the use of complex reasoning with the need for faster responses. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model per day.
+* **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
+* **OpenAI's models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task#gpt-45).
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

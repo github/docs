@@ -85,7 +85,15 @@ export default async function learningTrack(
 
   // The trackTitle comes from a data .yml file and may use Liquid templating, so we need to render it
   const renderOpts = { textOnly: true }
-  const trackTitle = (await renderContent(track.title, req.context, renderOpts)) as string
+  // Some translated titles are known to have broken Liquid, so we need to
+  // try rendering them in English as a fallback.
+  let trackTitle = ''
+  try {
+    trackTitle = (await renderContent(track.title, req.context, renderOpts)) as string
+  } catch {
+    const englishFallbackContext = { ...req.context, currentLanguage: 'en' }
+    trackTitle = (await renderContent(track.title, englishFallbackContext, renderOpts)) as string
+  }
 
   const currentLearningTrack: LearningTrack = { trackName, trackProduct, trackTitle }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))

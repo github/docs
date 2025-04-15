@@ -150,7 +150,7 @@ For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about
 
 ## Runner Images
 
-{% data variables.product.github %} maintains our own set of VM images for our standard hosted runners. This includes the images for macOS, x64 linux and Windows images. The list of images and their included tools are managed in the [`actions/runner-images`](https://github.com/actions/runner-images) repository. Our arm64 linux images are partner images, and those are managed in the [`actions/partner-runner-images`](https://github.com/actions/partner-runner-images) repository.
+{% data variables.product.github %} maintains our own set of VM images for our standard hosted runners. This includes the images for macOS, x64 linux and Windows images. The list of images and their included tools are managed in the [`actions/runner-images`](https://github.com/actions/runner-images) repository. Our arm64 images are partner images, and those are managed in the [`actions/partner-runner-images`](https://github.com/actions/partner-runner-images) repository.
 
 ### Preinstalled software for GitHub-owned images
 
@@ -183,12 +183,6 @@ You can install additional software on {% data variables.product.prodname_dotcom
 ## Cloud hosts used by {% data variables.product.prodname_dotcom %}-hosted runners
 
 {% data variables.product.prodname_dotcom %} hosts Linux and Windows runners on virtual machines in Microsoft Azure with the {% data variables.product.prodname_actions %} runner application installed. The {% data variables.product.prodname_dotcom %}-hosted runner application is a fork of the Azure Pipelines Agent. Inbound ICMP packets are blocked for all Azure virtual machines, so ping or traceroute commands might not work. {% data variables.product.prodname_dotcom %} hosts macOS runners in Azure data centers.
-
-For Linux and Windows x64 runners, {% data variables.product.company_short %} uses `Dadsv5-series` virtual machines. For more information, see [Dasv5 and Dadsv5-series](https://learn.microsoft.com/en-us/azure/virtual-machines/dasv5-dadsv5-series#dadsv5-series) in the Microsoft Azure documentation.
-
-For linux arm64 runners, {% data variables.product.company_short %} uses `Dpdsv6-series` virtual machines. For more information, see [Dpdsv6 series](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/general-purpose/dpdsv6-series?tabs=sizebasic) in the Microsoft Azure documentation.
-
-GPU runners use `NCasT4_v3-series` virtual machines. For more information, see [NCasT4_v3-series](https://learn.microsoft.com/en-us/azure/virtual-machines/nct4-v3-series) in the Microsoft Azure documentation.
 
 ## Workflow continuity
 

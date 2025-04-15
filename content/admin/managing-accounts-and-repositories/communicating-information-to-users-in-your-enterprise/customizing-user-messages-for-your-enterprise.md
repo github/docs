@@ -72,7 +72,7 @@ There are several types of user messages.
 
 ## Creating a mandatory message
 
-You can create a mandatory message that {% data variables.product.product_name %} will show to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before using {% data variables.location.product_location %}.
+On {% data variables.product.prodname_ghe_server %}, you can create a mandatory message that is displayed to all users the first time they sign in after you save the message. The message appears in a pop-up window that the user must dismiss before continuing.
 
 Mandatory messages have a variety of uses.
 

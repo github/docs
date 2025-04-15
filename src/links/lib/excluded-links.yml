@@ -83,3 +83,9 @@
 - startsWith: https://www.ilo.org
 - is: https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes
 - is: https://learning.getpostman.com/docs/postman/sending_api_requests/graphql/
+- is: https://www.nongnu.org/oath-toolkit/man-oathtool.html
+- is: https://www.gnu.org/software/emacs/
+- is: https://www.transparency.org/what-is-corruption
+- startsWith: https://platform.openai.com/docs/api-reference/
+- is: https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/
+- is: https://www.anthropic.com/claude/sonnet

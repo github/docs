@@ -24,35 +24,60 @@ import { allVersionShortnames } from '@/versions/lib/all-versions.js'
 import readFrontmatter from '@/frame/lib/read-frontmatter.js'
 import { inLiquid } from './lib/in-liquid'
 
-const { GITHUB_TOKEN, REVIEW_SERVER_ACCESS_TOKEN, APP_URL } = process.env
+const {
+  GITHUB_TOKEN,
+  REVIEW_SERVER,
+  REVIEW_SERVER_ACCESS_TOKEN,
+  APP_URL,
+  HEAD_BRANCH,
+  BASE_SHA,
+  HEAD_SHA,
+} = process.env
 const context = github.context
 
 // the max size of the comment (in bytes)
 // the action we use to post the comment caps out at about 144kb
-// see docs-engineering#1849 for more info
-const MAX_COMMENT_SIZE = 125000
+// see docs-engineering#1849 and peter-evans/create-or-update-comment#271 for more info.
+// The max size the action allows is 2^16, but our table calculates near the end
+// of its rendering before we add a key, so playing it safe with 2^15.
+const MAX_COMMENT_SIZE = 32768
 
 const PROD_URL = 'https://docs.github.com'
 
 // When this file is invoked directly from action as opposed to being imported
 if (import.meta.url.endsWith(process.argv[1])) {
-  const owner = context.repo.owner
-  const repo = context.payload.repository!.name
-  const baseSHA = process.env.BASE_SHA || context.payload.pull_request!.base.sha
-  const headSHA = process.env.HEAD_SHA || context.payload.pull_request!.head.sha
+  const isFork = context.payload.pull_request!.head.repo.fork
 
-  const markdownTable = await main(owner, repo, baseSHA, headSHA)
+  const headOwner = context.payload.pull_request!.head.repo.owner.login
+  const headRepo = context.payload.pull_request!.head.repo.name
+
+  const baseOwner = context.payload.pull_request!.base.repo.owner.login
+  const baseRepo = context.payload.pull_request!.base.repo.name
+
+  const baseSHA = BASE_SHA || context.payload.pull_request!.base.sha
+  const headSHA = HEAD_SHA || context.payload.pull_request!.head.sha
+
+  const markdownTable = await main(baseOwner, baseRepo, baseSHA, headSHA, {
+    isFork,
+    headOwner,
+    headRepo,
+  })
   core.setOutput('changesTable', markdownTable)
 }
 
-async function main(owner: string, repo: string, baseSHA: string, headSHA: string) {
+async function main(
+  owner: string,
+  repo: string,
+  baseSHA: string,
+  headSHA: string,
+  { isFork, headOwner, headRepo }: { isFork: boolean; headOwner?: string; headRepo?: string },
+) {
   if (!GITHUB_TOKEN) {
     throw new Error(`GITHUB_TOKEN environment variable not set`)
   }
   if (!APP_URL) {
     throw new Error(`APP_URL environment variable not set`)
   }
-  const headBranch = process.env.HEAD_BRANCH
 
   const RetryingOctokit = Octokit.plugin(retry)
   const octokit = new RetryingOctokit({
@@ -60,23 +85,30 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
   })
 
   // we'll attach the branch or sha right after this
-  const searchParams = new URLSearchParams({
-    'review-server-repository': `${owner}/${repo}`,
-  })
+  let queryParams = ''
+  if (REVIEW_SERVER) {
+    const searchParams = new URLSearchParams({
+      'review-server-repository': isFork ? `${headOwner}/${headRepo}` : `${owner}/${repo}`,
+    })
 
-  // this token will be available in the internal repo only, skip it for the open source repo
-  if (REVIEW_SERVER_ACCESS_TOKEN)
-    searchParams.append('review-server-access-token', REVIEW_SERVER_ACCESS_TOKEN)
+    // this token will be available in the internal repo only, skip it for the open source repo
+    if (REVIEW_SERVER_ACCESS_TOKEN) {
+      searchParams.append('review-server-access-token', REVIEW_SERVER_ACCESS_TOKEN)
+    }
 
-  // this script compares with SHAs only, so this allows us
-  // to surface the branch name for the review server bar
-  headBranch
-    ? searchParams.append('review-server-branch', headBranch)
-    : searchParams.append('review-server-sha', headSHA)
+    // this script compares with SHAs only, so this allows us
+    // to surface the branch name for the review server bar
+    if (HEAD_BRANCH) {
+      searchParams.append('review-server-branch', HEAD_BRANCH)
+    } else if (headSHA) {
+      searchParams.append('review-server-sha', headSHA)
+    }
 
-  const queryParams = `?${searchParams.toString()}`
+    queryParams = `?${searchParams.toString()}`
+  }
 
   // get the list of file changes from the PR
+  // this works even if the head commit is from a fork
   const response = await octokit.rest.repos.compareCommitsWithBasehead({
     owner,
     repo,
@@ -177,7 +209,7 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     return ''
   }
 
-  const headings = ['Source', 'Preview', 'Production', 'What Changed']
+  const headings = ['Source', 'Review', 'Production', 'What Changed']
   const markdownTableHead = [
     `| ${headings.map((heading) => `**${heading}**`).join(' | ')} |`,
     `| ${headings.map(() => ':---').join(' | ')} |`,
@@ -222,7 +254,7 @@ function makeRow({
   fromReusable?: boolean
 }) {
   let contentCell = ''
-  let previewCell = ''
+  let reviewCell = ''
   let prodCell = ''
 
   if (file.status === 'added') contentCell = 'New file: '
@@ -250,25 +282,25 @@ function makeRow({
         if (versions.toString() === nonEnterpriseDefaultVersion) {
           // omit version from fpt url
 
-          previewCell += `[${plan}](${APP_URL}/${fileUrl}${queryParams})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${fileUrl})<br>`
         } else {
           // for non-versioned releases (ghec) use full url
 
-          previewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl}${queryParams})<br>`
+          reviewCell += `[${plan}](${APP_URL}/${versions}/${fileUrl}${queryParams})<br>`
           prodCell += `[${plan}](${PROD_URL}/${versions}/${fileUrl})<br>`
         }
       } else if (versions.length) {
         // for ghes releases, link each version
 
-        previewCell += `${plan}@ `
+        reviewCell += `${plan}@ `
         prodCell += `${plan}@ `
 
         versions.forEach((version) => {
-          previewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}${queryParams}) `
+          reviewCell += `[${version.split('@')[1]}](${APP_URL}/${version}/${fileUrl}${queryParams}) `
           prodCell += `[${version.split('@')[1]}](${PROD_URL}/${version}/${fileUrl}) `
         })
-        previewCell += '<br>'
+        reviewCell += '<br>'
         prodCell += '<br>'
       }
     }
@@ -280,14 +312,14 @@ function makeRow({
   let note = ''
   if (file.status === 'removed') {
     note = 'removed'
-    // If the file was removed, the `previewCell` no longer makes sense
+    // If the file was removed, the `reviewCell` no longer makes sense
     // since it was based on looking at the base sha.
-    previewCell = 'n/a'
+    reviewCell = 'n/a'
   } else if (fromReusable) {
     note += 'from reusable'
   }
 
-  return `| ${contentCell} | ${previewCell} | ${prodCell} | ${note} |`
+  return `| ${contentCell} | ${reviewCell} | ${prodCell} | ${note} |`
 }
 
 function getAllContentFiles(): Map<string, string> {

@@ -3,7 +3,6 @@ title: Asking GitHub Copilot questions in Windows Terminal
 intro: 'You can use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} to get suggestions and explanations for the command line.'
 topics:
   - Copilot
-product: '{% data reusables.gated-features.copilot-free-availability %}'
 shortTitle: Copilot in Windows Terminal
 versions:
   feature: copilot
@@ -13,7 +12,7 @@ versions:
 
 * **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 * **{% data variables.product.prodname_windows_terminal %} Canary installed**. For installation instructions, see [Installing {% data variables.product.prodname_windows_terminal %} Canary](https://github.com/microsoft/terminal?tab=readme-ov-file#installing-windows-terminal-canary).
-* **GitHub Copilot connected to Terminal Chat**. See [AUTOTITLE](/copilot/quickstart?tool=windowsterminal).
+* **{% data variables.product.prodname_copilot %} connected to Terminal Chat**. See [AUTOTITLE](/copilot/quickstart?tool=windowsterminal).
 
 If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
 

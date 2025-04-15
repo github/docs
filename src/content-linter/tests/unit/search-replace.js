@@ -27,7 +27,6 @@ describe(searchReplace.names.join(' - '), () => {
       'docs.github.com',
       '- help.github.com',
       '[help.github.com](//developer.github.com)',
-      '![developer.github.com](//preview.ghdocs.com)',
       ' docs.github.com',
       'developer.github.com/enterprise',
       'developer.github.com/enterprise/',
@@ -44,7 +43,7 @@ describe(searchReplace.names.join(' - '), () => {
       ruleConfig: searchReplaceConfig['search-replace'],
     })
     const errors = result.markdown
-    expect(errors.length).toBe(10)
+    expect(errors.length).toBe(8)
   })
 
   test('Deprecated Liquid syntax causes error', async () => {

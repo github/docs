@@ -1,6 +1,6 @@
 ---
 title: About source code imports using the command line
-intro: 'You can use command line tools to import source code and its revision history to {% data variables.product.product_name %}.'
+intro: 'You can use command line tools to import source code and its revision history to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,7 +24,7 @@ You can use the command line to import source code and, if the code has been tra
 
 * To import a Git repository that is stored on a code hosting service{% ifversion fpt or ghec %} that is not accessible from the public internet{% endif %}, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line).
 * To import code that is only stored locally, and is either tracked by Git or not tracked by any version control system, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github).
-* To import code that is tracked by any version control system other than Git, first convert the repository to Git, then push the Git repository to {% data variables.product.product_name %}.
+* To import code that is tracked by any version control system other than Git, first convert the repository to Git, then push the Git repository to {% data variables.product.github %}.
 {% ifversion fpt or ghec %}
   * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-subversion-repository)
   * [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-a-mercurial-repository)

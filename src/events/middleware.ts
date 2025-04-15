@@ -86,7 +86,11 @@ router.post(
 
     // Add dotcom_user to the context if it's available
     // JSON.stringify removes `undefined` values but not `null`, and we don't want to send `null` to Hydro
-    body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
+    if (body.context) {
+      body.context.dotcom_user = req.cookies?.dotcom_user ? req.cookies.dotcom_user : undefined
+      // Add if the user is a staff, using the 'staffonly' cookie
+      body.context.is_staff = Boolean(req.cookies?.staffonly)
+    }
 
     await publish({
       schema: hydroNames[type],

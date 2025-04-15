@@ -15,9 +15,6 @@ github: 'GitHub'
 ## DO NOT USE. Use the `github` variable instead. (Writers found the name of this variable to be misleading.)
 prodname_dotcom: 'GitHub'
 
-product_name: >-
-  {% ifversion ghec %}GitHub Enterprise Cloud{% elsif ghes %}GitHub Enterprise Server{% else %}GitHub{% endif %}
-
 ## Use this variable when the output should always be GitHub Enterprise, regardless of the product the user is using
 prodname_enterprise: 'GitHub Enterprise'
 
@@ -97,8 +94,8 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.11 %}2.13.5{% elsif ghes < 3.12 %}2.14.6{% elsif ghes < 3.13 %}2.15.5{% elsif ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% endif %}
-
+  {% ifversion ghes < 3.17 %}2.20.3{% endif %}
+codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
 prodname_projects_v1: >-
@@ -122,13 +119,13 @@ pat_v2_plural: 'fine-grained personal access tokens'
 pat_v2_caps: 'Fine-grained personal access token'
 pat_v2_caps_plural: 'Fine-grained personal access tokens'
 pat_v1: >-
-  {% ifversion pat-v2 %}personal access token (classic){% else %}personal access token{% endif %}
+  personal access token (classic)
 pat_v1_plural: >-
-  {% ifversion pat-v2 %}personal access tokens (classic){% else %}personal access tokens{% endif %}
+  personal access tokens (classic)
 pat_v1_caps: >-
-  {% ifversion pat-v2 %}Personal access token (classic){% else %}Personal access token{% endif %}
+  Personal access token (classic)
 pat_v1_caps_plural: >-
-  {% ifversion pat-v2 %}Personal access tokens (classic){% else %}Personal access tokens{% endif %}
+  Personal access tokens (classic)
 pat_classic: 'token (classic)'
 pat_classic_plural: 'tokens (classic)'
 pat_classic_caps: 'Token (classic)'
@@ -150,7 +147,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.11 %}2.304.0{% elsif ghes < 3.12 %}2.309.0{% elsif ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% endif %}
+  {% ifversion ghes < 3.13 %}2.311.0{% elsif ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
@@ -183,8 +180,42 @@ prodname_sponsors: 'GitHub Sponsors'
 prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 
 # GitHub Advanced Security
+# ------------------------
+## Full product names
+prodname_GHAS: 'GitHub Advanced Security'
+prodname_GH_code_security: '{% ifversion ghas-products %}GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+prodname_GH_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection{% else %}GitHub Advanced Security{% endif %}'
+
+## GHAS or GHAS products
+prodname_GHAS_or_code_security: '{% ifversion ghas-products %}GitHub Code Security or {% endif %}GitHub Advanced Security'
+prodname_GHAS_or_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection or {% endif %}GitHub Advanced Security'
+prodname_GHAS_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, or {% endif %}GitHub Advanced Security'
+prodname_GH_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection or GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+
+## GHAS and GHAS products
+prodname_GHAS_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, and {% endif %}GitHub Advanced Security'
+prodname_GH_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection and GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+
+## Short or UI names
+prodname_AS: 'Advanced Security'
+prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Advanced Security{% endif %}'
+prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
+prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
+prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}'
+UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
+UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
+
+## OLD variables, DO NOT USE
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
+
+## Secret risk assessment
+prodname_secret_risk_assessment: 'secret risk assessment'
+prodname_secret_risk_assessment_caps: 'Secret risk assessment'
+
+## Azure DevOps
 prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
 
 # Codespaces
@@ -202,6 +233,7 @@ prodname_roadmap: 'GitHub public roadmap'
 prodname_roadmap_link: 'https://github.com/github/roadmap#github-public-roadmap'
 
 # GitHub support
+standard_support_plan: 'Standard plan'
 premium_support_plan: 'Premium plan'
 premium_plus_support_plan: 'Premium Plus plan / GitHub Engineering Direct'
 microsoft_premium_plus_support_plan: 'GitHub Engineering Direct'
@@ -271,6 +303,8 @@ prodname_copilot_for_business: 'GitHub Copilot Business'
 prodname_copilot_for_individuals: 'GitHub Copilot Individual'
 prodname_copilot_pro: 'GitHub Copilot Pro'
 prodname_copilot_pro_short: 'Copilot Pro'
+prodname_copilot_pro_plus: 'GitHub Copilot Pro+'
+prodname_copilot_pro_plus_short: 'Copilot Pro+'
 prodname_copilot_business_short: 'Copilot Business'
 prodname_copilot_individuals_short: 'Copilot Individual'
 prodname_copilot_enterprise: 'GitHub Copilot Enterprise'
@@ -307,15 +341,16 @@ prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
 prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
 prodname_copilot_autocomplete_pr: 'Copilot text completion'
-
-# Copilot branded GHAS features
-prodname_copilot_autofix: 'GitHub Copilot Autofix'
-prodname_copilot_autofix_short: 'Copilot Autofix'
-prodname_copilot_edits_vscode_short: 'Copilot Edits'
+prodname_copilot_edits: 'GitHub Copilot Edits'
+prodname_copilot_edits_short: 'Copilot Edits'
 prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 prodname_copilot_workspace: 'Copilot Workspace'
 prodname_copilot_workspace_short: 'Workspace'
+
+# GHAS licensed features branded as Copilot
+prodname_copilot_autofix: 'GitHub Copilot Autofix'
+prodname_copilot_autofix_short: 'Copilot Autofix'
 
 # Windows
 prodname_windows_terminal: 'Windows Terminal'

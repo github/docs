@@ -1,6 +1,6 @@
 ---
 title: Connecting an Azure subscription
-intro: "You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription."
+intro: 'You can enable and pay for usage-based billing on {% data variables.location.product_location %} by connecting an Azure subscription.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account/connecting-an-azure-subscription-to-your-enterprise
   - /github/setting-up-and-managing-billing-and-payments-on-github/connecting-an-azure-subscription-to-your-enterprise
@@ -10,7 +10,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.12'
+  ghes: '*'
 shortTitle: Connect an Azure subscription
 ---
 
@@ -28,7 +28,7 @@ In this article, the instructions that you must follow to connect an Azure subsc
 
 {% ifversion ghec %}
 
-If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connection to an Azure subscription is the only way to use {% data variables.product.prodname_github_codespaces %} and {% data variables.product.prodname_copilot_business_short %}, or to use {% data variables.product.prodname_actions %} and {% data variables.product.prodname_registry %} beyond your plan's included amounts.
+If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft Enterprise Agreement, connecting an Azure subscription is the only way to use {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_github_codespaces %}, or {% data variables.product.prodname_copilot %}, or to use {% data variables.product.prodname_actions %}, Git Large File Storage (LFS), or {% data variables.product.prodname_registry %} beyond your plan's included amounts.
 
 {% endif %}
 
@@ -45,7 +45,7 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)                                                                       | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits) |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) |                                                                                                                  N/A |
 | {% ifversion metered-ghe-ghas %} |
-| {% data variables.product.prodname_GH_advanced_security %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
+| {% data variables.product.prodname_AS %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
 | {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise) |                                                                                                                  N/A |
 
 {% endif %}
@@ -117,9 +117,8 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 To connect your Azure subscription, you must have owner permissions to the Azure subscription and be an enterprise owner on {% data variables.product.prodname_dotcom %}.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Payment Information", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
@@ -155,9 +154,8 @@ After you disconnect your Azure subscription from your organization account, you
 After you disconnect your Azure subscription from your enterprise account, your usage can no longer exceed the amounts included with your plan.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.billing-tab %}
-{% data reusables.enterprise-accounts.payment-information-tab %}
+{% data reusables.enterprise-accounts.billing-tab-both-platforms %}
+{% data reusables.enterprise-accounts.payment-information-tab-both-platforms %}
 
 1. Under "Azure subscription", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.
@@ -176,3 +174,38 @@ If the user account you used to sign into Azure does not have adequate permissio
 > GitHub Inc needs permission to access resources in your organization that only an admin can grant. Please ask an admin to grant permission to this app before you can use it.
 
 To avoid this message when you try again, you must either ensure that the Azure user can provide tenant-wide admin consent, or you must work with an Azure administrator to configure the admin consent workflow. For more information, review [Prerequisites](#prerequisites).
+
+{% ifversion ghec %}
+
+## Frequently asked questions about Azure subscriptions
+
+The following are answers to some common questions about connecting an Azure subscription to your account on {% data variables.product.prodname_dotcom %}.
+
+### Can I connect more than one enterprise or cost center to the same Azure subscription?
+
+Yes. There’s no limit to the number of enterprises or cost centers you can connect to a single Azure subscription. For details on how charges are applied to cost centers, see [AUTOTITLE](/billing/using-the-new-billing-platform/charging-business-units).
+
+### Can I connect multiple Azure subscriptions to one enterprise?
+
+Yes. You can connect multiple Azure subscriptions to a single enterprise account by creating **cost centers**. Cost centers let you allocate metered usage across different Azure subscriptions.
+
+### How are charges split in Azure for multiple enterprises?
+
+Azure usage is separated by **SKU** and either **enterprise ID** or **cost center ID**. The format used is `enterprise:sku` or `costcenter:sku`.
+
+> [!NOTE]
+> Azure currently shows internal IDs, which may make it difficult to identify the corresponding enterprise or cost center.
+
+### What happens if I don’t assign an Azure subscription to a cost center?
+
+Charges will fall back to the **enterprise-level Azure subscription**. This also happens if a cost center becomes invalid or is deleted—any future usage from those resources is billed to the enterprise-level subscription.
+
+### Can billing managers connect to Azure subscriptions?
+
+Yes. Billing managers for organizations or enterprises can connect Azure subscriptions.
+
+### Can I use metered products during an {% data variables.product.prodname_emu %} trial without connecting an Azure subscription?
+
+Yes. During an **{% data variables.product.prodname_emu %} trial**, you can use metered products up to the included limits. To exceed the included limits, you’ll need to link an Azure subscription.
+
+{% endif %}

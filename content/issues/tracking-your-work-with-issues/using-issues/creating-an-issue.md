@@ -154,7 +154,7 @@ Query parameter | Example
 `labels` | `https://github.com/octo-org/octo-repo/issues/new?labels=help+wanted,bug` creates an issue with the labels "help wanted" and "bug".
 `milestone` | `https://github.com/octo-org/octo-repo/issues/new?milestone=testing+milestones` creates an issue with the milestone "testing milestones."
 `assignees` | `https://github.com/octo-org/octo-repo/issues/new?assignees=octocat` creates an issue and assigns it to @octocat.
-`projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project 1. {% ifversion projects-v2 and projects-v1 %}{% ifversion projects-in-issue-forms %}{% else %}Only {% data variables.projects.projects_v1_boards %} can currently be specified in URL queries.{% endif %}{% endif %}
+`projects` | `https://github.com/octo-org/octo-repo/issues/new?title=Bug+fix&projects=octo-org/1` creates an issue with the title "Bug fix" and adds it to the organization's project 1.
 `template` | `https://github.com/octo-org/octo-repo/issues/new?template=issue_template.md` creates an issue with a template in the issue body. The `template` query parameter works with templates stored in an `ISSUE_TEMPLATE` subdirectory within the root, `docs/` or `.github/` directory in a repository. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests).
 
 {% ifversion fpt or ghec %}
@@ -168,6 +168,14 @@ You can also use URL query parameters to fill custom text fields that you have d
 {% data reusables.code-scanning.beta-alert-tracking-in-issues %}
 If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
 {% data reusables.code-scanning.alert-tracking-link %}
+
+{% endif %}
+
+{% ifversion copilot %}
+
+## Creating an issue from {% data variables.product.prodname_copilot_chat_short %}
+
+You can create an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
 
 {% endif %}
 

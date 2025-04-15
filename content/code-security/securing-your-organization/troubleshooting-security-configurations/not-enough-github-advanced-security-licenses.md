@@ -1,17 +1,18 @@
 ---
 title: Not enough GitHub Advanced Security licenses
 shortTitle: Not enough GHAS licenses
-intro: 'You need available GHAS licenses to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository.'
+intro: 'If you are on a subscription-based billing model for GHAS, you need available GHAS licenses to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository.'
 permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---
 
-You must have an available {% data variables.product.prodname_GH_advanced_security %} (GHAS) license for each unique active committer to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository. To learn about GHAS licensing, as well as unique and active committers, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+If you are on a volume / subscription-based billing model for {% data variables.product.prodname_GHAS %} (GHAS), you must have an available GHAS license for any additional unique active committers to enable GHAS features on a private{% ifversion ghec or ghes %} or internal{% endif %} repository. To learn about GHAS licensing, as well as unique and active committers, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
 If you try to apply a {% data variables.product.prodname_security_configuration %} with GHAS features to your repositories and don't have enough GHAS licenses, the configuration will only be successfully applied to public repositories. For private {% ifversion ghec or ghes %}and internal {% endif %}repositories, only free security features will be enabled due to the license limitation, resulting in the following outcomes:
 

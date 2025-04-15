@@ -13,7 +13,7 @@ topics:
 
 ## About the virtual machine host image
 
-A {% data variables.product.prodname_dotcom %} codespace is a development environment provided by a Docker container that runs on a virtual machine (VM). For more information about the relationship of the development container and the VM, see [AUTOTITLE](/codespaces/overview#what-is-a-codespace).
+A {% data variables.product.prodname_dotcom %} codespace is a development environment provided by a Docker container that runs on a virtual machine (VM). For more information about the relationship of the development container and the VM, see [AUTOTITLE](/codespaces/quickstart#introduction).
 
 The VM for a codespace is built using a host image that defines the operating system of the VM. The image is periodically upgraded to improve security, functionality, and performance. The upgraded host image is initially made available as a beta release and subsequently becomes the stable release after a period of testing. You can choose, in your personal settings, to use either the stable or beta version of the host image. Any codespace you create or resume after changing this setting will run on a VM built from the specified host image.
 

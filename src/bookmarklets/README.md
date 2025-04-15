@@ -1,6 +1,6 @@
 # Bookmarklets
 
-The [bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet) in this directory are browser shortcuts that may help with reviewing GitHub documentation. We may eventually build the functionality they provide into Docs preview environments, but these are handy hacks for now.
+The [bookmarklets](https://en.wikipedia.org/wiki/Bookmarklet) in this directory are browser shortcuts that may help with reviewing GitHub documentation. We may eventually build the functionality they provide into Docs review environments, but these are handy hacks for now.
 
 ## Installing bookmarklets
 
@@ -17,19 +17,19 @@ Clicking the bookmark will then execute the JavaScript.
 
 [`src/bookmarklets/view-in-development.js`](./view-in-development.js)
 
-When you're looking at a page on docs.github.com or a preview server at preview.ghdocs.com, clicking this bookmarklet will load the same path you're viewing but on your local server running at localhost:4000.
+When you're looking at a page on docs.github.com or a review server, clicking this bookmarklet will load the same path you're viewing but on your local server running at localhost:4000.
 
 ## "View in production" toggle
 
 [`src/bookmarklets/view-in-production.js`](./view-in-production.js)
 
-When you're looking at a page on a preview server at preview.ghdocs.com or your local server running at localhost:4000, clicking this bookmarklet will load the same path you're viewing but on the live documentation site at docs.github.com.
+When you're looking at a page on a review server or your local server running at localhost:4000, clicking this bookmarklet will load the same path you're viewing but on the live documentation site at docs.github.com.
 
 ## Open a docs article in VS Code
 
 [`src/bookmarklets/open-in-vscode.js`](./open-in-vscode.js)
 
-When you're looking at a page on either docs.github.com, preview.ghdocs.com, or localhost:4000, clicking this bookmarklet will open the source Markdown file from your local checkout in VS Code.
+When you're looking at a page on either docs.github.com, review, or localhost:4000, clicking this bookmarklet will open the source Markdown file from your local checkout in VS Code.
 
 The installation requires a few steps:
 
@@ -39,11 +39,3 @@ The installation requires a few steps:
 1. Paste the path in place of where it says `REPLACE_ME` in line 1 (make sure to leave the single quotes around it).
 1. Change the title to something like `Open in VSC`.
 1. Drag the generated link onto your bookmarks bar.
-
-## Add preview links to PRs
-
-[`src/bookmarklets/add-pr-links.js`](./add-pr-links.js)
-
-This bookmarklet modifies the `Files changed` page of a GitHub pull request that has a current staging deployment. For each Markdown file in the diff view, it adds links to the preview deployment of the file for each version: `FPT / GHEC / GHES / AE`. (Some of these may redirect to another version or 404 if that version of the page doesn't exist.)
-
-Note: readable JavaScript source lives in `src/bookmarklets/pr-link-source.js`. The bookmarklet code was generated via https://chriszarate.github.io/bookmarkleter.

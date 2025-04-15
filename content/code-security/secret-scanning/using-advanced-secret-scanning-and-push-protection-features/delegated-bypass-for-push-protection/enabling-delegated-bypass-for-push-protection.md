@@ -7,7 +7,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Enable delegated bypass
@@ -31,8 +31,9 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+1. Under "{% data variables.product.prodname_secret_protection %}", ensure that push protection is enabled for the repository.{% else %}
+{% data reusables.repositories.navigate-to-ghas-settings %}{% endif %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
 
@@ -50,9 +51,9 @@ When you enable this feature, you will create a bypass list of roles and teams w
 You must configure delegated bypass for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
 1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
-1. When creating the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**.
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that {% ifversion ghas-products %}"Push protection" is set to **Enabled**{% else %}the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**{% endif %}.
 1. Under "Push protection", to the right of "Bypass privileges", select the dropdown menu, then click **Specific actors**.
-  
+
    > [!NOTE]
    > When you assign bypass privileges to selected actors, these organization members are granted the ability to bypass push protection, and they also review and manage the requests from all other contributors to bypass push protection.
    >
@@ -73,7 +74,7 @@ To learn more about security configurations, see [AUTOTITLE](/code-security/secu
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
 {% else %}
 {% data reusables.organizations.security-and-analysis %}
 {% data reusables.repositories.navigate-to-ghas-settings %}

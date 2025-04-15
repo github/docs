@@ -27,8 +27,6 @@ You can register a {% data variables.product.prodname_github_app %} in a few dif
 * Under an **organization you own**.
 * Under an **organization** that has granted you permission to manage all its apps. See [AUTOTITLE](/organizations/managing-programmatic-access-to-your-organization/adding-github-app-managers-in-your-organization).{% ifversion enterprise-apps-public-beta %}
 * Under your **enterprise**, but it can only be installed on organizations within the enterprise.
-
-  {% data reusables.apps.enterprise-apps-beta %}
 {% endif %}
 
 {% data reusables.apps.maximum-github-apps-allowed %}

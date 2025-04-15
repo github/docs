@@ -2,6 +2,8 @@ date: '2024-11-07'
 sections:
   security_fixes:
     - |
+      **HIGH**: An attacker could leak sensitive data from the DOM by injecting malicious input through the `identity` parameter in `querySelector` handling. This allows the attacker to dynamically embed a hidden iframe on the page and exfiltrate data from DOM attributes. To execute the attack, the victim must be logged into GitHub and interact with the attacker controlled malicious webpage containing the hidden iframe. GitHub has requested CVE ID [CVE-2024-10001](https://www.cve.org/cverecord?id=CVE-2024-10001) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2025-01-27]
+    - |
       **HIGH**: An attacker could bypass SAML single sign-on (SSO) authentication with the optional encrypted assertions feature, allowing unauthorized provisioning of users and access to the instance, by exploiting an improper verification of cryptographic signatures vulnerability in GitHub Enterprise Server. This is a follow up fix for [CVE-2024-9487](https://www.cve.org/cverecord?id=CVE-2024-9487) to further harden the encrypted assertions feature against this type of attack. Please note that encrypted assertions are not enabled by default. Instances not utilizing SAML SSO, or utilizing SAML SSO authentication without encrypted assertions, are not impacted. Additionally, an attacker would require direct network access as well as a signed SAML response or metadata document to exploit this vulnerability.
     - |
       **HIGH**: An attacker with Enterprise Administrator access to the GitHub Enterprise Server instance could escalate privileges to SSH root access. This is achieved by exploiting the pre-receive hook environment to bypass symlink checks in the `ghe-firejail` path and execute malicious scripts. GitHub has requested CVE ID [CVE-2024-10007](https://www.cve.org/cverecord?id=CVE-2024-10007) for this vulnerability, which was reported via the [GitHub Bug Bounty program](https://bounty.github.com/). [Updated: 2024-11-07]
@@ -45,8 +47,6 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
-      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
-    - |
       The `reply.[HOSTNAME]` subdomain is falsely always displaying as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
@@ -54,5 +54,10 @@ sections:
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+ 
+  errata:
     - |
-      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.11, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+      

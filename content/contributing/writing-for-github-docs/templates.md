@@ -2,7 +2,9 @@
 title: Templates
 intro: 'This article contains starter templates for the different content types used in {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## Conceptual article template

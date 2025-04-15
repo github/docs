@@ -6,7 +6,7 @@ redirect_from:
   - /admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates
 allowTitleToDifferFromFilename: true
 versions:
-  ghes: '> 3.2'
+  ghes: '*'
 topics:
   - Enterprise
   - Security
@@ -30,6 +30,8 @@ Configuring self-hosted runners is only one step in the middle of the process fo
 ### System requirements for {% data variables.product.prodname_dependabot %} runners
 
 {% data reusables.dependabot.dependabot-runners-system-requirements %}
+
+{% data reusables.dependabot.vnet-arc-note %}
 
 ### Network requirements for {% data variables.product.prodname_dependabot %} runners
 

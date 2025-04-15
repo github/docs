@@ -1,7 +1,7 @@
 ---
 title: Configuring collectd for your instance
 shortTitle: Configure collectd
-intro: 'To gain insight into {% data variables.product.product_name %}''s performance, you can review data from `collectd` on your instance, or optionally send the data to an external `collectd` server.'
+intro: 'To gain insight into {% data variables.product.prodname_ghe_server %}''s performance, you can review data from `collectd` on your instance, or optionally send the data to an external `collectd` server.'
 redirect_from:
   - /enterprise/admin/installation/configuring-collectd
   - /enterprise/admin/articles/configuring-collectd
@@ -22,13 +22,19 @@ topics:
   - Performance
 ---
 
-## About collectd for {% data variables.product.product_name %}
+## About collectd for {% data variables.product.prodname_ghe_server %}
 
 `collectd` is a service that runs on {% data variables.location.product_location %} to gather and provide metrics about the system's performance. Common metrics that `collectd` gathers includes CPU utilization, memory and disk consumption, network interface traffic and errors, and a system's overall load. You can also forward the data to another `collectd` server. For more information see the [collectd wiki](https://github.com/collectd/collectd/wiki).
 
 Your instance uses metrics from `collectd` to display graphs in the {% data variables.enterprise.management_console %}'s monitor dashboard. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards).
 
 You can review a list of the metrics that `collectd` gathers on {% data variables.location.product_location %}. For more information, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/collectd-metrics-for-github-enterprise-server).
+
+{% ifversion prometheus-metrics-exporter %}
+
+> [!TIP] In {% data variables.product.prodname_ghe_server %} 3.16, support was added for exporting `collectd` metrics in Prometheus format. This update does not change the existing metrics stack in the appliance but provides an easier way to ingest metrics into an observability platform by supporting the Prometheus protocol. An additional option is available to expose collectd metrics in Prometheus format with an endpoint. See [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics).
+
+{% endif %}
 
 ## Set up an external `collectd` server
 

@@ -22,13 +22,17 @@ There are three ways to add organizations to your enterprise.
 
 * **Create** a new organization in your enterprise.
 * **Invite** an existing organization to join your enterprise.
-* **Transfer** an existing organization between enterprise accounts.
+* **Transfer** an existing organization between enterprise accounts on {% data variables.product.prodname_dotcom_the_website %}.
 
 {% data reusables.enterprise.create-an-enterprise-account %} See [AUTOTITLE](/admin/managing-your-enterprise-account/creating-an-enterprise-account).
 
-## Limitations if you use {% data variables.product.prodname_emus %}
+## Limitations
 
-* Adding existing organizations to your enterprise is not possible if you use {% data variables.product.prodname_emus %}.
+If you use {% data variables.enterprise.data_residency %}, you cannot transfer organizations between {% data variables.product.prodname_dotcom_the_website %} and your enterprise on {% data variables.enterprise.data_residency_site %}. Instead, you must migrate organizations with the {% data variables.product.prodname_importer_proper_name %}. See [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/about-migrations-between-github-products).
+
+If you use {% data variables.product.prodname_emus %}, the following limitations apply:
+
+* Adding existing organizations to your enterprise is not possible.
 * Existing organizations from an enterprise with managed users cannot be added to a different enterprise.
 
 ## Changes when adding an existing organization
@@ -81,7 +85,7 @@ During a trial of {% data variables.product.prodname_ghe_cloud %}, you can creat
 
 Enterprise owners can invite existing organizations to join their enterprise account.
 
-During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you must be an owner of both enterprise accounts and initiate an organization transfer. See [Transferring an existing organization](#transferring-an-existing-organization).
+During a trial of {% data variables.product.prodname_ghe_cloud %}, you can invite organizations to join your trial enterprise. You can invite organizations that are not currently owned by another enterprise. If an organization you want to invite is already owned by another enterprise, you cannot invite it to your trial enterprise.
 
 After you invite the organization, and before an owner approves the invitation, you can cancel or resend the invitation at any time.
 

@@ -27,7 +27,7 @@ $ ssh -vT git@{% data variables.product.product_url %}
 
 ### Use HTTPS
 
-Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/get-started/getting-started-with-git/about-remote-repositories) you're using:
+Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/get-started/git-basics/about-remote-repositories) you're using:
 
 ```shell
 $ git clone https://{% data variables.product.product_url %}/USERNAME/REPO-NAME.git

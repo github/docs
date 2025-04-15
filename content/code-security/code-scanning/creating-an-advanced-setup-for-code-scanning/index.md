@@ -8,7 +8,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 children:
   - /configuring-advanced-setup-for-code-scanning

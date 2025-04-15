@@ -11,7 +11,7 @@ versions:
 type: overview
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 children:
   - /about-secret-scanning
   - /about-push-protection

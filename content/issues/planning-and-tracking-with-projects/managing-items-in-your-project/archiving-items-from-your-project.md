@@ -3,7 +3,9 @@ title: 'Archiving items from your {% data variables.projects.project_v2 %}'
 shortTitle: Archiving items
 intro: 'You can archive items, keeping them available to restore, or permanently delete them.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

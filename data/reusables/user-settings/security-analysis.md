@@ -1,1 +1,1 @@
-1. In the "Security" section of the sidebar, click **{% octicon "shield-lock" aria-hidden="true" %} {% ifversion code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}**.
+1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security**.

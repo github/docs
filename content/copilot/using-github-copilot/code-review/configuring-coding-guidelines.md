@@ -12,7 +12,7 @@ redirect_from:
   - /early-access/copilot/code-reviews/configuring-coding-guidelines
 ---
 
-> [!NOTE] Custom coding guidelines are limited to selected participants in the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_code-review_short %}, and only available as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}.
+{% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %}
 
 ## About coding guidelines
 
@@ -70,8 +70,6 @@ Coding guidelines are configured at the repository level. You can create and ena
 When you request a review from {% data variables.product.prodname_copilot_short %}, it will automatically use the repository's enabled coding guidelines to review your code. For more information, see [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
 
 Comments generated based on a coding guideline will include a message, highlighting their source.
-
-![Screenshot of a comment produced from a custom coding guideline.](/assets/images/help/copilot/code-review/coding-guidelines-comment@2x.png)
 
 ## Coding guidelines examples
 

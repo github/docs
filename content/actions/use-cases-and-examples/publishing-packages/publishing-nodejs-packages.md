@@ -78,7 +78,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
       - run: npm publish {% ifversion artifact-attestations %}--provenance --access public{% endif %}
@@ -141,7 +141,7 @@ jobs:
       # Setup .npmrc file to publish to GitHub Packages
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
+          node-version: '20.x'
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'
@@ -176,7 +176,7 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: {% data reusables.actions.action-setup-node %}
         with:
-          node-version: {% ifversion actions-node20-support %}'20.x'{% else %}'16.x'{% endif %}
+          node-version: '20.x'
           registry-url: 'https://registry.npmjs.org'
           # Defaults to the user or organization that owns the workflow file
           scope: '@octocat'

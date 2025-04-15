@@ -3,12 +3,14 @@ title: Exporting data from security overview
 shortTitle: Export data
 intro: From security overview, you can export CSV files of the data used for your organization or enterprise's overview, risk, coverage, and {% data variables.product.prodname_codeql %} pull request alerts pages.
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
   feature: security-overview-export-data
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams
@@ -37,12 +39,8 @@ The CSV file you download will contain data corresponding to the filters you hav
 
     It may take a moment for {% data variables.product.github %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.
 
-{% ifversion secret-scanning-non-provider-patterns %}
-
 > [!NOTE]
-> The summary views ({% ifversion security-overview-dashboard %}"Overview", {% endif %}"Coverage" and "Risk") show data only for {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for non-provider patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
-
-{% endif %}
+> The summary views ("Overview", "Coverage" and "Risk") show data only for default alerts. {% data variables.product.prodname_code_scanning_caps %} alerts from third-party tools, and {% data variables.product.prodname_secret_scanning %} alerts for non-provider patterns or for ignored directories are all omitted from these views. Consequently, files exported from the summary views do not contain data for these types of alert.
 
 ## Exporting overview, coverage, and risk data from your enterprise's security overview
 

@@ -14,16 +14,53 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Prevent overspending
 ---
 
-Budgets and alerts allow you to track spending for your {% ifversion fpt %}organization{% elsif ghec %}enterprise, organizations, repositories, or cost centers{% endif %}. By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
+Budgets and alerts allow you to track spending for your {% ifversion fpt %}organization or personal account{% elsif ghec %}enterprise, organizations, repositories, or cost centers{% endif %}. By setting a monthly budget, you can monitor your spending and receive notifications by email when your spending exceeds certain preset percentages of your budget threshold. This can help you stay within your budget and avoid overspending.
 
 The budget only applies to expenses incurred from the date of its creation onwards. Any expenses incurred prior to the creation of the budget will not be included in the calculations
 
-Budgets are not applicable to:
+{% ifversion ghec %}
+Budgets are not applicable to pre-paid volume licenses.
+{% endif %}
 
-* {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
-* Pre-paid volume licenses{% endif %}.
+For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
 
-## Viewing budgets
+> [!NOTE]
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
+
+{% ifversion fpt %}
+
+## Managing budgets for your personal account
+
+You can set spending limits and receive alerts when your usage reaches 75%, 90%, or 100% of your defined budget. Budgets can be scoped at the repository or product level, depending on the product.
+
+{% data reusables.user-settings.access_settings %}
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Click **Budgets and alerts**.
+1. To create a new budget, click **New budget** and follow the prompts.
+1. To edit or delete a budget, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
+
+{% endif %}
+
+## Managing budgets for your {% data variables.enterprise.enterprise_or_org %}
+
+You can manage budgets for your {% data variables.enterprise.enterprise_or_org %} by setting a budget, viewing budgets, and editing or deleting budgets.
+
+{% ifversion ghec %}
+
+### Budget scopes
+
+You can create a budget for a given {% data variables.product.github %} product and specific scope:
+
+* `Enterprise` scoped budgets track spending for all organizations, repositories, and cost centers in the enterprise
+* `Organization` scoped budgets track spending for a single organization, repositories, and cost centers in the organization
+* `Repository` scoped budgets track spending for a single repository
+* `Cost center` scoped budgets track spending for a single cost center
+
+Usage is applied towards all applicable budgets. If any applicable budget with "Stop usage when budget limit is reached" enabled becomes exhausted, additional usage will be stopped.
+
+{% endif %}
+
+### Viewing budgets
 
 If you are an {% data variables.enterprise.enterprise_or_org %} owner or billing manager, your {% data variables.enterprise.enterprise_or_org %}'s budget will be listed at the top of the "Budgets and alerts" page{% ifversion ghec %}, followed by the budgets for your organizations and cost centers. As an organization owner, you will be able to view the budgets for your organizations, repositories, and cost centers{% endif %}.
 
@@ -46,7 +83,7 @@ If you are an {% data variables.enterprise.enterprise_or_org %} owner or billing
 1. To filter by scope, select **Scope**, then choose a scope.
 {% endif %}
 
-## Creating a budget
+### Creating a budget
 
 As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %} or billing manager{% endif %}, you can set the budget for your {% data variables.enterprise.enterprise_or_org %}{% ifversion ghec %}, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage{% endif %}.
 
@@ -79,7 +116,7 @@ As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %
 
 1. Click **Create budget**.
 
-## Editing or deleting a budget
+### Editing or deleting a budget
 
 {% ifversion fpt %}
 

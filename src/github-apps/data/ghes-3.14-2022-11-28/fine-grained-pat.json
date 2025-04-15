@@ -861,12 +861,6 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -4195,6 +4189,30 @@
       "subcategory": "external-groups",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
+    },
+    {
+      "slug": "list-team-projects",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
+    },
+    {
+      "slug": "check-team-permissions-for-a-project",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "add-or-update-team-project-permissions",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "remove-a-project-from-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "get-team-member-legacy",

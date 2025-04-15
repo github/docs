@@ -116,7 +116,7 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-name: index.docker.io/my-docker-hub-namespace/my-docker-hub-repository
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
           push-to-registry: true
 {% endif -%}
@@ -229,7 +229,7 @@ jobs:
       - name: Generate artifact attestation
         uses: actions/attest-build-provenance@v2
         with:
-          subject-name: {% raw %}${{ env.REGISTRY }}/${{ env.IMAGE_NAME}}{% endraw %}
+          subject-name: {% data reusables.package_registry.container-registry-hostname %}/{% raw %}${{ github.repository }}{% endraw %}
           subject-digest: {% raw %}${{ steps.push.outputs.digest }}{% endraw %}
           push-to-registry: true
 {% endif -%}

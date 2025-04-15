@@ -3,7 +3,9 @@ title: Converting draft issues to issues
 shortTitle: Converting draft issues
 intro: Learn how to convert draft issues into issues.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

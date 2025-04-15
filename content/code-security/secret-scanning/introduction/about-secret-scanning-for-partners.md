@@ -8,7 +8,7 @@ versions:
 type: overview
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 shortTitle: Secret scanning for partners
 ---
 

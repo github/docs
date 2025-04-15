@@ -24,7 +24,7 @@ export default async function createTree(originalPath, rootPath, previousTree) {
     filepath = `${originalPath}/index.md`
     // Note, if this throws, that's quite fine. It usually means that
     // there's a `index.md` whose `children:` entry lists something that
-    // doesn't exist on disk. So the writer who tries to preview the
+    // doesn't exist on disk. So the writer who tries to review the
     // page will see the error and it's hopefully clear what's actually
     // wrong.
     try {

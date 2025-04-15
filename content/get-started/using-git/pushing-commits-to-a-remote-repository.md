@@ -49,6 +49,20 @@ you are able to push your local changes.
 
 For more information on this error, see [AUTOTITLE](/get-started/using-git/dealing-with-non-fast-forward-errors).
 
+{% ifversion secret-scanning-push-protection-for-users %}
+
+## Resolving blocked commits
+
+To maintain the security of the repository you're pushing to, {% data variables.product.github %}'s push protection automatically protects you from accidentally committing secrets to public repositories on {% data variables.product.prodname_dotcom_the_website %}. Exposed secrets can pose serious security risks to your repository and your supply chain.
+If {% data variables.product.github %} detects that the commit you're attempting to push contains a supported secret, it blocks the push. In order to resolve the block, you should either:
+
+* **Remove the secret** from your commit(s). For more information, see [Resolving a blocked push](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#resolving-a-blocked-push).
+* **Follow the provided URL** to see options to allow the push. For more information, see [Bypassing push protection](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/working-with-push-protection-from-the-command-line#bypassing-push-protection)
+
+To learn more about push protection, see [AUTOTITLE](/code-security/secret-scanning/working-with-secret-scanning-and-push-protection/push-protection-for-users).
+
+{% endif %}
+
 ## Pushing tags
 
 By default, and without additional parameters, `git push` sends all matching branches
@@ -114,7 +128,7 @@ For more information on working with forks, see [AUTOTITLE](/pull-requests/colla
 
 * [The "Remotes" chapter from the "Pro Git" book](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)
 * [`git remote` main page](https://git-scm.com/docs/git-remote.html)
-* [AUTOTITLE](/get-started/getting-started-with-git/git-cheatsheet)
-* [AUTOTITLE](/get-started/getting-started-with-git/git-workflows)
+* [AUTOTITLE](/get-started/git-basics/git-cheatsheet)
+* [AUTOTITLE](/get-started/git-basics/git-workflows)
 * [Git Handbook](https://guides.github.com/introduction/git-handbook/){% ifversion fpt or ghec %}
 * [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit){% endif %}

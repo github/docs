@@ -20,7 +20,7 @@ shortTitle: Remove sensitive data
 
 ## About removing sensitive data from a repository
 
-When altering your repository's history using tools like `git filter-repo`, it's crucial to understand the implications.  Rewriting history requires careful coordination with collaborators to successfully execute, and has a number of side effects that must be managed.
+When altering your repository's history using tools like `git-filter-repo`, it's crucial to understand the implications.  Rewriting history requires careful coordination with collaborators to successfully execute, and has a number of side effects that must be managed.
 
 It is important to note that if the sensitive data you need to remove is a secret (e.g. password/token/credential), as is often the case, then as a first step you need to revoke and/or rotate that secret.  Once the secret is revoked or rotated, it can no longer be used for access, and that may be sufficient to solve your problem.  Going through the extra steps to rewrite the history and remove the secret may not be warranted.
 
@@ -34,7 +34,7 @@ There are numerous side effects to rewriting history; these include:
  * **Branch protection challenges**: If you have any branch protections that prevent force pushes, those protections will have to be turned off (at least temporarily) for the sensitive data to be removed.
  * **Broken diff view for closed pull requests**: Removing the sensitive data will require removing the internal references used for displaying the diff view in pull requests, so you will no longer be able to see these diffs.  This is true not only for the PR that introduced the sensitive data, but any PR that builds on a version of history after the sensitive data PR was merged (even if those later PRs didn't add or modify any file with sensitive data).
  * **Poor interaction with open pull requests**: Changed commit SHAs will result in a different PR diff, and comments on the old PR diff may become invalidated and lost, which may cause confusion for authors and reviewers.  We recommend merging or closing all open pull requests before removing files from your repository.
- * **Lost signatures on commits and tags**: Signatures for commits or tags depend on commit hashes; since commit hashes are modified by history rewrites, signatures would no longer be valid and many history rewriting tools (including `git filter-repo`) will simply remove the signatures.  In fact, `git filter-repo` will remove commit signatures and tag signatures for commits that pre-date the sensitive data removal as well.  (Technically one can workaround this with the `--refs` option to `git filter-repo` if needed, but then you will need to be careful to ensure you specify all refs that have sensitive data in their history and that include the commits that introduced the sensitive data in your range).
+ * **Lost signatures on commits and tags**: Signatures for commits or tags depend on commit hashes; since commit hashes are modified by history rewrites, signatures would no longer be valid and many history rewriting tools (including `git-filter-repo`) will simply remove the signatures.  In fact, `git-filter-repo` will remove commit signatures and tag signatures for commits that pre-date the sensitive data removal as well.  (Technically one can workaround this with the `--refs` option to `git-filter-repo` if needed, but then you will need to be careful to ensure you specify all refs that have sensitive data in their history and that include the commits that introduced the sensitive data in your range).
  * **Leading others directly to the sensitive data**: Git was designed with cryptographic checks built into commit identifiers so that nefarious individuals could not break into a server and modify history without being noticed.  That's helpful from a security perspective, but from a sensitive data perspective it means that expunging sensitive data is a very involved process of coordination; it further means that when you do modify history, clueful users with an existing clone will notice the history divergence and can use it to quickly and easily find the sensitive data still in their clone that you removed from the central repository.
 
 ## About sensitive data exposure
@@ -52,7 +52,7 @@ If you only rewrite your history and force push it, the commits with sensitive d
 * Directly via their SHA-1 hashes in cached views on {% data variables.product.github %}
 * Through any pull requests that reference them
 
-You cannot remove sensitive data from other users' clones of your repository; you will have to send them the instructions from [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git filter-repo` manual to have them do so themselves.  However, you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.github %} by contacting {% data variables.contact.contact_support %}.
+You cannot remove sensitive data from other users' clones of your repository; you will have to send them the instructions from [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git-filter-repo` manual to have them do so themselves.  However, you can permanently remove cached views and references to the sensitive data in pull requests on {% data variables.product.github %} by contacting {% data variables.contact.contact_support %}.
 
 {% ifversion fpt or ghec %}
 
@@ -66,7 +66,7 @@ Consider these limitations and challenges in your decision to rewrite your repos
 
 ## Purging a file from your local repository's history using git-filter-repo
 
-1. Install the latest release of [the `git filter-repo` tool](https://github.com/newren/git-filter-repo). You need a version with the `--sensitive-data-removal` flag, meaning at least version 2.47.  You can install `git filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
+1. Install the latest release of [the `git-filter-repo` tool](https://github.com/newren/git-filter-repo). You need a version with the `--sensitive-data-removal` flag, meaning at least version 2.47.  You can install `git-filter-repo` manually or by using a package manager. For example, to install the tool with HomeBrew, use the `brew install` command.
 
    ```shell
    brew install git-filter-repo
@@ -86,12 +86,12 @@ Consider these limitations and challenges in your decision to rewrite your repos
    cd YOUR-REPOSITORY
    ```
 
-1. Run a `git filter-repo` command to clean up the sensitive data.
+1. Run a `git-filter-repo` command to clean up the sensitive data.
 
     If you want to delete a specific file from all branches/tags/refs, run the following command replacing `PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA` with the **git path to the file you want to remove, not just its filename** (e.g. `src/module/phone-numbers.txt`):
 
       ```shell
-      git filter-repo --sensitive-data-removal --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
+      git-filter-repo --sensitive-data-removal --invert-paths --path PATH-TO-YOUR-FILE-WITH-SENSITIVE-DATA
       ```
 
       > [!IMPORTANT] If the file with sensitive data used to exist at any other paths (because it was moved or renamed), you must either add an extra `--path` argument for that file, or run this command a second time naming the alternative path.
@@ -99,7 +99,7 @@ Consider these limitations and challenges in your decision to rewrite your repos
     If you want to replace all text listed in `../passwords.txt` from any non-binary files found anywhere in your repository's history, run the following command:
 
       ```shell
-      git filter-repo --sensitive-data-removal --replace-text ../passwords.txt
+      git-filter-repo --sensitive-data-removal --replace-text ../passwords.txt
       ```
 
 1. Double-check that you've removed everything you wanted to from your repository's history.
@@ -133,16 +133,22 @@ Consider these limitations and challenges in your decision to rewrite your repos
 
 ## Fully removing the data from {% data variables.product.github %}
 
-After using `git filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.github %}, you must take a few more steps to fully remove the data from {% data variables.product.github %}.
+After using `git-filter-repo` to remove the sensitive data and pushing your changes to {% data variables.product.github %}, you must take a few more steps to fully remove the data from {% data variables.product.github %}.
 
 1. Contact {% data variables.contact.contact_support %}, and provide the following information:
 
     * The owner and repository name in question (e.g. YOUR-USERNAME/YOUR-REPOSITORY).
+{%- ifversion fpt or ghec %}
     * The number of affected pull requests, found in the previous step. This is used by Support to verify you understand how much will be affected.
-    * The First Changed Commit(s) reported by `git filter-repo` (Look for `NOTE: First Changed Commit(s)` in its output.)
+{%- endif %}
+{%- ifversion ghes %}
+    * The number of affected pull requests, found in the previous step. This is used by your site administrator to verify you understand how much will be affected.
+{%- endif %}
+    * The First Changed Commit(s) reported by `git-filter-repo` (Look for `NOTE: First Changed Commit(s)` in its output.)
     * If `NOTE: There were LFS Objects Orphaned by this rewrite` appears in the git-filter-repo output (right after the First Changed Commit), then mention you had LFS Objects Orphaned and upload the named file to the ticket as well.
 
-    If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:
+    {% ifversion fpt or ghec %}If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:{% endif %}
+    {% ifversion ghes %}If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, your site administrator will then:{% endif %}
 
     * Dereference or delete any affected PRs on {% data variables.product.github %}.
     * Run a garbage collection on the server to expunge the sensitive data from storage.
@@ -152,7 +158,7 @@ After using `git filter-repo` to remove the sensitive data and pushing your chan
     {% ifversion ghes %}For more information about how site administrators can remove unreachable Git objects, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-repo-gc). For more information about how site administrators can identify reachable commits, see [Identifying reachable commits](#identifying-reachable-commits).{% endif %}{% ifversion fpt or ghec %}
      >[!IMPORTANT] {% data variables.contact.github_support %} won't remove non-sensitive data, and will only assist in the removal of sensitive data in cases where we determine that the risk can't be mitigated by rotating affected credentials.{% endif %}
 
-1. Collaborators must [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.  They may need to take additional steps as well; see [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git filter-repo` manual.
+1. Collaborators must [rebase](https://git-scm.com/book/en/v2/Git-Branching-Rebasing), _not_ merge, any branches they created off of your old (tainted) repository history. One merge commit could reintroduce some or all of the tainted history that you just went to the trouble of purging.  They may need to take additional steps as well; see [Make sure other copies are cleaned up: clones of colleagues](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html#_make_sure_other_copies_are_cleaned_up_clones_of_colleagues) in the `git-filter-repo` manual.
 
 {% ifversion ghes %}
 
@@ -209,6 +215,6 @@ There are a few things you can do to avoid committing or pushing things that sho
 
 ## Further reading
 
-* [`git filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html), especially the "Sensitive Data Removal" subsection of the "DISCUSSION" section.
+* [`git-filter-repo` man page](https://htmlpreview.github.io/?https://github.com/newren/git-filter-repo/blob/docs/html/git-filter-repo.html), especially the "Sensitive Data Removal" subsection of the "DISCUSSION" section.
 * [Pro Git: Git Tools - Rewriting History](https://git-scm.com/book/en/v2/Git-Tools-Rewriting-History)
 * [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning)

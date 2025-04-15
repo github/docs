@@ -37,12 +37,8 @@ By default, the restrictions of a branch protection rule don't apply to people w
 
 {% data reusables.pull_requests.you-can-auto-merge %}
 
-{% ifversion repo-rules %}
-
 > [!NOTE]
 > Only a single branch protection rule can apply at a time, which means it can be difficult to know which rule will apply when multiple versions of a rule target the same branch. {% ifversion repo-rules-enterprise %}Additionally, you may want to create a single set of rules that applies to multiple repositories in an organization. {% endif %}For information about an alternative to branch protection rules, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% endif %}
 
 ## About branch protection settings
 
@@ -52,9 +48,7 @@ For each branch protection rule, you can choose to enable or disable the followi
 * [Require conversation resolution before merging](#require-conversation-resolution-before-merging)
 * [Require signed commits](#require-signed-commits)
 * [Require linear history](#require-linear-history)
-{% ifversion merge-queue %}
 * [Require merge queue](#require-merge-queue)
-{% endif %}
 * [Require deployments to succeed before merging](#require-deployments-to-succeed-before-merging)
 * [Lock branch](#lock-branch)
 * [Do not allow bypassing the above settings](#do-not-allow-bypassing-the-above-settings)
@@ -95,7 +89,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 
 ### Require status checks before merging
 
-Required status checks ensure that all required CI tests are either passing or skipped before collaborators can make changes to a protected branch. Required status checks can be checks or statuses. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
+Required status checks must have a `successful`, `skipped`, or `neutral` status before collaborators can make changes to a protected branch. Required status checks can be checks or commit statuses. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 You can use the commit status API to allow external services to mark commits with an appropriate status. For more information, see [AUTOTITLE](/rest/commits/statuses).
 
@@ -139,16 +133,12 @@ Enforcing a linear commit history prevents collaborators from pushing merge comm
 
 Before you can require a linear commit history, your repository must allow squash merging or rebase merging. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges).
 
-{% ifversion merge-queue %}
-
 ### Require merge queue
 
 {% data reusables.pull_requests.merge-queue-overview %}
 
 {% data reusables.pull_requests.merge-queue-merging-method %}
 {% data reusables.pull_requests.merge-queue-references %}
-
-{% endif %}
 
 ### Require deployments to succeed before merging
 

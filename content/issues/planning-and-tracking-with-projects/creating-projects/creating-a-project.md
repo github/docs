@@ -2,7 +2,9 @@
 title: 'Creating a {% data variables.projects.project_v2 %}'
 intro: Learn how to create an organization or user project.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/creating-a-project
 type: tutorial

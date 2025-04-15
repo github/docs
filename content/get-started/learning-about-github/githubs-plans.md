@@ -84,6 +84,13 @@ In addition to the features available with {% data variables.product.prodname_fr
 * {% data variables.contact.github_support %} via email
 * 3,000 {% data variables.product.prodname_actions %} minutes per month
 * 2 GB {% data variables.product.prodname_registry %} storage
+{%- ifversion ghas-products %}
+* The option to purchase {% data variables.product.prodname_GHAS %} products:
+  * {% data variables.product.prodname_GH_code_security %}
+  * {% data variables.product.prodname_GH_secret_protection %}
+  
+  For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).{%- endif %}
+
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
   * Multiple pull request reviewers
@@ -97,7 +104,8 @@ In addition to the features available with {% data variables.product.prodname_fr
     > [!NOTE]
     > To publish a {% data variables.product.prodname_pages %} site privately, you need to have an organization account. Additionally, your organization must use {% data variables.product.prodname_ghe_cloud %}.
 
-  * Wikis
+  * Wikis{% ifversion ghas-products %}
+  * Security overview{% endif %}
   * Repository insights graphs: Pulse, contributors, traffic, commits, code frequency, network, and forks
     {% data reusables.repositories.repo-insights-commit-limit %}
 {%- ifversion fpt or ghec %}
@@ -120,9 +128,9 @@ In addition to the features available with {% data variables.product.prodname_te
 * Authentication with SAML single sign-on
 * Access provisioning with SAML or SCIM
 * Deployment protection rules with {% data variables.product.prodname_actions %} for private or internal repositories
-* {% data variables.product.prodname_github_connect %}
-* The option to purchase {% data variables.product.prodname_GH_advanced_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
-* Additional features such as internal repositories{% ifversion repo-rules %}, security overview, and repository rules{% else %} and security overview{% endif %}.
+* {% data variables.product.prodname_github_connect %}{%- ifversion ghas-products %}{% else %}
+* The option to purchase {% data variables.product.prodname_GHAS %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security){% endif %}
+* Additional features such as internal repositories{%- ifversion ghas-products %}{% else %}, security overview,{% endif %} and repository rules.
 
 {% data variables.product.prodname_ghe_cloud %} specifically includes:
 * 50,000 {% data variables.product.prodname_actions %} minutes per month

@@ -7,13 +7,13 @@
 // locally.
 // This is more convenient and faster than relying on seeing that the
 // Action produces in a PR. Especially since
-// .github/workflows/content-changes-table-comment.yml only runs
+// .github/workflows/comment-content-changes-table.yml only runs
 // on `pull_request_target`.
 //
 // To try it you need to generate a local `GITHUB_TOKEN` that has read-access
 // "content" and "pull requests" on the repo.
 // You also need to set an APP_URL which can be the domain of the
-// preview environment or just the production domain. Example:
+// review environment or just the production domain. Example:
 //
 //
 //    export GITHUB_TOKEN=github_pat_11AAAG.....
@@ -32,4 +32,4 @@ program
 
 const args = program.args
 const [owner, repo, baseSHA, headSHA] = args
-console.log(await main(owner, repo, baseSHA, headSHA))
+console.log(await main(owner, repo, baseSHA, headSHA, { isFork: false }))

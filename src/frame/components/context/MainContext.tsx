@@ -138,6 +138,7 @@ const DEFAULT_UI_NAMESPACES = [
   'alerts',
   'header',
   'search',
+  'old_search',
   'survey',
   'toc',
   'meta',
@@ -149,6 +150,7 @@ const DEFAULT_UI_NAMESPACES = [
   'support',
   'rest',
   'domain_edit',
+  'cookbook_landing',
 ]
 
 export function addUINamespaces(req: any, ui: UIStrings, namespaces: string[]) {

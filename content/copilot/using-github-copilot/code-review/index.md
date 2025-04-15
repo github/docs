@@ -9,4 +9,5 @@ topics:
 children:
   - /using-copilot-code-review
   - /configuring-coding-guidelines
+  - /configuring-automatic-code-review-by-copilot
 ---

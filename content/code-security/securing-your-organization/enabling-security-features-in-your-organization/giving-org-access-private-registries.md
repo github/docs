@@ -6,7 +6,7 @@ allowTitleToDifferFromFilename: true
 versions:
   feature: org-private-registry
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---

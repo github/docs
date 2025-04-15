@@ -65,7 +65,7 @@ To set up the audit log stream, follow the instructions for your provider:
 
 {% ifversion ghec %}
 
->[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.product_name %} includes a `hooks` key with a list of the IP addresses. See [AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information).
+>[!NOTE] To get a list of IP address ranges that {% data variables.product.prodname_dotcom %} uses for connections to the streaming endpoint, use the REST API. The `meta` endpoint for {% data variables.product.prodname_dotcom_the_website %} includes a `hooks` key with a list of the IP addresses. See [AUTOTITLE](/rest/meta/meta#get-github-enterprise-cloud-meta-information).
 
 {% endif %}
 
@@ -83,12 +83,12 @@ You can stream audit logs to multiple endpoints. For example, you can stream you
 
 {% ifversion ghes %}
 
->[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work.
+>[!NOTE] The Amazon region `us-east-1` must be reachable from your appliance for streaming to S3 to work. Your S3 bucket can reside in other AWS regions.
 
 {% endif %}
 
 {% ifversion streaming-oidc-s3 %}
-You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets in {% data variables.product.product_name %}, with OpenID Connect (OIDC).
+You can set up streaming to S3 with access keys or, to avoid storing long-lived secrets on {% data variables.product.github %}, with OpenID Connect (OIDC).
 
 * [Setting up streaming to S3 with access keys](#setting-up-streaming-to-s3-with-access-keys)
 * [Setting up streaming to S3 with OpenID Connect](#setting-up-streaming-to-s3-with-openid-connect)
@@ -141,6 +141,8 @@ From AWS:
 
    * Add the permissions policy you created earlier to allow writes to the bucket.
    * Edit the trust relationship to add the `sub` field to the validation conditions, replacing `ENTERPRISE` with the name of your enterprise.
+
+        >[!NOTE] The `ENTERPRISE` value is case-sensitive. If the name of your enterprise contains uppercase letters, use the same case in the trust policy.
 
      ```json
      "Condition": {
@@ -232,7 +234,7 @@ From {% data variables.product.prodname_dotcom %}:
 
 ### Setting up streaming to Datadog
 
-To set up streaming to Datadog, create a client token or an API key in Datadog, then configure audit log streaming in {% data variables.product.product_name %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
+To set up streaming to Datadog, create a client token or an API key in Datadog, then configure audit log streaming in {% data variables.product.github %} using the token for authentication. You do not need to create a bucket or other storage container in Datadog.
 
 After you set up streaming to Datadog, you can see your audit log data by filtering by "github.audit.streaming." See [Log Management](https://docs.datadoghq.com/logs/).
 
@@ -248,7 +250,7 @@ After you set up streaming to Datadog, you can see your audit log data by filter
 
 ### Setting up streaming to Google Cloud Storage
 
-To set up streaming to Google Cloud Storage, create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.product_name %} using the service account's credentials for authentication.
+To set up streaming to Google Cloud Storage, create a service account in Google Cloud with the appropriate credentials and permissions, then configure audit log streaming in {% data variables.product.github %} using the service account's credentials for authentication.
 
 1. Create a service account for Google Cloud. You do not need to set access controls or IAM roles for this account. See [Creating and managing service accounts](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) in the Google Cloud documentation.
 1. Create a JSON key for the service account, and store the key securely. See [Creating and managing service account keys](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) in the Google Cloud documentation.

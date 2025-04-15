@@ -5,7 +5,7 @@ intro: 'Try out {% data variables.product.prodname_actions_runner_controller %} 
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: quick_start
 topics:
   - Actions Runner Controller

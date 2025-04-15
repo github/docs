@@ -128,7 +128,7 @@ updates:
       interval: "weekly"
     commit-message:
       # Prefix all commit messages with [docker] " (no colon, but a trailing whitespace)
-      prefix: [docker] "
+      prefix: "[docker] "
 
   - package-ecosystem: "composer"
     directory: "/"

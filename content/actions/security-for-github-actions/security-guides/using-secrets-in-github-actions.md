@@ -19,51 +19,7 @@ versions:
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-## About secrets
-
-Secrets are variables that you create in an organization, repository, or repository environment. The secrets that you create are available to use in {% data variables.product.prodname_actions %} workflows. {% data variables.product.prodname_actions %} can only read a secret if you explicitly include the secret in a workflow.
-
-{% data reusables.actions.secrets-org-level-overview %}
-
-For secrets stored at the environment level, you can enable required reviewers to control access to the secrets. A workflow job cannot access environment secrets until approval is granted by required approvers.
-
-> [!NOTE]
-> {% data reusables.actions.about-oidc-short-overview %}
-
-### Naming your secrets
-
-The following rules apply to secret names:
-
-{% data reusables.actions.actions-secrets-and-variables-naming %}
-
-  For example, a secret created at the environment level must have a unique name in that environment, a secret created at the repository level must have a unique name in that repository, and a secret created at the organization level must have a unique name at that level.
-
-  {% data reusables.codespaces.secret-precedence %} Similarly, if an organization, repository, and environment all have a secret with the same name, the environment-level secret takes precedence.
-
-To help ensure that {% data variables.product.prodname_dotcom %} redacts your secret in logs, avoid using structured data as the values of secrets. For example, avoid creating secrets that contain JSON or encoded Git blobs.
-
-### Accessing your secrets
-
-To make a secret available to an action, you must set the secret as an input or environment variable in the workflow file. Review the action's README file to learn about which inputs and environment variables the action expects. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsenv).
-
-You can use and read secrets in a workflow file if you have access to edit the file. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
-
-{% data reusables.actions.secrets-redaction-warning %}
-
-Organization and repository secrets are read when a workflow run is queued, and environment secrets are read when a job referencing the environment starts.
-
-You can also manage secrets using the REST API. For more information, see [AUTOTITLE](/rest/actions/secrets).
-
-### Limiting credential permissions
-
-When generating credentials, we recommend that you grant the minimum permissions possible. For example, instead of using personal credentials, use [deploy keys](/authentication/connecting-to-github-with-ssh/managing-deploy-keys#deploy-keys) or a service account. Consider granting read-only permissions if that's all that is needed, and limit access as much as possible.
-
-When generating a {% data variables.product.pat_v1 %}, select the fewest scopes necessary. When generating a {% data variables.product.pat_v2 %}, select the minimum permissions and repository access required.
-
-Instead of using a {% data variables.product.pat_generic %}, consider using a {% data variables.product.prodname_github_app %}, which uses fine-grained permissions and short lived tokens, similar to a {% data variables.product.pat_v2 %}. Unlike a {% data variables.product.pat_generic %}, a {% data variables.product.prodname_github_app %} is not tied to a user, so the workflow will continue to work even if the user who installed the app leaves your organization. For more information, see [AUTOTITLE](/apps/creating-github-apps/guides/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow).
-
-> [!NOTE]
-> Users with collaborator access to a repository can use the REST API to manage secrets for that repository, and users with admin access to an organization can use the REST API to manage secrets for that organization. For more information, see [AUTOTITLE](/rest/actions/secrets).
+For general information about secrets, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/about-secrets).
 
 ## Creating secrets for a repository
 
@@ -212,6 +168,7 @@ You can check which access policies are being applied to a secret in your organi
 > [!NOTE]
 > * {% data reusables.actions.forked-secrets %}
 > * Secrets are not automatically passed to reusable workflows. For more information, see [AUTOTITLE](/actions/using-workflows/reusing-workflows#passing-inputs-and-secrets-to-a-reusable-workflow).
+> {% data reusables.actions.about-oidc-short-overview %}
 
 To provide an action with a secret as an input or environment variable, you can use the `secrets` context to access secrets you've created in your repository. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts) and [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions).
 

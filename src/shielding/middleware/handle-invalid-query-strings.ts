@@ -13,6 +13,7 @@ export const MAX_UNFAMILIAR_KEYS_REDIRECT = 3
 const RECOGNIZED_KEYS_BY_PREFIX = {
   '/_next/data/': ['versionId', 'productId', 'restPage', 'apiVersion', 'category', 'subcategory'],
   '/api/search': ['query', 'language', 'version', 'page', 'product', 'autocomplete', 'limit'],
+  '/api/combined-search': ['query', 'version', 'size', 'debug'],
   '/api/anchor-redirect': ['hash', 'path'],
   '/api/webhooks': ['category', 'version'],
   '/api/pageinfo': ['pathname'],
@@ -28,8 +29,12 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'tool',
   // When apiVersion isn't the only one. E.g. ?apiVersion=XXX&tool=vscode
   'apiVersion',
-  // Search
+  // Search results page
   'query',
+  // Any page, Search Overlay
+  'search-overlay-input',
+  'search-overlay-open',
+  'search-overlay-ask-ai',
   // The drop-downs on "Webhook events and payloads"
   'actionType',
   // Used by the tracking middleware
@@ -38,6 +43,8 @@ const RECOGNIZED_KEYS_BY_ANY = new Set([
   'utm_source',
   'utm_medium',
   'utm_campaign',
+  // Used by experiments
+  'feature',
 ])
 
 export default function handleInvalidQuerystrings(

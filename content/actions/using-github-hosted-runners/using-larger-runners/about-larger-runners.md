@@ -60,7 +60,11 @@ These features can enhance your CI/CD pipelines in the following ways.
 
 **{% data variables.product.prodname_dotcom %}-owned images:** These images are maintained by {% data variables.product.prodname_dotcom %} and are available for Linux x64, Windows x64, and macOS (x64 and arm) runners. For more information on these images and a full list of included tools for each runner operating system, see the [{% data variables.product.prodname_actions %} Runner Images](https://github.com/actions/runner-images) repository.
 
-**Partner Images:** Partner images are not managed by {% data variables.product.prodname_dotcom %} and are pulled from the Azure Marketplace. For more information about the Windows 11 desktop image see [Microsoft Windows 11 Desktop](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview). For more information about the GPU runner compatible images, see [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11) and [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview). For more information about the images for ARM-powered runners, see the [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images). This is also the place to provide feedback or report issues about third-party images.
+**Partner Images:** Partner images are not managed by {% data variables.product.prodname_dotcom %} and are pulled from the Azure Marketplace. See below for resources on where to find more information and to report issues for partner images.
+ * [Base Windows 11 desktop image](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoftwindowsdesktop.windows-11?tab=Overview).
+ * [NVIDIA GPU-Optimized VMI](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.ngc_azure_17_11)
+ * [Data Science Virtual Machine - Windows 2019](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=overview).
+ * arm64 images: [`actions/partner-runner-images` repository](https://github.com/actions/partner-runner-images).
 
 ### Understanding billing
 
@@ -86,8 +90,9 @@ You can choose from several specifications for {% data variables.actions.hosted_
 | 32  | 128 GB        | 1200 GB       | x64, arm64   | Ubuntu, Windows       |
 | 64  | 208 GB        | 2040 GB       | arm64        | Ubuntu, Windows       |
 | 64  | 256 GB        | 2040 GB       | x64          | Ubuntu, Windows       |
+| 96 | 384 GB         | 2040 GB       | x64          | Ubuntu, Windows        |
 
->[!NOTE] The 4-vCPU Windows runner only works with the Windows 11 Desktop image.
+>[!NOTE] The 4-vCPU Windows runner only works with the Windows Server 2025 or the Base Windows 11 Desktop image.
 
 ### Specifications for GPU {% data variables.actions.hosted_runners %}
 

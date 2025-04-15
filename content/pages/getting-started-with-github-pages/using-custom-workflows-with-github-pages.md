@@ -3,11 +3,11 @@ title: Using custom workflows with GitHub Pages
 intro: 'You can take advantage of using {% data variables.product.prodname_actions %} and {% data variables.product.prodname_pages %} by creating a workflow file or choosing from the predefined workflows.'
 product: '{% data reusables.gated-features.pages %}'
 versions:
-    fpt: '*'
-    ghes: '>= 3.7'
-    ghec: '*'
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 topics:
-    - Pages
+  - Pages
 shortTitle: Use custom workflows
 ---
 

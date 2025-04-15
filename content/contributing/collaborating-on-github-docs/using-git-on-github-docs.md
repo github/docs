@@ -1,9 +1,11 @@
 ---
 title: Using Git on GitHub Docs
 shortTitle: Using Git
-intro: 'You can use Git on the command line to commit changes and then push them to the documentation repository.'
+intro: You can use Git on the command line to commit changes and then push them to the documentation repository.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 This article describes the process of creating a topic branch for the documentation repository, committing changes, and pushing your changes back up to the remote repository.

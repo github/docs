@@ -36,7 +36,7 @@ remote: error: Required status check "ci-build" is failing
 
 ## Required check needs to succeed against the latest commit SHA
 
-In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks.
+In order for a pull request to be merged, all required checks must pass against the latest commit SHA. This ensures that the most recent changes are validated and meet the required standards before merging. Checks that were triggered using a previous commit SHA will not be used as part of required checks. Successful check statuses are: `success`, `skipped`, and `neutral`. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/collaborating-on-repositories-with-code-quality-features/about-status-checks).
 
 ## Conflicts between head commit and test merge commit
 
@@ -87,8 +87,6 @@ Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-acti
 
 {% data reusables.pull_requests.path-filtering-required-workflows %}
 
-{% ifversion merge-queue %}
-
 ### Status checks with {% data variables.product.prodname_actions %} and a Merge queue
 
 You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue.
@@ -105,8 +103,6 @@ on:
 ```
 
 For more information on the `merge_group` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group).
-
-{% endif %}
 
 ## Required status checks from unexpected sources
 

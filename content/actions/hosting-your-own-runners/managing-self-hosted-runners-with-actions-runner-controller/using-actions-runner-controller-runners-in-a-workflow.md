@@ -5,7 +5,7 @@ intro: 'You can use {% data variables.product.prodname_actions_runner_controller
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>= 3.9'
+  ghes: '*'
 type: overview
 topics:
   - Actions Runner Controller

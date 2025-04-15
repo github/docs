@@ -71,7 +71,7 @@ config.cmd --check --url https://github.com/YOUR-ORG/YOUR-REPO --pat GHP_ABCD123
 
 The script tests each service, and outputs either a `PASS` or `FAIL` for each one. If you have any failing checks, you can see more details on the problem in the log file for the check. The log files are located in the `_diag` directory where you installed the runner application, and the path of the log file for each check is shown in the console output of the script.
 
-If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#communication-requirements).
+If you have any failing checks, you should also verify that your self-hosted runner machine meets all the communication requirements. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/communicating-with-self-hosted-runners).
 
 ### Disabling TLS certificate verification
 
@@ -112,7 +112,7 @@ export GITHUB_ACTIONS_RUNNER_TLS_NO_VERIFY=1
 {% endwindows %}
 
 > [!WARNING]
-> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.product_name %}. We recommend that you install the {% data variables.product.product_name %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.product_name %} certificate, check with your operating system vendor.
+> Disabling TLS verification is not recommended since TLS provides privacy and data integrity between the self-hosted runner application and {% data variables.product.github %}. We recommend that you install the {% data variables.product.github %} certificate in the operating system certificate store for your self-hosted runner. For guidance on how to install the {% data variables.product.github %} certificate, check with your operating system vendor.
 
 ## Reviewing the self-hosted runner application log files
 

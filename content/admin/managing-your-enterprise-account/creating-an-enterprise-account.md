@@ -15,9 +15,14 @@ redirect_from:
   - /admin/overview/creating-an-enterprise-account
 ---
 
-<!-- expires 2024-12-31 -->
+<!-- expires 2025-06-30 -->
+
+<!-- When this expires, check with the stakeholder for release #4079 on whether or not the content is still needed -->
+<!-- If the content is no longer needed, delete this entire article and all links to it. -->
+
 {% data reusables.enterprise.single-organizations-enterprise-migration %}
-<!-- end expires 2024-12-31 -->
+
+<!-- end expires 2025-06-30 -->
 
 ## When should I create an enterprise account?
 
@@ -49,7 +54,7 @@ The following changes also apply to single organizations that are automatically 
 * **Enterprise account name:** During the upgrade, the new enterprise account name will match your organization name or be as close as possible if taken. You can rename it after the upgrade.
 * **SAML SSO:** Existing SAML SSO will stay at the organization level after being added to the new enterprise account. You can configure SSO at the enterprise level post-upgrade, which will override the organization level. Existing PATs and SAML-authorized tokens will remain unchanged.
 * **Policies:** The new enterprise account starts with no policies, so existing organization policies won't be overridden.
-* **Spending limits:** Existing organization spending limits transfer to the new enterprise account. Post-upgrade, billing is handled at the enterprise level. To adjust spending limits, under "Settings" in the enterprise account sidebar, select **Billing**.
+* **Spending limits:** Existing organization spending limits transfer to the new enterprise account. Post-upgrade, billing is handled at the enterprise level. To adjust spending limits, at the top of the page, click {% octicon "credit-card" aria-hidden="true" %} **Billing & Licensing**.
 * **Coupons:** Existing coupons will carry over to the new enterprise account with no interruptions.
 * **Workflow permissions:** The new enterprise account will inherit your organization's workflow permissions. If the organization has a permissive setting ("Read and write"), the enterprise account will also default to permissive. Otherwise, it defaults to restrictive ("Read repository contents and packages"). For workflows with the id-token permission, the default changes to read-only due to a February 2023 update. Add an explicit permissions block in these workflows to grant the required permissions.
 

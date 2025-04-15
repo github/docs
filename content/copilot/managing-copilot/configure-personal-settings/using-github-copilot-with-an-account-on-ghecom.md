@@ -61,8 +61,6 @@ If you ever need to switch to an account on {% data variables.product.prodname_d
 
 ## Authenticating from Xcode
 
-{% data reusables.copilot.xcode-beta-note %}
-
 1. Open the "{% data variables.product.prodname_copilot %} for Xcode" application.
 1. Click the **Advanced** tab.
 1. In the "Auth provider URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
@@ -97,3 +95,15 @@ To authenticate from Visual Studio, follow the steps in [Add your GitHub account
 For the "{% data variables.product.prodname_enterprise %} URL" field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
 
 {% endvisualstudio %}
+
+{% eclipse %}
+
+## Authenticating from Eclipse
+
+1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
+1. Click **Edit Preferences...**.
+1. In the **{% data variables.product.prodname_enterprise %} Authentication Endpoint** field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.
+1. Click **Apply**.
+1. Open the **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** menu again then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+
+{% endeclipse %}

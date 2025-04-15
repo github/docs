@@ -2,7 +2,9 @@
 title: Troubleshooting content type
 intro: 'Troubleshooting content includes built-in errors we expect people to encounter, common problems reported to support, and situations people might encounter while completing tasks.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support and product managers to surface common errors and include them in the documentation.

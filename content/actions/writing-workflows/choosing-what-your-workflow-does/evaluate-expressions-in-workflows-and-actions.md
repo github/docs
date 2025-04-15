@@ -292,17 +292,29 @@ Returns a single hash for the set of files that matches the `path` pattern. You 
 
 You can use pattern matching characters to match file names. Pattern matching for `hashFiles` follows glob pattern matching and is case-insensitive on Windows. For more information about supported pattern matching characters, see the [Patterns](https://www.npmjs.com/package/@actions/glob#patterns) section in the `@actions/glob` documentation.
 
-#### Example with a single pattern
+#### Examples with a single pattern
 
 Matches any `package-lock.json` file in the repository.
 
 `hashFiles('**/package-lock.json')`
 
-#### Example with multiple patterns
+Matches all `.js` files in the `src` directory at root level, but ignores any subdirectories of `src`.
+
+`hashFiles('/src/*.js')`
+
+Matches all `.rb` files in the `lib` directory at root level, including any subdirectories of `lib`.
+
+`hashFiles('/lib/**/*.rb')`
+
+#### Examples with multiple patterns
 
 Creates a hash for any `package-lock.json` and `Gemfile.lock` files in the repository.
 
 `hashFiles('**/package-lock.json', '**/Gemfile.lock')`
+
+Creates a hash for all `.rb` files in the `lib` directory at root level, including any subdirectories of `lib`, but excluding `.rb` files in the `foo` subdirectory.
+
+`hashFiles('/lib/**/*.rb', '!/lib/foo/*.rb')`
 
 ## Status check functions
 

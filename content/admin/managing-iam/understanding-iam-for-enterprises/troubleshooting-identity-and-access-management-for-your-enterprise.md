@@ -29,7 +29,7 @@ If a user is unable to successfully authenticate using SAML, it may be helpful t
 
 ## Username conflicts
 
-{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.product_name %} normalizes the SCIM `userName` attribute value that is sent by an identity provider (IdP) in a SCIM API call to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
+{% ifversion ghec %}If your enterprise uses {% data variables.product.prodname_emus %}, {% endif %}{% data variables.product.github %} normalizes the SCIM `userName` attribute value that is sent by an identity provider (IdP) in a SCIM API call to create each person's username on {% data variables.product.prodname_dotcom %}. If multiple accounts are normalized into the same {% data variables.product.prodname_dotcom %} username, a username conflict occurs, and only the first user account is created. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
 {% ifversion ghec %}
 
@@ -61,6 +61,10 @@ In an {% data variables.enterprise.prodname_emu_enterprise %} where SCIM is gene
 If users are experiencing errors when attempting to authenticate with SAML, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/troubleshooting-saml-authentication).
 
 {% ifversion ghec %}
+
+## Conflicting SAML identity errors
+
+{% data reusables.saml.conflicting-identity %}
 
 ## Further reading
 

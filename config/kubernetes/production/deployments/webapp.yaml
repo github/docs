@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: webapp
 spec:
-  replicas: 2
+  replicas: 4
   selector:
     matchLabels:
       app: webapp
@@ -23,11 +23,18 @@ spec:
           image: docs-internal
           resources:
             requests:
-              cpu: 8000m
-              memory: 10Gi
+              cpu: 4000m
+              # Absolute minimum to start app is 1000m
+              # Node is single-threaded but we want more CPUs
+              # for OS and image resizing, and other binary executions
+              # Better to increase replicas or memory than CPU
+              memory: 8Gi
+              # Absolute minimum to start app is 4500Mi
+              # Would increase with more pages, versions, or languages supported
+              # The additional memory helps during traffic surges
             limits:
               cpu: 16000m
-              memory: 14Gi
+              memory: 16Gi
           ports:
             - name: http
               containerPort: 4000
@@ -37,7 +44,7 @@ spec:
                 name: vault-secrets
             - configMapRef:
                 name: kube-cluster-metadata
-            # application-config is crated at deploy time from
+            # application-config is created at deploy time from
             # configuration set in config/moda/configuration/*/env.yaml
             - configMapRef:
                 name: application-config
@@ -53,5 +60,5 @@ spec:
             httpGet:
               # WARNING: This should be updated to a meaningful endpoint for your application which will return a 200 once the app is fully started.
               # See: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/#define-readiness-probes
-              path: /healthz
+              path: /healthcheck
               port: http

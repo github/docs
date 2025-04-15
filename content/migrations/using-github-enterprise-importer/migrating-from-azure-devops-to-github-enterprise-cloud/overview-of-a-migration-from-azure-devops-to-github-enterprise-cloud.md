@@ -37,14 +37,20 @@ This guide will guide you through completing the first phase, migrating reposito
 
 ### How soon do we need to complete the migration?
 
-{% data reusables.enterprise-migration-tool.timeline-intro %}
+Determine your timeline, which will largely dictate your approach. The first step for determining your timeline is to get an inventory of what you need to migrate.
 
 * Number of repositories
 * Number of pull requests
 
+Migrating from Azure DevOps, we recommend the `inventory-report` command in the {% data variables.product.prodname_ado2gh_cli %}. The `inventory-report` command will connect with the Azure DevOps API, then build a simple CSV with some of the fields suggested above. To install the {% data variables.product.prodname_ado2gh_cli %} and authenticate, follow steps 1 to 3 in [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/migrating-repositories-from-azure-devops-to-github-enterprise-cloud).
+
 Migration timing is largely based on the number of pull requests in a repository. If you want to migrate 1,000 repositories, and each repository has 100 pull requests on average, and only 50 users have contributed to the repositories, your migration will likely be very quick. If you want to migrate only 100 repositories, but the repositories each have 75,000 pull requests on average, and 5,000 users, the migration will take much longer and require much more planning and testing.
 
-{% data reusables.enterprise-migration-tool.timeline-tasks %}
+After you take inventory of the repositories you need to migrate, you can weigh your inventory data against your desired timeline. If your organization can withstand a higher degree of change, then you might be able to migrate all your repositories at once, completing your migration efforts in a few days. However, you may have various teams that are not able to migrate at the same time. In this case, you might want to batch and stagger your migrations to fit the teams' timelines, extending your migration effort.
+
+1. Determine how many repositories and pull requests you need to migrate.
+1. To understand when teams can be ready to migrate, interview stakeholders.
+1. Fully review the rest of this guide, then decide on a migration timeline.
 
 ### Do we understand what will be migrated?
 
@@ -67,17 +73,17 @@ To migrate a repository, you must be an organization owner for the destination o
 {% data reusables.enterprise-migration-tool.grant-migrator-tasks %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#about-the-migrator-role).
 {% data reusables.enterprise-migration-tool.confirm-migrator-has-correct-pats %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-from-azure-devops-to-github-enterprise-cloud/managing-access-for-a-migration-from-azure-devops#required-scopes-for-personal-access-tokens).
 
-### What organizational structure do we want in {% data variables.product.prodname_dotcom %}?
+### What organizational structure do we want in {% data variables.product.github %}?
 
-Next, plan the organizational structure you'll create in {% data variables.product.prodname_dotcom %}. ADO and {% data variables.product.prodname_dotcom %} have different ways of organizing an enterprise's work.
+Next, plan the organizational structure you'll create in {% data variables.product.github %}. ADO and {% data variables.product.github %} have different ways of organizing an enterprise's work.
 
 * ADO: Organization > team project > repositories
-* {% data variables.product.prodname_dotcom %}: Enterprise > organization > repositories
+* {% data variables.product.github %}: Enterprise > organization > repositories
 
 > [!NOTE]
-> The concept of a team project, which is used to group repositories in ADO, does not exist in {% data variables.product.prodname_dotcom %}. We do not recommend treating organizations in {% data variables.product.product_name %} as the equivalent of team projects in ADO.
+> The concept of a team project, which is used to group repositories in ADO, does not exist in {% data variables.product.github %}. We do not recommend treating organizations in {% data variables.product.github %} as the equivalent of team projects in ADO.
 
-After migrating to {% data variables.product.prodname_dotcom %}, you should have only one enterprise account and a small number of organizations owned by that enterprise. Each organization from ADO should correspond to a single organization on {% data variables.product.prodname_dotcom %}. We do not recommend creating an organization on {% data variables.product.prodname_dotcom %} for each team project on ADO.
+After migrating to {% data variables.product.github %}, you should have only one enterprise account and a small number of organizations owned by that enterprise. Each organization from ADO should correspond to a single organization on {% data variables.product.github %}. We do not recommend creating an organization on {% data variables.product.github %} for each team project on ADO.
 
 This may result in a large list of ungrouped repositories within each organization. However, you can manage access to groups of repositories by creating teams. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 

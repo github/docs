@@ -165,6 +165,7 @@ export type Context = {
   currentLearningTrack?: LearningTrack | null
   renderedPage?: string
   miniTocItems?: string | undefined
+  markdownRequested?: boolean
 }
 export type LearningTracks = {
   [group: string]: {
@@ -443,4 +444,23 @@ export type ProductExample = {
   repo?: string
   user?: string
   description: string
+}
+
+export type FeatureData = {
+  [key: string]: Versions
+}
+export type Versions = {
+  versions: FrontmatterVersions
+}
+
+// Used for parsing .md pages with YAML frontmatter
+// This is not the full list available in the frontmatter schema
+export type MarkdownFrontmatter = {
+  title: string
+  shortTitle?: string
+  children: string[]
+  allowTitleToDifferFromFilename?: boolean
+  versions: FrontmatterVersions
+  mapTopic?: boolean
+  hidden?: boolean
 }

@@ -3,7 +3,9 @@ title: Checking out a commit in GitHub Desktop
 shortTitle: Checking out a commit
 intro: 'You can use {% data variables.product.prodname_desktop %} to checkout a previous commit in your repository.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/checking-out-a-commit-in-github-desktop
 ---

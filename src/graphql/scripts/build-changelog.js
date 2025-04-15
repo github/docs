@@ -308,6 +308,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionAdded,
   ChangeType.DirectiveUsageFieldDefinitionAdded,
   ChangeType.DirectiveUsageArgumentDefinitionAdded,
+  ChangeType.DirectiveUsageEnumValueAdded,
 ]
 
 export default { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }
