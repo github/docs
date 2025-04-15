@@ -471,8 +471,11 @@ export function SearchOverlay({
         selectedIndex < combinedOptions.length
       ) {
         const selectedItem = combinedOptions[selectedIndex]
+        if (!selectedItem) {
+          return
+        }
         let action = () => {} // Execute the action after we send the event
-        if (selectedItem.group === 'general') {
+        if (selectedItem?.group === 'general') {
           if (
             (selectedItem.option as GeneralSearchHitWithOptions).isViewAllResults ||
             (selectedItem.option as GeneralSearchHitWithOptions).isSearchDocsOption
@@ -483,10 +486,10 @@ export function SearchOverlay({
             pressedOnContext = 'general-option'
             action = () => generalSearchResultOnSelect(selectedItem.option as GeneralSearchHit)
           }
-        } else if (selectedItem.group === 'ai') {
+        } else if (selectedItem?.group === 'ai') {
           pressedOnContext = 'ai-option'
           action = () => aiSearchOptionOnSelect(selectedItem.option as AutocompleteSearchHit)
-        } else if (selectedItem.group === 'reference') {
+        } else if (selectedItem?.group === 'reference') {
           // On a reference select, we are in the Ask AI State / Screen
           pressedGroupKey = ASK_AI_EVENT_GROUP
           pressedGroupId = askAIEventGroupId
@@ -509,6 +512,8 @@ export function SearchOverlay({
       'search-overlay-ask-ai': '',
       'search-overlay-input': urlSearchInputQuery,
     })
+    // Focus the search input
+    inputRef.current?.focus()
   }
 
   // We render the AI Result in the searchGroups call, so we pass the props down via an object
@@ -681,7 +686,7 @@ export function SearchOverlay({
             aria-expanded={combinedOptions.length > 0}
             aria-activedescendant={
               selectedIndex >= 0
-                ? `search-option-${combinedOptions[selectedIndex].group}-${selectedIndex}`
+                ? `search-option-${combinedOptions[selectedIndex]?.group}-${selectedIndex}`
                 : undefined
             }
             onKeyDown={handleKeyDown}
