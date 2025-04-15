@@ -1,3 +1,7 @@
+wave
+It looks like this is your first time opening a pull request in this project!
+
+Be sure to review the code of conduct/
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
