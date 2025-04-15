@@ -11,8 +11,6 @@ redirect_from:
   - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
 ---
 
-> [!NOTE] All {% data variables.copilot.copilot_claude_sonnet %} models are in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
-
 ## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}
 
 {% data variables.copilot.copilot_claude_sonnet %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [Sonnet's capabilities](https://www.anthropic.com/claude/sonnet).

@@ -15,38 +15,38 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 <details>
   <summary>View the list of programming languages and technologies included in the training data.</summary>
 
-  * C  
-  * C#  
-  * C++  
-  * Clojure  
-  * CSS  
-  * Dart  
-  * Dockerfile  
-  * Elixir  
-  * Emacs Lisp  
-  * Go  
-  * Haskell  
-  * HTML  
-  * Java  
-  * JavaScript  
-  * Julia  
-  * Jupyter Notebook  
-  * Kotlin  
-  * Lua  
-  * MATLAB  
-  * Objective-C  
-  * Perl  
-  * PHP  
-  * PowerShell  
-  * Python  
-  * R  
-  * Ruby  
-  * Rust  
-  * Scala  
-  * Shell  
-  * Swift  
-  * TeX  
-  * TypeScript  
+  * C
+  * C#
+  * C++
+  * Clojure
+  * CSS
+  * Dart
+  * Dockerfile
+  * Elixir
+  * Emacs Lisp
+  * Go
+  * Haskell
+  * HTML
+  * Java
+  * JavaScript
+  * Julia
+  * Jupyter Notebook
+  * Kotlin
+  * Lua
+  * MATLAB
+  * Objective-C
+  * Perl
+  * PHP
+  * PowerShell
+  * Python
+  * R
+  * Ruby
+  * Rust
+  * Scala
+  * Shell
+  * Swift
+  * TeX
+  * TypeScript
   * Vue
 
 </details>

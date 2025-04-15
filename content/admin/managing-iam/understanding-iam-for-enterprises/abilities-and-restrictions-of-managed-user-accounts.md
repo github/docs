@@ -54,7 +54,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_pages %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. See [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
+* {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. See [AUTOTITLE](/pages/getting-started-with-github-pages/github-pages-limits#limits-for-enterprise-managed-users).
 
 ## Interactions
 

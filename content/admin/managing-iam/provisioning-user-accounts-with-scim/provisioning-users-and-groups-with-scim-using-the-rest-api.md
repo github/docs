@@ -169,6 +169,7 @@ Before a person with an identity on your identity management system can sign in 
 
 * For an overview of the supported attributes for users, see [SCIM](/rest/enterprise-admin/scim#supported-scim-user-attributes) in the REST API documentation.
 * You can view provisioned users in the {% data variables.product.github %} UI. For more information, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/viewing-people-in-your-enterprise).
+{% ifversion scim-for-ghes-ga %}* {% data reusables.scim.ghe-scim-identities-csv %}{% endif %}
 
 | Action | Method | Endpoint and more information |  Events in the audit log |
 | :- | :- | :- | :- |

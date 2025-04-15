@@ -26,7 +26,7 @@ Each month, you will be billed for:
 
 * The number of {% data variables.product.prodname_enterprise %} licenses you use, determined by the number of unique users in your enterprise
 * Any usage of features like {% data variables.product.prodname_actions %} or {% data variables.product.prodname_github_codespaces %}, beyond the allowances included in your {% data variables.product.prodname_enterprise %} plan
-* Any extra features you purchase, such as {% data variables.product.prodname_copilot %} or {% data variables.product.prodname_GH_advanced_security %} licenses
+* Any extra features you purchase, such as {% data variables.product.prodname_copilot %} or {% data variables.product.prodname_AS %} licenses
 
 For prices and monthly allowances, see {% data variables.product.pricing_link %}.
 

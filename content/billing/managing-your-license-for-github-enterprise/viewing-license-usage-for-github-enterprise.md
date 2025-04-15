@@ -45,7 +45,7 @@ You can view the license usage for your enterprise and download a file with lice
 {% data reusables.enterprise-accounts.license-tab %}
 1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
 
-   * If you purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total license usage. To learn about the information displayed, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).
+   * If you purchased {% data variables.product.prodname_AS %}, you can review your total license usage. To learn about the information displayed, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).
 
 1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click **{% octicon "download" aria-hidden="true" %} CSV report**.
 
@@ -56,7 +56,7 @@ You can view the license usage for your enterprise and download a file with lice
 {% data reusables.enterprise-accounts.license-tab %}
 1. Review your current {% data variables.product.prodname_enterprise %} license, as well as consumed and available user licenses.
 
-   If you have purchased {% data variables.product.prodname_GH_advanced_security %}, you can review your total licenses used as well as a per-organization breakdown of active committers. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
+   If you have purchased {% data variables.product.prodname_AS %}, you can review your total licenses used as well as a per-organization breakdown of active committers. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise).
 
 {% endif %}
 

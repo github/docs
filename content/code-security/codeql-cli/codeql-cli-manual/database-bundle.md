@@ -21,6 +21,8 @@ redirect_from:
 
 {% data reusables.codeql-cli.man-pages-version-note %}
 
+{% data reusables.code-scanning.codeql-database-archive-contains-source-code %}
+
 ## Synopsis
 
 ```shell copy

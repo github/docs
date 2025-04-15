@@ -41,6 +41,8 @@ type AISearchResultEventParams = {
   connectedEventId?: string
 }
 
+const MAX_REFERENCES_TO_SHOW = 5
+
 export function AskAIResults({
   query,
   version,
@@ -76,7 +78,7 @@ export function AskAIResults({
 
   const [conversationId, setConversationId] = useState<string>('')
 
-  const handleAICannotAnswer = () => {
+  const handleAICannotAnswer = (passedConversationId?: string) => {
     setInitialLoading(false)
     setResponseLoading(false)
     setAICouldNotAnswer(true)
@@ -87,6 +89,7 @@ export function AskAIResults({
       eventGroupId: askAIEventGroupId.current,
       couldNotAnswer: true,
       status: 400,
+      connectedEventId: passedConversationId || conversationId,
     })
     setMessage(cannedResponse)
     setAnnouncement(cannedResponse)
@@ -98,6 +101,7 @@ export function AskAIResults({
         message: cannedResponse,
         sources: [],
         aiCouldNotAnswer: true,
+        connectedEventId: passedConversationId || conversationId,
       },
       version,
       router.locale || 'en',
@@ -123,6 +127,7 @@ export function AskAIResults({
     if (cachedData) {
       setMessage(cachedData.message)
       setReferences(cachedData.sources)
+      setConversationId(cachedData.connectedEventId || '')
       setAICouldNotAnswer(cachedData.aiCouldNotAnswer || false)
       setInitialLoading(false)
       setResponseLoading(false)
@@ -150,10 +155,6 @@ export function AskAIResults({
 
       try {
         const response = await executeAISearch(router, version, query, debug)
-        // Serve canned response. A question that cannot be answered was asked
-        if (response.status === 400) {
-          return handleAICannotAnswer()
-        }
         if (!response.ok) {
           console.error(
             `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
@@ -195,6 +196,18 @@ export function AskAIResults({
               let parsedLine
               try {
                 parsedLine = JSON.parse(line)
+                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
+                if (parsedLine?.errors) {
+                  sendAISearchResultEvent({
+                    sources: [],
+                    message: JSON.stringify(parsedLine.errors),
+                    eventGroupId: askAIEventGroupId.current,
+                    couldNotAnswer: false,
+                    status: 500,
+                  })
+                  setAISearchError()
+                  return
+                }
               } catch (e) {
                 console.error(
                   'Failed to parse JSON:',
@@ -207,7 +220,14 @@ export function AskAIResults({
                 continue
               }
 
-              if (parsedLine.chunkType === 'SOURCES') {
+              // A conversation ID will still be sent when a question cannot be answered
+              if (parsedLine.chunkType === 'CONVERSATION_ID') {
+                conversationIdBuffer = parsedLine.conversation_id
+                setConversationId(parsedLine.conversation_id)
+              } else if (parsedLine.chunkType === 'NO_CONTENT_SIGNAL') {
+                // Serve canned response. A question that cannot be answered was asked
+                handleAICannotAnswer(conversationIdBuffer)
+              } else if (parsedLine.chunkType === 'SOURCES') {
                 if (!isCancelled) {
                   sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
                   sourcesBuffer = uniqBy(sourcesBuffer, 'url')
@@ -218,9 +238,9 @@ export function AskAIResults({
                   messageBuffer += parsedLine.text
                   setMessage(messageBuffer)
                 }
-              } else if (parsedLine.chunkType === 'CONVERSATION_ID') {
-                conversationIdBuffer = parsedLine.conversation_id
-                setConversationId(parsedLine.conversation_id)
+              } else if (parsedLine.chunkType === 'INPUT_CONTENT_FILTER') {
+                // Serve canned response. A spam question was asked
+                handleAICannotAnswer(conversationIdBuffer)
               }
               if (!isCancelled) {
                 setAnnouncement('Copilot Response Loading...')
@@ -371,27 +391,34 @@ export function AskAIResults({
               >
                 {t('search.ai.references')}
               </ActionList.GroupHeading>
-              {references.map((source, index) => (
-                <ActionList.Item
-                  sx={{
-                    marginLeft: '0px',
-                    paddingLeft: '0px',
-                  }}
-                  key={`reference-${index}`}
-                  id={`search-option-reference-${index + referencesIndexOffset}`}
-                  role="option"
-                  tabIndex={-1}
-                  onSelect={() => {
-                    referenceOnSelect(source.url)
-                  }}
-                  active={index + referencesIndexOffset === selectedIndex}
-                >
-                  <ActionList.LeadingVisual aria-hidden="true">
-                    <FileIcon />
-                  </ActionList.LeadingVisual>
-                  {source.title}
-                </ActionList.Item>
-              ))}
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  return (
+                    <ActionList.Item
+                      sx={{
+                        marginLeft: '0px',
+                        paddingLeft: '0px',
+                      }}
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      role="option"
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={index + referencesIndexOffset === selectedIndex}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
             </ActionList.Group>
           </ActionList>
         </>

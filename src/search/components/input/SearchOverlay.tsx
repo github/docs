@@ -131,7 +131,7 @@ export function SearchOverlay({
     }
 
     // If it's the initial fetch, show the spinner immediately
-    if (!aiAutocompleteOptions.length && !generalSearchResults.length) {
+    if (!aiAutocompleteOptions.length && !generalSearchResults.length && searchLoading) {
       return setShowSpinner(true)
     }
 
@@ -332,6 +332,12 @@ export function SearchOverlay({
     if (searchParams.has('search-overlay-open')) {
       searchParams.delete('search-overlay-open')
     }
+    if (searchParams.has('search-overlay-input')) {
+      searchParams.delete('search-overlay-input')
+    }
+    if (searchParams.has('search-overlay-ask-ai')) {
+      searchParams.delete('search-overlay-ask-ai')
+    }
     router.push(`${selectedOption.url}?${searchParams.toString()}` || '')
     onClose()
   }
@@ -376,6 +382,12 @@ export function SearchOverlay({
     const searchParams = new URLSearchParams((router.query as Record<string, string>) || {})
     if (searchParams.has('search-overlay-open')) {
       searchParams.delete('search-overlay-open')
+    }
+    if (searchParams.has('search-overlay-input')) {
+      searchParams.delete('search-overlay-input')
+    }
+    if (searchParams.has('search-overlay-ask-ai')) {
+      searchParams.delete('search-overlay-ask-ai')
     }
     window.open(`${url}?${searchParams.toString()}` || '', '_blank')
   }
@@ -733,10 +745,7 @@ export function SearchOverlay({
               onClick={async () => {
                 if (await getIsStaff()) {
                   // Hubbers users use an internal discussion for feedback
-                  window.open(
-                    'https://github.com/github/docs-engineering/discussions/5295',
-                    '_blank',
-                  )
+                  window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
                 } else {
                   // TODO: On ship date set this value
                   // window.open('TODO', '_blank')

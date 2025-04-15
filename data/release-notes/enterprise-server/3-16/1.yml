@@ -29,6 +29,8 @@ sections:
       Update the bundled `actions/setup-dotnet` with the latest versions from https://github.com/actions/setup-dotnet.
   known_issues:
     - |
+      Upgrades to 3.16.1 may fail due to an error while migrating a secret scanning database. The `ghe-migrations` command output will include a `DelegatedBypassConfigurationNotNil` error. To recover, you can restore from a backup, fail over to a replica, or reach out to GitHub Support if you encounter this issue. [Updated: 2025-04-03]
+    - |
       Custom firewall rules are removed during the upgrade process.
     - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.

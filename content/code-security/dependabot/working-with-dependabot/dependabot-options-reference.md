@@ -382,6 +382,9 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
 | {% endif %} |
+| {% ifversion dependabot-helm-support %} |
+| Helm Charts            | `helm`            | v3               |
+| {% endif %} |
 | Hex            | `mix`            | v1               |
 | elm-package    | `elm`            | v0.19            |
 | git submodule  | `gitsubmodule`   | Not applicable |
@@ -399,6 +402,7 @@ Package manager | YAML value      | Supported versions |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
+| uv           | `uv`             | v0 |
 | yarn         | `npm`            | v1, v2, v3       |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}

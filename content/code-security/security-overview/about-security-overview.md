@@ -81,7 +81,7 @@ Security overview has multiple views that provide different ways to explore enab
 * **Secret scanning:** find out which types of secret are blocked by push protection{% ifversion security-overview-delegated-bypass-requests %} and which teams are bypassing push protection{% endif %}, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection){% ifversion security-overview-delegated-bypass-requests %} and [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection){% endif %}.
 
 {% ifversion security-campaigns %}
-You also create and manage security campaigns to remediate alerts from security overview, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
+You also create and manage security campaigns to remediate alerts from security overview, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns) and [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).
 {% endif %}
 
 ## About security overview for enterprises
@@ -99,6 +99,12 @@ For information about permissions, see [Permission to view data in security over
 If you are an **owner or security manager** for an organization, you can see data for all the repositories in the organization in all views.
 
 If you are an **organization or team member**, you can view security overview for the organization and see data for repositories where you have an appropriate level of access.
+
+{% ifversion secret-risk-assessment %}
+
+> [!TIP] The Assessments view, which is not shown in the table below, is only available to organization owners and security managers.
+
+{% endif %}
 
 {% ifversion security-overview-dashboard %}
 {% rowheaders %}

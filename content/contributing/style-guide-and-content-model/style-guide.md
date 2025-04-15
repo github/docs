@@ -1561,7 +1561,8 @@ We only document the responsive states of UI elements when they create ambiguity
 
 ### User interface text
 
-When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
+When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with. Place any commas outside of the quotation marks.
+
 * **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
