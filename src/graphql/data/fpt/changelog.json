@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>RepositorySuggestedActorFilter</code> was added</p>",
+          "<p>Argument 'capabilities: [RepositorySuggestedActorFilter!]!<code>added to field</code>Repository.suggestedActors'</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-04-15"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>ActorConnection</code> was added</p>",
           "<p>Type <code>ActorEdge</code> was added</p>",
           "<p>Type <code>AssigneeConnection</code> was added</p>",
