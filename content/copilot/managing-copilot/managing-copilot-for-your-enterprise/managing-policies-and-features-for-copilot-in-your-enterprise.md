@@ -29,6 +29,7 @@ You can configure any of the following policies for your enterprise:
 * [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
+* [{% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
 * [Editor preview features](#editor-preview-features)
 * [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
@@ -59,6 +60,10 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ### {% data variables.product.prodname_copilot_cli %}
 
 {% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. You can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
+
+### {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+
+You can generate commit messages and descriptions in {% data variables.product.prodname_desktop %} based on the changes you make to your project.
 
 ### {% data variables.product.prodname_copilot_chat %} in the IDE
 
