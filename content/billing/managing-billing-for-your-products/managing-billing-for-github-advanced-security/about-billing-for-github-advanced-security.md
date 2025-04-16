@@ -115,7 +115,7 @@ If you exceed your license limit, features controlled by {% data variables.produ
 
 As soon as you make licenses available, by disabling {% data variables.product.prodname_GH_cs_or_sp %} in some repositories, or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_cs_and_sp %} will work again as normal. {% ifversion ghes %}All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.{% endif %}
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
+You can enforce policies to allow or disallow the use of {% data variables.product.prodname_AS %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
 
 ## Active and unique committers
 
