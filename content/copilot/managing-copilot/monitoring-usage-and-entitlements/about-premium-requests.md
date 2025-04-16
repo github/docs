@@ -49,8 +49,10 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_41 %}                             | 1                                                                            |
 | GPT-4.5                                                                 | 50                                                                           |
-| o1                                                                      | 10                                                                           |
-| o3-mini                                                                 | 0.33                                                                         |
+| {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
+| {% data variables.copilot.copilot_o3 %}                                 | 10                                                                           |
+| {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
+| {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
 
 [^1]: The base model at the time of writing is {% data variables.copilot.copilot_gpt_4o %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
 
