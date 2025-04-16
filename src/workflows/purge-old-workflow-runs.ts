@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  *
  * The only mandatory environment variables for this scrips are:

@@ -17,16 +17,18 @@ This article helps you compare the available models, understand the strengths of
 The best model depends on your use case:
 
 * For **balance between cost and performance**, try {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_claude_sonnet_37 %}.
-* For **fast, low-cost support for basic tasks**, try o3-mini or {% data variables.copilot.copilot_claude_sonnet_35 %}.
-* For **deep reasoning or complex coding challenges**, try o1, GPT-4.5, or {% data variables.copilot.copilot_claude_sonnet_37 %}.
-* For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or GPT-4o.
+* For **fast, low-cost support for basic tasks**, try {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_claude_sonnet_35 %}.
+* For **deep reasoning or complex coding challenges**, try {% data variables.copilot.copilot_o3 %}, GPT-4.5, or {% data variables.copilot.copilot_claude_sonnet_37 %}.
+* For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or {% data variables.copilot.copilot_gpt_4o %}.
 
 You can click a model name in the list below to jump to a detailed overview of its strengths and use cases.
-* [GPT-4o](#gpt-4o)
+* [{% data variables.copilot.copilot_gpt_4o %}](#gpt-4o)
 * [{% data variables.copilot.copilot_gpt_41 %}](#gpt-41)
-* [GPT-4.5](#gpt-45)
-* [o1](#o1)
-* [o3-mini](#o3-mini)
+* [{% data variables.copilot.copilot_gpt_45 %}](#gpt-45)
+* [{% data variables.copilot.copilot_o1 %}](#o1)
+* [{% data variables.copilot.copilot_o3 %}](#o3)
+* [{% data variables.copilot.copilot_o3_mini %}](#o3-mini)
+* [{% data variables.copilot.copilot_o4_mini %}](#o4-mini)
 * [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-35-sonnet)
 * [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-37-sonnet)
 * [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
@@ -145,16 +147,16 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
-| Task                     | Description                                       | Why another model may be better                                    |
-|--------------------------|---------------------------------------------------|--------------------------------------------------------------------|
+| Task                     | Description                                       | Why another model may be better                                   |
+|--------------------------|---------------------------------------------------|-------------------------------------------------------------------|
 | High-speed iteration     | Rapid back-and-forth prompts or code tweaks.      | GPT-4o responds faster with similar quality for lightweight tasks. |
-| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.    | GPT-4o or o3-mini are more cost-effective.                         |
+| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.    | GPT-4o or {% data variables.copilot.copilot_o4_mini %} are more cost-effective.                         |
 
 {% endrowheaders %}
 
 ## o1
 
-OpenAI o1 is an advanced reasoning model that supports complex, multi-step tasks and deep logical reasoning to find the best solution.
+OpenAI o1 is an older reasoning model that supports complex, multi-step tasks and deep logical reasoning to find the best solution.
 
 For more information about o1, see [OpenAI's documentation](https://platform.openai.com/docs/models/o1).
 
@@ -184,10 +186,50 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
+| Task                      | Description                                        | Why another model may be better                                                                                                                |
+|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | GPT-4o or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.                                             |
+| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
+
+{% endrowheaders %}
+
+## {% data variables.copilot.copilot_o3 %}
+
+{% data reusables.copilot.o3-public-preview-note %}
+
+OpenAI {% data variables.copilot.copilot_o3 %} is the most capable reasoning model in the o-series. It is ideal for deep coding workflows and complex, multi-step tasks.
+For more information about {% data variables.copilot.copilot_o3 %}, see [OpenAI's documentation](https://platform.openai.com/docs/models/o3).
+
+### Use cases
+
+{% data reusables.copilot.model-use-cases.o3 %}
+
+### Strengths
+
+The following table summarizes the strengths of {% data variables.copilot.copilot_o3 %}:
+
+{% rowheaders %}
+
+| Task                       | Description                                                             | Why {% data variables.copilot.copilot_o3 %} is a good fit                                               |
+|----------------------------|-------------------------------------------------------------------------|--------------------------------------------------------------------|
+| Code optimization          | Analyze and improve performance-critical or algorithmic code.           | Excels at deep reasoning and identifying non-obvious improvements. |
+| Debugging complex systems  | Isolate and fix performance bottlenecks or multi-file issues.           | Provides step-by-step analysis and high reasoning accuracy.        |
+| Structured code generation | Generate reusable functions, typed outputs, or structured  responses.   | Supports function calling and structured output natively.          |
+| Analytical summarization   | Interpret logs, benchmark results, or code behavior.                    | Translates raw data into clear, actionable insights.               |
+| Refactoring code           | Improve maintainability and modularity of existing systems.             | Applies deliberate and context-aware suggestions.                  |
+
+{% endrowheaders %}
+
+### Alternative options
+
+The following table summarizes when an alternative model may be a better choice:
+
+{% rowheaders %}
+
 | Task                      | Description                                        | Why another model may be better                                                                           |
 |---------------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
 | Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | GPT-4o or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.        |
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | o3-mini or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
+| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
 
 {% endrowheaders %}
 
@@ -227,6 +269,47 @@ The following table summarizes when an alternative model may be a better choice:
 | Deep reasoning tasks        | Multi-step analysis or architectural decisions.            | GPT-4.5 or o1 provide more structured, thorough reasoning. |
 | Creative or long-form tasks | Writing docs, refactoring across large codebases.          | o3-mini is less expressive and structured than larger models. |
 | Complex code generation     | Write full functions, classes, or multi-file logic.        | Larger models handle complexity and structure more reliably. |
+
+{% endrowheaders %}
+
+## {% data variables.copilot.copilot_o4_mini %}
+
+{% data reusables.copilot.o4-mini-public-preview-note %}
+
+OpenAI {% data variables.copilot.copilot_o4_mini %} is the most efficient model in the o-series. It is a cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage.
+
+For more information about o4, see [OpenAI's documentation](https://platform.openai.com/docs/models/o4-mini).
+
+### Use cases
+
+{% data reusables.copilot.model-use-cases.o4-mini %}
+
+### Strengths
+
+The following table summarizes the strengths of {% data variables.copilot.copilot_o4_mini %}:
+
+{% rowheaders %}
+
+| Task                       | Description                                                 | Why {% data variables.copilot.copilot_o4_mini %} is a good fit                                    |
+|----------------------------|-------------------------------------------------------------|--------------------------------------------------------------|
+| Real-time code suggestions | Write or extend basic functions and utilities.              | Responds quickly with accurate, concise suggestions.         |
+| Code explanation           | Understand what a block of code does or walk through logic. | Fast, accurate summaries with clear language.                |
+| Learn new concepts         | Ask questions about programming concepts or patterns.       | Offers helpful, accessible explanations with quick feedback. |
+| Quick prototyping          | Try out small ideas or test simple code logic quickly.      | Fast, low-latency responses for iterative feedback.          |
+
+{% endrowheaders %}
+
+### Alternative options
+
+The following table summarizes when an alternative model may be a better choice:
+
+{% rowheaders %}
+
+| Task                        | Description                                                | Why another model may be better                               |
+|-----------------------------|------------------------------------------------------------|---------------------------------------------------------------|
+| Deep reasoning tasks        | Multi-step analysis or architectural decisions.            | GPT-4.5 or {% data variables.copilot.copilot_o3 %} provide more structured, thorough reasoning.    |
+| Creative or long-form tasks | Writing docs, refactoring across large codebases.          | {% data variables.copilot.copilot_o4_mini %} is less expressive and structured than larger models. |
+| Complex code generation     | Write full functions, classes, or multi-file logic.        | Larger models handle complexity and structure more reliably.  |
 
 {% endrowheaders %}
 
@@ -306,7 +389,7 @@ The following table summarizes when an alternative model may be a better choice:
 | Task                     | Description                                                    | Why another model may be better                                                                                                             |
 |--------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
 | Quick iterations         | Rapid back-and-forth prompts or code tweaks.                   | GPT-4o responds faster for lightweight tasks.                                                                                               |
-| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.                 | o3-mini or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. {% data variables.copilot.copilot_claude_sonnet_35 %} is cheaper, simpler, and still advanced enough for similar tasks. |
+| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.                 | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. {% data variables.copilot.copilot_claude_sonnet_35 %} is cheaper, simpler, and still advanced enough for similar tasks. |
 | Lightweight prototyping  | Rapid back-and-forth code iterations with minimal context.     | {% data variables.copilot.copilot_claude_sonnet_37 %} may over-engineer or apply unnecessary complexity.                                                                               |
 
 {% endrowheaders %}
@@ -385,7 +468,7 @@ The following table summarizes when an alternative model may be a better choice:
 
 | Task                      | Description                                        | Why another model may be better                                                                            |
 |---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------|
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | o3-mini or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.  |
+| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.  |
 
 {% endrowheaders %}
 
