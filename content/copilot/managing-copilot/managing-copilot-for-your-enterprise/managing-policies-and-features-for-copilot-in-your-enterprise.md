@@ -92,7 +92,7 @@ By default, {% data variables.product.prodname_copilot_chat_short %} uses a base
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
-* **OpenAI's models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task#gpt-45).
+* **OpenAI models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot).
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

@@ -23,6 +23,7 @@ import {
   ArrowRightIcon,
   ArrowLeftIcon,
 } from '@primer/octicons-react'
+import { focusTrap } from '@primer/behaviors'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { useVersion } from 'src/versions/components/useVersion'
@@ -42,7 +43,7 @@ import { EventType } from '@/events/types'
 import { ASK_AI_EVENT_GROUP, SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 import type { AIReference } from '../types'
 import type { AutocompleteSearchHit, GeneralSearchHit } from '@/search/types'
-import { focusTrap } from '@primer/behaviors'
+import { useSharedUIContext } from '@/frame/components/context/SharedUIContext'
 
 type Props = {
   searchOverlayOpen: boolean
@@ -89,6 +90,9 @@ export function SearchOverlay({
   const [aiReferences, setAIReferences] = useState<AIReference[]>([] as AIReference[])
   const [aiCouldNotAnswer, setAICouldNotAnswer] = useState<boolean>(false)
   const [showSpinner, setShowSpinner] = useState(false)
+  const [scrollPos, setScrollPos] = useState(0)
+
+  const { hasOpenHeaderNotifications } = useSharedUIContext()
 
   // Group all events between open / close of the overlay together
   const searchEventGroupId = useRef<string>('')
@@ -105,6 +109,19 @@ export function SearchOverlay({
   }, [searchOverlayOpen])
   // Group all events within an "Ask AI" session together
   const askAIEventGroupId = useRef<string>('')
+
+  // When there is a notification above the header, we need to adjust the top position of the overlay to account for it
+  useEffect(() => {
+    if (hasOpenHeaderNotifications) {
+      const handleScroll = () => {
+        setScrollPos(window.scrollY)
+      }
+
+      window.addEventListener('scroll', handleScroll)
+      return () => window.removeEventListener('scroll', handleScroll)
+    }
+  }, [hasOpenHeaderNotifications])
+  const overlayTopValue = scrollPos > 72 ? '0px' : `${88 - scrollPos}px !important`
 
   const {
     autoCompleteOptions,
@@ -653,6 +670,14 @@ export function SearchOverlay({
         onClickOutside={onClose}
         anchorSide="inside-center"
         className={cx(styles.overlayContainer, 'position-fixed')}
+        // We need to override the top value of the overlay when there are header notifications
+        sx={
+          hasOpenHeaderNotifications
+            ? {
+                top: overlayTopValue,
+              }
+            : undefined
+        }
         role="dialog"
         aria-modal="true"
         aria-labelledby={overlayHeadingId}
