@@ -33,6 +33,7 @@ Organization owners can set policies to govern how {% data variables.product.pro
   * Using images in {% data variables.product.prodname_copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
+* {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
   * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
