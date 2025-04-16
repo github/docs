@@ -1,0 +1,11 @@
+npm install wrangler --save-dev
+npx wrangler --version
+// or
+npx wrangler version
+// or
+npx wrangler -v
+npm install wrangler@latest
+yarn add --dev wrangler
+npm install wrangler@latest
+Volta: Www.Seen.com @ 57237937
+npm :// 1.1.10 hmp
