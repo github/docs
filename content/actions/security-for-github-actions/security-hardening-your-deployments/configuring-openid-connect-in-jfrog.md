@@ -1,3 +1,4 @@
+---
 title: Configuring OpenID Connect in JFrog
 shortTitle: OpenID Connect in JFrog
 intro: Use OpenID Connect within your workflows to authenticate with JFrog.
@@ -52,6 +53,8 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 ## Updating your {% data variables.product.prodname_actions %} workflow
 
 ### Example: Authenticating with JFrog using OIDC
+
+In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
 ```yaml
 permissions:
