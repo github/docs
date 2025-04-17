@@ -27,6 +27,9 @@ shortTitle: Managing policies
 Organization owners can set policies to govern how {% data variables.product.prodname_copilot %} can be used within the organization. For example, an organization owner can enable or disable the following {% data variables.product.prodname_copilot_short %} features{% ifversion ghec %} (unless an enterprise owner has blocked access to these features at the enterprise level){% endif %}:
 
 * Additional {% data variables.product.prodname_copilot_short %} premium requests
+  <!-- expires 2025-05-19 -->
+  > [!IMPORTANT] This setting will be available starting on May 12, 2025 or May 19, 2025, depending on your payment method. For more information, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+  <!-- end expires 2025-05-19 -->
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview features, such as:

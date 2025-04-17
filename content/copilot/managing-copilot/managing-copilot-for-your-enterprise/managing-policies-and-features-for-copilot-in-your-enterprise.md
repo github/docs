@@ -40,9 +40,11 @@ You can configure any of the following policies for your enterprise:
 
 ### Additional {% data variables.product.prodname_copilot_short %} premium requests
 
-<!-- expires 2025-05-05 -->
-{% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- expires 2025-05-19 -->
+{% data reusables.copilot.unlimited-premium-requests %}<br>
+>
+> This setting won't be available until then.
+<!-- end expires 2025-05-19 -->
 
 If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 

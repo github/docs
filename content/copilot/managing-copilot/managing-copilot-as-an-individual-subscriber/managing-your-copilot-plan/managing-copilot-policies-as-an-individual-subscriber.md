@@ -22,7 +22,9 @@ In addition to the configuration for the {% data variables.product.prodname_copi
 ## Enabling additional {% data variables.product.prodname_copilot_short %} premium requests
 
 <!-- expires 2025-05-05 -->
-{% data reusables.copilot.unlimited-premium-requests %}
+{% data reusables.copilot.unlimited-premium-requests %}<br>
+>
+> This setting won't be available until then.
 <!-- end expires 2025-05-05 -->
 
 {% data reusables.copilot.premium-requests-billing-platform %}
