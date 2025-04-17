@@ -41,12 +41,17 @@ copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude 3.5 Sonnet'
 copilot_claude_sonnet_37: 'Claude 3.7 Sonnet'
 
+copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
+copilot_gemini_25_pro: 'Gemini 2.5 Pro'
 
 copilot_gpt_4o: 'GPT-4o'
+copilot_gpt_41: 'GPT-4.1'
 copilot_gpt_45: 'GPT-4.5'
-copilot_gpt_o1: 'o1'
-copilot_gpt_o3_mini: 'o3-mini'
+copilot_o1: 'o1'
+copilot_o3: 'o3'
+copilot_o3_mini: 'o3-mini'
+copilot_o4_mini: 'o4-mini'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

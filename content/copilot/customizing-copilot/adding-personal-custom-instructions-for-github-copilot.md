@@ -27,10 +27,20 @@ You can add personal custom instructions either in the Chat panel or in immersiv
 
 1. In the top right of any page on {% data variables.product.github %}, either:
    * Click the **{% octicon "copilot" aria-label="Copilot" %}** icon to open the {% data variables.product.prodname_copilot_chat_short %} panel.
-   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.product.prodname_copilot_chat_short %} in the full-page, immersive mode.
+   * Click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} next to the **{% octicon "copilot" aria-label="Copilot" %}** icon, then click **Immersive** to open {% data variables.product.prodname_copilot_chat_short %} in the full-page, immersive mode. You can also go directly to [https://github.com/copilot](https://github.com/copilot).
 1. Select the {% octicon "kebab-horizontal" aria-label="Open conversation options" %} dropdown menu at the top right of the Chat panel, or immersive page, then click **Personal instructions**.
 1. Add natural language instructions to the text box.
 
    You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
 1. Optionally, click {% octicon "light-bulb" aria-label="The light-bulb icon" %} to view templates you can use for common instructions. If you click on one of the boxes, such as "Communication", instructions will be added to the text box with placeholders, such as `{format}` that you can replace with your preferences.
 1. Click **Save**. Your instructions are now active, and will stay active until you change or remove them.
+
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot) and start a conversation.
+
+{% note %}
+
+Did you successfully add personal custom instructions?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}

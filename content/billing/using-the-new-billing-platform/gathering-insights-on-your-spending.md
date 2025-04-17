@@ -108,7 +108,7 @@ You can view the license usage of your {% data variables.enterprise.enterprise_o
 The following license types are available:
 
 * User
-* {% data variables.product.prodname_GH_advanced_security %}
+* {% data variables.product.prodname_GH_cs_and_sp %}
 * {% data variables.product.prodname_enterprise %}
 
 You can also view your active {% data variables.product.prodname_enterprise %} instances and users.

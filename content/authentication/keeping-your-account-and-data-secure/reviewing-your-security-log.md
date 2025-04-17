@@ -49,7 +49,7 @@ The events listed in your security log are triggered by your actions. Actions ar
 |  {% endif %} |
 | `personal_access_token` | Contains activities related to {% data variables.product.pat_v2 %}s. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). |
 | `profile_picture`| Contains all activities related to your profile picture. |
-| `project` | Contains all activities related to {% data variables.projects.projects_v1_boards %}. |
+| `project` | Contains all activities related to {% data variables.projects.projects_v2 %}. |
 | `public_key` | Contains all activities related to [your public SSH keys](/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account). |
 | `repo`| Contains all activities related to the repositories you own. |
 |  {% ifversion fpt or ghec %} |

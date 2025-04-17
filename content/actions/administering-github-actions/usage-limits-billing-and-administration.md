@@ -40,7 +40,7 @@ GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %
 There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
 > [!NOTE]
-> For self-hosted runners, different usage limits apply. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits).
+> For self-hosted runners, different usage limits apply. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners).
 
 * **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
 {% data reusables.actions.usage-workflow-run-time %}
@@ -72,7 +72,7 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-Usage limits apply to self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits).
+Usage limits apply to self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners).
 {% endif %}
 
 {% ifversion fpt or ghec %}

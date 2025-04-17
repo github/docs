@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import assert from 'node:assert/strict'
 import fs from 'fs'
 

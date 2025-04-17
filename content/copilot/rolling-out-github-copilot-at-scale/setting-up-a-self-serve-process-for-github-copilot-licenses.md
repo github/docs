@@ -19,7 +19,7 @@ This article outlines two approaches your company can take:
 
 ## Approach 1: Use {% data variables.product.github %}'s "request access" feature
 
-If you have a {% data variables.product.prodname_copilot_business_short %} subscription, members of an organization can request access to {% data variables.product.prodname_copilot %} on their settings page. Then, an organization owner must review and approve each request.
+If you have a {% data variables.product.prodname_copilot_business_short %} plan, members of an organization can request access to {% data variables.product.prodname_copilot %} on their settings page. Then, an organization owner must review and approve each request.
 
 The process, which you should **communicate with users**, is as follows.
 

@@ -50,6 +50,8 @@ In this guide, we will use the Docker `build-push-action` action to build the Do
 
 ## Publishing images to Docker Hub
 
+{% data reusables.actions.jobs.dockerhub-ratelimit-ghr %}
+
 Each time you create a new release on {% data variables.product.github %}, you can trigger a workflow to publish your image. The workflow in the example below runs when the `release` event triggers with the `published` activity type.
 
 In the example workflow below, we use the Docker `login-action` and `build-push-action` actions to build the Docker image and, if the build succeeds, push the built image to Docker Hub.

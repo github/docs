@@ -92,8 +92,6 @@ sections:
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
-      Repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-    - |
       Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
     - |
       The `reply.HOSTNAME` subdomain is falsely displayed as having no SSL and DNS record, when testing the domain settings via the Management Console without subdomain isolation.
@@ -115,3 +113,7 @@ sections:
     - |
       These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.8 when log forwarding is enabled, some forwarded log entries may be duplicated.
       The fix for this problem was already included in GitHub Enterprise Server [3.12.7](/admin/release-notes#3.12.7-bugs). [Updated: 2024-09-16]
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.8, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]

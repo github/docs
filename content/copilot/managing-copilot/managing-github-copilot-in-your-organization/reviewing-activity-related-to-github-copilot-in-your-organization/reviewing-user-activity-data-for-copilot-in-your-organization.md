@@ -3,7 +3,7 @@ title: Reviewing user activity data for Copilot in your organization
 shortTitle: User activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners
-product: 'Organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
+product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot
 topics:
@@ -22,7 +22,7 @@ redirect_from:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} subscription, and the estimated monthly cost.
+1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} plan, and the estimated monthly cost.
 
    {% ifversion ghec %}
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview-enterprise.png)

@@ -10,7 +10,7 @@ redirect_from:
 topics:
   - Copilot
 children:
-  - /managing-the-copilot-subscription-for-your-organization
+  - /managing-the-copilot-plan-for-your-organization
   - /managing-policies-for-copilot-in-your-organization
   - /configuring-your-proxy-server-or-firewall-for-copilot
   - /managing-access-to-github-copilot-in-your-organization

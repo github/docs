@@ -42,6 +42,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | NexMo (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
 | Npm, Inc. 	                | GitHub Subsidiary	                                                             | United States	                                   | United States      |
 | Obsidian Security           | Security management                                                            | United States                                     | United States      |
+| OpenAI                      | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Pusher                      | Building and managing real-time infrastructure for web and mobile applications | United States                                     | United States      |
 | Semmle Inc.	                | GitHub Subsidiary	                                                             | United States	                                   | United States      |
 | SendGrid                    | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |

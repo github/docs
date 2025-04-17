@@ -3,7 +3,7 @@ title: Disabling Copilot for organizations in your enterprise
 shortTitle: Disable for organizations
 intro: 'Disable {% data variables.product.prodname_copilot %} for some or all of the organizations in your enterprise.'
 permissions: Enterprise owners
-product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+product: 'Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan'
 versions:
   feature: copilot-enterprise
 topics:
@@ -15,7 +15,7 @@ redirect_from:
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.copilot-tab %}
-1. In the "{% data variables.product.prodname_copilot_short %} is active in your enterprise" section, configure the access for your {% data variables.product.prodname_copilot %} subscription.
+1. In the "{% data variables.product.prodname_copilot_short %} is active in your enterprise" section, configure the access for your {% data variables.product.prodname_copilot %} plan.
     * To disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise, select **Disabled**.
     * To disable {% data variables.product.prodname_copilot %} for specific organizations, select **Allow for specific organizations**.
 
@@ -23,8 +23,8 @@ redirect_from:
 
    1. Under "Access management", locate the organization for which you want to disable {% data variables.product.prodname_copilot_short %}.
    1. To the right of the organization name, select the **Copilot** dropdown menu.
-       * If your enterprise has a {% data variables.product.prodname_copilot_business_short %} subscription, click **Disabled**.
-       * If your enterprise has a {% data variables.product.prodname_copilot_enterprise_short %} subscription, click **Remove access**.
+       * If your enterprise has a {% data variables.product.prodname_copilot_business_short %} plan, click **Disabled**.
+       * If your enterprise has a {% data variables.product.prodname_copilot_enterprise_short %} plan, click **Remove access**.
 
 ## Further reading
 
