@@ -18,8 +18,6 @@ OpenID Connect (OIDC) allows your {% data variables.product.prodname_actions %} 
 
 This guide gives an overview of how to configure JFrog to trust {% data variables.product.prodname_dotcom %}'s OIDC as a federated identity, and demonstrates how to use this configuration in a {% data variables.product.prodname_actions %} workflow.
 
-> **Note:** If you're using the [`jfrog/setup-jfrog-cli`](https://github.com/jfrog/setup-jfrog-cli) GitHub Action (v4.5.7+), OIDC authentication is fully supported out-of-the-box. You only need to configure your provider name and audience — no manual token exchange is necessary.
-
 For an example {% data variables.product.prodname_actions %} workflow, see [Sample {% data variables.product.prodname_actions %} Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/sample-github-actions-integration) in the JFrog documentation.
 
 For an example {% data variables.product.prodname_actions %} workflow using the JFrog CLI, see [`build-publish.yml`](https://github.com/jfrog/jfrog-github-oidc-example/blob/main/.github/workflows/build-publish.yml) in the `jfrog-github-oidc-example` repository.
