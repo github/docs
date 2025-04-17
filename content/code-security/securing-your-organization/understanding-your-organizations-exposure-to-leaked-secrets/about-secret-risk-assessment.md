@@ -19,7 +19,7 @@ topics:
 
 Assessing your exposure to leaked secrets is crucial if you want to prevent:
 
-* **Exploitation by bad actors**. Malicious actors can use leaked secrets such as API keys, passwords, and tokens to gain unauthorized access to systems, databases, and sensitive information. If secrets are leaked, it can lead to data breaches, compromising user data and potentially causing significant financial and reputational damage.
+* **Exploitation by bad actors**. Malicious actors can use leaked secrets such as API keys, passwords, and tokens to gain unauthorized access to systems, databases, and sensitive information. Leaked secrets can lead to data breaches, compromising user data and potentially causing significant financial and reputational damage. See industry examples and in-depth discussion in [Understanding your organization's exposure to secret leaks](https://resources.github.com/enterprise/understanding-secret-leak-exposure) in {% data variables.product.github %} Executive Insights.
 
 * **Regulatory problems**. Many industries have strict regulatory requirements for data protection, and leaked secrets can result in non-compliance with regulations, leading to legal penalties and fines.
 
