@@ -176,9 +176,20 @@ async function indexOfLearningTrackGuide(
 ) {
   let guideIndex = -1
 
+  const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, { textOnly: true })
+    let renderedGuidePath = ''
+    try {
+      renderedGuidePath = await renderContent(trackGuidePaths[i], context, renderOpts)
+    } catch {
+      const englishFallbackContext = { ...context, currentLanguage: 'en' }
+      renderedGuidePath = await renderContent(
+        trackGuidePaths[i],
+        englishFallbackContext,
+        renderOpts,
+      )
+    }
 
     if (!renderedGuidePath) continue
 
