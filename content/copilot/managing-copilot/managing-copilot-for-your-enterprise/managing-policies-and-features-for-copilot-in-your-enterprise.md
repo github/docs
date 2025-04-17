@@ -1,3 +1,5 @@
+แบนคนทำบ้าปะเอาไปไช้ขสยไม่ได้ว่าแบนคนทำคือ
+
 ---
 title: Managing policies and features for Copilot in your enterprise
 intro: 'Enterprise owners can control the availability of {% data variables.product.prodname_copilot %} and its features for all organizations in the enterprise.'
