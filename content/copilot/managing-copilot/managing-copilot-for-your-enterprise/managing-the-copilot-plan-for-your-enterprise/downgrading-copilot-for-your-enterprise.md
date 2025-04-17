@@ -3,13 +3,14 @@ title: Downgrading Copilot for your enterprise
 shortTitle: Downgrade subscription
 intro: 'You can downgrade organizations in your enterprise from {% data variables.product.prodname_copilot_enterprise_short %} to {% data variables.product.prodname_copilot_business_short %}.'
 permissions: Enterprise owners
-product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %}'
+product: 'Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} plan'
 versions:
   feature: copilot-enterprise
 topics:
   - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/downgrading-copilot-for-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/downgrading-copilot-for-your-enterprise
 ---
 
 {% data reusables.enterprise-accounts.access-enterprise %}
