@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This script removes the static GraphQL, REST, and webhook files for any

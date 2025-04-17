@@ -38,7 +38,10 @@ type AISearchResultEventParams = {
   eventGroupId: string
   couldNotAnswer?: boolean
   status: number
+  connectedEventId?: string
 }
+
+const MAX_REFERENCES_TO_SHOW = 5
 
 export function AskAIResults({
   query,
@@ -67,12 +70,15 @@ export function AskAIResults({
     message: string
     sources: AIReference[]
     aiCouldNotAnswer: boolean
+    connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
 
-  const handleAICannotAnswer = () => {
+  const [conversationId, setConversationId] = useState<string>('')
+
+  const handleAICannotAnswer = (passedConversationId?: string) => {
     setInitialLoading(false)
     setResponseLoading(false)
     setAICouldNotAnswer(true)
@@ -83,6 +89,7 @@ export function AskAIResults({
       eventGroupId: askAIEventGroupId.current,
       couldNotAnswer: true,
       status: 400,
+      connectedEventId: passedConversationId || conversationId,
     })
     setMessage(cannedResponse)
     setAnnouncement(cannedResponse)
@@ -94,6 +101,7 @@ export function AskAIResults({
         message: cannedResponse,
         sources: [],
         aiCouldNotAnswer: true,
+        connectedEventId: passedConversationId || conversationId,
       },
       version,
       router.locale || 'en',
@@ -119,6 +127,7 @@ export function AskAIResults({
     if (cachedData) {
       setMessage(cachedData.message)
       setReferences(cachedData.sources)
+      setConversationId(cachedData.connectedEventId || '')
       setAICouldNotAnswer(cachedData.aiCouldNotAnswer || false)
       setInitialLoading(false)
       setResponseLoading(false)
@@ -129,6 +138,7 @@ export function AskAIResults({
         eventGroupId: askAIEventGroupId.current,
         couldNotAnswer: cachedData.aiCouldNotAnswer,
         status: cachedData.aiCouldNotAnswer ? 400 : 200,
+        connectedEventId: cachedData.connectedEventId,
       })
 
       setTimeout(() => {
@@ -141,13 +151,10 @@ export function AskAIResults({
     async function fetchData() {
       let messageBuffer = ''
       let sourcesBuffer: AIReference[] = []
+      let conversationIdBuffer = ''
 
       try {
         const response = await executeAISearch(router, version, query, debug)
-        // Serve canned response. A question that cannot be answered was asked
-        if (response.status === 400) {
-          return handleAICannotAnswer()
-        }
         if (!response.ok) {
           console.error(
             `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
@@ -189,6 +196,18 @@ export function AskAIResults({
               let parsedLine
               try {
                 parsedLine = JSON.parse(line)
+                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
+                if (parsedLine?.errors) {
+                  sendAISearchResultEvent({
+                    sources: [],
+                    message: JSON.stringify(parsedLine.errors),
+                    eventGroupId: askAIEventGroupId.current,
+                    couldNotAnswer: false,
+                    status: 500,
+                  })
+                  setAISearchError()
+                  return
+                }
               } catch (e) {
                 console.error(
                   'Failed to parse JSON:',
@@ -201,7 +220,14 @@ export function AskAIResults({
                 continue
               }
 
-              if (parsedLine.chunkType === 'SOURCES') {
+              // A conversation ID will still be sent when a question cannot be answered
+              if (parsedLine.chunkType === 'CONVERSATION_ID') {
+                conversationIdBuffer = parsedLine.conversation_id
+                setConversationId(parsedLine.conversation_id)
+              } else if (parsedLine.chunkType === 'NO_CONTENT_SIGNAL') {
+                // Serve canned response. A question that cannot be answered was asked
+                handleAICannotAnswer(conversationIdBuffer)
+              } else if (parsedLine.chunkType === 'SOURCES') {
                 if (!isCancelled) {
                   sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
                   sourcesBuffer = uniqBy(sourcesBuffer, 'url')
@@ -212,6 +238,9 @@ export function AskAIResults({
                   messageBuffer += parsedLine.text
                   setMessage(messageBuffer)
                 }
+              } else if (parsedLine.chunkType === 'INPUT_CONTENT_FILTER') {
+                // Serve canned response. A spam question was asked
+                handleAICannotAnswer(conversationIdBuffer)
               }
               if (!isCancelled) {
                 setAnnouncement('Copilot Response Loading...')
@@ -233,6 +262,7 @@ export function AskAIResults({
               message: messageBuffer,
               sources: sourcesBuffer,
               aiCouldNotAnswer: false,
+              connectedEventId: conversationIdBuffer,
             },
             version,
             router.locale || 'en',
@@ -245,6 +275,7 @@ export function AskAIResults({
             eventGroupId: askAIEventGroupId.current,
             couldNotAnswer: false,
             status: 200,
+            connectedEventId: conversationIdBuffer,
           })
         }
       }
@@ -299,6 +330,7 @@ export function AskAIResults({
                 survey_vote: true,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
                 eventGroupId: askAIEventGroupId.current,
+                survey_connected_event_id: conversationId,
               })
             }}
           ></IconButton>
@@ -320,6 +352,7 @@ export function AskAIResults({
                 survey_vote: false,
                 eventGroupKey: ASK_AI_EVENT_GROUP,
                 eventGroupId: askAIEventGroupId.current,
+                survey_connected_event_id: conversationId,
               })
             }}
           ></IconButton>
@@ -358,27 +391,34 @@ export function AskAIResults({
               >
                 {t('search.ai.references')}
               </ActionList.GroupHeading>
-              {references.map((source, index) => (
-                <ActionList.Item
-                  sx={{
-                    marginLeft: '0px',
-                    paddingLeft: '0px',
-                  }}
-                  key={`reference-${index}`}
-                  id={`search-option-reference-${index + referencesIndexOffset}`}
-                  role="option"
-                  tabIndex={-1}
-                  onSelect={() => {
-                    referenceOnSelect(source.url)
-                  }}
-                  active={index + referencesIndexOffset === selectedIndex}
-                >
-                  <ActionList.LeadingVisual aria-hidden="true">
-                    <FileIcon />
-                  </ActionList.LeadingVisual>
-                  {source.title}
-                </ActionList.Item>
-              ))}
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  return (
+                    <ActionList.Item
+                      sx={{
+                        marginLeft: '0px',
+                        paddingLeft: '0px',
+                      }}
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      role="option"
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={index + referencesIndexOffset === selectedIndex}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
             </ActionList.Group>
           </ActionList>
         </>
@@ -409,6 +449,7 @@ function sendAISearchResultEvent({
   eventGroupId,
   couldNotAnswer = false,
   status,
+  connectedEventId,
 }: AISearchResultEventParams) {
   let searchResultLinksJson = '[]'
   try {
@@ -418,12 +459,10 @@ function sendAISearchResultEvent({
   }
   sendEvent({
     type: EventType.aiSearchResult,
-    // TODO: Remove PII so we can include the actual data
-    ai_search_result_query: 'REDACTED',
-    ai_search_result_response: 'REDACTED',
     ai_search_result_links_json: searchResultLinksJson,
     ai_search_result_provided_answer: couldNotAnswer ? false : true,
     ai_search_result_response_status: status,
+    ai_search_result_connected_event_id: connectedEventId,
     eventGroupKey: ASK_AI_EVENT_GROUP,
     eventGroupId: eventGroupId,
   })

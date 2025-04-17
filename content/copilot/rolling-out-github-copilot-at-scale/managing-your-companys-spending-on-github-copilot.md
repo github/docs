@@ -20,6 +20,43 @@ To control spending, it's important to understand who can affect your bill by gr
 
 We recommend that you identify the people with this role and communicate with them about your company's strategy for distributing licenses. For example, you may have a budget or limited pilot program, or you may distribute licenses through an internal website.
 
+## Manage charges for premium requests
+
+<!-- expires 2025-05-05 -->
+{% data reusables.copilot.unlimited-premium-requests %}
+<!-- end expires 2025-05-05 -->
+
+{% data reusables.copilot.premium-requests-for-enterprises %}
+
+Premium requests over the allowance are rejected unless you have enabled additional premium requests. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
+
+If you enable additional premium requests, premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
+
+For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+
+### Enabling additional premium requests
+
+You can enable or disable the ability for users in your enterprise or organization to make premium requests over your plan's allowance.
+
+1. Go to the {% data variables.product.prodname_copilot_short %} policies page in your organization or enterprise.
+   * Enterprise: Go to the enterprise, click **{% octicon "law" aria-hidden="true" %} Policies**, click **{% data variables.product.prodname_copilot_short %}** in the left sidebar, then click the **Policies** tab.
+   * Organization: Go to the organization, click **Settings**, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the left sidebar, then click **Policies**.
+1. Next to "Additional {% data variables.product.prodname_copilot_short %} premium requests", click the toggle to enable premium requests over the allowance included in your plan.
+
+### Tracking premium requests
+
+You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:
+
+* Understand if developers are frequently hitting the limit and would benefit from you enabling additional premium requests or upgrading your plan.
+* Identify users who are making a large number of premium requests over the limit, and follow up to the users to understand their use cases and requirements.
+* After enabling additional premium requests, track usage to determine if it would be more cost effective to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}.
+
+You can download the report for an enterprise account, or for an organization that is not part of an enterprise.
+
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. In the left sidebar, click **Usage**.
+1. To download the usage report, select **Get usage report** in the upper-right corner of the page, and click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
+
 ## Map spending to groups of users
 
 With {% data variables.product.github %}'s new billing platform, you can create cost centers to map spending to individual business units or groups of users. Cost centers allow you to track costs tied to different initiatives and charge the costs to specific areas of your business.
@@ -28,7 +65,7 @@ For example, if you were running a pilot program for {% data variables.product.p
 
 ### Create a cost center
 
-1. Go to your enterprise account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. In the left sidebar, click **Cost centers**, then click **New cost center**.
 1. Create the cost center. You don't need to add any repositories or organizations, because you will add users to the cost center directly in the next step.
 
@@ -42,7 +79,7 @@ With {% data variables.product.github %}'s new billing platform, you can ensure 
 
 You can create the budget for the whole enterprise or for a cost center.
 
-1. Go to your enterprise account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. In the left sidebar, click **Budgets and alerts**.
 1. Click **New budget**.
 1. Select **{% data variables.product.prodname_copilot_short %}** as the product, then configure the settings as required. You can choose who receives alerts when budget thresholds are reached.
@@ -52,7 +89,7 @@ You can create the budget for the whole enterprise or for a cost center.
 
 With {% data variables.product.github %}'s new billing platform, you can understand your spending trends by viewing a graph for {% data variables.product.prodname_copilot_short %} usage over a certain timeframe. For more detailed insights, you can filter the results by cost center and group usage by the type of {% data variables.product.prodname_copilot_short %} plan.
 
-1. Go to your enterprise account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. In the left sidebar, click **Usage**.
 1. In the "Metered usage" section, in the search field, enter `product:copilot`. To filter by cost center, add a query like `cost_center:ce-pilot-group`.
 1. To understand spending differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group: SKU**.

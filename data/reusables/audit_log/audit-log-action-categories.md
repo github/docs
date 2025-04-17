@@ -15,12 +15,8 @@
 | `business_advanced_security` | Contains activities related to {% data variables.product.prodname_AS %} in an enterprise. |
 | `business_secret_scanning` | Contains activities related to {% data variables.product.prodname_secret_scanning %} in an enterprise. |
 | `business_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an enterprise. |
-| {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `business_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an enterprise. |
-| {% endif %} |
-| {% ifversion secret-scanning-custom-pattern-push-protection-audit %} |
 | `business_secret_scanning_custom_pattern_push_protection` | Contains activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %} in an enterprise. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-an-enterprise-account). |
-| {% endif %} |
 | `business_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in an enterprise. |
 | `business_secret_scanning_push_protection_custom_message` | Contains activities related to the custom message displayed when push protection is triggered in an enterprise. |
 | `checks`   | Contains activities related to check suites and runs. |
@@ -84,12 +80,10 @@
 | `org_credential_authorization` | Contains activities related to authorizing credentials for use with SAML single sign-on. |
 | {% endif %} |
 | `org_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#allowing-validity-checks-for-partner-patterns-in-an-organization). |
-| {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). |
-| {% endif %} |
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization. |
 | `organization_domain` | Contains activities related to verified organization domains. |
-| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v1_boards %} in an enterprise. |
+| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v2_and_v1 %} in an enterprise. |
 | {% ifversion fpt or ghec %} |
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}. |
 | `payment_method`  | Contains activities related to how an organization pays for {% data variables.product.prodname_dotcom %}. |
@@ -123,19 +117,11 @@
 | `repository_image` | Contains activities related to images for a repository. |
 | `repository_invitation` | Contains activities related to invitations to join a repository. |
 | `repository_projects_change` | Contains activities related to enabling projects for a repository or for all repositories in an organization. |
-| {% ifversion ghec or ghes %} |
 | `repository_secret_scanning`  | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning). |
-| {% endif %} |
 | `repository_secret_scanning_automatic_validity_checks` | Contains activities related to enabling or disabling automatic validity checks for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository). |
-| {% ifversion secret-scanning-audit-log-custom-patterns %} |
 | `repository_secret_scanning_custom_pattern` | Contains activities related to {% data variables.product.prodname_secret_scanning %} custom patterns in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). |
-| {% endif %} |
-| {% ifversion secret-scanning-custom-pattern-push-protection-audit %} |
 | `repository_secret_scanning_custom_pattern_push_protection` | Contains activities related to push protection of a custom pattern for {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning#defining-a-custom-pattern-for-a-repository). |
-| {% endif %} |
-| {% ifversion secret-scanning-audit-log-custom-patterns %}
 | `repository_secret_scanning_push_protection` | Contains activities related to the push protection feature of {% data variables.product.prodname_secret_scanning %} in a repository. For more information, see [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning). |
-| {% endif %} |
 | {% ifversion fpt or ghec %} |
 | `repository_visibility_change` | Contains activities related to allowing organization members to change repository visibilities for the organization. |
 | {% endif %} |
@@ -150,10 +136,8 @@
 | {% ifversion ghec or ghes %} |
 | `role` | Contains activities related to [custom repository roles](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization). |
 | {% endif %} |
-| {% ifversion ghec or ghes %} |
 | `secret_scanning`   | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} in existing repositories. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning). |
 | `secret_scanning_new_repos` | Contains organization-level configuration activities for {% data variables.product.prodname_secret_scanning %} for new repositories created in the organization. |
-| {% endif %} |
 | {% ifversion ghec or ghes %} |
 | `security_key` | Contains activities related to security keys registration and removal. |
 | {% endif %} |

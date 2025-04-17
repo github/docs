@@ -1,6 +1,6 @@
 ---
 title: 'Disabling projects in your organization'
-intro: 'Organization owners can turn off organization-wide {% data variables.projects.projects_v2 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %} in an organization.'
+intro: 'Organization owners can turn off organization-wide {% data variables.projects.projects_v2 %}{% ifversion projects-v1 %}, organization-wide {% data variables.projects.projects_v1_boards %}, and repository-level {% data variables.projects.projects_v1_boards %}{% endif %} in an organization.'
 redirect_from:
   - /github/managing-your-work-on-github/managing-project-boards/disabling-project-boards-in-your-organization
   - /articles/disabling-project-boards-in-your-organization

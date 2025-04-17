@@ -15,6 +15,10 @@ topics:
 
 Subscriptions to {% data variables.product.prodname_copilot_business_short %} are available on a monthly cycle. The subscriptions are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
 
+## Premium requests
+
+Paid {% data variables.product.prodname_copilot_short %} plans include premium requests. Premium requests use advanced models and features and are subject to monthly allowances or potential overage costs. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+
 ## About the billing cycle for {% data variables.product.prodname_copilot_short %} in your organization
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
@@ -24,11 +28,7 @@ Billed users are calculated at the end of each billing cycle, based on the numbe
 
 If your organization belongs to an enterprise, your enterprise will be charged on whichever payment method you’ve set up for the organization account, such as a credit card or a Microsoft Azure subscription.
 
-{% ifversion billing-auth-and-capture %}
-
 {% data reusables.billing.authorization-charge %}
-
-{% endif %}
 
 > [!NOTE] {% data variables.product.prodname_copilot %} billing operates in Coordinated Universal Time (UTC), but it calculates your bill according to the timezone of your billing cycle. For example, if you're billed through Azure and your current billing cycle ends at 11:59 PM EST on December 1st, canceling a seat at 7:00 PM EST on December 1st might show the seat cancellation at 12:00 AM UTC on December 2nd. However, the seat would end within the billing cycle that you requested the cancellation, and you would not pay for that seat in the following cycle.
 

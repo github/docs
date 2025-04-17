@@ -31,8 +31,9 @@ When you enable this feature, you will create a bypass list of roles and teams w
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}
+1. Under "{% data variables.product.prodname_secret_protection %}", ensure that push protection is enabled for the repository.{% else %}
+{% data reusables.repositories.navigate-to-ghas-settings %}{% endif %}
 1. Under "Push protection", to the right of "Who can bypass push protection for {% data variables.product.prodname_secret_scanning %}", select the dropdown menu, then click **Specific roles or teams**.
 1. Under "Bypass list", click **Add role or team**.
 
@@ -50,7 +51,7 @@ When you enable this feature, you will create a bypass list of roles and teams w
 You must configure delegated bypass for your organization using a custom security configuration. You can then apply the security configuration to all (or selected) repositories in your organization.
 
 1. Create a new custom security configuration, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
-1. When creating the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**.
+1. When defining the custom security configuration, under "{% data variables.product.prodname_secret_scanning_caps %}", ensure that {% ifversion ghas-products %}"Push protection" is set to **Enabled**{% else %}the dropdown menus for "Alerts" and "Push protection" are set to **Enabled**{% endif %}.
 1. Under "Push protection", to the right of "Bypass privileges", select the dropdown menu, then click **Specific actors**.
 
    > [!NOTE]

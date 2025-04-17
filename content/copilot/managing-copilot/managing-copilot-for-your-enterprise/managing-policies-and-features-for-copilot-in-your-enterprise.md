@@ -28,8 +28,10 @@ If no policy is chosen at the enterprise level, and multiple organizations withi
 
 You can configure any of the following policies for your enterprise:
 
+* [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
 * [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
 * [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
+* [{% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview)
 * [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
 * [Editor preview features](#editor-preview-features)
 * [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
@@ -37,6 +39,14 @@ You can configure any of the following policies for your enterprise:
 * [Suggestions matching public code](#suggestions-matching-public-code)
 * [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
 * [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
+
+### Additional {% data variables.product.prodname_copilot_short %} premium requests
+
+<!-- expires 2025-05-05 -->
+{% data reusables.copilot.unlimited-premium-requests %}
+<!-- end expires 2025-05-05 -->
+
+If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -52,6 +62,10 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ### {% data variables.product.prodname_copilot_cli %}
 
 {% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. You can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
+
+### {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+
+You can generate commit messages and descriptions in {% data variables.product.prodname_desktop %} based on the changes you make to your project.
 
 ### {% data variables.product.prodname_copilot_chat %} in the IDE
 
@@ -79,18 +93,13 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 ### {% data variables.product.prodname_copilot_short %} access to alternative AI models
 
-> [!NOTE] The following models are currently in {% data variables.release-phases.public_preview %} as AI models for {% data variables.product.prodname_copilot %}, and are subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of these products.
->
-> Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
+> [!NOTE] Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_enterprise_short %}.
 
-By default, {% data variables.product.prodname_copilot_chat_short %} uses the GPT-4o model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the default GPT-4o model. The available alternative models are:
+By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
-* **{% data variables.copilot.copilot_gemini_flash %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot).
-* **OpenAI's models:**
-  * **o1**: This model is focused on advanced reasoning and solving complex problems, in particular in math and science. It responds more slowly than the GPT-4o model. Each member of your enterprise can make 10 requests to this model per day.
-  * **o3-mini**: This is the next generation of reasoning models, following from o1 and o1-mini. The o3-mini model outperforms o1 on coding benchmarks with response times that are comparable to o1-mini, providing improved quality at nearly the same latency. It is best suited for code generation and small context operations. Each member of your enterprise can make 50 requests to this model every 12 hours. {% ifversion copilot-enterprise %}
-  * **GPT-4.5**: This model is designed with advanced capabilities in intuition, writing style, and broad knowledge. It performs effectively with creative prompts and provides reliable responses to obscure knowledge queries. Each member of your enterprise can make 10 requests to this model every 12 hours. {% endif %}
+* **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
+* **OpenAI models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot).
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

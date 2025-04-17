@@ -20,11 +20,7 @@ shortTitle: About billing
 
 ## About billing for {% data variables.product.prodname_registry %}
 
-{% ifversion billing-auth-and-capture %}
-
 {% data reusables.billing.authorization-charge %}
-
-{% endif %}
 
 {% data reusables.package_registry.packages-billing %}
 

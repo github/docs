@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -323,7 +322,7 @@ function getFilesToLint(paths) {
         fileList.yml.push(...walkFiles(absPath, ['.yml']))
       }
     } else {
-      if (isInDir(absPath, contentDir)) {
+      if (isInDir(absPath, contentDir) || isAFixtureMdFile(absPath)) {
         fileList.content.push(absPath)
       } else if (isInDir(absPath, dataDir)) {
         if (absPath.endsWith('.yml')) {
@@ -690,4 +689,8 @@ function isOptionsValid() {
     }
   }
   return true
+}
+
+function isAFixtureMdFile(filePath) {
+  return filePath.includes('/src') && filePath.includes('/fixtures') && filePath.endsWith('.md')
 }
