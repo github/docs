@@ -1,5 +1,5 @@
 ---
-name: Feature request
+name: 'N00i1kat '
 about: Suggest an idea for this project
 title: "<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?"
 labels: dependencies, Hubhub, javascript, Whatisthis?, Ĺ
