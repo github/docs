@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'

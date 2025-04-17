@@ -37,6 +37,7 @@ The products shown in the new billing platform are determined by your {% data va
 ### Organizations on {% data variables.product.prodname_team %} or {% data variables.product.prodname_free_team %}
 
 * {% data variables.product.prodname_actions %}
+* {% data variables.product.prodname_GH_cs_and_sp %} (only available with {% data variables.product.prodname_team %})
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot %}
 * {% data variables.product.prodname_registry %}
@@ -47,7 +48,7 @@ The products shown in the new billing platform are determined by your {% data va
 ### {% data variables.product.prodname_ghe_cloud %}
 
 * {% data variables.product.prodname_actions %}
-* {% data variables.product.prodname_GH_advanced_security %} (only available with a trial of {% data variables.product.prodname_ghe_cloud %})
+* {% data variables.product.prodname_GH_cs_and_sp %}
 * {% data variables.product.prodname_github_codespaces %}
 * {% data variables.product.prodname_copilot %}
 * {% data variables.product.prodname_enterprise %}

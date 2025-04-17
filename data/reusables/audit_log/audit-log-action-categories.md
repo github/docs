@@ -83,7 +83,7 @@
 | `org_secret_scanning_custom_pattern` | Contains activities related to custom patterns for {% data variables.product.prodname_secret_scanning %} in an organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning). |
 | `organization_default_label` | Contains activities related to default labels for repositories in an organization. |
 | `organization_domain` | Contains activities related to verified organization domains. |
-| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v1_boards %} in an enterprise. |
+| `organization_projects_change` | Contains activities related to organization-wide {% data variables.projects.projects_v2_and_v1 %} in an enterprise. |
 | {% ifversion fpt or ghec %} |
 | `pages_protected_domain` | Contains activities related to verified custom domains for {% data variables.product.prodname_pages %}. |
 | `payment_method`  | Contains activities related to how an organization pays for {% data variables.product.prodname_dotcom %}. |
