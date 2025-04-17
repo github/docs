@@ -287,6 +287,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.DirectiveArgumentDescriptionChanged,
   ChangeType.DirectiveArgumentDefaultValueChanged,
   ChangeType.DirectiveArgumentTypeChanged,
+  ChangeType.DirectiveUsageArgumentDefinitionRemoved,
   ChangeType.EnumValueDescriptionChanged,
   ChangeType.EnumValueDeprecationReasonChanged,
   ChangeType.EnumValueDeprecationReasonAdded,

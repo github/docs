@@ -117,7 +117,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
-        run: npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
+        run: |
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
+          npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}
