@@ -3,7 +3,7 @@ title: 'Setting up GitHub Copilot for your enterprise'
 shortTitle: Set up for enterprise
 intro: "Follow these steps to set up {% data variables.product.prodname_copilot %} in your enterprise."
 permissions: Enterprise owners
-product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+product: 'Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan'
 versions:
   feature: copilot-enterprise
 topics:

@@ -72,7 +72,7 @@ Create and manage collections of documentation to use as context for chatting wi
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
-The following features are available to organization and enterprise owners with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+The following features are available to organization and enterprise owners with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan.
 
 ### Policy management
 
@@ -96,5 +96,5 @@ Configure {% data variables.product.prodname_copilot_short %} to ignore certain 
 
 ## Next steps
 
-* To learn more about the subscription plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* To learn more about the plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * To start using {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot).

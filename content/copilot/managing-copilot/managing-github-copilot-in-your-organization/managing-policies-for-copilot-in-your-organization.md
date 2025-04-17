@@ -2,7 +2,7 @@
 title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
-product: 'Organizations with a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
+product: 'Organizations with a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} plan'
 versions:
   feature: copilot
 redirect_from:
@@ -27,6 +27,9 @@ shortTitle: Managing policies
 Organization owners can set policies to govern how {% data variables.product.prodname_copilot %} can be used within the organization. For example, an organization owner can enable or disable the following {% data variables.product.prodname_copilot_short %} features{% ifversion ghec %} (unless an enterprise owner has blocked access to these features at the enterprise level){% endif %}:
 
 * Additional {% data variables.product.prodname_copilot_short %} premium requests
+  <!-- expires 2025-05-19 -->
+  > [!IMPORTANT] This setting will be available starting on May 12, 2025 or May 19, 2025, depending on your payment method. For more information, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
+  <!-- end expires 2025-05-19 -->
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview features, such as:
@@ -61,7 +64,7 @@ If an organization member is assigned a seat by multiple organizations with diff
 
    For example, to enable or disable suggestion matching, in the "Suggestions matching public code" dropdown, select **Allowed** or **Blocked**.
 
-1. If your organization has a {% data variables.product.prodname_copilot_business_short %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} subscription and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
+1. If your organization has a {% data variables.product.prodname_copilot_business_short %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
 
     {% data reusables.copilot.policies-for-dotcom %}
 
