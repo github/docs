@@ -3,6 +3,7 @@ import findPage from '#src/frame/lib/find-page.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
 import { renderContent } from '#src/content-render/index.js'
+import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
 
 // rawLinks is an array of paths: [ '/foo' ]
 // we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]
@@ -41,7 +42,13 @@ async function processLink(link, context, option) {
   const opts = { textOnly: true }
   const linkHref = link.href || link
   // Parse the link in case it includes Liquid conditionals
-  const linkPath = linkHref.includes('{') ? await renderContent(linkHref, context, opts) : linkHref
+  const linkPath = linkHref.includes('{')
+    ? await executeWithFallback(
+        context,
+        () => renderContent(linkHref, context, opts),
+        () => '', // todo get english linkHref
+      )
+    : linkHref
   // If the link was `{% ifversion ghes %}/admin/foo/bar{% endifversion %}`
   // the `context.currentVersion` was `enterprise-cloud`, the final
   // output would become '' (empty string).
