@@ -45,8 +45,7 @@ For repositories that are not eligible for default setup, you can configure adva
 A repository must meet all the following criteria to be eligible for default setup, otherwise you need to use advanced setup.
 
 * Advanced setup for {% data variables.product.prodname_code_scanning %} is not already enabled.
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion default-setup-pre-enablement %}
-* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}
+{% ifversion default-setup-pre-enablement %}* Uses Go, JavaScript/TypeScript, Python, or Ruby.{% endif %}
 {% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
