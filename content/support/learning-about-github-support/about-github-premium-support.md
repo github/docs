@@ -127,6 +127,25 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 {% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
 
+## Virtual trainings available with Premium Plus
+
+Premium Plus customers are eligible to receive one virtual training class per year and can choose from the following topics:
+
+* {% data variables.product.github %} for developers
+* {% data variables.product.github %} for admins (Server)
+* {% data variables.product.github %} for admins (Cloud)
+* {% data variables.product.github %} for non-developers
+* {% data variables.product.github %} API
+* {% data variables.product.prodname_actions %} Fundamentals
+* {% data variables.product.prodname_actions %} Intermediate
+* {% data variables.product.prodname_copilot %} Fundamentals
+* {% data variables.product.prodname_copilot %} Intermediate
+* {% data variables.product.prodname_copilot %} Administration & Security
+* {% data variables.product.prodname_enterprise %} Implementation (Server)
+* {% data variables.product.prodname_enterprise %} Implementation (Cloud)
+
+We recommend limiting training sessions to a maximum of 16 participants to ensure an optimal provider-to-participant ratio and a high-quality delivery experience. However, in specific cases where it makes sense, we can accommodate up to 20–25 participants while maintaining our commitment to delivering a valuable training experience for your team.
+
 ## Accessing premium content
 
 You can access premium content by signing into the {% data variables.contact.contact_landing_page_portal %}, then clicking **Premium**.

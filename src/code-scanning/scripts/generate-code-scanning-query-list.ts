@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script generates a block of Markdown that can be saved as a reusable.
  * The reusable lists all the queries for one programming language, with CWEs, as a Markdown table.

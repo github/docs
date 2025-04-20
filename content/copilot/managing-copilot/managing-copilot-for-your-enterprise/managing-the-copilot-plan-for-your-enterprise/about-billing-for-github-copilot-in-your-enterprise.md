@@ -9,6 +9,8 @@ versions:
 type: overview
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise
 ---
 
 ## About {% data variables.product.prodname_copilot_short %} plans for your enterprise
@@ -40,13 +42,13 @@ Your enterprise will be charged on whichever payment method you’ve set up for 
 
 ### About seat assignment for {% data variables.product.prodname_copilot_short %} in your enterprise
 
-A {% data variables.product.prodname_copilot %} seat is a license to use {% data variables.product.prodname_copilot %}, which is granted to a unique user account through an enterprise's {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} subscription. Each month, the enterprise is charged for the number of assigned seats.
+A {% data variables.product.prodname_copilot %} seat is a license to use {% data variables.product.prodname_copilot %}, which is granted to a unique user account through an enterprise's {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} plan. Each month, the enterprise is charged for the number of assigned seats.
 
 If a single user receives a seat from multiple organizations in the same enterprise, the enterprise will only be billed once per billing cycle for that unique user. One of the organizations that assigned {% data variables.product.prodname_copilot_short %} to the user will be chosen at random each month to be billed for the seat.
 
 Seat assignment is managed by owners of organizations{% ifversion ghec %} that have been granted access to {% data variables.product.prodname_copilot %} at the enterprise level{% endif %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
-If you are a member of an organization or enterprise with a {% data variables.product.prodname_copilot %} subscription, to use the subscription, you will need to be assigned a seat by an organization owner.
+If you are a member of an organization or enterprise with a {% data variables.product.prodname_copilot %} plan, to use the plan, you will need to be assigned a seat by an organization owner.
 
 ### About billing through Azure
 
@@ -54,13 +56,13 @@ When you connect an Azure subscription to your organization or enterprise accoun
 
 > [!NOTE] Usage data is sent to Azure daily, but you are billed at the end of the month based on the number of seats used. This means that although you can track your daily spending (number of seats in this case), actual payments are processed monthly.
 
-## About changes to your {% data variables.product.prodname_copilot_short %} subscription
+## About changes to your {% data variables.product.prodname_copilot_short %} plan
 
 If you upgrade an organization from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}, all users who currently have a seat for {% data variables.product.prodname_copilot_business_short %} will immediately receive access to {% data variables.product.prodname_copilot_enterprise_short %}. You will be charged for each {% data variables.product.prodname_copilot_enterprise %} seat pro rata for the rest of the cycle.
 
-If you downgrade an organization's {% data variables.product.prodname_copilot_enterprise %} subscription during a billing cycle, the users will have access to {% data variables.product.prodname_copilot_enterprise %} for the rest of the cycle, and the change to your bill will take effect from the following cycle.
+If you downgrade an organization's {% data variables.product.prodname_copilot_enterprise %} plan during a billing cycle, the users will have access to {% data variables.product.prodname_copilot_enterprise %} for the rest of the cycle, and the change to your bill will take effect from the following cycle.
 
-Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise's {% data variables.product.prodname_copilot_short %} subscription.
+Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise's {% data variables.product.prodname_copilot_short %} plan.
 
 {% data reusables.copilot.copilot-one-account %}
 

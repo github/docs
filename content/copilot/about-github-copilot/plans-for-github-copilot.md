@@ -1,11 +1,13 @@
 ---
-title: Subscription plans for GitHub Copilot
-intro: 'Learn about the subscription options for {% data variables.product.prodname_copilot_short %}.'
+title: Plans for GitHub Copilot
+intro: 'Learn about the available plans for {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
-shortTitle: Subscriptions
+shortTitle: Plans for Copilot
+redirect_from:
+  - /copilot/about-github-copilot/subscription-plans-for-github-copilot
 ---
 
 <!-- expires 2025-05-05 -->

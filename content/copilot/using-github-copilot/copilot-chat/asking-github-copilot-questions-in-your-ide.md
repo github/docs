@@ -141,7 +141,15 @@ When you use {% data variables.product.prodname_copilot_agent_short %} mode, {% 
 
 ### Attaching images to your chat prompt
 
-1. Make sure GPT-4o is selected in the model picker at the bottom right of the chat view.
+1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
+
+   * {% data variables.copilot.copilot_gpt_4o %} (the default that's used if you don't see a model picker)
+   * {% data variables.copilot.copilot_claude_sonnet_35 %}
+   * {% data variables.copilot.copilot_claude_sonnet_37 %}
+   * {% data variables.copilot.copilot_gemini_flash %}
+   * {% data variables.copilot.copilot_gemini_25_pro %}
+
+   ![Screenshot of {% data variables.product.prodname_copilot_chat_short %} with the model picker highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-chat-model-picker.png)
 
 1. Do one of the following:
 
@@ -261,7 +269,13 @@ See [Ask questions in the inline chat view](https://learn.microsoft.com/visualst
 
 ### Attaching images to your chat prompt
 
-1. Make sure GPT-4o is selected in the model picker at the bottom right of the chat view.
+1. If you see the AI model picker at the bottom right of the chat view, select one of the models that supports adding images to prompts:
+
+   * {% data variables.copilot.copilot_gpt_4o %} (the default that's used if you don't see a model picker)
+   * {% data variables.copilot.copilot_claude_sonnet_35 %}
+   * {% data variables.copilot.copilot_claude_sonnet_37 %}
+   * {% data variables.copilot.copilot_gemini_flash %}
+   * {% data variables.copilot.copilot_gemini_25_pro %}
 
 1. Do one of the following:
 

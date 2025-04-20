@@ -1,1 +1,1 @@
-Organizations with a **{% data variables.product.prodname_copilot_enterprise_short %}** subscription.
+Organizations with a {% data variables.product.prodname_copilot_enterprise_short %} plan

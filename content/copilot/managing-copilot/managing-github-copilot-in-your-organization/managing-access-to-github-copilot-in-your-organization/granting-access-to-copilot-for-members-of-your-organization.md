@@ -2,7 +2,7 @@
 title: Granting access to Copilot for members of your organization
 shortTitle: Granting access
 intro: 'Grant access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
-permissions: 'Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.'
+permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} plan.'
 versions:
   feature: copilot
 redirect_from:
@@ -18,7 +18,7 @@ topics:
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
-{% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.product.prodname_copilot_business_short %} subscription, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
+{% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.product.prodname_copilot_business_short %} plan, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
 
 Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 

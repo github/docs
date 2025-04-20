@@ -27,8 +27,8 @@ There are three ways to qualify for free access to {% data variables.product.pro
 
 If you do not meet the previous criteria, you can either:
 
-* <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>Try {% data variables.product.prodname_copilot_pro_short %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid subscription for continued use.
-* Set up {% data variables.product.prodname_copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+* <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>Try {% data variables.product.prodname_copilot_pro_short %} for free</span></a> with a one-time 30-day trial. After the free trial, you will need a paid plan for continued use.
+* Set up {% data variables.product.prodname_copilot_free_short %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a paid plan. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Accessing {% data variables.product.prodname_copilot_pro_short %} for free
 

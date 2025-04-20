@@ -9,11 +9,13 @@ versions:
 type: overview
 topics:
   - Copilot
+redirect_from:
+  - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization
 ---
 
 ## About pricing for {% data variables.product.prodname_copilot_short %} in your organization
 
-Subscriptions to {% data variables.product.prodname_copilot_business_short %} are available on a monthly cycle. The subscriptions are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
+{% data variables.product.prodname_copilot_business_short %} plans are available on a monthly cycle. The plans are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
 
 ## Premium requests
 
@@ -34,13 +36,13 @@ If your organization belongs to an enterprise, your enterprise will be charged o
 
 ### About seat assignment for {% data variables.product.prodname_copilot_short %} in your organization
 
-A {% data variables.product.prodname_copilot %} seat is a license to use {% data variables.product.prodname_copilot %}, which is granted to a unique user account through an organization's {% data variables.product.prodname_copilot_for_business %} subscription. Each month, the organization is charged for the number of assigned seats.
+A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot_short %}, which is granted to a unique user account through an organization's {% data variables.product.prodname_copilot_business_short %} plan. Each month, the organization is charged for the number of assigned seats.
 
-Removing all assigned {% data variables.product.prodname_copilot %} seats in your organization will cancel your organization's {% data variables.product.prodname_copilot_short %} subscription.
+Removing all assigned {% data variables.product.prodname_copilot_short %} seats in your organization will cancel your organization's {% data variables.product.prodname_copilot_short %} plan.
 
 Seat assignment is managed by organization owners. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
-If you are a member of an organization with a {% data variables.product.prodname_copilot %} subscription, to use the subscription, you will need to be assigned a seat by an organization owner.
+If you are a member of an organization with a {% data variables.product.prodname_copilot_short %} plan, to use {% data variables.product.prodname_copilot_short %}, you will need to be assigned a seat by an organization owner.
 
 {% data reusables.copilot.copilot-one-account %}
 

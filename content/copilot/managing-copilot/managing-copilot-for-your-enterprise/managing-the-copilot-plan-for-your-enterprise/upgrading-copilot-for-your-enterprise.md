@@ -1,19 +1,20 @@
 ---
 title: Upgrading Copilot for your enterprise
-shortTitle: Upgrade subscription
-intro: 'Change your enterprise''s subscription from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}.'
+shortTitle: Upgrade plan
+intro: 'Change your enterprise''s plan from {% data variables.product.prodname_copilot_business_short %} to {% data variables.product.prodname_copilot_enterprise_short %}.'
 permissions: Enterprise owners
-product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_business_short %}'
+product: 'Enterprises with a {% data variables.product.prodname_copilot_business_short %} plan'
 versions:
   feature: copilot-enterprise
 topics:
   - Copilot
 redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/upgrading-copilot-for-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/upgrading-copilot-for-your-enterprise
 ---
 
 >[!NOTE]
-> You must already have a paid subscription to {% data variables.product.prodname_copilot_business_short %} to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}. Trial subscriptions are not eligible for upgrade.
+> You must already have a paid plan to {% data variables.product.prodname_copilot_business_short %} to upgrade to {% data variables.product.prodname_copilot_enterprise_short %}. Trial plans are not eligible for upgrade.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

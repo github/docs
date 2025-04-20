@@ -34,6 +34,12 @@ You can also use the REST API to return consumed licenses data and the status of
 
 To learn more about the license data associated with your enterprise account and how the number of consumed user licenses are calculated, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/troubleshooting-license-usage-for-github-enterprise).
 
+{% ifversion enterprise-member-csv %}
+
+The licensing report includes all users who currently hold a {% data variables.product.prodname_enterprise %} (GHE) license or will be billed in this month's billing cycle. This report is ideal for tracking current and billable license usage, ensuring accurate license counts, and identifying users consuming GHE licenses. For a full list of all members associated with the enterprise, see [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/exporting-membership-information-for-your-enterprise).
+
+{% endif %}
+
 ## Viewing license usage on {% ifversion ghec %}{% data variables.product.prodname_ghe_cloud %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}
 
 {% ifversion ghec %}
