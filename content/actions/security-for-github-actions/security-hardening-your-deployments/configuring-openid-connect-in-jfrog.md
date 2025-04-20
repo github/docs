@@ -58,7 +58,6 @@ In your {% data variables.product.prodname_actions %} workflow file, ensure you 
 
 The following example uses the placeholder `YOUR_PROVIDER_NAME` & `YOUR_AUDIENCE`.
 
-{% data reusables.actions.oidc-deployment-example %}
 ```yaml
 permissions:
   id-token: write
