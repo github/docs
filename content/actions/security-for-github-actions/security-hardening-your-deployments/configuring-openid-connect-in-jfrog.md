@@ -56,6 +56,9 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
+The following example uses the placeholder `YOUR_PROVIDER_NAME` & `YOUR_AUDIENCE`.
+
+{% data reusables.actions.oidc-deployment-example %}
 ```yaml
 permissions:
   id-token: write
@@ -79,11 +82,12 @@ jobs:
 
 - Always use `permissions: id-token: write` in workflows that authenticate with JFrog.
 - Limit trust using specific claims like `repository`, `ref`, or `environment`.
-- Configure identity mappings in JFrog to restrict which workflows are allowed to authenticate.
+- Configure identity mappings in JFrog to restrict authentication to specific workflows.
 
 ## Further Reading
 
 - [JFrog OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration)
-- [GitHub Docs: About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
+- [JFrog Platform Identify Mappings DOCS](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
 - [JFrog CLI Docs: `exchange-oidc-token` command (manual usage)](https://jfrog.com/help/r/jfrog-cli-documentation/oidc-commands#exchange-oidc-token)
+- [GitHub Docs: About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 ```
