@@ -720,6 +720,28 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Bitrise
+  supportedSecret: Bitrise Personal Access Token
+  secretType: bitrise_personal_access_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Bitrise
+  supportedSecret: Bitrise Workspace API Token
+  secretType: bitrise_workspace_api_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Brevo
   supportedSecret: Sendinblue API Key
   secretType: sendinblue_api_key

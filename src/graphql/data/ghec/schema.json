@@ -109396,8 +109396,7 @@
           "type": "ID",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
+          "href": "/graphql/reference/scalars#id"
         }
       ]
     },

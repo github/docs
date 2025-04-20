@@ -27,7 +27,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | --------------------------- | ------------------------------------------------------------------------------ | ----------------------- | ------------------ |
 | Amazon Web Services (AWS)   | Cloud Hosted Infrastructure and Data Hosting                                   | United States                                     | United States      |
 | Anthropic PBC               | AI Inference and AI Services                                                   | United States                                     | United States      |
-| Azure (Microsoft)           | Cloud Hosted Infrastructure and Data Hosting                                   | United States, France,</br>Switzerland, and Japan | United States      |
+| Azure (Microsoft)           | Cloud Hosted Infrastructure and Data Hosting                                   | United States, Australia, <br/> Brazil, Canada, France, <br/> Japan, Norway, Spain, <br/> Sweden, Switzerland, <br/> United Kingdom | United States      |
 | Azure Cognitive Services    | Customer support ticketing analysis                                            | United States                                     | United States      |
 | Cloudflare                  | Content delivery service                                                       | United States                                     | United States      |
 | Fastly                      | Content delivery service                                                       | United States                                     | United States      |
@@ -36,7 +36,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | GitHub Canada ULC           | GitHub Subsidiary                                                              | Canada                                            | Canada             |
 | GitHub Germany GmbH         | GitHub Subsidiary                                                              | Germany                                           | Germany            |
 | GitHub India Pty Ltd        | GitHub Subsidiary                                                              | India                                             | India              |
-| Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States                                     | United States      |
+| Google Cloud Platform (GCP) | Cloud Hosted Infrastructure                                                    | United States, Belgium                            | United States      |
 | Microsoft                   | Technical Services                                                             | United States                                     | United States      |
 | Moveworks                   | Customer support ticketing analysis                                            | United States                                     | United States      |
 | NexMo (aka Vonage)          | SMS notification provider for 2 Factor Authentication                          | United States                                     | United States      |
