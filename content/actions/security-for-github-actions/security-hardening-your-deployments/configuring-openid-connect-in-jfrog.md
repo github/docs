@@ -56,7 +56,7 @@ To use OIDC with JFrog, establish a trust relationship between {% data variables
 
 In your {% data variables.product.prodname_actions %} workflow file, ensure you are using the provider name and audience you configured in the JFrog Platform.
 
-The following example uses the placeholder `YOUR_PROVIDER_NAME` & `YOUR_AUDIENCE`.
+The following example uses the placeholders YOUR_PROVIDER_NAME and YOUR_AUDIENCE.
 
 ```yaml
 permissions:
