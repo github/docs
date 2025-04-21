@@ -638,23 +638,27 @@ test.describe('survey', () => {
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
-      }
-      fulfilled++
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyPressedEvent = true
-      }
-      if (
-        postData.type === 'survey' &&
-        postData.survey_vote === true &&
-        postData.survey_comment === surveyComment
-      ) {
-        hasSurveySubmittedEvent = true
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (
+            eventBody.type === 'survey' &&
+            eventBody.survey_vote === true &&
+            eventBody.survey_comment === surveyComment
+          ) {
+            hasSurveySubmittedEvent = true
+          }
+        }
       }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
@@ -673,16 +677,28 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
-    await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
+
     // Events:
     // 1. page view event when navigating to the page
     // 2. Survey thumbs up event
     // 3. Survey submit event
-    expect(fulfilled).toBe(1 + 1 + 1)
+    // 4. Exit event
+    expect(fulfilled).toBe(1 + 1 + 1 + 1)
     expect(hasSurveyPressedEvent).toBe(true)
     expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
@@ -691,20 +707,22 @@ test.describe('survey', () => {
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyEvent = false
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyEvent = true
+          }
+        }
       }
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyEvent = true
-      }
-      fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
@@ -718,10 +736,22 @@ test.describe('survey', () => {
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
     // Events:
     // 1. page view event when navigating to the page
     // 2. the thumbs up click
-    expect(fulfilled).toBe(1 + 1)
+    // 3. the exit event
+    expect(fulfilled).toBe(1 + 1 + 1)
     expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
