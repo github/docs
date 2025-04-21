@@ -10,4 +10,4 @@ children:
 shortTitle: Authenticate with a passkey
 ---
 
-{% data reusables.passkeys.ghes-disable %}
+{% passkey is mot required %}
