@@ -18,7 +18,7 @@ You can automatically pull data from {% data variables.product.github %} to popu
 
 ## Using the billing platform `/usage` endpoint to retrieve metered usage details for an enterprise or organization
 
-The enhanced billing platform provides REST API `/usage` endpoints that you can use to report on the use of all metered products in an enterprise or an organization. The usage data provided by the enterprise endpoint is available to enterprise owners and enterprise billing managers, and the data provided by the organization endpoint is available to organization owners within an enterprise and organization owners within an organization account. You will need to authenticate with {% data variables.product.github %}.
+The new billing platform provides REST API `/usage` endpoints that you can use to report on the use of all metered products in an enterprise or an organization. The usage data provided by the enterprise endpoint is available to enterprise owners and enterprise billing managers, and the data provided by the organization endpoint is available to organization owners within an enterprise and organization owners within an organization account. You will need to authenticate with {% data variables.product.github %}.
 
 * If you use the GitHub CLI, use the `gh auth login` command to authenticate.
 * Otherwise, you will need to create a {% data variables.product.pat_v1 %}, see [Creating a {% data variables.product.pat_v1 %}](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
@@ -39,7 +39,7 @@ The previous billing platform provided three different endpoints for usage data:
 * [Get GitHub Packages billing for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-github-packages-billing-for-an-enterprise)
 * [Get shared storage billing for an enterprise](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-shared-storage-billing-for-an-enterprise)
 
-When you transition to the enhanced billing platform, these endpoints will no longer return accurate usage information. You should upgrade any automation that uses these endpoints to use the new endpoint [GET /enterprises/{enterprise}/settings/billing/usage](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise). The tables below provide a detailed explanation how to use the billing platform to retrieve equivalent information.
+When you transition to the new billing platform, these endpoints will no longer return accurate usage information. You should upgrade any automation that uses these endpoints to use the new endpoint [GET /enterprises/{enterprise}/settings/billing/usage](/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise). The tables below provide a detailed explanation how to use the billing platform to retrieve equivalent information.
 
 ### Changes in call definition
 

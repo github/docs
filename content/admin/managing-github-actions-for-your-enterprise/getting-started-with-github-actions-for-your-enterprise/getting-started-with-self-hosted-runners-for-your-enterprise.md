@@ -83,7 +83,7 @@ You can create a runner group to manage access to the runner that you added to y
    > [!WARNING]
    > {% data reusables.actions.self-hosted-runner-security %}
    >
-   > For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories).
+   > For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
 
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.

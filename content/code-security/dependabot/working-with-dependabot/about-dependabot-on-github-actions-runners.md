@@ -29,7 +29,7 @@ Using {% data variables.product.prodname_actions %} runners allows you to more e
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * {% data variables.product.prodname_dotcom %}-hosted runners
 * {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
-* Self-hosted runners
+* Self-hosted runners. For more information on assigning a `dependabot` label on self-hosted runners, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 {% data reusables.dependabot.vnet-arc-note %}
 
@@ -82,7 +82,7 @@ If a repository in your organization has {% data variables.product.prodname_depe
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 1. Under "Dependabot", select "{% data variables.product.prodname_dependabot %} on Actions runners" to enable the feature or deselect to disable it.
 
 For more information, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#enabling-dependency-updates-on-github-actions-runners).

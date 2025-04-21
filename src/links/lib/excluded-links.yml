@@ -87,3 +87,5 @@
 - is: https://www.gnu.org/software/emacs/
 - is: https://www.transparency.org/what-is-corruption
 - startsWith: https://platform.openai.com/docs/api-reference/
+- is: https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/
+- is: https://www.anthropic.com/claude/sonnet

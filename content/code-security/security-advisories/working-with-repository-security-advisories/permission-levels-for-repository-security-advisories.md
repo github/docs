@@ -18,11 +18,10 @@ topics:
   - Permissions
 shortTitle: Permission levels
 ---
-This article applies only to repository-level security advisories. Anyone can contribute to global security advisories in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories). Edits to global advisories will not change or affect how the advisory appears on the repository. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ## Permissions overview
 
-{% data reusables.repositories.security-advisory-admin-permissions %} For more information about adding a collaborator to a security advisory, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/adding-a-collaborator-to-a-repository-security-advisory).
+{% data reusables.repositories.security-advisory-admin-permissions %}
 
 Action | Write permissions | Admin permissions |
 ------ | ----------------- | ----------------- |
@@ -37,6 +36,10 @@ Add and edit metadata in the security advisory (see [AUTOTITLE](/code-security/s
 Add and remove credits for a security advisory (see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/editing-a-repository-security-advisory)) | {% octicon "check" aria-label="Yes" %}  | {% octicon "check" aria-label="Yes" %}  |
 Close the draft security advisory | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
 Publish the security advisory (see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/publishing-a-repository-security-advisory)) | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %}  |
+
+### Permission differences for global security advisories
+
+Unlike repository security advisories, anyone can contribute to **global security advisories** in the {% data variables.product.prodname_advisory_database %} at [github.com/advisories](https://github.com/advisories). Edits to global advisories will not change or affect how the advisory appears on the repository. See [AUTOTITLE](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/editing-security-advisories-in-the-github-advisory-database).
 
 ## Further reading
 

@@ -16,12 +16,6 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 describe('redirects', () => {
   vi.setConfig({ testTimeout: 3 * 60 * 1000 })
 
-  let redirects
-  beforeAll(async () => {
-    const res = await get('/en?json=redirects')
-    redirects = JSON.parse(res.body)
-  })
-
   test('page.buildRedirects() returns an array', async () => {
     const page = await Page.init({
       relativePath:
@@ -94,6 +88,12 @@ describe('redirects', () => {
   })
 
   describe('trailing slashes', () => {
+    let redirects
+    beforeAll(async () => {
+      const res = await get('/en?json=redirects')
+      redirects = JSON.parse(res.body)
+    })
+
     test('are absent from all redirected URLs', async () => {
       const keys = Object.keys(redirects)
       expect(keys.length).toBeGreaterThan(100)
@@ -138,6 +138,12 @@ describe('redirects', () => {
   })
 
   describe('external redirects', () => {
+    let redirects
+    beforeAll(async () => {
+      const res = await get('/en?json=redirects')
+      redirects = JSON.parse(res.body)
+    })
+
     test('no external redirect starts with a language prefix', () => {
       const values = Object.entries(redirects)
         .filter(([, to]) => to.includes('://'))
@@ -423,6 +429,14 @@ describe('redirects', () => {
       const res = await get(`//en`)
       expect(res.statusCode).toBe(301)
       expect(res.headers.location).toBe(`/en`)
+    })
+
+    test('no domain redirect on //example.com/', async () => {
+      const res = await get(`//example.com/`)
+      expect(res.statusCode).toBe(301)
+      expect(res.headers.location).toBe(`/example.com`) // should not be //example.com
+      const res2 = await get(res.headers.location)
+      expect(res2.statusCode).toBe(404)
     })
 
     test('double-slash elsewhere in the URL', async () => {

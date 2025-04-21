@@ -1,4 +1,5 @@
 import murmur from 'imurmurhash'
+import type { NextRouter } from 'next/router'
 import {
   CONTROL_VARIATION,
   EXPERIMENTS,
@@ -54,7 +55,6 @@ export function shouldShowExperiment(
               ? routerQuery.feature.toLowerCase() === experiment.turnOnWithURLParam.toLowerCase()
               : false
           ) {
-            controlGroupOverride[experimentKey] = TREATMENT_VARIATION
             return true
           }
         }
@@ -115,6 +115,15 @@ export function getExperimentVariationForContext(locale: string, version: string
   const experiments = getActiveExperiments(locale, version)
   for (const experiment of experiments) {
     if (experiment.includeVariationInContext) {
+      // If the user is using the URL param to view the experiment, include the variation in the context
+      if (
+        experiment.turnOnWithURLParam &&
+        window.location?.search
+          ?.toLowerCase()
+          .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)
+      ) {
+        return TREATMENT_VARIATION
+      }
       return getExperimentControlGroupFromSession(
         experiment.key,
         experiment.percentOfUsersToGetExperiment,
@@ -180,5 +189,62 @@ export function initializeExperiments(
     console.log(
       `Experiment ${experiment.key} is in the "${controlGroup === TREATMENT_VARIATION ? TREATMENT_VARIATION : CONTROL_VARIATION}" group for this browser.\nCall function window.overrideControlGroup('${experiment.key}', 'treatment' | 'control') to change your group for this session.`,
     )
+  }
+}
+
+// If we have an experiment enabled that supports turnOnWithURLParam, we need to listen to
+// all clicks on links to ensure we forward the `feature` query param to the new page
+export function initializeForwardFeatureUrlParam(router: NextRouter, currentVersion: string) {
+  const experiments = getActiveExperiments(router.locale || 'en', currentVersion)
+
+  if (!experiments.some((experiment) => experiment.turnOnWithURLParam)) {
+    return
+  }
+
+  try {
+    const searchParams = new URLSearchParams(window.location.search)
+    const featureValue = searchParams.get('feature')
+    // If the user's URL doesn't include `feature`, we don't need to forward it
+    if (!featureValue) return
+
+    const updateAnchorHref = (anchor: HTMLAnchorElement): void => {
+      try {
+        const url = new URL(anchor.href, window.location.origin)
+        url.searchParams.set('feature', featureValue)
+        router.push(url.toString())
+      } catch (error) {
+        console.error('Error modifying anchor URL:', error)
+        router.push(anchor.href)
+      }
+    }
+
+    const handleClick = (event: any) => {
+      const anchor = event.target?.closest('a')
+      if (anchor) {
+        // If we found that the target is an anchor, we need to update and manually navigate to it
+        event.preventDefault()
+        updateAnchorHref(anchor)
+      }
+    }
+
+    const handleKeyDown = (event: any) => {
+      if (event.key !== 'Enter') return
+      const anchor = event.target?.closest('a')
+      if (anchor) {
+        // If we found that the target is an anchor, we need to update and manually navigate to it
+        event.preventDefault()
+        updateAnchorHref(anchor)
+      }
+    }
+
+    document.addEventListener('click', handleClick)
+    document.addEventListener('keydown', handleKeyDown)
+
+    return () => {
+      document.removeEventListener('click', handleClick)
+      document.removeEventListener('keydown', handleKeyDown)
+    }
+  } catch (error) {
+    console.error('Error adding event listener:', error)
   }
 }

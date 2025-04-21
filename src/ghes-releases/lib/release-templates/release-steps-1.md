@@ -5,12 +5,14 @@ labels:
   - new-release
   - priority-0
   - skip FR board
+  - rhythm of docs operations
   - GHES {{ release-number }}
 ---
 
 ## Instructions for triage
 
-- [ ] In the Enterprise project, adjust the "Cycle" field to the cycle containing the target date.
+- [ ] Add this issue to the [Rhythm of Docs: Operations](https://github.com/orgs/github/projects/20190) project.
+- [ ] For assignee: if needed, add this issue to your persona team project for tracking purposes.
 
 ## Instructions for assignee
 

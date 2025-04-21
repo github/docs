@@ -3,7 +3,7 @@ title: Creating a custom model for GitHub Copilot
 shortTitle: Create a custom model
 intro: "You can fine-tune {% data variables.product.prodname_copilot_short %} code completion by creating a custom model based on code in your organization's repositories."
 permissions: "Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}."
-product: "The organization must belong to an enterprise with a {% data variables.product.prodname_copilot_enterprise_short %} subscription."
+product: '{% data reusables.copilot.ce-product-callout %}'
 versions:
   feature: copilot-custom-models
 topics:
@@ -22,7 +22,7 @@ The code on which you want to train a custom model must be hosted in repositorie
 ## Limitations
 
 * For the {% data variables.release-phases.public_preview %}, an enterprise can deploy one custom model in a single organization.
-* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} subscription from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
+* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
 * The custom model is not used for code suggested in responses by {% data variables.product.prodname_copilot_chat %}.
 
 ## About {% data variables.product.prodname_copilot_short %} custom models
@@ -125,9 +125,9 @@ Retraining the model updates it to include any new code that has been added to t
 1. Go to your organization's settings for {% data variables.product.prodname_copilot_short %} custom models. See [Creating a custom model](#creating-a-custom-model) above.
 1. On the model training page, click the first ellipsis button (**...**), then click either **Retrain model** or **Delete model**.
 
-If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} subscription from the organization.
+If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization.
 
-If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} subscription from the organization.
+If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
 
 ## Telemetry data collection and usage for custom models
 

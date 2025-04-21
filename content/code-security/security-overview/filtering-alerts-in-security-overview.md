@@ -2,14 +2,17 @@
 title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 allowTitleToDifferFromFilename: true
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
   - Teams
@@ -77,7 +80,7 @@ These qualifiers are available in all views.
 
 Custom repository properties are metadata that organization owners can add to repositories in an organization, providing a way to group repositories by the information you are interested in. For example, you can add custom repository properties for compliance frameworks or data sensitivity. For more information on adding custom repository properties, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
-If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are available in both the organization-level and enterprise-level views.
+If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are currently only available in the organization-level views.
 
 * **`props.CUSTOM_PROPERTY_NAME` qualifier.** The qualifier consists of a `props.` prefix, followed by the name of the custom property. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
 
@@ -118,7 +121,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 | Qualifier | Description |
 | -------- | -------- |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GH_advanced_security %} is enabled or not enabled. |
+| {% ifversion ghes < 3.17 %} |
+| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
+| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |

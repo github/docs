@@ -10,7 +10,7 @@ topics:
   - Organizations
   - Vulnerabilities
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
 shortTitle: Prevent data leaks
 ---
 
@@ -78,16 +78,23 @@ There are two forms of {% data variables.product.prodname_secret_scanning %} ava
   When enabled, {% data variables.secret-scanning.user_alerts %} can be detected on the following types of repository:{% ifversion fpt %}
    * Public repositories owned by personal accounts on {% data variables.product.prodname_dotcom_the_website %}
    * Public repositories owned by organizations
-   * Private and internal repositories owned by organizations using {% data variables.product.prodname_ghe_cloud %}, when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% elsif ghec %}
-   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %} (for free)
-   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+   * Private and internal repositories owned by organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %}, with a license for {% data variables.product.prodname_GH_code_security %}{% elsif ghec %}
+   * Public repositories owned by organizations that use {% data variables.product.prodname_ghe_cloud %}
+   * Private and internal repositories when you have a license for {% data variables.product.prodname_GH_code_security %}{% endif %}
+{% endif %}
+
+{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+
+> [!TIP]
+> Regardless of the enablement status of {% data variables.product.prodname_secret_scanning %} and push protection, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}
+
 {% endif %}
 
 {% ifversion ghes %}Your site administrator must enable {% data variables.product.prodname_secret_scanning %} for your instance before you can use this feature. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance).{% endif %}
 
 For more information about {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
 
-{% data reusables.secret-scanning.push-protection-high-level %} For more information, see [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning).{% ifversion ghec or ghes %} Finally, you can also extend the detection to include custom secret string structures. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).{% endif %}
+{% data reusables.secret-scanning.push-protection-high-level %} For more information, see [AUTOTITLE](/code-security/secret-scanning/protecting-pushes-with-secret-scanning). Finally, you can also extend the detection to include custom secret string structures. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
 
 ### Review the audit log for your organization
 

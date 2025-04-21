@@ -3,7 +3,7 @@ title: Reviewing user activity data for Copilot in your organization
 shortTitle: User activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners
-product: 'Organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
+product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot
 topics:
@@ -22,7 +22,7 @@ redirect_from:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} subscription, and the estimated monthly cost.
+1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} plan, and the estimated monthly cost.
 
    {% ifversion ghec %}
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview-enterprise.png)
@@ -63,12 +63,6 @@ The `last_activity_at` date is consistent across the CSV generated via `Get Repo
 Processing new telemetry events and updating a user's `last_activity_at` date can take up to 24 hours. Users must have telemetry enabled in their IDE for their usage to be reflected in `last_activity_at`.
 
 If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
-
-For more information about enabling telemetry in various IDEs, see:
-
-* [Enable or disable usage data collection for Azure Data Studio](https://learn.microsoft.com/azure-data-studio/usage-data-collection) in the Microsoft documentation
-* [Data Sharing](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) in the JetBrains documentation
-* [Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry) in the {% data variables.product.prodname_vscode_shortname %} documentation
 
 ## Further reading
 

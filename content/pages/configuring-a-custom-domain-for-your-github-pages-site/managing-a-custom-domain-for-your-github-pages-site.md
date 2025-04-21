@@ -44,7 +44,7 @@ To set up an apex domain, such as `example.com`, you must configure a custom dom
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file directly to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow, no `CNAME` file is created, so you need to create one manually (containing only a line of text with your custom domain). For more information about your publishing source, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+1. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file directly to the root of your source branch. If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, no `CNAME` file is created, and any existing `CNAME` file is ignored and is not required. For more information about your publishing source, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 1. Navigate to your DNS provider and create either an `ALIAS`, `ANAME`, or `A` record. You can also create `AAAA` records for IPv6 support. If you're implementing IPv6 support, we highly recommend using an `A` record in addition to your `AAAA` record, due to slow adoption of IPv6 globally. {% data reusables.pages.contact-dns-provider %}
     * To create an `ALIAS` or `ANAME` record, point your apex domain to the default domain for your site. {% data reusables.pages.default-domain-information %}
     * To create `A` records, point your apex domain to the IP addresses for {% data variables.product.prodname_pages %}.
@@ -112,7 +112,7 @@ To set up a `www` or custom subdomain, such as `www.example.com` or `blog.exampl
 {% data reusables.pages.navigate-site-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.pages.sidebar-pages %}
-1. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file directly to the root of your source branch. If you are publishing your site with a custom {% data variables.product.prodname_actions %} workflow, no `CNAME` file is created, so you need to create one manually (containing only a line of text with your custom domain). For more information about your publishing source, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
+1. Under "Custom domain", type your custom domain, then click **Save**. If you are publishing your site from a branch, this will create a commit that adds a `CNAME` file directly to the root of your source branch. If you are publishing from a custom {% data variables.product.prodname_actions %} workflow, no `CNAME` file is created, and any existing `CNAME` file is ignored and is not required. For more information about your publishing source, see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site).
 
    > [!NOTE]
    > If your custom domain is an internationalized domain name, you must enter the Punycode encoded version.

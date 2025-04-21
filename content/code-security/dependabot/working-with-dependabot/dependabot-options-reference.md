@@ -360,6 +360,8 @@ When `open-pull-requests-limit` is defined:
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
+<!--Note: When making updates to this section, please make sure any changes are also reflected in `data/reusables/dependabot/supported-package-managers.md`.-->
+
 **Required option.** Define one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each package manager, see [Example `dependabot.yml` file](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file).
 
 Package manager | YAML value      | Supported versions |
@@ -380,6 +382,9 @@ Package manager | YAML value      | Supported versions |
 | {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
 | {% endif %} |
+| {% ifversion dependabot-helm-support %} |
+| Helm Charts            | `helm`            | v3               |
+| {% endif %} |
 | Hex            | `mix`            | v1               |
 | elm-package    | `elm`            | v0.19            |
 | git submodule  | `gitsubmodule`   | Not applicable |
@@ -396,7 +401,8 @@ Package manager | YAML value      | Supported versions |
 | poetry         | `pip`            | v1               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
-| Terraform    | `terraform`      | >= 0.13, <= 1.8.x  |
+| Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
+| uv           | `uv`             | v0 |
 | yarn         | `npm`            | v1, v2, v3       |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}

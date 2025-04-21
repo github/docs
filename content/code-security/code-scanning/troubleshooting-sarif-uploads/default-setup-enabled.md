@@ -31,8 +31,8 @@ You will only see this error for SARIF files that contain results created using 
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="Menu" %}.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. In the "{% data variables.product.UI_code_security_scanning %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="Menu" %}.
 1. If there is a **{% octicon "workflow" aria-hidden="true" %} Switch to advanced** option, default setup is enabled for the repository.
 
 ## Fixing the problem

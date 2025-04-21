@@ -9,7 +9,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: Evaluate alerts
@@ -20,7 +20,7 @@ allowTitleToDifferFromFilename: true
 
 There are some additional features that can help you to evaluate alerts in order to better prioritize and manage them. You can:
 
-* Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghes %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see [Checking a secret's validity](#checking-a-secrets-validity).{% ifversion secret-scanning-validity-check-partner-patterns %}
+* Check the validity of a secret, to see if the secret is still active. {% ifversion fpt or ghec %}**Applies to {% data variables.product.company_short %} tokens only**.{% endif %} For more information, see [Checking a secret's validity](#checking-a-secrets-validity).{% ifversion secret-scanning-validity-check-partner-patterns %}
 * Perform an "on-demand" validity check, to get the most up to date validation status. For more information, see [Performing an on-demand validity check](#performing-an-on-demand-validity-check).{% endif %}
 * Review a token's metadata. **Applies to {% data variables.product.company_short %} tokens only**. For example, to see when the token was last used. For more information, see [Reviewing {% data variables.product.company_short %} token metadata](#reviewing-github-token-metadata).{% ifversion secret-scanning-multi-repo-public-leak %}
 * Review the labels assigned to the alert. For more information, see [Reviewing alert labels](#reviewing-alert-labels).{% endif %}
@@ -31,11 +31,7 @@ Validity checks help you prioritize alerts by telling you which secrets are `act
 
 By default, {% data variables.product.company_short %} checks the validity of {% data variables.product.company_short %} tokens and displays the validation status of the token in the alert view.
 
-{% ifversion fpt %}
-
-Organizations using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_advanced_security %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/enterprise-cloud@latest/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity) in the {% data variables.product.prodname_ghe_cloud %} documentation.
-
-{% endif %}
+Organizations using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GH_secret_protection %} can also enable validity checks for partner patterns. For more information, see [Checking a secret's validity](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).
 
 {% data reusables.secret-scanning.validity-check-table %}
 

@@ -222,7 +222,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+  },
+  {
+    "action": "business.code_security_enablement_policy_update",
+    "description": "The policy for Code Security enablement was updated for an enterprise.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
     "action": "business.connect_usage_metrics_export",
@@ -3565,6 +3570,16 @@
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
+    "action": "repository_code_security.disable",
+    "description": "Code security was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_code_security.enable",
+    "description": "Code security was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_content_analysis.disable",
     "description": "Data use settings were disabled for a private repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
@@ -4253,21 +4268,6 @@
     "action": "user_email.mark_as_unclaimed",
     "description": "N/A",
     "docs_reference_links": "An enterprise managed user unclaimed an email address."
-  },
-  {
-    "action": "user_license.create",
-    "description": "A seat license for a user in an enterprise was created.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.destroy",
-    "description": "A seat license for a user in an enterprise was deleted.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.update",
-    "description": "A seat license type for a user in an enterprise was changed.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.create",

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Print a list of all the asset files that can't be found mentioned
@@ -30,6 +28,23 @@ const EXCEPTIONS = new Set([
   'assets/images/site/apple-touch-icon-60x60.png',
   'assets/images/site/apple-touch-icon-72x72.png',
   'assets/images/site/apple-touch-icon-76x76.png',
+  'assets/images/site/evergreens/boxwood.png',
+  'assets/images/site/evergreens/cedar.png',
+  'assets/images/site/evergreens/cypress.png',
+  'assets/images/site/evergreens/fir.png',
+  'assets/images/site/evergreens/hemlock.png',
+  'assets/images/site/evergreens/holly.png',
+  'assets/images/site/evergreens/juniper.png',
+  'assets/images/site/evergreens/laurel.png',
+  'assets/images/site/evergreens/pine.png',
+  'assets/images/site/evergreens/redwood.png',
+  'assets/images/site/evergreens/sequoia.png',
+  'assets/images/site/evergreens/spruce.png',
+  'assets/images/social-cards/actions.png',
+  'assets/images/social-cards/copilot.png',
+  'assets/images/social-cards/default.png',
+  'assets/images/social-cards/issues.png',
+  'assets/images/social-cards/code-security.png',
 ])
 
 function isExceptionPath(imagePath: string) {

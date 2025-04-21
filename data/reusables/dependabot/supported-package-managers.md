@@ -1,3 +1,5 @@
+<!--Note: When making updates to this reusable, please make sure any changes are also reflected in `content/code-security/dependabot/dependabot-options-reference.md`, under the `package-ecosystem` section.-->
+
 Package manager | YAML value      | Supported versions | Version updates | Security updates | Private repositories | Private registries | Vendoring |
 ---------------|------------------|------------------|:---:|:---:|:---:|:---:|:---:|
 | {% ifversion dependabot-bun-support %} |
@@ -16,6 +18,7 @@ Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-c
 | {% ifversion dependabot-dotnet-sdk %} |
 .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | Not applicable | Not applicable | Not applicable |
 | {% endif %} |
+[Helm Charts](#helm-charts)    | `helm`         | {% ifversion dependabot-helm-support %}v3{% else %}Not supported{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-helm-support %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | Not applicable |
 Hex            | `mix`            | v1               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 elm-package    | `elm`            | v0.19            | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} |
 git submodule  | `gitsubmodule`   | Not applicable | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
@@ -33,6 +36,7 @@ poetry         | `pip`            | v1               | {% octicon "check" aria-l
 [pub](#pub)           | `pub`            | v2  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% ifversion dependabot-updates-pub-private-registry %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Not supported" %}{% endif %} | {% octicon "x" aria-label="Not supported" %} |
 [Swift](#swift)      | `swift`      | v5  | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} (git only) | {% octicon "x" aria-label="Not supported" %} |
 [Terraform](#terraform)      | `terraform`      | >= 0.13, <= 1.10.x  | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
+uv        | `uv`            | v0               | {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | Not applicable |
 [yarn](#yarn)           | `npm`            | v1, v2, v3       | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %}|
 
 > [!TIP]
@@ -108,6 +112,14 @@ For {% data variables.product.prodname_dependabot_security_updates %}, Gradle su
 > [!NOTE]
 > * When you upload Gradle dependencies to the dependency graph using the {% data variables.dependency-submission-api.name %}, all project dependencies are uploaded, even transitive dependencies that aren't explicitly mentioned in any dependency file. When an alert is detected in a transitive dependency, {% data variables.product.prodname_dependabot %} isn't able to find the vulnerable dependency in the repository, and therefore won't create a security update for that alert.
 > * {% data variables.product.prodname_dependabot_version_updates %} will, however, create pull requests when the parent dependency is explicitly declared as a direct dependency in the project's manifest file.
+
+#### Helm Charts
+
+{% data variables.product.prodname_dependabot %} supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
+
+{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification.
+
+When configuring Dependabot for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
 
 #### Maven
 

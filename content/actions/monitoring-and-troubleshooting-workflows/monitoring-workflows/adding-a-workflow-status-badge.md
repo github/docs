@@ -20,6 +20,19 @@ versions:
 
 To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images).
 
+## Using the UI
+
+You can create a workflow status badge directly on the UI using the workflow file name, branch parameter, and event parameter.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+1. On the right side of the page, next to the "Filter workflow runs" field, click {% octicon "kebab-horizontal" aria-label="Show workflow options" %} to display a dropdown menu and click **Create status badge**.
+1. Optionally, select a branch if you want to display the status badge for a branch different from the default branch.
+1. Optionally, select the event that will trigger the workflow.
+1. Click **{% octicon "copy" aria-hidden="true" %} Copy status badge Markdown**.
+1. Copy the Markdown into your `README.md` file.
+
 ## Using the workflow file name
 
 You can build the URL for a workflow status badge using the name of the workflow file:

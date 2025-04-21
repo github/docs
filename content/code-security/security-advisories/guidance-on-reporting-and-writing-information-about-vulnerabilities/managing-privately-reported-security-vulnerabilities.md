@@ -1,7 +1,7 @@
 ---
 title: Managing privately reported security vulnerabilities
 intro: Repository maintainers can manage security vulnerabilities that have been privately reported to them by security researchers for repositories where private vulnerability reporting is enabled.
-permissions: 'Anyone with admin permissions to a repository can see, review, and manage privately-reported vulnerabilities for the repository.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 versions:
   fpt: '*'
   ghec: '*'

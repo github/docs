@@ -35,7 +35,6 @@ shortTitle: Configure default editor
 * [JetBrains GoLand](https://www.jetbrains.com/go/)
 * [JetBrains Fleet](https://www.jetbrains.com/fleet/)
 * [JetBrains DataSpell](https://www.jetbrains.com/dataspell/)
-* [TextMate](https://macromates.com/)
 * [Brackets](http://brackets.io/)
   * To use Brackets with {% data variables.product.prodname_desktop %}, you must install the Command Line shortcut. To install the shortcut, open Brackets, click **File** in the menu bar, then click **Install Command Line Shortcut**.
 * [Typora](https://typora.io/)

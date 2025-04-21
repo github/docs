@@ -14,7 +14,6 @@ type UseCombinedSearchProps = {
   router: NextRouter
   currentVersion: string
   debug: boolean
-  eventGroupIdRef: React.MutableRefObject<string>
 }
 
 type UseCombinedSearchReturn = {
@@ -26,7 +25,7 @@ type UseCombinedSearchReturn = {
   clearAutocompleteResults: () => void
 }
 
-const DEBOUNCE_TIME = 300 // In milliseconds
+const DEBOUNCE_TIME = 100 // In milliseconds
 
 // Results are only cached for the current session
 // We cache results so if a user presses backspace, we can show the results immediately without burdening the API
@@ -46,7 +45,6 @@ export function useCombinedSearchResults({
   router,
   currentVersion,
   debug,
-  eventGroupIdRef,
 }: UseCombinedSearchProps): UseCombinedSearchReturn {
   const [searchOptions, setSearchOptions] = useState<SearchOptions>({
     aiAutocompleteOptions: [],
@@ -65,7 +63,7 @@ export function useCombinedSearchResults({
   useEffect(() => {
     debouncedFetchRef.current = debounce((value: string) => {
       fetchAutocompleteResults(value)
-    }, DEBOUNCE_TIME) // 300ms debounce
+    }, DEBOUNCE_TIME) // 1ms debounce
 
     return () => {
       debouncedFetchRef.current?.cancel()
@@ -91,6 +89,17 @@ export function useCombinedSearchResults({
         return
       }
 
+      // If there is an existing search error, don't return any results
+      if (searchError) {
+        setSearchOptions({
+          aiAutocompleteOptions: [],
+          generalSearchResults: [],
+          totalGeneralSearchResults: 0,
+        })
+        setSearchLoading(false)
+        return
+      }
+
       // Create a new AbortController for the new request
       const controller = new AbortController()
       abortControllerRef.current = controller
@@ -102,7 +111,6 @@ export function useCombinedSearchResults({
           queryValue,
           debug,
           controller.signal, // Pass in the signal to allow the request to be aborted
-          eventGroupIdRef.current,
         )
 
         const results = {
@@ -123,6 +131,11 @@ export function useCombinedSearchResults({
         }
         console.error(error)
         setSearchError(true)
+        setSearchOptions({
+          aiAutocompleteOptions: [],
+          generalSearchResults: [],
+          totalGeneralSearchResults: 0,
+        })
         setSearchLoading(false)
       }
     },

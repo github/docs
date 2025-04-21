@@ -180,8 +180,42 @@ prodname_sponsors: 'GitHub Sponsors'
 prodname_matching_fund: 'GitHub Sponsors Matching Fund'
 
 # GitHub Advanced Security
+# ------------------------
+## Full product names
+prodname_GHAS: 'GitHub Advanced Security'
+prodname_GH_code_security: '{% ifversion ghas-products %}GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+prodname_GH_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection{% else %}GitHub Advanced Security{% endif %}'
+
+## GHAS or GHAS products
+prodname_GHAS_or_code_security: '{% ifversion ghas-products %}GitHub Code Security or {% endif %}GitHub Advanced Security'
+prodname_GHAS_or_secret_protection: '{% ifversion ghas-products %}GitHub Secret Protection or {% endif %}GitHub Advanced Security'
+prodname_GHAS_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, or {% endif %}GitHub Advanced Security'
+prodname_GH_cs_or_sp: '{% ifversion ghas-products %}GitHub Secret Protection or GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+
+## GHAS and GHAS products
+prodname_GHAS_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection, GitHub Code Security, and {% endif %}GitHub Advanced Security'
+prodname_GH_cs_and_sp: '{% ifversion ghas-products %}GitHub Secret Protection and GitHub Code Security{% else %}GitHub Advanced Security{% endif %}'
+
+## Short or UI names
+prodname_AS: 'Advanced Security'
+prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Advanced Security{% endif %}'
+prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
+prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
+prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}'
+UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
+UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
+
+## OLD variables, DO NOT USE
 prodname_GH_advanced_security: 'GitHub Advanced Security'
 prodname_advanced_security: 'Advanced Security'
+
+## Secret risk assessment
+prodname_secret_risk_assessment: 'secret risk assessment'
+prodname_secret_risk_assessment_caps: 'Secret risk assessment'
+
+## Azure DevOps
 prodname_ghas_azdo: 'GitHub Advanced Security for Azure DevOps'
 
 # Codespaces
@@ -269,6 +303,8 @@ prodname_copilot_for_business: 'GitHub Copilot Business'
 prodname_copilot_for_individuals: 'GitHub Copilot Individual'
 prodname_copilot_pro: 'GitHub Copilot Pro'
 prodname_copilot_pro_short: 'Copilot Pro'
+prodname_copilot_pro_plus: 'GitHub Copilot Pro+'
+prodname_copilot_pro_plus_short: 'Copilot Pro+'
 prodname_copilot_business_short: 'Copilot Business'
 prodname_copilot_individuals_short: 'Copilot Individual'
 prodname_copilot_enterprise: 'GitHub Copilot Enterprise'
@@ -305,15 +341,18 @@ prodname_copilot_customization: 'Copilot Customization'
 prodname_copilot_in_support: 'Copilot in GitHub Support'
 prodname_copilot_sku_isolation: 'Copilot subscription-based network routing'
 prodname_copilot_autocomplete_pr: 'Copilot text completion'
-
-# Copilot branded GHAS features
-prodname_copilot_autofix: 'GitHub Copilot Autofix'
-prodname_copilot_autofix_short: 'Copilot Autofix'
-prodname_copilot_edits_vscode_short: 'Copilot Edits'
+prodname_copilot_desktop: 'GitHub Copilot in GitHub Desktop'
+prodname_copilot_desktop_short: 'Copilot in GitHub Desktop'
+prodname_copilot_edits: 'GitHub Copilot Edits'
+prodname_copilot_edits_short: 'Copilot Edits'
 prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 prodname_copilot_workspace: 'Copilot Workspace'
 prodname_copilot_workspace_short: 'Workspace'
+
+# GHAS licensed features branded as Copilot
+prodname_copilot_autofix: 'GitHub Copilot Autofix'
+prodname_copilot_autofix_short: 'Copilot Autofix'
 
 # Windows
 prodname_windows_terminal: 'Windows Terminal'

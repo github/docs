@@ -127,24 +127,24 @@ If you use a custom or unsupported plug-in, module, or custom code, {% data vari
 
 {% data variables.contact.premium_support %} may close a ticket if the ticket is outside the scope of support or if multiple attempts to contact you have gone unanswered. If {% data variables.contact.premium_support %} closes a ticket due to lack of response, you can request that {% data variables.contact.premium_support %} reopen the ticket.
 
-## Receiving credits for missed responses to support tickets
+## Virtual trainings available with Premium Plus
 
-If you are on the Premium or Premium Plus support plan, and you don't receive an initial response within the guaranteed response time to more than four tickets in a given quarter based on {% data variables.product.company_short %}'s fiscal year, you're eligible for a credit. To honor the SLA, {% data variables.product.company_short %} will refund 20% of the quarterly {% data variables.contact.premium_support %} fee. To receive the refund, you must submit a credit request.
+Premium Plus customers are eligible to receive one virtual training class per year and can choose from the following topics:
 
-The credit request must be made within 30 days of the end of the quarter during which {% data variables.contact.premium_support %} did not respond to your tickets within the designated response time. Credit requests will not be honored if the respective deadline has passed. Once the respective deadline passes, you have waived the ability to claim a refund for the qualified credit. Credit requests may take the form of a refund or credit to your account, cannot be exchanged into a cash amount, require you to have paid any outstanding invoices, and expire upon termination of your agreement with {% data variables.product.company_short %}.
+* {% data variables.product.github %} for developers
+* {% data variables.product.github %} for admins (Server)
+* {% data variables.product.github %} for admins (Cloud)
+* {% data variables.product.github %} for non-developers
+* {% data variables.product.github %} API
+* {% data variables.product.prodname_actions %} Fundamentals
+* {% data variables.product.prodname_actions %} Intermediate
+* {% data variables.product.prodname_copilot %} Fundamentals
+* {% data variables.product.prodname_copilot %} Intermediate
+* {% data variables.product.prodname_copilot %} Administration & Security
+* {% data variables.product.prodname_enterprise %} Implementation (Server)
+* {% data variables.product.prodname_enterprise %} Implementation (Cloud)
 
-To receive a refund, you must submit a completed credit request to <supportcredits@github.com>. To be eligible, the credit request must:
-* Be sent from an email address associated with your account on {% data variables.location.product_location %}
-* Be received by {% data variables.product.company_short %} by the end of the 30th day after the quarter in which the four qualifying credits occurred
-* Include "Credit Request" in the subject line
-
-The following information **must be included** in your credit request:
-* **Date** (The date must be within 30 days after the quarter based on {% data variables.product.company_short %}’s fiscal year end in which the claims occurred [January 31, April 30, July 31, or October 31].)
-* **Customer contact** (You must specify both name and email address.)
-* **Customer address**
-* **Qualifying credits** (You must provide the date of each qualifying credit and the associated ticket number.){% ifversion fpt or ghec %}
-* **Name of {% data variables.product.prodname_ghe_cloud %} organization**{% endif %}
-* **Ticket numbers**
+We recommend limiting training sessions to a maximum of 16 participants to ensure an optimal provider-to-participant ratio and a high-quality delivery experience. However, in specific cases where it makes sense, we can accommodate up to 20–25 participants while maintaining our commitment to delivering a valuable training experience for your team.
 
 ## Accessing premium content
 

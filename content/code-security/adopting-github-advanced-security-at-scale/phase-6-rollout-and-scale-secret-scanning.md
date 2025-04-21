@@ -5,12 +5,13 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 shortTitle: 6. Rollout secret scanning
 ---
 
-> [!NOTE]
-> This article is part of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning).
+>[!TIP]
+> This article is part of a series on adopting {% data variables.product.prodname_GHAS %} at scale. For the previous article in this series, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/phase-5-rollout-and-scale-code-scanning).
 
 {% ifversion security-configurations %}
 
@@ -59,15 +60,11 @@ Once enabled, you can do the following:
 
 1. **Notify:** Define a webhook that specifically tracks {% data variables.secret-scanning.alerts %} created when someone bypasses push protection by using the alert property `"push_protection_bypassed": true`. Or, use the API to get updates on which {% data variables.secret-scanning.alerts %} were the result of a push protection bypass by filtering the list of results for `"push_protection_bypassed": true`. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 
-{%- ifversion security-overview-push-protection-metrics-page %}
-
 1. **Monitor:** Use security overview to view metrics on how push protection is performing in repositories across your organization, so you can quickly identify any repositories where you might need to take action. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
-
-{%- endif %}
 
 ## 3. Remediate previously committed secrets, starting with the most critical
 
-After you have established a process to reduce the addition of secrets to your codebases, you are ready to start work remediating secrets that were committed before you introduced {% data variables.product.prodname_GH_advanced_security %}.
+After you have established a process to reduce the addition of secrets to your codebases, you are ready to start work remediating secrets that were committed before you introduced {% data variables.product.prodname_GHAS %}.
 
 How you define your most critical secrets will depend on your organization's processes and integrations. For example, a company likely isn’t worried about a Slack Incoming Webhook secret if they don’t use Slack. You may find it useful to start by focusing on the top five most critical credential types for your organization.
 
@@ -103,5 +100,5 @@ You can also include more of the custom patterns collated in the earlier phases 
 
 As you continue to build your remediation processes for other secret types, start to create proactive training material that can be shared with all developers of GitHub in your organization. Until this point, a lot of the focus has been reactive. It is an excellent idea to shift focus to being proactive and encourage developers not to push credentials to GitHub in the first place. This can be achieved in multiple ways but creating a short document explaining the risks and reasons would be a great place to start.
 
-> [!NOTE]
-> This is the final article of a series on adopting {% data variables.product.prodname_GH_advanced_security %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services %} in [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services).
+>[!TIP]
+> This is the final article of a series on adopting {% data variables.product.prodname_GHAS %} at scale. If you have questions or need support, see the section on {% data variables.contact.github_support %} and {% data variables.product.prodname_professional_services %} in [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale#github-support-and-professional-services).

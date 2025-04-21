@@ -8,7 +8,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 children:
@@ -17,6 +17,7 @@ children:
   - /disabling-autofix-for-code-scanning
   - /assessing-code-scanning-alerts-for-your-repository
   - /resolving-code-scanning-alerts
+  - /best-practices-for-participating-in-a-security-campaign
   - /fixing-alerts-in-security-campaign
   - /triaging-code-scanning-alerts-in-pull-requests
   - /tracking-code-scanning-alerts-in-issues-using-task-lists

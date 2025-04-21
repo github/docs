@@ -9,7 +9,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - AI
   - Copilot
 redirect_from:
@@ -21,7 +21,7 @@ redirect_from:
 
 {% data reusables.secret-scanning.generic-secret-detection-policy-note %}
 
-You can then enable {% data variables.secret-scanning.generic-secret-detection %} in the security settings page of your repository or organization.
+You can enable {% data variables.secret-scanning.generic-secret-detection %} in the security settings page of your repository or organization.
 
 {% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
 
@@ -30,15 +30,15 @@ You can then enable {% data variables.secret-scanning.generic-secret-detection %
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-1. Under "Secret scanning", select the checkbox next to "Scan for generic secrets".
+1. Under "{% data variables.product.prodname_secret_protection %}", to the right of "Scan for generic passwords", click **Enable**.
 
 ### Enabling {% data variables.secret-scanning.generic-secret-detection %} for your organization
 
-{% data reusables.profile.access_org %}
-{% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
-1. Under "Secret scanning", select the checkbox next to "Scan for generic secrets".
+You must configure {% data variables.secret-scanning.generic-secret-detection %} for your organization using a {% data variables.product.prodname_custom_security_configuration %}. You can then apply the {% data variables.product.prodname_security_configuration %} to all (or selected) repositories in your organization.
+
+1. Create a new {% data variables.product.prodname_custom_security_configuration %}, or edit an existing one. See [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/creating-a-custom-security-configuration#creating-a-custom-security-configuration).
+1. When creating the custom security configuration, ensure that "{% data variables.product.prodname_secret_protection %}" is set to **Enabled**, and that the dropdown menu for "Scan for generic secrets" is also set to **Enabled**.
+1. Apply the {% data variables.product.prodname_custom_security_configuration %} to one or more repositories. For more information, see [Applying a {% data variables.product.prodname_custom_security_configuration %}](/code-security/securing-your-organization/meeting-your-specific-security-needs-with-custom-security-configurations/applying-a-custom-security-configuration).
 
 For information on how to view alerts for generic secrets that have been detected using AI, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
 

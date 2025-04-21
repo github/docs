@@ -30,8 +30,8 @@ When you block a user:
 * You are removed as a collaborator on their repositories
 * Their sponsorship of you is canceled
 * Any pending repository or account successor invitations to or from the blocked user are canceled
-* The user is removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by you
-* You are removed as a collaborator from all the projects and {% data variables.projects.projects_v1_boards %} owned by the user
+* The user is removed as a collaborator from all the projects owned by you
+* You are removed as a collaborator from all the projects owned by the user
 
 After you've blocked a user, they cannot:
 * Send you any notifications, including by [@mentioning](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#mentioning-people-and-teams) your username
@@ -44,8 +44,8 @@ After you've blocked a user, they cannot:
 * Cross-reference your repositories in comments
 * Fork, watch, pin, or star your repositories
 * Sponsor you
-* Add you as a collaborator on their projects and {% data variables.projects.projects_v1_boards %}
-* Make changes to your public projects and {% data variables.projects.projects_v1_boards %}
+* Add you as a collaborator on their projects
+* Make changes to your public projects
 
 In repositories you own, blocked users also cannot:
 * Open issues

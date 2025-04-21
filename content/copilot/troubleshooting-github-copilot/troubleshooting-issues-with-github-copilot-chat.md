@@ -16,7 +16,7 @@ redirect_from:
 
 You can use {% data variables.product.prodname_copilot_chat %} in your IDE or on the {% data variables.product.github %} website. Click the tabs above for troubleshooting information for {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vs %}, {% data variables.product.prodname_vscode %}, and on {% data variables.product.github %} in the browser.
 
-If you need help with {% data variables.product.prodname_copilot_chat %} and can't find the answer here, you can report a bug or ask for help. For more information, see [Sharing feedback about {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#sharing-feedback-about-github-copilot-chat).
+If you need help with {% data variables.product.prodname_copilot_chat_short %} and can't find the answer here, you can report a bug or ask for help. For more information, see [Sharing feedback about {% data variables.product.prodname_copilot_chat %}](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#sharing-feedback-about-github-copilot-chat).
 
 {% vscode %}
 
@@ -26,7 +26,7 @@ If you can't find {% data variables.product.prodname_copilot_chat_short %} in yo
 
 {% data reusables.copilot.vscode-version-compatibility %}
 
-To use {% data variables.product.prodname_copilot_chat %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
+To use {% data variables.product.prodname_copilot_chat_short %}, make sure you are using the [latest version of {% data variables.product.prodname_vscode %}](https://code.visualstudio.com/updates).
 
 ## Troubleshooting authentication issues in your editor
 
@@ -34,7 +34,7 @@ To use {% data variables.product.prodname_copilot_chat %}, make sure you are usi
 
 ### Troubleshooting authentication issues in {% data variables.product.prodname_vscode %}
 
-If you are experiencing authentication issues after installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vscode %}, you can try the following steps to resolve the issue.
+If you are signed in to {% data variables.product.github %} but {% data variables.product.prodname_copilot_short %} is unavailable in {% data variables.product.prodname_vscode %}, it may be due to an authentication problem. Try the following steps to resolve the issue:
 
 1. In the bottom left corner of the {% data variables.product.prodname_vscode %} window, click the **Accounts** icon, hover over your {% data variables.product.prodname_dotcom %} username, and click the **Sign out** button.
 1. To reload {% data variables.product.prodname_vscode %}, press <kbd>F1</kbd> to open the command palette, and select **Developer: Reload Window**.

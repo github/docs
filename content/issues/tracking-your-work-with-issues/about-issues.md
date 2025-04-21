@@ -21,6 +21,12 @@ You can create issues in your repository to plan, discuss, and track work. Issue
 
 Issues can be created in a variety of ways, so you can choose the most convenient method for your workflow. For example, you can create an issue from a repository,{% ifversion sub-issues %} while adding sub-issues,{% endif %} convert a comment in an issue or pull request, create an issue from a specific line of code, or via a URL query. You can also create an issue from your platform of choice: through the web UI, {% data variables.product.prodname_desktop %}, {% data variables.product.prodname_cli %}, GraphQL and REST APIs, or {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
+{% ifversion copilot %}
+
+> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions or blog posts, based on your issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+
+{% endif %}
+
 {% ifversion sub-issues %}
 
 ## About sub-issues

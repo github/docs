@@ -19,7 +19,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Actions
@@ -137,7 +137,7 @@ Dependency caching works with all build modes, and is supported by {% data varia
 
 ### Enabling dependency caching for {% data variables.product.prodname_codeql %}
 
-For default setup workflows, dependency caching is enabled by default for {% data variables.product.github %}-hosted runners in public and private repositories.
+For default setup workflows, dependency caching is enabled only for {% data variables.product.github %}-hosted runners in public and private repositories.
 
 For advanced setup workflows, dependency caching is disabled by default. To enable dependency caching for {% data variables.product.prodname_codeql %}, use the `dependency-caching` setting for the {% data variables.product.prodname_codeql %} action in your advanced setup workflow. This setting accepts the following values:
 

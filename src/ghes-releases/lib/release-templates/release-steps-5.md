@@ -6,11 +6,13 @@ labels:
   - new-release
   - priority-0
   - skip FR board
+  - rhythm of docs operations
 ---
 
 ## Instructions for triage
 
-- [ ] In the Enterprise focus area's project, adjust the "Cycle" field for this issue to the cycle four weeks before the target date.
+- [ ] Add this issue to the [Rhythm of Docs: Operations](https://github.com/orgs/github/projects/20190) project.
+- [ ] For assignee: if needed, add this issue to your persona team project for tracking purposes.
 
 ## Instructions for assignee
 
@@ -83,7 +85,7 @@ To prepare for publication, create a PR in `github/github` that publishes the sc
 
 - [ ] Create a PR.
 
-- [ ] Get the necessary reviews, but **do not deploy and merge the PR**. You'll merge this PR closer to the RC's release date, while Docs' repositories are frozen.
+- [ ] Get the necessary reviews, but **do not deploy and merge the PR yet**. You'll merge this PR closer to the RC's release date.
 
 <br/>
 <a name="merge">
@@ -92,19 +94,19 @@ To prepare for publication, create a PR in `github/github` that publishes the sc
 
 To trigger creation of an OpenAPI PR with the updated schema for the RC, merge your publication PR in `github/github`.
 
-- [ ] On the Thursday after you begin the freeze of Docs' repositories per {{ release-steps-0-url }}, merge the publication PR you [prepared in `github/github`](#publication-preparation).
+- [ ] 2-3 days before the RC release date, merge the publication PR you [prepared in `github/github`](#publication-preparation).
 
-- [ ] In [#ecosystem-api](https://github.slack.com/archives/C1042T6MS) on Slack, update and then post the following message to notify the team of the upcoming release. Replace VERSION with the version we're releasing.
+- [ ] In [#api-platform](https://github.slack.com/archives/C1042T6MS) on Slack, update and then post the following message to notify the team of the upcoming release. Replace VERSION with the version we're releasing.
 
   > 👋 Hi from Docs! We have just marked `published` for the GHES VERSION release configuration to `true`. Please **do not** merge subsequent "Update OpenAPI 3.x Descriptions" PRs [in github/rest-api-description](https://github.com/github/rest-api-description/pulls) until further notice. Thanks!
 
-- [ ] On the Friday during the freeze, locate the latest "Update OpenAPI 3.x Descriptions" PRs [in `github/rest-api-description`](https://github.com/github/rest-api-description/pulls).
+- [ ] Locate the latest "Update OpenAPI 3.x Descriptions" PRs [in `github/rest-api-description`](https://github.com/github/rest-api-description/pulls).
 
 - [ ] On each new PR, leave a review that requests changes with the following comment.
 
   > This PR contains changes for the upcoming GHES RC. Please do not merge this or subsequent PRs until further notice in #ecosystem-api. Thanks!
 
-- [ ] From now until after the freeze, all [existing "Update OpenAPI Description" PRs](https://github.com/github/docs-internal/labels/github-openapi-bot) in `github/docs-internal` can be closed.
+- [ ] From now until the RC ships, all [existing "Update OpenAPI Description" PRs](https://github.com/github/docs-internal/labels/github-openapi-bot) in `github/docs-internal` can be closed.
 
 To get the latest changes from the latest "Update OpenAPI 3.x Descriptions" PR in the `github/rest-api-description` repository into your PR to close {{ release-steps-1-url }}, you can use one of two methods.
 
