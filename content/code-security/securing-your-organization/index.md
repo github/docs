@@ -7,13 +7,15 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:
   - /introduction-to-securing-your-organization-at-scale
   - /enabling-security-features-in-your-organization
   - /managing-the-security-of-your-organization
+  - /understanding-your-organizations-exposure-to-leaked-secrets
   - /fixing-security-alerts-at-scale
   - /troubleshooting-security-configurations
 ---

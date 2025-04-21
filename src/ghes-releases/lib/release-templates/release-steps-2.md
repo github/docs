@@ -6,11 +6,13 @@ labels:
   - priority-0
   - skip FR board
   - GHES {{ release-number }}
+  - rhythm of docs operations
 ---
 
 ## Instructions for triage
 
-- [ ] In the Enterprise project, adjust the "Cycle" field to the cycle **four weeks** before the target date.
+- [ ] Add this issue to the [Rhythm of Docs: Operations](https://github.com/orgs/github/projects/20190) project.
+- [ ] For assignee: if needed, add this issue to your persona team project for tracking purposes.
 
 ## Instructions for assignee
 

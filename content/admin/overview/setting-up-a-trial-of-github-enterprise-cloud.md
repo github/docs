@@ -16,15 +16,11 @@ shortTitle: Enterprise Cloud trial
 
 {% data reusables.enterprise.about-ghec %} See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).
 
->You can set up a trial to evaluate features that require {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO) and {% data variables.product.prodname_GH_advanced_security %}. For a full list of available features, see our [Pricing](https://github.com/pricing) page.
-
-Your trial **won't** include {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} or access to {% data variables.product.prodname_ghe_server %}. To test these features, contact {% data variables.contact.contact_enterprise_sales %}.
+To set up a trial, you must be signed in to a personal account. If you don't have a personal account, see [AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github).
 
 <a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
 >[!IMPORTANT] Your trial enterprise will be hosted in the USA. If you require {% data variables.enterprise.data_residency_short %} outside the USA, contact {% data variables.contact.contact_sales_data_residency %}.
-
-To set up a trial, you must be signed in to a personal account. If you don't have a personal account, see [AUTOTITLE](/free-pro-team@latest/get-started/start-your-journey/creating-an-account-on-github).
 
 {% data reusables.enterprise.enterprise-types %}
 
@@ -34,10 +30,12 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas %}
 * {% data variables.product.prodname_copilot_for_business %}
-* {% data variables.product.prodname_GH_advanced_security %}
-* Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
+* {% data variables.product.prodname_GH_cs_and_sp %}
+* Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
+
+Your trial **won't** include {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} or access to {% data variables.product.prodname_ghe_server %}. To test these features, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Features not included in the trial
 
@@ -77,9 +75,9 @@ You can end your trial at any time by purchasing {% data variables.product.prodn
 If you **purchase {% data variables.product.prodname_enterprise %}**:
 
 {% ifversion metered-ghe-ghas %}
-* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See, [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
+* You can use usage-based billing for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}, which means you pay monthly for the number of licenses you use. You will not need to buy a predefined number of licenses in advance. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses).
 
-  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GH_advanced_security %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).{% endif %}
+  If you did not set up a free trial and you want to use usage-based billing to pay for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} after the {% data variables.product.prodname_ghe_cloud %} trial ends, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).{% endif %}
 
 * You can generate a {% data variables.product.prodname_ghe_server %} license file for the same quantity of users who are consuming a {% data variables.product.prodname_ghe_cloud %} license.
 

@@ -18,10 +18,11 @@ Budgets and alerts allow you to track spending for your {% ifversion fpt %}organ
 
 The budget only applies to expenses incurred from the date of its creation onwards. Any expenses incurred prior to the creation of the budget will not be included in the calculations
 
-Budgets are not applicable to:
+{% ifversion ghec %}
+Budgets are not applicable to pre-paid volume licenses.
+{% endif %}
 
-* {% ifversion enterprise-licensing-language %}License{% else %}Seat{% endif %}-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}.
-* Pre-paid volume licenses{% endif %}.
+For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
 
 > [!NOTE]
 > By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
@@ -43,6 +44,21 @@ You can set spending limits and receive alerts when your usage reaches 75%, 90%,
 ## Managing budgets for your {% data variables.enterprise.enterprise_or_org %}
 
 You can manage budgets for your {% data variables.enterprise.enterprise_or_org %} by setting a budget, viewing budgets, and editing or deleting budgets.
+
+{% ifversion ghec %}
+
+### Budget scopes
+
+You can create a budget for a given {% data variables.product.github %} product and specific scope:
+
+* `Enterprise` scoped budgets track spending for all organizations, repositories, and cost centers in the enterprise
+* `Organization` scoped budgets track spending for a single organization, repositories, and cost centers in the organization
+* `Repository` scoped budgets track spending for a single repository
+* `Cost center` scoped budgets track spending for a single cost center
+
+Usage is applied towards all applicable budgets. If any applicable budget with "Stop usage when budget limit is reached" enabled becomes exhausted, additional usage will be stopped.
+
+{% endif %}
 
 ### Viewing budgets
 

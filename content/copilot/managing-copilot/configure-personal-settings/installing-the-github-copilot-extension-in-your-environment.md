@@ -11,14 +11,9 @@ redirect_from:
   - /copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment
 ---
 
-## Getting access to {% data variables.product.prodname_copilot %}
+## Prerequisite
 
-There are different ways to get access to {% data variables.product.prodname_copilot_short %}.
-
-| Type of user | How to get access to {% data variables.product.prodname_copilot_short %} |
-| --- | --- |
-| Individual | <ul><li>Set up {% data variables.product.prodname_copilot_free %} to get a limited experience of {% data variables.product.prodname_copilot_short %} without a subscription. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).</li><li>Sign up for a paid {% data variables.product.prodname_copilot_short %} subscription to get unlimited completions and chat interactions. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot_short %} for free</span></a> with a one-time 30-day trial.</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself) for all options.</li></ul>  |
-| Organization{% ifversion ghec %}/Enterprise member{% endif %} | <ul><li>If you are a member of an organization{% ifversion ghec %} or enterprise{% endif %} that has a subscription to {% data variables.product.prodname_copilot_short %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to https://github.com/settings/copilot and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."</li><li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization) to enable {% data variables.product.prodname_copilot_short %} for your organization.</li>{% ifversion ghec %}<li>See [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise) to enable {% data variables.product.prodname_copilot_short %} for your enterprise.</li>{% endif %}</ul> |
+To use {% data variables.product.prodname_copilot_short %} in your IDE, you need either limited access through {% data variables.product.prodname_copilot_free_short %} or a paid {% data variables.product.prodname_copilot_short %} plan for full access. For more information about how to get access and choose the right plan, see [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
 
 {% azure_data_studio %}
 
@@ -195,9 +190,9 @@ Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-## Prerequisites
+### Version compatibility
 
-{% data reusables.copilot.xcode-prerequisites %}
+To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above installed. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
@@ -230,23 +225,21 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 {% eclipse %}
 
-{% data reusables.copilot.eclipse-public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot %} in Eclipse
 
-Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type.
+Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
+
+{% data reusables.copilot.eclipse-public-preview-note %}
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-## Prerequisites
+### Version compatibility
 
-* **Access to {% data variables.product.prodname_copilot_short %}**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
-
-* **Compatible version of Eclipse**. To use {% data variables.product.prodname_copilot %} in Eclipse, you must have Eclipse version 2024-09 or above. For more information on the latest versions, see the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+To use the {% data variables.product.prodname_copilot %} extension, you must have Eclipse version 2024-09 or above. See the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 
-1. Download and install the latest version of {% data variables.product.prodname_copilot %} in the [Eclipse Marketplace](https://aka.ms/copiloteclipse).
+1. Download and install the latest version of {% data variables.product.prodname_copilot %} from the [Eclipse Marketplace](https://aka.ms/copiloteclipse) or directly via the [Eclipse Update Site](https://azuredownloads-g3ahgwb5b8bkbxhd.b01.azurefd.net/github-copilot/). For more information, see [Installing New Software](https://help.eclipse.org/latest/topic/org.eclipse.platform.doc.user/tasks/tasks-124.htm) in the Eclipse documentation.
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 

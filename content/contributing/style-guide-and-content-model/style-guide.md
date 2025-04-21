@@ -140,7 +140,7 @@ If a button encourages people to navigate away from the {% data variables.produc
 
 ## Call to action (CTA) buttons
 
-CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the "Try {% data variables.product.prodname_copilot %}" CTA in [AUTOTITLE](/free-pro-team@latest/copilot/using-github-copilot/getting-started-with-github-copilot) links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
+CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the CTA button on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs) on {% data variables.product.prodname_dotcom_the_website %}.
 
 Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
 
@@ -519,7 +519,6 @@ The Microsoft Style Guide offers resources on bias-free communication, accessibi
 * [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
-* [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
 * MailChimp Content Style Guide:
   * [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
   * [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)
@@ -948,11 +947,11 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
-### {% data variables.product.prodname_GH_advanced_security %} (GHAS)
+### {% data variables.product.prodname_GHAS %} products (GHAS)
 
-Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GH_advanced_security %} billing.
+Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} billing.
 
-We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GH_advanced_security %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
+We used to use the term `seats` to describe the number of accounts that can use {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} in an enterprise. People can be confused by the term `seats`, so we removed this term from GitHub.com in autumn 2022 and versions from GHES 3.7 onward do not use it.
 
 ### {% data variables.product.pat_generic_caps_plural %}
 
@@ -1102,7 +1101,7 @@ A release note for a change answers the following questions.
 
 #### Examples of release notes for changes
 
-* > On an instance with a {% data variables.product.prodname_GH_advanced_security %} license, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
+* > On an instance with a license for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_secret_protection %}{% endif %}, users who author custom patterns for secret scanning can provide expressions that must or must not match that are up to 2,000 characters. This limit is an increase from 1,000 characters.
 
 * > For administrators who need to review or modify SAML mappings, the default path for output from `ghe-saml-mapping-csv -d` is `/data/user/tmp` instead of `/tmp`. For more information, see [Command-line utilities](/enterprise-server@3.8/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-saml-mapping-csv).
 
@@ -1374,7 +1373,7 @@ For tables that use symbols:
 
 * Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
 * Use octicons or SVG. Do not use emoji. For more information about octicons, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons).
-* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use a [check mark](https://primer.style/octicons/icon/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/icon/x-16) for negative values ("No", "Optional", "Unsupported").
 * Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page [AUTOTITLE](/support/learning-about-github-support/about-github-support), some features are marked as "Available to purchase".
@@ -1561,7 +1560,8 @@ We only document the responsive states of UI elements when they create ambiguity
 
 ### User interface text
 
-When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
+When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with. Place any commas outside of the quotation marks.
+
 * **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources
@@ -1642,7 +1642,7 @@ The following documentation should reference "user accounts."
 
 * The [AUTOTITLE](/enterprise-cloud@latest/admin) product
 * Enterprise-specific billing documentation, like [AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
-* Content within other products that's intended for an administrative audience, like [AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts) in the "Code security" product or [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the "Get started" product
+* Content within other products that's intended for an administrative audience, like [AUTOTITLE](/enterprise-cloud@latest/code-security/supply-chain-security/end-to-end-supply-chain/securing-accounts) in the "Secure coding" product or [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) in the "Get started" product
 * Enterprise-specific API content, like the [AUTOTITLE](/enterprise-cloud@latest/rest/reference/enterprise-admin) REST API reference documentation
 
 For enterprises on {% data variables.product.prodname_ghe_cloud %} that don't use {% data variables.product.prodname_emus %}, use "personal account" when describing members of organizations owned by the enterprise.

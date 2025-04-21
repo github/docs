@@ -1,7 +1,7 @@
 ---
 title: Configuring default setup for code scanning
 shortTitle: Configure code scanning
-intro: 'You can quickly secure code in your repository with default setup for {% data variables.product.prodname_code_scanning %}.'
+intro: 'Quickly set up {% data variables.product.prodname_code_scanning %} to find {% ifversion fpt or ghec %}and fix {% endif %}vulnerable code automatically.'
 redirect_from:
   - /github/managing-security-vulnerabilities/configuring-automated-code-scanning
   - /github/finding-security-vulnerabilities-and-errors-in-your-code/enabling-code-scanning
@@ -18,7 +18,7 @@ permissions: '{% data reusables.permissions.security-repo-enable %}'
 product: '{% data reusables.gated-features.code-scanning %}'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
 versions:
   fpt: '*'
@@ -50,10 +50,7 @@ Your repository is eligible for default setup for {% data variables.product.prod
 <!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
 {% else %}
 * It includes at least one {% data variables.product.prodname_codeql %}-supported language.{% endif %}
-* {% data variables.product.prodname_actions %} are enabled.{% ifversion fpt %}
-* It is publicly visible.{%- elsif ghec %}
-* It is publicly visible, or {% data variables.product.prodname_GH_advanced_security %} is enabled.{%- elsif ghes %}
-* {% data variables.product.prodname_GH_advanced_security %} is enabled.{% endif %}
+{% data reusables.code-scanning.require-actions-ghcs %}
 
 {% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
@@ -67,7 +64,7 @@ You can use default setup for all {% data variables.product.prodname_codeql %}-s
 
 ### Customizing default setup
 
-We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your code security needs. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
+We recommend that you start using {% data variables.product.prodname_code_scanning %} with default setup. After you've initially configured default setup, you can evaluate {% data variables.product.prodname_code_scanning %} to see how it's working for you. If you find that something isn't working as you expect, you can customize default setup to better meet your needs. For more information, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/evaluating-default-setup-for-code-scanning).
 
 ### About adding non-compiled and compiled languages to your default setup
 
@@ -88,10 +85,18 @@ Compiled languages are not automatically included in default setup configuration
    > If you are configuring default setup on a fork, you must first enable {% data variables.product.prodname_actions %}. To enable {% data variables.product.prodname_actions %}, under your repository name, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **I understand my workflows, go ahead and enable them**. Be aware that this will enable all existing workflows on your fork.
 
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, select **Set up** {% octicon "triangle-down" aria-hidden="true" %}, then click **Default**.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+{% data reusables.repositories.code-scanning-enable %}
 
-   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %} settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
+   {% ifversion ghas-products %}
+
+   ![Screenshot of the "{% data variables.product.UI_code_security_scanning %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup.png)
+
+   {% else %}
+
+   ![Screenshot of the "{% data variables.product.prodname_code_scanning_caps %}" section of "{% data variables.product.UI_advanced_security %}" settings. The "Default setup" button is highlighted with an orange outline.](/assets/images/help/security/default-code-scanning-setup-ghas.png)
+
+   {% endif %}
 
    You will then see a "{% data variables.product.prodname_codeql %} default configuration" dialog summarizing the {% data variables.product.prodname_code_scanning %} configuration automatically created by default setup.
 

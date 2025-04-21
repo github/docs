@@ -40,6 +40,18 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
     }
   }
 
+  const shortcutElements = t('search.input.shortcut')
+    .split(/({{[^}]+}})/)
+    .filter((item) => item.trim() !== '')
+    .map((item) => <>{item.trim()}</>)
+  shortcutElements[1] = <kbd className={styles.forwardSlashIcon}>/</kbd>
+
+  const placeHolderElements = t('search.input.placeholder')
+    .split(/({{[^}]+}})/)
+    .filter((item) => item.trim() !== '')
+    .map((item) => <>{item.trim()}</>)
+  placeHolderElements[1] = <CopilotIcon aria-hidden className="mr-1 ml-1" />
+
   return (
     <>
       {/* We don't want to show the input when overlay is open */}
@@ -71,11 +83,17 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
               aria-hidden
               tabIndex={-1}
             >
-              <CopilotIcon aria-hidden className="mr-1" />
               <span
                 className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
               >
-                {urlSearchInputQuery ? urlSearchInputQuery : t('search.input.placeholder')}
+                {urlSearchInputQuery ? (
+                  urlSearchInputQuery
+                ) : (
+                  <>
+                    <span className={styles.placeholderText}>{placeHolderElements}</span>
+                    <span className={styles.placeholderShortcutContainer}>{shortcutElements}</span>
+                  </>
+                )}
               </span>
             </div>
             <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>

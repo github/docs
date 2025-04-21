@@ -103,6 +103,12 @@ Even if you change your organizational structure, you can still prepare a script
 
 {% data reusables.enterprise-migration-tool.organization-structure-tasks %}
 
+## What is our plan for the enterprise and organization names?
+
+If you are migrating between accounts on {% data variables.product.prodname_dotcom_the_website %}, keep in mind that there are naming constraints for user, organization, and enterprise accounts. If you need to re-use an organization or enterprise name for the migration, we recommend renaming accounts before as opposed to deleting them. Renaming makes a user, organization or enterprise account name available immediately for re-use.
+
+Organization accounts on {% data variables.product.prodname_enterprise %} share the same namespace; two user/organization accounts cannot have the same name. Enterprise accounts on {% data variables.product.prodname_enterprise %} share the same namespace; two enterprise accounts cannot have the same name.
+
 ## Running your migrations
 
 {% data reusables.enterprise-migration-tool.running-your-migrations %}
@@ -113,7 +119,7 @@ For repository migrations, we recommend creating a test organization to use as a
 1. If your source organization uses IP allow lists, configure the list to allow access by {% data variables.product.prodname_importer_proper_name %}. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 {% data reusables.enterprise-migration-tool.trial-migrations-tasks %}
 {% data reusables.enterprise-migration-tool.configure-destination-ip-allow-list %} For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
-1. If you're running a repository migration and you want to migrate {% data variables.product.prodname_GH_advanced_security %} settings, enable {% data variables.product.prodname_GH_advanced_security %} for the destination organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
+1. If you're running a repository migration and you want to migrate settings for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %}, enable {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} for the destination organization. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 1. Run your production migrations. For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-repositories-with-github-enterprise-importer) or [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-organizations-with-github-enterprise-importer).
 {% data reusables.enterprise-migration-tool.delete-test-organization %}
 
@@ -127,7 +133,7 @@ For repository migrations, we recommend creating a test organization to use as a
 * [Setting repository visibility](#setting-repository-visibility)
 * [Configuring {% data variables.product.prodname_actions %}](#configuring-github-actions)
 * [Configuring IP allow lists](#configuring-ip-allow-lists)
-* [Managing {% data variables.product.prodname_GH_advanced_security %}](#managing-github-advanced-security)
+* [Managing {% data variables.product.prodname_GHAS %} features](#managing-github-advanced-security-features)
 * [Enabling webhooks](#enabling-webhooks)
 * [Reinstalling {% data variables.product.prodname_github_apps %}](#reinstalling-github-apps)
 * [Recreating teams](#recreating-teams)
@@ -181,9 +187,9 @@ If you added the IP ranges for {% data variables.product.prodname_importer_prope
 
 For more information, see [AUTOTITLE](/migrations/using-github-enterprise-importer/migrating-between-github-products/managing-access-for-a-migration-between-github-products#configuring-ip-allow-lists-for-migrations).
 
-### Managing {% data variables.product.prodname_GH_advanced_security %}
+### Managing {% data variables.product.prodname_GHAS %} features
 
-If you enabled {% data variables.product.prodname_GH_advanced_security %} for the destination organization before migrating repositories, the settings for individual features were migrated. If not, you'll need to re-enable individual features after the migration. For more information, see [AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
+If you enabled {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} for the destination organization before migrating repositories, the settings for individual features were migrated. If not, you'll need to re-enable individual features after the migration. For more information, see [AUTOTITLE](/enterprise-cloud@latest/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
 There are additional post-migration steps for each feature.
 

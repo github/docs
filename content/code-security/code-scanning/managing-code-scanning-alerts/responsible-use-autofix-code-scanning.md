@@ -8,7 +8,7 @@ versions:
   feature: code-scanning-autofix
 type: rai
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - AI
@@ -26,11 +26,11 @@ redirect_from:
 
 {% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 
-In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see [AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions) in the {% data variables.product.prodname_ghe_cloud %} documentation.
+In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights#autofix-suggestions).
 
 ## Developer experience
 
-{% data variables.product.prodname_code_scanning_caps %} users can already see security alerts to analyze their pull requests. However, developers often have little training in code security so fixing these alerts requires substantial effort. They must first read and understand the alert location and description, and then use that understanding to edit the source code to fix the vulnerability.
+{% data variables.product.prodname_code_scanning_caps %} users can already see security alerts to analyze their pull requests. However, developers often have little training in secure coding so fixing these alerts requires substantial effort. They must first read and understand the alert location and description, and then use that understanding to edit the source code to fix the vulnerability.
 
 {% data variables.product.prodname_copilot_autofix_short %} lowers the barrier of entry to developers by combining information on best practices with details of the codebase and alert to suggest a potential fix to the developer. Instead of starting with a search for information about the vulnerability, the developer starts with a code suggestion that demonstrates a potential solution for their codebase. The developer evaluates the potential fix to determine whether it is the best solution for their codebase and to ensure that it maintains the intended behavior.
 
@@ -54,7 +54,7 @@ When {% data variables.product.prodname_copilot_autofix_short %} is enabled for 
 
 Any {% data variables.product.prodname_copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
-The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_AS %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_AS %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
 
 ## Quality of suggestions
 

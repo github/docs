@@ -7,6 +7,14 @@ import { allVersions } from '#src/versions/lib/all-versions.js'
 import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
 const supportedVersions = new Set(Object.keys(allVersions))
 
+// Extracts the language code from the path
+// if href is '/en/something', returns 'en'
+export function getLangFromPath(href) {
+  // first remove the version from the path so we don't match, say, `/free-pro-team` as `/fr/`
+  const match = getPathWithoutVersion(href).match(patterns.getLanguageCode)
+  return match ? match[1] : null
+}
+
 // Add the language to the given HREF
 // /articles/foo -> /en/articles/foo
 export function getPathWithLanguage(href, languageCode) {

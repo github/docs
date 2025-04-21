@@ -44,7 +44,7 @@ When creating your public repository from a fork of someone's project, make sure
 
 ## Prerequisites
 
-If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+If you haven't yet, first set up Git and authentication with {% data variables.location.product_location %} from Git. For more information, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 ## Forking a repository
 
@@ -219,7 +219,7 @@ Fork a repository to start contributing to a project. {% data reusables.reposito
 
 You have now forked a repository, practiced cloning your fork, and configured an upstream repository.
 
-* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+* For more information about cloning the fork and syncing the changes in a forked repository from your computer, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 * You can also create a new repository where you can put all your projects and share the code on {% data variables.product.prodname_dotcom %}. {% data reusables.getting-started.create-a-repository %}
 

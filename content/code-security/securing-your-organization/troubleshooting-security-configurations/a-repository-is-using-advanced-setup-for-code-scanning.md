@@ -8,7 +8,7 @@ versions:
 redirect_from:
   - /code-security/securing-your-organization/troubleshooting-security-configurations/a-repository-has-an-existing-advanced-setup-for-code-scanning
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---

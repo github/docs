@@ -10,7 +10,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Repositories
@@ -37,4 +37,3 @@ children:
   - /unnecessary-step-found
   - /kotlin-detected-in-no-build
 ---
-

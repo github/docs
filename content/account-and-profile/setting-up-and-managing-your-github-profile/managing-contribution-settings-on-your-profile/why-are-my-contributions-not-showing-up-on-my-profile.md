@@ -38,7 +38,7 @@ Commits will appear on your contributions graph if they meet **all** of the foll
   * In the repository's default branch
   * In the `gh-pages` branch (for repositories with project sites)
 
-For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+For more information on project sites, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
 
 In addition, **at least one** of the following must be true:
 * You are a collaborator on the repository or are a member of the organization that owns the repository.
@@ -68,7 +68,7 @@ Date: Sun, 27 Apr 2014 15:36:39 +0530
 Subject: [PATCH] updated index for better welcome message
 ```
 
-The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/getting-started-with-git/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
+The email address in the `From:` field is the address that was set in the [local git config settings](/get-started/git-basics/set-up-git). In this example, the email address used for the commit is `octocat@nowhere.com`.
 
 If the email address used for the commit is not connected to your account on {% data variables.product.prodname_dotcom %}, you must [add the email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/adding-an-email-address-to-your-github-account) to your account on {% data variables.product.prodname_dotcom %}. Your contributions graph will be rebuilt automatically when you add the new address.
 
@@ -83,7 +83,7 @@ Generic email addresses, such as `jane@computer.local`, cannot be added to {% da
 
 ### Commit was not made in the default or `gh-pages` branch
 
-Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#types-of-github-pages-sites).
+Commits are only counted if they are made in the default branch or the `gh-pages` branch (for repositories with project sites). For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/what-is-github-pages#types-of-github-pages-sites).
 
 If your commits are in a non-default or non-`gh-pages` branch and you'd like them to count toward your contributions, you will need to do one of the following:
 * [Open a pull request](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) to have your changes merged into the default branch or the `gh-pages` branch.

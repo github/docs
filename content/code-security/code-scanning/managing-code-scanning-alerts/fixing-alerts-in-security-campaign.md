@@ -1,7 +1,7 @@
 ---
 title: Fixing alerts in a security campaign
 shortTitle: Fix alerts in campaign
-intro: 'Learn how you can take part in a security campaign and how it can benefit your career as well as your code.'
+intro: 'Learn how to find and fix alerts in a security campaign.'
 allowTitleToDifferFromFilename: true
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %}'
 product: '{% data reusables.gated-features.security-campaigns %}'
@@ -9,37 +9,19 @@ type: how_to
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Alerts
   - Repositories
 ---
-{% data reusables.security-campaigns.preview-note %}
-
-## What is a security campaign
-
-A security campaign is a group of security alerts, detected in the default branches of repositories, chosen by an organization owner or security manager for remediation. When a security campaign is created with alerts in repositories that you have write access to, you are notified if you subscribe to email notifications for "All activity" or "Security alerts". In addition, when you open the **Security** tab for a repository with one or more campaign alerts, you can see the campaign name in the sidebar of the view.
-
-You can take part in a security campaign by fixing one or more of the alerts chosen for the campaign.
-
-## What are the benefits of fixing alerts in a campaign
-
-In addition to the benefit of removing an important security problem from your code, alerts in a security campaign have several other benefits compared with fixing another alert in your repository.
-
-* You have a campaign manager on the security team to collaborate with and a specific contact link for discussing campaign activities.
-* You know that you are fixing a security alert that is important to the company.
-* Potentially, you may have access to targeted training materials.{% ifversion security-campaigns-autofix %}
-* You don't need to request a {% data variables.product.prodname_copilot_autofix %} suggestion, it is already available as a starting point.{% endif %}{% ifversion copilot %}
-* If you have access to {% data variables.product.prodname_copilot_chat %}, you can ask questions about the alert and the suggested fix.{% endif %}
-* You are improving and demonstrating your knowledge of secure coding.
 
 ## Viewing alerts in a security campaign
 
 When a campaign targets security alerts in a repository that you have write access to, you can navigate to the list of repository alerts in the campaign.
 
-* Display the **Security** tab for the repository and click one of the campaigns under the "Campaigns" title in the sidebar.
+* Display the **Security** tab for the repository and click one of the campaigns under "Campaigns" in the sidebar.
 * If you have enabled email notifications for "All activity" or "Security alerts" in the repository, click **View security campaign** in the campaign email.
-* If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under the "Campaigns" title in the sidebar.
+* If you have write access to more than one repository in the organization, display the **Security** tab for the organization and click one of the campaigns under "Campaigns" in the sidebar.
 
 This view shows the alerts in the current repository for a campaign called "SQL injection (CWE-89)" (highlighted gray) that is managed by "octocat" (outlined in dark orange).
 
@@ -68,10 +50,6 @@ If you want to see the code that triggered the security alert and the suggested 
 ## Using {% data variables.product.prodname_copilot_chat %} for secure coding
 
 If you have access to {% data variables.product.prodname_copilot_chat_short %} then you can ask the AI questions about the vulnerability, the suggested fix, and how to test that the fix is comprehensive.
-
-To get the most out of {% data variables.product.prodname_copilot_chat_short %} when you're working on code security, you should explicitly ask {% data variables.product.prodname_copilot_chat_short %} to use the {% data variables.product.prodname_GH_advanced_security %} skill to answer your questions.
-
-For example: "Use the GitHub Advanced Security skill to explain how this alert introduces a vulnerability into the code."
 
 > [!TIP]
 > {% data reusables.copilot.semantic-index-info %}

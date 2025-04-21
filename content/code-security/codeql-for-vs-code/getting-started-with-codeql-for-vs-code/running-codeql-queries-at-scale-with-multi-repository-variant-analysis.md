@@ -4,7 +4,7 @@ shortTitle: Queries at scale
 versions:
     feature: codeql-vs-code-mrva
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference

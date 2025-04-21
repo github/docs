@@ -12,8 +12,8 @@ children:
   - /responsible-use-of-github-copilot-chat-in-github-mobile
   - /responsible-use-of-github-copilot-in-the-cli
   - /responsible-use-of-github-copilot-in-windows-terminal
+  - /responsible-use-of-github-copilot-in-github-desktop
   - /responsible-use-of-github-copilot-pull-request-summaries
   - /responsible-use-of-github-copilot-text-completion
   - /responsible-use-of-github-copilot-code-review
 ---
-

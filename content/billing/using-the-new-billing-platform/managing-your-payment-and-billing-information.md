@@ -1,6 +1,6 @@
 ---
 title: Managing your payment and billing information
-intro: 'Learn how to manage your payment information and history, and update your billing contacts using the enhanced billing platform.'
+intro: 'Learn how to manage your payment information and history, and update your billing contacts using the new billing platform.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -52,7 +52,7 @@ For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github
 
 After you connect your Azure subscription, usage for {% data variables.product.company_short %}'s products will appear on your Azure invoice, summarized by product family.
 
-For example, if you use this billing arrangement for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GH_advanced_security %}, usage and price excluding tax for each line item will appear as follows.
+For example, if you use this billing arrangement for {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_GHAS %}, usage and price excluding tax for each line item will appear as follows.
 
 | Product Family Usage Charges | Total (excluding Tax) |
 | :- | :- |

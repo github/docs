@@ -30,9 +30,39 @@ These endpoints are used by SCIM-enabled Identity Providers (IdPs) to automate p
 
 You must authenticate as an owner of a {% data variables.product.github %} organization to use these endpoints. The REST API expects an OAuth 2.0 Bearer token (for example, a {% data variables.product.prodname_github_app %} user access token) to be included in the `Authorization` header. If you use a {% data variables.product.pat_v1 %} for authentication, it must have the `admin:org` scope and you must also [authorize it for use with your SAML SSO organization](/authentication/authenticating-with-saml-single-sign-on/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on).
 
-### Mapping of SAML and SCIM data
+### Matching SAML and SCIM attributes
 
-{% data reusables.scim.nameid-and-username-must-match %}
+To successfully link a {% data variables.product.github %} user account to a SCIM identity in an organization, specific attributes from your Identity Provider's SAML response and SCIM API provisioning call must match for a user.
+
+#### Microsoft Entra ID for SAML
+
+When using Entra ID (previously known as Azure AD) for SAML, the following SAML attribute and SCIM attribute must match.
+
+| SAML attribute | Matching SCIM attribute |
+| :- | :- |
+| `http://schemas.microsoft.com/identity/claims/objectidentifier` | `externalId` |
+
+#### Other IdPs for SAML
+
+When using other IdPs for SAML, the following SAML claims and SCIM attribute must match.
+
+| SAML attribute | Matching SCIM attribute |
+| :- | :- |
+| `NameID` | `userName` |
+
+There are two different ways a {% data variables.product.github %} user account can get linked to a SCIM identity in an organization when these SAML/SCIM attributes match:
+
+1. For users who are not yet members of the organization:
+   * The IdP sends a SCIM provisioning call to {% data variables.product.github %} for a user who is not a member of an organization. This generates an organization invitation and an unlinked SCIM identity in the organization.
+   * User authenticates via SAML in the organization.
+   * {% data variables.product.github %} automatically links the SAML and SCIM identity to the new user account in the organization.
+
+1. For existing organization members:
+   * The IdP sends a SCIM provisioning call to {% data variables.product.github %} for a user who is already a member of the organization.
+   * If the organization member does not have a linked SAML identity in the organization, this generates an organization invitation and an unlinked SCIM identity in the organization. User authenticates via SAML in the organization to link their SAML and SCIM identity.
+   * If the organization member has a linked SAML identity in the organization, {% data variables.product.github %} automatically links the SCIM identity to the existing user account in the organization. No organization invite is created.
+
+Ensuring that a user gets properly linked to their SCIM identity in the organization can help prevent unexpected issues with SCIM deprovisioning when the user's access to the app is removed on the IdP side. For more information on auditing the linked SCIM identities in an organization, see [AUTOTITLE](/enterprise-cloud@latest/organizations/managing-saml-single-sign-on-for-your-organization/troubleshooting-identity-and-access-management-for-your-organization#auditing-organization-members-on-github)
 
 ### Supported SCIM User attributes
 

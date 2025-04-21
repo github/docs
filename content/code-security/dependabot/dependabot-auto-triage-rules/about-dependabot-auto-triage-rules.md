@@ -21,7 +21,7 @@ redirect_from:
 
 ## About {% data variables.dependabot.auto_triage_rules %}
 
-{% data variables.dependabot.auto_triage_rules %} allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use {% data variables.dependabot.auto_triage_rules_short %} to automatically dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
+{% data variables.dependabot.auto_triage_rules %} allow you to instruct {% data variables.product.prodname_dependabot %} to automatically triage {% data variables.product.prodname_dependabot_alerts %}. You can use {% data variables.dependabot.auto_triage_rules_short %} to automatically dismiss or snooze certain alerts, or specify the alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so enabling rules that auto-dismiss low-risk alerts will prevent notification noise from future matching alerts.
 
 There are two types of {% data variables.dependabot.auto_triage_rules %}:
 
@@ -44,7 +44,7 @@ The rule is enabled by default for public repositories and can be opted into for
 
 With {% data variables.dependabot.custom_rules %}, you can create your own rules to automatically dismiss or reopen alerts based on targeted metadata, such as severity, package name, CWE, and more. You can also specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts).
 
-You can create custom rules from the **Settings** tab of the repository{% ifversion ghec or ghes %}, provided the repository belongs to an organization that has a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %}. For more information, see [Adding custom auto-triage rules to your repository](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-repository).
+You can create custom rules from the **Settings** tab of the repository, provided the repository belongs to an organization that has a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [Adding custom auto-triage rules to your repository](/code-security/dependabot/dependabot-auto-triage-rules/customizing-auto-triage-rules-to-prioritize-dependabot-alerts#adding-custom-auto-triage-rules-to-your-repository).
 
 ### About auto-dismissing alerts
 

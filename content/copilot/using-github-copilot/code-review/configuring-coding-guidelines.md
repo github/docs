@@ -12,7 +12,7 @@ redirect_from:
   - /early-access/copilot/code-reviews/configuring-coding-guidelines
 ---
 
-> [!NOTE] Custom coding guidelines are limited to selected participants in the {% data variables.release-phases.public_preview %} of {% data variables.copilot.copilot_code-review_short %}, and only available as part of a subscription to {% data variables.product.prodname_copilot_enterprise %}.
+{% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %}
 
 ## About coding guidelines
 

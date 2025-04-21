@@ -131,10 +131,7 @@ For complex pull requests that require many reviews, requiring an approval from 
 Optionally, you can require all comments on the pull request to be resolved before it can be merged to a branch. This ensures that all comments are addressed or acknowledged before merge.
 
 {% ifversion repo-rules-merge-type %}
-> [!NOTE]
-> Allowed merge method is currently in public preview, the rule is currently non-bypassable, and subject to change.
-
-Optionally, you can require a merge type of merge, squash or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
+Optionally, you can require a merge type of merge, squash, or rebase. This means the targeted branches may only be merged based on the allowed type. Additionally if the repository has disabled a merge method and the ruleset required a different method, the merge will be blocked. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/about-merge-methods-on-github).
 {% endif %}
 
 ## Require status checks to pass before merging
@@ -255,7 +252,7 @@ When you add metadata restrictions to an existing branch or tag, the rules are e
 
 ## Restrict file paths
 
-Prevent commits that include changes in specified file paths from being pushed to the repository.
+Prevent commits that include changes in specified file paths from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
 
 {% data reusables.repositories.rulesets-push-rules-path-example %}
 
@@ -265,7 +262,7 @@ Prevent commits that include file paths that exceed a specified character limit 
 
 ## Restrict file extensions
 
-Prevent commits that include files with specified file extensions from being pushed to the repository.
+Prevent commits that include files with specified file extensions from being pushed to the repository. {% ifversion available-rules-limit %}Limit is 200 entries and up to 200 characters in each entry.{% endif %}
 
 ## Restrict file size
 

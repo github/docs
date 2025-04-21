@@ -1,6 +1,6 @@
 {% ifversion fpt %}
 
-Outside of {% data variables.product.prodname_ghe_cloud %}, the enhanced billing platform is **only** available to:
+Outside of {% data variables.product.prodname_ghe_cloud %}, the new billing platform is **only** available to:
 
 * Organization accounts on a {% data variables.product.prodname_team %} plan created after November 13, 2024.
 * Organization accounts on a {% data variables.product.prodname_free_team %} plan created after February 4, 2025.
@@ -16,7 +16,7 @@ For existing personal accounts created before February 13, 2025, {% data variabl
 
 {% elsif ghec %}
 
-The enhanced billing platform is available to:
+The new billing platform is available to:
 
 * All enterprise accounts, and their organizations, created after June 2, 2024
 * Enterprises that participated in the {% data variables.release-phases.public_preview %} program

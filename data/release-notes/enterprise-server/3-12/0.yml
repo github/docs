@@ -190,6 +190,11 @@ sections:
       Restoring backups with `ghe-restore` on a GHES cluster will exit prematurely if `redis` has not restarted properly.
     - |
       {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
+  
+  bugs:
+     - |
+      Repositories originally imported using `ghe-migrator` did not correctly track GitHub Advanced Security contributions.
+
   deprecations:
     - heading: Upgrading GitHub Enterprise Server Backup Utilities using a Git repository is no longer supported
       notes:
@@ -199,3 +204,4 @@ sections:
           Instead, to upgrade the tool using a compressed archive, download the relevant GitHub Enterprise Server Backup Utilities release from the [Releases](https://github.com/github/backup-utils/releases) page of the `github/backup-utils` repository. For more information, see [AUTOTITLE](/admin/backing-up-and-restoring-your-instance/configuring-backups-on-your-instance#upgrading-github-enterprise-server-backup-utilities).
 
           This deprecation does not affect the functionality of the GitHub Enterprise Server Backup Utilities tool or your ability to backup or restore your GitHub Enterprise Server instance. [Updated: 2024-03-15]
+        

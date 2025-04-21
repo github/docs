@@ -110,7 +110,9 @@ Some of the features listed below are limited to organizations using {% data var
 | {% endif %} |
 | Manage [topics](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Enable wikis and restrict wiki editors | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| {% ifversion projects-v1 %} |
 | Enable {% data variables.projects.projects_v1_boards %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
+| {% endif %} |
 | Configure [pull request merges](/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | Configure [a publishing source for {% data variables.product.prodname_pages %}](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} | {% octicon "check" aria-label="Yes" %} |
 | {% ifversion copilot %} |
@@ -167,7 +169,7 @@ Some of the features listed below are limited to organizations using {% data var
 
 ### Access requirements for security features
 
-In this section, you can find the access required for security features, such as {% data variables.product.prodname_advanced_security %} features.
+In this section, you can find the access required for security features, such as {% data variables.product.prodname_GHAS %} features.
 
 > [!NOTE]
 > Repository writers and maintainers can only see secret scanning alert information for their own commits.
@@ -183,7 +185,7 @@ In this section, you can find the access required for security features, such as
 | {% endif %} |
 | {% ifversion fpt or ghec %} |
 | Create [security advisories](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion ghes or ghec %} <!--Not available for FPT-->
-| Manage access to {% data variables.product.prodname_GH_advanced_security %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->
+| Manage access to {% data variables.product.prodname_GHAS %} features (see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization)) | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |{% endif %}{% ifversion fpt or ghec %}<!--Set at site-level for GHES -->
 | [Enable the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository) for a private repository | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% endif %} |
 | {% ifversion ghes or ghec %} |

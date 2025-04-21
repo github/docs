@@ -35,7 +35,7 @@ topics:
 {% data reusables.repositories.choose-repo-visibility %}
 1. If you're not using a template, there are a number of optional items you can pre-populate your repository with. If you're importing an existing repository to {% data variables.product.github %}, don't choose any of these options, as you may introduce a merge conflict. You can add or create new files using the user interface or choose to add new files using the command line later. For more information, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/importing-an-external-git-repository-using-the-command-line), [AUTOTITLE](/repositories/working-with-files/managing-files/adding-a-file-to-a-repository#adding-a-file-to-a-repository-using-the-command-line), and [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts).
     * You can create a README, which is a document describing your project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes).
-    * You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/ignoring-files).{% ifversion fpt or ghec %}
+    * You can create a _.gitignore_ file, which is a set of ignore rules. For more information, see [AUTOTITLE](/get-started/git-basics/ignoring-files).{% ifversion fpt or ghec %}
     * You can choose to add a software license for your project. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/licensing-a-repository).{% endif %}
 {% data reusables.repositories.select-marketplace-apps %}
 {%- ifversion custom-properties-on-create %}
@@ -62,6 +62,13 @@ If you create an invalid URL using query parameters, or if you don’t have the 
 | `visibility` | `https://{% data variables.product.product_url %}/new?visibility=private` creates a repository with private visibility. | `public`<br> `private`<br>{% ifversion not fpt %}`internal`{% endif %} |
 | `owner` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&visibility=public` creates a public repository owned by the "avocado-corp" organization. | Any valid organization name or username. Alternatively, while signed in use `@me` to specify your user account as the owner. |
 | `template_owner` and `template_name` | `https://{% data variables.product.product_url %}/new?owner=avocado-corp&template_owner=avocado-corp&template_name=octo-repo` creates a repository owned by the "avocado-corp" using the avocado-corp's template "octo-repo". | The username of the template owner and the name of the repository template. |
+
+{% ifversion copilot %}
+
+## Creating a new repository from {% data variables.product.prodname_copilot_chat_short %}
+
+You can create a new repository from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+{% endif %}
 
 ## Further reading
 
