@@ -1,4 +1,4 @@
----
+?---
 title: Transferring an issue to another repository
 intro: 'To move an issue to a better fitting repository, you can transfer open issues to other repositories.'
 redirect_from:
