@@ -1,3 +1,5 @@
+https://docs.github.com/site-policy/github-terms/github-terms-of-service-----------------------------------------------¤
+
 ---
 title: GitHub Community Guidelines
 redirect_from:
