@@ -264,6 +264,7 @@ To filter based on repository properties, you can use the `is:` qualifier. `is:`
 * `vendored`: restricts the search to content detected as vendored.
 * `generated`: restricts the search to content detected as generated.
 
+
 For example:
 
 ```text
