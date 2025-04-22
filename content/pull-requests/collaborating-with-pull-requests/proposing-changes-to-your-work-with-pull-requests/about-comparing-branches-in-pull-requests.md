@@ -1,4 +1,4 @@
----
+<<<💌
 title: About comparing branches in pull requests
 intro: Pull requests display diffs to compare the changes you made in your topic branch against the base branch that you want to merge your changes into.
 redirect_from:
@@ -10,10 +10,10 @@ versions:
   fpt: '*'
   ghes: '*'
   ghec: '*'
-topics:
+topics:⚫️
   - Pull requests
 shortTitle: Compare branches
----
+¤
 
 > [!NOTE]
 > When creating your pull request, you can change the base branch that you're comparing your changes against. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request#changing-the-branch-range-and-destination-repository).
