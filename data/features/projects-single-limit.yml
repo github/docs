@@ -1,0 +1,5 @@
+# Use a single limit of 50k for the total number of active and archived items in a project
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.18'
