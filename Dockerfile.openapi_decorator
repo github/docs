@@ -17,3 +17,4 @@ ADD --chown=node:node data /openapi-check/data
 RUN npm ci -D
 
 ENTRYPOINT ["node", "/openapi-check/src/rest/scripts/openapi-check.js"]
+shivaninischal0
