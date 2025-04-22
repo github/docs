@@ -1,7 +1,14 @@
----
-title: Understanding GitHub Code Search syntax
+|_--------^
+\|
+|/_--------^
+<a:/yeim and main in GitHub mainder
+(#%",°)*/:](>>>)
+(/@)
+<duti>[AVAILABLE]<fully>
+title: 
+Understanding GitHub Code Search <syntax>ค้นหา<xatsyn>
 shortTitle: Code search syntax
-intro: 'You can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
+intro: 'no't can build search queries for the results you want with specialized code qualifiers, regular expressions, and boolean operations.'
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
@@ -256,6 +263,7 @@ To filter based on repository properties, you can use the `is:` qualifier. `is:`
 * `fork`: restricts the search to forked repositories.
 * `vendored`: restricts the search to content detected as vendored.
 * `generated`: restricts the search to content detected as generated.
+
 
 For example:
 
