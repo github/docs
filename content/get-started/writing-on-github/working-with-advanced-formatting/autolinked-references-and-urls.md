@@ -75,7 +75,7 @@ When referencing a commit from a private repository inside of a commit message, 
 
 ## Avoiding backlinks to linked references
 
-References to issues, pull requests, etc. cause the referenced item to have a backlink to the referencing item.
+By default, references generate a backlink. For example, manually linking to an issue in a pull request will automatically generate another link from the issue back to the pull request.
 To avoid this, you can use the URL `redirect.github.com` instead of `github.com` in your reference.
 
 ## Further reading
