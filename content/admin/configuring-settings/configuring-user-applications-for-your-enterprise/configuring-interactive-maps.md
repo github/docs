@@ -50,7 +50,7 @@ To generate credentials for Azure Maps, you must create an application for your 
    1. Select **Delegated permissions**.
    1. Under "Select permissions", select "`user_impersonation`".
    1. To save the permissions, click **Add permissions**.
-1. Sign into an Azure Maps account. If you don't have an account, you can create one. For more information, see the [Azure Maps Account](https://www.microsoft.com/maps) website.
+1. Sign into an Azure Maps account. If you don't have an account, you can create one. For more information, see the [Azure Maps Account](https://azure.microsoft.com/en-us/products/azure-maps/) website.
 1. Configure RBAC for Azure Maps. For more information, see [Authentication with Azure Maps](https://learn.microsoft.com/azure/azure-maps/azure-maps-authentication#authorization-with-role-based-access-control) and [Assign Azure roles using the Azure portal](https://learn.microsoft.com/azure/role-based-access-control/role-assignments-portal) on Microsoft Learn.
 
    * On your Entra ID tenant, from **Access control (IAM)**, you must assign the role of "Azure Maps Data Reader" to "User, group, or service principal", select the application you created earlier in these instructions, and complete the form.
