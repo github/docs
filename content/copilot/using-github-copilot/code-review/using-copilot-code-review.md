@@ -28,13 +28,13 @@ The current functionality and availability of the two types of review is summari
 
 {% rowheaders %}
 
-|                  | Review selection | Review changes |
-|------------------|------------------|----------------|
-| Available in     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
+|                  | Review selection | Review changes                                                                                                                                                                                                                                                                                                                       |
+|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Available in     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website                                                                                                                                                                                                                                     |
 | Premium/standard feature | Standard feature available to all {% data variables.product.prodname_copilot_short %} subscribers | Premium feature. Available with the {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_pro_plus_short %}, {% data variables.product.prodname_copilot_business_short %}, and {% data variables.product.prodname_copilot_enterprise_short %} plans. Per-person monthly quota applies. |
-| Description      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes |
-| Language support | All | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript <br><br> {% data variables.release-phases.public_preview_caps %} support for C, C++, Kotlin, and Swift. |
-| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines) |
+| Description      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes                                                                                                                                                                                                                                                                                                         |
+| Language support | All | C, C#, C++, Go, Java, JavaScript, Kotlin, Markdown, Python, Ruby, Swift, TypeScript <br><br> {% data variables.release-phases.public_preview_caps %} support for HTML and Text.                                                                                                                                                       |
+| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines)                                                                                                                                                                    |
 
 {% endrowheaders %}
 
@@ -76,16 +76,20 @@ When you reach your monthly quota you will not be able to get a code review from
 
 {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports the following languages:
 
+* C
 * C#
+* C++
 * Go
 * Java
 * JavaScript
+* Kotlin
 * Markdown
 * Python
 * Ruby
+* Swift
 * TypeScript
 
-Plus {% data variables.release-phases.public_preview %} support for C, C++, Kotlin, and Swift.
+Plus {% data variables.release-phases.public_preview %} support for HTML & Text.
 
 {% endwebui %}
 
