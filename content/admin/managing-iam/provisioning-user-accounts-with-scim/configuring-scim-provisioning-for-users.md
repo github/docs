@@ -126,6 +126,8 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM Configuration", select **Enable SCIM configuration**.
 
+You can confirm that SCIM is now enabled by checking your instance's [audit logs](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise). You should expect to see a "business.enable_open_scim" event, indicating that GitHub's [SCIM REST API](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api) has been enabled on your instance.
+
 {% endif %}
 
 {% ifversion ghec %}
@@ -191,12 +193,15 @@ If you don't use a partner IdP, or if you only use a partner IdP for authenticat
 
 {% ifversion scim-for-ghes-public-beta %}
 
-## 6. Disable optional settings
+## 6. Update settings
 
-After you have finished the configuration process, you can disable the following settings in the Management Console:
+After you have finished the configuration process, you should disable the following setting in the Management Console:
+
+* **Disable administrator demotion/promotion**: Disable this setting to allow assignment of the enterprise owner role via SCIM. If this setting remains enabled, you will not be able to provision enterprise owners via SCIM.
+
+Optionally, you can disable the following setting in the Management Console as well:
 
 * **Allow creation of accounts with built-in authentication**: Disable this setting if you want all users to be provisioned from your IdP.
-* **Disable administrator demotion/promotion**: Disable this setting if you want to be able to grant the enterprise owner role via SCIM.
 
 {% endif %}
 

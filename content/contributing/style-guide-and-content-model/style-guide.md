@@ -519,7 +519,6 @@ The Microsoft Style Guide offers resources on bias-free communication, accessibi
 * [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
-* [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
 * MailChimp Content Style Guide:
   * [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
   * [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)

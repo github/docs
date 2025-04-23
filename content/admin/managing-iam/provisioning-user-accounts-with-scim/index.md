@@ -16,6 +16,7 @@ children:
   - /configuring-authentication-and-provisioning-with-entra-id
   - /configuring-authentication-and-provisioning-with-pingfederate
   - /configuring-scim-provisioning-with-okta
+  - /disabling-scim-provisioning-for-users
   - /provisioning-users-and-groups-with-scim-using-the-rest-api
   - /managing-team-memberships-with-identity-provider-groups
   - /troubleshooting-team-membership-with-identity-provider-groups

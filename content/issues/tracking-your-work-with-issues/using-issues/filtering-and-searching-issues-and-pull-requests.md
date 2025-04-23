@@ -77,10 +77,10 @@ You can build advanced filters using boolean and nested queries on your reposito
 
 You can use `AND` and `OR` operators to refine your filters.
 
-Use `AND` when you need results where both statements are true. In the example filter below, the results will be comprised of issues with the "Bug fix" label that are assigned to the @octocat user.
+Use `AND` when you need results where both statements are true. In the example filter below, the results will be comprised of issues with the "question" label that are assigned to the @octocat user.
 
 ```text
-label:"Bug fix" AND assignee:octocat
+label:"question" AND assignee:octocat
 ```
 
 To return results where either statement is true, use `OR`. In the example below, the results will contain issues assigned to either @octocat or @hubot.
@@ -93,10 +93,10 @@ If you choose not to use `AND` and `OR` operators, {% data variables.product.git
 
 ### Using parentheses for more complicated filters
 
-You can also use parentheses to nest filters and group qualifiers. In the example below, the results will contain issues that are either assigned to @octocat with the "bug" issue type or assigned to @hubot with the "Enhancement" issue type.
+You can also use parentheses to nest filters and group qualifiers. In the example below, the results will contain issues that are either assigned to @octocat with the "bug" issue type or assigned to @hubot with the "Feature" issue type.
 
 ```text
-(type:"Bug" AND assignee:octocat) OR (type:"Enhancement" AND assignee:hubot)
+(type:"Bug" AND assignee:octocat) OR (type:"Feature" AND assignee:hubot)
 ```
 
 You can nest filters using parentheses up to five levels deep.{% ifversion ghes < 3.18 %} It's not currently possible to include the `repo`, `org`, or `user` qualifiers within parentheses.{% endif %}
@@ -224,7 +224,8 @@ For issues, you can also use search to:
 
 * Filter for issues that are linked to a pull request by a closing reference: `linked:pr`
 * Filter issues by the reason they were closed: `is:closed reason:completed` or `is:closed reason:"not planned"`
-{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}
+{% ifversion issue-types %}* Filter for issues with a particular type: `is:open type:"Bug"`{% endif %}{% ifversion issues-advanced-search %}
+* Filter for issues from repositories [**owned**](/search-github/searching-on-github/searching-issues-and-pull-requests#search-within-a-users-or-organizations-repositories) by a certain user or organization, limited to up to 16 `user` and `org` qualifiers with no limit on `repo` qualifiers: `state:open type:issue org:github OR user:octocat`{% endif %}
 
 For pull requests, you can also use search to:
 

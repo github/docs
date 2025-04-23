@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // This schema is used to validate
 // src/github-apps/data/server-to-server-rest.json
 // src/github-apps/data/user-to-server-rest.json

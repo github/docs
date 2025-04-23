@@ -1,7 +1,7 @@
-import { renderContent } from '#src/content-render/index.js'
 import getLinkData from './get-link-data.js'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
+import { renderContent } from '#src/content-render/index.js'
 import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
 
 const renderOpts = { textOnly: true }
@@ -18,7 +18,11 @@ export default async function processLearningTracks(rawLearningTracks, context) 
   for (const rawTrackName of rawLearningTracks) {
     // Track names in frontmatter may include Liquid conditionals.
     const renderedTrackName = rawTrackName.includes('{')
-      ? await renderContent(rawTrackName, context, renderOpts)
+      ? await executeWithFallback(
+          context,
+          () => renderContent(rawTrackName, context, renderOpts),
+          () => '', // todo use english rawTrackName
+        )
       : rawTrackName
     if (!renderedTrackName) continue
 

@@ -1,7 +1,7 @@
 ---
 title: Subscribing to Copilot for your enterprise
 shortTitle: Subscribe
-intro: 'Enterprise owners can set up a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription for their enterprise.'
+intro: 'Enterprise owners can set up a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan for their enterprise.'
 permissions: Enterprise owners
 product: 'Enterprises on {% data variables.product.prodname_ghe_cloud %}'
 versions:
@@ -11,6 +11,7 @@ topics:
 redirect_from:
   - /billing/managing-billing-for-github-copilot/managing-your-github-copilot-enterprise-subscription
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
+  - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/subscribing-to-copilot-for-your-enterprise
 ---
 
 >[!NOTE]

@@ -6,7 +6,7 @@
 
 To use {% data variables.product.prodname_copilot_short %}, you’ll need a personal {% data variables.product.github %} account with access to a {% data variables.product.prodname_copilot_short %} plan. You can:
 
-* Start with {% data variables.product.prodname_copilot_free_short %} to explore limited features with no subscription.
+* Start with {% data variables.product.prodname_copilot_free_short %} to explore limited features without subscribing to a plan.
 * Upgrade to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} to unlock more features, models, and request limits.
 
 For more information about the different plans for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
