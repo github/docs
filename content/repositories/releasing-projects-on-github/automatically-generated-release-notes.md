@@ -5,8 +5,7 @@ permissions: Repository collaborators and people with write access to a reposito
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
-  ghae: '>= 3.4'
+  ghes: '*'
 topics:
   - Repositories
 shortTitle: Automated release notes
@@ -25,44 +24,19 @@ You can also customize your automated release notes, using labels to create cust
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-3. Click **Draft a new release**.
-   ![Releases draft button](/assets/images/help/releases/draft_release_button.png)
-4. {% ifversion fpt or ghec %}Click **Choose a tag** and type{% else %}Type{% endif %} a version number for your release. Alternatively, select an existing tag.
-  {% ifversion fpt or ghec %}
-  ![Enter a tag](/assets/images/help/releases/releases-tag-create.png)
-5. If you are creating a new tag, click **Create new tag**.
-![Confirm you want to create a new tag](/assets/images/help/releases/releases-tag-create-confirm.png)
-  {% else %}
-  ![Releases tagged version](/assets/images/enterprise/releases/releases-tag-version.png)
-{% endif %}
-6. If you have created a new tag, use the drop-down menu to select the branch that contains the project you want to release.
-  {% ifversion fpt or ghec %}![Choose a branch](/assets/images/help/releases/releases-choose-branch.png)
-  {% else %}![Releases tagged branch](/assets/images/enterprise/releases/releases-tag-branch.png)
-  {% endif %}
-{%- data reusables.releases.previous-release-tag %}
-7. To the top right of the description text box, click {% ifversion previous-release-tag %}**Generate release notes**{% else %}**Auto-generate release notes**{% endif %}.{% ifversion previous-release-tag %}
-  ![Generate release notes](/assets/images/help/releases/generate-release-notes.png){% else %}
-  ![Auto-generate release notes](/assets/images/enterprise/3.5/releases/auto-generate-release-notes.png){% endif %}
-8. Check the generated notes to ensure they include all (and only) the information you want to include.
-9. Optionally, to include binary files such as compiled programs in your release, drag and drop or manually select files in the binaries box.
-   ![Providing a DMG with the Release](/assets/images/help/releases/releases_adding_binary.gif)
-10. To notify users that the release is not ready for production and may be unstable, select **This is a pre-release**.
-   ![Checkbox to mark a release as prerelease](/assets/images/help/releases/prerelease_checkbox.png)
-{%- ifversion fpt or ghec %}
-11. Optionally, select **Create a discussion for this release**, then select the **Category** drop-down menu and click a category for the release discussion.
-  ![Checkbox to create a release discussion and drop-down menu to choose a category](/assets/images/help/releases/create-release-discussion.png)
-{%- endif %}
-12. If you're ready to publicize your release, click **Publish release**. To work on the release later, click **Save draft**.
-   ![Publish release and Draft release buttons](/assets/images/help/releases/release_buttons.png)
-
+{% data reusables.releases.create-release %}
+{% data reusables.releases.previous-release-tag %}
+{% data reusables.releases.release-title %}
+1. Above the description field, click **Generate release notes**.
+1. Check the generated notes to ensure they include all (and only) the information you want to include.
+{% data reusables.releases.finish-release %}
 
 ## Configuring automatically generated release notes
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.files.add-file %}
-3. In the file name field, type `.github/release.yml` to create the `release.yml` file in the `.github` directory.
-  ![Create new file](/assets/images/help/releases/release-yml.png)
-4. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
+1. In the file name field, type `.github/release.yml`. This will create a new file called `release.yml` in the `.github` directory.
+1. In the file, using the configuration options below, specify in YAML the pull request labels and authors you want to exclude from this release. You can also create new categories and list the pull request labels to be included in each of them.
 
 ### Configuration options
 
@@ -75,10 +49,13 @@ You can also customize your automated release notes, using labels to create cust
 | `changelog.categories[*].exclude.labels` | A list of labels that exclude a pull request from appearing in this category. |
 | `changelog.categories[*].exclude.authors` | A list of user or bot login handles whose pull requests are to be excluded from this category. |
 
-### Example configuration
+### Example configurations
+
+A configuration for a repository that labels semver releases
 
 {% raw %}
-```yaml{:copy}
+
+```yaml copy
 # .github/release.yml
 
 changelog:
@@ -100,8 +77,31 @@ changelog:
       labels:
         - "*"
 ```
+
+{% endraw %}
+
+A configuration for a repository that doesn't tag pull requests but where we want to separate out {% data variables.product.prodname_dependabot %} automated pull requests in release notes (`labels: '*'` is required to display a catchall category)
+
+{% raw %}
+
+```yaml copy
+# .github/release.yml
+
+changelog:
+  categories:
+    - title: 🏕 Features
+      labels:
+        - '*'
+      exclude:
+        labels:
+          - dependencies
+    - title: 👒 Dependencies
+      labels:
+        - dependencies
+```
+
 {% endraw %}
 
 ## Further reading
 
-- "[Managing labels](/issues/using-labels-and-milestones-to-track-work/managing-labels)" 
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/managing-labels)

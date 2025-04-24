@@ -1,0 +1,7 @@
+# Reference: #11289
+# Documentation for the security overview dashboard, the default view on the "Security" tab in an organization.
+# Ref 17108 Advanced Security available to Team plans
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.12'

@@ -1,4 +1,3 @@
-{% ifversion previous-release-tag %} 
-1. Optionally, to the top right of the description text box, select the **Previous tag** drop-down menu and click the tag that identifies the previous release.
-   ![Screenshot showing how to select a tag to identify the previous release](/assets/images/help/releases/releases-tag-previous-release.png)
-{% endif %}
+1. Optionally, above the description field, select the **Previous tag** dropdown menu, then click the tag that identifies the previous release.
+
+   ![Screenshot of the "New release" form. A dropdown menu, labeled "Previous tag: auto", is highlighted with an orange outline.](/assets/images/help/releases/releases-tag-previous-release.png)

@@ -1,1 +1,1 @@
-1. In the left sidebar, under the "Management" section, click {% octicon "cache" aria-label="The Cache icon" %} **Caches**.
+1. In the left sidebar, under the "Management" section, click **{% octicon "cache" aria-hidden="true" %} Caches**.

@@ -1,6 +1,6 @@
 ---
 title: 'Error: Agent admitted failure to sign'
-intro: 'In rare circumstances, connecting to {% data variables.product.product_name %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
+intro: 'In rare circumstances, connecting to {% data variables.product.github %} via SSH on Linux produces the error `"Agent admitted failure to sign using the key"`. Follow these steps to resolve the problem.'
 redirect_from:
   - /articles/error-agent-admitted-failure-to-sign-using-the-key
   - /articles/error-agent-admitted-failure-to-sign
@@ -9,7 +9,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - SSH
@@ -18,14 +17,14 @@ shortTitle: Agent failure to sign
 When trying to SSH into {% data variables.location.product_location %} on a Linux computer, you may see the following message in your terminal:
 
 ```shell
-$ ssh -vT git@{% data variables.command_line.codeblock %}
+$ ssh -vT git@{% data variables.product.product_url %}
 > ...
 > Agent admitted failure to sign using the key.
 > debug1: No more authentication methods to try.
 > Permission denied (publickey).
 ```
 
-For more details, see <a href="https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786" data-proofer-ignore>this issue report</a>.
+For more details, see [this issue report](https://bugs.launchpad.net/ubuntu/+source/gnome-keyring/+bug/201786) on Canonical Launchpad.
 
 ## Resolution
 

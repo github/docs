@@ -5,17 +5,15 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Security overview
   - Organizations
   - Teams
   - Dependencies
-  - Advanced Security
+  - Code Security
 children:
   - /end-to-end-supply-chain-overview
   - /securing-accounts
   - /securing-code
   - /securing-builds
 ---
-

@@ -10,6 +10,7 @@ children:
   - /about-projects
   - /quickstart-for-projects
   - /best-practices-for-projects
+  - /finding-your-projects
+  - /sharing-project-updates
 allowTitleToDifferFromFilename: true
 ---
-

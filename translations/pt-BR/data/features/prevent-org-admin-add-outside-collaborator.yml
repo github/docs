@@ -1,4 +1,0 @@
-versions:
-  ghec: '*'
-  ghes: '>=3.6'
-  ghae: 'problema 6336'

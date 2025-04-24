@@ -12,9 +12,9 @@ topics:
 
 Effective Date: August 10, 2021
 
-Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/github/site-policy/github-privacy-statement).
+Use of GitHub Codespaces is subject to the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement).
 
-Activity on github.dev is subject to [GitHub's Beta Previews terms](/github/site-policy/github-terms-of-service#j-beta-previews)
+Activity on github.dev is subject to [GitHub's Beta Previews terms](/site-policy/github-terms/github-terms-of-service#j-beta-previews)
 
 ## Using {% data variables.product.prodname_vscode %}
 

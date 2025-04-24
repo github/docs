@@ -1,2 +1,1 @@
-1. Under {% octicon "law" aria-label="The law icon" %} **Policies**, click "Code security and analysis."
-  ![Screenshot of "Code security and analysis" policies in sidebar](/assets/images/help/enterprises/code-security-and-analysis-policies.png)
+1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **{% data variables.product.UI_advanced_security_ent %}**.

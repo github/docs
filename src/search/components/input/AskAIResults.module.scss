@@ -1,0 +1,65 @@
+@import "@primer/css/support/variables/layout.scss";
+
+$bodyPadding: 0 16px 0px 16px;
+$mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
+
+.container {
+  max-width: 100%;
+  width: 100%;
+}
+
+.disclaimerText {
+  display: block;
+  font-size: small !important;
+  font-weight: var(--base-text-weight-normal, 400) !important;
+  color: $mutedTextColor;
+  margin: 8px 0px 18px 0px;
+  padding: $bodyPadding;
+}
+
+.markdownBodyOverrides {
+  font-size: small;
+  margin-top: 4px;
+  margin-bottom: 16px;
+  padding: $bodyPadding;
+  ul,
+  ol {
+    list-style-type: decimal !important;
+  }
+}
+
+.referencesTitle {
+  margin: 0;
+  padding-left: 0 !important;
+}
+
+.referencesList {
+  padding-left: 16px !important;
+}
+
+.loadingContainer {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  height: 200px;
+}
+
+.displayForScreenReader {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.postAnswerWidgets {
+  display: flex;
+  flex-direction: row;
+  padding-left: 12px !important;
+}

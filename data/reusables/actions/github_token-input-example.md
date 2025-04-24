@@ -1,18 +1,19 @@
-This example workflow uses the [labeler action](https://github.com/actions/labeler), which requires the `GITHUB_TOKEN` as the value for the `repo-token` input parameter:
+This example workflow uses the [GitHub CLI](/actions/using-workflows/using-github-cli-in-workflows), which requires the `GITHUB_TOKEN` as the value for the `GH_TOKEN` input parameter:
 
-```yaml{:copy}
-name: Pull request labeler
-on: [ pull_request_target ]
-
-permissions:
-  contents: read
-  pull-requests: write
+```yaml copy
+name: Open new issue
+on: workflow_dispatch
 
 jobs:
-  triage:
+  open-issue:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
     steps:
-      - uses: {% data reusables.actions.action-labeler %}
-        with:
-          repo-token: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
+      - run: |
+          gh issue --repo {% raw %}${{ github.repository }}{% endraw %} \
+            create --title "Issue title" --body "Issue body"
+        env:
+          GH_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
 ```

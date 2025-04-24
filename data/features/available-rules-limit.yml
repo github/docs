@@ -1,0 +1,6 @@
+# Reasonable limits are placed on the entries of file paths and file extensions
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.17'

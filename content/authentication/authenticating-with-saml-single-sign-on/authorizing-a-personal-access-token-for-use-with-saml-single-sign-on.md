@@ -12,7 +12,7 @@ topics:
   - SSO
 shortTitle: '{% data variables.product.pat_generic_caps %} with SAML'
 ---
-You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). For more information about creating a new {% data variables.product.pat_v1 %}, see "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)."{% ifversion pat-v2 %} {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.{% endif %}
+You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). For more information about creating a new {% data variables.product.pat_v1 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -21,13 +21,13 @@ You must authorize your {% data variables.product.pat_v1 %} after creation befor
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+1. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
 
-   ![Screenshot of the dropdown menu to configure SSO for a {% data variables.product.pat_v1 %}](/assets/images/help/settings/sso-allowlist-button.png)
-4. To the right of the organization you'd like to authorize the token for, click **Authorize**.
-   ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
+   ![Screenshot of a list entry for a {% data variables.product.pat_v1 %}. A dropdown menu, labeled "Configure SSO", is outlined in orange.](/assets/images/help/settings/sso-allowlist-button.png)
+
+1. In the dropdown menu, to the right of the organization you'd like to authorize the token for, click **Authorize**.
 
 ## Further reading
 
-- "[Creating a {% data variables.product.pat_generic %}](/github/authenticating-to-github/creating-a-personal-access-token)"
-- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)

@@ -10,31 +10,27 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 shortTitle: View releases & tags
 ---
-{% tip %}
 
-**Tip**: You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see "[`gh release view`](https://cli.github.com/manual/gh_release_view)" in the {% data variables.product.prodname_cli %} documentation.
-
-{% endtip %}
+> [!TIP]
+> You can also view a release using the {% data variables.product.prodname_cli %}. For more information, see [`gh release view`](https://cli.github.com/manual/gh_release_view) in the {% data variables.product.prodname_cli %} documentation.
 
 ## Viewing releases
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Releases**.
+1. At the top of the Releases page, click **Releases**.
 
 ## Viewing tags
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.releases %}
-2. At the top of the Releases page, click **Tags**.
-![Tags page](/assets/images/help/releases/tags-list.png)
+1. At the top of the page, click **Tags**.
 
 ## Further reading
 
-- "[Signing tags](/articles/signing-tags)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

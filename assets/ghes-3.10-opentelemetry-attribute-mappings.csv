@@ -1,0 +1,159 @@
+Category,Old Attribute,New Attribute
+API,reason,gh.api.error_reason
+API,resource,gh.api.resource_type
+API,graphql,gh.api.graphql
+API,graphql_time,graphql.time
+API,graphql_query_byte_size,graphql.query.byte_size
+API,graphql_variables_byte_size,graphql.variables.byte_size
+API,graphql_operation_name,graphql.operation.name
+API,graphql_origin,graphql.origin
+API,graphql_success,graphql.success
+API,graphql_query_depth,graphql.query.depth
+API,graphql_query_complexity,graphql.query.complexity
+API,graphql_schema,graphql.schema
+API,graphql_query_hash,graphql.query.hash
+API,graphql_variables_hash,graphql.variables.hash
+API,graphql_query_name,graphql.query.name
+API,graphql_operation_id,graphql.operation.id
+Repos,rename_id,gh.branch_protection_rule.repository_branch_renamer.id
+Repos,end_date,gh.repo.purge.end_date
+Repos,deleted_count,gh.repo.mirror.deleted_count
+CodeScanning,pull_request_id,gh.pull_request.id
+CodeScanning,pull_request_number,gh.pull_request.number
+CodeScanning,pull_request_head,gh.pull_request.head_sha
+CodeScanning,alerts_count,gh.code_scanning.alert.count
+CodeScanning,file_path,gh.code_scanning.alert.file_path
+CodeScanning,alert_number,gh.code_scanning.alert.number
+CodeScanning,category,gh.code_scanning.analysis.category
+CodeScanning,check_run_id,gh.check_run.id
+CodeScanning,alerts_in_the_diff,gh.code_scanning.diff.alerts.in
+CodeScanning,alerts_out_the_diff,gh.code_scanning.diff.alerts.out
+CodeScanning,onboarding_comment_posted,gh.code_scanning.onboarding_comment.posted
+CodeScanning,onboarding_comments_count,gh.code_scanning.onboarding_comments.count
+CodeScanning,tool_name,gh.code_scanning.tool
+CodeScanning,code_scanning_review_comment,gh.code_scanning.review_comment.id
+CodeScanning,head_commit_oid,gh.pull_request.head_sha
+CodeScanning,merge_commit_oid,gh.pull_request.merge_sha
+CodeScanning,checkrun_previously_completed,gh.check_run.previously_completed
+CodeScanning,job_reason,gh.code_scanning.job.reason
+CodeScanning,time_in_secs,gh.code_scanning.job.time
+CodeScanning,code_scanning_check_suite,gh.check_suite.id
+CodeScanning,base_ref_name,gh.pull_request.base_ref.name
+CodeScanning,pull_request_old,gh.pull_request.id.old
+CodeScanning,pull_request_new,gh.pull_request.id.new
+CodeScanning,repo_nwo,gh.repo.nwo
+CodeScanning,skip_check_runs,gh.code_scanning.skip_check_runs
+CodeScanning,refs,git.refs
+CodeScanning,ref,git.ref
+CodeScanning,commit_oid,git.commit.oid
+CodeScanning,sarif_size,gh.code_scanning.sarif.size
+CodeScanning,sarif_id,gh.code_scanning.sarif.id
+CodeScanning,sarif_uri,gh.code_scanning.sarif.uri
+CodeScanning,old_base_ref,gh.pull_request.base_ref.old
+CodeScanning,new_base_ref,gh.pull_request.base_ref.new
+CodeScanning,replication_lag,gh.freno.replication_delay
+CodeScanning,key,gh.kv.key
+External Identities,external_id,gh.external_identities.external_id
+External Identities,oid,gh.external_identities.oid
+External Identities,refresh_token,gh.external_identities.refresh_token
+External Identities,email,gh.external_identities.email
+External Identities,type,gh.external_identities.type
+External Identities,key,gh.external_identities.cache_key
+External Identities,body,gh.external_identities.cache_body
+External Identities,expires,gh.external_identities.cache_expires
+External Identities,cap_message,gh.external_identities.cap_message
+External Identities,token_url,gh.external_identities.token_url
+External Identities,credential_auth_org_id,gh.external_identities.credential_auth_org_id
+External Identities,credential_auth_exists_for_target_org,gh.external_identities.credential_auth_exists_for_target_org
+External Identities,resource_type,gh.external_identities.resource_type
+External Identities,can_self_identify_internal_or_public,gh.external_identities.can_self_identify_internal_or_public
+Memex,column_id,gh.memex.column.id
+Memex,class_name,code.namespace
+Memex,actor_id,gh.actor.id
+Memex,project_item_id,gh.memex.item.id
+Memex,value,gh.memex.column.value
+Memex,result,gh.memex.column.update_result
+Memex,memex_id,gh.memex.id
+Memex,ns,code.namespace
+Memex,fn,code.function
+Memex,result,gh.job.result
+Memex,on_tasklist_waitlist,gh.memex.tasklist_waitlist
+Memex,id,gh.membership.id
+Memex,member_id,gh.membership.member.id
+Notifyd,subject_type,gh.notifyd.subject.type
+Webhooks,file,code.filepath
+Webhooks,catalog_service,gh.catalog_service
+Webhooks,request_id,gh.request_id
+Webhooks,fn,code.namespace & code.function
+Webhooks,event,gh.webhook.event_type
+Webhooks,action,gh.webhook.action
+Webhooks,method,code.function
+Webhooks,event_type,gh.webhook.event_type
+Webhooks,model_name,code.namespace
+Webhooks,id,gh.webhook.id
+Webhooks,push_sha,gh.webhook.push_sha
+Webhooks,parent,gh.webhook.parent
+Webhooks,guid,gh.webhook.delivery_guid
+Webhooks,hook_ids,gh.webhooks
+Webhooks,repo_id,gh.repo.id
+Webhooks,org_id,gh.org.id
+Webhooks,user_id,gh.user.id
+Webhooks,webhook_delivery_id,gh.webhook.delivery_guid
+Webhooks,repo_database_id,gh.repo.id
+Webhooks,repo_global_id,gh.repo.global_id
+Webhooks,event_at,gh.webhook.reminder_event.event_at
+Webhooks,event_type_db,gh.webhook.reminder_event.event_type_db
+Webhooks,personal,gh.webhook.reminder_event.reminder_event.personal
+Webhooks,pull_request_ids,gh.pull_request.id
+Webhooks,pull_request_ids_for_author,pull_request_ids_for_author
+Webhooks,actor_id,gh.actor.id
+Webhooks,actor_login,gh.actor.login
+Webhooks,user_login,gh.user.login
+Webhooks,path,code.filepath
+Webhooks,enterprise,gh.webhook.is_enterprise
+Webhooks,job,gh.job.name
+Webhooks,class,exception.type
+Webhooks,payload_size,gh.webhook.payload_size
+Webhooks,target_repository_nwo,gh.repo.name_with_owner
+Webhooks,target_repository_id,gh.repo.id
+Webhooks,target_organization_id,gh.org.id
+Webhooks,target_organization_name,gh.org.name
+Scheduled Reminders,transaction_id,gh.scheduled_reminders.transaction_id
+Camo,request_id,gh.request.id
+Camo,hmac,gh.camo.request_hmac
+Camo,url,gh.camo.encoded_url
+Camo,referer,gh.request.referer
+Camo,error,gh.camo.error
+Camo,dns-time,gh.camo.dns.time
+Camo,resp,gh.camo.upstream.response
+Camo,len,gh.camo.upstream.response.content_length
+Camo,request,gh.camo.upstream.request_buf
+Camo,response,gh.camo.upstream.response_buf
+Camo,code,gh.camo.upstream.response.code
+Camo,resp,gh.camo.response
+Camo,ctype,gh.camo.upstream.response.content_type
+Camo,pem,gh.camo.certfile.name
+Notifications,fn,code.function
+Notifications,id,gh.notifications.rollup_summary.id
+Notifications,fn,code.function
+repo migration,fn,code.namespace
+repo migration,migration_guid,gh.repo_migration.migration_guid
+repo migration,source_url,gh.repo_migration.model_source_url
+repo migration,resolution,gh.repo_migration.resolution
+repo migration,model_name,gh.repo_migration.model_name
+repo migration,migratable_resource_id,gh.repo_migration.migratable_resource_id
+repo migration,model_id,gh.repo_migration.model_id
+repo migration,source_owner,gh.repo_migration.source_owner
+repo migration,source_repository,gh.repo_migration.source_repository
+repo migration,target_url,gh.repo_migration.model_target_url
+repo migration,translator_url,gh.repo_migration.model_translator_url
+repo migration,state,gh.repo_migration.model_state
+repo migration,asset_storage,gh.repo_migration.asset_storage.type
+repo migration,asset_type,gh.repo_migration.asset_storage.asset_type
+repo migration,asset_id,gh.repo_migration.asset_storage.asset_id
+repo migration,http_response_code,gh.repo_migration.asset_storage.http_response_code
+repo migration,field,gh.repo_migration.field
+repo migration,state,gh.repo_migration.state
+repo migration,url,gh.repo_migration.repository.repository_url
+repo migration,validation_error,validation_error
+repo migration,code,code

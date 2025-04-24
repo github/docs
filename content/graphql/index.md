@@ -1,11 +1,11 @@
 ---
-title: GitHub GraphQL API
+title: GitHub GraphQL API documentation
 intro: 'To create integrations, retrieve data, and automate your workflows, use the {% data variables.product.prodname_dotcom %} GraphQL API. The {% data variables.product.prodname_dotcom %} GraphQL API offers more precise and flexible queries than the {% data variables.product.prodname_dotcom %} REST API.'
 shortTitle: GraphQL API
 introLinks:
   overview: /graphql/overview/about-the-graphql-api
 featuredLinks:
-  guides:
+  startHere:
     - /graphql/guides/forming-calls-with-graphql
     - /graphql/guides/introduction-to-graphql
     - /graphql/guides/using-the-explorer
@@ -13,7 +13,7 @@ featuredLinks:
     - /graphql/overview/explorer
     - /graphql/overview/public-schema
     - /graphql/overview/schema-previews
-    - /graphql/guides/using-the-graphql-api-for-discussions
+    - /graphql/guides/using-pagination-in-the-graphql-api
   guideCards:
     - /graphql/guides/migrating-from-rest-to-graphql
     - /graphql/guides/managing-enterprise-accounts
@@ -27,10 +27,8 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 children:
   - /overview
   - /reference
   - /guides
 ---
-

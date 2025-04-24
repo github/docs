@@ -19,4 +19,4 @@ allowTitleToDifferFromFilename: true
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to enable or disable project progress tracking.  
 {% data reusables.project-management.click-menu %}
 {% data reusables.project-management.click-edit-sidebar-menu-project-board %}
-4. Select or deselect **Track project progress**.
+1. Select or deselect **Track project progress**.

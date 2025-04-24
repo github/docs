@@ -4,7 +4,7 @@ intro: You can share information about your organization by customizing your org
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '>3.3'
+  ghes: '*'
 topics:
   - Organizations
 shortTitle: Customize organization profile
@@ -13,18 +13,13 @@ shortTitle: Customize organization profile
 
 ## About your organization's profile page
 
-{% ifversion org-profile-pin-private %}
 You can customize your organization's Overview page to show a README and pinned repositories dedicated to public users or members of the organization.
 
-![Image of a public organization profile page](/assets/images/help/organizations/public_profile.png)
+Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page.
 
-Members of your organization who are signed into {% data variables.product.prodname_dotcom %}, can select a `member` or `public` view of the README and pinned repositories when they visit your organization's profile page. 
-
-![Image of a public organization profile page view context switcher](/assets/images/help/organizations/profile_view_switcher_public.png)
+![Screenshot of an organization's profile page. In the right sidebar, a dropdown menu, labeled "View as: Public", is outlined in dark orange.](/assets/images/help/organizations/profile-view-switcher-public.png)
 
 The view defaults to `member` if either a members-only README or members-only pinned repositories are present, and `public` otherwise.
-
-![Image of a members only organization profile page](/assets/images/help/organizations/member_only_profile.png)
 
 Users who are not members of your organization will be shown a `public` view.
 
@@ -32,59 +27,80 @@ Users who are not members of your organization will be shown a `public` view.
 
 You can give users easy access to important or frequently used repositories, by choosing up to six repositories for public users and six repositories for members of the organization. Once you pin repositories to your organization profile, the "Pinned" section is shown above the "Repositories" section of the profile page.
 
-Only organization owners can pin repositories. For more information, see "[Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile)."
+Only organization owners can pin repositories. For more information, see [Pinning repositories to your organization's profile](#pinning-repositories-to-your-organizations-profile).
 
 ### Organization profile READMEs
-
-{% endif %}
 
 You can share information about how to engage with your organization by creating an organization profile README for both public users and members of the organization. {% data variables.product.prodname_dotcom %} shows your organization profile README in the "Overview" tab of your organization.
 
 You can choose what information to include in your organization profile README. Here are some examples of information that may be helpful.
 
-- An "About" section that describes your organization
-- Guidance for getting help in the organization
+* An "About" section that describes your organization
+* Guidance for getting help in the organization
 
-You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see "[Getting started with writing and formatting on {% data variables.product.prodname_dotcom %}](/github/writing-on-github/getting-started-with-writing-and-formatting-on-github)."
+You can format text and include emoji, images, and GIFs in your organization profile README by using {% data variables.product.company_short %} Flavored Markdown. For more information, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github).
+
+{% ifversion enterprise-readme %}
+If you manage multiple organizations with an enterprise account, you can help members learn about the different organizations in the enterprise by creating an enterprise README. For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
+{% endif %}
 
 ## Adding a public organization profile README
 
+The content of public `README.md` will appear on your organization's public profile.
+
 1. If your organization does not already have a public `.github` repository, create a public `.github` repository.
-2. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
-3. Commit the changes to the `README.md` file. The content of the `README.md` will appear on your organization's public profile.
-
-   ![Image of an organization's public README](/assets/images/help/organizations/org_public_readme.png)
-
-{% ifversion org-profile-pin-private %}
+1. In your organization's `.github` repository, create a `README.md` file in the `profile` folder.
+1. Commit the changes to the `README.md` file.
 
 ## Adding a member-only organization profile README
 
-1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`. 
-2. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
-3. Commit the changes to the `README.md` file. The content of the `README.md` will be displayed in the member view of your organization's profile.
+The content of a member-only `README.md` will be displayed in the member view of your organization's profile.
 
-   ![Image of an organization's member-only README](/assets/images/help/organizations/org_member_readme.png)
+1. If your organization does not already have a `.github-private` repository, create a private repository called `.github-private`.
+1. In your organization's `.github-private` repository, create a `README.md` file in the `profile` folder.
+1. Commit the changes to the `README.md` file.
 
 ## Pinning repositories to your organization's profile
 
 You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. Navigate to your organization's profile page.
-2. In the right sidebar of the page in the {% octicon "eye" aria-label="The eye octicon" %} "View as" link, choose the **Public** or **Member** profile view from the dropdown menu.
+1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" %} View as** dropdown menu, then click **Public** or **Member**.
 
-   ![Image of the organization profile view dropdown](/assets/images/help/organizations/org_profile_view.png)
+   ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
+1. Navigate to the settings for pinned repositories.
 
-3. In the pinned repositories section, select **Customize pins**.
+   * If you already have pinned repositories, in the "Pinned" section, click **Customize pins**.
 
-   ![Image of the customize pins link](/assets/images/help/organizations/customize_pins_link.png)
+   ![Screenshot of an organization's profile page. In the top-right corner of the "Pinned" section, "Customize pins" is outlined in dark orange.](/assets/images/help/organizations/customize-pins-link.png)
 
-   - If you haven't yet pinned any repositories to your organization's profile, you'll need to instead click **pin repositories** in the right sidebar of the profile page.
-   ![Image of pin repositories link in right sidebar](/assets/images/help/organizations/pin_repositories_link.png)
+   * If you haven't yet pinned any repositories, in the right sidebar, click **pin repositories**.
 
-4. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+   ![Screenshot of an organization's profile page. In the right sidebar, a link, labeled "pin repositories," is outlined in dark orange.](/assets/images/help/organizations/pin-repositories-org-link.png)
 
-   ![Image of pinned repo dialog](/assets/images/help/organizations/pinned_repo_dialog.png)
+1. In the "Edit pinned repositories" dialog box, select a combination of up to six public, {% ifversion not fpt %}private, or internal{% else %}or private{% endif %} repositories to display.
+1. Click **Save pins**.
 
-5. Click **Save pins**.
+## Changing your organization's profile picture
 
-{% endif %}
+When you create an organization, {% data variables.product.github %} provides you with a randomly generated "identicon." The identicon is generated from a hash of your organization's user ID, so there's no way to control its color or pattern.
+
+You can replace the identicon with an image that represents your organization. To replace the image, you can upload a new image or use a Gravatar image.
+
+### Uploading an image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. Under your profile picture, click **Upload new picture**, then select an image.
+
+### Using a Gravatar image
+
+{% data reusables.profile.access_org %}
+{% data reusables.profile.org_settings %}
+1. In the "Gravatar email (Private)" field, enter the email address associated with your Gravatar image.
+1. Click **Update profile**.
+
+## Further reading
+
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme)

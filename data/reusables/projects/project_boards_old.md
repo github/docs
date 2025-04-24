@@ -1,11 +1,12 @@
-{% ifversion fpt or ghec %}
+{% ifversion projects-v1-can-create %}
 
-{% note %}
+>[!NOTE]
+>* {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is now available. For more information about {% data variables.product.prodname_projects_v2 %}, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects).
+>* You can only create a new {% data variables.projects.projects_v1_board %} for an organization{% ifversion projects-v1-create-repo-project %}, repository, {% endif %} or user that already has at least one {% data variables.projects.projects_v1_board %}. {% ifversion projects-v1-create-repo-project %}{% else %} You cannot create new {% data variables.projects.projects_v1_boards %} for repositories. {% endif %} If you're unable to create a {% data variables.projects.projects_v1_board %}, create a project instead.
 
-**Notes:**
-* {% data variables.product.prodname_projects_v2 %}, the all-new projects experience, is now available. For more information about {% data variables.product.prodname_projects_v2 %}, see "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)" and for information about migrating your {% data variables.projects.projects_v1_board %}, see "[Migrating from {% data variables.product.prodname_projects_v1_caps %}](/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic)."
-* You can only create a new classic project board for an organization, user, or repository that already has at least one classic project board. If you're unable to create a classic project board, create a project board instead.
+{% else %}
 
-{% endnote %}
+>[!NOTE]
+{% data reusables.projects.sunset_notice_content %}
 
 {% endif %}

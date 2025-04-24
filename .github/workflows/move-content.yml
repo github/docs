@@ -1,0 +1,68 @@
+name: Move content script test
+
+# **What it does**: Tests the `npm run move-content` script
+# **Why we have it**: To be sure it continues to work as expected
+# **Who does it impact**: Docs team.
+
+on:
+  pull_request:
+    paths:
+      - src/content-render/scripts/move-content.js
+      - src/content-render/scripts/test-move-content.ts
+      - 'src/frame/lib/**/*.js'
+      - .github/workflows/move-content.yml
+      # In case any of the dependencies affect the script
+      - 'package*.json'
+      - src/fixtures/fixtures/content/get-started/
+      - src/fixtures/fixtures/content/code-security/
+
+permissions:
+  contents: read
+
+jobs:
+  move-content-test:
+    if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Set up a dummy git user
+        run: |
+          # These must be set to something before running the move-content
+          # script because it depends on executing `git mv ...`
+          # and `git commit ...`
+          git config --global user.name any-body
+          git config --global user.email "any-body@example.com"
+
+      - name: Move hello-world.md to hello-wurld.md
+        env:
+          ROOT: src/fixtures/fixtures
+        run: |
+          npm run move-content -- \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
+
+          npm run test-moved-content -- \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-world.md \
+            src/fixtures/fixtures/content/get-started/start-your-journey/hello-wurld.md
+
+          # TODO: Add tests that inspects the git log
+          git log | head -n 100
+
+      - name: Move code-security/getting-started to code-security/got-started
+        env:
+          ROOT: src/fixtures/fixtures
+        run: |
+          npm run move-content -- \
+            src/fixtures/fixtures/content/code-security/getting-started \
+            src/fixtures/fixtures/content/code-security/got-started
+
+          npm run test-moved-content -- \
+            src/fixtures/fixtures/content/code-security/getting-started \
+            src/fixtures/fixtures/content/code-security/got-started
+
+          # TODO: Add tests that inspects the git log
+          git log | head -n 100

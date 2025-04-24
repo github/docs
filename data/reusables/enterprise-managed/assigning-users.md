@@ -1,0 +1,1 @@
+After you have configured authentication and provisioning, you will be able to provision new users on {% data variables.product.prodname_dotcom %} by assigning users or groups to the {% ifversion ghec %}{% data variables.product.prodname_emu_idp_application %} application{% else %}relevant application in your IdP{% endif %}.

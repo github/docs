@@ -1,12 +1,13 @@
 ---
-title: Searching for information on GitHub
+title: Search on GitHub documentation
 intro: 'Learn how to use the search functions available on GitHub to find different types of information, like projects, people, and code.'
 introLinks:
   overview: /search-github/getting-started-with-searching-on-github/about-searching-on-github
 featuredLinks:
-  guides:
+  startHere:
     - /search-github/searching-on-github/searching-issues-and-pull-requests
-    - /search-github/searching-on-github/searching-code
+    - '{% ifversion ghes %}/search-github/searching-on-github/searching-code{% endif %}'
+    - /search-github/github-code-search/understanding-github-code-search-syntax
     - /search-github/searching-on-github/searching-for-repositories
     - /search-github/searching-on-github/searching-commits
   popular:
@@ -30,7 +31,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - GitHub search
@@ -40,4 +40,3 @@ children:
   - /github-code-search
 shortTitle: Search on GitHub
 ---
-

@@ -1,0 +1,19 @@
+.search_result {
+  mark {
+    background-color: transparent;
+    font-weight: bold;
+    @media (forced-colors: active) {
+      color: CanvasText;
+    }
+  }
+
+  word-wrap: break-word;
+}
+
+.paginationFocus
+  a[aria-current]:not([rel]):not(:disabled):not(:focus-visible):focus,
+.paginationFocus a[aria-current]:not([rel]):not(:disabled):focus-visible {
+  outline: 2px solid var(--fgColor-accent, var(--color-accent-fg));
+  outline-offset: -2px;
+  box-shadow: 0 0 0 4px inset;
+}

@@ -1,53 +1,52 @@
 ---
-title: About GitHub Code Search (beta)
-intro: 'You can search, navigate and understand code across GitHub with the new code search (beta).'
+title: About GitHub Code Search
+intro: 'You can search, navigate and understand code across {% data variables.product.prodname_dotcom %} with code search.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: github-code-search
+  feature: code-search-upgrade
 topics:
   - GitHub search
 ---
 
-{% note %}
+## About {% data variables.product.prodname_dotcom %} code search
 
-**Note:** {% data reusables.search.code-search-code-view-beta-note %}
+{% data variables.product.prodname_dotcom %} code search lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community. This search engine is designed to be scalable, code-aware, and support searching code across {% data variables.product.prodname_dotcom %} using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of code search, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
-{% data reusables.search.code-view-link %}
+Code search is integrated with features in the search interface on {% data variables.product.prodname_dotcom %}, such as suggestions and completions. Your searches will be saved automatically and can be deleted at any time. On {% data variables.product.prodname_mobile %}, you can use the same methods to search through code directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search).
 
-{% endnote %}
-
-## About the new code search (beta)
-
-The new code search (beta) lets you rapidly search, navigate and understand your code, your team's code, and the code of the open source community, all from {% data variables.product.prodname_dotcom_the_website %}. This search engine is designed to be scalable, code-aware, and support searching code across GitHub using regular expressions, boolean operations, specialized qualifiers, and symbol search. For more information on the syntax of the new code search (beta), see "[Understanding GitHub Code Search (beta) syntax](/search-github/github-code-search/understanding-github-code-search-syntax)."
-
-On top of the new code search engine, the code search (beta) includes new features in the search interface on {% data variables.product.prodname_dotcom_the_website %}, such as suggestions, completions, and the ability to save your searches. The new search interface allows you to more quickly and easily find what you are looking for. For more information, see "[Using GitHub Code Search (beta)](/search-github/github-code-search/using-github-code-search)."
+{% data reusables.search.code-search-login-requirement %}
 
 {% data reusables.search.non-code-search-explanation %}
 
-The new code search (beta) is tightly integrated with a redesigned code view (beta) on {% data variables.product.prodname_dotcom_the_website %}. {% data reusables.search.code-view-link %}
+## Code navigation
 
-To get access to the new code search (beta), along with the new code view, you can sign up for the [waitlist](https://github.com/features/code-search-code-view/signup). 
-
-## Enabling and disabling the new code search and code view (beta)
-
-{% data reusables.search.enabling-and-disabling-code-search-and-view-beta %}
+{% data variables.product.prodname_dotcom %} code search provides code navigation for supported languages. This includes jumping to the definition of and finding references for programming language constructs like classes, structs, functions, and methods. See [AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github).
 
 ## Limitations
 
-We have indexed many public repositories for the new code search (beta), and continue to index more. Additionally, the private repositories of GitHub users in the beta are indexed and searchable by beta participants that already have access to those private repositories on GitHub.com. However, very large repositories may not be indexed at this time, and not all code is indexed. 
+We have indexed many public repositories for code search, and continue to index more. Additionally, the private repositories of {% data variables.product.prodname_dotcom %} users are indexed and searchable by those that already have access to those private repositories on {% data variables.product.prodname_dotcom %}. However, very large repositories may not be indexed at this time, and not all code is indexed.
 
 The current limitations on indexed code are:
-   - Vendored and generated code is excluded (as determined by [Enry](https://github.com/go-enry/go-enry))
-   - Empty files and files over 350 KiB are excluded
-   - Only UTF-8 encoded files are included
-   - Very large repositories may not be indexed
 
-We currently only support searching for code on the default branch of a repository.
+* Vendored and generated code is excluded
+* Empty files and files over 350 KiB are excluded
+* Lines over 1,024 characters long are truncated
+* Binary files (PDF, etc.) are excluded
+* Only UTF-8 encoded files are included
+* Very large repositories may not be indexed
+* Exhaustive search is not supported
+* Files with more than one line over 4096 bytes are excluded
 
-Results for any search with the new code search (beta) are restricted to 100 results (10 pages). Sorting is not supported for code search results at this time. This limitation only applies to searching code with the new code search (beta) and does not apply to other types of searches.
+We currently only support searching for code on the default branch of a repository. The query length is limited to 1000 characters.
 
-The new code search (beta) supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see "[Symbol qualifier](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier)."
+Results for any search with code search are restricted to 100 results (5 pages). Sorting is not supported for code search results at this time. This limitation only applies to searching code with the new code search and does not apply to other types of searches.
+
+If you use the `path:` qualifier for a file that's in multiple repositories with similar content, {% data variables.product.prodname_dotcom %} will only show a few of those files. If this happens, you can choose to expand by clicking **Show identical files** at the bottom of the page.
+
+Code search supports searching for symbol definitions in code, such as function or class definitions, using the `symbol:` qualifier. However, note that the `symbol:` qualifier only searches for definitions and not references, and not all symbol types or languages are fully supported yet. For a list of what languages are supported, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax#symbol-qualifier).
+
+On {% data variables.product.prodname_mobile %}, you can use code search directly from the home screen. For more information, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).
 
 ## Feedback and support
 
-You can view and share feedback about the new code search (beta) in our [discussion forum](https://github.com/orgs/community/discussions/categories/code-search-and-navigation).
+You can view and share feedback about code search in our [discussion forum](https://github.com/orgs/community/discussions/categories/code-search-and-navigation).

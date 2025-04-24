@@ -4,7 +4,6 @@ intro: You can choose the way your repository appears by customizing your reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -19,4 +18,3 @@ children:
   - /about-citation-files
 shortTitle: Customize your repository
 ---
-

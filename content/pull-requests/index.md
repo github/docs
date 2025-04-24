@@ -1,10 +1,10 @@
 ---
-title: Pull requests
+title: Pull requests documentation
 intro: 'Learn how to use pull requests to suggest changes to a project, receive suggested changes to your own projects, and address issues in pull requests, such as merge conflicts.'
 introLinks:
   overview: /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
 featuredLinks:
-  guides:
+  startHere:
     - /pull-requests/committing-changes-to-your-project/creating-and-editing-commits/changing-a-commit-message
     - /pull-requests/collaborating-with-pull-requests/addressing-merge-conflicts/resolving-a-merge-conflict-using-the-command-line
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-and-deleting-branches-within-your-repository
@@ -26,7 +26,6 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - Pull requests
 children:

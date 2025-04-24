@@ -5,17 +5,11 @@ intro: 'Learn how to migrate your existing CI/CD workflows to {% data variables.
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 redirect_from:
-  - /actions/migrating-to-github-actions
   - /articles/migrating-github-actions-from-hcl-syntax-to-yaml-syntax
 children:
-  - /automating-migration-with-github-actions-importer
-  - /migrating-from-azure-pipelines-to-github-actions
-  - /migrating-from-circleci-to-github-actions
-  - /migrating-from-gitlab-cicd-to-github-actions
-  - /migrating-from-jenkins-to-github-actions
-  - /migrating-from-travis-ci-to-github-actions
+  - /using-github-actions-importer-to-automate-migrations
+  - /manually-migrating-to-github-actions
 ---
 

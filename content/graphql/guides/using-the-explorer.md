@@ -7,12 +7,18 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 topics:
   - API
 ---
 
 ## About the GraphQL Explorer
+
+{% ifversion ghec %}
+
+> [!NOTE]
+> If your {% data variables.product.prodname_ghe_cloud %} organization uses {% data variables.product.prodname_dotcom %}'s IP allow list, you won't be able to use the GraphQL Explorer. Instead, we recommend using an alternative GraphQL client IDE.
+
+{% endif %}
 
 {% ifversion fpt or ghec %}
 
@@ -24,49 +30,16 @@ topics:
 
 {% endif %}
 
-## Using GraphiQL
+## Query autocompletion
 
-To use the GraphiQL app, download and install it from https://github.com/skevy/graphiql-app.
-
-### Configuring GraphiQL
-
-1. Get an [OAuth token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
-1. Launch GraphiQL.
-1. In the upper-right corner of GraphiQL, click **Edit HTTP Headers**.
-1. In the **Key** field, enter `Authorization`. In the **Value** field, enter `Bearer <token>`, where `<token>` is your generated OAuth token.
-![graphiql headers](/assets/images/developer/graphiql-headers.png)
-1. Click the checkmark to the right of the token to save it.
-1. To return to the editor, click outside of the **Edit HTTP Headers** modal.
-1. In the **GraphQL Endpoint** field, enter `{% data variables.product.graphql_url_pre %}`.
-1. In the **Method** dropdown menu, select **POST**.
-
-{% note %}
-
-**Note**: For more information about why `POST` is the method, see "[Communicating with GraphQL](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)."
-
-{% endnote %}
-
-You can test your access by querying yourself:
-
-```graphql
-query {
-  viewer {
-    login
-  }
-}
-```
-
-If everything worked correctly, this will display your login. You're all set to start making queries.
+You can use query autocompletion to help you build queries. In the main pane, within the curly brackets of your query, use <kbd>control</kbd>+<kbd>space</kbd> or <kbd>shift</kbd>+<kbd>space</kbd> to display the autocomplete menu.
 
 ## Accessing the sidebar docs
 
-All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop deprecated fields.
+All types in a GraphQL schema include a `description` field compiled into documentation. The collapsible **Docs** pane on the right side of the Explorer page allows you to browse documentation about the type system. The docs are automatically updated and will drop fields that are {% data variables.release-phases.closing_down %}.
 
-{% note %}
-
-The **Docs** sidebar contains the same content that is automatically generated from the schema under "[Reference](/graphql)," though it is formatted differently in places.
-
-{% endnote %}
+> [!NOTE]
+> The **Docs** sidebar contains the same content that is automatically generated from the schema under [AUTOTITLE](/graphql), though it is formatted differently in places.
 
 ## Using the variable pane
 
@@ -88,7 +61,7 @@ variables {
 }
 ```
 
-This is the correct format to submit the call via a cURL `POST` (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
+This is the correct format to submit the call using a `POST` request in a `curl` command (as long as you [escape newlines](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql)).
 
 If you want to run the call in the Explorer, enter the `query` segment in the main pane and the variables in the **Query Variables** pane below it. Omit the word `variables` from the Explorer:
 
@@ -97,6 +70,38 @@ If you want to run the call in the Explorer, enter the `query` segment in the ma
    "number_of_repos": 3
 }
 ```
+
+## Using the Altair GraphQL Client IDE
+
+There are many open source GraphQL client IDEs. For example, you can use Altair to access {% data variables.product.company_short %}'s GraphQL API. To access the GraphQL API with Altair, download and install it from [altair-graphql/altair](https://github.com/altair-graphql/altair). Then, follow the configuration steps below.
+
+### Configuring Altair
+
+1. Get an [access token](/graphql/guides/forming-calls-with-graphql#authenticating-with-graphql).
+1. Launch Altair.
+1. In the left sidebar, below the Altair logo, click **Set Headers**. A new window will open.
+1. In the "Header key" field, enter `Authorization`.
+1. In the "Header value" field, enter `Bearer TOKEN`, replacing `TOKEN` with your token from the first step.
+1. Click **Save** in the bottom right corner of the window to save your authorization header.
+1. In the "GraphQL Endpoint" field, enter your GraphQL URL, such as `{% data variables.product.graphql_url %}`.
+1. To load the {% data variables.product.company_short %} GraphQL schema, download the [public schema](/graphql/overview/public-schema).
+1. In Altair, click on **Docs** on the top right, then the three dots and **Load Schema...**
+1. Select the file public schema that you downloaded in an earlier step.
+
+> [!NOTE]
+> For more information about why `POST` is the method, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#communicating-with-graphql).
+
+You can test your access by querying yourself:
+
+```graphql
+query {
+  viewer {
+    login
+  }
+}
+```
+
+If everything worked correctly, this will display your login. You're all set to start making queries.
 
 ## Requesting support
 
@@ -143,8 +148,5 @@ It's possible you might run into an unexpected error that is not related to the 
 }
 ```
 
-{% note %}
-
-**Note:** {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.product.prodname_dotcom %} recommends checking for errors before using data in a production environment. In GraphQL, failure is not total: portions of GraphQL queries may succeed while others fail.

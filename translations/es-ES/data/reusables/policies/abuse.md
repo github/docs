@@ -1,1 +1,0 @@
-{% data variables.product.prodname_dotcom %} does not tolerate abuse.{% ifversion fpt or ghec %} For more information on {% data variables.product.prodname_dotcom %}'s policies, see our [Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service) and [Community Guidelines](/free-pro-team@latest/github/site-policy/github-community-guidelines).{% endif %}

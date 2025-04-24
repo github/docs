@@ -1,0 +1,5 @@
+# Reference: #12968
+# Unique logs for configuration runs
+
+versions:
+  ghes: '>= 3.11'

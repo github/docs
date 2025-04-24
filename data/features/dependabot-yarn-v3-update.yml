@@ -1,7 +1,0 @@
-# Reference: issue  #8323
-# Updating supported versions of yarn
-versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '>=3.8'
-  ghae: '>= 3.8'

@@ -1,0 +1,21 @@
+{
+  "/articles/deploying-with-capistrano": "https://github.com/capistrano/capistrano/blob/master/README.md",
+  "/capistrano": "https://github.com/capistrano/capistrano/blob/master/README.md",
+  "/contact-github": "https://support.github.com/contact",
+  "/contact": "https://support.github.com/contact",
+  "/deploy-with-capistrano": "https://github.com/capistrano/capistrano/blob/master/README.md",
+  "/git-man-pages": "https://git-scm.com/docs",
+  "/git-ready": "https://gitready.com/",
+  "/git-scm": "https://git-scm.com/",
+  "/github-status": "https://www.githubstatus.com/",
+  "/github-support": "https://support.github.com",
+  "/pro-git": "https://git-scm.com/book",
+  "/submodules": "https://git-scm.com/book/en/Git-Tools-Submodules",
+  "/articles/github-security": "https://github.com/security",
+  "/partnerships/integration-partners": "https://partner.github.com",
+  "/partnerships": "https://partner.github.com",
+  "/desktop-classic": "https://desktop.github.com",
+  "/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
+  "/early-access/github/copilot/research-recitation": "https://github.blog/2021-06-30-github-copilot-research-recitation/",
+  "/site-policy/privacy-policies/github-copilot-business-privacy-statement": "https://resources.github.com/copilot-trust-center/#privacy"
+}

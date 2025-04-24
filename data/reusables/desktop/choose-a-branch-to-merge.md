@@ -1,2 +1,3 @@
-1. Click **Choose a branch to merge into <em>BRANCH</em>**.
-![Choose a branch option in the list of branches menu](/assets/images/help/desktop/merge-branch-button-list.png)
+1. Click **Choose a branch to merge into BRANCH**.
+
+   ![Screenshot of the "Current Branch" dropdown view. Below a list of branches, a "Choose a branch to merge into my-feature" button is outlined in orange.](/assets/images/help/desktop/merge-branch-button-list.png)

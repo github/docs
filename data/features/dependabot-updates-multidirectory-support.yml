@@ -1,0 +1,5 @@
+# Reference: Issue #13733 - Multidirectory Configuration for Dependabot Version Updates - [Public Beta]
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>3.13'

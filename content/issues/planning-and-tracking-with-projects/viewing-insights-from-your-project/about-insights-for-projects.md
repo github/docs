@@ -1,53 +1,45 @@
 ---
 title: 'About insights for {% data variables.product.prodname_projects_v2 %}'
 intro: You can view and customize charts that are built from your project's data.
-miniTocMaxHeadingLevel: 3
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-insights-with-projects
 type: tutorial
-product: '{% data reusables.gated-features.historical-insights-for-projects %}'
+permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects
 allowTitleToDifferFromFilename: true
 ---
 
-{% ifversion fpt %}
+You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
 
-{% note %}
+Insights does not track items you have archived or deleted.
 
-**Note:** Historical charts are currently available as a feature preview for organizations using {% data variables.product.prodname_team %} and are generally available for organizations using {% data variables.product.prodname_ghe_cloud %}.
-
-{% endnote %}
-
-{% endif %}
-
- You can use insights for {% data variables.product.prodname_projects_v2 %} to view, create, and customize charts that use the items added to your project as their source data. You can apply filters to the default chart and also create your own charts. When you create a chart, you set the filters, chart type, the information displayed, and the chart is available to anyone that can view the project. You can generate two types of chart: current charts and historical charts.
-
- Insights does track items you have archived or deleted.
-
- ### About current charts
+## About current charts
 
 You can create current charts to visualize your project items. For example, you can create charts to show how many items are assigned to each individual, or how many issues are assigned to each upcoming iteration.
 
-You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see "[Filtering projects](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects)."
+You can also use filters to manipulate the data used to build your chart. For example, you can create a chart showing how much upcoming work you have, but limit those results to particular labels or assignees. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
 
- ![Screenshot showing an stacked column chart showing item types for each iteration](/assets/images/help/issues/column-chart-example.png)
+![Screenshot of a stacked column chart, with a column for each iteration. Each column is divided into "Bug", "Feedback", "Backend", and "UI" sections.](/assets/images/help/issues/column-chart-example.png)
 
-For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)."
+For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts).
 
- ### About historical charts
+## About historical charts
 
- Historical charts are time-based charts that allow you to view your project's trends and progress. You can view the number of items, grouped by status and other fields, over time.
- 
- The default "Burn up" chart shows item status over time, allowing you to visualize progress and spot patterns over time. 
+You can create historical charts to visualize your project items over time. Historical charts track changes to the state of your project items. You can see "Open" items with open issues and pull requests, "Completed" items with issues that were closed as completed or merged pull requests, "Closed pull requests", and "Not planned" items with issues that were closed as not planned. You can view the number of items or aggregation of items over time.
 
-![Screenshot showing an example of the default burn up chart for the current iteration](/assets/images/help/issues/burnup-example.png)
+The default "Burn up" chart allows you to visualize the progress of your issues over time, showing how much work is completed and how much is left to do. You can use this chart to view progress, spot trends, and identify bottlenecks to help move the project forward.
 
- To create a historical chart, set your chart's X-axis to "Time." For more information, see "[Creating charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts)" and "[Configuring charts](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts)."
+![Screenshot of a "Burn up" chart, showing the issues over a two-week period split into the categories: "Open", "Completed", and "Not planned".](/assets/images/help/issues/burnup-example.png)
+
+To create a historical chart, set your chart's X-axis to "Time." You can also use filters to manipulate the data used to build your chart. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/filtering-projects).
+
+For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/creating-charts) and [AUTOTITLE](/issues/planning-and-tracking-with-projects/viewing-insights-from-your-project/configuring-charts).
 
 ## Further reading
 
-- "[About {% data variables.product.prodname_projects_v2 %}](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)"
-- "[Disabling insights for {% data variables.product.prodname_projects_v2 %} in your organization](/organizations/managing-organization-settings/disabling-insights-for-projects-in-your-organization)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects)

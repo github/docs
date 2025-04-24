@@ -1,10 +1,18 @@
+{% ifversion projects-v1-can-create %}
+
 {% ifversion fpt or ghec %}
-{% note %}
 
-**Notes:** 
+> [!NOTE]
+> * These endpoints only interact with {% data variables.product.prodname_projects_v1 %}. To manage {% data variables.product.prodname_projects_v2 %}, use the GraphQL API. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects).
+> * To create a new {% data variables.projects.projects_v1_board %}, the organization, user, or repository must already have at least one {% data variables.projects.projects_v1_board %}.
 
-* This API only applies to {% data variables.product.prodname_projects_v1 %}. {% data variables.product.prodname_projects_v2 %} can be managed with the GraphQL API. For more information, see "[Using the API to manage projects](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects)."
-* You can only create a new {% data variables.projects.projects_v1_board %} for an organization, user, or repository that already has at least one {% data variables.projects.projects_v1_board %}.
+{% endif %}
 
-{% endnote %}
+{% else %}
+
+> [!NOTE]
+{% data reusables.projects.sunset_notice_content %}
+>
+> These endpoints only interact with {% data variables.product.prodname_projects_v1 %}. To manage {% data variables.product.prodname_projects_v2 %}, use the GraphQL API. For more information, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/using-the-api-to-manage-projects).
+
 {% endif %}

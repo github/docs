@@ -18,28 +18,23 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards).
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.resync-automation %}
 
-{% tip %}
-
-**Tip**: To edit columns that already have configured automation, click **Manage** at the bottom of the column.
-
-{% endtip %}
+> [!TIP]
+> To edit columns that already have configured automation, click **Manage** at the bottom of the column.
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
-2. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-![Edit icon](/assets/images/help/projects/edit-column-button.png)
-3. Click **Manage automation**.
-![Manage automation button](/assets/images/help/projects/manage-automation-button.png)
-4. Using the Preset drop-down menu, select an automation preset.
-![Select preset automation from menu](/assets/images/help/projects/select-automation.png)
-5. Select the workflow automations you want to configure for the column.
-![List of options for automating the column](/assets/images/help/projects/select-automation-options-existing-column.png)
-6. Click **Update automation**.
+1. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="Column menu" %}.
+![Screenshot showing a column in a project. The menu icon is highlighted with an orange outline.](/assets/images/help/projects/edit-column-button.png)
+1. Click **Manage automation**.
+1. Using the Preset drop-down menu, select an automation preset.
+1. Select the workflow automations you want to configure for the column.
+1. Click **Update automation**.
 
 ## Further reading
-- "[About automation for {% data variables.product.prodname_projects_v1 %}](/articles/about-automation-for-project-boards)"
+
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)

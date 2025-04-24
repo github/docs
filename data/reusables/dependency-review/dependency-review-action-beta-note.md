@@ -1,5 +1,2 @@
-{% note %}
-
-**Note**: The {% data variables.product.prodname_dependency_review_action %} is currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.dependency-review.action_name %} is currently in {% data variables.release-phases.public_preview %} and subject to change.

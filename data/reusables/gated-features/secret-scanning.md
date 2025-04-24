@@ -1,9 +1,17 @@
-<!--This reusable describes the GHAS secret scanning feature. For a reusable that also covers the free secret scanning for public repositories on GitHub.com, use `secret-scanning-partner.md`  -->
+{% data variables.product.prodname_secret_scanning_caps %} is available for the following repository types:
 
-{%- ifversion ghec or ghes %}
-{% data variables.product.prodname_secret_scanning_GHAS_caps %} is available for organization-owned repositories in {% data variables.product.product_name %} if your enterprise has a license for {% data variables.product.prodname_GH_advanced_security %}.
+{%- ifversion fpt %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled
 
-{%- elsif ghae %}
-{% data variables.product.prodname_secret_scanning_caps %} is available for organization-owned repositories in {% data variables.product.product_name %}. This is a {% data variables.product.prodname_GH_advanced_security %} feature (free during the beta release).
+{%- elsif ghec %}
+* Public repositories on {% data variables.product.prodname_dotcom_the_website %}
+* Organization-owned repositories on {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion secret-scanning-user-owned-repos %}
+* User-owned repositories for {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_emus %}{% endif %}
 
-{%- endif %} {% ifversion not ghae %}{% data reusables.advanced-security.more-info-ghas %}{% endif %}
+{%- elsif ghes %}
+
+* Organization-owned repositories with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% ifversion secret-scanning-user-owned-repos %}
+* User-owned repositories for enterprises with [{% data variables.product.prodname_GH_secret_protection %}](/get-started/learning-about-github/about-github-advanced-security) enabled{% endif %}
+
+{% endif %}

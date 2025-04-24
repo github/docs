@@ -18,15 +18,13 @@ Automation in your {% data variables.projects.projects_v1_board %} does not appl
 
 ## Archiving cards on a {% data variables.projects.projects_v1_board %}
 
-1. In a {% data variables.projects.projects_v1_board %}, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.
-![List of options for editing a project board card](/assets/images/help/projects/select-archiving-options-project-board-card.png)
-2. Click **Archive**.
-![Select archive option from menu](/assets/images/help/projects/archive-project-board-card.png)
+1. In a {% data variables.projects.projects_v1_board %}, find the card you want to archive, then click {% octicon "kebab-horizontal" aria-label="Card menu" %}.
+![Screenshot showing a card on a project. The card menu icon is highlighted with an orange outline.](/assets/images/help/projects/select-archiving-options-project-board-card.png)
+1. Click **Archive**.
 
 ## Restoring cards on a {% data variables.projects.projects_v1_board %} from the sidebar
 
 {% data reusables.project-management.click-menu %}
-2. Click {% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}, then click **View archive**.
-  ![Select view archive option from menu](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
-3. Above the {% data variables.projects.projects_v1_board %} card you want to unarchive, click **Restore**.
-  ![Select restore project board card](/assets/images/help/projects/restore-card.png)
+1. Click {% octicon "kebab-horizontal" aria-label="Project menu" %}, then click **View archive**.
+   ![Screenshot showing the project menu. The "View archive" option is highlighted with an orange outline.](/assets/images/help/projects/select-view-archive-option-project-board-card.png)
+1. Above the {% data variables.projects.projects_v1_board %} card you want to unarchive, click **Restore**.

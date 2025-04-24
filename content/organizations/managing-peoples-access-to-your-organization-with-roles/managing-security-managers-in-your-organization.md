@@ -1,8 +1,10 @@
 ---
 title: Managing security managers in your organization
-intro: You can give your security team the least access they need to your organization by assigning a team to the security manager role.
+intro: You can give your security experts the least access they need to configure and monitor the use of security features for codebases in your organization.
 versions:
-  feature: security-managers
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Organizations
   - Teams
@@ -16,40 +18,54 @@ permissions: Organization owners can assign the security manager role.
 
 ## Permissions for the security manager role
 
-Members of a team with the security manager role have only the permissions required to effectively manage security for the organization.
+Organization members {% ifversion org-sec-manager-update %} and members of teams {% elsif ghes < 3.16 %}in a team {% endif %}assigned the security manager role have only the permissions required to effectively manage use of security features for the organization.
 
-- Read access on all repositories in the organization, in addition to any existing repository access
-- Write access on all security alerts in the organization {% ifversion not fpt %}
-- Access to the organization's security overview {% endif %}
-- The ability to configure security settings at the organization level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
-- The ability to configure security settings at the repository level{% ifversion not fpt %}, including the ability to enable or disable {% data variables.product.prodname_GH_advanced_security %}{% endif %}
+* Read access on all repositories in the organization, in addition to any existing repository access
+* Write access on all security alerts in the organization {% ifversion not fpt %}
+* Access to view and configure all repositories in the organization's security overview {% endif %}
+* The ability to configure settings for security features at the organization level, including the ability to enable or disable {% data variables.product.prodname_GHAS %} features
+* The ability to configure settings for security features at the repository level, including the ability to enable or disable {% data variables.product.prodname_GHAS %} features
 
-{% ifversion fpt %}
-Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %}. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest/organizations/managing-peoples-access-to-your-organization-with-roles/managing-security-managers-in-your-organization).
-{% endif %}
+Additional functionality, including a security overview for the organization, is available in organizations that use {% data variables.product.prodname_GHAS_cs_or_sp %}.
 
-If a team has the security manager role, people with admin access to the team and a specific repository can change the team's level of access to that repository but cannot remove the access. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository){% ifversion fpt or ghec or ghes > 3.3 or ghae > 3.3 %}" and "[Managing teams and people with access to your repository](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository)."{% else %}."{% endif %}
+If a team has the security manager role, people with admin access to the team and a specific repository can change the team's level of access to that repository but cannot remove the access. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-team-access-to-an-organization-repository) and [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/managing-repository-settings/managing-teams-and-people-with-access-to-your-repository).
 
-  ![Manage repository access UI with security managers](/assets/images/help/organizations/repo-access-security-managers.png)
+{% ifversion org-sec-manager-update %}
+
+## Managing security managers in your organization
+
+You can assign the pre-defined security manager role to either an organization team or directly to an organization member. Larger organizations may want to create a dedicated team for security management. This approach is especially useful if you want to assign additional permissions to your security experts.
+
+For information about assigning roles to users and teams, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/using-organization-roles).
+
+## Creating a custom security role
+
+You can create custom security roles for your organization with reduced or increased access, as needed. For example, you might create a security role limited to managing secret scanning results and bypass requests, or you might create a combined security and audit log role. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/managing-custom-organization-roles).
+
+{% else %}
 
 ## Assigning the security manager role to a team in your organization
+
 You can assign the security manager role to a maximum of 10 teams in your organization.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% ifversion security-configurations %}
+{% data reusables.security-configurations.display-global-settings %}
+{% else %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, search for and select the team to give the role. Each team you select will appear in a list below the search bar. 
-  ![Add security manager](/assets/images/help/organizations/add-security-managers.png)
+{% endif %}
+1. In the "Security managers" section, in the search field, search for and select the team to give the role. Each team you select will appear in a list below the search bar.
+
 ## Removing the security manager role from a team in your organization
-
-{% warning %}
-
-**Warning:** Removing the security manager role from a team will remove the team's ability to manage security alerts and settings across the organization, but the team will retain read access to repositories that was granted when the role was assigned. You must remove any unwanted read access manually. For more information, see "[Managing team access to an organization repository](/organizations/managing-access-to-your-organizations-repositories/managing-team-access-to-an-organization-repository#removing-a-teams-access-to-a-repository)."
-
-{% endwarning %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
+{% ifversion security-configurations %}
+{% data reusables.security-configurations.display-global-settings %}
+{% else %}
 {% data reusables.organizations.security-and-analysis %}
-1. Under **Security managers**, to the right of the team you want to remove as security managers, click {% octicon "x" aria-label="The X icon" %}.
-  ![Remove security managers](/assets/images/help/organizations/remove-security-managers.png)
+{% endif %}
+1. Under **Security managers**, next to the team you want to remove as security managers, click {% octicon "x" aria-label="Remove TEAM" %}.
+
+{% endif %}

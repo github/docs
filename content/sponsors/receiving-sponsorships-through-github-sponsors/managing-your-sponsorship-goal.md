@@ -46,3 +46,11 @@ After you retire a goal, you won't be able to reactivate the goal. You must crea
 {% data reusables.sponsors.navigate-to-your-goals-tab %}
 {% data reusables.sponsors.edit-goal %}
 {% data reusables.sponsors.retire-goal %}
+
+## Sharing a goal
+
+You can share your sponsorship goal on social media or embed it on your personal website.
+
+{% data reusables.sponsors.navigate-to-sponsors-dashboard %}
+{% data reusables.sponsors.navigate-to-your-goals-tab %}
+1. Under your goal, click the **Share** or **Embed it** button.

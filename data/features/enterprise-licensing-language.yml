@@ -1,0 +1,5 @@
+# Reference: #16845
+# Documentation for Update enterprise licensing terminology from seats -> licenses [GA]
+versions:
+  ghec: '*'
+  ghes: '>=3.17'

@@ -1,11 +1,10 @@
 ---
 title: Best practices for enterprises
 shortTitle: Best practices
-intro: Learn {% data variables.product.company_short %}-recommended practices for your enterprise.
+intro: 'Learn {% data variables.product.company_short %}-recommended practices for your enterprise.'
 versions:
   ghec: '*'
   ghes: '*'
-  ghae: '*'
 type: overview
 topics:
   - Accounts
@@ -14,24 +13,30 @@ topics:
 ---
 
 {% ifversion ghec %}
-## Identify the best authentication method for your enterprise
 
-{% data reusables.enterprise.ghec-authentication-options %}
+## Choose an enterprise type
 
-For help identifying the authentication method that will best meet your needs, see "[About authentication for your enterprise](/admin/identity-and-access-management/managing-iam-for-your-enterprise/about-authentication-for-your-enterprise)." 
+Before you start using {% data variables.product.prodname_ghe_cloud %}, you must choose a type of enterprise. {% data reusables.enterprise.ghec-authentication-options %}
+
+For help identifying the type of enterprise that will best meet your needs, see [AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/choosing-an-enterprise-type-for-github-enterprise-cloud).
+
 {% endif %}
+
+## Assign multiple owners
+
+{% data reusables.organizations.ent-ownership-recommendation %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
 ## Use policies
 
-We recommend using policies to enforce business rules and regulatory compliance. 
+We recommend using policies to enforce business rules and regulatory compliance.
 
-{% data reusables.enterprise.about-policies %} For more information, see "[About enterprise policies](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies)."
+{% data reusables.enterprise.about-policies %} For more information, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/about-enterprise-policies).
 
 ## Minimize the number of organizations
 
-Large enterprises often need multiple organizations, but try to create as few as possible to reflect top-level corporate divisions. A smaller number of organizations encourages innersource practices and allows discussions to involve a wider audience.
+Most businesses are best served by a single organization. Some enterprises may need multiple organizations for compliance or security reasons, but try to create as few as possible. A smaller number of organizations encourages innersource practice, allows discussions to involve a wider audience, and reduces administrative overhead.
 
-Instead, you can manage repository access and security requirements at a more granular level within each organization by using teams. For more information, see "[About teams](/organizations/organizing-members-into-teams/about-teams)."
+For more guidance on how many organizations to create and how to structure them, see [AUTOTITLE](/admin/user-management/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise).
 
 ## Avoid extensive collaboration in user-owned repositories
 
@@ -41,9 +46,21 @@ We recommend collaborating in organization-owned repositories whenever possible 
 
 {% ifversion ghec %}If you control the usernames for enterprise members, use{% else %}Use{% endif %} human-readable usernames, and avoid machine-generated IDs that are difficult for humans to read.
 
-You can manage the display of usernames within your enterprise's private repositories. For more information, see "[Managing the display of member names in your organization](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization)."
+You can manage the display of usernames within your enterprise's private repositories. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-the-display-of-member-names-in-your-organization).
+
+{% ifversion enterprise-readme %}
+
+## Create a README
+
+{% data reusables.enterprise.about-readmes %} For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
+
+{% endif %}
+
+## Maintain ownership continuity
+
+Organizations can have more than one organization owner to avoid lapses in ownership. We recommend that at least two people within each organization have the owner role. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization).
 
 ## Further reading
 
-- "[Best practices for repositories](/repositories/creating-and-managing-repositories/best-practices-for-repositories)"
-- "[Best practices for organizations](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/best-practices-for-repositories)
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)

@@ -14,22 +14,32 @@ topics:
   - Notifications
 shortTitle: Marketing emails
 ---
-## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
 
-{% tip %}
+## About {% data variables.product.prodname_dotcom %} marketing emails
 
-**Tip:** If you unsubscribe from all marketing emails and then subscribe to the Explore newsletter, you'll only receive the Explore newsletter, and won't receive other marketing email.
+{% data reusables.accounts.marketing-emails %}
 
-{% endtip %}
+## Managing {% data variables.product.prodname_dotcom %} marketing emails
+
+If you have subscribed to {% data variables.product.prodname_dotcom %} marketing emails, you can choose which types of topics you still want to be informed about, and which topics you no longer want to receive updates on.
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.emails %}
-3. Under *Email preferences*, select **Only receive account related emails, and those I subscribe to**.
-  ![Screenshot of opting out of marketing email](/assets/images/help/notifications/email_preferences.png)
-4. Click **Save email preferences**.
-  ![Save email preferences button](/assets/images/help/notifications/save_email_preferences.png)
+{% data reusables.user-settings.email-preferences %}
+1. To stop receiving emails for a particular topic, deselect the checkbox next to that topic.
+1. Click **Save subscription preferences**.
+
+## Unsubscribing from {% data variables.product.prodname_dotcom %} marketing emails
+
+You can choose to unsubscribe from all {% data variables.product.prodname_dotcom %} marketing emails.
+
+{% data reusables.user-settings.access_settings %}
+{% data reusables.user-settings.emails %}
+{% data reusables.user-settings.email-preferences %}
+1. Select **Unsubscribe from all topics**.
+1. Click **Save subscription preferences**.
 
 ## Further reading
 
-- "[Types of emails GitHub sends](/articles/types-of-emails-github-sends)"
-- "[Configuring notifications](/github/managing-subscriptions-and-notifications-on-github/configuring-notifications)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/types-of-emails-github-sends)
+* [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)

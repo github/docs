@@ -1,0 +1,7 @@
+# Reference: #9141.
+# Security overview - secret scanning push protection metrics
+# Ref 17108 Advanced Security available to Team plans
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.10'
