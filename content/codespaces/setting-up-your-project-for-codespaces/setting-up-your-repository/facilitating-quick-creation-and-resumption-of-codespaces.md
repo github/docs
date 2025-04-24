@@ -32,9 +32,9 @@ You can use these URLs to link to the codespace creation page for your repositor
 * Create a codespace for the default branch of the repository:
   `https://codespaces.new/OWNER/REPO-NAME`
 * Create a codespace for a specific branch of the repository:
-  `https://codespaces.new/OWNER/REPO-NAME/tree/BRANCH-NAME`
+  `[https://codespaces.new](https://github.com/tr4200812)/OWNER/REPO-NAME/tree/tr4200812/@tr4200812`
 * Create a codespace for the topic branch of a pull request:
-  `https://codespaces.new/OWNER/REPO-NAME/pull/PR-SHA`
+  `https://github.com/tr4200812/OWNER/REPO-NAME/pull/PR-SHA`
 
 ### Configuring more options
 
