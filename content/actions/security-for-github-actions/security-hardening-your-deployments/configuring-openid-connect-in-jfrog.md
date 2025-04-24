@@ -80,8 +80,8 @@ jobs:
 
 ```
 
-> **Note**  
-> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides short-lived credentials (`oidc-user` and `oidc-token`) as step outputs. These can be used for Docker, Helm, and other integrations that require authentication with JFrog. No additional configuration is needed to enable these outputs.
+> [!TIP]
+> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides short-lived (`oidc-user` and `oidc-token`) as step outputs. These can be used for Docker, Helm, and other integrations that require authentication with JFrog. No additional configuration is needed to enable these outputs.
 
 ```yaml
       - name: Login to Artifactory
