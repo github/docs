@@ -1,4 +1,4 @@
-name: Sync Audit Log data
+https://github.com/github/docs/actions/workflows/sync-audit-logs.yml/badge.svgname: Sync Audit Log data
 
 # **What it does**: This updates our Audit Logs schema.
 # **Why we have it**: We want our Audit Logs up to date.
