@@ -35,7 +35,7 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
     For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
 
-    ```json copy
+    ```json
     {
       "iss": "https://token.actions.githubusercontent.com",
       "repository": "octo-org/octo-repo"
@@ -68,25 +68,39 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup JFrog CLI with OIDC
+        id: setup-jfrog-cli
         uses: jfrog/setup-jfrog-cli@v4
         with:
-          oidc-provider-name: 'YOUR_PROVIDER_NAME'
-          oidc-audience: 'YOUR_AUDIENCE'
+          JF_URL: ${{ env.JF_URL }}
+          oidc-provider-name: 'my-github-provider' # Replace with your configured provider name
+          oidc-audience: 'jfrog-github'            # Replace with your configured audience
 
       - name: Upload artifact
         run: jf rt upload "dist/*.zip" my-repo/
+
 ```
 
+> **Note**  
+> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides short-lived credentials (`oidc-user` and `oidc-token`) as step outputs. These can be used for Docker, Helm, and other integrations that require authentication with JFrog. No additional configuration is needed to enable these outputs.
+
+```yaml
+      - name: Login to Artifactory
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.JF_URL }}
+          username: ${{ steps.setup-jfrog-cli.outputs.oidc-user }}
+          password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
+```
 ## Security Best Practices
 
-- Always use `permissions: id-token: write` in workflows that authenticate with JFrog.
-- Limit trust using specific claims like `repository`, `ref`, or `environment`.
-- Configure identity mappings in JFrog to restrict authentication to specific workflows.
+-  Always set `permissions: id-token: write` in any workflow using OIDC.
+-  Restrict trust using claims such as `repository`, `ref`, or `environment`.
+-  Use identity mappings to scope access at a fine-grained level inside the JFrog Platform.
 
 ## Further Reading
 
 - [JFrog OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration)
-- [JFrog Platform Identify Mappings DOCS](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
-- [JFrog CLI Docs: `exchange-oidc-token` command (manual usage)](https://jfrog.com/help/r/jfrog-cli-documentation/oidc-commands#exchange-oidc-token)
-- [GitHub Docs: About security hardening with OpenID Connect](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
+- [Configure Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
+- [JFrog CLI: `exchange-oidc-token` Command](https://jfrog.com/help/r/jfrog-cli-documentation/oidc-commands#exchange-oidc-token)
+- [GitHub Docs: About Security Hardening with OIDC](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 ```
