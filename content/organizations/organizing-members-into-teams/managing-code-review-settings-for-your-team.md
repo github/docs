@@ -1,4 +1,18 @@
----
+-Managing code review settings for your team
+You can decrease noise for your team by limiting notifications when your team is requested to review a pull request.
+
+Who can use this feature?
+Team maintainers and organization owners can configure code review settings.
+
+Code review settings are available in all public repositories owned by an organization, and all private repositories owned by organizations on GitHub Team, GitHub Enterprise Server, and GitHub Enterprise Cloud. For more information, see GitHub’s plans.
+
+In this article
+About code review settings
+About team notifications
+About auto assignment
+Configuring team notifications
+Configuring auto assignment
+Disabling auto assignment--
 title: Managing code review settings for your team
 intro: You can decrease noise for your team by limiting notifications when your team is requested to review a pull request.
 redirect_from:
