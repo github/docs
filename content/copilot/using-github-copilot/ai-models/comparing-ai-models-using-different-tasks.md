@@ -133,7 +133,7 @@ You’re designing a shopping cart system and have a UML class diagram that outl
 
 {% data reusables.copilot.example-prompts.response-is-an-example %}
 
-{% data variables.product.prodname_copilot_short %} will generate a class for each of the classes in the diagram, including the relationships between them. Here’s the example code generated for the `Cart` class:
+% data variables.product.prodname_copilot_short %} will generate a class for each of the classes in the diagram, including the relationships between them. Here’s the example code generated for the `Cart` class:
 
 ```python
 from cart_item import CartItem
