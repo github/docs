@@ -62,6 +62,8 @@ You're ready to start building real coding skills with {% data variables.product
 
 Throughout your work on the project, engage in a long-running conversation with **{% data variables.product.prodname_copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
 
-> [!TIP] You can open {% data variables.product.prodname_copilot_chat_short %} with a keyboard shortcut: <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac).
+<a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
+<span>Open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 %}
+</a><br></br>
 
 {% data variables.product.prodname_copilot_chat_short %} is especially helpful for debugging your code. For step-by-step guidance, see [AUTOTITLE](/get-started/learning-to-code/learning-to-debug-with-github-copilot).
