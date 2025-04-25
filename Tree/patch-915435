@@ -1,21 +1,7 @@
----
-title: Setting up and managing your GitHub profile
-intro: You can customize your GitHub profile and manage your contribution graph.
-shortTitle: Profiles
-redirect_from:
-  - /categories/setting-up-and-managing-your-github-profile
-  - /github/setting-up-and-managing-your-github-profile
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Profiles
-children:
-  - /customizing-your-profile
-  - /managing-contribution-settings-on-your-profile
----
-¤¤^
+"This branch has conflicts that must be resolved
+Use the command line to resolve conflicts before continuing.
+
+"
 Setting up and managing your GitHub profile
 You can customize your GitHub profile and manage your contribution graph.
 
@@ -40,17 +26,5 @@ Did you find what you needed?
 Privacy policy
 Help us make these docs great!
 All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
-
-Learn how to contribute
-
-Still need help?
-Ask the GitHub community
-Contact support
-Legal
-© 2025 GitHub, Inc.
-Terms
-Privacy
-Status
-Pricing
-Expert services
-Blog
+@tr4200812
+tr4200712@gmail.com and tr4200812@outlook.com.au
