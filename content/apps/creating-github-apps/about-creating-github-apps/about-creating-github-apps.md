@@ -83,3 +83,5 @@ If you want your app to respond to events on {% data variables.product.prodname_
 ### {% data variables.product.prodname_github_apps %} that can take certain actions
 
 When you set up your {% data variables.product.prodname_github_app %}, you can select specific permissions for the app. These permissions determine what the app can do via the {% data variables.product.prodname_dotcom %} API, what they can do on behalf of a signed in user, and what webhooks the app can receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
+
+https://github.com/
