@@ -1,3 +1,75 @@
+difficulty and availability and the available
+
+Contributing to GitHub Docs documentation
+Learn about how the GitHub Docs team creates documentation and how you can contribute.
+
+Start here
+Best practices for GitHub Docs
+Follow these best practices to create documentation that's user-friendly and easy to understand.
+
+Style guide
+Follow this guide to make sure GitHub's documentation stays consistent and follows clear patterns that our readers can understand.
+
+About the content model
+The content model describes the structure and types of content that we publish.
+
+About contributing to GitHub Docs
+You can contribute to GitHub Docs content in several ways.
+
+What's this
+View all 
+Contributing to GitHub Docs
+October 02
+Docs are being translated to French, German, Korean, and Russian
+December 06
+Webhook docs generated from the OpenAPI schema
+November 16
+All Contribute to GitHub Docs docs
+Writing for GitHub Docs
+Best practices for GitHub Docs
+About GitHub's documentation philosophy
+About GitHub's documentation fundamentals
+Content design principles
+Writing content to be translated
+Making content findable in search
+Versioning documentation
+Using Markdown and Liquid in GitHub Docs
+Using YAML frontmatter
+Using videos in GitHub Docs
+Creating reusable content
+Creating screenshots
+Creating diagrams for GitHub Docs
+Creating tool switchers in articles
+Configuring redirects
+Changing an article's title
+Annotating code examples
+Templates
+Style guide and content model
+Style guide
+About the content model
+Contents of a GitHub Docs article
+About topics
+Conceptual content type
+Referential content type
+Procedural content type
+Troubleshooting content type
+Release note content type
+Quickstart content type
+Tutorial content type
+About combining multiple content types
+Collaborating on GitHub Docs
+About contributing to GitHub Docs
+Using Git on GitHub Docs
+Using the TODOCS placeholder to leave notes
+Using the content linter
+Label reference
+Setting up your environment to work on GitHub Docs
+Working on GitHub Docs in a codespace
+Creating a local environment
+Troubleshooting your environment
+
+
+
 ---
 title: Setting your commit email address
 intro: 'You can set the email address that is used to author commits on {% data variables.product.github %} and on your computer.'
