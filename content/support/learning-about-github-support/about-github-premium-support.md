@@ -39,7 +39,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | | {% data variables.product.premium_support_plan %} | {% data variables.product.premium_plus_support_plan %} |
 |---|---|------|
 | Hours of operation | 24 x 7 | 24 x 7 |
-| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li></ul> |
+| Initial response time | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>48 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> | <ul><li>30 minutes for {% data variables.product.support_ticket_priority_urgent %} (including initial troubleshooting)</li><li>4 hours for {% data variables.product.support_ticket_priority_high %}</li><li>24 hours for {% data variables.product.support_ticket_priority_normal %}</li><li>48 hours for {% data variables.product.support_ticket_priority_low %}</li></ul> |
 | Support channels | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> | <ul><li>Online ticket submission</li><li>Phone support in English via callback request (when required for ticket resolution)</li><li>Screen share request for critical issues</li></ul> |
 | Training | Access to premium content  | <ul><li>Access to premium content</li><li>1 virtual training class per year</li></ul> |
 | Members with support entitlements | 20 | 40 |
@@ -97,10 +97,14 @@ To sign up for {% data variables.contact.premium_support %} or upgrade your plan
 
 For tickets you submit, support is available 24 hours a day, 7 days per week. The initial response time guaranteed by the SLA is dependent on the priority level of the ticket. Response time begins when {% data variables.contact.premium_support %} sets the priority level of the ticket. A response does not mean the issue has been resolved.
 
-| Ticket priority level | Initial response time |
-| --- | ---|
-| {% data variables.product.support_ticket_priority_urgent %} | 30 minutes |
-| {% data variables.product.support_ticket_priority_high %} | 4 hours |
+{% rowheaders %}
+
+| | Urgent Response Time | High Response Time | Normal Response Time | Low Response Time |
+| --- | ---| --- | --- | --- |
+| {% data variables.product.premium_plus_support_plan %} | 30 minutes | 4 hours | 24 hours | 48 hours |
+| {% data variables.product.premium_support_plan %} | 30 minutes | 4 hours | 48 hours | 48 hours |
+
+{% endrowheaders %}
 
 During the initial response time for Urgent priority tickets, you can expect us to do the following:
 
