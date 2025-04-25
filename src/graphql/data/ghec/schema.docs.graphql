@@ -7899,7 +7899,7 @@ input CreateIssueInput {
   """
   The Node ID of the issue type for this issue
   """
-  issueTypeId: ID @possibleTypes(concreteTypes: ["IssueType"])
+  issueTypeId: ID
 
   """
   An array of Node IDs of labels for this issue.
