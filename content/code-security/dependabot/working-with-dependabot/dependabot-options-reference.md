@@ -276,7 +276,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 
 * npm: use `^1.0.0` <!-- markdownlint-disable-line GHD034 -->
 * Bundler: use `~> 2.0`
-* Docker: use Ruby version syntax
+* Docker: use Bundler version syntax
 * NuGet: use `7.*`
 * Maven: use `[1.4,)`
 
