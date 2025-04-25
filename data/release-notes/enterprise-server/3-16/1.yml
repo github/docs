@@ -72,7 +72,8 @@ sections:
       After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance after at least one hour system uptime. [Updated: 2025-04-22]
     - |
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
-
+    - |
+      The security risk page returns a 500 error when Secret scanning is disabled. [Updated: 2025-04-25]
   errata:
     - |
       Known issues incorrectly indicated that administrators could immediately run the `/usr/local/share/enterprise/ghe-es-search-repair` script after a restore to resolve indexing and collaborator access issues. In reality, this script must be run only after the system has been up for at least one hour. [Updated: 2025-04-22]
