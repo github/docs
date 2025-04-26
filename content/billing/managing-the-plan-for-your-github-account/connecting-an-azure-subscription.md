@@ -208,4 +208,9 @@ Yes. Billing managers for organizations or enterprises can connect Azure subscri
 
 Yes. During an **{% data variables.product.prodname_emu %} trial**, you can use metered products up to the included limits. To exceed the included limits, you’ll need to link an Azure subscription.
 
+### What should I do if I see a banner saying my Azure ID is missing?
+
+If you see this banner, it means your Azure payment method information is missing. To avoid service interruptions for your enterprise or organization, make sure to add this information before the date provided in the alert.
+
+If you have questions or if you believe you are seeing this banner by mistake, contact {% data variables.contact.contact_support_page %}.
 {% endif %}
