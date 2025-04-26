@@ -1,4 +1,5 @@
----
+
+<---
 title: Responsible use of GitHub Copilot Chat in GitHub
 shortTitle: Chat in GitHub
 intro: 'Learn how to use {% data variables.product.prodname_copilot_chat_dotcom %} responsibly by understanding its purposes, capabilities, and limitations.'
@@ -9,7 +10,7 @@ topics:
 type: rai
 redirect_from:
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom
----
+<---
 
 ## About {% data variables.product.prodname_copilot_chat_dotcom %}
 
@@ -133,7 +134,7 @@ If you have enabled suggestions that match public code then {% data variables.pr
 
 ### Inaccurate code
 
-One of the limitations of {% data variables.product.prodname_copilot_chat_short %} is that it may generate code that appears to be valid but may not actually be semantically or syntactically correct or may not accurately reflect the intent of the developer. To mitigate the risk of inaccurate code, you should carefully review and test the generated code, particularly when dealing with critical or sensitive applications. You should also ensure that the generated code adheres to best practices and design patterns and fits within the overall architecture and style of the codebase.
+**One of the limitations of {% data variables.product.prodname_copilot_chat_short %} is that it may generate code that appears to be valid but may not actually be semantically or syntactically correct or may not accurately reflect the intent of the developer. To mitigate the risk of inaccurate code, you should carefully review and test the generated code, particularly when dealing with critical or sensitive applications. You should also ensure that the generated code adheres to best practices and design patterns and fits within the overall architecture and style of the codebase.
 
 ### Inaccurate responses to non-coding topics
 
@@ -155,3 +156,6 @@ For details of how to use {% data variables.product.prodname_copilot_chat_dotcom
 
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 * [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+
+
+¤
