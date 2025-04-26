@@ -1,0 +1,14 @@
+name: CodeQL analysis
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  schedule:
+    - cron: '0 3 * * 0'
+
+jobs:
+  call-codeQL-analysis:
+    name: CodeQL analysis
+    uses: actions/reusable-workflows/.github/workflows/codeql-analysis.yml@main

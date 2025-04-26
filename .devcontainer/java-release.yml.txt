@@ -1,0 +1,66 @@
+name: Build Java Release
+on:
+  push:
+    tags:
+      # if you change this pattern, make sure jobs.strip-tag still works
+      - 'release/java/v[0-9]+.[0-9]+.[0-9]+'
+jobs:
+  ci:
+    uses: ./.github/workflows/java-build.yml
+
+  strip-tag:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: process tag
+        id: version
+        run: |
+          TAG=${{ github.ref_name }}
+          echo "version=${TAG#"release/java/v"}" >> $GITHUB_OUTPUT
+
+  build:
+    runs-on: ubuntu-latest
+    needs: [ci, strip-tag]
+    permissions:
+      id-token: write # to sign with sigstore
+    steps:
+      - name: checkout tag
+        uses: actions/checkout@44c2b7a8a4ea60a981eaca3cf939b5f4305c123b # v4.1.5
+
+      - name: Set up JDK 11
+        uses: actions/setup-java@99b8673ff64fbf99d8d325f52d9a5bdedb8483e9 # v4.2.1
+        with:
+          java-version: 11 
+          distribution: 'temurin'
+
+      - name: Build project
+        working-directory: ./java
+        run: |
+          # override the version in gradle.properties
+          # we have to do some post processing with pgp signatures, cause those secrets aren't online yet
+          ./gradlew clean createReleaseBundle -Pversion=${{ needs.strip-tag.outputs.version }} -Prelease -PskipPgpSigning
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4.3.3
+        with:
+          name: project-release-artifacts
+          path: ./java/build/libs/protobuf-specs-*-bundle.jar
+          if-no-files-found: error
+
+  create-release:
+    runs-on: ubuntu-latest
+    needs: [build]
+    permissions:
+      contents: write # To draft a release
+    steps:
+      - name: Download gradle release artifacts
+        uses: actions/download-artifact@65a9edc5881444af0b9093a5e628f2fe47ea3b2e # v4.1.7
+        with:
+          name: project-release-artifacts
+          path: ./release/
+      - name: Create release
+        uses: softprops/action-gh-release@69320dbe05506a9a39fc8ae11030b214ec2d1f87 # v2.0.5
+        with:
+          name: ${{ github.ref_name }}
+          tag_name: ${{ github.ref_name }}
+          files: ./release/*

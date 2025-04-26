@@ -1,0 +1,23 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/
+    topicHref: /azure/active-directory/index
+    items:  
+    - name: B2C
+      tocHref: /azure/active-directory/develop/
+      topicHref: /azure/active-directory-b2c/index
+
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:  
+  - name: Active Directory
+    tocHref: /azure/active-directory/
+    topicHref: /azure/active-directory/index
+    items:  
+    - name: B2C
+      tocHref: /azure/active-directory/external-identities/
+      topicHref: /azure/active-directory-b2c/index
