@@ -1,10 +1,14 @@
 import { Request, Response } from 'express'
+import statsd from '@/observability/lib/statsd'
 import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
-import { getCSECopilotSource } from '#src/search/lib/helpers/cse-copilot-docs-versions.js'
+import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
+
+const memoryCache = new Map<string, Buffer>()
 
 export const aiSearchProxy = async (req: Request, res: Response) => {
   const { query, version, language } = req.body
+
   const errors = []
 
   // Validate request body
@@ -32,6 +36,25 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
     return
   }
 
+  const diagnosticTags = [
+    `version:${version}`.slice(0, 200),
+    `language:${language}`.slice(0, 200),
+    `queryLength:${query.length}`.slice(0, 200),
+  ]
+  statsd.increment('ai-search.call', 1, diagnosticTags)
+
+  // TODO: Caching here may cause an issue if the cache grows too large. Additionally, the cache will be inconsistent across pods
+  const cacheKey = `${query}:${version}:${language}`
+  if (memoryCache.has(cacheKey)) {
+    statsd.increment('ai-search.cache_hit', 1, diagnosticTags)
+    res.setHeader('Content-Type', 'application/x-ndjson')
+    res.send(memoryCache.get(cacheKey))
+    return
+  }
+
+  const startTime = Date.now()
+  let totalChars = 0
+
   const body = {
     chat_context: 'docs',
     docs_source: docsSource,
@@ -48,11 +71,19 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
       },
     })
 
+    // Listen for data events to count characters
+    stream.on('data', (chunk: Buffer | string) => {
+      // Ensure we have a string for proper character count
+      const dataStr = typeof chunk === 'string' ? chunk : chunk.toString()
+      totalChars += dataStr.length
+    })
+
     // Handle the upstream response before piping
     stream.on('response', (upstreamResponse) => {
       if (upstreamResponse.statusCode !== 200) {
         const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
         console.error(errorMessage)
+        statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
         res.status(500).json({ errors: [{ message: errorMessage }] })
         stream.destroy()
       } else {
@@ -75,6 +106,8 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
           .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
       }
 
+      statsd.increment('ai-search.stream_error', 1, diagnosticTags)
+
       if (!res.headersSent) {
         res.status(500).json({ errors: [{ message: 'Internal server error' }] })
       } else {
@@ -86,11 +119,19 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
       }
     })
 
-    // Ensure response ends when stream ends
+    // Calculate metrics on stream end
     stream.on('end', () => {
+      const totalResponseTime = Date.now() - startTime // in ms
+      const charPerMsRatio = totalResponseTime > 0 ? totalChars / totalResponseTime : 0 // chars per ms
+
+      statsd.gauge('ai-search.total_response_time', totalResponseTime, diagnosticTags)
+      statsd.gauge('ai-search.response_chars_per_ms', charPerMsRatio, diagnosticTags)
+
+      statsd.increment('ai-search.success_stream_end', 1, diagnosticTags)
       res.end()
     })
   } catch (error) {
+    statsd.increment('ai-search.route_error', 1, diagnosticTags)
     console.error('Error posting /answers to cse-copilot:', error)
     res.status(500).json({ errors: [{ message: 'Internal server error' }] })
   }

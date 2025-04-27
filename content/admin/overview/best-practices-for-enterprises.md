@@ -24,7 +24,7 @@ For help identifying the type of enterprise that will best meet your needs, see 
 
 ## Assign multiple owners
 
-{% data reusables.organizations.ent-ownership-recommendation %} {% ifversion ghec or ghes %}For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).{% endif %}
+{% data reusables.organizations.ent-ownership-recommendation %} For more information, see [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise).
 
 ## Use policies
 
@@ -55,6 +55,10 @@ You can manage the display of usernames within your enterprise's private reposit
 {% data reusables.enterprise.about-readmes %} For more information, see [AUTOTITLE](/admin/managing-your-enterprise-account/creating-a-readme-for-an-enterprise).
 
 {% endif %}
+
+## Maintain ownership continuity
+
+Organizations can have more than one organization owner to avoid lapses in ownership. We recommend that at least two people within each organization have the owner role. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/maintaining-ownership-continuity-for-your-organization).
 
 ## Further reading
 

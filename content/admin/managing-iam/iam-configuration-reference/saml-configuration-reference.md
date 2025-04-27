@@ -56,7 +56,7 @@ Depending on your environment, the SP metadata for an enterprise on {% data vari
 | :- | :- | :- | :- |
 | SP Entity ID | SP URL, audience restriction | The top-level URL for your enterprise on {% data variables.location.product_location %} | `https://github.com/enterprises/ENTERPRISE` |
 | SP Assertion Consumer Service (ACS) URL | Reply, recipient, or destination URL | URL where IdP sends SAML responses | `https://github.com/enterprises/ENTERPRISE/saml/consume` |
-| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/enterprises/ENTERPRISE/saml/sso` |
+| SP Single Sign-On (SSO) URL | | URL where IdP begins SSO |  `https://github.com/enterprises/ENTERPRISE/sso` |
 
 {% elsif ghes %}
 
@@ -83,7 +83,7 @@ The following SAML attributes are available for {% data variables.product.github
 | `username` | {% octicon "x" aria-label="Optional" %} | The username for {% data variables.location.product_location %}. |
 | {% endif %} |
 | `full_name` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} full name of the user to display on the user's profile page. |
-| `emails` | {% octicon "x" aria-label="Optional" %} | The email addresses for the user.{% ifversion ghes %} You can specify more than one address.{% endif %}{% ifversion ghec or ghes %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).{% endif %} |
+| `emails` | {% octicon "x" aria-label="Optional" %} | The email addresses for the user.{% ifversion ghes %} You can specify more than one address.{% endif %} If you sync license usage between {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, {% data variables.product.prodname_github_connect %} uses `emails` to identify unique users across products. For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud). |
 | `public_keys` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} public SSH keys for the user. You can specify more than one key. |
 | `gpg_keys` | {% octicon "x" aria-label="Optional" %} | {% ifversion ghec %}If you configure SAML SSO for an enterprise and you use {% data variables.product.prodname_emus %}, the{% else %}The{% endif %} GPG keys for the user. You can specify more than one key. |
 

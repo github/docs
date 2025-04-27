@@ -25,7 +25,7 @@ Some of the following example prompts use chat participants (preceded by `@`), s
 You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
 
 * `tell me about nodejs web server frameworks`
-* `how to create an express app`
+* `how can I create an Express app`
 * `@terminal how to update an npm package`
 
 ## Ask questions about your project
@@ -52,9 +52,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, or to insert the code at your cursor, into a new file, or into the terminal.
 
-## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} features
 
-You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
@@ -121,8 +121,8 @@ Use the `@terminal` chat participant to ask specific questions about the command
 You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
 
 * `tell me about nodejs web server frameworks`
-* `how to create an express app`
-* `how to update an npm package`
+* `how can I create an Express app`
+* `what's the process for updating an npm package`
 
 ## Ask questions about your project
 
@@ -147,9 +147,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to write code fo
 
 When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code, insert the code into a new file, or preview the code output.
 
-## Ask questions about alerts from {% data variables.product.prodname_GH_advanced_security %} features
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} features
 
-You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_short %} about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
@@ -187,8 +187,8 @@ The `/tests` slash command writes tests for existing code. If you prefer to writ
 You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
 
 * `tell me about nodejs web server frameworks`
-* `how to create an express app`
-* `how to update an npm package`
+* `how can I create an Express app`
+* `what's the process for updating an npm package`
 
 ## Ask questions about your project
 
@@ -247,7 +247,7 @@ Some of the example prompts require you to be in a specific context on the {% da
 You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
 
 * `tell me about nodejs web server frameworks`
-* `how to create an express app`
+* `how can I create an Express app`
 * `what is the best way to update an npm package`
 
 ## Ask questions about a repository
@@ -291,9 +291,9 @@ If you are asking about specific lines, you could enter:
 * `Add error handling to this code.`
 * `Write a unit test for this method.`
 
-## Ask questions about {% data variables.product.prodname_GH_advanced_security %} alerts
+## Ask questions about alerts from {% data variables.product.prodname_GHAS %} products
 
-You can ask {% data variables.product.prodname_copilot_chat_short %} questions about security alerts in repositories in your organization from {% data variables.product.prodname_GH_advanced_security %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about security alerts in repositories in your organization from {% data variables.product.prodname_GHAS %} features ({% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and {% data variables.product.prodname_dependabot_alerts %}). For example:
 
 * `How would I fix this alert?`
 * `How many alerts do I have on this pull request?`
@@ -340,3 +340,59 @@ You can ask {% data variables.product.prodname_copilot_chat_short %} questions a
 * `what is the best way to test this commit?`
 
 {% endwebui %}
+
+{% eclipse %}
+
+## Ask general software questions
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} general software questions. For example:
+
+* `tell me about nodejs web server frameworks`
+* `how can I create an Express app`
+* `what's the process for updating an npm package`
+
+## Ask questions about files your project
+
+You can ask {% data variables.product.prodname_copilot_chat_short %} questions about the file that's currently displayed in the editor, or about files you have attached to your conversation in the {% data variables.product.prodname_copilot_chat_short %} panel. To give {% data variables.product.prodname_copilot_short %} the correct context:
+
+* Open the relevant file in the editor.
+* Click the paperclip icon in the {% data variables.product.prodname_copilot_chat_short %} panel, then search for and select files you want to attach to the conversation.
+
+For example:
+
+* `how can I make this file run faster`
+* `how are these files related` (with two or more attached files)
+* `explain the getSearchReplaceRules function`
+
+## Write code
+
+You can ask {% data variables.product.prodname_copilot_short %} to write code for you. For example:
+
+* `write a TypeScript function to sum all numbers in a list`
+* `using the comments in this file, create appropriate Node JavaScript`
+
+When {% data variables.product.prodname_copilot_short %} returns a code block, the response includes options to copy the code.
+
+## Fix, improve, and refactor code
+
+If your active file contains an error, use the `/fix` slash command to ask {% data variables.product.prodname_copilot_short %} to fix the error.
+
+You can also make general requests to improve or refactor your code.
+
+* `how would you improve the code in this file`
+* `translate this code to C#`
+* `add error handling to the main function`
+
+## Write tests
+
+Use the `/tests` slash command to ask {% data variables.product.prodname_copilot_short %} to write tests for the active file or selected code. For example:
+
+* `/tests`
+* `/tests using the Jest framework`
+* `/tests ensure the function rejects an empty list`
+
+The `/tests` slash command writes tests for existing code. If you prefer to write tests before writing code (test driven development), omit the `/tests` command. For example:
+
+* `Add tests for a JavaScript function that should sum a list of integers`
+
+{% endeclipse %}

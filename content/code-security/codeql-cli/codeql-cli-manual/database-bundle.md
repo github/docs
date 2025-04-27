@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -20,6 +20,8 @@ redirect_from:
 <!-- Content after this section is automatically generated -->
 
 {% data reusables.codeql-cli.man-pages-version-note %}
+
+{% data reusables.code-scanning.codeql-database-archive-contains-source-code %}
 
 ## Synopsis
 

@@ -1,8 +1,9 @@
 ---
-title: '{% ifversion ghes %}Setting up GitHub Advanced Security features on your appliance{% else %}Configuring infrastructure for GitHub Advanced Security features{% endif %}'
-shortTitle: '{% ifversion ghes %}Set up{% else %}Configure{% endif %} GitHub Advanced Security'
-intro: 'You can {% ifversion ghes %}set up{% else %}configure{% endif %} {% data variables.product.prodname_advanced_security %} to suit your organization''s needs.'
-product: '{% data reusables.gated-features.ghas %}'
+title: '{% ifversion ghes %}Setting up {% data variables.product.prodname_GHAS %} features on your appliance{% else %}Configuring infrastructure for {% data variables.product.prodname_GHAS %} features{% endif %}'
+shortTitle: '{% ifversion ghes %}Set up{% else %}Configure{% endif %} {% data variables.product.prodname_GHAS %}'
+intro: 'You can {% ifversion ghes %}set up{% else %}configure{% endif %} {% data variables.product.prodname_AS %}{% ifversion ghas-products %} products{% endif %} to suit your enterprise''s needs.'
+allowTitleToDifferFromFilename: true
+product: '{% data reusables.gated-features.ghas-ghec %}'
 redirect_from:
   - /enterprise/admin/configuration/configuring-advanced-security-features
   - /admin/configuration/configuring-advanced-security-features

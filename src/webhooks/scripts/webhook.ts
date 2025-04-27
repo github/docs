@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { get, isPlainObject } from 'lodash-es'
 import { getJsonValidator } from '@/tests/lib/validate-json-schema'
 import { renderContent } from '@/content-render/index'

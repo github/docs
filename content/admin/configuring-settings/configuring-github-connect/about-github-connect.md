@@ -53,16 +53,15 @@ When {% data variables.product.prodname_github_connect %} is enabled, a record o
 ### Data transmitted when {% data variables.product.prodname_github_connect %} is enabled
 
 When you enable {% data variables.product.prodname_github_connect %} or specific {% data variables.product.prodname_github_connect %} features, a record on {% data variables.product.prodname_ghe_cloud %} stores the following information about the connection.
-{% ifversion ghes %}
 * The public key portion of your {% data variables.product.prodname_ghe_server %} license
 * A hash of your {% data variables.product.prodname_ghe_server %} license
 * The customer name on your {% data variables.product.prodname_ghe_server %} license
-* The version of {% data variables.location.product_location_enterprise %}{% endif %}
+* The version of {% data variables.location.product_location_enterprise %}
 * The hostname of {% data variables.location.product_location %}
 * The enterprise account on {% data variables.product.prodname_ghe_cloud %} that's connected to {% data variables.location.product_location %}
 * The authentication token that's used by {% data variables.location.product_location %} to make requests to {% data variables.product.prodname_ghe_cloud %}
-* If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}{% ifversion ghes %}
-* The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement{% endif %}
+* If Transport Layer Security (TLS) is enabled and configured on {% data variables.location.product_location %}
+* The {% data variables.product.prodname_github_connect %} features that are enabled on {% data variables.location.product_location %}, and the date and time of enablement
 * The dormancy threshold for your enterprise
 * The number of dormant users for your enterprise
 * A count of {% ifversion enterprise-licensing-language %}consumed licenses{% else %}license-consuming seats{% endif %}, which does not include suspended users
@@ -75,12 +74,8 @@ Additional data is transmitted if you enable individual features of {% data vari
 
 | Feature | Data | Which way does the data flow? | Where is the data used? |
 | ------- | ---- | --------- | ------ |
-| {% ifversion ghes %} |
-| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
-| {% endif %} |
-| {% ifversion ghes %} |
+| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %}.{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
 | {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
-| {% endif %} |
 | {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}<br><br>From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_server_statistics %} | Aggregate metrics about your usage of {% data variables.product.prodname_ghe_server %}. For the complete list of metrics, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/analyzing-how-your-team-works-with-server-statistics/about-server-statistics#server-statistics-data-collected). | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |

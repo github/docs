@@ -1,9 +1,11 @@
 ---
 title: Troubleshooting rules
-intro: 'Learn how to troubleshoot rulesets when you''re contributing to a repository.'
+intro: Learn how to troubleshoot rulesets when you're contributing to a repository.
 product: '{% data reusables.gated-features.repo-rules %}'
 versions:
-  feature: repo-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Repositories
 shortTitle: Troubleshooting
@@ -18,6 +20,8 @@ Depending on which rules are active, you may need to edit your commit history lo
 If a branch or tag is targeted by rules restricting the metadata of commits, your commits may be rejected if part of the commit's metadata does not match a certain pattern. For example, you might need to add an issue number to the start of your commit message, or change the name of a new branch or tag you're trying to push to the repository. If your commits are rejected, you will see a message telling you the pattern the relevant metadata needs to match. As with signed commits, you may need to perform a rebase to squash the commits or rewrite each commit individually. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets#metadata-restrictions).
 
 When utilizing push rulesets, a maximum of 1000 reference updates are allowed per push. If your push exceeds this limit, it will be rejected. For more information see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/creating-rulesets-for-a-repository#creating-a-push-ruleset).
+
+Additonally, push rulesets apply to the "Create a blob" and "Create or update file contents" endpoints in the REST API. See [AUTOTITLE](/rest/git/blobs?apiVersion=2022-11-28#create-a-blob) and [AUTOTITLE](/rest/repos/contents?apiVersion=2022-11-28#create-or-update-file-contents).
 
 ## Troubleshooting required status checks
 

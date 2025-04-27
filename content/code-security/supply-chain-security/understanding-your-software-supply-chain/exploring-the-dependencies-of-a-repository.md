@@ -24,16 +24,12 @@ shortTitle: Explore dependencies
 
 ## Viewing the dependency graph
 
-The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository. {% ifversion dependency-graph-repository-view-update %} {% data reusables.dependency-graph.repository-view-update %}{% endif %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
+The dependency graph shows the dependencies{% ifversion fpt or ghec %} and dependents{% endif %} of your repository.  {% data reusables.dependency-graph.repository-view-update %} For information about the detection of dependencies and which ecosystems are supported, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
-{% data reusables.repositories.click-dependency-graph %}{% ifversion dependency-graph-repository-view-update %}
-1. Optionally, use the search bar to find a specific dependency or set of dependencies.
-
-   >[!NOTE] The search bar only searches based on the package name.
-
-{% endif %}
+{% data reusables.repositories.click-dependency-graph %}
+1. Optionally, use the search bar to find a specific dependency or set of dependencies. You can use the keywords `ecosystem:` to show only packages of a certain type, or `relationship:` to show only direct or transitive dependencies (if the ecosystem supports transitivity). Plain words in search bar will only match package names.
 
 {% ifversion fpt or ghec %}
 
@@ -52,15 +48,22 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-For each dependency, you can see its ecosystem, the manifest file in which it was found, and the license (where detected). Dependencies on private repositories, private packages, or unrecognized files are shown in plain text. If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
+For each dependency, you can see its ecosystem, the manifest file in which it was found, and its license (where detected).
+
+* Dependencies for private repositories, private packages, or unrecognized files are shown in plain text.
+* If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
+* You can sort and filter dependencies by typing filters as `key:value` pairs into the search bar.
+
+    * Use `ecosystem: <ecosystem-name>` to display dependencies for the selected ecosystem.{% ifversion transitive-dependency-labeling-npm %}
+    * Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status. This filter is only available for ecosystems with transitive dependency support. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems) for more information.{% endif %}
+
 {% endif %}
 
 {% ifversion ghes %}
 Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes %}.{% else %}, grouped by ecosystem.{% endif %}
 {% endif %}
 
-{% ifversion dependency-graph-repository-view-update %}
-Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted.{% elsif ghes %}Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %}, although also grouped by ecosystem, are shown separately from dependencies identified through manifest or lock files in the repository. These submitted dependencies appear in the dependency graph as "Snapshot dependencies" because they are submitted as a snapshot, or set, of dependencies.{% else %}{% endif %} For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted. For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
 
 If vulnerabilities have been detected in the repository, these are shown at the top of the view for users with access to {% data variables.product.prodname_dependabot_alerts %}.
 
@@ -100,21 +103,13 @@ The "Used by" section represents a single package from the repository. If you ha
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under "Code security and analysis", click the drop-down menu in the "Used by counter" section and choose a package.
+1. Under "{% data variables.product.UI_advanced_security %}", click the drop-down menu in the "Used by counter" section and choose a package.
 
 {% endif %}
 
-## Troubleshooting the dependency graph
-
-If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
-
-{% ifversion fpt or ghec %}
-If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 1.5 Mb, unless you are a {% data variables.product.prodname_enterprise %} user. It processes up to 150 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
-
-If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for insecure dependencies.
-
 ## Further reading
 
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts){% ifversion ghec %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){% endif %}{% ifversion fpt or ghec %}

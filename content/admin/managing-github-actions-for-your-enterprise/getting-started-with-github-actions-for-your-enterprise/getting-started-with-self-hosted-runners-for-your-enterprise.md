@@ -78,15 +78,13 @@ You can create a runner group to manage access to the runner that you added to y
 1. To choose a policy for organization access, under "Organization access", select the **Organization access** drop-down, and click **Selected organizations**.
 1. To the right of the drop-down with the organization access policy, click {% octicon "gear" aria-label="Configure organizations" %}.
 1. Select the organizations you'd like to grant access to the runner group.
-{%- ifversion ghec or ghes %}
 1. Optionally, to allow public repositories in the selected organizations to use runners in the group, select **Allow public repositories**.
 
    > [!WARNING]
    > {% data reusables.actions.self-hosted-runner-security %}
    >
-   > For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#self-hosted-runner-security-with-public-repositories).
+   > For more information, see [AUTOTITLE](/actions/security-for-github-actions/security-guides/security-hardening-for-github-actions).
 
-{%- endif %}
 {% data reusables.actions.create-runner-group %}
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.

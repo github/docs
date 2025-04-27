@@ -16,15 +16,13 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/installing-github-copilot-extensions-for-your-organization
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 ## About {% data variables.product.prodname_copilot_extensions %} for your organization
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-on-marketplace %}
 
-Any organization owner can install {% data variables.product.prodname_copilot_extensions_short %} for their organization, but your organization must have an active {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+Any organization owner can install {% data variables.product.prodname_copilot_extensions_short %} for their organization, but your organization must have an active {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan.
 
-> [!NOTE] Anyone can install a {% data variables.product.prodname_copilot_extension_short %} on their personal account. However, if they get access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription, they will only be able to use the extension if it is installed at the organization level.
+> [!NOTE] Anyone can install a {% data variables.product.prodname_copilot_extension_short %} on their personal account. However, if they get access to {% data variables.product.prodname_copilot_short %} through a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, they will only be able to use the extension if it is installed at the organization level.
 
 You can also create your own custom {% data variables.product.prodname_copilot_extensions_short %} for your organization. For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
@@ -37,7 +35,7 @@ Before you install any {% data variables.product.prodname_copilot_extensions_sho
 1. Open [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true).
 1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 1. In the list of {% data variables.product.prodname_copilot_extensions_short %}, locate an app you'd like to install.
-1. To install the {% data variables.product.prodname_copilot_extension_short %} on an organization with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations).
+1. To install the {% data variables.product.prodname_copilot_extension_short %} on an organization with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations).
 {% data reusables.copilot.copilot-extensions.extension-specific-onboarding-steps %}
 
 ## Next steps

@@ -29,9 +29,7 @@ You can also configure rate limits for authentication attempts to the {% data va
 
 Excessive numbers of requests to the {% data variables.product.prodname_enterprise_api %} can affect the availability and performance of your instance. For more information about how rate limits for the API affect your users, see [AUTOTITLE](/rest/overview/rate-limits-for-the-rest-api).
 
-{% ifversion ghes %}
 You can exempt a list of users from API rate limits using the `ghe-config` utility in the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config).
-{% endif %}
 
 > [!NOTE]
 > The {% data variables.enterprise.management_console %} lists the time period (per minute or per hour) for each rate limit.
@@ -48,11 +46,7 @@ Setting secondary rate limits protects the overall level of service on {% data v
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
-{%- ifversion ghes %}
 1. Under "Rate Limiting", select **Enable Secondary Rate Limiting**.
-{%- else %}
-1. Under "Rate Limiting", select **Enable Abuse Rate Limiting**.
-{%- endif %}
 1. Type limits for Total Requests, CPU Limit, and CPU Limit for Searching, or accept the pre-filled default limits.
 {% data reusables.enterprise_management_console.save-settings %}
 
@@ -69,8 +63,6 @@ If a member of {% data variables.product.company_short %}'s staff has recommende
 1. Under "Repository Network Limit", type a limit for each repository network.
 1. Under "User ID Limit", type a limit for each user ID.
 {% data reusables.enterprise_management_console.save-settings %}
-
-{% ifversion ghes %}
 
 ## Configuring rate limits for {% data variables.product.prodname_actions %}
 
@@ -111,5 +103,3 @@ By default, the rate limit for {% data variables.product.prodname_actions %} is 
    ```
 
 1. Wait for the configuration run to complete.
-
-{% endif %}

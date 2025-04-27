@@ -6,7 +6,9 @@ topics:
 redirect_from:
   - /early-access/copilot/about-copilot-in-github-support
 versions:
-  feature: copilot-in-support
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Using Copilot in GitHub Support
 ---
 

@@ -145,12 +145,8 @@ When `commit-message` is defined:
 | `prefix-development` | On supported systems, defines a different prefix to use for commits that update dependencies in the Development dependency group. |
 | `include` | Follow the commit message prefix with additional information. |
 
-{% ifversion dependabot-version-updates-groups %}
-
 > [!TIP]
 > When pull requests are raised for grouped updates, the branch name and pull request title are defined by the group `IDENTIFIER`, see {% ifversion dependabot-grouped-security-updates-config %}[`groups`](#groups--){% else %}[`groups`](#groups-){% endif %}.
-
-{% endif %}
 
 ### `prefix`
 
@@ -194,8 +190,6 @@ If you need to use more than one block in the configuration file to define updat
 ## `enable-beta-ecosystems` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
 Not currently in use.
-
-{% ifversion dependabot-version-updates-groups %}
 
 ## `groups` {% ifversion dependabot-grouped-security-updates-config %}{% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}{% else %}{% octicon "versions" aria-label="Version updates only" height="24" %}{% endif %}
 
@@ -245,8 +239,6 @@ By default, a group will include updates for all semantic versions (SemVer). Sem
 
 For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#specifying-the-semantic-versioning-level-to-ignore).
 
-{% endif %}
-
 ## `ignore` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
 
 Use with the [`allow`](#allow--) option to define exactly which dependencies to maintain for a package ecosystem. {% data variables.product.prodname_dependabot %} checks for all allowed dependencies and then filters out any ignored dependencies or versions. So a dependency that is matched by both an allow and an ignore will be ignored. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/controlling-dependencies-updated#ignoring-specific-dependencies).
@@ -284,7 +276,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 
 * npm: use `^1.0.0` <!-- markdownlint-disable-line GHD034 -->
 * Bundler: use `~> 2.0`
-* Docker: use Ruby version syntax
+* Docker: use Bundler version syntax
 * NuGet: use `7.*`
 * Maven: use `[1.4,)`
 
@@ -368,6 +360,8 @@ When `open-pull-requests-limit` is defined:
 
 ## `package-ecosystem` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
+<!--Note: When making updates to this section, please make sure any changes are also reflected in `data/reusables/dependabot/supported-package-managers.md`.-->
+
 **Required option.** Define one `package-ecosystem` element for each package manager that you want {% data variables.product.prodname_dependabot %} to monitor for new versions. The repository must also contain a dependency manifest or lock file for each package manager, see [Example `dependabot.yml` file](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file).
 
 Package manager | YAML value      | Supported versions |
@@ -382,8 +376,14 @@ Package manager | YAML value      | Supported versions |
 | Dev containers | `devcontainers`         | Not applicable               |
 | {% endif %} |
 | Docker         | `docker`         | v1               |
+| {% ifversion dependabot-docker-compose-support %} |
+| Docker Compose | `docker-compose`         | v2, v3               |
+| {% endif %} |
 | {% ifversion dependabot-dotnet-sdk %} |
 | .NET SDK       | `dotnet-sdk`         | >=.NET Core 3.1           |
+| {% endif %} |
+| {% ifversion dependabot-helm-support %} |
+| Helm Charts            | `helm`            | v3               |
 | {% endif %} |
 | Hex            | `mix`            | v1               |
 | elm-package    | `elm`            | v0.19            |
@@ -400,10 +400,9 @@ Package manager | YAML value      | Supported versions |
 | pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
 | poetry         | `pip`            | v1               |
 | pub         | `pub`            | v2  |
-| {% ifversion dependabot-updates-swift-support %} |
 | Swift   | `swift`      | v5  |
-| {% endif %} |
-| Terraform    | `terraform`      | >= 0.13, <= 1.8.x  |
+| Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
+| uv           | `uv`             | v0 |
 | yarn         | `npm`            | v1, v2, v3       |
 
 ## `pull-request-branch-name.separator` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}
@@ -476,25 +475,29 @@ Reviewers must have at least read access to the repository.
 
 ## `schedule` {% octicon "versions" aria-label="Version updates only" height="24" %}
 
-**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. {% ifversion dependabot-version-updates-groups %}For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).{% endif %}
+**Required option.** Define how often to check for new versions for each package manager you configure using the `interval` parameter. Optionally, for daily and weekly intervals, you can customize when {% data variables.product.prodname_dependabot %} checks for updates. For examples, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/optimizing-pr-creation-version-updates).
 
 | Parameters | Purpose |
 |------------|---------|
 | `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | `day` | Specify the day to run for a **weekly** interval. |
 | `time` | Specify the time to run. |
+| `cronjob` | Defines the cron expression if the interval type is `cron`. |
 | `timezone` | Specify the timezone of the `time` value.  |
 
 ### `interval`
 
-Supported values: `daily`, `weekly`, or `monthly`
+Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
 
 Each package manager **must** define a schedule interval.
 
 * Use `daily` to run on every weekday, Monday to Friday.
 * Use `weekly` to run once a week, by default on Monday.
 * Use `monthly` to run on the first day of each month.
-
+* Use `quarterly` to run on the first day of each quarter (January, April, July, and October).
+* Use `semiannually` to run every six months, on the first day of January and July.
+* Use `yearly` to run on the first day of January.
+* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.
 
 ### `day`
@@ -508,6 +511,40 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
+
+### `cronjob`
+
+Supported values: Valid cron expression in cron format or natural expression.
+
+Examples : `0 9 * * *`, `every day at 5pm`
+
+cron format is defined as the following:
+* `*` The minute field.
+* `*` The hour field (in 24-hour time).
+* `*` The day of the month (matches any day of the month).
+* `*` The month (matches any month).
+* `*` The day of the week (matches any day of the week).
+
+`0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
+
+> [!NOTE]
+> A `cronjob` type schedule is required to use a `cron` interval.
+
+```yaml copy
+
+# Basic `dependabot.yml` file for cronjob
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates based on `cronjob` value
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 * * *"
+```
 
 ### `timezone`
 

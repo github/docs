@@ -10,8 +10,6 @@ type: reference
 layout: inline
 ---
 
-{% data reusables.copilot.copilot-extensions.public-preview-note %}
-
 {% data variables.product.prodname_copilot_agents_short %} communicate with the {% data variables.product.prodname_copilot_short %} platform in the form of server-sent events (SSEs). Rather than waiting for the {% data variables.product.prodname_copilot_short %} platform to request an update from your agent, or vice versa, you can use SSEs to send and receive updates to and from the platform in real time.
 
 To learn more about SSEs, see [Server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events) in the mdn documentation.

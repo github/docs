@@ -6,7 +6,6 @@ redirect_from:
   - /articles/checking-out-pull-requests-locally
   - /github/collaborating-with-issues-and-pull-requests/checking-out-pull-requests-locally
   - /github/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally
-permissions: Anyone with write access to a repository can pull a remote pull request down locally.
 versions:
   fpt: '*'
   ghes: '*'

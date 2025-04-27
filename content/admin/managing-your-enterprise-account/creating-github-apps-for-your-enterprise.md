@@ -10,13 +10,13 @@ permissions: Enterprise owners.
 shortTitle: Create a GitHub App
 ---
 
-{% data reusables.apps.enterprise-apps-beta %}
-
 You can create a {% data variables.product.prodname_github_app %} under your enterprise account. The app can only be installed on organizations within your enterprise, and can only be authorized by members of your enterprise. The app can't be installed on user accounts.
 
 ## Step 1: Registering a {% data variables.product.prodname_github_app %}
 
 To create a {% data variables.product.prodname_github_app %}, you must first register the app. See [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/registering-a-github-app).
+
+Apps can also be transferred to an enterprise from a member or organization. To transfer an app, see [AUTOTITLE](/apps/maintaining-github-apps/transferring-ownership-of-a-github-app).
 
 ## Step 2: Building a {% data variables.product.prodname_github_app %}
 
@@ -33,6 +33,8 @@ You should aim to follow best practices. See [AUTOTITLE](/apps/creating-github-a
 ## Step 3: Authorizing or sharing your {% data variables.product.prodname_github_app %}
 
 Once your {% data variables.product.prodname_github_app %} is registered, you'll need to make it available to organizations in your enterprise, either through **authorization** or **installation**, depending on the app’s purpose.
+
+Enterprise owners can modify the permissions for apps owned by their enterprise at any time. Permissions changes will be automatically accepted by organizations in the enterprise.
 
 ### Step 3a: Authorizing your {% data variables.product.prodname_github_app %}
 

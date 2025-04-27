@@ -134,7 +134,7 @@ $ ghe-config app.github.rate-limiting-exempt-users "hubot github-actions[bot]"
 
 ### ghe-config-apply
 
-This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to {% ifversion management-console-manage-ghes-parity %}[the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run){% else %}[the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console){% endif %}.
+This utility applies {% data variables.enterprise.management_console %} settings, reloads system services, prepares a storage device, reloads application services, and runs any pending database migrations. It is equivalent to clicking **Save settings** in the {% data variables.enterprise.management_console %}'s web UI or to sending a POST request to {% ifversion management-console-manage-ghes-parity %}[the `/manage/v1/config/apply` endpoint](/rest/enterprise-admin/manage-ghes#trigger-a-ghe-config-apply-run){% else %}[the `/setup/api/configure` endpoint](/rest/enterprise-admin/management-console){% endif %}. {% ifversion ghes > 3.15 %} Starting in version 3.16, this utility applies configuration changes conditionally to relevant settings. You can force it to run unconditionally by using `-f` flag. {% endif %}
 
 ```shell
 ghe-config-apply
@@ -287,6 +287,11 @@ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
+{% ifversion scim-for-ghes-ga %}
+> [!NOTE]
+> This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+{% endif %}
+
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
 To output a CSV file containing a list of all user SAML `NameID` mappings on the instance, run the following command.
@@ -310,6 +315,31 @@ To update SAML mappings on the instance with new values from the file, run the f
 ```shell
 ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
+
+{% ifversion scim-for-ghes-ga %}
+
+### ghe-scim-identities-csv
+
+> [!NOTE]
+> This utility only works with configurations that use SAML with SCIM provisioning. For the SAML only version of this tool, please refer to the [`ghe-saml-mapping-csv` utility](#ghe-saml-mapping-csv).
+
+This utility allows administrators to output the SCIM identities for users on an instance. The utility can output a CSV file that lists all existing identities and the groups they are members of.
+
+To output CSV data containing a list of all user SCIM identities on the instance, run the following command. This will create a file located at `/data/user/tmp/scim-identities-DATE.csv` containing your SCIM identities.
+
+```shell
+ghe-scim-identities-csv
+```
+
+Or, if you'd like to specify the file, run the following command.
+
+```shell
+ghe-scim-identities-csv -f /PATH/TO/FILE
+```
+
+We recommend writing to a file in `/data/user/tmp`.
+
+{% endif %}
 
 ### ghe-service-list
 
@@ -543,6 +573,16 @@ This utility returns webhook delivery logs for administrators to review and iden
 ghe-webhook-logs
 ```
 
+To show all hook deliveries filtered by a given event:
+
+```shell
+ghe-webhook-logs --event issues
+```
+
+To show all hook deliveries filtered by a given event and action:
+
+```shell
+ghe-webhook-logs --event issues.opened
 To show all failed hook deliveries in the past day:
 
 ```shell
@@ -1286,13 +1326,6 @@ In this example, `ghe-repl-status -vv` sends verbose status information from a r
 ### ghe-check-background-upgrade-jobs
 
 During an upgrade to a feature release, this utility displays the status of background jobs on {% data variables.location.product_location %}. If you're running back-to-back upgrades, you should use this utility to check that all background jobs are complete before proceeding with the next upgrade.
-
-{% ifversion ghes < 3.12 %}
-
-> [!NOTE]
-> To use `ghe-check-background-upgrade-jobs` with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.{% ifversion ghes = 3.10 %}4{% elsif ghes = 3.11 %}1{% endif %} or later.
-
-{% endif %}
 
 ```shell
 ghe-check-background-upgrade-jobs

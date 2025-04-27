@@ -23,15 +23,9 @@ redirect_from:
 
 By default, authorized users can access your enterprise's resources from any IP address. You can restrict access to your enterprise's private resources by configuring a list that allows or denies access from specific IP addresses. {% data reusables.identity-and-permissions.ip-allow-lists-example-and-restrictions %}
 
-{% ifversion ghec %}
-
 If your enterprise uses {% data variables.product.prodname_emus %} with Microsoft Entra ID (previously known as Azure AD) and OIDC, you can choose whether to use {% data variables.product.company_short %}'s IP allow list feature or to use the allow list restrictions for your identity provider (IdP). If your enterprise does not use {% data variables.product.prodname_emus %} with Azure and OIDC, you can use {% data variables.product.company_short %}'s allow list feature.
 
-{% endif %}
-
 {% data reusables.identity-and-permissions.ip-allow-lists-which-resources-are-protected %}
-
-{% ifversion ghec %}
 
 ## About {% data variables.product.company_short %}'s IP allow list
 
@@ -128,8 +122,6 @@ To ensure seamless use of the OIDC CAP while still applying the policy to OAuth 
 1. Under "IP allow list", select the **IP allow list configuration** dropdown menu and click **Identity Provider**.
 1. Optionally, to allow installed {% data variables.product.company_short %} and {% data variables.product.prodname_oauth_apps %} to access your enterprise from any IP address, select **Skip IdP check for applications**.
 1. Click **Save**.
-
-{% endif %}
 
 ## Using {% data variables.product.prodname_actions %} with an IP allow list
 

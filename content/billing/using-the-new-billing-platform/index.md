@@ -1,7 +1,7 @@
 ---
 title: Using the new billing platform
 shortTitle: New billing platform
-intro: 'The enhanced billing platform offers better spending control and detailed visibility to help you understand your usage with more granular controls.'
+intro: 'The new, enhanced billing platform offers better spending control and detailed visibility to help you understand your usage with more granular controls.'
 redirect_from:
   - /early-access/billing/billing-private-beta
   - /billing/using-the-enhanced-billing-platform-for-enterprises

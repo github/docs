@@ -121,7 +121,12 @@ If your private registry is configured with an IP allow list, you can find the I
 
 When you give {% data variables.product.prodname_dependabot %} access to one or more registries, external code execution is automatically disabled to protect your code from compromised packages. However, some version updates may fail.
 
-If you need to allow {% data variables.product.prodname_dependabot %} to access a private package registry and enable limited external code execution, you can set `insecure-external-code-execution` to `allow`. Any external code execution will only have access to the package managers in the registries associated with the enclosing `updates` setting. There is no access allowed to any of the registries defined in the top level `registries` configuration.
+If you need to allow {% data variables.product.prodname_dependabot %} to access a private package registry and enable limited external code execution, you can set `insecure-external-code-execution` to `allow`. Allowing {% data variables.product.prodname_dependabot %} to execute external code in the manifest during updates is not as scary as it sounds:
+
+* Any external code execution will only have access to the package managers in the registries associated with the enclosing `updates` setting.
+* There is no access allowed to any of the registries defined in the top level `registries` configuration.
+
+It is common for tooling, such as `bundler`, `mix`, `pip`, and `swift`, to allow the execution of external code by default.
 
 In this example, the configuration file allows {% data variables.product.prodname_dependabot %} to access the `ruby-github` private package registry. In the same `updates`setting, `insecure-external-code-execution`is set to `allow`, which means that the code executed by dependencies will only access the `ruby-github` registry, and not the `dockerhub` registry.
 {% raw %}
@@ -250,6 +255,31 @@ registries:
 ```
 
 {% endraw %}
+
+{% ifversion dependabot-helm-support %}
+
+### `helm-registry`
+
+{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [Open Container Initiative Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) in the `opencontainers/distribution-spec` repository. {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://helm.sh/docs/helm/helm_registry_login/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+
+The `helm-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  helm_registry:
+    type: helm-registry
+    url: https://registry.example.com
+    username: octocat
+    password: ${{secrets.MY_REGISTRY_PASSWORD}}
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `hex-organization`
 

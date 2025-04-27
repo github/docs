@@ -43,9 +43,7 @@ You can also audit actions taken in response to {% data variables.product.prodna
 ## Prioritizing {% data variables.product.prodname_dependabot_alerts %}
 
 {% data variables.product.company_short %} helps you prioritize fixing {% data variables.product.prodname_dependabot_alerts %}. By default, {% data variables.product.prodname_dependabot_alerts %} are sorted by importance. The "Most important" sort order helps you prioritize which {% data variables.product.prodname_dependabot_alerts %} to focus on first. Alerts are ranked based on their potential impact, actionability, and relevance. Our prioritization calculation is constantly being improved and includes factors like CVSS score, dependency scope, and whether vulnerable function calls are found for the alert.
-{% ifversion dependabot-auto-triage-rules %}
 You can also use {% data variables.dependabot.auto_triage_rules %} to prioritize {% data variables.product.prodname_dependabot_alerts %}. For more information, see “[AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).”
-{% endif %}
 
 {% data reusables.dependabot.dependabot-alerts-filters %}
 
@@ -54,6 +52,8 @@ In addition to the filters available via the search bar, you can sort and filter
 The search bar also allows for full text searching of alerts and related security advisories. You can search for part of a security advisory name or description to return the alerts in your repository that relate to that security advisory. For example, searching for `yaml.load() API could execute arbitrary code` will return {% data variables.product.prodname_dependabot_alerts %} linked to [PyYAML insecurely deserializes YAML strings leading to arbitrary code execution](https://github.com/advisories/GHSA-rprw-h62v-c2w7) as the search string appears in the advisory description.
 
 ![Screenshot of the filter and sort menus in the {% data variables.product.prodname_dependabot_alerts %} tab.](/assets/images/help/graphs/dependabot-alerts-filters-checkbox.png)
+
+You can also use the REST API to get a list of {% data variables.product.prodname_dependabot_alerts %} sorted using your filter of choice, for your repository, organization, or enterprise. For more information about API endpoints, see [AUTOTITLE](/rest/dependabot/alerts).
 
 ## Supported ecosystems and manifests for dependency scope
 
@@ -71,7 +71,7 @@ The alert details page of alerts on development-scoped packages shows a "Tags" s
 
 {% data reusables.dependabot.where-to-view-dependabot-alerts %} You can sort and filter {% data variables.product.prodname_dependabot_alerts %} by selecting a filter from the dropdown menu.
 
-{% ifversion ghec or ghes %}To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations).{% endif %}
+To view summaries of alerts for all or a subset of repositories owned by your organization, use security overview. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#about-security-overview-for-organizations).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}

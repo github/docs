@@ -18,11 +18,9 @@ shortTitle: Manually sync actions
 
 {% data reusables.actions.enterprise-no-internet-actions %}
 
-{% ifversion ghes %}
+We recommend enabling automatic access to public actions by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
 
-We recommend enabling automatic access to all actions by using {% data variables.product.prodname_github_connect %} to integrate {% data variables.product.prodname_ghe_server %} with {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/github-actions/managing-access-to-actions-from-githubcom/enabling-automatic-access-to-githubcom-actions-using-github-connect).
-
-If you want stricter control over which actions are allowed in your enterprise, you{% else %}You{% endif %} can follow this guide to use our open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
+If you want stricter control over which actions are allowed in your enterprise, you can follow this guide to use our open source [`actions-sync`](https://github.com/actions/actions-sync) tool to sync individual action repositories from {% data variables.product.prodname_dotcom_the_website %} to your enterprise.
 
 When you upgrade {% data variables.product.prodname_ghe_server %}, bundled actions are automatically replaced with the default versions in the upgrade package. These may not be the latest available version. As a best practice, if you use `actions-sync` to update actions, you should always rerun `actions-sync` after any {% data variables.product.prodname_ghe_server %} upgrade (major or minor) to ensure that the actions remain up to date.
 
@@ -40,7 +38,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
 ## Prerequisites
 
 * Before using the `actions-sync` tool, you must ensure that all destination organizations already exist in your enterprise. The following example demonstrates how to sync actions to an organization named `synced-actions`. See [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
-* You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).{% ifversion ghes %}
+* You must create a {% data variables.product.pat_generic %} on your enterprise that can create and write to repositories in the destination organizations. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 * If you want to sync the bundled actions in the `actions` organization on {% data variables.location.product_location %}, you must be an owner of the `actions` organization.
 
   > [!NOTE]
@@ -50,7 +48,7 @@ The `actions-sync` tool can only download actions from {% data variables.product
 
   ```shell
   ghe-org-admin-promote -u USERNAME -o actions
-  ```{% endif %}
+  ```
 
 ## Example: Using the `actions-sync` tool
 

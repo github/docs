@@ -9,7 +9,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## About pushing changes to {% data variables.product.prodname_dotcom %}
 
@@ -19,11 +21,7 @@ Before pushing changes, you should update your local branch to include any commi
 
 {% data reusables.desktop.protected-branches %}
 
-{% ifversion repo-rules %}
-
 Repository administrators can also enable rulesets for a branch, which will prevent a push from completing if a ruleset has not been followed. For example, a ruleset may require a specific branch naming convention, or an issue number at the start of a commit message. {% data variables.product.prodname_desktop %} will warn about rulesets to help prevent your branch from getting into a state where you would be unable to push your changes. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
-
-{% endif %}
 
 ## Pushing changes to {% data variables.product.prodname_dotcom %}
 

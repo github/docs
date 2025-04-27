@@ -22,8 +22,8 @@ shortTitle: Install on VMware
 ## Prerequisites
 
 * {% data reusables.enterprise_installation.software-license %}
-* You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 to 7.0. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
-* You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide [Log in to vCenter Server by Using the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.install.doc/GUID-CE128B59-E236-45FF-9976-D134DADC8178.html).
+* You must have a VMware vSphere ESXi Hypervisor, applied to a bare metal machine that will run {% data variables.location.product_location %}s. We support versions 5.5 to 8.0. The ESXi Hypervisor is free and does not include the (optional) vCenter Server. For more information, see [the VMware ESXi documentation](https://www.vmware.com/products/esxi-and-esx.html).
+* You will need access to a vSphere Client. If you have vCenter Server you can use the vSphere Web Client. For more information, see the VMware guide [Log in to vCenter Server by Using the vSphere Web Client](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vcenter-server-installation-and-setup-8-0.html).
 
 ## Hardware considerations
 
@@ -59,5 +59,5 @@ shortTitle: Install on VMware
 
 ## Further reading
 
-* [AUTOTITLE](/admin/overview/system-overview){% ifversion ghes %}
-* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases){% endif %}
+* [AUTOTITLE](/admin/overview/system-overview)
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)

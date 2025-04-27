@@ -299,7 +299,7 @@ jobs:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned` | Last commit on default branch | Default branch |
+| [`issues`](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues) | - `opened`<br/>- `edited`<br/>- `deleted`<br/>- `transferred`<br/>- `pinned`<br/>- `unpinned`<br/>- `closed`<br/>- `reopened`<br/>- `assigned`<br/>- `unassigned`<br/>- `labeled`<br/>- `unlabeled`<br/>- `locked`<br/>- `unlocked`<br/>- `milestoned`<br/> - `demilestoned`<br/> - `typed`<br/> - `untyped` | Last commit on default branch | Default branch |
 
 > [!NOTE]
 > {% data reusables.developer-site.multiple_activity_types %} For information about each activity type, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#issues). {% data reusables.developer-site.limit_workflow_to_activity_types %}
@@ -339,8 +339,6 @@ on:
     types: [created, deleted]
 ```
 
-{% ifversion merge-queue %}
-
 ## `merge_group`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -362,8 +360,6 @@ on:
   merge_group:
     types: [checks_requested]
 ```
-
-{% endif %}
 
 ## `milestone`
 
@@ -1036,7 +1032,9 @@ jobs:
 > * This event will only trigger a workflow run if the workflow file is on the default branch.
 > * Scheduled workflows will only run on the default branch.
 > * In a public repository, scheduled workflows are automatically disabled when no repository activity has occurred in 60 days. For information on re-enabling a disabled workflow, see [AUTOTITLE](/enterprise-server@3.12/actions/using-workflows/disabling-and-enabling-a-workflow#enabling-a-workflow).
-> * When the last user to commit to the cron schedule of a workflow is removed from the organization, the scheduled workflow will be disabled. If a user with `write` permissions to the repository makes a commit that changes the cron schedule, the scheduled workflow will be reactivated. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value and commit this change.
+> * For an enterprise with {% data variables.product.prodname_emus %}, scheduled workflows will not run if the last `actor` associated with the scheduled workflow has been deprovisioned (and therefore become suspended) by the {% data variables.product.prodname_emu %} identity provider (IdP). However, if the last `actor` {% data variables.product.prodname_emu %} has not been deprovisioned by the IdP, and has only been removed as a member from a given organization in the enterprise, scheduled workflows will still run with that user set as the `actor`. Similarly, for an enterprise without {% data variables.product.prodname_emus %}, removing a user from an organization will not prevent scheduled workflows which had that user as their `actor` from running. Essentially, triggering a scheduled workflow requires that the status of the `actor` user account associated with the workflow is currently active (i.e. not suspended or deleted). Thus, the _user account's_ status, in both {% data variables.product.prodname_emu %} and non-{% data variables.product.prodname_emu %} scenarios, is what's important, _not_ the user's _membership status_ in the organization where the scheduled workflow is located.
+> * Certain repository events change the `actor` associated with the workflow. For example, a user who changes the default branch of the repository, which changes the branch on which scheduled workflows run, becomes `actor` for those scheduled workflows.
+> * For a deactivated scheduled workflow, if a user with `write` permissions to the repository makes a commit that changes the `cron` schedule on the workflow, the workflow will be reactivated, and that user will become the `actor` associated with any workflow runs. Note that, in this situation, the workflow is not reactivated by any change to the workflow file; you must alter the `cron` value in the workflow and commit this change.
 >
 >   **Example:**
 >

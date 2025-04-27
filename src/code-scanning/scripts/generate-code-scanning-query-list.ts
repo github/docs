@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script generates a block of Markdown that can be saved as a reusable.
  * The reusable lists all the queries for one programming language, with CWEs, as a Markdown table.
@@ -55,8 +53,8 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' // eslint-disable-line import/no-extraneous-dependencies
-import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' /* eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved */
+import type { Language } from 'codeql-ts'
 
 program
   .description('Generate a reusable Markdown for for a code scanning query language')

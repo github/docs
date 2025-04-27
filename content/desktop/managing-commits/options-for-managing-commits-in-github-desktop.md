@@ -3,7 +3,9 @@ title: Options for managing commits in GitHub Desktop
 shortTitle: Options for managing commits
 intro: 'You can use {% data variables.product.prodname_desktop %} to maintain an easy-to-follow commit history.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About commit history in {% data variables.product.prodname_desktop %}

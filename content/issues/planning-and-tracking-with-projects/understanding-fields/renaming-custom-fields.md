@@ -2,7 +2,9 @@
 title: Renaming custom fields
 intro: 'Learn about renaming existing custom fields in your {% data variables.projects.project_v2 %}.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects

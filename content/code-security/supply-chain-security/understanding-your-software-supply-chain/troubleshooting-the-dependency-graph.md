@@ -40,28 +40,40 @@ However, you can use the {% data variables.dependency-submission-api.name %} to 
 
 ## Are there limits which affect the dependency graph data?
 
-Yes, the dependency graph has {% ifversion dependency-graph-repository-view-update %}one category{% else %}two categories{% endif %} of limits:
+Yes, the dependency graph has limits on the size, number, and location of manifest files that it will process.
 
-1. **Processing limits**
+The processing limits affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
 
-    These affect the dependency graph displayed within {% data variables.product.prodname_dotcom %} and also prevent {% data variables.product.prodname_dependabot_alerts %} being created.
+Manifests over 10 MB in size are ignored and will not generate {% data variables.product.prodname_dependabot_alerts %}.
 
-    Manifests over 0.5 MB in size are only processed for enterprise accounts. For other accounts, manifests over 0.5 MB are ignored and will not create {% data variables.product.prodname_dependabot_alerts %}.
+By default, {% data variables.product.github %} will not process more than {% ifversion fpt or ghec %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot %} doesn't generate {% data variables.product.prodname_dependabot_alerts %} for manifests beyond this limit, and {% data variables.product.prodname_dependabot_alerts %} may behave unpredictably if this limit is exceeded.
 
-    By default, {% data variables.product.prodname_dotcom %} will not process more than {% ifversion fpt or ghec %}150{% else %}600{% endif %} manifests per repository. {% data variables.product.prodname_dependabot_alerts %} are not created for manifests beyond this limit, and {% data variables.product.prodname_dependabot_alerts %} may behave unpredictably if this limit is exceeded.
+Manifest files stored in directories with names that are typically used for vendored dependencies will not be processed. A directory whose name matches the following regular expressions is considered a vendored dependencies directory:
+  <!-- markdownlint-disable MD011 -->
+  * <code>(3rd|[Tt]hird)[-_]?[Pp]arty/</code>
+  * <code>(^|/)vendors?/</code>
+  * <code>(^|/)[Ee]xtern(als?)?/</code>
+  * <code>(^|/)[Vv]+endor/</code>
+  <!-- markdownlint-enable MD011 -->
 
-    Manifest files stored in directories with names that are typically used for vendored dependencies will not be processed. A directory whose name matches the following regular expressions is considered a vendored dependencies directory:
-      <!-- markdownlint-disable MD011 -->
-      * <code>(3rd|[Tt]hird)[-_]?[Pp]arty/</code>
-      * <code>(^|/)vendors?/</code>
-      * <code>(^|/)[Ee]xtern(als?)?/</code>
-      * <code>(^|/)[Vv]+endor/</code>
-      <!-- markdownlint-enable MD011 -->
+  Examples:
+  * third-party/dependencies/dependency1
+  * vendors/dependency1
+  * /externals/vendor1/dependency1
 
-      Examples:
-      * third-party/dependencies/dependency1
-      * vendors/dependency1
-      * /externals/vendor1/dependency1
+## My dependencies don't look right, what can I do?
+
+If the table of dependencies for your project doesn't accurately represent your repository's manifests, you can trigger a rebuild of its dependency graph.
+
+From the repository's {% data variables.product.prodname_dependabot_alerts %} tab, click {% octicon "gear" aria-label="settings" %} at the top of the alert list. Select **Refresh {% data variables.product.prodname_dependabot_alerts %}** from the dropdown menu. This will enqueue a background task to process the repository's manifests, detect any new or changed dependencies, and update the alerts.
+
+>[!NOTE] You need to have permission to manage security alerts in order to refresh a repository's dependency graph. See [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts) for information on configuring this access. To further reduce the potential for abuse, the **Refresh {% data variables.product.prodname_dependabot_alerts %}** option can only be triggered once an hour per repository.
+
+Clicking **Refresh {% data variables.product.prodname_dependabot_alerts %}** will only scan manifest files. If your dependency graph also includes build-time dependency information submitted using the {% data variables.dependency-submission-api.name %}, rerunning the Action or external process which generates and submits the dependency information will also trigger a rebuild of the repository's dependency graph. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
+
+If you are using automatic dependency submission for Maven, pushing a commit that updates the repository's `pom.xml` will trigger the automatic submission action to run.
+
+In all cases, the timestamp at the top of the list of alerts indicates the last time the dependency graph was built.
 
 ## Further reading
 

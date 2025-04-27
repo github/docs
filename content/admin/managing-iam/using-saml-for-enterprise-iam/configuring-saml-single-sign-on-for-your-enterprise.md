@@ -139,8 +139,6 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## Further reading
 
 {%- ifversion ghec %}
@@ -148,6 +146,5 @@ You can enable or disable SAML authentication for {% data variables.location.pro
 {%- endif %}
 {%- ifversion ghes %}
 * [AUTOTITLE](/admin/user-management/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator)
+{% ifversion scim-for-ghes-public-beta %}* [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users){% endif %}
 {%- endif %}
-
-{% endif %}

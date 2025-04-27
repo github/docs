@@ -53,7 +53,7 @@ When the dependency graph is first enabled, any manifest and lock files for supp
 
 {%- ifversion maven-transitive-dependencies %}
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-automatic-dependency-submission-for-your-repository){%- endif %}
-{%- ifversion ghec %}
+{%- ifversion fpt or ghec %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){%- endif %}
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts)
 * [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-the-detection-of-vulnerable-dependencies)

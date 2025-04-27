@@ -36,7 +36,7 @@ Once you complete this project, you should understand how to build your own Java
 
 Before you begin, you'll need to download Node.js and create a public {% data variables.product.prodname_dotcom %} repository.
 
-1. Download and install Node.js {% ifversion actions-node20-support %}20.x{% else %}16.x{% endif %}, which includes npm.
+1. Download and install Node.js 20.x, which includes npm.
 
    https://nodejs.org/en/download/
 1. Create a new public repository on {% data variables.product.github %} and call it "hello-world-javascript-action". For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
@@ -71,7 +71,7 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   main: 'index.js'
 ```
 

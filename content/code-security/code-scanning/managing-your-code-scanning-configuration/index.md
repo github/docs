@@ -8,13 +8,14 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup
   - /set-code-scanning-merge-protection
+  - /enabling-delegated-alert-dismissal-for-code-scanning
   - /codeql-query-suites
   - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs

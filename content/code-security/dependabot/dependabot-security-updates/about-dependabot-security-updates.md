@@ -11,7 +11,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.2'
+  ghes: '*'
 type: overview
 topics:
   - Dependabot

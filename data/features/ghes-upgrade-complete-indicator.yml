@@ -1,4 +1,0 @@
-# Reference: #12410
-# The ghe-check-background-upgrade-jobs command line utility
-versions:
-  ghes: '>=3.8'

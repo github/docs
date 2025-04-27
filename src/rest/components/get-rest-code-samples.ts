@@ -39,6 +39,16 @@ export function getShellExample(
     contentTypeHeader = '-H "Content-Type: multipart/form-data"'
   }
 
+  // GHES Manage API requests differ from the dotcom API requests and make use of multipart/form-data and json content types
+  if (operation.subcategory === 'manage-ghes') {
+    // GET requests don't have a requestBody set, therefore let's default them to application/json
+    if (operation.verb === 'get') {
+      contentTypeHeader = '-H "Content-Type: application/json"'
+    } else {
+      contentTypeHeader = `-H "Content-Type: ${codeSample?.request?.contentType}"`
+    }
+  }
+
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath

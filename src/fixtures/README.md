@@ -33,7 +33,7 @@ Deeper than the product level, the names and directories can be whatever
 you want it to be.
 
 Once you've found a place to put some fixture content, before writing
-a `vitest` test, you can preview your changes using:
+a `vitest` test, you can review your changes using:
 
 ```shell
 npm run fixture-dev

@@ -8,7 +8,7 @@ versions:
   feature: code-scanning-autofix
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - AI
@@ -45,7 +45,7 @@ Note that disabling {% data variables.product.prodname_copilot_autofix_short %} 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
+{% data reusables.security-configurations.display-global-settings %}
 1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.
 
 For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
@@ -56,5 +56,5 @@ If {% data variables.product.prodname_copilot_autofix_short %} is allowed at the
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. In the "{% data variables.product.UI_code_security_scanning %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.

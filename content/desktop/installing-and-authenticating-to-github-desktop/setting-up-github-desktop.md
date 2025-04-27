@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/setting-up-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/setting-up-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## Part 1: Installing {% data variables.product.prodname_desktop %}
 
@@ -33,9 +35,9 @@ After authenticating your account, you are ready to manage and contribute to pro
 
 ## Part 3: Configuring Git
 
-You must have Git installed before using {% data variables.product.prodname_desktop %}. If you do not already have Git installed, you can download and install the latest version of Git from [https://git-scm.com/downloads](https://git-scm.com/downloads).
+To start working with {% data variables.product.prodname_desktop %}, you need to configure the name and email associated with your Git commits. See [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop).
 
-After you have Git installed, you'll need to configure Git for {% data variables.product.prodname_desktop %}. For more information, see [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/configuring-git-for-github-desktop).
+> [!NOTE] If you also want to use Git on the command line, you need to install Git yourself. The latest version of Git is available from https://git-scm.com/downloads.
 
 ## Part 4: Customizing {% data variables.product.prodname_desktop %}
 

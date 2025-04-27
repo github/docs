@@ -16,7 +16,7 @@ import { expect, test, vi } from 'vitest'
 import { describeIfElasticsearchURL } from '@/tests/helpers/conditional-runs.js'
 import { get } from '@/tests/helpers/e2etest-ts'
 
-import type { CombinedAutocompleteSearchResponse } from '@/search/types'
+import type { CombinedSearchResponse } from '@/search/types'
 
 if (!process.env.ELASTICSEARCH_URL) {
   console.warn(
@@ -25,7 +25,7 @@ if (!process.env.ELASTICSEARCH_URL) {
   )
 }
 
-const combinedSearchEndpoint = '/api/search/combined-autocomplete/v1'
+const combinedSearchEndpoint = '/api/search/combined-search/v1'
 const getSearchEndpointWithParams = (searchParams: URLSearchParams) =>
   `${combinedSearchEndpoint}?${searchParams}`
 
@@ -38,31 +38,21 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
     sp.set('query', 'how do I')
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.body) as CombinedAutocompleteSearchResponse
+    const results = JSON.parse(res.body) as CombinedSearchResponse
 
-    // For aiAutocomplete
-    expect(results.aiAutocomplete.meta).toBeTruthy()
-    expect(results.aiAutocomplete.meta.found.value).toBeGreaterThanOrEqual(1)
-    expect(results.aiAutocomplete.meta.found.relation).toBeTruthy()
+    expect(results.aiAutocompleteSuggestions.meta).toBeTruthy()
+    expect(results.aiAutocompleteSuggestions.meta.found.value).toBeGreaterThanOrEqual(1)
+    expect(results.aiAutocompleteSuggestions.meta.found.relation).toBeTruthy()
 
-    expect(results.aiAutocomplete.hits).toBeTruthy()
+    expect(results.aiAutocompleteSuggestions.hits).toBeTruthy()
 
-    const aiHit = results.aiAutocomplete.hits[0]
+    const aiHit = results.aiAutocompleteSuggestions.hits[0]
     expect(aiHit.term).toBe('How do I clone a repository?')
     expect(aiHit.highlights).toBeTruthy()
     expect(aiHit.highlights[0]).toBe('<mark>How do I</mark> clone a repository?')
 
-    // For generalAutocomplete
-    expect(results.generalAutocomplete.meta).toBeTruthy()
-    expect(results.generalAutocomplete.meta.found.value).toBeGreaterThanOrEqual(1)
-    expect(results.generalAutocomplete.meta.found.relation).toBeTruthy()
-
-    expect(results.generalAutocomplete.hits).toBeTruthy()
-
-    const generalHit = results.generalAutocomplete.hits[0]
-    expect(generalHit.term).toBe('inputs')
-    expect(generalHit.highlights).toBeTruthy()
-    expect(generalHit.highlights[0]).toBe('<mark>inputs</mark>')
+    expect(results.generalSearchResults.meta).toBeTruthy()
+    expect(results.generalSearchResults.meta.found.value).toBe(0)
 
     // Check that it can be cached at the CDN
     expect(res.headers['set-cookie']).toBeUndefined()
@@ -116,10 +106,9 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
     sp.set('query', 'rest')
     const res = await get(getSearchEndpointWithParams(sp))
     expect(res.statusCode).toBe(200)
-    const results = JSON.parse(res.body) as CombinedAutocompleteSearchResponse
+    const results = JSON.parse(res.body) as CombinedSearchResponse
 
-    // aiAutocomplete results
-    const aiHits = results.aiAutocomplete.hits
+    const aiHits = results.aiAutocompleteSuggestions.hits
     expect(aiHits.length).toBeGreaterThanOrEqual(2)
     expect(aiHits[0].term).toBe(
       'How do I manage OAuth app access restrictions for my organization?',
@@ -130,15 +119,8 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
     expect(aiHits[1].term).toBe('How do I test my SSH connection to GitHub?')
     expect(aiHits[1].highlights[0]).toBe('How do I <mark>test</mark> my SSH connection to GitHub?')
 
-    // generalAutocomplete results
-    const generalHits = results.generalAutocomplete.hits
-    expect(generalHits.length).toBeGreaterThanOrEqual(3)
-    expect(generalHits[0].term).toBe('rest')
-    expect(generalHits[0].highlights[0]).toBe('<mark>rest</mark>')
-    expect(generalHits[1].term).toBe('rest api')
-    expect(generalHits[1].highlights[0]).toBe('<mark>rest</mark> api')
-    expect(generalHits[2].term).toBe('rest api endpoints')
-    expect(generalHits[2].highlights[0]).toBe('<mark>rest</mark> api endpoints')
+    const generalHits = results.generalSearchResults.hits
+    expect(generalHits.length).toBe(0)
   })
 
   test('empty query returns default results', async () => {
@@ -147,7 +129,7 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
     {
       const res = await get(getSearchEndpointWithParams(sp))
       expect(res.statusCode).toBe(200)
-      const results = JSON.parse(res.body) as CombinedAutocompleteSearchResponse
+      const results = JSON.parse(res.body) as CombinedSearchResponse
       expect(results).toBeTruthy()
     }
     // Empty query
@@ -155,7 +137,7 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
       sp.set('query', '')
       const res = await get(getSearchEndpointWithParams(sp))
       expect(res.statusCode).toBe(200)
-      const results = JSON.parse(res.body) as CombinedAutocompleteSearchResponse
+      const results = JSON.parse(res.body) as CombinedSearchResponse
       expect(results).toBeTruthy()
     }
     // Empty when trimmed
@@ -163,8 +145,18 @@ describeIfElasticsearchURL('search/combined-autocomplete v1 middleware', () => {
       sp.set('query', '  ')
       const res = await get(getSearchEndpointWithParams(sp))
       expect(res.statusCode).toBe(200)
-      const results = JSON.parse(res.body) as CombinedAutocompleteSearchResponse
+      const results = JSON.parse(res.body) as CombinedSearchResponse
       expect(results).toBeTruthy()
     }
+  })
+
+  test('general search returns fixture results', async () => {
+    const sp = new URLSearchParams()
+    sp.set('query', 'foo')
+    const res = await get(getSearchEndpointWithParams(sp))
+    expect(res.statusCode).toBe(200)
+    const results = JSON.parse(res.body) as CombinedSearchResponse
+    expect(results.generalSearchResults.hits.length).toBeGreaterThanOrEqual(1)
+    expect(results.generalSearchResults.hits[0].title).toBe('Foo')
   })
 })

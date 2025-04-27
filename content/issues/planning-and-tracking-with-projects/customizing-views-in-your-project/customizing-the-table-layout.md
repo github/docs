@@ -3,7 +3,9 @@ title: Customizing the table layout
 shortTitle: Customizing tables
 intro: 'You can use the table layout to build a spreadsheet using your project''s items, {% data variables.product.company_short %} metadata, and your custom fields.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -33,13 +35,9 @@ You can group items by a custom field value. {% data reusables.projects.customiz
 
 {% data reusables.projects.customize.group-fields %}
 
-{% ifversion projects-v2-slice-panel %}
-
 ## Slicing by field values
 
 {% data reusables.projects.customize.slice-panel %}
-
-{% endif %}
 
 ## Reordering fields
 

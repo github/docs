@@ -156,7 +156,8 @@ After a workflow run has been completed, you can download or delete artifacts on
 The [`actions/download-artifact`](https://github.com/actions/download-artifact) action can be used to download previously uploaded artifacts during a workflow run.
 
 > [!NOTE]
-> You can only download artifacts in a workflow that were uploaded during the same workflow run.
+> {% ifversion fpt or ghec %}If you want to download artifacts from a different workflow or workflow run, you need to supply a token and run identifier. See [Download Artifacts from other Workflow Runs or Repositories](https://github.com/actions/download-artifact?tab=readme-ov-file#download-artifacts-from-other-workflow-runs-or-repositories) in the documentation for the `download-artifact` action.
+{% elsif ghes %}You can only download artifacts in a workflow that were uploaded during the same workflow run.{% endif %}
 
 Specify an artifact's name to download an individual artifact. If you uploaded an artifact without specifying a name, the default name is `artifact`.
 
@@ -177,6 +178,20 @@ You can also download all artifacts in a workflow run by not specifying a name. 
 If you download all workflow run's artifacts, a directory for each artifact is created using its name.
 
 For more information on syntax, see the {% ifversion fpt or ghec %}[actions/download-artifact](https://github.com/actions/download-artifact) action{% else %} `actions/download-artifact` action on {% data variables.product.prodname_ghe_server %}{% endif %}.
+
+{% ifversion fpt or ghec %}
+
+## Validating artifacts
+
+Every time the upload-artifact action is used it returns an output called `digest`. This is a SHA256 digest of the Artifact you uploaded during a workflow run.
+
+When the download-artifact action is then used to download that artifact, it automatically calculates the digest for that downloaded artifact and validates that it matches the output from the upload-artifact step.
+
+If the digest does not match, the run will display a warning in the UI and in the job logs.
+
+To view the SHA256 digest you can open the logs for the upload-artifact job or check in the Artifact output that appears in the workflow run UI.
+
+{% endif %}
 
 ## Passing data between jobs in a workflow
 
@@ -254,6 +269,8 @@ jobs:
 ```
 
 The workflow run will archive any artifacts that it generated. For more information on downloading archived artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
+
+{% data reusables.actions.artifacts.artifacts-from-deleted-workflow-runs %}
 
 {% ifversion fpt or ghec %}
 

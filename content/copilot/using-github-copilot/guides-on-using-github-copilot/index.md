@@ -12,4 +12,5 @@ children:
   - /refactoring-code-with-github-copilot
   - /using-copilot-to-migrate-a-project
   - /writing-tests-with-github-copilot
+  - /modernizing-legacy-code-with-github-copilot
 ---

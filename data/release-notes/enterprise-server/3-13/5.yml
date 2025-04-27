@@ -26,6 +26,8 @@ sections:
       A model with no URL could cause a `ghe-migrator` import to fail.
     - |
       Restore could fail when restoring MySQL using backup-utils.
+    - |
+      The help documentation for the Actions Workflow editor was not loading correctly. [Updated: 2025-02-18]
   changes:
     - |
       The `ghe-remove-node` command will display the log file location when running in quiet mode.
@@ -41,8 +43,6 @@ sections:
     - |
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
-      Repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-    - |
       For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
     - |
       When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
@@ -55,8 +55,17 @@ sections:
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
-      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
-    - |
       {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
 
       [Updated: 2024-11-29]
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+
+  errata:
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.13.5, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+      
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+      

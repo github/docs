@@ -1,6 +1,6 @@
 ---
 title: Estimating spending
-intro: 'Use the enhanced billing platform to understand where your spending is trending based on the usage across products.'
+intro: 'Use the new billing platform to understand where your spending is trending based on the usage across products.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -15,7 +15,7 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Estimate spending
 ---
 
-The enhanced billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
+The new billing platform provides a high-level view of your spending trends based on the usage across products. You can use this information to estimate your spending and make informed decisions about your budget.
 
 {% ifversion fpt %}
 
