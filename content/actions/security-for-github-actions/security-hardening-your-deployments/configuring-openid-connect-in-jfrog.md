@@ -101,6 +101,5 @@ jobs:
 
 - [JFrog OpenID Connect Integration](https://jfrog.com/help/r/jfrog-platform-administration-documentation/openid-connect-integration)
 - [Configure Identity Mappings](https://jfrog.com/help/r/jfrog-platform-administration-documentation/identity-mappings)
-- [JFrog CLI: `exchange-oidc-token` Command](https://jfrog.com/help/r/jfrog-cli-documentation/oidc-commands#exchange-oidc-token)
 - [GitHub Docs: About Security Hardening with OIDC](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect)
 ```
