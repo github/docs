@@ -35,7 +35,7 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
     For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
 
-    ```json
+    ```json copy
     {
       "iss": "https://token.actions.githubusercontent.com",
       "repository": "octo-org/octo-repo"
@@ -72,8 +72,8 @@ jobs:
         uses: jfrog/setup-jfrog-cli@v4
         with:
           JF_URL: ${{ env.JF_URL }}
-          oidc-provider-name: 'my-github-provider' # Replace with your configured provider name
-          oidc-audience: 'jfrog-github'            # Replace with your configured audience
+          oidc-provider-name: 'YOUR_PROVIDER_NAME' 
+          oidc-audience: 'YOUR_AUDIENCE'
 
       - name: Upload artifact
         run: jf rt upload "dist/*.zip" my-repo/
@@ -81,10 +81,13 @@ jobs:
 ```
 
 > [!TIP]
-> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides short-lived (`oidc-user` and `oidc-token`) as step outputs. These can be used for Docker, Helm, and other integrations that require authentication with JFrog. No additional configuration is needed to enable these outputs.
+> When OIDC authentication is used, the `setup-jfrog-cli` action automatically provides `oidc-user` and `oidc-token` as step outputs.
+> These can be used for other integrations that require authentication with JFrog.
+> To reference these outputs, ensure the step has an explicit `id` defined (e.g., `id: setup-jfrog-cli`).
 
+### Example: Using OIDC Credentials in Other Steps
 ```yaml
-      - name: Login to Artifactory
+      - name: Login to Artifactory Docker Registry
         uses: docker/login-action@v3
         with:
           registry: ${{ env.JF_URL }}
