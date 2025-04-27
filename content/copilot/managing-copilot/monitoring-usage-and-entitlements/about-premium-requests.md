@@ -20,7 +20,9 @@ A request is any interaction where you ask {% data variables.product.prodname_co
 
 If you have {% data variables.product.prodname_copilot_free_short %} enabled, your {% data variables.product.github %} account comes with up to 2,000 code completions and up to 50 chats or premium requests per month.
 
-If you're on a paid plan, you get unlimited code completions, unlimited agent requests, and unlimited chat interactions using the base model. You also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+If you're on a paid plan, you get unlimited code completions, unlimited agent requests, and unlimited chat interactions using the base model. Rate limiting is in place to accommodate for high demand. Learn more about [current models and usage](/copilot/about-github-copilot/plans-for-github-copilot).
+
+Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
 ## Premium requests
 
@@ -47,7 +49,6 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
-| {% data variables.copilot.copilot_gpt_41 %}                             | 1                                                                            |
 | GPT-4.5                                                                 | 50                                                                           |
 | {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |

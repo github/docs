@@ -32,7 +32,7 @@ You can view the current license limits and usage for your enterprise.
 {% ifversion ghec %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
-   * The "{% data variables.product.prodname_GHAS %}" section shows details of the licenses you currently **consume**.
+   * The "{% data variables.product.prodname_AS %}" section shows details of the licenses you currently **consume**.
    * If you have a volume/subscription license, the number of licenses **available** to use is also displayed.
    * If you run out of licenses, for volume/subscription only, the section is red and reports "Limit exceeded." You should either reduce your use or purchase more licenses.
 
@@ -48,7 +48,7 @@ You can view the current license limits and usage for your enterprise.
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.license-tab %}
 
-   The "{% data variables.product.prodname_GHAS %}" section shows details of the current usage. You can see the total number of licenses used, as well as a table with the number of committers and unique committers for each organization.
+   The "{% data variables.product.prodname_AS %}" section shows details of the current usage. You can see the total number of licenses used, as well as a table with the number of committers and unique committers for each organization.
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
 

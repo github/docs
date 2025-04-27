@@ -78,3 +78,6 @@ sections:
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
     - |
       Repository Cache Replicas return `Repository not found` when changes have been pushed to the Primary instance that have not yet synchronized to the Cache Replica. This issue can also occur in all previous patches of this release.
+    - |
+      The security risk page returns a 500 error when Secret scanning is disabled. [Updated: 2025-04-25]
+      

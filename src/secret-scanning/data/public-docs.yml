@@ -681,7 +681,7 @@
     ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Baidu
@@ -1335,7 +1335,7 @@
     ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Dynatrace
@@ -1565,7 +1565,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  isduplicate: false
+  isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub SSH Private Key
   secretType: github_ssh_private_key
@@ -1671,7 +1671,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.14'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1685,7 +1685,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.14'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1709,7 +1709,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
@@ -1733,7 +1733,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
