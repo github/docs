@@ -59,10 +59,10 @@ This version of the article relates to {% data variables.copilot.copilot_code-re
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 > [!NOTE]
-> The per-person quota for {% data variables.product.prodname_copilot_short %} code review will commence on May 5th, 2025.
-<!-- end expires 2025-05-05 -->
+> The per-person quota for {% data variables.product.prodname_copilot_short %} code review will commence on May 8, 2025.
+<!-- end expires 2025-05-08 -->
 
 When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
