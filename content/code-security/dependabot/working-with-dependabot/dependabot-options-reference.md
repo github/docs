@@ -498,7 +498,8 @@ Each package manager **must** define a schedule interval.
 * Use `semiannually` to run every six months, on the first day of January and July.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.
+
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression..
 
 ### `day`
 
