@@ -55,9 +55,9 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can mak
 
 ## How much will we benefit from premium requests?
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 

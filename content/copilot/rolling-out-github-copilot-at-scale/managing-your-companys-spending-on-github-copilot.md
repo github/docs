@@ -22,9 +22,9 @@ We recommend that you identify the people with this role and communicate with th
 
 ## Manage charges for premium requests
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
@@ -36,9 +36,9 @@ For pricing details and a list of available models, see [AUTOTITLE](/copilot/abo
 
 ### Enabling additional premium requests
 
-<!-- expires 2025-05-05 -->
-> [!IMPORTANT] This policy setting will not be available to configure until May 5, 2025. After that date, enterprises can choose to enable additional premium requests. Until a budget is **set explicitly**, no additional charges will apply.
-<!-- end expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
+> [!IMPORTANT] This policy setting will not be available to configure until May 8, 2025. After that date, enterprises can choose to enable additional premium requests. Until a budget is **set explicitly**, no additional charges will apply.
+<!-- end expires 2025-05-08 -->
 
 You can enable or disable the ability for users in your enterprise or organization to make premium requests over your plan's allowance.
 
