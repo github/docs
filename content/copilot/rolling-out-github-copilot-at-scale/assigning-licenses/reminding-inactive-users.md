@@ -10,6 +10,8 @@ topics:
   - Copilot
 allowTitleToDifferFromFilename: true
 layout: inline
+redirect_from:
+  - /copilot/rolling-out-github-copilot-at-scale/reminding-inactive-users
 ---
 
 When you're rolling out {% data variables.product.prodname_copilot %} in a business, it's important to keep track of which users are using their {% data variables.product.prodname_copilot_short %} license, so you can respond effectively by reassigning unused licenses or helping people to get started with {% data variables.product.prodname_copilot_short %}.

@@ -30,6 +30,7 @@ type AIQueryResultsProps = {
   askAIEventGroupId: React.MutableRefObject<string>
   aiCouldNotAnswer: boolean
   setAICouldNotAnswer: (aiCouldNotAnswer: boolean) => void
+  listElementsRef: React.RefObject<Array<HTMLLIElement | null>>
 }
 
 type AISearchResultEventParams = {
@@ -56,6 +57,7 @@ export function AskAIResults({
   askAIEventGroupId,
   aiCouldNotAnswer,
   setAICouldNotAnswer,
+  listElementsRef,
 }: AIQueryResultsProps) {
   const router = useRouter()
   const { t } = useTranslation('search')
@@ -78,27 +80,30 @@ export function AskAIResults({
 
   const [conversationId, setConversationId] = useState<string>('')
 
-  const handleAICannotAnswer = (passedConversationId?: string) => {
+  const handleAICannotAnswer = (
+    passedConversationId?: string,
+    statusCode = 400,
+    uiMessage = t('search.ai.responses.unable_to_answer'),
+  ) => {
     setInitialLoading(false)
     setResponseLoading(false)
     setAICouldNotAnswer(true)
-    const cannedResponse = t('search.ai.unable_to_answer')
     sendAISearchResultEvent({
       sources: [],
-      message: cannedResponse,
+      message: uiMessage,
       eventGroupId: askAIEventGroupId.current,
       couldNotAnswer: true,
-      status: 400,
+      status: statusCode,
       connectedEventId: passedConversationId || conversationId,
     })
-    setMessage(cannedResponse)
-    setAnnouncement(cannedResponse)
+    setMessage(uiMessage)
+    setAnnouncement(uiMessage)
     setReferences([])
     setItem(
       query,
       {
         query,
-        message: cannedResponse,
+        message: uiMessage,
         sources: [],
         aiCouldNotAnswer: true,
         connectedEventId: passedConversationId || conversationId,
@@ -156,17 +161,44 @@ export function AskAIResults({
       try {
         const response = await executeAISearch(router, version, query, debug)
         if (!response.ok) {
-          console.error(
-            `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
-          )
-          sendAISearchResultEvent({
-            sources: [],
-            message: '',
-            eventGroupId: askAIEventGroupId.current,
-            couldNotAnswer: false,
-            status: response.status,
-          })
-          return setAISearchError()
+          // If there is JSON and the `upstreamStatus` key, the error is from the upstream sever (CSE)
+          let responseJson
+          try {
+            responseJson = await response.json()
+          } catch (error) {
+            console.error('Failed to parse JSON:', error)
+          }
+          const upstreamStatus = responseJson?.upstreamStatus
+          // If there is no upstream status, the error is either on our end or a 500 from CSE, so we can show the error
+          if (!upstreamStatus) {
+            console.error(
+              `Failed to fetch search results.\nStatus ${response.status}\n${response.statusText}`,
+            )
+            sendAISearchResultEvent({
+              sources: [],
+              message: '',
+              eventGroupId: askAIEventGroupId.current,
+              couldNotAnswer: false,
+              status: response.status,
+            })
+            return setAISearchError()
+            // Query invalid - either sensitive question or spam
+          } else if (upstreamStatus === 400 || upstreamStatus === 422) {
+            return handleAICannotAnswer('', upstreamStatus, t('search.ai.responses.invalid_query'))
+            // Query too large
+          } else if (upstreamStatus === 413) {
+            return handleAICannotAnswer(
+              '',
+              upstreamStatus,
+              t('search.ai.responses.query_too_large'),
+            )
+          } else if (upstreamStatus === 429) {
+            return handleAICannotAnswer(
+              '',
+              upstreamStatus,
+              t('search.ai.responses.asked_too_many_times'),
+            )
+          }
         } else {
           setAISearchError(false)
         }
@@ -209,7 +241,7 @@ export function AskAIResults({
                   return
                 }
               } catch (e) {
-                console.error(
+                console.warn(
                   'Failed to parse JSON:',
                   e,
                   'Line:',
@@ -226,7 +258,7 @@ export function AskAIResults({
                 setConversationId(parsedLine.conversation_id)
               } else if (parsedLine.chunkType === 'NO_CONTENT_SIGNAL') {
                 // Serve canned response. A question that cannot be answered was asked
-                handleAICannotAnswer(conversationIdBuffer)
+                handleAICannotAnswer(conversationIdBuffer, 200)
               } else if (parsedLine.chunkType === 'SOURCES') {
                 if (!isCancelled) {
                   sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
@@ -240,7 +272,11 @@ export function AskAIResults({
                 }
               } else if (parsedLine.chunkType === 'INPUT_CONTENT_FILTER') {
                 // Serve canned response. A spam question was asked
-                handleAICannotAnswer(conversationIdBuffer)
+                handleAICannotAnswer(
+                  conversationIdBuffer,
+                  200,
+                  t('search.ai.responses.invalid_query'),
+                )
               }
               if (!isCancelled) {
                 setAnnouncement('Copilot Response Loading...')
@@ -396,11 +432,11 @@ export function AskAIResults({
                   if (index >= MAX_REFERENCES_TO_SHOW) {
                     return null
                   }
+                  const refIndex = index + referencesIndexOffset
                   return (
                     <ActionList.Item
                       sx={{
                         marginLeft: '0px',
-                        paddingLeft: '0px',
                       }}
                       key={`reference-${index}`}
                       id={`search-option-reference-${index + referencesIndexOffset}`}
@@ -409,7 +445,12 @@ export function AskAIResults({
                       onSelect={() => {
                         referenceOnSelect(source.url)
                       }}
-                      active={index + referencesIndexOffset === selectedIndex}
+                      active={refIndex === selectedIndex}
+                      ref={(element) => {
+                        if (listElementsRef.current) {
+                          listElementsRef.current[refIndex] = element
+                        }
+                      }}
                     >
                       <ActionList.LeadingVisual aria-hidden="true">
                         <FileIcon />
