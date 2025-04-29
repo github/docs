@@ -1,6 +1,6 @@
 ## Managing requests to bypass push rules
 
-> [!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
+[!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
 
 You can view and manage all requests for bypass privileges on the “Bypass Requests" page, located under the **Policy** settings.
 
