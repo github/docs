@@ -30,6 +30,7 @@ type AIQueryResultsProps = {
   askAIEventGroupId: React.MutableRefObject<string>
   aiCouldNotAnswer: boolean
   setAICouldNotAnswer: (aiCouldNotAnswer: boolean) => void
+  listElementsRef: React.RefObject<Array<HTMLLIElement | null>>
 }
 
 type AISearchResultEventParams = {
@@ -56,6 +57,7 @@ export function AskAIResults({
   askAIEventGroupId,
   aiCouldNotAnswer,
   setAICouldNotAnswer,
+  listElementsRef,
 }: AIQueryResultsProps) {
   const router = useRouter()
   const { t } = useTranslation('search')
@@ -396,6 +398,7 @@ export function AskAIResults({
                   if (index >= MAX_REFERENCES_TO_SHOW) {
                     return null
                   }
+                  const refIndex = index + referencesIndexOffset
                   return (
                     <ActionList.Item
                       sx={{
@@ -408,7 +411,12 @@ export function AskAIResults({
                       onSelect={() => {
                         referenceOnSelect(source.url)
                       }}
-                      active={index + referencesIndexOffset === selectedIndex}
+                      active={refIndex === selectedIndex}
+                      ref={(element) => {
+                        if (listElementsRef.current) {
+                          listElementsRef.current[refIndex] = element
+                        }
+                      }}
                     >
                       <ActionList.LeadingVisual aria-hidden="true">
                         <FileIcon />
