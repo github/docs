@@ -1,6 +1,6 @@
 {% ifversion repo-policy-rules %}
 
-> [!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
+[!NOTE] Repository policy delegated bypass is in {% data variables.release-phases.public_preview %} and subject to change.
 
 Delegated bypass for repository policies lets you control who can bypass repository policies for repository deletions and visibility changes.
 
