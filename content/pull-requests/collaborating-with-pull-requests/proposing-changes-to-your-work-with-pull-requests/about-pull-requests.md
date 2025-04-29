@@ -12,7 +12,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Pull requests
+  - Pull requests : @tr4200812📶 https://github.com/tr4200812/repositories allowed in nofications 
 ---
 
 ## About pull requests
