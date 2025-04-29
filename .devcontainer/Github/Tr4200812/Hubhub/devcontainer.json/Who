@@ -1,0 +1,9 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/universal:2",
+  "features": {gh pr checkout 546}
+   Able to opened and closed
+
+  JSONC Parser: InvalidSymbol okay
+setting "@tr4200812; https://github.com/tr4200812/hubhub/new/Who?dev_container_template=1&filename=.devcontainer%2Fdevcontainer.json
+  Marketplace: https://github.com/tr4200812/hubhub/new/Who?dev_container_template=1&filename=.devcontainer%2Fdevcontainer.json#
+}
