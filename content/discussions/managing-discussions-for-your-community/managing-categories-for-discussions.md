@@ -1,4 +1,4 @@
----
+/---
 title: Managing categories for discussions
 intro: 'You can categorize discussions to organize conversations for your community members, and you can choose a format for each category.'
 permissions: Repository administrators and people with write or greater access to a repository can manage categories for discussions in the repository. Repository administrators and people with write or greater access to the source repository for organization discussions can manage categories for discussions in the organization.
