@@ -6,10 +6,8 @@ versions:
   feature: copilot
 topics:
   - Copilot
-permissions: Enterprise owners and billing managers
+permissions: 'Enterprise owners and billing managers'
 product: '{% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
-redirect_from:
-  - /copilot/rolling-out-github-copilot-at-scale/managing-your-companys-spending-on-github-copilot
 ---
 
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
