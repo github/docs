@@ -6,7 +6,9 @@ versions:
   feature: copilot
 topics:
   - Copilot
-permissions: 'Enterprise owners and billing managers'
+permissions: Enterprise owners and billing managers
+redirect_from:
+  - /copilot/rolling-out-github-copilot-at-scale/choosing-your-enterprises-plan-for-github-copilot
 ---
 
 When you adopt {% data variables.product.prodname_copilot %} in a company, you will sign up to a {% data variables.product.prodname_copilot_short %} plan designed for businesses. These plans allow you to:
