@@ -1,0 +1,10 @@
+Configuring the template chooser
+You can customize the issue template chooser that people see when creating a new issue in your repository by adding a config.yml file to the .github/ISSUE_TEMPLATE folder.
+
+You can encourage contributors to use issue templates by setting blank_issues_enabled to false. If you set blank_issues_enabled to true, people will have the option to open a blank issue.
+
+Note
+
+If you used the legacy workflow to manually create an issue_template.md file in the .github folder and enable blank issues in your config.yml file, the template in issue_template.md will be used when people choose to open a blank issue. If you disable blank issues, the template will never be used.
+
+If you prefer to receive certain reports outside of GitHub, you can direct people to external sites with contact_links.
