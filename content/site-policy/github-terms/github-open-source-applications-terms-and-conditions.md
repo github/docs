@@ -3,7 +3,7 @@ title: GitHub Open Source Applications Terms and Conditions
 redirect_from:
   - /articles/github-open-source-applications-terms-and-conditions
   - /github/site-policy/github-open-source-applications-terms-and-conditions
-versions:
+versions: all microsoft
   fpt: '*'
 topics:
   - Policy
