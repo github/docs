@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // There are certain files that have to be manually copied from the

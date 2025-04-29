@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Run this script to generate the updated data files for the rest,

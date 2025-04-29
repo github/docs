@@ -57,6 +57,7 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
 
 {% else %}
 
+* SCIM is a server-to-server protocol. Your instance's REST API endpoints must be accessible to your SCIM provider.
 * For authentication, your instance must use SAML SSO, or a mix of SAML and built-in authentication.
   * You cannot mix SCIM with other external authentication methods. If you use CAS or LDAP, you will need to migrate to SAML before using SCIM.
   * After you have configured SCIM, you must keep SAML authentication enabled to continue using SCIM.
@@ -73,16 +74,16 @@ If you're configuring SCIM provisioning for a new enterprise, make sure to compl
 To ensure you can continue to sign in and configure settings when SCIM is enabled, you'll create an enterprise owner using built-in authentication.
 
 1. Sign in to {% data variables.product.prodname_ghe_server %} as a user with access to the Management Console.
-1. If you have **already enabled SAML authentication**, ensure your settings allow you to create and promote a built-in setup user. Go to the "Authentication" section of the Management Console and enable the following settings:
+1. If you have **already enabled SAML authentication**, ensure your settings allow you to create and promote a built-in authentication user. Go to the "Authentication" section of the Management Console and enable the following settings:
 
    * Select **Allow creation of accounts with built-in authentication**, so you can create the user.
    * Select **Disable administrator demotion/promotion**, so admin permissions can be granted outside of your SAML provider.
 
    For help finding these settings, see [AUTOTITLE](/admin/managing-iam/using-saml-for-enterprise-iam/configuring-saml-single-sign-on-for-your-enterprise#configuring-saml-sso).
 
-1. Create a built-in user account to perform provisioning actions on your instance. See [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
+1. Create a built-in user account{% ifversion scim-for-ghes-ga %} with the username `scim-admin`{% endif %} to perform provisioning actions on your instance. See [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/allowing-built-in-authentication-for-users-outside-your-provider#inviting-users-outside-your-provider-to-authenticate-to-your-instance).
 
-   >[!NOTE] Ensure the user's email and username are different from any user you plan on provisioning through SCIM. If your email provider supports it, you can modify an email address by adding `+admin`, for example `johndoe+admin@example.com`.
+   >[!NOTE] Ensure the user's email and username are different from any user you plan on provisioning through SCIM. If your email provider supports it, you can modify an email address by adding `+admin`, for example `johndoe+admin@example.com`.{% ifversion scim-for-ghes-ga %} You can use any username you would like for your setup user, but the `scim-admin` user will not be included in your [{% data variables.product.prodname_github_connect %}](/enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise#viewing-license-usage-on-github-enterprise-cloud) license counts, while other users will.{% endif %}
 
 1. Promote the user to an enterprise owner. See [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/promoting-or-demoting-a-site-administrator#promoting-a-user-from-the-enterprise-settings).
 
@@ -124,6 +125,8 @@ To ensure you can continue to sign in and configure settings when SCIM is enable
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.security-tab %}
 1. Under "SCIM Configuration", select **Enable SCIM configuration**.
+
+You can confirm that SCIM is now enabled by checking your instance's [audit logs](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise). You should expect to see a "business.enable_open_scim" event, indicating that GitHub's [SCIM REST API](/admin/managing-iam/provisioning-user-accounts-with-scim/provisioning-users-and-groups-with-scim-using-the-rest-api) has been enabled on your instance.
 
 {% endif %}
 
@@ -190,12 +193,15 @@ If you don't use a partner IdP, or if you only use a partner IdP for authenticat
 
 {% ifversion scim-for-ghes-public-beta %}
 
-## 6. Disable optional settings
+## 6. Update settings
 
-After you have finished the configuration process, you can disable the following settings in the Management Console:
+After you have finished the configuration process, you should disable the following setting in the Management Console:
+
+* **Disable administrator demotion/promotion**: Disable this setting to allow assignment of the enterprise owner role via SCIM. If this setting remains enabled, you will not be able to provision enterprise owners via SCIM.
+
+Optionally, you can disable the following setting in the Management Console as well:
 
 * **Allow creation of accounts with built-in authentication**: Disable this setting if you want all users to be provisioned from your IdP.
-* **Disable administrator demotion/promotion**: Disable this setting if you want to be able to grant the enterprise owner role via SCIM.
 
 {% endif %}
 

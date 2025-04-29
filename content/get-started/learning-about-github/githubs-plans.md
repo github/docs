@@ -76,7 +76,6 @@ In addition to the features available with {% data variables.product.prodname_fr
 * Team discussions{% endif %}
 * Team access controls for managing groups
 * 2,000 {% data variables.product.prodname_actions %} minutes per month
-* 500 MB {% data variables.product.prodname_registry %} storage
 
 ## {% data variables.product.prodname_team %}
 

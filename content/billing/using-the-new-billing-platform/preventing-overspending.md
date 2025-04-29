@@ -22,7 +22,7 @@ The budget only applies to expenses incurred from the date of its creation onwar
 Budgets are not applicable to pre-paid volume licenses.
 {% endif %}
 
-For license-based products such as {% data variables.product.prodname_copilot %}{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %}, {% data variables.product.prodname_GH_advanced_security %}, and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
+For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
 
 > [!NOTE]
 > By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.

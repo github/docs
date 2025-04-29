@@ -287,6 +287,11 @@ ghe-reactivate-admin-login
 
 ### ghe-saml-mapping-csv
 
+{% ifversion scim-for-ghes-ga %}
+> [!NOTE]
+> This utility does not work with configurations that use SAML with SCIM provisioning. For the SCIM version of this tool, please refer to [`ghe-scim-identities-csv` utility](#ghe-scim-identities-csv).
+{% endif %}
+
 This utility allows administrators to output or update the SAML `NameID` mappings for users on an instance. The utility can output a CSV file that lists all existing mappings. You can also update mappings for users on your instance by editing the resulting file, then using the utility to assign new mappings from the file.
 
 To output a CSV file containing a list of all user SAML `NameID` mappings on the instance, run the following command.
@@ -310,6 +315,31 @@ To update SAML mappings on the instance with new values from the file, run the f
 ```shell
 ghe-saml-mapping-csv -u -f /PATH/TO/FILE
 ```
+
+{% ifversion scim-for-ghes-ga %}
+
+### ghe-scim-identities-csv
+
+> [!NOTE]
+> This utility only works with configurations that use SAML with SCIM provisioning. For the SAML only version of this tool, please refer to the [`ghe-saml-mapping-csv` utility](#ghe-saml-mapping-csv).
+
+This utility allows administrators to output the SCIM identities for users on an instance. The utility can output a CSV file that lists all existing identities and the groups they are members of.
+
+To output CSV data containing a list of all user SCIM identities on the instance, run the following command. This will create a file located at `/data/user/tmp/scim-identities-DATE.csv` containing your SCIM identities.
+
+```shell
+ghe-scim-identities-csv
+```
+
+Or, if you'd like to specify the file, run the following command.
+
+```shell
+ghe-scim-identities-csv -f /PATH/TO/FILE
+```
+
+We recommend writing to a file in `/data/user/tmp`.
+
+{% endif %}
 
 ### ghe-service-list
 

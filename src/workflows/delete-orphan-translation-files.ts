@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script will delete files from a translation repo of files that
  * only exist there and not "here". Here being the docs repo.

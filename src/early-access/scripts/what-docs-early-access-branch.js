@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { getOctokit } from '@actions/github'
 import { setOutput } from '@actions/core'
 

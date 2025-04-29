@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import * as github from '@actions/github'
 import core from '@actions/core'
 

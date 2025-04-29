@@ -68,3 +68,11 @@ Forks within the same organization copy the collaborators and team settings of t
 * Any teams from the upstream permission structure that exist and are visible in the target organization or user namespace will have their permissions copied.
 * Admin permissions remain with the upstream owner, except when a user forks into a different organization.
 * If that repository is forked to a user namespace, the organization maintains admin permissions and any teams with access maintain access.
+
+{% ifversion ghec or ghes %}
+
+### About forks within an enterprise
+
+Internal repositories only support a single level of forking, it is not possible to fork a private fork of an internal repository. This is intentional to simplify access and management for internal repositories which have enterprise-wide access. This differs from the behavior of public and private repositories, that allow nested forking.
+
+{% endif %}
