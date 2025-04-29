@@ -1,5 +1,106 @@
 
-
+------------------------------------------------------------------------------------------------------------------------^
+Rulesets
+/
+New branch ruleset
+Protect your most important branches
+Rulesets define whether collaborators can delete or force push and set requirements for any pushes, such as passing status checks or a linear commit history.
+***
+Ruleset Name
+*
+Ref and hubhub
+Enforcement status
+Bypass list
+Exempt roles, teams, and apps from this ruleset by adding them to the bypass list.
+Dependabot
+DependabotApp • github
+Always allow
+Select bypass mode
+Microsoft GitHub Policy Service
+Microsoft GitHub Policy ServiceApp • microsoft1estools
+Always allow
+Select bypass mode
+WriteRole
+Always allow
+Select bypass mode
+MaintainRole
+Always allow
+Select bypass mode
+Repository adminRole
+Always allow
+Select bypass mode
+Deploy keys
+Always allow
+Select bypass mode
+Sweep AI
+Sweep AIApp • sweepai
+Always allow
+Select bypass mode
+DCO
+DCOApp • dcoapp
+Always allow
+Select bypass mode
+Google Cloud Build
+Google Cloud BuildApp • GoogleCloudBuild
+Always allow
+Select bypass mode
+Azure Boards
+Azure BoardsApp • microsoft
+Always allow
+Select bypass mode
+CodeMaker AI App
+CodeMaker AI AppApp • codemakerai
+Always allow
+Select bypass mode
+Snyk.io
+Snyk.ioApp • snyk
+Always allow
+Select bypass mode
+Vercel
+VercelApp • vercel
+Always allow
+Select bypass mode
+Learn Build Service (PROD)
+Learn Build Service (PROD)App • MicrosoftDocs
+Always allow
+Select bypass mode
+Dotnet Policy Service
+Dotnet Policy ServiceApp • microsoft1estools
+Always allow
+Select bypass mode
+changeset-bot
+changeset-botApp • changesets
+Always allow
+Select bypass mode
+dotnet-issue-labeler
+dotnet-issue-labelerApp • dotnet
+Always allow
+Select bypass mode
+Netlify
+NetlifyApp • netlify
+Always allow
+Select bypass mode
+Welcome
+WelcomeApp • probot
+Always allow
+Select bypass mode
+WakaTime
+WakaTimeApp • wakatime
+Always allow
+Select bypass mode
+.NET Helix
+.NET HelixApp • dotnet-gh-app-bot
+Always allow
+Select bypass mode
+Build Analysis
+Build AnalysisApp • dotnet-gh-app-bot
+Always allow
+Select bypass mode
+Targets
+Which branches do you want to make a ruleset for?
+Target branches
+Branch targeting determines which branches will be protected by this ruleset. Use inclusion patterns to expand the list of branches under this ruleset. Use exclusion patterns to exclude branches.
+Branch targeting criteria
 
 ---
 title: About authentication with SAML single sign-on
