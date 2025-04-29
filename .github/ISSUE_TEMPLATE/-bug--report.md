@@ -2,7 +2,9 @@
 name: "[Bug]-report"
 about: Create a report to help us improve
 title: ''
-labels: B-, contains, dependencies, Eng-th, javascript, Whatisthis?
+labels: Allows Allows Expected  Label, B-, contains, dependencies, Eng-th, javascript,
+  No group, Project, Pull-Requests, tr4200812@outlook.com.au | tr4200812@gmail.com,
+  triage, Whatisthis?
 assignees: tr4200812
 
 ---
