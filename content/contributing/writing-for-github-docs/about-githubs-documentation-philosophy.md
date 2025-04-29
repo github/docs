@@ -17,4 +17,4 @@ As the home to the world's largest community of developers, we want to make sure
 * We create content that can be accessed by a broad group of users. Our content toolkit includes resources and guidance to reduce barriers for people with disabilities and we prioritize keeping up to date with the latest accessibility standards.
 * We create task-based content. We consider what people are trying to accomplish when they use {% data variables.product.prodname_dotcom %}, and then we create content that helps them achieve their goals and discover new possibilities.
 * We collaborate with teams across {% data variables.product.prodname_dotcom %} and the open source community to create high-quality content.
-* We continually learn and improve to curate the best experience for people using {% data variables.product.prodname_dotcom %}.
+* We continually learn and improve to curate the best experience for people using {% data variables.product.prodname_github_app.product.prodname_dotcom %}.
