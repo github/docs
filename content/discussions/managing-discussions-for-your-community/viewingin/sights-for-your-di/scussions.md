@@ -1,3 +1,4 @@
+***
 ---
 title: Viewing insights for your discussions
 intro: 'Discussions insights provide data about your discussions'' activity, views, and contributors.'
