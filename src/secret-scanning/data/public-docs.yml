@@ -742,6 +742,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Block Protocol
+  supportedSecret: Block Protocol API Key
+  secretType: block_protocol_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Brevo
   supportedSecret: Sendinblue API Key
   secretType: sendinblue_api_key
@@ -1074,6 +1085,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Datadog
+  supportedSecret: Datadog RCM
+  secretType: datadog_rcm
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Datastax
   supportedSecret: Datastax AstraCS Tokens
   secretType: datastax_astracs_token
@@ -1204,6 +1226,28 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Docker
+  supportedSecret: Docker Swarm Join Token
+  secretType: docker_swarm_join_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Docker
+  supportedSecret: Docker Swarm Unlock Key
+  secretType: docker_swarm_unlock_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Doppler
@@ -1832,6 +1876,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Heroku
+  supportedSecret: Heroku Postgres Connection URL
+  secretType: heroku_postgres_connection_url
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Highnote
