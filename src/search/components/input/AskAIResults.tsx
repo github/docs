@@ -298,7 +298,7 @@ export function AskAIResults({
         <article aria-busy={responseLoading} aria-live="assertive">
           {!aiCouldNotAnswer && message !== '' ? (
             <span ref={disclaimerRef} className={styles.disclaimerText}>
-              {t('search.ai.disclaimer')}
+              <span dangerouslySetInnerHTML={{ __html: t('search.ai.disclaimer') }} />
             </span>
           ) : null}
           <UnrenderedMarkdownContent
@@ -400,7 +400,6 @@ export function AskAIResults({
                     <ActionList.Item
                       sx={{
                         marginLeft: '0px',
-                        paddingLeft: '0px',
                       }}
                       key={`reference-${index}`}
                       id={`search-option-reference-${index + referencesIndexOffset}`}

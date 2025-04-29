@@ -681,7 +681,7 @@
     ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Baidu
@@ -740,6 +740,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Block Protocol
+  supportedSecret: Block Protocol API Key
+  secretType: block_protocol_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Brevo
@@ -1074,6 +1085,17 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: Datadog
+  supportedSecret: Datadog RCM
+  secretType: datadog_rcm
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Datastax
   supportedSecret: Datastax AstraCS Tokens
   secretType: datastax_astracs_token
@@ -1206,6 +1228,28 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Docker
+  supportedSecret: Docker Swarm Join Token
+  secretType: docker_swarm_join_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Docker
+  supportedSecret: Docker Swarm Unlock Key
+  secretType: docker_swarm_unlock_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Doppler
   supportedSecret: Doppler Audit Token
   secretType: doppler_audit_token
@@ -1335,7 +1379,7 @@
     ghes: '>=3.14'
   isPublic: true
   isPrivateWithGhas: true
-  hasPushProtection: false
+  hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
 - provider: Dynatrace
@@ -1565,7 +1609,7 @@
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: true
-  isduplicate: false
+  isduplicate: true
 - provider: GitHub
   supportedSecret: GitHub SSH Private Key
   secretType: github_ssh_private_key
@@ -1671,7 +1715,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.14'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1685,7 +1729,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.14'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1709,7 +1753,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: '{% ifversion fpt or ghes %}false{% else %}true{% endif %}'
@@ -1733,7 +1777,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1832,6 +1876,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Heroku
+  supportedSecret: Heroku Postgres Connection URL
+  secretType: heroku_postgres_connection_url
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Highnote
