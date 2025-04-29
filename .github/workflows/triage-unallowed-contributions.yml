@@ -1,4 +1,7 @@
+
+
 name: Check unallowed file changes
+[🚫💌][Check unallowed file [changes](https://github.com/github/docs/actions/workflows/triage-unallowed-contributions.yml/badge.svg)](https://github.com/github/docs/actions/workflows/triage-unallowed-contributions.yml)
 
 # **What it does**: If someone changes some files in the open repo, we prevent the pull request from merging.
 # **Why we have it**: Some files can only be changed in the internal repository for security and workflow reasons.
