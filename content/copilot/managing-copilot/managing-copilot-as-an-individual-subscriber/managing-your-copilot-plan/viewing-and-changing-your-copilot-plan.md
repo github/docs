@@ -29,7 +29,7 @@ If you have access to {% data variables.product.prodname_copilot %} through an o
 ## Viewing your {% data variables.product.prodname_copilot_short %} plan
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
+{% data reusables.user-settings.billing_plans %}
 
 Under "Current plan", you can see which plan you're currently using.
 
@@ -40,8 +40,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 ### Upgrading your {% data variables.product.prodname_copilot_short %} plan
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
-
+{% data reusables.user-settings.billing_plans %}
 1. In the "{% data variables.product.prodname_copilot %}" section, click the option to upgrade on the right.
 
    * If you're on {% data variables.product.prodname_copilot_free_short %}, click **Upgrade {% data variables.product.prodname_copilot_short %}** to choose a paid plan.
@@ -52,8 +51,7 @@ You can upgrade or downgrade your {% data variables.product.prodname_copilot_sho
 ### Downgrading your {% data variables.product.prodname_copilot_pro_plus_short %} plan
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
-
+{% data reusables.user-settings.billing_plans %}
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Downgrade to {% data variables.product.prodname_copilot_pro_short %}**.
 1. In the downgrade modal, you'll see options to:
 
@@ -71,8 +69,7 @@ If you have been granted a free access to {% data variables.product.prodname_cop
 {% data reusables.copilot.copilot-one-account-short %}
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
-
+{% data reusables.user-settings.billing_plans %}
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Manage subscription** dropdown on the right and then click **Cancel subscription**.
 1. Select **Cancel {% data variables.product.prodname_copilot_pro_plus_short %}/{% data variables.product.prodname_copilot_pro_short %}** to cancel your plan at the end of your current billing cycle.
 
@@ -81,8 +78,7 @@ If you have been granted a free access to {% data variables.product.prodname_cop
 You can cancel your {% data variables.product.prodname_copilot_pro_short %} trial at any time during your trial period. If you cancel during your {% data reusables.copilot.trial-period %}-day trial, you won't be charged. Your cancellation will take effect at the end of your trial period. If you do not cancel your trial, you will be automatically enrolled in a paid plan at the end of your trial period, according to the billing preferences you set up when you started your trial.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
-
+{% data reusables.user-settings.billing_plans %}
 1. Under "Add-ons", in the "{% data variables.product.prodname_copilot %}" section, click **Cancel trial**.
 
    ![Screenshot of the {% data variables.product.prodname_copilot %} section of the "Plans and usage" page. The "Cancel trial" option is highlighted in dark orange.](/assets/images/help/copilot/copilot-cancel-trial.png)
@@ -92,7 +88,7 @@ You can cancel your {% data variables.product.prodname_copilot_pro_short %} tria
 If you're on a paid {% data variables.product.prodname_copilot_short %} plan, you can switch between monthly and yearly billing at any time. The change will take effect at the start of your next billing cycle.
 
 {% data reusables.user-settings.access_settings %}
-{% data reusables.user-settings.billing-plans-two-platforms %}
+{% data reusables.user-settings.billing_plans %}
 
 1. In the "{% data variables.product.prodname_copilot %}" section, select the **Edit** dropdown on the right.
 1. Choose the option to switch your billing cycle:

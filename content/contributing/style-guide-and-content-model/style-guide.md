@@ -1808,39 +1808,3 @@ If a pronoun seems to refer to more than one antecedent, either reword the sente
 
 * **Use:** After you make your final commit to your branch and merge your pull request, you can delete your branch.
 * **Avoid:** After you make your final commit to your branch and merge your pull request, you can delete it.
-* **Remember, contributions to this repository should follow its contributing guidelines, security policy, and code of conduct.
- ProTip! Add comments to specific lines under Files changed.
-Reviewers
-No reviews
-Still in progress?
-Assignees
-No one assigned
-Labels
-None yet
-Projects
-None yet
-Milestone
-No milestone
-Development
-Successfully merging this pull request may close these issues.
-
-None yet
-
-
-Notifications
-Customize
-You’re receiving notifications because you authored the thread.
-1 participant
-@tr4200812
-Allow edits by maintainers
-Footer
-© 2025 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact
-Manage cookies
-08b7e2c5e4eb2b7e4eee9fca148784831ffad073

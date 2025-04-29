@@ -473,9 +473,11 @@ export function SearchOverlay({
 
       // When enter is pressed and no option is manually selected (-1), perform an AI search with the user input
       if (selectedIndex === -1) {
-        pressedOnContext = AI_SEARCH_CONTEXT
-        pressedGroupKey = ASK_AI_EVENT_GROUP
-        pressedGroupId = askAIEventGroupId
+        if (isAskAIState) {
+          pressedOnContext = AI_SEARCH_CONTEXT
+          pressedGroupKey = ASK_AI_EVENT_GROUP
+          pressedGroupId = askAIEventGroupId
+        }
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
       }

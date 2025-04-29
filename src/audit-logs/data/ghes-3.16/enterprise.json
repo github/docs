@@ -2025,16 +2025,6 @@
     "docs_reference_links": "N/A"
   },
   {
-    "action": "personal_access_token.expiration_limit_set",
-    "description": "A personal access token expiration limit was set.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "personal_access_token.expiration_limit_unset",
-    "description": "A personal access token expiration limit was unset.",
-    "docs_reference_links": "N/A"
-  },
-  {
     "action": "personal_access_token.request_cancelled",
     "description": "A pending request for a fine-grained personal access token to access organization resources was canceled.",
     "docs_reference_links": "N/A"

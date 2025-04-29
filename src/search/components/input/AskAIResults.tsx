@@ -400,6 +400,7 @@ export function AskAIResults({
                     <ActionList.Item
                       sx={{
                         marginLeft: '0px',
+                        paddingLeft: '0px',
                       }}
                       key={`reference-${index}`}
                       id={`search-option-reference-${index + referencesIndexOffset}`}
