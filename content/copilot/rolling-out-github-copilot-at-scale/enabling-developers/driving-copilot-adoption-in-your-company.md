@@ -1,11 +1,13 @@
 ---
 title: Driving Copilot adoption in your company
 shortTitle: Drive Copilot adoption
-intro: 'Learn how to plan an effective enablement process to drive Copilot adoption.'
+intro: Learn how to plan an effective enablement process to drive Copilot adoption.
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/rolling-out-github-copilot-at-scale/driving-copilot-adoption-in-your-company
 ---
 
 An effective enablement process is essential to drive adoption of {% data variables.product.prodname_copilot_short %} in your organization. This process should be tailored to your organization's needs and goals, and should be designed to help your teams understand how to use {% data variables.product.prodname_copilot_short %} effectively.
