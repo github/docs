@@ -4,6 +4,20 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>DraftPullRequestReviewThread.line</code> changed type from <code>Int!</code> to <code>Int</code></p>",
+          "<p>Input field <code>DraftPullRequestReviewThread.path</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-04-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>RepositorySuggestedActorFilter</code> was added</p>",
           "<p>Argument 'capabilities: [RepositorySuggestedActorFilter!]!<code>added to field</code>Repository.suggestedActors'</p>"
         ]
