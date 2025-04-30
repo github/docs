@@ -16,7 +16,7 @@ set -e
 . ./build-scripts/clone-or-use-cached-repo.sh
 
 # Set the GITHUB_TOKEN environment variable from the mounted --secret passed to Docker build
-GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_READPUBLICKEY)
+GITHUB_TOKEN=$(cat /run/secrets/DOCS_BOT_PAT_BASE)
 
 # - - - - - - - - - -
 # Early access

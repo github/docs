@@ -48,7 +48,7 @@ COPY --chown=node:node --chmod=+x \
 # - 3. Fetch each translations repo to the repo/translations directory
 # We use --mount-type=secret to avoid the secret being copied into the image layers for security
 # The secret passed via --secret can only be used in this RUN command
-RUN --mount=type=secret,id=DOCS_BOT_PAT_READPUBLICKEY,mode=0444 \
+RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   # We don't cache because Docker can't know if we need to fetch new content from remote repos
   echo "Don't cache this step by printing date: $(date)" && \
   . ./build-scripts/fetch-repos.sh
