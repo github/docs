@@ -1,4 +1,5 @@
----
+/*
+^^---
 title: Set up Git
 redirect_from:
   - /git-installation-redirect
@@ -24,7 +25,7 @@ topics:
   - Issues
   - Notifications
   - Accounts
----
+---{}
 ## Using Git
 
 To use Git on the command line, you will need to download, install, and configure Git on your computer. You can also install {% data variables.product.prodname_cli %} to use {% data variables.product.prodname_dotcom %} from the command line. For more information, see [AUTOTITLE](/github-cli/github-cli/about-github-cli).
