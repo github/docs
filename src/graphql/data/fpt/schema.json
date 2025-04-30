@@ -34905,6 +34905,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "closedIssueCount",
+          "description": "<p>Identifies the number of closed issues associated with the milestone.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -35045,6 +35053,14 @@
         {
           "name": "number",
           "description": "<p>Identifies the number of the milestone.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "openIssueCount",
+          "description": "<p>Identifies the number of open issues associated with the milestone.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -109318,8 +109334,7 @@
           "type": "ID",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "labelIds",
