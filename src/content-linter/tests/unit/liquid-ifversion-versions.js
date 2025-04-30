@@ -1,11 +1,13 @@
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 
 import { runRule } from '../../lib/init-test.js'
-import { validateIfversionConditionalsVersions } from '../../lib/linting-rules/liquid-versioning.js'
-import { liquidIfversionVersions } from '../../lib/linting-rules/liquid-ifversion-versions.js'
+import {
+  liquidIfVersionVersions,
+  validateIfversionConditionalsVersions,
+} from '../../lib/linting-rules/liquid-versioning.js'
 import { supported } from '#src/versions/lib/enterprise-server-releases.js'
 
-describe(liquidIfversionVersions.names.join(' - '), () => {
+describe(liquidIfVersionVersions.names.join(' - '), () => {
   const envVarValueBefore = process.env.ROOT
 
   beforeAll(() => {
@@ -16,28 +18,16 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     process.env.ROOT = envVarValueBefore
   })
 
-  const placeholderAllVersionsFm = [
-    '---',
-    'title: "Hello"',
-    'versions: ',
-    '  ghec: "*"',
-    '  ghes: "*"',
-    '  fpt: "*"',
-    '---',
-  ]
-
   test('ifversion naming all possible shortnames in body', async () => {
-    const markdown = [
-      ...placeholderAllVersionsFm,
-      '{% ifversion ghes or ghec or fpt %}{% endif %}',
-      '{% ifversion fpt %}{% elsif ghec or fpt or ghes %}{% endif %}',
-    ].join('\n')
-
-    const result = await runRule(liquidIfversionVersions, {
+    const markdown = `
+      {% ifversion ghes or ghec or fpt %}{% endif %}
+      {% ifversion fpt %}{% elsif ghec or fpt or ghes %}{% endif %}
+    `
+    const result = await runRule(liquidIfVersionVersions, {
       strings: { markdown },
     })
     const errors = result.markdown
-    expect(errors.length).toBe(5)
+    expect(errors.length).toBe(2)
     expect(errors.every((error) => error.ruleNames[0] === 'GHD022'))
   })
 
@@ -45,73 +35,25 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     const markdown = [
       '---',
       "title: '{% ifversion ghes or ghec or fpt %}Always{% endif %}'",
-      'versions: ',
-      '  ghec: "*"',
-      '  ghes: "*"',
-      '  fpt: "*"',
       '---',
       'All is well',
     ].join('\n')
 
     const fmOptions = { markdownlintOptions: { frontMatter: null } }
-    const result = await runRule(liquidIfversionVersions, {
+    const result = await runRule(liquidIfVersionVersions, {
       strings: { markdown },
       ...fmOptions,
     })
     const errors = result.markdown
-    expect(errors.length).toBe(2)
+    expect(errors.length).toBe(1)
     expect(errors[0].ruleNames[0]).toBe('GHD022')
   })
 
   test('ifversion all shortnames and an oldest ghes', async () => {
-    const markdown = [
-      ...placeholderAllVersionsFm,
-      `{% ifversion ghec or fpt or ghes >=${supported.at(-1)} %}{% endif %}`,
-    ].join('\n')
-
-    const result = await runRule(liquidIfversionVersions, {
-      strings: { markdown },
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(2)
-    expect(errors[0].ruleNames[0]).toBe('GHD022')
-  })
-
-  test('ifversion all shortnames and an almost oldest ghes', async () => {
-    // Note that this will mean version will not catch the oldest version
-    // of ghes, so something is actually excluded by the ifversion tag.
-    const markdown = [
-      ...placeholderAllVersionsFm,
-      `{% ifversion ghec or fpt or ghes >${supported.at(-1)} %}{% endif %}`,
-    ].join('\n')
-
-    const result = await runRule(liquidIfversionVersions, {
-      strings: { markdown },
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(0)
-  })
-
-  test.skip('ifversion using feature based version with all versions', async () => {
-    // That `features/them-and-all.yml` uses all versions.
-    const markdown = [...placeholderAllVersionsFm, `{% ifversion them-and-all %}{% endif %}`].join(
-      '\n',
-    )
-    const result = await runRule(liquidIfversionVersions, {
-      strings: { markdown },
-    })
-    const errors = result.markdown
-    expect(errors.length).toBe(2)
-    expect(errors[0].ruleNames[0]).toBe('GHD022')
-  })
-
-  test.skip('ifversion using feature based version extended with shortname all versions', async () => {
-    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`
-    // so combined with the
     const markdown = `
-      {% ifversion volvo or ghes %}{% endif %}
+      {% ifversion ghec or fpt or ghes >=${supported.at(-1)} %}{% endif %}
     `
-    const result = await runRule(liquidIfversionVersions, {
+    const result = await runRule(liquidIfVersionVersions, {
       strings: { markdown },
     })
     const errors = result.markdown
@@ -119,13 +61,51 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
     expect(errors[0].ruleNames[0]).toBe('GHD022')
   })
 
-  test.skip("ifversion using 'not' can't be tested", async () => {
-    const markdown = [
-      ...placeholderAllVersionsFm,
-      `{% ifversion ghes or fpt or not ghec %}{% endif %}`,
-    ].join('\n')
+  test('ifversion all shortnames and an almost oldest ghes', async () => {
+    // Note that this will mean version will not catch the oldest version
+    // of ghes, so something is actually excluded by the ifversion tag.
+    const markdown = `
+      {% ifversion ghec or fpt or ghes >${supported.at(-1)} %}{% endif %}
+    `
+    const result = await runRule(liquidIfVersionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(0)
+  })
 
-    const result = await runRule(liquidIfversionVersions, {
+  test('ifversion using feature based version with all versions', async () => {
+    // That `features/them-and-all.yml` uses all versions.
+    const markdown = `
+      {% ifversion them-and-all %}{% endif %}
+    `
+    const result = await runRule(liquidIfVersionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].ruleNames[0]).toBe('GHD022')
+  })
+
+  test('ifversion using feature based version extended with shortname all versions', async () => {
+    // That `features/volvo.yml` contains `fpt:'*', ghec:'*'`
+    // so combined with the
+    const markdown = `
+      {% ifversion volvo or ghes %}{% endif %}
+    `
+    const result = await runRule(liquidIfVersionVersions, {
+      strings: { markdown },
+    })
+    const errors = result.markdown
+    expect(errors.length).toBe(1)
+    expect(errors[0].ruleNames[0]).toBe('GHD022')
+  })
+
+  test("ifversion using 'not' can't be tested", async () => {
+    const markdown = `
+      {% ifversion ghes or fpt or not ghec %}{% endif %}
+    `
+    const result = await runRule(liquidIfVersionVersions, {
       strings: { markdown },
     })
     const errors = result.markdown
@@ -133,7 +113,7 @@ describe(liquidIfversionVersions.names.join(' - '), () => {
   })
 })
 
-describe.skip('test validateIfversionConditionalsVersions function', () => {
+describe('test validateIfversionConditionalsVersions function', () => {
   test('most basic example without feature', () => {
     const condition = 'ghes or ghec or fpt'
     const allFeatures = {}

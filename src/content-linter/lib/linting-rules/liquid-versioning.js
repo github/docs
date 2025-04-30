@@ -110,6 +110,44 @@ export const liquidIfVersionTags = {
   },
 }
 
+export const liquidIfVersionVersions = {
+  names: ['GHD022', 'liquid-ifversion-versions'],
+  description: 'Liquid `ifversion` (and `elsif`) should not always be true',
+  tags: ['liquid', 'versioning'],
+  function: (params, onError) => {
+    const content = params.lines.join('\n')
+    const tokens = getLiquidTokens(content)
+      .filter((token) => token.kind === TokenKind.Tag)
+      .filter((token) => token.name === 'ifversion' || token.name === 'elsif')
+
+    const { name } = params
+    for (const token of tokens) {
+      const args = token.args
+      const { lineNumber } = getPositionData(token, params.lines)
+      try {
+        const errors = validateIfversionConditionalsVersions(args, getAllFeatures())
+        if (errors.length === 0) continue
+
+        if (errors.length) {
+          addError(
+            onError,
+            lineNumber,
+            errors.join('. '),
+            token.content,
+            null, // getRange(token.content, args),
+            null, // No fix possible
+          )
+        }
+      } catch (error) {
+        console.error(
+          `Name that caused the error: ${name}, Token args: '${args}', Line number: ${lineNumber}`,
+        )
+        throw error
+      }
+    }
+  },
+}
+
 function validateIfversionConditionals(cond, possibleVersionNames) {
   const validateVersion = (version) => possibleVersionNames.has(version)
 
@@ -226,8 +264,8 @@ export function validateIfversionConditionalsVersions(cond, allFeatures) {
   const applicableVersions = []
   try {
     applicableVersions.push(...getApplicableVersions(versions))
-  } catch {
-    // Do nothing
+  } catch (error) {
+    console.warn(`Condition '${cond}' throws an error when trying to get applicable versions`)
   }
 
   if (isAllVersions(applicableVersions) && !hasFutureLessThan) {
