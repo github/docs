@@ -138,7 +138,7 @@ If there are no unique committers to a repository or organization, all active co
 
 ## Billing platforms
 
-In June 2024 {% data variables.product.github %} introduced a new billing platform to provide greater insight and control over the use of paid products. {% ifversion fpt or ghec %}All {% data variables.enterprise.enterprise_or_org %}s are being migrated over to the new billing platform.{% endif %}
+In June 2024 {% data variables.product.github %} introduced a new billing platform to provide greater insight and control over the use of paid products. All {% data variables.enterprise.enterprise_or_org %}s are being migrated over to the new billing platform.
 
 ### New billing platform
 

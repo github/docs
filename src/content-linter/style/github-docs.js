@@ -89,12 +89,12 @@ const githubDocsConfig = {
     'partial-markdown-files': true,
     'yml-files': true,
   },
-  // 'liquid-ifversion-versions': {
-  //   // GHD022
-  //   severity: 'error',
-  //   'partial-markdown-files': true,
-  //   'yml-files': true,
-  // },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'yaml-scheduled-jobs': {
     // GHD021
     severity: 'error',
@@ -206,12 +206,12 @@ export const githubDocsFrontmatterConfig = {
     severity: 'error',
     'partial-markdown-files': false,
   },
-  // 'liquid-ifversion-versions': {
-  //   // GHD022
-  //   severity: 'error',
-  //   'partial-markdown-files': true,
-  //   'yml-files': true,
-  // },
+  'liquid-ifversion-versions': {
+    // GHD022
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
+  },
   'link-quotation': {
     // GHD043
     severity: 'error',

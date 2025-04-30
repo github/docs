@@ -64,7 +64,7 @@ If your organization is outside of the US or if you're using a corporate checkin
 ![Screenshot of the "Payment method" section. Below some card details, a link, labeled "New Card", is highlighted with an orange outline.](/assets/images/help/billing/billing-new-card-button.png)
 {% data reusables.dotcom_billing.enter-payment-info %}
 
-{% ifversion ghec or ghes %}
+{% ifversion ghec %}
 
 ## Updating your enterprise account's payment method
 

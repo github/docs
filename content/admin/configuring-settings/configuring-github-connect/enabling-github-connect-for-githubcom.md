@@ -35,9 +35,7 @@ You can access additional features and workflows on {% data variables.location.p
 * Your enterprise account on {% data variables.product.prodname_dotcom_the_website %} must be invoiced. Enterprise accounts on the free trial of {% data variables.product.prodname_ghe_cloud %} or that pay by credit card cannot be connected to {% data variables.location.product_location %}.
 * If your enterprise account on {% data variables.product.prodname_dotcom_the_website %} uses IP allow lists, you must add the IP address or network for {% data variables.location.product_location %} to your IP allow list. See [AUTOTITLE](/enterprise-cloud@latest/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise#managing-allowed-ip-addresses-for-organizations-in-your-enterprise) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 * To configure a connection, your proxy configuration must allow connectivity to `github.com`, `api.github.com`, and `uploads.github.com`. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-an-outbound-web-proxy-server).
-{%- ifversion ghecom-github-connect %}
 * If you have previously enabled {% data variables.product.prodname_github_connect %} for an enterprise on {% data variables.enterprise.data_residency_site %}, you must change your configuration to allow connections to {% data variables.product.prodname_dotcom_the_website %}. See [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom#reenabling-connections-to-githubcom).
-{%- endif %}
 
 ## Enabling {% data variables.product.prodname_github_connect %}
 

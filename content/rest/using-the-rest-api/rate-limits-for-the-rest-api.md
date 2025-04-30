@@ -46,7 +46,7 @@ The primary rate limit for unauthenticated requests is 60 requests per hour.
 
 You can use a {% data variables.product.pat_generic %} to make API requests. Additionally, you can authorize a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, which can then make API requests on your behalf.
 
-All of these requests count towards your personal rate limit of 5,000 requests per hour. {% ifversion fpt or ghec %}Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.{% endif %}
+All of these requests count towards your personal rate limit of 5,000 requests per hour. Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
 
 ### Primary rate limit for {% data variables.product.prodname_github_app %} installations
 
@@ -75,7 +75,7 @@ For these requests, the rate limit is 5,000 requests per hour per {% data variab
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
 
-The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository.{% ifversion fpt or ghec %} For requests to resources that belong to a {% data variables.product.prodname_ghe_cloud %} account, the limit is 15,000 requests per hour per repository.{% endif %}
+The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository. For requests to resources that belong to a {% data variables.product.prodname_ghe_cloud %} account, the limit is 15,000 requests per hour per repository.
 
 ## About secondary rate limits
 
