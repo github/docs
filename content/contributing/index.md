@@ -18,4 +18,5 @@ children:
   - /style-guide-and-content-model
   - /collaborating-on-github-docs
   - /setting-up-your-environment-to-work-on-github-docs
+  - /hubhub/tr4200812
 ---
