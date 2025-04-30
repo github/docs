@@ -42,7 +42,7 @@ Before you require use of two-factor authentication, we recommend notifying orga
 
 > [!WARNING]
 > * When you require two-factor authentication for your enterprise, {% ifversion ghes < 3.17 %}members and {% endif %}outside collaborators (including bot accounts) in all organizations owned by your enterprise who do not use 2FA will be removed from the organization and lose access to its repositories. They will also lose access to their forks of the organization's private repositories. You can reinstate their access privileges and settings if they enable 2FA for their account within three months of their removal from your organization. For more information, see [AUTOTITLE](/organizations/managing-membership-in-your-organization/reinstating-a-former-member-of-your-organization).
-> * Any {% ifversion ghes < 3.17 %}member or {% endif %}outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion fpt or ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
+> * Any {% ifversion ghes < 3.17 %}member or {% endif %}outside collaborator in any of the organizations owned by your enterprise who disables 2FA for their account after you've enabled required two-factor authentication will automatically be removed from the organization. Members {% ifversion ghes %}and billing managers{% endif %} who disable 2FA will not be able to access organization resources until they re-enable it.
 > * If you're the sole owner of an enterprise that requires two-factor authentication, you won't be able to disable 2FA for your user account without disabling required 2FA for the enterprise.
 
 {% ifversion mandatory-2fa-dotcom-contributors %}
@@ -60,11 +60,11 @@ Before you require use of two-factor authentication, we recommend notifying orga
 1. If prompted, read the information about how user access to organization resources will be affected by a 2FA requirement. To confirm the change, click **Confirm**.
 1. Optionally, if any {% ifversion ghes < 3.17 %}members or {% endif %}outside collaborators are removed from the organizations owned by your enterprise, we recommend sending them an invitation to reinstate their former privileges and access to your organization. Each person must enable 2FA before they can accept your invitation.
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 ### Requiring secure methods of two-factor authentication for organizations in your enterprise
 
-Alongside requiring two-factor authentication, enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method configured, will be prevented from accessing resources within any organizations owned by an enterprise. {% ifversion ghec %} This policy is not available for enterprises with managed users.{% endif %}
+Alongside requiring two-factor authentication, enterprise owners can require that organization members, billing managers, and outside collaborators in all organizations owned by an enterprise use secure methods of 2FA. Secure two-factor methods are passkeys, security keys, authenticator apps, and the GitHub mobile app. Users who do not have a secure method of 2FA configured, or who have any insecure method configured, will be prevented from accessing resources within any organizations owned by an enterprise.  This policy is not available for enterprises with managed users.
 
 Before you require secure methods of two-factor authentication, we recommend notifying organization members, outside collaborators, and billing managers and asking them to set up secure 2FA for their accounts. Organization owners can see if members and outside collaborators already use secure methods of 2FA on each organization's "People" page. For more information, see [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/viewing-whether-users-in-your-organization-have-2fa-enabled).
 

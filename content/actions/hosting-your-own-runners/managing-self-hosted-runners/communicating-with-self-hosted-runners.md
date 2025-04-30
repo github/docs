@@ -52,7 +52,7 @@ If you use an IP address allow list for your {% data variables.product.prodname_
 
 {% else %}
 
-{% ifversion ghes %}Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.prodname_ghe_server %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.prodname_ghe_server %}, with no need for traffic to traverse a public network.{% endif %}
+Self-hosted runners do not require any external internet access in order to function. As a result, you can use network routing to direct communication between the self-hosted runner and {% data variables.product.prodname_ghe_server %}. For example, you can assign a private IP address to your self-hosted runner and configure routing to send traffic to {% data variables.product.prodname_ghe_server %}, with no need for traffic to traverse a public network.
 
 {% endif %}
 

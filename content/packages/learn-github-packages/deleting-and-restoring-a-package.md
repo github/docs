@@ -163,9 +163,9 @@ For example, if you're the user `octocat`, and you have a deleted RubyGems packa
 
 {% ifversion fpt or ghec %}
 To restore a deleted package, you must also meet one of these permission requirements:
-* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.{% ifversion fpt or ghec %}
+* For repository-scoped packages: You have admin permissions to the repository in which the deleted package is published.
 * For user-account scoped packages: The deleted package is scoped to your personal account.
-* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.{% endif %}
+* For organization-scoped packages: You have admin permissions to the deleted package in the organization to which the package is scoped.
 {% endif %}
 
 {% ifversion ghes %}
