@@ -1,3 +1,5 @@
+Thx-for-you [![ESLint](https://github.com/i3lacksugra555/demo-repository/actions/workflows/eslint.yml/badge.svg)](https://github.com/i3lacksugra555/demo-repository/actions/workflows/eslint.yml)
+https://github.com/tr4200812/hubhub/releases/tag/commented
 name: Triage new issue comments
 
 # **What it does**: Adds label triage to new issue comments in the open source repository.
