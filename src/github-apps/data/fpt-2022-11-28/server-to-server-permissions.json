@@ -9981,6 +9981,17 @@
         "user-to-server": true,
         "server-to-server": false,
         "additional-permissions": false
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": false,
+        "additional-permissions": false
       }
     ]
   },
