@@ -93,7 +93,6 @@ In addition to the features available with {% data variables.product.prodname_fr
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
   * Multiple pull request reviewers
-  * Draft pull requests
   * Team pull request reviewers
   * Protected branches
   * Code owners
