@@ -1,87 +1,79 @@
----
-title: Types of GitHub accounts
-intro: 'Accounts on {% data variables.product.github %} allow you to organize and control access to code.'
-redirect_from:
-  - /manage-multiple-clients
-  - /managing-clients
-  - /articles/what-s-the-difference-between-user-and-organization-accounts
-  - /articles/differences-between-user-and-organization-accounts
-  - /articles/types-of-github-accounts
-  - /github/getting-started-with-github/types-of-github-accounts
-  - /github/getting-started-with-github/learning-about-github/types-of-github-accounts
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - Accounts
-  - CLI
-  - Mobile
-  - Desktop
-  - Security
----
-
-## About accounts
-
-With {% data variables.product.github %}, you can store and collaborate on code. Accounts allow you to organize and control access to that code. There are three types of accounts on {% data variables.product.github %}.
-* User accounts
-* Organization accounts
-* Enterprise accounts
-
-Every person who uses {% data variables.product.github %} signs in to a user account. An organization account enhances collaboration between multiple users, and {% ifversion fpt or ghec %}an enterprise account{% else %}the enterprise account for {% data variables.location.product_location %}{% endif %} allows central management of multiple organizations.
-
-## User accounts
-
-{% data reusables.accounts.your-personal-account %}
-
-Your user account can own resources such as repositories, packages, and projects. Any time you take any action on {% data variables.product.github %}, such as creating an issue or reviewing a pull request, the action is attributed to your user account.
-
-User accounts are intended for humans, but you can create accounts to automate activity on {% data variables.product.github %}. This type of account is called a machine user. For example, you can create a machine user account to automate continuous integration (CI) workflows.
-
-{% ifversion fpt or ghec %}
-
-There are two types of user account:
-
-* [Personal accounts](#personal-accounts)
-* [{% data variables.enterprise.prodname_managed_users_caps %}](#managed-user-accounts)
-
-### Personal accounts
-
-If you signed up for your own account on {% data variables.product.prodname_dotcom_the_website %}, you are using a personal account.
-
-Each personal account uses either {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}. All personal accounts can own an unlimited number of public and private repositories, with an unlimited number of collaborators on those repositories. If you use {% data variables.product.prodname_free_user %}, private repositories owned by your personal account have a limited feature set. You can upgrade to {% data variables.product.prodname_pro %} to get a full feature set for private repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
-
-Many people use one personal account for all their work on {% data variables.product.prodname_dotcom_the_website %}, including both open source projects and paid employment. If you're currently using more than one personal account that you created for yourself, we suggest combining the accounts. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-your-personal-account/merging-multiple-personal-accounts).
-
-Even if you're a member of an organization that uses SAML single sign-on, you will still sign in to your own personal account on {% data variables.product.prodname_dotcom_the_website %}, and that personal account will be linked to your identity in your organization's identity provider (IdP). For more information, see [AUTOTITLE](/enterprise-cloud@latest/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on){% ifversion fpt %}" in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
-
-### {% data variables.enterprise.prodname_managed_users_caps %}
-
-If your account was created for you by an enterprise on {% data variables.product.prodname_ghe_cloud %}, you are using a {% data variables.enterprise.prodname_managed_user %}.
-
-As a {% data variables.enterprise.prodname_managed_user %}:
-
-* Some of your account details and settings are managed by your enterprise.
-* You must sign in to your {% data variables.enterprise.prodname_managed_user %} to access organizations and repositories owned by the enterprise.
-* You can create your own private repositories, but you cannot create public content or contribute to repositories outside the enterprise.
-
-{% endif %}
-
-## Organization accounts
-
-Organizations are shared accounts where a large number of people can collaborate across many projects at once.
-
-Like user accounts, organizations can own resources such as repositories, packages, and projects. However, you cannot sign in to an organization. Instead, each person signs in to their user account, and any actions the person takes on organization resources are attributed to their user account. Each user can be a member of multiple organizations.
-
-The users within an organization can be given different roles in the organization, which grant different levels of access to the organization and its data. All members can collaborate with each other in repositories and projects, but only organization owners and security managers can manage the settings for the organization and control access to the organization's data with sophisticated security and administrative features. For more information, see [AUTOTITLE](/organizations/managing-peoples-access-to-your-organization-with-roles/roles-in-an-organization) and [AUTOTITLE](/organizations/keeping-your-organization-secure).
-
-You can also create nested sub-groups of organization members called teams, to reflect your group's structure and simplify access management. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
-
-{% data reusables.organizations.organization-plans %}
-
-For more information about all the features of organizations, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-organizations).
-
 ## Enterprise accounts
+"Skip to main content
+
+ربط البحث والباحثين
+
+
+
+أوركيد هو ل...
+الباحثين
+ 
+الجامعات والمعاهد البحثية
+ 
+الناشرين
+ 
+البائعين ومقدمي الخدمات
+ 
+الحكومة وصناع السياسات
+ 
+الممولين والمرافق
+ORCID هو معرّف مجاني وفريد ​​ومستمر (PID) يستخدمه الأفراد أثناء مشاركتهم في أنشطة البحث والمنح الدراسية والابتكار. تعرف على كيف يمكن أن يساعدك ORCID في قضاء المزيد من الوقت في إجراء بحثك ووقت أقل في إدارته. تعرف على المزيد.
+
+
+فريد لك
+ميز نفسك واحصل على الفضل في عملك بغض النظر عن عدد الأشخاص الذين يحملون نفس اسمك (أو اسمًا مشابهًا). سجل هنا.
+
+
+بيانات الملف الشخصي المحمولة
+يمكنك مشاركة البيانات بسهولة بين السجل الخاص بك والتمويل والمنشورات ومستودعات البيانات ومسارات عمل البحث الأخرى.
+
+احصل على معرف ORCID الخاص بي وقم بالتسجيل
+استكشاف أخطاء السجل الخاص بي وإصلاحها
+اكتشف فوائد أعضائنا
+اعتماد ORCID في مؤسستي
+احصل على البيانات من واجهات برمجة تطبيقات ORCID
+تعرف على مقدمي الخدمة المعتمدين
+أخبار مميزة
+
+سياسة خصوصية ORCID
+في ORCID، ندرك أن الحفاظ على نزاهة البحث يمثل تحديًا عالميًا يتطلب حلولاً يقودها المجتمع. في نوفمبر 2024، استضافت إيلين باترسون، مسؤولة حماية البيانات في ORCID، ندوة عبر الإنترنت لمناقشة التزام ORCID الثابت بخصوصية البيانات. في هذه الجلسة، غطت إيلين التحديثات الأخيرة لسياسة الخصوصية الخاصة بـ ORCID، وقدمت رؤى حول دورها كمسؤولة حماية البيانات، وأجابت على أسئلة الجمهور.
+
+عرض أبرز الأحداث من سلامة البحث: سياسة الخصوصية الخاصة بـ ORCID أدناه و تعرف على الجلسة الكاملة المتوفرة عند الطلب.
+
+
+المزيد حول التزام ORCID بالخصوصية
+ORCID تحتفل بيوم خصوصية البيانات 2025
+في أواخر شهر يناير، شاركت ORCID في يوم خصوصية البيانات للمساعدة في زيادة الوعي بالخصوصية وكيف تؤثر علينا جميعًا. قراءة بلوق وظيفة للتعرف على بعض التطورات الأخيرة لدينا في هذا المجال.
+
+تحديثات 2024 لسياسة الخصوصية الخاصة بـ ORCID
+الحفاظ على ORCID موثوقًا به وجديرًا بالثقة.
+
+الخصوصية كانت ولا تزال مصدر قلق أساسي بالنسبة لـ ORCID وينعكس ذلك في تأسيسنا المبادئ والقيم، لدينا في أولويات استراتحية، وكذلك في عملياتنا اليومية. تعرف على المزيد حول التحديثات التي تم إجراؤها على سياسة الخصوصية الخاصة بنا.
+
+من أرشيفنا: خمس طرق سهلة لتحقيق أقصى استفادة من ORCID
+في منشور المدونة هذا لشهر ديسمبر 2021في هذا المقال، نناقش قيمة سجل ORCID المكتظ بالبيانات لنظام البحث بأكمله، ونقدم خمس نصائح سهلة لكل من الباحثين (لضمان قدرتهم على تحقيق أقصى استفادة من سجلاتهم) وأعضاء ORCID (للمساعدة في جعل ORCID أكثر فائدة لباحثيهم ولمنظمتهم).
+
+
+
+
+
+
+
+
+
+
+ يتم نشر نص هذا الموقع تحت ترخيص CC0. تخضع الصور والعلامات لحقوق الطبع والنشر وحماية العلامة التجارية.
+
+حول أوركيد
+سياسة الخصوصية
+شروط الاستخدام
+بيان إمكانية الوصول
+مركز مساعدة أوركيد (ORCID)
+إجراءات المنازعات
+إرشادات العلامة التجارية
+إعدادات ملف تعريف الارتباط
+
+"
 
 {% ifversion fpt %}
 {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %} include enterprise accounts, which allow administrators to centrally manage policy and billing for multiple organizations and enable innersourcing between the organizations. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/about-enterprise-accounts) in the {% data variables.product.prodname_ghe_cloud %} documentation.
@@ -94,6 +86,3 @@ Your enterprise account is a collection of all the organizations on {% data vari
 ## Further reading
 
 {% ifversion fpt or ghec %}
-* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github){% endif %}
-* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)
-* [Organizing people for successful collaboration](https://vimeo.com/333786093) video in {% data variables.product.company_short %} Resources
