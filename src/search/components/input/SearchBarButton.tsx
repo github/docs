@@ -3,9 +3,11 @@ import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
+import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import styles from './SearchBarButton.module.scss'
-import { QueryParams } from '../hooks/useMultiQueryParams'
+import { AISearchCTAPopup } from './AISearchCTAPopup'
 
 type Props = {
   isSearchOpen: boolean
@@ -16,6 +18,7 @@ type Props = {
 
 export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchButtonRef }: Props) {
   const { t } = useTranslation('search')
+  const { isOpen, dismiss } = useCTAPopoverContext()
 
   const urlSearchInputQuery = params['search-overlay-input']
 
@@ -53,6 +56,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchB
       {/* We don't want to show the input when overlay is open */}
       {!isSearchOpen ? (
         <>
+          <AISearchCTAPopup isOpen={isOpen} dismiss={dismiss} />
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"

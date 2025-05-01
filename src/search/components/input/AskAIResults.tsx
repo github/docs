@@ -15,6 +15,8 @@ import { sendEvent, uuidv4 } from '@/events/components/events'
 import { EventType } from '@/events/types'
 import { generateAISearchLinksJson } from '../helpers/ai-search-links-json'
 import { ASK_AI_EVENT_GROUP } from '@/events/components/event-groups'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+
 import type { AIReference } from '../types'
 
 type AIQueryResultsProps = {
@@ -74,6 +76,7 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
+  const { isOpen: isCTAOpen, dismiss: dismissCTA } = useCTAPopoverContext()
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
@@ -127,6 +130,11 @@ export function AskAIResults({
     setInitialLoading(true)
     setResponseLoading(true)
     disclaimerRef.current?.focus()
+
+    // Upon performing an AI Search, dismiss the CTA if it is open
+    if (isCTAOpen) {
+      dismissCTA()
+    }
 
     const cachedData = getItem(query, version, router.locale || 'en')
     if (cachedData) {
