@@ -1,12 +1,12 @@
 {
-  "name": "docs.github.com",
+  "name": "git.github.com/tr4200812",
   "private": true,
   "repository": "https://github.com/github/docs",
   "license": "(MIT AND CC-BY-4.0)",
   "author": {
-    "name": "GitHub",
+    "name": "tr4200812",
     "email": "opensource+docs@github.com",
-    "url": "https://github.com/github/docs"
+    "url": "https://github.com/tr4200812/hubhub"
   },
   "type": "module",
   "imports": {
