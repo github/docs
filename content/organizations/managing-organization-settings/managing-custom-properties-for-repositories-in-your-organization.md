@@ -68,6 +68,8 @@ People with read permissions to a repository can view the values of custom prope
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
 
+{% ifversion ghes > 3.14 %}
+
 ## Searching and filtering repositories by custom properties values
 
 You can search for repositories in your organization by custom properties values.
@@ -76,3 +78,5 @@ You can search for repositories in your organization by custom properties values
 {% data reusables.user-settings.access_org %}
 1. Under your organization name, click **{% octicon "repo" aria-hidden="true" %} Repositories**.
 1. In the search bar, type `prop` to see a list of all custom properties in your organization, and select the property you'd like to search by.
+
+{% endif %}
