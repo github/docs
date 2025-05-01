@@ -1123,6 +1123,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/shared-storage"
+    },
+    {
+      "slug": "get-billing-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/usage"
     }
   ],
   "branches": [
