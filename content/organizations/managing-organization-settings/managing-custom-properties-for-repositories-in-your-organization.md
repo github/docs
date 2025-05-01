@@ -11,7 +11,7 @@ shortTitle: Custom properties
 
 ## About custom properties
 
-Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties visibility follows the visibility of the repository. Custom properties on public repositories can viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with read permissions to the repository.
+Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties visibility follows the visibility of the repository. Custom properties on public repositories can be viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with read permissions to the repository.
 An organization can have up to 100 property definitions. An allowed value list can have up to 200 items.
 
 {% ifversion ghec or ghes %}

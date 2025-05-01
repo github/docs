@@ -89,7 +89,7 @@ For example, on your "Notification settings" page:
 
 {% else %}
 
-If you do not enable watching or participating notifications for web{% ifversion ghes %} and mobile{% endif %}, then your notifications inbox will not have any updates.{% endif %}
+If you do not enable watching or participating notifications for web and mobile, then your notifications inbox will not have any updates.{% endif %}
 
 ## Customizing your email notifications
 
