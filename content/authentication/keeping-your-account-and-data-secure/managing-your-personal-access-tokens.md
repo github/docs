@@ -58,7 +58,7 @@ If you can use a {% data variables.product.pat_v2 %} for your scenario, you'll b
 
 {% data variables.product.pat_v2_caps_plural %} do not support every feature of {% data variables.product.pat_v1_plural %}. These feature gaps are not permanent - {% data variables.product.company_short %} is working to close them. You can review [our public roadmap](https://github.com/github/roadmap) for more details on when these scenarios will be supported.
 
-The seven major gaps in {% data variables.product.pat_v2 %}s are:
+The major gaps in {% data variables.product.pat_v2 %}s are:
 
 * Using {% data variables.product.pat_v2 %} to contribute to public repos where the user is not a member.
 * Using {% data variables.product.pat_v2 %} to contribute to repositories where the user is an outside or repository collaborator.
@@ -67,6 +67,7 @@ The seven major gaps in {% data variables.product.pat_v2 %}s are:
 * Using {% data variables.product.pat_v2 %} to call APIs that manage the Enterprise account.
 {% endif %}* Using {% data variables.product.pat_v2 %} to access Packages.
 * Using {% data variables.product.pat_v2 %} to call the Checks API.
+* Using {% data variables.product.pat_v2 %} to access Projects owned by a user account.
 
 All of these gaps will be solved over time, as {% data variables.product.company_short %} continues to invest in more secure access patterns.
 
