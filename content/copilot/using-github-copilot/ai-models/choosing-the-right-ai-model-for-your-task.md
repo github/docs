@@ -237,7 +237,7 @@ The following table summarizes when an alternative model may be a better choice:
 
 OpenAI o3-mini is a fast, cost-effective reasoning model designed to deliver coding performance while maintaining lower latency and resource usage. o3-mini outperforms o1 on coding benchmarks with response times that are comparable to o1-mini. Copilot is configured to use OpenAI's "medium" reasoning effort.
 
-For more information about o1, see [OpenAI's documentation](https://platform.openai.com/docs/models/o3-mini).
+For more information about o3-mini, see [OpenAI's documentation](https://platform.openai.com/docs/models/o3-mini).
 
 ### Use cases
 
