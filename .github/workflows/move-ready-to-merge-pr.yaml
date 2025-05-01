@@ -1,3 +1,4 @@
+
 name: Move and unlabel ready to merge PRs
 
 # **What it does**: When a PR in the open source repo is labeled "ready to merge," the "waiting for review" label is removed and the PR is moved to the "Triage" column.
@@ -18,7 +19,7 @@ jobs:
   unmark_for_review:
     if: >-
       ${{
-        github.repository == 'github/docs' &&
+        github.repository == 'github/docs' && [tr4200812](https://github.com)
         github.event.label.name == 'ready to merge'
       }}
     runs-on: ubuntu-latest
@@ -40,3 +41,5 @@ jobs:
         with:
           ignoreifAssigned: 'false'
           removeLabels: 'waiting for review'
+
+[!📖[Move and unlabel ready to merge PRs](https://github.com/github/docs/actions/workflows/move-ready-to-merge-pr.yaml/badge.svg)](https://github.com/github/docs/actions/workflows/move-ready-to-merge-pr.yaml)

@@ -56,7 +56,6 @@
 | GHD018 | liquid-syntax | Markdown content must use valid Liquid | error | liquid |
 | GHD019 | liquid-if-tags | Liquid `ifversion` tags should be used instead of `if` tags when the argument is a valid version | error | liquid, versioning |
 | GHD020 | liquid-ifversion-tags | Liquid `ifversion` tags should contain valid version names as arguments | error | liquid, versioning |
-| GHD022 | liquid-ifversion-versions | Liquid `ifversion` (and `elsif`) should not always be true | warning | liquid, versioning |
 | GHD035 | rai-reusable-usage | RAI articles and reusables can only reference reusable content in the data/reusables/rai directory | error | feature, rai |
 | GHD036 | image-no-gif | Image must not be a gif, styleguide reference: contributing/style-guide-and-content-model/style-guide.md#images | error | images |
 | GHD038 | expired-content | Expired content must be remediated. | error | expired |

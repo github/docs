@@ -1,11 +1,13 @@
 ---
 title: Setting up a self-serve process for GitHub Copilot licenses
 shortTitle: Self-serve licenses
-intro: 'Learn how users can request a license and receive access immediately.'
+intro: Learn how users can request a license and receive access immediately.
 versions:
   feature: copilot
 topics:
   - Copilot
+redirect_from:
+  - /copilot/rolling-out-github-copilot-at-scale/setting-up-a-self-serve-process-for-github-copilot-licenses
 ---
 
 When you've enabled {% data variables.product.prodname_copilot %} in an organization or enterprise, you can set up a self-serve workflow to allow users to request licenses. This allows you to allocate licenses to people who want them, and means people can get started with {% data variables.product.prodname_copilot_short %} quickly.

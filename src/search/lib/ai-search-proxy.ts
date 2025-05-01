@@ -4,8 +4,6 @@ import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
 
-const memoryCache = new Map<string, Buffer>()
-
 export const aiSearchProxy = async (req: Request, res: Response) => {
   const { query, version, language } = req.body
 
@@ -43,15 +41,6 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   ]
   statsd.increment('ai-search.call', 1, diagnosticTags)
 
-  // TODO: Caching here may cause an issue if the cache grows too large. Additionally, the cache will be inconsistent across pods
-  const cacheKey = `${query}:${version}:${language}`
-  if (memoryCache.has(cacheKey)) {
-    statsd.increment('ai-search.cache_hit', 1, diagnosticTags)
-    res.setHeader('Content-Type', 'application/x-ndjson')
-    res.send(memoryCache.get(cacheKey))
-    return
-  }
-
   const startTime = Date.now()
   let totalChars = 0
 
@@ -84,7 +73,10 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
         const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
         console.error(errorMessage)
         statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
-        res.status(500).json({ errors: [{ message: errorMessage }] })
+        res.status(upstreamResponse.statusCode).json({
+          errors: [{ message: errorMessage }],
+          upstreamStatus: upstreamResponse.statusCode,
+        })
         stream.destroy()
       } else {
         // Set response headers
@@ -101,9 +93,11 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
       console.error('Error streaming from cse-copilot:', error)
 
       if (error?.code === 'ERR_NON_2XX_3XX_RESPONSE') {
-        return res
-          .status(400)
-          .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
+        const upstreamStatus = error?.response?.statusCode || 500
+        return res.status(upstreamStatus).json({
+          errors: [{ message: 'Upstream server error' }],
+          upstreamStatus,
+        })
       }
 
       statsd.increment('ai-search.stream_error', 1, diagnosticTags)

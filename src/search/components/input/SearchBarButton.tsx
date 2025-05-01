@@ -1,27 +1,23 @@
-import { useRef } from 'react'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { SearchOverlay } from './SearchOverlay'
 
 import styles from './SearchBarButton.module.scss'
-import { useMultiQueryParams } from '../hooks/useMultiQueryParams'
+import { QueryParams } from '../hooks/useMultiQueryParams'
 
 type Props = {
   isSearchOpen: boolean
   setIsSearchOpen: (value: boolean) => void
+  params: QueryParams
+  searchButtonRef: React.RefObject<HTMLButtonElement>
 }
 
-export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
+export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchButtonRef }: Props) {
   const { t } = useTranslation('search')
 
-  const { params, updateParams } = useMultiQueryParams()
   const urlSearchInputQuery = params['search-overlay-input']
-  const debug = params.debug === 'true'
-
-  const buttonRef = useRef(null)
 
   // Handle click events
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -60,7 +56,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
-            ref={buttonRef}
+            ref={searchButtonRef}
             className={styles.searchIconButton}
             onClick={handleClick}
             tabIndex={0}
@@ -75,7 +71,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             className={styles.searchInputButton}
             onKeyDown={handleKeyDown}
             onClick={handleClick}
-            ref={buttonRef}
+            ref={searchButtonRef}
           >
             {/* Styled to look like an input */}
             <div
@@ -101,18 +97,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             </span>
           </button>
         </>
-      ) : (
-        <SearchOverlay
-          searchOverlayOpen={isSearchOpen}
-          parentRef={buttonRef}
-          debug={debug}
-          params={params}
-          updateParams={updateParams}
-          onClose={() => {
-            setIsSearchOpen(false)
-          }}
-        />
-      )}
+      ) : null}
     </>
   )
 }

@@ -102376,16 +102376,16 @@
         },
         {
           "name": "line",
-          "description": "<p>The line of the blob to which the thread refers. The end of the line range for multi-line comments.</p>",
-          "type": "Int!",
+          "description": "<p>The line of the blob to which the thread refers. The end of the line range for\nmulti-line comments. Required if not using positioning.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "path",
-          "description": "<p>Path to the file being commented on.</p>",
-          "type": "String!",
+          "description": "<p>Path to the file being commented on. Required if not using positioning.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
