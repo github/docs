@@ -284,7 +284,7 @@
     "html-entities": "^2.5.6",
     "http-proxy-middleware": "^3.0.5",
     "imurmurhash": "^0.1.4",
-    "is-svg": "5.0.1",
+    "is-svg": "6.0.0",
     "javascript-stringify": "^2.1.0",
     "js-cookie": "^3.0.5",
     "js-yaml": "^4.1.0",
