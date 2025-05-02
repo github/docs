@@ -162,7 +162,7 @@
     "sass": "^1.52.3",
     "start-server-and-test": "^2.0.10",
     "strip-ansi": "^7.0.1",
-    "typescript": "^4.7.3"
+    "typescript": "^5.8.3"
   },
   "engines": {
     "node": ">=16.x"
