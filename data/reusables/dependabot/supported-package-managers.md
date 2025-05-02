@@ -146,7 +146,7 @@ pnpm is supported for {% data variables.product.prodname_dependabot_version_upda
 
 #### poetry
 
-The [PEP 621](https://python-poetry.org/blog/announcing-poetry-2.0.0/#supporting-the-project-section-in-pyprojecttoml-pep-621) `project` section isn't currently supported for `poetry`
+The PEP 621 `project` section isn't currently supported for `poetry`
 
 #### pub
 
