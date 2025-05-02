@@ -25,7 +25,6 @@ Your contribution graph and Achievements show activity from public repositories.
 On your profile page, certain actions count as contributions:
 
 * Committing to a repository's default branch or `gh-pages` branch
-* Creating a branch
 * Opening an issue
 * Opening a discussion
 * Answering a discussion
