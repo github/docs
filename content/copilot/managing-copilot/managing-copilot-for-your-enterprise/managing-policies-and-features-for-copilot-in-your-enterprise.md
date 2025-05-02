@@ -14,9 +14,8 @@ shortTitle: Manage policies
 
 You can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
 
-There are **three enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
+There are **two enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
 
-* **No policy** - The feature is initially disabled at the organization level, but each organization with {% data variables.product.prodname_copilot_short %} enabled in your enterprise can set their own policy for the feature.
 * **Enabled** - The feature is available in all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 * **Disabled** - The feature is blocked for all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 
@@ -46,7 +45,9 @@ You can configure any of the following policies for your enterprise:
 > This setting won't be available until then.
 <!-- end expires 2025-05-19 -->
 
-If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+By default, a $0 budget is created for the {% data variables.product.prodname_copilot_short %} Premium Request SKU for your enterprise. To use additional premium requests, edit the $0 budget. For more information on budget behavior, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/managing-your-companys-spending-on-github-copilot#enabling-additional-premium-requests).
+
+If you enable this setting by adjusting the default budget, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request your users use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
