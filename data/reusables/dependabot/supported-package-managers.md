@@ -144,7 +144,7 @@ In addition to supporting updates to `requirements.txt` files, {% data variables
 pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} (on v7, v8, and v9) and {% data variables.product.prodname_dependabot_security_updates %} (on v7 and v8 only).
 {% endif %}
 
-####poetry
+#### poetry
 
 The [PEP 621](https://python-poetry.org/blog/announcing-poetry-2.0.0/#supporting-the-project-section-in-pyprojecttoml-pep-621) `project` section isn't currently supported for `poetry`
 
