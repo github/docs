@@ -1,7 +1,7 @@
 
-![1000090381](https://github.com/user-attachments/assets/1b5c3898-2403-4d7b-8657-eb96f6a62745)
+[📂](https://github.com/user-attachments/assets/1b5c3898-2403-4d7b-8657-eb96f6a62745)
 
-contributing guide
+**contributing guide*
 ----------------------------------------------------------------------------------------------------------------------------------------^[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/slack-samples/deno-code-snippets?quickstart=utf8++-8utf)
 --------------------------------------------------------------------------------^
 
