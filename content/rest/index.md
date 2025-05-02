@@ -56,6 +56,7 @@ children:
   - /collaborators
   - /commits
   - /copilot
+  - /credentials
   - /dependabot
   - /dependency-graph
   - /deploy-keys

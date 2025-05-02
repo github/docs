@@ -34,7 +34,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/cache-nextjs
 

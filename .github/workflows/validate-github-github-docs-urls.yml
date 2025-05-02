@@ -39,7 +39,7 @@ jobs:
 
       - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           repository: github/github
           ref: master
           path: github
@@ -55,9 +55,12 @@ jobs:
       - name: Update config/docs-urls.json in github/github (possibly)
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run validate-github-github-docs-urls -- generate-new-json checks.json github/config/docs-urls.json
+
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
           cd github
           git status
@@ -83,7 +86,7 @@ jobs:
       - name: Clean up old branches in github/github
         if: ${{ github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run validate-github-github-docs-urls -- clean-up-old-branches --prefix update-docs-urls
 
@@ -114,10 +117,11 @@ jobs:
           # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
           CHANGED_FILES: |-
             ${{ steps.changed_files.outputs.filtered_changed_files }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           ISSUE_NUMBER: ${{ github.event.pull_request.number }}
           REPOSITORY: ${{ github.repository }}
-        run: npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
+        run: |
+          npm run validate-github-github-docs-urls -- post-pr-comment checks.json --changed-files $CHANGED_FILES
 
       - uses: ./.github/actions/slack-alert
         if: ${{ failure() && github.event_name == 'schedule' }}

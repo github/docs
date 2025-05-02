@@ -74,15 +74,11 @@ You can also use a command-line utility to configure the IP exception list. For 
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the REST API. For more information, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes#get-the-status-of-maintenance-mode).
 
-{% ifversion ghes-manage-api-cli-extension %}
-
 ## Managing maintenance mode using the {% data variables.product.prodname_cli %}
 
 You can manage maintenance mode on {% data variables.location.product_location %} using the {% data variables.product.prodname_cli %} `gh es` extension. For more information, see the GH ES CLI usage documentation for [`gh es maintenance set`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-set) and [`gh es maintenance get`](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-maintenance-get).
 
 For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-
-{% endif %}
 
 ## Managing maintenance mode using SSH
 

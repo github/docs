@@ -117,7 +117,7 @@ For an overview of the methods you can use to customize {% data variables.produc
 {% webui %}
 
 * Your personal choice of whether to use custom instructions must be set to enabled. This is enabled by default. See [Enabling or disabling repository custom instructions](#enabling-or-disabling-repository-custom-instructions) later in this article.
-* During the {% data variables.release-phases.public_preview %}, if you have a {% data variables.product.prodname_copilot_business_short %} {% ifversion ghec %}or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} subscription, then the organization {% ifversion ghec %}or enterprise{% endif %} from which you receive your subscription must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
+* During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.product.prodname_copilot_business_short %} {% ifversion ghec %}or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} plan, the organization {% ifversion ghec %}or enterprise{% endif %} that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom){% endif %}.
 
 {% endwebui %}
 
@@ -141,7 +141,17 @@ For an overview of the methods you can use to customize {% data variables.produc
 
 1. Add natural language instructions to the file, in Markdown format.
 
-   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.
+   Whitespace between instructions is ignored, so the instructions can be written as a single paragraph, each on a new line, or separated by blank lines for legibility.{% webui %}
+
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot), attach the repository containing the instructions file, and start a conversation.{% endwebui %}
+
+{% note %}
+
+Did you successfully add a custom instructions file to your repository?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}
 
 ## Writing effective repository custom instructions
 
@@ -270,6 +280,6 @@ To enable prompt files, configure the workspace settings.
 
 1. Submit the chat prompt.
 
-For more information about prompt files, see [Custom instructions for GitHub Copilot in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
+For more information about prompt files, see [Custom instructions for {% data variables.product.prodname_copilot %} in VS Code](https://code.visualstudio.com/docs/copilot/copilot-customization#_reusable-prompt-files-experimental) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% endvscode %}

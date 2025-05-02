@@ -117,7 +117,7 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 
 #### Points to note about rates for runners
 
-* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits) for self-hosted runner usage limits.
+* The number of jobs you can run concurrently across all repositories in your user or organization account depends on your {% data variables.product.prodname_dotcom %} plan. For more information, see [AUTOTITLE](/actions/learn-github-actions/usage-limits-billing-and-administration) for {% data variables.product.prodname_dotcom %}-hosted runners and [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners) for self-hosted runner usage limits.
 * {% data reusables.user-settings.context_switcher %}
 * {% data reusables.actions.larger-runner-permissions %}
 * {% data reusables.actions.about-larger-runners-billing %}

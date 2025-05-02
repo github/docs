@@ -88,8 +88,8 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 1. Learn more about {% data variables.product.prodname_enterprise %}.
 
-   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-   * [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
+   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 1. Set up a trial.
 
    * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)

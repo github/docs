@@ -24,7 +24,7 @@ For information about using policies to control use of licenses in your enterpri
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. Under "{% data variables.product.prodname_AS %}" you will see the consumption of licenses for {% data variables.product.prodname_GH_cs_and_sp %}.
 
-   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Manage licenses" button is outlined in orange.](/assets/images/help/enterprises/ghas-licenses-dropdown.png)
+   ![Screenshot of the {% data variables.product.prodname_AS %} licensing screen. The "Manage licenses" button is outlined in orange.](/assets/images/help/enterprises/ghas-licenses-dropdown.png)
 
 1. To add new licenses, select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Manage licenses**.
 1. Under "Total licenses", click the plus or minus buttons to add or remove licenses.
@@ -33,7 +33,7 @@ For information about using policies to control use of licenses in your enterpri
 
 1. Click **Confirm licenses**.
 
-## Canceling your {% data variables.product.prodname_GH_advanced_security %} subscription
+## Canceling your {% data variables.product.prodname_AS %} subscription
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}

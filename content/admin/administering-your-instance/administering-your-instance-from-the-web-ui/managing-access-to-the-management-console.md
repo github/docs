@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.enterprise_site_admin_settings.management-console-access %} For more information about {% data variables.enterprise.management_console %} access, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console).
 
-{% ifversion ghes-manage-api-cli-extension %}You can also use the `gh es` {% data variables.product.prodname_cli %} extension to manage the root site administrator password, which controls access to the Management Console. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-access-set-password) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).{% endif %}
+You can also use the `gh es` {% data variables.product.prodname_cli %} extension to manage the root site administrator password, which controls access to the Management Console. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-access-set-password) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
 
 ## Types of {% data variables.enterprise.management_console %} accounts
 

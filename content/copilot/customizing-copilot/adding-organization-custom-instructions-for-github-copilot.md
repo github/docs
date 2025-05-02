@@ -35,3 +35,13 @@ You can add organization custom instructions via your organization settings.
 
    You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
 1. Click **Save changes**. Your instructions are now active, and will stay active until you change or remove them.
+
+To see your instructions in action, go to [https://github.com/copilot](https://github.com/copilot) and start a conversation.
+
+{% note %}
+
+Did you successfully add custom instructions for your organization?
+
+<a href="https://docs.github.io/success-test/yes.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>Yes</span></a>  <a href="https://docs.github.io/success-test/no.html" target="_blank" class="btn btn-outline mt-3 mr-3 no-underline"><span>No</span></a>
+
+{% endnote %}

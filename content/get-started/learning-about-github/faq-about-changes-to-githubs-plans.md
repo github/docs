@@ -42,7 +42,6 @@ To downgrade your personal account or organizations's plan, see [AUTOTITLE](/bil
 * Wikis in private repositories
 * Multiple assignees for issues and pull requests in private repositories
 * Multiple pull request reviewers in private repositories
-* Draft pull requests in private repositories
 * Autolinked references in private repositories
 * Standard support
 

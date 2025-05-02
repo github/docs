@@ -65,7 +65,7 @@ During the {% data variables.release-phases.private_preview %}, your account tea
 
 {% data reusables.enterprise_user_management.scim-manages-user-lifecycle %}
 
-When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.
+When SCIM is enabled, you will no longer be able to delete, suspend, or promote SCIM-provisioned users directly on {% data variables.product.prodname_ghe_server %}. You must manage these processes from your IdP.{% ifversion scim-for-ghes-ga %} If an issue arises with your IdP and you need to manage a user directly, you will need to use the SCIM REST API to manage the user identities on your appliance (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api)).{% endif %}
 
 To view suspended members, navigate to the "Suspended Members" tab of your enterprise settings.  This page will be present when SCIM is enabled on {% data variables.product.prodname_ghe_server %}.
 
@@ -78,6 +78,7 @@ To view suspended members, navigate to the "Suspended Members" tab of your enter
 If you currently use SAML SSO, and you are enabling SCIM, you should be aware of what happens to existing user accounts on {% data variables.product.prodname_ghe_server %} once SCIM is enabled.
 
 * Existing users with SAML mappings will **not be able to sign in** until their identities have been provisioned by SCIM.
+* Existing users created with **Built in authentication** will only be able to sign in if **Built in authentication** is still enabled.
 {%- ifversion scim-for-ghes-ga %}
 * {% data variables.product.prodname_ghe_server %} will no longer store SAML mappings for users. Instead, SCIM identities will be stored for users when a user is provisioned.
 * You will no longer see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. It will not be possible to view or update SAML NameID mappings that were previously visible in this section, since these stored SAML mappings are no longer evaluated during SAML authentication when SCIM is enabled.
@@ -86,6 +87,7 @@ If you currently use SAML SSO, and you are enabling SCIM, you should be aware of
   * If a user account with a matching username does exist, {% data variables.product.prodname_ghe_server %} links the SCIM identity to this user account.
   * If a user account with a matching username doesn't exist, {% data variables.product.prodname_ghe_server %} creates a new user account and links it to this SCIM identity.
 * If {% data variables.product.prodname_dotcom %} successfully matches a user who is authenticating via SAML with an existing user account, but account details such as email address, first name, or last name don't match, the instance **overwrites the details** with values from the IdP. Any email addresses other than the primary email provisioned by SCIM will also be deleted from the user account.
+{% ifversion scim-for-ghes-ga %}* {% data reusables.scim.ghe-scim-identities-csv %}{% endif %}
 
 ## What happens during SAML authentication?
 
@@ -99,32 +101,9 @@ After an IdP administrator grants a person access to {% data variables.location.
 
 {% ifversion scim-for-ghes-public-beta %}
 
-## What happens if I disable SCIM?
+## How is SCIM disabled?
 
-SCIM will be disabled on {% data variables.product.prodname_ghe_server %} if any of the following things happens.
-
-* The **Enable SCIM configuration** checkbox is unselected on the "Authentication security" page in the enterprise settings.
-* The **SAML** radio button is unselected in the "Authentication" section of the Management Console.
-* The SAML **Issuer** or **Single sign-on URL** field is updated in the "Authentication" section of the Management Console.
-
-When SCIM is disabled on {% data variables.product.prodname_ghe_server %}:
-
-* All linked SCIM identities and SCIM-provisioned groups will be deleted from the instance.
-* Requests to the SCIM API endpoints on your instance will no longer succeed.
-* All SCIM external identities on {% data variables.product.prodname_ghe_server %} will be deleted.
-* All user accounts will remain with the same usernames, and they will not be suspended when SCIM is disabled.
-* All of the external groups that were previously provisioned by SCIM will be deleted.
-* All user accounts, including SCIM-provisioned user accounts, will remain on the instance and will not be suspended.
-* Site administrators will be able to manage the lifecycle of SCIM-provisioned users, such as suspension and deletion, from the site admin dashboard.
-* Users will still be able to sign on via SAML, if enabled.
-* The "Suspended Members" page in your enterprise settings will no longer be present. Suspended members can still be seen in the [Site Admin dashboard](/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/suspending-and-unsuspending-users#viewing-suspended-users-in-the-site-admin-dashboard)
-{%- ifversion scim-for-ghes-ga %}
-* You will be able to see the "SAML authentication" section on the `https://HOSTNAME/users/USER/security` site admin page for users. If any SAML mappings were previously created for users on the {% data variables.product.prodname_ghe_server %} before SCIM was enabled, it will be possible to once again view and update them in this section.
-{%- endif %}
-
-{% endif %}
-
-{% ifversion scim-for-ghes-public-beta %}
+For more information on the different ways that SCIM can be disabled, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/disabling-scim-provisioning-for-users).
 
 ## Getting started
 

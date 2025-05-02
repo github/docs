@@ -23,7 +23,7 @@ topics:
 ---
 ## About repository transfers
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings. You can also change the repository name while transferring a repository. See [AUTOTITLE](/repositories/creating-and-managing-repositories/renaming-a-repository).
+When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.projects.projects_v2 %}, and settings. You can also change the repository name while transferring a repository. See [AUTOTITLE](/repositories/creating-and-managing-repositories/renaming-a-repository).
 
 Prerequisites for repository transfers:
 * When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
