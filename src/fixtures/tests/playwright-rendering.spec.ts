@@ -79,7 +79,7 @@ test('open new search, and perform a general search', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Wait for the results to load
@@ -112,7 +112,7 @@ test('open new search, and select a general search article', async ({ page }) =>
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
@@ -138,7 +138,7 @@ test('open new search, and get auto-complete results', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 

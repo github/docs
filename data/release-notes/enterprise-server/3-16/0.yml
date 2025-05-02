@@ -222,6 +222,8 @@ sections:
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
 
       [Updated: 2025-03-19]
+    - |
+      The security risk page returns a 500 error when secret scanning is disabled. [Updated: 2025-04-25]
 
   closing_down:
     # https://github.com/github/releases/issues/4683

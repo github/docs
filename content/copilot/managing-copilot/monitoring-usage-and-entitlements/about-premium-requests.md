@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
 ---
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 ## What is a request?
 
@@ -20,7 +20,9 @@ A request is any interaction where you ask {% data variables.product.prodname_co
 
 If you have {% data variables.product.prodname_copilot_free_short %} enabled, your {% data variables.product.github %} account comes with up to 2,000 code completions and up to 50 chats or premium requests per month.
 
-If you're on a paid plan, you get unlimited code completions, unlimited agent requests, and unlimited chat interactions using the base model. You also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
+If you're on a paid plan, you get unlimited code completions, unlimited agent requests, and unlimited chat interactions using the base model. Rate limiting is in place to accommodate for high demand. Learn more about [current models and usage](/copilot/about-github-copilot/plans-for-github-copilot).
+
+Paid plans also receive a monthly allowance of premium requests, which can be used for advanced chat interactions, code completions using premium models, and other premium features. For an overview of the amount of premium requests included in each plan, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
 ## Premium requests
 
@@ -47,7 +49,6 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
-| {% data variables.copilot.copilot_gpt_41 %}                             | 1                                                                            |
 | GPT-4.5                                                                 | 50                                                                           |
 | {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
@@ -63,14 +64,14 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. If you need more premium requests, you can upgrade to a higher plan or purchase additional premium requests. Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 > [!IMPORTANT]
 > You will be able to enable additional premium requests in your account settings starting on{% ifversion ghec %} the following dates{% endif %}:
 >
-> * **May 5, 2025**: {% data variables.product.prodname_copilot_free_short %}, {% data variables.product.prodname_copilot_pro_short %}, and {% data variables.product.prodname_copilot_pro_plus_short %}{% ifversion ghec %}
+> * **May 8, 2025**: {% data variables.product.prodname_copilot_free_short %}, {% data variables.product.prodname_copilot_pro_short %}, and {% data variables.product.prodname_copilot_pro_plus_short %}{% ifversion ghec %}
 > * **May 12, 2025**: Self-service (credit card) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}
 > * **May 19, 2025**: Sales-served (invoiced) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}{% endif %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 To purchase additional premium requests, you’ll need to enable additional premium requests in your account settings first{% ifversion ghec %} or reach out to your {% data variables.product.prodname_enterprise %} administrator if you are on an enterprise plan{% endif %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber){% ifversion fpt %} or{% else %},{% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %}, or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#additional-copilot-premium-requests){% endif %}.
 

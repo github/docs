@@ -32,7 +32,7 @@ You must enable access to OpenAI {% data variables.copilot.copilot_gpt_41 %} ind
 
 ### Setup for individual use
 
-If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable OpenAI {% data variables.copilot.copilot_gpt_41 %} in two ways:
+If you have a {% data variables.product.prodname_copilot_free_short %}, {% data variables.product.prodname_copilot_pro_short %}, or {% data variables.product.prodname_copilot_pro_plus_short %} subscription, you can enable OpenAI {% data variables.copilot.copilot_gpt_41 %} in two ways:
 
 * The first time you choose to use {% data variables.copilot.copilot_gpt_41 %} with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
 

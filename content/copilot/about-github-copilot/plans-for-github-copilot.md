@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
 ---
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 
@@ -22,7 +22,7 @@ redirect_from:
 
 * **{% data variables.product.prodname_copilot_pro_plus %}** offers the highest level of access for individual developers. In addition to everything in {% data variables.product.prodname_copilot_pro_short %}, this plan includes a larger allowance of premium requests and full access to all available models in {% data variables.product.prodname_copilot_chat_short %}. Ideal for AI power users who want access to the most advanced capabilities.
 
-* **{% data variables.product.prodname_copilot_for_business %}** is for organizations on {% data variables.product.prodname_free_team %}, {% data variables.product.prodname_team %}, or {% data variables.product.prodname_team %} plan, or enterprises on {% data variables.product.prodname_ghe_cloud %}. This plan enables centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
+* **{% data variables.product.prodname_copilot_for_business %}** is for organizations on {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan, or enterprises on {% data variables.product.prodname_ghe_cloud %}. This plan enables centralized management and {% data variables.product.prodname_copilot_short %} policy control for organization members.
 
 * **{% data variables.product.prodname_copilot_enterprise %}** is for enterprises using {% data variables.product.prodname_ghe_cloud %}. It includes all the features of {% data variables.product.prodname_copilot_business_short %}, plus additional enterprise-grade capabilities. Enterprise owners can assign either {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} to individual organizations.
 

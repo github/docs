@@ -28,13 +28,13 @@ The current functionality and availability of the two types of review is summari
 
 {% rowheaders %}
 
-|                  | Review selection | Review changes |
-|------------------|------------------|----------------|
-| Available in     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website |
+|                  | Review selection | Review changes                                                                                                                                                                                                                                                                                                                       |
+|------------------|------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Available in     | {% data variables.product.prodname_vscode %} | {% data variables.product.prodname_vscode %} and the {% data variables.product.github %} website                                                                                                                                                                                                                                     |
 | Premium/standard feature | Standard feature available to all {% data variables.product.prodname_copilot_short %} subscribers | Premium feature. Available with the {% data variables.product.prodname_copilot_pro_short %}, {% data variables.product.prodname_copilot_pro_plus_short %}, {% data variables.product.prodname_copilot_business_short %}, and {% data variables.product.prodname_copilot_enterprise_short %} plans. Per-person monthly quota applies. |
-| Description      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes |
-| Language support | All | C#, Go, Java, JavaScript, Markdown, Python, Ruby, TypeScript <br><br> {% data variables.release-phases.public_preview_caps %} support for C, C++, Kotlin, and Swift. |
-| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines) |
+| Description      | Initial review of a highlighted section of code with feedback and suggestions | Deeper review of all changes                                                                                                                                                                                                                                                                                                         |
+| Language support | All | C, C#, C++, Go, Java, JavaScript, Kotlin, Markdown, Python, Ruby, Swift, TypeScript <br><br> {% data variables.release-phases.public_preview_caps %} support for HTML and Text.                                                                                                                                                       |
+| Custom coding guidelines support | No | Yes, see [Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines](#customizing-copilots-reviews-with-coding-guidelines)                                                                                                                                                                    |
 
 {% endrowheaders %}
 
@@ -59,10 +59,10 @@ This version of the article relates to {% data variables.copilot.copilot_code-re
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 > [!NOTE]
-> The per-person quota for {% data variables.product.prodname_copilot_short %} code review will commence on May 5th, 2025.
-<!-- end expires 2025-05-05 -->
+> The per-person quota for {% data variables.product.prodname_copilot_short %} code review will commence on May 8, 2025.
+<!-- end expires 2025-05-08 -->
 
 When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
@@ -76,16 +76,20 @@ When you reach your monthly quota you will not be able to get a code review from
 
 {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports the following languages:
 
+* C
 * C#
+* C++
 * Go
 * Java
 * JavaScript
+* Kotlin
 * Markdown
 * Python
 * Ruby
+* Swift
 * TypeScript
 
-Plus {% data variables.release-phases.public_preview %} support for C, C++, Kotlin, and Swift.
+Plus {% data variables.release-phases.public_preview %} support for HTML & Text.
 
 {% endwebui %}
 

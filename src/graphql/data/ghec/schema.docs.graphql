@@ -965,7 +965,7 @@ input AddPullRequestReviewThreadInput {
   """
   Path to the file being commented on.
   """
-  path: String!
+  path: String
 
   """
   The node ID of the pull request reviewing
@@ -7899,7 +7899,7 @@ input CreateIssueInput {
   """
   The Node ID of the issue type for this issue
   """
-  issueTypeId: ID @possibleTypes(concreteTypes: ["IssueType"])
+  issueTypeId: ID
 
   """
   An array of Node IDs of labels for this issue.
@@ -13049,14 +13049,15 @@ input DraftPullRequestReviewThread {
   body: String!
 
   """
-  The line of the blob to which the thread refers. The end of the line range for multi-line comments.
+  The line of the blob to which the thread refers. The end of the line range for
+  multi-line comments. Required if not using positioning.
   """
-  line: Int!
+  line: Int
 
   """
-  Path to the file being commented on.
+  Path to the file being commented on. Required if not using positioning.
   """
-  path: String!
+  path: String
 
   """
   The side of the diff on which the line resides. For multi-line comments, this is the side for the end of the line range.
@@ -23482,6 +23483,11 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   closedAt: DateTime
 
   """
+  Identifies the number of closed issues associated with the milestone.
+  """
+  closedIssueCount: Int!
+
+  """
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
@@ -23560,6 +23566,11 @@ type Milestone implements Closable & Node & UniformResourceLocatable {
   Identifies the number of the milestone.
   """
   number: Int!
+
+  """
+  Identifies the number of open issues associated with the milestone.
+  """
+  openIssueCount: Int!
 
   """
   Identifies the percentage complete for the milestone
@@ -64767,7 +64778,7 @@ input UpdateIssueInput {
   """
   The ID of the Issue Type for this issue.
   """
-  issueTypeId: ID @possibleTypes(concreteTypes: ["IssueType"])
+  issueTypeId: ID
 
   """
   An array of Node IDs of labels for this issue.

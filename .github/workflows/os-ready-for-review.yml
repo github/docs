@@ -26,7 +26,7 @@ jobs:
         uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         id: triggered-by-member
         with:
-          github-token: ${{secrets.DOCS_BOT_PAT_WORKFLOW_READORG}}
+          github-token: ${{secrets.DOCS_BOT_PAT_BASE}}
           result-encoding: string
           script: |
             const triggerer_login = context.payload.sender.login
@@ -60,7 +60,7 @@ jobs:
         run: |
           npm run ready-for-docs-review
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id || github.event.issue.node_id }}

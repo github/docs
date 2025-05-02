@@ -6,8 +6,6 @@ Rulesets support RE2 syntax. For more information, see Google's [syntax guide](h
 
 By default, regular expressions in metadata restrictions do not consider multiple lines of text. For example, if you have a multiline commit message, the pattern `^ABC` will be a match if the first line of the message starts with `ABC`. To match multiple lines of the message, start your expression with `(?m)`.
 
-When using regular expression metacharacter classes that contain a backslash `\` it must be escaped with an additional backslash. For example `task#\\d{1,4}`
-
 The negative lookahead assertion, denoted `?!`, is not supported. However, for cases where you need to look for a given string that is not followed by another given string, you can use the positive lookahead assertion, denoted `?`, combined with the "Must not match a given regex pattern" requirement.
 
 > [!NOTE]
