@@ -4,6 +4,19 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Input field <code>AddPullRequestReviewThreadInput.path</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-05-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Field <code>closedIssueCount</code> was added to object type <code>Milestone</code></p>",
           "<p>Field <code>openIssueCount</code> was added to object type <code>Milestone</code></p>"
         ]

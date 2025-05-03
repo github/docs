@@ -965,7 +965,7 @@ input AddPullRequestReviewThreadInput {
   """
   Path to the file being commented on.
   """
-  path: String!
+  path: String
 
   """
   The node ID of the pull request reviewing

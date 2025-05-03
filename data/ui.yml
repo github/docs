@@ -64,6 +64,9 @@ search:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
+  cta:
+    heading: New! Copilot for Docs
+    description: Ask your question in the search bar and get help in seconds.
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs

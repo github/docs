@@ -23,6 +23,7 @@ import { useShouldShowExperiment } from '@/events/components/experiments/useShou
 import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import styles from './Header.module.scss'
 
@@ -50,6 +51,7 @@ export const Header = () => {
   const { width } = useInnerWindowWidth()
   const returnFocusRef = useRef(null)
   const searchButtonRef = useRef<HTMLButtonElement>(null)
+  const { initializeCTA } = useCTAPopoverContext()
 
   const showNewSearch = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
   let SearchButton: JSX.Element | null = (
@@ -62,6 +64,8 @@ export const Header = () => {
   )
   if (!showNewSearch) {
     SearchButton = null
+  } else {
+    initializeCTA()
   }
 
   useEffect(() => {
