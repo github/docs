@@ -25,4 +25,4 @@ jobs:
         with:
           project: Docs open source board
           column: Help wanted
-          repo-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          repo-token: ${{ secrets.DOCS_BOT_PAT_BASE }}

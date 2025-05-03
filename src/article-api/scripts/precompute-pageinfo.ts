@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script gathers all English pages, computes each page's
  * 'title', 'intro' and 'product' properties. These things are then stored

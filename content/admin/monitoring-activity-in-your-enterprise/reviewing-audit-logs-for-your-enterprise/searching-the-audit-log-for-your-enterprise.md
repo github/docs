@@ -76,9 +76,7 @@ The `key:value` pairs that can be used in a search query are:
 | `created` | Time at which the action occurred.{% ifversion ghes %} If querying the audit log from the site admin dashboard, use `created_at` instead. |
 | `country`           | Name of the country where the actor was when performing the action. |
 | `country_code`      | Two-letter short code of the country where the actor was when performing the action. |
-| {% ifversion ghes %} |
 | `from`         | View from which the action was initiated. |
-| {% endif %} |
 | `hashed_token` | The token used to authenticate for the action (if applicable, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/identifying-audit-log-events-performed-by-an-access-token)). |
 | {% endif %} |
 | `ip`                | IP address of the actor. |

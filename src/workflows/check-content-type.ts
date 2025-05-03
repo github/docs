@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import coreLib from '@actions/core'
 
 import { checkContentType } from '@/workflows/fm-utils'

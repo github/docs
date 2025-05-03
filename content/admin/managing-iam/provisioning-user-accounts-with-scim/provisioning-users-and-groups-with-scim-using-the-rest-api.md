@@ -267,7 +267,9 @@ After you configure SCIM provisioning for your enterprise, you may need to migra
 
 * If your requests to the REST API are rate-limited, you can learn more in [Understand rate limits on {% data variables.product.prodname_dotcom %}](#understand-rate-limits-on-github).
 
-* If you enable audit log streaming and stream events for API requests, you can review any requests to the REST API endpoints for SCIM provisioning by filtering for events from the `EnterpriseUsersScim` or `EnterpriseGroupsScim` controllers.
+* All SCIM requests that {% data variables.product.company_short %} receives, with the exception of successful HTTP `GET` requests, will generate an [audit log](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise#external_identity) event. These logs will contain useful information about the request outcome, payload information, and any errors. These logs can be used to determine whether or not {% data variables.product.company_short %} received a SCIM request, and troubleshoot API failures.
+  * To determine if a user has been provisioned, you can use the following audit log query: `action:external_identity.provision  user:USERNAME{% ifversion ghec %}_SHORTCODE{% endif %}`
+  * If you do not find a user using the query above, you can search for `action:external_identity.scim_api_failure` events on the date that you expected to have received the request.
 
 * If a SCIM request fails and you're unable to determine the cause, check the status of your identity management system to ensure that services were available.{% ifversion ghec %} Additionally, check {% data variables.product.company_short %}'s status page. For more information, see [AUTOTITLE](/support/learning-about-github-support/about-github-support#about-github-status).{% endif %}
 

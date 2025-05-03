@@ -12,7 +12,7 @@ Beginning in February 2025, {% data variables.product.company_short %} will migr
 
 <!-- end expires 2025-04-30 -->
 
-For existing personal accounts created before February 13, 2025, {% data variables.product.company_short %} will migrate personal accounts to the new billing platform in the future. You will receive a notice 30 days before migration.
+For existing personal accounts created before February 13, 2025, {% data variables.product.company_short %} will migrate personal accounts to the new billing platform by June 30, 2025.
 
 {% elsif ghec %}
 

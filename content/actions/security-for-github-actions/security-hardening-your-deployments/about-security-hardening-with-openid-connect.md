@@ -78,7 +78,7 @@ The following example OIDC token uses a subject (`sub`) that references a job en
   "run_id": "example-run-id",
   "run_number": "10",
   "run_attempt": "2",
-  "runner_environment": "github-hosted"
+  "runner_environment": "github-hosted",
   "actor": "octocat",
   "workflow": "example-workflow",
   "head_ref": "",

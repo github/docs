@@ -151,7 +151,6 @@ With this approach, the value of the {% raw %}`${{ github.event.pull_request.tit
 
 ### Using workflow templates for {% data variables.product.prodname_code_scanning %}
 
-{% data reusables.advanced-security.starter-workflows-beta %}
 {% data variables.product.prodname_code_scanning_caps %} allows you to find security vulnerabilities before they reach production. {% data variables.product.github %} provides workflow templates for {% data variables.product.prodname_code_scanning %}. You can use these suggested workflows to construct your {% data variables.product.prodname_code_scanning %} workflows, instead of starting from scratch. {% data variables.product.company_short %}'s workflow, the {% data variables.code-scanning.codeql_workflow %}, is powered by {% data variables.product.prodname_codeql %}. There are also third-party workflow templates available.
 
 For more information, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning) and [AUTOTITLE](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning#configuring-code-scanning-using-third-party-actions).
@@ -227,8 +226,6 @@ For more information on how to configure this setting, see {% ifversion ghes or 
 {% ifversion code-scanning-actions-language %}
 
 ## Using {% data variables.product.prodname_code_scanning %} to secure workflows
-
-{% data reusables.code-scanning.beta-actions-analysis %}
 
 {% data variables.product.prodname_code_scanning_caps %} can automatically detect and suggest improvements for common vulnerable patterns used in {% data variables.product.prodname_actions %} workflows.
 For more information on how to enable {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning).
@@ -347,6 +344,7 @@ For third-party images, such as the images for ARM-powered runners, you can find
 When a self-hosted runner is defined at the organization or enterprise level, {% data variables.product.github %} can schedule workflows from multiple repositories onto the same runner. Consequently, a security compromise of these environments can result in a wide impact. To help reduce the scope of a compromise, you can create boundaries by organizing your self-hosted runners into separate groups. You can restrict what {% ifversion ghec or ghes %}workflows, {% endif %}organizations and repositories can access runner groups. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups).
 
 You should also consider the environment of the self-hosted runner machines:
+
 * What sensitive information resides on the machine configured as a self-hosted runner? For example, private SSH keys, API access tokens, among others.
 * Does the machine have network access to sensitive services? For example, Azure or AWS metadata services. The amount of sensitive information in this environment should be kept to a minimum, and you should always be mindful that any user capable of invoking workflows has access to this environment.
 
@@ -370,10 +368,12 @@ Once you have the config file from the REST API response, you can pass it to the
 A self-hosted runner can be added to various levels in your {% data variables.product.prodname_dotcom %} hierarchy: the enterprise, organization, or repository level. This placement determines who will be able to manage the runner:
 
 **Centralized management:**
+
 * If you plan to have a centralized team own the self-hosted runners, then the recommendation is to add your runners at the highest mutual organization or enterprise level. This gives your team a single location to view and manage your runners.
 * If you only have a single organization, then adding your runners at the organization level is effectively the same approach, but you might encounter difficulties if you add another organization in the future.
 
 **Decentralized management:**
+
 * If each team will manage their own self-hosted runners, then the recommendation is to add the runners at the highest level of team ownership. For example, if each team owns their own organization, then it will be simplest if the runners are added at the organization level too.
 * You could also add runners at the repository level, but this will add management overhead and also increases the numbers of runners you need, since you cannot share runners between repositories.
 
