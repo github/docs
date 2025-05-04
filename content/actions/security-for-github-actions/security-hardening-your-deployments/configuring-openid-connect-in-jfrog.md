@@ -94,11 +94,6 @@ jobs:
           username: ${{ steps.setup-jfrog-cli.outputs.oidc-user }}
           password: ${{ steps.setup-jfrog-cli.outputs.oidc-token }}
 ```
-## Security Best Practices
-
--  Always set `permissions: id-token: write` in any workflow using OIDC.
--  Restrict trust using claims such as `repository`, `ref`, or `environment`.
--  Use identity mappings to scope access at a fine-grained level inside the JFrog Platform.
 
 ## Further Reading
 
