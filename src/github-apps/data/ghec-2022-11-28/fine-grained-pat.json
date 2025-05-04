@@ -1123,6 +1123,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/shared-storage"
+    },
+    {
+      "slug": "get-billing-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/usage"
     }
   ],
   "branches": [
@@ -1353,6 +1359,38 @@
       "subcategory": "branches",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/merges"
+    }
+  ],
+  "campaigns": [
+    {
+      "slug": "list-campaigns-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "create-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "get-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "update-a-campaign",
+      "subcategory": "campaigns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "delete-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
     }
   ],
   "checks": [
@@ -2165,12 +2203,6 @@
       "requestPath": "/orgs/{org}/copilot/metrics"
     },
     {
-      "slug": "get-a-summary-of-copilot-usage-for-organization-members",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/copilot/usage"
-    },
-    {
       "slug": "get-copilot-seat-assignment-details-for-a-user",
       "subcategory": "copilot-user-management",
       "verb": "get",
@@ -2181,12 +2213,14 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
-    },
+    }
+  ],
+  "credentials": [
     {
-      "slug": "get-a-summary-of-copilot-usage-for-a-team",
-      "subcategory": "copilot-usage",
-      "verb": "get",
-      "requestPath": "/orgs/{org}/team/{team_slug}/copilot/usage"
+      "slug": "revoke-a-list-of-credentials",
+      "subcategory": "revoke",
+      "verb": "post",
+      "requestPath": "/credentials/revoke"
     }
   ],
   "dependabot": [
@@ -5337,6 +5371,12 @@
       "requestPath": "/orgs/{org}/bypass-requests/secret-scanning"
     },
     {
+      "slug": "list-alert-dismissal-requests-for-secret-scanning-for-an-org",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/secret-scanning"
+    },
+    {
       "slug": "list-secret-scanning-alerts-for-an-organization",
       "subcategory": "secret-scanning",
       "verb": "get",
@@ -5365,6 +5405,24 @@
       "subcategory": "delegated-bypass",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}"
+    },
+    {
+      "slug": "list-alert-dismissal-requests-for-secret-scanning-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning"
+    },
+    {
+      "slug": "get-an-alert-dismissal-request-for-secret-scanning",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}"
+    },
+    {
+      "slug": "review-an-alert-dismissal-request-for-secret-scanning",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}"
     },
     {
       "slug": "list-secret-scanning-alerts-for-a-repository",

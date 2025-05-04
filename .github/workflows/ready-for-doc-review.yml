@@ -24,7 +24,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-internal
-          token: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Setup Node.js
         uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8 # v4.0.2
@@ -43,62 +43,11 @@ jobs:
             echo "AUTHOR_LOGIN=${{ github.event.pull_request.user.login }}" >> $GITHUB_ENV
           fi
 
-      # Check if the PR is connected to an issue that has the DIY docs label. The grep command parses through the PR description to find issue numbers that are linked in the PR description. The GitHub CLI command then checks if the issue exists in the docs-content repo, then checks if the linked docs-content issues have the DIY docs label. If the linked issues have the DIY docs label, the DIY_DOCS_LABEL environment variable is set to true.
-      - name: Check if PR is connected to DIY docs issue
-        if: github.repository == 'github/docs-internal'
-        id: check-diy-docs
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-        run: |
-          echo "Extracting issue numbers from PR description..."
-
-          # Get issue numbers directly using gh pr view
-          ISSUE_NUMS=$(gh pr view ${{ github.event.pull_request.number }} --json body -q .body | \
-            grep -oE '(https://github.com/github/docs-content/issues/[0-9]+|github/docs-content#[0-9]+|#[0-9]+)' | \
-            grep -oE '[0-9]+$' || echo "")
-          echo "Extracted docs-content issue numbers: $ISSUE_NUMS"
-
-          if [ -n "$ISSUE_NUMS" ]; then
-            for ISSUE_NUM in $ISSUE_NUMS; do
-              echo "Checking issue #$ISSUE_NUM in the docs-content repository..."
-              if gh issue view $ISSUE_NUM --repo github/docs-content --json labels -q '.labels[].name' | grep -q 'DIY docs'; then
-                echo "DIY docs label found for issue #$ISSUE_NUM."
-                echo "DIY_DOCS_LABEL=true" >> $GITHUB_ENV
-                break
-              else
-                echo "Issue #$ISSUE_NUM exists but does not have the DIY docs label."
-              fi
-            done
-          else
-            echo "No DIY docs issues found in the PR description."
-          fi
-
-      # Debug step to confirm environment variables are set correctly
-      - name: Debug environment variables
-        run: |
-          echo "Current environment variables:"
-          echo "DIY_DOCS_LABEL: $DIY_DOCS_LABEL"
-          echo "Repository: ${{ github.repository }}"
-
-      # If the PR description contains a link to a DIY docs issue, add the DIY docs label to the PR.
-      - name: Add the DIY docs label if connected to a DIY docs issue
-        if: ${{ env.DIY_DOCS_LABEL == 'true' }} && github.repository == 'github/docs-internal'
-        env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
-          PR_URL: ${{ github.event.pull_request.html_url }}
-        run: |
-          # Debugging output
-          echo "Condition check:"
-          echo "DIY_DOCS_LABEL is: $DIY_DOCS_LABEL"
-          echo "github.repository is: ${{ github.repository }}"
-          echo "Adding the DIY docs label..."
-          gh pr edit $PR_URL --add-label 'DIY docs'
-
       - name: Run script
         run: |
           npm run ready-for-docs-review
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           ITEM_NODE_ID: ${{ github.event.pull_request.node_id }}

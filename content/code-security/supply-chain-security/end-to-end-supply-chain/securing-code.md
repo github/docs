@@ -78,7 +78,7 @@ Code often needs to communicate with other systems over a network, and requires 
 {% ifversion fpt %}
 You can enable and configure additional scanning that will alert you about accidentally leaked secrets on {% data variables.product.github %} if you own:
    * Public repositories.
-   * An organization using {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GHAS_or_secret_protection %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
+   * An organization using {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with a license for {% data variables.product.prodname_GHAS_or_secret_protection %}. {% data variables.product.prodname_secret_scanning_caps %} will also analyze your private repositories.
 
 {% elsif secret-scanning-user-owned-repos %}
 If your organization uses {% data variables.product.prodname_GHAS_or_secret_protection %}, you can enable {% data variables.secret-scanning.user_alerts %} on any repository owned by the organization, including private repositories. {% data reusables.secret-scanning.secret-scanning-user-owned-repos-beta %}
@@ -95,7 +95,7 @@ Besides your code, you probably need to use secrets in other places. For example
 {% endif %}
 
 {% ifversion ghes %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion ghes %} and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).{% else %}."{% endif %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows or {% data variables.product.prodname_dependabot %} to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).
 {% endif %}
 
 ## Keep vulnerable coding patterns out of your repository

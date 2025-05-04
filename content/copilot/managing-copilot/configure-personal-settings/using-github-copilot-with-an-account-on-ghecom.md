@@ -1,7 +1,7 @@
 ---
 title: Using GitHub Copilot with an account on GHE.com
 shortTitle: Authenticate to GHE.com
-intro: 'Update your development environment to access a {% data variables.product.prodname_copilot_short %} subscription for an account on {% data variables.enterprise.data_residency_site %}.'
+intro: 'Update your development environment to access a {% data variables.product.prodname_copilot_short %} plan for an account on {% data variables.enterprise.data_residency_site %}.'
 versions:
   feature: copilot
 defaultTool: vscode

@@ -73,6 +73,9 @@
   color: var(--fgColor-success, var(--fgColor-open, green)) !important;
   background-color: var(--overlay-bgColor);
   margin-right: 1em;
+  height: 22px !important;
+  font-weight: 700 !important;
+  border-color: unset !important;
 }
 
 .loadingContainer {

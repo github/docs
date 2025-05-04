@@ -27,6 +27,8 @@ sections:
         # https://github.com/github/releases/issues/4336
         - |
           `ghe-config-apply` applies configuration changes conditionally to the relevant, targeted and specific migrations only. As a result, you can expect less downtime and fewer errors while running `ghe-config-apply`. You can still choose to run `ghe-config-apply` unconditionally using this command: `ghe-config-apply -f`.
+        - |
+          Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.x or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-03]
 
     - heading: Dependabot
       notes:
@@ -220,6 +222,8 @@ sections:
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
 
       [Updated: 2025-03-19]
+    - |
+      The security risk page returns a 500 error when secret scanning is disabled. [Updated: 2025-04-25]
 
   closing_down:
     # https://github.com/github/releases/issues/4683
@@ -256,7 +260,9 @@ sections:
     # https://github.com/github/releases/issues/4535
     - |
       As of October 15th, 2024, you will no longer be able to enable or disable GitHub security features for repositories from the organization-level security coverage view. This feature has been deprecated and replaced with code security configurations for managing these settings. See the [GitHub blog post](https://github.blog/changelog/2024-10-17-new-code-security-configurations-let-you-set-security-features-at-the-organization-level/).
-  
+
   errata:
     - |
       The release notes previously mentioned GitHub App private key limits, which did not ship in 3.16 and will ship in 3.17. Similarly, PAT rotation policies were mentioned but will ship instead in 3.17. [Updated: 2025-03-21]
+    - |
+      The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]

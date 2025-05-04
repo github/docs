@@ -76,7 +76,6 @@ In addition to the features available with {% data variables.product.prodname_fr
 * Team discussions{% endif %}
 * Team access controls for managing groups
 * 2,000 {% data variables.product.prodname_actions %} minutes per month
-* 500 MB {% data variables.product.prodname_registry %} storage
 
 ## {% data variables.product.prodname_team %}
 
@@ -94,7 +93,6 @@ In addition to the features available with {% data variables.product.prodname_fr
 * Advanced tools and insights in private repositories:
   * Required pull request reviewers
   * Multiple pull request reviewers
-  * Draft pull requests
   * Team pull request reviewers
   * Protected branches
   * Code owners
@@ -141,7 +139,7 @@ In addition to the features available with {% data variables.product.prodname_te
 
   * If you upgrade an existing organization to {% data variables.product.prodname_ghe_cloud %}, your enterprise account will contain your organization. For more information, see [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/upgrading-your-accounts-plan#upgrading-your-organizations-plan) and [AUTOTITLE]({% ifversion fpt or ghes %}/enterprise-cloud@latest{% endif %}/admin/managing-your-enterprise-account/creating-an-enterprise-account#about-enterprise-account-creation){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 * The option to provision and manage the user accounts for your developers, by using {% data variables.product.prodname_emus %}. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users).
-* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion fpt and ghes %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+* Additional features such as audit log streaming and IP allow list. For more information, see [AUTOTITLE]({% ifversion ghec %}/enterprise-cloud@latest{% endif %}/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/streaming-the-audit-log-for-your-enterprise) and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/hardening-security-for-your-enterprise/restricting-network-traffic-to-your-enterprise-with-an-ip-allow-list){% ifversion fpt or ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 * The option to host your company's data in a specific region, on a unique subdomain
 
 For a detailed list of the features available with {% data variables.product.prodname_enterprise %}, see our [Pricing](https://github.com/pricing) page.

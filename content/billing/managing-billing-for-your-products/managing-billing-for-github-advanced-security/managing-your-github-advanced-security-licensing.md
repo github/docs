@@ -1,8 +1,8 @@
 ---
-title: Managing your GitHub Advanced Security licensing
-intro: 'You can add or remove {% data variables.product.prodname_GH_advanced_security %} licenses for your enterprise.'
-permissions: 'Enterprise owners can manage licensing for {% data variables.product.prodname_GH_advanced_security %}.'
-product: '{% data reusables.gated-features.ghas-ghec %}'
+title: Managing volume/subscription licenses for {% data variables.product.prodname_AS %}
+intro: 'You can monitor and control the availability and consumption of licenses for {% data variables.product.prodname_AS %} in repositories in your enterprise.'
+allowTitleToDifferFromFilename: true
+permissions: 'Enterprise owners with **volume/subscription licenses** for {% data variables.product.prodname_AS %}. </br>For metered usage on the new platform, see [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending).'
 versions:
   ghec: '*'
 type: how_to
@@ -11,40 +11,31 @@ redirect_from:
 topics:
   - Advanced Security
   - Enterprise
-shortTitle: Manage Advanced Security licensing
+shortTitle: Volume/subscription GHAS license
 ---
-## About licensing for {% data variables.product.prodname_GH_advanced_security %}
 
-Each license for {% data variables.product.prodname_GH_advanced_security %} specifies a maximum number of accounts that can use these features. Each active committer to at least one repository with the feature enabled uses one license. A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored. For more information about committer numbers, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security). For information about purchasing a license, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/signing-up-for-github-advanced-security).
+There are two different ways to pay for {% data variables.product.prodname_GHAS_cs_and_sp %} licenses: volume/subscription licenses purchased in advance or usage-based metered billing paid in arrears. This article is about volume/subscription licenses. For information about the two different billing models, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
-{% data reusables.advanced-security.ghas-products-tip %}
+For information about using policies to control use of licenses in your enterprise, see [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
 
-## Managing the number of committers in your subscription
-
-{% ifversion security-configurations %}
-
-{% data reusables.security-configurations.managing-GHAS-licenses %}
-
-{% endif %}
+## Changing the size of your license
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. Under "{% data variables.product.prodname_GH_advanced_security %}", click **Committers**.
+{% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
+1. Under "{% data variables.product.prodname_AS %}" you will see the consumption of licenses for {% data variables.product.prodname_GH_cs_and_sp %}.
 
-   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Committers" dropdown is highlighted with an orange line.](/assets/images/help/enterprises/ghas-committers-dropdown.png)
-1. Under "Committers", click **Manage committers**.
-1. Under "Total committers", click the plus or minus buttons to add or remove committers.
+   ![Screenshot of the {% data variables.product.prodname_AS %} licensing screen. The "Manage licenses" button is outlined in orange.](/assets/images/help/enterprises/ghas-licenses-dropdown.png)
 
-   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} committers screen. A text box with the number 5, with a minus and a plus button, are outlined in orange.](/assets/images/help/enterprises/ghas-add-committers.png)
-1. Click **Update committers**.
+1. To add new licenses, select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Manage licenses**.
+1. Under "Total licenses", click the plus or minus buttons to add or remove licenses.
 
-## Canceling your {% data variables.product.prodname_GH_advanced_security %} subscription
+   ![Screenshot of the {% data variables.product.prodname_AS %} license screen. A text box with the number 5, with a minus and a plus button, are outlined in orange.](/assets/images/help/enterprises/ghas-add-licenses.png)
+
+1. Click **Confirm licenses**.
+
+## Canceling your {% data variables.product.prodname_AS %} subscription
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% data reusables.enterprise-accounts.license-tab %}
-1. To the right of "{% data variables.product.prodname_GH_advanced_security %}", click **Manage**, then click **Cancel Subscription**.
-
-   ![Screenshot of the "Manage" dropdown in the {% data variables.product.prodname_GH_advanced_security %} licensing screen. The "Cancel Subscription" button is outlined in orange.](/assets/images/help/enterprises/ghas-cancel-subscription.png)
-1. To confirm your cancellation, click **I understand, cancel Advanced Security**.
+{% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
+1. To the right of "{% data variables.product.prodname_AS %}", select {% octicon "kebab-horizontal" aria-label="Open menu" %}, then click **Cancel subscription**.
+1. To confirm your cancellation, click **I understand, cancel {% data variables.product.prodname_AS %}**.

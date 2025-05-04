@@ -167,12 +167,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
     "action": "business.code_security_enablement_policy_update",
     "description": "The policy for Code Security enablement was updated for an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
     "action": "business.create",
@@ -1110,6 +1110,16 @@
     "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#modifying-repository-access"
   },
   {
+    "action": "integration_installation_request.close",
+    "description": "A request to install a GitHub App was either approved or denied by an owner, or canceled by the member who opened the request.",
+    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
+  },
+  {
+    "action": "integration_installation_request.create",
+    "description": "A member requested that an owner install a GitHub App.",
+    "docs_reference_links": "/apps/using-github-apps/requesting-a-github-app-from-your-organization-owner"
+  },
+  {
     "action": "integration_installation.suspend",
     "description": "A GitHub App was suspended.",
     "docs_reference_links": "/apps/using-github-apps/reviewing-and-modifying-installed-github-apps#blocking-access"
@@ -1317,6 +1327,11 @@
   {
     "action": "oauth_access.regenerate",
     "description": "An OAuth access token was regenerated.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "oauth_access.revoke",
+    "description": "An OAuth access token was revoked.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2030,9 +2045,39 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
   {
+    "action": "personal_access_token.access_restriction_disabled",
+    "description": "The configured restriction for access to resources via personal access tokens was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_enabled",
+    "description": "The configured restriction for access to resources via personal access tokens was enabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_reset",
+    "description": "The configured restriction for access to resources via personal access tokens was reset and delegated to organizations.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "personal_access_token.access_revoked",
     "description": "A fine-grained personal access token was revoked. The token can still read public organization resources.",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_disabled",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_enabled",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_reset",
+    "description": "Triggered when the enterprise delegates to the organizations when to require approval for fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "personal_access_token.create",
@@ -2052,6 +2097,16 @@
   {
     "action": "personal_access_token.destroy",
     "description": "Triggered when you delete a fine-grained personal access token.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_set",
+    "description": "A personal access token expiration limit was set.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_unset",
+    "description": "A personal access token expiration limit was unset.",
     "docs_reference_links": "N/A"
   },
   {

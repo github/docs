@@ -44,12 +44,6 @@ export const UnrenderedMarkdownContent = ({
       if (existingURLParams.get('feature')) {
         newParams.set('feature', existingURLParams.get('feature') || '')
       }
-      if (existingURLParams.get('search-overlay-ask-ai')) {
-        newParams.set('search-overlay-ask-ai', existingURLParams.get('search-overlay-ask-ai') || '')
-      }
-      if (existingURLParams.get('search-overlay-input')) {
-        newParams.set('search-overlay-input', existingURLParams.get('search-overlay-input') || '')
-      }
       // Combine new and existing query parameters
       if (newParams.toString()) {
         href = `${href}?${existingAnchorParams}&${newParams.toString()}`
@@ -60,6 +54,15 @@ export const UnrenderedMarkdownContent = ({
         {...props}
         href={href}
         target={openLinksInNewTab ? '_blank' : undefined}
+        rel={openLinksInNewTab ? 'noopener noreferrer' : undefined}
+        onClick={(e) => {
+          // For some reason we need to override the default onClick to get these links to open in a new tab
+          if (openLinksInNewTab) {
+            e.stopPropagation()
+            e.preventDefault()
+            window.open(href, '_blank')
+          }
+        }}
         data-group-key={eventGroupKey}
         data-group-id={eventGroupId}
       >

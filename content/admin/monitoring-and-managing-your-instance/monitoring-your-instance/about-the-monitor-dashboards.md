@@ -109,6 +109,12 @@ The graphs break down different metrics about {% data variables.product.prodname
 ### Background jobs
 
 Number of tasks queued for background processing on the {% data variables.product.prodname_ghe_server %} appliance.
+{% ifversion ghes > 3.12 %}
+
+### Git Maintenance
+
+Monitoring Git maintenance failures can help customers with large and active repositories proactively manage repository health. Occasional "spurious failures" and "retries" are expected, but if a repository consistently shows Git maintenance marked as "failed", we recommend contacting [GitHub Support](https://support.github.com/).
+{% endif %}
 
 ### Network
 

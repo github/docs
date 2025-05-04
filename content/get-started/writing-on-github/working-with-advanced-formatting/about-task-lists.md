@@ -61,7 +61,7 @@ You can reorder tasks across different lists in the same comment, but you cannot
 
 You can also convert tasks into issues. First, hover over one of the items in your task list and then click {% octicon "issue-opened" aria-label="Convert to issue" %}.
 
- {% ifversion fpt or ghec %} ![Screenshot of an issue showing two tasks. The "Convert to issue" icon is highlighted with an orange outline.](/assets/images/help/writing/convert-task-lists-into-issues.png){% endif %}
+  ![Screenshot of an issue showing two tasks. The "Convert to issue" icon is highlighted with an orange outline.](/assets/images/help/writing/convert-task-lists-into-issues.png)
 
 ## Navigating tracked issues
 

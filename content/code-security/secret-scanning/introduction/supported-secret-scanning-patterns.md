@@ -35,19 +35,17 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 * **Provider:** Name of the token provider.{% ifversion fpt or ghec %}
 * **Partner:** Token for which leaks are reported to the relevant token partner. Applies to public repositories only.
-* **User:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
+* **User:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.
   * Applies to public repositories, and to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
   * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which usually have a higher ratio of false positives.
   * For {% data variables.product.prodname_secret_scanning %} to scan for non-provider patterns, the detection of non-provider patterns must be enabled for the repository or the organization. For more information, see [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-secret-scanning-for-your-repository).
-  {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}{% endif %}{% ifversion ghes %}
-* **{% data variables.product.prodname_secret_scanning_caps %} alert:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.{% ifversion secret-scanning-non-provider-patterns %}
+  {% data reusables.secret-scanning.non-provider-patterns-beta %}{% endif %}{% ifversion ghes %}
+* **{% data variables.product.prodname_secret_scanning_caps %} alert:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}.
   * Applies to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} are enabled.
-  * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% else %} Applies to private repositories where {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_secret_scanning %} enabled.{% endif %}{% endif %}
+  * Includes {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} tokens, which relate to supported patterns and specified custom patterns, as well as non-provider tokens such as private keys, which often result in false positives.{% endif %}
 * **Push protection:** Token for which leaks are reported to users on {% data variables.product.prodname_dotcom %}. Applies to repositories with {% data variables.product.prodname_secret_scanning %} and push protection enabled.
 
-* **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} {% ifversion ghes %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %} {% ifversion fpt %}Currently only applies to {% data variables.product.prodname_dotcom %} tokens, and not shown in the table. For more information about validity check support see [AUTOTITLE](/enterprise-cloud@latest/code-security/secret-scanning/secret-scanning-patterns#supported-secrets) in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}{% endif %}
-
-{% ifversion secret-scanning-non-provider-patterns %}
+* **Validity check:** Token for which a validity check is implemented. {% ifversion secret-scanning-validity-check-partner-patterns %}For partner tokens, {% data variables.product.prodname_dotcom %} sends the token to the relevant partner. Note that not all partners are based in the United States. For more information, see [{% data variables.product.prodname_AS %}](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security) in the Site Policy documentation.{% else %} Currently only applies to {% data variables.product.prodname_dotcom %} tokens.{% endif %}
 
 ### Non-provider patterns
 
@@ -69,21 +67,11 @@ This table lists the secrets supported by {% data variables.product.prodname_sec
 
 ### {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} patterns
 
-{% endif %}
+<!-- Team plan and GHEC version of table -->
+{% ifversion fpt or ghec %}
 
-<!-- FPT version of table -->
-{% ifversion fpt %}
-
-| Provider | Token | Partner | User | Push protection
-|----|:----|:----:|:----:|:----:|
-{%- for entry in secretScanningData %}
-| {{ entry.provider }} | {{ entry.secretType }} | {% if entry.isPublic %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.isPrivateWithGhas %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} | {% if entry.hasPushProtection %}{% octicon "check" aria-label="Supported" %}{% else %}{% octicon "x" aria-label="Unsupported" %}{% endif %} |
-{%- endfor %}
-
-{% endif %}
-
-<!-- GHEC version of table -->
-{% ifversion ghec %}
+> [!NOTE]
+> Validity checks are only available to users with {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} who enable the feature as part of {% data variables.product.prodname_GH_secret_protection %}.
 
 | Provider | Token | Partner | User | Push protection | Validity check |
 |----|:----|:----:|:----:|:----:|:----:|
