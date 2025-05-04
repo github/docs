@@ -66,7 +66,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: ${{ matrix.language_repo }}
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: ${{ matrix.language_dir }}
 
       - uses: ./.github/actions/node-npm-setup
@@ -89,7 +89,7 @@ jobs:
         working-directory: ${{ matrix.language_dir }}
         env:
           # Needed for gh
-          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)

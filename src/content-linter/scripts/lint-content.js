@@ -409,8 +409,6 @@ function reportSummaryByRule(results, config) {
       }
     }
   })
-
-  console.log(JSON.stringify(ruleCount, null, 2))
 }
 
 /*
@@ -559,7 +557,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     if (githubDocsFrontmatterConfig[ruleName]) {
       config.frontMatter[ruleName] = ruleConfig
       if (customRule) configuredRules.frontMatter.push(customRule)
-      continue
     }
     // Handle the special case of the search-replace rule
     // which has nested rules each with their own
@@ -607,7 +604,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       if (customRule) configuredRules.yml.push(customRule)
     }
   }
-
   return { config, configuredRules }
 }
 

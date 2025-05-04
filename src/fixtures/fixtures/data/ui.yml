@@ -49,17 +49,24 @@ search:
     references: Additional docs
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    unable_to_answer: Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different query.
     copy_answer: Copy answer
     copied_announcement: Copied!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
     back_to_search: Back to search
+    responses:
+      unable_to_answer: Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different question.
+      query_too_large: Sorry, your question is too long. Please try shortening it and asking again.
+      asked_too_many_times: Sorry, you've asked too many questions in a short time period. Please wait a few minutes and try again.
+      invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
+  cta:
+    heading: New! Copilot for Docs
+    description: Ask your question in the search bar and get help in seconds.
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs

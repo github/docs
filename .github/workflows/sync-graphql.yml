@@ -24,7 +24,7 @@ jobs:
       - name: Run updater scripts
         env:
           # need to use a token from a user with access to github/github for this step
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: npm run sync-graphql
       - name: Create pull request
         id: create-pull-request
@@ -37,7 +37,7 @@ jobs:
           # Token should be a PAT because actions performed with GITHUB_TOKEN
           # don't trigger other workflows and this action force pushes updates
           # from the default branch.
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           commit-message: 'Update GraphQL data files'
           title: GraphQL schema update
           body:
@@ -50,7 +50,7 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
         run: npm run enable-automerge
 

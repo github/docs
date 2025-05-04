@@ -21,4 +21,5 @@ children:
   - /configuring-access-to-private-registries-for-dependabot
   - /guidance-for-the-configuration-of-private-registries-for-dependabot
   - /dependabot-options-reference
+  - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
 ---

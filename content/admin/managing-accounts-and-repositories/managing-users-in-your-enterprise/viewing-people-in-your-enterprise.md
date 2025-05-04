@@ -223,7 +223,7 @@ You can view a list of members in your enterprise who don't have an email addres
 
 ## Viewing whether members in your enterprise have 2FA enabled
 
-{% ifversion fpt or ghec %}
+{% ifversion ghec %}
 
 You can see which people in your enterprise have enabled two-factor authentication.
 
