@@ -21,22 +21,21 @@ There are **two enforcement options** for {% data variables.product.prodname_cop
 
 If a policy is enabled or disabled at the enterprise level, the same policy cannot be changed at the organization level.
 
-You can configure policies for your enterprise. If no policy is chosen at the enterprise level, and multiple organizations within the enterprise choose different policies and grant access to the same users, the policy will be enforced as listed in the table.
+If no policy is chosen at the enterprise level, and multiple organizations within the enterprise choose different policies and grant access to the same users, the most restrictive policy is enforced.
 
-| Policy Name | Enforced policy for multiple organizations |
-| ----------- | ------------------------------------------ |
-| [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests) <br>- Opt in to user feedback collection <br >- Opt in to preview features | least restrictive <br> most restrictive <br> least restrictive |
-| [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom) | least restrictive |
-| [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli) | least restrictive |
-| [{% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview) | least restrictive |
-| [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide) | least restrictive |
-| [Editor preview features](#editor-preview-features) | least restrictive |
-| [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile) | least restrictive |
-| [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions) | least restrictive |
-| [Suggestions matching public code](#suggestions-matching-public-code) | most restrictive |
-| [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing) | least restrictive |
-| [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models) | least restrictive |
-| [{% data variables.product.prodname_copilot_short %} Metrics API access](#copilot-metrics-api-access) | most restrictive |
+You can configure any of the following policies for your enterprise:
+
+* [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
+* [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
+* [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
+* [{% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview)
+* [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
+* [Editor preview features](#editor-preview-features)
+* [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
+* [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
+* [Suggestions matching public code](#suggestions-matching-public-code)
+* [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
+* [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
 
 ### Additional {% data variables.product.prodname_copilot_short %} premium requests
 
