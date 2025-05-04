@@ -1,13 +1,14 @@
----
+^|---
 title: 'Setting up GitHub Copilot for yourself'
 shortTitle: Set up for self
 intro: "Follow these steps to start using Copilot."
 permissions: Individuals
+^|---
 versions:
   feature: copilot
 topics:
   - Copilot
----
+|---
 
 ## 1. Get access to {% data variables.product.prodname_copilot %}
 
@@ -55,4 +56,4 @@ If you have your own {% data variables.product.prodname_copilot_short %} plan (i
 
 Start using {% data variables.product.prodname_copilot_short %} to help you write code faster and more efficiently. For all the ways you can use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot). {% data variables.product.prodname_copilot_short %} code suggestions, {% data variables.product.prodname_copilot_chat_dotcom_short %}, and {% data variables.product.prodname_copilot_chat_short %} in your IDE are a great place to start.
 
-To learn how to best use {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) and [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
+github.com {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/best-practices-for-using-github-copilot) and [AUTOTITLE](/copilot/using-github-copilot/prompt-engineering-for-github-copilot).
