@@ -29,9 +29,7 @@ The dependency graph shows the dependencies{% ifversion fpt or ghec %} and depen
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.accessing-repository-graphs %}
 {% data reusables.repositories.click-dependency-graph %}
-1. Optionally, use the search bar to find a specific dependency or set of dependencies.
-
-   >[!NOTE] The search bar only searches based on the package name.
+1. Optionally, use the search bar to find a specific dependency or set of dependencies. You can use the keywords `ecosystem:` to show only packages of a certain type, or `relationship:` to show only direct or transitive dependencies (if the ecosystem supports transitivity). Plain words in search bar will only match package names.
 
 {% ifversion fpt or ghec %}
 
@@ -50,19 +48,19 @@ Enterprise owners can configure the dependency graph at an enterprise level. For
 ### Dependencies view
 
 {% ifversion fpt or ghec %}
-For each dependency, you can see its ecosystem, the manifest file in which it was found, and the license (where detected).
+For each dependency, you can see its ecosystem, the manifest file in which it was found, and its license (where detected).
 
 * Dependencies for private repositories, private packages, or unrecognized files are shown in plain text.
 * If the package manager for the dependency is in a public repository, you can hover on the dependency name to display a pop-up with the associated repository information.
 * You can sort and filter dependencies by typing filters as `key:value` pairs into the search bar.
 
     * Use `ecosystem: <ecosystem-name>` to display dependencies for the selected ecosystem.{% ifversion transitive-dependency-labeling-npm %}
-    * **For npm only.** Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status.{% endif %}
+    * Use `relationship:` to filter the list by relationship status. Possible values are `direct`, `transitive`, and `inconclusive`. Alternatively, you can click the relationship label adjacent to a dependency name to only show dependencies of the same relationship status. This filter is only available for ecosystems with transitive dependency support. See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems) for more information.{% endif %}
 
 {% endif %}
 
 {% ifversion ghes %}
-Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed{% ifversion ghes %}.{% else %}, grouped by ecosystem.{% endif %}
+Any direct and indirect dependencies that are specified in the repository's manifest or lock files are listed.
 {% endif %}
 
 Dependencies submitted to a project using the {% data variables.dependency-submission-api.name %} will show which detector was used for their submission and when they were submitted. For more information on using the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/using-the-dependency-submission-api).
@@ -109,17 +107,9 @@ The "Used by" section represents a single package from the repository. If you ha
 
 {% endif %}
 
-## Troubleshooting the dependency graph
-
-If your dependency graph is empty, there may be a problem with the file containing your dependencies. Check the file to ensure that it's correctly formatted for the file type.
-
-{% ifversion fpt or ghec %}
-If the file is correctly formatted, then check its size. The dependency graph ignores individual manifest and lock files that are over 1.5 Mb, unless you are a {% data variables.product.prodname_enterprise %} user. It processes up to 150 manifest or lock files per repository by default, so you can split dependencies into smaller files in subdirectories of the repository.{% endif %}
-
-If a manifest or lock file is not processed, its dependencies are omitted from the dependency graph and they can't be checked for insecure dependencies.
-
 ## Further reading
 
+* [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/troubleshooting-the-dependency-graph)
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph)
 * [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts){% ifversion ghec %}
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/viewing-insights-for-dependencies-in-your-organization){% endif %}{% ifversion fpt or ghec %}

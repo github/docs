@@ -98,3 +98,7 @@ In the "Current promotions and discounts" section in the top right, you can see 
 At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform).
 
 If you have used all of your budget, a red banner appears at the top of the page. You can click **Update your budget** to increase your budget.
+
+## Creating a budget
+
+As an enterprise owner or billing manager, you can set the budget for your enterprise, an organization within your enterprise, or a cost center. As an organization owner, you are able to set the budgets for the repositories you manage. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#creating-a-budget).

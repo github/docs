@@ -4,4 +4,16 @@
    1. You can click **More options {% octicon "chevron-down" aria-hidden="true" %}** to provide other surrounding content or additional match requirements for the secret format.
    1. Provide a sample test string to make sure your configuration is matching the patterns you expect.
 
+{% ifversion fpt or ghec %}
+
    ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern.png)
+
+{% elsif ghes > 3.16 %}
+
+   ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern-ghes17.png)
+
+{% elsif ghes < 3.17 %}
+
+   ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form.](/assets/images/help/repository/secret-scanning-create-custom-pattern-ghas.png)
+
+{% endif %}

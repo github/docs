@@ -65,7 +65,7 @@ The steps to use each model are similar. In general, you will need to:
 1. Either open a codespace, or set up your local environment:
    * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
-      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token should not have any scopes or permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
+      * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token needs to have `models:read` permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
       * Save your token as an environment variable.
       * Install the dependencies for the SDK, if required.
 1. Use the example code to make a request to the model.
@@ -255,7 +255,36 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o1-mini</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>Not applicable</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>Not applicable</td>
+    <td>8</td>
+    <td>10</td>
+    <td>12</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>Not applicable</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 8000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>Not applicable</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o1-mini, o3-mini, and o4-mini</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>2</td>
@@ -284,36 +313,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o3-mini</b></th>
-    <th style="padding-left: 0"><b>Requests per minute</b></th>
-    <td>Not applicable</td>
-    <td>2</td>
-    <td>3</td>
-    <td>3</td>
-  </tr>
-  <tr>
-    <th><b>Requests per day</b></th>
-    <td>Not applicable</td>
-    <td>12</td>
-    <td>15</td>
-    <td>20</td>
-  </tr>
-  <tr>
-    <th><b>Tokens per request</b></th>
-    <td>Not applicable</td>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 4000 out</td>
-    <td>4000 in, 4000 out</td>
-  </tr>
-  <tr>
-    <th><b>Concurrent requests</b></th>
-    <td>Not applicable</td>
-    <td>1</td>
-    <td>1</td>
-    <td>1</td>
-  </tr>
-  <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>DeepSeek-R1</b></th>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>DeepSeek-R1 and MAI-DS-R1</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>1</td>
     <td>1</td>

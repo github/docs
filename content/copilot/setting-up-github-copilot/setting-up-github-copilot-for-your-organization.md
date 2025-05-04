@@ -3,7 +3,7 @@ title: 'Setting up GitHub Copilot for your organization'
 shortTitle: Set up for organization
 intro: "Follow these steps to set up {% data variables.product.prodname_copilot %} in your organization."
 permissions: Organization owners
-product: 'Organizations with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+product: 'Organizations with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan'
 versions:
   feature: copilot
 topics:
@@ -17,9 +17,9 @@ redirect_from:
 
 ## 1. Subscribe your organization to {% data variables.product.prodname_copilot %}
 
-Set up a subscription to {% data variables.product.prodname_copilot_business_short %} for your organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization).
+Set up a {% data variables.product.prodname_copilot_business_short %} plan for your organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/subscribing-to-copilot-for-your-organization).
 
-If your organization is part of an enterprise that has a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} subscription, your enterprise owner can instead enable {% data variables.product.prodname_copilot_short %} for your organization. You can request access from your enterprise owner by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
+If your organization is part of an enterprise with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan, your enterprise owner can instead enable {% data variables.product.prodname_copilot_short %} for your organization. You can request access from your enterprise owner by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get Copilot from an organization."
 
 ## 2. Set policies
 

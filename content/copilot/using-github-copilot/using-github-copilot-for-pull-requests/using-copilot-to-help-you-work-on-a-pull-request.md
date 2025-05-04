@@ -9,7 +9,7 @@ topics:
   - Copilot
 ---
 
-> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> [!NOTE] {% data variables.product.prodname_copilot_workspace %} is in limited {% data variables.release-phases.public_preview %}. The waitlist for admission to this preview is currently closed.
 
 ## About using {% data variables.product.prodname_copilot_short %} to help you work on your pull requests
 
@@ -40,8 +40,8 @@ After you create a pull request, you can continue working on the PR on the {% da
 
 Using {% data variables.product.prodname_copilot_workspace %} requires an existing pull request on the {% data variables.product.github %} website and either of the following:
 
-* Access to {% data variables.product.prodname_copilot_short %}—see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)—and admission to the {% data variables.release-phases.public_preview %}—see [Join the preview for {% data variables.copilot.copilot_code-review_short %}-powered code reviews](https://gh.io/copilot-code-review-waitlist).
-* Access to {% data variables.product.prodname_GHAS %} (GHAS) features on a private repository owned by an organization on a {% ifversion ghas-products-cloud %}{% data variables.product.prodname_team %} or {% endif %}{% data variables.product.prodname_enterprise %} plan. See [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+* Access to this {% data variables.release-phases.public_preview %} from the waitlist (now closed).
+* Access to {% data variables.product.prodname_GHAS %} (GHAS) features on a private repository owned by an organization on a {% data variables.product.prodname_team %} or {% data variables.product.prodname_enterprise %} plan. See [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 Without access to {% data variables.product.prodname_copilot_workspace %} you can still edit the files in pull requests by going to the **Files changed** tab, clicking the ellipsis (**...**) next to the file you want to edit, and then clicking **Edit file**.
 

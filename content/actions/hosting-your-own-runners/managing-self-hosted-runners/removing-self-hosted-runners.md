@@ -68,12 +68,11 @@ If you use {% data variables.product.prodname_ghe_cloud %}, you can also remove 
 To remove a self-hosted runner from an enterprise, you must be an enterprise owner. We recommend that you also have access to the self-hosted runner machine. For information about how to remove a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions/self-hosted-runners).
 
 {% data reusables.actions.self-hosted-runner-reusing %}
-{% ifversion ghec or ghes %}
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.actions-tab %}
 {% data reusables.enterprise-accounts.actions-runners-tab %}
 {% data reusables.actions.settings-sidebar-actions-runner-selection %}
 {% data reusables.actions.self-hosted-runner-removing-a-runner-updated %}
-{% endif %}
+
 {% endif %}

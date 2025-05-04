@@ -58,7 +58,7 @@ If you can use a {% data variables.product.pat_v2 %} for your scenario, you'll b
 
 {% data variables.product.pat_v2_caps_plural %} do not support every feature of {% data variables.product.pat_v1_plural %}. These feature gaps are not permanent - {% data variables.product.company_short %} is working to close them. You can review [our public roadmap](https://github.com/github/roadmap) for more details on when these scenarios will be supported.
 
-The seven major gaps in {% data variables.product.pat_v2 %}s are:
+The major gaps in {% data variables.product.pat_v2 %}s are:
 
 * Using {% data variables.product.pat_v2 %} to contribute to public repos where the user is not a member.
 * Using {% data variables.product.pat_v2 %} to contribute to repositories where the user is an outside or repository collaborator.
@@ -67,6 +67,7 @@ The seven major gaps in {% data variables.product.pat_v2 %}s are:
 * Using {% data variables.product.pat_v2 %} to call APIs that manage the Enterprise account.
 {% endif %}* Using {% data variables.product.pat_v2 %} to access Packages.
 * Using {% data variables.product.pat_v2 %} to call the Checks API.
+* Using {% data variables.product.pat_v2 %} to access Projects owned by a user account.
 
 All of these gaps will be solved over time, as {% data variables.product.company_short %} continues to invest in more secure access patterns.
 
@@ -144,6 +145,9 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
+
+{% ifversion ghec or fpt %}> [!NOTE] If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization#mitigate-data-leaks).
+{% endif %}
 
 ## Using a {% data variables.product.pat_generic %} on the command line
 

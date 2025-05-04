@@ -46,6 +46,7 @@ children:
   - /apps
   - /billing
   - /branches
+  - /campaigns
   - /checks
   - /classroom
   - /code-scanning
@@ -55,6 +56,7 @@ children:
   - /collaborators
   - /commits
   - /copilot
+  - /credentials
   - /dependabot
   - /dependency-graph
   - /deploy-keys

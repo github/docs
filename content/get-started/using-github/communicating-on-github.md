@@ -28,6 +28,12 @@ You can create and participate in issues, pull requests, {% data variables.produ
 You can create and participate in issues, pull requests, and team discussions, depending on the type of conversation you'd like to have.
 {% endif %}
 
+{% ifversion copilot %}
+
+> [!TIP] You can also use {% data variables.product.prodname_copilot_chat_short %} to generate ideas, outlines, or drafts for discussions, based on your pull requests and issues. See [AUTOTITLE](/copilot/copilot-chat-cookbook/documenting-code/writing-discussions-or-blog-posts).
+
+{% endif %}
+
 ### {% data variables.product.prodname_github_issues %}
 
 * Are useful for discussing specific details of a project such as bug reports, planned improvements and feedback

@@ -18,7 +18,7 @@ redirect_from:
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %}
 
-> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/using-github-copilot/getting-started-with-github-copilot).
+> [!NOTE] {% data variables.product.prodname_copilot_extensions %} are not the same as _the {% data variables.product.prodname_copilot %} extension_, which you install in your IDE to use default {% data variables.product.prodname_copilot_short %} functionality like code completions and {% data variables.product.prodname_copilot_chat %}. For more information on _the {% data variables.product.prodname_copilot %} extension_, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment).
 
 You can get started with {% data variables.product.prodname_copilot_extensions_short %} in one of two ways:
 * Build your own {% data variables.product.prodname_copilot_extension_short %}. See [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).

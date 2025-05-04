@@ -5,7 +5,7 @@ redirect_from:
   - /articles/integrating-jira-with-your-organization-project-board
   - /github/setting-up-and-managing-organizations-and-teams/integrating-jira-with-your-organization-project-board
 versions:
-  ghes: '*'
+  feature: projects-v1
 shortTitle: Integrate Jira
 allowTitleToDifferFromFilename: true
 ---

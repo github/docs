@@ -89,7 +89,7 @@ For example, on your "Notification settings" page:
 
 {% else %}
 
-If you do not enable watching or participating notifications for web{% ifversion ghes %} and mobile{% endif %}, then your notifications inbox will not have any updates.{% endif %}
+If you do not enable watching or participating notifications for web and mobile, then your notifications inbox will not have any updates.{% endif %}
 
 ## Customizing your email notifications
 
@@ -159,6 +159,17 @@ The `reply-to` address on each email notification identifies the thread and the 
     * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see [Organization alerts notification options](#organization-alerts-notification-options).
 
 ## Automatic watching
+
+<!-- expires 2025-05-18 -->
+
+<!-- When this expires, remove the Automatic watching section for FPT/GHEC but keep it for GHES <=3.17 -->
+
+{% ifversion fpt or ghec %}
+
+>[!WARNING] Starting May 18, 2025, {% data variables.product.company_short %} will deprecate automatic watching of repositories and teams. Existing subscriptions will remain unaffected, ensuring you can stay subscribed to repositories or teams that you were previously watching.
+
+{% endif %}
+<!-- end expires 2025-05-18 -->
 
 By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
 

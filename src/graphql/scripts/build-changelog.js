@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
@@ -288,6 +287,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.DirectiveArgumentDescriptionChanged,
   ChangeType.DirectiveArgumentDefaultValueChanged,
   ChangeType.DirectiveArgumentTypeChanged,
+  ChangeType.DirectiveUsageArgumentDefinitionRemoved,
   ChangeType.EnumValueDescriptionChanged,
   ChangeType.EnumValueDeprecationReasonChanged,
   ChangeType.EnumValueDeprecationReasonAdded,
@@ -308,6 +308,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionAdded,
   ChangeType.DirectiveUsageFieldDefinitionAdded,
   ChangeType.DirectiveUsageArgumentDefinitionAdded,
+  ChangeType.DirectiveUsageEnumValueAdded,
 ]
 
 export default { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }

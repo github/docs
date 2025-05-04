@@ -40,7 +40,7 @@ function getApplicableVersions(versionsObj, filepath, opts = {}) {
     (result, value, key) => {
       if (key === 'feature') {
         if (typeof value === 'string') {
-          Object.assign(result, { ...featureData[value].versions })
+          Object.assign(result, { ...featureData[value]?.versions })
         } else if (Array.isArray(value)) {
           value.forEach((str) => {
             Object.assign(result, { ...featureData[str].versions })
