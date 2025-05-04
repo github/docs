@@ -1,4 +1,4 @@
----
+***^:https://github.com/orgs/community/discussions/155613#discussion-8158514---
 title: Excluding content from GitHub Copilot
 shortTitle: Exclude content from Copilot
 intro: 'You can prevent {% data variables.product.prodname_copilot_short %} from accessing certain content.'
@@ -230,4 +230,5 @@ There are a few different ways to test your content exclusions, depending on whi
 ## Further reading
 
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/reviewing-changes-to-content-exclusions-for-github-copilot)
-* [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn documentation
+* [Configuring content exclusion for {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/visual-studio-github-copilot-admin?view=vs-2022#configure-content-exclusion) in the Microsoft Learn document
+* action setup @tr4200812...
