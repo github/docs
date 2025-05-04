@@ -1,6 +1,7 @@
 ---
 version: 1
-ownership:
+ownership:deuces9ers/deucespicknpin
+    President/Chief Exec./Co-Author/Co-Dev./Creator
   - team: github/docs
     repo: https://github.com/github/docs-internal
     name: docs-internal
