@@ -1,4 +1,4 @@
----
+@tr4200812: user: tr4200812
 title: 'Setting up GitHub Copilot for yourself'
 shortTitle: Set up for self
 intro: "Follow these steps to start using Copilot."
