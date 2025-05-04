@@ -34905,6 +34905,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "closedIssueCount",
+          "description": "<p>Identifies the number of closed issues associated with the milestone.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
           "name": "createdAt",
           "description": "<p>Identifies the date and time when the object was created.</p>",
           "type": "DateTime!",
@@ -35045,6 +35053,14 @@
         {
           "name": "number",
           "description": "<p>Identifies the number of the milestone.</p>",
+          "type": "Int!",
+          "id": "int",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "openIssueCount",
+          "description": "<p>Identifies the number of open issues associated with the milestone.</p>",
           "type": "Int!",
           "id": "int",
           "kind": "scalars",
@@ -97487,7 +97503,7 @@
         {
           "name": "path",
           "description": "<p>Path to the file being commented on.</p>",
-          "type": "String!",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -102376,16 +102392,16 @@
         },
         {
           "name": "line",
-          "description": "<p>The line of the blob to which the thread refers. The end of the line range for multi-line comments.</p>",
-          "type": "Int!",
+          "description": "<p>The line of the blob to which the thread refers. The end of the line range for\nmulti-line comments. Required if not using positioning.</p>",
+          "type": "Int",
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
         },
         {
           "name": "path",
-          "description": "<p>Path to the file being commented on.</p>",
-          "type": "String!",
+          "description": "<p>Path to the file being commented on. Required if not using positioning.</p>",
+          "type": "String",
           "id": "string",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#string"
@@ -109318,8 +109334,7 @@
           "type": "ID",
           "id": "id",
           "kind": "scalars",
-          "href": "/graphql/reference/scalars#id",
-          "isDeprecated": false
+          "href": "/graphql/reference/scalars#id"
         },
         {
           "name": "labelIds",

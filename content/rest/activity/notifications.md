@@ -55,7 +55,7 @@ Reason Name | Description
 `ci_activity` | A {% data variables.product.prodname_actions %} workflow run that you triggered was completed.
 `invitation` | You accepted an invitation to contribute to the repository.
 `manual` | You subscribed to the thread (via an issue or pull request).
-`member_feature_requested` | Organization members have requested to enable a feature such as Draft Pull Requests or Copilot.
+`member_feature_requested` | Organization members have requested to enable a feature such as Copilot.
 `mention` | You were specifically **@mentioned** in the content.
 `review_requested` | You, or a team you're a member of, were requested to review a pull request.{% ifversion fpt or ghec %}
 `security_alert` | {% data variables.product.prodname_dotcom %} discovered a [security vulnerability](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts) in your repository.{% endif %}

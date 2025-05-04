@@ -24,8 +24,10 @@ Budgets are not applicable to pre-paid volume licenses.
 
 For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
 
+For the {% data variables.product.prodname_copilot %} Premium Request SKU, to set a spending limit for premium requests over your plan's allowance, you can update the default $0 SKU-level budget and select “Stop usage when budget limit is reached”.
+
 > [!NOTE]
-> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file. For accounts that do have a payment method on file, the default budget is unlimited.
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file.  
 
 {% ifversion fpt %}
 
@@ -100,13 +102,10 @@ As an {% data variables.enterprise.enterprise_or_org %} owner{% ifversion ghec %
 
 {% endif %}
 
-1. Click **Budgets and alerts**.
-1. Click **New budget**.
-1. Under "Products", select the metered product to include in this budget.
-1. Under "Budget scope", set the scope of spending for this budget.
+{% data reusables.billing.create-product-or-sku-budget %}
 1. Under "Budget", set a budget amount.
 
-   To stop any usage and further spending once your {% ifversion fpt %}organization{% elsif ghec %}enterprise or organization{% endif %} reaches the budget limit, select **Stop usage when budget limit is reached**. This does not apply to {% data variables.product.prodname_copilot %} usage.
+   To stop any usage and further spending once your {% ifversion fpt %}organization{% elsif ghec %}enterprise or organization{% endif %} reaches the budget limit, select **Stop usage when budget limit is reached**, if available.
 
    >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
 

@@ -1,6 +1,6 @@
 ---
 title: About billing for your enterprise
-intro: 'You can view billing information for your enterprise{% ifversion ghec or ghes %} account on {% data variables.product.prodname_dotcom_the_website %}{% endif %}.'
+intro: 'You can view billing information for your enterprise account on {% data variables.product.prodname_dotcom_the_website %}.'
 redirect_from:
   - /admin/overview/managing-billing-for-your-enterprise
   - /enterprise/admin/installation/managing-billing-for-github-enterprise
