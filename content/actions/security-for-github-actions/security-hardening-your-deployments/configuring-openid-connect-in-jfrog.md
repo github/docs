@@ -73,7 +73,7 @@ jobs:
         with:
           JF_URL: ${{ env.JF_URL }}
           oidc-provider-name: 'YOUR_PROVIDER_NAME' 
-          oidc-audience: 'YOUR_AUDIENCE'
+          oidc-audience: 'YOUR_AUDIENCE' # This is optional
 
       - name: Upload artifact
         run: jf rt upload "dist/*.zip" my-repo/
