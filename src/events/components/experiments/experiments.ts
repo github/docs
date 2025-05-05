@@ -24,11 +24,6 @@ export const EXPERIMENTS = {
     percentOfUsersToGetExperiment: 0, // 10% of users will get the experiment
     includeVariationInContext: true, // All events will include the `experiment_variation` of the `ai_search_experiment`
     limitToLanguages: ['en'], // Only users with the `en` language will be included in the experiment
-    limitToVersions: [
-      'free-pro-team@latest',
-      'enterprise-cloud@latest',
-      'enterprise-server@latest',
-    ], // Only enable for versions
     alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
     turnOnWithURLParam: 'ai_search', /// When the query param `?feature=ai_search` is set, the experiment will be enabled
   },
