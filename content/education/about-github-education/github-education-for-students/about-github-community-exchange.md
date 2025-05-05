@@ -4,6 +4,7 @@ intro: 'Learn the skills you need to contribute to open source projects and grow
 redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-community-exchange
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-community-exchange
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/about-github-community-exchange
 versions:
   fpt: '*'
 shortTitle: About Community Exchange

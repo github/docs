@@ -12,13 +12,12 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/apply-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research/apply-for-an-educator-or-researcher-discount
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers/apply-to-github-global-campus-as-a-teacher
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher
 versions:
   fpt: '*'
 shortTitle: Apply to GitHub Education
 ---
 ## About teacher discounts
-
-{% data reusables.education.about-github-education-link %}
 
 {% data reusables.education.educator-requirements %}
 
@@ -26,12 +25,9 @@ For more information about personal accounts on {% data variables.product.github
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
-{% data reusables.education.benefits-page %}
-1. Under "Select your role in education", select **Teacher**.
-{% data reusables.education.select-email-address %}
-{% data reusables.education.school-name %}
-{% data reusables.education.upload-proof-status %}
-{% data reusables.education.submit-application %}
+{% data reusables.education.apply-to-github-eduction-procedures %}
+
+Once your application is approved, navigate to your [{% data variables.product.prodname_global_campus %} portal](https://github.com/education) to use your {% data variables.product.prodname_global_campus %} benefits.
 
 ## Further reading
 

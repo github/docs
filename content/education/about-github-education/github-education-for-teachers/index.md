@@ -7,12 +7,13 @@ redirect_from:
   - /articles/using-github-in-your-classroom-and-research
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-in-your-classroom-and-research
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-teachers
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers
 versions:
   fpt: '*'
 children:
   - /about-github-education-for-teachers
   - /apply-to-github-education-as-a-teacher
   - why-wasnt-my-application-to-github-education-for-teachers-approved
-shortTitle: About GitHub Education for teachers
+shortTitle: For teachers
 ---
 

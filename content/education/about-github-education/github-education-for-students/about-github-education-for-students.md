@@ -8,10 +8,14 @@ redirect_from:
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/about-github-education-for-students
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork/about-github-education-for-students
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/about-github-global-campus-for-students
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/about-github-education-for-students
 versions:
   fpt: '*'
-shortTitle: For students
+shortTitle: About
 ---
+
+{% data reusables.education.about-github-education-link %}
+
 Using {% data variables.product.prodname_dotcom %} for your school projects is a practical way to collaborate with others and build a portfolio that showcases real-world experience.
 
 Everyone with a {% data variables.product.prodname_dotcom %} account can collaborate in unlimited public and private repositories with {% data variables.product.prodname_free_user %}. As a student, you can also apply for {% data variables.product.prodname_education %} student benefits. Your {% data variables.product.prodname_education %} student benefits and resources are all included in {% data variables.product.prodname_global_campus %}, a portal that allows you to access your education benefits, all in one place. For more information, see [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students/apply-to-github-global-campus-as-a-student) and [{% data variables.product.prodname_education %}](https://education.github.com/).
