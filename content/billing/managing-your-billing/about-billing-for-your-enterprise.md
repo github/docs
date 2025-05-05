@@ -9,6 +9,8 @@ redirect_from:
   - /billing/managing-billing-for-your-github-account/about-billing-for-your-enterprise
   - /billing/managing-your-github-billing-settings/about-billing-for-your-enterprise
   - /early-access/github/automatically-renew-the-billing-plan-for-your-enterprise
+  - /billing/using-the-billing-platform/about-billing-for-your-enterprise
+  - /billing/using-the-new-billing-platform/about-billing-for-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'
@@ -52,21 +54,12 @@ Administrators for your enterprise account on {% data variables.product.prodname
 {% data reusables.billing.ghes-with-no-enterprise-account %}
 {% endif %}
 
-{% ifversion enhanced-billing-platform %}
+## Accessing the billing platform for your enterprise
 
-## How do I know which billing platform I'm using?
-
-You have access to the new billing platform if you have an enterprise account, or if you are part of an organization owned by an enterprise account, created after June 2, 2024. Enterprises that participated in the {% data variables.release-phases.private_preview %} also have access to the new billing platform. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).
-
-{% data reusables.billing.enhanced-billing-platform-product %}
-
-To check if you have access:
+To access the billing platform for your enterprise:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option {% ifversion horizontal-nav %}at the top of the page.{% else %}in the enterprise account sidebar.{% endif %}
-
-{% endif %}
+1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 
 ## Further reading
 

@@ -58,7 +58,7 @@ If you have any questions about renewing your license, contact {% data variables
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
 * The [People that consume a license](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#people-that-consume-a-license) section in "About per-user pricing"
 * [Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)
 * The [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website

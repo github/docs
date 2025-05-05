@@ -7,6 +7,8 @@ redirect_from:
   - /articles/troubleshooting-a-declined-credit-card-charge
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
   - /billing/managing-your-github-billing-settings/troubleshooting-a-declined-credit-card-charge
+  - /billing/using-the-billing-platform/troubleshooting-a-declined-credit-card-charge
+  - /billing/using-the-new-billing-platform/troubleshooting-a-declined-credit-card-charge
 versions:
   fpt: '*'
   ghec: '*'
@@ -19,19 +21,19 @@ If your card is declined, we'll send you an email about why the payment was decl
 
 ## Check your card's expiration date
 
-If your card has expired, you'll need to update your account's payment information. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
+If your card has expired, you'll need to update your account's payment information. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 ## Verify your bank's policy on card restrictions
 
 Some international banks place restrictions on international, e-commerce, and automatically recurring transactions. If you're having trouble making a payment with your international credit card, call your bank to see if there are any restrictions on your card.
 
-We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method).
+We also support payments through PayPal. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 ## Contact your bank for details about the transaction
 
 Your bank can provide additional information about declined payments if you specifically ask about the attempted transaction. If there are restrictions on your card and you need to call your bank, provide this information to your bank:
 
-* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts).
+* **The amount you're being charged.** The amount for your subscription appears on your account's receipts. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 * **The date when {% data variables.product.company_short %} bills you.** Your account's billing date appears on your receipts.
 * **The transaction ID number.** Your account's transaction ID appears on your receipts.
 * **The merchant name.** The merchant name is {% data variables.product.prodname_dotcom %}.

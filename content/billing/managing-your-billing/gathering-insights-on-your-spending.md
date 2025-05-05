@@ -5,6 +5,7 @@ versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/gathering-insights-on-your-spending
+  - /billing/using-the-new-billing-platform/gathering-insights-on-your-spending
 type: how_to
 topics:
   - Enterprise
@@ -125,4 +126,4 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 
 {% ifversion ghec %}
 * [AUTOTITLE](/rest/enterprise-admin/billing){% endif %}
-* [AUTOTITLE](/billing/using-the-new-billing-platform/adding-licenses-to-your-account)
+* [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization))

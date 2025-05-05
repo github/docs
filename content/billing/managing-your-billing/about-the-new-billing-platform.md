@@ -6,6 +6,8 @@ versions:
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-the-enhanced-billing-platform-for-enterprises
   - /billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises
+  - /billing/using-the-new-billing-platform/about-the-new-billing-platform
+  - /billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform
 type: overview
 topics:
   - Enterprise
@@ -75,11 +77,7 @@ With the new billing platform, you can:
 * **Prevent overspending:** Use budgets and alerts to track and control your spending.
 * **Observe and understand spending:** Understand how your spending changes over time and across which products.
 
-## How do I know if I can access the new billing platform?
-
-{% data reusables.billing.enhanced-billing-platform-product %}
-
-{% data reusables.permissions.enhanced-billing-platform %} can check for access to the enhanced platform:
+## How do I access the new billing platform?
 
 {% ifversion fpt %}
 
@@ -87,15 +85,13 @@ With the new billing platform, you can:
 
    * For **personal accounts**, click **Settings**.
    * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.
+1. In the left sidebar, click **Billing & Licensing**.
 
 {% elsif ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
+1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 
 {% endif %}
 
-If you have access, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar. If you do **not** have access to the new billing platform, to find out more about your billing platform, see [AUTOTITLE](/billing/using-the-billing-platform/about-billing-on-github).
-
-## Next steps
-
-* To **get started with the new billing platform**, see [AUTOTITLE](/billing/using-the-new-billing-platform/getting-started-with-the-new-billing-platform).
+If you have questions, please contact {% data variables.contact.contact_support_page %}.

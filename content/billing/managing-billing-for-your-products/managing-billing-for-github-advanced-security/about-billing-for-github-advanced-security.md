@@ -132,33 +132,6 @@ The number of unique, active committers who use {% data variables.product.prodna
 
 If there are no unique committers to a repository or organization, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_AS %} licenses. Disabling a product for that repository or organization would not free any licenses or lower your usage costs.
 
-{% ifversion fpt or ghec %}
-
-<!--GHES does not have a billing platform, it is either part of a hybrid GHEC/GHES instance where billing (metered or volume) is managed through the linked GHEC enterprise account, or it is a standalone GHES instance that uses a volume/subscription license.-->
-
-## Billing platforms
-
-In June 2024 {% data variables.product.github %} introduced a new billing platform to provide greater insight and control over the use of paid products. All {% data variables.enterprise.enterprise_or_org %}s are being migrated over to the new billing platform.
-
-### New billing platform
-
-{% ifversion fpt %}
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
-1. For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.
-
-If your organization uses the new billing platform, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar, see [AUTOTITLE](/billing/using-the-new-billing-platform).
-{% elsif ghec %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-
-If your enterprise uses the new billing platform, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** tab, see [AUTOTITLE](/billing/using-the-new-billing-platform).
-{% endif %}
-
-### Original billing platform
-
-Each {% data variables.enterprise.enterprise_or_org %} on the original billing platform is contacted by {% data variables.product.github %} in advance of their migration to the new billing platform. If you have not been contacted yet, then you probably use the original billing platform, see [AUTOTITLE](/billing/using-the-billing-platform).
-
-{% endif %}
-
 ## Understanding usage
 
 Users can contribute to multiple repositories or organizations. Usage is measured across the whole {% data variables.enterprise.enterprise_or_org %} to ensure that each member uses one license regardless of how many repositories or organizations the user contributes to.
@@ -202,5 +175,5 @@ The following example timeline demonstrates how active committer count for {% da
 {%- ifversion metered-ghe-ghas %}{% ifversion ghec %}
 * [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing){% elsif ghes %}
 * [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
-* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/using-the-new-billing-platform/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
+* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
 {% endif %}

@@ -6,6 +6,8 @@ redirect_from:
   - /articles/about-billing-on-github
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/about-billing-on-github
   - /billing/managing-your-github-billing-settings/about-billing-on-github
+  - /billing/using-the-billing-platform/about-billing-on-github
+  - /billing/using-the-new-billing-platform/about-billing-on-github
 versions:
   fpt: '*'
   ghec: '*'
@@ -130,7 +132,7 @@ Payments can be made via credit card, PayPal, or Azure subscription. When you up
 
 {% endif %}
 
-See [AUTOTITLE](/billing/managing-your-github-billing-settings).
+See [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 ## Switching between settings for your different accounts
 

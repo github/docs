@@ -5,10 +5,17 @@ versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/managing-your-payment-and-billing-information
+  - /billing/using-the-billing-platform/adding-or-editing-a-payment-method
+  - /billing/using-the-billing-platform/viewing-your-payment-history-and-receipts
+  - /billing/using-the-billing-platform/adding-information-to-your-receipts
+  - /billing/using-the-billing-platform/adding-a-sales-tax-certificate
+  - /billing/using-the-billing-platform/setting-your-billing-email
+  - /billing/using-the-new-billing-platform/managing-your-payment-and-billing-information
 type: how_to
 topics:
   - Enterprise
   - Team
+  - Receipts
 permissions: '{% data reusables.permissions.enhanced-billing-platform %}'
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Manage your payment information
@@ -65,7 +72,7 @@ The {% data variables.product.company_short %} products on your Azure invoice ar
 
 {% endif %}
 
-## Viewing payment information
+## Managing payment information
 
 {% ifversion fpt %}
 

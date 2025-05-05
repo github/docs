@@ -5,16 +5,15 @@ versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-the-billing-cycle
+  - /billing/using-the-billing-platform/viewing-your-subscriptions-and-billing-date
+  - /billing/using-the-billing-platform/changing-the-duration-of-your-billing-cycle
+  - /billing/using-the-new-billing-platform/viewing-your-subscriptions-and-billing-date
 type: overview
 topics:
   - Enterprise
   - Team
 product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 ---
-
->[!IMPORTANT] {% ifversion fpt %}If you signed up for a personal user account before February 13, 2025, this article does not apply to you. However, if you created a new personal account (on {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %}) after this date, the information in this article applies.{% elsif ghec %}If you have not migrated to the new billing platform, this article does not apply to you.{% endif %}
->
-> To check if you are on the new billing platform, see [How do I know if I can access the new billing platform?](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-enhanced-billing-platform).
 
 Your billing experience depends on whether your products are metered, volume-based, or a combination of both. Some products, like {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GHAS %}, can be either volume-based or metered, depending on when and how your account was created.
 

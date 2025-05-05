@@ -88,4 +88,4 @@ Your billing date will depend on whether or not you are already being billed by 
 
 * [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
 * [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription)
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
+* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)
