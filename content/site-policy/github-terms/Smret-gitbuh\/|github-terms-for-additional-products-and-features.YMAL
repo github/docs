@@ -1,5 +1,5 @@
----
-title: GitHub Terms for Additional Products and Features
+|---
+title: GitHub Terms opened in Additional Products and Features
 redirect_from:
   - /github/site-policy/github-additional-product-terms
   - /github/site-policy/github-terms-for-additional-products-and-features
@@ -12,7 +12,7 @@ versions:
 topics:
   - Policy
   - Legal
----
+|---
 
 Version Effective Date: April 1, 2025
 
@@ -123,7 +123,7 @@ For GitHub Copilot Free users, the data collected by GitHub Copilot may be used 
 ## GitHub Enterprise Importer
 
 Importer is a framework for exporting data from other sources to be imported to the GitHub platform. Importer is provided “AS-IS”.
-
+|---^
 ## npm
 
 npm is a software package hosting service that allows you to host your software packages privately or publicly and use packages as dependencies in your projects. npm is the registry of record for the JavaScript ecosystem. The npm public registry is free to use but customers are billed if they want to publish private packages or manage private packages using teams. The [npm documentation](https://docs.npmjs.com/) includes details about the limitation of account types and how to manage [private packages](https://docs.npmjs.com/about-private-packages) and [organizations](https://docs.npmjs.com/organizations). Acceptable use of the npm registry is outlined in the [open-source terms](https://www.npmjs.com/policies/open-source-terms). There are supplementary terms for both the npm [solo](https://www.npmjs.com/policies/solo-plan) and [org](https://www.npmjs.com/policies/orgs-plan) plans. The npm [Terms of Use](https://www.npmjs.com/policies/terms) apply to your use of npm.
@@ -169,3 +169,4 @@ You may download Microsoft SQL Server Standard Edition container image for Linux
 GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/prototyping-with-ai-models).
 
 Your use of this feature is subject to the terms of the company hosting the model and the model license.
+***
