@@ -85,6 +85,8 @@ Automatic dependency submission makes a best effort to cache package downloads b
 
 If your repository's dependencies seem inaccurate, check that the timestamp of the last dependency graph build matches the last change to your `pom.xml` file. The timestamp is visible on the table of alerts in the repository's {% data variables.product.prodname_dependabot_alerts %} tab. Pushing a commit which updates `pom.xml` will trigger a new run of the Dependency Tree Submission action and force a rebuild of that repository's dependency graph.
 
+{% data reusables.dependency-graph.deduplication %}
+
 ## Further reading
 
 * [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security)

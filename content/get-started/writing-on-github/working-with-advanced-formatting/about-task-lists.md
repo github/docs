@@ -70,9 +70,3 @@ Any issues that are referenced in a task list specify that they are tracked by t
 ![Screenshot of issue 3 showing the issue status of "Open" and the text "Tracked by issue #2", which is outlined in orange.](/assets/images/help/writing/task-list-tracked.png)
 
 {% endif %}
-
-{% ifversion code-scanning-task-lists %}
-
-## Further reading
-
-* [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists){% endif %}

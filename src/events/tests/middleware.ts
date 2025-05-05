@@ -41,6 +41,7 @@ describe('POST /events', () => {
       os_version: '18.04',
       browser: 'chrome',
       browser_version: '85.0.4183.121',
+      is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
 
@@ -72,6 +73,7 @@ describe('POST /events', () => {
       os_version: '18.04',
       browser: 'chrome',
       browser_version: '85.0.4183.121',
+      is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
 
