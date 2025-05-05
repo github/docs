@@ -120,14 +120,14 @@ jobs:
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 

@@ -8222,6 +8222,15 @@
         "requestPath": "/users/{username}/settings/billing/shared-storage",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage",
+        "additional-permissions": false,
+        "access": "read"
       }
     ]
   },

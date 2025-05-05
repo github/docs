@@ -41,7 +41,7 @@ You can change to a monthly or yearly billing cycle at any time. The change will
 
 > [!NOTE] {% data variables.product.prodname_copilot_pro_plus_short %} does not include a trial. You will be billed immediately upon subscribing.
 
-Before starting a paid subscription for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot_short %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid subscription.
+Before starting a paid plan for a personal account, you can set up a one-time {% data reusables.copilot.trial-period %}-day trial to evaluate {% data variables.product.prodname_copilot_short %}. To begin a trial, you will need to choose a monthly or yearly billing cycle, and provide a payment method. If you do not cancel the trial before the end of the {% data reusables.copilot.trial-period %} days, the trial will automatically convert to a paid plan.
 
 You can cancel your {% data variables.product.prodname_copilot_short %} trial at any time during the {% data reusables.copilot.trial-period %} days and you won't be charged. If you cancel before the end of the trial, you will continue to have access to {% data variables.product.prodname_copilot_short %} until the {% data reusables.copilot.trial-period %}-day trial period ends. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/canceling-your-copilot-trial-as-an-individual-user).
 
@@ -49,9 +49,9 @@ You can cancel your {% data variables.product.prodname_copilot_short %} trial at
 
 ## About premium requests
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 Your {% data variables.product.prodname_copilot_short %} plan includes premium requests. Premium requests use more advanced models or features and count against your monthly premium request allowance.
 
@@ -82,7 +82,7 @@ Your billing date will depend on whether or not you are already being billed by 
 
 * **If you are not already being billed by {% data variables.product.prodname_dotcom %}**, in most cases your billing cycle will start on the day you sign up for {% data variables.product.prodname_copilot_short %}. For example, if you sign up on 3 September, with monthly billing, your initial billing cycle will run from 3 September until and including 2 October, and then on the same days of subsequent months. For annual billing, if you sign up on 3 September, your initial cycle will end on 2 September the following year.
 
-* **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill, or your first bill after the end of your 30-day {% data variables.product.prodname_copilot_short %} trial. You will be charged on a pro rata basis for that initial period. If you do not already have an established billing date, you will be billed for {% data variables.product.prodname_copilot_pro_short %} at the end of your 30-day trial, or when you set up a new paid {% data variables.product.prodname_copilot_short %} subscription.
+* **If you already have a billing cycle**, billing for {% data variables.product.prodname_copilot_short %} will be included in your next bill, or your first bill after the end of your 30-day {% data variables.product.prodname_copilot_short %} trial. You will be charged on a pro rata basis for that initial period. If you do not already have an established billing date, you will be billed for {% data variables.product.prodname_copilot_pro_short %} at the end of your 30-day trial, or when you set up a new paid {% data variables.product.prodname_copilot_short %} plan.
 
 ## Further reading
 

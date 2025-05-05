@@ -14,36 +14,41 @@ shortTitle: Manage policies
 
 You can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
 
-There are **three enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
+There are **two enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
 
-* **No policy** - The feature is initially disabled at the organization level, but each organization with {% data variables.product.prodname_copilot_short %} enabled in your enterprise can set their own policy for the feature.
 * **Enabled** - The feature is available in all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 * **Disabled** - The feature is blocked for all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 
 If a policy is enabled or disabled at the enterprise level, the same policy cannot be changed at the organization level.
 
-If no policy is chosen at the enterprise level, and multiple organizations within the enterprise choose different policies and grant access to the same users, the most restrictive policy is enforced.
+You can configure policies for your enterprise. If no policy is chosen at the enterprise level, and multiple organizations within the enterprise choose different policies and grant access to the same users, the policy will be enforced as listed in the table.
 
-You can configure any of the following policies for your enterprise:
-
-* [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests)
-* [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom)
-* [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli)
-* [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide)
-* [Editor preview features](#editor-preview-features)
-* [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile)
-* [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions)
-* [Suggestions matching public code](#suggestions-matching-public-code)
-* [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing)
-* [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models)
+| Policy Name | Enforced policy for multiple organizations |
+| ----------- | ------------------------------------------ |
+| [Additional {% data variables.product.prodname_copilot_short %} premium requests](#additional-copilot-premium-requests) <br>- Opt in to user feedback collection <br >- Opt in to preview features | least restrictive <br> most restrictive <br> least restrictive |
+| [{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}](#copilot-in-githubcom) | least restrictive |
+| [{% data variables.product.prodname_copilot_cli %}](#github-copilot-in-the-cli) | least restrictive |
+| [{% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})](#copilot-in-github-desktop-public-preview) | least restrictive |
+| [{% data variables.product.prodname_copilot_chat %} in the IDE](#github-copilot-chat-in-the-ide) | least restrictive |
+| [Editor preview features](#editor-preview-features) | least restrictive |
+| [{% data variables.product.prodname_copilot_mobile %}](#github-copilot-chat-in-github-mobile) | least restrictive |
+| [{% data variables.product.prodname_copilot_extensions %}](#github-copilot-extensions) | least restrictive |
+| [Suggestions matching public code](#suggestions-matching-public-code) | most restrictive |
+| [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing) | least restrictive |
+| [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models) | least restrictive |
+| [{% data variables.product.prodname_copilot_short %} Metrics API access](#copilot-metrics-api-access) | most restrictive |
 
 ### Additional {% data variables.product.prodname_copilot_short %} premium requests
 
-<!-- expires 2025-05-05 -->
-{% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- expires 2025-05-19 -->
+{% data reusables.copilot.unlimited-premium-requests %}<br>
+>
+> This setting won't be available until then.
+<!-- end expires 2025-05-19 -->
 
-If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+By default, a $0 budget is created for the {% data variables.product.prodname_copilot_short %} Premium Request SKU for your enterprise. To use additional premium requests, edit the $0 budget. For more information on budget behavior, see [AUTOTITLE](/copilot/rolling-out-github-copilot-at-scale/managing-your-companys-spending-on-github-copilot#enabling-additional-premium-requests).
+
+If you enable this setting by adjusting the default budget, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request your users use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -59,6 +64,10 @@ If you enable "{% data variables.product.prodname_copilot_short %} in {% data va
 ### {% data variables.product.prodname_copilot_cli %}
 
 {% data variables.product.prodname_copilot_cli %} is an extension for {% data variables.product.prodname_cli %} which provides a chat-like interface in the terminal. You can ask {% data variables.product.prodname_copilot %} for command suggestions, or for explanations of commands they run.
+
+### {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+
+You can generate commit messages and descriptions in {% data variables.product.prodname_desktop %} based on the changes you make to your project.
 
 ### {% data variables.product.prodname_copilot_chat %} in the IDE
 
@@ -92,7 +101,7 @@ By default, {% data variables.product.prodname_copilot_chat_short %} uses a base
 
 * **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
-* **OpenAI's models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task#gpt-45).
+* **OpenAI models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot).
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 

@@ -1,4 +1,4 @@
----
+<-----whatisthis or who or main---->
 title: Configuring OpenID Connect in cloud providers
 shortTitle: OpenID Connect in cloud providers
 intro: Use OpenID Connect within your workflows to authenticate with cloud providers.
@@ -112,7 +112,7 @@ You can then use `curl` to retrieve a JWT from the {% data variables.product.pro
 
 ```yaml
     - run: |
-        IDTOKEN=$(curl -H "Authorization: bearer {% raw %} ${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
+        IDTOKEN=$(curl -H "Authorization: Bearer {% raw %}${{steps.script.outputs.TOKEN}}" ${{steps.script.outputs.IDTOKENURL}} {% endraw %} -H "Accept: application/json; api-version=2.0" -H "Content-Type: application/json" -d "{}" | jq -r '.value')
         echo $IDTOKEN
         jwtd() {
             if [[ -x $(command -v jq) ]]; then

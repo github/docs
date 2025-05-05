@@ -54,7 +54,7 @@ Two-factor authentication, or 2FA, is an extra layer of security used when loggi
 
 {% ifversion passkeys %}Optionally, after you have configured 2FA, add a passkey to your account to enable a secure, passwordless login. See [AUTOTITLE](/authentication/authenticating-with-a-passkey/managing-your-passkeys).{% endif %}
 
-### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% else %}2.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
+### {% ifversion fpt or ghec %}5.{% elsif ghes %}3.{% endif %} Viewing your {% data variables.product.github %} profile and contribution graph
 
 Your {% data variables.product.github %} profile tells people the story of your work through the repositories and gists you've pinned, the organization memberships you've chosen to publicize, the contributions you've made, and the projects you've created. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile) and [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/viewing-contributions-on-your-profile).
 

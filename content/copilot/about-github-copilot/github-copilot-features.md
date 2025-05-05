@@ -62,13 +62,17 @@ For more information about {% data variables.product.prodname_copilot_edits_shor
 
 Enhance {% data variables.product.prodname_copilot_chat_short %} responses by providing contextual details on your preferences, tools, and requirements. For more information, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses).
 
+### {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
+
+Automatically generate commit messages and descriptions with {% data variables.product.prodname_copilot_desktop_short %} based on the changes you make to your project.
+
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. For more information, see [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).
 
 ## {% data variables.product.prodname_copilot %} features for administrators
 
-The following features are available to organization and enterprise owners with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription.
+The following features are available to organization and enterprise owners with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan.
 
 ### Policy management
 
@@ -92,5 +96,5 @@ Configure {% data variables.product.prodname_copilot_short %} to ignore certain 
 
 ## Next steps
 
-* To learn more about the subscription plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
+* To learn more about the plans available for {% data variables.product.prodname_copilot %}, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot).
 * To start using {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot).
