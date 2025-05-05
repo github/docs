@@ -23,7 +23,7 @@
   width: searchVariables.$smSearchOverlayWidth !important;
   max-width: 100%;
   height: auto;
-  max-height: 90vh;
+  max-height: 95vh;
   overflow-y: auto;
 
   display: flex;
@@ -67,6 +67,12 @@
   padding: 5px 16px 13px 16px;
   width: 100%;
   background-color: var(--overlay-bgColor);
+  overflow-y: auto;
+  min-height: 15vh;
+
+  @include breakpoint(sm) {
+    min-height: fit-content !important;
+  }
 }
 
 .betaToken {
