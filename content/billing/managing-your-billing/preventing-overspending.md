@@ -5,6 +5,7 @@ versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/preventing-overspending
+  - /billing/using-the-new-billing-platform/preventing-overspending
 type: how_to
 topics:
   - Enterprise

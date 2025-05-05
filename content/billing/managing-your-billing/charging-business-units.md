@@ -5,6 +5,7 @@ versions:
   ghec: '*'
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/charging-business-units
+  - /billing/using-the-new-billing-platform/charging-business-units
 type: how_to
 topics:
   - Enterprise
@@ -16,7 +17,7 @@ To drive accountability and control costs, the new billing platform lets you cre
 
 If your account is billed to Azure, you will have the option to add an Azure subscription ID. Cost centers allows for multiple Azure subscription IDs so that different business units, within an enterprise, can directly pay for their usage.
 
-To learn more about roles authorized to create and manage cost centers, see [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform).
+To learn more about roles authorized to create and manage cost centers, see [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform).
 
 ## Creating a cost center
 

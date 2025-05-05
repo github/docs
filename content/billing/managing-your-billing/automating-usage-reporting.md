@@ -3,6 +3,8 @@ title: Automating usage reporting with the REST API
 intro: Learn how to automate reporting on your use of paid features using the REST API.
 allowTitleToDifferFromFilename: true
 shortTitle: Automate usage reporting
+redirect_from:
+  - /billing/using-the-new-billing-platform/automating-usage-reporting
 versions:
   ghec: '*'
 type: how_to

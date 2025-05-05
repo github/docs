@@ -6,6 +6,7 @@ versions:
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/estimating-spending-for-your-enterprise
   - /billing/using-the-new-billing-platform/estimating-spending-for-your-enterprise
+  - /billing/using-the-new-billing-platform/estimating-spending
 type: how_to
 topics:
   - Enterprise
@@ -95,7 +96,7 @@ In the "Current promotions and discounts" section in the top right, you can see 
 
 ## Tracking budgets
 
-At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform).
+At the bottom of the page, under "Budgets", you can see your current budgets, and how much you have spent against those budgets. If your role provides access, you can edit or delete a budget by clicking {% octicon "kebab-horizontal" aria-label="Open column options" %} to the right of a budget. See [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform).
 
 If you have used all of your budget, a red banner appears at the top of the page. You can click **Update your budget** to increase your budget.
 

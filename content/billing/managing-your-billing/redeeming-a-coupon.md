@@ -9,6 +9,8 @@ redirect_from:
   - /articles/redeeming-a-coupon
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/redeeming-a-coupon
   - /billing/managing-your-github-billing-settings/redeeming-a-coupon
+  - /billing/using-the-billing-platform/redeeming-a-coupon
+  - /billing/using-the-new-billing-platform/redeeming-a-coupon
 versions:
   fpt: '*'
   ghec: '*'

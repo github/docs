@@ -5,6 +5,7 @@ versions:
   feature: enhanced-billing-platform
 redirect_from:
   - /billing/using-the-enhanced-billing-platform-for-enterprises/roles-for-the-enhanced-billing-platform
+  - /billing/using-the-new-billing-platform/roles-for-the-new-billing-platform
 type: reference
 topics:
   - Enterprise

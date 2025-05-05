@@ -8,6 +8,7 @@ redirect_from:
   - /early-access/billing/managing-billing-for-githubs-products-through-azure
   - /early-access/billing/managing-usage-based-billing-for-github-licenses
   - /billing/using-the-enhanced-billing-platform-for-enterprises/about-usage-based-billing-for-licenses
+  - /billing/using-the-new-billing-platform/about-usage-based-billing-for-licenses
 versions:
   ghec: '*'
   ghes: '>= 3.13'

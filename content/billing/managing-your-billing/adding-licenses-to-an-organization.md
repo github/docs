@@ -1,5 +1,5 @@
 ---
-title: Managing licenses {% ifversion fpt %}and plans{% endif %} for your account
+title: Adding licenses to an organization
 intro: Learn how to add {% ifversion enterprise-licensing-language %}licenses{% else %}licensed seats{% endif %} to your {% ifversion fpt %} personal or organization{% elsif ghec %}enterprise{% endif %} account using the new billing platform.
 versions:
   feature: enhanced-billing-platform
@@ -8,6 +8,7 @@ redirect_from:
   - /billing/using-the-new-billing-platform/adding-seats-to-your-enterprise-account
   - /billing/using-the-new-billing-platform/adding-seats-to-your-account
   - /billing/using-the-new-billing-platform/adding-licenses-to-your-account
+  - /billing/using-the-new-billing-platform/managing-licenses-and-plans-for-your-account
 type: overview
 topics:
   - Enterprise
@@ -21,26 +22,9 @@ allowTitleToDifferFromFilename: true
 >[!IMPORTANT] If you pay by invoice, you need to contact your account manager in {% data variables.contact.contact_enterprise_sales %} to add licenses to your enterprise account.
 {% endif %}
 
-If you have access to the new billing platform{% ifversion fpt %} with an organization on a {% data variables.product.prodname_team %} plan, or a personal account on a {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} plan{% endif %}, you can add {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} to your account{% ifversion fpt %} or update your plan{% endif %} through the "Licensing" page. To check if you have access, see [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises#how-do-i-know-if-i-can-access-the-new-billing-platform)
+With the new billing platform{% ifversion fpt %} with an organization on a {% data variables.product.prodname_team %} plan, or a personal account on a {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} plan{% endif %}, you can add {% ifversion enterprise-licensing-language %}licenses{% else %}seats{% endif %} to your account{% ifversion fpt %} or update your plan{% endif %} through the "Licensing" page.
 
 {% ifversion fpt %}
-
-## Upgrading your personal account's plan
-
-You can upgrade your personal account from {% data variables.product.prodname_free_user %} to {% data variables.product.prodname_pro %} to get advanced code review tools on private repositories owned by your personal account.
-
-Upgrading your personal account does not affect any organizations you may manage or repositories owned by those organizations. {% data reusables.gated-features.more-info %}
-
-{% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
-1. Click **Licensing**.
-1. Next to "Current plan", click **Upgrade**.
-1. Under "Pro" on the "Compare plans" page, click **Upgrade to Pro**.
-{% data reusables.dotcom_billing.choose-monthly-or-yearly-billing %}
-{% data reusables.dotcom_billing.show-plan-details %}
-{% data reusables.dotcom_billing.enter-billing-info %}
-{% data reusables.dotcom_billing.enter-payment-info %}
-{% data reusables.dotcom_billing.finish_upgrade %}
 
 ## Adding licenses to an organization
 

@@ -12,6 +12,8 @@ redirect_from:
   - /articles/unlocking-a-locked-account
   - /github/setting-up-and-managing-billing-and-payments-on-github/managing-your-github-billing-settings/unlocking-a-locked-account
   - /billing/managing-your-github-billing-settings/unlocking-a-locked-account
+  - /billing/using-the-billing-platform/unlocking-a-locked-account
+  - /billing/using-the-new-billing-platform/unlocking-a-locked-account
 versions:
   fpt: '*'
   ghec: '*'
@@ -30,6 +32,6 @@ You can downgrade your user account or organization to {% data variables.product
 
 ## Unlocking an organization's features due to a declined payment
 
-If your account's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see [AUTOTITLE](/articles/adding-or-editing-a-payment-method).
+If your account's advanced features are locked due to a declined payment, you'll need to update your billing information to trigger a newly authorized charge. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 If the new billing information is approved, we will immediately charge you for the paid product you chose. The account will automatically unlock when a payment has been successfully processed. Payments may take up to 24 hours to process.
