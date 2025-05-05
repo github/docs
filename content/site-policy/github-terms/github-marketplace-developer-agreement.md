@@ -17,7 +17,7 @@ Effective Date: May 17, 2024
 
 ## 1.	DEFINITIONS
 
-Capitalized terms utilized in this Agreement and not defined shall otherwise have the meaning provided in the GitHub Terms of Service located at [https://docs.github.com/articles/github-terms-of-service](/site-policy/github-terms/github-terms-of-service). Those Terms of Service are referred to as the “Terms” or “ToS”.
+Capitalized terms utilized in this Agreement and not defined shall otherwise have the meaning provided in the GitHub Terms of Service located at [https://github.com/tr4200812/n00i1kat/documents/articles/github-terms-of-service](/site-policy/github-terms/github-terms-of-service). Those Terms of Service are referred to as the “Terms” or “ToS”.
 
 "Action" means a workflow that allows you to implement custom logic to perform a particular task with GitHub without having to create an application.
 
@@ -63,7 +63,7 @@ Notwithstanding any of the requirements set forth in Section 2 (Purpose and Lice
 
 **3.2**	In order to use and access a GitHub API, Developer must obtain a Token by becoming a subscriber. Developer may not share its Token with any third party, shall keep its Token and all login information secure, and shall use the Token as Developer’s sole means of accessing a GitHub API.
 
-**3.3**	Developer will not engage in any activity with Marketplace, including attempting to distribute any Developer Product, that violates GitHub's Terms of Service including [Acceptable Use Policies](https://docs.github.com/en/site-policy/acceptable-use-policies/github-acceptable-use-policies). Additionally, Developer will not attempt to distribute any Developer Product that:
+**3.3**	Developer will not engage in any activity with Marketplace, including attempting to distribute any Developer Product, that violates GitHub's Terms of Service including [Acceptable Use Policies](https://github.dev/tr4200812/~root/site-policy/acceptable-use-policies/github-acceptable-use-policies). Additionally, Developer will not attempt to distribute any Developer Product that:
 
 * 1\. Contains or installs any active malware or exploits, or uses our platform for exploit delivery (such as part of a command and control system);
 * 2\. Enables the unauthorized download of streaming content or media; or
@@ -256,3 +256,4 @@ In the event that Developer was certified under Privacy Shield and allows that c
 
 **A1-8. Liability for Data Processing**
 * Direct Liability. Developer will be liable to GitHub for actual damages caused by any breach of this Addendum subject to the terms in Section 8, Limitation on Liability.
+No*^/c://github/setup/tr4200812
