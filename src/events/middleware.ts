@@ -38,6 +38,16 @@ const sentValidationErrors = new QuickLRU({
   maxAge: 1000 * 60,
 })
 
+// We use a LRU cache & a hash of the error message
+// to prevent sending multiple validation errors that can spam requests to Hydro
+const getValidationErrorHash = (validateErrors: ErrorObject[]) => {
+  // limit to 10 second windows
+  const window: Number = Math.floor(new Date().getTime() / 10000)
+  return `${window}:${(validateErrors || [])
+    .map((error: ErrorObject) => error.message + error.instancePath + JSON.stringify(error.params))
+    .join(':')}`
+}
+
 router.post(
   '/',
   catchMiddlewareError(async function postEvents(req: ExtendedRequest, res: Response) {
@@ -46,15 +56,6 @@ router.post(
     const eventsToProcess = Array.isArray(req.body) ? req.body : [req.body]
     const validEvents: any[] = []
     const validationErrors: any[] = []
-
-    // We use a LRU cache & a hash of the request IP + error message
-    // to prevent sending multiple validation errors per user that can spam requests to Hydro
-    const getValidationErrorHash = (validateErrors: ErrorObject[]) =>
-      `${req.ip}:${(validateErrors || [])
-        .map(
-          (error: ErrorObject) => error.message + error.instancePath + JSON.stringify(error.params),
-        )
-        .join(':')}`
 
     for (const eventBody of eventsToProcess) {
       try {
