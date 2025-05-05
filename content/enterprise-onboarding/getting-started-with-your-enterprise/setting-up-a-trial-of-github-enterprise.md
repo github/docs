@@ -25,7 +25,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas %}
 * {% data variables.product.prodname_copilot_for_business %}
 * {% data variables.product.prodname_GH_cs_and_sp %}
-* Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
+* Access to the **new billing platform**. See [AUTOTITLE](/billing/managing-your-billing/about-the-new-billing-platform).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
 
