@@ -45,10 +45,6 @@ To generate a dependency graph, {% data variables.product.github %} needs read-o
 
 When the dependency graph is first enabled, any manifest and lock files for supported ecosystems are parsed immediately. The graph is usually populated within minutes but this may take longer for repositories with many dependencies. Once enabled, the graph is automatically updated with every push to the repository{% ifversion fpt or ghec %} and every push to other repositories in the graph{% endif %}.
 
-{% ifversion ghes %}
-{% data reusables.dependency-submission.dependency-submission-link %}
-{% endif %}
-
 ## Further reading
 
 {%- ifversion maven-transitive-dependencies %}
