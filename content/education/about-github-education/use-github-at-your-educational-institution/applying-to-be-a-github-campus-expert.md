@@ -4,6 +4,8 @@ intro: 'As a student, you can apply to be a {% data variables.product.prodname_s
 versions:
   fpt: '*'
 shortTitle: Apply to Campus Experts
+redirect_from:
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert
 ---
 
 ## Applying to the {% data variables.product.prodname_student_leader_program %} program

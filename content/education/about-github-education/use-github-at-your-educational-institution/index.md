@@ -5,6 +5,7 @@ redirect_from:
   - /education/teach-and-learn-with-github-education/use-github-at-your-educational-institution
   - /github/teaching-and-learning-with-github-education/using-github-at-your-educational-institution
   - /articles/using-github-at-your-educational-institution
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution
 versions:
   fpt: '*'
 children:
@@ -13,3 +14,4 @@ children:
   - /applying-to-be-a-github-campus-expert
 shortTitle: At your institution
 ---
+

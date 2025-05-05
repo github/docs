@@ -7,13 +7,14 @@ redirect_from:
   - /articles/using-github-for-your-schoolwork
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-for-your-schoolwork
   - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-global-campus-for-students
+  - /education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students
 versions:
   fpt: '*'
 children:
   - /about-github-education-for-students
   - /apply-to-github-education-as-a-student
-  - /why-wasnt-my-application-to-github-education-for-students-approved
+  - /solving-problems-with-your-github-education-access
   - /about-github-community-exchange
-shortTitle: About GitHub Education for students
+shortTitle: For students
 ---
 
