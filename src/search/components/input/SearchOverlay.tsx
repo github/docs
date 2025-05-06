@@ -794,8 +794,8 @@ export function SearchOverlay({
                   // Hubbers users use an internal discussion for feedback
                   window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
                 } else {
-                  // TODO: On ship date set this value
-                  // window.open('TODO', '_blank')
+                  // public discussion for feedback
+                  window.open('https://github.com/orgs/community/discussions/158488', '_blank')
                 }
               }}
               as="button"
