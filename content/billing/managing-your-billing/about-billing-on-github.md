@@ -28,11 +28,7 @@ Usage-based billing applies when the cost of a paid product depends on how much 
 
 Your plan may come with included amounts of usage-based products. For example, with {% data variables.product.prodname_pro %}, your personal account gets 3,000 minutes of {% data variables.product.prodname_actions %} usage for free each month. You can control usage beyond the included amounts by setting spending limits.
 
-{% ifversion us-sales-tax %}
-
 {% data reusables.billing.us-sales-tax %}
-
-{% endif %}
 
 ## Included amounts by plan
 

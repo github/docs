@@ -800,7 +800,7 @@ export function SearchOverlay({
               }}
               as="button"
             >
-              {t('search.overlay.give_feedback')}
+              <u>{t('search.overlay.give_feedback')}</u>
             </Link>
           </Box>
           <Text
