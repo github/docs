@@ -14,7 +14,7 @@ topics:
   - Legal
 ---
 
-Version Effective Date: April 1, 2025
+Version Effective Date: April 1, 2025 
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
@@ -148,6 +148,8 @@ GitHub Pages may not be used in violation of the Agreement, the GitHub [Acceptab
 
 If you have questions about whether your use or intended use falls into these categories, please contact us through the [GitHub Support portal](https://support.github.com/). GitHub reserves the right at all times to reclaim any GitHub subdomain without liability.
 
+![1000089411](https://github.com/user-attachments/assets/54d55107-015a-4a31-b822-29e5a90c2d11)
+
 _Educational Exercises_
 
 Using GitHub Pages to create a copy of an existing website as a learning exercise is not prohibited. However, you must write the code yourself, the site must not collect any user data, and you must include a prominent disclaimer on the site indicating that the project is not associated with the original and was only created for educational purposes.
@@ -169,3 +171,4 @@ You may download Microsoft SQL Server Standard Edition container image for Linux
 GitHub Models is a feature that allows you to learn, try, and test artificial intelligence models on GitHub.com. You can access GitHub Models via the [GitHub Marketplace](https://github.com/marketplace). Learn more about GitHub Models by visiting [Prototyping with AI models](/github-models/prototyping-with-ai-models).
 
 Your use of this feature is subject to the terms of the company hosting the model and the model license.
+![1000101407](https://github.com/user-attachments/assets/e5f65323-6d34-4a84-a338-7ef5a1bc39f4)
