@@ -1,4 +1,4 @@
-# GitHub Docs <!-- omit in toc -->
+# GitHub Docs <!--https://avatars.githubusercontent.com/u/179701381?v=4-->
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
 This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
