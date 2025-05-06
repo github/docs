@@ -57,11 +57,7 @@ The products shown in the new billing platform are determined by your {% data va
 * {% data variables.product.prodname_registry %}
 * {% data variables.large_files.product_name_long %}
 
-{% ifversion metered-ghe-ghas %}
-
 {% data reusables.billing.actions-usage-delay %}
-
-{% endif %}
 
 {% endif %}
 

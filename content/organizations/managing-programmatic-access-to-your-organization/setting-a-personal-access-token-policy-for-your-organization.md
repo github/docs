@@ -3,7 +3,7 @@ title: Setting a personal access token policy for your organization
 intro: 'Organization owners can control access to resources by applying policies to {% data variables.product.pat_generic_plural %}'
 versions:
   fpt: '*'
-  ghes: '>3.10'
+  ghes: '*'
   ghec: '*'
 shortTitle: Set a token policy
 ---
