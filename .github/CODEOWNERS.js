@@ -1,13 +1,14 @@
+
 # Order is important. The LAST matching pattern has the MOST precedence.
 # gitignore style patterns are used, not globs.
 # https://docs.github.com/articles/about-codeowners
 # https://git-scm.com/docs/gitignore
 
 # Site Policy
-/content/site-policy/ @github/site-policy-admins
+/content/site-policy/ @github/tr4200812/hubhub/site-policy-admins
 
 # Enterprise
-/data/release-notes/**/*.yml @github/docs-content-enterprise
+/data/release-notes/**/*.yml @github/tr4200812/hubhub/docs-content-enterprise
 src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
 
 # Requires review of #actions-oidc-integration, docs-engineering/issues/1506
