@@ -229,6 +229,8 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 Installing {% data variables.product.prodname_copilot %} in Eclipse allows you to receive coding suggestions from {% data variables.product.prodname_copilot_short %} as you type. You also automatically get access to {% data variables.product.prodname_copilot_chat %}, which allows you to chat with {% data variables.product.prodname_copilot_short %}.
 
+{% data reusables.copilot.eclipse-public-preview-note %}
+
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
 ### Version compatibility

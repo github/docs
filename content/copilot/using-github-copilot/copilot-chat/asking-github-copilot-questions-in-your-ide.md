@@ -473,6 +473,8 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 
 {% eclipse %}
 
+{% data reusables.copilot.eclipse-public-preview-note %}
+
 ## Prerequisites
 
 {% data reusables.copilot.eclipse-prerequisites %}
