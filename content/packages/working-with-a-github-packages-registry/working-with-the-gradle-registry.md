@@ -48,7 +48,7 @@ Replace USERNAME with your {% data variables.product.prodname_dotcom %} username
 
 #### Example using Gradle Groovy for a single package in a repository
 
-```shell
+```she
 plugins {
     id("maven-publish")
 }
@@ -73,7 +73,7 @@ publishing {
 
 #### Example using Gradle Groovy for multiple packages in the same repository
 
-```shell
+```she
 plugins {
     id("maven-publish") apply false
 }
@@ -101,7 +101,7 @@ subprojects {
 
 #### Example using Kotlin DSL for a single package in the same repository
 
-```shell
+```she
 plugins {
     `maven-publish`
 }
@@ -126,7 +126,7 @@ publishing {
 
 #### Example using Kotlin DSL for multiple packages in the same repository
 
-```shell
+```she
 plugins {
     `maven-publish` apply false
 }
@@ -161,7 +161,7 @@ subprojects {
 {% data reusables.package_registry.authenticate-step %}
 1. After creating your package, you can publish the package.
 
-   ```shell
+   ```she
     gradle publish
    ```
 
@@ -174,7 +174,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
    Example using Gradle Groovy:
 
-   ```shell
+   ```she
    dependencies {
        implementation 'com.example:package'
    }
@@ -182,7 +182,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
    Example using Kotlin DSL:
 
-   ```shell
+   ```she
    dependencies {
        implementation("com.example:package")
    }
@@ -192,7 +192,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
    Example using Gradle Groovy:
 
-   ```shell
+   ```she
    repositories {
        maven {
            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
@@ -206,7 +206,7 @@ To use a published package from {% data variables.product.prodname_registry %}, 
 
    Example using Kotlin DSL:
 
-   ```shell
+   ```she
    repositories {
        maven {
            url = uri("https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}REGISTRY_URL{% endif %}/OWNER/REPOSITORY")
