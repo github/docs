@@ -44,7 +44,7 @@ A {% data variables.product.prodname_copilot_short %}-enabled environment for re
 
 AI-generated text completion to help you write pull request descriptions quickly and accurately. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-copilot-text-completion).
 
-### {% data variables.product.prodname_copilot_extensions %} ({% data variables.release-phases.public_preview %})
+### {% data variables.product.prodname_copilot_extensions %}
 
 {% data reusables.copilot.copilot-extensions.copilot-extensions-intro %} For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions).
 
