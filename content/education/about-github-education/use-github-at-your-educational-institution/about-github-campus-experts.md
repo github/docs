@@ -13,7 +13,7 @@ versions:
 shortTitle: GitHub Campus Experts Program
 ---
 
-Learn the skills to build and grow diverse technology communities on campus with training, mentorship, and support from {% data variables.product.prodname_dotcom %} as part of the {% data variables.product.prodname_student_leader_program %} program. For more information on applying to the {% data variables.product.prodname_student_leader_program %}, see “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert).”
+Learn the skills to build and grow diverse technology communities on campus with training, mentorship, and support from {% data variables.product.prodname_dotcom %} as part of the {% data variables.product.prodname_student_leader_program %} program. For more information on applying to the {% data variables.product.prodname_student_leader_program %}, see “[Applying to be a {% data variables.product.prodname_student_leader_program_singular %}](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/use-github-at-your-educational-institution/applying-to-be-a-github-campus-expert)”.
 
 ## About {% data variables.product.prodname_student_leader_program %}
 
