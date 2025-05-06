@@ -25,10 +25,10 @@ You qualify for {% data variables.product.prodname_global_campus %} if you:
 
 ## What documents can I use to prove I'm a student?
 
-* A picture of your school ID with current enrollment date
-* Your class schedule
-* Your transcript
-* An affiliation or enrollment verification letter
+* A picture of your school ID with current enrollment date.
+* Your class schedule.
+* Your transcript.
+* An affiliation or enrollment verification letter.
 
 ## Applying to {% data variables.product.prodname_global_campus %}
 
