@@ -1,4 +1,4 @@
----
+---https://github.com/Razibofficial/Razib-Roy-Raz/pull/3#discussion_r2074700811
 title: Working with the Apache Maven registry
 intro: 'You can configure Apache Maven to publish packages to {% data variables.product.prodname_registry %} and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
