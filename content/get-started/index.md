@@ -16,6 +16,10 @@ redirect_from:
   - /categories/using-git
   - /github/using-git
   - /github/getting-started-with-github
+  - /get-started/working-with-subversion-on-github
+  - /get-started/working-with-subversion-on-github/subversion-properties-supported-by-github
+  - /get-started/working-with-subversion-on-github/support-for-subversion-clients
+  - /get-started/working-with-subversion-on-github/what-are-the-differences-between-subversion-and-git
 versions:
   fpt: '*'
   ghes: '*'
@@ -59,7 +63,6 @@ children:
   - /exploring-projects-on-github
   - /git-basics
   - /using-git
-  - /working-with-subversion-on-github
   - /exploring-integrations
   - /archiving-your-github-personal-account-and-public-repositories
   - /using-github-docs

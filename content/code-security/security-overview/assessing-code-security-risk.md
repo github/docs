@@ -38,8 +38,7 @@ These views provide you with the data and filters to:
 * Understand how your organization is affected by secret leaks and exposures.{% endif %}{% ifversion security-overview-export-data %}
 * Export your current selection of data for further analysis and reporting.  {% endif %}
 
-{% ifversion security-overview-dashboard %}
-For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).{% endif %}
+For information about the **Overview**, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 ## Viewing organization-level security risks in code
 

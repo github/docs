@@ -12,8 +12,6 @@ When you add a tag protection rule, all tags that match the pattern provided wil
 
 Additionally, you can create custom repository roles to allow other groups of users to create or delete tags that match tag protection rules. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/managing-custom-repository-roles-for-an-organization).
 
-{% ifversion tag-protection-rules-import %}
-
 ### About importing tag protection rules to repository rulesets
 
 You can import existing tag protection rules into repository rulesets. This will implement the same tag protections you currently have in place for your repository. For more information, see [Importing tag protection rules to repository rulesets](#importing-tag-protection-rules-to-repository-rulesets).
@@ -24,8 +22,6 @@ Rulesets have the following advantages over tag protection rules.
 * Rulesets have statuses, so you can easily manage which rulesets are active in a repository without needing to delete rulesets.
 * Anyone with read access to a repository can view the active rulesets for the repository. This means a developer can understand why they have hit a rule, or an auditor can check the security constraints for the repository, without requiring admin access to the repository.
 * With rulesets, you can restrict tag names on an organization-wide basis.
-
-{% endif %}
 
 ## Adding tag protection rules
 
@@ -39,8 +35,6 @@ Rulesets have the following advantages over tag protection rules.
 
 1. Click **Add rule**.
 
-{% ifversion tag-protection-rules-import %}
-
 ## Importing tag protection rules to repository rulesets
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -49,5 +43,3 @@ Rulesets have the following advantages over tag protection rules.
 1. Click **Import to rulesets** in the upper right corner.
 1. Select **Create separate rulesets for creating and deleting protected tags** or **Create one ruleset for all protected tag operations**. Once created, the rulesets can be edited to further refine their behavior.
 1. Click **Import**.
-
-{% endif %}

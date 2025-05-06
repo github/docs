@@ -1,10 +1,6 @@
-With your ruleset, you can choose to target all repositories in your organization, repositories in your organization that match a certain naming convention, {% ifversion repository-properties %}repositories in your organization that have custom properties, {% endif %}or a list of manually selected repositories in your organization.
-
-{% ifversion repository-properties %}
+With your ruleset, you can choose to target all repositories in your organization, repositories in your organization that match a certain naming convention, repositories in your organization that have custom properties, or a list of manually selected repositories in your organization.
 
 For more information about custom properties, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
-
-{% endif %}
 
 If a repository is targeted by a ruleset created at the organization level, only owners of the organization can edit the ruleset. However, people with admin access to the repository, or with a custom role including the "edit repository rules" permission, can create additional rulesets at the repository level. The rules in these rulesets will be aggregated with the rules defined at the organization level. The result is that creating a new ruleset can make the rules targeting a branch or tag more restrictive, but never less restrictive. For more information on creating rulesets, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets).
 
@@ -23,8 +19,6 @@ To target all repositories in your organization, in the "Target repositories" se
 
 1. Optionally, on the ruleset configuration page, select **Prevent renaming of target repositories**.
 
-{% ifversion repository-properties %}
-
 #### Targeting repositories by properties in your organization
 
 You can target repositories in your organization by custom properties. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
@@ -33,8 +27,6 @@ You can target repositories in your organization by custom properties. For more 
 1. To add a target, in the "Targeting criteria" section, select **Add a target** {% octicon "triangle-down" aria-hidden="true" %}, then click **Include by property** or **Exclude by property**.
 1. In the modal dialog that appears, select a custom or system property from the dropdown menu, then select a value for the property.
 1. Click **Add target**.
-
-{% endif %}
 
 #### Targeting select repositories in your organization
 

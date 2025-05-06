@@ -255,11 +255,7 @@ If your codebase depends on a library or framework that is not recognized by the
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% ifversion codeql-threat-models %}
-
 ### Using {% data variables.product.prodname_codeql %} model packs
-
-{% endif %}
 
 To add one or more published {% data variables.product.prodname_codeql %} model packs, specify them inside the `with: packs:` entry within the `uses: {% data reusables.actions.action-codeql-action-init %}` section of the workflow. Within `packs` you specify one or more packages to use and, optionally, which version to download. Where you don't specify a version, the latest version is downloaded. If you want to use packages that are not publicly available, you need to set the `GITHUB_TOKEN` environment variable to a secret that has access to the packages. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication) and [AUTOTITLE](/actions/security-guides/encrypted-secrets).
 
@@ -440,15 +436,11 @@ packs:
 
 {% endraw %}
 
-{% ifversion codeql-threat-models %}
-
 ### Extending {% data variables.product.prodname_codeql %} coverage with threat models
 
 {% data reusables.code-scanning.beta-threat-models %}
 
 The default threat model includes remote sources of untrusted data. You can extend the {% data variables.product.prodname_codeql %} threat model to include local sources of untrusted data (for example: command-line arguments, environment variables, file systems, and databases) by specifying `threat-models: local` in a custom configuration file. If you extend the threat model, the default threat model will also be used.
-
-{% endif %}
 
 ### Specifying additional queries
 

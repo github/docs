@@ -74,11 +74,9 @@ On this page, you can view your usage in the following categories:
 {% endif %}
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png){% ifversion metered-ghe-ghas %}
+    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
 
    {% data reusables.billing.actions-usage-delay %}
-
-   {% endif %}
 
 {% ifversion ghec %}
 
