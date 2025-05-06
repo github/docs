@@ -172,9 +172,9 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 ## Step 5: Create a tag
 
-1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you will see the new tag as well. You can then delete the release.
+1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-deprecation`. On your local, `git checkout main`, `git pull`, `git tag enterprise-<version>-deprecation`, then `git push --tags --no-verify`.
 
-## Step 7: Deprecate the OpenAPI description in `github/github`
+## Step 6: Deprecate the OpenAPI description in `github/github`
 
 1. In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
 
