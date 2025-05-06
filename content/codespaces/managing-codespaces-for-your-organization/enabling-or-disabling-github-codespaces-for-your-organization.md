@@ -1,4 +1,4 @@
----
+
 title: Enabling or disabling GitHub Codespaces for your organization
 shortTitle: 'Enable or disable Codespaces'
 intro: 'You can control which users can use {% data variables.product.prodname_github_codespaces %} in your organization''s private {% ifversion ghec %}and internal {% endif %}repositories.'
@@ -16,7 +16,7 @@ topics:
   - Billing
   - Administrator
 product: 'Organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} plans can choose to disable {% data variables.product.prodname_github_codespaces %} in private {% ifversion ghec %}and internal {% endif %}repositories. For more information, see [AUTOTITLE](/get-started/learning-about-github/githubs-products).'
----
+
 
 ## About enabling and disabling {% data variables.product.prodname_github_codespaces %}
 
@@ -68,3 +68,4 @@ Once a user loses access to a codespace, the codespace is retained for a period 
 1. On the {% data variables.product.prodname_codespaces %} settings page, under "Codespaces access," select your preferred setting for {% data variables.product.prodname_github_codespaces %} in your organization's private {% ifversion ghec %}and internal {% endif %}repositories.
 
    You can disable {% data variables.product.prodname_codespaces %}, enable for specific members or teams, enable for all members, or enable for all members and collaborators.
+***
