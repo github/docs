@@ -4159,6 +4159,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
+- provider: xAI
+  supportedSecret: xAI API Key
+  secretType: xai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key
   secretType: yandex_cloud_api_key
