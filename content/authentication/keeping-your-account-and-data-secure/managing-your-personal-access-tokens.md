@@ -95,6 +95,9 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 
 ## Creating a {% data variables.product.pat_v2 %}
 
+> [!NOTE]
+> There is a limit of 50 {% data variables.product.pat_v2_plural %} you can create. If you require more tokens or are building automations, consider using a {% data variables.product.prodname_github_app %} for better scalability and management. For more information, see [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/deciding-when-to-build-a-github-app#choosing-between-a-github-app-or-a-personal-access-token).
+
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
