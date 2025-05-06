@@ -27,7 +27,7 @@ redirect_from:
 ## Next steps
 
 * To finish setting up {% data variables.product.prodname_copilot_short %} for your enterprise, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
-* For billing information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) and [AUTOTITLE](/billing/managing-your-github-billing-settings).
+* For billing information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) and [AUTOTITLE](/billing/managing-your-billing).
 
 ## Further reading
 

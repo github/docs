@@ -99,9 +99,8 @@
 - /graphql/guides/managing-enterprise-accounts
 - /v4/guides/managing-enterprise-accounts
 
-/enterprise-cloud@latest/billing/using-the-billing-platform/about-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-github-enterprise
+/enterprise-cloud@latest/billing/managing-your-billing/about-billing-for-your-enterprise
+- /billing/managing-your-billing/about-billing-for-your-enterprise
 
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
