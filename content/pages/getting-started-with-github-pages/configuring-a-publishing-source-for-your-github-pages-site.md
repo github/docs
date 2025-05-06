@@ -1,4 +1,4 @@
----
+up
 title: Configuring a publishing source for your GitHub Pages site
 intro: 'You can configure your {% data variables.product.prodname_pages %} site to publish when changes are pushed to a specific branch, or you can write a {% data variables.product.prodname_actions %} workflow to publish your site.'
 redirect_from:
@@ -14,7 +14,7 @@ versions:
 topics:
   - Pages
 shortTitle: Configure publishing source
----
+and
 
 ## About publishing sources
 
