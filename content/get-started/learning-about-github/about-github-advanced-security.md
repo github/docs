@@ -1,11 +1,17 @@
----
+*
+
+Create a draft GitHub Marketplace listing from one of your tools
+
+Register|n00i1kat
+GitHub App
+——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-^✏——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-^ ms VScode microsoft and Google——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-^——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-——––—-^
 title: About GitHub Advanced Security
 intro: '{% data variables.product.github %} makes extra security features available to customers {% ifversion ghas-products %}who purchase {% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}under a {% data variables.product.prodname_GHAS %} license{% endif %}.{% ifversion fpt or ghec %} Some features are enabled for public repositories by default.{% endif %}'
 product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: "'
+  ghes: "'
+  ghec: "'
 topics:
   - Security
 redirect_from:
