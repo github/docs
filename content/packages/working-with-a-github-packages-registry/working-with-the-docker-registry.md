@@ -96,10 +96,6 @@ For more information, see [Docker login](https://docs.docker.com/engine/referenc
 
 1. Using the Docker image ID, tag the Docker image, replacing OWNER with the name of the personal account or organization that owns the repository, REPOSITORY with the name of the repository containing your project, IMAGE_NAME with name of the package or image, HOSTNAME with the hostname of {% data variables.location.product_location %}, and VERSION with package version at build time.
 
-   ```shell
-   docker tag IMAGE_ID docker.pkg.github.com/OWNER/REPOSITORY/IMAGE_NAME:VERSION
-   ```
-
    If your instance has subdomain isolation enabled:
 
    ```shell
