@@ -27,7 +27,7 @@ You do not need to configure anything in your repository to enable code navigati
 
 {% data variables.product.prodname_dotcom %} has developed a code navigation approach based on the open source [`tree-sitter`](https://github.com/tree-sitter/tree-sitter) library that searches all definitions and references across a repository to find entities with a given name.
 
-{% ifversion code-view-ui %}You can use keyboard shortcuts to navigate within a code file. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files).{% endif %}
+You can use keyboard shortcuts to navigate within a code file. For more information, see [AUTOTITLE](/get-started/accessibility/keyboard-shortcuts#navigating-within-code-files).
 
 {% ifversion code-search-upgrade %}
 

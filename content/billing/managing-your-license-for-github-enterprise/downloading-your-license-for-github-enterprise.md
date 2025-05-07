@@ -12,11 +12,8 @@ topics:
 shortTitle: Download your license
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About license files for {% data variables.product.prodname_enterprise %}
 

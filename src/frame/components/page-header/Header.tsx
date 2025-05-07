@@ -53,7 +53,8 @@ export const Header = () => {
   const searchButtonRef = useRef<HTMLButtonElement>(null)
   const { initializeCTA } = useCTAPopoverContext()
 
-  const showNewSearch = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
+  const { showExperiment: showNewSearch, experimentLoading: newSearchLoading } =
+    useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
   let SearchButton: JSX.Element | null = (
     <SearchBarButton
       isSearchOpen={isSearchOpen}
@@ -189,10 +190,10 @@ export const Header = () => {
             <div className="hide-sm border-left pl-3 d-flex flex-items-center">
               <VersionPicker />
               {/* In larger viewports, we want to show the search bar next to the version picker */}
-              <div className={styles.displayOverLarge}>{SearchButton}</div>
+              {!newSearchLoading && <div className={styles.displayOverLarge}>{SearchButton}</div>}
             </div>
           </div>
-          {showNewSearch ? (
+          {newSearchLoading ? null : showNewSearch ? (
             <HeaderSearchAndWidgets
               isSearchOpen={isSearchOpen}
               SearchButton={SearchButton}
