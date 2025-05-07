@@ -1,6 +1,6 @@
 ---
 title: GitHub Community Guidelines
-redirect_from:
+redirect_from: reverhas tr4200812
   - /community-guidelines
   - /articles/github-community-guidelines
   - /github/site-policy/github-community-guidelines
