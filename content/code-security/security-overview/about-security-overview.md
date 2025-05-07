@@ -65,18 +65,17 @@ There are dedicated views for each type of security alert. You can limit your an
 
 ## About security overview for organizations
 
-The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, {% ifversion security-overview-dashboard %}the team can use the "Overview" dashboard view to track your organization's security landscape and progression{% else %}the team can use the "Coverage" view to monitor the adoption of features across your organization or by a specific team as you roll out {% data variables.product.prodname_GHAS %} features, or use the "Risk" view to identify repositories with more than five open {% data variables.secret-scanning.alerts %}{% endif %}. {% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).{% endif %}
+The application security team at your company can use the different views for both broad and specific analyses of your organization's security status. For example, the team can use the "Overview" dashboard view to track your organization's security landscape and progression. {% ifversion pre-security-configurations %}You can also use security overview to find a set of repositories and enable or disable security features for them all at the same time. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).{% endif %}
 
 You can find security overview on the **Security** tab for any organization. Each view shows a summary of the data that you have access to. As you add filters, all data and metrics across the view change to reflect the repositories or alerts that you've selected. For information about permissions, see [Permission to view data in security overview](#permission-to-view-data-in-security-overview).
 
 Security overview has multiple views that provide different ways to explore enablement and alert data.
 
-{% ifversion security-overview-dashboard %}
-* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).{% endif %}
+* **Overview:** visualize trends in **Detection**, **Remediation**, and **Prevention** of security alerts, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 * **Risk and Alert views:** explore the risk from security alerts of all types or focus on a single alert type and identify your risk from specific vulnerable dependencies, code weaknesses, or leaked secrets, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
 * **Coverage:** assess the adoption of security features across repositories in the organization, see [AUTOTITLE](/code-security/security-overview/assessing-adoption-code-security).{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
-* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% endif %}{% ifversion security-overview-tool-adoption %}
-* **Enablement trends:** see how quickly different teams are adopting security features.{% endif %}{% ifversion security-overview-org-codeql-pr-alerts %}
+* **Assessments:** regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% endif %}
+* **Enablement trends:** see how quickly different teams are adopting security features.{% ifversion security-overview-org-codeql-pr-alerts %}
 * **CodeQL pull request alerts:** assess the impact of running CodeQL on pull requests and how development teams are resolving code scanning alerts, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).{% endif %}
 * **Secret scanning:** find out which types of secret are blocked by push protection{% ifversion security-overview-delegated-bypass-requests %} and which teams are bypassing push protection{% endif %}, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection){% ifversion security-overview-delegated-bypass-requests %} and [AUTOTITLE](/code-security/security-overview/reviewing-requests-to-bypass-push-protection){% endif %}.
 
@@ -106,7 +105,6 @@ If you are an **organization or team member**, you can view security overview fo
 
 {% endif %}
 
-{% ifversion security-overview-dashboard %}
 {% rowheaders %}
 
 | Organization or team member with | Overview dashboard view | Risk and alerts views | Coverage view |
@@ -118,19 +116,6 @@ If you are an **organization or team member**, you can view security overview fo
 | Custom organization role with permission to view one or more types of security alert | View allowed alert data for all repositories |  View allowed alert data for all repositories in all views  | No access |
 
 {% endrowheaders %}
-{% else %}
-{% rowheaders %}
-
-| Organization or team member with | Risk and alerts views | Coverage view |
-|--------------------|-------------|---------------------|
-| `admin` access for one or more repositories | View data for those repositories |  View data for those repositories, and enable and disable security features |
-| `write` access for one or more repositories | View {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_dependabot %} data for those repositories | No access |
-| `read` or `triage` access for one or more repositories | No access | No access |
-| Security alert access for one or more repositories | View all security alert data for those repositories | No access |
-| Custom organization role with permission to view one or more types of security alert |  View allowed alert data for all repositories in all views  | No access |
-
-{% endrowheaders %}
-{% endif %}
 
 > [!NOTE]
 > To ensure a consistent and responsive experience, for organization members, the organization-level security overview pages will only display results from the most recently updated 3,000 repositories. If your results have been restricted, a notification will appear at the top of the page. Organization owners and security managers will see results from all repositories.

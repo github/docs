@@ -11,11 +11,8 @@ topics:
 shortTitle: About licenses
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About licensing for {% data variables.product.prodname_enterprise %}
 
