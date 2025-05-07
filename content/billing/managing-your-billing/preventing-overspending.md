@@ -25,10 +25,8 @@ Budgets are not applicable to pre-paid volume licenses.
 
 For license-based products such as {% data variables.product.prodname_copilot %}, {% data variables.product.prodname_AS %},{% ifversion fpt %} and {% data variables.product.prodname_team %}{% elsif ghec %} and {% data variables.product.prodname_enterprise %}{% endif %}, setting a budget does not prevent usage over the limit.
 
-For the {% data variables.product.prodname_copilot %} Premium Request SKU, to set a spending limit for premium requests over your plan's allowance, you can update the default $0 SKU-level budget and select “Stop usage when budget limit is reached”.
-
 > [!NOTE]
-> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file.  
+> By default, paid usage will be limited to $0 for accounts that do not have a payment method on file.
 
 {% ifversion fpt %}
 
@@ -39,8 +37,23 @@ You can set spending limits and receive alerts when your usage reaches 75%, 90%,
 {% data reusables.user-settings.access_settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. Click **Budgets and alerts**.
-1. To create a new budget, click **New budget** and follow the prompts.
-1. To edit or delete a budget, click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
+1. To create a new budget, click **New budget**.
+1. Under "Budget Type" select either **Product-level budget** or **SKU-level budget**.
+
+   * To create a Product-level budget, choose a metered product from the dropdown.
+   * To create a SKU-level budget, choose a SKU from the dropdown. This limits spending for an individual SKU.
+
+1. Under "Budget scope", set the scope of spending for this budget.
+1. Under "Budget", set a budget amount.
+
+   To stop any usage and further spending once the budget limit is reached, select **Stop usage when budget limit is reached**, if available.
+
+   >[!IMPORTANT] If you do not select **Stop usage when budget limit is reached**, you will be notified by email if you exceed your budget, but usage **will not** be stopped.
+
+1. To receive an alert if your budget has reached 75%, 90% and 100% thresholds, select **Receive budget threshold alerts** under "Alerts". When the budget has reached the specific threshold, you will be notified via email and a banner on {% data variables.product.github %}. You may opt out at any time.
+1. Click **Create budget**.
+
+To edit or delete a budget, on the "Budget and alerts page", click **Edit** or **Delete** next to the budget you want to edit or delete. Follow the prompts.
 
 {% endif %}
 
