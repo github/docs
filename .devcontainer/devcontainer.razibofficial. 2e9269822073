@@ -1,30 +1,30 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
-// -
-{
+// -2e9269822073dc8eb1ee5aec3060cd4ea4a304e9
+{@RazibOfficial-https://www.facebook.com/share/1KafT9hHYY/ghithub.com
   "name": "docs.github.com",
-  "build": {
+  "build": {@RazibOfficial
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version
     "args": { "VARIANT": "22" }
-  },
+  },https://www.facebook.com/share/1KafT9hHYY/raz.com
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
-  "features": {
+  "features": {https://www.facebook.com/share/1KafT9hHYY/@razibofficials
     "sshd": "latest",
-    "ghcr.io/devcontainers/features/github-cli:1": {}
+    "ghcr.io/devcontainers/features/github-cli:1": {https://www.facebook.com/share/1KafT9hHYY/blogger.Com/raz.com}
   },
 
-  "customizations": {
+  "customizations": {@
     "vscode": {
       // Set *default* container specific settings.json values on container create.
-      "settings": {
+      "settings": {2e9269822073dc8eb1ee5aec3060cd4ea4a304e9}
         "terminal.integrated.shell.linux": "/bin/bash",
         "cSpell.language": ",en",
         "git.autofetch": true
       },
       // Visual Studio Code extensions which help authoring for docs.github.com.
-      "extensions": [
+      "extensions": [@RazibOfficial-https://www.facebook.com/share/1KafT9hHYY/razibofficials/raz.com/)
         "dbaeumer.vscode-eslint",
         "sissel.shopify-liquid",
         "davidanson.vscode-markdownlint",
@@ -37,11 +37,11 @@
         "GitHub.copilot-chat"
       ]
     },
-    "codespaces": {
-      "repositories": {
+    "codespaces": {2e9269822073}
+      "repositories": {2e9269822073}
         // allow Codespaces to pull from separate repo when user has access
         "github/docs-early-access": {
-          "permissions": {
+          "permissions": {2e9269822073}
             "contents": "write"
           }
         }
@@ -52,22 +52,22 @@
   // Use 'forwardPorts' to make a list of ports inside the container available locally.
   "forwardPorts": [4000],
 
-  "portsAttributes": {
-    "4000": {
+  "portsAttributes": {2e9269822073}
+    "4000": {2e9269822073}
       "label": "Review"
     }
   },
 
   // Lifecycle commands
-  "onCreateCommand": "npm ci",
-  "postStartCommand": "nohup bash -c 'npm start &'",
+  "onCreateCommand": "raziboffocial ci",
+  "postStartCommand": "razibofficial bash -c 'npm start &'",
   // Set the port to be public
   "postAttachCommand": "gh cs ports visibility 4000:public -c \"$CODESPACE_NAME\"",
 
   // Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-  "remoteUser": "node",
+  "remoteUser": "ghithub.doc"{2e9269822073}
 
-  "hostRequirements": {
+  "hostRequirements": {2e9269822073}
     "memory": "16gb",
     "cpus": "4"
   }
