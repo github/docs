@@ -1,6 +1,7 @@
 ---
 title: Customizing auto-triage rules to prioritize Dependabot alerts
 intro: 'You can create your own {% data variables.dependabot.auto_triage_rules_short %} to control which alerts are dismissed or snoozed, and which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.'
+product: '{% data reusables.gated-features.dependabot-auto-triage-rules %}'
 permissions: '{% data reusables.permissions.dependabot-auto-triage-rules %}'
 versions:
   fpt: '*'
@@ -20,13 +21,13 @@ redirect_from:
 
 ## About {% data variables.dependabot.custom_rules %}
 
-You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
+You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so creating custom rules that auto-dismiss low-risk alerts will reduce notification noise from future matching alerts.
 
 Since any rules that you create apply to both future and current alerts, you can also use {% data variables.dependabot.auto_triage_rules_short %} to manage your {% data variables.product.prodname_dependabot_alerts %} in bulk.
 
-Repository administrators can create {% data variables.dependabot.custom_rules %} for their {% ifversion fpt %}public{% elsif ghec or ghes %}public, private, and internal{% endif %} repositories.
+Repository administrators can create {% data variables.dependabot.custom_rules %} for their repositories. {% ifversion fpt or ghec %}For private or internal repositories, this requires {% data variables.product.prodname_GH_code_security %}.{% elsif ghes %}This requires {% data variables.product.prodname_GH_code_security %}.{% endif %}
 
-Organization owners and security managers can set {% data variables.dependabot.custom_rules %} at the organization-level, and then choose if a rule is enforced or enabled across all public {% ifversion ghec %}and private {% endif %} repositories in the organization.
+Organization owners and security managers can set {% data variables.dependabot.custom_rules %} at the organization-level, and then choose if a rule is enforced or enabled across all public and private repositories in the organization.
 
    * **Enforced:** If an organization-level rule is "enforced", repository administrators cannot edit, disable, or delete the rule.
    * **Enabled:** If an organization-level rule is "enabled", repository administrators can still disable the rule for their repository.

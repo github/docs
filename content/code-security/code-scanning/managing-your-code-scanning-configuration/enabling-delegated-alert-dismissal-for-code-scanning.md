@@ -15,19 +15,19 @@ shortTitle: Enable delegated alert dismissal
 
 ## About enabling delegated alert dismissal
 
-{% data reusables.code-scanning.delegated-alert-dismissal-beta %}
+{% data reusables.advanced-security.delegated-alert-dismissal-beta %}
 
 {% data reusables.security.delegated-alert-dismissal-intro %}
 
 ## Configuring delegated dismissal for a repository
 
 >[!NOTE] If an organization owner configures delegated alert dismissal via an enforced security configuration, the settings can't be changed at the repository level.
+
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-
-1. Under "{% data variables.product.prodname_code_scanning_caps %}", toggle the option "Prevent direct alert dismissals".
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}{% ifversion ghas-products %}{% else %}
+{% data reusables.repositories.navigate-to-ghas-settings %}{% endif %}
+1. Under "{% data variables.product.UI_code_security_scanning %}",  click **Enable** for "Prevent direct alert dismissals".
 
 ## Configuring delegated dismissal for an organization
 

@@ -2,7 +2,6 @@
 title: About security configurations
 shortTitle: Security configurations
 intro: 'Security configurations are collections of security settings that you can apply across your enterprise.'
-product: '{% data reusables.gated-features.security-configurations-enterprise %}'
 versions:
   feature: security-configuration-enterprise-level
 topics:
@@ -17,9 +16,16 @@ topics:
 
 {% data reusables.security-configurations.overview %}
 
+{% ifversion ghec %}
+
+When you create a security configuration with {% data variables.product.prodname_AS %} features enabled, your enterprise will incur usage costs when you apply the configuration to repositories if your enterprise account has metered billing. If you have bought volume/subscription licenses for {% data variables.product.prodname_GHAS %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}, you will need enough licenses to cover any additional unique committers.
+
+{% endif %}
+
 {% ifversion security-configurations-ghes-only %}
 
 When creating a security configuration, keep in mind that:
+
 * Only features installed by a site administrator on your {% data variables.product.prodname_ghe_server %} instance will appear in the UI.
 * {% data variables.product.prodname_AS %} features will only be visible if your enterprise or {% data variables.product.prodname_ghe_server %} instance holds a {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} license.
 * Certain features, like {% data variables.product.prodname_dependabot_security_updates %} and {% data variables.product.prodname_code_scanning %} default setup, also require that {% data variables.product.prodname_actions %} is installed on the {% data variables.product.prodname_ghe_server %} instance.

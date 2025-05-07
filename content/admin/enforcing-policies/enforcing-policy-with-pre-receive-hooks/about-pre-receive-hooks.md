@@ -43,3 +43,9 @@ Due to risk of failure and performance impact for all users of your instance, we
 
 > [!NOTE]
 > To avoid rejection of a push due to a timeout, all combined pre-receive hooks should run in under five seconds.
+
+{% ifversion ghes > 3.16 %}
+
+{% data reusables.repositories.push-rule-and-prereceive-hooks %}
+
+{% endif %}

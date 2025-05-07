@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
+> A project can contain a maximum of {% data variables.projects.item_limit %} items {% ifversion projects-single-limit %} across both active views and the archive page{% else %}and {% data variables.projects.archived_item_limit %} archived items{% endif %}. To learn more about automatically archiving items when they meet specific criteria, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/archiving-items-automatically).
 
 ## Adding issues and pull requests to a project
 

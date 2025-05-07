@@ -11,11 +11,8 @@ topics:
 shortTitle: About licenses
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About licensing for {% data variables.product.prodname_enterprise %}
 
@@ -34,6 +31,12 @@ To ensure the same user isn't consuming more than one license for multiple enter
 
 In order to use a {% data variables.product.prodname_ghe_server %} instance, you must upload a license file that {% data variables.product.company_short %} provides when you purchase, renew, or add user licenses to {% data variables.product.prodname_enterprise %}.
 
+{% data variables.product.prodname_ghe_cloud %} customers can use Azure DevOps without additional per user charges. Access is available to customers using Microsoft Entra and users logging in with the same credentials in {% data variables.product.github %} and Azure DevOps.
+
+There is no action required; {% data variables.product.prodname_enterprise %} users will be detected automatically when they log in to Azure DevOps. See [User and permissions management](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/faq-user-and-permissions-management?view=azure-devops#github-enterprise) in the Microsoft Learn documentation.
+
+Access is not yet available in [new data residency regions](https://github.blog/engineering/engineering-principles/github-enterprise-cloud-with-data-residency/) but will be coming in the future.
+
 ## About synchronization of license usage for {% data variables.product.prodname_enterprise %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
@@ -46,13 +49,13 @@ For more information about downloading your license file, see [AUTOTITLE](/billi
 
 For more information about uploading your license file, see {% ifversion ghec %}[AUTOTITLE](/enterprise-server@latest/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).{% endif %}
 
-If your license expires, you won't be able to access {% data variables.product.prodname_ghe_server %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data. For more information, see {% ifversion ghec %}[Configuring backups on your appliance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/guides/installation/configuring-backups-on-your-appliance) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).{% endif %}
+If your license expires, you won't be able to access {% data variables.product.prodname_ghe_server %} via a web browser or Git. If needed, you will be able to use command-line utilities to back up all your data. For more information, see {% ifversion ghec %}[Configuring backups on your appliance](/enterprise-server@latest/admin/guides/installation/configuring-backups-on-your-appliance) in the {% data variables.product.prodname_ghe_server %} documentation.{% elsif ghes %}[AUTOTITLE](/admin/configuration/configuring-your-enterprise/configuring-backups-on-your-appliance).{% endif %}
 
 If you have any questions about renewing your license, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
 * The [People that consume a license](/billing/managing-the-plan-for-your-github-account/about-per-user-pricing#people-that-consume-a-license) section in "About per-user pricing"
 * [Setting up a {% data variables.product.prodname_ghe_server %} instance]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/installation/setting-up-a-github-enterprise-server-instance)
 * The [{% data variables.product.prodname_enterprise %} Releases](https://enterprise.github.com/releases/) website

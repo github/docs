@@ -24,13 +24,13 @@ shortTitle: Secret scanning
 
 {% data variables.product.prodname_secret_scanning_caps %} is a security feature that helps detect and prevent the accidental inclusion of sensitive information such as API keys, passwords, tokens, and other secrets in your repository. When enabled, {% data variables.product.prodname_secret_scanning %} scans commits in repositories for known types of secrets and alerts repository administrators upon detection.
 
-<!-- expires 2025-04-04 -->
-
-{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets{% ifversion ghec or ghes %}, even if the repository is archived{% endif %}. {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan for new secret types in existing content in {% ifversion fpt %}public repositories{% else %}repositories with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %} where {% data variables.product.prodname_secret_scanning %} is enabled when new supported secret types are added.
-
-<!-- end expires 2025-04-04 -->
+{% data variables.product.prodname_secret_scanning_caps %} scans your entire Git history on all branches present in your {% data variables.product.prodname_dotcom %} repository for secrets, even if the repository is archived. {% data variables.product.prodname_dotcom %} will also periodically run a full Git history scan for new secret types in existing content in {% ifversion fpt or ghec %}public repositories{% else %}repositories with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %} where {% data variables.product.prodname_secret_scanning %} is enabled when new supported secret types are added.
 
 {% data reusables.secret-scanning.what-is-scanned %}
+
+{% ifversion ghas-products %}{% ifversion secret-risk-assessment %}
+> [!TIP]
+> Regardless of the enablement status of {% data variables.product.prodname_AS %} features, organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_enterprise %} can run a free report to scan the code in the organization for leaked secrets, see [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).{% endif %}{% else %}{% endif %}
 
 When a supported secret is leaked, {% data variables.product.github %} generates a {% data variables.product.prodname_secret_scanning %} alert. Alerts are reported on the **Security** tab of repositories on {% data variables.product.github %}, where you can view, evaluate, and resolve them. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning).
 
@@ -40,11 +40,9 @@ Any strings that match patterns that were provided by secret scanning partners a
 
 For information about the secrets and service providers supported by {% data variables.product.prodname_secret_scanning %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).
 
-You can use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories{% ifversion ghes %} or your organization{% endif %}. For more information about API endpoints, see [AUTOTITLE](/rest/secret-scanning).
+You can use the REST API to monitor results from {% data variables.product.prodname_secret_scanning %} across your repositories or organization. For more information about API endpoints, see [AUTOTITLE](/rest/secret-scanning).
 
-{% ifversion ghec or ghes %}
 You can also use security overview to see an organization-level view of which repositories have enabled {% data variables.product.prodname_secret_scanning %} and the alerts found. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview).
-{% endif %}
 
 {% data reusables.secret-scanning.audit-secret-scanning-events %}
 
@@ -82,41 +80,25 @@ Below is a typical workflow that explains how {% data variables.product.prodname
 
 {% endif %}
 
-{% ifversion ghec or ghes %}
-
 * **Custom pattern support:** Organizations can define custom patterns to detect proprietary or unique types of secrets that may not be covered by default patterns. This flexibility allows for tailored security measures specific to your environment.
 
-{% endif %}
-
-{% ifversion secret-scanning-non-provider-patterns %}
-
 * **Ability to detect non-provider patterns:** You can expand the detection to include non-provider patterns such as connection strings, authentication headers, and private keys, for your repository or organization.
-
-{% endif %}
 
 ## Customizing {% data variables.product.prodname_secret_scanning %}
 
 Once {% data variables.product.prodname_secret_scanning %} is enabled, you can customize it further:
 
-{% ifversion secret-scanning-non-provider-patterns %}
-
 ### Detection of non-provider patterns
 
 Scan for and detect secrets that are not specific to a service provider, such as private keys and generic API keys. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns).
-
-{% endif %}
 
 ### Performing validity checks
 
 Validity checks help you prioritize alerts by telling you which secrets are `active` or `inactive`. For more information, see{% ifversion secret-scanning-validity-check-partner-patterns %} [AUTOTITLE](/code-security/secret-scanning/enabling-secret-scanning-features/enabling-validity-checks-for-your-repository) and{% endif %} [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).
 
-{% ifversion ghec or ghes %}
-
 ### Defining custom patterns
 
 Define your own patterns for secrets used by your organization that {% data variables.product.prodname_secret_scanning %} can scan for and detect. For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/custom-patterns/defining-custom-patterns-for-secret-scanning).
-
-{% endif %}
 
 {% ifversion secret-scanning-ai-generic-secret-detection %}
 

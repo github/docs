@@ -8,7 +8,7 @@
 # ---------------------------------------------------------------
 # To update the sha:
 # https://github.com/github/gh-base-image/pkgs/container/gh-base-image%2Fgh-base-noble
-FROM ghcr.io/github/gh-base-image/gh-base-noble:20250226-135630-g5b0726056 AS base
+FROM ghcr.io/github/gh-base-image/gh-base-noble:20250501-005451-g595789ae2 AS base
 
 # Install curl for Node install and determining the early access branch
 # Install git for cloning docs-early-access & translations repos
@@ -48,7 +48,7 @@ COPY --chown=node:node --chmod=+x \
 # - 3. Fetch each translations repo to the repo/translations directory
 # We use --mount-type=secret to avoid the secret being copied into the image layers for security
 # The secret passed via --secret can only be used in this RUN command
-RUN --mount=type=secret,id=DOCS_BOT_PAT_READPUBLICKEY,mode=0444 \
+RUN --mount=type=secret,id=DOCS_BOT_PAT_BASE,mode=0444 \
   # We don't cache because Docker can't know if we need to fetch new content from remote repos
   echo "Don't cache this step by printing date: $(date)" && \
   . ./build-scripts/fetch-repos.sh

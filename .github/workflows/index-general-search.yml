@@ -13,7 +13,7 @@ on:
         required: false
         default: ''
       languages:
-        description: "Comma separated languages. E.g. 'en,ja, es' (defaults to all)"
+        description: "Comma separated languages. E.g. 'en,es,ja,pt,zh,ru,fr,ko,de' (defaults to all)"
         required: false
         default: ''
   schedule:
@@ -51,7 +51,7 @@ jobs:
           script: |
             // Edit this list for the definitive list of languages
             // (other than English) we want to index in Elasticsearch.
-            const allNonEnglish = ["zh", "es", "pt", "ru", "ja", "fr", "de", "ko"]
+            const allNonEnglish = 'es,ja,pt,zh,ru,fr,ko,de'.split(',')
             const allPossible = ["en", ...allNonEnglish]
 
             if (context.eventName === "workflow_run") {
@@ -120,14 +120,14 @@ jobs:
         with:
           repository: github/docs-internal-data
           # This works because user `docs-bot` has read access to that private repo.
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-internal-data
 
       - name: Clone all translations
         if: ${{ matrix.language != 'en' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 

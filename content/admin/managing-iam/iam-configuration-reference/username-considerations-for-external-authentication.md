@@ -1,7 +1,7 @@
 ---
 title: Username considerations for external authentication
 shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: 'When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -69,8 +69,11 @@ When you provision a new user from your identity provider, the new {% data varia
 
 If you use {% data variables.enterprise.data_residency %}, when you create an {% data variables.enterprise.prodname_emu_enterprise %} on {% data variables.enterprise.data_residency_site %}, your enterprise's shortcode is randomly generated.
 
-* The shortcode is **not** used as a suffix in the usernames of provisioned users.
+* For {% data variables.enterprise.prodname_managed_users %} with {% data variables.enterprise.data_residency_short %}, the shortcode is hidden, but it is still appended as a suffix to the usernames of provisioned users.
 * The only place you are likely to see the shortcode is in the username of the setup admin, which will look like `2abvd19d_admin`.
+
+> [!NOTE]
+> Due to the inclusion of the hidden shortcode, the character limit for usernames is reduced from 39 characters to 30 characters for {% data variables.enterprise.data_residency %}.
 
 ## About normalized usernames
 
@@ -94,6 +97,11 @@ This will cause a username conflict, and only the first user will be provisioned
 
 Usernames{% ifversion ghec %}, including underscore and short code,{% endif %} must not exceed 39 characters.
 
+{% ifversion ghes %}
+> [!NOTE]
+> If you use SAML with SCIM provisioning, users must be SCIM provisioned before using SAML single sign-on. If a user hasn't been provisioned, they won't be able to complete authentication on your {% data variables.product.prodname_ghe_server %} instance. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#how-will-i-manage-user-lifecycles-with-scim).
+{% endif %}
+
 ## About username normalization
 
 Usernames for user accounts on {% data variables.product.prodname_dotcom %} can only contain alphanumeric characters and dashes (`-`).
@@ -101,7 +109,7 @@ Usernames for user accounts on {% data variables.product.prodname_dotcom %} can 
 {% ifversion ghec %}
 When you configure SAML authentication, {% data variables.product.github %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account on {% data variables.product.prodname_dotcom %}. If this value includes unsupported characters, {% data variables.product.github %} will normalize the username per the following rules.
 {% elsif ghes %}
-When you configure CAS, LDAP, or SAML authentication, {% data variables.product.prodname_ghe_server %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on your {% data variables.product.prodname_ghe_server %} instance. If the identifier includes unsupported characters, {% data variables.product.github %} will normalize the username per the following rules.
+When you configure CAS, LDAP, or SAML authentication (without SCIM), {% data variables.product.prodname_ghe_server %} uses an identifier from the user account on your external authentication provider to determine the username for the corresponding user account on your {% data variables.product.prodname_ghe_server %} instance. When SAML authentication is configured with SCIM, {% data variables.product.github %} uses the SCIM `userName` attribute value sent from the IdP to determine the username for the corresponding user account. If the identifier includes unsupported characters, {% data variables.product.github %} will normalize the username per the following rules.
 {% endif %}
 
 1. {% data variables.product.github %} will normalize any non-alphanumeric character in your account's username into a dash. For example, a username of `mona.the.octocat` will be normalized to `mona-the-octocat`. Note that normalized usernames also can't start or end with a dash. They also can't contain two consecutive dashes.
@@ -124,11 +132,11 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 | `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
 
-{% ifversion not ghec %}
+{% ifversion ghes %}
 
 ### About username normalization with SAML
 
-{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.github %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
+If you configure SAML authentication for {% data variables.location.product_location %}, {% data variables.product.github %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
 
 1. The custom `username` attribute, if defined and present
 1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
@@ -139,19 +147,16 @@ When you configure CAS, LDAP, or SAML authentication, {% data variables.product.
 
 {% data variables.product.github %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
-{% ifversion ghes %}
-
 > [!NOTE]
 > If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
 
-{% endif %}
 {% endif %}
 
 {% ifversion ghec %}
 
 ## Resolving username problems
 
-When a new user is being provisioned, if the username is longer than 39 characters (including underscore and short code), or conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error.
+When a new user is being provisioned, if the username conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. If the username is longer than 39 characters (including underscore and short code), the provisioning attempt will fail with a `400` error. For a full list of possible user provisioning status codes, see [AUTOTITLE](/rest/enterprise-admin/scim?apiVersion=2022-11-28#provision-a-scim-enterprise-user--status-codes).
 
 To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
 

@@ -79,15 +79,15 @@ test('open new search, and perform a general search', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Wait for the results to load
   // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
   // to allow an unnecessary request when there are no search results. Easier to wait 1 second
   await page.waitForTimeout(1000)
-  // Press enter to perform  general search
-  await page.keyboard.press('Enter')
+  // Scroll down to "View all results" then press enter
+  await page.getByText('View more results').click()
 
   await expect(page).toHaveURL(
     /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
@@ -112,7 +112,7 @@ test('open new search, and select a general search article', async ({ page }) =>
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
@@ -123,9 +123,7 @@ test('open new search, and select a general search article', async ({ page }) =>
   await page.keyboard.press('Enter')
 
   // We should now be on the page for "For Playwright"
-  await expect(page).toHaveURL(
-    /\/get-started\/foo\/for-playwright\?search-overlay-input=serve\+playwright$/,
-  )
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
@@ -140,7 +138,7 @@ test('open new search, and get auto-complete results', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 
@@ -640,28 +638,36 @@ test.describe('survey', () => {
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
-      }
-      fulfilled++
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyPressedEvent = true
-      }
-      if (
-        postData.type === 'survey' &&
-        postData.survey_vote === true &&
-        postData.survey_comment === surveyComment
-      ) {
-        hasSurveySubmittedEvent = true
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (
+            eventBody.type === 'survey' &&
+            eventBody.survey_vote === true &&
+            eventBody.survey_comment === surveyComment
+          ) {
+            hasSurveySubmittedEvent = true
+          }
+        }
       }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
     })
 
     await page.goto('/get-started/foo/for-playwright')
@@ -671,16 +677,28 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
-    await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
+
     // Events:
     // 1. page view event when navigating to the page
     // 2. Survey thumbs up event
     // 3. Survey submit event
-    expect(fulfilled).toBe(1 + 1 + 1)
+    // 4. Exit event
+    expect(fulfilled).toBe(1 + 1 + 1 + 1)
     expect(hasSurveyPressedEvent).toBe(true)
     expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
@@ -689,33 +707,51 @@ test.describe('survey', () => {
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyEvent = false
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyEvent = true
+          }
+        }
       }
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyEvent = true
-      }
-      fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
     // Events:
     // 1. page view event when navigating to the page
     // 2. the thumbs up click
-    expect(fulfilled).toBe(1 + 1)
+    // 3. the exit event
+    expect(fulfilled).toBe(1 + 1 + 1)
     expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
@@ -794,59 +830,6 @@ test.describe('translations', () => {
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
-  })
-})
-
-test.describe('domain edit', () => {
-  test('edit a domain (using header nav)', async ({ page }) => {
-    test.skip(true, 'Editing domain from header is disabled')
-
-    await page.goto('/')
-    await expect(page.getByText('Domain name:')).not.toBeVisible()
-    await page.getByLabel('Select GitHub product version').click()
-    await page
-      .getByLabel(/Enterprise Server/)
-      .first()
-      .click()
-    await expect(page.getByText('Domain name:')).toBeVisible()
-    await page.getByRole('button', { name: 'Edit' }).click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
-    await expect(page.getByText("Can't be github.com")).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
-    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
-    await page.getByRole('button', { name: 'Save' }).click()
-
-    // This tests that the dialog is gone.
-    // XXX Peterbe: These don't work and I don't know why yet.
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
-    await expect(page.getByText('github.peterbe.com')).toBeVisible()
-  })
-
-  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
-    await page.goto('/get-started/markdown/replace-domain')
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.12').click() // XXX
-
-    // This is generally discourage in Playwright, but necessary here
-    // in this case. Because of the way
-    // the `main.addEventListener('click', ...)` is handled, it's setting
-    // up that event listener too late. In fact, it happens in a useEffect.
-    // Adding a little delay makes is much more likely that the event
-    // listener has been set up my the time we fire the `.click()` on the
-    // next line.
-    await page.waitForTimeout(500)
-    await page.getByText('HOSTNAME', { exact: true }).first().click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await page
-      .getByTestId('domain-name-edit-form')
-      .getByLabel('Your domain name')
-      .fill('peterbe.ghe.com')
-    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
   })
 })
 

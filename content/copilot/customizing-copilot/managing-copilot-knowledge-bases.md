@@ -4,6 +4,7 @@ shortTitle: Manage knowledge bases
 intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
 versions:
   ghec: '*'
+product: '{% data reusables.copilot.ce-product-callout %}'
 topics:
   - Copilot
 redirect_from:
@@ -16,6 +17,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/managing-copilot-knowledge-bases
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-copilot-knowledge-bases
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-copilot-knowledge-bases
+  - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
 {% ifversion fpt %}
@@ -36,7 +38,7 @@ For more information on how to use knowledge bases in {% data variables.product.
 
 You can create a knowledge base from a single repository or a selection of repositories. You can create a knowledge base using public, private, and/or internal repositories.
 
-Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise %} subscription. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
+Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise_short %} plan. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script gathers all English pages, computes each page's
  * 'title', 'intro' and 'product' properties. These things are then stored
@@ -34,7 +32,7 @@ import { program, Option } from 'commander'
 
 import { languageKeys } from 'src/languages/lib/languages.js'
 import { loadPages, loadUnversionedTree } from 'src/frame/lib/page-data.js'
-import { CACHE_FILE_PATH, getPageInfo } from '../middleware/pageinfo'
+import { CACHE_FILE_PATH, getPageInfo } from '../middleware/article-pageinfo'
 
 program
   .description('Generates a JSON file with precompute pageinfo data by pathname')

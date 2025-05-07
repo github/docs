@@ -1,7 +1,6 @@
 If your support request is outside of the scope of what our team can help you with, we may recommend next steps to resolve your issue outside of {% data variables.contact.github_support %}. Your support request is possibly out of {% data variables.contact.github_support %}'s scope if the request is primarily about:
 
-* Third party integrations, such as Jira
-* Enterprise Cloud Importer (available only with expert-led migrations){% ifversion ghes %}
+* Third party integrations, such as Jira{% ifversion ghes %}
 * Hardware setup{% endif %}
 * CI/CD, such as Jenkins
 * Writing scripts
@@ -11,7 +10,7 @@ If your support request is outside of the scope of what our team can help you wi
 * Cloud provider configurations, such as virtual network setup, custom firewall, or proxy rules
 * Container orchestration, such as Kubernetes setup, or networking
 * Detailed assistance with workflows and data management
-* {% data variables.release-phases.public_preview_caps %} features. Support for {% data variables.release-phases.public_preview %} features is out of {% data variables.contact.github_support %}'s scope. {% ifversion ghec or ghes %}For support with {% data variables.release-phases.public_preview %} features, you can contact your account manager on {% data variables.contact.contact_enterprise_sales %}.{% endif %}
+* Preview features. {% data variables.release-phases.public_preview_caps %} and {% data variables.release-phases.private_preview %} features are out of {% data variables.contact.github_support %}'s scope. {% ifversion ghec or ghes %}For support with {% data variables.release-phases.public_preview %} features, you can contact your account manager on {% data variables.contact.contact_enterprise_sales %}. For support with {% data variables.release-phases.private_preview %} features, contact the group provided during the {% data variables.release-phases.private_preview %}'s onboarding session, or your account manager on {% data variables.contact.contact_enterprise_sales %}.{% endif %}
 
 For detailed assistance with workflows and data management, consult [GitHub Expert Services](https://github.com/services/), which offer specialized support to help you optimize your use of the platform.
 

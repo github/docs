@@ -82,7 +82,7 @@ jobs:
 
             * [Spin up a codespace][codespace]
             * [Set up a local development environment][local]
-            ${{ github.repository == 'github/docs-internal' && '* Message `#docs-engineering` on Slack for a staging server.' || '' }}
+            ${{ github.repository == 'github/docs-internal' && '* [Deploy a staging server][staging]' || '' }}
 
             ${{ fromJSON('["A Hubber will need to deploy your changes internally to review.",""]')[github.repository == 'github/docs-internal'] }}
 
@@ -101,5 +101,6 @@ jobs:
             🤖 This comment is [automatically generated][workflow].
 
             [workflow]: ${{ github.server_url }}/${{ github.repository }}/blob/${{ github.workflow_sha }}/.github/workflows/review-comment.yml
-            [codespace]: ${{ github.repository == 'github/docs-internal' && 'https://github.com/github/docs-team/blob/main/contributing-to-docs/use-a-codespace-to-review.md' || 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' }}
+            [codespace]: ${{ github.repository == 'github/docs-internal' && 'https://github.com/github/docs-team/blob/main/contributing-to-docs/tips-and-tricks/use-a-codespace-to-review.md' || 'https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/working-on-github-docs-in-a-codespace' }}
             [local]: https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs/creating-a-local-environment#setting-up-your-local-environment
+            [staging]: https://github.com/github/docs-team/blob/main/contributing-to-docs/tips-and-tricks/deploying-pr-to-staging-servers.md

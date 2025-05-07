@@ -18,8 +18,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  close-if-invalid:
-    if: github.repository == 'github/docs' && (github.event.label.name == 'invalid' || github.event.pull_request.title == 'Revert "Repo sync"')
+  close-on-adding-invalid-label:
+    if: github.repository == 'github/docs' && github.event.label.name == 'invalid'
     runs-on: ubuntu-latest
 
     steps:

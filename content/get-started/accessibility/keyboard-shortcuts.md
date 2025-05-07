@@ -90,8 +90,6 @@ For more keyboard shortcuts, see the [CodeMirror documentation](https://codemirr
 |<kbd>a</kbd> | Show or hide annotations on diffs |
 |<kbd>b</kbd> | Open blame view. For more information, see [AUTOTITLE](/repositories/working-with-files/using-files/viewing-a-file). |
 
-{% ifversion code-view-ui %}
-
 ## Navigating within code files
 
 If you view a code file in a repository using the **Code** view and click on any line in the file, you will see a cursor. You can then navigate within the content of the file, also known as a blob (binary large object), using keyboard shortcuts.
@@ -103,8 +101,6 @@ If you view a code file in a repository using the **Code** view and click on any
 | {% ifversion code-search-upgrade %} |
 |<kbd>Command</kbd>+<kbd>Enter</kbd> (Mac) or </br> <kbd>Control</kbd>+<kbd>Enter</kbd> (Windows/Linux) | Highlights the code symbol currently selected by the cursor and all other occurrences of the symbol in the code, and shows the symbol in the symbols pane
 | {% endif %} |
-
-{% endif %}
 
 ## Comments
 

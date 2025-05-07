@@ -84,7 +84,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
-
+  - nonprofit
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -161,6 +161,7 @@ childGroups:
       - communities
       - sponsors
       - education
+      - nonprofit
       - support
       - contributing
   - name: More docs

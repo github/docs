@@ -26,7 +26,7 @@ redirect_from:
 
 {% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository using {% data variables.product.prodname_codeql %}, but you can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}. To learn how to disable {% data variables.product.prodname_copilot_autofix_short %} at the enterprise, organization and repository levels, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/disabling-autofix-for-code-scanning).
 
-In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see {% ifversion ghas-products-cloud %}[AUTOTITLE](/code-security/security-overview/viewing-security-insights#autofix-suggestions){% elsif fpt %}[AUTOTITLE](/enterprise-cloud@latest/code-security/security-overview/viewing-security-insights#autofix-suggestions) in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}.
+In an organization's security overview dashboard, you can view the total number of code suggestions generated on open and closed pull requests in the organization for a given time period. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights#autofix-suggestions).
 
 ## Developer experience
 
@@ -54,7 +54,7 @@ When {% data variables.product.prodname_copilot_autofix_short %} is enabled for 
 
 Any {% data variables.product.prodname_copilot_autofix_short %} suggestions are generated and stored within the {% data variables.product.prodname_code_scanning %} backend. They are displayed as suggestions. No user interaction is needed beyond enabling {% data variables.product.prodname_code_scanning %} on the codebase and creating a pull request.
 
-The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_GH_advanced_security %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_GH_advanced_security %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
+The process of generating fixes does not gather or utilize any customer data beyond the scope outlined above. Therefore, the use of this feature is governed by the existing terms and conditions associated with {% data variables.product.prodname_AS %}. Moreover, data handled by {% data variables.product.prodname_copilot_autofix_short %} is strictly not employed for LLM training purposes. For more information on {% data variables.product.prodname_AS %} terms and conditions, see [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#advanced-security){% ifversion fpt %}.{% else %} in the Free, Pro, & Team documentation.{% endif %}
 
 ## Quality of suggestions
 

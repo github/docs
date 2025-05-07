@@ -42,21 +42,13 @@ export function executeGeneralSearch(
     params.delete('search-overlay-open')
   }
   asPath += `?${params}`
-  router.push(asPath)
+  router.push(asPath, undefined, { shallow: false })
 }
 
-export async function executeAISearch(
-  router: NextRouter,
-  version: string,
-  query: string,
-  debug = false,
-) {
-  let language = router.locale || 'en'
-
+export async function executeAISearch(version: string, query: string, debug = false) {
   const body = {
     query,
     version,
-    language,
     ...(debug && { debug: '1' }),
   }
 
@@ -80,17 +72,7 @@ export async function executeCombinedSearch(
   query: string,
   debug = false,
   abortSignal?: AbortSignal,
-  eventGroupId?: string,
 ) {
-  sendEvent({
-    type: EventType.search,
-    // TODO: Remove PII so we can include the actual query
-    search_query: 'REDACTED',
-    search_context: COMBINED_SEARCH_CONTEXT,
-    eventGroupKey: SEARCH_OVERLAY_EVENT_GROUP,
-    eventGroupId: eventGroupId,
-  })
-
   let language = router.locale || 'en'
 
   const params = new URLSearchParams({ query: query, version, language })
@@ -108,7 +90,7 @@ export async function executeCombinedSearch(
     // Allow the caller to pass in an AbortSignal to cancel the request
     signal: abortSignal || undefined,
   })
-  if (!response.ok) {
+  if (!response?.ok) {
     throw new Error(
       `Failed to fetch ai autocomplete search results.\nStatus ${response.status}\n${response.statusText}`,
     )

@@ -37,12 +37,9 @@ Dependency review supports the same languages and package management ecosystems 
 
 For more information on supply chain features available on {% data variables.product.github %}, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-supply-chain-security).
 
-{% ifversion ghec or ghes %}
-
 ## Enabling dependency review
 
-The dependency review feature becomes available when you enable the dependency graph. For more information, see "{% ifversion ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
-{% endif %}
+The dependency review feature becomes available when you enable the dependency graph. For more information, see {% ifversion fpt or ghec %}[Enabling the dependency graph](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph#enabling-the-dependency-graph){% elsif ghes %}[Enabling the dependency graph for your enterprise](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise){% endif %}."
 
 ## About the {% data variables.dependency-review.action_name %}
 
@@ -52,7 +49,7 @@ The dependency review feature becomes available when you enable the dependency g
 
 {% data reusables.dependency-review.about-dependency-review-action2 %}
 
-The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GH_advanced_security %} enabled.
+The action is available for all {% ifversion fpt or ghec %}public repositories, as well as private {% endif %}repositories that have {% data variables.product.prodname_GHAS_or_code_security %} enabled.
 
 {% data reusables.dependency-review.org-level-enforcement %}
 

@@ -7,6 +7,7 @@ import { getProductStringFromPath, getVersionStringFromPath } from '#src/frame/l
 import { getLanguageCodeFromPath } from '#src/languages/middleware/detect-language.js'
 import { pagelistValidationMiddleware } from './validation'
 import catchMiddlewareError from '#src/observability/middleware/catch-middleware-error.js'
+import statsd from '#src/observability/lib/statsd.js'
 
 const router = express.Router()
 
@@ -43,7 +44,22 @@ router.get(
   }),
 )
 
-// for a fully qualified path with language and product version, we'll serve up the pagelist
+/**
+ * A list of pages available for a fully qualified path containing the target language and product version.
+ * @route GET /api/pagelist
+ * @param {string} lang - Path parameter for language code (e.g. 'en')
+ * @param {string} productVersion - Path parameter for product version (e.g. 'free-pro-team@latest')
+ * @returns {string} List of paths matching the language and version
+ * @throws {Error} 400 - If language or version parameters are invalid. Reason is given in the error message.
+ * @example
+ * ❯ curl -s https://docs.github.com/api/pagelist/en/free-pro-team@latest
+ * /en
+ * /en/search
+ * /en/get-started
+ * /en/get-started/start-your-journey
+ * /en/get-started/start-your-journey/about-github-and-git
+ * [...]
+ */
 router.get(
   '/:lang/:productVersion',
   pagelistValidationMiddleware as RequestHandler,
@@ -78,6 +94,7 @@ router.get(
       return
     }
 
+    incrementPagelistLookup(req.context!.currentVersion!, req.context!.currentLanguage!)
     defaultCacheControl(res)
 
     // new line added at the end so `wc` works as expected with `-l` and `-w`.
@@ -99,6 +116,12 @@ function versionMatcher(key: string, targetVersion: string, targetLang: string) 
   }
 
   if (versionFromPermalink === targetVersion && langFromPermalink === targetLang) return key
+}
+
+function incrementPagelistLookup(version: string, language: string) {
+  const tags = [`version:${version}`, `language:${language}`]
+
+  statsd.increment('api.pagelist.lookup', 1, tags)
 }
 
 export default router

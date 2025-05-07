@@ -1,6 +1,7 @@
 ---
 title: Adding a collaborator to a repository security advisory
 intro: You can add other users or teams to collaborate on a security advisory with you.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /articles/adding-a-collaborator-to-a-maintainer-security-advisory
   - /github/managing-security-vulnerabilities/adding-a-collaborator-to-a-maintainer-security-advisory
@@ -18,8 +19,6 @@ topics:
   - Collaboration
 shortTitle: Add collaborators
 ---
-
-People with admin permissions to a security advisory can add collaborators to the security advisory.
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 

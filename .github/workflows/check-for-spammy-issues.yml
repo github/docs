@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
         with:
-          github-token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}
+          github-token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           script: |
 
             const issue = context.payload.issue

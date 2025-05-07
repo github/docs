@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /**
  * This script generates a block of Markdown that can be saved as a reusable.
  * The reusable lists all the queries for one programming language, with CWEs, as a Markdown table.
@@ -30,12 +28,12 @@
  *   /Users/peterbe/.local/share/gh/extensions/gh-codeql/dist/nightly/codeql-bundle-20231204/codeql
  *
  * Finally, you need to install `@github/cocofix`. This is a private package,
- * so you first need to get the `DOCS_BOT_PAT_WORKFLOW` PAT from the vault and
- * store it in the environment variable `DOCS_BOT_PAT_WORKFLOW`.
+ * so you first need to get the `DOCS_BOT_PAT_BASE` PAT from the vault and
+ * store it in the environment variable `DOCS_BOT_PAT_BASE`.
  * Then run the following command from the root of this repo:
  *
  * ```sh
- * npm i --no-save '--@github:registry=https://npm.pkg.github.com' '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_WORKFLOW}' @github/cocofix
+ * npm i --no-save '--@github:registry=https://npm.pkg.github.com' '--//npm.pkg.github.com/:_authToken=${DOCS_BOT_PAT_BASE}' @github/cocofix
  * ```
  *
  * If you've git cloned github/codeql in /tmp/ now you can execute this script.
@@ -55,8 +53,8 @@ import chalk from 'chalk'
 import { program } from 'commander'
 // We don't want to introduce a global dependency on @github/cocofix, so we install it by hand
 // as described above and suppress the import warning.
-import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' // eslint-disable-line import/no-extraneous-dependencies
-import { type Language } from '@github/cocofix/dist/codeql' // eslint-disable-line import/no-extraneous-dependencies
+import { getSupportedQueries } from '@github/cocofix/dist/querySuites.js' /* eslint-disable-line import/no-extraneous-dependencies, import/no-unresolved */
+import type { Language } from 'codeql-ts'
 
 program
   .description('Generate a reusable Markdown for for a code scanning query language')

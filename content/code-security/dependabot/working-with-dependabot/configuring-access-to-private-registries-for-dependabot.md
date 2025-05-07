@@ -164,8 +164,8 @@ Examples of how to configure access to the private registries supported by {% da
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
 * [`npm-registry`](#npm-registry)
-* [`nuget-feed`](#nuget-feed){% ifversion dependabot-updates-pub-private-registry %}
-* [`pub-repository`](#pub-repository){% endif %}
+* [`nuget-feed`](#nuget-feed)
+* [`pub-repository`](#pub-repository)
 * [`python-index`](#python-index)
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
@@ -255,6 +255,31 @@ registries:
 ```
 
 {% endraw %}
+
+{% ifversion dependabot-helm-support %}
+
+### `helm-registry`
+
+{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [Open Container Initiative Distribution Specification](https://github.com/opencontainers/distribution-spec/blob/main/spec.md) in the `opencontainers/distribution-spec` repository. {% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For further details, see [Token Authentication Specification](https://helm.sh/docs/helm/helm_registry_login/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+
+The `helm-registry` type supports username and password. {% data reusables.dependabot.password-definition %}
+
+{% data reusables.dependabot.dependabot-updates-path-match %}
+
+{% raw %}
+
+```yaml copy
+registries:
+  helm_registry:
+    type: helm-registry
+    url: https://registry.example.com
+    username: octocat
+    password: ${{secrets.MY_REGISTRY_PASSWORD}}
+```
+
+{% endraw %}
+
+{% endif %}
 
 ### `hex-organization`
 
@@ -383,8 +408,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### `pub-repository`
 
 The `pub-repository` type supports a URL and a token.
@@ -407,8 +430,6 @@ updates:
 ```
 
 {% endraw %}
-
-{% endif %}
 
 ### `python-index`
 
