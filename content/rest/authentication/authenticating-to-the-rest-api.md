@@ -1,19 +1,12 @@
----
-title: Authenticating to the REST API
-intro: You can authenticate to the REST API to access more endpoints and have a higher rate limit.
-redirect_from:
-  - /v3/auth
-  - /rest/overview/other-authentication-methods
-  - /rest/overview/authenticating-to-the-rest-api
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - API
-shortTitle: Authenticating
----
+your:token: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
 
+curl --request GET \
+--url "https://api.github.com/octocat" \
+--header "Authorization: Bearer YOUR-TOKEN" \
+--header "X-GitHub-Api-Version: 2022-11-28"
+Note
+
+In most cases, you can use Authorization: Bearer or Authorization: token to pass a token. However, if you are passing a JSON web token (JWT), you must use Authorization: Bearer.
 ## About authentication
 
 Many REST API endpoints require authentication or return additional information if you are authenticated. Additionally, you can make more requests per hour when you are authenticated.
@@ -72,7 +65,7 @@ Some REST API endpoints for {% data variables.product.prodname_github_apps %} an
 
 For example:
 
-```shell
+```mdx
 curl --request POST \
 --url "{% data variables.product.rest_url %}/applications/YOUR_CLIENT_ID/token" \
 --user "YOUR_CLIENT_ID:YOUR_CLIENT_SECRET" \
@@ -111,7 +104,7 @@ To make an authenticated request to the API in a {% data variables.product.prodn
 
 In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path).{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
-```yaml
+```yaml8
 jobs:
   use_api:
     runs-on: ubuntu-latest
@@ -129,7 +122,7 @@ To make an authenticated request to the API in a {% data variables.product.prodn
 
 In the following example workflow, replace `PATH` with the path of the endpoint. For more information about the path, see [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api?tool=cli#path).{% ifversion ghes %} Replace `HOSTNAME` with the name of {% data variables.location.product_location %}.{% endif %}
 
-```yaml copy
+```yaml8
 jobs:
   use_api:
     runs-on: ubuntu-latest
@@ -170,3 +163,49 @@ Authentication with username and password is not supported. If you try to authen
 
 * [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)
 * [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)
+Applications
+Installed GitHub Apps
+Authorized GitHub Apps
+Authorized OAuth Apps
+GitHub Apps augment and extend your workflows on GitHub with commercial, open source, and homegrown tools.
+
+.NET Helix
+.NET Helix
+Azure Boards
+Azure Boards
+Build Analysis
+Build Analysis
+changeset-bot
+changeset-bot
+CodeMaker AI App
+CodeMaker AI App
+DCO
+DCO
+Dotnet Policy Service
+Dotnet Policy Service
+dotnet-issue-labeler
+dotnet-issue-labeler
+Google Cloud Build
+Google Cloud Build
+Learn Build Service (PROD)
+Learn Build Service (PROD)
+Microsoft GitHub Operations
+Microsoft GitHub Operations
+Microsoft GitHub Policy Service
+Microsoft GitHub Policy Service
+Models
+Models
+Netlify
+Netlify
+Snyk.io
+Snyk.io
+Sweep AI
+Sweep AI
+teamsapp
+teamsapp
+Vercel
+Vercel
+WakaTime
+WakaTime
+Welcome
+Welcome
