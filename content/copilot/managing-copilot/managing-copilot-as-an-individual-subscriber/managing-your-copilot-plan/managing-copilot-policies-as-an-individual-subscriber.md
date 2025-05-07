@@ -19,18 +19,6 @@ redirect_from:
 
 In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
 
-## Enabling additional {% data variables.product.prodname_copilot_short %} premium requests
-
-<!-- expires 2025-05-08 -->
-{% data reusables.copilot.unlimited-premium-requests %}<br>
->
-> This setting won't be available until then.
-<!-- end expires 2025-05-08 -->
-
-{% data reusables.copilot.premium-requests-billing-platform %}
-
-If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
-
 ## Enabling or disabling suggestions matching public code
 
 > [!NOTE] If you are a member of an organization on {% data variables.product.prodname_ghe_cloud %} who has been assigned a {% data variables.product.prodname_copilot %} seat through your organization, you will not be able to configure suggestions matching public code in your personal account settings. Your setting for suggestions matching public code will be inherited from your organization or enterprise.
