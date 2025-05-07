@@ -417,15 +417,16 @@ export function SearchOverlay({
 
   // Handle keyboard navigation of suggestions
   const handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
+    let optionsLength = listElementsRef.current?.length ?? 0
     if (event.key === 'ArrowDown') {
       event.preventDefault()
-      if (combinedOptions.length > 0) {
+      if (optionsLength > 0) {
         let newIndex = 0
         // If no item is selected, select the first item
         if (selectedIndex === -1) {
           newIndex = 0
         } else {
-          newIndex = (selectedIndex + 1) % combinedOptions.length
+          newIndex = (selectedIndex + 1) % optionsLength
           // If we go "out of bounds" (i.e. the index is less than the selected index), unselect the item
           if (newIndex < selectedIndex) {
             newIndex = -1
@@ -439,17 +440,23 @@ export function SearchOverlay({
           newIndex += 1
         }
         setSelectedIndex(newIndex)
+        if (newIndex !== -1 && listElementsRef.current[newIndex]) {
+          listElementsRef.current[newIndex]?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          })
+        }
       }
     } else if (event.key === 'ArrowUp') {
       event.preventDefault()
-      if (combinedOptions.length > 0) {
+      if (optionsLength > 0) {
         let newIndex = 0
         // If no item is selected, select the last item
         if (selectedIndex === -1) {
-          newIndex = combinedOptions.length - 1
+          newIndex = optionsLength - 1
         } else {
           // Otherwise, select the previous item
-          newIndex = (selectedIndex - 1 + combinedOptions.length) % combinedOptions.length
+          newIndex = (selectedIndex - 1 + optionsLength) % optionsLength
           // If we go "out of bounds" (i.e. the index is greater than the selected index), unselect the item
           if (newIndex > selectedIndex) {
             newIndex = -1
@@ -464,6 +471,12 @@ export function SearchOverlay({
           newIndex -= 1
         }
         setSelectedIndex(newIndex)
+        if (newIndex !== -1 && listElementsRef.current[newIndex]) {
+          listElementsRef.current[newIndex]?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          })
+        }
       }
     } else if (event.key === 'Enter') {
       event.preventDefault()
@@ -473,11 +486,9 @@ export function SearchOverlay({
 
       // When enter is pressed and no option is manually selected (-1), perform an AI search with the user input
       if (selectedIndex === -1) {
-        if (isAskAIState) {
-          pressedOnContext = AI_SEARCH_CONTEXT
-          pressedGroupKey = ASK_AI_EVENT_GROUP
-          pressedGroupId = askAIEventGroupId
-        }
+        pressedOnContext = AI_SEARCH_CONTEXT
+        pressedGroupKey = ASK_AI_EVENT_GROUP
+        pressedGroupId = askAIEventGroupId
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
       }
@@ -783,13 +794,13 @@ export function SearchOverlay({
                   // Hubbers users use an internal discussion for feedback
                   window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
                 } else {
-                  // TODO: On ship date set this value
-                  // window.open('TODO', '_blank')
+                  // public discussion for feedback
+                  window.open('https://github.com/orgs/community/discussions/158488', '_blank')
                 }
               }}
               as="button"
             >
-              {t('search.overlay.give_feedback')}
+              <u>{t('search.overlay.give_feedback')}</u>
             </Link>
           </Box>
           <Text
@@ -879,6 +890,7 @@ function renderSearchGroups(
           askAIEventGroupId={askAIState.askAIEventGroupId}
           aiCouldNotAnswer={askAIState.aiCouldNotAnswer}
           setAICouldNotAnswer={askAIState.setAICouldNotAnswer}
+          listElementsRef={listElementsRef}
         />
       </ActionList.Group>,
     )

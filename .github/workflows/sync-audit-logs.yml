@@ -31,7 +31,7 @@ jobs:
       - name: Run updater script
         env:
           # need to use a token from a user with access to github/audit-log-allowlists for this step
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run sync-audit-log
 
@@ -49,7 +49,7 @@ jobs:
       - name: Create and merge pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)
@@ -97,7 +97,7 @@ jobs:
 
           # Actions can't merge the PR so back to docs-bot to merge the PR
           unset GITHUB_TOKEN
-          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_WORKFLOW_READORG }}"
+          gh auth login --with-token <<< "${{ secrets.DOCS_BOT_PAT_BASE }}"
           gh pr merge --auto
 
       - uses: ./.github/actions/slack-alert

@@ -67,9 +67,7 @@ Name | Description
 &emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
 **`project`** | Grants read/write access to user and organization {% data variables.projects.projects_v2 %}.
 &emsp;`read:project`| Grants read only access to user and organization {% data variables.projects.projects_v2 %}.{% endif %}
-**`delete_repo`** | Grants access to delete adminable repositories.{% ifversion team-discussions %}
-**`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.{% endif %}
+**`delete_repo`** | Grants access to delete adminable repositories.
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/publishing-a-package).
 **`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/installing-a-package).
 **`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package).
@@ -78,9 +76,9 @@ Name | Description
 &emsp;`read:gpg_key`| List and view details for GPG keys.{% ifversion fpt or ghec %}
 **`codespace`** | Grants the ability to create and manage codespaces. Codespaces can expose a GITHUB_TOKEN which may have a different set of scopes. For more information, see [AUTOTITLE](/codespaces/codespaces-reference/security-in-github-codespaces#authentication).{% endif %}
 **`workflow`** | Grants the ability to add and update {% data variables.product.prodname_actions %} workflow files. Workflow files can be committed without this scope if the same file (with both the same path and contents) exists on another branch in the same repository. Workflow files can expose `GITHUB_TOKEN` which may have a different set of scopes. For more information, see [AUTOTITLE](/actions/security-guides/automatic-token-authentication#permissions-for-the-github_token).{% ifversion not fpt %}
-**`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see [AUTOTITLE](/graphql/guides/managing-enterprise-accounts) in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`{% ifversion ghec or ghes %}, `manage_billing:enterprise`,{% endif %} and `read:enterprise`.
-&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners). {% ifversion ghec or ghes %}
-&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see [AUTOTITLE](/rest/billing). {% endif %}
+**`admin:enterprise`** | Gives full control of enterprise functionality. For more information, see [AUTOTITLE](/graphql/guides/managing-enterprise-accounts) in the GraphQL API documentation.<br><br>Includes `manage_runners:enterprise`, `manage_billing:enterprise`, and `read:enterprise`.
+&emsp;`manage_runners:enterprise` | Gives full control over self-hosted runners within the enterprise. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+&emsp;`manage_billing:enterprise` | Read and write enterprise billing data. For more information, see [AUTOTITLE](/rest/billing).
 &emsp;`read:enterprise` | Read all data on an enterprise profile. Does not include profile data of enterprise members or organizations.{% endif %}
 **`read:audit_log`** | Read audit log data.
 

@@ -103,9 +103,7 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`is:publicly-leaked`|Displays alerts for secrets that have been found in a public repository.|
 |`is:multi-repository`|Displays alerts for secrets that have been found in more than one repository within the same organization or enterprise.|
 | {% endif %} |
-| {% ifversion secret-scanning-bypass-filter %} |
 |`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).|
-| {% endif %} |
 |`validity:active`| Displays alerts for secrets that are known to be active. {% ifversion fpt or ghec %}Applies only to {% data variables.product.github %} tokens unless you enable validity checks.{% endif %}For more information about validity statuses, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).|
 |`validity:inactive`| Displays alerts for secrets that are no longer active.|
 |`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|

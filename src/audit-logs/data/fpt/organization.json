@@ -370,6 +370,11 @@
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
   },
   {
+    "action": "dependabot_repository_access.default_access_level_updated",
+    "description": "The default repository access for Dependabot was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "dependabot_repository_access.repositories_updated",
     "description": "The repositories that Dependabot can access were updated.",
     "docs_reference_links": "N/A"
@@ -1950,9 +1955,39 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
   {
+    "action": "personal_access_token.access_restriction_disabled",
+    "description": "The configured restriction for access to resources via personal access tokens was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_enabled",
+    "description": "The configured restriction for access to resources via personal access tokens was enabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "personal_access_token.access_revoked",
     "description": "A fine-grained personal access token was revoked. The token can still read public organization resources.",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_disabled",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_enabled",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_set",
+    "description": "A personal access token expiration limit was set.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_unset",
+    "description": "A personal access token expiration limit was unset.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "personal_access_token.request_cancelled",

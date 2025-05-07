@@ -46,7 +46,7 @@ There are two {% data variables.contact.premium_support %} plans: Premium and Pr
 | Resources | Priority ticket handling | <ul><li>Priority ticket handling</li><li>Named Customer Reliability Engineer</li></ul>   |
 | Escalation management | For High and Urgent priority tickets | For High and Urgent priority tickets |
 | Incident management | None | For Urgent priority tickets, as needed |
-| Health checks | {% ifversion not ghes %}None{% else %}Unlimited automated health check reports (see [Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise))</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
+| Health checks | {% ifversion ghec %}None{% else %}Unlimited automated health check reports (see [Generating a health check for your enterprise](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise)){% endif %} | <ul>{% ifversion ghes %}<li>Unlimited automated health check reports. For more information, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/generating-a-health-check-for-your-enterprise))</li>{% endif %}<li>Quarterly enhanced health checks, with findings, interpretations, and recommendations from your CRE (by request)</li></ul>    |
 | {% ifversion ghes %} |
 | Crisis prevention | None | Yearly participation in guided incident simulations to help you be prepared |
 | {% endif %} |
@@ -145,7 +145,6 @@ Premium Plus customers are eligible to receive one virtual training class per ye
 * {% data variables.product.prodname_copilot %} Fundamentals
 * {% data variables.product.prodname_copilot %} Intermediate
 * {% data variables.product.prodname_copilot %} Administration & Security
-* {% data variables.product.prodname_enterprise %} Implementation (Server)
 * {% data variables.product.prodname_enterprise %} Implementation (Cloud)
 
 We recommend limiting training sessions to a maximum of 16 participants to ensure an optimal provider-to-participant ratio and a high-quality delivery experience. However, in specific cases where it makes sense, we can accommodate up to 20–25 participants while maintaining our commitment to delivering a valuable training experience for your team.

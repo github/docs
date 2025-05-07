@@ -3,7 +3,9 @@ title: Managing custom properties for repositories in your organization
 intro: 'With custom properties, you can add metadata to repositories in your organization. You can use those properties to target repositories with rulesets.'
 permissions: 'Organization owners {% ifversion custom-org-roles %}and users with the "Manage the organization''s custom properties definitions" permission {% endif %}can add and set a custom property schema at the organization level.'
 versions:
-  feature: repository-properties
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Repositories
 shortTitle: Custom properties
@@ -11,7 +13,7 @@ shortTitle: Custom properties
 
 ## About custom properties
 
-Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties visibility follows the visibility of the repository. Custom properties on public repositories can viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with read permissions to the repository.
+Custom properties allow you to decorate your repositories with information such as compliance frameworks, data sensitivity, or project details. Custom properties visibility follows the visibility of the repository. Custom properties on public repositories can be viewed by anyone, while custom properties on internal or private repositories can be viewed by accounts with read permissions to the repository.
 An organization can have up to 100 property definitions. An allowed value list can have up to 200 items.
 
 {% ifversion ghec or ghes %}
@@ -68,6 +70,8 @@ People with read permissions to a repository can view the values of custom prope
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
 
+{% ifversion ghes > 3.14 %}
+
 ## Searching and filtering repositories by custom properties values
 
 You can search for repositories in your organization by custom properties values.
@@ -76,3 +80,5 @@ You can search for repositories in your organization by custom properties values
 {% data reusables.user-settings.access_org %}
 1. Under your organization name, click **{% octicon "repo" aria-hidden="true" %} Repositories**.
 1. In the search bar, type `prop` to see a list of all custom properties in your organization, and select the property you'd like to search by.
+
+{% endif %}
