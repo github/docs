@@ -1,5 +1,6 @@
-{% note %}
+{% ifversion ghes < 3.16 %}
 
-**Note:** The security manager role is in public beta and subject to change.{% ifversion fpt %} This feature is not available for organizations using legacy per-repository billing plans.{% endif %}
+> [!NOTE]
+> The security manager role is in {% data variables.release-phases.public_preview %} and subject to change.
 
-{% endnote %}
+{% endif %}

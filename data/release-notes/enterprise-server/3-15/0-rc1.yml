@@ -1,0 +1,236 @@
+date: '2024-11-12'
+release_candidate: true
+deprecated: true
+intro: |
+  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
+  >
+  > Do not upgrade to an RC from a supported, earlier version.
+  >
+  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
+
+  For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+sections:
+  # Remove section heading if the section contains no notes.
+
+  features:
+    # Remove a sub-section heading if the heading contains no notes. If sections
+    # that regularly recur are missing, add placeholders to this template.
+
+    - heading: Instance administration
+      notes:
+        # https://github.com/github/releases/issues/4353
+        - |
+          New installations of GitHub Enterprise Server version 3.15 and upgrades to 3.15 now require a root disk size of at least 400GB. Otherwise, the system will not boot. For more information on how to increase the root disk size in the appliance, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/updating-the-virtual-machine-and-physical-resources/increasing-storage-capacity).
+
+        # https://github.com/github/releases/issues/4353
+        - |
+          Minimum recommended requirements for vCPUs, memory, root storage, and data storage have been updated. See [AUTOTITLE](/admin/installing-your-enterprise-server/setting-up-a-github-enterprise-server-instance/installing-github-enterprise-server-on-vmware#minimum-recommended-requirements).
+
+    - heading: Audit logs
+      notes:
+        # https://github.com/github/releases/issues/4185
+        - |
+          Organization owners and security managers can monitor changes to the use of security configurations at the organization and repository levels. See [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale)," [`security_configuration`](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#security_configuration), and [`repository_security_configuration`](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#repository_security_configuration)
+
+    - heading: Code scanning
+      notes:
+        # https://github.com/github/releases/issues/3915 and https://github.com/github/releases/issues/4469
+        - |
+          Users can run CodeQL analysis of C# code without building the project, `build-mode: none`. When you enable code scanning using default setup on a repository, both Java and C# use this mode. Analysis of both languages using this method is generally available. See [About build mode None for CodeQL](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#about-build-mode-none-for-codeql).
+        # https://github.com/github/releases/issues/4189
+        - |
+          CodeQL analysis of Swift and Kotlin code is generally available.
+        # https://github.com/github/releases/issues/4680
+        - |
+          This release comes installed with version **2.18.4** of the CodeQL CLI, used in the CodeQL action for code scanning. Significant updates since the default version installed on GitHub Enterprise Server 3.14 include:
+
+          * Support for Go 1.23 and TypeScript 5.5
+          * C# can now use `build-mode: none`, which allows scanning C# code without requiring working builds
+          * Kotlin & Swift support for mobile applications is generally available
+          * Java `build-mode: none` analyses only report a warning on the tool status page when significant analysis problems are detected
+          * Two new JavaScript queries, `js/functionality-from-untrusted-domain`, have been added to detect usage of scripts from untrusted domains, including `polyfill.io` content delivery network and `js/insecure-helmet-configuration` to detect instances where important Helmet security features are disabled
+          * The precision of `cpp/iterator-to-expired-container` & `cpp/unsafe-strncat` have been increased to high
+
+    - heading: Secret scanning
+      notes:
+        # https://github.com/github/releases/issues/4150
+        - |
+          Secret scanning for discussions, issues, and pull request titles, bodies, and comments is now generally available. See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
+        # https://github.com/github/releases/issues/4511
+        - |
+          Users can bypass push protection using the existing `Create a blob` and `Create or update file contents` REST API endpoints. This action can also be performed programmatically using the new `Create a push protection bypass` API endpoint. See the [GitHub Blog post](https://github.blog/changelog/2024-08-13-secret-scanning-push-protection-is-supported-for-content-upload-rest-api-endpoints/).
+        # https://github.com/github/releases/issues/4522
+        - |
+          Organization owners can enable the detection of non-provider patterns for their organization using a security configuration. This feature is in public beta and is subject to change. See [Enabling detection of non-provider patterns for an organization](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/non-provider-patterns/enabling-secret-scanning-for-non-provider-patterns#enabling-detection-of-non-provider-patterns-for-an-organization).
+
+    - heading: Dependabot
+      notes:
+        # https://github.com/github/releases/issues/4522
+        - |
+          Organization owners, security managers and users with **admin** access can manage Dependabot auto-triage rules, as well as create custom auto-triage rules. Auto-triage rules are a powerful tool that automatically dismiss Dependabot alerts matching certain criteria. This feature is generally available. See [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
+
+    - heading: GitHub Connect
+      notes:
+        - |
+          For enterprises with a deployment of GitHub Enterprise Cloud on GHE.com, automatic license sync is supported from GitHub Enterprise Server to GHE.com.
+
+    - heading: GitHub Advanced Security
+      notes:
+        # https://github.com/github/releases/issues/3953 and https://github.com/github/releases/issues/3954
+        - |
+          Organization owners and security managers can use a "CodeQL pull request alerts" view in security overview to proactively identify and mitigate security risks at the organization and enterprise level. For example, they can see the most common alerts found in pull requests and see the corresponding remediation rates. See [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
+
+    - heading: Code security
+      notes:
+        # https://github.com/github/releases/issues/4231
+        - |
+          Organization owners and security managers can simplify the rollout of GitHub security products at scale with security configurations. They can define collections of security settings, save them as a custom configuration, and apply them across groups of repositories. Security configurations can be enforced using policies to stop repositories making any changes to the enablement of security features. See [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+        # https://github.com/github/releases/issues/4031 and https://github.com/github/releases/issues/4287 and https://github.com/github/releases/issues/4185
+        - |
+          Organization owners and security managers can create, apply, enforce, and monitor security configurations programmatically using REST API calls and audit logs. See [AUTOTITLE](/rest/code-security/configurations) and [`security_configuration`](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/audit-log-events-for-your-organization#security_configuration).
+
+    - heading: GitHub Actions
+      notes:
+        # Required Actions Runner version
+        - |
+          {% data reusables.actions.actions-runner-release-note %}
+
+    - heading: GitHub Packages
+      notes:
+        # https://github.com/github/releases/issues/4184
+        - |
+          Package managers benefit from improved performance as the npm registry no longer includes README content in package version metadata, reducing the size of package packuments (metadata manifest). This change enhances registry and npm CLI efficiency.
+
+    - heading: Repositories
+      notes:
+        # https://github.com/github/releases/issues/4073
+        - |
+          Users can use new property types when creating a custom property: `Multi select` and `True/False`.
+        # https://github.com/github/releases/issues/4139
+        - |
+          Users can gain deeper insights into contributors and code frequency with enhanced focus navigation, and a new table format for viewing and downloading data.
+        # https://github.com/github/releases/issues/4244
+        - |
+          Users can require that merges must be performed with a merge queue at the repository level. For more information about merge queues, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/merging-a-pull-request-with-a-merge-queue#about-merge-queues).
+        # https://github.com/github/releases/issues/4245
+        - |
+          Admins can enforce status checks and workflow runs on existing refs while allowing the creation of new refs.
+        # https://github.com/github/releases/issues/4246
+        - |
+          Organization members can use the new repository view and advanced filters to find repositories by visibility, language, custom properties, size, license, and more.
+
+    - heading: Projects
+      notes:
+        # https://github.com/github/releases/issues/4070
+        - |
+          Users can interact with project status updates programmatically using the `ProjectV2StatusUpdate` GraphQL object and the `projects_v2_status_update` webhook event. See [GitHub Issues & Projects](https://github.blog/changelog/2024-06-27-github-issues-projects-graphql-and-webhook-support-for-project-status-updates-and-more/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/4665
+        - |
+          For better accessibility, swimlanes and card titles have heading elements attached to them.
+        # https://github.com/github/releases/issues/4071
+        - |
+          Project custom field changes are included directly in the [project_v2_item](/webhooks/webhook-events-and-payloads?actionType=edited#projects_v2_item) webhook event when a project item's fields are edited, allowing users to understand how project fields change over time and how long they have a particular value.
+
+    - heading: Accessibility
+      notes:
+        # https://github.com/github/releases/issues/4147
+        - |
+          Users can navigate and dismiss hovercards using keyboard shortcuts, enhancing accessibility. Additionally, a new setting allows users to disable all hovercards.
+        # https://github.com/github/releases/issues/4248
+        - |
+          Math equations are rendered with standardized MathML, replacing custom HTML MathJax to enhance accessibility and security. While most users will see minimal changes, slight differences in font and alignment may occur.
+        # https://github.com/github/releases/issues/4408
+        - |
+          The light and dark high contrast themes have been updated to improve readability.
+
+    - heading: Integrations and extensions
+      notes:
+        # https://github.com/github/releases/issues/4592
+        - |
+          The `client_id` field is included in all API responses that describe a GitHub App. This is part of a shift to use the client ID as the primary identifier for an app. See [Client IDs are now included in App API responses](https://github.blog/changelog/2024-08-23-client-ids-are-now-included-in-app-api-responses/) on the GitHub Blog.
+        # https://github.com/github/releases/issues/3685
+        - |
+          When users go through the device code flow for an OAuth app, such as the GitHub CLI, they are prompted to use an account picker if they have multiple accounts.
+
+  changes:
+    # https://github.com/github/releases/issues/4167
+    - |
+      The API endpoint for listing custom deployment rule integrations for an environment (`GET /repos/{owner}/{repo}/environments/{environment_name}/deployment_protection_rules/apps`) requires **"Administration" repository permissions (read)** for fine-grained tokens. Previously, the token required "Actions" repository permissions (read).
+    # https://github.com/github/releases/issues/3927
+    - |
+      Pushes that update over 5,000 branches no longer trigger webhooks or GitHub Actions workflows.
+    # https://github.com/github/releases/issues/4231
+    - |
+      Organization owners and security managers will see a new organization-level code security settings UI. In the organization settings sidebar, the **Code security and analysis** option has been replaced by an expanding **Code security** option. This contains new **Configurations** and **Global settings** options. See [AUTOTITLE](/code-security/securing-your-organization/introduction-to-securing-your-organization-at-scale/about-enabling-security-features-at-scale).
+
+  known_issues:
+    - |
+      **Note:** This list is not complete. Any new known issues that are identified for the 3.15 release will be added between now and the GA.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
+    - |
+      Attempting to stop replications after stopping GitHub Actions on a GHES instance would fail, reporting that MSSQL was not responding. This can be avoided by starting MSSQL prior to stopping replication by running `/usr/local/share/enterprise/ghe-nomad-jobs queue /etc/nomad-jobs/mssql/mssql.hcl`.
+    - |
+      Admins setting up cluster high availability (HA) may encounter a `spokes` error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. See [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      {% data reusables.release-notes.large-adoc-files-issue %}
+    - |
+      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
+    - |
+      Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
+    - |
+      When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running a `config apply` as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 appliance onto a 3.13 appliance, the Elasticsearch indices need to be reindexed before some of the data will show up.  This happens via a nightly scheduled job.  It can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      An organization-level code scanning configuration page is displayed on instances that do not use GitHub Advanced Security or code scanning.
+    - |
+      In the header bar displayed to site administrators, some icons are not available.
+    - |
+      When enabling automatic update checks for the first time in the Management Console, the status is not dynamically reflected until the "Updates" page is reloaded.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      Services may respond with a `503` status due to an out of date `haproxy` configuration. This can usually be resolved with a `ghe-config-apply` run.
+    - |
+      Customers doing feature version upgrade to 3.14.3 may experience issues with database migrations due to data issues during database conversions.
+    - |
+      {% data reusables.release-notes.2024-11-ghe-repl-promote-primary-down %}
+
+      [Updated: 2024-11-29]
+
+
+  closing_down:
+    # https://github.com/github/releases/issues/4964
+    - |
+      In GitHub Enterprise Server 3.16, the `/explore` functionality, including the `Activity` and `Trending` pages, will be removed.
+    # https://github.com/github/releases/issues/4110 and https://github.com/github/releases/issues/4193 and https://github.com/github/releases/issues/4231
+    - |
+      We are closing down the API endpoints and parameters that complemented the old organization-level code security settings UI experience. These have been replaced by a new API for security configurations. See [AUTOTITLE](/rest/code-security/configurations).
+      * **Closing down:** The GET response for security product status in an organization: [Get an organization](/rest/orgs/orgs?apiVersion=2022-11-28#get-an-organization) is deprecated. This attribute will return inaccurate information.
+      * **Closing down:** The PATCH functionality for security products to set a default status for new repos in an organization: [Update an organization](/rest/orgs/orgs?apiVersion=2022-11-28#update-an-organization) is deprecated. The PATCH operation will be ignored.
+      * **Closing down:** The POST endpoint to enable or disable a security feature for all repositories in an organization: [Enable or disable a security feature for an organization](/rest/orgs/orgs?apiVersion=2022-11-28#enable-or-disable-a-security-feature-for-an-organization) is deprecated. Using the POST operation may result in a code security configuration being unintentionally removed from a repository.
+
+  retired:
+    # https://github.com/github/releases/issues/4878
+    - |
+      The Management Console API has been removed. The Manage GHES API reached feature parity with the Management Console API in {% data variables.product.prodname_ghe_server %} version 3.12. For information about the Manage GHES API, see [AUTOTITLE](/rest/enterprise-admin/manage-ghes).
+    - |
+      The option to "copy Storage settings from Actions" in the Management Console ("GitHub Packages" > "Packages Storage Settings") has been removed. [Updated: 2024-11-20]
+
+  errata:
+    # https://github.com/github/docs-content/issues/16489
+    - |
+      "Retired" incorrectly indicated that the API endpoints and parameters that complemented the old organization-level code security settings UI experience were retired. They are closed down. [Updated: 2024-11-18]

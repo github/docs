@@ -1,1 +1,0 @@
-Puedes ver si los miembros de tu organización tienen habilitada la autenticación bifactorial y elegir requerir la autenticación bifactorial en tu organización. Para obtener más información, consulta "[Solicitar la autenticación de dos factores en tu organización](/organizations/keeping-your-organization-secure/requiring-two-factor-authentication-in-your-organization)".

@@ -4,16 +4,14 @@ intro: 'You can enable, configure, and disable optional features for your reposi
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Repositories
 children:
   - /disabling-issues
-  - /disabling-project-boards-in-a-repository
+  - /disabling-projects-in-a-repository
   - /managing-github-actions-settings-for-a-repository
   - /enabling-or-disabling-github-discussions-for-a-repository
   - /managing-security-and-analysis-settings-for-your-repository
 shortTitle: Enable features
 ---
-

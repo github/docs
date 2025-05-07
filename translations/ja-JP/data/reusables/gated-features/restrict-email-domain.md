@@ -1,1 +1,0 @@
-Restriction of email notifications to approved or verified domains is available with {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}. 詳しい情報については「[GitHubの製品](/articles/githubs-products)」を参照してください。

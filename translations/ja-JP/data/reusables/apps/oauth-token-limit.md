@@ -1,1 +1,0 @@
-ユーザ／アプリケーション／スコープの組み合わせごとに、発行できるトークン数には10という上限があります。 If an application creates more than 10 tokens for the same user and the same scopes, the oldest tokens with the same user/application/scope combination will be revoked.

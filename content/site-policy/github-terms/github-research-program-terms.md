@@ -30,13 +30,13 @@ The obligations in this Section 2 won’t apply to information that you can prov
 
 ## C. Reservation of Rights
 
-All Confidential Information remains the sole and exclusive property of GitHub.  Neither party acquires any intellectual property rights under this Agreement, unless expressly specified herein.
+All Confidential Information remains the sole and exclusive property of GitHub. Neither party acquires any intellectual property rights under this Agreement, unless expressly specified herein.
 
 ## D. Privacy
 
 By participating in this Program, you consent to our use of your personal information for research purposes, and not for any other purposes. As part of the Program, we may use your personal information to contact you, or retain your information, to contact you at a later date. Personal information does not include aggregated, non-personally identifying information. We may use aggregated or other non-personally identifying information collected through the program to operate, analyze, and improve our products and services.
 
-You can withdraw your consent at any time, and request access to or the deletion of the personal information that we hold about you. For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/articles/github-privacy-statement/) or contact us through our {% data variables.contact.contact_privacy %}.
+You can withdraw your consent at any time, and request access to or the deletion of the personal information that we hold about you. For more information about how you can access, update, alter, or delete the personal information GitHub collects through the Program, please see the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement) or contact us through our {% data variables.contact.contact_privacy %}.
 
 ## E. GitHub Services and Software Terms
 
@@ -55,13 +55,17 @@ Our liability is limited whether or not we have been informed of the possibility
 ## H. Miscellaneous
 
 ### 1. Governing Law
+
 Except to the extent applicable law provides otherwise, this Agreement between you and GitHub and any access to or use of the Website or the Service are governed by the federal laws of the United States of America and the laws of the State of California, without regard to conflict of law provisions. You and GitHub agree to submit to the exclusive jurisdiction and venue of the courts located in the City and County of San Francisco, California.
 
 ### 2. Non-Assignability
+
 GitHub may assign or delegate this Agreement, in whole or in part, to any person or entity at any time with or without your consent, including the license grant in Section A. You may not assign or delegate any rights or obligations under this Agreement without our prior written consent, and any unauthorized assignment and delegation by you is void.
 
 ### 3. Severability, No Waiver, and Survival
+
 If any part of this Agreement is held invalid or unenforceable, that portion of the Agreement will be construed to reflect the parties’ original intent. The remaining portions will remain in full force and effect. Any failure on the part of GitHub to enforce any provision of this Agreement will not be considered a waiver of our right to enforce such provision. Our rights under this Agreement will survive any termination of this Agreement.
 
 ### 4. Amendments; Complete Agreement
+
 This Agreement may only be modified by a written amendment signed by an authorized representative of GitHub. This Agreement, together with the Generally Applicable Terms and the GitHub Privacy Statement, represent the complete and exclusive statement of the agreement between you and us. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and GitHub relating to the subject matter of these terms including any confidentiality or nondisclosure agreements.

@@ -1,2 +1,2 @@
-1. Type a title and description for your issue.
-![A sample issue](/assets/images/help/issues/sample_issue.png)
+1. In the "Title" field, type a title for your issue.
+1. In the comment body field, type a description of your issue.

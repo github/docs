@@ -1,1 +1,0 @@
-1. En la esquina superior derecha de cualquier página, haz clic en tu foto de perfil, luego haz clic en **Feature preview** (Vista previa de la característica). ![Botón Feature preview (Vista previa de la característica)](/assets/images/help/settings/feature-preview-button.png)

@@ -1,1 +1,0 @@
-1. Desde el shell administrativo del nodo en el que modificaste el archivo `cluster.conf`, ejecuta `ghe-cluster-config-init`. Esto validará el archivo de configuración, lo copiará en cada nodo de la agrupación y marcará el nodo fuera de línea.

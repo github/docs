@@ -1,1 +1,0 @@
-1. Acima da lista de problemas ou pull requests, clique em **Etiquetas**. ![Guia de etiquetas na página de problemas de um repositório ou pull requests](/assets/images/help/issues/issues_labels_button.png)

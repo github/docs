@@ -3,6 +3,7 @@ title: Common validation errors when creating issue forms
 intro: 'You may see some of these common validation errors when creating, saving, or viewing issue forms.'
 versions:
   fpt: '*'
+  ghes: '*'
   ghec: '*'
 topics:
   - Community
@@ -15,7 +16,7 @@ topics:
 
 The template does not contain a `name` field, which means it is not clear what to call your issue template when giving users a list of options.
 
-### Example
+### Example of "required top level key `name` is missing" error
 
 ```yaml
 description: "Thank you for reporting a bug!"
@@ -34,7 +35,7 @@ description: "Thank you for reporting a bug!"
 
 This error message means that a permitted key has been provided, but its value cannot be parsed as the data type is not supported.
 
-### Example
+### Example of "`key` must be a string" error
 
 The `description` below is being parsed as a Boolean, but it should be a string.
 
@@ -71,9 +72,9 @@ description: "File a bug report"
 
 ## `input` is not a permitted key
 
-An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see "[Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax)."
+An unexpected key was supplied at the top level of the template. For more information about which top-level keys are supported, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax).
 
-### Example
+### Example of "`input` is not a permitted key" error
 
 ```yaml
 name: "Bug report"
@@ -100,7 +101,7 @@ The error can be fixed by removing the forbidden keys.
 
 Issue forms must accept user input, which means that at least one of its fields must contain a user input field. A `markdown` element is static text, so a `body` array cannot contain only `markdown` elements.
 
-### Example
+### Example of "body must contain at least one non-markdown field" error
 
 ```yaml
 name: "Bug report"
@@ -127,7 +128,7 @@ body:
 
 If using `id` attributes to distinguish multiple elements, each `id` attribute must be unique.
 
-### Example
+### Example of "body must have unique ids" error
 
 ```yaml
 name: "Bug report"
@@ -161,7 +162,7 @@ body:
 
 When there are multiple `body` elements that accept user input, the `label` attribute for each user input field must be unique.
 
-### Example
+### Example of "body must have unique labels" error
 
 ```yaml
 name: "Bug report"
@@ -204,12 +205,11 @@ body:
 
 `id` attributes are not visible in the issue body. If you want to distinguish the fields in the resulting issue, you should use distinct `label` attributes.
 
-
 ## Labels are too similar
 
-Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://apidock.com/rails/ActiveSupport/Inflector/parameterize) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
+Similar labels may be processed into identical references. If an `id` attribute is not provided for an `input`, the `label` attribute is used to generate a reference to the `input` field. To do this, we process the `label` by leveraging the Rails [parameterize](https://www.rubydoc.info/docs/rails/ActiveSupport/Inflector#parameterize-instance_method) method. In some cases, two labels that are distinct can be processed into the same parameterized string.
 
-### Example
+### Example of "labels are too similar" error
 
 ```yaml
 name: "Bug report"
@@ -254,7 +254,7 @@ body:
 
 When a `checkboxes` element is present, each of its nested labels must be unique among its peers, as well as among other input types.
 
-### Example
+### Example of "checkboxes must have unique labels" error
 
 ```yaml
 name: "Bug report"
@@ -305,7 +305,7 @@ Each body block must contain the key `type`.
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the zero-indexed index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: required key type is missing" error
 
 ```yaml
 body:
@@ -313,7 +313,7 @@ body:
     value: "Thanks for taking the time to fill out this bug! If you need real-time help, join us on Discord."
 ```
 
-The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see "[Syntax for {% data variables.product.prodname_dotcom %}'s form schema](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys)."
+The error can be fixed by adding the key `type` with a valid input type as the value. For the available `body` input types and their syntaxes, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 
 ```yaml
 body:
@@ -328,7 +328,7 @@ One of the body blocks contains a type value that is not one of the [permitted t
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `x` is not a valid input type" error
 
 ```yaml
 body:
@@ -352,7 +352,7 @@ One of the required `value` attributes has not been provided. The error occurs w
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: required attribute key `value` is missing" error
 
 ```yaml
 body:
@@ -380,10 +380,9 @@ Within its `attributes` block, a value has the wrong data type.
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: label must be a string" error
 
 The `label` below is being parsed as a Boolean, but it should be a string.
-
 
 ```yaml
 body:
@@ -429,7 +428,7 @@ body:
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `id` can only contain numbers, letters, -, _" error
 
 ```yaml
 name: "Bug report"
@@ -457,7 +456,7 @@ An unexpected key, `x`, was provided at the same indentation level as `type` and
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `x` is not a permitted key" error
 
 ```yaml
 body:
@@ -482,7 +481,7 @@ To minimize the risk of private information and credentials being posted publicl
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `label` contains forbidden word" error
 
 ```yaml
 body:
@@ -512,7 +511,7 @@ An invalid key has been supplied in an `attributes` block.
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `x` is not a permitted attribute" error
 
 ```yaml
 body:
@@ -537,9 +536,9 @@ For checkboxes and dropdown input types, the choices defined in the `options` ar
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `options` must be unique" error
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -552,7 +551,7 @@ body:
 
 The error can be fixed by ensuring that no duplicate choices exist in the `options` array.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -568,9 +567,9 @@ body:
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `options` must not include the reserved word, none" error
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -585,7 +584,7 @@ body:
 
 The error can be fixed by removing "None" as an option. If you want a contributor to be able to indicate that they like none of those types of pies, you can additionally remove the `required` validation.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -603,9 +602,9 @@ There are a number of English words that become processed into Boolean values by
 
 Errors with `body` will be prefixed with `body[i]` where `i` represents the index of the body block containing the error. For example, `body[0]` tells us that the error has been caused by the first block in the `body` list.
 
-### Example
+### Example of "body[i]: `options` must not include booleans. Please wrap values such as 'yes', and 'true' in quotes" error
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -618,7 +617,7 @@ body:
 
 The error can be fixed by wrapping each offending option in quotes, to prevent them from being processed as Boolean values.
 
-```
+```yaml
 body:
 - type: dropdown
   attributes:
@@ -629,7 +628,37 @@ body:
       - Maybe
 ```
 
+## Body cannot be empty
+
+The template body `key:value` pair cannot be empty. For more information about which top-level keys are required, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms#top-level-syntax).
+
+The error can be fixed by adding the `body:` section.
+
+### Example of "body cannot be empty" error
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+---
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
+In this example, the error can be fixed by deleting the `---` (document separator) between the headers and the `body` section.
+
+```yaml
+name: Support Request
+description: Something went wrong and you need help?
+
+body:
+- type: textarea
+  attributes:
+    label: "What's wrong?"
+```
+
 ## Further reading
 
-- [YAML](https://yaml.org/)
-- [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)
+* [YAML](https://yaml.org/)
+* [Syntax for issue forms](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-issue-forms)

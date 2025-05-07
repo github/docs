@@ -1,0 +1,42 @@
+name: All documents script
+
+# **What it does**: Verifies that the all-documents script works.
+# **Why we have it**: Code quality and sustainability.
+# **Who does it impact**: docs-engineering
+
+on:
+  pull_request:
+    paths:
+      - 'src/content-render/scripts/all-documents/**'
+      - 'package*.json'
+      - .github/workflows/all-documents.yml
+
+permissions:
+  contents: read
+
+jobs:
+  all-documents-script:
+    if: github.repository == 'github/docs-internal'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run all-documents script
+        env:
+          NODE_ENV: production
+        run: |
+          echo "Help..."
+          npm run all-documents -- --help
+
+          echo ""
+          echo "Storing in a file (English only)"
+          npm run all-documents -- -o all-documents.json -l en
+
+          echo ""
+          echo "Look at the first 50 lines of the file..."
+          cat all-documents.json | jq | head -n 50
+
+          # We're essentially expecting it to not crash and fail.

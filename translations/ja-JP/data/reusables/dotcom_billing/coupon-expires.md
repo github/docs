@@ -1,1 +1,0 @@
-サブスクリプションの支払いにクーポンを使う場合、クーポンが期限切れになると、支払い方法にサブスクリプションのコストすべてが課金されます。 If you do not have a saved payment method, your account will be downgraded to {% data variables.product.prodname_free_user %} for personal accounts or {% data variables.product.prodname_free_team %} for organizations.

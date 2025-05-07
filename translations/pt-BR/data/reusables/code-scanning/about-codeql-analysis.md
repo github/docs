@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql %} é o mecanismo de análise de código desenvolvido por {% data variables.product.company_short %} para automatizar verificações de segurança. Você pode analisar seu código usando {% data variables.product.prodname_codeql %} e exibir os resultados como alertas de {% data variables.product.prodname_code_scanning %}.

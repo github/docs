@@ -1,1 +1,0 @@
-Si existe una regla de rama protegida en tu repositorio que requiera un historial de confirmaciones linear, debes permitir la fusión por combinación, por rebase, o ambas. Para obtener más información, consulta"[Acerca de las ramas protegidas](/github/administering-a-repository/about-protected-branches#require-pull-request-reviews-before-merging)".

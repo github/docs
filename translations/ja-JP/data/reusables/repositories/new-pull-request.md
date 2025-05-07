@@ -1,1 +1,0 @@
-1. Above the list of files, click {% octicon "git-pull-request" aria-label="The pull request icon" %} **Pull request**. ![ファイルのリスト上の"Pull request" リンク](/assets/images/help/pull_requests/pull-request-start-review-button.png)

@@ -1,1 +1,0 @@
-1. No lado direito da página, em "Selecione uma camada", reveja as camadas de patrocínio disponíveis. Se mais de um tipo de camada estiver disponível para camadas "Mensais", clique em **Única** para mostrar as camadas para pagamentos únicos. ![Exibir camadas "Únicas"](/assets/images/help/sponsors/show-one-time-tiers.png)

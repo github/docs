@@ -1,1 +1,0 @@
-Si un repositorio requiere verificaciones de estado, éstas deben pasar antes de que fusiones tu rama con la rama protegida. Para obtener más información, consulta la sección "[Acerca de las ramas protegidas](/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/about-protected-branches#require-status-checks-before-merging)".

@@ -1,12 +1,19 @@
 name: Close issue/PR on adding invalid label
 
+# **What it does**: This action closes invalid pull requests in the open-source repository.
+# **Why we have it**: We get lots of spam in the open-source repository.
+# **Who does it impact**: Open-source contributors.
+
 on:
   issues:
     types: [labeled]
+  # Needed in lieu of `pull_request` so that PRs from a fork can be
+  # closed when marked as invalid.
   pull_request_target:
     types: [labeled]
 
 permissions:
+  contents: read
   issues: write
   pull-requests: write
 
@@ -27,3 +34,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr close ${{ github.event.pull_request.html_url }}
+
+      - name: Check out repo
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request_target' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

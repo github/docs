@@ -1,1 +1,0 @@
-You can create default issue templates and a default configuration file for issue templates for your organization or personal account. Para obter mais informações, consulte "[Criando um arquivo padrão de integridade da comunidade](/communities/setting-up-your-project-for-healthy-contributions/creating-a-default-community-health-file)."

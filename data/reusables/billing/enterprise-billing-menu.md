@@ -1,0 +1,1 @@
+1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.{% endif %}

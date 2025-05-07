@@ -1,0 +1,6 @@
+# Reference: #9228
+# Public beta for repository rulesets.
+# Feature flag for enterprise-only features (metadata restrictions, setting rulesets at org level, ruleset insights)
+versions:
+  ghec: '*'
+  ghes: '>3.10'

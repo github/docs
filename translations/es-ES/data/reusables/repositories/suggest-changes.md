@@ -1,1 +1,0 @@
-1. Opcionalmente, para sugerir un cambio específico a la línea o líneas, haz clic en {% octicon "diff" aria-label="The diff symbol" %} y luego edita el texto dentro del bloque de sugerencias. ![Bloque de sugerencia](/assets/images/help/pull_requests/suggestion-block.png)

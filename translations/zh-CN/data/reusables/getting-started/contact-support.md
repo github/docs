@@ -1,1 +1,0 @@
-{% data variables.contact.github_support %} 可帮助您排除在使用 {% data variables.product.prodname_dotcom %} 时遇到的问题。 更多信息请参阅“[关于 {% data variables.contact.github_support %}](/github/working-with-github-support/about-github-support)”。

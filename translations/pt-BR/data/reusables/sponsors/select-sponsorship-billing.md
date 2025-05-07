@@ -1,1 +1,0 @@
-4. Em "Billing information" (Informações de cobrança), revise as informações do pagamento. Optionally, to change the payment details for your entire account on {% data variables.product.product_location %}, click **Edit**. Em seguida, siga as instruções para preencher o formulário de pagamento.

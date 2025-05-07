@@ -14,58 +14,58 @@ topics:
 shortTitle: Add a billing manager
 ---
 
-Members of your organization's Owners team can give *billing manager* permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
+Members of your organization's Owners team can give _billing manager_ permissions to people. Once a person accepts their invitation to become a billing manager for your organization, they can invite additional people to be billing managers.
 
-{% note %}
-
-**Note:** Billing managers do not use paid licenses in your organization's subscription.
-
-{% endnote %}
+> [!NOTE]
+> Billing managers do not use paid licenses in your organization's subscription.
 
 ## Permissions for billing managers
 
 Billing managers can:
 
-- Upgrade or downgrade the account
-- Add, update, or remove payment methods
-- View payment history
-- Download receipts
-- View, invite, and remove billing managers
-- Start, modify, or cancel sponsorships
+* Upgrade or downgrade between {% data variables.product.prodname_free_user %} and {% data variables.product.prodname_team %} plans
+* Add, update, or remove payment methods
+* View payment history
+* Download receipts
+* View, invite, and remove billing managers
+* Start, modify, or cancel sponsorships
 
 In addition, all billing managers will receive billing receipts by email on the organization's billing date.
 
 Billing managers **are not** able to:
 
-- Create or access repositories in your organizations
-- See private members of your organization
-- Be seen in the list of organization members
-- Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+* Upgrade to {% data variables.product.prodname_enterprise %} or downgrade an enterprise account
+* Create or access repositories in your organizations
+* See private members of your organization
+* Be seen in the list of organization members
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_marketplace %} apps
+* Purchase, edit, or cancel subscriptions for {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}
 
-{% tip %}
-
-**Tip:**  If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/articles/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
-
-{% endtip %}
+> [!TIP]
+> If your organization [requires members, billing managers, and outside collaborators to use two-factor authentication](/organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization), the user must enable two-factor authentication before they can accept your invitation to become a billing manager for the organization.
 
 ## Inviting a billing manager
 
-{% ifversion ghec %}
-{% note %}
+{% ifversion enhanced-billing-platform %}
 
-**Note:** If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see "[About enterprise accounts](/admin/overview/about-enterprise-accounts)."
+>[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the new billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the new billing platform.
+>
+> If you are on the new billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform#inviting-a-billing-manager).
 
-{% endnote %}
 {% endif %}
 
-The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a GitHub account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
+{% ifversion ghec %}
+
+If your organization is owned by an enterprise account, you cannot invite billing managers at the organization level. For more information, see [AUTOTITLE](/admin/overview/about-enterprise-accounts).
+
+{% endif %}
+
+The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
 {% data reusables.organizations.billing-settings %}
 1. Under "Billing management", next to "Billing managers", click **Add**.
-  ![Invite billing manager](/assets/images/help/billing/settings_billing_managers_list.png)
-6. Type the username or email address of the person you want to add and click **Send invitation**.
-  ![Invite billing manager page](/assets/images/help/billing/billing_manager_invite.png)
+1. Type the username or email address of the person you want to add and click **Send invitation**.
 
 ## Further reading
 
-- "[Inviting people to manage your enterprise](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)"{% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}

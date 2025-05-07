@@ -1,1 +1,0 @@
-1. Depois que você salvou seus códigos de recuperação e ativou o 2FA, recomendamos que você saia e entre de volta na sua conta. Em caso de problemas, como uma senha esquecida ou erro de digitação no seu endereço de e-mail, você pode usar os códigos de recuperação para acessar sua conta e corrigir o problema.

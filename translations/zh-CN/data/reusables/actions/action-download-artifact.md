@@ -1,1 +1,0 @@
-actions/download-artifact@{% if actions-node16-action %}v3{% else %}v2{% endif %}

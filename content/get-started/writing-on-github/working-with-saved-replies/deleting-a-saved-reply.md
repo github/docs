@@ -8,10 +8,9 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 ---
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.saved_replies %}
-3. Under "Saved replies", next to the saved reply you want to delete, click {% octicon "x" aria-label="The X" %}.  
-![Delete saved reply](/assets/images/help/settings/saved-replies-delete-existing.png)
+1. Under "Saved replies", next to the saved reply you want to delete, click {% octicon "x" aria-label="The X" %}.
+![Screenshot of {% data variables.product.github %} settings for "Saved replies." To the right of the "Ship squirrel" reply, a delete button with a red X is outlined in orange.](/assets/images/help/writing/saved-replies-delete-existing.png)

@@ -1,1 +1,0 @@
-2. プロンプトでライセンスファイルをアップロードし、管理コンソールのパスワードを設定してください。 For more information, see "[Managing your license for {% data variables.product.prodname_enterprise %}](/billing/managing-your-license-for-github-enterprise)."

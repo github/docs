@@ -1,1 +1,1 @@
-You only see this event in responses when project boards have been [enabled](/articles/disabling-project-boards-in-a-repository) in the repository.
+You only see this event in responses when {% data variables.projects.projects_v1_boards %} have been [enabled](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/disabling-project-boards-in-a-repository) in the repository.

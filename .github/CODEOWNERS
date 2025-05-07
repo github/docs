@@ -3,32 +3,15 @@
 # https://docs.github.com/articles/about-codeowners
 # https://git-scm.com/docs/gitignore
 
-# Engineering
-*.js @github/docs-engineering
-*.ts @github/docs-engineering
-*.tsx @github/docs-engineering
-/.github/ @github/docs-engineering
-/script/ @github/docs-engineering
-/includes/ @github/docs-engineering
-/lib/search/popular-pages.json @github/docs-engineering
-Dockerfile @github/docs-engineering
-package-lock.json @github/docs-engineering
-package.json @github/docs-engineering
-
-# Localization
-/.github/actions-scripts/create-translation-batch-pr.js @github/docs-localization
-/.github/workflows/create-translation-batch-pr.yml @github/docs-localization
-/.github/workflows/crowdin.yml @github/docs-localization
-/crowdin*.yml @github/docs-engineering @github/docs-localization
-/translations/ @github/docs-engineering @github/docs-localization @Octomerger
-/translations/log/ @github/docs-localization @Octomerger
-
 # Site Policy
 /content/site-policy/ @github/site-policy-admins
 
-# Content strategy
-/contributing/content-markup-reference.md @github/docs-content-strategy
-/contributing/content-style-guide.md @github/docs-content-strategy
-/contributing/content-model.md @github/docs-content-strategy
-/contributing/content-style-guide.md @github/docs-content-strategy
-/contributing/content-templates.md @github/docs-content-strategy
+# Enterprise
+/data/release-notes/**/*.yml @github/docs-content-enterprise
+src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
+
+# Requires review of #actions-oidc-integration, docs-engineering/issues/1506
+# content/actions/deployment/security-hardening-your-deployments/** @github/oidc
+
+# RAI - CELA
+data/reusables/rai/** @github/legal-product

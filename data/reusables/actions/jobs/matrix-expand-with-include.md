@@ -1,4 +1,4 @@
-For example, the following workflow will run six jobs, one for each combination of `os` and `node`. When the job for the `os` value of `windows-latest` and `node` value of `16` runs, an additional variable called `npm` with the value of `6` will be included in the job.
+For example, the following workflow will run four jobs, one for each combination of `os` and `node`. When the job for the `os` value of `windows-latest` and `node` value of `16` runs, an additional variable called `npm` with the value of `6` will be included in the job.
 
 ```yaml
 jobs:
@@ -6,7 +6,7 @@ jobs:
     strategy:
       matrix:
         os: [windows-latest, ubuntu-latest]
-        node: [12, 14, 16]
+        node: [14, 16]
         include:
           - os: windows-latest
             node: 16

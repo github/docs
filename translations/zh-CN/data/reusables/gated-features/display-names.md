@@ -1,1 +1,0 @@
-允许成员查看评论作者的个人资料名称可用于 {% data variables.product.prodname_team %}、{% data variables.product.prodname_ghe_server %} 2.18+、{% ifversion ghae %} {% data variables.product.prodname_ghe_managed %}、{% endif %} 和 {% data variables.product.prodname_ghe_cloud %}。 更多信息请参阅“[GitHub's products](/articles/githubs-products)”。

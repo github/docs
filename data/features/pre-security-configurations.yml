@@ -1,0 +1,3 @@
+# Reference: #13288 and #15768
+versions:
+  ghes: '>3.9 <3.15'

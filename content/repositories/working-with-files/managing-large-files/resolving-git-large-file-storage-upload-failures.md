@@ -8,7 +8,6 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 shortTitle: Resolve upload failures
 ---
@@ -17,11 +16,14 @@ The {% data variables.large_files.product_name_short %} integrity check ensures 
 To resolve the error message, you must reinstall your local {% data variables.large_files.product_name_short %} client to ensure that the referenced {% data variables.large_files.product_name_short %} files can be properly uploaded in the future.
 
 1. Open Terminal.
-2. Reinstall {% data variables.large_files.product_name_short %}.
-  ```shell
-  $ git lfs install
-  ```
-3. Push all referenced {% data variables.large_files.product_name_short %} files.
-  ```shell
-  $ git lfs push --all origin
-  ```
+1. Reinstall {% data variables.large_files.product_name_short %}.
+
+   ```shell
+   git lfs install
+   ```
+
+1. Push all referenced {% data variables.large_files.product_name_short %} files.
+
+   ```shell
+   git lfs push --all origin
+   ```

@@ -1,2 +1,0 @@
-1. 在文件列表上方，单击 {% octicon "download" aria-label="The download icon" %} ****Code（代码）。 !["代码"按钮](/assets/images/help/repository/code-button.png)
-1. 单击 {% octicon "desktop-download" aria-label="The GitHub Desktop download icon" %} **使用 {% data variables.product.prodname_desktop %}** 打开以使用 {% data variables.product.prodname_desktop %} 克隆并打开仓库。 !["使用 {% data variables.product.prodname_desktop %} 打开"按钮](/assets/images/help/repository/open-with-desktop.png)

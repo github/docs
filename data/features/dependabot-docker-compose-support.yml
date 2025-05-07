@@ -1,0 +1,6 @@
+# Reference: #16913
+# Docker compose support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.16'

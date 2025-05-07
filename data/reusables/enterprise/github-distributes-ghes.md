@@ -1,0 +1,1 @@
+{% data variables.product.company_short %} distributes {% data variables.product.prodname_ghe_server %} as a self-contained virtual appliance. After you provision a virtual machine and install the appliance, the instance runs a Linux operating system with a custom application stack.

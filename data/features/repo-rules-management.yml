@@ -1,0 +1,6 @@
+# Reference: #11915 and #16558
+# Ruleset management public preview and GA
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.17'

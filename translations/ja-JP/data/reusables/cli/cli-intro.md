@@ -1,1 +1,0 @@
-{% data variables.product.prodname_cli %} is a command-line tool that brings pull requests, issues, {% data variables.product.prodname_actions %}, and other {% data variables.product.product_name %} features to your terminal, so you can do all your work in one place.

@@ -1,1 +1,0 @@
-{% ifversion fpt or ghec %}如果您的应用程序与 GitHub Actions 一起使用，并且想要修改工作流程文件，则必须使用包含 `workflow` 作用域的 OAuth 令牌代表用户进行身份验证。 用户必须具有包含工作流程文件的仓库的管理员或写入权限。 更多信息请参阅“[了解 OAuth 应用程序的作用域](/apps/building-oauth-apps/understanding-scopes-for-oauth-apps/#available-scopes)”。{% endif %}

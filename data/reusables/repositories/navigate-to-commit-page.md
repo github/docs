@@ -1,2 +1,3 @@
-1. On the main page of the repository, click the commits to navigate to the commits page.
-   ![Screenshot of the repository main page with the commits emphasized](/assets/images/help/commits/commits-page.png) 
+1. On the main page of the repository, above the file list, click **{% octicon "history" aria-hidden="true" %} commits**.
+
+   ![Screenshot of the main page for a repository. A clock icon and "178 commits" is highlighted with an orange outline.](/assets/images/help/commits/commits-page.png)

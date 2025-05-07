@@ -1,1 +1,0 @@
-github/codeql-action/analyze@{% if actions-node16-action %}v2{% else %}v1{% endif %}

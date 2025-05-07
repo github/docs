@@ -1,0 +1,5 @@
+# Reference: #11773
+# 2FA account recovery from the password reset screen
+versions:
+  fpt: '*'
+  ghec: '*'

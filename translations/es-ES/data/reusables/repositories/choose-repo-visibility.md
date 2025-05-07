@@ -1,1 +1,0 @@
-1. Elige la visibilidad del repositorio. Para obtener más información, consulta la sección "[Acerca de los repositorios](/repositories/creating-and-managing-repositories/about-repositories#about-repository-visibility)". ![Botones radiales para seleccionar la visibilidad del repositorio](/assets/images/help/repository/create-repository-public-private.png)

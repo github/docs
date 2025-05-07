@@ -1,6 +1,1 @@
-{% ifversion fpt or ghec or ghes > 3.4 or ghae-issue-5658 %}
-3. In the "Archives" section of the  sidebar, click **{% octicon "log" aria-label="The log icon" %} Security log**.
-{% else  %}
-3. In the left sidebar, click **Audit log**.
-![Audit log tab](/assets/images/enterprise/site-admin-settings/audit-log-tab.png)
-{% endif %}
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" %} Security log**.

@@ -7,7 +7,6 @@ on:
   schedule:
     # * is a special character in YAML so you have to quote this string
     - cron:  '30 5,17 * * *'
-
 ```
 
 A single workflow can be triggered by multiple `schedule` events. You can access the schedule event that triggered the workflow through the `github.event.schedule` context. This example triggers the workflow to run at 5:30 UTC every Monday-Thursday, but skips the `Not on Monday or Wednesday` step on Monday and Wednesday.

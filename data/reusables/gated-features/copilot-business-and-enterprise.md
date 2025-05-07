@@ -1,0 +1,1 @@
+Organizations{% ifversion ghec %} and enterprises{% endif %} with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan.

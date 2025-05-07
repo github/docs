@@ -1,6 +1,6 @@
 ---
 title: Authorizing a personal access token for use with SAML single sign-on
-intro: 'To use a personal access token with an organization that uses SAML single sign-on (SSO), you must first authorize the token.'
+intro: 'To use a {% data variables.product.pat_v1 %} with an organization that uses SAML single sign-on (SSO), you must first authorize the token.'
 redirect_from:
   - /articles/authorizing-a-personal-access-token-for-use-with-a-saml-single-sign-on-organization
   - /articles/authorizing-a-personal-access-token-for-use-with-saml-single-sign-on
@@ -10,9 +10,9 @@ versions:
   ghec: '*'
 topics:
   - SSO
-shortTitle: PAT with SAML
+shortTitle: '{% data variables.product.pat_generic_caps %} with SAML'
 ---
-You can authorize an existing personal access token, or [create a new personal access token](/github/authenticating-to-github/creating-a-personal-access-token) and then authorize it.
+You must authorize your {% data variables.product.pat_v1 %} after creation before the token can access an organization that uses SAML single sign-on (SSO). For more information about creating a new {% data variables.product.pat_v1 %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). {% data variables.product.pat_v2_caps %}s are authorized during token creation, before access to the organization is granted.
 
 {% data reusables.saml.must-authorize-linked-identity %}
 
@@ -21,12 +21,13 @@ You can authorize an existing personal access token, or [create a new personal a
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
 {% data reusables.user-settings.personal_access_tokens %}
-3. Next to the token you'd like to authorize, click **Configure SSO**.
-   ![Screenshot of the dropdown menu to configure SSO for a personal access token](/assets/images/help/settings/sso-allowlist-button.png)
-4. To the right of the organization you'd like to authorize the token for, click **Authorize**.
-   ![Token authorize button](/assets/images/help/settings/token-authorize-button.png)
+1. Next to the token you'd like to authorize, click **Configure SSO**. {% data reusables.saml.authenticate-with-saml-at-least-once %}
+
+   ![Screenshot of a list entry for a {% data variables.product.pat_v1 %}. A dropdown menu, labeled "Configure SSO", is outlined in orange.](/assets/images/help/settings/sso-allowlist-button.png)
+
+1. In the dropdown menu, to the right of the organization you'd like to authorize the token for, click **Authorize**.
 
 ## Further reading
 
-- "[Creating a personal access token](/github/authenticating-to-github/creating-a-personal-access-token)"
-- "[About authentication with SAML single sign-on](/articles/about-authentication-with-saml-single-sign-on)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+* [AUTOTITLE](/authentication/authenticating-with-saml-single-sign-on/about-authentication-with-saml-single-sign-on)

@@ -1,1 +1,0 @@
-1. Na barra lateral esquerda, abaixo das informações de perfil do usuário, clique em **Bloquear ou Relatar**. ![Bloquear ou relatar o link](/assets/images/help/profile/profile-block-or-report-button.png)

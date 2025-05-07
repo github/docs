@@ -1,1 +1,0 @@
-1. 左のサイドバーで、**Enterprise{% ifversion ghes or ghae %} overview（Enterpriseの概要）{% endif %}**をクリックしてください。 ![Enterprise{% ifversion ghes or ghae %} overview{% endif %} tab in the Site admin settings](/assets/images/enterprise/site-admin-settings/enterprise-tab.png)

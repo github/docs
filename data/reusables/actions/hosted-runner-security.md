@@ -1,0 +1,1 @@
+If you are using a Fixed IP range, we recommend that you only use {% data variables.actions.hosted_runner %}s with private repositories. Forks of your repository can potentially run dangerous code on your {% data variables.actions.hosted_runner %} by creating a pull request that executes the code in a workflow.

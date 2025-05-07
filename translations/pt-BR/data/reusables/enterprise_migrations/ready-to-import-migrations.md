@@ -1,1 +1,0 @@
-1. Para preparar os dados de migração arquivados para fazer a importação para uma instância de {% data variables.product.prodname_ghe_server %}, consulte "[Preparar-se para migrar dados para a sua empresa](/enterprise/admin/user-management/preparing-to-migrate-data-to-your-enterprise)".

@@ -1,0 +1,6 @@
+# Reference: #13121
+# Docs for the Public Beta of the merge queue repository rule.
+
+versions:
+  ghec: '*'
+  ghes: '>=3.15'

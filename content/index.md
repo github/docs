@@ -1,24 +1,60 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/quickstart/set-up-git
-    - /github/authenticating-to-github/connecting-to-github-with-ssh
+    - /get-started/git-basics/set-up-git
+    - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
-    - /github/writing-on-github/basic-writing-and-formatting-syntax
+    - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
   popular:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
-    - /get-started/importing-your-projects-to-github/importing-source-code-to-github/adding-locally-hosted-code-to-github
-    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+    - /get-started/git-basics/managing-remote-repositories
     - /pages
-versions: '*'
+redirect_from:
+  - /github
+  - /articles
+  - /common-issues-and-questions
+  - /troubleshooting-common-issues
+  - /early-access/github/enforcing-best-practices-with-github-policies
+  - /github/enforcing-best-practices-with-github-policies/index
+  - /early-access/github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /github/enforcing-best-practices-with-github-policies/about-github-policies
+  - /early-access/github/enforcing-best-practices-with-github-policies/constraints
+  - /github/enforcing-best-practices-with-github-policies/constraints
+  - /early-access/github/enforcing-best-practices-with-github-policies/contexts
+  - /github/enforcing-best-practices-with-github-policies/contexts
+  - /early-access/github/enforcing-best-practices-with-github-policies/expressions
+  - /github/enforcing-best-practices-with-github-policies/expressions
+  - /early-access/github/enforcing-best-practices-with-github-policies/getting-started
+  - /early-access/github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /github/enforcing-best-practices-with-github-policies/github-policies-vision
+  - /early-access/github/enforcing-best-practices-with-github-policies/onboarding
+  - /github/enforcing-best-practices-with-github-policies/onboarding
+  - /early-access/github/enforcing-best-practices-with-github-policies/overview
+  - /github/enforcing-best-practices-with-github-policies/overview
+  - /early-access/github/enforcing-best-practices-with-github-policies/release-notes
+  - /github/enforcing-best-practices-with-github-policies/release-notes
+  - /early-access/github/enforcing-best-practices-with-github-policies/resources
+  - /github/enforcing-best-practices-with-github-policies/resources
+  - /early-access/github/enforcing-best-practices-with-github-policies/sharing
+  - /github/enforcing-best-practices-with-github-policies/sharing
+  - /early-access/github/enforcing-best-practices-with-github-policies/syntax
+  - /github/enforcing-best-practices-with-github-policies/syntax
+  - /site-policy/site-policy-deprecated/github-ae-data-protection-agreement
+  - /site-policy/site-policy-deprecated/github-ae-product-specific-terms
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 children:
+  - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
   - authentication
   - repositories
-  - github
   - admin
   - billing
   - site-policy
@@ -27,10 +63,13 @@ children:
   - pull-requests
   - issues
   - actions
+  - copilot
   - codespaces
+  - migrations
   - packages
   - search-github
-  - developers
+  - apps
+  - webhooks
   - rest
   - graphql
   - github-cli
@@ -42,11 +81,16 @@ children:
   - desktop
   - early-access
   - support
+  - video-transcripts
+  - contributing
+  - github-models
+  - nonprofit
 childGroups:
   - name: Get started
     octicon: RocketIcon
     children:
       - get-started
+      - migrations
       - account-and-profile
       - authentication
       - billing
@@ -58,6 +102,15 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+  - name: GitHub Copilot
+    octicon: CopilotIcon
+    children:
+      - copilot
+      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
+      - copilot/copilot-chat-cookbook
+      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -68,48 +121,64 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/secret-scanning
+      - code-security/supply-chain-security
+      - code-security/dependabot
+      - code-security/code-scanning
+      - code-security/security-advisories
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
       - github-cli
+      - get-started/using-github/github-mobile
       - desktop
   - name: Project management
     octicon: ProjectIcon
     children:
       - issues
+      - issues/planning-and-tracking-with-projects
       - search-github
-  - name: Developers
-    octicon: MarkGithubIcon
-    children:
-      - developers
-      - rest
-      - graphql
   - name: Enterprise and Teams
     octicon: OrganizationIcon
     children:
       - organizations
+      - code-security/securing-your-organization
+      - enterprise-onboarding
       - admin
+      - gh-wa
+  - name: Developers
+    octicon: CodeSquareIcon
+    children:
+      - apps
+      - rest
+      - graphql
+      - webhooks
+      - copilot/building-copilot-extensions
+      - github-models
   - name: Community
     octicon: GlobeIcon
     children:
       - communities
       - sponsors
       - education
+      - nonprofit
       - support
+      - contributing
+  - name: More docs
+    octicon: PencilIcon
+    children:
+      - codeql
+      - electron
+      - npm
 externalProducts:
-  atom:
-    id: atom
-    name: Atom
-    href: 'https://atom.io/docs'
-    external: true
   electron:
     id: electron
     name: Electron
-    href: 'https://electronjs.org/docs'
+    href: 'https://electronjs.org/docs/latest'
     external: true
   codeql:
     id: codeql
-    name: CodeQL
+    name: CodeQL query writing
     href: 'https://codeql.github.com/docs'
     external: true
   npm:
@@ -117,5 +186,9 @@ externalProducts:
     name: npm
     href: 'https://docs.npmjs.com/'
     external: true
+  gh-wa:
+    id: gh-wa
+    name: GitHub Well-Architected
+    href: 'https://wellarchitected.github.com/'
+    external: true
 ---
-

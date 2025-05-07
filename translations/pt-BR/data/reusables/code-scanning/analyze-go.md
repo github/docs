@@ -1,1 +1,0 @@
-{% data variables.product.prodname_codeql %} também executa uma criação para projetos Go para configurar o projeto. Entretanto, diferente das outras linguagens compiladas, todos os Go no repositório são extraídos, não apenas aqueles construídos. Você pode usar comandos de criação personalizados para ignorar arquivos de Go de extração que não são tocados pela compilação.

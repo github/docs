@@ -10,15 +10,14 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Integration
 children:
   - /about-integration-with-code-scanning
+  - /using-code-scanning-with-your-existing-ci-system
   - /uploading-a-sarif-file-to-github
   - /sarif-support-for-code-scanning
 ---
-

@@ -1,1 +1,0 @@
-4. "Content type（コンテントタイプ）"の下で、受信したいデータフォーマットを選択してください。 詳しい情報については「[webhookの作成](/webhooks/creating/#content-type)」を参照してください。 ![webhookのフォーマットのメニュー](/assets/images/help/sponsors/webhook-content-menu.png)

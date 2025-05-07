@@ -1,2 +1,1 @@
-1. In the left sidebar, click **Personal access tokens**.
-![Personal access tokens](/assets/images/help/settings/personal_access_tokens_tab.png)
+1. In the left sidebar, click **{% data variables.product.pat_generic_caps %}s**.

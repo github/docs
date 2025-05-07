@@ -1,1 +1,1 @@
-1. In the "Integrations" section of the sidebar, click **{% octicon "key" aria-label="The key icon" %} Third-party access**.
+1. In the "Third-party Access" section of the sidebar, click **{% octicon "person" aria-hidden="true" %} OAuth app policy**.

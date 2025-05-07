@@ -1,1 +1,0 @@
-1. Na parte superior da página, no menu "Próximo pagamento vencido", clique em **Ver histórico de pagamentos**. ![Link View payment history (Exibir histórico de pagamentos)](/assets/images/help/billing/view-payment-history-link.png)

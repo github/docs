@@ -1,1 +1,1 @@
-For information about the settings and properties that you can set in a `devcontainer.json` file, see "[devcontainer.json reference](https://aka.ms/vscode-remote/devcontainer.json)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+For information about the settings and properties that you can set in a `devcontainer.json` file, see the [Specification](https://containers.dev/implementors/spec) on the Development Containers website.

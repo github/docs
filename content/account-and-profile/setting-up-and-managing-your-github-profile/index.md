@@ -8,12 +8,11 @@ redirect_from:
 versions:
   fpt: '*'
   ghes: '*'
-  ghae: '*'
   ghec: '*'
 topics:
   - Profiles
 children:
   - /customizing-your-profile
-  - /managing-contribution-graphs-on-your-profile
+  - /managing-contribution-settings-on-your-profile
 ---
 

@@ -1,1 +1,0 @@
-1. 审查有您帐户访问权限的令牌。 对于那些您无法识别或过期的令牌，请单击 **{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}**，然后单击 **Revoke（撤销）**。 要撤销所有令牌，请单击 **Revoke all（全部撤销）**。 ![授权的 {% data variables.product.prodname_oauth_apps %}列表](/assets/images/help/settings/revoke-oauth-app.png)

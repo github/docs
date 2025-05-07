@@ -5,15 +5,20 @@ name: CodeQL analysis
 # **Who does it impact**: Docs engineering.
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
     paths:
       - '**/*.js'
+      - '**/*.ts'
+      - '**/*.jsx'
+      - '**/*.tsx'
       - '.github/workflows/codeql.yml'
+  # This is so that when CodeQL runs on a pull request, it can compare
+  # against the state of the base branch.
+  push:
+    branches:
+      - main
 
 permissions:
   actions: read
@@ -30,9 +35,15 @@ jobs:
     if: github.repository == 'github/docs-internal' || github.repository == 'github/docs'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@dcd71f646680f2efd8db4afa5ad64fdcba30e748
-      - uses: github/codeql-action/init@1ed1437484560351c5be56cf73a48a279d116b78
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+      - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         with:
-          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp} (not YET ruby, sorry!)
-      - uses: github/codeql-action/analyze@1ed1437484560351c5be56cf73a48a279d116b78
+          languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
+      - uses: github/codeql-action/analyze@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         continue-on-error: true
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'pull_request' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}

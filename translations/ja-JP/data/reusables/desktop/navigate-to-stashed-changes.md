@@ -1,1 +1,0 @@
-1. 変更が隠されているブランチにいない場合は、{% octicon "git-branch" aria-label="The branch icon" %}**Current Branch（現在のブランチ）**をクリックし、続いて隠された変更を持つブランチをクリックしてください。 ![リポジトリ内ブランチのリスト](/assets/images/help/desktop/click-branch-in-drop-down-mac.png)
