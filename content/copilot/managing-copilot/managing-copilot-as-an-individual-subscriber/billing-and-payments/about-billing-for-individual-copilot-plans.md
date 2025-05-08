@@ -49,9 +49,9 @@ You can cancel your {% data variables.product.prodname_copilot_short %} trial at
 
 ## About premium requests
 
-<!-- expires 2025-06-04 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-06-04 -->
+<!-- end expires 2025-05-08 -->
 
 Your {% data variables.product.prodname_copilot_short %} plan includes premium requests. Premium requests use more advanced models or features and count against your monthly premium request allowance.
 
@@ -64,7 +64,9 @@ If you use all of your premium requests, you can continue using {% data variable
 If you need more premium requests, you have two options:
 
 * Upgrade to a higher plan with a larger monthly premium request allowance.
-* Set a spending limit for premium requests over your plan's allowance. Additional premium requests beyond the limit of your Copilot plan are billed at {% data variables.copilot.additional_premium_requests %} per premium request. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
+* Enable optional overages to continue using premium models and capabilities beyond your included monthly limit.
+
+Overages are billed at {% data variables.copilot.additional_premium_requests %} per additional premium request, but you’ll only be charged if you’ve explicitly enabled overages in your account settings. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber#enabling-additional-usage-of-premium-requests).
 
 {% data reusables.copilot.premium-requests-mobile %}
 

@@ -22,21 +22,21 @@ To control spending, it's important to understand who can affect your bill by gr
 
 We recommend that you identify the people with this role and communicate with them about your company's strategy for distributing licenses. For example, you may have a budget or limited pilot program, or you may distribute licenses through an internal website.
 
-## Managing charges for premium requests
+## Manage charges for premium requests
 
-<!-- expires 2025-06-04 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-06-04 -->
+<!-- end expires 2025-05-08 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
-Premium requests over the allowance are rejected unless you have set a budget. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
+Premium requests over the allowance are rejected unless you have enabled additional premium requests. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
 
-Premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
+If you enable additional premium requests, premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
 
 For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
-### Managing budgets
+### Enable premium requests and manage budgets
 
 By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#editing-or-deleting-a-budget).
 
@@ -55,7 +55,7 @@ The default budget that is created applies to your whole enterprise. To set a ne
 {% endif %}
 1. Click **Budgets and alerts**.
 1. Click **New budget**.
-1. Under "Budget Type" select **SKU-level budget**.
+1. Under "Budget Type" select **SKU-level budget**.  
 1. Select the "Product" dropdown and click **Copilot**.
 1. Select the "SKU" dropdown and click **Copilot Premium Request**
 1. Under "Budget scope", set the scope of spending for this budget.
@@ -65,7 +65,10 @@ The default budget that is created applies to your whole enterprise. To set a ne
 ### Tracking premium requests
 
 <!-- expires 2025-05-19 -->
-{% data reusables.copilot.copilot-premium-requests-usage-report %}
+> [!IMPORTANT] Premium request reporting will be available to download starting on the following dates:
+>
+> * May 12, 2025: For self-service (credit card) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
+> * May 19, 2025: For sales-served (invoiced) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
 <!-- end expires 2025-05-19 -->
 
 You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:

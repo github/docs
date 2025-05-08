@@ -410,7 +410,7 @@ You can access {% data variables.product.prodname_copilot_short %}'s immersive v
 
 You can share {% data variables.product.prodname_copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
 
-Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
+Once you share a conversation, the recipient can view the conversation, and continue it from the point you shared it. Any changes made to the conversation after you share it are not included in the shared link.
 
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 1. To view a conversation in immersive mode, click **{% octicon "screen-full" aria-hidden="true" %} Immersive**.
