@@ -1,22 +1,4 @@
----
-title: Deploying PHP to Azure App Service
-intro: You can deploy your PHP project to Azure App Service as part of your continuous deployment (CD) workflows.
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-type: tutorial
-topics:
-  - CD
-  - Azure App Service
-redirect_from:
-  - /actions/deployment/deploying-to-your-cloud-provider/deploying-to-azure/deploying-php-to-azure-app-service
----
-
-{% data reusables.actions.enterprise-github-hosted-runners %}
-
-## Introduction
-
+***
 This guide explains how to use {% data variables.product.prodname_actions %} to build and deploy a PHP project to [Azure App Service](https://azure.microsoft.com/services/app-service/).
 
 > [!NOTE]
@@ -76,6 +58,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+![1000101407](https://github.com/user-attachments/assets/fce54d37-fb4b-4d76-a241-d5aea3aa463d)
 
     steps:
       - uses: {% data reusables.actions.action-checkout %}
@@ -144,4 +127,4 @@ The following resources may also be useful:
 
 * For the original workflow template, see [`azure-webapps-php.yml`](https://github.com/actions/starter-workflows/blob/main/deployments/azure-webapps-php.yml) in the {% data variables.product.prodname_actions %} `starter-workflows` repository.
 * The action used to deploy the web app is the official Azure [`Azure/webapps-deploy`](https://github.com/Azure/webapps-deploy) action.
-* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repository.
+* For more examples of GitHub Action workflows that deploy to Azure, see the [actions-workflow-samples](https://github.com/Azure/actions-workflow-samples) repositories
