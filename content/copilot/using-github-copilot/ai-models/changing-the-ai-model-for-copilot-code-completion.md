@@ -10,7 +10,7 @@ topics:
 
 ## Overview
 
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT-4o {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+By default, {% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
 
 <details>
   <summary>View the list of programming languages and technologies included in the training data.</summary>
