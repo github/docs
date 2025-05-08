@@ -70,7 +70,7 @@ People with read permissions to a repository can view the values of custom prope
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
 
-{% ifversion ghes > 3.14 %}
+{% ifversion ghec or fpt or ghes > 3.14 %}
 
 ## Searching and filtering repositories by custom properties values
 
