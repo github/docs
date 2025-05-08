@@ -9,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-type: how_to
+type: tutorial info
 topics:
   - Codespaces
   - Fundamentals
