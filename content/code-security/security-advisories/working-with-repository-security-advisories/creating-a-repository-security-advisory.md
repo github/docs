@@ -11,8 +11,8 @@ redirect_from:
   - /code-security/security-advisories/repository-security-advisories/creating-a-repository-security-advisory
 versions:
   fpt: '*'
-  ghec: '*'
-type: how_to
+  ghec: 'whatisthis'
+type: markdown
 topics:
   - Security advisories
   - Vulnerabilities
