@@ -1,0 +1,53 @@
+---
+title: Writing workflows
+shortTitle: Write workflows
+intro: '{% data variables.product.prodname_actions %} workflows can automate tasks throughout the software development lifecycle.'
+redirect_from:
+  - /actions/learn-github-actions
+  - /actions/using-workflows
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+children:
+  - /quickstart
+  - /about-workflows
+  - /using-workflow-templates
+  - /choosing-when-your-workflow-runs
+  - /choosing-where-your-workflow-runs
+  - /choosing-what-your-workflow-does
+  - /workflow-syntax-for-github-actions
+
+  - Writing workflows
+GitHub Actions workflows can automate tasks throughout the software development lifecycle.
+
+Quickstart for GitHub Actions
+About workflows
+Using workflow templates
+Choosing when your workflow runs
+Triggering a workflow
+Using conditions to control job execution
+Events that trigger workflows
+Choosing where your workflow runs
+Choosing the runner for a job
+Running jobs in a container
+Choosing what your workflow does
+Using jobs in a workflow
+Using pre-written building blocks in your workflow
+Using GitHub CLI in workflows
+Workflow commands for GitHub Actions
+Adding scripts to your workflow
+Controlling permissions for GITHUB_TOKEN
+Evaluate expressions in workflows and actions
+Store information in variables
+Accessing contextual information about workflow runs
+Passing information between jobs
+Setting a default shell and working directory
+Using environments for deployment
+Control the concurrency of workflows and jobs
+Running variations of jobs in a workflow
+Caching dependencies to speed up workflows
+Storing and sharing data from a workflow
+Workflow syntax for GitHub Actions
+---
+
