@@ -74,7 +74,7 @@ Using an **incognito or private browsing window**:
 
 To pay for licenses and services, you can use a credit card, PayPal, or a Microsoft Azure subscription.
 
-* To add a credit card or PayPal details, see [AUTOTITLE](/billing/using-the-new-billing-platform/managing-your-payment-and-billing-information#viewing-payment-information).
+* To add a credit card or PayPal details, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information#viewing-payment-information).
 * To link an Azure subscription, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription#connecting-your-azure-subscription-to-your-enterprise-account).
 
 ## 3. Migrate data

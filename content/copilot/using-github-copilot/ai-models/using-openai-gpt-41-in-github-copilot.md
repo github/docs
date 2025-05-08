@@ -11,8 +11,6 @@ topics:
 
 ## About OpenAI {% data variables.copilot.copilot_gpt_41 %} in {% data variables.product.prodname_copilot_chat %}
 
-{% data reusables.copilot.gpt-41-public-preview-note %}
-
 OpenAI has a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_gpt_41 %} is one of those models and excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. For information about the capabilities of {% data variables.copilot.copilot_gpt_41 %}, see the [OpenAI documentation](https://platform.openai.com/docs/models).
 
 {% data variables.copilot.copilot_gpt_41 %} is currently available in:

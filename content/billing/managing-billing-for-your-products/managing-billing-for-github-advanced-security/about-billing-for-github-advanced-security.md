@@ -1,6 +1,6 @@
 ---
 title: About billing for {% data variables.product.prodname_GHAS %}
-intro: '{% ifversion ghes = 3.12 %}Learn how the use of {% data variables.product.prodname_GHAS %} licenses is calculated.{% else %}Learn about the licensing models for {% data variables.product.prodname_AS %} products and how the use of {% data variables.product.prodname_GHAS_cs_and_sp %} licenses is calculated.{% endif %}'
+intro: 'Learn about the licensing models for {% data variables.product.prodname_AS %} products and how the use of {% data variables.product.prodname_GHAS_cs_and_sp %} licenses is calculated.'
 allowTitleToDifferFromFilename: true
 product: '{% data reusables.gated-features.ghas-billing %}'
 redirect_from:
@@ -46,8 +46,6 @@ You can make extra features available to users with a license for {% data variab
 
 {% endif %}
 
-{% ifversion metered-ghe-ghas %}
-
 ## Billing models for {% data variables.product.prodname_AS %} products
 
 Each active committer to at least one repository with an {% data variables.product.prodname_AS %} product enabled uses one license. A committer is considered active if one of their commits has been pushed to the repository within the last 90 days, regardless of when it was originally authored.
@@ -67,10 +65,6 @@ There are two different ways to pay for licenses.
   * Users must ask the sales team to set up billing.
   * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
-
-{% endif %}
-
-{% ifversion metered-ghe-ghas %}
 
 ## Managing committers and costs
 
@@ -97,15 +91,9 @@ You can control usage and costs with {% ifversion ghec %}cost centers, policies,
 If your enterprise uses {% data variables.product.prodname_AS %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_AS %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
 {% endif %}
 
-{% endif %}
-
-{% ifversion ghec or ghes > 3.12 %}
+{% ifversion ghec or ghes %}
 <!--Volume/Subscription billing for GHCS and GH SP is not available for GitHub Teams-->
 ### Volume/subscription billing
-
-{% elsif ghes < 3.13 %}
-<!--Volume/Subscription billing is the only option for GHES 3.12-->
-## License size
 
 {% endif %}
 
@@ -132,40 +120,11 @@ The number of unique, active committers who use {% data variables.product.prodna
 
 If there are no unique committers to a repository or organization, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_AS %} licenses. Disabling a product for that repository or organization would not free any licenses or lower your usage costs.
 
-{% ifversion fpt or ghec %}
-
-<!--GHES does not have a billing platform, it is either part of a hybrid GHEC/GHES instance where billing (metered or volume) is managed through the linked GHEC enterprise account, or it is a standalone GHES instance that uses a volume/subscription license.-->
-
-## Billing platforms
-
-In June 2024 {% data variables.product.github %} introduced a new billing platform to provide greater insight and control over the use of paid products. All {% data variables.enterprise.enterprise_or_org %}s are being migrated over to the new billing platform.
-
-### New billing platform
-
-{% ifversion fpt %}
-1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
-1. For **organizations**, click **Your organizations**, then next to the organization, click **Settings**.
-
-If your organization uses the new billing platform, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in the sidebar, see [AUTOTITLE](/billing/using-the-new-billing-platform).
-{% elsif ghec %}
-{% data reusables.enterprise-accounts.access-enterprise %}
-
-If your enterprise uses the new billing platform, there will be a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** tab, see [AUTOTITLE](/billing/using-the-new-billing-platform).
-{% endif %}
-
-### Original billing platform
-
-Each {% data variables.enterprise.enterprise_or_org %} on the original billing platform is contacted by {% data variables.product.github %} in advance of their migration to the new billing platform. If you have not been contacted yet, then you probably use the original billing platform, see [AUTOTITLE](/billing/using-the-billing-platform).
-
-{% endif %}
-
 ## Understanding usage
 
 Users can contribute to multiple repositories or organizations. Usage is measured across the whole {% data variables.enterprise.enterprise_or_org %} to ensure that each member uses one license regardless of how many repositories or organizations the user contributes to.
 
 When you enable or disable {% data variables.product.prodname_GH_cs_or_sp %} for one or more repositories, {% data variables.product.github %} displays an overview of how this will change your usage.
-
-{% ifversion metered-ghe-ghas %}
 
 * Metered billing, showing an increase or reduction in the number of active committers using licenses.
 * Volume/subscription billing, showing the number of licenses used or freed by unique active committers.
@@ -182,25 +141,10 @@ The following example timeline demonstrates how the active committer count for {
 | <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GH_cs_and_sp %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** | Billing increases to 59 committers, accounting for the 10 additional unique contributors. |
 | <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GH_cs_and_sp %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** | Billing for repository **X** continues until the end of the monthly billing cycle, but the overall billing count decreases to 20 committers for the next cycle. |
 
-{% else %}
-
-The following example timeline demonstrates how active committer count for {% data variables.product.prodname_AS %} could change over time in an enterprise. For each month, you will find events, along with the resulting committer count.
-
-| Date | Events during the month | Total committers |
-| :- | :- | -: |
-| <span style="white-space: nowrap;">April 15</span> | A member of your enterprise enables {% data variables.product.prodname_GHAS %} for repository **X**. Repository **X** has 50 committers over the past 90 days. | **50** |
-| <span style="white-space: nowrap;">May 1</span> | Developer **A** leaves the team working on repository **X**. Developer **A**'s contributions continue to count for 90 days. | **50** | **50** |
-| <span style="white-space: nowrap;">August 1</span> | Developer **A**'s contributions no longer count towards the licenses required, because 90 days have passed. | 50 - 1 =<br>**49** |
-| <span style="white-space: nowrap;">August 15</span> | A member of your enterprise enables {% data variables.product.prodname_GHAS %} for a second repository, repository **Y**. In the last 90 days, a total of 20 developers contributed to that repository. Of those 20 developers, 10 also recently worked on repo **X** and do not require additional licenses. | 49 + 10 =<br>**59** |
-| <span style="white-space: nowrap;">August 16</span> | A member of your enterprise disables {% data variables.product.prodname_GHAS %} for repository **X**. Of the 49 developers who were working on repository **X**, 10 still also work on repository **Y**, which has a total of 20 developers contributing in the last 90 days. | 49 - 29 =<br>**20** |
-
-{% endif %}
-
 ## Further reading
 
 * [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage)
-{%- ifversion metered-ghe-ghas %}{% ifversion ghec %}
+{% ifversion ghec %}
 * [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing){% elsif ghes %}
 * [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/managing-your-github-advanced-security-licensing) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
-* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/using-the-new-billing-platform/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}
-{% endif %}
+* {% ifversion fpt or ghec %}[AUTOTITLE](/billing/managing-your-billing/preventing-overspending){% elsif ghes %}[AUTOTITLE](/enterprise-cloud@latest/billing/managing-your-billing/preventing-overspending) in the documentation for {% data variables.product.prodname_ghe_cloud %}{% endif %}

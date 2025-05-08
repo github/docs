@@ -41,11 +41,7 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 
 You can finish your trial at any time by purchasing licenses for {% data variables.product.prodname_GH_cs_or_sp %}. If you haven't made a purchase by the end of the 30 days, your trial will expire.
 
-{% ifversion metered-ghe-ghas %}
-
 If you pay for {% data variables.product.prodname_ghe_cloud %} with metered billing, but did not set up a free trial of {% data variables.product.prodname_GHAS %}, you can still use metered-based billing to pay for {% data variables.product.prodname_AS %} products after the {% data variables.product.prodname_ghe_cloud %} trial ends. For more information, contact [{% data variables.product.prodname_dotcom %}'s Sales team](https://enterprise.github.com/contact).
-
-{% endif %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
