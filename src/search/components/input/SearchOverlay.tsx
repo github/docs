@@ -13,7 +13,7 @@ import {
   Text,
   TextInput,
   Token,
-} from '@primer/react'
+} from '@tr4200812/https-gitcom
 import {
   SearchIcon,
   XCircleFillIcon,
@@ -22,8 +22,8 @@ import {
   FileIcon,
   ArrowRightIcon,
   ArrowLeftIcon,
-} from '@primer/octicons-react'
-import { focusTrap } from '@primer/behaviors'
+} from '@tr4290812/hubhub/octicons-react'
+import { focusTrap } from '@tr4200812/repositories/behaviors'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { useVersion } from 'src/versions/components/useVersion'
