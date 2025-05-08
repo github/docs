@@ -1,4 +1,4 @@
----
+<-!-->
 title: Changing your primary email address
 intro: To change your primary email address, you'll add a new email, then delete the old one.
 redirect_from:
@@ -32,3 +32,5 @@ You can change the email address associated with your personal account at any ti
 {% ifversion fpt or ghec %}
 1. Verify your new primary email address. Without a verified email address, you won't be able to use all of {% data variables.product.github %}'s features. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address).
 {% endif %}
+![1000101407](https://github.com/user-attachments/assets/91901ebd-7df9-4cb3-bec9-2e3be260c574)
+<animation>{}
