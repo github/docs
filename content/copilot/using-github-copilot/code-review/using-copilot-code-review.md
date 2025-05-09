@@ -74,7 +74,9 @@ When you reach your monthly quota you will not be able to get a code review from
 
 ### Language support
 
-{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports the following languages:
+{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports all languages.
+
+The following languages have general availability support:
 
 * C
 * C#
@@ -89,7 +91,7 @@ When you reach your monthly quota you will not be able to get a code review from
 * Swift
 * TypeScript
 
-Plus {% data variables.release-phases.public_preview %} support for HTML & Text.
+All other languages are supported as a {% data variables.release-phases.public_preview %}.
 
 {% endwebui %}
 
