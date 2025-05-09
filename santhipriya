@@ -1,0 +1,97 @@
+import pandas as pd
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+# Sample movie dataset
+movies = pd.DataFrame({
+    'movieId': [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    'title': ['Inception', 'Interstellar', 'The Dark Knight', 'Parasite', 'Joker',
+              'The Shawshank Redemption', 'The Godfather', 'Pulp Fiction', 'Forrest Gump', 'The Lord of the Rings: The Return of the King'],
+    'genre': ['Sci-Fi', 'Sci-Fi', 'Action', 'Thriller', 'Drama',
+              'Drama', 'Crime', 'Crime', 'Drama', 'Fantasy']
+})
+
+# Sample user ratings
+ratings = pd.DataFrame({
+    'userId': [1, 2, 1, 2, 3, 1, 3, 2, 1, 3, 2, 3],
+    'movieId': [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 2, 3],  # Added more ratings for demonstration
+    'rating': [5, 4, 4, 5, 3, 5, 4, 5, 4, 3, 4, 5]
+})
+
+# 1. Collaborative Filtering (Matrix Factorization)
+reader = Reader(rating_scale=(1, 5))
+data = Dataset.load_from_df(ratings[['userId', 'movieId', 'rating']], reader)
+trainset, testset = train_test_split(data, test_size=0.25)  # Increased test size for better evaluation
+
+model = SVD()
+model.fit(trainset)
+
+# Evaluate the model (optional)
+predictions = model.test(testset)
+print(f"Collaborative Filtering RMSE: {accuracy.rmse(predictions)}")
+
+
+# 2. Content-Based Filtering
+tfidf = TfidfVectorizer(stop_words="english")
+movie_matrix = tfidf.fit_transform(movies["genre"])
+cosine_sim = cosine_similarity(movie_matrix)
+
+
+# 3. Hybrid Recommendation System
+def get_recommendations(user_id, top_n=5):
+    """
+    Gets movie recommendations for a user using a hybrid approach.
+
+    Args:
+        user_id (int): The ID of the user.
+        top_n (int, optional): The number of recommendations to return. Defaults to 5.
+
+    Returns:
+        list: A list of movie titles recommended for the user.
+    """
+
+    # 1. Get Collaborative Filtering Recommendations
+    # Get a list of movies the user has not rated
+    unrated_movies = movies[~movies['movieId'].isin(ratings[ratings['userId'] == user_id]['movieId'])]['movieId']
+
+    # Predict ratings for unrated movies
+    predicted_ratings = [model.predict(user_id, movie_id).est for movie_id in unrated_movies]
+
+    # Create a DataFrame with predicted ratings
+    cf_recs = pd.DataFrame({'movieId': unrated_movies, 'predicted_rating': predicted_ratings})
+    cf_recs = cf_recs.sort_values(by=['predicted_rating'], ascending=False).head(top_n)
+
+    # 2. Get Content-Based Recommendations (based on user's highest-rated movie)
+    # Find the user's highest-rated movie
+    user_ratings = ratings[ratings['userId'] == user_id]
+    highest_rated_movie_id = user_ratings.loc[user_ratings['rating'].idxmax(), 'movieId']
+    highest_rated_movie_title = movies[movies['movieId'] == highest_rated_movie_id]['title'].values[0]
+
+    # Get content-based recommendations for the highest-rated movie
+    cb_recs_titles = recommend_content(highest_rated_movie_title)
+    cb_recs = movies[movies['title'].isin(cb_recs_titles)]
+
+    # 3. Combine and Rank Recommendations
+    # Combine recommendations from both methods
+    all_recs = pd.concat([cf_recs, cb_recs]).drop_duplicates(subset=['movieId'])
+
+    # Rank recommendations by predicted rating (CF) or similarity (CB)
+    # You can adjust the ranking logic based on your preferences
+    # Here, we prioritize CF recommendations
+    final_recs = all_recs.sort_values(by=['predicted_rating'], ascending=False).head(top_n)
+
+    return final_recs['title'].tolist()
+
+
+# Content-Based Recommendation Function (unchanged)
+def recommend_content(movie_title):
+    index = movies[movies["title"] == movie_title].index[0]
+    similar_movies = list(enumerate(cosine_sim[index]))
+    sorted_movies = sorted(similar_movies, key=lambda x: x[1], reverse=True)[1:4]  # Get top 3 similar movies
+    return [movies.iloc[i[0]]["title"] for i in sorted_movies]
+
+
+# Example Usage
+user_id = 1
+recommendations = get_recommendations(user_id, top_n=5)
+print(f"Movie recommendations for user {user_id}: {recommendations}")
