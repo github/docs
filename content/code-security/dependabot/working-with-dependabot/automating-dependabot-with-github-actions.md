@@ -187,6 +187,9 @@ jobs:
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
+> [!NOTE]
+> This will not work if you use a [merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue) because status checks will [not run](https://docs.github.com/en/actions/security-for-github-actions/security-guides/automatic-token-authentication?utm_source=chatgpt.com#using-the-github_token-in-a-workflow).
+
 ## Investigating failed workflow runs
 
 If your workflow run fails, check the following:
