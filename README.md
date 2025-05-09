@@ -1,55 +1,53 @@
-# GitHub Docs <!-- omit in toc -->
-[![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
-
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
-
-GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
-
-Use the table of contents icon <img alt="Table of contents icon" src="./contributing/images/table-of-contents.png" width="25" height="25" /> on the top right corner of this document to navigate to a specific section quickly.
-
-## Contributing
-
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see [About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs).
-
-### Ways to contribute
-
-On the GitHub Docs site, you can contribute by clicking the **Make a contribution** button at the bottom of the page to open a pull request for quick fixes like typos, updates, or link fixes.
-
-You can also contribute by creating a local environment or opening a Codespace. For more information, see [Setting up your environment to work on GitHub Docs](https://docs.github.com/en/contributing/setting-up-your-environment-to-work-on-github-docs).
-
-<img alt="Contribution call-to-action" src="./contributing/images/contribution_cta.png" width="400">
-
-For more complex contributions, please open an issue using the most appropriate [issue template](https://github.com/github/docs/issues/new/choose) to describe the changes you'd like to see.
-
-If you're looking for a way to contribute, you can scan through our [help wanted board](https://github.com/github/docs/issues?q=is%3Aopen+is%3Aissue+label%3A%22help+wanted%22) to find open issues already approved for work.
-
-### And that's it!
-
-If you're having trouble with your GitHub account, contact [Support](https://support.github.com).
-
-That's how you can easily become a member of the GitHub Docs community. :sparkles:
-
-## READMEs
-
-In addition to the README you're reading right now, this repo includes other READMEs that describe the purpose of each subdirectory in more detail:
-
-- [content/README.md](content/README.md)
-- [content/graphql/README.md](content/graphql/README.md)
-- [content/rest/README.md](content/rest/README.md)
-- [contributing/README.md](contributing/README.md)
-- [data/README.md](data/README.md)
-- [data/reusables/README.md](data/reusables/README.md)
-- [data/variables/README.md](data/variables/README.md)
-- [src/README.md](src/README.md)
-
-## License
-
-The GitHub product documentation in the assets, content, and data folders are licensed under a [CC-BY license](LICENSE).
-
-All other code in this repository is licensed under the [MIT license](LICENSE-CODE).
-
-When using the GitHub logos, be sure to follow the [GitHub logo guidelines](https://github.com/logos).
-
-## Thanks :purple_heart:
-
-Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+aplikasi game trivia Android tentang Paulus Sura. Berikut adalah desain awal yang bisa kita kembangkan lebih lanjut:
+Nama Aplikasi: Trivia Paulus Sura
+Konsep Game:
+ * Pemain akan menjawab pertanyaan-pertanyaan trivia seputar kehidupan, pelayanan, dan ajaran Paulus Sura (Rasul Paulus dalam Alkitab).
+ * Game dapat memiliki berbagai level kesulitan dan kategori pertanyaan.
+ * Pemain akan mendapatkan poin untuk setiap jawaban yang benar dan dapat bersaing dengan pemain lain melalui papan peringkat (opsional).
+Fitur Utama:
+ * Kumpulan Pertanyaan Trivia:
+   * Berisi ratusan atau bahkan ribuan pertanyaan trivia yang mencakup berbagai aspek tentang Paulus Sura.
+   * Pertanyaan dikategorikan berdasarkan topik (misalnya, perjalanan misionaris, surat-surat Paulus, tokoh-tokoh terkait, teologi Paulus).
+   * Tingkat kesulitan pertanyaan yang bervariasi (mudah, sedang, sulit).
+ * Mode Permainan:
+   * Mode Klasik: Pemain menjawab serangkaian pertanyaan tanpa batasan waktu, fokus pada akurasi.
+   * Mode Waktu Terbatas: Pemain harus menjawab pertanyaan secepat mungkin dalam batas waktu tertentu.
+   * Mode Bertahan Hidup: Pemain memiliki sejumlah "nyawa" dan akan kehilangan satu nyawa untuk setiap jawaban yang salah. Game berakhir ketika semua nyawa habis.
+   * Mode Tantangan Harian: Set pertanyaan baru setiap hari untuk menjaga pemain tetap terlibat.
+ * Sistem Poin dan Skor:
+   * Pemain mendapatkan poin untuk setiap jawaban yang benar.
+   * Jumlah poin yang didapatkan dapat bervariasi berdasarkan tingkat kesulitan pertanyaan dan kecepatan menjawab (dalam mode waktu terbatas).
+   * Skor tertinggi pemain akan disimpan.
+ * Papan Peringkat (Opsional):
+   * Pemain dapat melihat peringkat mereka dibandingkan dengan pemain lain secara global atau lokal.
+   * Memungkinkan pemain untuk terhubung dengan akun media sosial (opsional).
+ * Bantuan dan Petunjuk:
+   * Pemain dapat menggunakan "petunjuk" untuk membantu menjawab pertanyaan (misalnya, menghilangkan pilihan jawaban yang salah, melihat petunjuk singkat).
+   * Jumlah petunjuk yang tersedia terbatas dan dapat diperoleh kembali melalui pencapaian tertentu atau pembelian dalam aplikasi (opsional).
+ * Desain Antarmuka Pengguna (UI) yang Menarik:
+   * Tampilan yang bersih, intuitif, dan mudah dinavigasi.
+   * Penggunaan warna dan grafis yang menarik dan relevan.
+   * Animasi dan efek suara untuk memberikan pengalaman bermain yang lebih hidup.
+ * Profil Pemain:
+   * Pemain dapat membuat profil dengan nama pengguna dan foto profil (opsional).
+   * Menyimpan statistik permainan pemain (jumlah game dimainkan, jawaban benar, skor tertinggi, dll.).
+ * Pembelajaran dan Informasi Tambahan:
+   * Setelah menjawab pertanyaan (benar atau salah), pemain dapat melihat penjelasan singkat atau kutipan ayat Alkitab yang relevan.
+   * Tautan ke sumber informasi lebih lanjut (misalnya, artikel Alkitab online).
+Teknologi yang Mungkin Digunakan:
+ * Bahasa Pemrograman: Java atau Kotlin (untuk pengembangan Android natif), atau framework lintas platform seperti Flutter atau React Native.
+ * Database: SQLite (untuk penyimpanan data lokal), atau Firebase/Backend lainnya (untuk papan peringkat dan fitur online).
+ * Library/SDK: Bergantung pada fitur tambahan yang ingin diimplementasikan (misalnya, untuk iklan, analitik, integrasi media sosial).
+Potensi Pengembangan Lebih Lanjut:
+ * Mode Multiplayer: Pemain dapat bermain trivia secara langsung dengan teman atau pemain lain secara online.
+ * Tantangan Spesifik: Tantangan dengan tema tertentu (misalnya, trivia tentang surat Roma, perjalanan ke Efesus).
+ * Kustomisasi: Pemain dapat memilih kategori pertanyaan yang ingin mereka mainkan.
+ * Integrasi Media Sosial: Memungkinkan pemain untuk berbagi skor dan pencapaian mereka.
+ * Fitur Edukasi Tambahan: Informasi biografis tentang Paulus Sura, peta perjalanan misionaris, dll.
+Langkah Selanjutnya:
+ * Pengumpulan Konten: Menyusun daftar pertanyaan trivia yang komprehensif dan akurat.
+ * Desain UI/UX: Membuat desain visual dan alur pengguna aplikasi.
+ * Pengembangan Aplikasi: Membangun aplikasi menggunakan teknologi yang dipilih.
+ * Pengujian: Melakukan pengujian menyeluruh untuk memastikan aplikasi berjalan dengan baik dan bebas dari bug.
+ * Publikasi: Menerbitkan aplikasi di Google Play Store.
+Apakah ada aspek tertentu dari desain ini yang ingin Anda fokuskan atau kembangkan lebih lanjut? Misalnya, apakah Anda memiliki ide spesifik untuk kategori pertanyaan atau fitur tambahan?
