@@ -18,7 +18,7 @@ OpenAI has a family of large language models that you can use as an alternative 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
-{% data variables.copilot.copilot_gpt_41 %} is hosted by OpenAI and GitHub's Azure tenant when used in {% data variables.product.prodname_copilot %}. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. GitHub maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
+{% data variables.copilot.copilot_gpt_41 %} is hosted by GitHub's Azure tenant when used in {% data variables.product.prodname_copilot %}.
 
 When using {% data variables.copilot.copilot_gpt_41 %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful, offensive, or off-topic content.
 
