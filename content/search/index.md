@@ -1,6 +1,6 @@
 ---
-title: Search
-hidden: true
+title: 
+hidden:
 versions:
   fpt: '*'
   ghec: '*'
