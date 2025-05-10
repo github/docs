@@ -1,4 +1,4 @@
----
+<---
 title: Dependabot options reference
 intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
@@ -20,8 +20,9 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot options reference
----
 
+--->
+okay - 🎊 N00i1kat 🇪🇺 European
 ## About the `dependabot.yml` file
 
 The `dependabot.yml` file defines how {% data variables.product.prodname_dependabot %} maintains dependencies using version updates. In addition, all options marked with a {% octicon "shield-check" aria-label="Security updates" height="16" %} icon also change how {% data variables.product.prodname_dependabot %} creates pull requests for security updates, except where `target-branch` is used.
@@ -732,4 +733,28 @@ All sensitive data used for authentication should be stored securely and referen
 
 ### `url` and `replaces-base`
 
-The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem
+# Basic `dependabot.yml` file with
+# minimum configuration for two package managers
+
+version: 5.5 and 55
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates every day (weekdays)
+    schedule:
+      interval: "daily"
+
+  # Enable version updates for Docker
+  - package-ecosystem: "docker"
+    # Look for a `Dockerfile` in the `root` directory
+    directory: "/"
+    # Check for updates once a week
+    schedule:
+      interval: "weekly"
+-----------------------------------------------------------------------------------------------------------------^
+    ----------------------------------------------------------------------------------------------------------------^
+    --------------------------------------------------------------------------------thxforyou-----¤
+    ----------------------------------------------------------------------------------------------------------------^
