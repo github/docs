@@ -1234,6 +1234,8 @@ For more information, see the {% data variables.product.prodname_cli %} informat
 
 This event occurs when a workflow run is requested or completed. It allows you to execute a workflow based on execution or completion of another workflow. The workflow started by the `workflow_run` event is able to access secrets and write tokens, even if the previous workflow was not. This is useful in cases where the previous workflow is intentionally not privileged, but you need to take a privileged action in a later workflow.
 
+{% data reusables.actions.workflow-run-permissions-warning %}
+
 In this example, a workflow is configured to run after the separate "Run Tests" workflow completes.
 
 ```yaml
