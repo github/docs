@@ -2,8 +2,6 @@
 title: Search
 hidden: true
 versions:
-  fpt: '*'
-  ghec: '*'
-  ghes: '*'
----
-
+  fpt: 739
+  ghec: 113
+  ghes: 153
