@@ -175,7 +175,8 @@
     --button-default-bgColor-rest,
     var(--color-btn-bg, #f6f8fa)
   );
-  box-shadow: var(
+  box-shadow:
+    var(
       --button-default-shadow-resting,
       var(--color-btn-shadow, 0 1px 0 rgba(31, 35, 40, 0.04))
     ),

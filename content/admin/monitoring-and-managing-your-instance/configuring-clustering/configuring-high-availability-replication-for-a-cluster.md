@@ -43,8 +43,6 @@ You must assign a static IP address to each new node that you provision, and you
 
 ## Creating a high availability replica for a cluster
 
-{% ifversion cluster-ha-tooling-improvements %}
-
 To create a high availability replica for your cluster, use the `ghe-cluster-repl-bootstrap` utility, then complete the follow-up tasks that the tool details.
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
@@ -60,248 +58,6 @@ To create a high availability replica for your cluster, use the `ghe-cluster-rep
    ```
 
 1. After the utility runs, you will see output with further instructions. To finish the configuration, complete the tasks listed in the output.
-
-{% else %}
-
-To create a high availability replica for your cluster, you must complete the following tasks. You can also review an example configuration.
-
-1. [Assign active nodes to the primary datacenter](#1-assign-active-nodes-to-the-primary-datacenter).
-1. [Add replica nodes to the cluster configuration file](#2-add-replica-nodes-to-the-cluster-configuration-file).
-1. [Review an example configuration](#3-review-an-example-configuration).
-
-### 1. Assign active nodes to the primary datacenter
-
-Before you define a secondary datacenter for your replica nodes, ensure that you assign your active nodes to the primary datacenter.
-
-{% data reusables.enterprise_clustering.ssh-to-a-node %}
-{% data reusables.enterprise_clustering.open-configuration-file %}
-1. Note the name of your cluster's primary datacenter. The `[cluster]` section at the top of the cluster configuration file defines the primary datacenter's name, using the `primary-datacenter` key-value pair.
-
-    ```text
-    [cluster]
-      mysql-master = HOSTNAME
-      redis-master = HOSTNAME
-      primary-datacenter = primary
-    ```
-
-    * Optionally, change the name of the primary datacenter to something more descriptive or accurate by editing the value of `primary-datacenter`.
-
-1. {% data reusables.enterprise_clustering.configuration-file-heading %} Under each node's heading, add a new key-value pair to assign the node to a datacenter. Use the same value as `primary-datacenter` from step 3 above. For example, if you want to use the default name (`default`), add the following key-value pair to the section for each node.
-
-    ```text
-    datacenter = primary
-    ```
-
-    When you're done, the section for each node in the cluster configuration file should look like the following example. {% data reusables.enterprise_clustering.key-value-pair-order-irrelevant %}
-
-    ```text
-    [cluster "HOSTNAME"]
-      datacenter = default
-      hostname = HOSTNAME
-      ipv4 = IP-ADDRESS
-      ...
-    ...
-    ```
-
-    > [!NOTE]
-    > If you changed the name of the primary datacenter in step 3, find the `consul-datacenter` key-value pair in the section for each node and change the value to the renamed primary datacenter. For example, if you named the primary datacenter `primary`, use the following key-value pair for each node.
-    >
-    > ```text
-    > consul-datacenter = primary
-    > ```
-
-{% data reusables.enterprise_clustering.apply-configuration %}
-{% data reusables.enterprise_clustering.configuration-finished %}
-
-After {% data variables.product.prodname_ghe_server %} returns you to the prompt, you've finished assigning your nodes to the cluster's primary datacenter.
-
-### 2. Add replica nodes to the cluster configuration file
-
-To configure high availability, you must define a corresponding replica node for every active node in your cluster. To create a new cluster configuration that defines both active and replica nodes, you'll complete the following tasks.
-
-* Create a copy of the active cluster configuration file.
-* Edit the copy to define replica nodes that correspond to the active nodes, adding the IP addresses of the new virtual machines that you provisioned.
-* Merge the modified copy of the cluster configuration back into your active configuration.
-* Apply the new configuration to start replication.
-
-For an example configuration, see [Review an example configuration](#3-review-an-example-configuration).
-
-1. For each node in your cluster, provision a matching virtual machine with identical specifications, running the same version of {% data variables.product.prodname_ghe_server %}. Note the IPv4 address and hostname for each new cluster node. For more information, see [Prerequisites](#prerequisites).
-
-    > [!NOTE]
-    > If you're reconfiguring high availability after a failover, you can use the old nodes from the primary datacenter instead.
-
-{% data reusables.enterprise_clustering.ssh-to-a-node %}
-1. Back up your existing cluster configuration.
-
-    ```shell
-    cp /data/user/common/cluster.conf ~/$(date +%Y-%m-%d)-cluster.conf.backup
-    ```
-
-1. Create a copy of your existing cluster configuration file in a temporary location, like `/home/admin/cluster-replica.conf`.
-
-    ```shell
-    grep -Ev "(?:|ipv|uuid)" /data/user/common/cluster.conf > ~/cluster-replica.conf
-    ```
-
-1. Remove the `[cluster]` section from the temporary cluster configuration file that you copied in the previous step.
-
-    ```shell
-    git config -f ~/cluster-replica.conf --remove-section cluster
-    ```
-
-1. Decide on a name for the secondary datacenter where you provisioned your replica nodes, then update the temporary cluster configuration file with the new datacenter name. Replace `SECONDARY` with the name you choose.
-
-    ```shell
-    sed -i 's/datacenter = default/datacenter = SECONDARY/g' ~/cluster-replica.conf
-    ```
-
-1. Decide on a pattern for the replica nodes' hostnames.
-
-    > [!WARNING]
-    > Hostnames for replica nodes must be unique and differ from the hostname for the corresponding active node.
-
-1. Open the temporary cluster configuration file from step 3 in a text editor. For example, you can use Vim.
-
-    ```shell
-    sudo vim ~/cluster-replica.conf
-    ```
-
-1. In each section within the temporary cluster configuration file, update the node's configuration. {% data reusables.enterprise_clustering.configuration-file-heading %}
-
-    * Change the quoted hostname in the section heading and the value for `hostname` within the section to the replica node's hostname, per the pattern you chose in step 7 above.
-    * Add a new key named `ipv4`, and set the value to the replica node's static IPv4 address.
-    * Add a new key-value pair, `replica = enabled`.
-
-    ```shell
-    [cluster "NEW REPLICA NODE HOSTNAME"]
-      ...
-      hostname = NEW REPLICA NODE HOSTNAME
-      ipv4 = NEW REPLICA NODE IPV4 ADDRESS
-      replica = enabled
-      ...
-    ...
-    ```
-
-1. Append the contents of the temporary cluster configuration file that you created in step 4 to the active configuration file.
-
-    ```shell
-    cat ~/cluster-replica.conf >> /data/user/common/cluster.conf
-    ```
-
-1. Designate the primary MySQL and Redis nodes in the secondary datacenter. Replace `REPLICA MYSQL PRIMARY HOSTNAME` and `REPLICA REDIS PRIMARY HOSTNAME` with the hostnames of the replica node that you provisioned to match your existing MySQL and Redis primaries.
-
-    ```shell
-    git config -f /data/user/common/cluster.conf cluster.mysql-master-replica REPLICA-MYSQL-PRIMARY-HOSTNAME
-    git config -f /data/user/common/cluster.conf cluster.redis-master-replica REPLICA-REDIS-PRIMARY-HOSTNAME
-    ```
-
-    > [!WARNING]
-    > Review your cluster configuration file before proceeding.
-    >
-    > * In the top-level `[cluster]` section, ensure that the values for `mysql-master-replica` and `redis-master-replica` are the correct hostnames for the replica nodes in the secondary datacenter that will serve as the MySQL and Redis primaries after a failover.
-    > * In each section for an active node named <code>[cluster "ACTIVE NODE HOSTNAME"]</code>, double-check the following key-value pairs.
-    >   * `datacenter` should match the value of `primary-datacenter` in the top-level `[cluster]` section.
-    >   * `consul-datacenter` should match the value of `datacenter`, which should be the same as the value for `primary-datacenter` in the top-level `[cluster]` section.
-    > * Ensure that for each active node, the configuration has **one** corresponding section for **one** replica node with the same roles. In each section for a replica node, double-check each key-value pair.
-    >   * `datacenter` should match all other replica nodes.
-    >   * `consul-datacenter` should match all other replica nodes.
-    >   * `hostname` should match the hostname in the section heading.
-    >   * `ipv4` should match the node's unique, static IPv4 address.
-    >   * `replica` should be configured as `enabled`.
-    > * Take the opportunity to remove sections for offline nodes that are no longer in use.
-    >
-    > To review an example configuration, see [Review an example configuration](#3-review-an-example-configuration).
-
-1. Initialize the new cluster configuration. {% data reusables.enterprise.use-a-multiplexer %}
-
-    ```shell
-    ghe-cluster-config-init
-    ```
-
-1. After the initialization finishes, {% data variables.product.prodname_ghe_server %} displays the following message.
-
-    ```shell
-    Finished cluster initialization
-    ```
-
-{% data reusables.enterprise_clustering.apply-configuration %}
-1. After the configuration run finishes, verify that cluster replication is correctly set up and working.
-
-    ```shell
-    ghe-cluster-repl-status
-    ```
-
-{% data reusables.enterprise_clustering.configuration-finished %}
-1. Configure a load balancer that will accept connections from users after you fail over to the replica nodes. For more information, see [AUTOTITLE](/enterprise/admin/enterprise-management/cluster-network-configuration#configuring-a-load-balancer).
-
-You've finished configuring high availability replication for the nodes in your cluster. Each active node begins replicating configuration and data to its corresponding replica node, and you can direct traffic to the load balancer for the secondary datacenter in the event of a failure. For more information about failing over, see [AUTOTITLE](/enterprise/admin/enterprise-management/initiating-a-failover-to-your-replica-cluster).
-
-### 3. Review an example configuration
-
-The top-level `[cluster]` configuration should look like the following example.
-
-```shell
-[cluster]
-  mysql-master = HOSTNAME-OF-ACTIVE-MYSQL-MASTER
-  redis-master = HOSTNAME-OF-ACTIVE-REDIS-MASTER
-  primary-datacenter = PRIMARY-DATACENTER-NAME
-  mysql-master-replica = HOSTNAME-OF-REPLICA-MYSQL-MASTER
-  redis-master-replica = HOSTNAME-OF-REPLICA-REDIS-MASTER
-  mysql-auto-failover = false
-...
-```
-
-The configuration for an active node in your cluster's storage tier should look like the following example.
-
-```shell
-...
-[cluster "UNIQUE ACTIVE NODE HOSTNAME"]
-  datacenter = default
-  hostname = UNIQUE-ACTIVE-NODE-HOSTNAME
-  ipv4 = IPV4-ADDRESS
-  consul-datacenter = default
-  consul-server = true
-  git-server = true
-  pages-server = true
-  mysql-server = true
-  elasticsearch-server = true
-  redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-  uuid = UUID SET AUTOMATICALLY
-...
-```
-
-The configuration for the corresponding replica node in the storage tier should look like the following example.
-
-* Important differences from the corresponding active node are **bold**.
-* {% data variables.product.prodname_ghe_server %} assigns the value for `uuid` automatically, so you shouldn't define this value for replica nodes that you will initialize.
-* The server roles, defined by `*-server` keys, match the corresponding active node.
-
-```shell
-...
-[cluster "UNIQUE REPLICA NODE HOSTNAME"]
-  replica = enabled
-  ipv4 = IPV4 ADDRESS OF NEW VM WITH IDENTICAL RESOURCES
-  datacenter = SECONDARY DATACENTER NAME
-  hostname = UNIQUE REPLICA NODE HOSTNAME
-  consul-datacenter = SECONDARY DATACENTER NAME
-  consul-server = true
-  git-server = true
-  pages-server = true
-  mysql-server = true
-  elasticsearch-server = true
-  redis-server = true
-  memcache-server = true
-  metrics-server = true
-  storage-server = true
-  uuid = DO NOT DEFINE
-...
-```
-
-{% endif %}
 
 ## Monitoring replication between active and replica cluster nodes
 
@@ -330,9 +86,7 @@ If you use the original active nodes, after reconfiguring high availability, you
 
 ## Disabling high availability replication for a cluster
 
-You can stop replication to the replica nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %}{% ifversion cluster-ha-tooling-improvements %} using the `ghe-cluster-repl-teardown` utility. Alternatively, you can manually disable replication.{% else %}.{% endif %}
-
-{% ifversion cluster-ha-tooling-improvements %}
+You can stop replication to the replica nodes for your cluster deployment of {% data variables.product.prodname_ghe_server %} using the `ghe-cluster-repl-teardown` utility. Alternatively, you can manually disable replication.
 
 ### Disabling replication using `ghe-cluster-repl-teardown`
 
@@ -346,8 +100,6 @@ You can stop replication to the replica nodes for your cluster deployment of {% 
 {% data reusables.enterprise_clustering.configuration-finished %}
 
 ### Manually disabling replication
-
-{% endif %}
 
 {% data reusables.enterprise_clustering.ssh-to-a-node %}
 {% data reusables.enterprise_clustering.open-configuration-file %}

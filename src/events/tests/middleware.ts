@@ -6,7 +6,6 @@ describe('POST /events', () => {
   vi.setConfig({ testTimeout: 60 * 1000 })
 
   async function checkEvent(data: any) {
-    // if data is not an array, make it one
     if (!Array.isArray(data)) {
       data = [data]
     }
@@ -42,6 +41,7 @@ describe('POST /events', () => {
       os_version: '18.04',
       browser: 'chrome',
       browser_version: '85.0.4183.121',
+      is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
 
@@ -73,6 +73,7 @@ describe('POST /events', () => {
       os_version: '18.04',
       browser: 'chrome',
       browser_version: '85.0.4183.121',
+      is_headless: false,
       viewport_width: 1418,
       viewport_height: 501,
 
@@ -89,9 +90,9 @@ describe('POST /events', () => {
   })
 
   test('should require a type', async () => {
-    const { statusCode, body } = await checkEvent({ ...pageExample, type: undefined })
-    expect(statusCode).toBe(400)
-    expect(body).toContain('"error":"Invalid type"}')
+    const { statusCode } = await checkEvent({ ...pageExample, type: undefined })
+    // should skip events with no type
+    expect(statusCode).toBe(200)
   })
 
   test('should require an event_id in uuid', async () => {

@@ -276,7 +276,7 @@ Use to ignore specific versions or ranges of versions. If you want to define a r
 
 * npm: use `^1.0.0` <!-- markdownlint-disable-line GHD034 -->
 * Bundler: use `~> 2.0`
-* Docker: use Ruby version syntax
+* Docker: use Bundler version syntax
 * NuGet: use `7.*`
 * Maven: use `[1.4,)`
 
@@ -372,9 +372,7 @@ Package manager | YAML value      | Supported versions |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
-| {% ifversion dependabot-version-updates-devcontainer-support %} |
 | Dev containers | `devcontainers`         | Not applicable               |
-| {% endif %} |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
@@ -393,7 +391,7 @@ Package manager | YAML value      | Supported versions |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
 | npm            | `npm`            |  v7, v8, v9   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} |
+| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
@@ -482,19 +480,24 @@ Reviewers must have at least read access to the repository.
 | `interval` | **Required.** Defines the frequency for {% data variables.product.prodname_dependabot %}. |
 | `day` | Specify the day to run for a **weekly** interval. |
 | `time` | Specify the time to run. |
+| `cronjob` | Defines the cron expression if the interval type is `cron`. |
 | `timezone` | Specify the timezone of the `time` value.  |
 
 ### `interval`
 
-Supported values: `daily`, `weekly`, or `monthly`
+Supported values: `daily`, `weekly`, `monthly`, `quarterly`, `semiannually`, `yearly`, or `cron`
 
 Each package manager **must** define a schedule interval.
 
 * Use `daily` to run on every weekday, Monday to Friday.
 * Use `weekly` to run once a week, by default on Monday.
 * Use `monthly` to run on the first day of each month.
+* Use `quarterly` to run on the first day of each quarter (January, April, July, and October).
+* Use `semiannually` to run every six months, on the first day of January and July.
+* Use `yearly` to run on the first day of January.
+* Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
 
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -507,6 +510,40 @@ Optionally, run **weekly** updates for a package manager on a specific day of th
 Format: `hh:mm`
 
 Optionally, run all updates for a package manager at a specific time of day. By default, times are interpreted as UTC.
+
+### `cronjob`
+
+Supported values: Valid cron expression in cron format or natural expression.
+
+Examples : `0 9 * * *`, `every day at 5pm`
+
+cron format is defined as the following:
+* `*` The minute field.
+* `*` The hour field (in 24-hour time).
+* `*` The day of the month (matches any day of the month).
+* `*` The month (matches any month).
+* `*` The day of the week (matches any day of the week).
+
+`0 9 * * *` is equivalent to "every day at 9am". `every day at 5pm` is equivalent to `0 17 * * *`.
+
+> [!NOTE]
+> A `cronjob` type schedule is required to use a `cron` interval.
+
+```yaml copy
+
+# Basic `dependabot.yml` file for cronjob
+
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: "/"
+    # Check the npm registry for updates based on `cronjob` value
+    schedule:
+      interval: "cron"
+      cronjob: "0 9 * * *"
+```
 
 ### `timezone`
 
@@ -630,8 +667,8 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 > * Gradle
 > * Maven
 > * Npm
-> * NuGet{% ifversion dependabot-updates-pub-private-registry %}
-> * Pub{% endif %}
+> * NuGet
+> * Pub
 > * Python
 > * Yarn
 

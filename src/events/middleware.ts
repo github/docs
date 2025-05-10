@@ -38,6 +38,16 @@ const sentValidationErrors = new QuickLRU({
   maxAge: 1000 * 60,
 })
 
+// We use a LRU cache & a hash of the error message
+// to prevent sending multiple validation errors that can spam requests to Hydro
+const getValidationErrorHash = (validateErrors: ErrorObject[]) => {
+  // limit to 10 second windows
+  const window: Number = Math.floor(new Date().getTime() / 10000)
+  return `${window}:${(validateErrors || [])
+    .map((error: ErrorObject) => error.message + error.instancePath + JSON.stringify(error.params))
+    .join(':')}`
+}
+
 router.post(
   '/',
   catchMiddlewareError(async function postEvents(req: ExtendedRequest, res: Response) {
@@ -49,8 +59,8 @@ router.post(
 
     for (const eventBody of eventsToProcess) {
       try {
+        // Skip event if it doesn't have a type or if the type is not in the allowed types
         if (!eventBody.type || !allowedTypes.has(eventBody.type)) {
-          validationErrors.push({ event: eventBody, error: 'Invalid type' })
           continue
         }
         const type: EventType = eventBody.type
@@ -71,18 +81,7 @@ router.post(
         }
         const validate = validators[type]
         if (!validate(body)) {
-          validationErrors.push({
-            event: body,
-            error: validate.errors || [],
-          })
-          // This protects so we don't bother sending the same validation
-          // error, per user, more than once (per time interval).
-          // This helps if we're bombarded with junk bot traffic. So it
-          // protects our Hydro instance from being overloaded with things
-          // that aren't helping anybody.
-          const hash = `${req.ip}:${(validate.errors || [])
-            .map((error: ErrorObject) => error.message + error.instancePath)
-            .join(':')}`
+          const hash = getValidationErrorHash(validate.errors || [])
           if (!sentValidationErrors.has(hash)) {
             sentValidationErrors.set(hash, true)
             formatErrors(validate.errors || [], body).map((error) => {

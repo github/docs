@@ -47,7 +47,7 @@ jobs:
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
           git status
@@ -68,7 +68,7 @@ jobs:
       - name: Create pull request
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           # If nothing to commit, exit now. It's fine. No orphans.
           changes=$(git diff --name-only | wc -l)

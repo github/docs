@@ -95,7 +95,7 @@ Besides your code, you probably need to use secrets in other places. For example
 {% endif %}
 
 {% ifversion ghes %}
-Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows{% ifversion ghes %} or {% data variables.product.prodname_dependabot %}{% endif %} to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion ghes %} and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).{% else %}."{% endif %}
+Besides your code, you probably need to use secrets in other places. For example, to allow {% data variables.product.prodname_actions %} workflows or {% data variables.product.prodname_dependabot %} to communicate with other systems. For more information on how to securely store and use secrets, see [AUTOTITLE](/actions/security-guides/encrypted-secrets) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#storing-credentials-for-dependabot-to-use).
 {% endif %}
 
 ## Keep vulnerable coding patterns out of your repository

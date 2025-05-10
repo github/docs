@@ -62,13 +62,7 @@ export default function handleInvalidQuerystringValues(
           if (sp.toString()) newURL += `?${sp}`
           res.redirect(302, newURL)
 
-          const tags = [
-            'response:302',
-            `url:${req.url}`,
-            `ip:${req.ip}`,
-            `path:${req.path}`,
-            `key:${key}`,
-          ]
+          const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
 
           return

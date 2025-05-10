@@ -74,4 +74,4 @@ In addition to reviewing {% data variables.product.prodname_github_apps %} that 
 ## Further reading
 
 * [AUTOTITLE](/apps/using-github-apps/reviewing-and-revoking-authorization-of-github-apps)
-* [AUTOTITLE](/apps/using-github-apps/internal-github-apps)
+* [AUTOTITLE](/apps/using-github-apps/privileged-github-apps)
