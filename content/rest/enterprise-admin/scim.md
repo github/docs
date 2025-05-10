@@ -123,7 +123,7 @@ The SCIM integration on the IdP performs actions on behalf of an enterprise owne
 To authenticate API requests, the person who configures SCIM on the IdP must use a {% data variables.product.pat_v1 %} with the {% ifversion scim-enterprise-scope %}`scim:enterprise`{% else %}`admin:enterprise`{% endif %} scope, which the IdP must provide in the request's `Authorization` header. For more information about {% data variables.product.pat_v1_plural %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
 > [!NOTE]
-> Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% ifversion ghes %}{% data variables.product.pat_v2_caps %} and {% endif %}GitHub app callers are not supported at this time.
+> Enterprise owners must generate and use a {% data variables.product.pat_v1 %} for authentication of requests to endpoints in this category. {% data variables.product.pat_v2_caps %} and GitHub app callers are not supported at this time.
 
 ### Mapping of SAML and SCIM data
 

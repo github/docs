@@ -91,8 +91,9 @@ const githubDocsConfig = {
   },
   'liquid-ifversion-versions': {
     // GHD022
-    severity: 'warning',
+    severity: 'error',
     'partial-markdown-files': true,
+    'yml-files': true,
   },
   'yaml-scheduled-jobs': {
     // GHD021
@@ -207,8 +208,9 @@ export const githubDocsFrontmatterConfig = {
   },
   'liquid-ifversion-versions': {
     // GHD022
-    severity: 'warning',
-    'partial-markdown-files': false,
+    severity: 'error',
+    'partial-markdown-files': true,
+    'yml-files': true,
   },
   'link-quotation': {
     // GHD043

@@ -14,7 +14,7 @@ topics:
 shortTitle: Disable projects
 allowTitleToDifferFromFilename: true
 ---
-After you disable organization-wide projects, it won’t be possible to create new projects at the organization level, and any existing organization-level projects will become inaccessible at their previous URLs. {% ifversion projects-v2 and projects-v1 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}.{% endif %}{% ifversion projects-v1 %} {% data variables.projects.projects_v1_boards_caps %} in repositories in the organization are not affected.{% endif %}
+After you disable organization-wide projects, it won’t be possible to create new projects at the organization level, and any existing organization-level projects will become inaccessible at their previous URLs. {% ifversion projects-v1 %}These settings apply to {% data variables.projects.projects_v2 %} and {% data variables.projects.projects_v1_boards %}. {% data variables.projects.projects_v1_boards_caps %} in repositories in the organization are not affected.{% endif %}
 
 {% ifversion projects-v1 %}
 

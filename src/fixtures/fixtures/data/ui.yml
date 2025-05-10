@@ -42,8 +42,9 @@ search:
     clear_search_query: Clear
     view_all_search_results: View more results
     no_results_found: No results found
+    no_results_found_announcement: 'Search Docs: No results found'
     search_docs_with_query: Search docs for "{{query}}"
-    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy">GitHub Privacy Statement</a> to review how GitHub collects and uses your data.
+    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:
     disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom"}>Copilot</a> uses AI. Check for mistakes.
     references: Additional docs
@@ -64,6 +65,9 @@ search:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
+  cta:
+    heading: New! Copilot for Docs
+    description: Ask your question in the search bar and get help in seconds.
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs

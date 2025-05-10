@@ -14,11 +14,8 @@ versions:
 shortTitle: Connect an Azure subscription
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About connection of an Azure subscription
 
@@ -44,11 +41,8 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)                                                                         |   [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits) |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)                                                                       | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits) |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) |                                                                                                                  N/A |
-| {% ifversion metered-ghe-ghas %} |
 | {% data variables.product.prodname_AS %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
-| {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise) |                                                                                                                  N/A |
-
-{% endif %}
+| {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise) |                                                                                                                  N/A |
 
 {% endif %}
 
@@ -183,7 +177,7 @@ The following are answers to some common questions about connecting an Azure sub
 
 ### Can I connect more than one enterprise or cost center to the same Azure subscription?
 
-Yes. There’s no limit to the number of enterprises or cost centers you can connect to a single Azure subscription. For details on how charges are applied to cost centers, see [AUTOTITLE](/billing/using-the-new-billing-platform/charging-business-units).
+Yes. There’s no limit to the number of enterprises or cost centers you can connect to a single Azure subscription. For details on how charges are applied to cost centers, see [AUTOTITLE](/billing/managing-your-billing/charging-business-units).
 
 ### Can I connect multiple Azure subscriptions to one enterprise?
 

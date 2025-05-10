@@ -12,7 +12,7 @@ To do this in your enterprise, you can use the [List all {% data variables.produ
 
 Your enterprise has access to the new billing platform, which allows you to estimate upcoming spending, control overspending with budgets, and track spending changes over time.
 
-See [AUTOTITLE](/billing/using-the-new-billing-platform).
+See [AUTOTITLE](/billing/managing-your-billing).
 
 ### Configure content exclusions
 

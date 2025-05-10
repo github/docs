@@ -50,7 +50,19 @@ Each alert highlights a problem with the code and the name of the tool that iden
 
 {% data reusables.code-scanning.alert-default-branch %}
 
+{% ifversion code-scanning-alert-development-section %}
+
 ![Screenshot of a {% data variables.product.prodname_code_scanning %} alert, includes the alert title, relevant lines of code at the left, metadata at the right.](/assets/images/help/repository/code-scanning-alert.png)
+
+You can also view affected branches, as well as fixes and associated pull requests for an alert. This helps you and your team stay informed about the progress of fixing alerts.
+
+![Screenshot of the "Development" section of a {% data variables.product.prodname_code_scanning %} alert, includes a title of a pull request that could fix the alert.](/assets/images/help/repository/code-scanning-alert-development-section.png)
+
+{% else %}
+
+![Screenshot of a {% data variables.product.prodname_code_scanning %} alert, includes the alert title, relevant lines of code at the left, metadata at the right.](/assets/images/help/repository/code-scanning-alert-without-development.png)
+
+{% endif %}
 
 If you configure {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, you can also find data-flow problems in your code. Data-flow analysis finds potential security issues in code, such as: using data insecurely, passing dangerous arguments to functions, and leaking sensitive information.
 

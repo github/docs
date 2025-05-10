@@ -35,6 +35,6 @@ $    -H 'If-None-Match: "a18c3bded88eb5dbb5c849a489412bf3"'
 > X-Poll-Interval: 60
 ```
 
-The timeline will include up to 300 events. Only events created within the past 90 days will be included. Events older than 90 days will not be included (even if the total number of events in the timeline is less than 300).
+The timeline will include up to 300 events. Only events created within the past 30 days will be included. Events older than 30 days will not be included (even if the total number of events in the timeline is less than 300).
 
 <!-- Content after this section is automatically generated -->
