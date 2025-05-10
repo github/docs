@@ -5,6 +5,9 @@ If you do not set a `container`, all steps will run directly on the host specifi
 > [!NOTE]
 > The default shell for `run` steps inside a container is `sh` instead of `bash`. This can be overridden with [`jobs.<job_id>.defaults.run`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrun) or [`jobs.<job_id>.steps[*].shell`](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell).
 
+> [!NOTE]
+> If you supply your own container image, the `WORKDIR` statement may not be detected and you will need to (re)specify it yourself with the [`jobs.<job_id>.defaults.run.working-directory](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_iddefaultsrunworking-directory) option.
+
 ### Example: Running a job within a container
 
 ```yaml copy
@@ -36,4 +39,32 @@ jobs:
   container-test-job:
     runs-on: ubuntu-latest
     container: node:18
+```
+### Example: Running a job within a custom container with a working directory set
+```yaml copy
+name: CI
+on:
+  push:
+    branches: [ main ]
+jobs:
+  container-test-job:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: `/home/app/webapp`
+    container:
+      image: myimage
+      credentials:
+        username: MYUSERNAME
+        password: MYPASSWORD
+      env:
+        NODE_ENV: development
+      ports:
+        - 80
+      volumes:
+        - my_docker_volume:/volume_mount
+      options: --cpus 1
+    steps:
+      - name: Check for dockerenv file
+        run: (ls .dockerenv && echo Found dockerenv) || (echo No dockerenv)
 ```
