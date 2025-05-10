@@ -1,0 +1,20 @@
+---
+name: 'N00i1kat '
+about: Suggest an idea for this project
+title: "<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?<whatisthis?"
+labels: dependencies, Hubhub, javascript, Whatisthis?, Ĺ
+assignees: tr4200812
+
+---
+
+**Is your feature request related to a problem? Please describe.**
+A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+
+**Describe the solution you'd like**
+A clear and concise description of what you want to happen.
+
+**Describe alternatives you've considered**
+A clear and concise description of any alternative solutions or features you've considered.
+
+**Additional context**
+Add any other context or screenshots about the feature request here.

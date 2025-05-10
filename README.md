@@ -1,7 +1,15 @@
-ควายโค้ดหลัง >idocaSee by arai<
+[!🤬[Dependabot GitHub Docs On Codespaces](https://gist.github.com\l1bcfdd571ed00ffd61f0a7cce2aa9772.git)
+|
+----------------------------
+¹¹----------------------^----------------------^
+--------------------------------------------------------------------------------^----------------------------
+[🖼[Open in GitHub------------------------------------ 
+[Codespaces](https://github.com/codespaces/badge.svg)
+(https://codespaces.new/tr4200812/hubhub/tree/dependabot%2Fnpm_and_yarn%2Fplaywright%2Ftest-1.44.0?quickstart=1)>idocaSee by arai<
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+This repository contains the documentation website code and Markdown source files for [tr4200812.github.com](https://github.com/tr4200812)
+[dot.github.com](https://github.com/dot)
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
@@ -9,7 +17,8 @@ Use the table of contents icon <img alt="Table of contents icon" src="./contribu
 
 ## Contributing
 
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs)."
+We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see "[About contributing to GitHub [tr4200812.github.com](https://github.com/tr4200812)
+[dot.github.com](https://github.com/dot)
 
 ### Ways to contribute
 

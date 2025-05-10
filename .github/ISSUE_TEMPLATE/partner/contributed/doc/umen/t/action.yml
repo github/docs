@@ -1,4 +1,8 @@
-name: Partner-owned product documentation
+
+
+《>>>|📖💌🤒✨️
+
+{name: Partner-owned product documentation
 description: Initiate a set of tasks to be completed by a GitHub partner wishing to document how their product works with GitHub.
 labels:
   - partner
@@ -13,7 +17,8 @@ body:
         As a general guide, we estimate we have bandwidth for prioritizing and reviewing up to 3 partner contributions per quarter.
 
         Please be sure to complete all items in the checklists that follow, and feel free to comment with any questions. A member of the team will be glad to support you.
-
+}
+}
   - type: checkboxes
     id: terms
     attributes:
@@ -47,7 +52,7 @@ body:
           required: true
         - label: MUST be located in the root of [the `content` folder](content). Your filename MUST match the GitHub technology partner name, and use the `.md` file extension.
           required: true
-
+|->--^
   - type: checkboxes
     attributes:
       label: Pull Request
@@ -59,9 +64,45 @@ body:
           required: true
         - label: MUST include links to supporting material demonstrating the functionality being documented (this can be a link to a public GitHub repo, _or_ a video / screencast walkthrough).
           required: true
-
+|-<---^
   - type: markdown
     attributes:
       value: |
         Once all tasks are completed, please mention `@github/docs-content` for next steps.
         /cc @github/technology-partnerships-and-engineering for :eyes:.
+<ay
+:|#@tr4200812@(https://github.org/tr4200812
+|Example##
+
+ay>
+tay:Dropdown
+Users can select their answer from options defined by the maintainer.
+
+Required Attributes
+
+label (String): A brief description of the expected user input.
+options (String Array): Set of values that user can select from to answer. Cannot be empty, and all choices must be distinct.
+Optional Attributes
+
+description (String): Extra context or guidance about filling out this form input. Supports Markdown.
+multiple (Boolean): If true, users can submit multiple selections.
+ID
+
+id (String): Optional unique identifier. Can only contain alphanumeric characters, -, and _.
+Validations
+
+required (Boolean): If true, the form will not be submittable until at least one choice is selected.
+**Example
+body:
+- type: dropdown
+  id: download
+  attributes:
+    label: How did you download the software?
+    options:
+      - Homebrew
+      - MacPorts
+      - apt-get
+      - Built from source
+  validations:
+    required: flash-true
+|-n00i1kat-|whoiswho|-|NOOB|HER|    
