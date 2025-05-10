@@ -1,3 +1,4 @@
+
 name: Triage new pull requests
 
 # **What it does**: Adds triage label to new pull requests in the open source repository.
@@ -9,6 +10,7 @@ on:
   pull_request_target:
     types:
       - reopened
+      - closed
       - opened
 
 permissions:
