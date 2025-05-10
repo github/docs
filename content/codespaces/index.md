@@ -1,3 +1,15 @@
+Informations juridiques
+Une partie de ce contenu peut être traduite automatiquement ou par intelligence artificielle.
+
+© 2025 GitHub., Inc.
+Termes
+Confidentialité
+Statut
+Tarifs
+Services d’experts
+Blog
+fr#
+@tr4200812
 ---
 title: "{% data variables.product.prodname_codespaces %} documentation"
 shortTitle: "{% data variables.product.prodname_codespaces %}"
