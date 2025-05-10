@@ -1,4 +1,4 @@
----
+|---
 title: Controlling permissions for `GITHUB_TOKEN`
 shortTitle: Permissions for `GITHUB_TOKEN`
 intro: Modify the default permissions granted to `GITHUB_TOKEN`.
@@ -10,7 +10,7 @@ redirect_from:
   - /actions/using-jobs/assigning-permissions-to-jobs
   - /actions/writing-workflows/choosing-what-your-workflow-does/assigning-permissions-to-jobs
   - /actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github-token
----
+|---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
@@ -41,3 +41,4 @@ You can specify `permissions` at the top level of a workflow, so that the settin
 ### Example: Setting the `GITHUB_TOKEN` permissions for one job in a workflow
 
 {% data reusables.actions.jobs.setting-permissions-specific-jobs-example %}
+***
