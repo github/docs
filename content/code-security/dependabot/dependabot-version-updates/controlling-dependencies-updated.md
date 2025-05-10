@@ -1,4 +1,4 @@
----
+|---
 title: Controlling which dependencies are updated by Dependabot
 intro: 'Learn how to configure your `dependabot.yml` file so that {% data variables.product.prodname_dependabot %} automatically updates the packages you specify, in the way you define.'
 allowTitleToDifferFromFilename: true
@@ -15,7 +15,7 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Control dependency update
----
+|---
 
 You can customize your {% data variables.product.prodname_dependabot %} configuration to suit your needs, by adding options to your `dependabot.yml` file. For example, you can make sure that {% data variables.product.prodname_dependabot %} uses the correct package manifest files, and updates only the dependencies you want maintained.
 
@@ -293,5 +293,5 @@ updates:
   schedule:
     interval: weekly
     day: saturday
-  open-pull-requests-limit: 10
+  open-pull-requests-limit: 60
 ```
