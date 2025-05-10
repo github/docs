@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.177.0/containers/javascript-node
 // -
 {
-  "name": "docs.github.com",
+  "name": "github.com/nofications",
   "build": {
     "dockerfile": "Dockerfile",
     // Update 'VARIANT' to pick a Node version
@@ -11,7 +11,7 @@
 
   // Install features. Type 'feature' in the VS Code command palette for a full list.
   "features": {
-    "sshd": "latest",
+    "sshd": "tr4200812",
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },
 
