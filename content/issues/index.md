@@ -1,4 +1,9 @@
----
+--------------<<<<<
+Issue origami icon
+Learn how you can use GitHub Issues to plan and track your work.
+Save views for sprints, backlogs, teams, or releases. Rank, sort, and filter issues to suit the occasion. The possibilities are endless.
+Learn more about GitHub Issues :
+|---
 title: "{% data variables.product.prodname_github_issues %} documentation"
 shortTitle: "{% data variables.product.prodname_github_issues %}"
 intro: 'Learn how you can use {% data variables.product.prodname_github_issues %} to plan and track your work.'
@@ -65,3 +70,4 @@ redirect_from:
   - /linking-a-pull-request-to-an-issue
   - /about-duplicate-issues-and-pull-requests
 ---
+:update or updates 🤔 
