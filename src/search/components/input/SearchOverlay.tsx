@@ -91,6 +91,7 @@ export function SearchOverlay({
   const [aiCouldNotAnswer, setAICouldNotAnswer] = useState<boolean>(false)
   const [showSpinner, setShowSpinner] = useState(false)
   const [scrollPos, setScrollPos] = useState(0)
+  const [announcement, setAnnouncement] = useState<string>('')
 
   const { hasOpenHeaderNotifications } = useSharedUIContext()
 
@@ -188,6 +189,7 @@ export function SearchOverlay({
 
   // Combine options for key navigation
   const [combinedOptions, generalOptionsWithViewStatus, aiOptionsWithUserInput] = useMemo(() => {
+    setAnnouncement('')
     let generalOptionsWithViewStatus = [...generalSearchResults]
     const aiOptionsWithUserInput = [...userInputOptions, ...filteredAIOptions]
     const combinedOptions = [] as Array<{
@@ -209,6 +211,7 @@ export function SearchOverlay({
         } as unknown as GeneralSearchHit)
       }
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
+      setAnnouncement(t('search.overlay.no_results_found_announcement'))
       generalOptionsWithViewStatus.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
@@ -815,6 +818,22 @@ export function SearchOverlay({
             dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
         </footer>
+        <div
+          aria-live="assertive"
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: '0',
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: '0',
+          }}
+        >
+          {announcement}
+        </div>
       </Overlay>
     </>
   )

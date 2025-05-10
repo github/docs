@@ -89,18 +89,6 @@ export const Header = () => {
     return () => window.removeEventListener('keydown', close)
   }, [])
 
-  // Listen for '/' so we can open the search overlay when pressed. (only enabled for showNewSearch is true for new search experience)
-  useEffect(() => {
-    const open = (e: KeyboardEvent) => {
-      if (e.key === '/' && showNewSearch && !isSearchOpen) {
-        e.preventDefault()
-        setIsSearchOpen(true)
-      }
-    }
-    window.addEventListener('keydown', open)
-    return () => window.removeEventListener('keydown', open)
-  }, [isSearchOpen, showNewSearch])
-
   // For the UI in smaller browser widths, and focus the picker menu button when the search
   // input is closed.
   useEffect(() => {

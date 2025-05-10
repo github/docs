@@ -147,7 +147,7 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
 * {% data variables.copilot.copilot_gpt_4o %}
-* {% data variables.copilot.copilot_gpt_41 %} (preview)
+* {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
@@ -221,7 +221,7 @@ These instructions are for the Eclipse IDE. For instructions on different client
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
 * {% data variables.copilot.copilot_gpt_4o %}
-* {% data variables.copilot.copilot_gpt_41 %} (preview)
+* {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
