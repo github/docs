@@ -1,4 +1,4 @@
----
+|---
 title: Changing the stage of a pull request
 intro: You can mark a draft pull request as ready for review or convert a pull request to a draft.
 permissions: People with write permissions to a repository and pull request authors can change the stage of a pull request.
