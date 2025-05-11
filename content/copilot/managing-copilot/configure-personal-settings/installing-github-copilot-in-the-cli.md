@@ -1,4 +1,4 @@
----
+:---
 title: Installing GitHub Copilot in the CLI
 intro: 'Learn how to install {% data variables.product.prodname_copilot_cli_short %} so that you can get suggestions and explanations for the command line.'
 versions:
@@ -11,7 +11,7 @@ redirect_from:
   - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
   - /copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
----
+:---
 
 ## Prerequisites
 
@@ -46,3 +46,4 @@ gh extension upgrade gh-copilot
 
 * [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)
 * [AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)
+***
