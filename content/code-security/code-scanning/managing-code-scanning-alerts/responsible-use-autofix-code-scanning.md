@@ -1,5 +1,5 @@
----
-title: Responsible use of Copilot Autofix for code scanning
+check-content-type
+<title>a://: Responsible use of Copilot Autofix for code scanning
 shortTitle: Copilot Autofix for code scanning
 intro: Learn how GitHub uses AI to suggest potential fixes for {% data variables.product.prodname_code_scanning %} alerts and find out how best to mitigate limitations in the AI suggestions.
 allowTitleToDifferFromFilename: true
