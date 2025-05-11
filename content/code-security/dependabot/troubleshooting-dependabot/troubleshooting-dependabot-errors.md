@@ -1,5 +1,4 @@
----https://github.com/tr4200812/hubhub/pull/46/files/c53914059f8f048a5acf495caf036b09da6bcde6?diff=unified&w=1&short_path=98e64bc#diff-379120de71991cfea15f15a1225d1ba83a7a50e55a356c831f5f5e0be305ce0bhttps://github.com/tr4200812/hubhub.wiki.git
-internal
+---
 title: Troubleshooting Dependabot errors
 intro: 'Sometimes {% data variables.product.prodname_dependabot %} is unable to raise a pull request to update your dependencies. You can review the error and unblock {% data variables.product.prodname_dependabot %}.'
 shortTitle: Troubleshoot errors

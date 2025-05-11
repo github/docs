@@ -20,12 +20,6 @@ Enterprise owners and billing managers automatically have a support entitlement.
 * **{% data variables.product.premium_support_plan %}, {% data variables.product.standard_support_plan %}:** Up to 20 members
 * **{% data variables.product.premium_plus_support_plan %}:** Up to 40 members
 
-> [!NOTE] The level of support that members of your enterprise receive when submitting a ticket is determined by their support entitlement status:
-> * If your enterprise has a Premium or Premium Plus plan and the user has a support entitlement, their ticket will receive Premium Support, which includes expedited response times and prioritized handling.
-> * If the user does not have a support entitlement, their ticket will still be addressed by our Enterprise Support team, but without Premium Support features such as priority selection and guaranteed Premium SLAs.
->
-> If a user is unsure of their entitlement status, they can contact their organization's Enterprise Support administrator.
-
 ## Adding a support entitlement to an enterprise member
 
 To add a support entitlement to a user, the user must already be a member of an organization that is owned by your enterprise.

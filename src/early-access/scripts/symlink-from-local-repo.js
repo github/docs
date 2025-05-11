@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // This script is run on a writer's machine while developing Early Access content locally.

@@ -55,10 +55,10 @@ There are a few ways you can start using {% data variables.product.prodname_copi
 
 ### For individuals
 
-* **Try {% data variables.product.prodname_copilot_short %} for free**: Use {% data variables.product.prodname_copilot_free_short %} to explore core {% data variables.product.prodname_copilot_short %} features with no paid plan required.
+* **Try {% data variables.product.prodname_copilot_short %} for free**: Use {% data variables.product.prodname_copilot_free_short %} to explore core {% data variables.product.prodname_copilot_short %} features with no subscription required.
 * **Subscribe to a paid plan**: Upgrade to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} for full access to premium features and more generous usage limits. You can <a href="https://github.com/github-copilot/signup?ref_cta=Copilot+trial&ref_loc=about+github+copilot&ref_page=docs" target="_blank"><span>try {% data variables.product.prodname_copilot_pro_short %} for free</span></a> with a one-time 30-day trial.
 * **Eligible for free {% data variables.product.prodname_copilot_pro_short %} access?** Students, teachers, and open source maintainers may qualify for {% data variables.product.prodname_copilot_pro_short %} at no cost. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-free-access-to-copilot-as-a-student-teacher-or-maintainer).
-* **Organization members**: If your organization or enterprise has a {% data variables.product.prodname_copilot %} plan, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
+* **Organization members**: If your organization or enterprise has a subscription to {% data variables.product.prodname_copilot %}, you can request access to {% data variables.product.prodname_copilot_short %} by going to [https://github.com/settings/copilot](https://github.com/settings/copilot) and requesting access under "Get {% data variables.product.prodname_copilot_short %} from an organization."
 
 See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/getting-started-with-copilot-on-your-personal-account/getting-started-with-a-copilot-plan) for more information.
 

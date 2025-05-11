@@ -22,5 +22,5 @@ children:
   - /reviewing-and-revoking-authorization-of-github-apps
   - /reviewing-and-modifying-installed-github-apps
   - /saml-and-github-apps
-  - /privileged-github-apps
+  - /internal-github-apps
 ---

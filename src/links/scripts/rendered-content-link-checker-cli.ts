@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // This script goes through all content and renders their HTML and from there

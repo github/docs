@@ -53,12 +53,6 @@ If you're creating a {% data variables.product.prodname_actions %} workflow that
 
 Never hardcode authentication credentials like tokens, keys, or app-related secrets into your code. Instead, consider using a secret manager such as [Azure Key Vault](https://azure.microsoft.com/products/key-vault) or [HashiCorp Vault](https://www.hashicorp.com/products/vault). For more information about securing {% data variables.product.prodname_github_app %} credentials, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
 
-{% ifversion fpt or ghec %}
-
-If you find another user's {% data variables.product.pat_generic %} exposed on {% data variables.product.github %} or elsewhere, you can submit a revocation request through the REST API. See [AUTOTITLE](/rest/credentials/revoke#revoke-a-list-of-credentials).
-
-{% endif %}
-
 When using a {% data variables.product.pat_generic %} in a script, consider storing your token as a {% data variables.product.prodname_actions %} secret and running your script through {% data variables.product.prodname_actions %}.{% ifversion fpt or ghec %} You can also store your token as a Codespaces secret and run your script in Codespaces.{% endif %} For more information, see [AUTOTITLE](/actions/security-guides/encrypted-secrets){% ifversion fpt or ghec %} and [AUTOTITLE](/codespaces/managing-your-codespaces/managing-encrypted-secrets-for-your-codespaces){% endif %}.
 
 If none of these options are possible, you can store authentication credentials in a `.env` file. Make sure to encrypt your `.env` file, and never push it to any repository.

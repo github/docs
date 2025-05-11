@@ -11,8 +11,6 @@ const COOKIE_NAME = '_docs-events'
 
 const startVisitTime = Date.now()
 
-const BATCH_INTERVAL = 5000 // 5 seconds
-
 let initialized = false
 let cookieValue: string | undefined
 let pageEventId: string | undefined
@@ -25,16 +23,6 @@ let scrollFlipCount = 0
 let maxScrollY = 0
 let previousPath: string | undefined
 let hoveredUrls = new Set()
-let eventQueue: any[] = []
-
-function scheduleNextFlush() {
-  setTimeout(() => {
-    flushQueue()
-    scheduleNextFlush()
-  }, BATCH_INTERVAL)
-}
-
-scheduleNextFlush()
 
 function resetPageParams() {
   sentExit = false
@@ -145,31 +133,17 @@ export function sendEvent<T extends EventType>({
     ...props,
   }
 
-  queueEvent(body)
-
-  if (type === EventType.exit) {
-    flushQueue()
+  const blob = new Blob([JSON.stringify(body)], { type: 'application/json' })
+  const endpoint = '/api/events'
+  try {
+    // Only send the beacon if the feature is not disabled in the user's browser
+    // Even if the function exists, it can still throw an error from the call being blocked
+    navigator?.sendBeacon(endpoint, blob)
+  } catch {
+    console.warn(`sendBeacon to '${endpoint}' failed.`)
   }
 
   return body
-}
-
-function flushQueue() {
-  if (!eventQueue.length) return
-
-  const endpoint = '/api/events'
-  const eventsBody = JSON.stringify(eventQueue)
-  eventQueue = []
-
-  try {
-    navigator.sendBeacon(endpoint, new Blob([eventsBody], { type: 'application/json' }))
-  } catch (err) {
-    console.warn(`sendBeacon to '${endpoint}' failed.`, err)
-  }
-}
-
-function queueEvent(eventBody: unknown) {
-  eventQueue.push(eventBody)
 }
 
 // Sometimes using the back button means the internal referrer path is not there,
@@ -274,8 +248,6 @@ function initPageAndExitEvent() {
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState === 'hidden') {
       sendExit()
-    } else {
-      flushQueue()
     }
   })
 

@@ -160,17 +160,6 @@ The `reply-to` address on each email notification identifies the thread and the 
 
 ## Automatic watching
 
-<!-- expires 2025-05-18 -->
-
-<!-- When this expires, remove the Automatic watching section for FPT/GHEC but keep it for GHES <=3.17 -->
-
-{% ifversion fpt or ghec %}
-
->[!WARNING] Starting May 18, 2025, {% data variables.product.company_short %} will deprecate automatic watching of repositories and teams. Existing subscriptions will remain unaffected, ensuring you can stay subscribed to repositories or teams that you were previously watching.
-
-{% endif %}
-<!-- end expires 2025-05-18 -->
-
 By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
 
 {% ifversion update-notification-settings-22 %}

@@ -2,4 +2,4 @@
 # Can the user create a Project (classic)?
 # n.b. /managing-project-boards/copying-a-project-board.md retains ghec/fpt versioning.
 versions:
-  ghes: '<=3.16'
+  ghes: '*'

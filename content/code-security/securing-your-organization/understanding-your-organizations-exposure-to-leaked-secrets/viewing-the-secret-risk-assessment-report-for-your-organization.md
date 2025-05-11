@@ -1,7 +1,3 @@
-<equal>
-<HTML><update:https:github.com/notifications/settings/tr4200812>(HTML)
-  (https://docs.github.com/en/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/viewing-the-secret-risk-assessment-report-for-your-organization)
-
 ---
 title: 'Viewing the secret risk assessment report for your organization'
 shortTitle: 'View secret risk assessment'

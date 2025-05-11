@@ -27,23 +27,20 @@ However, you are not limited to using this model. You can choose from a selectio
 
 The following models are currently available in the immersive mode of {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data variables.copilot.copilot_gpt_4o %}
-* {% data variables.copilot.copilot_gpt_41 %} {% ifversion copilot-enterprise %}
+* {% data variables.copilot.copilot_gpt_4o %} {% ifversion copilot-enterprise %}
 * {% data variables.copilot.copilot_gpt_45 %} {% endif %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_gemini_25_pro %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3 %}
-* {% data variables.copilot.copilot_o3_mini %}
-* {% data variables.copilot.copilot_o4_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
 ### Limitations of AI models for {% data variables.product.prodname_copilot_chat_short %}
 
-Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
+* If you want to use the skills listed in the table above{% ifversion ghec %}, or knowledge bases{% endif %}, on the {% data variables.product.github %} website, only the GPT-4o, {% data variables.copilot.copilot_claude_sonnet %}, and {% data variables.copilot.copilot_gemini_flash %} models are supported.
+* Experimental pre-release versions of the models may not interact with all filters correctly, including the duplication detection filter.
 
 ## Changing your AI model
 
@@ -59,8 +56,6 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 1. At the top of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
-1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
-
 {% endwebui %}
 
 {% vscode %}
@@ -75,16 +70,13 @@ Changing the model that's used by {% data variables.product.prodname_copilot_cha
 
 The following models are currently available through multi-model {% data variables.product.prodname_copilot_chat_short %}:
 
-* {% data variables.copilot.copilot_gpt_4o %}
-* {% data variables.copilot.copilot_gpt_41 %} {% ifversion copilot-enterprise %}
+* {% data variables.copilot.copilot_gpt_4o %} {% ifversion copilot-enterprise %}
 * {% data variables.copilot.copilot_gpt_45 %} {% endif %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3 %}
-* {% data variables.copilot.copilot_o3_mini %}
-* {% data variables.copilot.copilot_o4_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -112,8 +104,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_gpt_4o %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -143,8 +135,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_gpt_4o %}
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -177,8 +169,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -211,8 +203,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_gpt_o1 %}
+* {% data variables.copilot.copilot_gpt_o3_mini %}
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -235,5 +227,5 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-flash-in-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)

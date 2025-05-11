@@ -1,6 +1,7 @@
 ---
 title: Viewing logs for GitHub Copilot in your environment
 intro: 'View logs to troubleshoot {% data variables.product.prodname_copilot %}-related errors in your IDE.'
+product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio
   - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio-code

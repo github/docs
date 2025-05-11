@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // This calls a function directly that is used by our archived enterprise

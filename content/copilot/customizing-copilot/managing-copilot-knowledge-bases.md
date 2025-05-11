@@ -38,7 +38,7 @@ For more information on how to use knowledge bases in {% data variables.product.
 
 You can create a knowledge base from a single repository or a selection of repositories. You can create a knowledge base using public, private, and/or internal repositories.
 
-Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise_short %} plan. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
+Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise %} subscription. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Run this script after an Enterprise deprecation to remove Liquid statements and frontmatter that

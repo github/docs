@@ -158,6 +158,8 @@ sections:
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
       Due to a known regression, operators will not be able to use the `ghe-migrations` visualizer to view the status of migrations during an upgrade. Instead, the operator can inspect the log files in `/var/log/dbmigration` to see the status and progress of migrations.
     - |
       The reply.[hostname] subdomain is falsely always displaying as having no ssl and dns record, when testing the domain settings via management console **without subdomain isolation**.
@@ -165,9 +167,3 @@ sections:
       _Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised._
     - |
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
-
-  errata:
-    - |
-      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.7, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
-      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]

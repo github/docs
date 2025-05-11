@@ -11,7 +11,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-copilot-free/disabling-github-copilot-free
 ---
 
-{% data variables.product.prodname_copilot_free_short %} is automatically disabled when you have a {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} plan, or when you are granted a license through an organization or enterprise. If you want to disable {% data variables.product.prodname_copilot_free_short %} without subscribing to a paid plan, you can do so in your IDE and in {% data variables.product.prodname_dotcom_the_website %}.
+{% data variables.product.prodname_copilot_free_short %} is automatically disabled when you have a paid subscription to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %}, or when you are granted a license through an organization or enterprise. If you want to disable {% data variables.product.prodname_copilot_free_short %} without a paid subscription, you can do so in your IDE and in {% data variables.product.prodname_dotcom_the_website %}.
 
 ## Disabling {% data variables.product.prodname_copilot_free_short %} in {% data variables.product.github %}
 

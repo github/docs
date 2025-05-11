@@ -24,8 +24,6 @@ Issue events all have the same object structure, except events that are only ava
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion projects-v1 %}
-
 ## added_to_project
 
 The issue or pull request was added to a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -48,8 +46,6 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
 
 ## assigned
 
@@ -248,8 +244,6 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion projects-v1 %}
-
 ## converted_note_to_issue
 
 The issue was created by converting a note in a {% data variables.projects.projects_v1_board %} to an issue. {% data reusables.projects.disabled-projects %}
@@ -271,8 +265,6 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
 
 ## converted_to_discussion
 
@@ -564,8 +556,6 @@ This event is available for the following issue types.
 `milestone` | `object` | The milestone object.
 `milestone[title]` | `string` | The title of the milestone.
 
-{% ifversion projects-v1 %}
-
 ## moved_columns_in_project
 
 The issue or pull request was moved between columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -589,8 +579,6 @@ This event is available for the following issue types.
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 `previous_column_name` | `string` | The name of the column the issue was moved from.
-
-{% endif %}
 
 ## pinned
 
@@ -647,8 +635,6 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
-{% ifversion projects-v1 %}
-
 ## removed_from_project
 
 The issue or pull request was removed from a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -671,8 +657,6 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
-
-{% endif %}
 
 ## renamed
 

@@ -32,7 +32,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 {% data variables.enterprise.prodname_managed_users_caps %}:
 
-* Cannot install {% data variables.product.prodname_github_apps %} on their user accounts, unless the app is an privileged app. See [AUTOTITLE](/apps/using-github-apps/privileged-github-apps).
+* Cannot install {% data variables.product.prodname_github_apps %} on their user accounts, unless the app is an internal app. See [AUTOTITLE](/apps/using-github-apps/internal-github-apps).
 * Can install {% data variables.product.prodname_github_apps %} on a repository if the app doesn't request organization permissions and if the {% data variables.enterprise.prodname_managed_user %} has admin access to the repository.
 * Can install {% data variables.product.prodname_github_apps %} on an organization if the {% data variables.enterprise.prodname_managed_user %} is an organization owner.
 * Can purchase and install paid {% data variables.product.prodname_github_apps %} only if the {% data variables.enterprise.prodname_managed_user %} is an enterprise owner.
@@ -54,7 +54,7 @@ With {% data variables.product.prodname_emus %}, you can control the user accoun
 
 ## {% data variables.product.prodname_pages %}
 
-* {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. See [AUTOTITLE](/pages/getting-started-with-github-pages/github-pages-limits#limits-for-enterprise-managed-users).
+* {% data variables.enterprise.prodname_managed_users_caps %} are limited in their use of {% data variables.product.prodname_pages %}. See [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#limitations-for-enterprise-managed-users).
 
 ## Interactions
 

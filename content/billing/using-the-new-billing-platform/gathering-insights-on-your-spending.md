@@ -45,9 +45,9 @@ You can view the usage of your personal account and download the usage data for 
    * For a breakdown of all metered usage, click **Metered billing usage report**.
    * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
-    <!-- expires 2025-05-08 -->
+    <!-- expires 2025-05-05 -->
     {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-08 -->
+    <!-- end expires 2025-05-05 -->
 
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
@@ -87,9 +87,9 @@ You can view the usage of your {% data variables.enterprise.enterprise_or_org %}
    * For a breakdown of all metered usage, click **Metered billing usage report**.
    * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
-    <!-- expires 2025-05-08 -->
+    <!-- expires 2025-05-05 -->
     {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-08 -->
+    <!-- end expires 2025-05-05 -->
 
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
@@ -108,7 +108,7 @@ You can view the license usage of your {% data variables.enterprise.enterprise_o
 The following license types are available:
 
 * User
-* {% data variables.product.prodname_GH_cs_and_sp %}
+* {% data variables.product.prodname_GH_advanced_security %}
 * {% data variables.product.prodname_enterprise %}
 
 You can also view your active {% data variables.product.prodname_enterprise %} instances and users.

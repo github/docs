@@ -32,6 +32,8 @@ sections:
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
+    - |
       `ghe-migrations` visualizer is not working due to a known regression. As a results, users will not be able to use `ghe-migrations` to view the status of migrations during an upgrade. Instead you can inspect the log files in `/var/log/dbmigration` to get the status/progress of migrations.
     - |
       When enabling [log forwarding](/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/log-forwarding#enabling-log-forwarding), specific services logs (babeld and some more) are duplicated.
@@ -43,9 +45,3 @@ sections:
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       If a hotpatch upgrade requires the `haproxy-frontend` service to be restarted, the restart will hang if there are existing long-lived connections, such as browser web sockets or Git operations. No new connections will be accepted for up to 5 minutes. Any existing unfinished connections at this time will be disconnected.
-
-  errata:
-    - |
-      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.2, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
-      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]

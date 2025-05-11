@@ -70,7 +70,7 @@ async function _publish(
   ) {
     const error = new Error(`Failed to send event to Hydro (${statusCode})`)
     if (inProd) {
-      report(error, { statusCode, body, requestBody })
+      report(error, { statusCode, body })
     } else {
       throw error
     }

@@ -1,4 +1,4 @@
-To cancel your {% data variables.product.prodname_copilot %} plan for your enterprise account, you need to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
+To cancel your {% data variables.product.prodname_copilot %} subscription for your enterprise account, you need to disable {% data variables.product.prodname_copilot %} for all organizations in your enterprise.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}

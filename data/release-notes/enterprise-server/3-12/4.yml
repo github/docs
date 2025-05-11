@@ -27,10 +27,6 @@ sections:
     - |
       {% data reusables.release-notes.2023-12-backup-utils-exit-early-redis %}
     - |
-      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]
-
-  errata:
+      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
     - |
-      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.12.4, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
-      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %} [Updated: 2024-06-17]

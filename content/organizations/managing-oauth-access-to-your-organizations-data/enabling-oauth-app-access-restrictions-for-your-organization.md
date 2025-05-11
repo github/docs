@@ -17,7 +17,7 @@ shortTitle: Restrict {% data variables.product.prodname_oauth_apps %}
 
 {% data reusables.organizations.oauth_app_restrictions_default %}
 
-Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize privileged {% data variables.product.prodname_oauth_apps %} and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/privileged-oauth-apps).
+Even if you restrict {% data variables.product.prodname_oauth_apps %} access in your organization, users can still authorize internal {% data variables.product.prodname_oauth_apps %} and use them to access data from the organization. For more information, see [AUTOTITLE](/apps/oauth-apps/using-oauth-apps/internal-oauth-apps).
 
 > [!WARNING]
 > * Enabling {% data variables.product.prodname_oauth_app %} access restrictions will revoke organization access for all previously authorized {% data variables.product.prodname_oauth_apps %} and SSH keys. For more information, see [AUTOTITLE](/organizations/managing-oauth-access-to-your-organizations-data/about-oauth-app-access-restrictions).

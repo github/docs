@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { readFileSync } from 'fs'
 import { basename } from 'path'
 import { Liquid } from 'liquidjs'

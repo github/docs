@@ -145,9 +145,6 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
 
-{% ifversion ghec or fpt %}> [!NOTE] If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization#mitigate-data-leaks).
-{% endif %}
-
 ## Using a {% data variables.product.pat_generic %} on the command line
 
 Once you have a {% data variables.product.pat_generic %}, you can enter it instead of your password when performing Git operations over HTTPS.

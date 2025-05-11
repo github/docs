@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Makes sure that all the image assets in `assets/` are safe.

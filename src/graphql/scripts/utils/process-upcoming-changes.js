@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import yaml from 'js-yaml'
 import { groupBy } from 'lodash-es'
 import { renderContent } from '#src/content-render/index.js'

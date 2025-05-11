@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // See https://github.com/harttle/liquidjs/discussions/294#discussioncomment-305068
 import { Tokenizer } from 'liquidjs'
 

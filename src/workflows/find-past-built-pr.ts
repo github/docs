@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import got from 'got'
 
 import { setOutput } from '@actions/core'

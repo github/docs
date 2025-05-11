@@ -42,6 +42,8 @@ You can also make changes to the issue description. The edit history is availabl
 
 ## Adding or changing the issue type
 
+{% data reusables.issues.release-stage %}
+
 You can add an issue type or make changes to an existing issue type.
 
 1. Navigate to the issue you want to edit.

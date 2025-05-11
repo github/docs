@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // Disables markdownlint rules in markdown files with same-line comments. This is
 // useful when introducing a new rule that causes many failures. The comments
 // can be fixed and removed at while updating the file later.

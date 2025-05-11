@@ -43,8 +43,3 @@ Before enabling license synchronization on {% data variables.location.product_lo
 1. To the right of "License sync", click **Enable**.
 
    ![Screenshot of the "License sync" option on the GitHub Connect page. The "Enable" button is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/enable-user-license-drop-down.png)
-
-{% ifversion scim-for-ghes-ga %}
-> [!NOTE]
-> If SAML with SCIM is enabled, the `scim-admin` setup user will not consume a license. For more information, see [AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/configuring-scim-provisioning-for-users#1-create-a-built-in-setup-user).
-{% endif %}

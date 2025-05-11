@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import fs from 'fs'
 import walk from 'walk-sync'
 import path from 'path'

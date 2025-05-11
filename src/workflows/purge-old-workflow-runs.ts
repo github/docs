@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  *
  * The only mandatory environment variables for this scrips are:
@@ -155,11 +157,11 @@ async function deleteWorkflowRuns(
       created: minCreatedSearch,
     },
   )
-  const runs = data.workflow_runs || []
+  const runs = data.workflow_runs
   console.log(
     `Total runs in workflow "${
       workflow.name
-    }" (${minCreatedSearch}): ${(data.total_count || 0).toLocaleString()}`,
+    }" (${minCreatedSearch}): ${data.total_count.toLocaleString()}`,
   )
 
   let deletions = 0

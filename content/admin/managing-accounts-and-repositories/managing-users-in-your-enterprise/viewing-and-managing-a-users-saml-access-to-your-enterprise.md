@@ -45,20 +45,6 @@ If your enterprise uses {% data variables.product.prodname_emus %}, you will not
 {% data reusables.saml.revoke-sso-identity %}
 {% data reusables.saml.confirm-revoke-identity %}
 
-{% elsif scim-for-ghes-public-beta %}
-
-## Viewing a linked identity
-
-You can view the single sign-on identity that a member has linked to their account on GitHub.
-
-{% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.people-tab %}
-{% data reusables.saml.click-person-revoke-identity %}
-{% data reusables.saml.saml-identity-linked %}
-{% data reusables.saml.view-sso-identity %}
-
-The identity data on this page will include the SCIM data that was sent to {% data variables.product.github %} during user provisioning. This SCIM data is what {% data variables.product.github %} uses when matching a SAML SSO request to the provisioned user. Note that {% data variables.product.github %} does not use SAML mappings when SCIM is enabled. For more information on how {% data variables.product.github %} maps SAML and SCIM data for users, please see [AUTOTITLE](/rest/enterprise-admin/scim?apiVersion=2022-11-28#mapping-of-saml-and-scim-data).
-
 {% endif %}
 
 ## Viewing and revoking an active SAML session
