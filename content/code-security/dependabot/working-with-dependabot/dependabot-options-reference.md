@@ -1,4 +1,4 @@
----
+:---
 title: Dependabot options reference
 intro: 'Detailed information for all the options you can use to customize how {% data variables.product.prodname_dependabot %} maintains your repositories.'
 permissions: '{% data reusables.permissions.dependabot-yml-configure %}'
@@ -20,7 +20,7 @@ topics:
   - Dependencies
   - Pull requests
 shortTitle: Dependabot options reference
----
+:---
 
 ## About the `dependabot.yml` file
 
