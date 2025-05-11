@@ -22,9 +22,9 @@ We recommend that you identify the people with this role and communicate with th
 
 ## Manage charges for premium requests
 
-<!-- expires 2025-05-05 -->
+<!-- expires 2025-05-08 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-05 -->
+<!-- end expires 2025-05-08 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
@@ -36,6 +36,10 @@ For pricing details and a list of available models, see [AUTOTITLE](/copilot/abo
 
 ### Enabling additional premium requests
 
+<!-- expires 2025-05-08 -->
+> [!IMPORTANT] This policy setting will not be available to configure until May 8, 2025. After that date, enterprises can choose to enable additional premium requests. Until a budget is **set explicitly**, no additional charges will apply.
+<!-- end expires 2025-05-08 -->
+
 You can enable or disable the ability for users in your enterprise or organization to make premium requests over your plan's allowance.
 
 1. Go to the {% data variables.product.prodname_copilot_short %} policies page in your organization or enterprise.
@@ -44,6 +48,13 @@ You can enable or disable the ability for users in your enterprise or organizati
 1. Next to "Additional {% data variables.product.prodname_copilot_short %} premium requests", click the toggle to enable premium requests over the allowance included in your plan.
 
 ### Tracking premium requests
+
+<!-- expires 2025-05-19 -->
+> [!IMPORTANT] Premium request reporting will be available to download starting on the following dates:
+>
+> * May 12, 2025: For self-service (credit card) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
+> * May 19, 2025: For sales-served (invoiced) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
+<!-- end expires 2025-05-19 -->
 
 You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:
 

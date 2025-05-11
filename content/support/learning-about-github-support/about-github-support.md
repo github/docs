@@ -28,7 +28,7 @@ The support options available to {% data variables.product.github %} users depen
 
 {% rowheaders %}
 
-|  | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
+| {% data variables.product.github %} plan | {% data variables.product.prodname_gcf %} | Standard support | Enterprise support | Premium support |
 |---|---|---|---|---|
 | {% data variables.product.prodname_free_user %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |
 | {% data variables.product.prodname_pro %} | {% octicon "check" aria-label="Available" %} | {% octicon "check" aria-label="Available" %} | {% octicon "x" aria-label="Not available" %} | {% octicon "x" aria-label="Not available" %} |

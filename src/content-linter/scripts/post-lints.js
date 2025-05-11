@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { program } from 'commander'
 import fs from 'fs'
 import coreLib from '@actions/core'
