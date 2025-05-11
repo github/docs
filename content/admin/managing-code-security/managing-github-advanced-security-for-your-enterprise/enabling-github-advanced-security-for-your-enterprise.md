@@ -28,16 +28,16 @@ When you enable {% data variables.product.prodname_GHAS %} for your enterprise, 
 
 For guidance on a phased deployment of {% data variables.product.prodname_GHAS %}, see [AUTOTITLE](/code-security/adopting-github-advanced-security-at-scale/introduction-to-adopting-github-advanced-security-at-scale).
 
-## Checking whether your license includes {% data variables.product.prodname_AS %}
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. If your license includes {% data variables.product.prodname_GH_cs_or_sp %}, the license page includes a section showing details of current usage.
+1. If your license includes {% data variables.product.prodname_GH_advanced_security %}, the license page includes a section showing details of current usage.
 
-## Prerequisites for enabling {% data variables.product.prodname_cs_and_sp %}
+## Prerequisites for enabling {% data variables.product.prodname_GH_advanced_security %}
 
-1. Upgrade your {% data variables.product.prodname_enterprise %} license to include {% data variables.product.prodname_cs_and_sp %}. For information about licensing, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
+1. Upgrade your {% data variables.product.prodname_enterprise %} license to include {% data variables.product.prodname_GH_advanced_security %}. For information about licensing, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 1. Download the new license file. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise).
 1. Upload the new license file to {% data variables.product.prodname_ghe_server %}. See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/uploading-a-new-license-to-github-enterprise-server).
 1. Review the prerequisites for the features you plan to enable.
@@ -46,7 +46,7 @@ For guidance on a phased deployment of {% data variables.product.prodname_GHAS %
     * {% data variables.product.prodname_secret_scanning_caps %}, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-secret-scanning-for-your-appliance#prerequisites-for-secret-scanning).
     * {% data variables.product.prodname_dependabot %}, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
-## Enabling and disabling {% data variables.product.prodname_AS %} features
+## Enabling and disabling {% data variables.product.prodname_GH_advanced_security %} features
 
 {% data reusables.enterprise_management_console.enable-disable-security-features %}
 
@@ -58,14 +58,14 @@ For guidance on a phased deployment of {% data variables.product.prodname_GHAS %
 
 When {% data variables.product.prodname_ghe_server %} has finished restarting, you're ready to set up any additional resources required for newly enabled features. See [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/configuring-code-scanning-for-your-appliance).
 
-## Enabling or disabling {% data variables.product.prodname_AS %} features via the administrative shell (SSH)
+## Enabling or disabling {% data variables.product.prodname_GH_advanced_security %} features via the administrative shell (SSH)
 
 You can enable or disable features programmatically on {% data variables.product.prodname_ghe_server %}. For more information about the administrative shell and command-line utilities for {% data variables.product.prodname_ghe_server %}, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/accessing-the-administrative-shell-ssh) and [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-config).
 
-For example, you can enable any {% data variables.product.prodname_AS %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
+For example, you can enable any {% data variables.product.prodname_GH_advanced_security %} feature with your infrastructure-as-code tooling when you deploy an instance for staging or disaster recovery.
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
-1. Enable features for {% data variables.product.prodname_AS %}.
+1. Enable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     * To enable {% data variables.product.prodname_code_scanning %}, enter the following commands.
 
@@ -86,7 +86,7 @@ For example, you can enable any {% data variables.product.prodname_AS %} feature
       ghe-config app.dependency-graph.enabled true
       ```
 
-1. Optionally, disable features for {% data variables.product.prodname_AS %}.
+1. Optionally, disable features for {% data variables.product.prodname_GH_advanced_security %}.
 
     * To disable {% data variables.product.prodname_code_scanning %}, enter the following commands.
 
@@ -94,7 +94,7 @@ For example, you can enable any {% data variables.product.prodname_AS %} feature
       ghe-config app.code-scanning.enabled false
       ```
 
-      * Optionally, if you disable {% data variables.product.prodname_code_scanning %}, you can also disable the internal MinIO service for {% data variables.product.prodname_AS %}. If {% data variables.product.prodname_dependabot_updates %} are enabled for the instance and you want to disable this service, you must also disable {% data variables.product.prodname_dependabot_updates %}. Disabling the service does not affect MinIO storage for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}. For more information about {% data variables.product.prodname_dependabot_updates %}, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+      * Optionally, if you disable {% data variables.product.prodname_code_scanning %}, you can also disable the internal MinIO service for {% data variables.product.prodname_GH_advanced_security %}. If {% data variables.product.prodname_dependabot_updates %} are enabled for the instance and you want to disable this service, you must also disable {% data variables.product.prodname_dependabot_updates %}. Disabling the service does not affect MinIO storage for {% data variables.product.prodname_actions %} or {% data variables.product.prodname_registry %}. For more information about {% data variables.product.prodname_dependabot_updates %}, see [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 
         * To disable {% data variables.product.prodname_dependabot_updates %}, enter the following command.
 

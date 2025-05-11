@@ -39,7 +39,7 @@ You have full administrative access to your organization. You can:
 * Download CSV usage reports.{% ifversion ghec %}
 * Create cost centers by grouping repositories you manage.
 * View promotions and discounts.
-* View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_AS %} based on your usage.
+* View spending for pre-purchased user licenses for {% data variables.product.prodname_enterprise %} or {% data variables.product.prodname_GH_advanced_security %} based on your usage.
 {% endif %}
 
 {% ifversion fpt %}

@@ -2171,14 +2171,6 @@
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
     }
   ],
-  "credentials": [
-    {
-      "slug": "revoke-a-list-of-credentials",
-      "subcategory": "revoke",
-      "verb": "post",
-      "requestPath": "/credentials/revoke"
-    }
-  ],
   "dependabot": [
     {
       "slug": "list-dependabot-alerts-for-an-organization",

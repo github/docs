@@ -167,12 +167,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.code_security_enablement_policy_update",
     "description": "The policy for Code Security enablement was updated for an enterprise.",
-    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.create",
@@ -2057,16 +2057,6 @@
   {
     "action": "personal_access_token.destroy",
     "description": "Triggered when you delete a fine-grained personal access token.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "personal_access_token.expiration_limit_set",
-    "description": "A personal access token expiration limit was set.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "personal_access_token.expiration_limit_unset",
-    "description": "A personal access token expiration limit was unset.",
     "docs_reference_links": "N/A"
   },
   {

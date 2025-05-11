@@ -13,20 +13,6 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
   const [showExperiment, setShowExperiment] = useState(false)
   const router = useRouter()
   const mainContext = useMainContext()
-  const [isStaff, setIsStaff] = useState<boolean>(false)
-
-  // Fetch `isStaff` one time on mount so we can know if the other useEffect needs to be re-run
-  useEffect(() => {
-    let cancelled = false
-    async function checkStaff() {
-      const staffValue = await getIsStaff()
-      if (!cancelled) setIsStaff(staffValue)
-    }
-    checkStaff()
-    return () => {
-      cancelled = true
-    }
-  }, [])
 
   useEffect(() => {
     const updateShouldShow = async () => {
@@ -50,7 +36,7 @@ export function useShouldShowExperiment(experimentKey: ExperimentNames | { key: 
     return () => {
       window.removeEventListener('controlGroupOverrideChanged', updateShouldShow)
     }
-  }, [experimentKey, router.locale, mainContext.currentVersion, router.query, isStaff])
+  }, [experimentKey, router.locale, mainContext.currentVersion, router.query])
 
   return showExperiment
 }

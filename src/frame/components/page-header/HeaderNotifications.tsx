@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import cx from 'classnames'
 import { XIcon } from '@primer/octicons-react'
@@ -10,7 +9,6 @@ import { ExcludesNull } from 'src/frame/components/lib/ExcludesNull'
 import { useVersion } from 'src/versions/components/useVersion'
 import { useUserLanguage } from 'src/languages/components/useUserLanguage'
 import styles from './HeaderNotifications.module.scss'
-import { useSharedUIContext } from 'src/frame/components/context/SharedUIContext'
 
 enum NotificationType {
   RELEASE = 'RELEASE',
@@ -32,7 +30,6 @@ export const HeaderNotifications = () => {
   const page = mainContext.page!
   const { userLanguage, setUserLanguageCookie } = useUserLanguage()
   const { languages } = useLanguages()
-  const { setHasOpenHeaderNotifications } = useSharedUIContext()
 
   const { t } = useTranslation('header')
 
@@ -80,10 +77,6 @@ export const HeaderNotifications = () => {
         }
       : null,
   ].filter(ExcludesNull)
-
-  useEffect(() => {
-    setHasOpenHeaderNotifications(allNotifications.length > 0)
-  }, [allNotifications, setHasOpenHeaderNotifications])
 
   return (
     <div data-container="notifications">

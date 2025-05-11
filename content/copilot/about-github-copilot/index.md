@@ -9,5 +9,5 @@ topics:
 children:
   - /what-is-github-copilot
   - /github-copilot-features
-  - /plans-for-github-copilot
+  - /subscription-plans-for-github-copilot
 ---

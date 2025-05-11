@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import crypto from 'crypto'
 import fs from 'fs/promises'
 

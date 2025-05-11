@@ -12,7 +12,7 @@ shortTitle: Setting up a trial
 
 {% data reusables.enterprise.about-ghec %} See [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud).
 
-You can set up a trial to evaluate features that require {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO). For a full list of available features, see our [Pricing](https://github.com/pricing) page.
+You can set up a trial to evaluate features that require {% data variables.product.prodname_ghe_cloud %}, such as SAML single sign-on (SSO) and {% data variables.product.prodname_GH_advanced_security %}. For a full list of available features, see our [Pricing](https://github.com/pricing) page.
 
 Your trial **won't** include {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} or access to {% data variables.product.prodname_ghe_server %}. To test these features, contact {% data variables.contact.contact_enterprise_sales %}.
 
@@ -24,7 +24,7 @@ The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** a
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.{% ifversion metered-ghe-ghas %}
 * {% data variables.product.prodname_copilot_for_business %}
-* {% data variables.product.prodname_GH_cs_and_sp %}
+* {% data variables.product.prodname_GH_advanced_security %}
 * Access to the **new billing platform**. See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
@@ -62,9 +62,9 @@ To help you decide which choice is best for your enterprise, see [AUTOTITLE](/ad
 
 You can find full instructions on setting up {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/enterprise-cloud@latest/get-started/onboarding/getting-started-with-github-enterprise-cloud) guide.
 
-### Setting up {% data variables.product.prodname_GH_cs_and_sp %}
+### Setting up {% data variables.product.prodname_GH_advanced_security %}
 
-You can find information about planning a trial of {% data variables.product.prodname_cs_and_sp %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
+You can find information about planning a trial of {% data variables.product.prodname_GH_advanced_security %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
 
 ### Setting up {% data variables.product.prodname_copilot_for_business %}
 

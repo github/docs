@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import httpStatusCodes from 'http-status-code'
 import { get, isPlainObject } from 'lodash-es'
 import { parseTemplate } from 'url-template'

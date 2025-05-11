@@ -1,6 +1,6 @@
 ---
-title: 'Upload fails because {% data variables.product.prodname_GH_code_security %} is disabled'
-shortTitle: '{% data variables.product.prodname_GH_code_security %} disabled'
+title: 'Upload fails because {% data variables.product.prodname_GH_advanced_security %} is disabled'
+shortTitle: '{% data variables.product.prodname_GH_advanced_security %} disabled'
 allowTitleToDifferFromFilename: true
 intro: 'You can only upload SARIF results to {% ifversion fpt or ghec %}private or internal {% endif %}repositories where {% data variables.product.prodname_GH_code_security %} is enabled.'
 type: reference
@@ -20,9 +20,9 @@ redirect_from:
 ## About this error
 
 ```text
-{% data variables.product.prodname_GHAS_or_code_security %} not enabled
-{% data variables.product.prodname_GHAS_or_code_security %} blocked by a policy
-403: {% data variables.product.prodname_GHAS_or_code_security %} is not enabled
+{% data variables.product.prodname_GH_advanced_security %} not enabled
+{% data variables.product.prodname_GH_advanced_security %} blocked by a policy
+403: {% data variables.product.prodname_GH_advanced_security %} is not enabled
 ```
 
 This error is reported if a process attempts to upload a SARIF file to a repository where {% data variables.product.prodname_GH_code_security %} is not enabled or where use of this feature is blocked by a policy.

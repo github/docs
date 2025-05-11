@@ -5,7 +5,7 @@
     * **Platform:** Choose a platform from the available options. Once you've selected a platform, you will be able to choose a specific image.
     * **Image:** Choose an image from the available options. Once you've selected an image, you will be able to choose a specific size.
       * **GitHub-owned:** For images managed by GitHub, select an image under this tab.
-      * **Partner:** For images managed by a partner, select an image under this tab. ex: Base Windows 11 desktop, GPU-optimized, and arm64 images are located under this tab.
+      * **Partner:** For images managed by a partner, select an image under this tab. Windows 11 desktop and GPU-optimized images are located under this tab.
     * **Size:** Choose a hardware configuration from the list of available options. The available sizes depend on the image that you selected in a previous step. For GPU runners, select a size under the **GPU-powered** tab.
     * **Maximum concurrency:** Choose the maximum number of jobs that can be active at any time.
     * **Runner group:** Choose the group that your runner will be a member of. This group will host multiple instances of your runner, as they scale up and down to suit demand. {% ifversion ghec %}

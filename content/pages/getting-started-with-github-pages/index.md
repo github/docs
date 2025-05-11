@@ -14,9 +14,8 @@ versions:
 topics:
   - Pages
 children:
-  - /what-is-github-pages
+  - /about-github-pages
   - /creating-a-github-pages-site
-  - /github-pages-limits
   - /using-custom-workflows-with-github-pages
   - /configuring-a-publishing-source-for-your-github-pages-site
   - /deleting-a-github-pages-site

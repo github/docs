@@ -190,9 +190,9 @@ Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-### Version compatibility
+## Prerequisites
 
-To use {% data variables.product.prodname_copilot %} for Xcode you must have Xcode version 8.0 or above and macOS Monterey (12.0) or above installed. See [Xcode](https://developer.apple.com/xcode/) on the Apple Developer site.
+{% data reusables.copilot.xcode-prerequisites %}
 
 ## Installing the {% data variables.product.prodname_copilot %} extension for Xcode
 
@@ -233,9 +233,9 @@ Installing {% data variables.product.prodname_copilot %} in Eclipse allows you t
 
 To see instructions for other popular coding environments, use the tool switcher at the top of the page.
 
-### Version compatibility
+## Prerequisites
 
-To use the {% data variables.product.prodname_copilot %} extension, you must have Eclipse version 2024-09 or above. See the [Eclipse download page](https://www.eclipse.org/downloads/packages/).
+{% data reusables.copilot.eclipse-prerequisites %}
 
 ## Installing {% data variables.product.prodname_copilot %} in Eclipse
 

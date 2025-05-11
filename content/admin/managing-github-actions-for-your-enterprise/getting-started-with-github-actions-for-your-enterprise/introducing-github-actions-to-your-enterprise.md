@@ -90,7 +90,7 @@ You may need to upgrade the CPU and memory resources for {% data variables.locat
 
 {% data variables.product.prodname_actions %} workflows require runners.{% ifversion ghec %} You can choose to use {% data variables.product.prodname_dotcom %}-hosted runners or self-hosted runners. {% data variables.product.company_short %} manages maintenance and upgrades for {% data variables.product.prodname_dotcom %}-hosted runners. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners).
 
-To manage your own resources, configuration, or geographic location of your runner machines, use self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+To manage your own resources, configuration, or geographic location of your runner machines, use self hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 
 If you want more control over the networking policies for your runners, use self-hosted runners or private networking options for {% data variables.product.prodname_dotcom %}-hosted runners. For more information about private networking options, see [AUTOTITLE](/actions/using-github-hosted-runners/connecting-to-a-private-network/about-private-networking-with-github-hosted-runners).{% else %} You will need to host your own runners by installing the {% data variables.product.prodname_actions %} self-hosted runner application on your own machines. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).{% endif %}
 

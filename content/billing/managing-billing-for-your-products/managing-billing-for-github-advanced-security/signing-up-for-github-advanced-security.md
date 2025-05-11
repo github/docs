@@ -45,7 +45,7 @@ If your enterprise uses metered billing, then you are ready to start enabling {%
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. To the right of "GitHub Advanced Security", click **Buy Advanced Security**.
 
-   ![Screenshot of the {% data variables.product.prodname_AS %} section of the enterprise licensing screen. The "Buy Advanced Security" button is outlined in orange.](/assets/images/help/enterprises/ghas-buy-advanced-security-button.png)
+   ![Screenshot of the {% data variables.product.prodname_GH_advanced_security %} section of the enterprise licensing screen. The "Buy Advanced Security" button is outlined in orange.](/assets/images/help/enterprises/ghas-buy-advanced-security-button.png)
 
 {% data reusables.advanced-security.purchase-ghas %}
 

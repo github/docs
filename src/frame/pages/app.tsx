@@ -16,7 +16,6 @@ import {
   LanguageItem,
 } from 'src/languages/components/LanguagesContext'
 import { useTheme } from 'src/color-schemes/components/useTheme'
-import { SharedUIContextProvider } from 'src/frame/components/context/SharedUIContext'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -139,9 +138,7 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
         preventSSRMismatch
       >
         <LanguagesContext.Provider value={languagesContext}>
-          <SharedUIContextProvider>
-            <Component {...pageProps} />
-          </SharedUIContextProvider>
+          <Component {...pageProps} />
         </LanguagesContext.Provider>
       </ThemeProvider>
     </>

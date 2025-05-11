@@ -21,7 +21,7 @@ redirect_from:
 
 Some additional features, such as license checks, blocking of pull requests, and CI/CD integration, are available with the [dependency review action](https://github.com/actions/dependency-review-action).
 
-## Checking whether your license includes {% data variables.product.prodname_AS %}
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 

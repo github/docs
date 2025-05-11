@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // This script fetches data from https://github.com/github/enterprise-releases/blob/master/releases.json

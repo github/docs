@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /**
  * Required env variables:
  *

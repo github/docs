@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Pass this script any old dotcom path (e.g., `articles/foo` or `foo.md`) and it

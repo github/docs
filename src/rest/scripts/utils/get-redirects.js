@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { readFile, writeFile } from 'fs/promises'
 const STATIC_REDIRECTS = 'src/rest/data/client-side-rest-api-redirects.json'
 const REST_API_OVERRIDES = 'src/rest/lib/rest-api-overrides.json'

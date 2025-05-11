@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 // This schema is used to validate
 // src/github-apps/data/fine-grained-pat-permissions.json
 // and src/github-apps/data/server-to-server-permissions.json

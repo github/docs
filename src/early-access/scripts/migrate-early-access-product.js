@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Move the files from an early-access product level docs set into an existing product.

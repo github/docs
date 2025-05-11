@@ -19,10 +19,7 @@ topics:
 
 ## About automatically archiving items
 
-{% ifversion projects-single-limit %}
-You can configure your project's built-in workflows to automatically archive items. Archiving items helps you improve focus by removing old items from your project views. An archived item retains all of its custom field data and can be viewed or restored from the archive page.
-{% else %}
-You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.{% endif %}
+You can configure your project's built-in workflows to automatically archive items. Archiving items will help you stay below the limit of {% data variables.projects.item_limit %} items in each project.
 
 The auto-archive workflow supports a subset of filters. You can use the following filters when configuring your workflow.
 
@@ -38,7 +35,7 @@ Additionally, items are also marked as updated when field values in your project
 
 When you enable automatic archiving for issues or pull requests, items in your project that already meet your criteria will also be archived. There may be some delay in archiving large numbers of items that already meet the criteria.
 
-{% ifversion projects-single-limit %}Your project can contain up to {% data variables.projects.item_limit %} items across both active views and the archive page. Once that limit has been reached, you will need to delete items from your project to free up more space.{% else %} Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items.{% endif %} For more information on permanently deleting items, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items).
+Projects also have a limit on the number of archived items they can contain. Your project can contain up to {% data variables.projects.archived_item_limit %} archived items. For more information on permanently deleting items, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/archiving-items-from-your-project#deleting-items).
 
 ## Configuring automatic archiving in your project
 

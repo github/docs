@@ -1,6 +1,7 @@
 ---
 title: Troubleshooting network errors for GitHub Copilot
 intro: Resolve common errors related to proxies and custom certificates.
+product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
   - Logging

@@ -32,7 +32,7 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% data reusables.code-scanning.enabling-options %}
 
-## Checking whether your license includes {% data variables.product.prodname_AS %}
+## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 

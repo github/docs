@@ -32,7 +32,7 @@ Most individual developers can start using {% data variables.product.prodname_co
 
 * You have a {% data variables.enterprise.prodname_managed_user %}.
 * You are assigned a {% data variables.product.prodname_copilot_short %} seat through an organization.
-* You have an existing {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} plan or {% data variables.product.prodname_copilot_pro_short %} trial.
+* You have an existing {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} subscription or {% data variables.product.prodname_copilot_pro_short %} trial.
 * You have free access to {% data variables.product.prodname_copilot_pro_short %} as a student, teacher, or open-source maintainer.
 
 There are a few ways to start using {% data variables.product.prodname_copilot_free_short %}, depending on where you're working.
@@ -87,8 +87,8 @@ You can subscribe to {% data variables.product.prodname_copilot_pro_short %} or 
 1. Click **Get started** under the plan you want to subscribe to.
 1. Choose whether you want to pay monthly or yearly, and click **Subscribe to {% data variables.product.prodname_copilot_pro_short %}/{% data variables.product.prodname_copilot_pro_plus_short %}**.
 
-   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} plan instead of a trial or paid plan, you will automatically be taken to step 6.
+   If your personal account meets the criteria for a free {% data variables.product.prodname_copilot %} subscription instead of a trial or paid subscription, you will automatically be taken to step 6.
 
 1. To enable usage beyond your included premium request allowance, select **Yes, I want to enable additional usage for {% data variables.product.prodname_copilot_short %} premium requests**. You can change this setting at any time. Click **Save & continue**.
 1. Follow the steps to enter and confirm your billing information and payment details, then click **Submit**.
-1. After reviewing your plan details, click **Activate {% data variables.product.prodname_copilot_pro_short %}/{% data variables.product.prodname_copilot_pro_plus_short %}**.
+1. After reviewing your subscription details, click **Activate {% data variables.product.prodname_copilot_pro_short %}/{% data variables.product.prodname_copilot_pro_plus_short %}**.

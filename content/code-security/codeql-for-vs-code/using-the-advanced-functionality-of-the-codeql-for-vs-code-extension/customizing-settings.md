@@ -113,7 +113,7 @@ This setting is disabled by default. You may want to enable the setting if you r
 > [!NOTE]
 > If you are in a single-folder workspace, adding database source folders will cause the workspace to reload as a multi-root workspace. This may cause query history and database lists to reset.
 >
-> Before enabling this setting, we recommend that you save your workspace as a multi-root workspace. For more information, see [Multi-root Workspaces](https://code.visualstudio.com/docs/editing/workspaces/multi-root-workspaces) in the {% data variables.product.prodname_vscode %} documentation.
+> Before enabling this setting, we recommend that you save your workspace as a multi-root workspace. For more information, see [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces) in the {% data variables.product.prodname_vscode %} documentation.
 
 ### Configuring settings for testing queries locally
 
@@ -159,4 +159,4 @@ When {% data variables.product.github %} Enterprise URI (`github-enterprise.uri`
 
 ## Further reading
 
-* [User and Workspace Settings](https://code.visualstudio.com/docs/configure/settings) in the {% data variables.product.prodname_vscode %} documentation
+* [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) in the {% data variables.product.prodname_vscode %} documentation

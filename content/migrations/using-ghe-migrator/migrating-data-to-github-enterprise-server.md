@@ -75,9 +75,7 @@ The _conflicts.csv_ file contains a _migration map_ of conflicts and recommended
 | `organization` | `https://example-gh.source/octo-org` | `https://example-gh.target/octo-org` | `map` |
 | `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/widgets` | `rename` |
 | `team`         | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge` |
-| {% ifversion projects-v1 %} |
 | `project` | `https://example-gh.source/octo-org/widgets/projects/1` | `https://example-gh.target/octo-org/projects/1` | `merge` |
-| {% endif %} |
 
 Each row in _conflicts.csv_ provides the following information:
 
@@ -95,22 +93,10 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
-| {% ifversion projects-v1 %} |
 | `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations, projects
-| {% else %} |
-| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations
-| {% endif %} |
-| {% ifversion projects-v1 %} |
 | `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories, projects
-| {% else %} |
-| `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
-| {% endif %} |
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
-| {% ifversion projects-v1 %} |
 | `merge`       | Data from the source is combined with existing data on the target. | Teams, projects
-| {% else %} |
-| `merge`       | Data from the source is combined with existing data on the target. | Teams
-| {% endif %} |
 
 **We strongly suggest you review the _conflicts.csv_ file and use `ghe-migrator audit` to ensure that the proper actions are being taken.** If everything looks good, you can continue.
 
@@ -209,9 +195,7 @@ The record types match those found in the [migrated data](/migrations/using-ghe-
 | Repositories    | `repository`
 | Teams           | `team`
 | Milestones      | `milestone`
-| {% ifversion projects-v1 %} |
 | {% data variables.projects.projects_v1_boards_caps %}  | `project`
-| {% endif %} |
 | Issues          | `issue`
 | Issue comments  | `issue_comment`
 | Pull requests   | `pull_request`

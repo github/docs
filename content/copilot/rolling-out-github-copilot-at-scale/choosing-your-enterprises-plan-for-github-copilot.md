@@ -19,7 +19,7 @@ When you adopt {% data variables.product.prodname_copilot %} in a company, you w
 
 This article helps you to decide whether to adopt {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}.
 
-<a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=choosing+enterprise+plan" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>
+<a href="https://github.com/github-copilot/purchase" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>
 
 ## About the plans
 
@@ -55,9 +55,9 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can mak
 
 ## How much will we benefit from premium requests?
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-05-05 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-05-05 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 

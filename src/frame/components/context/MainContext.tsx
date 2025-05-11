@@ -86,7 +86,6 @@ type EnterpriseServerReleases = {
 }
 
 export type MainContextT = {
-  allVersions: Record<string, VersionItem>
   breadcrumbs: {
     product: BreadcrumbT
     category?: BreadcrumbT
@@ -97,21 +96,21 @@ export type MainContextT = {
     name: string
     href: string
   }
-  currentCategory?: string
-  currentPathWithoutLanguage: string
   currentProduct?: ProductT
   currentProductName: string
-  currentProductTree?: ProductTreeNode | null
   currentLayoutName?: string
-  currentVersion?: string
-  data: DataT
-  enterpriseServerReleases: EnterpriseServerReleases
-  enterpriseServerVersions: Array<string>
-  error: string
-  featureFlags: FeatureFlags
-  fullUrl: string
   isHomepageVersion: boolean
-  nonEnterpriseDefaultVersion: string
+  data: DataT
+  error: string
+  currentCategory?: string
+  relativePath?: string
+  enterpriseServerReleases: EnterpriseServerReleases
+  currentPathWithoutLanguage: string
+  allVersions: Record<string, VersionItem>
+  currentVersion?: string
+  currentProductTree?: ProductTreeNode | null
+  sidebarTree?: ProductTreeNode | null
+  featureFlags: FeatureFlags
   page: {
     documentType: string
     type?: string
@@ -123,10 +122,13 @@ export type MainContextT = {
     noEarlyAccessBanner: boolean
     applicableVersions: string[]
   } | null
-  relativePath?: string
-  sidebarTree?: ProductTreeNode | null
+
+  enterpriseServerVersions: Array<string>
+
+  nonEnterpriseDefaultVersion: string
+
   status: number
-  xHost?: string
+  fullUrl: string
 }
 
 // Write down the namespaces from `data/ui.yml` that are used on all pages,
@@ -229,14 +231,35 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
   const currentProductName: string = req.context.currentProductName || ''
 
   const props: MainContextT = {
-    allVersions: minimalAllVersions(req.context.allVersions),
     breadcrumbs: req.context.breadcrumbs || {},
     communityRedirect: req.context.page?.communityRedirect || {},
-    currentCategory: req.context.currentCategory || '',
-    currentLayoutName: req.context.currentLayoutName || null,
-    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
     currentProduct,
     currentProductName,
+    isHomepageVersion: req.context.page?.documentType === 'homepage',
+    error: req.context.error ? req.context.error.toString() : '',
+    data: {
+      ui,
+
+      reusables,
+
+      variables: {
+        release_candidate: {
+          version: releaseCandidateVersion,
+        },
+      },
+    },
+    currentCategory: req.context.currentCategory || '',
+    currentPathWithoutLanguage: req.context.currentPathWithoutLanguage,
+    page: pageInfo,
+    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
+      'isOldestReleaseDeprecated',
+      'oldestSupported',
+      'nextDeprecationDate',
+      'supported',
+    ]),
+    enterpriseServerVersions: req.context.enterpriseServerVersions,
+    allVersions: minimalAllVersions(req.context.allVersions),
+    currentVersion: req.context.currentVersion,
     // This is a slimmed down version of `req.context.currentProductTree`
     // that only has the minimal titles stuff needed for sidebars and
     // any page that is hidden is omitted.
@@ -245,37 +268,21 @@ export const getMainContext = async (req: any, res: any): Promise<MainContextT> 
     // has the full length titles and not just the short titles.
     currentProductTree:
       (includeFullProductTree && req.context.currentProductTreeTitlesExcludeHidden) || null,
-    currentVersion: req.context.currentVersion,
-    data: {
-      ui,
-      reusables,
-      variables: {
-        release_candidate: {
-          version: releaseCandidateVersion,
-        },
-      },
-    },
-    enterpriseServerReleases: pick(req.context.enterpriseServerReleases, [
-      'isOldestReleaseDeprecated',
-      'oldestSupported',
-      'nextDeprecationDate',
-      'supported',
-    ]),
-    enterpriseServerVersions: req.context.enterpriseServerVersions,
-    error: req.context.error ? req.context.error.toString() : '',
-    featureFlags: {},
-    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
-    isHomepageVersion: req.context.page?.documentType === 'homepage',
-    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
-    page: pageInfo,
-    relativePath: req.context.page?.relativePath || null,
     // The minimal product tree is needed on all pages that depend on
     // the product sidebar or the rest sidebar.
     sidebarTree: (includeSidebarTree && req.context.sidebarTree) || null,
+    featureFlags: {},
+    nonEnterpriseDefaultVersion: req.context.nonEnterpriseDefaultVersion,
     status: res.statusCode,
-    xHost: req.get('x-host') || '',
+    fullUrl: req.protocol + '://' + req.hostname + req.originalUrl, // does not include port for localhost
   }
 
+  if (req.context.currentLayoutName) {
+    props.currentLayoutName = req.context.currentLayoutName
+  }
+  if (req.context.page?.relativePath) {
+    props.relativePath = req.context.page.relativePath
+  }
   return props
 }
 

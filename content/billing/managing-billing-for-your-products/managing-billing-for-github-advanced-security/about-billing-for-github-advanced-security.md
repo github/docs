@@ -94,7 +94,7 @@ You can control usage and costs with {% ifversion ghec %}cost centers, policies,
 {% data reusables.billing.actions-usage-delay %}
 
 {% ifversion ghas-in-license-sync %}
-If your enterprise uses {% data variables.product.prodname_AS %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_AS %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
+If your enterprise uses {% data variables.product.prodname_GH_advanced_security %} on both {% data variables.product.prodname_ghe_server %} and {% data variables.product.prodname_ghe_cloud %}, you can ensure users aren't consuming multiple licenses unnecessarily by synchronizing license usage between environments.{% ifversion ghec %} {% data variables.product.prodname_GH_advanced_security %} is included in license sync in {% data variables.product.prodname_ghe_server %} version 3.12 and later.{% endif %} See [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).
 {% endif %}
 
 {% endif %}
@@ -115,7 +115,7 @@ If you exceed your license limit, features controlled by {% data variables.produ
 
 As soon as you make licenses available, by disabling {% data variables.product.prodname_GH_cs_or_sp %} in some repositories, or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_cs_and_sp %} will work again as normal. {% ifversion ghes %}All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.{% endif %}
 
-You can enforce policies to allow or disallow the use of {% data variables.product.prodname_AS %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
+You can enforce policies to allow or disallow the use of {% data variables.product.prodname_advanced_security %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
 
 ## Active and unique committers
 

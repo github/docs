@@ -11,7 +11,6 @@ import { getUserEventsId } from '../events'
 import type { ParsedUrlQuery } from 'querystring'
 
 let experimentsInitialized = false
-let userIsStaff = false
 
 export function shouldShowExperiment(
   experimentKey: ExperimentNames | { key: ExperimentNames },
@@ -46,7 +45,6 @@ export function shouldShowExperiment(
         // If the user has staffonly cookie, and staff override is true, show the experiment
         if (experiment.alwaysShowForStaff) {
           if (isStaff) {
-            userIsStaff = true
             console.log(`Staff cookie is set, showing '${experiment.key}' experiment`)
             return true
           }
@@ -119,11 +117,10 @@ export function getExperimentVariationForContext(locale: string, version: string
     if (experiment.includeVariationInContext) {
       // If the user is using the URL param to view the experiment, include the variation in the context
       if (
-        (experiment.turnOnWithURLParam &&
-          window.location?.search
-            ?.toLowerCase()
-            .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)) ||
-        (experiment.alwaysShowForStaff && userIsStaff)
+        experiment.turnOnWithURLParam &&
+        window.location?.search
+          ?.toLowerCase()
+          .includes(`feature=${experiment.turnOnWithURLParam.toLowerCase()}`)
       ) {
         return TREATMENT_VARIATION
       }

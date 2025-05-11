@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import chalk from 'chalk'
 import { readFile } from 'fs/promises'
 import { allVersions } from '#src/versions/lib/all-versions.js'

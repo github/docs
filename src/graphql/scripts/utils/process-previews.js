@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { sentenceCase } from 'change-case'
 import GithubSlugger from 'github-slugger'
 const slugger = new GithubSlugger()

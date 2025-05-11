@@ -138,17 +138,11 @@ After using `git-filter-repo` to remove the sensitive data and pushing your chan
 1. Contact {% data variables.contact.contact_support %}, and provide the following information:
 
     * The owner and repository name in question (e.g. YOUR-USERNAME/YOUR-REPOSITORY).
-{%- ifversion fpt or ghec %}
     * The number of affected pull requests, found in the previous step. This is used by Support to verify you understand how much will be affected.
-{%- endif %}
-{%- ifversion ghes %}
-    * The number of affected pull requests, found in the previous step. This is used by your site administrator to verify you understand how much will be affected.
-{%- endif %}
     * The First Changed Commit(s) reported by `git-filter-repo` (Look for `NOTE: First Changed Commit(s)` in its output.)
     * If `NOTE: There were LFS Objects Orphaned by this rewrite` appears in the git-filter-repo output (right after the First Changed Commit), then mention you had LFS Objects Orphaned and upload the named file to the ticket as well.
 
-    {% ifversion fpt or ghec %}If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:{% endif %}
-    {% ifversion ghes %}If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, your site administrator will then:{% endif %}
+    If you have successfully cleaned up all references other than PRs, and no forks have references to the sensitive data, Support will then:
 
     * Dereference or delete any affected PRs on {% data variables.product.github %}.
     * Run a garbage collection on the server to expunge the sensitive data from storage.

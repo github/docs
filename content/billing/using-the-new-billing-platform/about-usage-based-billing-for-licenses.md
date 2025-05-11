@@ -21,7 +21,7 @@ shortTitle: Usage-based billing for licenses
 
 ## About usage-based billing
 
-With the new billing platform, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_cs_and_sp %} licenses you use. You will not need to buy a predefined number of licenses in advance. Usage-based billing provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
+With the new billing platform, you pay monthly for the number of {% data variables.product.prodname_enterprise %} and {% data variables.product.prodname_GH_advanced_security %} licenses you use. You will not need to buy a predefined number of licenses in advance. Usage-based billing provides flexibility and cost savings compared to more traditional licensing models, such as volume or subscription models.
 
 {% data reusables.billing.license-type-overview %}
 {% data reusables.billing.license-models %}

@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
 ---
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-05-05 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-05-05 -->
 
 You can track your monthly usage of premium requests to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan.
 

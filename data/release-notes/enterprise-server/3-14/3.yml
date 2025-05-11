@@ -55,6 +55,8 @@ sections:
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
     - |
+      Repositories originally imported using `ghe-migrator` will not correctly track GitHub Advanced Security contributions.
+    - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
       When following the steps for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), step 14 (running `ghe-cluster-config-apply`) might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
@@ -82,9 +84,3 @@ sections:
       {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
 
       [Updated: 2025-03-12]
-
-  errata:
-    - |
-      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.14.3, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
-      
-      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]

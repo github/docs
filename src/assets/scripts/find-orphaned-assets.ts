@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Print a list of all the asset files that can't be found mentioned
@@ -40,11 +42,6 @@ const EXCEPTIONS = new Set([
   'assets/images/site/evergreens/redwood.png',
   'assets/images/site/evergreens/sequoia.png',
   'assets/images/site/evergreens/spruce.png',
-  'assets/images/social-cards/actions.png',
-  'assets/images/social-cards/copilot.png',
-  'assets/images/social-cards/default.png',
-  'assets/images/social-cards/issues.png',
-  'assets/images/social-cards/code-security.png',
 ])
 
 function isExceptionPath(imagePath: string) {

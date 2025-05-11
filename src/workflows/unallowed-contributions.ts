@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import coreLib from '@actions/core'
 import { readFileSync } from 'fs'
 import yaml from 'js-yaml'

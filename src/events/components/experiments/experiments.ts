@@ -29,7 +29,7 @@ export const EXPERIMENTS = {
       'enterprise-cloud@latest',
       'enterprise-server@latest',
     ], // Only enable for versions
-    alwaysShowForStaff: true, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
+    alwaysShowForStaff: false, // When set to true, staff will always see the experiment (determined by the `staffonly` cookie)
     turnOnWithURLParam: 'ai_search', /// When the query param `?feature=ai_search` is set, the experiment will be enabled
   },
   /*  Add new experiments here, example:

@@ -1,7 +1,7 @@
 ---
 version: 1
 ownership:
-  - team: github/docs
+  - team: github/docs-engineering
     repo: https://github.com/github/docs-internal
     name: docs-internal
     kind: moda

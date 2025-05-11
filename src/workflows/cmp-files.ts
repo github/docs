@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 // [start-readme]
 //
 // Given N files. Exit 0 if they all exist and are identical in content.

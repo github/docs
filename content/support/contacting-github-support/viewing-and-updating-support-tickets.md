@@ -16,7 +16,7 @@ topics:
 
 {% data reusables.support.zendesk-old-tickets %}
 
-You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived and retained for up to three years. Archived tickets can only be viewed for enterprise accounts.
+You can use the {% data variables.contact.contact_landing_page_portal %} to view current and past support tickets and respond to {% data variables.contact.github_support %}. After 120 days, resolved tickets are archived, and archived tickets can only be viewed for enterprise accounts.
 
 Your capabilities in the {% data variables.contact.landing_page_portal %} depend on the account you select when you submit a ticket.{% ifversion ghes or ghec %} If you select an enterprise account, your role in the enterprise also affects your capabilities.
 
@@ -35,7 +35,7 @@ Your capabilities in the {% data variables.contact.landing_page_portal %} depend
 
 ## Viewing your archived support tickets
 
-You can only view archived tickets for an enterprise account. Archived tickets are retained for up to three years.
+You can only view archived tickets for an enterprise account.
 
 {% data reusables.support.navigate-to-my-tickets %}
 1. Select the **My Tickets** drop-down menu and click the name of the enterprise account.

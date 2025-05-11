@@ -34,7 +34,7 @@ Jekyll is a static site generator with built-in support for {% data variables.pr
 
 Jekyll is not officially supported for Windows. For more information, see [Jekyll on Windows](https://jekyllrb.com/docs/windows/#installation) in the Jekyll documentation.
 
-We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/creating-a-github-pages-site#static-site-generators).
+We recommend using Jekyll with {% data variables.product.prodname_pages %}. If you prefer, you can use other static site generators or customize your own build process locally or on another server. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/about-github-pages#static-site-generators).
 
 ## Configuring Jekyll in your {% data variables.product.prodname_pages %} site
 

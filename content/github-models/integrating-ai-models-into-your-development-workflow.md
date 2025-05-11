@@ -30,49 +30,6 @@ If you have a {% data variables.product.prodname_copilot_short %} subscription, 
     * Executing prompts using a particular model. This is especially useful when you want to use a model that is not currently available in multi-model {% data variables.product.prodname_copilot_chat_short %}.
     * Listing models currently available through {% data variables.product.prodname_github_models %}
 
-## Using AI models with {% data variables.product.prodname_actions %}
-
-You can use the {% data variables.product.prodname_actions %} token (`GITHUB_TOKEN`) to call AI models directly inside your workflows.
-
-### Setting permissions
-
-To use AI models in your workflows, you need to ensure that the `models` permission is enabled in your workflow configuration. This permission allows workflows to access the {% data variables.product.prodname_github_models %} inference API. You can either set this permission itself or use the general `read-all` or `write-all` permissions. See [AUTOTITLE](/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-actions).
-
-### Writing your workflow file
-
-You can call the inference API directly from your workflow. For instance:
-
-```yaml
-name: Use GitHub Models
-
-on:
-  workflow_dispatch:
-
-permissions:
-  models: read
-
-jobs:
-  call-model:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Call AI model
-        env:
-          GITHUB_TOKEN: {% raw %}${{ secrets.GITHUB_TOKEN }}{% endraw %}
-        run: |
-          curl "https://models.github.ai/inference/chat/completions" \
-             -H "Content-Type: application/json" \
-             -H "Authorization: Bearer $GITHUB_TOKEN" \
-             -d '{
-              "messages": [
-                  {
-                     "role": "user",
-                     "content": "Explain the concept of recursion."
-                  }
-               ],
-               "model": "openai/gpt-4o"
-            }'
-```
-
 ## Using AI models from the command line
 
 > [!NOTE] The {% data variables.product.prodname_github_models %} extension for {% data variables.product.prodname_cli %} is in {% data variables.release-phases.public_preview %} and is subject to change.

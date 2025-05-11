@@ -84,7 +84,7 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 
 ## Changing the AI model for code completion
 
-The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using {% data variables.product.prodname_vs %}, or a JetBrains IDE, click the appropriate tab at the start of this article.
+The following instructions are for {% data variables.product.prodname_vscode_shortname %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
 
 1. Open the command palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) / <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
@@ -105,7 +105,7 @@ Alternatively, if Command Center is enabled, you can click {% octicon "chevron-d
 
 ## Changing the AI model for code completion
 
-The following instructions are for {% data variables.product.prodname_vs %}. If you are using {% data variables.product.prodname_vscode_shortname %}, or a JetBrains IDE, click the appropriate tab at the start of this article.
+The following instructions are for {% data variables.product.prodname_vs %}. If you are using a JetBrains IDE, click the appropriate tab at the start of this article.
 
 1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the top right corner.
 1. Click **Settings**, then click **Options**.
@@ -117,7 +117,7 @@ The following instructions are for {% data variables.product.prodname_vs %}. If 
 
 ## Changing the AI model for code completion
 
-The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vs %}, or {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the start of this article.
+The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vs %}, click the appropriate tab at the start of this article.
 
 1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
 1. In the popup menu, click **Edit Model for Completion**.
