@@ -42,11 +42,7 @@ If you want to view an overview of your subscription and usage for {% data varia
 
 {% endif %}
 
-{% ifversion metered-ghe-ghas %}
-
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## Viewing the subscription and usage for your enterprise account
 

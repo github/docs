@@ -167,7 +167,7 @@ export function AskAIResults({
       let conversationIdBuffer = ''
 
       try {
-        const response = await executeAISearch(router, version, query, debug)
+        const response = await executeAISearch(version, query, debug)
         if (!response.ok) {
           // If there is JSON and the `upstreamStatus` key, the error is from the upstream sever (CSE)
           let responseJson

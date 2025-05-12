@@ -67,9 +67,7 @@ Name | Description
 &emsp;`user:follow`| Grants access to follow or unfollow other users.{% ifversion projects-oauth-scope %}
 **`project`** | Grants read/write access to user and organization {% data variables.projects.projects_v2 %}.
 &emsp;`read:project`| Grants read only access to user and organization {% data variables.projects.projects_v2 %}.{% endif %}
-**`delete_repo`** | Grants access to delete adminable repositories.{% ifversion team-discussions %}
-**`write:discussion`** | Allows read and write access for team discussions.
-&emsp;`read:discussion` | Allows read access for team discussions.{% endif %}
+**`delete_repo`** | Grants access to delete adminable repositories.
 **`write:packages`** | Grants access to upload or publish a package in {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/publishing-a-package).
 **`read:packages`** | Grants access to download or install packages from {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/installing-a-package).
 **`delete:packages`** | Grants access to delete packages from {% data variables.product.prodname_registry %}. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package).

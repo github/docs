@@ -3,7 +3,9 @@ title: Managing custom properties for repositories in your organization
 intro: 'With custom properties, you can add metadata to repositories in your organization. You can use those properties to target repositories with rulesets.'
 permissions: 'Organization owners {% ifversion custom-org-roles %}and users with the "Manage the organization''s custom properties definitions" permission {% endif %}can add and set a custom property schema at the organization level.'
 versions:
-  feature: repository-properties
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Repositories
 shortTitle: Custom properties
@@ -68,7 +70,7 @@ People with read permissions to a repository can view the values of custom prope
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
 
-{% ifversion ghes > 3.14 %}
+{% ifversion ghec or fpt or ghes > 3.14 %}
 
 ## Searching and filtering repositories by custom properties values
 

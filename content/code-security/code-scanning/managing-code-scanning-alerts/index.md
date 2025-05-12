@@ -11,6 +11,9 @@ topics:
   - Code Security
   - Code scanning
   - CodeQL
+redirect_from:
+  - /code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/tracking-code-scanning-alerts-in-issues-using-task-lists
+  - /code-security/code-scanning/managing-code-scanning-alerts/tracking-code-scanning-alerts-in-issues-using-task-lists
 children:
   - /about-code-scanning-alerts
   - /responsible-use-autofix-code-scanning
@@ -20,5 +23,4 @@ children:
   - /best-practices-for-participating-in-a-security-campaign
   - /fixing-alerts-in-security-campaign
   - /triaging-code-scanning-alerts-in-pull-requests
-  - /tracking-code-scanning-alerts-in-issues-using-task-lists
 ---

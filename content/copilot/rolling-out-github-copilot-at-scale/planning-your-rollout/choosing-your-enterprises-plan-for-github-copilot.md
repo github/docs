@@ -57,15 +57,15 @@ With {% data variables.product.prodname_copilot_enterprise_short %}, you can mak
 
 ## How much will we benefit from premium requests?
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-06-04 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-06-04 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
 To decide if you will benefit from a higher allowance for premium requests, compare the goals of your rollout to **development tasks** that each model is specialized in. For example, the o1 model is focused on math and science. Teams who work in specialized areas may require more requests to premium models. To learn about the benefits of different models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-Regardless of your plan, you can enable premium requests over the allowance by enabling additional premium requests. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
+Regardless of your plan, you can set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance will be charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models.
 
 ## Making a decision
 
