@@ -202,8 +202,8 @@ prodname_code_security: '{% ifversion ghas-products %}Code Security{% else %}Adv
 prodname_secret_protection: '{% ifversion ghas-products %}Secret Protection{% else %}Advanced Security{% endif %}'
 prodname_cs_or_sp: '{% ifversion ghas-products %}Secret Protection or Code Security{% else %}Advanced Security{% endif %}'
 prodname_cs_and_sp: '{% ifversion ghas-products %}Secret Protection and Code Security{% else %}Advanced Security{% endif %}'
-UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only %}Code security{% else %}Code security and analysis{% endif %}'
-UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.15 %}Code security{% else %}Code security and analysis{% endif %}'
+UI_advanced_security_ent: '{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% elsif ghes > 3.14 %}Code security{% else %}Code security and analysis{% endif %}'
 UI_code_security_scanning: '{% ifversion ghas-products %}Code Security{% else %}Code scanning{% endif %}'
 UI_secret_protection_scanning: '{% ifversion ghas-products %}Secret Protection{% else %}Secret scanning{% endif %}'
 
