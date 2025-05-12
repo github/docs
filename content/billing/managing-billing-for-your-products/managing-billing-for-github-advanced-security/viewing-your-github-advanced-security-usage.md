@@ -83,7 +83,7 @@ You can view the organization account's current license limits and usage.
 
 {% ifversion enhanced-billing-platform %}
 > [!TIP]
-> If you have access to the new billing platform, see also [AUTOTITLE](/billing/using-the-new-billing-platform/gathering-insights-on-your-spending) and [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending).
+> For more tips, see [AUTOTITLE](/billing/managing-your-billing/gathering-insights-on-your-spending) and [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
 {% endif %}
 
 ## Downloading {% data variables.product.prodname_AS %} license usage information

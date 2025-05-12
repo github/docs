@@ -370,6 +370,11 @@
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
   },
   {
+    "action": "dependabot_repository_access.default_access_level_updated",
+    "description": "The default repository access for Dependabot was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "dependabot_repository_access.repositories_updated",
     "description": "The repositories that Dependabot can access were updated.",
     "docs_reference_links": "N/A"
@@ -3218,6 +3223,11 @@
     "action": "secret_scanning_closure_request.approve",
     "description": "A request to close a secret scanning alert was approved by a user.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_closure_request.cancel",
+    "description": "N/A",
+    "docs_reference_links": "A request to close a secret scanning alert was canceled by a user."
   },
   {
     "action": "secret_scanning_closure_request.create",

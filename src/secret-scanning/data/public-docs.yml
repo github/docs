@@ -1841,6 +1841,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Groq
+  supportedSecret: Groq API Key
+  secretType: groq_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: HashiCorp
   supportedSecret: HashiCorp Vault Batch Token
   secretType: hashicorp_vault_batch_token
@@ -2507,8 +2518,19 @@
   hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
+- provider: MongoDB
+  supportedSecret: MongoDB Atlas Service Account Secret
+  secretType: mongodb_atlas_service_account_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: true
+  isPrivateWithGhas: true
+  hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Access Key ID
+  supportedSecret: Naver Cloud Gov Access Key ID
   secretType: navercloud_gov_access_key
   versions:
     fpt: '*'
@@ -2519,7 +2541,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secret Key
+  supportedSecret: Naver Cloud Gov Secret Key
   secretType: navercloud_gov_access_key_secret
   versions:
     fpt: '*'
@@ -2530,7 +2552,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secure Token Service
+  supportedSecret: Naver Cloud Gov Secure Token Service
   secretType: navercloud_gov_sts
   versions:
     fpt: '*'
@@ -2541,7 +2563,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secure Token Service Secret
+  supportedSecret: Naver Cloud Gov Secure Token Service Secret
   secretType: navercloud_gov_sts_secret
   versions:
     fpt: '*'
@@ -4137,6 +4159,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
+- provider: xAI
+  supportedSecret: xAI API Key
+  secretType: xai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key
   secretType: yandex_cloud_api_key
