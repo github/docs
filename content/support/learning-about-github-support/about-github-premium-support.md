@@ -145,7 +145,6 @@ Premium Plus customers are eligible to receive one virtual training class per ye
 * {% data variables.product.prodname_copilot %} Fundamentals
 * {% data variables.product.prodname_copilot %} Intermediate
 * {% data variables.product.prodname_copilot %} Administration & Security
-* {% data variables.product.prodname_enterprise %} Implementation (Server)
 * {% data variables.product.prodname_enterprise %} Implementation (Cloud)
 
 We recommend limiting training sessions to a maximum of 16 participants to ensure an optimal provider-to-participant ratio and a high-quality delivery experience. However, in specific cases where it makes sense, we can accommodate up to 20–25 participants while maintaining our commitment to delivering a valuable training experience for your team.

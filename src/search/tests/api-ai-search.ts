@@ -94,24 +94,8 @@ describe('AI Search Routes', () => {
     ])
   })
 
-  test('should handle validation errors: language missing', async () => {
-    let body = { query: 'example query', version: 'dotcom' }
-    const response = await post('/api/ai-search/v1', {
-      body: JSON.stringify(body),
-      headers: { 'Content-Type': 'application/json' },
-    })
-
-    const responseBody = JSON.parse(response.body)
-
-    expect(response.ok).toBe(false)
-    expect(responseBody['errors']).toEqual([
-      { message: `Missing required key 'language' in request body` },
-      { message: `Invalid 'language' in request body 'undefined'. Must be one of: en` },
-    ])
-  })
-
   test('should handle validation errors: version missing', async () => {
-    let body = { query: 'example query', language: 'en' }
+    let body = { query: 'example query' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
       headers: { 'Content-Type': 'application/json' },
@@ -122,13 +106,10 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(false)
     expect(responseBody['errors']).toEqual([
       { message: `Missing required key 'version' in request body` },
-      {
-        message: `Invalid 'version' in request body: 'undefined'. Must be one of: dotcom, ghec, ghes`,
-      },
     ])
   })
 
-  test('should handle multiple validation errors: query missing, invalid language and version', async () => {
+  test('should handle multiple validation errors: query missing and version', async () => {
     let body = { language: 'fr', version: 'fpt' }
     const response = await post('/api/ai-search/v1', {
       body: JSON.stringify(body),
@@ -140,9 +121,6 @@ describe('AI Search Routes', () => {
     expect(response.ok).toBe(false)
     expect(responseBody['errors']).toEqual([
       { message: `Missing required key 'query' in request body` },
-      {
-        message: `Invalid 'language' in request body 'fr'. Must be one of: en`,
-      },
     ])
   })
 })

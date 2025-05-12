@@ -59,10 +59,10 @@ This version of the article relates to {% data variables.copilot.copilot_code-re
 
 The **review changes** type of {% data variables.copilot.copilot_code-review_short %} is a premium feature with a per-person monthly quota.
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-06-04 -->
 > [!NOTE]
-> The per-person quota for {% data variables.product.prodname_copilot_short %} code review will commence on May 8, 2025.
-<!-- end expires 2025-05-08 -->
+> The per-person quota for {% data variables.copilot.copilot_code-review_short %} will commence on June 4, 2025.
+<!-- end expires 2025-06-04 -->
 
 When you assign {% data variables.product.prodname_copilot_short %} as a reviewer for a pull request, one premium request is deducted from your monthly quota each time {% data variables.product.prodname_copilot_short %} posts comments to the pull request. See [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
@@ -74,7 +74,9 @@ When you reach your monthly quota you will not be able to get a code review from
 
 ### Language support
 
-{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports the following languages:
+{% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports all languages.
+
+The following languages have general availability support:
 
 * C
 * C#
@@ -89,7 +91,7 @@ When you reach your monthly quota you will not be able to get a code review from
 * Swift
 * TypeScript
 
-Plus {% data variables.release-phases.public_preview %} support for HTML & Text.
+All other languages are supported as a {% data variables.release-phases.public_preview %}.
 
 {% endwebui %}
 

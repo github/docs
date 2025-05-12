@@ -136,6 +136,9 @@ const context = {
       type: 'string',
       description: 'The version of the browser the user is browsing with.',
     },
+    is_headless: {
+      type: 'boolean',
+    },
     viewport_width: {
       type: 'number',
       description: 'The viewport width, not the overall device size.',

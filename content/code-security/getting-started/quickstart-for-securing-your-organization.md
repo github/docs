@@ -110,9 +110,7 @@ When you have enabled a feature, you should communicate with repository administ
 
 You can use security overview to see which teams and repositories are affected by security alerts, with a breakdown of alerts by severity. For more information, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
 
-{% ifversion security-overview-dashboard %}
 Security overview also has a dashboard where you can explore high-level trends and metrics to gain insight into your organization's security landscape. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
-{% endif %}
 
 You can use various tools to monitor the actions that your organization's members are taking in response to security alerts. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 
