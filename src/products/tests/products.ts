@@ -1,8 +1,9 @@
 import { describe, expect, test } from 'vitest'
 
 import { getJsonValidator } from '#src/tests/lib/validate-json-schema.js'
-import { productMap } from '#src/products/lib/all-products.js'
+import { productMap } from '#src/products/lib/all-products.ts'
 import { formatAjvErrors } from '#src/tests/helpers/schemas.js'
+// @ts-ignore - Products schema doesn't have TypeScript types yet
 import schema from '#src/tests/helpers/schemas/products-schema.js'
 
 const validate = getJsonValidator(schema)
@@ -16,9 +17,9 @@ describe('products module', () => {
   test('every product is valid', () => {
     Object.values(productMap).forEach((product) => {
       const isValid = validate(product)
-      let errors
+      let errors: string | undefined
 
-      if (!isValid) {
+      if (!isValid && validate.errors) {
         errors = formatAjvErrors(validate.errors)
       }
       expect(isValid, errors).toBe(true)
