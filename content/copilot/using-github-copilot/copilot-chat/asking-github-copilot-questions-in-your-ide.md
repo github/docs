@@ -173,7 +173,7 @@ To leave feedback about the {% data variables.product.prodname_copilot_chat %} e
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvscode %}
@@ -308,7 +308,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endvisualstudio %}
@@ -410,7 +410,7 @@ To share feedback about {% data variables.product.prodname_copilot_chat_short %}
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endjetbrains %}
@@ -468,7 +468,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endxcode %}
@@ -515,7 +515,7 @@ To see all available slash commands, type `/` in the chat prompt box.
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-chat-in-github/using-github-copilot-chat-in-githubcom)
 * [AUTOTITLE](/copilot/github-copilot-chat/about-github-copilot-chat)
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot#faq)
 
 {% endeclipse %}
