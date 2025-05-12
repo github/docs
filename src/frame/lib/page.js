@@ -4,6 +4,7 @@ import cheerio from 'cheerio'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import generateRedirectsForPermalinks from '#src/redirects/lib/permalinks.js'
 import getEnglishHeadings from '#src/languages/lib/get-english-headings.js'
+import { getAlertTitles } from '#src/languages/lib/get-alert-titles.ts'
 import getTocItems from './get-toc-items.js'
 import Permalink from './permalink.js'
 import { renderContent } from '#src/content-render/index.js'
@@ -199,6 +200,9 @@ class Page {
       const englishHeadings = getEnglishHeadings(this, context)
       context.englishHeadings = englishHeadings
     }
+
+    // pull translations for alerts
+    context.alertTitles = await getAlertTitles(this)
 
     this.intro = await renderContentWithFallback(this, 'rawIntro', context)
     this.introPlainText = await renderContentWithFallback(this, 'rawIntro', context, {
