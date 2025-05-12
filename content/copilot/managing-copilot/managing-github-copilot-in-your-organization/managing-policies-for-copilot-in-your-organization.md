@@ -97,6 +97,6 @@ After you have installed a {% data variables.product.prodname_copilot_extension_
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions){% ifversion ghec %}
 * [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise){% endif %}

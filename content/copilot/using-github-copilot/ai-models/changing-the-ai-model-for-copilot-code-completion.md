@@ -52,7 +52,7 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 </details>
 
 > [!NOTE]
-Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
+> The list of available models will change over time. When only one code completion model is available, the model picker will only show that model. Preview models and additional code completion models will appear in the picker when we release them.
 
 {% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
 

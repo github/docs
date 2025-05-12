@@ -3225,6 +3225,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "secret_scanning_closure_request.cancel",
+    "description": "N/A",
+    "docs_reference_links": "A request to close a secret scanning alert was canceled by a user."
+  },
+  {
     "action": "secret_scanning_closure_request.create",
     "description": "N/A",
     "docs_reference_links": "A user requested to close a secret scanning alert."

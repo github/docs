@@ -42,6 +42,7 @@ search:
     clear_search_query: Clear
     view_all_search_results: View more results
     no_results_found: No results found
+    no_results_found_announcement: 'Search Docs: No results found'
     search_docs_with_query: Search docs for "{{query}}"
     privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:

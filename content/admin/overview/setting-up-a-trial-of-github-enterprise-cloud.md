@@ -20,7 +20,7 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 
 <a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
->[!IMPORTANT] Your trial enterprise will be hosted in the USA. If you require {% data variables.enterprise.data_residency_short %} outside the USA, contact {% data variables.contact.contact_sales_data_residency %}.
+>[!IMPORTANT] Your trial enterprise will be hosted in the US. If you require {% data variables.enterprise.data_residency_short %} in a specific region, contact {% data variables.contact.contact_sales_data_residency %}.
 
 {% data reusables.enterprise.enterprise-types %}
 
