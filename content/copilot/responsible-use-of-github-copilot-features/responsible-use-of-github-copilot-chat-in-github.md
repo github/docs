@@ -154,4 +154,4 @@ For details of how to use {% data variables.product.prodname_copilot_chat_dotcom
 ## Further reading
 
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)

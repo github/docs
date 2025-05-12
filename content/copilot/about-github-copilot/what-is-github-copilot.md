@@ -77,4 +77,4 @@ If you **don't need other {% data variables.product.github %} features**, you ca
 ## Further reading
 
 * [Frequently asked questions](https://github.com/features/copilot#faq) about {% data variables.product.prodname_copilot %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)
