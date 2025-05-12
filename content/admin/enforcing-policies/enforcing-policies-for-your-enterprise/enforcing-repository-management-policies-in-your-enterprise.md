@@ -63,11 +63,8 @@ Each time someone creates a new repository within your enterprise, that person m
 If an enterprise owner disallows members from creating certain types of repositories, members will not be able to create that type of repository even if the visibility setting defaults to that type. For more information, see [Enforcing a policy for repository creation](#enforcing-a-policy-for-repository-creation).
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Default repository visibility", use the drop-down menu and select a default visibility.
 {% indented_data_reference reusables.enterprise_installation.image-urls-viewable-warning spaces=3 %}
@@ -209,8 +206,6 @@ By default, when you enforce repository upload limits, people cannot add or upda
 
    ![Screenshot of the "Repository upload limit" policy section. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/all-repo-upload-limit-option.png)
 
-{% ifversion ghes %}
-
 ## Enforcing a policy for the display of member names in your repositories
 
 Across all organizations owned by your enterprise, you can allow members to see a comment author's profile name, in addition to their username, in issues and pull requests for public and internal repositories.
@@ -228,18 +223,13 @@ Across all organizations owned by your enterprise, you can allow members to see 
 
    ![Screenshot of the policy option for the display of member names in your repositories. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/enforce-for-all-repositories-option.png)
 
-{% endif %}
-
 ## Configuring the merge conflict editor for pull requests between repositories
 
 Requiring users to resolve merge conflicts locally on their computer can prevent people from inadvertently writing to an upstream repository from a fork.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Conflict editor for pull requests between repositories", use the drop-down menu, and click **Disabled**.
 
@@ -307,11 +297,8 @@ If necessary, you can prevent repository administrators from changing anonymous 
 ### Setting anonymous Git read access for all repositories
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
+
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Anonymous Git read access", use the drop-down menu, and click **Enabled**.
 1. Optionally, to prevent repository admins from changing anonymous Git read access settings in all repositories on your enterprise, select **Prevent repository admins from changing anonymous Git read access**.

@@ -74,9 +74,9 @@ An installation access token is restricted based on the {% data variables.produc
 
 Your app should never use a {% data variables.product.pat_generic %} or {% data variables.product.company_short %} password to authenticate.
 
-## Authorize thoroughly and durably
+## Check authorization thoroughly, durably, and often
 
-After signing in a user, app developers must take additional steps to ensure that the user is meant to have access to the data in your system. Each sign in requires fresh checks around their memberships, access, and their current SSO status.
+After signing in a user, app developers must take additional steps to ensure that the user is meant to have access to the data in your system. You must routinely check that their memberships, access, and their current SSO status all allow access to your application and the resources it protects.
 
 ### Use the durable, unique `id` to store the user
 

@@ -147,9 +147,8 @@ Public repositories:
 
 Private repositories:
 * **Dependency graph:** Not enabled by default. The feature can be enabled by repository administrators. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).
-{% ifversion fpt or ghec %}
 * **Dependency review:** Available in private repositories owned by organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} and have a license for {% data variables.product.prodname_GHAS_or_code_security %}. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security) and [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exploring-the-dependencies-of-a-repository#enabling-and-disabling-the-dependency-graph).
-{% endif %}
+
 * **{% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Owners of private repositories, or people with admin access, can enable {% data variables.product.prodname_dependabot_alerts %} by enabling the dependency graph and {% data variables.product.prodname_dependabot_alerts %} for their repositories.
   You can also enable or disable Dependabot alerts for all repositories owned by your user account or organization. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-security-and-analysis-settings-for-your-personal-account) or [AUTOTITLE](/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization).
 
@@ -159,7 +158,7 @@ Any repository type:
 {% endif %}
 
 {% ifversion ghes %}
-* **Dependency graph and {% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see {% ifversion ghes %}[AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise) and {% endif %}[AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
+* **Dependency graph and {% data variables.product.prodname_dependabot_alerts %}:** Not enabled by default. Both features are configured at an enterprise level by the enterprise owner. For more information, see [AUTOTITLE](/admin/code-security/managing-supply-chain-security-for-your-enterprise/enabling-the-dependency-graph-for-your-enterprise) and [AUTOTITLE](/admin/configuration/configuring-github-connect/enabling-dependabot-for-your-enterprise).
 * **Dependency review:** Available when dependency graph is enabled for your instance and {% data variables.product.prodname_GHAS_or_code_security %} is enabled for the organization or repository. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 {% endif %}
 {% ifversion ghes %}

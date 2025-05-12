@@ -4,6 +4,60 @@
       {
         "title": "The GraphQL schema includes these changes:",
         "changes": [
+          "<p>Type <code>BotOrUser</code> was added</p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-05-06"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>AddPullRequestReviewThreadInput.path</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-05-01"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Field <code>closedIssueCount</code> was added to object type <code>Milestone</code></p>",
+          "<p>Field <code>openIssueCount</code> was added to object type <code>Milestone</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-04-30"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
+          "<p>Input field <code>DraftPullRequestReviewThread.line</code> changed type from <code>Int!</code> to <code>Int</code></p>",
+          "<p>Input field <code>DraftPullRequestReviewThread.path</code> changed type from <code>String!</code> to <code>String</code></p>"
+        ]
+      }
+    ],
+    "previewChanges": [],
+    "upcomingChanges": [],
+    "date": "2025-04-29"
+  },
+  {
+    "schemaChanges": [
+      {
+        "title": "The GraphQL schema includes these changes:",
+        "changes": [
           "<p>Type <code>RepositorySuggestedActorFilter</code> was added</p>",
           "<p>Argument 'capabilities: [RepositorySuggestedActorFilter!]!<code>added to field</code>Repository.suggestedActors'</p>"
         ]

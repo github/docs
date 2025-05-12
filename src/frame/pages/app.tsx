@@ -17,6 +17,7 @@ import {
 } from 'src/languages/components/LanguagesContext'
 import { useTheme } from 'src/color-schemes/components/useTheme'
 import { SharedUIContextProvider } from 'src/frame/components/context/SharedUIContext'
+import { CTAPopoverProvider } from 'src/frame/components/context/CTAContext'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
@@ -140,7 +141,9 @@ const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppPro
       >
         <LanguagesContext.Provider value={languagesContext}>
           <SharedUIContextProvider>
-            <Component {...pageProps} />
+            <CTAPopoverProvider>
+              <Component {...pageProps} />
+            </CTAPopoverProvider>
           </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>

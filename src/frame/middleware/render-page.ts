@@ -75,7 +75,6 @@ export default async function renderPage(req: ExtendedRequest, res: Response) {
 
     statsd.increment(STATSD_KEY_404, 1, [
       `url:${req.url}`,
-      `ip:${req.ip}`,
       `path:${req.path}`,
       `referer:${req.headers.referer || ''}`,
     ])

@@ -164,8 +164,8 @@ Examples of how to configure access to the private registries supported by {% da
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
 * [`npm-registry`](#npm-registry)
-* [`nuget-feed`](#nuget-feed){% ifversion dependabot-updates-pub-private-registry %}
-* [`pub-repository`](#pub-repository){% endif %}
+* [`nuget-feed`](#nuget-feed)
+* [`pub-repository`](#pub-repository)
 * [`python-index`](#python-index)
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
@@ -408,8 +408,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### `pub-repository`
 
 The `pub-repository` type supports a URL and a token.
@@ -432,8 +430,6 @@ updates:
 ```
 
 {% endraw %}
-
-{% endif %}
 
 ### `python-index`
 

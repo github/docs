@@ -22,10 +22,10 @@ topics:
   - Discounts
   - Fundamentals
   - Upgrades
-shortTitle: About plans
+shortTitle: About billing for plans
 ---
 
-{% data reusables.billing.about-billing %} This article discusses the "plan" component of your bill, specifically. For more information about the other components, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
+{% data reusables.billing.about-billing %} This article discusses the "plan" component of your bill, specifically. For more information about the other components, see [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
 
 For more information about the plans available for your account, see [AUTOTITLE](/get-started/learning-about-github/githubs-plans).
 
@@ -33,7 +33,7 @@ You can see pricing and a full list of features for each plan at {% data variabl
 
 You can choose monthly or yearly billing, and you can upgrade or downgrade your plan at any time. For more information, see [AUTOTITLE](/billing/managing-the-plan-for-your-github-account).
 
-You can purchase other subscriptions and usage-based billing with your existing payment information. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
+You can purchase other subscriptions and usage-based billing with your existing payment information. For more information, see [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
 
 {% data reusables.accounts.accounts-billed-separately %}
 
