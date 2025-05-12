@@ -145,7 +145,7 @@ You can use query parameters to open issues. Query parameters are optional parts
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+If you create an invalid URL using query parameters, or if you don't have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
 Query parameter | Example
 ---  | ---
@@ -159,16 +159,6 @@ Query parameter | Example
 
 {% ifversion fpt or ghec %}
 You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
-{% endif %}
-
-{% ifversion code-scanning-task-lists %}
-
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
-
-{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
-{% data reusables.code-scanning.alert-tracking-link %}
-
 {% endif %}
 
 {% ifversion copilot %}

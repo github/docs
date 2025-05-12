@@ -110,7 +110,7 @@ If you enable prebuilding of codespaces this will incur additional charges. See 
 
 {% data variables.product.prodname_github_codespaces %} is billed in US dollars (USD) according to the amount of compute time and storage space your codespaces use. {% data reusables.codespaces.codespaces-monthly-billing %}
 
-Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. See [AUTOTITLE](/billing/managing-your-github-billing-settings/viewing-your-subscriptions-and-billing-date).
+Billing for {% data variables.product.prodname_github_codespaces %} shares your account's existing payment method, and receipt. See [AUTOTITLE](/billing/managing-your-billing/about-the-billing-cycle).
 
 If you are an organization owner{% ifversion ghec %} or enterprise owner{% endif %}, you can connect an Azure Subscription ID to your organization {% ifversion ghec %}or enterprise{% endif %} account to enable and pay for {% data variables.product.prodname_github_codespaces %} usage. See [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription).
 

@@ -33,6 +33,5 @@ For the procedural content template, see [AUTOTITLE](/contributing/writing-for-g
 
 ## Examples of procedural content
 
-* [AUTOTITLE](/free-pro-team@latest/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
 * [AUTOTITLE](/enterprise-cloud@latest/admin/user-management/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise)
 * [AUTOTITLE](/actions/using-workflows/using-starter-workflows)

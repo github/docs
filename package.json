@@ -1,12 +1,12 @@
 {
-  "name": "docs.github.com",
+  "name": "github.dev/tr4200812",
   "private": true,
-  "repository": "https://github.com/github/docs",
+  "repository": "https://github.com/tr4200812/github/docs",
   "license": "(MIT AND CC-BY-4.0)",
   "author": {
     "name": "GitHub",
-    "email": "opensource+docs@github.com",
-    "url": "https://github.com/github/docs"
+    "email": "nofications:tr4200812@github.com",
+    "url": "https://github.com/tr4200812/inbox"
   },
   "type": "module",
   "imports": {
@@ -22,6 +22,7 @@
     "build": "next build",
     "check-content-type": "tsx src/workflows/check-content-type.ts",
     "check-github-github-links": "tsx src/links/scripts/check-github-github-links.ts",
+    "clone-translations": "./src/languages/scripts/clone-translations.sh",
     "cmp-files": "tsx src/workflows/cmp-files.ts",
     "content-changes-table-comment": "tsx src/workflows/content-changes-table-comment.ts",
     "copy-fixture-data": "tsx src/tests/scripts/copy-fixture-data.js",
@@ -32,6 +33,7 @@
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
     "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
+    "deprecate-ghes-archive": "cross-env NODE_OPTIONS=--max-old-space-size=16384 tsx src/ghes-releases/scripts/deprecate/archive-version.ts",
     "dev": "cross-env npm start",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
