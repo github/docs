@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot
 ---
 
-> [!NOTE] Custom models for {% data variables.product.prodname_copilot_enterprise %} is in {% data variables.release-phases.public_preview %} and is subject to change. During the {% data variables.release-phases.public_preview %}, there is no additional cost to {% data variables.product.prodname_copilot_enterprise_short %} customers enrolled on the {% data variables.release-phases.public_preview %} for creating or using a custom model.
+> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.product.prodname_copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
 
 ## Prerequisite
 
