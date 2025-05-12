@@ -1,5 +1,14 @@
-// all the tools available for the Tool Picker
-export const allTools = {
+/**
+ * Interface defining the mapping between tool identifiers and their display names
+ */
+export interface ToolsMapping {
+  [key: string]: string
+}
+
+/**
+ * All the tools available for the Tool Picker
+ */
+export const allTools: ToolsMapping = {
   agents: 'Agents',
   api: 'API',
   azure_data_studio: 'Azure Data Studio',
