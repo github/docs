@@ -372,9 +372,7 @@ Package manager | YAML value      | Supported versions |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
-| {% ifversion dependabot-version-updates-devcontainer-support %} |
 | Dev containers | `devcontainers`         | Not applicable               |
-| {% endif %} |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
@@ -393,7 +391,7 @@ Package manager | YAML value      | Supported versions |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
 | npm            | `npm`            |  v7, v8, v9   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} |
+| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
@@ -498,7 +496,8 @@ Each package manager **must** define a schedule interval.
 * Use `semiannually` to run every six months, on the first day of January and July.
 * Use `yearly` to run on the first day of January.
 * Use `cron` for cron expression based scheduling option. See [`cronjob`](#cronjob).
-By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.
+
+By default, {% data variables.product.prodname_dependabot %} randomly assigns a time to apply all the updates in the configuration file. You can use the `time` and `timezone` parameters to set a specific runtime for all intervals.  If you use a `cron` interval, you can define the update time with a `cronjob` expression.
 
 ### `day`
 
@@ -668,8 +667,8 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 > * Gradle
 > * Maven
 > * Npm
-> * NuGet{% ifversion dependabot-updates-pub-private-registry %}
-> * Pub{% endif %}
+> * NuGet
+> * Pub
 > * Python
 > * Yarn
 

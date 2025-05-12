@@ -14,14 +14,18 @@ import { Breadcrumbs } from 'src/frame/components/page-header/Breadcrumbs'
 import { VersionPicker } from 'src/versions/components/VersionPicker'
 import { SidebarNav } from 'src/frame/components/sidebar/SidebarNav'
 import { AllProductsLink } from 'src/frame/components/sidebar/AllProductsLink'
-
-import styles from './Header.module.scss'
+import { SearchBarButton } from '@/search/components/input/SearchBarButton'
 import { OldHeaderSearchAndWidgets } from './OldHeaderSearchAndWidgets'
 import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { EXPERIMENTS } from '@/events/components/experiments/experiments'
 import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
+import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
+import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+
+import styles from './Header.module.scss'
 
 export const Header = () => {
   const router = useRouter()
@@ -34,6 +38,7 @@ export const Header = () => {
     'search-overlay-open',
     true,
   )
+  const { params, updateParams } = useMultiQueryParams()
   const [scroll, setScroll] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
   const openSidebar = useCallback(() => setIsSidebarOpen(true), [isSidebarOpen])
@@ -45,8 +50,24 @@ export const Header = () => {
   const isEarlyAccessPage = currentProduct && currentProduct.id === 'early-access'
   const { width } = useInnerWindowWidth()
   const returnFocusRef = useRef(null)
+  const searchButtonRef = useRef<HTMLButtonElement>(null)
+  const { initializeCTA } = useCTAPopoverContext()
 
-  const showNewSearch = useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
+  const { showExperiment: showNewSearch, experimentLoading: newSearchLoading } =
+    useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
+  let SearchButton: JSX.Element | null = (
+    <SearchBarButton
+      isSearchOpen={isSearchOpen}
+      setIsSearchOpen={setIsSearchOpen}
+      params={params}
+      searchButtonRef={searchButtonRef}
+    />
+  )
+  if (!showNewSearch) {
+    SearchButton = null
+  } else {
+    initializeCTA()
+  }
 
   useEffect(() => {
     function onScroll() {
@@ -67,18 +88,6 @@ export const Header = () => {
     window.addEventListener('keydown', close)
     return () => window.removeEventListener('keydown', close)
   }, [])
-
-  // Listen for '/' so we can open the search overlay when pressed. (only enabled for showNewSearch is true for new search experience)
-  useEffect(() => {
-    const open = (e: KeyboardEvent) => {
-      if (e.key === '/' && showNewSearch && !isSearchOpen) {
-        e.preventDefault()
-        setIsSearchOpen(true)
-      }
-    }
-    window.addEventListener('keydown', open)
-    return () => window.removeEventListener('keydown', open)
-  }, [isSearchOpen, showNewSearch])
 
   // For the UI in smaller browser widths, and focus the picker menu button when the search
   // input is closed.
@@ -166,14 +175,16 @@ export const Header = () => {
               <MarkGithubIcon size={32} />
               <span className="h4 text-semibold ml-2 mr-3">{t('github_docs')}</span>
             </Link>
-            <div className="hide-sm border-left pl-3">
+            <div className="hide-sm border-left pl-3 d-flex flex-items-center">
               <VersionPicker />
+              {/* In larger viewports, we want to show the search bar next to the version picker */}
+              {!newSearchLoading && <div className={styles.displayOverLarge}>{SearchButton}</div>}
             </div>
           </div>
-          {showNewSearch ? (
+          {newSearchLoading ? null : showNewSearch ? (
             <HeaderSearchAndWidgets
               isSearchOpen={isSearchOpen}
-              setIsSearchOpen={setIsSearchOpen}
+              SearchButton={SearchButton}
               width={width}
             />
           ) : (
@@ -245,6 +256,15 @@ export const Header = () => {
               <Breadcrumbs inHeader={true} />
             </div>
           </div>
+        )}
+        {showNewSearch && (
+          <SearchOverlayContainer
+            isSearchOpen={isSearchOpen}
+            setIsSearchOpen={setIsSearchOpen}
+            params={params}
+            updateParams={updateParams}
+            searchButtonRef={searchButtonRef}
+          />
         )}
       </header>
     </div>

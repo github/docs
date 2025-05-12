@@ -32,9 +32,6 @@ sections:
 
     - heading: Dependabot
       notes:
-        # https://github.com/github/releases/issues/5434
-        - |
-          Developers using `pnpm` workspaces can ensure more reliable dependency updates with full Dependabot support for `pnpm` workspace catalogs. Dependabot prevents lockfile inconsistencies, avoids broken dependency trees, and improves update reliability in monorepos. See [the GitHub blog post](https://github.blog/changelog/2025-02-04-dependabot-now-supports-pnpm-workspace-catalogs-ga/).
         # https://github.com/github/releases/issues/4982
         - |
           Users can configure Dependabot to create pull requests to keep their repositories up to date with the .NET SDK latest version. When a new version is detected, Dependabot creates a pull request to update the `global.json` file to the new version. See [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates) and [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#package-ecosystem-).
@@ -223,8 +220,8 @@ sections:
 
       [Updated: 2025-03-19]
     - |
-      The security risk page returns a 500 error when Secret scanning is disabled. [Updated: 2025-04-25]
-   
+      The security risk page returns a 500 error when secret scanning is disabled. [Updated: 2025-04-25]
+
   closing_down:
     # https://github.com/github/releases/issues/4683
     - |
@@ -266,3 +263,5 @@ sections:
       The release notes previously mentioned GitHub App private key limits, which did not ship in 3.16 and will ship in 3.17. Similarly, PAT rotation policies were mentioned but will ship instead in 3.17. [Updated: 2025-03-21]
     - |
       The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]
+    - |
+      The release notes previously mentioned Dependabot support for `pnpm` workspace catalogs, which did not ship in 3.16 and will ship in 3.17. [Updated: 2025-05-08]

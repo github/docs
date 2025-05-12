@@ -79,7 +79,7 @@ By following these practices, you can significantly reduce the risk posed by out
 
 {% data variables.product.github %} offers several security features that can help maintain the security of your codebases:
 
-**Dependency Graph**
+**Dependency graph**
 
    * Provides a tabular representation of your project's dependencies.
    * The graph helps you understand the dependencies of your project and {% data variables.product.github %} uses this to identify vulnerable dependencies.
