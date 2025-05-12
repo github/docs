@@ -86,7 +86,7 @@ Because a summary is an outline of the changes that were made in a pull request,
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)
 {%- ifversion fpt %}
 * [AUTOTITLE](/copilot/github-copilot-enterprise/copilot-pull-request-summaries/creating-a-pull-request-summary-with-github-copilot) in the {% data variables.product.prodname_ghe_cloud %} documentation.
 {%- endif %}
