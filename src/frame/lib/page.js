@@ -14,10 +14,10 @@ import slash from 'slash'
 import readFileContents from './read-file-contents.js'
 import getLinkData from '#src/learning-track/lib/get-link-data.js'
 import getDocumentType from '#src/events/lib/get-document-type.ts'
-import { allTools } from '#src/tools/lib/all-tools.js'
+import { allTools } from '#src/tools/lib/all-tools.ts'
 import { renderContentWithFallback } from '#src/languages/lib/render-with-fallback.js'
 import { deprecated, supported } from '#src/versions/lib/enterprise-server-releases.js'
-import { allPlatforms } from '#src/tools/lib/all-platforms.js'
+import { allPlatforms } from '#src/tools/lib/all-platforms.ts'
 
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
