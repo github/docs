@@ -1,19 +1,71 @@
----
-title: Commenting on an issue when a label is added
-intro: 'You can use {% data variables.product.prodname_actions %} to automatically comment on issues when a specific label is applied.'
-redirect_from:
-  - /actions/guides/commenting-on-an-issue-when-a-label-is-added
-  - /actions/managing-issues-and-pull-requests/commenting-on-an-issue-when-a-label-is-added
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-type: tutorial
-topics:
-  - Workflows
-  - Project management
-shortTitle: Add label to comment on issue
----
+### GitHub Actions/Guides for GitHub Actions
+Guides for GitHub Actions
+These guides for GitHub Actions include specific use cases and examples to help you configure workflows.
+
+## GitHub Actions learning paths
+Learning paths are a collection of guides that help you master a particular subject.
+Get started with GitHub Actions
+Discover the possibilities of GitHub Actions by creating your first workflow.
+
+## OverviewUnderstanding GitHub Actions
+How-to guideUsing pre-written building blocks in your workflow
+OverviewAbout workflows
+How-to guideReusing workflows
+OverviewSecurity hardening for GitHub Actions
+Host your own runners
+You can create self-hosted runners to run workflows in a highly customizable environment.
+
+## OverviewAbout self-hosted runners
+TutorialAdding self-hosted runners
+TutorialConfiguring the self-hosted runner application as a service
+TutorialUsing a proxy server with self-hosted runners
+TutorialUsing labels with self-hosted runners
+TutorialUsing self-hosted runners in a workflow
+TutorialManaging access to self-hosted runners using groups
+TutorialMonitoring and troubleshooting self-hosted runners
+Create an action
+Do you have an idea for a new action? Have you built something custom for your project? Learn how to build shareable actions and publish them to GitHub Marketplace.
+
+## OverviewAbout custom actions
+TutorialCreating a Docker container action
+TutorialCreating a JavaScript action
+TutorialCreating a composite action
+ReferenceMetadata syntax for GitHub Actions
+ReferenceDockerfile support for GitHub Actions
+How-to guideSetting exit codes for actions
+How-to guidePublishing actions in GitHub Marketplacename: Add comment
+on:
+  issues:
+    types:
+      - labeled
+jobs:
+  add-comment:
+    if: github.event.label.name == 'help wanted'
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Add comment
+        run: gh issue comment "$NUMBER" --body "$BODY"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          NUMBER: ${{ github.event.issue.number }}
+          BODY: >
+            This issue is available for anyone to work on.
+            **Make sure to reference this issue in your pull request.**
+            :sparkles: Thank you for your contribution! :sparkles:
+----------------------------------
+
+-------------------------------------------------
+-----------------
+-----------------
+- [📂] - [😁] _ay_✨️💌🤬🤒{}'@web-flow'_and_'@tr4200812'}¤__ - [😜] (Action_@github.org; @web-flow __andaction_ @tr4200812_dev_ · Issue #53 · tr4200812_documentation
+-----------------
+-----------------
+
+-----------------
+
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
