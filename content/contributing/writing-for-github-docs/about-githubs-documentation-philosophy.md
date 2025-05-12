@@ -1,4 +1,7 @@
----
+content/contributing/writing-for-github-docs/about-githubs-documentation-philosophy.md-githubs-documentation-philosophy.mdCODE_OF_CONDUCT.mdtesla-jun:patch-4-trees-interpreting.md>[!div class="step-by-step"]
+> [Pre](../docs/csharp/expression-trees-interpreting.md)
+> [Next](../docs/csharp/expression-trees-translating.md)-trees-translating.md> [!div class="button"]
+> [button links](dotnet-contribute.md)dotnet-contribute.md---
 title: About GitHub's documentation philosophy
 shortTitle: Documentation philosophy
 intro: Our documentation philosophy guides what content we create and how we create it.
