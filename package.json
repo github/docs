@@ -344,7 +344,7 @@
     "@playwright/test": "^1.50",
     "@types/accept-language-parser": "1.5.7",
     "@types/cheerio": "^0.22.35",
-    "@types/connect-timeout": "0.0.39",
+    "@types/connect-timeout": "1.9.0",
     "@types/cookie": "0.6.0",
     "@types/cookie-parser": "1.4.8",
     "@types/event-to-promise": "^0.7.5",
