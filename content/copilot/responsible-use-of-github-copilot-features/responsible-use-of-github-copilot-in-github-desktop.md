@@ -65,4 +65,4 @@ Because a commit message is a summary of the changes that were made in a reposit
 ## Further reading
 
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-terms-for-additional-products-and-features#github-copilot)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)
