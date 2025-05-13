@@ -17,7 +17,6 @@ JavaScript and runs in a web browser.
 For more information about this project, check out the [VisualEditor][]
 page on mediawiki.
 
-
 ## Developing and installing
 
 For information on setting up VisualEditor, please see
