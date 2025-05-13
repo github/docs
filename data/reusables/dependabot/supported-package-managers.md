@@ -138,6 +138,10 @@ In addition to supporting updates to `requirements.txt` files, {% data variables
 pnpm is supported for {% data variables.product.prodname_dependabot_version_updates %} (on v7, v8, and v9) and {% data variables.product.prodname_dependabot_security_updates %} (on v7 and v8 only).
 {% endif %}
 
+#### poetry
+
+The PEP 621 `project` section isn't currently supported for `poetry`.
+
 #### pub
 
 {% data variables.product.prodname_dependabot %} won't perform an update for `pub` when the version that it tries to update to is ignored, even if an earlier version is available.
