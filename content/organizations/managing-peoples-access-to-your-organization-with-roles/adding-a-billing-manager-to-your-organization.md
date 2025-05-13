@@ -63,7 +63,8 @@ If your organization is owned by an enterprise account, you cannot invite billin
 The invited person will receive an invitation email asking them to become a billing manager for your organization. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the organization as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the organization as a billing manager after they create an account.
 
 {% data reusables.organizations.billing-settings %}
-1. Under "Billing management", next to "Billing managers", click **Add**.
+1. Click **Additional billing details**.
+1. Next to "Billing managers", click **Invite**.
 1. Type the username or email address of the person you want to add and click **Send invitation**.
 
 ## Further reading
