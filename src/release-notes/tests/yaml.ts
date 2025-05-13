@@ -7,6 +7,14 @@ import yaml from 'js-yaml'
 
 import { liquid } from '#src/content-render/index.js'
 
+interface ReleaseNoteContent {
+  intro: string
+  sections: {
+    [key: string]: Array<string | { [prop: string]: string }>
+  }
+  currentWeek?: boolean
+}
+
 const ghesReleaseNoteRootPath = 'data/release-notes'
 const yamlWalkOptions = {
   globs: ['**/*.yml'],
@@ -18,17 +26,17 @@ const yamlFileList = walk(ghesReleaseNoteRootPath, yamlWalkOptions).sort()
 describe('lint enterprise release notes', () => {
   if (yamlFileList.length < 1) return
   describe.each(yamlFileList)('%s', (yamlAbsPath) => {
-    let yamlContent
+    let yamlContent: ReleaseNoteContent
     const relativePath = path.relative('', yamlAbsPath)
 
     beforeAll(async () => {
       const fileContents = await readFile(yamlAbsPath, 'utf8')
-      yamlContent = yaml.load(fileContents)
+      yamlContent = yaml.load(fileContents) as ReleaseNoteContent
     })
 
     test('contains valid liquid', () => {
       const { intro, sections } = yamlContent
-      let toLint = { intro }
+      let toLint: Record<string, string> = { intro }
       for (const key in sections) {
         const section = sections[key]
         const label = `sections.${key}`
@@ -37,7 +45,10 @@ describe('lint enterprise release notes', () => {
             toLint = { ...toLint, ...{ [label]: section.join('\n') } }
           } else {
             for (const prop in section) {
-              toLint = { ...toLint, ...{ [`${label}.${prop}`]: section[prop] } }
+              const value = section[prop]
+              if (typeof value === 'string') {
+                toLint = { ...toLint, ...{ [`${label}.${prop}`]: value } }
+              }
             }
           }
         })
@@ -49,7 +60,7 @@ describe('lint enterprise release notes', () => {
       }
     })
 
-    const currentWeeksFound = []
+    const currentWeeksFound: string[] = []
     test('does not have more than one yaml file with currentWeek set to true', () => {
       if (!yamlAbsPath.includes('data/release-notes/github-ae')) return
       if (yamlContent.currentWeek) currentWeeksFound.push(relativePath)

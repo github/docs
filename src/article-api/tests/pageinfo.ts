@@ -4,7 +4,18 @@ import { get } from '#src/tests/helpers/e2etest.js'
 import { SURROGATE_ENUMS } from '#src/frame/middleware/set-fastly-surrogate-key.js'
 import { latest } from '#src/versions/lib/enterprise-server-releases.js'
 
-const makeURL = (pathname) => `/api/article/meta?${new URLSearchParams({ pathname })}`
+const makeURL = (pathname: string): string =>
+  `/api/article/meta?${new URLSearchParams({ pathname })}`
+
+interface PageMetadata {
+  product: string
+  title: string
+  intro: string
+}
+
+interface ErrorResponse {
+  error: string
+}
 
 describe('pageinfo api', () => {
   beforeAll(() => {
@@ -27,7 +38,7 @@ describe('pageinfo api', () => {
   test('happy path', async () => {
     const res = await get(makeURL('/en/get-started/start-your-journey'))
     expect(res.statusCode).toBe(200)
-    const meta = JSON.parse(res.body)
+    const meta = JSON.parse(res.body) as PageMetadata
     expect(meta.product).toBe('Get started')
     expect(meta.title).toBe('Start your journey')
     expect(meta.intro).toBe(
@@ -45,28 +56,28 @@ describe('pageinfo api', () => {
   test('a pathname that does not exist', async () => {
     const res = await get(makeURL('/en/never/heard/of'))
     expect(res.statusCode).toBe(404)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("No page found for '/en/never/heard/of'")
   })
 
   test("no 'pathname' query string at all", async () => {
     const res = await get('/api/article/meta')
     expect(res.statusCode).toBe(400)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("No 'pathname' query")
   })
 
   test("empty 'pathname' query string", async () => {
     const res = await get('/api/article/meta?pathname=%20')
     expect(res.statusCode).toBe(400)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("'pathname' query empty")
   })
 
   test('repeated pathname query string key', async () => {
     const res = await get('/api/article/meta?pathname=a&pathname=b')
     expect(res.statusCode).toBe(400)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("Multiple 'pathname' keys")
   })
 
@@ -75,28 +86,28 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/en/olden-days'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('HubGit.com Fixture Documentation')
     }
     // Trailing slashes are always removed
     {
       const res = await get(makeURL('/en/olden-days/'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('HubGit.com Fixture Documentation')
     }
     // Short code for latest version
     {
       const res = await get(makeURL('/en/enterprise-server@latest/get-started/liquid/ifversion'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.intro).toMatch(/\(not on fpt\)/)
     }
     // A URL that doesn't have fpt as an available version
     {
       const res = await get(makeURL('/en/get-started/versioning/only-ghec-and-ghes'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toBe('Only in Enterprise Cloud and Enterprise Server')
     }
   })
@@ -108,14 +119,14 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/en/get-started/liquid/ifversion'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.intro).toMatch(/\(on fpt\)/)
     }
     // Second on any other version
     {
       const res = await get(makeURL('/en/enterprise-server@latest/get-started/liquid/ifversion'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.intro).toMatch(/\(not on fpt\)/)
     }
   })
@@ -125,7 +136,7 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/en'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('HubGit.com Fixture Documentation')
     }
     // enterprise-server with language specified
@@ -137,7 +148,7 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL(`/en/enterprise-server@${latest}`))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('HubGit Enterprise Server Fixture Documentation')
     }
   })
@@ -147,14 +158,14 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('HubGit.com Fixture Documentation')
     }
     // enterprise-server without language specified
     {
       const res = await get(makeURL('/enterprise-server@latest'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('HubGit Enterprise Server Fixture Documentation')
     }
   })
@@ -169,7 +180,7 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/en/enterprise-server@3.2'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('GitHub Enterprise Server 3.2 Help Documentation')
     }
 
@@ -177,7 +188,7 @@ describe('pageinfo api', () => {
     {
       const res = await get(makeURL('/en/enterprise/11.10.340'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.title).toMatch('GitHub Enterprise Server 11.10.340 Help Documentation')
     }
   })
@@ -185,14 +196,14 @@ describe('pageinfo api', () => {
   test('pathname has to start with /', async () => {
     const res = await get(makeURL('ip'))
     expect(res.statusCode).toBe(400)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("'pathname' has to start with /")
   })
 
   test("pathname can't contain spaces /", async () => {
     const res = await get(makeURL('/en foo bar'))
     expect(res.statusCode).toBe(400)
-    const { error } = JSON.parse(res.body)
+    const { error } = JSON.parse(res.body) as ErrorResponse
     expect(error).toBe("'pathname' cannot contain whitespace")
   })
 
@@ -200,7 +211,7 @@ describe('pageinfo api', () => {
     test('Japanese page', async () => {
       const res = await get(makeURL('/ja/get-started/start-your-journey/hello-world'))
       expect(res.statusCode).toBe(200)
-      const meta = JSON.parse(res.body)
+      const meta = JSON.parse(res.body) as PageMetadata
       expect(meta.product).toBe('はじめに')
       expect(meta.title).toBe('こんにちは World')
       expect(meta.intro).toBe('この Hello World 演習に従って、HubGit の使用を開始します。')
@@ -213,8 +224,8 @@ describe('pageinfo api', () => {
       // even exist on disk. So it'll fall back to English.
       const translationRes = await get(makeURL('/ja/get-started/start-your-journey'))
       expect(translationRes.statusCode).toBe(200)
-      const en = JSON.parse(enRes.body)
-      const translation = JSON.parse(translationRes.body)
+      const en = JSON.parse(enRes.body) as PageMetadata
+      const translation = JSON.parse(translationRes.body) as PageMetadata
       expect(en.title).toBe(translation.title)
       expect(en.intro).toBe(translation.intro)
     })
