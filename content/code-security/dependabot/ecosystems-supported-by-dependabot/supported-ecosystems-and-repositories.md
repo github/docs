@@ -44,3 +44,24 @@ You can configure updates for repositories that contain a dependency manifest or
 If your repository already uses an integration for dependency management, you will need to disable this before enabling {% data variables.product.prodname_dependabot %}. {% ifversion fpt or ghec %}For more information, see [AUTOTITLE](/get-started/exploring-integrations/about-integrations).{% endif %}
 
 {% data reusables.dependabot.supported-package-managers %}
+
+### Known issue: Tag format for GitHub Actions in monorepos
+
+If your repository contains multiple GitHub Actions (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
+
+- **Dash (-) separator (e.g. my-action-v0.1.0):**
+  - Dependabot may incorrectly update multiple actions or fail to detect new versions.
+- **Slash (`/`) separator (e.g., `my-action/v0.1.0`):**
+  - Dependabot correctly detects and updates each action independently
+
+ **Example**:
+```yaml
+# Recommended: namespaced with slash
+uses: my-org/my-action-a/v0.1.0
+
+# Not recommended: dash
+uses: my-org/my-action-a-v0.1.0
+```
+
+**Recommendation:**  
+For monorepos with multiple actions, use the `name/version` (slash) format for action tags to ensure accurate {% data variables.product.prodname_dependabot %} updates.
