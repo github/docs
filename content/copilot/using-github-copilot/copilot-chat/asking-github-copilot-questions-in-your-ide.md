@@ -446,7 +446,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode, you must install
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
 
 1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
