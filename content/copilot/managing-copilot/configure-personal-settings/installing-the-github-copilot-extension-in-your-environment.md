@@ -206,8 +206,8 @@ Two permissions are required to be able to use the extension: "Accessibility" an
 
 The "Xcode Source Editor Extension" permission needs to be enabled manually.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
-1. Click **Extension Permission** and click **Xcode Source Editor**.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
+1. Click **Extension Permission**.
 1. Enable {% data variables.product.prodname_copilot %} and click **Done**.
 
 After granting the required permissions, restart Xcode. You will see a new item in the "Editor" menu called "{% data variables.product.prodname_copilot %}".
@@ -218,7 +218,7 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=xcode#authenticating-from-xcode).
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. Click **Login to {% data variables.product.github %}** and follow the prompts to authorize the extension.
 
 {% endxcode %}
