@@ -5,11 +5,23 @@ import {
   getCssTheme,
   defaultCSSTheme,
   defaultComponentTheme,
-} from '../components/useTheme.ts'
+} from '../components/useTheme'
+
+interface ThemeCookieValue {
+  color_mode?: string
+  light_theme?: {
+    name: string
+    color_mode: string
+  }
+  dark_theme?: {
+    name: string
+    color_mode: string
+  }
+}
 
 describe('getTheme basics', () => {
   test('always return an object with certain keys', () => {
-    const cookieValue = JSON.stringify({})
+    const cookieValue = JSON.stringify({} as ThemeCookieValue)
     expect(getCssTheme(cookieValue)).toEqual(defaultCSSTheme)
     expect(getComponentTheme(cookieValue)).toEqual(defaultComponentTheme)
   })
@@ -25,7 +37,7 @@ describe('getTheme basics', () => {
       color_mode: 'dark',
       light_theme: { name: 'light_colorblind', color_mode: 'light' },
       dark_theme: { name: 'dark_tritanopia', color_mode: 'dark' },
-    })
+    } as ThemeCookieValue)
 
     const cssTheme = getCssTheme(cookieValue)
     expect(cssTheme.colorMode).toBe('dark')
