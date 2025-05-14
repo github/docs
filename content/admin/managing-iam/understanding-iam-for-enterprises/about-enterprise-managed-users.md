@@ -65,7 +65,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 * Provide **authentication using SAML**, adhering to SAML 2.0 specification
 * Provide **user lifecycle management using SCIM**, adhering to the SCIM 2.0 specification and communicating with {% data variables.product.company_short %}'s REST API (see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-with-scim-using-the-rest-api))
 
-{% data variables.product.company_short %} does not expressly support mixing and matching partner IdPs for authentication and provisioning and does not test all identity management systems. **{% data variables.product.company_short %}'s support team may not be able to assist you with issues related to mixed or untested systems.** If you need help, you must consult the system's documentation, support team, or other resources.
+{% data reusables.emus.mixed-systems-note %}
 
 ## Usernames and profile information
 
