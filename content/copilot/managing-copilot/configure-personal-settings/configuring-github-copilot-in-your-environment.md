@@ -330,19 +330,7 @@ You can specify which languages you want to enable or disable {% data variables.
 1. Under "Enable or disable {% data variables.product.prodname_copilot_short %} for specified languages," click **Edit in settings.json**.
 1. In the _settings.json_ file, add or remove the languages you want to enable or disable {% data variables.product.prodname_copilot %} for. For example, to enable Python in {% data variables.product.prodname_copilot %}, add `"python": true` to the list, ensuring there is a trailing comma after all but the last list item.
 
-    ```json
-    {
-        "editor.inlineSuggest.enabled": true,
-        "github.copilot.enable": {
-            "*": true,
-            "yaml": false,
-            "plaintext": false,
-            "markdown": true,
-            "javascript": true,
-            "python": true
-        }
-    }
-    ```
+   {% data reusables.copilot.vs-code-settings-json-ex %}
 
 ## Revoking {% data variables.product.prodname_copilot %} authorization
 
@@ -431,14 +419,14 @@ If you don't want to use the default keyboard shortcuts for {% data variables.pr
 
 If you want to use something besides <kbd>Tab</kbd> to accept the first line of a suggestion, you need to disable the "Accept suggestions with Tab" option in the advanced settings in the {% data variables.product.prodname_copilot %} for Xcode application. Additionally, we currently only support the <kbd>Option</kbd> key for the "View full suggestion" action.
 
-1. In the Xcode menu bar, click **Settings**.
+1. In the Xcode menu, click **Xcode** then **Settings**.
 1. Click **Key Bindings** and search for "{% data variables.product.prodname_copilot_short %}" to find the commands you want to rebind.
 
 ## Enabling or disabling {% data variables.product.prodname_copilot %}
 
 You can enable or disable the {% data variables.product.prodname_copilot %} extension from within the application.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. At the top of the application window, click **Advanced**.
 1. In the "Suggestion Settings" section, use the "Request suggestions while typing" toggle to enable or disable the extension.
 
@@ -446,7 +434,7 @@ You can enable or disable the {% data variables.product.prodname_copilot %} exte
 
 You can configure the {% data variables.product.prodname_copilot %} extension to automatically check for updates.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. Select **Automatically check for updates**.
 
 After updating the extension, Xcode must be restarted for the changes to take effect.
