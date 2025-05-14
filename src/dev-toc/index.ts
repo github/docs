@@ -5,11 +5,11 @@ document.addEventListener('DOMContentLoaded', async () => {
   devToc()
 })
 
-function devToc() {
-  const expandButton = document.querySelector('.js-expand')
+function devToc(): void {
+  const expandButton = document.querySelector('.js-expand') as HTMLButtonElement | null
   if (!expandButton) return
 
-  const detailsElements = document.querySelectorAll('details')
+  const detailsElements = document.querySelectorAll('details') as NodeListOf<HTMLDetailsElement>
 
   expandButton.addEventListener('click', () => {
     // on click, toggle all the details elements open or closed
