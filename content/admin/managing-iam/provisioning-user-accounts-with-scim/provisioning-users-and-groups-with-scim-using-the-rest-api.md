@@ -57,15 +57,15 @@ When you configure authentication and provisioning for your enterprise, you can 
 
 ### Using a partner identity provider
 
-Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify configuration, {% data variables.product.company_short %} recommends that you use a partner IdP's application for both authentication and provisioning. For more information and a list of partner IdPs, see {% ifversion ghec %}[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers).{% endif %}
+Each partner IdP provides a "paved-path" application, which implements both SSO and user lifecycle management. To simplify configuration, {% data variables.product.company_short %} recommends that you use a single partner IdP application for both authentication and provisioning. For more information and a list of partner IdPs, see {% ifversion ghec %}[AUTOTITLE](/admin/identity-and-access-management/understanding-iam-for-enterprises/about-enterprise-managed-users#identity-management-systems).{% else %}[AUTOTITLE](/admin/managing-iam/provisioning-user-accounts-with-scim/user-provisioning-with-scim-on-ghes#supported-identity-providers).{% endif %}
 
 For more information about configuring SCIM provisioning using a partner IdP, see [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/configuring-scim-provisioning-for-enterprise-managed-users).
 
 ### Using other identity management systems
 
-If you cannot use a partner IdP for both authentication and provisioning due to migration overhead, licensing costs, or organizational inertia, you can use another identity management system or combination of systems. The systems must provide authentication using SAML and user lifecycle management using SCIM, and must adhere to {% data variables.product.company_short %}'s integration guidelines.
+If you cannot use a single partner IdP for both authentication and provisioning due to migration overhead, licensing costs, or organizational inertia, you can use another identity management system or combination of systems. The systems must provide authentication using SAML and user lifecycle management using SCIM, and must adhere to {% data variables.product.company_short %}'s integration guidelines.
 
-{% data variables.product.company_short %} has not tested integration with every identity management system. While integration with {% ifversion ghec %}{% data variables.product.prodname_emus %}{% else %}{% data variables.product.prodname_ghe_server %}{% endif %} may be possible, {% data variables.product.company_short %}'s support team may not be able to assist you with issues related to these systems. If you need help with an identity management system that's not a partner IdP, or if you use a partner IdP only for SAML authentication, you must consult the system's documentation, support team, or other resources.
+{% data reusables.emus.mixed-systems-note %}
 
 ## Prerequisites
 
