@@ -40,7 +40,14 @@ For caching to work, the runner must be able to communicate with the blob storag
 
 You must ensure that the machine has the appropriate network access with at least 70 kilobits per second upload and download speed to communicate with the {% data variables.product.prodname_dotcom %} hosts listed below. Some hosts are required for essential runner operations, while other hosts are only required for certain functionality.
 
-You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses of {% data variables.product.company_short %} services. See [AUTOTITLE](/rest/meta/meta).
+You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses and domain details for {% data variables.product.company_short %} services. The `actions_inbound` section of the API supports both fully qualified and wildcard domains. Fully qualified domains specify a complete domain name (e.g., `example.github.com`), while wildcard domains use a `*` to represent multiple possible subdomains (e.g., `*.github.com`). An example of the self-hosted runner requirements using wildcard domains has been listed below. For more information, see [AUTOTITLE](/rest/meta/meta).
+
+```shell copy
+github.com
+*.github.com
+*.githubusercontent.com
+ghcr.io
+```
 
 {% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
 
@@ -69,6 +76,15 @@ github.com
 api.github.com
 codeload.github.com
 pkg.actions.githubusercontent.com
+```
+
+You can use the REST API to get meta information about {% data variables.product.company_short %}, including the IP addresses and domain details for {% data variables.product.company_short %} services. The `actions_inbound` section of the API supports both fully qualified and wildcard domains. Fully qualified domains specify a complete domain name (e.g., `example.github.com`), while wildcard domains use a `*` to represent multiple possible subdomains (e.g., `*.github.com`). An example of the self-hosted runner requirements using wildcard domains has been listed below. For more information, see [AUTOTITLE](/rest/meta/meta).
+
+```shell copy
+github.com
+*.github.com
+*.githubusercontent.com
+ghcr.io
 ```
 
 {% data reusables.actions.domain-name-cname-recursive-firewall-rules %}
