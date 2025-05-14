@@ -176,6 +176,8 @@ To use a partner IdP's application for both authentication and provisioning, rev
 
 If you don't use a partner IdP, or if you only use a partner IdP for authentication, you can manage the lifecycle of user accounts using {% data variables.product.company_short %}'s REST API endpoints for SCIM provisioning. See [AUTOTITLE](/admin/identity-and-access-management/provisioning-user-accounts-for-enterprise-managed-users/provisioning-users-and-groups-with-scim-using-the-rest-api).
 
+{% data reusables.emus.mixed-systems-note %}
+
 {% ifversion emu-public-scim-schema %}
 
 {% data reusables.emus.sign-in-as-setup-user %}

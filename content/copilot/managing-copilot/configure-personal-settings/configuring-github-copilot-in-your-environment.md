@@ -242,6 +242,14 @@ If you use ReSharper, {% data variables.product.prodname_copilot %} may work bes
 
 {% data reusables.copilot.dotcom-settings %}
 
+## Enabling {% data variables.copilot.next_edit_suggestions %}
+
+To use {% data variables.copilot.next_edit_suggestions %} in {% data variables.product.prodname_vs %}, you need to enable the feature first.
+
+1. In the {% data variables.product.prodname_vs %} menu bar, under **Tools**, click **Options**.
+1. In the "Options" dialog, under **{% data variables.product.github %}**, click **{% data variables.product.prodname_copilot_short %}** and then click **{% data variables.product.prodname_copilot_short %} Completions**.
+1. Check **Enable {% data variables.copilot.next_edit_suggestions %}**.
+
 ## Further reading
 
 * [{% data variables.product.prodname_copilot %} FAQ](https://github.com/features/copilot/#faq)

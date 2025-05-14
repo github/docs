@@ -2,10 +2,16 @@ import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
 import { program } from 'commander'
+import type { NextFunction, Response } from 'express'
+import type { ExtendedRequest } from '@/types'
 import fpt from '#src/versions/lib/non-enterprise-default-version.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
 import { liquid } from '#src/content-render/index.js'
-import contextualize from '#src/frame/middleware/context/context'
+import contextualize from '#src/frame/middleware/context/context.js'
+
+interface CommandOptions {
+  openSections?: string | string[]
+}
 
 const layoutFilename = path.posix.join(process.cwd(), 'src/dev-toc/layout.html')
 const layout = fs.readFileSync(layoutFilename, 'utf8')
@@ -22,19 +28,30 @@ program
   )
   .parse(process.argv)
 
-const options = program.opts()
+const options = program.opts<CommandOptions>()
 
 const openSections = options.openSections || ''
 const defaultOpenSections = Array.isArray(openSections) ? openSections : [openSections]
 
 main()
 
-async function main() {
-  const next = () => {}
-  const res = {}
-  const req = { language: 'en', cookies: {} }
+async function main(): Promise<void> {
+  const next = (() => {}) as NextFunction
+  const res = {} as Response
+  const req = {
+    language: 'en',
+    cookies: {},
+    headers: {},
+    query: {},
+    path: '',
+    method: 'GET',
+    get: () => '',
+    header: () => '',
+    accepts: () => false,
+    context: {} as any,
+  } as unknown as ExtendedRequest
 
-  async function recurse(tree) {
+  async function recurse(tree: any): Promise<void> {
     const { page } = tree
     tree.renderedFullTitle = page.rawTitle.includes('{')
       ? await liquid.parseAndRender(page.rawTitle, req.context)
@@ -58,12 +75,18 @@ async function main() {
     await contextualize(req, res, next)
 
     // Add the tree to the req.context.
-    req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
+    if (req.context && req.context.siteTree && req.context.currentVersion) {
+      req.context.currentEnglishTree = req.context.siteTree.en[req.context.currentVersion]
+    }
 
-    await recurse(req.context.currentEnglishTree)
+    if (req.context && req.context.currentEnglishTree) {
+      await recurse(req.context.currentEnglishTree)
+    }
 
     // Add any defaultOpenSections to the context.
-    req.context.defaultOpenSections = defaultOpenSections
+    if (req.context) {
+      req.context.defaultOpenSections = defaultOpenSections
+    }
 
     // Parse the layout in src/dev-toc/layout.html with the context we created above.
     const outputHtml = await liquid.parseAndRender(layout, Object.assign({}, req.context))
