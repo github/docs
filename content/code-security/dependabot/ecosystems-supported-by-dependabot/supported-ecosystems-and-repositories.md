@@ -50,9 +50,9 @@ If your repository already uses an integration for dependency management, you wi
 If your repository contains multiple GitHub Actions (for example, in a monorepo), the tag format you use affects how {% data variables.product.prodname_dependabot %} detects and updates action versions.
 
 - **Dash (-) separator (e.g. my-action-v0.1.0):**
-  - Dependabot may incorrectly update multiple actions or fail to detect new versions.
+  - {% data variables.product.prodname_dependabot %} may incorrectly update multiple actions or fail to detect new versions. This occurs because {% data variables.product.prodname_dependabot %} relies on Git’s hierarchical tag structure (using slashes) to distinguish between actions.
 - **Slash (`/`) separator (e.g., `my-action/v0.1.0`):**
-  - Dependabot correctly detects and updates each action independently
+  - {% data variables.product.prodname_dependabot %} correctly detects and updates each action independently, as the slash creates a hierarchical tag that aligns with Git’s ref format rules.
 
  **Example**:
 ```yaml
@@ -64,4 +64,4 @@ uses: my-org/my-action-a-v0.1.0
 ```
 
 **Recommendation:**  
-For monorepos with multiple actions, use the `name/version` (slash) format for action tags to ensure accurate {% data variables.product.prodname_dependabot %} updates.
+For monorepos with multiple actions, use the `name/version` (slash) format for action tags. This ensures {% data variables.product.prodname_dependabot %} can parse the tag hierarchy correctly and update actions independently.
