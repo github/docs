@@ -245,7 +245,7 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
-1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 {% endxcode %}

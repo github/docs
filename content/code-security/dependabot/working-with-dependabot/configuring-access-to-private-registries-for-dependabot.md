@@ -40,6 +40,8 @@ The top-level `registries` key is optional and specifies authentication details.
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
+
 For more information about the configuration options that are available and about the supported types, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 ## Storing credentials for Dependabot to use
@@ -381,6 +383,8 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 ### `nuget-feed`
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
+
+`nuget-feed` doesn't support the `replaces-base` parameter.
 
 {% raw %}
 
