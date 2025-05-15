@@ -48,6 +48,12 @@ You can use a {% data variables.product.pat_generic %} to make API requests. Add
 
 All of these requests count towards your personal rate limit of 5,000 requests per hour. Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
 
+### Primary rate limit for Git LFS access
+
+API requests are required when you upload or download Git LFS content. These count towards a separate rate limiting bucket with a limit of 300 requests per minute for unauthenticated requests and 3,000 requests per minute for authenticated requests.
+
+Git LFS uses a batch API which processes 100 Git LFS objects per API request by default. That means unauthenticated users can download 30,000 Git LFS objects per minute and authenticated users can upload/download 300,000 Git LFS objects per minute.
+
 ### Primary rate limit for {% data variables.product.prodname_github_app %} installations
 
 {% data variables.product.prodname_github_apps %} authenticating with an installation access token use the installation's minimum rate limit of 5,000 requests per hour. If the installation is on a {% data variables.product.prodname_ghe_cloud %} organization, the installation has a rate limit of 15,000 requests per hour.
