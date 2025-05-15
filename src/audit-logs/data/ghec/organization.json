@@ -995,6 +995,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization"
   },
   {
+    "action": "org.add_disallowed_two_factor_method",
+    "description": "An organization prevented access to resources by users with the given two-factor method.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.add_member",
     "description": "A user joined an organization.",
     "docs_reference_links": "N/A"
@@ -1092,6 +1097,11 @@
   {
     "action": "org.clear_custom_invitation_rate_limit",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.clear_disallowed_two_factor_methods",
+    "description": "Cleared two-factor authentication restrictions for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1428,6 +1438,11 @@
     "action": "org.remove_billing_manager",
     "description": "A billing manager was removed from an organization, either manually or due to a two-factor authentication requirement.",
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization, /organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization"
+  },
+  {
+    "action": "org.remove_disallowed_two_factor_method",
+    "description": "Removed a two-factor authentication method restriction for an organization.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.remove_integration_secret",
@@ -3227,7 +3242,7 @@
   {
     "action": "secret_scanning_closure_request.cancel",
     "description": "N/A",
-    "docs_reference_links": "A request to close a secret scanning alert was canceled by a user."
+    "docs_reference_links": "A reqeust to close a secret scanning alert was canceled by a user."
   },
   {
     "action": "secret_scanning_closure_request.create",

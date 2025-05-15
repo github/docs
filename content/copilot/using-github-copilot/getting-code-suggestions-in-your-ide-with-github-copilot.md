@@ -227,6 +227,20 @@ To initiate comment suggestions, type the standard comment initiator for the lan
 
 To accept the suggestion, press <kbd>Tab</kbd>. To modify the suggestion, press <kbd>Alt</kbd>+<kbd>/</kbd>. To reject the suggestion, press <kbd>Esc</kbd>.
 
+## About {% data variables.copilot.next_edit_suggestions %}
+
+Inline suggestions autocomplete code, but many development tasks involve editing existing code. {% data variables.copilot.next_edit_suggestions_caps %} assists with edits both at the cursor and in other relevant parts of the code, helping maintain consistency and streamline changes.
+
+{% data variables.copilot.next_edit_suggestions_caps %} predicts where and what edits may be needed based on ongoing changes. Suggestions may span a single symbol, an entire line, or multiple lines, depending on the scope of the potential change.
+
+To enable {% data variables.copilot.next_edit_suggestions %}, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#enabling-next-edit-suggestions).
+
+### Navigating and accepting suggestions
+
+You can navigate suggested code changes using <kbd>Tab</kbd>, making it easier to find the next relevant edit without manually searching through files or references. Press <kbd>Tab</kbd> again to accept a suggestion.
+
+An arrow in the gutter indicates an available edit suggestion. Click the arrow to access the edit suggestion menu, which provides keyboard shortcuts. If an edit suggestion is outside the current editor view, the arrow will point up or down to indicate where the next suggestion is.
+
 {% endvisualstudio %}
 
 {% vscode %}
