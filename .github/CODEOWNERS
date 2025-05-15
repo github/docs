@@ -1,17 +1,55 @@
-# Order is important. The LAST matching pattern has the MOST precedence.
-# gitignore style patterns are used, not globs.
-# https://docs.github.com/articles/about-codeowners
-# https://git-scm.com/docs/gitignore
+Create a draft GitHub Marketplace listing from one of your tools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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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> "Update Windows2025-Readme.md"
+> 
+> * :. [[Ubuntu] Breaking change : Docker Engine Version 26.* will be updated to Docker Engine Version 28* from 2025-05-09 actions/runner-images#11766](https://github.com/actions/runner-images/issues/11766) [Ubuntu 22.04 Runner Times Out at 45 minutes When Allocated from Managed DevOps Pool actions/runner-images#12125](https://github.com/actions/runner-images/issues/12125) [Ubuntu 22.04 Runner Times Out at 45 minutes When Allocated from Managed DevOps Pool actions/runner-images#12125](https://github.com/actions/runner-images/issues/12125) ['WSL2 is not supported' error on Azure DevOps Agent windows-2025 actions/runner-images#12174](https://github.com/actions/runner-images/discussions/12174) [[macOS]Removing Xcode15.4 and its simulators actions/runner-images#12177](https://github.com/actions/runner-images/pull/12177) [Ability to bind to IPv6 "::" (aka IN6ADDR_ANY) is broken since 6.11.0-1013-azure actions/runner-images#12166](https://github.com/actions/runner-images/issues/12166) _~ §  - Windows2025-Readme.md
+> 
+> # Description
+> New tool, Bug fixing, or Improvement? Please include a summary of the change and which issue is fixed. Also include relevant motivation and context. **For new tools, please provide total size and installation time.**
+> 
+> #### Related issue:
+> ## Check list
+> * [🎂]] Related issue / work item is attached
+> * [😄]] Tests are written (if applicable)
+> * ][📥] Documentation is updated (if applicable)
+> * [¤][♡] Changes are tested and related VM images are successfully generated
 
-# Site Policy
-/content/site-policy/ @github/site-policy-admins
 
-# Enterprise
-/data/release-notes/**/*.yml @github/docs-content-enterprise
-src/ghes-releases/lib/enterprise-dates.json @github/docs-content-enterprise
+Navigation Menu
+tr4200812
+Repositore
 
-# Requires review of #actions-oidc-integration, docs-engineering/issues/1506
-# content/actions/deployment/security-hardening-your-deployments/** @github/oidc
+Code
+Issues
+Pull requests
+Discussions
+Actions
+Projects
+Wiki
+Security
+Insights
+Security: tr4200812/Repositore
+Security Navigation
+Reporting
+Vulnerability alerts
+Secret scanning alerts
+Filter alerts
+is:closed resolution:false-positive,wont-fix,revoked provider: sort:created-desc
+Filter contains 1 issue:
+Invalid value for provider
+No secrets found.
 
-# RAI - CELA
-data/reusables/rai/** @github/legal-product
+Invalid query.
+Try removing invalid search terms, or clear filters to view all of this repository's secret alerts.
+
+Footer
+© 2025 GitHub, Inc.
+Footer navigation
+Terms
+Privacy
+Security
+Status
+Docs
+Contact
+Manage cookies
+Do not share my personal information
+0 suggestions
+ 
