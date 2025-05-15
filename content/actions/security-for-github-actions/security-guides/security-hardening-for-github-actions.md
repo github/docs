@@ -163,6 +163,34 @@ To help mitigate the risk of an exposed token, consider restricting the assigned
 
 {% ifversion custom-org-roles %}
 
+## Understanding the risks of untrusted code checkout
+
+Similar to script injection attacks, untrusted pull request content that automatically triggers Actions processing can also pose a security risk. The `pull_request_target` and `workflow_run` workflow triggers, when used with the checkout of an untrusted pull request, expose the repository to security compromises. These workflows have write access and access to secrets in the target repository, which can be exploited to take over a repository.
+
+Review the [`pull_request_target` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#pull_request_target) and the [`workflow_run` trigger documentation](/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows#workflow-run) for more information on these triggers, how to use them, and the risks associated with them.
+
+For additional explanation, examples, and guidance on the risks of untrusted code checkout, see [Keeping your GitHub Actions and workflows secure: Preventing pwn requests](https://securitylab.github.com/research/github-actions-preventing-pwn-requests/) from GitHub Security Lab and the [Dangerous Workflow check documentation](https://github.com/ossf/scorecard/blob/main/docs/checks.md#dangerous-workflow) from OpenSSF Scorecard.
+
+## Good practices for mitigating untrusted code checkout risks
+
+There are a number of different approaches available to help you mitigate the risk of untrusted code checkout in Actions workflows:
+
+### Avoid potentially dangerous workflow triggers
+
+Avoid using the `pull_request_target` and `workflow_run` workflow triggers if not necessary. Only use these workflow triggers when the workflow actually needs the privileged context and access from the target repo to be available in the workflow.
+
+### Do not use the `pull_request_target` and `workflow_run` workflow triggers with untrusted content
+
+Avoid using the `pull_request_target` and `workflow_run` workflow triggers with untrusted pull requests or code content. Workflows that use these triggers must not explicitly checkout untrusted code, including from pull request forks or from repositories that are not under your control.
+
+### Use CodeQL to detect potentially vulnerable workflows
+
+[CodeQL](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql) can scan and detect potentially vulnerable GitHub Actions workflows. [Configure the default setup for CodeQL](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning) for the repository and ensure that GitHub Actions scanning is enabled.
+
+### Use OpenSSF Scorecards to detect potentially vulnerable workflows
+
+[OpenSSF Scorecards](#use-openssf-scorecards-to-detect-potentially-vulnerable-workflows) can help you identify potentially vulnerable workflows, along with other security risks when using GitHub Actions.
+
 ## Managing permissions for {% data variables.product.prodname_actions %} settings in your organization
 
 You can practice the principle of least privilege for your organization's CI/CD pipeline with {% data variables.product.prodname_actions %} by administering custom organization roles. A custom organization role is a way to grant an individual or team in your organization the ability to control certain subsets of settings without granting full administrative control of the organization and its repositories.
