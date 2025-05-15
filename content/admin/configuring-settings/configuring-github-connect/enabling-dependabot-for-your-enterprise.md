@@ -98,7 +98,7 @@ Before you can enable {% data variables.product.prodname_dependabot_updates %}:
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.management-console %}
 {% data reusables.enterprise_management_console.advanced-security-tab %}
-1. Under "Security", select **{% data variables.product.prodname_dependabot_security_updates %}**.
+1. Under "Security", select **{% data variables.product.prodname_dependabot_updates %}**.
 {% data reusables.enterprise_management_console.save-settings %}
 1. Click **Visit your instance**.
 1. Configure dedicated self-hosted runners to create the pull requests that will update dependencies. This is required because the workflows use a specific runner label. For more information, see [AUTOTITLE](/admin/github-actions/enabling-github-actions-for-github-enterprise-server/managing-self-hosted-runners-for-dependabot-updates).
