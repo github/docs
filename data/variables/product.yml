@@ -34,6 +34,7 @@ prodname_team: 'GitHub Team'
 prodname_free_team: 'GitHub Free'
 
 prodname_enterprise_backup_utilities: 'GitHub Enterprise Server Backup Utilities'
+prodname_enterprise_backup_service: 'GitHub Enterprise Server Backup Service'
 
 # GitHub Connect (enterprise accounts, other unified features)
 prodname_github_connect: 'GitHub Connect'
@@ -94,7 +95,7 @@ prodname_codeql_cli: 'CodeQL CLI'
 # CodeQL usually bumps its minor version for each minor version of GHES.
 # Update this whenever a new enterprise version of CodeQL is being prepared.
 codeql_cli_ghes_recommended_version: >-
-  {% ifversion ghes < 3.17 %}2.20.3{% endif %}
+  {% ifversion ghes < 3.14 %}2.16.5{% elsif ghes < 3.15 %}2.17.6{% elsif ghes < 3.16 %}2.18.4{% elsif ghes < 3.17 %}2.20.3{% elsif ghes < 3.18 %}2.20.7{% endif %}
 codeql_cli_version_min_version_create_bundle: '2.17.6'
 # Projects v2
 prodname_projects_v2: 'Projects'
@@ -147,7 +148,7 @@ prodname_unfurls: 'Content Attachments'
 prodname_actions: 'GitHub Actions'
 prodname_actions_runner_controller: 'Actions Runner Controller'
 runner_required_version: >-
-  {% ifversion ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% endif %}
+  {% ifversion ghes < 3.14 %}2.314.1{% elsif ghes < 3.15 %}2.317.0{% elsif ghes < 3.16 %}2.319.1{% elsif ghes < 3.17 %}2.321.0{% elsif ghes < 3.18 %}2.322.0{% endif %}
 
 # GitHub Debug
 prodname_debug: 'GitHub Debug'
