@@ -22,4 +22,5 @@ children:
   - /guidance-for-the-configuration-of-private-registries-for-dependabot
   - /dependabot-options-reference
   - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
+  - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---

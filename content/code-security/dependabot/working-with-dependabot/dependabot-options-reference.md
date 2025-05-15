@@ -701,6 +701,8 @@ updates:
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
+
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
 ### `type` and authentication details
@@ -733,3 +735,5 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
