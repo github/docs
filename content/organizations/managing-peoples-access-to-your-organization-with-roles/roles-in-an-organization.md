@@ -271,3 +271,4 @@ Some of the features listed below are limited to organizations using {% data var
 
 * [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization){% ifversion projects-v1 %}
 * [AUTOTITLE](/organizations/managing-access-to-your-organizations-project-boards/project-board-permissions-for-an-organization){% endif %}
+![1000107430](https://github.com/user-attachments/assets/9cb26fc4-d455-4dba-afa5-924f5e024a8c)
