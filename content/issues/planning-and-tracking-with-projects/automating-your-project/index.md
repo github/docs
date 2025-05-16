@@ -13,6 +13,6 @@ children:
   - /automating-projects-using-actions
   - /adding-items-automatically
   - /archiving-items-automatically
-allowTitleToDifferFromFilename: true
+allowTitleToDifferFromFilename: <automatic>
 ---
 
