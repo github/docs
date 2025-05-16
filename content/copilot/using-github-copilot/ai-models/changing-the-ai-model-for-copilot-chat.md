@@ -31,12 +31,12 @@ The following models are currently available in the immersive mode of {% data va
 
 * {% data variables.copilot.copilot_gpt_4o %}
 * {% data variables.copilot.copilot_gpt_41 %}
-* {% data variables.copilot.copilot_gpt_45 %}
+* {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_gemini_25_pro %}
+* {% data variables.copilot.copilot_gemini_25_pro %} (preview)
 * {% data variables.copilot.copilot_o1 %}
 * {% data variables.copilot.copilot_o3 %}
 * {% data variables.copilot.copilot_o3_mini %}
@@ -80,7 +80,7 @@ The following models are currently available through multi-model {% data variabl
 
 * {% data variables.copilot.copilot_gpt_4o %}
 * {% data variables.copilot.copilot_gpt_41 %}
-* {% data variables.copilot.copilot_gpt_45 %}
+* {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
@@ -245,7 +245,7 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
-1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
 1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
 
 {% endxcode %}

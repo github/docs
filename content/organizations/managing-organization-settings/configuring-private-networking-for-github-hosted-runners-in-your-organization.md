@@ -34,6 +34,9 @@ topics:
 
 ### 1. Obtain the `databaseId` for your organization
 
+> [!TIP]
+> Your token will require at minimum `read:org` permissions to perform a successful query.
+
 You can use the following GraphQL query to retrieve your organization `databaseId`. You will use the organization `databaseId` for the value of the `DATABASE_ID` environment variable in the next step. For more information on working with GraphQL, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql).
 
 | Query variable | Description |

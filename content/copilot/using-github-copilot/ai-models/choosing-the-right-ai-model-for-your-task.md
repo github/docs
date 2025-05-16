@@ -114,6 +114,9 @@ The following table summarizes when an alternative model may be a better choice:
 
 ## GPT-4.5
 
+> [!NOTE]
+> GPT-4.5 in {% data variables.product.prodname_copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
+
 OpenAI GPT-4.5 improves reasoning, reliability, and contextual understanding. It works well for development tasks that involve complex logic, high-quality code generation, or interpreting nuanced intent.
 
 Compared to {% data variables.copilot.copilot_gpt_41 %}, GPT-4.5 produces more consistent results for multi-step reasoning, long-form content, and complex problem-solving. It may have slightly higher latency and costs than {% data variables.copilot.copilot_gpt_41 %} and other smaller models.
@@ -433,6 +436,8 @@ The following table summarizes when an alternative model may be a better choice:
 {% endrowheaders %}
 
 ## {% data variables.copilot.copilot_gemini_25_pro %}
+
+{% data reusables.copilot.gemini-25-pro-public-preview-note %}
 
 {% data variables.copilot.copilot_gemini_25_pro %} is Google's latest AI model, designed to handle complex tasks with advanced reasoning and coding capabilities. It also works well for heavy research workflows that require long-context understanding and analysis.
 

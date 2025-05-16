@@ -26,6 +26,8 @@ You can add default community health files to a public repository called `.githu
 
 If no corresponding file is found in the current repository, {% data variables.product.github %} will use the default file from the `.github` repository, following the same order of precedence.
 
+**Note:** The `.github` repository must be **public** for templates to be applied organization-wide. Private `.github` repositories are not supported.
+
 For example, anyone who creates an issue or pull request in a repository that does not have its own `CONTRIBUTING.md` file will see a link to the default `CONTRIBUTING.md` from the `.github` repository. However, if a repository has any files in its own `.github/ISSUE_TEMPLATE` folder, such as issue templates or a `_config.yml` file, none of the contents of the default `.github/ISSUE_TEMPLATE` folder will be used. This allows repository maintainers to override the default files with specific templates or content on per-repository basis.
 
 Storing the files in `.github` repository allows making changes to the defaults just in one place. Additionally, they won’t appear in the file browser or Git history of the individual repositories, and are not included in their clones, packages, or downloads.

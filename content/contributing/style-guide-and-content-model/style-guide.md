@@ -1533,11 +1533,12 @@ Format lists and clickable list items in bold. To describe interacting with a li
 
 ### Location
 
-Describe a user interface element’s location with standard terms.
-* Under or above
-* Next to
-* Upper-left, upper-right, lower-left, lower-right
-* Top of the page, bottom of the page, right side of the page, left side of the page
+As per [WCAG guidance](https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics.html), we should describe elements by name and not merely by appearance or location. The Microsoft Style Guide offers specific guidance for directional phrases, with emphasis on their use in documentation.
+
+* [Above](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/above) or [below](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/below)
+* [Upper-left, upper-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/u/upper-left-upper-right)
+* [Lower-left, lower-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/lower-left-lower-right)
+* Next to, bottom or top of the page, left or right side of the page
 
 ### Panels
 
