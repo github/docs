@@ -74,12 +74,177 @@ If you want your app to take actions on behalf of itself, rather than a user, yo
 Some examples of automations you could create with a {% data variables.product.prodname_github_app %}, where the app acts on its own behalf, include:
 * A {% data variables.product.prodname_github_app %} that uses webhooks to react to an event given a certain set of criteria. For example, you could create an automation around the REST API endpoints for [reviewing requests for {% data variables.product.pat_v2 %}](/rest/orgs/personal-access-tokens?apiVersion=2022-11-28#review-requests-to-access-organization-resources-with-fine-grained-personal-access-tokens) that approves a request given a certain policy.
 * A {% data variables.product.prodname_github_app %} that helps repository contributors. For example, the app could post helpful resources after a contributor creates a pull request or makes a comment.
-* A {% data variables.product.prodname_github_app %} that generates short-lived tokens to give to other CI/CD tools, or to pull information from a repository.
+* A {% data variables.product.prodname_github_app %} that generates short-lived tokens to give to other CI/CD tools or anything to pull information from a repository
 
 ### {% data variables.product.prodname_github_apps %} that respond to webhooks
 
-If you want your app to respond to events on {% data variables.product.prodname_dotcom %}, your app should subscribe to webhooks. For example, you may want your app to leave a comment when a pull request is opened. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps).
+If you want your app to respond to events on {% data variables.product.prodname_dotcom %}, your app should subscribe to webhooks. For example, you may want your app to leave a comment when a pull request is opened. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/using-webhooks-with-github-apps)
 
 ### {% data variables.product.prodname_github_apps %} that can take certain actions
 
-When you set up your {% data variables.product.prodname_github_app %}, you can select specific permissions for the app. These permissions determine what the app can do via the {% data variables.product.prodname_dotcom %} API, what they can do on behalf of a signed in user, and what webhooks the app can receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app).
+When you set up your {% data variables.product.prodname_github_app %}, you can select specific permissions for the app. These permissions determine what the app can do via the {% data variables.product.prodname_dotcom %} API, what they can do on behalf of a signed in user, and what webhooks the app can receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/registering-a-github-app/choosing-permissions-for-a-github-app)
+---
+title: Creating GitHub Apps
+intro: You can build GitHub Apps for yourself or others to use.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - GitHub Apps
+children:
+  / /about-creating-github-apps
+  / /registering-a-github-app
+  / /authenticating-with-a-github-app
+  / /writing-code-for-a-github-app
+redirect_from:
+  - /apps/building-integrations/setting-up-and-registering-github-apps
+  / /developers/apps/building-github-apps
+---
+---
+title: Creating GitHub Apps
+intro: You can build GitHub Apps for yourself or others to use.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - GitHub Apps
+children:
+  / /about-creating-github-apps
+  / /registering-a-github-app
+  / /authenticating-with-a-github-app
+  / /writing-code-for-a-github-app
+redirect_from:
+  - /apps/building-integrations/setting-up-and-registering-github-apps
+  / /developers/apps/building-github-apps
+---
+
+}^*0*Creating GitHub Apps
+You can build GitHub Apps for yourself or others to use.
+{
+}
+<__>}
+About creating GitHub Apps
+About creating GitHub Apps
+Deciding when to build a GitHub App
+Best practices for creating a GitHub App
+Migrating OAuth apps to GitHub Apps
+Registering a GitHub App
+Registering a GitHub App
+About the user authorization callback URL
+About the setup URL
+Choosing permissions for a GitHub App
+Using webhooks with GitHub Apps
+Making a GitHub App public or private
+Rate limits for GitHub Apps
+Creating a custom badge for your GitHub App
+Authenticating with a GitHub App
+About authentication with a GitHub App
+Authenticating as a GitHub App
+Authenticating as a GitHub App installation
+Authenticating with a GitHub App on behalf of a user
+Managing private keys for GitHub Apps
+Generating a JSON Web Token (JWT) for a GitHub App
+Generating an installation access token for a GitHub App
+Generating a user access token for a GitHub App
+Refreshing user access tokens
+Making authenticated API requests with a GitHub App in a GitHub Actions workflow
+Writing code for a GitHub App
+About writing code for a GitHub App
+Quickstart for building GitHub Apps
+Building a GitHub App that responds to webhook events
+Building a "Login with GitHub" button with a GitHub App
+Building a CLI with a GitHub App
+Building CI checks with a GitHub App
+Help and support---
+title: Creating GitHub Apps
+intro: You can build GitHub Apps for yourself or others to use.
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+topics:
+  - GitHub Apps
+children:
+ /- /about-creating-github-apps
+ /- /registering-a-github-app
+ /- /authenticating-with-a-github-app
+ /- /writing-code-for-a-github-app
+redirect_from:
+  - /apps/building-integrations/setting-up-and-registering-github-apps
+ /- /developers/apps/building-github-apps
+---
+
+Creating GitHub Apps
+You can build GitHub Apps for yourself or others to use.
+
+About creating GitHub Apps
+About creating GitHub Apps
+Deciding when to build a GitHub App
+Best practices for creating a GitHub App
+Migrating OAuth apps to GitHub Apps
+Registering a GitHub App
+Registering a GitHub App
+About the user authorization callback URL
+About the setup URL
+Choosing permissions for a GitHub App
+Using webhooks with GitHub Apps
+Making a GitHub App public or private
+Rate limits for GitHub Apps
+Creating a custom badge for your GitHub App
+Authenticating with a GitHub App
+About authentication with a GitHub App
+Authenticating as a GitHub App
+Authenticating as a GitHub App installation
+Authenticating with a GitHub App on behalf of a user
+Managing private keys for GitHub Apps
+Generating a JSON Web Token (JWT) for a GitHub App
+Generating an installation access token for a GitHub App
+Generating a user access token for a GitHub App
+Refreshing user access tokens
+Making authenticated API requests with a GitHub App in a GitHub Actions workflow
+Writing code for a GitHub App
+About writing code for a GitHub App
+Quickstart for building GitHub Apps
+Building a GitHub App that responds to webhook events
+Building a "Login with GitHub" button with a GitHub App
+Building a CLI with a GitHub App
+Building CI checks with a GitHub App
+Help and support
+Creating GitHub Apps
+You can build GitHub Apps for yourself or others to use.
+
+About creating GitHub Apps
+About creating GitHub Apps
+Deciding when to build a GitHub App
+Best practices for creating a GitHub App
+Migrating OAuth apps to GitHub Apps
+Registering a GitHub App
+Registering a GitHub App
+About the user authorization callback URL
+About the setup URL
+Choosing permissions for a GitHub App
+Using webhooks with GitHub Apps
+Making a GitHub App public or private
+Rate limits for GitHub Apps
+Creating a custom badge for your GitHub App
+Authenticating with a GitHub App
+About authentication with a GitHub App
+Authenticating as a GitHub App
+Authenticating as a GitHub App installation
+Authenticating with a GitHub App on behalf of a user
+Managing private keys for GitHub Apps
+Generating a JSON Web Token (JWT) for a GitHub App
+Generating an installation access token for a GitHub App
+Generating a user access token for a GitHub App
+Refreshing user access tokens
+Making authenticated API requests with a GitHub App in a GitHub Actions workflow
+Writing code for a GitHub App
+About writing code for a GitHub App
+Quickstart for building GitHub Apps
+Building a GitHub App that responds to webhook events
+Building a "Login with GitHub" button with a GitHub App
+Building a CLI with a GitHub App
+Building CI checks with a GitHub App
+Help and support
