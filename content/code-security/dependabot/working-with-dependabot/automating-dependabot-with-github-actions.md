@@ -154,6 +154,9 @@ For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-req
 
 You can instead use {% data variables.product.prodname_actions %} and the {% data variables.product.prodname_cli %}. Here is an example that automerges all patch updates to `my-dependency`:
 
+> [!WARNING]
+> Enabling automerge for {% data variables.product.prodname_dependabot %} pull requests can cause compromised dependencies to immediately infect your repository. Consider only automerging dependencies you fully trust, or adding additional checks which need to pass before the merge is performed.
+
 {% raw %}
 
 ```yaml copy
