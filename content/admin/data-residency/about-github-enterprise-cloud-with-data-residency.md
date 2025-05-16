@@ -14,7 +14,9 @@ redirect_from:
 
 By default, {% data variables.product.company_short %} stores data for {% data variables.product.prodname_dotcom_the_website %} in the USA. {% data reusables.data-residency.when-you-adopt-data-residency %} To learn how {% data variables.product.company_short %} handles data storage, see [AUTOTITLE](/admin/data-residency/about-storage-of-your-data-with-data-residency).
 
-To get {% data variables.enterprise.data_residency_short %} for your enterprise, **contact {% data variables.contact.contact_sales_data_residency %}**.
+You can **get started with data residency** by setting up a trial of {% data variables.product.prodname_ghe_cloud %}.
+
+<a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=about+ghec+with+data+residency&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
 ## What is {% data variables.product.prodname_ghe_cloud %}?
 
@@ -107,7 +109,7 @@ When reading the documentation, readers may need to substitute references to {% 
 
 ## Getting started
 
-When you have worked with your account team to create a new enterprise account and choose a subdomain on {% data variables.enterprise.data_residency_site %}, you can get started with your new enterprise.
+Once you have signed up for the trial to create a new enterprise account and choose a subdomain on {% data variables.enterprise.data_residency_site %}, you can get started with your new enterprise.
 
 You will:
 

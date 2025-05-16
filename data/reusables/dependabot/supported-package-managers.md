@@ -127,7 +127,9 @@ When configuring Dependabot for Helm charts, it will also automatically update t
 
 #### pip and pip-compile
 
-In addition to supporting updates to `requirements.txt` files, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
+{% data variables.product.prodname_dependabot %} supports updates to any `.txt` file.
+
+In addition, {% data variables.product.prodname_dependabot %} supports updates to `pyproject.toml` files if they follow the PEP 621 standard.
 
 {% ifversion dependabot-updates-pnpmv9-support %}
 
