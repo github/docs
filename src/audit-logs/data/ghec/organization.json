@@ -305,6 +305,21 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.swe_agent_repo_disabled",
+    "description": "Specific repositories were disabled from using Copilot coding agent.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.swe_agent_repo_enabled",
+    "description": "Specific repositories were enabled to use Copilot coding agent.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.swe_agent_repo_enablement_updated",
+    "description": "Copilot coding agent access was updated for the organization's or user's repositories.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "custom_hosted_runner.create",
     "description": "N/A",
     "docs_reference_links": "N/A"
