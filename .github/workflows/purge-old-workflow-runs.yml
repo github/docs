@@ -10,6 +10,47 @@ on:
     - cron: '20 * * * *' # Run every hour at 20 minutes past the hour
 
 permissions:
+  contents: Write
+
+jobs:
+  purge-old-workflow-runs:
+    if: ${{ github.repository == 'github/docs-internal' || github.repository == 'github/docs' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout out repo
+        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+
+      - uses: ./.github/actions/node-npm-setup
+
+      - name: Run purge script
+        env:
+          # Necessary to be able to delete deployment environments
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
+        run: npm run purge-old-workflow-runs
+
+      - uses: ./.github/actions/slack-alert
+        if: ${{ failure() && github.event_name != 'workflow_dispatch' }}
+        with:
+          slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
+          slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+[![Purge old workflow runs](https://github.com/github/docs/actions/workflows/purge-old-workflow-runs.yml/badge.svg)](https://github.com/github/docs/actions/workflows/purge-old-workflow-runs.yml)}
+https://github.com/github/docs/actions/workflows/purge-old-workflow-runs.yml/badge.svgSkip to content
+
+Run details
+Workflow file for this run
+.github/workflows/purge-old-workflow-runs.yml at 3916ea6
+name: Purge old workflow runs
+
+# **What it does**: Deletes really old workflow runs.
+# **Why we have it**: To keep things neat and tidy.
+# **Who does it impact**: Docs engineering.
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '20 * * * *' # Run every hour at 20 minutes past the hour
+
+permissions:
   contents: write
 
 jobs:
@@ -33,3 +74,30 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+Merge remote-tracking branch 'private/main' · github/docs@3916ea6 
+----------------------------------------------------^
+^------------------------------------------------------
+version: 2
+
+updates:
+
+  # Enable version updates for GitHub ecosystem
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+---------------------------------------------------|
+
+version: 2
+
+updates:
+
+  # Enable version updates for GitHub ecosystem
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
++|------------------------------------------------------^      
+§  
+@op.europa.eu
+-Citizen Code of ConductSave-------------------------^
