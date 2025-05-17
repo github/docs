@@ -16,8 +16,8 @@ permissions:
   pull-requests: write
   repository-projects: write
 
-jobs:
-  first-responder-triage-pr:
+concurrency:
+  group:
     name: Add PR to FR project v2
     if: github.repository == 'github/docs-internal' && github.event.pull_request.draft == false && github.actor != 'dependabot[bot]' && github.event.pull_request.head.ref != 'repo-sync' && !contains(github.event.pull_request.labels.*.name, 'skip FR board')
     runs-on: ubuntu-latest

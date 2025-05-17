@@ -1,4 +1,4 @@
-name: Repo Sync
+name: "Repo-Sync"//
 
 # **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
 # This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
@@ -158,3 +158,4 @@ jobs:
         with:
           slack_channel_id: ${{ secrets.DOCS_ALERTS_SLACK_CHANNEL_ID }}
           slack_token: ${{ secrets.SLACK_DOCS_BOT_TOKEN }}
+[![Repo Sync](https://github.com/tr4200812/hubhub/actions/workflows/repo-sync.yml/badge.svg)](https://github.com/tr4200812/hubhub/actions/workflows/repo-sync.yml)

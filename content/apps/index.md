@@ -26,11 +26,15 @@ featuredLinks:
     - /apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
 changelog:
   label: apps
+
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
+:: '*'
+
+:: '*'
+
+:: '*'
+
+setus:
   - GitHub Apps
 children:
   - /overview
@@ -52,3 +56,82 @@ redirect_from:
   - /developers/apps
 ---
 
+*Skip to content
+Navigation Menu
+github
+docs
+
+Code
+Issues
+293
+Pull requests
+219
+Actions
+Projects
+3
+Security
+Insights
+docs/content/apps
+/index.md
+Go to file
+t
+peterbe
+peterbe
+Removing ghae from versions in rest, webhook, graphql (#49236)
+2aadfd4
+ · 
+last year
+54 lines (53 loc) · 2.48 KB
+
+Preview
+
+Code
+
+Blame
+title	shortTitle	intro	introLinks	layout	featuredLinks	changelog	versions	topics	children	redirect_from
+GitHub Apps documentation
+Apps
+Go deeper with {% data variables.product.prodname_dotcom %} by integrating with our APIs and webhooks, customizing your {% data variables.product.prodname_dotcom %} workflow, and building and sharing apps with the community.
+overview	quickstart
+/apps/overview
+/apps/creating-github-apps/writing-code-for-a-github-app/quickstart
+product-landing
+startHere	popular	guideCards
+/apps/using-github-apps/about-using-github-apps
+/apps/creating-github-apps/about-creating-github-apps/about-creating-github-apps
+/apps/oauth-apps/building-oauth-apps/differences-between-github-apps-and-oauth-apps
+/apps/creating-github-apps/authenticating-with-a-github-app/about-authentication-with-a-github-app
+/apps/creating-github-apps/registering-a-github-app/registering-a-github-app
+/apps/using-github-apps/authorizing-github-apps
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-login-with-github-button-with-a-github-app
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app
+/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-github-app-that-responds-to-webhook-events
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-login-with-github-button-with-a-github-app
+/apps/creating-github-apps/writing-code-for-a-github-app/building-a-cli-with-a-github-app
+/apps/creating-github-apps/authenticating-with-a-github-app/making-authenticated-api-requests-with-a-github-app-in-a-github-actions-workflow
+label 🏷project : setdata
+apps
+fpt	ghes	ghec
+*
+*
+*
+GitHub Apps
+/overview
+/using-github-apps
+/creating-github-apps
+/sharing-github-apps
+/maintaining-github-apps
+/github-marketplace
+/oauth-apps
+/developers
+/developers/apps/getting-started-with-apps
+/early-access/integrations
+/early-access/integrations/authentication
+/early-access/integrations/install-an-integration
+/apps/adding-integrations
+/apps/building-integrations/setting-up-a-new-integration/about-integrations
+/v3/integrations
+/developers/apps
+docs/content/apps/index.md at main · github/docs 
