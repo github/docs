@@ -20,22 +20,22 @@ To set up a trial, you must be signed in to a personal account. If you don't hav
 
 <a href="https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Set up a trial of {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
->[!IMPORTANT] Your trial enterprise will be hosted in the US. If you require {% data variables.enterprise.data_residency_short %} in a specific region, contact {% data variables.contact.contact_sales_data_residency %}.
-
 {% data reusables.enterprise.enterprise-types %}
+
+{% data reusables.enterprise.emus-trial-content %}
 
 ## What is included in the trial?
 
 The trial lasts for **{% data reusables.enterprise.ghec-trial-length %} days** and includes the following features.
 
 * Access to **most** {% data variables.product.prodname_ghe_cloud %} features.
-* {% data variables.product.prodname_copilot_for_business %}
-* {% data variables.product.prodname_GH_cs_and_sp %}
+* {% data variables.product.prodname_copilot_for_business %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
+* {% data variables.product.prodname_GH_cs_and_sp %} ({% data variables.product.prodname_dotcom_the_website %} trials only)
 * Access to the **new billing platform**.{% ifversion enhanced-billing-platform %} See [AUTOTITLE](/billing/using-the-new-billing-platform/about-the-new-billing-platform-for-enterprises).{% endif %}
 * An **enterprise account**, which allows you to manage multiple organizations. See [AUTOTITLE](/enterprise-cloud@latest/get-started/learning-about-github/types-of-github-accounts).
 * Up to **50 licenses** to grant access to users.
 
-Your trial **won't** include {% data variables.enterprise.data_residency_short %} on {% data variables.enterprise.data_residency_site %} or access to {% data variables.product.prodname_ghe_server %}. To test these features, contact {% data variables.contact.contact_enterprise_sales %}.
+Your trial **won't** include access to {% data variables.product.prodname_ghe_server %}. To test this, contact {% data variables.contact.contact_enterprise_sales %}.
 
 ## Features not included in the trial
 
@@ -59,6 +59,7 @@ After you set up your trial, you can explore {% data variables.product.prodname_
 
 You can create up to **three new organizations** in the trial enterprise, or transfer any number of existing organizations.
 
+* You cannot transfer organizations if you selected an {% data variables.enterprise.prodname_emu_enterprise %}.
 * You cannot transfer organizations that have free or paid {% data variables.product.prodname_marketplace %} apps. Free apps are supported for new organizations in the trial.
 * You cannot transfer organizations that are already owned by another enterprise.
 * Billing for transferred organizations is paused during the trial and any coupons are removed. To reapply a coupon, contact {% data variables.contact.contact_support_page %}.

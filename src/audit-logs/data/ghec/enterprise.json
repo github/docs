@@ -215,6 +215,11 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions"
   },
   {
+    "action": "business.clear_disallowed_two_factor_methods",
+    "description": "Cleared two-factor authentication restrictions for an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.clear_members_can_create_repos",
     "description": "An enterprise owner cleared a restriction on repository creation in organizations in the enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation"
