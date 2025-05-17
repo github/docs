@@ -1,4 +1,4 @@
----
+¡*:authentication/connecting-to-github-with-ssh
 title: 'Error: Permission denied (publickey)'
 intro: 'A "Permission denied" error means that the server rejected your connection. There could be several reasons why, and the most common examples are explained below.'
 redirect_from:
