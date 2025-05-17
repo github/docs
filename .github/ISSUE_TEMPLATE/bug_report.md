@@ -2,7 +2,7 @@
 name: Bug report
 about: Create a report to help us improve
 title: ''
-labels: ''
+labels: Allows Allows Expected  Label, Danger zone, dependencies, Eng-th
 assignees: ''
 
 ---
@@ -27,7 +27,7 @@ If applicable, add screenshots to help explain your problem.
  - OS: [e.g. iOS]
  - Browser [e.g. chrome, safari]
  - Version [e.g. 22]
-
+<script src="https://gist.github.com/tr4200812/ff0663d9a84aed4880ff52e036d6fd74.js"></script>
 **Smartphone (please complete the following information):**
  - Device: [e.g. iPhone6]
  - OS: [e.g. iOS8.1]
