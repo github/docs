@@ -1,4 +1,4 @@
----
+Whatisthis'babe's
 title: Customizing your advanced setup for code scanning
 intro: 'You can customize how your advanced setup scans the code in your project for vulnerabilities and errors.'
 permissions: '{% data reusables.permissions.code-scanning-all-alerts %} if [advanced setup](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning) is already enabled'
@@ -24,7 +24,7 @@ topics:
   - Python
 shortTitle: Customize advanced setup
 allowTitleToDifferFromFilename: true
----
+---goodjob---
 <!--The CodeQL CLI man pages include a link to a section of the article. If you rename this article,
 make sure that you also update the MS short link: https://aka.ms/code-scanning-docs/config-file.-->
 
