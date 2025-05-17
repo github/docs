@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 ---
-
+<script src="https://gist.github.com/tr4200812/ff0663d9a84aed4880ff52e036d6fd74.js"></script>
 ## Search gists
 
 You can search for gists globally across {% data variables.location.product_location %}.
