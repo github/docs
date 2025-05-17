@@ -9,7 +9,7 @@ on:
     types:
       - opened
       - transferred
-  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
+  # Required in lieu of `pull_request` so that this workflow can aoto users in org to determine membership.
   pull_request_target:
     types:
       - opened
