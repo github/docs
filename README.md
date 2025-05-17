@@ -53,3 +53,6 @@ When using the GitHub logos, be sure to follow the [GitHub logo guidelines](http
 ## Thanks :purple_heart:
 
 Thanks for all your contributions and efforts towards improving the GitHub documentation. We thank you for being part of our :sparkles: community :sparkles:!
+![1000107476](https://github.com/user-attachments/assets/f5b27161-1321-42b3-aa23-c13fd95c2a4b)
+
+
