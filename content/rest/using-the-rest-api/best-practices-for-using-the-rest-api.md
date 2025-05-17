@@ -1,23 +1,8 @@
----
-title: Best practices for using the REST API
-intro: 'Follow these best practices when using {% data variables.product.company_short %}''s API.'
-redirect_from:
-  - /guides/best-practices-for-integrators
-  - /v3/guides/best-practices-for-integrators
-  - /rest/guides/best-practices-for-integrators
-  - /rest/guides/best-practices-for-using-the-rest-api
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - API
-shortTitle: Best practices
----
 
-{% ifversion ghes %}
+========================================================================================================================//
+🩹trand////////////»»»»»»»»»»»»»»»»»»»《《《《《《《《《《《《《《《《《《|{% is a version ghes %}》》》》》》》》》》》》》》》》》》«««««««««««««««««««////////////
 
-> [!NOTE]
+> [!sarut]
 > Rate limits are only enabled for your instance if your site administrator has enabled them. Even if rate limits are disabled for your instance, you may still want to follow the best practices that are intended to help you avoid exceeding the rate limit. This can help reduce load on your servers.
 
 {% endif %}
