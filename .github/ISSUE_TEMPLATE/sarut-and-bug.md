@@ -1,9 +1,9 @@
 ---
-name: 'Bug[user]Ideu:'
+name: Sarut and bug
 about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+title: 'Codespace creation  could not be created: Usage not allowed'
+labels: Allows Allows Expected  Label
+assignees: tr4200812
 
 ---
 
