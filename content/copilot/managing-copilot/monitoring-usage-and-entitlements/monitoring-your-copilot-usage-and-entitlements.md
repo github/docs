@@ -1,13 +1,4 @@
----
-title: Monitoring your Copilot usage and entitlements
-shortTitle: Monitor your Copilot usage and entitlements
-intro: Learn how you can monitor your monthly usage of {% data variables.product.prodname_copilot_short %} and get the most value out of your {% data variables.product.prodname_copilot_short %} plan.
-versions:
-  feature: copilot
-topics:
-  - Copilot
-redirect_from:
-  - /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
+:"'in dievandiehatoder- /copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements
 ---
 
 <!-- expires 2025-06-04 -->
