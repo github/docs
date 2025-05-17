@@ -3,7 +3,7 @@ title: Adding organization custom instructions for GitHub Copilot
 shortTitle: Organization custom instructions
 intro: 'Customize {% data variables.product.prodname_copilot_chat %} responses for members of your organization.'
 permissions: Organization owners
-product: '{% data reusables.copilot.ce-product-callout %}'
+product: 'Organizations with a {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %} plan'
 versions:
   feature: copilot-org-instructions
 topics:

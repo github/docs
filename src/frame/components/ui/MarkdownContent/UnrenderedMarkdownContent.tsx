@@ -66,7 +66,7 @@ export const UnrenderedMarkdownContent = ({
         data-group-key={eventGroupKey}
         data-group-id={eventGroupId}
       >
-        {props.children}
+        <u>{props.children}</u>
       </a>
     )
   }

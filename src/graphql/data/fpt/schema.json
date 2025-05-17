@@ -94719,6 +94719,25 @@
       ]
     },
     {
+      "name": "BotOrUser",
+      "kind": "unions",
+      "id": "botoruser",
+      "href": "/graphql/reference/unions#botoruser",
+      "description": "<p>Used when either Bot or User are accepted.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
       "name": "BranchActorAllowanceActor",
       "kind": "unions",
       "id": "branchactorallowanceactor",

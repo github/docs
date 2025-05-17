@@ -40,6 +40,8 @@ The top-level `registries` key is optional and specifies authentication details.
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
 
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
+
 For more information about the configuration options that are available and about the supported types, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 ## Storing credentials for Dependabot to use
@@ -164,8 +166,8 @@ Examples of how to configure access to the private registries supported by {% da
 * [`hex-repository`](#hex-repository)
 * [`maven-repository`](#maven-repository)
 * [`npm-registry`](#npm-registry)
-* [`nuget-feed`](#nuget-feed){% ifversion dependabot-updates-pub-private-registry %}
-* [`pub-repository`](#pub-repository){% endif %}
+* [`nuget-feed`](#nuget-feed)
+* [`pub-repository`](#pub-repository)
 * [`python-index`](#python-index)
 * [`rubygems-server`](#rubygems-server)
 * [`terraform-registry`](#terraform-registry)
@@ -382,6 +384,8 @@ For security reasons, {% data variables.product.prodname_dependabot %} does not 
 
 The `nuget-feed` type supports username and password, or token. {% data reusables.dependabot.password-definition %}
 
+`nuget-feed` doesn't support the `replaces-base` parameter.
+
 {% raw %}
 
 ```yaml copy
@@ -408,8 +412,6 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### `pub-repository`
 
 The `pub-repository` type supports a URL and a token.
@@ -432,8 +434,6 @@ updates:
 ```
 
 {% endraw %}
-
-{% endif %}
 
 ### `python-index`
 

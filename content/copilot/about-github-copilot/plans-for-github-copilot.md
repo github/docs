@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/about-github-copilot/subscription-plans-for-github-copilot
 ---
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-06-04 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-06-04 -->
 
 {% data variables.product.company_short %} offers several plans for {% data variables.product.prodname_copilot %}, depending on your needs and whether you're using {% data variables.product.prodname_copilot_short %} as an individual or as part of an organization or enterprise.
 

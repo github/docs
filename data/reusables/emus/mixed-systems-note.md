@@ -1,0 +1,3 @@
+{% data variables.product.company_short %} does not expressly support mixing partner IdPs for authentication and provisioning and does not test all identity management systems. **{% data variables.product.company_short %}'s support team may not be able to assist you with issues related to mixed or untested systems.** If you need help, you must consult the system's documentation, support team, or other resources.
+
+>[!IMPORTANT] The combination of **Okta and Entra ID** for SSO and SCIM (in either order) is explicitly **not supported**. {% data variables.product.github %}'s SCIM API will return an error to the identity provider on provisioning attempts if this combination is configured.

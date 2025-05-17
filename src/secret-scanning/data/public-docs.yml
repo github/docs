@@ -1776,7 +1776,7 @@
     fpt: '*'
     ghec: '*'
     ghes: '>=3.5'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
   hasValidityCheck: false
@@ -1898,6 +1898,17 @@
   isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: true
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Heroku
+  supportedSecret: Heroku Platform API OAuth2 Token
+  secretType: heroku_platform_api_oauth2_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
   hasValidityCheck: false
   isduplicate: false
 - provider: Heroku
@@ -2530,7 +2541,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Access Key ID
+  supportedSecret: Naver Cloud Gov Access Key ID
   secretType: navercloud_gov_access_key
   versions:
     fpt: '*'
@@ -2541,7 +2552,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secret Key
+  supportedSecret: Naver Cloud Gov Secret Key
   secretType: navercloud_gov_access_key_secret
   versions:
     fpt: '*'
@@ -2552,7 +2563,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secure Token Service
+  supportedSecret: Naver Cloud Gov Secure Token Service
   secretType: navercloud_gov_sts
   versions:
     fpt: '*'
@@ -2563,7 +2574,7 @@
   hasValidityCheck: false
   isduplicate: false
 - provider: Naver Cloud
-  supportedSecret: Naver Cloud Secure Token Service Secret
+  supportedSecret: Naver Cloud Gov Secure Token Service Secret
   secretType: navercloud_gov_sts_secret
   versions:
     fpt: '*'
@@ -3380,6 +3391,28 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: false
+- provider: Salesforce
+  supportedSecret: Salesforce OAuth2 Consumer Key
+  secretType: salesforce_oauth2_consumer_key </br>salesforce_oauth2_consumer_secret
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
+- provider: Salesforce
+  supportedSecret: Salesforce Refresh Token
+  secretType: salesforce_refresh_token
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Samsara
   supportedSecret: Samsara API Token
   secretType: samsara_api_token
@@ -4159,6 +4192,17 @@
   hasPushProtection: true
   hasValidityCheck: false
   isduplicate: true
+- provider: xAI
+  supportedSecret: xAI API Key
+  secretType: xai_api_key
+  versions:
+    fpt: '*'
+    ghec: '*'
+  isPublic: false
+  isPrivateWithGhas: true
+  hasPushProtection: false
+  hasValidityCheck: false
+  isduplicate: false
 - provider: Yandex
   supportedSecret: Yandex.Cloud API Key
   secretType: yandex_cloud_api_key

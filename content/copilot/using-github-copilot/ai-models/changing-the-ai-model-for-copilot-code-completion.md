@@ -10,7 +10,7 @@ topics:
 
 ## Overview
 
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT-4o {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+By default, {% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
 
 <details>
   <summary>View the list of programming languages and technologies included in the training data.</summary>
@@ -52,7 +52,7 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 </details>
 
 > [!NOTE]
-Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
+> The list of available models will change over time. When only one code completion model is available, the model picker will only show that model. Preview models and additional code completion models will appear in the picker when we release them.
 
 {% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
 

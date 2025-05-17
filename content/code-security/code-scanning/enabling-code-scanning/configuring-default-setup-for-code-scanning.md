@@ -33,12 +33,8 @@ Default setup for {% data variables.product.prodname_code_scanning %} is the qui
 * When creating or committing to a pull request based against the repository's default branch, or any protected branch, excluding pull requests from forks.
 * On a weekly schedule.
 
-{% ifversion code-scanning-default-setup-exclude-dormant-repos %}
-
 > [!NOTE]
 > If no pushes and pull requests have occurred in a repository with default setup enabled for 6 months, the weekly schedule will be disabled to save your {% data variables.product.prodname_actions %} minutes.
-
-{% endif %}
 
 You can also enable default setup for multiple or all repositories in an organization at the same time. For information on bulk enablement, see [AUTOTITLE](/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning-at-scale).
 
@@ -46,17 +42,11 @@ If you need more granular control over your {% data variables.product.prodname_c
 
 ### Requirements for using default setup
 
-Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:{% ifversion default-setup-pre-enablement %}
-<!-- No restrictions on languages. Can be set up before CodeQL supported languages are added. -->
-{% else %}
-* It includes at least one {% data variables.product.prodname_codeql %}-supported language.{% endif %}
+Your repository is eligible for default setup for {% data variables.product.prodname_code_scanning %} if:
+
 {% data reusables.code-scanning.require-actions-ghcs %}
 
-{% ifversion default-setup-pre-enablement %}
 {% data reusables.code-scanning.default-setup-pre-enablement-explanation %}
-{% else %}
-If your repository includes at least one {% data variables.product.prodname_codeql %}-supported language, you can use default setup even if your repository also includes languages that aren't supported by {% data variables.product.prodname_codeql %}, such as R. Unsupported languages will not be scanned by default setup. For more information on {% data variables.product.prodname_codeql %}-supported languages, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql#about-codeql).
-{% endif %}
 
 You can use default setup for all {% data variables.product.prodname_codeql %}-supported languages for self-hosted runners or {% data variables.product.prodname_dotcom %}-hosted runners. See [Assigning labels to runners](#assigning-labels-to-runners), later in this article.
 
@@ -75,9 +65,7 @@ Compiled languages are not automatically included in default setup configuration
 ## Configuring default setup for a repository
 
 > [!NOTE]
-{% ifversion default-setup-pre-enablement %}> If the analyses fail for all {% data variables.product.prodname_codeql %}-supported languages in a repository, default setup will still be enabled, but it will not run any scans or use any {% data variables.product.prodname_actions %} minutes until another {% data variables.product.prodname_codeql %}-supported language is added to the repository or default setup is manually reconfigured, and the analysis of a {% data variables.product.prodname_codeql %}-supported language succeeds.
-{% else %}> At least one {% data variables.product.prodname_codeql %}-supported language's analysis in a repository must succeed, or else default setup will not be successfully enabled in that repository.
-{% endif %}
+> If the analyses fail for all {% data variables.product.prodname_codeql %}-supported languages in a repository, default setup will still be enabled, but it will not run any scans or use any {% data variables.product.prodname_actions %} minutes until another {% data variables.product.prodname_codeql %}-supported language is added to the repository or default setup is manually reconfigured, and the analysis of a {% data variables.product.prodname_codeql %}-supported language succeeds.
 
 {% data reusables.repositories.navigate-to-repo %}
 

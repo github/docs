@@ -21,8 +21,7 @@ Before your developers can use {% data variables.product.prodname_ghe_cloud %} w
 
 To use {% data variables.product.prodname_emus %}, you need a **separate type of enterprise account** with {% data variables.product.prodname_emus %} enabled.
 
-* To create an enterprise on {% data variables.product.prodname_dotcom_the_website %}, start a free 30-day trial of {% data variables.product.prodname_ghe_cloud %}, and choose **Enterprise with managed users**. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
-* If you require {% data variables.enterprise.data_residency_short %}, contact {% data variables.contact.contact_enterprise_sales %}.
+You can create an enterprise account by signing up for a trial of {% data variables.product.prodname_ghe_cloud %}. See [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud).
 
 ### Understand where your enterprise is hosted
 

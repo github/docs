@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
-import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
+import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -10,8 +10,6 @@ import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
-
-turnOffExperimentsBeforeEach(test)
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -56,6 +54,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
+  await turnOffExperimentsInPage(page)
   await page.getByTestId('site-search-input').click()
   await page.getByTestId('site-search-input').fill('serve playwright')
   await page.keyboard.press('Enter')
@@ -186,6 +185,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/enterprise-cloud@latest')
+  await turnOffExperimentsInPage(page)
 
   await page.getByTestId('site-search-input').fill('fixture')
   await page.getByTestId('site-search-input').press('Enter')
@@ -200,6 +200,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
 
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
     await expect(page).toHaveURL(/\?platform=mac/)
@@ -215,6 +216,7 @@ test.describe('platform picker', () => {
   test('minitoc matches picker', async ({ page }) => {
     // default platform set to windows in fixture fronmatter
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
     ).not.toBeVisible()
@@ -232,6 +234,7 @@ test.describe('platform picker', () => {
 
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
     // Return and now the cookie should start us off on Windows again
@@ -244,6 +247,7 @@ test.describe('platform picker', () => {
 test.describe('tool picker', () => {
   test('switch tools', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
@@ -268,6 +272,7 @@ test.describe('tool picker', () => {
 
   test('remember last clicked tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
     // Return and now the cookie should start us off with Web UI content again
@@ -280,6 +285,7 @@ test.describe('tool picker', () => {
   test('minitoc matches picker', async ({ page }) => {
     // default tool set to desktop in fixture fronmatter
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).toBeVisible()
@@ -313,6 +319,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
 test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -374,6 +381,7 @@ test.describe('hover cards', () => {
 
   test('use keyboard shortcut to open hover card', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // Simply putting focus on the link should not open the hovercard
     await page
@@ -405,6 +413,7 @@ test.describe('hover cards', () => {
 
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -564,6 +573,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
 
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
@@ -603,6 +613,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
     await page.getByRole('button', { name: 'Open Search Bar' }).click()
     await page.getByTestId('site-search-input').click()
     await page.getByTestId('site-search-input').fill('serve playwright')
@@ -619,6 +630,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('site-search-input').click()
     await page.getByTestId('site-search-input').fill('serve playwright')
     await page.getByTestId('site-search-input').press('Enter')
