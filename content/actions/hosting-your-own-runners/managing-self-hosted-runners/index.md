@@ -8,6 +8,9 @@ versions:
   ghec: '*'
 children:
   - /about-self-hosted-runners
+  - /communicating-with-self-hosted-runners
+  - /supported-architectures-and-operating-systems-for-self-hosted-runners
+  - /usage-limits-for-self-hosted-runners
   - /adding-self-hosted-runners
   - /autoscaling-with-self-hosted-runners
   - /running-scripts-before-or-after-a-job

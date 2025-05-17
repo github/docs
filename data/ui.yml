@@ -42,23 +42,32 @@ search:
     clear_search_query: Clear
     view_all_search_results: View more results
     no_results_found: No results found
+    no_results_found_announcement: 'Search Docs: No results found'
     search_docs_with_query: Search docs for "{{query}}"
-    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy">GitHub Privacy Statement</a> to review how GitHub collects and uses your data.
+    privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:
-    disclaimer: Copilot uses AI. Check for mistakes by reviewing the links in the response.
-    references: References from these articles
+    disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom"}>Copilot</a> uses AI. Check for mistakes.
+    references: Additional docs
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
-    unable_to_answer: Sorry, I'm unable to answer that question. Please try a different query or search our docs.
     copy_answer: Copy answer
     copied_announcement: Copied!
     thumbs_up: This answer was helpful
     thumbs_down: This answer was not helpful
     thumbs_announcement: Thank you for your feedback!
+    back_to_search: Back to search
+    responses:
+      unable_to_answer: Sorry, I'm unable to answer that question. Check that you selected the correct GitHub version or try a different question.
+      query_too_large: Sorry, your question is too long. Please try shortening it and asking again.
+      asked_too_many_times: Sorry, you've asked too many questions in a short time period. Please wait a few minutes and try again.
+      invalid_query: Sorry, I'm unable to answer that question. Please try asking a different question.
   failure:
     general_title: There was an error loading search results.
     ai_title: There was an error loading Copilot.
     description: You can still use this field to search our docs.
+  cta:
+    heading: New! Copilot for Docs
+    description: Ask your question in the search bar and get help in seconds.
 old_search:
   description: Enter a search term to find it in the GitHub Docs.
   placeholder: Search GitHub Docs
@@ -250,6 +259,7 @@ product_landing:
   overview: Overview
   try_ghec_for_free: Try GitHub's enterprise features
   try_ghas_for_free: Try GitHub Advanced Security for free
+  generate_secret_risk_assessment_report_for_free: Run a point-in-time scan to assess your organization's exposure to secret leaks
   plan_your_migration: Plan your migration
   releases: Releases
   guides: Guides

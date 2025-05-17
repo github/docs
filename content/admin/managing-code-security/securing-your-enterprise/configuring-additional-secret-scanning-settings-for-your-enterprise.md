@@ -15,10 +15,10 @@ topics:
 
 There are some additional {% data variables.product.prodname_secret_scanning %} settings that cannot be applied to repositories using {% data variables.product.prodname_security_configurations %}, so you must configure these settings separately:
 
-* [Configuring a resource link for push protection](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#configuring-a-resource-link-for-push-protection){% ifversion secret-scanning-ai-generic-secret-detection %}
-* [Configuring AI detection to find additional secrets](/admin/managing-code-security/securing-your-enterprise/configuring-additional-secret-scanning-settings-for-your-enterprise#configuring-ai-detection-to-find-additional-secrets){% endif %}
+* [Configuring a resource link for push protection](#configuring-a-resource-link-for-push-protection)
+* [Controlling features for new repositories created in a user namespace](#controlling-features-for-new-repositories-created-in-a-user-namespace)
 
-These additional settings only apply to repositories with {% data variables.product.prodname_secret_scanning %} enabled and {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} or {% data variables.product.prodname_GH_secret_protection %}{% endif %}.
+These additional settings apply only to repositories with {% data variables.product.prodname_secret_scanning %} and {% data variables.product.prodname_GHAS %} both enabled{% ifversion ghas-products %}, or with {% data variables.product.prodname_GH_secret_protection %} enabled{% endif %}.
 
 ## Accessing the additional settings for {% data variables.product.prodname_secret_scanning %}
 
@@ -34,16 +34,8 @@ To provide context for developers when {% data variables.product.prodname_secret
 1. Under "Additional settings", to the right of "Resource link for push protection", click **{% octicon "pencil" aria-hidden="true" %}**.
 1. In the text box, type the link to the desired resource, then click **{% octicon "check" aria-label="Save" %}**.
 
-{% ifversion secret-scanning-ai-generic-secret-detection %}
+### Controlling features for new repositories created in a user namespace
 
-### Configuring AI detection to find additional secrets
+To ensure that any repositories created by users outside of an organization are protected by the same security features as repositories created within an organization, you can enable or disable {% data variables.product.prodname_secret_scanning %} features for new repositories created in a user namespace.
 
-{% data variables.secret-scanning.copilot-secret-scanning %}'s {% data variables.secret-scanning.generic-secret-detection %} is an AI-powered expansion of {% data variables.product.prodname_secret_scanning %} that scans and creates alerts for unstructured secrets, such as passwords.
-
-1. Under "Additional settings", to the right of "Use AI detection to find additional secrets", ensure the setting is toggled to "On".
-
-{% data reusables.secret-scanning.copilot-secret-scanning-generic-secrets-subscription-note %}
-
-To learn more about generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).
-
-{% endif %}
+Under "Additional settings", use the options in the "User namespace repositories" section to enable or disable features for new repositories.

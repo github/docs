@@ -140,11 +140,11 @@ jobs:
 # This job publishes the package. `needs: run-npm-test` makes this job dependent on the `run-npm-test` job.
   build-and-push-image:
     runs-on: ubuntu-latest
-    needs: run-npm-test {% ifversion ghes %}
+    needs: run-npm-test 
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
       contents: read
-      packages: write {% endif %}
+      packages: write 
       #
     steps:
       - name: Checkout

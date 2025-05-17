@@ -15,6 +15,7 @@ topics:
   - Secret Protection
 shortTitle: Secure organization quickstart
 ---
+<!--Reminder that this article describes the process for older versions of GHES. GHES 3.12 - 3.14 only. All other versions see "Securing your organization" instead.-->
 
 ## Introduction
 
@@ -78,7 +79,7 @@ In some cases, it is better to identify a selection of repositories that require
 
 If you're not sure about the impact a feature will have, you may want to test the feature on a limited selection of repositories before you commit to enabling the feature for all repositories, or you may want to roll out the feature gradually over several phases. You may also be aware that some repositories in your organization require a different set of features than others.
 
-{% ifversion code-security-multi-repo-enablement %}You can use the "Security coverage" view to identify repositories that require a certain feature, then enable the feature for those repositories. The following steps describe how to find the "Security coverage" view.
+You can use the "Security coverage" view to identify repositories that require a certain feature, then enable the feature for those repositories. The following steps describe how to find the "Security coverage" view.
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
@@ -86,10 +87,6 @@ If you're not sure about the impact a feature will have, you may want to test th
 1. In the sidebar, click **{% octicon "meter" aria-hidden="true" %} Coverage**.
 
 On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
-
-{% else %}When you have identified the repositories that require a feature, you can enable the feature for each repository individually. As an organization owner or security manager, you can configure the security settings for each repository in your organization. For more information, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
-
-{% endif %}
 
 If you have a limited number of licenses for {% data variables.product.prodname_GHAS %}, you may want to prioritize repositories that contain critical projects, or that have the highest commit frequencies. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security).
 
@@ -113,9 +110,7 @@ When you have enabled a feature, you should communicate with repository administ
 
 You can use security overview to see which teams and repositories are affected by security alerts, with a breakdown of alerts by severity. For more information, see [AUTOTITLE](/code-security/security-overview/assessing-code-security-risk).
 
-{% ifversion security-overview-dashboard %}
 Security overview also has a dashboard where you can explore high-level trends and metrics to gain insight into your organization's security landscape. For more information, see [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
-{% endif %}
 
 You can use various tools to monitor the actions that your organization's members are taking in response to security alerts. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 

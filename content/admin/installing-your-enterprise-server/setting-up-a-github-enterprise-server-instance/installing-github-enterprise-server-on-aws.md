@@ -39,6 +39,34 @@ This guide recommends the principle of least privilege when setting up {% data v
 
 {% data reusables.enterprise_installation.hardware-considerations-all-platforms %}
 
+### Storage volume performance recommendations for AWS
+
+{% data variables.product.prodname_ghe_server %} is I/O intensive and requires high-performance storage for both the root volume and data volume to ensure optimal performance. Both volumes need high IOPS and low latency, as insufficient disk I/O is a common cause of performance degradation and service disruptions.
+
+When selecting Amazon EBS volume types, consider the following guidance:
+
+* For most deployments, `gp3` volumes provide a good starting point with configurable IOPS and throughput
+* For larger or high-activity deployments, `io1` or `io2` volumes may be more appropriate due to their consistent performance characteristics
+* Very large or mission-critical deployments may benefit from `io2 Block Express` for the highest performance levels
+
+> [!IMPORTANT]
+> The optimal storage configuration for your instance will vary significantly based on your specific usage patterns. Factors that increase I/O requirements include:
+>
+> * Number of active users and repositories
+> * CI/CD workload volume and frequency
+> * API usage patterns and automation
+> * Git operation frequency and repository sizes
+>
+> We strongly recommend continuously monitoring your instance's disk performance in the Management Console metrics dashboard. Pay particular attention to:
+>
+> * **Disk queue length**: Should remain near zero.
+> * **I/O utilization**: Sustained periods above 80% indicate need for more IOPS.
+> * **Disk latency**: Should remain below 1-2ms.
+>
+> Be prepared to adjust your storage configuration as your usage patterns evolve. Scale up IOPS allocation proactively if you observe performance bottlenecks to prevent service degradation.
+
+For more information about Amazon EBS volume types, see [Amazon EBS volume types](https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html#vol-type-ssd) in the AWS documentation.
+
 ## Determining the instance type
 
 Before launching {% data variables.location.product_location %} on AWS, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum recommended requirements for {% data variables.product.prodname_ghe_server %}, see [Minimum recommended requirements](#minimum-recommended-requirements).

@@ -1,6 +1,6 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
-import { productIds } from '#src/products/lib/all-products.js'
+import { productIds } from '#src/products/lib/all-products.ts'
 import { allTools } from 'src/tools/lib/all-tools.js'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
@@ -135,6 +135,9 @@ const context = {
     browser_version: {
       type: 'string',
       description: 'The version of the browser the user is browsing with.',
+    },
+    is_headless: {
+      type: 'boolean',
     },
     viewport_width: {
       type: 'number',
@@ -418,8 +421,6 @@ const aiSearchResult = {
   required: [
     'type',
     'context',
-    'ai_search_result_query',
-    'ai_search_result_response',
     'ai_search_result_links_json',
     'ai_search_result_provided_answer',
     'ai_search_result_response_status',
@@ -429,14 +430,6 @@ const aiSearchResult = {
     type: {
       type: 'string',
       pattern: '^aiSearchResult$',
-    },
-    ai_search_result_query: {
-      type: 'string',
-      description: 'The query the user searched for.',
-    },
-    ai_search_result_response: {
-      type: 'string',
-      description: "The GPT's response to the query.",
     },
     ai_search_result_links_json: {
       type: 'string',
@@ -450,6 +443,10 @@ const aiSearchResult = {
     ai_search_result_response_status: {
       type: 'number',
       description: 'The status code of the GPT response.',
+    },
+    ai_search_result_connected_event_id: {
+      type: 'string',
+      description: 'The id of the corresponding CSE copilot conversation event.',
     },
   },
 }
@@ -486,6 +483,10 @@ const survey = {
       type: 'string',
       description:
         'The guessed language of the survey comment. The guessed language is very inaccurate when the string contains fewer than 3 or 4 words.',
+    },
+    survey_connected_event_id: {
+      type: 'string',
+      description: 'The id of the corresponding CSE copilot conversation event.',
     },
   },
 }

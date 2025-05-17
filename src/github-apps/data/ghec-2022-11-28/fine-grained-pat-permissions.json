@@ -59,6 +59,120 @@
       }
     ]
   },
+  "enterprise_scim": {
+    "title": "Enterprise SCIM",
+    "displayTitle": "Business permissions for \"Enterprise SCIM\"",
+    "permissions": [
+      {
+        "category": "enterprise-admin",
+        "slug": "list-provisioned-scim-groups-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-group",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-group",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-group",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-group-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "list-scim-provisioned-identities-for-an-enterprise",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "provision-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "post",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "get-scim-provisioning-information-for-an-enterprise-user",
+        "subcategory": "scim",
+        "verb": "get",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "set-scim-information-for-a-provisioned-enterprise-user",
+        "subcategory": "scim",
+        "verb": "put",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "update-an-attribute-for-a-scim-enterprise-user",
+        "subcategory": "scim",
+        "verb": "patch",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "enterprise-admin",
+        "slug": "delete-a-scim-user-from-an-enterprise",
+        "subcategory": "scim",
+        "verb": "delete",
+        "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
   "organization_api_insights": {
     "title": "API Insights",
     "displayTitle": "Organization permissions for \"API Insights\"",
@@ -891,6 +1005,57 @@
         "subcategory": "blocking",
         "verb": "delete",
         "requestPath": "/orgs/{org}/blocks/{username}",
+        "additional-permissions": false,
+        "access": "write"
+      }
+    ]
+  },
+  "organization_campaigns": {
+    "title": "Campaigns",
+    "displayTitle": "Organization permissions for \"Campaigns\"",
+    "permissions": [
+      {
+        "category": "campaigns",
+        "slug": "list-campaigns-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/campaigns",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "campaigns",
+        "slug": "create-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "post",
+        "requestPath": "/orgs/{org}/campaigns",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "campaigns",
+        "slug": "get-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "campaigns",
+        "slug": "update-a-campaign",
+        "subcategory": "campaigns",
+        "verb": "patch",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
+        "additional-permissions": false,
+        "access": "write"
+      },
+      {
+        "category": "campaigns",
+        "slug": "delete-a-campaign-for-an-organization",
+        "subcategory": "campaigns",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/campaigns/{campaign_number}",
         "additional-permissions": false,
         "access": "write"
       }
@@ -4410,7 +4575,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -5296,6 +5461,33 @@
         "access": "write"
       },
       {
+        "category": "secret-scanning",
+        "slug": "list-alert-dismissal-requests-for-secret-scanning-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "get-an-alert-dismissal-request-for-secret-scanning",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "review-an-alert-dismissal-request-for-secret-scanning",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
         "category": "repos",
         "slug": "create-a-repository-dispatch-event",
         "subcategory": "repos",
@@ -5698,6 +5890,15 @@
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
         "access": "read"
       }
     ]
@@ -7844,6 +8045,15 @@
       },
       {
         "category": "secret-scanning",
+        "slug": "list-alert-dismissal-requests-for-secret-scanning-for-an-org",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/dismissal-requests/secret-scanning",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
         "slug": "list-secret-scanning-alerts-for-an-organization",
         "subcategory": "secret-scanning",
         "verb": "get",
@@ -7885,6 +8095,33 @@
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/bypass-responses/secret-scanning/{bypass_response_id}",
         "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "list-alert-dismissal-requests-for-secret-scanning-for-a-repository",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "get-an-alert-dismissal-request-for-secret-scanning",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "get",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "secret-scanning",
+        "slug": "review-an-alert-dismissal-request-for-secret-scanning",
+        "subcategory": "alert-dismissal-requests",
+        "verb": "patch",
+        "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}",
+        "additional-permissions": true,
         "access": "read"
       },
       {
@@ -8691,6 +8928,15 @@
         "subcategory": "billing",
         "verb": "get",
         "requestPath": "/users/{username}/settings/billing/shared-storage",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "billing",
+        "slug": "get-billing-usage-report-for-a-user",
+        "subcategory": "enhanced-billing",
+        "verb": "get",
+        "requestPath": "/users/{username}/settings/billing/usage",
         "additional-permissions": false,
         "access": "read"
       }

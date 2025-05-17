@@ -2,8 +2,10 @@
 title: Filtering alerts in security overview
 intro: Use filters to view specific categories of alerts
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 allowTitleToDifferFromFilename: true
 versions:
+  fpt: '*'
   ghes: '*'
   ghec: '*'
 type: how_to
@@ -40,8 +42,8 @@ Currently, there are two logical operators that you can apply to your filters on
 All security views have features to help you define filters. These provide an easy way to set up filters and understand the options available.
 
 * **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
-* **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.{% ifversion security-overview-3-13-overview %}
-* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.{% endif %}
+* **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.
 
 ## Repository name, visibility, and status filters
 
@@ -54,9 +56,7 @@ You can also filter by repository visibility (internal, private, or public) and 
 
 | Qualifier | Description | Views |
 |--------|--------|------|
-| {% ifversion security-overview-dashboard %} |
 | `visibility` | Display data for all repositories that are `public`, `private`, or `internal`. | "Overview" and metrics |
-| {% endif %} |
 | `is` | Display data for all repositories that are `public`, `private`, or `internal`. | "Risk" and "Coverage" |
 | `archived` | Display only data for archived (`true`) or active (`false`) repositories. | All except "Alerts" views |
 
@@ -69,8 +69,6 @@ These qualifiers are available in all views.
 | `team` | Display data for all repositories that the specified team has write access or admin access to. For more information on repository roles, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization). |
 | `topic` | Display data for all repositories that are classified with a specific topic. For more information on repository topics, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics). |
 
-{% ifversion security-overview-repository-properties %}
-
 ## Custom repository property filters
 
 > [!NOTE]
@@ -81,8 +79,6 @@ Custom repository properties are metadata that organization owners can add to re
 If you add custom properties to your organization and set values for repositories, you can filter the "Overview" using those custom properties as qualifiers. These qualifiers are currently only available in the organization-level views.
 
 * **`props.CUSTOM_PROPERTY_NAME` qualifier.** The qualifier consists of a `props.` prefix, followed by the name of the custom property. For example, `props.data_sensitivity:high` displays results for repositories with the `data_sensitivity` property set to the value `high`. |
-
-{% endif %}
 
 {% ifversion security-overview-dashboard-enterprise %}
 
@@ -119,7 +115,9 @@ In the "Risk" and "Coverage" views, you can show data only for repositories wher
 
 | Qualifier | Description |
 | -------- | -------- |
-| `advanced-security` | Display data for repositories where {% data variables.product.prodname_AS %} is{% ifversion ghas-products-cloud %} products are{% endif %} enabled or not enabled. |
+| {% ifversion ghes < 3.17 %} |
+| `advanced-security` | Display data for repositories where {% data variables.product.prodname_GHAS %} is enabled or not enabled. |
+| {% endif %} |
 | `code-scanning-default-setup`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled using {% data variables.product.prodname_codeql %} default setup. |
 | `code-scanning-pull-request-alerts`| Display data for repositories where {% data variables.product.prodname_code_scanning %} is enabled or not enabled to run on pull requests. |
 | `dependabot-security-updates` | Display data for repositories where {% data variables.product.prodname_dependabot_security_updates %} is enabled or not enabled.  |
@@ -134,8 +132,6 @@ In the "Risk" view, you can filter repositories by the number of alerts they hav
 | `code-scanning-alerts` | Display data for repositories that have exactly (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_code_scanning %} alerts. For example: `code-scanning-alerts:>100` for repositories with more than 100 alerts. |
 | `dependabot-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.product.prodname_dependabot_alerts %}. For example: `dependabot-alerts:<=10` for repositories with fewer than or equal to 10 alerts.|
 | `secret-scanning-alerts` | Display data for repositories that have a specific number (`=`), more than (`>`) or fewer than (`<`) a specific number of {% data variables.secret-scanning.alerts %}. For example: `secret-scanning-alerts:=10` for repositories with exactly 10 alerts.|
-
-{% ifversion security-overview-dashboard %}
 
 ## Alert type and property filters
 
@@ -163,8 +159,6 @@ You can also filter the "Overview" view by properties of alerts.
 | `secret-scanning.validity` | Display data only for {% data variables.secret-scanning.alerts %} for a specific validity (`active`, `inactive`, or `unknown`).
 | `severity` | Display data only for alerts of a specific severity (`critical`, `high`, `medium`, or `low`).
 | `third-party.rule`| Display data only for {% data variables.product.prodname_code_scanning %} identified by a specific rule for a tool developed by a third party. For example, `third-party.rule:CVE-2021-26291-maven-artifact` shows only results for the `CVE-2021-26291-maven-artifact` rule of a third-party {% data variables.product.prodname_code_scanning %} tool.
-
-{% endif %}
 
 {% endif %}
 

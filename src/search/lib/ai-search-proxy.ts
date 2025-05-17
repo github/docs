@@ -1,13 +1,12 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import statsd from '@/observability/lib/statsd'
 import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
+import type { ExtendedRequest } from '@/types'
 
-const memoryCache = new Map<string, Buffer>()
-
-export const aiSearchProxy = async (req: Request, res: Response) => {
-  const { query, version, language } = req.body
+export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
+  const { query, version } = req.body
 
   const errors = []
 
@@ -17,18 +16,12 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   } else if (typeof query !== 'string') {
     errors.push({ message: `Invalid 'query' in request body. Must be a string` })
   }
-  if (!version) {
-    errors.push({ message: `Missing required key 'version' in request body` })
-  }
-  if (!language) {
-    errors.push({ message: `Missing required key 'language' in request body` })
-  }
 
   let docsSource = ''
   try {
-    docsSource = getCSECopilotSource(version, language)
+    docsSource = getCSECopilotSource(version)
   } catch (error: any) {
-    errors.push({ message: error?.message || 'Invalid version or language' })
+    errors.push({ message: error?.message || 'Invalid version' })
   }
 
   if (errors.length) {
@@ -38,19 +31,10 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
 
   const diagnosticTags = [
     `version:${version}`.slice(0, 200),
-    `language:${language}`.slice(0, 200),
+    `language:${req.language}`.slice(0, 200),
     `queryLength:${query.length}`.slice(0, 200),
   ]
   statsd.increment('ai-search.call', 1, diagnosticTags)
-
-  // TODO: Caching here may cause an issue if the cache grows too large. Additionally, the cache will be inconsistent across pods
-  const cacheKey = `${query}:${version}:${language}`
-  if (memoryCache.has(cacheKey)) {
-    statsd.increment('ai-search.cache_hit', 1, diagnosticTags)
-    res.setHeader('Content-Type', 'application/x-ndjson')
-    res.send(memoryCache.get(cacheKey))
-    return
-  }
 
   const startTime = Date.now()
   let totalChars = 0
@@ -63,7 +47,8 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   }
 
   try {
-    const stream = got.stream.post(`${process.env.CSE_COPILOT_ENDPOINT}/answers`, {
+    // TODO: We temporarily add ?ai_search=1 to use a new pattern in cgs-copilot production
+    const stream = got.stream.post(`${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`, {
       json: body,
       headers: {
         Authorization: getHmacWithEpoch(),
@@ -80,18 +65,14 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
 
     // Handle the upstream response before piping
     stream.on('response', (upstreamResponse) => {
-      // When cse-copilot returns a 204, it means the backend received the request
-      // but was unable to answer the question. So we return a 400 to the client to be handled.
-      if (upstreamResponse.statusCode === 204) {
-        statsd.increment('ai-search.unable_to_answer_query', 1, diagnosticTags)
-        return res
-          .status(400)
-          .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
-      } else if (upstreamResponse.statusCode !== 200) {
+      if (upstreamResponse.statusCode !== 200) {
         const errorMessage = `Upstream server responded with status code ${upstreamResponse.statusCode}`
         console.error(errorMessage)
         statsd.increment('ai-search.stream_response_error', 1, diagnosticTags)
-        res.status(500).json({ errors: [{ message: errorMessage }] })
+        res.status(upstreamResponse.statusCode).json({
+          errors: [{ message: errorMessage }],
+          upstreamStatus: upstreamResponse.statusCode,
+        })
         stream.destroy()
       } else {
         // Set response headers
@@ -108,9 +89,11 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
       console.error('Error streaming from cse-copilot:', error)
 
       if (error?.code === 'ERR_NON_2XX_3XX_RESPONSE') {
-        return res
-          .status(400)
-          .json({ errors: [{ message: 'Sorry I am unable to answer this question.' }] })
+        const upstreamStatus = error?.response?.statusCode || 500
+        return res.status(upstreamStatus).json({
+          errors: [{ message: 'Upstream server error' }],
+          upstreamStatus,
+        })
       }
 
       statsd.increment('ai-search.stream_error', 1, diagnosticTags)

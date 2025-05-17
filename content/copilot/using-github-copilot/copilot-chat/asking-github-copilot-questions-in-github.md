@@ -41,7 +41,7 @@ In immersive view, you can also preview how some file formats, such as Markdown,
 
 ## Powered by skills
 
-When using the GPT-4o and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
+When using the {% data variables.copilot.copilot_gpt_4o %} and {% data variables.copilot.copilot_claude_sonnet %} models, {% data variables.product.prodname_copilot_short %} has access to a collection of skills to fetch data from {% data variables.product.github %}, which are dynamically selected based on the question you ask. You can tell which skill {% data variables.product.prodname_copilot_short %} used by clicking {% octicon "chevron-down" aria-label="the down arrow" %} to expand the status information in the chat window.
 
 ![Screenshot of the {% data variables.product.prodname_copilot_short %} chat panel with the status information expanded and the skill that was used highlighted with an orange outline.](/assets/images/help/copilot/chat-show-skill.png)
 
@@ -91,6 +91,17 @@ Depending on the question you ask, and your enterprise and organization settings
 
 1. To start a new conversation, click {% data reusables.copilot.pencil-paper-icon %} at the top left of the page.
 1. To see a list of your previous conversations, click {% octicon "sidebar-collapse" aria-label="Open sidebar" %} at the top left of the page.
+
+### Regenerating a response with a different model
+
+> [!NOTE]
+> This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+
+After {% data variables.product.prodname_copilot_short %} responds to your question, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
+
+You can switch between responses to compare the results from different models.
+
+For help deciding which model to use, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
 ### Using subthreads in a conversation
 
@@ -325,6 +336,38 @@ You can ask {% data variables.product.prodname_copilot_short %} to explain the c
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Using images in {% data variables.product.prodname_copilot_chat_short %}
+
+> [!NOTE]
+> * Attaching images to chat prompts is currently in {% data variables.release-phases.public_preview %} and is subject to change.
+> * You can only attach an image in the immersive view of {% data variables.product.prodname_copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)), not in the chat panel.
+
+You can attach an image to {% data variables.product.prodname_copilot_short %} and then ask about the image. For example, you can attach:
+
+{% data reusables.copilot.image-questions-and-file-types %}
+
+### Attaching an image to your chat prompt
+
+1. Go to the immersive view of {% data variables.product.prodname_copilot_chat_short %} ([https://github.com/copilot](https://github.com/copilot)).
+1. If you see the AI model picker at the top of the page, select one of the models that supports adding images to prompts:
+
+   * {% data variables.copilot.copilot_gpt_41 %} (the default that's used if you don't see a model picker)
+   * {% data variables.copilot.copilot_gpt_4o %}
+   * {% data variables.copilot.copilot_claude_sonnet_35 %}
+   * {% data variables.copilot.copilot_claude_sonnet_37 %}
+   * {% data variables.copilot.copilot_gemini_flash %}
+   * {% data variables.copilot.copilot_gemini_25_pro %}
+
+   ![Screenshot of the model picker with the list of models expanded.](/assets/images/help/copilot/model-picker-copilot-immersive.png)
+
+1. Do one of the following:
+
+   * Copy an image and paste it into the prompt box at the bottom of the page.
+   * Click {% octicon "paperclip" aria-label="Add attachment" %} in the prompt box, then click **Image**. Browse to the image file you want to attach, select it and click **Open**.
+   * Drag and drop an image file from your operating system's file explorer into the prompt box.
+
+{% data reusables.copilot.type-prompt-for-image %}
+
 ## Accessing {% data variables.product.prodname_copilot_chat_short %} from the search bar
 
 You can ask {% data variables.product.prodname_copilot_short %} a question about an entire repository by typing your question in the main search box of the repository.
@@ -347,6 +390,17 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 {% data reusables.copilot.stop-response-generation %}
 
+## Accessing {% data variables.product.prodname_copilot_chat_short %} from the dashboard
+
+You can access {% data variables.product.prodname_copilot_short %}'s immersive view from the dashboard. The dashboard is your personalized overview of your activity on {% data variables.product.github %}, seen when you visit https://github.com while logged in.
+
+1. Go to the dashboard at [https://github.com](https://github.com).
+1. In the "Ask {% data variables.product.prodname_copilot_short %}" box, type a question and press <kbd>Enter</kbd>.
+
+   ![Screenshot of the dashboard with the "Ask Copilot" box highlighted with an orange outline.](/assets/images/help/copilot/copilot-chat-dashboard.png)
+
+   You will be taken to the immersive view where {% data variables.product.prodname_copilot_short %} will respond to your request.
+
 ## Extending {% data variables.product.prodname_copilot_chat_dotcom_short %}
 
 {% data reusables.copilot.copilot-extensions.extending-copilot-chat %}
@@ -355,15 +409,18 @@ You can ask {% data variables.product.prodname_copilot_short %} a question about
 
 > [!NOTE] This feature is currently in {% data variables.release-phases.public_preview %} and subject to change. During the {% data variables.release-phases.public_preview %}, this feature is only available to users without enterprise or team memberships.
 
-You can share {% data variables.product.prodname_copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content. Shared conversations are read-only—the recipient can view the conversation but cannot interact.
+You can share {% data variables.product.prodname_copilot_chat_short %} conversations from the immersive view ([https://github.com/copilot](https://github.com/copilot)). Shared conversations are public or private (i.e. permission-based), depending on the referenced content, for example, a conversation about a private repository. If you share a private conversation, the recipient must have the necessary permissions to view the content.
+
+Once you share a conversation, the conversation and future messages will be visible to anyone with the link.
 
 1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar.
 1. To view a conversation in immersive mode, click **{% octicon "screen-full" aria-hidden="true" %} Immersive**.
-1. Once you submit your first prompt, a share button will appear in the upper right corner. Click {% octicon "share" aria-label="Share" %} to open the share dialog.
+1. Once you submit your first prompt, a share button will appear in the upper right corner. Click **{% octicon "lock" aria-hidden="true" %} Share** to open the share dialog.
 
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The share button is highlighted with an orange outline.](/assets/images/help/copilot/chat-share-button.png)
 
-1. To copy the conversation link, click **{% octicon "link" aria-label="Copy conversation link" %} Create link**. The link is copied to your clipboard.
+1. To share the conversation, click **Share**. This will generate a link to the conversation.
+1. To copy the conversation link, click the **{% octicon "copy" aria-label="Copy conversation icon" %}** copy icon. The link is copied to your clipboard.
 
 ## Sharing feedback about {% data variables.product.prodname_copilot_chat_dotcom %}
 

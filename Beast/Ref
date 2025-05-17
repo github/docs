@@ -1,0 +1,13 @@
+""-:-.https://patch-diff.githubusercontent.com/raw/github/docs/pull/38106.patch
+```suggestion
+permissions:
+```https://patch-diff.githubusercontent.com/raw/github/docs/pull/38106.patchgithub/site-policy-adminsThis branch has conflicts that must be resolved
+Changes can be cleanly merged.
+
+ actions/checkout 692973e3d937129bcbf40652eb9f2f61becf3332
+ 14m
+ docker/login-action 9780b0c442fbb1117ed29e0efdff1e18412f7567
+ 802k
+ google-github-actions/auth f112390a2df9932162083945e46d439060d66ec2
+ 43.6k
+ google-github-actions/get-gke-credentials 6051de21ad50fbb1767bc93c11357a49082ad116

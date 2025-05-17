@@ -26,7 +26,7 @@ shortTitle: View subscription & usage
 
 You can view an overview of {% ifversion ghec %}your subscription and paid{% elsif ghes %}the license{% endif %} usage for {% ifversion ghec %}your{% elsif ghes %}the{% endif %} enterprise account on {% ifversion ghec %}{% data variables.product.prodname_dotcom_the_website %}{% elsif ghes %}{% data variables.location.product_location %}{% endif %}.{% ifversion ghec %} {% data reusables.enterprise.create-an-enterprise-account %} For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-your-enterprise-account/creating-an-enterprise-account).{% endif %}
 
-For invoiced {% data variables.product.prodname_enterprise %} customers{% ifversion ghes %} who use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}{% endif %}, each invoice includes details about billed services for all products. For example, in addition to your usage for {% data variables.product.prodname_enterprise %}, you may have usage for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghec %}, {% elsif ghes %}. You may also have usage on {% data variables.product.prodname_dotcom_the_website %}, like {% endif %}paid licenses in organizations outside of your enterprise account, data packs for {% data variables.large_files.product_name_long %}, or subscriptions to apps in {% data variables.product.prodname_marketplace %}. For more information about invoices, see [Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise){% ifversion ghec %}.{% elsif ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
+For invoiced {% data variables.product.prodname_enterprise %} customers{% ifversion ghes %} who use both {% data variables.product.prodname_ghe_cloud %} and {% data variables.product.prodname_ghe_server %}{% endif %}, each invoice includes details about billed services for all products. For example, in addition to your usage for {% data variables.product.prodname_enterprise %}, you may have usage for {% data variables.product.prodname_AS %}{% ifversion ghec %}, {% elsif ghes %}. You may also have usage on {% data variables.product.prodname_dotcom_the_website %}, like {% endif %}paid licenses in organizations outside of your enterprise account, data packs for {% data variables.large_files.product_name_long %}, or subscriptions to apps in {% data variables.product.prodname_marketplace %}. For more information about invoices, see [Managing invoices for your enterprise]({% ifversion ghes %}/enterprise-cloud@latest{% endif %}/billing/managing-the-plan-for-your-github-account/managing-invoices-for-your-enterprise){% ifversion ghec %}.{% elsif ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% endif %}
 
 {% ifversion ghec %}
 
@@ -42,11 +42,7 @@ If you want to view an overview of your subscription and usage for {% data varia
 
 {% endif %}
 
-{% ifversion metered-ghe-ghas %}
-
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## Viewing the subscription and usage for your enterprise account
 

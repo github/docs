@@ -17,7 +17,6 @@ Some features of GitHub Team include:
 * Access to GitHub Codespaces
 * Protected branches
 * Multiple reviewers in pull requests
-* Draft pull requests
 * Code owners
 * Required reviewers
 * Pages and Wikis

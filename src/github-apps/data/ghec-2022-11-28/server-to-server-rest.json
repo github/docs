@@ -1295,6 +1295,38 @@
       "requestPath": "/repos/{owner}/{repo}/merges"
     }
   ],
+  "campaigns": [
+    {
+      "slug": "list-campaigns-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "create-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "get-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "update-a-campaign",
+      "subcategory": "campaigns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "delete-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    }
+  ],
   "checks": [
     {
       "slug": "create-a-check-run",
@@ -1909,6 +1941,14 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
+    }
+  ],
+  "credentials": [
+    {
+      "slug": "revoke-a-list-of-credentials",
+      "subcategory": "revoke",
+      "verb": "post",
+      "requestPath": "/credentials/revoke"
     }
   ],
   "dependabot": [
@@ -4839,10 +4879,34 @@
   ],
   "secret-scanning": [
     {
+      "slug": "list-alert-dismissal-requests-for-secret-scanning-for-an-org",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/dismissal-requests/secret-scanning"
+    },
+    {
       "slug": "list-secret-scanning-alerts-for-an-organization",
       "subcategory": "secret-scanning",
       "verb": "get",
       "requestPath": "/orgs/{org}/secret-scanning/alerts"
+    },
+    {
+      "slug": "list-alert-dismissal-requests-for-secret-scanning-for-a-repository",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning"
+    },
+    {
+      "slug": "get-an-alert-dismissal-request-for-secret-scanning",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "get",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}"
+    },
+    {
+      "slug": "review-an-alert-dismissal-request-for-secret-scanning",
+      "subcategory": "alert-dismissal-requests",
+      "verb": "patch",
+      "requestPath": "/repos/{owner}/{repo}/dismissal-requests/secret-scanning/{alert_number}"
     },
     {
       "slug": "list-secret-scanning-alerts-for-a-repository",

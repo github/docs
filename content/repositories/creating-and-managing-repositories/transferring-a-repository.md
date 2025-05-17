@@ -23,7 +23,7 @@ topics:
 ---
 ## About repository transfers
 
-When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.product.prodname_projects_v1 %}, and settings. You can also change the repository name while transferring a repository. See [AUTOTITLE](/repositories/creating-and-managing-repositories/renaming-a-repository).
+When you transfer a repository to a new owner, they can immediately administer the repository's contents, issues, pull requests, releases, {% data variables.projects.projects_v2 %}, and settings. You can also change the repository name while transferring a repository. See [AUTOTITLE](/repositories/creating-and-managing-repositories/renaming-a-repository).
 
 Prerequisites for repository transfers:
 * When you transfer a repository that you own to another personal account, the new owner will receive a confirmation email.{% ifversion fpt or ghec %} The confirmation email includes instructions for accepting the transfer. If the new owner doesn't accept the transfer within one day, the invitation will expire.{% endif %}
@@ -66,8 +66,7 @@ When you transfer a repository, its issues, pull requests, wiki, stars, and watc
   ```
 
   > [!WARNING]
-  > If you create a new repository or fork at the previous repository location, the redirects to the transferred repository will be deactivated. They can be reactivated by renaming or deleting the new repository or fork.
-
+  > If you create a new repository or fork at the previous repository location, the redirects to the transferred repository will be permanently deleted.
 * When you transfer a repository from an organization to a personal account, the repository's read-only collaborators will not be transferred. This is because collaborators can't have read-only access to repositories owned by a personal account. For more information about repository permission levels, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/permission-levels-for-a-personal-account-repository) and [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).{% ifversion fpt or ghec %}
 * Sponsors who have access to the repository through a sponsorship tier may be affected. See [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).{% endif %}
 * Packages associated with the repository may be transferred, or may lose their link to the repository, depending on the registry they belong to. See [AUTOTITLE](/packages/learn-github-packages/about-permissions-for-github-packages#about-repository-transfers).

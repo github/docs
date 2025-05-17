@@ -1085,6 +1085,12 @@
       "subcategory": "billing",
       "verb": "get",
       "requestPath": "/users/{username}/settings/billing/shared-storage"
+    },
+    {
+      "slug": "get-billing-usage-report-for-a-user",
+      "subcategory": "enhanced-billing",
+      "verb": "get",
+      "requestPath": "/users/{username}/settings/billing/usage"
     }
   ],
   "branches": [
@@ -1315,6 +1321,38 @@
       "subcategory": "branches",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/merges"
+    }
+  ],
+  "campaigns": [
+    {
+      "slug": "list-campaigns-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "create-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "post",
+      "requestPath": "/orgs/{org}/campaigns"
+    },
+    {
+      "slug": "get-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "update-a-campaign",
+      "subcategory": "campaigns",
+      "verb": "patch",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
+    },
+    {
+      "slug": "delete-a-campaign-for-an-organization",
+      "subcategory": "campaigns",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/campaigns/{campaign_number}"
     }
   ],
   "checks": [
@@ -2137,6 +2175,14 @@
       "subcategory": "copilot-metrics",
       "verb": "get",
       "requestPath": "/orgs/{org}/team/{team_slug}/copilot/metrics"
+    }
+  ],
+  "credentials": [
+    {
+      "slug": "revoke-a-list-of-credentials",
+      "subcategory": "revoke",
+      "verb": "post",
+      "requestPath": "/credentials/revoke"
     }
   ],
   "dependabot": [

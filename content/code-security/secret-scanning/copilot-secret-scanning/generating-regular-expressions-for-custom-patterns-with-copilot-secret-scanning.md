@@ -25,8 +25,7 @@ redirect_from:
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-{% data reusables.repositories.navigate-to-ghas-settings %}
-{% data reusables.advanced-security.secret-scanning-new-custom-pattern %}
+1. Under "{% data variables.product.prodname_secret_protection %}", under "Custom patterns", click **New pattern**.
 {% data reusables.advanced-security.secret-scanning-generate-regular-expression-custom-pattern %}
 1. When you're ready to test your new custom pattern, to identify matches in the repository without creating alerts, click **Save and dry run**.
 {% data reusables.advanced-security.secret-scanning-dry-run-results %}

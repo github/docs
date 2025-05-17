@@ -38,7 +38,7 @@ Instructions for using {% data variables.product.prodname_copilot_short %} diffe
 
 ## Prerequisite
 
-To use {% data variables.product.prodname_copilot %} on the {% data variables.product.github %} website, you must have an active {% data variables.product.prodname_copilot %} subscription. {% data reusables.copilot.subscription-prerequisite %}
+To use {% data variables.product.prodname_copilot_short %} on the {% data variables.product.github %} website, you must have an active {% data variables.product.prodname_copilot_short %} plan. {% data reusables.copilot.subscription-prerequisite %}
 {% endif %}
 
 ## Asking your first question

@@ -107,7 +107,7 @@ template
 └── template.php
 ```
 
-This example gives the prompts you can enter into {% data variables.product.prodname_copilot_chat_short %} to complete the migration, and the responses {% data variables.product.prodname_copilot_short %} returned for one instance of this migration. The default GPT 4o model was used to generate these responses. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you will probably get slightly different responses to the ones shown here.
+This example gives the prompts you can enter into {% data variables.product.prodname_copilot_chat_short %} to complete the migration, and the responses {% data variables.product.prodname_copilot_short %} returned for one instance of this migration. The {% data variables.copilot.copilot_gpt_4o %} model was used to generate these responses. {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you will probably get slightly different responses to the ones shown here.
 
 During a migration process you are likely to get errors that you need to fix before moving ahead. {% data variables.product.prodname_copilot_short %} can help you with this. The example includes some errors and shows how you can get {% data variables.product.prodname_copilot_short %} to help you fix them.
 

@@ -1,7 +1,6 @@
 ---
 title: Viewing logs for GitHub Copilot in your environment
 intro: 'View logs to troubleshoot {% data variables.product.prodname_copilot %}-related errors in your IDE.'
-product: '{% data reusables.gated-features.copilot %}'
 redirect_from:
   - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio
   - /copilot/troubleshooting-github-copilot/troubleshooting-github-copilot-in-visual-studio-code
@@ -164,7 +163,7 @@ To check if GitHub Copilot is operational, run the following command in Vim/Neov
 
 The log files for the {% data variables.product.prodname_copilot %} extension for Xcode are stored in `~/Library/Logs/GitHubCopilot/`. The most recent file is named `github-copilot-for-xcode.log`.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. At the top of the application window, click **Advanced**.
 1. In the "Logging" section, click **Open Copilot Log Folder**.
 
@@ -172,7 +171,7 @@ The log files for the {% data variables.product.prodname_copilot %} extension fo
 
 You can enable verbose logging to help troubleshoot issues with the {% data variables.product.prodname_copilot %} extension for Xcode.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. At the top of the application window, click **Advanced**.
 1. In the "Logging" section, next to "Verbose Logging", toggle the switch to the right.
 

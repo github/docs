@@ -1,5 +1,6 @@
 # Reference: #9212
-
+# Ref 17108 Advanced Security available to Team plans
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '>= 3.10'

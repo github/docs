@@ -39,6 +39,9 @@ Within each organization in your enterprise, you should encourage organization o
 * **Add multiple owners**: If an organization only has one owner, the organization's projects can become inaccessible if the owner is unreachable. To ensure that no one will lose access to a project, we recommend that at least two people within each organization have the owner role.
 * **Use teams**: Teams allow you to manage permissions, code ownership, and notifications for groups of people. If you use an identity provider (IdP) for authentication, we highly recommend managing team membership through your IdP. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams).
 * **Collaborate in organization-owned repositories**: Where possible, minimize collaboration in user-owned repositories. Organization-owned repositories have more sophisticated security and administrative features, and they remain accessible even as enterprise membership changes.
+* **Create a backup**: Before deleting an organization, make sure to create backups of all important data. Deleting an organization account permanently removes all repositories, forks of private repositories, wikis, issues, pull requests, and project or organization pages. Repository configuration settings cannot be restored.
+
+For details about what happens when you delete an organization, see [Deleting an organization account](/organizations/managing-organization-settings/deleting-an-organization-account). For instructions on backing up data, see [AUTOTITLE](/repositories/archiving-a-github-repository/backing-up-a-repository).
 
 ## Further reading
 
