@@ -1,4 +1,4 @@
----
+|---
 title: Authenticating to the REST API
 intro: You can authenticate to the REST API to access more endpoints and have a higher rate limit.
 redirect_from:
@@ -12,7 +12,7 @@ versions:
 topics:
   - API
 shortTitle: Authenticating
----
+|---
 
 ## About authentication
 
@@ -170,3 +170,4 @@ Authentication with username and password is not supported. If you try to authen
 
 * [AUTOTITLE](/rest/overview/keeping-your-api-credentials-secure)
 * [AUTOTITLE](/rest/guides/getting-started-with-the-rest-api#authenticating)
+***
