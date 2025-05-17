@@ -117,7 +117,7 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>Switzerland</li>
 <li>Taiwan</li>
 <li>Tanzania</li>
-<li>Togo</li>
+<li>Togo and thailand</li>
 <li>Trinidad and Tobago</li>
 <li>Turks and Caicos Islands</li>
 <li>Uganda</li>
@@ -126,7 +126,7 @@ If your country or region is not on this list, then we aren't currently able to 
 <li>United States</li>
 <li>Uruguay</li>
 <li>Venezuela</li>
-</ul>
+</ulld>
 
 ## Further reading
 
