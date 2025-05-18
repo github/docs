@@ -34,8 +34,7 @@ You need pay to use {% data variables.product.prodname_AS %} features in private
 
 Licensing for {% data variables.product.prodname_AS %} products is flexible, making it easy for you to choose options that fit your business needs. {% ifversion ghec or ghes %}You can buy volume/subscription licenses for any combination of the following products or use metered billing to pay for your use:{% endif %}
 
-{% data reusables.advanced-security.ghas-products-bullets %}{% ifversion ghec or ghes %}
-* **{% data variables.product.prodname_GHAS %}**, which includes all features in {% data variables.product.prodname_GH_secret_protection %} and {% data variables.product.prodname_GH_code_security %}.{% endif %}
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
 For example, you might start by using {% data variables.product.prodname_GH_secret_protection %} across all repositories, and pilot {% data variables.product.prodname_GH_code_security %} in high-risk repositories. You {% ifversion ghec or ghes %}buy or {% endif %}pay only for the products you need, and expand as you see the benefits to the security of your code.
 
@@ -58,7 +57,10 @@ There are two different ways to pay for licenses.
   * Monthly bill for the number of licenses used by active committers.
   * No pre-defined license limit.
   * No overage state, you pay only for what you use.{% ifversion ghec or ghes %}
-  * {% data variables.product.prodname_ghe_server %} use of {% data variables.product.prodname_AS %} products is billed through the linked enterprise account on {% data variables.product.prodname_ghe_cloud %} for hybrid systems.{% endif %}
+  > [!NOTE]
+  > On {% data variables.product.prodname_ghe_server %}, metered use of {% data variables.product.prodname_AS %} products is billed through the linked enterprise account on {% data variables.product.prodname_ghe_cloud %}.
+
+{% endif %}
 
 * **Volume/subscription billing** available for {% data variables.product.prodname_enterprise %} plans only
 
@@ -81,7 +83,7 @@ The options available for managing committers and costs depend on your billing m
 
 {% endif %}
 
-Your use of {% data variables.product.prodname_AS %} is billed per committer and enabled by repository. If you remove a committer from an organization{% ifversion ghec or ghes %} or enterprise{% endif %}, or if you disable all {% data variables.product.prodname_GH_cs_or_sp %} features for a repository, the committers will remain billable until the end of the current monthly billing cycle. Prorated billing applies only when a committer starts partway through the month. For examples of how committers are tracked and billed, see [Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage).
+Your use of {% data variables.product.prodname_AS %} is billed per committer and enabled by repository. If you remove a committer from an organization{% ifversion ghec or ghes %} or enterprise{% endif %}, or if you disable all {% data variables.product.prodname_GHAS_cs_or_sp %} features for a repository, the committers will remain billable until the end of the current monthly billing cycle. Prorated billing applies only when a committer starts partway through the month. For examples of how committers are tracked and billed, see [Understanding usage](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#understanding-usage).
 
 You can control usage and costs with {% ifversion ghec %}cost centers, policies, {% endif %}budgets and alerts. See {% data reusables.advanced-security.control-use-cost-links %}.
 
@@ -99,9 +101,9 @@ If your enterprise uses {% data variables.product.prodname_AS %} on both {% data
 
 Each license specifies a maximum number of accounts that can use {% data variables.product.prodname_AS %}. Each active committer to at least one repository with the product enabled consumes one license. When you remove a user from your {% data variables.enterprise.enterprise_or_org %} account, the user's license is freed within 24 hours.
 
-If you exceed your license limit, features controlled by {% data variables.product.prodname_AS %} licensing continue to work on all repositories where they are already enabled. However, you will not be able to enable {% data variables.product.prodname_GH_cs_or_sp %} on any additional repositories. Any new repositories created in organizations where {% data variables.product.prodname_GH_cs_or_sp %} are configured to be enabled automatically will be created with the products disabled.
+If you exceed your license limit, features controlled by {% data variables.product.prodname_AS %} licensing continue to work on all repositories where they are already enabled. However, you will not be able to enable {% data variables.product.prodname_GHAS_cs_or_sp %} on any additional repositories. Any new repositories created in organizations where {% data variables.product.prodname_GHAS_cs_or_sp %} are configured to be enabled automatically will be created with the products disabled.
 
-As soon as you make licenses available, by disabling {% data variables.product.prodname_GH_cs_or_sp %} in some repositories, or by increasing your license size, the options for enabling {% data variables.product.prodname_GH_cs_and_sp %} will work again as normal. {% ifversion ghes %}All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.{% endif %}
+As soon as you make licenses available, by disabling {% data variables.product.prodname_GHAS_cs_or_sp %} in some repositories, or by increasing your license size, the options for enabling {% data variables.product.prodname_GHAS_cs_and_sp %} will work again as normal. {% ifversion ghes %}All standalone instances of {% data variables.product.prodname_ghe_server %} use volume/subscription licenses. Contact [{% data variables.product.github %}'s Sales team](https://enterprise.github.com/contact) if you want to make changes to your license.{% endif %}
 
 You can enforce policies to allow or disallow the use of {% data variables.product.prodname_AS %} by organizations owned by your enterprise account. See [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-advanced-security-in-your-enterprise).
 

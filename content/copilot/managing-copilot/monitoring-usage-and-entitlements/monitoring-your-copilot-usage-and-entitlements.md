@@ -21,6 +21,7 @@ You can track your monthly usage of premium requests to help you get the most va
 {% data reusables.user-settings.access_settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. Under "Usage by product", on the "Copilot" tab, you can see the total cost of the additional premium requests you've used this month. Click **View details** to view a breakdown of the amount of additional premium requests you've used.
+1. Optionally, to download a CSV usage report, in the sidebar under "Billing & Licensing," select **Usage**. Then click the down arrow next to "Get usage report" to download your monthly **{% data variables.product.prodname_copilot_short %} premium usage report**. Please allow up to 20 minutes to receive the email with the report.
 
 ## Optimizing usage of premium requests
 
