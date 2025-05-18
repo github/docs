@@ -1,3 +1,4 @@
+![1000107430](https://github.com/user-attachments/assets/46314d89-112f-421c-a4f0-945d316fb23b)
 ---
 title: About Dependabot alerts
 intro: '{% data variables.product.github %} sends {% data variables.product.prodname_dependabot_alerts %} when we detect that your repository uses a vulnerable dependency.'
