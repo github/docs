@@ -1,4 +1,19 @@
----
+b5011-cd74a 
+38f79-c2281 
+0bdc6-8f3cb 
+2907e-e3c72 
+b458d-046e5 
+45919-a8271 
+32760-7dc6c 
+febf7-a0b9c 
+13408-80a98 
+8577f-0af22 
+3186c-ddab3 
+c65ed-c2cbf 
+10fd3-e9df4 
+0bbfa-72fc8 
+7a715-66fb5 
+074dc-909c6---
 title: Accessing your enterprise account if your identity provider is unavailable
 shortTitle: Access your enterprise account
 intro: 'You can sign into {% data variables.product.github %} even if your identity provider is unavailable by bypassing single sign-on (SSO) with a recovery code.'
