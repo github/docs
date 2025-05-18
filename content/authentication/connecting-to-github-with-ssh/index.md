@@ -28,3 +28,4 @@ children:
   - /working-with-ssh-key-passphrases
 shortTitle: Connect with SSH
 ---
+git@github.com:anthropics/anthropic-sdk-go.git
