@@ -35,6 +35,7 @@
     "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
     "deprecate-ghes-archive": "cross-env NODE_OPTIONS=--max-old-space-size=16384 tsx src/ghes-releases/scripts/deprecate/archive-version.ts",
     "dev": "cross-env npm start",
+    "dev-toc": "tsx src/dev-toc/generate.ts",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
     "find-orphaned-features": "tsx src/data-directory/scripts/find-orphaned-features/index.ts",
