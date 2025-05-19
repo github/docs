@@ -190,9 +190,9 @@ jobs:
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
 
-## 📌 Dependabot and GitHub Actions Policies
+## {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %} policies
 
-Normally, whether a workflow can run in a repository depends on GitHub Actions **policy checks** and whether GitHub Actions is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or GitHub Actions is disabled entirely.
+Normally, whether a workflow can run in a repository depends on {% data variables.product.prodname_actions %} **policy checks** and whether {% data variables.product.prodname_actions %} is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or {% data variables.product.prodname_actions %} is disabled entirely.
 
 However, when {% data variables.product.prodname_dependabot %} is enabled for a repository, its workflows will always run on {% data variables.product.prodname_actions %}, **bypassing both Actions policy checks and disablement**.
 
