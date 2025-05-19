@@ -1,70 +1,90 @@
 import { describe, expect, test } from 'vitest'
 
 import { filterByAllowlistValues, filterAndUpdateGhesDataByAllowlistValues } from '../../lib'
+import type { RawAuditLogEventT, VersionedAuditLogData } from '../../types'
 
 describe('audit log event fitering', () => {
   test('matches single allowlist value', () => {
-    const eventsToProcess = [
+    const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
         _allowlists: ['user'],
         description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'user')
+    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'user', [], {
+      sha: '',
+      appendedDescriptions: {},
+    })
     expect(filteredEvents[0].action).toEqual('repo.create')
   })
 
   test('matches multiple allowlist values', () => {
-    const eventsToProcess = [
+    const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
         _allowlists: ['user'],
         description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
       },
       {
         action: 'repo.delete',
         _allowlists: ['organization'],
         description: 'repo was deleted',
+        docs_reference_links: '',
+        ghes: {},
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, ['user', 'organization'])
+    const filteredEvents = filterByAllowlistValues(eventsToProcess, ['user', 'organization'], [], {
+      sha: '',
+      appendedDescriptions: {},
+    })
     expect(filteredEvents[0].action).toEqual('repo.create')
     expect(filteredEvents.length).toEqual(2)
   })
 
   test('does not match non-matching allowlist value', () => {
-    const eventsToProcess = [
+    const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
         _allowlists: ['user'],
         description: 'repo was created',
+        docs_reference_links: '',
+        ghes: {},
       },
     ]
 
-    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'organization')
+    const filteredEvents = filterByAllowlistValues(eventsToProcess, 'organization', [], {
+      sha: '',
+      appendedDescriptions: {},
+    })
     expect(filteredEvents.length).toBe(0)
   })
 
   test('ghes filters and updates multiple ghes versions', () => {
-    const eventsToProcess = [
+    const eventsToProcess: RawAuditLogEventT[] = [
       {
         action: 'repo.create',
         description: 'repo was created',
+        docs_reference_links: '',
+        _allowlists: [],
         ghes: {
           '3.10': {
             _allowlists: ['user'],
           },
-          3.11: {
+          '3.11': {
             _allowlists: ['user'],
           },
         },
       },
     ]
 
-    const currentEvents = {
+    const currentEvents: VersionedAuditLogData = {
       'ghes-3.11': {
         organization: [
           {
@@ -90,10 +110,13 @@ describe('audit log event fitering', () => {
       eventsToProcess,
       'user',
       currentEvents,
-      {},
+      {
+        sha: '',
+        appendedDescriptions: {},
+      },
       auditLogPage,
     )
-    const getActions = (version) =>
+    const getActions = (version: string) =>
       currentEvents[version][auditLogPage].map((event) => event.action)
     expect(getActions('ghes-3.10').includes('repo.create')).toBe(true)
     expect(getActions('ghes-3.11').includes('repo.create')).toBe(true)
