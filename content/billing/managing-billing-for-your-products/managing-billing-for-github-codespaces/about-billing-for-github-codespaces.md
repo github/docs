@@ -1,5 +1,4 @@
-tomorrow jingjing😁
-******************
+---
 title: About billing for GitHub Codespaces
 shortTitle: About billing
 intro: 'Learn about the costs for using {% data variables.product.prodname_github_codespaces %}, and the monthly usage quotas included with {% data variables.product.prodname_dotcom %} personal accounts.'
