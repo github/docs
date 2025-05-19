@@ -199,7 +199,9 @@ However, when {% data variables.product.prodname_dependabot %} is enabled for a 
 * {% data variables.product.prodname_dependabot %} workflows are not blocked by Actions disablement or enterprise policy restrictions.
 * The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
 
+{% ifversion dependabot-on-actions-opt-in %}
 For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+{% endif %}
 
 ## Investigating failed workflow runs
 
