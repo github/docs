@@ -64,10 +64,6 @@ The default budget that is created applies to your whole enterprise. To set a ne
 
 ### Tracking premium requests
 
-<!-- expires 2025-05-19 -->
-{% data reusables.copilot.copilot-premium-requests-usage-report %}
-<!-- end expires 2025-05-19 -->
-
 You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:
 
 * Understand if developers are frequently hitting the limit and would benefit from you enabling additional premium requests or upgrading your plan.
