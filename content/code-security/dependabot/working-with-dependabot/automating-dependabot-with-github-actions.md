@@ -200,7 +200,7 @@ However, when {% data variables.product.prodname_dependabot %} is enabled for a 
 * The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
 * This behavior aligns with GitHub's organizational ruleset workflows, which may override repository-level settings.
 
-For more details, see [About Dependabot on GitHub Actions Runners](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 ## Investigating failed workflow runs
 
