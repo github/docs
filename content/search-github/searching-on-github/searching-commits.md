@@ -1,30 +1,4 @@
----
-title: Searching commits
-intro: 'You can search for commits on {% data variables.product.github %} and narrow the results using these commit search qualifiers in any combination.'
-redirect_from:
-  - /articles/searching-commits
-  - /github/searching-for-information-on-github/searching-commits
-  - /github/searching-for-information-on-github/searching-on-github/searching-commits
-versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
-topics:
-  - GitHub search
----
-You can search for commits globally across all of {% data variables.product.github %}, or search for commits within a particular repository or organization. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
-
-When you search for commits, only the [default branch](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches) of a repository is searched.
-
-{% data reusables.search.syntax_tips %}
-
-## Search within commit messages
-
-You can find commits that contain particular words in the message. For example, [**fix typo**](https://github.com/search?q=fix+typo&type=Commits) matches commits containing the words "fix" and "typo."
-
-## Search by author or committer
-
-You can find commits by a particular user with the `author` or `committer` qualifiers.
+- particular user with the `author` or `committer` qualifiers.
 
 | Qualifier  | Example
 | ------------- | -------------
