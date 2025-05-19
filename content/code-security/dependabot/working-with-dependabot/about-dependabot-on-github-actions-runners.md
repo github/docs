@@ -18,7 +18,7 @@ topics:
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
 > [!IMPORTANT]
-> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run—**bypassing both GitHub Actions policy checks and disablement**. This ensures that security and version update workflows run even when Actions is disabled or restricted at the repo or org level.
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run on actions **bypassing both GitHub Actions policy checks and disablement**. This ensures that security and version update workflows run even when Actions is disabled or restricted at the repo or org level.
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
 
