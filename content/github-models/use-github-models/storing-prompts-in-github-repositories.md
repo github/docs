@@ -18,27 +18,36 @@ Prompts can be stored as files directly within GitHub repositories. This unlocks
 
 ## Supported file format
 
-Store prompts in markdown files with optional YAML front matter.
+Store prompts in YAML files.
 
-The file can be located anywhere in your repository, but it **must have the extension `.prompt.md`**.
+The file can be located anywhere in your repository, but _must have the extension `.prompt.yml` or `.prompt.yaml`._
 
 Example:
 
-```yaml
----
-name: Summarizer
-description: Summarizes a given text
-model: openai/gpt-4o
-model_parameters:
+``` yaml copy
+name: Text Summarizer
+description: Summarizes input text concisely
+model: gpt-4o-mini
+modelParameters:
   temperature: 0.5
----
-system:
-You are a text summarizer. Your only job is to summarize a given text to you.
-user:
-Summarize the given text:
-<text>
-{% raw %}{{text}}{% endraw %}
-</text>
+messages:
+  - role: system
+    content: You are a text summarizer. Your only job is to summarize text given to you.
+  - role: user
+    content: |
+      Summarize the given text, beginning with "Summary -":
+      <text>
+      {% raw %}{{input}}{% endraw %}
+      </text>
+testData:
+  - input: |
+      The quick brown fox jumped over the lazy dog.
+      The dog was too tired to react.
+    expected: Summary - A fox jumped over a lazy, unresponsive dog.
+evaluators:
+  - name: Output should start with 'Summary -'
+    string:
+      startsWith: 'Summary -'
 ```
 
 ## Prompt structure
@@ -46,11 +55,12 @@ Summarize the given text:
 Prompts have two key parts:
 
 * **Runtime information** (required)
-  * Prompt templates (system, user, etc.) using simple {{variable}} placeholders
+  * Prompt templates (system, user, etc.) using simple {% raw %}`{{variable}}`{% endraw %} placeholders
 * **Development information** (optional)
   * Human-readable name and description
   * Model identifier and parameters
   * Sample data for testing and evaluations
+  * Data describing the evaluators themselves
 
 ## Limitations
 
