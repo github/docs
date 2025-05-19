@@ -1,6 +1,6 @@
 ---
 title: About Dependabot on GitHub Actions runners
-intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} if you have {% data variables.product.prodname_actions %} enabled for the repository.'
+intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} when {% data variables.product.prodname_dependabot %} is enabled for the repository. These jobs run even if GitHub Actions is disabled or restricted by policy.'
 shortTitle: About Dependabot on Actions
 product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
@@ -16,6 +16,9 @@ topics:
 ---
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
+
+> [!IMPORTANT]
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run—**bypassing both GitHub Actions policy checks and disablement**. This ensures that security and version update workflows run even when Actions is disabled or restricted at the repo or org level.
 
 {% data reusables.dependabot.dependabot-updates-and-actions %}
 
