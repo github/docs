@@ -36,7 +36,7 @@ You can use {% data variables.product.prodname_actions %} to perform automated t
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
 
 > [!IMPORTANT]
-> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run on actions **bypassing both  actions policy checks and disablement on repository and organization level**. This ensures that security and version update workflows always run when Dependabot is enabled.
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run on {% data variables.product.prodname_actions %}, **bypassing both Actions policy checks and disablement at the repository or organization level**. This ensures that security and version update workflows always run when Dependabot is enabled.
 
 {% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date. You can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modify the pull request.
 
