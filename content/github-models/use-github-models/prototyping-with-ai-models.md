@@ -4,6 +4,8 @@ shortTitle: Prototype with AI models
 intro: 'Find and experiment with AI models for free.'
 versions:
   feature: github-models
+redirect_from:
+  - /github-models/prototyping-with-ai-models
 ---
 
 If you want to develop a generative AI application, you can use {% data variables.product.prodname_github_models %} to find and experiment with AI models for free. Once you are ready to bring your application to production, you can switch to a token from a paid Azure account. See the [Azure AI](https://aka.ms/azureai/github-models) documentation.
@@ -43,6 +45,14 @@ With one model open in the playground, click **Compare**, then, in the dropdown 
 
 Any parameters you set are used for both models.
 
+## Evaluating AI models
+
+Once you've started testing prompts in the playground, you can evaluate model performance using structured metrics. Evaluations help you compare multiple prompt configurations across different models and determine which setup performs best.
+
+In the Comparisons view, you can apply evaluators like similarity, relevance, and groundedness to measure how well each output meets your expectations. You can also define your own evaluation criteria with a custom prompt evaluator.
+
+For step-by-step instructions, see [Evaluating outputs](/github-models/use-github-models/evaluating-ai-models#evaluating-outputs).
+
 ## Experimenting with AI models using the API
 
 >[!NOTE]
@@ -61,7 +71,7 @@ The steps to use each model are similar. In general, you will need to:
 1. Optionally, use the language dropdown to select the programming language.
 1. Optionally, use the SDK dropdown to select which SDK to use.
 
-   All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK". If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly.
+   All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK". If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly. {% ifversion fpt %} See [{% data variables.product.prodname_github_models %} REST API](/rest/models?apiVersion=2022-11-28). {% endif %}
 1. Either open a codespace, or set up your local environment:
    * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
@@ -347,4 +357,5 @@ These limits are subject to change without notice.
 
 ## Leaving feedback
 
-To leave feedback about {% data variables.product.prodname_github_models %}, start a new discussion or comment on an existing discussion in the [GitHub Community](https://github.com/orgs/community/discussions/categories/models).
+To ask questions and share feedback, see this [GitHub Models discussion post](https://github.com/orgs/community/discussions/159087).  
+To learn how others are using {% data variables.product.prodname_github_models %}, visit the [GitHub Community discussions for Models](https://github.com/orgs/community/discussions/categories/models).

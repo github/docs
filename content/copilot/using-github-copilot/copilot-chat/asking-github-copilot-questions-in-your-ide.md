@@ -109,9 +109,16 @@ See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inlin
 
 ## {% data variables.product.prodname_copilot_edits_short %}
 
-{% data reusables.copilot.copilot-edits.about-copilot-edits %}
+Use {% data variables.product.prodname_copilot_edits_short %} to make changes across multiple files directly from a single {% data variables.product.prodname_copilot_chat_short %} prompt. {% data variables.product.prodname_copilot_edits_short %} has the following modes:
 
-### Using edit mode
+* [Edit mode](#edit-mode) lets {% data variables.product.prodname_copilot_short %} make controlled edits to multiple files.
+* [Agent mode](#agent-mode) lets {% data variables.product.prodname_copilot_short %} autonomously accomplish a set task.
+
+### Edit mode
+
+{% data reusables.copilot.copilot-edits.edit-mode-description %}
+
+#### Using edit mode
 
 1. To start an edit session, select **Open Chat** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. At the bottom of the chat panel, select **Edit** from the mode dropdown.
@@ -124,7 +131,11 @@ See [inline chat](https://code.visualstudio.com/docs/copilot/copilot-chat#_inlin
 
 For more detailed instructions, see [{% data variables.product.prodname_copilot_edits_short %}](https://code.visualstudio.com/docs/copilot/copilot-edits) in the {% data variables.product.prodname_vscode %} documentation.
 
-### Using agent mode
+### Agent mode
+
+{% data reusables.copilot.copilot-edits.agent-mode-description %}
+
+#### Using agent mode
 
 1. To start an edit session, select **Open Chat** from the {% data variables.product.prodname_copilot_chat_short %} menu.
 1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
@@ -133,7 +144,7 @@ For more detailed instructions, see [{% data variables.product.prodname_copilot_
 
 For more information, see [{% data variables.product.prodname_copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
-When you use {% data variables.product.prodname_copilot_agent_short %} mode, {% data variables.product.prodname_copilot_short %} may make multiple premium requests to complete a single task. This includes both user-initiated prompts and follow-up actions {% data variables.product.prodname_copilot_short %} takes on your behalf. The total premium requests used will depend on the complexity of the task, the number of steps involved, and the model selected. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+{% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
 ## Using images in {% data variables.product.prodname_copilot_chat_short %}
 
@@ -400,15 +411,35 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 
 ## {% data variables.product.prodname_copilot_edits_short %}
 
-{% data reusables.copilot.copilot-edits.about-copilot-edits-jetbrains %}
+Use {% data variables.product.prodname_copilot_edits_short %} to make changes across multiple files directly from a single {% data variables.product.prodname_copilot_chat_short %} prompt. {% data variables.product.prodname_copilot_edits_short %} has the following modes:
 
-### Using edit mode
+* [Edit mode](#edit-mode-1) lets {% data variables.product.prodname_copilot_short %} make controlled edits to multiple files.
+* [Agent mode](#agent-mode-1) lets {% data variables.product.prodname_copilot_short %} autonomously accomplish a set task.
+
+### Edit mode
+
+{% data reusables.copilot.copilot-edits.edit-mode-description %}
+
+#### Using edit mode
 
 1. To start an edit session, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
 1. At the top of the chat panel, click **{% data variables.product.prodname_copilot_edits_short %}**.
 1. Add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on. You can add all open files by clicking **Add all open files** or individually search for single files.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
 1. Review the changes and **Accept** or **Discard** the edits for each file.
+
+### Agent mode
+
+{% data reusables.copilot.copilot-edits.agent-mode-description %}
+
+#### Using agent mode
+
+1. To start an edit session using agent mode, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
+1. At the top of the chat panel, click the **Agent** tab.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
+1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
+
+{% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
 ## Sharing feedback
 
@@ -467,6 +498,20 @@ You can use special keywords to help {% data variables.product.prodname_copilot_
 Use slash commands to avoid writing complex prompts for common scenarios. To use a slash command, type `/` in the chat prompt box, followed by a command.
 
 To see all available slash commands, type `/` in the chat prompt box. For more information, see [AUTOTITLE](/copilot/using-github-copilot/github-copilot-chat-cheat-sheet?tool=xcode#slash-commands).
+
+## {% data variables.product.prodname_copilot_short %} agent mode
+
+{% data reusables.copilot.copilot-edits.agent-mode-description %}
+
+### Using agent mode
+
+1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
+1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. Optionally, add relevant files to the _working set_ view to indicate to {% data variables.product.prodname_copilot_short %} which files you want to work on.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
+1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
+
+{% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
 ## File references
 
@@ -527,6 +572,19 @@ To see all available slash commands, type `/` in the chat prompt box.
 ## AI models for {% data variables.product.prodname_copilot_chat_short %}
 
 {% data reusables.copilot.change-the-ai-model %}
+
+## {% data variables.product.prodname_copilot_short %} agent mode
+
+{% data reusables.copilot.copilot-edits.agent-mode-description %}
+
+### Using agent mode
+
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
+1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
+1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
+1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
+
+{% data reusables.copilot.copilot-edits.agent-mode-requests %}
 
 ## Further reading
 

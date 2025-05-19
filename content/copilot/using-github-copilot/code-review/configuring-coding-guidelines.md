@@ -43,7 +43,7 @@ Coding guidelines are configured at the repository level. You can create and ena
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Click **Create guideline**.
 1. Under "Name," give the coding guideline a name.
 1. Under "Description," provide a description of the coding guideline up to 600 characters long. This will be used by {% data variables.product.prodname_copilot_short %} to understand your coding style and to decide when to leave a comment.

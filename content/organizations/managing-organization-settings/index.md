@@ -54,7 +54,6 @@ children:
   - /creating-rulesets-for-repositories-in-your-organization
   - /managing-rulesets-for-repositories-in-your-organization
   - /managing-custom-properties-for-repositories-in-your-organization
+  - /managing-or-restricting-github-models-for-your-organization
 shortTitle: Manage organization settings
 ---
-{% ifversion fpt or ghec %}
-{% endif %}

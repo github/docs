@@ -43,3 +43,8 @@ Before you install any {% data variables.product.prodname_copilot_extensions_sho
 After installing a {% data variables.product.prodname_copilot_extension_short %} for your organization, developers in your organization can start using the extension. See [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
 
 You can also manage the permissions of installed {% data variables.product.prodname_copilot_extensions_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#managing-permissions-for-a-github-copilot-extension-in-your-organization).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)

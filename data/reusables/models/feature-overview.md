@@ -1,0 +1,1 @@
+{% data variables.product.prodname_github_models %} automates, enhances, and streamlines AI-powered software development processes within {% data variables.product.github %}. You can use {% data variables.product.prodname_github_models %} to manage and optimize prompts, compare models, and create robust evaluations. See [AUTOTITLE](/github-models/about-github-models).
