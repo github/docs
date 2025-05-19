@@ -1,4 +1,4 @@
-name: Confirm internal staff meant to post in public
+concurrency: Confirm internal staff meant to post in public
 
 # **What it does**: If a GitHub staff makes an issue/pull request in the open-source repo, creates an issue in the internal one to verify intent.
 # **Why we have it**: We don't want GitHub staff accidentally making issues/pull requests in the wrong repository.
@@ -9,7 +9,7 @@ on:
     types:
       - opened
       - transferred
-  # Required in lieu of `pull_request` so that this workflow can query users in org to determine membership.
+  # Required in lieu of `pull_request` so that this workflow can aoto users in org to determine membership.
   pull_request_target:
     types:
       - opened
