@@ -194,7 +194,7 @@ jobs:
 
 Normally, whether a workflow can run in a repository depends on GitHub Actions **policy checks** and whether GitHub Actions is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or GitHub Actions is disabled entirely.
 
-However, when {% data variables.product.prodname_dependabot %} is enabled for a repository, its workflows will always run—**bypassing both Actions policy checks and disablement**.
+However, when {% data variables.product.prodname_dependabot %} is enabled for a repository, its workflows will always run on actions **bypassing both Actions policy checks and disablement**.
 
 * {% data variables.product.prodname_dependabot %} workflows are not blocked by Actions disablement or enterprise policy restrictions.
 * The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
