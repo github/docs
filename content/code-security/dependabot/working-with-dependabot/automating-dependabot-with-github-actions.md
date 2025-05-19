@@ -35,6 +35,9 @@ You can use {% data variables.product.prodname_actions %} to perform automated t
 
 ## About {% data variables.product.prodname_dependabot %} and {% data variables.product.prodname_actions %}
 
+> [!IMPORTANT]
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run—**bypassing both GitHub Actions policy checks and disablement**. This means Dependabot workflows will still execute even if GitHub Actions is disabled or restricted by enterprise or organization policies.
+
 {% data variables.product.prodname_dependabot %} creates pull requests to keep your dependencies up to date. You can use {% data variables.product.prodname_actions %} to perform automated tasks when these pull requests are created. For example, fetch additional artifacts, add labels, run tests, or otherwise modify the pull request.
 
 {% data reusables.dependabot.working-with-actions-considerations %} For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/troubleshooting-dependabot-on-github-actions).
@@ -186,6 +189,18 @@ jobs:
 
 > [!NOTE]
 > If you use status checks to test pull requests, you should enable **Require status checks to pass before merging** for the target branch for {% data variables.product.prodname_dependabot %} pull requests. This branch protection rule ensures that pull requests are not merged unless **all the required status checks pass**. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule).
+
+## 📌 Dependabot and GitHub Actions Policies
+
+Normally, whether a workflow can run in a repository depends on GitHub Actions **policy checks** and whether GitHub Actions is **enabled** at the organization or repository level. These controls can restrict workflows from running—especially when external actions are blocked or GitHub Actions is disabled entirely.
+
+However, when {% data variables.product.prodname_dependabot %} is enabled for a repository, its workflows will always run—**bypassing both Actions policy checks and disablement**.
+
+* {% data variables.product.prodname_dependabot %} workflows are not blocked by Actions disablement or enterprise policy restrictions.
+* The actions referenced within these workflows are also allowed to run, even if external actions are disallowed.
+* This behavior aligns with GitHub's organizational ruleset workflows, which may override repository-level settings.
+
+For more details, see [About Dependabot on GitHub Actions Runners](/code-security/dependabot/working-with-dependabot/about-dependabot-on-github-actions-runners).
 
 ## Investigating failed workflow runs
 
