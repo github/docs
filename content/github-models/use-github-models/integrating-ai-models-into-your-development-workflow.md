@@ -36,7 +36,7 @@ You can use the {% data variables.product.prodname_actions %} token (`GITHUB_TOK
 
 ### Setting permissions
 
-To use AI models in your workflows, you need to ensure that the `models` permission is enabled in your workflow configuration. This permission allows workflows to access the {% data variables.product.prodname_github_models %} inference API. You can either set this permission itself or use the general `read-all` or `write-all` permissions. See [AUTOTITLE](/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-actions).
+To use AI models in your workflows, ensure that the `models` permission is enabled in your workflow configuration. This permission allows workflows to access the {% data variables.product.prodname_github_models %} inference API. You can either set this permission itself or use the general `read-all` or `write-all` permissions. See [AUTOTITLE](/rest/overview/permissions-required-for-github-apps?apiVersion=2022-11-28#repository-permissions-for-actions).
 
 ### Writing your workflow file
 
@@ -81,7 +81,7 @@ You can use the {% data variables.product.prodname_github_models %} extension fo
 
 ### Prerequisites
 
-To use the {% data variables.product.prodname_github_models %} CLI extension, you need to have {% data variables.product.prodname_cli %} installed. {% data reusables.cli.cli-installation %}
+To use the {% data variables.product.prodname_github_models %} CLI extension, you must install {% data variables.product.prodname_cli %}. {% data reusables.cli.cli-installation %}
 
 ### Installing the extension
 

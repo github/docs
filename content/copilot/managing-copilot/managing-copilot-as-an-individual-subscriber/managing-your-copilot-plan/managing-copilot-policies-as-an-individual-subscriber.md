@@ -30,6 +30,23 @@ If you choose to allow suggestions matching public code, when {% data variables.
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
 
+## Enabling or disabling {% data variables.copilot.copilot_coding_agent %}
+
+{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.product.prodname_copilot_chat_short %}.
+
+> [!NOTE]
+> * {% data reusables.gated-features.copilot-coding-agent %}
+> * {% data reusables.copilot.coding-agent.preview-note-text %}
+
+To use {% data variables.copilot.copilot_coding_agent %} in repositories owned by your own personal account, you must enable it for those repositories in your account settings.
+
+{% data reusables.user-settings.copilot-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
+1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_coding_agent %}.
+
+{% data reusables.copilot.coding-agent.enabling-for-orgs-and-enterprises %}
+
 {% ifversion fpt %}
 
 ## Enabling or disabling prompt and suggestion collection
