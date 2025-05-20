@@ -3,7 +3,9 @@ title: Customizing auto-triage rules to prioritize Dependabot alerts
 intro: 'You can create your own {% data variables.dependabot.auto_triage_rules_short %} to control which alerts are dismissed or snoozed, and which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.'
 permissions: '{% data reusables.permissions.dependabot-auto-triage-rules %}'
 versions:
-  feature: dependabot-auto-triage-rules
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Dependabot
@@ -18,7 +20,7 @@ redirect_from:
 
 ## About {% data variables.dependabot.custom_rules %}
 
-You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for.
+You can create your own {% data variables.dependabot.auto_triage_rules %} based on alert metadata. You can choose to auto-dismiss alerts indefinitely, or snooze alerts until a patch becomes available, and you can specify which alerts you want {% data variables.product.prodname_dependabot %} to open pull requests for. Rules are applied before alert notifications are sent, so creating custom rules that auto-dismiss low-risk alerts will reduce notification noise from future matching alerts.
 
 Since any rules that you create apply to both future and current alerts, you can also use {% data variables.dependabot.auto_triage_rules_short %} to manage your {% data variables.product.prodname_dependabot_alerts %} in bulk.
 
@@ -43,6 +45,7 @@ You can create rules to target alerts using the following metadata:
 * Package name
 * Patch availability
 * Severity
+* EPSS Score
 
 ### Understanding how {% data variables.dependabot.custom_rules %} and {% data variables.product.prodname_dependabot_security_updates %} interact
 

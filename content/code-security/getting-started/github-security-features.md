@@ -10,7 +10,8 @@ topics:
   - Repositories
   - Dependencies
   - Vulnerabilities
-  - Advanced Security
+  - Code Security
+  - Secret Protection
 ---
 
 ## About {% data variables.product.prodname_dotcom %}'s security features
@@ -30,11 +31,7 @@ Make it easy for your users to confidentially report security vulnerabilities th
 View alerts about dependencies that are known to contain security vulnerabilities, and choose whether to have pull requests generated automatically to update these dependencies. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)
 and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).
 
-{% ifversion dependabot-auto-triage-rules %}
-
 You can use default {% data variables.dependabot.auto_triage_rules %} curated by {% data variables.product.prodname_dotcom %} to automatically filter out a substantial amount of false positives. {% data reusables.dependabot.dismiss-low-impact-rule %}
-
-{% endif %}
 
 {% data reusables.dependabot.quickstart-link %}
 
@@ -122,13 +119,9 @@ Automatically detect security vulnerabilities and coding errors in new or modifi
 
 Automatically detect tokens or credentials that have been checked into a repository. You can view alerts for any secrets that {% data variables.product.company_short %} finds in your code, in the **Security** tab of the repository, so that you know which tokens or credentials to treat as compromised. {% data reusables.secret-scanning.alert-type-links %}
 
-{% ifversion dependabot-auto-triage-rules %}
-
 ### {% data variables.dependabot.custom_rules_caps %}
 
 {% data reusables.dependabot.dependabot-custom-rules-ghas %}
-
-{% endif %}
 
 ### Dependency review
 

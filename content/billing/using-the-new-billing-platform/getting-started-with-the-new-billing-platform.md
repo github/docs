@@ -1,6 +1,6 @@
 ---
 title: Getting started with the new billing platform
-intro: 'Learn how to start using the enhanced billing platform for your {% data variables.enterprise.enterprise_or_org %} account.'
+intro: 'Learn how to start using the new billing platform for your {% data variables.enterprise.enterprise_or_org %} account.'
 versions:
   feature: enhanced-billing-platform
 redirect_from:
@@ -13,7 +13,7 @@ product: '{% data reusables.billing.enhanced-billing-platform-product %}'
 shortTitle: Get started
 ---
 
-If you don't already have access to the enhanced billing platform, you may be able to get started.
+If you don't already have access to the new billing platform, you may be able to get started.
 
 {% ifversion fpt %}
 * If you are **new** to {% data variables.product.github %}, create a personal account on a {% data variables.product.prodname_free_user %} or {% data variables.product.prodname_pro %} plan or an organization on a {% data variables.product.prodname_free_team %} or {% data variables.product.prodname_team %} plan.

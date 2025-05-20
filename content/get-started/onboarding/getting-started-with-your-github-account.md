@@ -68,11 +68,11 @@ To best use {% data variables.product.github %}, you'll need to set up Git. Git 
 
 ### 2. Setting up Git
 
-If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/set-up-git).
+If you plan to use Git locally on your computer, whether through the command line, an IDE or text editor, you will need to install and set up Git. For more information, see [AUTOTITLE](/get-started/git-basics/set-up-git).
 
 If you prefer to use a visual interface, you can download and use {% data variables.product.prodname_desktop %}. {% data variables.product.prodname_desktop %} comes packaged with Git, so there is no need to install Git separately. For more information, see [AUTOTITLE](/desktop/overview/getting-started-with-github-desktop).
 
-Once you install Git, you can connect to {% data variables.product.github %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.github %} using either HTTPS or SSH. For more information, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+Once you install Git, you can connect to {% data variables.product.github %} repositories from your local computer, whether your own repository or another user's fork. When you connect to a repository on {% data variables.location.product_location %} from Git, you'll need to authenticate with {% data variables.product.github %} using either HTTPS or SSH. For more information, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 ### 3. Choosing how to interact with {% data variables.product.github %}
 
@@ -182,11 +182,11 @@ You can enable {% data variables.product.prodname_discussions %} for your reposi
 
 ## Part 5: Building securely on {% data variables.product.github %}
 
-{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% data variables.product.prodname_GH_advanced_security %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
+{% data variables.product.github %} has a variety of security features that help keep code and secrets secure in repositories. Some features are available for all repositories, while others are only available for public repositories and repositories with a {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %} license. For an overview of security features, see [AUTOTITLE](/code-security/getting-started/github-security-features).
 
 ### 1. Securing your repository
 
-As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations where {% data variables.product.prodname_GH_advanced_security %} is enabled, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
+As a repository administrator, you can secure your repositories by configuring repository security settings. These include managing access to your repository, setting a security policy, and managing dependencies. For public repositories, and for private repositories owned by organizations {% ifversion ghas-products %}with licenses for the features{% else %}where {% data variables.product.prodname_GHAS %} is enabled{% endif %}, you can also configure code and secret scanning to automatically identify vulnerabilities and ensure tokens and keys are not exposed.
 
 For more information on steps you can take to secure your repositories, see [AUTOTITLE](/code-security/getting-started/quickstart-for-securing-your-repository).
 

@@ -1,6 +1,6 @@
 # Languages
 
-Languages refers to the different translations we support on docs.github.com. Currently, our supported languages include Chinese, Spanish, Portuguese, Russian, Japanese, French, German, and Korean.
+Languages refers to the different translations we support on docs.github.com. Currently, our supported languages include Spanish, Japanese, Portuguese, Chinese, Russian, French, Korean, and German.
 
 ## TLDR: How translations work
 
@@ -106,14 +106,14 @@ This section assumes you want your local environment to replicate the structure 
     cd docs-internal
     mkdir translations && cd translations
 
-    git clone <zh-cn-repo-url> zh-cn
-    git clone <ja-jp-repo-url> ja-jp
     git clone <es-es-repo-url> es-es
+    git clone <ja-jp-repo-url> ja-jp
     git clone <pt-br-repo-url> pt-br
-    git clone <de-de-repo-url> de-de
-    git clone <fr-fr-repo-url> fr-fr
+    git clone <zh-cn-repo-url> zh-cn
     git clone <ru-ru-repo-url> ru-ru
+    git clone <fr-fr-repo-url> fr-fr
     git clone <ko-kr-repo-url> ko-kr
+    git clone <de-de-repo-url> de-de
     ```
 1. Start the development server with `npm run start-all-languages`. If you need to enable specific languages, you can set `ENABLED_LANGUAGES`. For example, to start the server with English, Japanese, and Spanish only, use: `ENABLED_LANGUAGES=en,ja,es NODE_ENV=development nodemon server.js`
 

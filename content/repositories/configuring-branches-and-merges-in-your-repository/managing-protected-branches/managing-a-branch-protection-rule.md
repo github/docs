@@ -74,9 +74,7 @@ When you create a branch rule, the branch you specify doesn't have to exist yet 
 1. Optionally, select **Require conversation resolution before merging**.
 1. Optionally, select **Require signed commits**.
 1. Optionally, select **Require linear history**.
-{%- ifversion merge-queue %}
 1. Optionally, to merge pull requests using a merge queue, select **Require merge queue**. {% data reusables.pull_requests.merge-queue-references %}
-{%- endif %}
 1. Optionally, to choose which environments the changes must be successfully deployed to before merging, select **Require deployments to succeed before merging**, then select the environments.
 1. Optionally, make the branch read-only.
    * Select **Lock branch**.

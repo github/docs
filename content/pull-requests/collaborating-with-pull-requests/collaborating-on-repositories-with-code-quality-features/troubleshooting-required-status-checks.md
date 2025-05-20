@@ -87,8 +87,6 @@ Due to [path filtering](/actions/using-workflows/workflow-syntax-for-github-acti
 
 {% data reusables.pull_requests.path-filtering-required-workflows %}
 
-{% ifversion merge-queue %}
-
 ### Status checks with {% data variables.product.prodname_actions %} and a Merge queue
 
 You **must** use the `merge_group` event to trigger your {% data variables.product.prodname_actions %} workflow when a pull request is added to a merge queue.
@@ -105,8 +103,6 @@ on:
 ```
 
 For more information on the `merge_group` event, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#merge_group).
-
-{% endif %}
 
 ## Required status checks from unexpected sources
 

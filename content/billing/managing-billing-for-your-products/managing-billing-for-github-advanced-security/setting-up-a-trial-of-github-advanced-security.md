@@ -1,7 +1,7 @@
 ---
 title: Setting up a trial of GitHub Advanced Security
 intro: 'You can try {% data variables.product.prodname_GH_advanced_security %} for free.'
-product: '{% data reusables.gated-features.ghas %}'
+product: '{% data reusables.gated-features.ghas-ghec %}'
 versions:
   ghec: '*'
 type: how_to
@@ -22,6 +22,8 @@ shortTitle: Set up an Advanced Security trial
 ## About {% data variables.product.prodname_GH_advanced_security %}
 
 {% data variables.product.prodname_GH_advanced_security %} provides features that help you improve and maintain the security and quality of code, such as {% data variables.product.prodname_code_scanning %}, {% data variables.product.prodname_secret_scanning %}, and dependency review. For more information, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+
+{% data reusables.advanced-security.ghas-products-tip %}
 
 ## About trials of {% data variables.product.prodname_GH_advanced_security %}
 

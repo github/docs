@@ -40,7 +40,7 @@ sections:
   closing_down:
     - |
       All users should be aware that GitHub Projects (classic) are closing down. They should migrate to new Projects powered by GitHub Issues. See [AUTOTITLE](/enterprise-server@3.15/issues/planning-and-tracking-with-projects/creating-projects/migrating-from-projects-classic).
-      
+
       GitHub Projects (classic) will be retired in GitHub Enterprise Server 3.17. For more information, see the [Projects (classic) sunset](https://github.blog/changelog/2024-05-23-sunset-notice-projects-classic/) blog post.
   known_issues:
     - |
@@ -77,3 +77,7 @@ sections:
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
       Admins setting up cluster high availability (HA) may encounter a spokes error when running ghe-cluster-repl-status if a new organization and repositories are created before using the ghe-cluster-repl-bootstrap command. To avoid this issue, complete the cluster HA setup with ghe-cluster-repl-bootstrap before creating new organizations and repositories.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]

@@ -46,4 +46,4 @@ Anyone can use the {% data variables.contact.contact_landing_page_portal %} to v
 
 ## Next steps
 
-* To learn how to get started with the support portal, see [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal)
+Next, learn how to get started with the support portal. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/using-the-support-portal).

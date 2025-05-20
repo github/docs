@@ -82,19 +82,50 @@ test('open new search, and perform a general search', async ({ page }) => {
   await page.getByTestId('search').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
-  // Let new suggestions load
+  // Wait for the results to load
+  // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
+  // to allow an unnecessary request when there are no search results. Easier to wait 1 second
   await page.waitForTimeout(1000)
-  // Navigate to general search item, "serve playwright"
-  await page.keyboard.press('ArrowDown')
-  // Select the general search item, "serve playwright"
+  // Press enter to perform  general search
   await page.keyboard.press('Enter')
 
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
   await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
 
+  // The first result should be "For Playwright"
   await page.getByRole('link', { name: 'For Playwright' }).click()
 
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and select a general search article', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.getByTestId('search').click()
+
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Let new suggestions load
+  await page.waitForTimeout(1000)
+  // Navigate to general search item, "For Playwright"
+  await page.keyboard.press('ArrowDown')
+  // Select the general search item, "For Playwright"
+  await page.keyboard.press('Enter')
+
+  // We should now be on the page for "For Playwright"
+  await expect(page).toHaveURL(
+    /\/get-started\/foo\/for-playwright\?search-overlay-input=serve\+playwright$/,
+  )
   await expect(page).toHaveTitle(/For Playwright/)
 })
 
@@ -763,59 +794,6 @@ test.describe('translations', () => {
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
-  })
-})
-
-test.describe('domain edit', () => {
-  test('edit a domain (using header nav)', async ({ page }) => {
-    test.skip(true, 'Editing domain from header is disabled')
-
-    await page.goto('/')
-    await expect(page.getByText('Domain name:')).not.toBeVisible()
-    await page.getByLabel('Select GitHub product version').click()
-    await page
-      .getByLabel(/Enterprise Server/)
-      .first()
-      .click()
-    await expect(page.getByText('Domain name:')).toBeVisible()
-    await page.getByRole('button', { name: 'Edit' }).click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
-    await expect(page.getByText("Can't be github.com")).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
-    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
-    await page.getByRole('button', { name: 'Save' }).click()
-
-    // This tests that the dialog is gone.
-    // XXX Peterbe: These don't work and I don't know why yet.
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
-    await expect(page.getByText('github.peterbe.com')).toBeVisible()
-  })
-
-  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
-    await page.goto('/get-started/markdown/replace-domain')
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.12').click() // XXX
-
-    // This is generally discourage in Playwright, but necessary here
-    // in this case. Because of the way
-    // the `main.addEventListener('click', ...)` is handled, it's setting
-    // up that event listener too late. In fact, it happens in a useEffect.
-    // Adding a little delay makes is much more likely that the event
-    // listener has been set up my the time we fire the `.click()` on the
-    // next line.
-    await page.waitForTimeout(500)
-    await page.getByText('HOSTNAME', { exact: true }).first().click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await page
-      .getByTestId('domain-name-edit-form')
-      .getByLabel('Your domain name')
-      .fill('peterbe.ghe.com')
-    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
   })
 })
 

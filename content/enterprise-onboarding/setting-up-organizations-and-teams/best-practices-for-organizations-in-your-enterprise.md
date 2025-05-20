@@ -40,12 +40,12 @@ Within each organization in your enterprise, you should encourage organization o
 * **Use teams**: Teams allow you to manage permissions, code ownership, and notifications for groups of people. If you use an identity provider (IdP) for authentication, we highly recommend managing team membership through your IdP. See [AUTOTITLE](/enterprise-onboarding/setting-up-organizations-and-teams/creating-teams).
 * **Collaborate in organization-owned repositories**: Where possible, minimize collaboration in user-owned repositories. Organization-owned repositories have more sophisticated security and administrative features, and they remain accessible even as enterprise membership changes.
 
-## Next steps
-
-You have begun creating organizations and managing access for users to match your company's desired structure. Next, learn how to get help when you need it with {% data variables.contact.github_support %}. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/understanding-support).
-
 ## Further reading
 
 * [AUTOTITLE](/admin/managing-accounts-and-repositories/managing-organizations-in-your-enterprise/best-practices-for-structuring-organizations-in-your-enterprise#about-organizational-structure)
 * [Best practices for organizations and teams using GitHub Enterprise Cloud](https://github.blog/enterprise-software/devops/best-practices-for-organizations-and-teams-using-github-enterprise-cloud/) on {% data variables.product.prodname_blog %}
 * [Strategies for using organizations in GitHub Enterprise Cloud](https://resources.github.com/learn/pathways/administration-governance/essentials/strategies-for-using-organizations-github-enterprise-cloud/) on {% data variables.product.github %} Resources
+
+## Next steps
+
+Now that you have started creating organizations, adding members, and managing access, learn how to get help when you need it with {% data variables.contact.github_support %}. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/understanding-support).

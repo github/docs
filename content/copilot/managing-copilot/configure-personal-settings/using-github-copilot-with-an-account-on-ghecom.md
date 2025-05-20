@@ -100,8 +100,6 @@ For the "{% data variables.product.prodname_enterprise %} URL" field, enter the 
 
 ## Authenticating from Eclipse
 
-{% data reusables.copilot.eclipse-public-preview-note %}
-
 1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
 1. Click **Edit Preferences...**.
 1. In the **{% data variables.product.prodname_enterprise %} Authentication Endpoint** field, enter the URL where you access {% data variables.product.github %}. For example: `https://{% data variables.enterprise.data_residency_example_domain %}`.

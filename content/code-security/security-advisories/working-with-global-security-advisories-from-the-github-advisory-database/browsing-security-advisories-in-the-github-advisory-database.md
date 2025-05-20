@@ -1,5 +1,4 @@
----
-title: Browsing security advisories in the GitHub Advisory Database
+---title: Browsing security advisories in the GitHub Advisory Database
 intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.'
 shortTitle: Browse Advisory Database
 redirect_from:
@@ -53,23 +52,23 @@ You can search the database, and use qualifiers to narrow your search. For examp
 
 | Qualifier  | Example |
 | ---------- | ------- |
-| `type:reviewed`| [**type:reviewed**](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
-| `type:malware` | [**type:malware**](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
-| `type:unreviewed`| [**type:unreviewed**](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
-| `GHSA-ID`| [**GHSA-49wp-qq6x-g2rf**](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
-| `CVE-ID`| [**CVE-2020-28482**](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
-| `ecosystem:ECOSYSTEM`| [**ecosystem:npm**](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting npm packages. |
-| `severity:LEVEL`| [**severity:high**](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) will show only advisories with a high severity level. |
-| `affects:LIBRARY`| [**affects:lodash**](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) will show only advisories affecting the lodash library. |
-| `cwe:ID`| [**cwe:352**](https://github.com/advisories?query=cwe%3A352) will show only advisories with this CWE number. |
-| `credit:USERNAME`| [**credit:octocat**](https://github.com/advisories?query=credit%3Aoctocat) will show only advisories credited to the "octocat" user account. |
-| `sort:created-asc`| [**sort:created-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) will sort by the oldest advisories first. |
-| `sort:created-desc`| [**sort:created-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) will sort by the newest advisories first. |
-| `sort:updated-asc`| [**sort:updated-asc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) will sort by the least recently updated first. |
-| `sort:updated-desc`| [**sort:updated-desc**](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) will sort by the most recently updated first. |
-| `is:withdrawn`| [**is:withdrawn**](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) will show only advisories that have been withdrawn. |
-| `created:YYYY-MM-DD`| [**created:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
-| `updated:YYYY-MM-DD`| [**updated:2021-01-13**](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
+| `type:reviewed`| [`type:reviewed`](https://github.com/advisories?query=type%3Areviewed) will show {% data variables.product.company_short %}-reviewed advisories for security vulnerabilities. |
+| `type:malware` | [`type:malware`](https://github.com/advisories?query=type%3Amalware) will show malware advisories. |
+| `type:unreviewed`| [`type:unreviewed`](https://github.com/advisories?query=type%3Aunreviewed) will show unreviewed advisories. |
+| `GHSA-ID`| [`GHSA-49wp-qq6x-g2rf`](https://github.com/advisories?query=GHSA-49wp-qq6x-g2rf) will show the advisory with this {% data variables.product.prodname_advisory_database %} ID. |
+| `CVE-ID`| [`CVE-2020-28482`](https://github.com/advisories?query=CVE-2020-28482) will show the advisory with this CVE ID number. |
+| `ecosystem:ECOSYSTEM`| [`ecosystem:npm`](https://github.com/advisories?utf8=%E2%9C%93&query=ecosystem%3Anpm) will show only advisories affecting npm packages. |
+| `severity:LEVEL`| [`severity:high`](https://github.com/advisories?utf8=%E2%9C%93&query=severity%3Ahigh) will show only advisories with a high severity level. |
+| `affects:LIBRARY`| [`affects:lodash`](https://github.com/advisories?utf8=%E2%9C%93&query=affects%3Alodash) will show only advisories affecting the lodash library. |
+| `cwe:ID`| [`cwe:352`](https://github.com/advisories?query=cwe%3A352) will show only advisories with this CWE number. |
+| `credit:USERNAME`| [`credit:octocat`](https://github.com/advisories?query=credit%3Aoctocat) will show only advisories credited to the "octocat" user account. |
+| `sort:created-asc`| [`sort:created-asc`](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-asc) will sort by the oldest advisories first. |
+| `sort:created-desc`| [`sort:created-desc`](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Acreated-desc) will sort by the newest advisories first. |
+| `sort:updated-asc`| [`sort:updated-asc`](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-asc) will sort by the least recently updated first. |
+| `sort:updated-desc`| [`sort:updated-desc`](https://github.com/advisories?utf8=%E2%9C%93&query=sort%3Aupdated-desc) will sort by the most recently updated first. |
+| `is:withdrawn`| [`is:withdrawn`](https://github.com/advisories?utf8=%E2%9C%93&query=is%3Awithdrawn) will show only advisories that have been withdrawn. |
+| `created:YYYY-MM-DD`| [`created:2021-01-13`](https://github.com/advisories?utf8=%E2%9C%93&query=created%3A2021-01-13) will show only advisories created on this date. |
+| `updated:YYYY-MM-DD`| [`updated:2021-01-13`](https://github.com/advisories?utf8=%E2%9C%93&query=updated%3A2021-01-13) will show only advisories updated on this date. |
 
 A `GHSA-ID` qualifier is a unique ID that we at {% data variables.product.prodname_dotcom %} automatically assign to every advisory in the {% data variables.product.prodname_advisory_database %}. For more information about these identifiers, see [About the {% data variables.product.prodname_advisory_database %}](/code-security/security-advisories/working-with-global-security-advisories-from-the-github-advisory-database/about-the-github-advisory-database#about-ghsa-ids).
 
@@ -116,3 +115,4 @@ In the local advisory database, you can see which repositories are affected by e
 1. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% endif %}
+n00i1kat 

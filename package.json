@@ -32,6 +32,7 @@
     "delete-orphan-translation-files": "tsx src/workflows/delete-orphan-translation-files.ts",
     "deleted-assets-pr-comment": "tsx src/assets/scripts/deleted-assets-pr-comment.ts",
     "deleted-features-pr-comment": "tsx src/data-directory/scripts/deleted-features-pr-comment.ts",
+    "deprecate-ghes": "tsx src/ghes-releases/scripts/deprecate/index.ts",
     "dev": "cross-env npm start",
     "enable-automerge": "tsx src/workflows/enable-automerge.ts",
     "find-orphaned-assets": "tsx src/assets/scripts/find-orphaned-assets.ts",
@@ -39,7 +40,8 @@
     "find-past-built-pr": "tsx src/workflows/find-past-built-pr.ts",
     "find-unused-variables": "tsx src/content-linter/scripts/find-unsed-variables.ts",
     "fixture-dev": "cross-env ROOT=src/fixtures/fixtures npm start",
-    "fixture-test": "cross-env ROOT=src/fixtures/fixtures npm test -- src/fixtures/tests",
+    "fixture-dev-debug": "cross-env NODE_ENV=development ROOT=src/fixtures/fixtures nodemon --inspect src/frame/server.ts",
+    "fixture-test": "cross-env ROOT=src/fixtures/fixtures sh -c 'npm test -- ${1:-src/fixtures/tests}' --",
     "fr-add-docs-reviewers-requests": "tsx src/workflows/fr-add-docs-reviewers-requests.ts",
     "general-search-scrape": "tsx src/search/scripts/scrape/scrape-cli.ts",
     "general-search-scrape-server": "cross-env NODE_ENV=production PORT=4002 MINIMAL_RENDER=true CHANGELOG_DISABLED=true tsx src/frame/server.ts",
@@ -55,6 +57,7 @@
     "lint-content": "tsx src/content-linter/scripts/lint-content.js",
     "lint-translation": "vitest src/content-linter/tests/lint-files.js",
     "liquid-markdown-tables": "tsx src/tools/scripts/liquid-markdown-tables/index.ts",
+    "generate-article-api-docs": "tsx src/article-api/scripts/generate-api-docs.ts",
     "generate-code-scanning-query-list": "tsx src/code-scanning/scripts/generate-code-scanning-query-list.ts",
     "generate-content-linter-docs": "tsx src/content-linter/scripts/generate-docs.ts",
     "move-content": "tsx src/content-render/scripts/move-content.js",
@@ -62,7 +65,7 @@
     "playwright-test": "playwright test --config src/fixtures/playwright.config.ts --project=\"Google Chrome\"",
     "post-lints": "tsx src/content-linter/scripts/post-lints.js",
     "postinstall": "cp package-lock.json .installed.package-lock.json && echo \"Updated .installed.package-lock.json\" # see husky/post-checkout and husky/post-merge",
-    "precompute-pageinfo": "tsx src/pageinfo/scripts/precompute-pageinfo.ts",
+    "precompute-pageinfo": "tsx src/article-api/scripts/precompute-pageinfo.ts",
     "prepare": "husky src/workflows/husky",
     "prettier": "prettier -w \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
     "prettier-check": "prettier -c \"**/*.{ts,tsx,js,mjs,scss,yml,yaml}\"",
@@ -248,7 +251,7 @@
     "@primer/live-region-element": "^0.7.0",
     "@primer/octicons": "^19.14.0",
     "@primer/octicons-react": "^19.14.0",
-    "@primer/react": "36.27.0",
+    "@primer/react": "37.14.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
@@ -324,7 +327,11 @@
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
     "tcp-port-used": "1.0.2",
+±<<<<<<< dependabot/npm_and_yarn/npm_and_yarn-63f25d534c
     "tsx": "4.19.3",
+±=======
+    "tsx": "^4.19.3",
+±>>>>>>> main
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
@@ -369,7 +376,7 @@
     "csv-parse": "5.5.6",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.0.1",
-    "eslint-import-resolver-typescript": "^3.6.3",
+    "eslint-import-resolver-typescript": "^4.2.1",
     "eslint-plugin-github": "^5.0.2",
     "eslint-plugin-import": "^2.30.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
@@ -394,10 +401,12 @@
     "typescript": "^5.5.2",
     "unist-util-remove": "^4.0.0",
     "unist-util-visit-parents": "6.0.1",
-    "vitest": "3.0.5",
+    "vitest": "^3.0.7",
     "website-scraper": "^5.3.1"
   },
-  "overrides": {},
+  "overrides": {
+    "esbuild": "^0.25"
+  },
   "optionalDependencies": {
     "esm": "^3.2.25"
   },

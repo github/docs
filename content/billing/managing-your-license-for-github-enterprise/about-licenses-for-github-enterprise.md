@@ -34,6 +34,12 @@ To ensure the same user isn't consuming more than one license for multiple enter
 
 In order to use a {% data variables.product.prodname_ghe_server %} instance, you must upload a license file that {% data variables.product.company_short %} provides when you purchase, renew, or add user licenses to {% data variables.product.prodname_enterprise %}.
 
+{% data variables.product.prodname_ghe_cloud %} customers can use Azure DevOps without additional per user charges. Access is available to customers using Microsoft Entra and users logging in with the same credentials in {% data variables.product.github %} and Azure DevOps.
+
+There is no action required; {% data variables.product.prodname_enterprise %} users will be detected automatically when they log in to Azure DevOps. See [User and permissions management](https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/faq-user-and-permissions-management?view=azure-devops#github-enterprise) in the Microsoft Learn documentation.
+
+Access is not yet available in [new data residency regions](https://github.blog/engineering/engineering-principles/github-enterprise-cloud-with-data-residency/) but will be coming in the future.
+
 ## About synchronization of license usage for {% data variables.product.prodname_enterprise %}
 
 {% data reusables.enterprise-licensing.about-license-sync %} For more information, see [AUTOTITLE](/billing/managing-your-license-for-github-enterprise/syncing-license-usage-between-github-enterprise-server-and-github-enterprise-cloud).

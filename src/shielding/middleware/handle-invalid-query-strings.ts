@@ -13,6 +13,7 @@ export const MAX_UNFAMILIAR_KEYS_REDIRECT = 3
 const RECOGNIZED_KEYS_BY_PREFIX = {
   '/_next/data/': ['versionId', 'productId', 'restPage', 'apiVersion', 'category', 'subcategory'],
   '/api/search': ['query', 'language', 'version', 'page', 'product', 'autocomplete', 'limit'],
+  '/api/combined-search': ['query', 'version', 'size', 'debug'],
   '/api/anchor-redirect': ['hash', 'path'],
   '/api/webhooks': ['category', 'version'],
   '/api/pageinfo': ['pathname'],

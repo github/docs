@@ -22,18 +22,12 @@ shortTitle: Visibility
 
 ## About visibility for {% data variables.product.prodname_github_apps %}
 
-You can make your {% data variables.product.prodname_github_app %} registration public or private. {% ifversion fpt %}If you set your {% data variables.product.prodname_github_app %} registration to public, any user on {% data variables.product.github %} can install it. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.
+A {% data variables.product.prodname_github_app %} can be {% ifversion fpt %}public or private{% elsif enterprise-apps-public-beta %}public, private, or internal{% endif %}.{% ifversion fpt or ghec %} If you set your {% data variables.product.prodname_github_app %} registration to public, any user on {% data variables.product.github %} can install it. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.
 
-{% elsif ghes %}If you set your {% data variables.product.prodname_github_app %} registration to public, anyone on your {% data variables.product.prodname_ghe_server %} instance can install it, but the app is not available outside of your instance. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.
-
-{% elsif ghec %}If a {% data variables.product.prodname_github_app %} is created by an {% data variables.product.prodname_emu %}, the "Public" option is disabled and the app is only installable by organizations within the {% data variables.product.prodname_emu %} enterprise. {% data variables.product.prodname_emu %} organizations can set their apps to be installable by any other organization in the enterprise, or just the organization that owns it. Apps created within an {% data variables.product.prodname_emu %} account are never installable on accounts outside of your enterprise.
-
-If a {% data variables.product.prodname_github_app %} registration is owned by an account that is not an {% data variables.product.prodname_emu %}, and the app is set to public, any user on {% data variables.product.github %} can install the app. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.{% endif %}
-
-{% ifversion fpt or ghec %}You can register a {% data variables.product.prodname_github_app %} under your personal account or organization and make it available for other organizations to install. You do not need an enterprise plan or an organization account to make your {% data variables.product.prodname_github_app %} available to an organization even if the organization is owned by an enterprise on {% data variables.product.prodname_ghe_cloud %}.{% endif %}
+{% elsif ghes %} If you set your {% data variables.product.prodname_github_app %} registration to public, anyone on your {% data variables.product.prodname_ghe_server %} instance can install it, but the app is not available outside of your instance. If you set your {% data variables.product.prodname_github_app %} registration to private, it can only be installed on the account that owns the app.{% endif %}
 
 {% ifversion enterprise-apps-public-beta %}
-Additionally, you can register a {% data variables.product.prodname_github_app %} under your enterprise. You can't make this app public, the app can only be installed on organizations within your enterprise, and can only be authorized by members of your enterprise.
+{% data variables.product.prodname_github_apps %} owned by an enterprise account{% ifversion ghec %}, or by a {% data variables.enterprise.prodname_managed_user %} in an enterprise,{% endif %} have "internal" visibility. Internal apps can only be installed by organizations within the enterprise and authorized by users within the enterprise. Members of the enterprise and unaffiliated users can authorize these apps, but outside collaborators cannot.
 {% endif %}
 
 If you want your {% data variables.product.prodname_github_app %} to be available to organizations in a {% data variables.product.prodname_ghe_server %} instance that you are not part of, then you need to take additional steps. For more information, see [AUTOTITLE](/apps/sharing-github-apps/making-your-github-app-available-for-github-enterprise-server).
@@ -52,8 +46,8 @@ Private {% data variables.product.prodname_github_apps %} can only be installed 
 
 {% ifversion enterprise-apps-public-beta %}
 
-### Enterprise-owned installation flow
+### "Internal" installation flow
 
-Enterprise-owned {% data variables.product.prodname_github_apps %} can only be installed by organization owners of organizations within the enterprise by using the installation URL. The app can not be installed on user accounts.
+Enterprise-owned {% data variables.product.prodname_github_apps %}{% ifversion ghec %} and apps owned by {% data variables.enterprise.prodname_managed_users %}{% endif %} can only be installed by organization owners of organizations within the enterprise by using the installation URL. The app can not be installed on user accounts.
 
 {% endif %}

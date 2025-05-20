@@ -12,7 +12,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 ---

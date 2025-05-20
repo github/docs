@@ -66,7 +66,7 @@ If you create a new clone of the repository, you won't lose any of your Git hist
    ![Screenshot of the "Quick Setup" header in a repository. Next to the remote URL, an icon of two overlapping squares is outlined in orange.](/assets/images/help/repository/copy-remote-repository-url-quick-setup.png)
 
    > [!TIP]
-   > For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/getting-started-with-git/about-remote-repositories).
+   > For information on the difference between HTTPS and SSH URLs, see [AUTOTITLE](/get-started/git-basics/about-remote-repositories).
 
 1. Add a new remote name with the URL you copied for your repository. For example, `origin` or `upstream` are two common choices.
 

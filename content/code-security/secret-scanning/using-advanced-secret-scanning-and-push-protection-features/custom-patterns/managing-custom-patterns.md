@@ -8,7 +8,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Secret Protection
   - Secret scanning
 ---
 
@@ -53,7 +53,7 @@ Before enabling push protection for a custom pattern at enterprise level, you mu
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. Under "{% ifversion code-security-wording-only-enterprise %}Code security{% else %}Code security and analysis{% endif %}", click **Security features**.
+1. Under "{% data variables.product.UI_advanced_security_ent %}", click **Security features**.
 {% data reusables.advanced-security.secret-scanning-edit-custom-pattern %}
 
    >[!NOTE] At the enterprise level, you can only edit and enable push protection for custom patterns that you created.
@@ -71,7 +71,7 @@ Before enabling push protection for a custom pattern at organization level, you 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% ifversion security-configurations %}
-1. In the "Security" section of the sidebar, select the **Code security** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
+1. In the "Security" section of the sidebar, select the **{% data variables.product.UI_advanced_security %}** dropdown menu, then click **{% data variables.product.prodname_global_settings_caps %}**.
 1. Under "Custom patterns", click {% octicon "pencil" aria-label="Edit custom pattern" %} for the pattern of interest.
 {% else %}
 {% data reusables.organizations.security-and-analysis %}

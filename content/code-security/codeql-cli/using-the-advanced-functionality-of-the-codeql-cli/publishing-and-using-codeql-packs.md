@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -320,7 +320,7 @@ The following properties are supported in `qlpack.yml` files.
 * Defines the {% data variables.product.prodname_codeql %} language extractor to use when running the {% data variables.product.prodname_codeql %} tests in the pack. For more information about testing queries, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/testing-custom-queries). For example:
 
   ```yaml
-  extractor: {% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}
+  extractor: javascript-typescript
   ```
 
 #### `authors`

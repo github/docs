@@ -7,7 +7,9 @@ product_video: 'https://www.youtube-nocookie.com/embed/yFQ-p6wMS_Y'
 topics:
   - Transcripts
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 [Fast-paced, techy music plays. On a dark background, GitHub's Octocat logo fades into view. Bright neon lines swirl and branch outwards. Each line leads to something different: a button labeled "Convert to issue"; a pull request merge button marked "Ready"; a comment on a pull request, a project board, and a search field. In a green box, text: "GitHub Issues: Using Projects for feature planning." A pixelated cursor clicks: "Let's go!"]

@@ -53134,7 +53134,7 @@
       "fields": [
         {
           "name": "allowedMergeMethods",
-          "description": "<p>When merging pull requests, you can allow any combination of merge commits,\nsquashing, or rebasing. At least one option must be enabled.</p>",
+          "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and\n<code>rebase</code>. At least one option must be enabled.</p>",
           "type": "[String!]",
           "id": "string",
           "kind": "scalars",
@@ -79485,14 +79485,6 @@
           "id": "repositoryowner",
           "kind": "interfaces",
           "href": "/graphql/reference/interfaces#repositoryowner"
-        },
-        {
-          "name": "repository",
-          "description": "<p>The repository owned by an enterprise managed user.</p>",
-          "type": "RepositoryInfo",
-          "id": "repositoryinfo",
-          "kind": "interfaces",
-          "href": "/graphql/reference/interfaces#repositoryinfo"
         }
       ]
     },
@@ -101104,7 +101096,7 @@
       "inputFields": [
         {
           "name": "allowedMergeMethods",
-          "description": "<p>When merging pull requests, you can allow any combination of merge commits,\nsquashing, or rebasing. At least one option must be enabled.</p>",
+          "description": "<p>Array of allowed merge methods. Allowed values include <code>merge</code>, <code>squash</code>, and\n<code>rebase</code>. At least one option must be enabled.</p>",
           "type": "[String!]",
           "id": "string",
           "kind": "scalars",

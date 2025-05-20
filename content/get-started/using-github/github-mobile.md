@@ -38,6 +38,7 @@ The following documentation contains more information about using {% data variab
 {% ifversion mobile-code-search %}- For more information about using {% data variables.product.prodname_dotcom %} code search on {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/search-github/github-code-search/using-github-code-search#using-github-code-search-on-github-mobile).{% endif %}
 {% ifversion fpt or ghec %}- For more information on two-factor authentication using {% data variables.product.prodname_mobile %}, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication#configuring-two-factor-authentication-using-github-mobile) and [Authenticating using {% data variables.product.prodname_mobile %}](/authentication/securing-your-account-with-two-factor-authentication-2fa/accessing-github-using-two-factor-authentication#verifying-with-github-mobile). {% endif %}
 {% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.product.prodname_copilot_mobile %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github-mobile/using-github-copilot-chat-in-github-mobile).{% endif %}
+{% ifversion copilot-chat-for-mobile %}- For more information about using {% data variables.product.prodname_copilot_extensions %} in {% data variables.product.prodname_mobile %}, see [Extending {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_mobile %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github-mobile#extending-copilot-chat-in-github-mobile).{% endif %}
 
 ## Installing {% data variables.product.prodname_mobile %}
 
@@ -78,12 +79,12 @@ Alternatively, once logged into one account, access the account switcher to log 
 {% data variables.product.prodname_mobile %} is available in the following languages.
 
 * English
+* Spanish
 * Japanese
 * Brazilian Portuguese
 * Simplified Chinese
-* Spanish
-* German
 * Korean
+* German
 
 If you configure the language on your device to a supported language, {% data variables.product.prodname_mobile %} will default to the language. You can change the language for {% data variables.product.prodname_mobile %} in {% data variables.product.prodname_mobile %}'s **Settings** menu.
 

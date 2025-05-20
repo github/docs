@@ -17,7 +17,7 @@ type: how_to
 topics:
   - Dependabot
   - Alerts
-  - Advanced Security
+  - Code Security
   - Dependency graph
   - Secret scanning
   - Repositories
@@ -54,29 +54,23 @@ Other features are permanently enabled for public repositories, such as the depe
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of the feature, click **Disable** or **Enable**.
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of the feature, click **Disable** or **Enable**.
 
 {% endif %}
 
 ## Enabling or disabling security and analysis features{% ifversion fpt or ghec %} for private repositories{% endif %}
 
-You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository.{% ifversion ghes or ghec %} If your enterprise or organization has a license for {% data variables.product.prodname_GH_advanced_security %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
-{% elsif fpt %} Organizations that use {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_advanced_security %} have extra options available. For more information, see the [{% data variables.product.prodname_ghe_cloud %} documentation](/enterprise-cloud@latest//repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
-
-{% endif %}
+You can manage the security and analysis features for your {% ifversion fpt or ghec %}private or internal {% endif %}repository. If your enterprise or organization has a license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}, then extra options are available. {% data reusables.advanced-security.more-info-ghas %}
 
 {% data reusables.security.security-and-analysis-features-enable-read-only %}
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of the feature, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_advanced_security %}.{% endif %}
-   {% ifversion not fpt %}
+1. Under "{% data variables.product.UI_advanced_security %}", to the right of the feature, click **Disable** or **Enable**. {% ifversion not fpt %}The control for "{% data variables.product.prodname_GH_advanced_security %}" is disabled if your enterprise has no available licenses for {% data variables.product.prodname_GH_advanced_security %} features.{% endif %}
 
    > [!NOTE]
-   > If you disable {% data variables.product.prodname_GH_advanced_security %}, {% ifversion ghec %}dependency review, {% endif %}{% data variables.secret-scanning.user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail. If {% data variables.product.prodname_GH_advanced_security %} is re-enabled, {% data variables.product.prodname_code_scanning %} will return to its previous state.
-
-   {% endif %}
+   > If you disable {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GH_advanced_security %}{% endif %}, dependency review, {% data variables.secret-scanning.user_alerts %} and {% data variables.product.prodname_code_scanning %} are disabled. Any workflows, SARIF uploads, or API calls for {% data variables.product.prodname_code_scanning %} will fail. If {% data variables.product.prodname_GH_code_security %} is re-enabled, {% data variables.product.prodname_code_scanning %} will return to its previous state.
 
 ## Granting access to security alerts
 

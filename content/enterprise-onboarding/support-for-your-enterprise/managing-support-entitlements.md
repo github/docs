@@ -40,4 +40,4 @@ To learn how to remove support entitlements, see [Removing a support entitlement
 
 ## Next steps
 
-Next, learn how you can automate your enterprise's software development cycle and improve productivity with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/getting-started-with-github-actions-for-github-enterprise-cloud).
+Next, learn how you can automate your enterprise's software development cycle and improve productivity with {% data variables.product.prodname_actions %}. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/about-github-actions-for-enterprises).

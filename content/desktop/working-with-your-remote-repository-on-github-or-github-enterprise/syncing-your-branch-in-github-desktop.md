@@ -9,7 +9,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch-in-github-desktop
   - /desktop/keeping-your-local-repository-in-sync-with-github/syncing-your-branch
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 ## About branch synchronization
 
