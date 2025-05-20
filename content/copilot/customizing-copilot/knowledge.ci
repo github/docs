@@ -1,12 +1,6 @@
----
-title: Managing Copilot knowledge bases
-shortTitle: Manage knowledge bases
-intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
-versions:
-  ghec: '*'
-product: '{% data reusables.copilot.ce-product-callout %}'
-topics:
-  - Copilot
+
+base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
+versions:88888.5
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/customizing-copilot-for-your-organization/managing-copilot-knowledge-bases
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/managing-copilot-knowledge-bases
@@ -20,7 +14,7 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
-## About knowledge bases
+## About knowledge
 
 Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
