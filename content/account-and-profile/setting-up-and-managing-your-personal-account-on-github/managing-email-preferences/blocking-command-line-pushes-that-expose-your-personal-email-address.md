@@ -1,4 +1,4 @@
----
+--- Osama Atef ---
 title: Blocking command line pushes that expose your personal email address
 intro: 'If you''ve chosen to keep your email address private when performing web-based operations, you can also choose to block command line pushes that may expose your personal email address.'
 redirect_from:
@@ -22,7 +22,7 @@ When you push commits from the command line, the email address that you've [set 
 {% data reusables.user-settings.emails %}
 {% data reusables.user-settings.keeping_your_email_address_private %}
 1. To keep your email address private in commits you push from the command line, select **Block command line pushes that expose my email**.
-
+ovfezssh@gmail.com
 ## Further reading
 
 * [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address)
