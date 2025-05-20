@@ -327,7 +327,11 @@
     "styled-components": "^5.3.5",
     "swr": "^2.2.4",
     "tcp-port-used": "1.0.2",
+±<<<<<<< dependabot/npm_and_yarn/npm_and_yarn-63f25d534c
+    "tsx": "4.19.3",
+±=======
     "tsx": "^4.19.3",
+±>>>>>>> main
     "unified": "^11.0.3",
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
