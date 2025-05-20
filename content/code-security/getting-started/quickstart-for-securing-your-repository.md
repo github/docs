@@ -75,14 +75,15 @@ For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alert
 
 Dependency review lets you visualize dependency changes in pull requests before they are merged into your repositories. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).
 
-Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is enabled for all repositories with the dependency graph enabled. Organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories.{% endif %}
+Dependency review is a {% data variables.product.prodname_GH_code_security %} feature. {% ifversion fpt or ghec %}Dependency review is already enabled for all public repositories. Organizations that use {% data variables.product.prodname_team %} or {% data variables.product.prodname_ghe_cloud %} with {% data variables.product.prodname_GH_code_security %} can additionally enable dependency review for private and internal repositories.{% endif %}
 
 To enable dependency review for a repository, ensure that the dependency graph is enabled and enable {% data variables.product.prodname_GH_code_security %}.
 
 1. From the main page of your repository, click **{% octicon "gear" aria-hidden="true" %} Settings**.
-1. Click **{% data variables.product.UI_advanced_security %}**.{% ifversion fpt or ghec %}
-1. To the right of {% data variables.product.prodname_code_security %}, click **Enable**.
-1. Under {% data variables.product.prodname_code_security %}, check that dependency graph is enabled for the repository. {% elsif ghes %}
+1. Click **{% data variables.product.UI_advanced_security %}**.
+1. To the right of "{% data variables.product.prodname_code_security %}" or "{% data variables.product.prodname_GHAS %}", depending on your license type, click **Enable**.{% ifversion fpt or ghec %}
+1. Check that dependency graph is enabled for the repository.
+   * For public repositories, dependency graph is always enabled.{% elsif ghes %}
 1. Check that dependency graph is configured for your enterprise.{% endif %}
 
 ## Managing {% data variables.product.prodname_dependabot_security_updates %}

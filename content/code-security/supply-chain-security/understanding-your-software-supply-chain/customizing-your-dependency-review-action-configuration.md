@@ -24,7 +24,7 @@ This guide shows you how to add three very common customizations: failing builds
 
 This guide assumes that:
 
-* Dependency graph is enabled for the repository. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph#enabling-and-disabling-the-dependency-graph).
+* Dependency graph is enabled for the repository.{% ifversion fpt or ghec %} Dependency graph is enabled by default for public repositories and you can choose to enable it for private{% ifversion ghec %} and internal{% endif %} repositories, and public forks.{% endif %} For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph#enabling-and-disabling-the-dependency-graph-for-a-private-repository).
 * {% data variables.product.prodname_actions %} is enabled for the repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
 
 ## Step 1: Adding the dependency review action

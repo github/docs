@@ -37,7 +37,7 @@ When you create a pull request containing changes to dependencies that targets t
 {% ifversion fpt or ghec %}
 {% data reusables.dependency-graph.feature-availability %} For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
-{% data reusables.dependency-graph.feature-availability %} See [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
+Repository administrators can also set up the dependency graph for private repositories. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/configuring-the-dependency-graph).
 
 {% endif %}
 
