@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import fs from 'fs'
 import path from 'path'
 import { execSync } from 'child_process'
@@ -8,7 +7,7 @@ import { applyFixes } from 'markdownlint-rule-helpers'
 import boxen from 'boxen'
 import ora from 'ora'
 
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 import { allConfig, allRules, customRules } from '../lib/helpers/get-rules.js'
 import { customConfig, githubDocsFrontmatterConfig } from '../style/github-docs.js'
 import { defaultConfig } from '../lib/default-markdownlint-options.js'
@@ -67,6 +66,8 @@ const ALL_CONTENT_DIR = ['content', 'data']
 main()
 
 async function main() {
+  if (!isOptionsValid()) return
+
   // If paths has not been specified, lint all files
   const files = getFilesToLint((summaryByRule && ALL_CONTENT_DIR) || paths || getChangedFiles())
 
@@ -321,7 +322,7 @@ function getFilesToLint(paths) {
         fileList.yml.push(...walkFiles(absPath, ['.yml']))
       }
     } else {
-      if (isInDir(absPath, contentDir)) {
+      if (isInDir(absPath, contentDir) || isAFixtureMdFile(absPath)) {
         fileList.content.push(absPath)
       } else if (isInDir(absPath, dataDir)) {
         if (absPath.endsWith('.yml')) {
@@ -408,8 +409,6 @@ function reportSummaryByRule(results, config) {
       }
     }
   })
-
-  console.log(JSON.stringify(ruleCount, null, 2))
 }
 
 /*
@@ -558,7 +557,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
     if (githubDocsFrontmatterConfig[ruleName]) {
       config.frontMatter[ruleName] = ruleConfig
       if (customRule) configuredRules.frontMatter.push(customRule)
-      continue
     }
     // Handle the special case of the search-replace rule
     // which has nested rules each with their own
@@ -606,7 +604,6 @@ function getMarkdownLintConfig(errorsOnly, runRules) {
       if (customRule) configuredRules.yml.push(customRule)
     }
   }
-
   return { config, configuredRules }
 }
 
@@ -650,4 +647,46 @@ function getSearchReplaceRuleSeverity(ruleName, object, isPrecommit) {
   const pluginRuleName = object.errorDetail.split(':')[0].trim()
   const rule = allConfig[ruleName].rules.find((rule) => rule.name === pluginRuleName)
   return isPrecommit ? rule.precommitSeverity || rule.severity : rule.severity
+}
+
+function isOptionsValid() {
+  // paths should only contain existing files and directories
+  const paths = program.opts().paths || []
+  for (const path of paths) {
+    try {
+      fs.statSync(path)
+    } catch (err) {
+      if ('paths'.includes(path)) {
+        console.log('error: did you mean --paths')
+      } else {
+        console.log(
+          `error: invalid --paths (-p) option. The value '${path}' is not a valid file or directory`,
+        )
+      }
+      return false
+    }
+  }
+
+  // rules should only contain existing, correctly spelled rules
+  const allRulesList = Object.values(allRules)
+    .map((rule) => rule.names)
+    .flat()
+  const rules = program.opts().rules || []
+  for (const rule of rules) {
+    if (!allRulesList.includes(rule)) {
+      if ('rules'.includes(rule)) {
+        console.log('error: did you mean --rules')
+      } else {
+        console.log(
+          `error: invalid --rules (-r) option. The value '${rule}' is not a valid rule name.`,
+        )
+      }
+      return false
+    }
+  }
+  return true
+}
+
+function isAFixtureMdFile(filePath) {
+  return filePath.includes('/src') && filePath.includes('/fixtures') && filePath.endsWith('.md')
 }

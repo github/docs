@@ -14,6 +14,7 @@ on:
       - closed
     paths:
       - 'content/site-policy/**'
+      - '.github/workflows/site-policy-sync.yml'
   workflow_dispatch:
 
 permissions:
@@ -55,7 +56,7 @@ jobs:
 
       - name: If there are changes to push, create a branch in the public repo and push changes
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
           cd public-repo
           git config --local user.name 'site-policy-bot'

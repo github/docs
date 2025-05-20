@@ -14,6 +14,7 @@ on:
       - main
     paths:
       - 'content/**'
+      - .github/workflows/test-changed-content.yml
 
 permissions:
   contents: read
@@ -27,16 +28,13 @@ jobs:
       # Even if if doesn't do anything
       - name: Check out repo
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
-        with:
-          # See https://github.com/tj-actions/changed-files#on-pull_request-
-          fetch-depth: 2
 
       - uses: ./.github/actions/node-npm-setup
 
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/cache-nextjs
 
@@ -44,21 +42,13 @@ jobs:
         run: npm run build
 
       - name: Get changed files
-        id: changed-files
-        uses: tj-actions/changed-files@40853de9f8ce2d6cfdc73c1b96f14e22ba44aec4 # v45.0.0
+        id: changed_files
+        uses: ./.github/actions/get-changed-files
         with:
-          # No need to escape the file names because we make the output of
-          # tj-actions/changed-files be set as an environment variable. Not
-          # as a direct input to the line of bash that uses it.
-          # See https://docs.github.com/en/actions/security-guides/security-hardening-for-github-actions#using-an-intermediate-environment-variable
-          safe_output: false
           files: 'content/**'
-          # Necessary so we can know what the old name was when a
-          # content file was renamed.
-          output_renamed_files_as_deleted_and_added: true
 
       - name: Run tests
         env:
-          CHANGED_FILES: ${{ steps.changed-files.outputs.modified_files }}
-          DELETED_FILES: ${{ steps.changed-files.outputs.deleted_files }}
+          CHANGED_FILES: ${{ steps.changed_files.outputs.filtered_changed_files }}
+          DELETED_FILES: ${{ steps.changed_files.outputs.filtered_deleted_files }}
         run: npm test -- src/content-render/tests/render-changed-and-deleted-files.js

@@ -16,7 +16,7 @@ topics:
 shortTitle: Available for hire
 ---
 
-When you select **Available for hire** and someone uses the REST API to get public and private information about authenticated users, the `hireable` field returns `true`. For more information, see "[AUTOTITLE](/rest/users/users)" in the REST API documentation.
+When you select **Available for hire** and someone uses the REST API to get public and private information about authenticated users, the `hireable` field returns `true`. For more information, see [AUTOTITLE](/rest/users/users) in the REST API documentation.
 
 {% data reusables.user-settings.access_settings %}
 

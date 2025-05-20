@@ -29,10 +29,9 @@ jobs:
       - uses: ./.github/actions/node-npm-setup
 
       - name: Run src/ghes-releases/scripts/update-enterprise-dates.js
-        run: |
-          src/ghes-releases/scripts/update-enterprise-dates.js
+        run: npm run update-enterprise-dates
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Create pull request
         id: create-pull-request
@@ -42,7 +41,7 @@ jobs:
           HUSKY: '0'
         with:
           # need to use a token with repo and workflow scopes for this step
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           commit-message: '🤖 ran src/ghes-releases/scripts/update-enterprise-dates.js'
           title: 🤖 src/ghes-releases/lib/enterprise-dates.json update
           body:
@@ -55,9 +54,9 @@ jobs:
       - name: Enable GitHub auto-merge
         if: ${{ steps.create-pull-request.outputs.pull-request-number }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           AUTOMERGE_PR_NUMBER: ${{ steps.create-pull-request.outputs.pull-request-number }}
-        run: node src/workflows/enable-automerge.js
+        run: npm run enable-automerge
 
       - if: ${{ failure() }}
         name: Delete remote branch (if previous steps failed)

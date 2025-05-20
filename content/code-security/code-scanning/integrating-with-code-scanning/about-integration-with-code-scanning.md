@@ -14,7 +14,7 @@ versions:
   ghec: '*'
 type: overview
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Webhooks
   - Integration
@@ -24,16 +24,16 @@ topics:
 
 {% data reusables.code-scanning.enterprise-enable-code-scanning %}
 
-As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.prodname_dotcom %}, you can perform analysis elsewhere, using the CodeQL CLI or another static analysis tool, and then upload the results. For more information, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)."
+As an alternative to running {% data variables.product.prodname_code_scanning %} within {% data variables.product.prodname_dotcom %}, you can perform analysis elsewhere, using the CodeQL CLI or another static analysis tool, and then upload the results. For more information, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system).
 
 {% data reusables.code-scanning.about-multiple-configurations-link %}
 
 ## Integrations with webhooks
 
-You can use {% data variables.product.prodname_code_scanning %} webhooks to build or configure integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) or [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.product_name %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see "[AUTOTITLE](/webhooks)" and "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert)."
+You can use {% data variables.product.prodname_code_scanning %} webhooks to build or configure integrations, such as [{% data variables.product.prodname_github_apps %}](/apps/creating-github-apps/setting-up-a-github-app) or [{% data variables.product.prodname_oauth_apps %}](/apps/oauth-apps/building-oauth-apps), that subscribe to {% data variables.product.prodname_code_scanning %} events in your repository. For example, you could build an integration that creates an issue on {% data variables.product.github %} or sends you a Slack notification when a new {% data variables.product.prodname_code_scanning %} alert is added in your repository. For more information, see [AUTOTITLE](/webhooks) and [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#code_scanning_alert).
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)"
-* "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)"
-* "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)"
+* [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning)
+* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)
+* [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/sarif-support-for-code-scanning)

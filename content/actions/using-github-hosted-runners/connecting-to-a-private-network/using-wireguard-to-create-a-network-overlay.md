@@ -63,7 +63,7 @@ jobs:
       - run: curl -vvv http://192.168.1.1
 ```
 
-For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" for how to securely store keys.
+For more information, see [WireGuard's Quick Start](https://www.wireguard.com/quickstart/), as well as [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions) for how to securely store keys.
 
 ### Using Tailscale to create a network overlay
 
@@ -73,4 +73,4 @@ Its disadvantages are similar to WireGuard: The connection is one-to-one, so you
 
 However, there are some advantages over WireGuard: NAT traversal is built-in, so you don't need to expose a port to the public internet. It is by far the quickest of these options to get up and running, since Tailscale provides an {% data variables.product.prodname_actions %} workflow with a single step to connect to the overlay network.
 
-For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)" for how to securely store keys.
+For more information, see the [Tailscale GitHub Action](https://github.com/tailscale/github-action), as well as [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions) for how to securely store keys.

@@ -78,12 +78,11 @@ async function main(owner: string, repo: string, baseSHA: string, headSHA: strin
     return ''
   }
 
-  let markdown = '⚠️ 🙀 **You deleted some features** 🙀 ⚠️\n\n'
+  let markdown = '**Please restore deleted features**\n\n'
   markdown +=
-    "Even if you don't reference these features anymore, as of this branch, you should not delete them.\n"
+    "Even if you don't reference these features anymore, as of this branch, please do not delete them.\n"
   markdown += 'They might still be referenced in translated content.\n'
-  markdown +=
-    'The weekly "Delete orphaned features" workflow will worry about cleaning those up.\n\n'
+  markdown += 'The weekly "Delete orphaned features" workflow will clean those up.\n\n'
   markdown += '**To *undo* these removals run this command:**\n\n'
   markdown += `
 \`\`\`sh

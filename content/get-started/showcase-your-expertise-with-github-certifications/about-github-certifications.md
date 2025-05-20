@@ -8,11 +8,8 @@ versions:
 
 {% ifversion ghec %}
 
-{% note %}
-
-**Note:** {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
-
-{% endnote %}
+> [!NOTE]
+> {% data variables.enterprise.prodname_managed_users_caps %} do not have access to the {% data variables.product.prodname_certifications %} program.
 
 {% endif %}
 
@@ -37,9 +34,9 @@ You can certify your proficiency in automating workflows and accelerating develo
 * Automating tasks
 * Optimizing software pipelines
 
-### {% data variables.product.prodname_GH_advanced_security %} Certification
+### {% data variables.product.prodname_GHAS %} Certification
 
-You can highlight your code security knowledge with the {% data variables.product.prodname_GH_advanced_security %} certificate. This exam covers:
+You can highlight your knowledge with the {% data variables.product.prodname_GHAS %} certificate. This exam covers:
 
 * Vulnerability identification
 * Workflow security

@@ -8,7 +8,7 @@ versions:
   feature: code-scanning-autofix
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - AI
@@ -16,13 +16,13 @@ topics:
 
 ## About disabling {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}
 
-{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered is an expansion of {% data variables.product.prodname_code_scanning %} that provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is a {% data variables.product.prodname_copilot %}-powered expansion of {% data variables.product.prodname_code_scanning %}. It provides users with targeted recommendations to help them fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts) so they can avoid introducing new security vulnerabilities. To learn more about {% data variables.product.prodname_copilot_autofix_short %} for {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 {% data reusables.rai.code-scanning.copilot-autofix-note %}
 
 {% data variables.product.prodname_copilot_autofix_short %} is allowed by default and enabled for every repository that uses {% data variables.product.prodname_codeql %}, regardless of whether it uses default or advanced setup for {% data variables.product.prodname_code_scanning %}. Administrators at the enterprise, organization and repository levels can choose to opt out and disable {% data variables.product.prodname_copilot_autofix_short %}.
 
-Note that disabling {% data variables.product.prodname_copilot_autofix_short %} at any level will close all open {% data variables.product.prodname_copilot_autofix_short %} comments. If {% data variables.product.prodname_copilot_autofix_short %} is disabled and then subsequently enabled, {% data variables.product.prodname_copilot_autofix_short %} won't automatically suggest fixes for any pull requests that are already open. The suggestions will only be generated for any pull requests that are opened after {% data variables.product.prodname_copilot_autofix_short %} is enabled, or after re-running {% data variables.product.prodname_codeql %} analysis on existing pull requests.
+Note that disabling {% data variables.product.prodname_copilot_autofix_short %} at any level will close all open {% data variables.product.prodname_copilot_autofix_short %} comments. If {% data variables.product.prodname_copilot_autofix_short %} is disabled and then subsequently enabled, {% data variables.product.prodname_copilot_autofix_short %} won't automatically suggest fixes for any pull requests that are already open. The suggestions will only be generated for any pull requests that are opened after {% data variables.product.prodname_copilot_autofix_short %} is enabled, or after re-running {% data variables.product.prodname_code_scanning %} analysis on existing pull requests.
 
 ## Blocking use of {% data variables.product.prodname_copilot_autofix_short %} for an enterprise
 
@@ -45,10 +45,10 @@ Note that disabling {% data variables.product.prodname_copilot_autofix_short %} 
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Security" section of the sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security** then **Global settings**.
-1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}**.
+{% data reusables.security-configurations.display-global-settings %}
+1. Under the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.
 
-For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see "[AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings)."
+For more information about configuring global {% data variables.product.prodname_code_scanning %} settings, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization#configuring-global-code-scanning-settings).
 
 ## Disabling {% data variables.product.prodname_copilot_autofix_short %} for a repository
 
@@ -56,5 +56,5 @@ If {% data variables.product.prodname_copilot_autofix_short %} is allowed at the
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-{% data reusables.user-settings.security-analysis %}
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}**.
+{% data reusables.repositories.navigate-to-code-security-and-analysis %}
+1. In the "{% data variables.product.UI_code_security_scanning %}" section, deselect **{% data variables.product.prodname_copilot_autofix_short %}** or **{% data variables.product.prodname_copilot_autofix_short %} for third-party tools**.

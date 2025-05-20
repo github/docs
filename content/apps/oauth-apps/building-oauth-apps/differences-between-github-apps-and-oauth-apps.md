@@ -31,9 +31,9 @@ The rate limit for {% data variables.product.prodname_github_apps %} using an in
 
 There is one case where an {% data variables.product.prodname_oauth_app %} is preferred over a {% data variables.product.prodname_github_app %}. If your app needs to access enterprise-level resources such as the enterprise object itself, you should use an {% data variables.product.prodname_oauth_app %} because a {% data variables.product.prodname_github_app %} cannot yet be given permissions against an enterprise. {% data variables.product.prodname_github_apps %} can still access enterprise-owned organization and repository resources.
 
-For more information about {% data variables.product.prodname_github_apps %}, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps)."
+For more information about {% data variables.product.prodname_github_apps %}, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/about-creating-github-apps).
 
-For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps)."
+For more information about migrating an existing {% data variables.product.prodname_oauth_app %} to a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/guides/migrating-oauth-apps-to-github-apps).
 
 ## Who can install GitHub Apps and authorize {% data variables.product.prodname_oauth_apps %}?
 
@@ -43,8 +43,7 @@ You can install GitHub Apps in your personal account or organizations you own. I
 
 By contrast, users authorize {% data variables.product.prodname_oauth_apps %}, which gives the app the ability to act as the authenticated user. For example, you can authorize an {% data variables.product.prodname_oauth_app %} that finds all notifications for the authenticated user. You can always revoke permissions from an {% data variables.product.prodname_oauth_app %}.
 
-{% ifversion limit-app-access-requests %}
-{% data reusables.organizations.restricted-app-access-requests %}{% endif %}
+{% data reusables.organizations.restricted-app-access-requests %}
 
 {% data reusables.apps.deletes_ssh_keys %}
 
@@ -72,20 +71,17 @@ An _authorized_ {% data variables.product.prodname_oauth_app %} has access to al
 
 ## Token-based identification
 
-{% note %}
-
-**Note:** GitHub Apps can also use a user-based token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)."
-
-{% endnote %}
+> [!NOTE]
+> GitHub Apps can also use a user-based token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps).
 
 | GitHub Apps | {% data variables.product.prodname_oauth_apps %} |
 | ----- | ----------- |
 | A GitHub App can request an installation access token by using a private key with a JSON web token format out-of-band. | An {% data variables.product.prodname_oauth_app %} can exchange a request token for an access token after a redirect via a web request. |
 | An installation token identifies the app as the GitHub Apps bot, such as @jenkins-bot. | An access token identifies the app as the user who granted the token to the app, such as @octocat. |
 | Installation access tokens expire after a predefined amount of time (currently 1 hour). | OAuth tokens remain active until they're revoked by the customer. |
-| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits that scale with the number of installations. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps)." | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
+| {% data variables.product.prodname_github_apps %} installed on organizations or repositories are subject to rate limits that scale with the number of installations. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/rate-limits-for-github-apps). | OAuth tokens use the user's rate limit of 5,000 requests per hour. |
 | Rate limit increases can be granted both at the GitHub Apps level (affecting all installations) and at the individual installation level. | Rate limit increases are granted per {% data variables.product.prodname_oauth_app %}. Every token granted to that {% data variables.product.prodname_oauth_app %} gets the increased limit. |
-| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user. The flow to authorize is the same as the {% data variables.product.prodname_oauth_app %} authorization flow. User access tokens can expire and be renewed with a refresh token. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens)" and "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps)." | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used to generate a {% data variables.product.prodname_github_app %} user access token. |
+| {% data variables.product.prodname_github_apps %} can authenticate on behalf of the user. The flow to authorize is the same as the {% data variables.product.prodname_oauth_app %} authorization flow. User access tokens can expire and be renewed with a refresh token. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/refreshing-user-access-tokens) and [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/identifying-and-authorizing-users-for-github-apps). | The OAuth flow used by {% data variables.product.prodname_oauth_apps %} authorizes an {% data variables.product.prodname_oauth_app %} on behalf of the user. This is the same flow used to generate a {% data variables.product.prodname_github_app %} user access token. |
 
 ## Requesting permission levels for resources
 
@@ -124,7 +120,7 @@ Unlike {% data variables.product.prodname_oauth_apps %}, GitHub Apps have target
 
 | GitHub Apps | {% data variables.product.prodname_oauth_apps %} |
 | ----- | ----------- |
-| GitHub Apps ask for repository contents permission and use your installation access token to authenticate via HTTP-based Git. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)"| {% data variables.product.prodname_oauth_apps %} ask for `write:public_key` scope and [Create a deploy key](/rest/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
+| GitHub Apps ask for repository contents permission and use your installation access token to authenticate via HTTP-based Git. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)| {% data variables.product.prodname_oauth_apps %} ask for `write:public_key` scope and [Create a deploy key](/rest/deployments#create-a-deploy-key) via the API. You can then use that key to perform Git commands. |
 | The token is used as the HTTP password. | The token is used as the HTTP username. |
 
 ## Machine vs. bot accounts
@@ -135,5 +131,5 @@ Bot accounts are specific to GitHub Apps and are built into every GitHub App.
 
 | GitHub Apps | {% data variables.product.prodname_oauth_apps %} |
 | ----- | ----------- |
-| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} seat. | A machine user account consumes a {% data variables.product.prodname_enterprise %} seat. |
+| GitHub App bots do not consume a {% data variables.product.prodname_enterprise %} {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}. | A machine user account consumes a {% data variables.product.prodname_enterprise %} {% ifversion enterprise-licensing-language %}license{% else %}seat{% endif %}. |
 | Because a GitHub App bot is never granted a password, a customer can't sign into it directly. | A machine user account is granted a username and password to be managed and secured by the customer. |

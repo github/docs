@@ -2,7 +2,9 @@
 title: Troubleshooting content type
 intro: 'Troubleshooting content includes built-in errors we expect people to encounter, common problems reported to support, and situations people might encounter while completing tasks.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Use troubleshooting sections in guides or procedural articles to keep solutions close to procedures. Work with support and product managers to surface common errors and include them in the documentation.
@@ -28,7 +30,7 @@ Use known issues to explain the following situations.
 * Use any {% data variables.product.prodname_docs %} content type to create troubleshooting sections.
 * Whenever possible, keep troubleshooting content contained within procedural content or guides.
 * You can create a troubleshooting article when it makes sense to keep it separate, such as when there’s a large amount of troubleshooting content on a particular topic.
-* You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example "[AUTOTITLE](/authentication/troubleshooting-ssh)."
+* You can create a troubleshooting map topic if a product or feature has many troubleshooting articles, for example [AUTOTITLE](/authentication/troubleshooting-ssh).
 
 ## Title guidelines for troubleshooting content
 
@@ -38,7 +40,7 @@ Use known issues to explain the following situations.
 
 ## Examples of troubleshooting content
 
-* "[AUTOTITLE](/authentication/troubleshooting-ssh)"
-* "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)"
-* "[Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues)" in the {% data variables.product.prodname_ghe_server %} release notes
-* "[AUTOTITLE](/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)"
+* [AUTOTITLE](/authentication/troubleshooting-ssh)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer#troubleshooting-connectivity-through-a-load-balancer)
+* [Known issues](/enterprise-server@3.7/admin/release-notes#3.7.8-known-issues) in the {% data variables.product.prodname_ghe_server %} release notes
+* [AUTOTITLE](/authentication/troubleshooting-ssh/error-were-doing-an-ssh-key-audit)

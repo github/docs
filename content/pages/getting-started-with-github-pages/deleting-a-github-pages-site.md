@@ -15,10 +15,10 @@ shortTitle: Delete a GitHub Pages site
 ## Deleting your site
 
 You can delete your site in two ways:
-* Delete the repository. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository)."
+* Delete the repository. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/deleting-a-repository).
 * Change the source to the `None` branch. For more information, see [Deleting your site by changing the source](#deleting-your-site-by-changing-the-source) below.
 
-If you want to remove the current deployment of your site but do not want to delete the site, you can unpublish your site. For more information, see "[AUTOTITLE](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site)."
+If you want to remove the current deployment of your site but do not want to delete the site, you can unpublish your site. For more information, see [AUTOTITLE](/pages/getting-started-with-github-pages/unpublishing-a-github-pages-site).
 
 ## Deleting your site by changing the source
 

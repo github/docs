@@ -2,7 +2,7 @@
 title: Granting access to Copilot for members of your organization
 shortTitle: Granting access
 intro: 'Grant access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
-permissions: 'Organization owners for organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}.'
+permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} plan.'
 versions:
   feature: copilot
 redirect_from:
@@ -18,9 +18,9 @@ topics:
 
 ## Configuring access to {% data variables.product.prodname_copilot %} in your organization
 
-{% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.product.prodname_copilot_business_short %} subscription, an organization owner grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
+{% ifversion ghec %}After a {% data variables.product.prodname_dotcom %} enterprise owner enables {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} for an organization, an owner of that organization can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% else %}After setting up a {% data variables.product.prodname_copilot_business_short %} plan, an organization owner can grant {% data variables.product.prodname_copilot %} access to members of their organization.{% endif %}
 
-Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot)."
+Billing for {% data variables.product.prodname_copilot %} starts when you grant an organization member access, irrespective of when they first use {% data variables.product.prodname_copilot_short %}. If you grant an organization member access midway through a billing cycle, the cost is prorated for the remainder of the cycle. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot).
 
 ## Granting access to {% data variables.product.prodname_copilot %} for all current and future users in your organization
 
@@ -28,18 +28,15 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
 1. If the **Allow this organization to assign seats** button is displayed, click this button.
-1. If you see the message "Configure code policies to start adding seats":
-   1. Click **Go to policies**.
-   1. Set any policies that are currently set to "Unconfigured".
-   1. In the left sidebar, click **Access**.
-1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Enabled For: All members of the organization**.
-1. In the "Confirm seats purchase" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Purchase seats**.
+1. Click **Start adding seats**.
+1. To enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, select **Purchase for all members**.
+1. In the "Confirm seats purchase for all members" dialog, to confirm that you want to enable {% data variables.product.prodname_copilot %} for all current and future users in your organization, click **Purchase seats**.
 
 ## Granting access to {% data variables.product.prodname_copilot %} for specific users in your organization
 
 {% ifversion ghec %}
 
-> [!NOTE] You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}.  For more information, see "[AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group)."
+> [!NOTE] You can automatically enable access for every member of a group in your identity provider (IdP) by synchronizing that group with a {% data variables.product.prodname_dotcom %} team, then giving that team access to {% data variables.product.prodname_copilot %}. For more information, see [AUTOTITLE](/organizations/organizing-members-into-teams/synchronizing-a-team-with-an-identity-provider-group).
 
 {% endif %}
 
@@ -47,15 +44,8 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
 1. If the **Allow this organization to assign seats** button is displayed, click this button.
-1. If you see the message "Configure code policies to start adding seats":
-   1. Click **Go to policies**.
-   1. Set any policies that are currently set to "Unconfigured".
-   1. In the left sidebar, click **Access**.
-1. Under {% ifversion ghec %}"{% data variables.product.prodname_copilot_enterprise_short %} is active in your organization" or {% endif %}"{% data variables.product.prodname_copilot_business_short %} is active in your organization," to enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Enabled For: Selected members**.
-1. If you are updating user access from the **Enabled For: All members of the organization** setting, in the "Confirm policy update" dialog, select how you want to start assigning access.
-    * To unassign all members and then select those who should have access, select **Start from scratch**.
-    * To keep all members who currently have access and then select those who should not have access, select **Renew seats**.
-1. Click **Assign {% data variables.product.prodname_copilot_short %} seats**.
+1. Click **Start adding seats**.
+1. To enable {% data variables.product.prodname_copilot %} for selected teams or users in your organization, select **Purchase for selected members**.
 1. In the "Enable Copilot access for users and teams" dialog, click one of the two tabs.
 
    ![Screenshot of the "enable access for selected members" dialog.](/assets/images/help/copilot/enable-access-for-selected-members.png)
@@ -76,11 +66,13 @@ Billing for {% data variables.product.prodname_copilot %} starts when you grant 
 
 ## Using the API to grant access to {% data variables.product.prodname_copilot %}
 
-You can use {% data variables.product.prodname_dotcom %}'s REST API to grant access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. See "[Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization)" and "[Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization)."
+You can use {% data variables.product.prodname_dotcom %}'s REST API to grant access to {% data variables.product.prodname_copilot %} for teams, or specific users, in your organization. See [Add teams to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-teams-to-the-copilot-subscription-for-an-organization) and [Add users to the Copilot subscription for an organization](/rest/copilot/copilot-user-management?apiVersion=2022-11-28#add-users-to-the-copilot-subscription-for-an-organization).
+
+{% data reusables.copilot.self-serve-license-link %}
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)"
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)"
-* "[AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)"
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)

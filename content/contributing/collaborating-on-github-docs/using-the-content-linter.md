@@ -1,8 +1,10 @@
 ---
 title: Using the content linter
-intro: 'You can use content linter to check your contributions for errors.'
+intro: You can use content linter to check your contributions for errors.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About the {% data variables.product.prodname_docs %} content linter
@@ -21,7 +23,7 @@ When you are writing content locally and committing files using the command line
 
 If any errors are reported, your commit will not complete. You will need to fix the reported errors, re-add the changed files, and commit your changes again. Any errors that are reported must be fixed to prevent introducing errors in the content that are in violation of the {% data variables.product.prodname_docs %} style guide. If any warnings are reported, you can optionally choose to fix them or not.
 
-When you are writing content locally, there are several rules that you can fix automatically using the command line. If you want to automatically fix errors that can be fixed, see "[Automatically fix errors that can be fixed](#automatically-fix-errors-that-can-be-fixed)."
+When you are writing content locally, there are several rules that you can fix automatically using the command line. If you want to automatically fix errors that can be fixed, see [Automatically fix errors that can be fixed](#automatically-fix-errors-that-can-be-fixed).
 
 If you are editing a file in the {% data variables.product.prodname_dotcom %} UI, you will not be able to automatically fix errors or run the linter on a commit, but you will get a CI failure if the content violates any rules with a severity of `error`.
 
@@ -139,7 +141,7 @@ Note, if you are placing the expired tags in an HTML `table` element, make sure 
 macOS
 </td>
 <td>
-The <code>macos-11</code> label has been deprecated and will no longer be available after 28 June 2024.
+The <code>macos-11</code> label is {% data variables.release-phases.closing_down %} and will no longer be available after 28 June 2024.
 </td>
 </tr>
 <!-- end expires 2024-06-28 -->

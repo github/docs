@@ -25,17 +25,12 @@ To add your SSH private key to the ssh-agent, you can specify the path to the Ap
 /usr/bin/ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 ```
 
-{% note %}
-
-**Notes:**
-
-* The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In macOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`.
-* {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
-
-{% endnote %}
+> [!NOTE]
+> * The `--apple-use-keychain` option is in Apple's standard version of `ssh-add`. In macOS versions prior to Monterey (12.0), use `-K` instead of `--apple-use-keychain`.
+> * {% data reusables.ssh.add-ssh-key-to-ssh-agent %}
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)"
+* [AUTOTITLE](/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 * [Linux man page for ssh-add](http://man7.org/linux/man-pages/man1/ssh-add.1.html)
 * To view Apple's man page for SSH-ADD, run `man ssh-add` in Terminal

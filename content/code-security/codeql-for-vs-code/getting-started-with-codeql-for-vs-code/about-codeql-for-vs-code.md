@@ -5,8 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+product: '{% data reusables.gated-features.codeql %}'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -17,7 +18,7 @@ redirect_from:
 
 ## About {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %}
 
-You can run {% data variables.product.prodname_codeql %} queries on databases generated from source code, in order to find errors and security vulnerabilities in a codebase. For more information about {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)."
+You can run {% data variables.product.prodname_codeql %} queries on databases generated from source code, in order to find errors and security vulnerabilities in a codebase. For more information about {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql).
 
 With the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, you can:
 
@@ -46,14 +47,14 @@ You can also use the {% data variables.product.prodname_vscode_shortname %} **Fo
 
 ### The {% data variables.product.prodname_vscode_command_palette_shortname %}
 
-You can run commands for the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension from the {% data variables.product.prodname_vscode_command_palette_shortname %}. For more information about the {% data variables.product.prodname_vscode_command_palette_shortname %}, see "[User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette)" in the {% data variables.product.prodname_vscode_shortname %} documentation.
+You can run commands for the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension from the {% data variables.product.prodname_vscode_command_palette_shortname %}. For more information about the {% data variables.product.prodname_vscode_command_palette_shortname %}, see [User Interface](https://code.visualstudio.com/docs/getstarted/userinterface#_command-palette) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
 ## Data and telemetry
 
-If you specifically opt in to permit {% data variables.product.prodname_dotcom %} to do so, {% data variables.product.prodname_dotcom %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code)."
+If you specifically opt in to permit {% data variables.product.prodname_dotcom %} to do so, {% data variables.product.prodname_dotcom %} will collect usage data and metrics for the purposes of helping the core developers to improve the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/telemetry-in-codeql-for-visual-studio-code).
 
 {% data reusables.code-scanning.codeql-license %}
 
 ## Next steps
 
-To learn about how to install the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/installing-codeql-for-vs-code)."
+To learn about how to install the {% data variables.product.prodname_codeql %} for {% data variables.product.prodname_vscode %} extension, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/installing-codeql-for-vs-code).

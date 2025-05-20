@@ -20,6 +20,9 @@ describe('manifest', () => {
   test('download manifest from HTML and check content', async () => {
     const $ = await getDOM('/')
     const url = $('link[rel="manifest"]').attr('href')
+    if (!url) {
+      throw new Error('No manifest URL found')
+    }
     const res = await get(url)
     expect(res.statusCode).toBe(200)
 

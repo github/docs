@@ -54,6 +54,10 @@ npm test -- <TEST_NAME>
 vitest path/to/tests/directory
 ```
 
+## Allowing logging in tests
+
+If you set up a `console.log` in the code and want to see the output, simply append the `--silent false` flag to your test to see console output.
+
 ## Failed Local Tests
 
 If the tests fail locally with an error like this:

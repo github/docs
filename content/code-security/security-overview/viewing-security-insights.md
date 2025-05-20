@@ -2,14 +2,17 @@
 title: Viewing security insights
 shortTitle: View security insights
 intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
-  feature: security-overview-dashboard
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Alerts
   - Organizations
 redirect_from:
@@ -35,9 +38,9 @@ You can view a variety of metrics about the security alerts in your organization
 
 {% ifversion security-overview-3-tab-dashboard %}
 The dashboard is divided into three tabs, each focused around a different security goal:
-* **Detection**: this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
-* **Remediation**: this tab shows metrics about how alerts are resolved and alert activity over time.
-* **Prevention**: this tab shows metrics about how vulnerabilities have been prevented and fixed.
+* **Detection:** this tab shows metrics about the status and age of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}, the secrets that have been blocked or bypassed, and the top repositories and vulnerabilities that pose the highest potential security risk.
+* **Remediation:** this tab shows metrics about how alerts are resolved and alert activity over time.
+* **Prevention:** this tab shows metrics about how vulnerabilities have been prevented and fixed.
 
 >[!NOTE]
 > Unlike the **Detection** and **Remediation** tabs which report alerts on the default branch, the **Prevention** tab gives you insights for {% data variables.product.prodname_codeql %} alerts found in merged pull requests.
@@ -48,17 +51,23 @@ The dashboard is divided into three tabs, each focused around a different securi
 * The "Impact analysis" section shows the repositories that pose the highest potential security risk in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.
 {% endif %}
 
-You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. {% ifversion security-overview-additional-tools %}By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools.{% endif %} For more information, see "[AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview)."
+You can filter the overview dashboard by selecting a specific time period, and apply additional filters to focus on narrower areas of interest. All data and metrics across the dashboard will change as you apply filters. By default, the dashboard displays all alerts from {% data variables.product.prodname_dotcom %} tools, but you can use the tool filter to show alerts from a specific tool ({% data variables.product.prodname_secret_scanning %}, {% data variables.product.prodname_dependabot %}, {% data variables.product.prodname_code_scanning %} using {% data variables.product.prodname_codeql %}, a specific third-party tool) or all third-party {% data variables.product.prodname_code_scanning %} tools. For more information, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
 
-{% ifversion security-overview-export-dashboard-data %}
-You can download a CSV file of the overview dashboard data for your organization. This data file can integrate easily with external datasets, so you may find it useful for security research, data analysis, and more. For more information, see "[AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview)."
+{% ifversion security-overview-export-data %}
+You can download a CSV file of the overview dashboard data for your organization or enterprise. This data file can integrate easily with external datasets, so you may find it useful for security research, data analysis, and more. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview).
 {% endif %}
 
-{% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see "[AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview)."
+{% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview).
+
+{% ifversion secret-risk-assessment %}
+
+> [!TIP] If you're interested in assessing your organization's exposure to secret leaks specifically, you can run a free {% data variables.product.prodname_secret_risk_assessment %} on {% data variables.product.github %}. The resulting report gives you aggregate insights on public leaks, private exposures, and token types, as well as provides you with actionable steps to strengthen your security and protect your code. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).
+
+{% endif %}
 
 ### Limitations
 
-The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. For more information, see "[AUTOTITLE](/code-security/getting-started/auditing-security-alerts)."
+The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
 
 Keep in mind that the overview page tracks changes over time for security alert data only. If you filter the page by non-alert attributes, such as repository status, the data you see will reflect the current state of those attributes, instead of the historical state. For example, consider that you archived a repository that contains open security alerts, an action which closes the alerts. If you then view the overview page for the week before you archived the repository, the alert data for the repository will only appear when you filter to show data from archived repositories, because the current state of the repository is archived. However, the alerts will appear as open, since they were open during that time period and the overview page tracks the historical state of alerts.
 
@@ -68,7 +77,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. The overview page is the primary view that you will see after clicking on the "Security" tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true"  %} Overview**.{% ifversion security-overview-3-tab-dashboard %}
+1. The overview page is the primary view that you will see after clicking on the "Security" tab. To get to the dashboard from another security overview page, in the sidebar, click **{% octicon "graph" aria-hidden="true" %} Overview**.{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}
 
@@ -76,27 +85,28 @@ Keep in mind that the overview page tracks changes over time for security alert 
 
 ## Viewing the security overview dashboard for your enterprise
 
-{% data reusables.security-overview.enterprise-filters-tip %}
-
-{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
+{% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}{% ifversion security-overview-3-tab-dashboard %}
 1. By default, the **Detection** tab is displayed. If you want to switch to another tab to see other metrics, click **Remediation** or **Prevention**.{% endif %}
 {% data reusables.security-overview.filter-and-toggle %}
+
+{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% endif %}
 
 ## Understanding the overview dashboard
 
 {% ifversion security-overview-3-tab-dashboard %}
+<!--Content for FPT, GHEC, and GHES 3.16+ see next HTML comment for GHES =< 3.15-->
 
 * [Detection tab](#detection-tab)
 * [Remediation tab](#remediation-tab)
 * [Prevention tab](#prevention-tab)
-  
+
 Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
 
 >[!NOTE]
-> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security landscape of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce non-security alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security landscape of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce non-security alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ### Detection tab
 
@@ -134,15 +144,17 @@ You can also see how many secrets were successfully blocked, which is calculated
 
 You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected.
 
-For more information on {% data variables.product.prodname_secret_scanning %} push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
+For more information on {% data variables.product.prodname_secret_scanning %} push protection metrics, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
 
 #### Impact analysis table
 
-The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
+The impact analysis table has separate tabs showing data for: "Repositories", "Advisories", and "SAST vulnerabilities".
 
 * The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 
 * The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
+
+* The "SAST vulnerabilities" tab shows the 10 static application security testing (SAST) vulnerabilities that triggered the most {% data variables.product.prodname_code_scanning %} alerts, ranked by the total number of open alerts. For each vulnerability, the total number of open alerts is shown alongside a severity rating.
 
 ### Remediation tab
 
@@ -202,35 +214,32 @@ The "Vulnerabilities fixed in pull requests" metric shows the count of pull requ
 
 #### Pull request alerts fixed with {% data variables.product.prodname_copilot_autofix_short %} suggestions
 
-{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
-The "Pull request alerts fixed with autofix suggestions" metric shows the ratio of accepted {% data variables.product.prodname_copilot_autofix_short %} suggestions to the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions on pull request alerts detected by {% data variables.product.prodname_codeql %}.
+The "Pull request alerts fixed with autofix suggestions" metric shows the ratio of accepted {% data variables.product.prodname_copilot_autofix_short %} suggestions to the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions on pull request alerts detected by {% data variables.product.prodname_code_scanning %}.
 
 {% endif %}
 
 {% else %}
+<!--The remainder of this article has content for the dashboard without Detection, Remediation, and Preventation tabs GHES 3.13-3.15-->
 
 * [Alert trends graph](#alert-trends-graph)
 * [Age of alerts](#age-of-alerts)
 * [Secrets bypassed or blocked](#secrets-bypassed-or-blocked)
 * [Mean time to remediate](#mean-time-to-remediate)
 * [Net resolve rate](#net-resolve-rate)
-* [Alert activity graph](#alert-activity-graph){% ifversion security-overview-additional-tools %}
+* [Alert activity graph](#alert-activity-graph)
 * [Impact analysis table](#impact-analysis-table)
-* [Reopened alerts](#reopened-alerts){% else %}
-* [Impact analysis for repositories](#impact-analysis-for-repositories)
-{% endif %}
+* [Reopened alerts](#reopened-alerts)
 
-{% ifversion security-overview-additional-tools %}
 Some metrics in the security overview dashboard include a trend indicator, which shows the percentage gain or loss for the chosen time period relative to previous period. For example, when you select a week with 10 alerts, if the previous week had 20 alerts, the trend indicator reports that the metric has dropped by 50%. If the average age of the open alerts is 15 days, and for the previous period it was 5 days, the trend indicator reports that the metric has risen by 200%.
-{% endif %}
 
 >[!NOTE]
-> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels)."
+> The number of alerts shown on the security overview dashboard may not match the number of {% data variables.product.prodname_code_scanning %} alerts. The security overview dashboard focuses on the security posture of your organization, and only includes alerts with a security severity ("Critical", "High", "Medium", or "Low"), but {% data variables.product.prodname_codeql %} and third-party tools may separately produce alerts with a level of "Error", "Warning", or "Note". For more information about alert severity and security severity levels in {% data variables.product.prodname_code_scanning %}, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts#about-alert-severity-and-security-severity-levels).
 
 ### Alert trends graph
 
-The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. {% ifversion security-overview-3-13-overview %}By default, alerts{% else %}Alerts{% endif %} are grouped by severity. You can toggle the graph between open and closed alerts{% ifversion security-overview-3-13-overview %} and change the way alerts are grouped{% endif %}.
+The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. By default, alerts are grouped by severity. You can toggle the graph between open and closed alerts and change the way alerts are grouped.
 
 Open alerts include both newly created and existing open security alerts. New alerts are represented on their creation date, while alerts that existed before the chosen time period are represented at the start of the period. Once an alert is remediated or dismissed, it is not included in the graph. Instead, the alert will move to the closed alerts graph.
 
@@ -242,8 +251,6 @@ The "Age of alerts" metric is the average age of all alerts that are still open 
 
 The age of each open alert is calculated by subtracting the date the alert was created from the date that the chosen time period ends. For reopened alerts, the age is calculated by subtracting the original created date rather than the date the alert was reopened.
 
-{% ifversion security-overview-additional-tools %}
-
 ### Reopened alerts
 
 The "Reopened alerts" metric is the total open alerts that were reopened during the chosen time period. Only alerts that are open at the end of the reporting period are reported. This includes:
@@ -252,17 +259,15 @@ The "Reopened alerts" metric is the total open alerts that were reopened during 
 * Newly created alerts that were closed, and then reopened, during the chosen time period.
 * Alerts that were open at the start of the chosen time period, but closed and then reopened within the same period.
 
-{% endif %}
-
 ### Secrets bypassed or blocked
 
 The "Secrets bypassed / blocked" metric shows the ratio of secrets bypassed to the total secrets blocked by push protection.
 
 You can also see how many secrets were successfully blocked, which is calculated by subtracting the number of secrets bypassed from the total number of secrets blocked by push protection. A secret is considered to have been successfully blocked when it has been corrected, and not committed to the repository.
 
-{% ifversion security-overview-additional-tools %}You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected.{% endif %}
+You can click **View details** to view the {% data variables.product.prodname_secret_scanning %} report with the same filters and time period selected.
 
-For more information on secret scanning push protection metrics, see "[AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection)."
+For more information on secret scanning push protection metrics, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
 
 ### Mean time to remediate
 
@@ -284,7 +289,7 @@ Alerts that are reopened and re-closed during the chosen time period are ignored
 
 ### {% data variables.product.prodname_copilot_autofix_short %} suggestions
 
-{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts. For more information, see "[AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-autofix-for-codeql-code-scanning)."
+{% data variables.product.prodname_copilot_autofix %} is an expansion of {% data variables.product.prodname_code_scanning %} that provides you with targeted recommendations to help you fix {% data variables.product.prodname_code_scanning %} alerts (including {% data variables.product.prodname_codeql %} alerts). For more information, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/responsible-use-autofix-code-scanning).
 
 The "{% data variables.product.prodname_copilot_autofix_short %} suggestions" metric is the total number of {% data variables.product.prodname_copilot_autofix_short %} suggestions generated in open and closed pull requests during the chosen time period.
 
@@ -296,8 +301,6 @@ Expanding on the alert trends graph, the alert activity graph shows you alert in
 
 Green bars represent the number of new alerts created during the segmented time period. Purple bars represent the number of alerts that were closed during the segmented time period. The blue dotted line represents the net alert activity, which is the difference between new and closed alerts.
 
-{% ifversion security-overview-additional-tools %}
-
 ### Impact analysis table
 
 The impact analysis table has separate tabs showing data for: "Repositories" and "Advisories".
@@ -305,13 +308,5 @@ The impact analysis table has separate tabs showing data for: "Repositories" and
 * The "Repositories" tab shows the top 10 repositories with the most open alerts at the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
 
 * The "Advisories" tab shows the 10 CVE advisories that triggered the most {% data variables.product.prodname_dependabot %} alerts at the end of the chosen time period, ranked by the total number of open alerts. For each advisory, the total number of open alerts is shown alongside a severity rating.
-
-{% else %}
-
-### Impact analysis for repositories
-
-The impact analysis table shows the top 10 repositories with the most open alerts as of the end of the chosen time period, ranked by the total number of open alerts. For each repository, the total number of open alerts is shown alongside a breakdown by severity.
-
-{% endif %}
 
 {% endif %}

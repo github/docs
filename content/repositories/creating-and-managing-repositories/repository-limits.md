@@ -9,9 +9,9 @@ topics:
   - Repositories
 ---
 
-Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.product_name %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
+Certain types of repository resources can be quite large, requiring excessive processing on {% data variables.product.github %}. Because of this, limits are set to ensure requests complete in a reasonable amount of time.
 
-Most of the limits below affect both {% data variables.product.product_name %} and the API.
+Most of the limits below affect both {% data variables.product.github %} and the API.
 
 ## Text limits
 
@@ -32,8 +32,20 @@ Some portions of a limited diff may be displayed, but anything exceeding the lim
 
 The compare view and pull requests pages display a list of commits between the `base` and `head` revisions. These lists are limited to **250** commits. If they exceed that limit, a note indicates that additional commits are present (but they're not shown).
 
-The maximum count of commits displayed on the Commits tab of {% data variables.product.prodname_dotcom_the_website %} is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
+The maximum count of commits displayed on the Commits tab is **10,000**. Use other tools such as `git rev-list --count mybranch` to count and enumerate a high volume of commits when needed.
 
-## Organization Limits
+{% ifversion fpt or ghec or ghes > 3.16 %}
 
-If a repository owner exceeds **100,000** repositories, some UI experiences and API functionality may be degraded. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership)."
+## Rebase limits
+
+Merging a pull request using the "Rebase and merge" option is limited to **100** commits.  If you have a pull request with more than 100 commits, you need to create a merge commit, squash and merge, or split the commits up into multiple pull requests.
+
+{% endif %}
+
+## Organization and account limits
+
+Organizations and accounts may not exceed **100,000** repositories. When an account surpasses **50,000** repositories, a banner will appear, noting the approaching limit. Additionally, administrators will receive email notifications, and the audit log will update every additional 5,000 repositories created. See [AUTOTITLE](/repositories/creating-and-managing-repositories/about-repositories#about-repository-ownership).
+
+## Integrations and {% data variables.product.prodname_github_apps %}
+
+When building an integration on {% data variables.product.github %}, store user-generated data in their own {% data variables.product.github %} accounts rather than centralizing it in your account. This ensures users retain full control over their work and helps you avoid exceeding repository limits.

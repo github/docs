@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Move the files from an early-access product level docs set into an existing product.
@@ -15,7 +13,7 @@ import { execFileSync } from 'child_process'
 import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import patterns from '#src/frame/lib/patterns.js'
 import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 
 const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
 const contentDir = path.posix.join(process.cwd(), 'content')

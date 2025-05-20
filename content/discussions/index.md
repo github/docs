@@ -5,11 +5,11 @@ intro: '{% data variables.product.prodname_discussions %} is a collaborative com
 introLinks:
   quickstart: /discussions/quickstart
 redirect_from:
-  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/about-team-discussions
-  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/creating-a-team-discussion
-  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion
-  - /enterprise-cloud@latest/organizations/collaborating-with-your-team/pinning-a-team-discussion
-  - /enterprise-cloud@latest/organizations/collaborating-with-your-team
+  - /organizations/collaborating-with-your-team/about-team-discussions
+  - /organizations/collaborating-with-your-team/creating-a-team-discussion
+  - /organizations/collaborating-with-your-team/editing-or-deleting-a-team-discussion
+  - /organizations/collaborating-with-your-team/pinning-a-team-discussion
+  - /organizations/collaborating-with-your-team
 featuredLinks:
   startHere:
     - /discussions/collaborating-with-your-community-using-discussions/about-discussions
@@ -32,7 +32,9 @@ changelog:
 examples_source: data/product-examples/discussions/community-examples.yml
 layout: product-landing
 versions:
-  feature: discussions
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
 communityRedirect:
   name: Provide GitHub Feedback
   href: 'https://github.com/orgs/community/discussions/categories/discussions'

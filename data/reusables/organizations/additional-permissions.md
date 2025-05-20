@@ -1,5 +1,3 @@
-{% ifversion discussions %}
-
 ### Discussions
 
 * Create a discussion category
@@ -9,8 +7,7 @@
 * Hide or unhide discussion comments
 * Convert issues to discussions
 
-For more information, see "[AUTOTITLE](/discussions)."
-{% endif %}
+For more information, see [AUTOTITLE](/discussions).
 
 ### Issue and Pull Requests
 
@@ -36,7 +33,7 @@ For more information, see "[AUTOTITLE](/discussions)."
 * Manage wiki settings
 * Manage project settings
 * Manage pull request merging settings
-* Manage {% data variables.product.prodname_pages %} settings (see "[AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)")
+* Manage {% data variables.product.prodname_pages %} settings (see [AUTOTITLE](/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site))
 * Manage webhooks
 * Manage deploy keys
 * Edit repository metadata
@@ -50,9 +47,7 @@ For more information, see "[AUTOTITLE](/discussions)."
 * Create protected tags
 * Delete protected tags
 * Bypass branch protections
-{%- ifversion edit-repository-rules %}
 * Edit repository rules
-{%- endif %}
 
 ### Security
 

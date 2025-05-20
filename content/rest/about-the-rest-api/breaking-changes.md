@@ -14,7 +14,7 @@ redirect_from:
 
 {% data reusables.rest-api.about-api-versions %}
 
-For more information about API versions, see "[AUTOTITLE](/rest/overview/api-versions)."
+For more information about API versions, see [AUTOTITLE](/rest/overview/api-versions).
 
 ## Upgrading to a new API version
 
@@ -26,4 +26,4 @@ Once your integration is updated, test your integration to verify that it works 
 
 ## Breaking changes for {{ initialRestVersioningReleaseDate }}
 
-Version `{{ initialRestVersioningReleaseDate }}` is the first version of the {% data variables.product.product_name %} REST API after date-based versioning was introduced. This version does not include any breaking changes.
+Version `{{ initialRestVersioningReleaseDate }}` is the first version of the {% data variables.product.github %} REST API after date-based versioning was introduced. This version does not include any breaking changes.

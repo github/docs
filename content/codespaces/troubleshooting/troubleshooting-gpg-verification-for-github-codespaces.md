@@ -10,7 +10,7 @@ topics:
   - Codespaces
 ---
 
-If you enable GPG verification, {% data variables.product.prodname_github_codespaces %} automatically signs your commits in codespaces that you create from selected repositories. For more information, see "[AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces)."
+If you enable GPG verification, {% data variables.product.prodname_github_codespaces %} automatically signs your commits in codespaces that you create from selected repositories. For more information, see [AUTOTITLE](/codespaces/managing-your-codespaces/managing-gpg-verification-for-github-codespaces).
 
 {% data reusables.codespaces.gpg-in-active-codespaces %}
 
@@ -18,9 +18,9 @@ If {% data variables.product.prodname_github_codespaces %} fails to sign a commi
 
 The following sections of this article provide troubleshooting advice for common causes of this error.
 
-* If GPG verification has previously been enabled in your settings for {% data variables.product.prodname_github_codespaces %}, and you have recently disabled GPG verification or removed a repository from your list of trusted repositories, Git may still be trying to sign your commits. For more information, see "[Errors after disabling GPG verification](#errors-after-disabling-gpg-verification)."
-* If GPG verification is enabled for the codespace, you may have overridden the Git configuration required to sign your commits. For more information, see "[Errors caused by conflicting Git configuration](#errors-caused-by-conflicting-git-configuration)."
-* If GPG verification is disabled for the codespace, and you're encountering the error when trying to commit from the "Source Control" view in {% data variables.product.prodname_vscode_shortname %}, this may be because of your {% data variables.product.prodname_vscode_shortname %} settings. For more information, see "[Errors in the {% data variables.product.prodname_vscode_shortname %} "Source Control" view](#errors-in-the-vs-code-source-control-view)."
+* If GPG verification has previously been enabled in your settings for {% data variables.product.prodname_github_codespaces %}, and you have recently disabled GPG verification or removed a repository from your list of trusted repositories, Git may still be trying to sign your commits. For more information, see [Errors after disabling GPG verification](#errors-after-disabling-gpg-verification).
+* If GPG verification is enabled for the codespace, you may have overridden the Git configuration required to sign your commits. For more information, see [Errors caused by conflicting Git configuration](#errors-caused-by-conflicting-git-configuration).
+* If GPG verification is disabled for the codespace, and you're encountering the error when trying to commit from the "Source Control" view in {% data variables.product.prodname_vscode_shortname %}, this may be because of your {% data variables.product.prodname_vscode_shortname %} settings. For more information, see [Errors in the {% data variables.product.prodname_vscode_shortname %} "Source Control" view](#errors-in-the-vs-code-source-control-view).
 
 ## Errors after disabling GPG verification
 
@@ -40,7 +40,7 @@ To check that the value has been correctly removed from your configuration, you 
 
 To automatically sign your commits, {% data variables.product.prodname_github_codespaces %} sets certain Git configuration values in your codespace. If you override the values set by {% data variables.product.prodname_github_codespaces %}, you may be unable to sign your commits.
 
-You may be inadvertently overriding these values if you have linked {% data variables.product.prodname_github_codespaces %} with a dotfiles repository that contains Git configuration files. For more information about using dotfiles with {% data variables.product.prodname_github_codespaces %}, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles)."
+You may be inadvertently overriding these values if you have linked {% data variables.product.prodname_github_codespaces %} with a dotfiles repository that contains Git configuration files. For more information about using dotfiles with {% data variables.product.prodname_github_codespaces %}, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#dotfiles).
 
 ### Checking for conflicting configuration
 
@@ -73,11 +73,8 @@ If you want to keep automatic GPG verification for {% data variables.product.pro
 
 For example, if the global `.gitconfig` file on your local machine contains a `gpg.program` value, and you have pushed this file to a dotfiles repository that is linked with {% data variables.product.prodname_github_codespaces %}, then you may want to remove `gpg.program` from this file and set it at the system level on your local machine instead.
 
-{% note %}
-
-**Note:** Any changes to your dotfiles repository will apply to new codespaces you create, but not to your existing codespaces.
-
-{% endnote %}
+> [!NOTE]
+> Any changes to your dotfiles repository will apply to new codespaces you create, but not to your existing codespaces.
 
 1. On your local machine, open a terminal.
 1. To remove the conflicting value from `~/.gitconfig` (Mac/Linux) or `C:\Users\YOUR-USER\.gitconfig` (Windows), use the `git config --global --unset` command.
@@ -114,13 +111,13 @@ If GPG verification is disabled in your settings for {% data variables.product.p
 1. On the "User" tab, in the search bar, search for "gpg".
 1. Verify that the "Enables commit signing with GPG or X.509" setting is deselected.
 
-   ![Screenshot of the "User" settings tab. A deselected checkbox, labeled "Enables commit signing with GPG or X.509," is highlighted with an orange outline.](/assets/images/help/codespaces/gpg-vscode-setting.png)
+   ![Screenshot of the "User" settings tab. A deselected checkbox, labeled "Enables commit signing with GPG or X.509," is outlined in orange.](/assets/images/help/codespaces/gpg-vscode-setting.png)
 
 If you find this setting is enabled, you should either deselect the checkbox to stop {% data variables.product.prodname_vscode_shortname %} trying to sign your commits, or you should enable GPG verification for the repository you're working in so your commits can be signed successfully.
 
-If you change your {% data variables.product.prodname_vscode_shortname %} settings, you must ensure Settings Sync is enabled if you want to share your changes with other codespaces you create. You should only turn on Settings Sync in a codespace created from a repository you trust. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync)."
+If you change your {% data variables.product.prodname_vscode_shortname %} settings, you must ensure Settings Sync is enabled if you want to share your changes with other codespaces you create. You should only turn on Settings Sync in a codespace created from a repository you trust. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/personalizing-github-codespaces-for-your-account#settings-sync).
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)
 * [`git config`](https://git-scm.com/docs/git-config) in the official Git documentation

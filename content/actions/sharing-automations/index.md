@@ -20,7 +20,6 @@ children:
   - /sharing-actions-and-workflows-from-your-private-repository
   - /sharing-actions-and-workflows-with-your-organization
   - /sharing-actions-and-workflows-with-your-enterprise
-  - /required-workflows
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}

@@ -39,11 +39,7 @@ When they follow the link, they're asked to approve the keys on their account. A
 
 ## Adding an SSH key
 
-{% ifversion ghes %}
-
-When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.product_name %} will prompt for authentication. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode)."
-
-{% endif %}
+When a new user adds an SSH key to an account, to confirm the user's access, {% data variables.product.prodname_ghe_server %} will prompt for authentication. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/sudo-mode).
 
 When a user adds a key, they'll receive a notification email that will look something like this:
 

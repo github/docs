@@ -14,16 +14,16 @@ topics:
   - Legal
 ---
 
-Version Effective Date: August 1, 2024
+Version Effective Date: April 1, 2025
 
 When you use GitHub, you may be given access to lots of additional products and features ("Additional Products and Features"). Because many of the Additional Products and Features offer different functionality, your Agreement with us (the "Agreement") includes the specific terms for that product or feature combined with your main agreement — the GitHub Terms of Service or GitHub Customer Agreement, or the GitHub Corporate Terms of Service or other legacy GitHub contract, or a Microsoft volume licensing agreement. Below, we've listed those products and features, along with the corresponding additional terms that apply to your use of them.
 
 By using the Additional Products and Features, you also agree to the applicable GitHub Terms for Additional Products and Features listed below. A violation of these GitHub Terms for Additional Products and Features is a violation of the Agreement. Capitalized terms not defined here have the meaning given in the Agreement.
 
 **For Enterprise users**
-* **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Codespaces, Dependabot Preview, GitHub Enterprise Importer, Packages, and Pages.
+* **GitHub Enterprise Cloud** users may have access to the following Additional Products and Features: Actions, Advanced Security (including Code Security and Secret Protection), Advisory Database, Codespaces, Dependabot, GitHub Enterprise Importer, Packages, and Pages.
 
-* **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security, Advisory Database, Connect, Dependabot Preview, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
+* **GitHub Enterprise Server** users may have access to the following Additional Products and Features: Actions, Advanced Security (including Code Security and Secret Protection), Advisory Database, Connect, Dependabot, GitHub Enterprise Importer, Packages, Pages, and SQL Server Images.
 
 ## Actions
 
@@ -56,11 +56,11 @@ If you use self-hosted runners, you have the ability to turn off automatic updat
 
 ## Advanced Security
 
-GitHub makes extra security features available to customers under an Advanced Security license. These features include code scanning, secret scanning, and dependency review. The [Advanced Security documentation](/get-started/learning-about-github/about-github-advanced-security) provides more details.
+GitHub makes extra security features available to customers under Advanced Security licenses. From April 1, 2025, features that were previously only available under a single GitHub Advanced Security license will be alternatively available under two separate licenses: GitHub Code Security (code scanning and dependency scanning features) and GitHub Secret Protection (secret scanning features).  The [Advanced Security documentation](/get-started/learning-about-github/about-github-advanced-security) provides more details.
 
-Advanced Security is licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire a GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security on codebases that are developed by or for you. For GitHub Enterprise Cloud users, some Advanced Security features also require the use of GitHub Actions.
+Advanced Security features are licensed on a "Unique Committer" basis. A "Unique Committer" is a licensed user of GitHub Team, GitHub Enterprise, GitHub Enterprise Cloud, or GitHub Enterprise Server, who has made a commit in the last 90 days to any repository with any GitHub Advanced Security functionality activated. You must acquire an appropriate GitHub Advanced Security User license for each of your Unique Committers. You may only use GitHub Advanced Security features on codebases that are developed by or for you. For GitHub Team and GitHub Enterprise Cloud users, some Advanced Security features may also require the use of GitHub Actions.
 
-For secret scanning with GitHub Advanced Security, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
+For secret scanning with GitHub Advanced Security or GitHub Secret Protection, when you opt-in to automatic validity checks for partner patterns, exposed third-party tokens may be shared with the relevant partner, in order to provide you with more information about the validity of the token. Not all partners are based in the United States. The [Secret scanning patterns documentation](/enterprise-cloud@latest/code-security/secret-scanning/introduction/supported-secret-scanning-patterns) provides more details on which partners support the validity check.
 
 ## Advisory Database
 
@@ -101,19 +101,24 @@ With GitHub Connect, you can share certain features and data between your GitHub
 
 ## GitHub Copilot
 
-For GitHub Copilot Business and Copilot Enterprise users, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
+For GitHub Copilot Business and Copilot Enterprise license holders, your use of GitHub Copilot is governed by the [GitHub Copilot Product Specific Terms](https://github.com/customer-terms/github-copilot-product-specific-terms).
 
-To use GitHub Copilot in your code editor, you need to install the GitHub Copilot extension to that editor. To use GitHub Copilot in the CLI (Command Line Interface), you need to install the GitHub Copilot CLI extension. To use GitHub Copilot Chat on GitHub Mobile, you need to install the GitHub Mobile application. The code you write using GitHub Copilot (“**Your Code**”) is not “Content” under the Agreement until you upload it to GitHub.com.
+For other GitHub Copilot license holders, your use of GitHub Copilot is governed by the following terms:
+To use GitHub Copilot in your code editor, you need to install the GitHub Copilot extension to that editor. To use GitHub Copilot in the CLI (Command Line Interface), you need to install the GitHub Copilot CLI extension. To use GitHub Copilot Chat on GitHub Mobile, you need to install the GitHub Mobile application. To use GitHub Copilot on the GitHub.com, you must access the website.
 
-The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not own Suggestions. You retain ownership of Your Code and you retain responsibility for Suggestions you include in Your Code.
+If you customize GitHub Copilot, to include using a GitHub Copilot Extension (Extension), your use may be subject to the terms of use and privacy policy applicable to the customization.
+
+The code you write using GitHub Copilot is not “Content” under the Agreement until you upload it to GitHub.com. The code, functions, and other output returned to you by GitHub Copilot are called “**Suggestions**.” GitHub does not own Suggestions. You retain ownership of Your Code and you retain responsibility for Suggestions you include in Your Code. It is entirely your decision whether to use Suggestions generated by GitHub Copilot. If you use Suggestions, GitHub strongly recommends that you have reasonable policies and practices in place designed to prevent the use of a Suggestion in a way that may violate the rights of others.
 
 _Acceptable Use_
 
-Your use of GitHub Copilot is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com.
+Your use of GitHub Copilot is subject to the GitHub [Acceptable Use Policies](/site-policy/acceptable-use-policies/github-acceptable-use-policies). For example, you may not prompt GitHub Copilot with content that is unlawful or otherwise prohibited by the GitHub Acceptable Use Policies on GitHub.com. If you choose to "Allow" Copilot to provide [Suggestions matching public code](/enterprise-cloud@latest/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions?tool=vscode), you must comply with cited licenses.
 
 _Data_
 
-GitHub Copilot (i) may, depending on your settings and which GitHub Copilot Service you use, collect snippets of Your Code, and (ii) will collect additional usage information through the GitHub Copilot Service you use tied to your Account. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot Trust Center](https://resources.github.com/copilot-trust-center/).
+GitHub Copilot (i) may collect and process data based on your settings and the specific GitHub Copilot Service you use - this may include Prompts, Suggestions, and code snippets, and (ii) will collect additional usage information through the GitHub Copilot Service you use tied to your Account - this may include Service Usage Information, Website Usage Data, and Feedback Data. Upon your instructions, we may share this data with third-party applications such as those on the [GitHub Marketplace](https://github.com/marketplace) or third-party AI models of your choosing. This may include personal data, as referenced in the [GitHub Privacy Statement](/site-policy/privacy-policies/github-privacy-statement). You can learn more about the collection and use of GitHub Copilot data in the [GitHub Copilot Trust Center](https://copilot.github.trust.page/).
+
+For GitHub Copilot Free users, the data collected by GitHub Copilot may be used for AI Model training where permitted and if you allow in your settings.
 
 ## GitHub Enterprise Importer
 

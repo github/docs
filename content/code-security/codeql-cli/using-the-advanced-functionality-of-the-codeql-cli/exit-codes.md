@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -28,7 +28,7 @@ Success, normal termination.
 
 The command successfully determined that the answer to your question is "no".
 
-This exit code is only used by a few commands, such as "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run)", "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/dataset-check)", "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-format)",and "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-extractor)."
+This exit code is only used by a few commands, such as [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/test-run), [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/dataset-check), [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/query-format),and [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/resolve-extractor).
 For more details, see the documentation for those commands.
 
 ## 2
@@ -46,7 +46,7 @@ In this case, the launcher can’t start the Java code for the {% data variables
 
 ## 32
 
-The extractor didn’t find any code to analyze when running "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create)" or "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-finalize)."
+The extractor didn’t find any code to analyze when running [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-create) or [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-finalize).
 
 ## 33
 

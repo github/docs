@@ -1,7 +1,7 @@
 ---
 title: Enterprise administrator documentation
 shortTitle: Enterprise administrators
-intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.product_name %}.'
+intro: 'Documentation and guides for enterprise administrators{% ifversion ghes %}, system administrators,{% endif %} and security specialists who {% ifversion ghes %}deploy, {% endif %}configure{% ifversion ghes %},{% endif %} and manage {% data variables.product.prodname_enterprise %}.'
 redirect_from:
   - /github/setting-up-and-managing-your-enterprise/managing-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise
@@ -91,7 +91,7 @@ featuredLinks:
     - '{% ifversion ghec %}/admin/configuring-settings/configuring-user-applications-for-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise{% endif %}'
     - /admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/about-the-audit-log-for-your-enterprise
     - '{% ifversion ghec %}/admin/monitoring-activity-in-your-enterprise/exploring-user-activity-in-your-enterprise/managing-global-webhooks{% endif %}'
-    - '{% ifversion ghec %}/billing/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise{% endif %}'
+    - '{% ifversion ghec %}/billing/managing-billing-for-your-products/managing-licenses-for-visual-studio-subscriptions-with-github-enterprise/setting-up-visual-studio-subscriptions-with-github-enterprise{% endif %}'
     - /support/learning-about-github-support/about-github-support
     - /admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities
 layout: product-landing
@@ -100,6 +100,7 @@ versions:
   ghes: '*'
 children:
   - /overview
+  - /data-residency
   - /managing-your-enterprise-account
   - /installing-your-enterprise-server
   - /configuring-settings
@@ -119,3 +120,4 @@ children:
   - /release-notes
   - /all-releases
 ---
+

@@ -5,14 +5,16 @@ intro: 'You can interpret security findings and manage your security enablement 
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 children:
-  - /interpreting-security-findings-on-a-repository
+  - /interpreting-security-findings
   - /filtering-repositories-in-your-organization-using-the-repository-table
   - /editing-a-custom-security-configuration
   - /managing-your-github-advanced-security-license-usage
   - /detaching-repositories-from-their-security-configurations
+  - /finding-repositories-with-attachment-failures
   - /deleting-a-custom-security-configuration
 ---

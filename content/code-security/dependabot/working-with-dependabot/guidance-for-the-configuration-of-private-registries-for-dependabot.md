@@ -1,6 +1,7 @@
 ---
 title: Guidance for the configuration of private registries for Dependabot
 intro: 'This article contains detailed information about configuring private registries, as well as commands you can run from the command line to configure your package managers locally.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 versions:
   fpt: '*'
   ghec: '*'
@@ -27,14 +28,18 @@ This article contains recommendations and advice to help you configure {% data v
 
 You'll find detailed guidance for the setup of the following package managers:
 
+{% ifversion dependabot-bun-support %}
+* [Bun](#bun){% endif %}
 * [Bundler](#bundler){% ifversion dependabot-updates-cargo-private-registry-support %}
 * [Cargo](#cargo){% endif %}
-* [Docker](#docker)
-* [Gradle](#gradle)
+* [Docker](#docker){% ifversion dependabot-docker-compose-support %}
+* [Docker Compose](#docker-compose){% endif %}
+* [Gradle](#gradle){% ifversion dependabot-helm-support %}
+* [Helm Charts](#helm-charts){% endif %}
 * [Maven](#maven)
 * [npm](#npm)
-* [Nuget](#nuget){% ifversion dependabot-updates-pub-private-registry %}
-* [pub](#pub){% endif %}
+* [NuGet](#nuget)
+* [pub](#pub)
 * [Python](#python)
 * [Yarn](#yarn)
 
@@ -42,6 +47,7 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 * [Artifactory](#artifactory)
 * [Azure Artifacts](#azure-artifacts)
+* [Cloudsmith](#cloudsmith)
 * [{% data variables.product.prodname_registry %} registry](#github-packages-registry)
 * [Nexus](#nexus)
 * [ProGet](#proget)
@@ -50,17 +56,25 @@ You'll also find recommendations for the setup of the following registry hosts:
 
 ## Configuring package managers
 
+{% ifversion dependabot-bun-support %}
+
+### Bun
+
+Bun adheres to the same configuration guidelines as npm. Note that the `.npmrc` file is not required, but can be provided in order to customize the configuration. For detailed steps, see [npm](#npm).
+
+{% endif %}
+
 ### Bundler
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rubygems-server)."
+You can authenticate with either a username and password, or a token. For more information, see `rubygems-server` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#rubygems-server).
 
 Snippet of a `dependabot.yml` file using a username and password.
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   ruby-example:
     type: rubygems-server
@@ -75,7 +89,7 @@ The snippet of `dependabot.yml` file below uses a token. {% data reusables.depen
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   ruby-github:
     type: rubygems-server
@@ -93,7 +107,7 @@ registries:
 
 ### Cargo
 
-Cargo supports username, password  and token-based authentication. For more information, see `cargo-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#cargo-registry)."
+Cargo supports username, password and token-based authentication. For more information, see `cargo-registry` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#cargo-registry).
 
 The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
@@ -103,13 +117,13 @@ The snippet below shows a `dependabot.yml` file configuration that uses a token.
 
 ### Docker
 
-Docker supports using a username and password for registries. For more information, see `docker-registry` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#docker-registry)."
+Docker supports using a username and password for registries. For more information, see `docker-registry` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#docker-registry).
 
 Snippet of `dependabot.yml` file using a username and password.
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   dockerhub:
     type: docker-registry
@@ -124,7 +138,7 @@ registries:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   ecr-docker:
     type: docker-registry
@@ -145,20 +159,68 @@ registries:
 
 * Image names may not always be detected in Containerfiles, Helm files, or yaml files.
 * Dockerfiles may only receive a version update to the first `FROM` directive.
-* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see "[{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920)" in the `dependabot/dependabot-core` repository.
-* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see "[Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640)" in the `dependabot/dependabot-core` repository.
+* Dockerfiles do not receive updates to images specified with the `ARG` directive. There is a workaround available for the `COPY` directive. For more information, see [{% data variables.product.prodname_dependabot %} ignores image references in COPY Dockerfile statement](https://github.com/dependabot/dependabot-core/issues/5103#issuecomment-1692420920) in the `dependabot/dependabot-core` repository.
+* {% data variables.product.prodname_dependabot %} doesn't support multi-stage Docker builds. For more information, see [Support for Docker multi-stage builds](https://github.com/dependabot/dependabot-core/issues/7640) in the `dependabot/dependabot-core` repository.
+
+{% ifversion dependabot-docker-compose-support %}
+
+### Docker Compose
+
+Docker Compose adheres to the same configuration guidelines as Docker. For more information, see [Docker](#docker).
+
+{% endif %}
+
+{% ifversion dependabot-helm-support %}
+
+### Helm Charts
+
+Helm supports using a username and password for registries. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#helm-registry).
+
+Snippet of `dependabot.yml` file using a username and password.
+
+{% raw %}
+
+```yaml copy
+registries:
+  helm_registry:
+    type: helm-registry
+    url: https://registry.example.com
+    username: octocat
+    password: ${{secrets.MY_REGISTRY_PASSWORD}}
+```
+
+{% endraw %}
+
+#### Notes
+
+{% data variables.product.prodname_dependabot %} works with any OCI-compliant registries that implement the Open Container Initiative (OCI) Distribution Specification. For more information, see [Helm Registry Login](https://helm.sh/docs/helm/helm_registry_login/) in the Helm docs.
+
+{% data variables.product.prodname_dependabot %} supports authentication to private registries via a central token service or HTTP Basic Auth. For more information, see [Token Authentication Specification](https://docs.docker.com/registry/spec/auth/token/) in the Docker documentation and [Basic access authentication](https://en.wikipedia.org/wiki/Basic_access_authentication) on Wikipedia.
+
+When configuring Dependabot for Helm charts, it will also automatically update the Docker images referenced within those charts, ensuring that both the chart versions and their contained images stay up to date.
+
+#### Limitations and workarounds
+
+* {% data variables.product.prodname_dependabot %} only updates dependencies in `Chart.yaml` files.
+* Images in `values.yaml` files and `Chart.yaml` files are updated.
+* Helm dependency updates are first attempted via the Helm CLI, with fallback to searching `index.yaml`.
+* Images that have an array of versions in the YAML cannot be updated.
+* Image names may not always be detected in Helm files or YAML files.
+* For Helm v2 updates, use the [Docker ecosystem](#docker).
+
+{% endif %}
 
 ### Gradle
 
-{% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to certain Gradle files. For more information, see "Gradle" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#gradle)."
+{% data variables.product.prodname_dependabot %} doesn't run Gradle but supports updates to certain Gradle files. For more information, see "Gradle" in [AUTOTITLE](/code-security/dependabot/ecosystems-supported-by-dependabot/supported-ecosystems-and-repositories#gradle).
 
-Gradle supports the `maven-repository` registry type. For more information, see `maven-repository` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Gradle supports the `maven-repository` registry type. For more information, see `maven-repository` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#maven-repository).
 
 The `maven-repository` type supports username and password. {% data reusables.dependabot.password-definition %}
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   gradle-artifactory:
     type: maven-repository
@@ -182,11 +244,11 @@ updates:
 
 ### Maven
 
-Maven supports username and password authentication. For more information, see `maven-repository` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#maven-repository)."
+Maven supports username and password authentication. For more information, see `maven-repository` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#maven-repository).
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   maven-artifactory:
     type: maven-repository
@@ -201,7 +263,7 @@ registries:
 
 {% raw %}
 
-```yaml
+```yaml copy
 version: 2
 registries:
   maven-github:
@@ -230,13 +292,13 @@ You can define the configuration in the `dependabot.yml` file using the `npm-reg
 
 #### Using the `npm-registry` type in the configuration file
 
-You can define the private registry configuration in a `dependabot.yml` file using the `npm-registry` type. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+You can define the private registry configuration in a `dependabot.yml` file using the `npm-registry` type. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#npm-registry).
 
 The snippet of a `dependabot.yml` file below uses a token. {% data reusables.dependabot.token-is-github-pat %}
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   npm-github:
     type: npm-registry
@@ -311,25 +373,25 @@ If you use a monorepo, the `.npmrc` file should live in the project's root direc
 
 You can configure {% data variables.product.prodname_dependabot %} to send all registry requests through a specified base URL. In order for {% data variables.product.prodname_dependabot %} to access a public dependency, the registry must either have a cloned copy of the dependency with the requested version, or allow traffic to fetch from a public registry if the dependency is not available.
 
-If there is no global registry defined in a `.npmrc` file, you can set `replaces-base` to `true` in the `dependabot.yml` file. For more information, see "`replaces-base`" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#configuration-options-for-private-registries)."
+If there is no global registry defined in a `.npmrc` file, you can set `replaces-base` to `true` in the `dependabot.yml` file. For more information, see "`replaces-base`" in [Top-level `registries` key](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 #### Notes
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc file`. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.npmrc` file. To define private registries for individual scopes, use `@myscope:registry=https://private_registry_url`.
 
 Registries should be configured using the `https` protocol.
 
-### Nuget
+### NuGet
 
-Supported by Artifactory, Artifacts, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
+Supported by Artifactory, Artifacts, Cloudsmith, {% data variables.product.prodname_registry %} registry, Nexus, and ProGet.
 
-The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#nuget-feed)."
+The `nuget-feed` type supports username and password, or token. For more information, see `nuget-feed` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#nuget-feed).
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   nuget-example:
     type: nuget-feed
@@ -342,7 +404,7 @@ registries:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   nuget-azure-devops:
     type: nuget-feed
@@ -359,7 +421,7 @@ You can also use a token in your `dependabot.yml` file. {% data reusables.depend
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   nuget-azure-devops:
     type: nuget-feed
@@ -369,15 +431,13 @@ registries:
 
 {% endraw %}
 
-{% ifversion dependabot-updates-pub-private-registry %}
-
 ### pub
 
-You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#pub-repository)."
+You can define the private registry configuration in a `dependabot.yml` file using the `pub-repository` type. For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#pub-repository).
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   my-pub-registry:
     type: pub-repository
@@ -402,17 +462,15 @@ pub supports URL and token authentication. The URL used for the registry should 
 
 {% data variables.product.prodname_dependabot %} doesn't support overrides to the default package registry. For more information about overrides and why some users may implement them, see [Overriding the default package repository](https://dart.dev/tools/pub/custom-package-repositories#default-override) in the Dart documentation.
 
-{% endif %}
-
 ### Python
 
-Supported by Artifactory, Azure Artifacts, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
+Supported by Artifactory, Azure Artifacts, Cloudsmith, Nexus, and ProGet. The {% data variables.product.prodname_registry %} registry is not supported.
 
-The `python-index` type supports username and password, or token. For more information, see `python-index` in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#python-index)."
+The `python-index` type supports username and password, or token. For more information, see `python-index` in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#python-index).
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   python-example:
     type: python-index
@@ -425,7 +483,7 @@ registries:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   python-azure:
     type: python-index
@@ -437,7 +495,7 @@ registries:
 {% endraw %}
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   python-gemfury:
     type: python-index
@@ -455,11 +513,11 @@ registries:
 
 ### Yarn
 
-The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#npm-registry)."
+The Yarn registry uses a configuration similar to that of the npm registry. For more information, see "`npm-registry`" in [AUTOTITLE](/code-security/dependabot/working-with-dependabot/configuring-access-to-private-registries-for-dependabot#npm-registry).
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   yarn-github:
     type: npm-registry
@@ -479,7 +537,7 @@ You can either specify the private registry configuration in the `dependabot.yml
 
 ##### Defining the private registry configuration in the `dependabot.yml` file
 
-You can define the private registry configuration in your `dependabot.yml` file. For more information, see "Configuration options for private registries" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 To ensure that the private registry is listed as the dependency source in the project's `yarn.lock` file, you need to run `yarn install` on a machine with private registry access. Yarn should update the resolved field to include the private registry URL.
 
@@ -516,7 +574,7 @@ As with Yarn Classic, you can either specify the private registry configuration 
 
 ##### Defining the private registry configuration in the `dependabot.yml` file
 
-You can define the private registry configuration in your `dependabot.yml` file. For more information, see "Configuration options for private registries" in "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file)."
+You can define the private registry configuration in your `dependabot.yml` file. For more information, see [Top-level `registries` key](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#top-level-registries-key).
 
 To ensure the private registry is listed as the dependency source in the project's `yarn.lock` file, run `yarn install` on a machine with private registry access. Yarn should update the resolved field to include the private registry URL.
 
@@ -573,7 +631,7 @@ If the `yarn.lock` file doesn't list the private registry as the dependency sour
 
 {% data reusables.dependabot.access-private-dependencies-link %}
 
-For scoped dependencies (`@my-org/my-dep`),  {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc file`. To define private registries for individual scopes, use `@myscope:registry" "https://private_registry_url"`.
+For scoped dependencies (`@my-org/my-dep`), {% data variables.product.prodname_dependabot %} requires that the private registry is defined in the project's `.yarnrc file`. To define private registries for individual scopes, use `@myscope:registry" "https://private_registry_url"`.
 
 ## Configuring private registry hosts
 
@@ -591,23 +649,15 @@ If you use the `replace-base` setting, you should also configure a remote reposi
 
 You can use a virtual registry to group together all private and public dependencies under a single domain. For more information, see [npm Registry](https://jfrog.com/help/r/jfrog-artifactory-documentation/npm-registry) in the JFrog Artifactory documentation.
 
-{% ifversion dependabot-updates-reference-private-registries %}{% else %}
-
-#### Limitations and workarounds
-
-The `target branch` setting does not work with {% data variables.product.prodname_dependabot_security_updates %}
- on Artifactory. If you get a 401 authentication error, you need to remove the `target-branch` property from your `dependabot.yml` file. For more information, see [ARTIFACTORY: Why GitHub Dependabot security updates are failing with 401 Authentication error, when it initiates a connection with Artifactory npm private registry for security updates](https://jfrog.com/help/r/artifactory-why-github-dependabot-security-updates-are-failing-with-401-authentication-error-when-it-initiates-a-connection-with-artifactory-npm-private-registry-for-security-updates/issue-description) in the JFrog Artifactory documentation.
-{% endif %}
-
 ### Azure Artifacts
 
-For information about Azure Artifacts and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with  Azure Artifacts, see [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/artifacts/?view=azure-devops) in the Azure Artifacts documentation, and [Use Dependabot in GitHub with Azure Artifacts](https://josh-ops.com/posts/github-dependabot-with-azure-artifacts/), respectively.
+For information about Azure Artifacts and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Azure Artifacts, see [Azure DevOps](https://learn.microsoft.com/en-us/azure/devops/artifacts/?view=azure-devops) in the Azure Artifacts documentation, and [Use Dependabot in GitHub with Azure Artifacts](https://josh-ops.com/posts/github-dependabot-with-azure-artifacts/), respectively.
 
 Example of Azure Artifacts registry:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   nuget-azure-devops:
     type: nuget-feed
@@ -621,9 +671,13 @@ The Azure Artifacts password must be an unencoded token and should include a `:`
 
 You can check whether the private registry is successfully accessed by looking at the {% data variables.product.prodname_dependabot %} logs.
 
+### Cloudsmith
+
+For information about Cloudsmith and instructions on how to configure {% data variables.product.prodname_dependabot %} to work with Cloudsmith, see [Getting Started with Cloudsmith](https://help.cloudsmith.io/docs/welcome-to-cloudsmith-docs) and [Integrate {% data variables.product.company_short %} {% data variables.product.prodname_dependabot %} with Cloudsmith](https://help.cloudsmith.io/docs/dependabot) in the Cloudsmith documentation.
+
 ### {% data variables.product.prodname_registry %} registry
 
-For information about {% data variables.product.prodname_registry %} registries, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry)." From that article, you can access pages describing how to configure the following registries.
+For information about {% data variables.product.prodname_registry %} registries, see [AUTOTITLE](/packages/working-with-a-github-packages-registry). From that article, you can access pages describing how to configure the following registries.
 
 * Bundler (rubygems)
 * Docker (containers)
@@ -636,7 +690,7 @@ For information about {% data variables.product.prodname_registry %} registries,
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   github:
     type: npm-registry
@@ -664,7 +718,7 @@ Example of Nexus registry:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   npm-nexus:
     type: npm-registry
@@ -677,14 +731,14 @@ registries:
 If you are running Nexus behind a reverse proxy, you need to ensure that the server is accessible using an Auth token by using `curl -v -H 'Authorization: Bearer <token>' 'https://<nexus-repo-url>/repository/<repo-name>/@<scope>%2<package>'`. For more information, see [Run Behind a Reverse Proxy](https://help.sonatype.com/repomanager3/planning-your-implementation/run-behind-a-reverse-proxy) in the Sonatype documentation.
 
 If you are restricting which IPs can reach your Nexus host, you need to add the {% data variables.product.prodname_dependabot %} IPs to the allowlist.
-  * You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see "[AUTOTITLE](/rest/meta)."
+  * You can find the IP addresses {% data variables.product.prodname_dependabot %} uses to access the registry in the meta API endpoint, under the dependabot key. For more information, see [AUTOTITLE](/rest/meta).
   * These are the current IPs:
       * "18.213.123.130/32"
       * "3.217.79.163/32"
       * "3.217.93.44/32"
 For more information, see [Securing Nexus Repository Manager](https://help.sonatype.com/repomanager3/planning-your-implementation/securing-nexus-repository-manager) in the Sonatype documentation.
 
-  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see "[Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm)" in the Sonatype documentation, and "[AUTOTITLE](/code-security/dependabot/working-with-dependabot/removing-dependabot-access-to-public-registries)."
+  Registries can be proxied to reach out to a public registry in case a dependency is not available in the private registry. However, you may want {% data variables.product.prodname_dependabot %} to only access the private registry and not access the public registry at all. For more information, see [Quick Start Guide - Proxying Maven and NPM](https://help.sonatype.com/repomanager3/planning-your-implementation/quick-start-guide---proxying-maven-and-npm) in the Sonatype documentation, and [AUTOTITLE](/code-security/dependabot/maintain-dependencies/removing-dependabot-access-to-public-registries).
 
 ### ProGet
 
@@ -694,7 +748,7 @@ Example of ProGet registry configuration for a NuGet feed:
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   proget-nuget-feed:
     type: nuget-feed
@@ -708,7 +762,7 @@ Example of ProGet registry configuration for Bundler (rubygems):
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   proget-gems-feed:
     type: rubygems-server
@@ -722,7 +776,7 @@ Example of ProGet registry configuration for Python (PyPI):
 
 {% raw %}
 
-```yaml
+```yaml copy
 registries:
   proget-python-feed:
     type: python-index

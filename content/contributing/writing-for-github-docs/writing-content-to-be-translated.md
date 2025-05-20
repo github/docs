@@ -1,14 +1,16 @@
 ---
 title: Writing content to be translated
 shortTitle: Write content to be translated
-intro: 'Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.'
+intro: Our documentation is translated into multiple languages. How we approach writing the English language documentation can greatly improve the quality of those translations.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About writing content that is translation-friendly
 
-Use the following guidelines to ensure the content you create can be successfully translated. For more information, see "[Style guide](/contributing/style-guide-and-content-model/style-guide)."
+Use the following guidelines to ensure the content you create can be successfully translated. For more information, see [Style guide](/contributing/style-guide-and-content-model/style-guide).
 
 * Use examples that are generic and can be understood by most people.
 * Avoid examples that are controversial or culturally specific to a group.
@@ -72,5 +74,5 @@ Read [more about OAuth2.](/apps/building-integrations/setting-up-and-registering
 You can use this instead:
 
 ```markdown
-OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see "[Setting up and registering OAuth Apps](apps/building-integrations/setting-up-and-registering-oauth-apps/)" and "[Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization)."
+OAuth2 tokens can be acquired programmatically for applications that are not websites. For more information, see [AUTOTITLE](apps/building-integrations/setting-up-and-registering-oauth-apps/) and [Create a new authorization](/rest/reference/oauth-authorizations/#create-a-new-authorization).
 ```

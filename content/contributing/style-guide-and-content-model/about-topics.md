@@ -1,12 +1,14 @@
 ---
 title: About topics
 shortTitle: About topics
-intro: 'Use topics to make articles searchable.'
+intro: Use topics to make articles searchable.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
-Topics are used to filter articles and are searchable across the {% data variables.product.prodname_docs %} site. For some layouts, such as landing pages or guides, people can select which articles are displayed by filtering topics. Also, an article can be defined as being relevant to one or more topics by having those topics listed in the article's frontmatter. For example:
+An article can be defined as being relevant to one or more topics by having those topics listed in the article's frontmatter. For example:
 
 ```yaml
 ---
@@ -18,11 +20,10 @@ topics:
 ---
 ```
 
-For more information on adding topics to an article see, "[AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#topics)". For a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
+For more information on adding topics to an article see, [AUTOTITLE](/contributing/writing-for-github-docs/using-yaml-frontmatter#topics). For a list of all allowed topics, see [`allowed-topics`](https://github.com/github/docs/blob/main/data/allowed-topics.js).
 
 ## Topics for all content types
 
-* All articles should have at least one topic
 * Use nouns as topics
 * Topics help people meaningfully group content
   * When possible, use more specific topics that are relevant and not just broad topics. For example, `REST` or `GraphQL` rather than just `API`
@@ -35,7 +36,7 @@ For more information on adding topics to an article see, "[AUTOTITLE](/contribut
   * Avoid: `Actions` in an article like "Introduction to {% data variables.product.prodname_actions %}"
 * Commonly-recognized abbreviations can be used, but obscure or ambiguous abbreviations should be avoided
   * Use: `CI` instead of `Continuous integration`
-  * Avoid: `AS` instead of `Advanced Security`
+  * Avoid: `CS` instead of `{% data variables.product.prodname_code_scanning_caps %}`
 * Use the short forms of {% data variables.product.prodname_dotcom %} product names
   * Use: `Actions` instead of `GitHub Actions`
 
@@ -48,7 +49,7 @@ Consider these questions to help choose topics for an article. Not every article
    Is the article about a sub-feature (unless the product name matches the feature name)?
   * Example: `Dependabot`
 * Is the feature part of a restricted program?
-  * Example: `Advanced Security`
+  * Examples: `{% data variables.product.prodname_copilot_short %}`
 * What element of the feature or product is the article?
   * Example: `Organizations`
 * What is the broad purpose of the article?

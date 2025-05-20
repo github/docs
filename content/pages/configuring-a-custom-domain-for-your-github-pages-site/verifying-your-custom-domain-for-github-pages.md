@@ -20,13 +20,16 @@ When you verify a domain, any immediate subdomains are also included in the veri
 
 {% data reusables.pages.wildcard-dns-warning %}
 
-It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %},  allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see "[AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %}" and "[AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}."
+It's also possible to verify a domain for your organization{% ifversion ghec %} or enterprise{% endif %}, which displays a "Verified" badge on the organization {% ifversion ghec %}or enterprise{% endif %} profile{% ifversion ghec %} and, on {% data variables.product.prodname_ghe_cloud %}, allows you to restrict notifications to email addresses using the verified domain{% endif %}. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/verifying-or-approving-a-domain-for-your-organization){% ifversion ghec %} and [AUTOTITLE](/enterprise-cloud@latest/admin/configuration/configuring-your-enterprise/verifying-or-approving-a-domain-for-your-enterprise){% endif %}.
 
 ### Verifying a domain that is already taken
 
 You may be verifying a domain you own, which is currently in use by another user or organization, to make it available for your {% data variables.product.prodname_pages %} website. In this case, the domain will be immediately released from {% data variables.product.prodname_pages %} websites which are owned by other users or organizations. If you are attempting to verify an already verified domain (verified by another user or organization), the release process will not be successful.
 
 ## Verifying a domain for your user site
+
+> [!NOTE]
+> If you don’t see the options described below, make sure you’re in your **Profile settings**, not your repository settings. Domain verification happens at the profile level.
 
 {% data reusables.user-settings.access_settings %}
 1. In the "Code, planning, and automation" section of the sidebar, click **{% octicon "browser" aria-hidden="true" %} Pages**.
@@ -42,6 +45,9 @@ You may be verifying a domain you own, which is currently in use by another user
 ## Verifying a domain for your organization site
 
 Organization owners can verify custom domains for their organization.
+
+> [!NOTE]
+> If you don’t see the options described below, check that you’re in your **Organization settings**. Domain verification doesn’t take place in repository settings.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

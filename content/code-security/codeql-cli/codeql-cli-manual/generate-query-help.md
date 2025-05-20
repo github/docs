@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -24,7 +24,7 @@ redirect_from:
 ## Synopsis
 
 ```shell copy
-codeql generate query-help --format=<format> [--output=<dir|file>] <options>... -- <qhelp|query|dir|suite>...
+codeql generate query-help --format=<format> [--output=<dir|file>] <options>... -- <qhelp|mdhelp|query|dir|suite>...
 ```
 
 ## Description
@@ -35,14 +35,15 @@ Generate end-user query help from .qhelp files.
 
 ### Primary Options
 
-#### `<qhelpdir|suite>...`
+#### `<qhelp|mdhelp|query|dir|suite>...`
 
 \[Mandatory] Query help files to render. Each argument is one of:
 
 * A .qhelp file to render.
-* A .ql file with a corresponding .qhelp file to render.
+* A .md file to render.
+* A .ql file with a corresponding .qhelp or .md file to render.
 * A directory that will be searched recursively for .ql files with
-  corresponding .qhelp files.
+  corresponding .qhelp or .md files.
 * A .qls file that defines a particular set of queries.
 * The basename of a "well-known" .qls file exported by one of the
   installed QL packs.

@@ -1,7 +1,7 @@
 ---
 title: Editing a repository security advisory
 intro: You can edit the metadata and description for a repository security advisory if you need to update details or correct errors.
-permissions: Anyone with admin permissions to a repository security advisory, or with a security manager role within the repository, can edit the security advisory.
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/editing-a-security-advisory
   - /code-security/security-advisories/editing-a-security-advisory
@@ -22,7 +22,7 @@ shortTitle: Edit repository advisories
 ## Editing a security advisory
 
 {% ifversion repository-security-advisories-API %}
-You can also use the REST API to edit repository security advisories. For more information, see "[AUTOTITLE](/rest/security-advisories/repository-advisories)".
+You can also use the REST API to edit repository security advisories. For more information, see [AUTOTITLE](/rest/security-advisories/repository-advisories).
 {% endif %}
 
 {% data reusables.repositories.navigate-to-repo %}
@@ -37,7 +37,7 @@ You can also use the REST API to edit repository security advisories. For more i
 {% data reusables.repositories.security-advisory-edit-cwe %}
 1. Optionally, under "Credits", remove existing credits, or use the search box to find additional people you want to credit on the security advisory, then click their username to add them.
 {% ifversion security-advisories-credit-types %}
-   * Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories)."
+   * Use the dropdown menu next to the name of the person you're crediting to assign a credit type. For more information about credit types, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/creating-a-repository-security-advisory#about-credits-for-repository-security-advisories).
 
      ![Screenshot of a draft security advisory. A dropdown menu, labeled "Choose a credit type," is highlighted with an orange outline.](/assets/images/help/security/security-advisories-choose-credit-type.png)
 
@@ -48,4 +48,4 @@ You can also use the REST API to edit repository security advisories. For more i
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)"
+* [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/deleting-a-repository-security-advisory)

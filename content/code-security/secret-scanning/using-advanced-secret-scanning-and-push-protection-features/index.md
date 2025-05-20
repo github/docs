@@ -10,12 +10,12 @@ versions:
   ghec: '*'
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /excluding-folders-and-files-from-secret-scanning
   - /non-provider-patterns
-  - /generic-secret-detection
   - /custom-patterns
   - /delegated-bypass-for-push-protection
+  - /enabling-delegated-alert-dismissal-for-secret-scanning
 ---

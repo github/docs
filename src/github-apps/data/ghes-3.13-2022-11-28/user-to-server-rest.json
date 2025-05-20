@@ -861,12 +861,6 @@
       "requestPath": "/networks/{owner}/{repo}/events"
     },
     {
-      "slug": "list-notifications-for-the-authenticated-user",
-      "subcategory": "notifications",
-      "verb": "get",
-      "requestPath": "/notifications"
-    },
-    {
       "slug": "list-public-organization-events",
       "subcategory": "events",
       "verb": "get",
@@ -2541,7 +2535,7 @@
       "requestPath": "/organizations"
     },
     {
-      "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+      "slug": "closing-down---list-custom-repository-roles-in-an-organization",
       "subcategory": "custom-roles",
       "verb": "get",
       "requestPath": "/organizations/{organization_id}/custom_roles"
@@ -3673,7 +3667,7 @@
       "requestPath": "/repos/{owner}/{repo}/autolinks/{autolink_id}"
     },
     {
-      "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+      "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
       "subcategory": "repos",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/automated-security-fixes"
@@ -3877,19 +3871,19 @@
       "requestPath": "/repos/{owner}/{repo}/tags"
     },
     {
-      "slug": "deprecated---list-tag-protection-states-for-a-repository",
+      "slug": "closing-down---list-tag-protection-states-for-a-repository",
       "subcategory": "tags",
       "verb": "get",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "post",
       "requestPath": "/repos/{owner}/{repo}/tags/protection"
     },
     {
-      "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+      "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
       "subcategory": "tags",
       "verb": "delete",
       "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}"
@@ -4111,6 +4105,30 @@
       "subcategory": "external-groups",
       "verb": "delete",
       "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups"
+    },
+    {
+      "slug": "list-team-projects",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects"
+    },
+    {
+      "slug": "check-team-permissions-for-a-project",
+      "subcategory": "teams",
+      "verb": "get",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "add-or-update-team-project-permissions",
+      "subcategory": "teams",
+      "verb": "put",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
+    },
+    {
+      "slug": "remove-a-project-from-a-team",
+      "subcategory": "teams",
+      "verb": "delete",
+      "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}"
     },
     {
       "slug": "get-team-member-legacy",

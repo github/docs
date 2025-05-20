@@ -1,6 +1,6 @@
 ---
 title: Configuring email for notifications
-intro: 'To make it easy for users to respond quickly to activity on {% data variables.product.product_name %}, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
+intro: 'To make it easy for users to respond quickly to activity, you can configure {% data variables.location.product_location %} to send email notifications for issue, pull request, and commit comments.'
 redirect_from:
   - /enterprise/admin/guides/installation/email-configuration
   - /enterprise/admin/articles/configuring-email
@@ -25,8 +25,8 @@ shortTitle: Configure email notifications
 ## Configuring SMTP for your enterprise
 
 {% data reusables.enterprise_site_admin_settings.email-settings %}
-1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in "[Configuring DNS and firewall
-settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+1. Select **Enable email**. This will enable both outbound and inbound email. However, for inbound email to work you will also need to configure your DNS settings as described below in [Configuring DNS and firewall
+settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails).
 1. Type the settings for your SMTP server.
       * In the **Server address** field, type the address of your SMTP server.
       * In the **Port** field, type the port that your SMTP server uses to send email.
@@ -45,17 +45,12 @@ settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-all
 1. Under "Send test email to," type an address to send the test email to.
 1. Click **Send test email**.
 
-   {% tip %}
-
-   **Tip:** If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
-
-   {% endtip %}
+   > [!TIP]
+   > If SMTP errors occur while sending a test email—such as an immediate delivery failure or an outgoing mail configuration error—you will see them in the Test email settings dialog box.
 
 1. If the test email fails, [troubleshoot your email settings](#troubleshooting-email-delivery).
 1. When the test email succeeds, under the "Settings" sidebar, click **Save settings**.
 {% data reusables.enterprise_site_admin_settings.wait-for-configuration-run %}
-
-{% ifversion require-tls-for-smtp %}
 
 ## Enforcing TLS for SMTP connections
 
@@ -66,7 +61,6 @@ You can enforce TLS encryption for all incoming SMTP connections, which can help
 
    ![Screenshot of the "Email" section of the Management Console. A checkbox, labeled "Enforce TLS auth (recommended)", is outlined in dark orange.](/assets/images/enterprise/configuration/enforce-tls-for-smtp-checkbox.png)
 {% data reusables.enterprise_management_console.save-settings %}
-{% endif %}
 
 ## Configuring DNS and firewall settings to allow incoming emails
 
@@ -75,7 +69,7 @@ If you want to allow email replies to notifications, you must configure your DNS
 1. Ensure that port 25 on the instance is accessible to your SMTP server.
 1. Create an A record that points to `reply.[hostname]`. Depending on your DNS provider and instance host configuration, you may be able to instead create a single A record that points to `*.[hostname]`.
 1. Create an MX record that points to `reply.[hostname]` so that emails to that domain are routed to the instance.
-1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see "[AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications)."
+1. Create an MX record that points `noreply.[hostname]` to `[hostname]` so that replies to the `cc` address in notification emails are routed to the instance. For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications).
 
 ## Troubleshooting email delivery
 
@@ -152,7 +146,7 @@ You'll notice that `metroplex` catches the inbound message, processes it, then m
 
 ### Verify your DNS settings
 
-In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see "[Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails)."
+In order to properly process inbound emails, you must configure a valid A Record (or CNAME), as well as an MX Record. For more information, see [Configuring DNS and firewall settings to allow incoming emails](#configuring-dns-and-firewall-settings-to-allow-incoming-emails).
 
 ### Check firewall or AWS security group settings
 

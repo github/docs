@@ -2,7 +2,9 @@
 title: Managing the push policy for your repository
 intro: You can limit how many branches and tags can be updated in a single push.
 versions:
-  feature: limit-branches-tags-in-push
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 permissions: People with admin permissions for a repository can manage the push policy for the repository.
 topics:
   - Repositories
@@ -11,11 +13,8 @@ shortTitle: Manage the push policy
 
 ## About the push policy
 
-{% note %}
-
-**Note:** The push policy is currently in beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> The push policy is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 By default, there is no limit to the number of branches and tags that can be updated in a single push.
 

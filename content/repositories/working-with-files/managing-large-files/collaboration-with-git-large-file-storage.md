@@ -14,15 +14,12 @@ shortTitle: Collaboration
 ---
 If collaborators on your repository don't have {% data variables.large_files.product_name_short %} installed, they won't have access to the original large file. If they attempt to clone your repository, they will only fetch the pointer files, and won't have access to any of the actual data.
 
-{% tip %}
-
-**Tip:** To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or [Google Drive](https://drive.google.com). For more information, see "[AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors)."
-
-{% endtip %}
+> [!TIP]
+> To help users without {% data variables.large_files.product_name_short %} enabled, we recommend you set guidelines for repository contributors that describe how to work with large files. For example, you may ask contributors not to modify large files, or to upload changes to a file sharing service like [Dropbox](http://www.dropbox.com/) or [Google Drive](https://drive.google.com). For more information, see [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors).
 
 ## Viewing large files in pull requests
 
-{% data variables.product.product_name %} does not render some {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown, with contents similar to the following:
+{% data variables.product.github %} does not render some {% data variables.large_files.product_name_short %} objects in pull requests. Only the pointer file is shown, with contents similar to the following:
 
 ```text
 +version https://git-lfs.github.com/spec/vi
@@ -30,9 +27,9 @@ If collaborators on your repository don't have {% data variables.large_files.pro
 +size 17330
 ```
 
-For more information about pointer files, see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format)."
+For more information about pointer files, see [AUTOTITLE](/repositories/working-with-files/managing-large-files/about-git-large-file-storage#pointer-file-format).
 
-To view changes made to large files, check out the pull request locally to review the diff. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally)."
+To view changes made to large files, check out the pull request locally to review the diff. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/checking-out-pull-requests-locally).
 
 {% ifversion fpt or ghec %}
 
@@ -46,4 +43,4 @@ You can push {% data variables.large_files.product_name_short %} objects to publ
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)"
+* [AUTOTITLE](/repositories/creating-and-managing-repositories/duplicating-a-repository#mirroring-a-repository-that-contains-git-large-file-storage-objects)

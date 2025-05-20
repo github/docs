@@ -16,11 +16,9 @@ topics:
   - Networking
 shortTitle: Set the IP using the console
 ---
-{% note %}
 
-**Note:** We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
-
-{% endnote %}
+> [!NOTE]
+> We do not support adding additional network adapters to {% data variables.product.prodname_ghe_server %}.
 
 {% data reusables.enterprise_installation.open-vm-console-start %}
 1. Choose to configure the `IPv4` or `IPv6` protocol.

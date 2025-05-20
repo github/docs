@@ -16,7 +16,7 @@ topics:
 shortTitle: Verify your email address
 ---
 
-## About email verification{% ifversion ghec %} for personal accounts{% endif %}
+## About email verification for personal accounts
 
 You can verify your email address after signing up for a new account, or when you add a new email address. If an email address is undeliverable or bouncing, it will be unverified.
 
@@ -34,24 +34,27 @@ If you do not verify your email address, you will not be able to:
 * Sponsor developers with {% data variables.product.prodname_sponsors %}
 * Accept organization invitations
 
-{% warning %}
+> [!WARNING]
+> * {% data reusables.user-settings.no-verification-disposable-emails %}
+> * {% data reusables.user-settings.verify-org-approved-email-domain %}
 
-**Warnings**:
+## About email verification for {% data variables.enterprise.prodname_managed_users %}
 
-* {% data reusables.user-settings.no-verification-disposable-emails %}
-* {% data reusables.user-settings.verify-org-approved-email-domain %}
+For Enterprise Managed Users (EMUs), email addresses are no longer automatically verified. This prevents unauthorized access and potential data leaks from third-party {% data variables.product.prodname_github_apps %} and OAuth applications that rely on email addresses as a primary identifier.
 
-{% endwarning %}
+>[!NOTE] If you are a member of an {% data variables.enterprise.prodname_emu_enterprise %} and your account was created after August 1st, 2024, your email address is unverified by default.
 
-{% ifversion ghec %}
+Having an unverified email address does not affect most actions you can take on {% data variables.product.prodname_dotcom %}. However, we **recommend email verification** to prevent potential exploitation of third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %} which may not have followed our best practices around secure authentication methods for apps (see [AUTOTITLE](/apps/oauth-apps/building-oauth-apps/best-practices-for-creating-an-oauth-app) and [AUTOTITLE](/apps/creating-github-apps/about-creating-github-apps/best-practices-for-creating-a-github-app)).
 
-## About email verification{% ifversion ghec %} for {% data variables.enterprise.prodname_managed_users %}{% endif %}
+Until you verify your email address, your account will use a placeholder email address with your enterprise's shortcode appended for certain operations. For example, the [AUTOTITLE](/rest/users/users) and [AUTOTITLE](/rest/users/emails) will return `email+shortcode@domain.com`. In rare cases, you may find that your company's email provider does not handle the placeholder email correctly, or that the placeholder prevents you from accessing some third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
 
-If you are a member of an {% data variables.enterprise.prodname_emu_enterprise %}, your email address is considered unverified if it is used as a verified email by another account on {% data variables.product.prodname_dotcom %}. To verify the email, you will need to unverify the email address for the other account, then verify it for your {% data variables.enterprise.prodname_managed_user %}. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)."
+You cannot verify an email address for your {% data variables.enterprise.prodname_managed_user %} if the email address is already verified by another account on {% data variables.product.prodname_dotcom_the_website %}. To verify the email, you will need to unverify the email address on the conflicting account, then verify it for your {% data variables.enterprise.prodname_managed_user %}. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
-Having an unverified email address does not affect most actions you can take on {% data variables.product.prodname_dotcom %}. However, it may prevent you from accessing some third-party {% data variables.product.prodname_github_apps %} and {% data variables.product.prodname_oauth_apps %}.
+Once you verify an email with a {% data variables.enterprise.prodname_managed_user %}, you won't be able to use the email to sign up for a personal account on {% data variables.product.prodname_dotcom_the_website %}.
 
-{% endif %}
+>[!NOTE] If you need to use the same email address for both your {% data variables.enterprise.prodname_managed_user %} and another {% data variables.product.github %} account (for example, for innersource, open source, or other valid use cases), you must sign in to your managed user account and unverify the email in your account settings.
+>
+> The email will still be linked to your managed user account, so you can continue signing in through your organization's or enterprise's identity provider (IdP). However, because the email is unverified, it may affect your access to third-party applications that identify users based solely on email address.
 
 ## Verifying your email address
 
@@ -70,25 +73,21 @@ Having an unverified email address does not affect most actions you can take on 
 
 ### Error page after clicking verification link
 
-The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address)."
+The verification link expires after 24 hours. If you don't verify your email within 24 hours, you can request another email verification link. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address#verifying-your-email-address).
 
-If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.location.product_location %}.
+If you click on the link in the confirmation email within 24 hours and you are directed to an error page, you should ensure that you're signed into the correct account on {% data variables.product.github %}.
 
-1. Sign out of your personal account on {% data variables.location.product_location %}.
+1. Sign out of your account.
 1. Quit and restart your browser.
-1. Sign in to your personal account on {% data variables.location.product_location %}.
+1. Sign in to your account.
 1. Click on the verification link in the email we sent you.
-
-{% ifversion ghec %}
 
 ### Email is already verified by another user
 
 If you see the error message `Error adding EMAIL: Email is already verified by another user`, you must either unverify the email for the other account before proceeding, or choose a different email address to verify.
 
-To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)."
-
-{% endif %}
+To unverify an email address, delete it in your email settings, then optionally re-add it without verifying to keep any commits linked to your account. See [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address).
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/changing-your-primary-email-address)

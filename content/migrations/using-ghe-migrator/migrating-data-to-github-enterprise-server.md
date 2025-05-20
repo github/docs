@@ -60,7 +60,7 @@ shortTitle: Migrate data
    scp -P 122 admin@HOSTNAME:conflicts.csv ~/Desktop
    ```
 
-1. Continue to "[Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings)".
+1. Continue to [Resolving migration conflicts or setting up custom mappings](#resolving-migration-conflicts-or-setting-up-custom-mappings).
 
 ## Reviewing migration conflicts
 
@@ -75,7 +75,9 @@ The _conflicts.csv_ file contains a _migration map_ of conflicts and recommended
 | `organization` | `https://example-gh.source/octo-org` | `https://example-gh.target/octo-org` | `map` |
 | `repository`   | `https://example-gh.source/octo-org/widgets` | `https://example-gh.target/octo-org/widgets` | `rename` |
 | `team`         | `https://example-gh.source/orgs/octo-org/teams/admins` | `https://example-gh.target/orgs/octo-org/teams/admins` | `merge` |
+| {% ifversion projects-v1 %} |
 | `project` | `https://example-gh.source/octo-org/widgets/projects/1` | `https://example-gh.target/octo-org/projects/1` | `merge` |
+| {% endif %} |
 
 Each row in _conflicts.csv_ provides the following information:
 
@@ -93,10 +95,22 @@ There are several different mapping actions that `ghe-migrator` can take when tr
 | `action`      | Description | Applicable models |
 |------------------------|-------------|-------------------|
 | `import`      | (default) Data from the source is imported to the target. | All record types
+| {% ifversion projects-v1 %} |
 | `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations, projects
+| {% else %} |
+| `map`         | Instead of creating a new model based on the source data, an existing record in the target is used. Useful for importing a repository into an existing organization or mapping user identities in the target to user identities in the source.  | Users, organizations
+| {% endif %} |
+| {% ifversion projects-v1 %} |
 | `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories, projects
+| {% else %} |
+| `rename`      | Data from the source is renamed, then copied over to the target. | Users, organizations, repositories
+| {% endif %} |
 | `map_or_rename` | If the target exists, map to that target. Otherwise, rename the imported model. | Users
+| {% ifversion projects-v1 %} |
 | `merge`       | Data from the source is combined with existing data on the target. | Teams, projects
+| {% else %} |
+| `merge`       | Data from the source is combined with existing data on the target. | Teams
+| {% endif %} |
 
 **We strongly suggest you review the _conflicts.csv_ file and use `ghe-migrator audit` to ensure that the proper actions are being taken.** If everything looks good, you can continue.
 
@@ -155,18 +169,18 @@ The same process can be used to create mappings for each record that supports cu
 1. Re-map the migration data using the `ghe-migrator map` command, passing in the path to your modified _.csv_ file and the Migration GUID:
 
    ```shell
-   ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID
+   ghe-migrator map -i conflicts.csv -g MIGRATION-GUID
    ```
 
-1. If the `ghe-migrator map -i conflicts.csv  -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
+1. If the `ghe-migrator map -i conflicts.csv -g MIGRATION-GUID` command reports that conflicts still exist, run through the migration conflict resolution process again.
 
 ## Applying the imported data on {% data variables.product.prodname_ghe_server %}
 
 {% data reusables.enterprise_installation.ssh-into-target-instance %}
 
 1. Using the `ghe-migrator import` command, start the import process. You'll need:
-   * Your Migration GUID. For more information, see "[Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data)."
-   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope{% ifversion pat-v2 %} or permissions{% endif %}. For more information, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)."
+   * Your Migration GUID. For more information, see [Preparing the migrated data for import to {% data variables.product.prodname_ghe_server %}](#preparing-the-migrated-data).
+   * Your {% data variables.product.pat_generic %} for authentication. The {% data variables.product.pat_generic %} that you use is only for authentication as a site administrator, and does not require any specific scope or permissions. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
 
    ```shell
    $ ghe-migrator import /home/admin/MIGRATION-GUID.tar.gz -g MIGRATION-GUID -u USERNAME -p TOKEN
@@ -195,7 +209,9 @@ The record types match those found in the [migrated data](/migrations/using-ghe-
 | Repositories    | `repository`
 | Teams           | `team`
 | Milestones      | `milestone`
+| {% ifversion projects-v1 %} |
 | {% data variables.projects.projects_v1_boards_caps %}  | `project`
+| {% endif %} |
 | Issues          | `issue`
 | Issue comments  | `issue_comment`
 | Pull requests   | `pull_request`
@@ -262,11 +278,8 @@ After your migration is applied to your target instance and you have reviewed th
 {% data reusables.enterprise_installation.ssh-into-instance %}
 {% data reusables.enterprise_migrations.unlocking-on-instances %}
 
-{% warning %}
-
-**Warning:** If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule)."
-
-{% endwarning %}
+> [!WARNING]
+> If your repository contains {% data variables.product.prodname_actions %} workflows using the `schedule` trigger, the workflows will not run automatically after an import. To start the scheduled workflows once again, push a commit to the repository. For more information, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows#schedule).
 
 ## Unlocking repositories on the source
 

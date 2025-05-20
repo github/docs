@@ -1,5 +1,2 @@
-{% warning %}
-
-**Warning**: {% data reusables.actions.hosted-runner-security %}
-
-{% endwarning %}
+> [!WARNING]
+> {% data reusables.actions.hosted-runner-security %}

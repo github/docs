@@ -16,17 +16,14 @@ product: '{% data reusables.gated-features.codespaces-org %}'
 
 By default, codespaces time out after 30 minutes of inactivity. When a codespace times out it is stopped and will no longer incur charges for compute usage.
 
-The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see "[AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces)."
+The personal settings of a {% data variables.product.prodname_dotcom %} user allow them to define their own timeout period for codespaces they create. This may be longer than the default 30-minute period. For more information, see [AUTOTITLE](/codespaces/setting-your-user-preferences/setting-your-timeout-period-for-github-codespaces).
 
 As an organization owner, you may want to configure constraints on the maximum idle timeout period for codespaces created for repositories owned by your organization. This can help you to limit costs associated with codespaces that are left to timeout after long periods of inactivity. You can set a maximum timeout for the codespaces for all repositories owned by your organization, or for the codespaces of specific repositories.
 
-{% note %}
+> [!NOTE]
+> Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
 
-**Note**: Maximum idle timeout constraints only apply to codespaces that are owned by your organization.
-
-{% endnote %}
-
-For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see "[AUTOTITLE](/billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing)."
+For more information about pricing for {% data variables.product.prodname_github_codespaces %} compute usage, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#codespaces-pricing).
 
 ### Inactivity defined
 
@@ -59,11 +56,11 @@ If you add an organization-wide policy with a timeout constraint, you should set
 
 {% data reusables.codespaces.codespaces-policy-targets %}
 1. If you want to add another constraint to the policy, click **Add constraint** and choose another constraint. For information about other constraints, see:
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)"
-   * "[AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)"
+   * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-access-to-machine-types)
+   * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-number-of-organization-billed-codespaces-a-user-can-create)
+   * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-base-image-for-codespaces)
+   * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-visibility-of-forwarded-ports)
+   * [AUTOTITLE](/codespaces/managing-codespaces-for-your-organization/restricting-the-retention-period-for-codespaces)
 
 1. After you've finished adding constraints to your policy, click **Save**.
 
@@ -73,12 +70,12 @@ The policy will be applied to all new codespaces that are billable to your organ
 
 You can edit an existing policy. For example, you may want to add or remove constraints to or from a policy.
 
-1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Display the "Codespaces policies" page. For more information, see [Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period).
 1. Click the name of the policy you want to edit.
 1. Beside the "Maximum idle timeout" constraint, click {% octicon "pencil" aria-label="Edit policy" %}.
 1. Make the required changes then click **Save**.
 
 ## Deleting a policy
 
-1. Display the "Codespaces policies" page. For more information, see "[Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period)."
+1. Display the "Codespaces policies" page. For more information, see [Adding a policy to set a maximum idle timeout period](#adding-a-policy-to-set-a-maximum-idle-timeout-period).
 {% data reusables.codespaces.delete-codespace-policy %}

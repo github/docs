@@ -38,6 +38,12 @@ export default async function contextualize(
 
   req.context.process = { env: {} }
 
+  if (req.pagePath && req.pagePath.endsWith('.md')) {
+    // req.pagePath is used later in the rendering pipeline to
+    // locate the file in the tree so it cannot have .md
+    req.pagePath = req.pagePath.replace(/\/index\.md$/, '').replace(/\.md$/, '')
+  }
+
   // define each context property explicitly for code-search friendliness
   // e.g. searches for "req.context.page" will include results from this file
   req.context.currentLanguage = req.language

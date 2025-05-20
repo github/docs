@@ -71,59 +71,26 @@ describe('index.md and .md suffixes', () => {
     }
   })
 
+  // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
   test('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {
       const res = await get('/en/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/en/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
     }
     // Without language prefix
     {
       const res = await get('/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
     // With query string
     {
       const res = await get('/get-started/hello.md?foo=bar')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello?foo=bar')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
-  })
-})
-
-describe('rate limiting', () => {
-  // We can't actually trigger a full rate limit because
-  // then all other tests will all fail. And we can't rely on this
-  // test always being run last.
-
-  test('only happens if you have junk query strings', async () => {
-    const res = await get('/robots.txt?foo=bar')
-    expect(res.statusCode).toBe(200)
-    const limit = parseInt(res.headers['ratelimit-limit'])
-    const remaining = parseInt(res.headers['ratelimit-remaining'])
-    expect(limit).toBeGreaterThan(0)
-    expect(remaining).toBeLessThan(limit)
-
-    // A second request
-    {
-      const res = await get('/robots.txt?foo=buzz')
-      expect(res.statusCode).toBe(200)
-      const newLimit = parseInt(res.headers['ratelimit-limit'])
-      const newRemaining = parseInt(res.headers['ratelimit-remaining'])
-      expect(newLimit).toBe(limit)
-      // Can't rely on `newRemaining == remaining - 1` because of
-      // concurrency of test-running.
-      expect(newRemaining).toBeLessThan(remaining)
-    }
-  })
-
-  test('nothing happens if no unrecognized query string', async () => {
-    const res = await get('/robots.txt')
-    expect(res.statusCode).toBe(200)
-    expect(res.headers['ratelimit-limit']).toBeUndefined()
-    expect(res.headers['ratelimit-remaining']).toBeUndefined()
   })
 })
 

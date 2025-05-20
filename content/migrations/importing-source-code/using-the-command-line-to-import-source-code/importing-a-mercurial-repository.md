@@ -1,6 +1,6 @@
 ---
 title: Importing a Mercurial repository
-intro: 'You can import a repository from Mercurial by converting the repository to Git, then pushing the Git repository to {% data variables.product.product_name %}.'
+intro: 'You can import a repository from Mercurial by converting the repository to Git, then pushing the Git repository to {% data variables.product.github %}.'
 versions:
   fpt: '*'
   ghes: '*'
@@ -14,7 +14,7 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 * [Mercurial](https://www.mercurial-scm.org)
 * [Git](https://git-scm.com/downloads)
-* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see "[AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage)")
+* {% data variables.large_files.product_name_long %} ({% data variables.large_files.product_name_short %}) (see [AUTOTITLE](/repositories/working-with-files/managing-large-files/installing-git-large-file-storage))
 * [Python](https://www.python.org), including the `pip` package manager
 
 ## Importing a Mercurial repository
@@ -64,5 +64,5 @@ To follow these steps, you must use a macOS or Linux system and have the followi
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)"
+* [AUTOTITLE](/get-started/using-git/troubleshooting-the-2-gb-push-limit)
 {% endif %}

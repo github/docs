@@ -3,7 +3,9 @@ title: 'Quickstart for {% data variables.product.prodname_projects_v2 %}'
 intro: 'Experience the speed, flexibility, and customization of {% data variables.product.prodname_projects_v2 %} by creating a project in this interactive guide.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/quickstart
 type: quick_start
@@ -17,9 +19,9 @@ This guide demonstrates how to use {% data variables.product.prodname_projects_v
 
 ## Prerequisites
 
-You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+You can either create an organization project or a user project. To create an organization project, you need a {% data variables.product.prodname_dotcom %} organization. For more information about creating an organization, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
-In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue)."
+In this guide, you will add existing issues from repositories owned by your organization (for organization projects) or by you (for user projects) to your new project. For more information about creating issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue).
 
 ## Creating a project
 
@@ -45,7 +47,7 @@ Next, add a few issues to your project.
 
 Repeat the above steps a few times to add multiple issues to your project.
 
-For more information and other ways to add issues to your project, or about other items you can add to your project, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)."
+For more information and other ways to add issues to your project, or about other items you can add to your project, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project).
 
 ## Adding draft issues to your project
 
@@ -81,7 +83,7 @@ Specify a priority for all issues in your project.
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "rows" aria-hidden="true" %} **Group**.
+1. Click **{% octicon "rows" aria-hidden="true" %} Group**.
 1. Click **Priority**.
 
 Now, move issues between groups to change their priority.
@@ -121,7 +123,7 @@ When you changed the layout, your project displayed an indicator to show that th
 To indicate the purpose of the view, give it a descriptive name.
 
 {% data reusables.projects.open-view-menu %}
-1. Click {% octicon "pencil" aria-hidden="true" %} **Rename view**.
+1. Click **{% octicon "pencil" aria-hidden="true" %} Rename view**.
 1. Type the new name for your view.
 1. To save changes, press <kbd>Return</kbd>.
 
@@ -143,7 +145,7 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu.
    ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
-1. In the menu, click {% octicon "workflow" aria-hidden="true" %} **Workflows**.
+1. In the menu, click **{% octicon "workflow" aria-hidden="true" %} Workflows**.
 1. Under **Default workflows**, click **Item added to project**.
 1. Next to **When**, ensure that both `issues` and `pull requests` are selected.
 1. Next to **Set**, select **Status:Todo**.
@@ -151,5 +153,5 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)"
-* "[AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)"
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/managing-items-in-your-project/adding-items-to-your-project)
+* [AUTOTITLE](/issues/planning-and-tracking-with-projects/customizing-views-in-your-project/changing-the-layout-of-a-view)

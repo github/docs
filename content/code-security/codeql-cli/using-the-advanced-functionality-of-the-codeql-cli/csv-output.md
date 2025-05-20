@@ -8,14 +8,14 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 ---
 
 ## About CSV output
 
-You can save analysis results from the {% data variables.product.prodname_codeql_cli %} in a number of different formats, including SARIF and CSV. We do generally recommend SARIF because it is a standard output for static analysis tools and easier to parse. You can also upload SARIF files to {% data variables.product.product_name %}. However, CSV format may be useful if you need to further process the analysis results using your own tools. For more information on selecting a file format for your analysis results, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze)."
+You can save analysis results from the {% data variables.product.prodname_codeql_cli %} in a number of different formats, including SARIF and CSV. We do generally recommend SARIF because it is a standard output for static analysis tools and easier to parse. You can also upload SARIF files to {% data variables.product.github %}. However, CSV format may be useful if you need to further process the analysis results using your own tools. For more information on selecting a file format for your analysis results, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-analyze).
 
 For more information about the SARIF format, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/sarif-output).
 

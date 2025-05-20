@@ -1,5 +1,0 @@
-# Reference: #9141.
-# Security overview - secret scanning push protection metrics
-versions:
-  ghec: '*'
-  ghes: '> 3.10'

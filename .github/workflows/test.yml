@@ -40,6 +40,7 @@ jobs:
         name:
           # src/ directory
           - archives
+          - article-api
           - assets
           - audit-logs
           - automated-pipelines
@@ -56,7 +57,6 @@ jobs:
           - events
           - fixtures
           - frame
-          - ghes-releases
           - github-apps
           - graphql
           - landings
@@ -65,8 +65,6 @@ jobs:
           # - links
           - observability
           # - open-source
-          - pageinfo
-          - pagelist
           # - pages
           - products
           - redirects
@@ -103,7 +101,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
@@ -128,41 +126,14 @@ jobs:
         if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PR: ${{ github.event.pull_request.number }}
-          HEAD: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
-        run: |
-          # Find the file diff in the pull request or merge group
-          # If its a pull request, use the faster call to the GitHub API
-          # For push, workflow_dispatch, and merge_group, use git diff
-          if [ -n "$PR" ]
-          then
-            echo __ running gh pr diff __
-            DIFF=`gh pr diff $PR --name-only`
-          elif [ -n "$HEAD" ]
-          then
-            echo __ running git fetch main __
-            git fetch origin main --depth 1
-            echo __ running git diff __
-            DIFF=`git diff --name-only origin/main`
-          else
-            echo __ no head, empty diff __
-            DIFF=''
-          fi
-          # So we can inspect the output
-          echo __ DIFF found __
-          echo $DIFF
-
-          # So that becomes a string like `foo.js path/bar.md`
-          # Must do this because the list of files can be HUGE. Especially
-          # in a repo-sync when there are lots of translation files involved.
-          echo __ format, write to get_diff_files.txt __
-          echo $DIFF | tr '\n' ' ' > get_diff_files.txt
+        uses: ./.github/actions/get-changed-files
+        with:
+          head: ${{ github.event.pull_request.head.ref || github.event.merge_group.head_ref }}
+          output_file: get_diff_files.txt
 
       - uses: ./.github/actions/cache-nextjs
 
@@ -176,7 +147,7 @@ jobs:
 
       - uses: ./.github/actions/precompute-pageinfo
         # Only the 'pageinfo' tests include end-to-end tests about this.
-        if: ${{ matrix.name == 'pageinfo' }}
+        if: ${{ matrix.name == 'article-api' }}
         env:
           ROOT: src/fixtures/fixtures
 
@@ -194,6 +165,6 @@ jobs:
           # tests run only in English. The exception is the
           # `languages` suite which needs all languages to be set up.
           ENABLED_LANGUAGES: ${{ matrix.name == 'languages' && 'all' || '' }}
-          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
-          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'pageinfo') && 'src/fixtures/fixtures/translations' || '' }}
+          ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api' || matrix.name == 'landings' ) && 'src/fixtures/fixtures' || '' }}
+          TRANSLATIONS_FIXTURE_ROOT: ${{ (matrix.name == 'fixtures' || matrix.name == 'article-api') && 'src/fixtures/fixtures/translations' || '' }}
         run: npm test -- src/${{ matrix.name }}/tests/

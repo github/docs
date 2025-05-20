@@ -1,6 +1,6 @@
 ---
 title: Countries where SMS authentication is supported
-intro: 'Because of delivery success rates, {% data variables.product.product_name %} only supports two-factor authentication via SMS for certain countries.'
+intro: 'Because of delivery success rates, {% data variables.product.github %} only supports two-factor authentication via SMS for certain countries.'
 redirect_from:
   - /articles/countries-where-sms-authentication-is-supported
   - /github/authenticating-to-github/countries-where-sms-authentication-is-supported
@@ -12,11 +12,11 @@ topics:
   - 2FA
 shortTitle: Countries supporting SMS
 ---
-If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+If we don't support two-factor authentication via text message for your country of residence, you can set up authentication via a TOTP mobile application. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
-## Supported countries for SMS authentication
+## Supported countries and regions for SMS authentication
 
-If your country is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
+If your country or region is not on this list, then we aren't currently able to reliably deliver text messages to your country. We update this list periodically.
 
 <ul style="-webkit-column-count: 3; -moz-column-count: 3; column-count: 3;">
 <li>Aland Islands</li>
@@ -27,12 +27,12 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Austria</li>
 <li>Bahamas</li>
 <li>Bahrain</li>
-<li>Bangladesh</li>
 <li>Belarus</li>
 <li>Belgium</li>
 <li>Benin</li>
 <li>Bolivia</li>
 <li>Bosnia and Herzegovina</li>
+<li>Brazil</li>
 <li>Brunei</li>
 <li>Bulgaria</li>
 <li>Burundi</li>
@@ -65,7 +65,6 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Hungary</li>
 <li>Iceland</li>
 <li>India</li>
-<li>Indonesia</li>
 <li>Ireland</li>
 <li>Israel</li>
 <li>Italy</li>
@@ -73,7 +72,6 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>Jamaica</li>
 <li>Japan</li>
 <li>Jordan</li>
-<li>Kazakhstan</li>
 <li>Kuwait</li>
 <li>Latvia</li>
 <li>Libya</li>
@@ -98,7 +96,6 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>New Zealand</li>
 <li>Nigeria</li>
 <li>Norway</li>
-<li>Philippines</li>
 <li>Poland</li>
 <li>Portugal</li>
 <li>Qatar</li>
@@ -127,10 +124,10 @@ If your country is not on this list, then we aren't currently able to reliably d
 <li>United Arab Emirates</li>
 <li>United Kingdom</li>
 <li>United States</li>
-<li>Uzbekistan</li>
+<li>Uruguay</li>
 <li>Venezuela</li>
 </ul>
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)"
+* [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/about-two-factor-authentication)

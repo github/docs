@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -19,9 +19,9 @@ redirect_from:
 
 A path query is a {% data variables.product.prodname_codeql %} query with the property `@kind path-problem`. You can find a number of these in the standard {% data variables.product.prodname_codeql %} libraries.
 
-You can run the standard {% data variables.product.prodname_codeql %} path queries to identify security vulnerabilities and manually look through the results. For more information about how {% data variables.product.prodname_codeql %} tracks data flow, see "[About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/)" in the {% data variables.product.prodname_codeql %} documentation.
+You can run the standard {% data variables.product.prodname_codeql %} path queries to identify security vulnerabilities and manually look through the results. For more information about how {% data variables.product.prodname_codeql %} tracks data flow, see [About data flow analysis](https://codeql.github.com/docs/writing-codeql-queries/about-data-flow-analysis/) in the {% data variables.product.prodname_codeql %} documentation.
 
-Once you're familiar with data flow analysis and existing queries, you can write your own path queries in {% data variables.product.prodname_codeql %}. For more information, see "[Next steps](#next-steps)."
+Once you're familiar with data flow analysis and existing queries, you can write your own path queries in {% data variables.product.prodname_codeql %}. For more information, see [Next steps](#next-steps).
 
 ## Running path queries in {% data variables.product.prodname_vscode_shortname %} locally
 
@@ -35,8 +35,8 @@ Once you're familiar with data flow analysis and existing queries, you can write
 
 {% ifversion codeql-vs-code-mrva %}
 
-When you are ready to run a path query at scale, you can use the "Variant Analysis Repositories" view to run the query against up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis)."
+When you are ready to run a path query at scale, you can use the "Variant Analysis Repositories" view to run the query against up to 1,000 repositories on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
 
 {% endif %}
 
-For information about how to use the correct format and metadata for your own path queries, see "[Creating path queries](https://codeql.github.com/docs/writing-codeql-queries/creating-path-queries/#creating-path-queries)" in the {% data variables.product.prodname_codeql %} documentation. The {% data variables.product.prodname_codeql %} documentation also contains detailed information about how to define new sources and sinks, as well as templates and examples of how to extend the standard {% data variables.product.prodname_codeql %} libraries to suit your analysis.
+For information about how to use the correct format and metadata for your own path queries, see [Creating path queries](https://codeql.github.com/docs/writing-codeql-queries/creating-path-queries/#creating-path-queries) in the {% data variables.product.prodname_codeql %} documentation. The {% data variables.product.prodname_codeql %} documentation also contains detailed information about how to define new sources and sinks, as well as templates and examples of how to extend the standard {% data variables.product.prodname_codeql %} libraries to suit your analysis.

@@ -50,6 +50,11 @@ export function doesStringEndWithPeriod(text) {
   return /^.*\.['"]?$/.test(text)
 }
 
+export function quotePrecedesLinkOpen(text) {
+  if (!text) return false
+  return text.endsWith('"') || text.endsWith("'")
+}
+
 // Filters a list of tokens by token type only when they match
 // a specific token type order.
 // For example, if a list of tokens contains:
@@ -127,4 +132,11 @@ export function getFrontmatter(lines) {
   // no keys, matter will return an empty object.
   if (Object.keys(data).length === 0) return null
   return data
+}
+
+export function getFrontmatterLines(lines) {
+  const indexStart = lines.indexOf('---')
+  if (indexStart === -1) return []
+  const indexEnd = lines.indexOf('---', indexStart + 1)
+  return lines.slice(indexStart, indexEnd + 1)
 }

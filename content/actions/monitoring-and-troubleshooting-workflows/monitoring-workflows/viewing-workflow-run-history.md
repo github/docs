@@ -42,7 +42,7 @@ To specify the maximum number of runs to return, you can use the `-L` or `--limi
 gh run list --limit 5
 ```
 
-To only return runs for the specified workflow, you can use the `-w` or `--workflow` flag.  Replace `workflow` with either the workflow name, workflow ID, or workflow file name. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`.
+To only return runs for the specified workflow, you can use the `-w` or `--workflow` flag. Replace `workflow` with either the workflow name, workflow ID, or workflow file name. For example, `"Link Checker"`, `1234567`, or `"link-check-test.yml"`.
 
 ```shell
 gh run list --workflow WORKFLOW
@@ -62,7 +62,7 @@ To include job steps in the output, use the `-v` or `--verbose` flag.
 gh run view RUN_ID --verbose
 ```
 
-To view details for a specific job in the run, use the `-j` or `--job` flag.  Replace `job-id` with the ID of the job that you want to view.
+To view details for a specific job in the run, use the `-j` or `--job` flag. Replace `job-id` with the ID of the job that you want to view.
 
 ```shell
 gh run view --job JOB_ID

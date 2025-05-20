@@ -3,7 +3,9 @@ title: 'Using the API to manage {% data variables.product.prodname_projects_v2 %
 shortTitle: Automating with the API
 intro: You can use the GraphQL API to automate your projects.
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /issues/trying-out-the-new-projects-experience/using-the-api-to-manage-projects
 type: tutorial
@@ -12,13 +14,13 @@ topics:
 allowTitleToDifferFromFilename: true
 ---
 
-This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see "[AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions)." For a full list of the available data types, see "[AUTOTITLE](/graphql/reference)."
+This article demonstrates how to use the GraphQL API to manage a project. For more information about how to use the API in a {% data variables.product.prodname_actions %} workflow, see [AUTOTITLE](/issues/planning-and-tracking-with-projects/automating-your-project/automating-projects-using-actions). For a full list of the available data types, see [AUTOTITLE](/graphql/reference).
 
 ## Authentication
 
 {% curl %}
 
-In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)." For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app)."
+In all of the following `curl` command examples, replace `TOKEN` with a token that has the `read:project` scope (for queries) or `project` scope (for queries and mutations). The token can be a {% data variables.product.pat_v1 %} for a user or an installation access token for a {% data variables.product.prodname_github_app %}. For more information about creating a {% data variables.product.pat_generic %}, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token). For more information about creating an installation access token for a {% data variables.product.prodname_github_app %}, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
 
 When using an installation access token for a {% data variables.product.prodname_github_app %}, some GraphQL mutations require additional permissions. For example, when using the `createProjectV2` mutation, if you specify a `repositoryId` input parameter, the `Contents` permission for that repository is also required in order to link the project to the target repository.
 
@@ -28,7 +30,7 @@ When using an installation access token for a {% data variables.product.prodname
 
 {% data reusables.cli.cli-learn-more %}
 
-Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "project"`. If you only need to read, but not edit, projects, you can provide the `read:project` scope instead of `project`. For more information on command line authentication, see "[gh auth login](https://cli.github.com/manual/gh_auth_login)."
+Before running {% data variables.product.prodname_cli %} commands, you must authenticate by running `gh auth login --scopes "project"`. If you only need to read, but not edit, projects, you can provide the `read:project` scope instead of `project`. For more information on command line authentication, see [gh auth login](https://cli.github.com/manual/gh_auth_login).
 
 {% endcli %}
 
@@ -51,13 +53,13 @@ gh api graphql -f query='
   }' -f organization=$my_org -F number=$my_num
 ```
 
-For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#working-with-variables)."
+For more information, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#working-with-variables).
 
 {% endcli %}
 
 ## Finding information about projects
 
-Use queries to get data about projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-queries)."
+Use queries to get data about projects. For more information, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-queries).
 
 ### Finding the node ID of an organization project
 
@@ -379,7 +381,7 @@ The following example will return the first 20 issues, pull requests, and draft 
 curl --request POST \
   --url https://api.github.com/graphql \
   --header 'Authorization: Bearer TOKEN' \
-  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon {  name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
+  --data '{"query":"query{ node(id: \"PROJECT_ID\") { ... on ProjectV2 { items(first: 20) { nodes{ id fieldValues(first: 8) { nodes{ ... on ProjectV2ItemFieldTextValue { text field { ... on ProjectV2FieldCommon { name }}} ... on ProjectV2ItemFieldDateValue { date field { ... on ProjectV2FieldCommon { name } } } ... on ProjectV2ItemFieldSingleSelectValue { name field { ... on ProjectV2FieldCommon { name }}}}} content{ ... on DraftIssue { title body } ...on Issue { title assignees(first: 10) { nodes{ login }}} ...on PullRequest { title assignees(first: 10) { nodes{ login }}}}}}}}}"}'
 ```
 
 {% endcurl %}
@@ -395,7 +397,7 @@ gh api graphql -f query='
             nodes{
               id
               fieldValues(first: 8) {
-                nodes{                
+                nodes{
                   ... on ProjectV2ItemFieldTextValue {
                     text
                     field {
@@ -420,9 +422,9 @@ gh api graphql -f query='
                       }
                     }
                   }
-                }              
+                }
               }
-              content{              
+              content{
                 ... on DraftIssue {
                   title
                   body
@@ -457,13 +459,10 @@ A project may contain items that a user does not have permission to view. In thi
 
 ## Updating projects
 
-Use mutations to update projects. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+Use mutations to update projects. For more information, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations).
 
-{% note %}
-
-**Note:** You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
-
-{% endnote %}
+> [!NOTE]
+> You cannot add and update an item in the same call. You must use `addProjectV2ItemById` to add the item and then use `updateProjectV2ItemFieldValue` to update the item.
 
 ### Adding an item to a project
 
@@ -557,7 +556,7 @@ The response will contain the node ID of the newly created draft issue.
 
 ### Updating a project's settings
 
-The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.product_name %}. Modify `readme` to make changes to your project's README.
+The following example will update your project's settings. Replace `PROJECT_ID` with the node ID of your project. Set `public` to `true` to make your project public on {% data variables.product.github %}. Modify `readme` to make changes to your project's README.
 
 {% curl %}
 
@@ -577,7 +576,7 @@ gh api graphql -f query='
   mutation {
     updateProjectV2(
       input: {
-        projectId: "PROJECT_ID", 
+        projectId: "PROJECT_ID",
         title: "Project title",
         public: false,
         readme: "# Project README\n\nA long description",
@@ -621,8 +620,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          text: "Updated text"        
+        value: {
+          text: "Updated text"
         }
       }
     ) {
@@ -635,19 +634,16 @@ gh api graphql -f query='
 
 {% endcli %}
 
-{% note %}
-
-**Note:** You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
-
-* [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
-* [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
-* [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
-* [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
-* [updateIssue](/graphql/reference/mutations#updateissue)
-* [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
-* [transferIssue](/graphql/reference/mutations#transferissue)
-
-{% endnote %}
+> [!NOTE]
+> You cannot use `updateProjectV2ItemFieldValue` to change `Assignees`, `Labels`, `Milestone`, or `Repository` because these fields are properties of pull requests and issues, not of project items. Instead, you may use the following mutations:
+>
+> * [addAssigneesToAssignable](/graphql/reference/mutations#addassigneestoassignable)
+> * [removeAssigneesFromAssignable](/graphql/reference/mutations#removeassigneesfromassignable)
+> * [addLabelsToLabelable](/graphql/reference/mutations#addlabelstolabelable)
+> * [removeLabelsFromLabelable](/graphql/reference/mutations#removelabelsfromlabelable)
+> * [updateIssue](/graphql/reference/mutations#updateissue)
+> * [updatePullRequest](/graphql/reference/mutations#updatepullrequest)
+> * [transferIssue](/graphql/reference/mutations#transferissue)
 
 ### Updating a single select field
 
@@ -655,7 +651,7 @@ The following example will update the value of a single select field for an item
 
 * `PROJECT_ID` - Replace this with the node ID of your project.
 * `ITEM_ID` - Replace this with the node ID of the item you want to update.
-* `FIELD_ID` -  Replace this with the ID of the single select field that you want to update.
+* `FIELD_ID` - Replace this with the ID of the single select field that you want to update.
 * `OPTION_ID` - Replace this with the ID of the desired single select option.
 
 {% curl %}
@@ -679,8 +675,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          singleSelectOptionId: "OPTION_ID"        
+        value: {
+          singleSelectOptionId: "OPTION_ID"
         }
       }
     ) {
@@ -699,7 +695,7 @@ The following example will update the value of an iteration field for an item.
 
 * `PROJECT_ID` - Replace this with the node ID of your project.
 * `ITEM_ID` - Replace this with the node ID of the item you want to update.
-* `FIELD_ID` -  Replace this with the ID of the iteration field that you want to update.
+* `FIELD_ID` - Replace this with the ID of the iteration field that you want to update.
 * `ITERATION_ID` - Replace this with the ID of the desired iteration. This can be either an active or completed iteration.
 
 {% curl %}
@@ -723,8 +719,8 @@ gh api graphql -f query='
         projectId: "PROJECT_ID"
         itemId: "ITEM_ID"
         fieldId: "FIELD_ID"
-        value: { 
-          iterationId: "ITERATION_ID"        
+        value: {
+          iterationId: "ITERATION_ID"
         }
       }
     ) {
@@ -774,11 +770,11 @@ gh api graphql -f query='
 
 ### Creating projects
 
-You can use a mutation to create a new project. For more information, see "[AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations)."
+You can use a mutation to create a new project. For more information, see [AUTOTITLE](/graphql/guides/forming-calls-with-graphql#about-mutations).
 
-To create a new project using the API, you'll need to provide a name for the project and the node ID of a {% data variables.product.product_name %} user or organization who will become the project's owner.
+To create a new project using the API, you'll need to provide a name for the project and the node ID of a {% data variables.product.github %} user or organization who will become the project's owner.
 
-You can find the node ID of a {% data variables.product.product_name %} user or organization if you know the username. Replace <code>GITHUB_OWNER</code> with the {% data variables.product.product_name %} username of the new project owner.
+You can find the node ID of a {% data variables.product.github %} user or organization if you know the username. Replace <code>GITHUB_OWNER</code> with the {% data variables.product.github %} username of the new project owner.
 
 {% curl %}
 
@@ -832,10 +828,6 @@ gh api graphql -f query='
 
 {% endcli %}
 
-{% ifversion projects-v2-webhooks %}
-
 ## Using webhooks
 
-You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.product_name %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see "[AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks)." To learn more about the `projects_v2_item` webhook event, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item)."
-
-{% endif %}
+You can use webhooks to subscribe to events taking place in your project. For example, when an item is edited, {% data variables.product.github %} can send a HTTP POST payload to the webhook's configured URL which can trigger automation on your server. For more information about webhooks, see [AUTOTITLE](/webhooks-and-events/webhooks/about-webhooks). To learn more about the `projects_v2_item` webhook event, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads#projects_v2_item).

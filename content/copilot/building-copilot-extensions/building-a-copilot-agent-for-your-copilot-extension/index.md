@@ -8,8 +8,8 @@ topics:
   - Copilot
 children:
   - /about-copilot-agents
-  - /using-a-demo-agent
   - /configuring-your-copilot-agent-to-communicate-with-the-copilot-platform
   - /configuring-your-copilot-agent-to-communicate-with-github
+  - /context-passing-for-your-agent
   - /using-copilots-llm-for-your-agent
 ---

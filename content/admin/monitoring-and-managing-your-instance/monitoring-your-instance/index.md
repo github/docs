@@ -14,7 +14,7 @@ versions:
 topics:
   - Enterprise
 children:
-  - /accessing-the-monitor-dashboard
+  - /about-the-monitor-dashboards
   - /recommended-alert-thresholds
   - /setting-up-external-monitoring
   - /configuring-collectd-for-your-instance
@@ -23,6 +23,6 @@ children:
   - /about-system-logs
   - /troubleshooting-resource-allocation-problems
   - /generating-a-health-check-for-your-enterprise
+  - /exporting-and-scraping-prometheus-metrics
 shortTitle: Monitor your instance
 ---
-

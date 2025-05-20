@@ -32,11 +32,11 @@ Sometimes you may not be able to access a codespace from your browser. If this h
 
 Check that you have a stable internet connection and that your company network is not blocking the connection. If possible, check logging for rejected connections on your device.
 
-If you see rejected connections, make sure the domains documented by the `/meta` REST API endpoint are not blocked by your firewall. For more information, see "[AUTOTITLE](/rest/meta/meta#get-github-meta-information)."
+If you see rejected connections, make sure the domains documented by the `/meta` REST API endpoint are not blocked by your firewall. For more information, see [AUTOTITLE](/rest/meta/meta#get-github-meta-information).
 
 To get the list of domains required by {% data variables.product.prodname_github_codespaces %}, execute the following command using {% data variables.product.prodname_cli %}:
 
-`gh api meta | jq .domains.codespaces`
+`gh api meta --jq .domains.codespaces`
 
 ### "We are having trouble fetching your codespace information"
 
@@ -52,9 +52,9 @@ If you still can't connect and the message you're seeing isn't in this list, che
 
 To be able to use a codespace in JupyterLab, you must ensure that your codespace has it installed. The default dev container image that's used by {% data variables.product.prodname_github_codespaces %} includes JupyterLab, but if you have customized your dev container configuration you will have to manually install JupyterLab.
 
-If your codespace uses a Debian-based image, you can install JupyterLab in the dev container by adding the `python` feature to your `devcontainer.json` file, with the `installJupyterlab` option set to `true`. Otherwise, install it directly in your Dockerfile. For installation instructions, see "[Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html)" in the JupyterLab documentation.
+If your codespace uses a Debian-based image, you can install JupyterLab in the dev container by adding the `python` feature to your `devcontainer.json` file, with the `installJupyterlab` option set to `true`. Otherwise, install it directly in your Dockerfile. For installation instructions, see [Installation](https://jupyterlab.readthedocs.io/en/stable/getting_started/installation.html) in the JupyterLab documentation.
 
-For more information about the `python` feature, see the README page in the [`devcontainers/features` repository](https://github.com/devcontainers/features/tree/main/src/python). For more information about the `devcontainer.json` file and the Dockerfile, see "[AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson)."
+For more information about the `python` feature, see the README page in the [`devcontainers/features` repository](https://github.com/devcontainers/features/tree/main/src/python). For more information about the `devcontainer.json` file and the Dockerfile, see [AUTOTITLE](/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers#devcontainerjson).
 
 If you still cannot connect, {% data reusables.codespaces.contact-support %}
 

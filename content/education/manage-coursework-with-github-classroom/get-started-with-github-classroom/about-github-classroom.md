@@ -18,15 +18,15 @@ versions:
 
 ### Assignment templates
 
-With {% data variables.product.prodname_classroom %}, you can create assignments that use template repositories with boilerplate code, documentation, and other resources that you think will be useful to your students. Assignments with template repositories create assignment repositories with starter code for your students. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository)."
+With {% data variables.product.prodname_classroom %}, you can create assignments that use template repositories with boilerplate code, documentation, and other resources that you think will be useful to your students. Assignments with template repositories create assignment repositories with starter code for your students. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/create-an-assignment-from-a-template-repository).
 
 ### Autograding
 
-Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade the work of each student every time that student  pushes to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding)."
+Through {% data variables.product.prodname_classroom %}, you can configure tests to automatically grade the work of each student every time that student pushes to their assignment repository. To learn more about autograding with {% data variables.product.prodname_classroom %}, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/use-autograding).
 
 ### Ability to connect a learning management system
 
-Optionally, you can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} to import a student identifier roster for your classroom. For more information, see "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom)."
+Optionally, you can connect a learning management system (LMS) to {% data variables.product.prodname_classroom %} to import a student identifier roster for your classroom. For more information, see [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom/connect-a-learning-management-system-course-to-a-classroom).
 
 ### Feedback pull requests
 
@@ -38,5 +38,5 @@ Optionally, you can connect a learning management system (LMS) to {% data variab
 
 ## Further reading
 
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)"
-* "[AUTOTITLE](/education/manage-coursework-with-github-classroom/learn-with-github-classroom)"
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/teach-with-github-classroom)
+* [AUTOTITLE](/education/manage-coursework-with-github-classroom/learn-with-github-classroom)

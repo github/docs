@@ -39,14 +39,9 @@ The audit log lists the following information about actions made within your ent
 * [Which country](#search-based-on-the-location) the action took place in
 * [The date and time](#search-based-on-the-time-of-action) the action occurred
 
-{% warning %}
-
-**Notes:**
-
-* While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.product_name %} supports many operators for searching across {% data variables.product.product_name %}. For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
-* Audit records are available for the last 180 days.
-
-{% endwarning %}
+> [!NOTE]
+> * While you can't use text to search for audit entries, you can construct search queries using a variety of filters. {% data variables.product.prodname_ghe_server %} supports many operators for searching across your instance. For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
+> * Audit records are available for the last 180 days.
 
 ### Search based on the repository
 
@@ -66,7 +61,7 @@ The `actor` qualifier scopes events based on the member of your organization tha
 * `actor:octocat actor:hubot` finds all events performed by both `octocat` and `hubot`.
 * `-actor:hubot` excludes all events performed by `hubot`.
 
-You can only use a {% data variables.product.product_name %} username, not an individual's real name.
+You can only use a {% data variables.product.github %} username, not an individual's real name.
 
 ### Search based on the organization
 
@@ -78,7 +73,7 @@ The `org` qualifier limits actions to a specific organization. For example:
 
 ### Search based on the action performed
 
-The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see "[AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise)".
+The `action` qualifier searches for specific events, grouped within categories. For information on the events associated with these categories, see [AUTOTITLE](/admin/monitoring-activity-in-your-enterprise/reviewing-audit-logs-for-your-enterprise/audit-log-events-for-your-enterprise).
 
 | Category name | Description
 |------------------|-------------------

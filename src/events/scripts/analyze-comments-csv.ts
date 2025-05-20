@@ -13,7 +13,7 @@ import chalk from 'chalk'
 import { parse } from 'csv-parse'
 import { program } from 'commander'
 
-import { SIGNAL_RATINGS } from '../analyze-comment'
+import { SIGNAL_RATINGS } from '../lib/analyze-comment'
 
 type Options = {
   outputFile: string
@@ -42,6 +42,9 @@ async function main(csvFile: string[], options: Options) {
 
 type Record = {
   [key: string]: string | number
+} & {
+  survey_comment: string
+  survey_comment_language: string
 }
 
 async function analyzeFile(csvFile: string, options: Options) {
@@ -57,9 +60,7 @@ async function analyzeFile(csvFile: string, options: Options) {
     if (headers === null) {
       headers = record as string[]
     } else {
-      const obj: {
-        [key: string]: string
-      } = {}
+      const obj = {} as Record
       for (let i = 0; i < headers.length; i++) {
         obj[headers[i]] = record[i]
       }

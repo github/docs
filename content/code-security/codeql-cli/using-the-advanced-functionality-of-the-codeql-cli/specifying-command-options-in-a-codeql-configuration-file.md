@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -41,14 +41,10 @@ To apply the same options to more than one command you can:
 * Omit the `<subcommand>`, which will specify the option for every `<subcommand>` to which it’s relevant.
 * Omit both `<command>` and `<subcommand>`, which will globally specify the option for every `<command>` and `<subcommand>` to which it’s relevant.
 
-{% note %}
-
-**Notes:**
-* `config` files only accept spaces between option flags and values—{% data variables.product.prodname_codeql %} will throw an error if you use `=` to specify an option value.
-* If you specify an option in the command line, this overrides the `config` value defined for that option.
-* If you want to specify more than one option for a `<command>`, `<subcommand>` or globally, use one line per option.
-
-{% endnote %}
+> [!NOTE]
+> * `config` files only accept spaces between option flags and values—{% data variables.product.prodname_codeql %} will throw an error if you use `=` to specify an option value.
+> * If you specify an option in the command line, this overrides the `config` value defined for that option.
+> * If you want to specify more than one option for a `<command>`, `<subcommand>` or globally, use one line per option.
 
 ### Examples
 

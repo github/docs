@@ -13,14 +13,10 @@ redirect_from:
   - /admin/packages/enabling-github-packages-with-azure-blob-storage
 ---
 
-{% warning %}
-
-**Warnings:**
-* It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. If restrictions by IP address have been set up, please include IP addresses for {% data variables.location.product_location_enterprise %} and the end users who will be using the {% data variables.location.product_location_enterprise %}.
-* We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
-* Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
-
-{% endwarning %}
+> [!WARNING]
+> * It is critical that you set the restrictive access policies you need for your storage bucket, because {% data variables.product.company_short %} does not apply specific object permissions or additional access control lists (ACLs) to your storage bucket configuration. For example, if you make your bucket public, data in the bucket will be accessible on the public internet. If restrictions by IP address have been set up, please include IP addresses for {% data variables.location.product_location_enterprise %} and the end users who will be using the {% data variables.location.product_location_enterprise %}.
+> * We recommend using a dedicated bucket for {% data variables.product.prodname_registry %}, separate from the bucket you use for {% data variables.product.prodname_actions %} storage.
+> * Make sure to configure the bucket you'll want to use in the future. We do not recommend changing your storage after you start using {% data variables.product.prodname_registry %}.
 
 ## Prerequisites
 
@@ -36,13 +32,10 @@ Before you can enable and configure {% data variables.product.prodname_registry 
 
    You must create a storage container prior to setting the container name and connection string.
 
-   {% note %}
-
-   **Note:** You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account.
-
-   Usage of a SAS Token or SAS URL as connection string is not currently supported.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can find your Azure Connection String by navigating to the Access Key menu in your Azure storage account.
+   >
+   > Usage of a SAS Token or SAS URL as connection string is not currently supported.
 
 {% data reusables.enterprise_management_console.save-settings %}
 

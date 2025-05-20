@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -37,7 +37,7 @@ appropriate heuristics for deciding whether to keep some of the
 configured memory outside the Java heap.
 
 In particular, this should be used to find appropriate `-J-Xmx` and
-`--off-heap-ram` options before staring a query server based on a
+`--off-heap-ram` options before starting a query server based on a
 desired _total_ RAM amount.
 
 ## Options

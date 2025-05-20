@@ -27,12 +27,12 @@ This changes the status of the review to a review comment. When you dismiss a re
 
 1. Next. to the review you'd like to dismiss, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Dismiss review**.
 
-   ![Screenshot of the merge box for a pull request. A dropdown menu, labeled with the kebab icon, is expanded, and the "Dismiss review" option is outlined in dark orange.](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
+   ![Screenshot of the merge box of a pull request. The Show options menu (kebab icon), is expanded, and the "Dismiss review" option is outlined in orange.](/assets/images/help/pull_requests/merge_box/pull-request-dismiss-review.png)
 
 1. Type your reason for dismissing the review, then click **Dismiss review**.
 
 ## Further reading
 
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)"
-* "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)"
-* "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)"
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/about-pull-request-reviews)
+* [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/reviewing-proposed-changes-in-a-pull-request)
+* [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches#require-pull-request-reviews-before-merging)

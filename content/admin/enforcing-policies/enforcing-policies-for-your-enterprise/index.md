@@ -6,6 +6,7 @@ redirect_from:
   - /articles/setting-policies-for-organizations-in-your-enterprise-account
   - /github/setting-up-and-managing-your-enterprise-account/setting-policies-for-organizations-in-your-enterprise-account
   - /admin/policies/enforcing-policies-for-your-enterprise
+  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
 versions:
   ghec: '*'
   ghes: '*'
@@ -15,7 +16,6 @@ topics:
 children:
   - /about-enterprise-policies
   - /enforcing-repository-management-policies-in-your-enterprise
-  - /enforcing-team-policies-in-your-enterprise
   - /enforcing-policies-for-projects-in-your-enterprise
   - /restricting-email-notifications-for-your-enterprise
   - /enforcing-policies-for-github-sponsors-in-your-enterprise
@@ -25,6 +25,7 @@ children:
   - /enforcing-policies-for-github-codespaces-in-your-enterprise
   - /enforcing-policies-for-code-security-and-analysis-for-your-enterprise
   - /enforcing-policies-for-personal-access-tokens-in-your-enterprise
+  - /enforcing-policies-for-code-governance
+  - /managing-policies-for-code-governance
 shortTitle: Enforce policies
 ---
-

@@ -27,10 +27,8 @@ Push log entries show:
 * The Git client used to push
 * The SHA hashes from before and after the operation
 
-{% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}
-For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
-{% endif %}
+For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).
 
 ## Viewing a repository's push logs
 
@@ -40,15 +38,11 @@ For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-f
 {% data reusables.enterprise_site_admin_settings.security-tab %}
 1. In the left sidebar, click **Push Log**.
 
-{% ifversion ghes %}
-
 ## Viewing a repository's push logs on the command-line
 
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. In the appropriate Git repository, open the audit log file:
 
    ```shell
-   ghe-repo OWNER/REPOSITORY -c "cat audit_log"
+   ghe-spokesctl ssh --primary OWNER/REPOSITORY -- cat audit_log
    ```
-
-{% endif %}

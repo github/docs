@@ -1,9 +1,11 @@
 ---
-title: Creating diagrams for {% data variables.product.prodname_docs %}
+title: 'Creating diagrams for {% data variables.product.prodname_docs %}'
 shortTitle: Create diagrams
 intro: 'This guide explains when and how to create diagrams for {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 allowTitleToDifferFromFilename: true
 ---
 
@@ -59,7 +61,7 @@ To create acceptance criteria for a diagram, answer these questions.
 
 #### Who is the audience for the diagram?
 
-Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GH_advanced_security %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
+Diagrams, like articles, can have broad or specific audiences. For example, diagram audiences could be people who are considering purchasing {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} for their organization or students learning how the application process for {% data variables.product.prodname_global_campus %} works.
 
 #### What is the scope of the diagram?
 
@@ -83,7 +85,7 @@ If you are creating a diagram to explain when or how something happens, consider
 
 * [Flowchart](https://en.wikipedia.org/wiki/Flowchart): Flowcharts are useful for showing the steps in a process. In this example, the rectangles represent steps in a process and the diamond represents a decision point where the chart branches into two possible endpoints.
 
-  ![An example flowchart that uses rectangles to represent steps in a process and a diamond to represent a decision point where the chart branches into two possible endpoints.](/assets/images/help/diagrams/flowchart-example.png)
+  ![An example flowchart that uses rectangles to represent steps in a process and a diamond to represent a decision point where the chart branches.](/assets/images/help/diagrams/flowchart-example.png)
 
 * [Gantt chart](https://en.wikipedia.org/wiki/Gantt_chart): Gantt charts are useful for showing how long tasks take and when they overlap. In this example, the horizontal axis is labelled "Time" and the blue rectangles represent three discrete tasks. Task 1 and task 2 overlap, which means that at least part of the tasks happen at the same time. Task 3 does not overlap with the other tasks, which means that it happens after the first two are completed.
 
@@ -114,7 +116,7 @@ If you are creating a diagram to explain what or where things are, consider one 
 If you are creating a diagram to explain why something is the way that it is, consider one of these diagram types.
 
 * [Continuum diagram](https://en.wikipedia.org/wiki/Continuum_(measurement)): Continuum diagrams are useful for showing where things fall on a linear spectrum. In this example, the blue rectangle shows that the item of interest is closer to Option 2 than Option 1 on the continuum.
-  
+
   ![An example continuum with a horizontal axis representing the continuum between two options and the position of an item on the continuum.](/assets/images/help/diagrams/continuum-example.png)
 
 * [Quadrant diagram](https://en.wikipedia.org/wiki/Quadrant_(plane_geometry)): Quadrant diagrams are useful for explaining the relationship between two axes and where things fall on both axes. In this example, the horizontal axis is labelled "Purely decorative" on the left and "Meets a specific acceptance criteria" on the right. The vertical axis is labelled "Compliment written text" on the top and "The only way information is presented" on the bottom. The blue square labelled "Diagrams in the {% data variables.product.prodname_docs %}" is in the upper right quadrant formed by the overlap of "Compliment written text" and "Meets a specific acceptance criteria," which means that it has those two properties.
@@ -123,7 +125,7 @@ If you are creating a diagram to explain why something is the way that it is, co
 
 * [Venn diagram](https://en.wikipedia.org/wiki/Venn_diagram): Venn diagrams are useful for showing shared traits or overlap of ideas. Circles represent concepts or things, and the area where the circles overlap represent shared traits between things. In this example, the overlap between the circle labelled "Octopus" and the circle labelled "Cat" is labelled "Octocat," which is a combination of an octopus and a cat.
 
-  ![An example Venn diagram that shows two circles overlapping. One circle is labelled "Octopus" and the other is labelled "Cat". The overlapping section of the circles is labelled "Octocat".](/assets/images/help/diagrams/venn-diagram-example.png)
+  ![An example Venn diagram with two circles overlapping: one labeled "Octopus" and the other "Cat". The intersection of the circles is labeled "Octocat".](/assets/images/help/diagrams/venn-diagram-example.png)
 
 ## Style guidelines
 
@@ -163,7 +165,7 @@ Use different types of lines to convey additional meaning of relationships.
 * Two-way lines that have an arrow on each side: Indicate reciprocation.
   ![Two blue rectangles connected by a line with an arrow on both ends.](/assets/images/help/diagrams/two-way-line-example.png)
 * Brackets: Establish hierarchy. In general, organize brackets vertically so that they are easier to navigate on a webpage. Indent each level of a hierarchy.
-  ![Two examples of blue rectangles connected by brackets. One has three rectangles arranged in a vertical bracket with two rectangles indented and connected to the top rectangle with lines. The other has two rectangles arranged horizontally connected to a rectangle above with lines.](/assets/images/help/diagrams/brackets-example.png)
+  ![Two examples demonstrating the difference between vertical (left) and horizontal (right) arrangement of three rectangles connected by brackets.](/assets/images/help/diagrams/brackets-example.png)
 
 ### Labels
 
@@ -179,7 +181,7 @@ Keys should be used to explain shapes, colors, or other visual elements. Keys ca
 
 ### Colors
 
-If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/design/foundations/color). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
+If a diagram needs color, use colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage). To make diagrams accessible to more people, color cannot be the only way to convey information. For example, if you use color to indicate a relationship, you must also use a line or other visual element to convey the same information.
 
 The preferred colors for diagrams in {% data variables.product.prodname_docs %} are:
 
@@ -199,11 +201,11 @@ The preferred colors for diagrams in {% data variables.product.prodname_docs %} 
 * File size of 250 KB or less
 * Descriptive file names, such as `merge-conflict-diagram.png` instead of `diagram-02.png`
 
-If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location.{% ifversion actions-runner-controller %} See "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller)" for an example.{% endif %}
+If you need to create a diagram that is difficult to view at small resolutions, include a link to a larger version of the diagram in a relevant repository or other appropriate location. See [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/about-actions-runner-controller) for an example.
 
 ## Tools for creating diagrams
 
-The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/design/foundations/color#how-to-use-color-for-product-ui).
+The recommended tool for using diagrams is Figma so that you have access to Primer colors and other assets. However, you can use another program if you prefer. Follow the shape conventions in the style guide above and use the colors defined in the [Primer Design System](https://primer.style/product/getting-started/foundations/color-usage).
 
 ## Accessibility
 
@@ -211,7 +213,7 @@ Diagrams must have proper contrast and alt text.
 
 If you use colors defined in the Primer Design System, your diagram should have proper contrast. To check contrast on other background colors, use the [Color Contrast Analyzer](https://www.tpgi.com/color-contrast-checker/).
 
-Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see "[AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text)."
+Write alt text for a diagram that describes what the diagram looks like and why it is included in the article. Do not try to explain everything the diagram conveys in the alt text since it could become too long to be useful. For more information on writing alt text, see [AUTOTITLE](/contributing/writing-for-github-docs/style-guide#alt-text).
 
 All information in diagrams must be also conveyed in text accompanying the diagrams.
 
@@ -231,6 +233,6 @@ When you create a new diagram, add it to the Diagrams project in the Docs Figma 
 
 ## Examples
 
-This diagram {% ifversion fpt or ghec %}from "[AUTOTITLE](/codespaces/overview)"{% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
+This diagram {% ifversion fpt or ghec %}from [AUTOTITLE](/codespaces/quickstart){% endif %} effectively uses rectangles within other rectangles to visually explain what parts of a codespace are contained in the cloud, and it uses arrows to show the relationship between a codespace hosted in the cloud and your local editor.
 
 ![Diagram showing the relationship between a code editor and a codespace running on an Azure virtual machine.](/assets/images/help/codespaces/codespaces-diagram.png)

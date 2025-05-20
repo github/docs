@@ -1,5 +1,4 @@
-#!/usr/bin/env node
-import { renderContent } from '@/content-render/index'
+import { renderContent } from './render-content'
 
 interface Schema {
   oneOf?: any[]

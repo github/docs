@@ -1,53 +1,8 @@
 {
-  "enterprise_administration": {
-    "title": "Enterprise administration",
-    "displayTitle": "Business permissions for \"Enterprise administration\"",
+  "enterprise_scim": {
+    "title": "Enterprise SCIM",
+    "displayTitle": "Business permissions for \"Enterprise SCIM\"",
     "permissions": [
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-usage-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "get-github-actions-cache-usage-policy-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "set-github-actions-cache-usage-policy-for-an-enterprise",
-        "subcategory": "cache",
-        "verb": "patch",
-        "requestPath": "/enterprises/{enterprise}/actions/cache/usage-policy",
-        "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-the-audit-log-for-an-enterprise",
-        "subcategory": "audit-log",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/audit-log",
-        "additional-permissions": false,
-        "access": "read"
-      },
-      {
-        "category": "enterprise-admin",
-        "slug": "get-github-advanced-security-active-committers-for-an-enterprise",
-        "subcategory": "billing",
-        "verb": "get",
-        "requestPath": "/enterprises/{enterprise}/settings/billing/advanced-security",
-        "additional-permissions": false,
-        "access": "write"
-      },
       {
         "category": "enterprise-admin",
         "slug": "list-provisioned-scim-groups-for-an-enterprise",
@@ -55,7 +10,7 @@
         "verb": "get",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Groups",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "enterprise-admin",
@@ -73,7 +28,7 @@
         "verb": "get",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Groups/{scim_group_id}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "enterprise-admin",
@@ -109,7 +64,7 @@
         "verb": "get",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "enterprise-admin",
@@ -127,7 +82,7 @@
         "verb": "get",
         "requestPath": "/scim/v2/enterprises/{enterprise}/Users/{scim_user_id}",
         "additional-permissions": false,
-        "access": "write"
+        "access": "read"
       },
       {
         "category": "enterprise-admin",
@@ -164,7 +119,7 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+        "slug": "closing-down---list-custom-repository-roles-in-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/organizations/{organization_id}/custom_roles",
@@ -545,7 +500,7 @@
     "permissions": [
       {
         "category": "orgs",
-        "slug": "deprecated---list-custom-repository-roles-in-an-organization",
+        "slug": "closing-down---list-custom-repository-roles-in-an-organization",
         "subcategory": "custom-roles",
         "verb": "get",
         "requestPath": "/organizations/{organization_id}/custom_roles",
@@ -806,6 +761,42 @@
         "requestPath": "/orgs/{org}/teams/{team_slug}/external-groups",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "list-team-projects",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "check-team-permissions-for-a-project",
+        "subcategory": "teams",
+        "verb": "get",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "additional-permissions": false,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "additional-permissions": true,
+        "access": "read"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "additional-permissions": true,
+        "access": "read"
       },
       {
         "category": "teams",
@@ -1121,6 +1112,24 @@
         "requestPath": "/orgs/{org}/projects",
         "additional-permissions": false,
         "access": "write"
+      },
+      {
+        "category": "teams",
+        "slug": "add-or-update-team-project-permissions",
+        "subcategory": "teams",
+        "verb": "put",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "additional-permissions": true,
+        "access": "admin"
+      },
+      {
+        "category": "teams",
+        "slug": "remove-a-project-from-a-team",
+        "subcategory": "teams",
+        "verb": "delete",
+        "requestPath": "/orgs/{org}/teams/{team_slug}/projects/{project_id}",
+        "additional-permissions": true,
+        "access": "admin"
       },
       {
         "category": "projects",
@@ -2087,15 +2096,6 @@
       },
       {
         "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
         "slug": "re-run-a-workflow",
         "subcategory": "workflow-runs",
         "verb": "post",
@@ -2480,7 +2480,7 @@
       },
       {
         "category": "repos",
-        "slug": "check-if-automated-security-fixes-are-enabled-for-a-repository",
+        "slug": "check-if-dependabot-security-updates-are-enabled-for-a-repository",
         "subcategory": "repos",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/automated-security-fixes",
@@ -3047,7 +3047,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---list-tag-protection-states-for-a-repository",
+        "slug": "closing-down---list-tag-protection-states-for-a-repository",
         "subcategory": "tags",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -3056,7 +3056,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---create-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---create-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/tags/protection",
@@ -3065,7 +3065,7 @@
       },
       {
         "category": "repos",
-        "slug": "deprecated---delete-a-tag-protection-state-for-a-repository",
+        "slug": "closing-down---delete-a-tag-protection-state-for-a-repository",
         "subcategory": "tags",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/tags/protection/{tag_protection_id}",
@@ -3132,7 +3132,7 @@
         "subcategory": "repos",
         "verb": "post",
         "requestPath": "/repos/{template_owner}/{template_repo}/generate",
-        "additional-permissions": false,
+        "additional-permissions": true,
         "access": "write"
       },
       {
@@ -3177,15 +3177,6 @@
     "title": "Checks",
     "displayTitle": "Repository permissions for \"Checks\"",
     "permissions": [
-      {
-        "category": "actions",
-        "slug": "review-pending-deployments-for-a-workflow-run",
-        "subcategory": "workflow-runs",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
-      },
       {
         "category": "checks",
         "slug": "create-a-check-run",
@@ -3606,7 +3597,7 @@
         "subcategory": "dependency-review",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -3950,6 +3941,15 @@
         "requestPath": "/repos/{owner}/{repo}/zipball/{ref}",
         "additional-permissions": false,
         "access": "read"
+      },
+      {
+        "category": "repos",
+        "slug": "create-a-repository-using-a-template",
+        "subcategory": "repos",
+        "verb": "post",
+        "requestPath": "/repos/{template_owner}/{template_repo}/generate",
+        "additional-permissions": true,
+        "access": "read"
       }
     ]
   },
@@ -4071,8 +4071,8 @@
         "subcategory": "workflow-runs",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/actions/runs/{run_id}/pending_deployments",
-        "additional-permissions": true,
-        "access": "read"
+        "additional-permissions": false,
+        "access": "write"
       },
       {
         "category": "deployments",
@@ -4149,7 +4149,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4158,7 +4158,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4167,7 +4167,7 @@
         "subcategory": "secrets",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4176,7 +4176,7 @@
         "subcategory": "secrets",
         "verb": "put",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4185,7 +4185,7 @@
         "subcategory": "secrets",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4194,7 +4194,7 @@
         "subcategory": "variables",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4203,7 +4203,7 @@
         "subcategory": "variables",
         "verb": "post",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4212,7 +4212,7 @@
         "subcategory": "variables",
         "verb": "get",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "read"
       },
       {
@@ -4221,7 +4221,7 @@
         "subcategory": "variables",
         "verb": "patch",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       },
       {
@@ -4230,7 +4230,7 @@
         "subcategory": "variables",
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
+        "additional-permissions": false,
         "access": "write"
       }
     ]
@@ -4632,15 +4632,6 @@
     "title": "Metadata",
     "displayTitle": "Repository permissions for \"Metadata\"",
     "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": true,
-        "access": "read"
-      },
       {
         "category": "actions",
         "slug": "enable-a-selected-repository-for-github-actions-in-an-organization",
@@ -5422,15 +5413,6 @@
         "access": "read"
       },
       {
-        "category": "dependency-graph",
-        "slug": "get-a-diff-of-the-dependencies-between-commits",
-        "subcategory": "dependency-review",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/dependency-graph/compare/{basehead}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
         "category": "issues",
         "slug": "list-issue-comments-for-a-repository",
         "subcategory": "comments",
@@ -6080,51 +6062,6 @@
         "requestPath": "/repos/{owner}/{repo}/actions/secrets/{secret_name}",
         "additional-permissions": false,
         "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-secrets",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-public-key",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/public-key",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "create-or-update-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "put",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-secret",
-        "subcategory": "secrets",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/secrets/{secret_name}",
-        "additional-permissions": true,
-        "access": "write"
       }
     ]
   },
@@ -6184,51 +6121,6 @@
         "verb": "delete",
         "requestPath": "/repos/{owner}/{repo}/actions/variables/{name}",
         "additional-permissions": false,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "list-environment-variables",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "create-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "post",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "get-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "get",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
-        "access": "read"
-      },
-      {
-        "category": "actions",
-        "slug": "update-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "patch",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
-        "access": "write"
-      },
-      {
-        "category": "actions",
-        "slug": "delete-an-environment-variable",
-        "subcategory": "variables",
-        "verb": "delete",
-        "requestPath": "/repos/{owner}/{repo}/environments/{environment_name}/variables/{name}",
-        "additional-permissions": true,
         "access": "write"
       }
     ]
@@ -6667,21 +6559,6 @@
         "verb": "get",
         "requestPath": "/users/{username}/keys",
         "additional-permissions": false,
-        "access": "read"
-      }
-    ]
-  },
-  "notifications": {
-    "title": "Notifications",
-    "displayTitle": "User permissions for \"Notifications\"",
-    "permissions": [
-      {
-        "category": "activity",
-        "slug": "list-notifications-for-the-authenticated-user",
-        "subcategory": "notifications",
-        "verb": "get",
-        "requestPath": "/notifications",
-        "additional-permissions": true,
         "access": "read"
       }
     ]

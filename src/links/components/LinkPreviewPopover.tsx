@@ -1,6 +1,4 @@
 import { useEffect } from 'react'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useRouter } from 'next/router'
 
 // We postpone the initial delay a bit in case the user didn't mean to
 // hover over the link. Perhaps they just dragged the mouse over on their
@@ -36,26 +34,16 @@ let currentlyOpen: HTMLLinkElement | null = null
 // change according to the popover's true height. But this can cause a flicker.
 const BOUNDING_TOP_MARGIN = 300
 
-// All links that should have a hover card also get a
-// `aria-describedby="..."`. That ID is used to look up another DOM
-// element, that has a `visually-hidden` class. The value if the ID
-// isn't very important as long as it connects.
-// Note; at the moment this value is duplicated in the Playwright
-// tests because of trying to extract the value of `aria-describedby`.
-const DESCRIBEDBY_ELEMENT_ID = 'popover-describedby'
-
 // used to identify the first focusable element in the hover card
 const FIRST_LINK_ID = '_hc_first_focusable'
 const TITLE_ID = '_hc_title'
 
-type Info = {
+type PageMetadata = {
   product: string
   title: string
   intro: string
   anchor?: string
-}
-type APIInfo = {
-  info: Info
+  cacheInfo?: string
 }
 
 function getOrCreatePopoverGlobal() {
@@ -70,7 +58,7 @@ function getOrCreatePopoverGlobal() {
 
     // Semantics for the hovercard so SR users are aware they're about to be
     // focus trapped
-    wrapper.setAttribute('role', 'dialog')
+    wrapper.setAttribute('role', 'region')
     wrapper.setAttribute('aria-modal', 'true')
     wrapper.setAttribute('aria-label', 'user hovercard')
     wrapper.setAttribute('aria-labelledby', TITLE_ID)
@@ -202,28 +190,6 @@ function getOrCreatePopoverGlobal() {
   return popoverGlobal
 }
 
-function getOrCreateDescribeByElement() {
-  let element = document.querySelector<HTMLParagraphElement>(`#${DESCRIBEDBY_ELEMENT_ID}`)
-  if (!element) {
-    element = document.createElement('p')
-    element.id = DESCRIBEDBY_ELEMENT_ID
-    element.classList.add('visually-hidden')
-    // "All page content should be contained by landmarks"
-    // https://dequeuniversity.com/rules/axe/4.7/region
-    // The element that we use for the `aria-describedby` attribute
-    // needs to exist in the DOM inside a landmark. For example
-    // `<div role="footer">`. In our case we use our
-    // `<main id="main-content">` element.
-    // We "know" that this querySelector() query will always find a
-    // valid element, but it's theoretically not perfectly true, so we have to
-    // use a fallback.
-    const main = document.querySelector<HTMLDivElement>('main') || document.body
-    main.appendChild(element)
-  }
-
-  return element
-}
-
 function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDivElement) => void) {
   if (element.parentElement && element.parentElement.classList.contains('Popover')) {
     return
@@ -282,17 +248,21 @@ function popoverWrap(element: HTMLLinkElement, filledCallback?: (popover: HTMLDi
 
   const { pathname } = new URL(element.href)
 
-  fetch(`/api/pageinfo/v1?${new URLSearchParams({ pathname })}`).then(async (response) => {
+  fetch(`/api/article/meta?${new URLSearchParams({ pathname })}`, {
+    headers: {
+      'X-Request-Source': 'hovercards',
+    },
+  }).then(async (response) => {
     if (response.ok) {
-      const { info } = (await response.json()) as APIInfo
-      fillPopover(element, info, filledCallback)
+      const meta = (await response.json()) as PageMetadata
+      fillPopover(element, meta, filledCallback)
     }
   })
 }
 
 function fillPopover(
   element: HTMLLinkElement,
-  info: Info,
+  info: PageMetadata,
   callback?: (popover: HTMLDivElement) => void,
 ) {
   const { product, title, intro, anchor } = info
@@ -474,16 +444,6 @@ function popoverHide() {
 let lastFocussedLink: HTMLLinkElement | null = null
 
 export function LinkPreviewPopover() {
-  const { t } = useTranslation('popovers')
-  const { locale } = useRouter()
-
-  useEffect(() => {
-    const element = getOrCreateDescribeByElement()
-    if (element) {
-      element.textContent = t('keyboard_shortcut_description')
-    }
-  }, [locale])
-
   // This is to track if the user entirely tabs out of the window.
   // For example if they go to the address bar.
   useEffect(() => {
@@ -587,13 +547,6 @@ export function LinkPreviewPopover() {
       link.addEventListener('mouseover', showPopover)
       link.addEventListener('mouseout', hidePopover)
       link.addEventListener('keydown', keyboardHandler)
-
-      if (!link.getAttribute('aria-roledescription')) {
-        link.setAttribute('aria-roledescription', t('role_description'))
-      }
-      if (!link.getAttribute('aria-describedby')) {
-        link.setAttribute('aria-describedby', DESCRIBEDBY_ELEMENT_ID)
-      }
     }
 
     document.addEventListener('keydown', escapeHandler)

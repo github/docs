@@ -30,7 +30,7 @@ In general, {% data variables.product.company_short %} recommends minimizing the
 
 Organization owners always have access to all repositories owned by the organization. If your company is large enough that no single owner should have access to all repositories, consider creating multiple organizations.
 
-The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. {% ifversion fpt or ghec %} For example, each organization can have a different SAML configuration.{% endif %}
+The main benefit of creating multiple organizations is the ability to configure separate policies, settings, and requirements for each. {% ifversion ghec %} For example, each organization can have a different SAML configuration.{% endif %}
 
 Avoid creating a one-to-one relationship between organizations and structural entities of your company, such as individual teams or business units. Instead, group structural entities that can share policies, settings, and requirements into a single organization. This approach maximizes collaboration while meeting your regulatory requirements.
 
@@ -47,7 +47,7 @@ There are five main archetypes for organizational structure. The archetypes are 
 * Whether to use a single organization or multiple organizations
 * Whether to grant all members access to all repositories, or use teams to manage repository access more granularly
 
-For more information about teams, see "[AUTOTITLE](/organizations/organizing-members-into-teams/about-teams)."
+For more information about teams, see [AUTOTITLE](/organizations/organizing-members-into-teams/about-teams).
 
 ### Single organization with direct repository access
 
@@ -55,7 +55,7 @@ The simplest organizational structure is a single organization, where members ar
 
 This structure works best for small companies, such as startups, where everyone collaborates on everything. It can work for medium-sized companies as well, if trust is high.
 
-To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see "[AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization)."
+To use this archetype, set the base permissions for the organization to "Write" or "Read." For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/setting-base-permissions-for-an-organization).
 
 ### Single organization with teams for repository access
 
@@ -88,4 +88,4 @@ Then, create a second organization specifically for more sensitive repositories.
 ## Further reading
 
 * [Organize your experts with ad hoc teams](https://github.blog/2017-02-15-organize-your-experts-with-ad-hoc-teams/) in the {% data variables.product.company_short %} blog
-* "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)"
+* [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/best-practices-for-organizations)

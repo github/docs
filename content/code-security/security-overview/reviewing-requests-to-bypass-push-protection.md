@@ -2,12 +2,12 @@
 title: Reviewing requests to bypass push protection
 shortTitle: Review bypass requests
 intro: 'You can use security overview to review requests to bypass push protection from contributors pushing to repositories across your organization.'
-permissions: '{% data reusables.security-overview.permissions %}'
-product: '{% data reusables.gated-features.security-overview %}'
+permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-sp-only %}'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Secret Protection
   - Organizations
   - Teams
   - Secret scanning
@@ -20,18 +20,21 @@ versions:
 
 If your organization has configured delegated bypass for push protection, a designated team of reviewers controls which organization members can push secrets to repositories in your organization, and which members must first make a "bypass request" in order to push the secret.
 
-On the "Bypass requests" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
+On the "Push protection bypass" page in security overview, reviewers can find, review (approve or deny) and manage these requests.
 
-For more information, see "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection)."
+For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/managing-requests-to-bypass-push-protection).
 
 ## Reviewing bypass requests for an organization
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true"  %} Push protection bypass**.
+1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" %} Push protection bypass**.
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.
+{% ifversion push-protection-bypass-reviewer-comment -%}
+{% data reusables.repositories.bypass-requests-reviewer-comment %}
+{%- endif %}
 1. To allow the contributor to push the commit containing the secret, click **Approve bypass request**. Or, to require the contributor to remove the secret from the commit, click **Deny bypass request**.
 
 ## Filtering requests
@@ -52,5 +55,5 @@ The following statuses are assigned to a request:
 
 ## Further reading
 
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)"
-* "[AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)"
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/about-delegated-bypass-for-push-protection)
+* [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection)

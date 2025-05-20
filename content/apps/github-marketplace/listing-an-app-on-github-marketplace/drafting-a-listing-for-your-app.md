@@ -39,11 +39,8 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 {% data reusables.user-settings.developer_settings %}
 1. In the left sidebar, click either **OAuth Apps** or **GitHub Apps** depending on the app you're adding to {% data variables.product.prodname_marketplace %}.
 
-   {% note %}
-
-   **Note**: You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
-
-   {% endnote %}
+   > [!NOTE]
+   > You can also add a listing by navigating to https://github.com/marketplace/new, viewing your available apps, and clicking **Create draft listing**.
 
    ![Screenshot of the sidebar on the "Developer Settings" page of {% data variables.product.prodname_dotcom %}. Options labeled "{% data variables.product.prodname_github_apps %}" and "{% data variables.product.prodname_oauth_apps %}" are outlined in dark orange.](/assets/images/settings/apps-choose-app.png)
 
@@ -51,18 +48,15 @@ To create a {% data variables.product.prodname_marketplace %} listing:
 {% data reusables.user-settings.edit_marketplace_listing %}
 1. Once you've created a new draft listing, you'll see an overview of the sections that you'll need to visit before your {% data variables.product.prodname_marketplace %} listing will be complete.
 
-   ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. In a section labeled "Publish your app to Marketplace," unfinished action items such as "Add your contact info" are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
+   ![Screenshot of a draft {% data variables.product.prodname_marketplace %} listing. Under "Publish your app to Marketplace," unfinished actions are marked with orange circles.](/assets/images/marketplace/marketplace-listing-overview.png)
 
-{% note %}
-
-**Note:** In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
-
-{% endnote %}
+> [!NOTE]
+> In the "Contact info" section of your listing, we recommend using individual email addresses, rather than group emails addresses like support@domain.com. GitHub will use these email addresses to contact you about updates to {% data variables.product.prodname_marketplace %} that might affect your listing, new feature releases, marketing opportunities, payouts, and information on conferences and sponsorships.
 
 ## Editing your listing
 
-Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See "[AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing)."
+Once you've created a {% data variables.product.prodname_marketplace %} draft listing, you can come back to modify information in your listing anytime. If your app is already approved and in {% data variables.product.prodname_marketplace %}, you can edit the information and images in your listing, but you will not be able to change existing published pricing plans. See [AUTOTITLE](/apps/github-marketplace/listing-an-app-on-github-marketplace/setting-pricing-plans-for-your-listing).
 
 ## Submitting your app
 
-Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the "[AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement)," and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.
+Once you've completed your {% data variables.product.prodname_marketplace %} listing, you can submit your listing for review from the **Overview** page. You'll need to read and accept the [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-marketplace-developer-agreement), and then you can click **Submit for review**. After you submit your app for review, an onboarding expert will contact you with additional information about the onboarding process.

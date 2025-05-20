@@ -1,1 +1,1 @@
-1. In the "Settings" sidebar, click **Privacy**.
+1. In the "Settings" sidebar, click **Privacy** and uncheck **Privacy mode**.

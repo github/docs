@@ -2,7 +2,10 @@
 title: Viewing and managing your sessions
 intro: You can view and revoke your active sessions in your settings.
 versions:
-  feature: device-and-settings-management-page
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
+
 type: how_to
 topics:
   - SSO
@@ -22,14 +25,11 @@ You can view a list of devices that have logged into your account, and revoke an
 {% ifversion fpt or ghec %}
 1. Optionally, to revoke a {% data variables.product.prodname_mobile %} session, go back to the Sessions overview page and click **Revoke** next to the device you want to revoke.
 
-    {% note %}
-
-    **Note:** Revoking a mobile session signs you out of the {% data variables.product.prodname_mobile %} application on that device and removes it as a second-factor option.
-
-    {% endnote %}
+    > [!NOTE]
+    > Revoking a mobile session signs you out of the {% data variables.product.prodname_mobile %} application on that device and removes it as a second-factor option.
 
 {% endif %}
 
 ## Further information
 
-* "[AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#session-cookies)"
+* [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github#session-cookies)

@@ -11,6 +11,7 @@ import type {
 import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils.js'
 import getLinkData from '../lib/get-link-data.js'
 import { renderContent } from '@/content-render/index.js'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 
 export default async function learningTrack(
@@ -85,7 +86,13 @@ export default async function learningTrack(
 
   // The trackTitle comes from a data .yml file and may use Liquid templating, so we need to render it
   const renderOpts = { textOnly: true }
-  const trackTitle = (await renderContent(track.title, req.context, renderOpts)) as string
+  // Some translated titles are known to have broken Liquid, so we need to
+  // try rendering them in English as a fallback.
+  const trackTitle = await executeWithFallback(
+    req.context,
+    () => renderContent(track.title, req.context, renderOpts),
+    () => '', // todo use english track.title
+  )
 
   const currentLearningTrack: LearningTrack = { trackName, trackProduct, trackTitle }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
@@ -168,9 +175,14 @@ async function indexOfLearningTrackGuide(
 ) {
   let guideIndex = -1
 
+  const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, { textOnly: true })
+    let renderedGuidePath = await executeWithFallback(
+      context,
+      () => renderContent(trackGuidePaths[i], context, renderOpts),
+      () => '', // todo use english trackGuidePaths[i]
+    )
 
     if (!renderedGuidePath) continue
 

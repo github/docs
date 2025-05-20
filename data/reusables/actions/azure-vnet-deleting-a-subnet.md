@@ -19,7 +19,7 @@ To delete the network settings resource, the network configuration that uses it 
 
    ```bash copy
    az account set --subscription $SUBSCRIPTION_ID
-   az resource delete -g $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type 'GitHub.Network/networkSettings' --api-version '2023-11-01-preview'
+   az resource delete -g $RESOURCE_GROUP_NAME --name $NETWORK_SETTINGS_RESOURCE_NAME --resource-type 'GitHub.Network/networkSettings' --api-version $API_VERSION
    ```
 
 1. Delete the subnet in Azure. For more information, see [Delete a subnet](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#delete-a-subnet) on Microsoft Learn.

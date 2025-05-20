@@ -33,9 +33,9 @@ jobs:
 
       - name: Run script for audit-log-allowlists
         run: |
-          node src/workflows/fr-add-docs-reviewers-requests.js
+          npm run fr-add-docs-reviewers-requests
         env:
-          TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PROJECT_NUMBER: 2936
           ORGANIZATION: 'github'
           REPO: 'audit-log-allowlists'

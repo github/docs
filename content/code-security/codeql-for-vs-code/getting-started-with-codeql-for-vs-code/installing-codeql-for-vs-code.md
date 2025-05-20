@@ -5,8 +5,9 @@ versions:
   fpt: '*'
   ghec: '*'
   ghes: '*'
+product: '{% data reusables.gated-features.codeql %}'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -54,16 +55,12 @@ You can install the {% data variables.product.prodname_codeql %} for {% data var
 
 ## Next steps
 
-To learn how to work with {% data variables.product.prodname_codeql %} databases in the extension, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases)."
+To learn how to work with {% data variables.product.prodname_codeql %} databases in the extension, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases).
 
-If you have already found, downloaded, or created a {% data variables.product.prodname_codeql %} database, you can learn how to use the extension to run queries on {% data variables.product.prodname_codeql %} databases and view the results. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries)."
+If you have already found, downloaded, or created a {% data variables.product.prodname_codeql %} database, you can learn how to use the extension to run queries on {% data variables.product.prodname_codeql %} databases and view the results. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries).
 
-{% ifversion codeql-model-packs %}
+To learn how to model additional dependencies of a codebase and improve your {% data variables.product.prodname_code_scanning %} results, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).
 
-To learn how to model additional dependencies of a codebase and improve your {% data variables.product.prodname_code_scanning %} results, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
+To learn how to configure access to a different version of the {% data variables.product.prodname_codeql_cli %} than the one installed with the extension, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli).
 
-{% endif %}
-
-To learn how to configure access to a different version of the {% data variables.product.prodname_codeql_cli %} than the one installed with the extension, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/configuring-access-to-the-codeql-cli)."
-
-To learn how to set up a {% data variables.product.prodname_codeql %} workspace, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/setting-up-a-codeql-workspace)."
+To learn how to set up a {% data variables.product.prodname_codeql %} workspace, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/setting-up-a-codeql-workspace).

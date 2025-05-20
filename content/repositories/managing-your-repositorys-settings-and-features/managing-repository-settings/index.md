@@ -19,6 +19,7 @@ children:
   - /about-email-notifications-for-pushes-to-your-repository
   - /configuring-autolinks-to-reference-external-resources
   - /configuring-tag-protection-rules
+  - /managing-auto-closing-issues
+  - /managing-github-models-in-your-repository
 shortTitle: Manage repository settings
 ---
-

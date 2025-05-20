@@ -5,12 +5,10 @@ allowTitleToDifferFromFilename: true
 intro: 'You can control the ability to bypass push protection by setting up a reviewers group to assess requests. When a contributor proposes bypassing protections, any member of the bypass list can approve or block the request.'
 product: '{% data reusables.gated-features.secret-scanning %}'
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  feature: push-protection-delegated-bypass
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Repositories
 children:
   - /about-delegated-bypass-for-push-protection

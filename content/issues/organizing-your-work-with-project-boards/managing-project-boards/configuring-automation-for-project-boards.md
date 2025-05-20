@@ -18,17 +18,14 @@ allowTitleToDifferFromFilename: true
 ---
 {% data reusables.projects.project_boards_old %}
 
-{% data reusables.project-management.automate-project-board-permissions %} For more information, see "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)."
+{% data reusables.project-management.automate-project-board-permissions %} For more information, see [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards).
 
 {% data reusables.project-management.use-automated-template %}
 
 {% data reusables.project-management.resync-automation %}
 
-{% tip %}
-
-**Tip**: To edit columns that already have configured automation, click **Manage** at the bottom of the column.
-
-{% endtip %}
+> [!TIP]
+> To edit columns that already have configured automation, click **Manage** at the bottom of the column.
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} you want to automate.
 1. In the column you want to automate, click {% octicon "kebab-horizontal" aria-label="Column menu" %}.
@@ -40,4 +37,4 @@ allowTitleToDifferFromFilename: true
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)"
+* [AUTOTITLE](/issues/organizing-your-work-with-project-boards/managing-project-boards/about-automation-for-project-boards)

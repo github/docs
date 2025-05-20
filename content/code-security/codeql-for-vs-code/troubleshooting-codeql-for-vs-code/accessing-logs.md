@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -28,11 +28,8 @@ You can access the following logs:
 
 * {% data variables.product.prodname_codeql %} Tests
 
-{% note %}
-
-**Note:** The {% data variables.product.prodname_codeql %} Language Server log contains more advanced debug logs for  {% data variables.product.prodname_codeql %} language maintainers. You should only need these to provide details in a bug report.
-
-{% endnote %}
+> [!NOTE]
+> The {% data variables.product.prodname_codeql %} Language Server log contains more advanced debug logs for {% data variables.product.prodname_codeql %} language maintainers. You should only need these to provide details in a bug report.
 
 ## Accessing logs
 
@@ -41,4 +38,3 @@ You can access the following logs:
 1. Use the dropdown to select the log view you need. For example, "{% data variables.product.prodname_codeql %} Extension Log".
 
     ![Screenshot of the "Output" window in VS Code (as highlighted in dark orange). The dropdown is also highlighted, with "CodeQL Extension Log" selected.](/assets/images/help/security/codeql-for-vs-code-access-logs.png)
-  

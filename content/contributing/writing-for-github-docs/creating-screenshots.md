@@ -1,9 +1,11 @@
 ---
 title: Creating screenshots
 shortTitle: Create screenshots
-intro: "You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}."
+intro: 'You can help users locate elements of the user interface that are difficult to find by adding screenshots to {% data variables.product.prodname_docs %}.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About screenshots in {% data variables.product.prodname_docs %}
@@ -93,6 +95,8 @@ In addition to the criteria for inclusion, screenshots must meet the following r
 * 750–1000 pixels wide for full-column images
 * File size of 250 KB or less
 * Descriptive file names, such as `gist-embed-link.png` instead of `right_side_page_03.png`
+* Images captured on macOS must be retina images
+  * In Snagit, select **Snagit** > **Preferences** > **Advanced** and deselect "Scale down retina images when sharing"
 
 ### Accessibility
 
@@ -100,7 +104,7 @@ To meet the needs of more users, screenshots must:
 
 * Be accompanied by complete instructions in the procedural step, with no information conveyed entirely in visual form.
 * Be full contrast, as in the interface itself, with nothing obscured or reduced in opacity or color contrast.
-* Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see "[AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text)."
+* Have alt text that describes the content of the image and the appearance of its highlighting, if any. For more information, see [AUTOTITLE](/contributing/style-guide-and-content-model/style-guide#alt-text).
 * Be clear and crisp, with text and UI elements as legible as possible.
 
 ### Visual style
@@ -108,7 +112,7 @@ To meet the needs of more users, screenshots must:
 * Show a UI element with just enough surrounding context to help people know where to find the element on their screen.
 * Reduce negative space by resizing your browser window until optimal.
 * Show interfaces in light theme wherever possible.
-  * For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings)."
+  * For {% data variables.product.prodname_dotcom %}, select "Light default" in your appearance settings. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-personal-account-settings/managing-your-theme-settings).
   * For VSCode, select "GitHub light default" in the free [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) extension.
   * If the software you need to screenshot is available in dark mode only, it's fine to use dark mode.
 * If your username and avatar appear, replace them with @octocat's username and [avatar](https://avatars.githubusercontent.com/u/583231?v=4). Use the developer tools in your browser to replace your username with `@octocat` and to replace the URL of your avatar with `https://avatars.githubusercontent.com/u/583231?v=4`.
@@ -136,7 +140,7 @@ The stroke is the color `fg.severe` in the [Primer Design System](https://primer
 
 1. To download the Snagit theme, navigate to [`snagit-theme-github-docs.snagtheme`](https://github.com/github/docs/blob/main/contributing/images/snagit-theme-github-docs.snagtheme) in the `github/docs` repository, then click {% octicon "download" aria-label="Download raw content" %}.
 
-   ![Screenshot of the file view for "snagit-theme-github-docs.snagtheme." In the header of the file, a button labeled with a download icon is outlined in dark orange.](/assets/images/contributing/download-snagit-theme.png)
+   ![Screenshot of the file view for "snagit-theme-github-docs.snagtheme." In the header of the file, a button with a download icon is outlined in orange.](/assets/images/contributing/download-snagit-theme.png)
 1. Open Snagit, then select the **Shape** tool.
 1. Under "Quick styles," select **Import**.
 1. Select the Snagit theme from your computer's files. This will install the shape preset.
@@ -150,21 +154,16 @@ The stroke is the color `fg.severe` in the [Primer Design System](https://primer
    * Pixel depth: 144dpi (equivalent to "2x" on Snagit for Mac)
    * Pixel width: 1000 pixels maximum
 
-   {% note %}
+   > [!NOTE]
+   > On Windows, you may need to select **Advanced** to change the resolution. Ensure **Use resampling** is disabled.
 
-   **Note:** On Windows, you may need to select **Advanced** to change the resolution. Ensure **Use resampling** is disabled.
-
-   {% endnote %}
 1. With the {% data variables.product.prodname_docs %} theme open in the Shapes sidebar, select the dark orange rectangle.
 1. Drag and drop across the image to create a rectangle.
 1. Adjust the rectangle's height and width by dragging edges. Do not adjust the corner rounding, which should remain 4 px. Adjust the space between the UI element and the stroke so it's about the width of the stroke itself.
 1. Export image to PNG.
 
-{% note %}
-
-**Note:** A bug in Snagit may corrupt the corner rounding, causing rectangles to become ovals. If this occurs, delete and reinstall the {% data variables.product.prodname_docs %} theme (Windows and Mac), or click and drag the yellow dot at the top right of the shape to reset corner rounding to 4 px (Mac only).
-
-{% endnote %}
+> [!NOTE]
+> A bug in Snagit may corrupt the corner rounding, causing rectangles to become ovals. If this occurs, delete and reinstall the {% data variables.product.prodname_docs %} theme (Windows and Mac), or click and drag the yellow dot at the top right of the shape to reset corner rounding to 4 px (Mac only).
 
 ## Replacing screenshots
 
@@ -172,7 +171,7 @@ When replacing an existing image, best practice is to retain the image's filenam
 
 If you must change an image filename, search the repository for other references to that image and update all references to the original filename.
 
-If the image is used in deprecated versions of {% data variables.product.prodname_ghe_server %} documentation, don't change the filename.
+If the image is used in documentation for versions of {% data variables.product.prodname_ghe_server %} that are {% data variables.release-phases.closing_down %}, don't change the filename.
 
 ## Versioning images in Markdown content
 
@@ -220,6 +219,6 @@ Your Liquid conditional would look like this:
 {% endif %}{% endraw %}
 ```
 
-When the 3.10 release is deprecated, the `/assets/images/enterprise/3.10` directory will be removed.
+When the 3.10 release is {% data variables.release-phases.closing_down %}, the `/assets/images/enterprise/3.10` directory will be removed.
 
 The numbered release directory should contain images that apply to that release number only or to that release number and earlier. For example, images in `/assets/images/enterprise/2.22` should contain images that apply to 2.22 only or 2.22 and earlier.

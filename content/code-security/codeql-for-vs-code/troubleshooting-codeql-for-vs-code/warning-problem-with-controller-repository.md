@@ -3,7 +3,7 @@ title: 'Problem with controller repository'
 versions:
   feature: codeql-vs-code-mrva
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -27,4 +27,4 @@ When you run variant analysis, you'll see any errors and warnings displayed in t
 
 ## Fixing the problem
 
-To analyze private repositories, you should edit your settings to update your controller repository to a private repository. For information on how to edit the controller repository, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings#configuring-settings-for-variant-analysis)."
+To analyze private repositories, you should edit your settings to update your controller repository to a private repository. For information on how to edit the controller repository, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings#configuring-settings-for-variant-analysis).
