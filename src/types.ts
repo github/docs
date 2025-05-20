@@ -185,11 +185,11 @@ export type LearningTrack = {
   currentGuideIndex?: number
   nextGuide?: {
     href: string
-    title: string
+    title: string | undefined
   }
   prevGuide?: {
     href: string
-    title: string
+    title: string | undefined
   }
 }
 
