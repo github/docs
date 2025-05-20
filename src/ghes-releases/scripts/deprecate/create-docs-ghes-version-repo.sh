@@ -50,7 +50,7 @@ gh api -X POST "/repos/github/docs-ghes-$version/pages" \
 echo "--- Update custom properties"
 gh api --method PATCH /repos/github/docs-ghes-$version/properties/values \
   -f "properties[][property_name]=ownership-name" \
-  -f "properties[][value]=@github/docs-engineering" \
+  -f "properties[][value]=@github/docs" \
   -f "properties[][property_name]=ownership-type" \
   -f "properties[][value]=Team" \
   --silent

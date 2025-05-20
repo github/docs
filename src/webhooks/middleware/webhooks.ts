@@ -10,7 +10,7 @@ const router = express.Router()
 // Example request:
 //
 //   /api/webhooks/v1?category=check_run&version=free-pro-team%40latest
-router.get('/v1', async function webhooks(req, res, next) {
+router.get('/v1', async function webhooks(req, res) {
   if (!req.query.category) {
     return res.status(400).json({ error: "Missing 'category' in query string" })
   }
@@ -27,7 +27,7 @@ router.get('/v1', async function webhooks(req, res, next) {
     return res.status(404).json({ error: notFoundError })
   }
 
-  const webhook = await getWebhook(webhookVersion, req.query.category)
+  const webhook = await getWebhook(webhookVersion, req.query.category as string)
 
   if (webhook) {
     if (process.env.NODE_ENV !== 'development') {

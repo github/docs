@@ -20,7 +20,7 @@ describe('audit log events docs', () => {
       path: '/authentication/keeping-your-account-and-data-secure/security-log-events',
       type: 'user',
     },
-  ]
+  ] as const
 
   // This test ensures that the audit log event page components and Markdown
   // file are in sync.  Additionally, it checks all event categories are
@@ -32,7 +32,7 @@ describe('audit log events docs', () => {
         // the enterprise events page has no FPT versioned audit log data
         if (page.type === 'enterprise' && version === 'free-pro-team@latest') continue
 
-        const auditLogEvents = getCategorizedAuditLogEvents(page.type, version, true)
+        const auditLogEvents = getCategorizedAuditLogEvents(page.type, version)
 
         if (Object.keys(auditLogEvents).length === 0) {
           console.warn(`There are no audit log events for ${page.path} with version '${version}'.`)

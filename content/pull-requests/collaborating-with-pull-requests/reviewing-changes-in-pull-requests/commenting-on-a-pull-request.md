@@ -44,9 +44,15 @@ To reply to an existing line or file comment, you'll need to navigate to the com
 {% data reusables.repositories.type-line-comment %}
 {% data reusables.repositories.suggest-changes %}
 {% data reusables.repositories.start-file-comment %}
-1. When you're done, click **Add single comment**.
+1. When you're done:
 
-Anyone watching the pull request or repository will receive a notification of your comment.
+   * If you only want to add this **one comment**, click **Add single comment**.
+
+   * If you want to add **multiple comments**, click **Start a review**, then continue adding comments.
+
+     When you have finished, click **Finish your review** at the top right of the page, leave a summary of your review, and click **Submit review**.
+
+Anyone watching the pull request or repository will receive a notification of your comments. Batching your comments avoids multiple notifications being sent. {% ifversion copilot %}If you are commenting on a pull request created by {% data variables.product.prodname_copilot_short %}, batching your comments prevents {% data variables.product.prodname_copilot_short %} from starting to work on individual comments before you have completed your review. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue).{% endif %}
 
 {% data reusables.pull_requests.resolving-conversations %}
 
