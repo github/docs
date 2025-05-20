@@ -1,32 +1,34 @@
 import path from 'path'
-import findPage from '#src/frame/lib/find-page.js'
-import nonEnterpriseDefaultVersion from '#src/versions/lib/non-enterprise-default-version.js'
-import removeFPTFromPath from '#src/versions/lib/remove-fpt-from-path.js'
-import { renderContent } from '#src/content-render/index.js'
-import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
+import findPage from '@/frame/lib/find-page'
+import nonEnterpriseDefaultVersion from '@/versions/lib/non-enterprise-default-version'
+import removeFPTFromPath from '@/versions/lib/remove-fpt-from-path'
+import { renderContent } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { Context, LinkOptions, ProcessedLink } from './types'
 
 // rawLinks is an array of paths: [ '/foo' ]
 // we need to convert it to an array of localized objects: [ { href: '/en/foo', title: 'Foo', intro: 'Description here' } ]
-export default async (
-  rawLinks,
-  context,
-  option = { title: true, intro: true, fullTitle: false },
+export default async function getLinkData(
+  rawLinks: string[] | string | undefined,
+  context: Context,
+  options: LinkOptions = { title: true, intro: true, fullTitle: false },
   maxLinks = Infinity,
-) => {
-  if (!rawLinks) return
+): Promise<ProcessedLink[] | undefined> {
+  if (!rawLinks) return undefined
 
   if (typeof rawLinks === 'string') {
-    return await processLink(rawLinks, context, option)
+    const processedLink = await processLink(rawLinks, context, options)
+    return processedLink ? [processedLink] : undefined
   }
 
-  const links = []
+  const links: ProcessedLink[] = []
   // Using a for loop here because the async work is not network or
   // disk bound. It's CPU bound.
   // And if we use a for-loop we can potentially bail early if
   // the `maxLinks` is reached. That's instead of computing them all,
   // and then slicing the array. So it avoids wasted processing.
   for (const link of rawLinks) {
-    const processedLink = await processLink(link, context, option)
+    const processedLink = await processLink(link, context, options)
     if (processedLink) {
       links.push(processedLink)
       if (links.length >= maxLinks) {
@@ -38,9 +40,13 @@ export default async (
   return links
 }
 
-async function processLink(link, context, option) {
-  const opts = { textOnly: true }
-  const linkHref = link.href || link
+async function processLink(
+  link: string | { href: string },
+  context: Context,
+  options: LinkOptions,
+): Promise<ProcessedLink | null> {
+  const opts: { textOnly: boolean; preferShort?: boolean } = { textOnly: true }
+  const linkHref = typeof link === 'string' ? link : link.href
   // Parse the link in case it includes Liquid conditionals
   const linkPath = linkHref.includes('{')
     ? await executeWithFallback(
@@ -55,10 +61,13 @@ async function processLink(link, context, option) {
   if (!linkPath) return null
 
   const version =
-    context.currentVersion === 'homepage' ? nonEnterpriseDefaultVersion : context.currentVersion
-  const href = removeFPTFromPath(path.join('/', context.currentLanguage, version, linkPath))
+    (context.currentVersion === 'homepage'
+      ? nonEnterpriseDefaultVersion
+      : context.currentVersion) || 'free-pro-team@latest'
+  const currentLanguage = context.currentLanguage || 'en'
+  const href = removeFPTFromPath(path.join('/', currentLanguage, version, linkPath))
 
-  const linkedPage = findPage(href, context.pages, context.redirects)
+  const linkedPage = findPage(href, context.pages || {}, context.redirects || {})
   if (!linkedPage) {
     // This can happen when the link depends on Liquid conditionals,
     // like...
@@ -66,18 +75,18 @@ async function processLink(link, context, option) {
     return null
   }
 
-  const result = { href, page: linkedPage }
+  const result: ProcessedLink = { href, page: linkedPage }
 
-  if (option.title) {
+  if (options.title) {
     result.title = await linkedPage.renderTitle(context, opts)
   }
 
-  if (option.fullTitle) {
+  if (options.fullTitle) {
     opts.preferShort = false
     result.fullTitle = await linkedPage.renderTitle(context, opts)
   }
 
-  if (option.intro) {
+  if (options.intro) {
     result.intro = await linkedPage.renderProp('intro', context, opts)
   }
   return result

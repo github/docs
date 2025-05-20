@@ -65,4 +65,4 @@
 | GHD041 | third-party-action-pinning | Code examples that use third-party actions must always pin to a full length commit SHA | error | feature, actions |
 | GHD042 | liquid-tag-whitespace | Liquid tags should start and end with one whitespace. Liquid tag arguments should be separated by only one whitespace. | error | liquid, format |
 | GHD043 | link-quotation | Internal link titles must not be surrounded by quotations | error | links, url |
-| GHD022 | liquid-ifversion-versions | Liquid `ifversion`, `elsif`, and `else` tags should be valid and not contain unsupported versions. | error | liquid, versioning |
+| GHD044 | octicon-aria-labels | Octicons should always have an aria-label attribute even if aria-hidden. | warning | accessibility, octicons |
