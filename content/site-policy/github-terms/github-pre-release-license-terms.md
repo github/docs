@@ -1,17 +1,3 @@
----
-title: GitHub Pre-release License Terms
-allowTitleToDifferFromFilename: true
-redirect_from:
-  - /site-policy/github-terms/github-copilot-chat-pre-release-terms
-  - /site-policy/github-terms/github-copilot-pre-release-terms
-  - /site-policy/github-terms/github-copilot-pre-release-license-terms
-versions:
-  fpt: '*'
-topics:
-  - Policy
-  - Legal
----
-
 ## GitHub Pre-release License Terms
 
 These terms apply to the pre-release software made available to you by GitHub. To the extent there is a conflict between these terms and any other Agreement you have with us, these terms govern.
@@ -112,4 +98,16 @@ You bear the sole risk of using the pre-release software.
 
 ## 15. Nature of Terms for Microsoft Customers.
 
-  If you license GitHub through Microsoft, these terms shall be considered an amendment to the Microsoft Product Terms for GitHub Offerings for the duration of your use of the pre-release software.
+  If you license GitHub through Microsoft, these terms shall be considered an amendment to the Microsoft Product Terms  for GitHub Offerings for the duration of your use of the pre-release software.---
+title: GitHub Pre-release License Terms
+allowTitleToDifferFromFilename: true
+redirect_from:
+  - /site-policy/github-terms/github-copilot-chat-pre-release-terms
+  - /site-policy/github-terms/github-copilot-pre-release-terms
+  - /site-policy/github-terms/github-copilot-pre-release-license-terms
+versions:
+  fpt: '*'
+topics:
+  - Policy
+  - Legal
+---
