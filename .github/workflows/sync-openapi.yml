@@ -48,6 +48,7 @@ jobs:
           # will be checked out
           repository: github/models-gateway
           path: models-gateway
+          ref: main
 
       - uses: ./.github/actions/node-npm-setup
 

@@ -265,7 +265,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3, xAI Grok-3</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>1</td>

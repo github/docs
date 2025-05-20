@@ -10,7 +10,9 @@ import { program } from 'commander'
 import { allVersions } from '#src/versions/lib/all-versions.js'
 
 const releaseCandidateJSFile = 'src/versions/lib/enterprise-server-releases.js'
-const allowedActions = ['create', 'remove']
+const allowedActions = ['create', 'remove'] as const
+
+type AllowedAction = (typeof allowedActions)[number]
 
 program
   .description('Create or remove a release candidate banner for the provided docs version.')
@@ -23,7 +25,7 @@ program
 
 const options = program.opts()
 
-if (!allowedActions.includes(options.action)) {
+if (!allowedActions.includes(options.action as AllowedAction)) {
   console.log(`Error! You must specify --action <${allowedActions.join(' or ')}>.`)
   process.exit(1)
 }
@@ -36,30 +38,37 @@ if (!Object.keys(allVersions).includes(options.version)) {
 }
 
 // Load the release candidate variable
-let jsCode = await fs.readFile(releaseCandidateJSFile, 'utf8')
-const lineRegex = /export const releaseCandidate = .*/
-if (!lineRegex.test(jsCode)) {
-  throw new Error(
-    `The file ${releaseCandidateJSFile} does not contain a release candidate variable. ('export const releaseCandidate = ...')`,
-  )
-}
+async function main(): Promise<void> {
+  let jsCode = await fs.readFile(releaseCandidateJSFile, 'utf8')
+  const lineRegex = /export const releaseCandidate = .*/
+  if (!lineRegex.test(jsCode)) {
+    throw new Error(
+      `The file ${releaseCandidateJSFile} does not contain a release candidate variable. ('export const releaseCandidate = ...')`,
+    )
+  }
 
-// Create or remove the variable
-if (options.action === 'create') {
-  jsCode = jsCode.replace(
-    lineRegex,
-    `export const releaseCandidate = '${options.version.split('@')[1]}'`,
-  )
-} else if (options.action === 'remove') {
-  jsCode = jsCode.replace(lineRegex, `export const releaseCandidate = null`)
-}
+  // Create or remove the variable
+  if (options.action === 'create') {
+    jsCode = jsCode.replace(
+      lineRegex,
+      `export const releaseCandidate = '${options.version.split('@')[1]}'`,
+    )
+  } else if (options.action === 'remove') {
+    jsCode = jsCode.replace(lineRegex, `export const releaseCandidate = null`)
+  }
 
-// Update the file
-await fs.writeFile(releaseCandidateJSFile, jsCode)
+  // Update the file
+  await fs.writeFile(releaseCandidateJSFile, jsCode)
 
-// Display next steps
-console.log(`\nDone! Commit the update to ${releaseCandidateJSFile}. This ${options.action}s the banner for ${options.version}.
+  // Display next steps
+  console.log(`\nDone! Commit the update to ${releaseCandidateJSFile}. This ${options.action}s the banner for ${options.version}.
 
 - To change the banner text, you can edit header.notices.release_candidate in data/ui.yml.
 - To change the banner styling, you can edit includes/header-notification.html.
 `)
+}
+
+main().catch((error) => {
+  console.error('Error:', error)
+  process.exit(1)
+})

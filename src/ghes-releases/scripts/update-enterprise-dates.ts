@@ -11,6 +11,21 @@ import fs from 'fs/promises'
 
 import { getContents } from '#src/workflows/git-utils.ts'
 
+interface EnterpriseDates {
+  [releaseNumber: string]: {
+    releaseDate: string
+    deprecationDate: string
+  }
+}
+
+interface RawReleaseData {
+  [releaseNumber: string]: {
+    release_candidate?: string
+    start: string
+    end: string
+  }
+}
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const enterpriseDatesFile = path.join(__dirname, '../lib/enterprise-dates.json')
 const enterpriseDatesString = await fs.readFile(enterpriseDatesFile, 'utf8')
@@ -22,9 +37,9 @@ if (!process.env.GITHUB_TOKEN) {
 
 main()
 
-async function main() {
+async function main(): Promise<void> {
   // send owner, repo, ref, path
-  let rawDates = []
+  let rawDates: RawReleaseData = {}
   try {
     rawDates = JSON.parse(
       await getContents('github', 'enterprise-releases', 'master', 'releases.json'),
@@ -36,7 +51,7 @@ async function main() {
     throw error
   }
 
-  const formattedDates = {}
+  const formattedDates: EnterpriseDates = {}
   Object.entries(rawDates).forEach(([releaseNumber, releaseObject]) => {
     formattedDates[releaseNumber] = {
       releaseDate: releaseObject.release_candidate || releaseObject.start,

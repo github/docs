@@ -8,6 +8,39 @@ import { latest, oldestSupported } from '#src/versions/lib/enterprise-server-rel
 import { getContents } from '#src/workflows/git-utils.ts'
 import github from '#src/workflows/github.ts'
 
+interface ReleaseDates {
+  [releaseNumber: string]: {
+    start: string
+    end: string
+    prp?: string
+    feature_freeze?: string
+    code_freeze?: string
+    release_candidate?: string
+  }
+}
+
+interface ReleaseTemplate {
+  content: string
+  issue?: {
+    number: number
+    html_url: string
+  }
+}
+
+interface ReleaseTemplates {
+  [templateName: string]: ReleaseTemplate
+}
+
+interface ReleaseTemplateContext {
+  [key: string]: string
+}
+
+interface IssueSearchOpts {
+  labels?: string[]
+  searchQuery?: string
+  titleMatch?: string
+}
+
 // Required by github() to authenticate
 if (!process.env.GITHUB_TOKEN) {
   throw new Error('Error! You must have a GITHUB_TOKEN set in an .env file to run this script.')
@@ -99,7 +132,7 @@ async function createReleaseIssue() {
 
   // Only open an issue if today is within 30 days before
   // the release candidate date
-  if (getNumberDaysUntilMilestone(rcDate) > 30) {
+  if (getNumberDaysUntilMilestone(rcDate || '') > 30) {
     console.log(
       `The ${releaseNumber} release candidate is not until ${rcDate}! An issue will be opened 30 days prior to the release candidate date.`,
     )
@@ -134,11 +167,18 @@ async function createReleaseIssue() {
       releaseTemplateContext,
     )
     await addRepoLabels(repo, labels)
-    await updateIssue(repo, template.issue.number, title, body, labels)
+    await updateIssue(repo, template.issue!.number, title, body, labels)
   }
 }
 
-async function createIssue(fullRepo, title, body, labels, releaseNumber, releaseType) {
+async function createIssue(
+  fullRepo: string,
+  title: string,
+  body: string,
+  labels: string[],
+  releaseNumber: string,
+  releaseType: string,
+) {
   const [owner, repo] = fullRepo.split('/')
   if (!owner || !repo) throw new Error('Please provide a valid repo name in the format owner/repo')
   let issue
@@ -150,7 +190,7 @@ async function createIssue(fullRepo, title, body, labels, releaseNumber, release
       body,
       labels,
     })
-  } catch (error) {
+  } catch (error: any) {
     console.log(`#ERROR# ${error}\n🛑 There was an error creating the issue.`)
     throw error
   }
@@ -163,7 +203,13 @@ async function createIssue(fullRepo, title, body, labels, releaseNumber, release
   return issue
 }
 
-async function updateIssue(fullRepo, issueNumber, title, body, labels) {
+async function updateIssue(
+  fullRepo: string,
+  issueNumber: number,
+  title: string,
+  body: string,
+  labels: string[],
+) {
   const [owner, repo] = fullRepo.split('/')
   if (!owner || !repo) throw new Error('Please provide a valid repo name in the format owner/repo')
 
@@ -177,7 +223,7 @@ async function updateIssue(fullRepo, issueNumber, title, body, labels) {
       body,
       labels,
     })
-  } catch (error) {
+  } catch (error: any) {
     console.log(
       `#ERROR# ${error}\n🛑 There was an error updating issue ${issueNumber} in ${fullRepo}.`,
     )
@@ -188,9 +234,9 @@ async function updateIssue(fullRepo, issueNumber, title, body, labels) {
   }
 }
 
-async function addRepoLabels(fullRepo, labels) {
+async function addRepoLabels(fullRepo: string, labels: string[]) {
   const [owner, repo] = fullRepo.split('/')
-  const labelsToAdd = []
+  const labelsToAdd: string[] = []
   for (const name of labels) {
     try {
       await octokit.request('GET /repos/{owner}/{repo}/labels/{name}', {
@@ -198,7 +244,7 @@ async function addRepoLabels(fullRepo, labels) {
         repo,
         name,
       })
-    } catch (error) {
+    } catch (error: any) {
       if (error.status === 404) {
         labelsToAdd.push(name)
       } else {
@@ -214,65 +260,78 @@ async function addRepoLabels(fullRepo, labels) {
         repo,
         name,
       })
-    } catch (error) {
+    } catch (error: any) {
       console.log(`#ERROR# ${error}\n🛑 There was an error adding the label ${name}.`)
       throw error
     }
   }
 }
 
-function getReleaseTemplates() {
+function getReleaseTemplates(): ReleaseTemplates {
   const templateFiles = walk('src/ghes-releases/lib/release-templates', {
     includeBasePath: true,
     directories: false,
     globs: ['**/*.md'],
     ignore: ['**/README.md'],
   })
-  const releaseTemplates = {}
+  const releaseTemplates: ReleaseTemplates = {}
   for (const file of templateFiles) {
     releaseTemplates[basename(file, '.md')] = { content: readFileSync(file, 'utf8') }
   }
   return releaseTemplates
 }
 
-function getReleaseTemplateContext(releaseNumber, releaseInfo, releaseTemplates) {
-  const context = {
+function getReleaseTemplateContext(
+  releaseNumber: string,
+  releaseInfo: ReleaseDates[string],
+  releaseTemplates: ReleaseTemplates,
+): ReleaseTemplateContext {
+  const context: ReleaseTemplateContext = {
     'release-number': releaseNumber,
     'release-target-date': releaseInfo.start,
-    'release-prp': releaseInfo.prp,
-    'release-feature-freeze-date': releaseInfo.feature_freeze,
-    'release-code-freeze-date': releaseInfo.code_freeze,
-    'release-rc-target-date': releaseInfo.release_candidate,
+    'release-prp': releaseInfo.prp || '',
+    'release-feature-freeze-date': releaseInfo.feature_freeze || '',
+    'release-code-freeze-date': releaseInfo.code_freeze || '',
+    'release-rc-target-date': releaseInfo.release_candidate || '',
   }
   // Add a context variable for each issue url
   for (const [templateName, template] of Object.entries(releaseTemplates)) {
-    context[`${templateName}-url`] = template.issue.html_url
+    if (template.issue) {
+      context[`${templateName}-url`] = template.issue.html_url
+    }
   }
 
   // Create a context variable for each of the
   // 7 days before release-rc-target-date
-  const rcTargetDate = new Date(releaseInfo.release_candidate).getTime()
-  for (let i = 1; i <= 7; i++) {
-    const day = i
-    const milliSecondsBefore = day * 24 * 60 * 60 * 1000
-    const rcDateBefore = new Date(rcTargetDate - milliSecondsBefore).toISOString().slice(0, 10)
-    context[`release-rc-target-date-minus-${day}`] = rcDateBefore
+  if (releaseInfo.release_candidate) {
+    const rcTargetDate = new Date(releaseInfo.release_candidate).getTime()
+    for (let i = 1; i <= 7; i++) {
+      const day = i
+      const milliSecondsBefore = day * 24 * 60 * 60 * 1000
+      const rcDateBefore = new Date(rcTargetDate - milliSecondsBefore).toISOString().slice(0, 10)
+      context[`release-rc-target-date-minus-${day}`] = rcDateBefore
+    }
   }
   return context
 }
 
-async function getRenderedTemplate(templateContent, releaseTemplateContext) {
+async function getRenderedTemplate(
+  templateContent: string,
+  releaseTemplateContext: ReleaseTemplateContext,
+) {
   const { content, data } = matter(templateContent)
   const title = await liquid.parseAndRender(data.title, releaseTemplateContext)
   const body = await liquid.parseAndRender(content, releaseTemplateContext)
   const labels = await Promise.all(
-    data.labels.map(async (label) => await liquid.parseAndRender(label, releaseTemplateContext)),
+    data.labels.map(
+      async (label: string) => await liquid.parseAndRender(label, releaseTemplateContext),
+    ),
   )
 
   return { title, body, labels }
 }
 
-function getNumberDaysUntilMilestone(milestoneDate) {
+function getNumberDaysUntilMilestone(milestoneDate: string): number {
   const today = new Date().toISOString().slice(0, 10)
   const nextMilestoneDateTime = new Date(milestoneDate).getTime()
   const todayTime = new Date(today).getTime()
@@ -281,7 +340,7 @@ function getNumberDaysUntilMilestone(milestoneDate) {
   return Math.floor(differenceInMilliseconds / (1000 * 60 * 60 * 24))
 }
 
-function getNextReleaseNumber(releaseDates) {
+function getNextReleaseNumber(releaseDates: ReleaseDates): string {
   const indexOfLatest = Object.keys(releaseDates).indexOf(latest)
   const indexOfNext = indexOfLatest + 1
   return Object.keys(releaseDates)[indexOfNext]
@@ -292,9 +351,9 @@ function getNextReleaseNumber(releaseDates) {
 // labels: ['enterprise deprecation', 'ghes 3.0']
 // titleMatch: 'GHES 3.0'
 async function isExistingIssue(
-  repo,
-  opts = { labels: undefined, searchQuery: undefined, titleMatch: undefined },
-) {
+  repo: string,
+  opts: IssueSearchOpts = { labels: undefined, searchQuery: undefined, titleMatch: undefined },
+): Promise<boolean> {
   const { labels, searchQuery, titleMatch } = opts
   const labelQuery = labels && labels.map((label) => `label:"${encodeURI(label)}"`).join('+')
   let query = encodeURIComponent('is:issue ' + `repo:${repo} `)
@@ -314,21 +373,21 @@ async function isExistingIssue(
         console.log(`Issue ${issue.html_url} already exists for this release.`)
         return true
       }
-      return
+      return false
     }
   }
 
   const issueExists = !!issues.data.items.length
   if (issueExists) {
     console.log(
-      `Issue ${issues.data.items.map((item) => item.html_url)} already exists for this release.`,
+      `Issue ${issues.data.items.map((item: { html_url: string }) => item.html_url)} already exists for this release.`,
     )
   }
   return issueExists
 }
 
-async function getReleaseDates() {
-  let rawDates = []
+async function getReleaseDates(): Promise<ReleaseDates> {
+  let rawDates: ReleaseDates = {}
   try {
     rawDates = JSON.parse(
       await getContents('github', 'enterprise-releases', 'master', 'releases.json'),
