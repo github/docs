@@ -396,7 +396,7 @@ Package manager | YAML value      | Supported versions |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
 | pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
-| poetry         | `pip`            | v1               |
+| poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
