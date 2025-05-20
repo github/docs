@@ -16,13 +16,11 @@ topics:
 children:
   - /managing-pull-requests-for-dependency-updates
   - /about-dependabot-on-github-actions-runners
-  - /managing-dependabot-on-self-hosted-runners
   - /automating-dependabot-with-github-actions
   - /keeping-your-actions-up-to-date-with-dependabot
   - /configuring-access-to-private-registries-for-dependabot
   - /guidance-for-the-configuration-of-private-registries-for-dependabot
-  - /removing-dependabot-access-to-public-registries
-  - /viewing-dependabot-job-logs
-  - /troubleshooting-the-detection-of-vulnerable-dependencies
-  - /troubleshooting-dependabot-errors
+  - /dependabot-options-reference
+  - /setting-dependabot-to-run-on-self-hosted-runners-using-arc
+  - /setting-dependabot-to-run-on-github-hosted-runners-using-vnet
 ---

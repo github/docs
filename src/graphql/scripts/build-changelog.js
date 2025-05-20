@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 import { diff, ChangeType } from '@graphql-inspector/core'
 import { loadSchema } from '@graphql-tools/load'
 import fs from 'fs'
@@ -51,12 +50,14 @@ export async function createChangelogEntry(
   // Generate changes between the two schemas
   const changes = await diff(oldSchema, newSchema)
   const changesToReport = []
-  changes.forEach(function (change) {
+  changes.forEach((change) => {
     if (CHANGES_TO_REPORT.includes(change.type)) {
       changesToReport.push(change)
     } else if (CHANGES_TO_IGNORE.includes(change.type)) {
       // Do nothing
     } else {
+      console.error('Change object causing error:')
+      console.error(change)
       throw new Error(
         'This change type should be added to CHANGES_TO_REPORT or CHANGES_TO_IGNORE: ' +
           change.type,
@@ -286,6 +287,7 @@ const CHANGES_TO_IGNORE = [
   ChangeType.DirectiveArgumentDescriptionChanged,
   ChangeType.DirectiveArgumentDefaultValueChanged,
   ChangeType.DirectiveArgumentTypeChanged,
+  ChangeType.DirectiveUsageArgumentDefinitionRemoved,
   ChangeType.EnumValueDescriptionChanged,
   ChangeType.EnumValueDeprecationReasonChanged,
   ChangeType.EnumValueDeprecationReasonAdded,
@@ -304,6 +306,9 @@ const CHANGES_TO_IGNORE = [
   ChangeType.TypeDescriptionChanged,
   ChangeType.TypeDescriptionRemoved,
   ChangeType.TypeDescriptionAdded,
+  ChangeType.DirectiveUsageFieldDefinitionAdded,
+  ChangeType.DirectiveUsageArgumentDefinitionAdded,
+  ChangeType.DirectiveUsageEnumValueAdded,
 ]
 
 export default { createChangelogEntry, cleanPreviewTitle, previewAnchor, prependDatedEntry }

@@ -8,7 +8,6 @@ import timeout from 'connect-timeout'
 import { haltOnDroppedConnection } from './halt-on-dropped-connection'
 import abort from './abort'
 import morgan from 'morgan'
-import datadog from '@/observability/middleware/connect-datadog'
 import helmet from './helmet'
 import cookieParser from './cookie-parser'
 import {
@@ -27,10 +26,10 @@ import findPage from './find-page.js'
 import blockRobots from './block-robots'
 import archivedEnterpriseVersionsAssets from '@/archives/middleware/archived-enterprise-versions-assets'
 import api from './api'
-import healthz from './healthz'
+import healthcheck from './healthcheck'
 import manifestJson from './manifest-json'
-import remoteIP from './remote-ip'
 import buildInfo from './build-info'
+import reqHeaders from './req-headers'
 import archivedEnterpriseVersions from '@/archives/middleware/archived-enterprise-versions'
 import robots from './robots'
 import earlyAccessLinks from '@/early-access/middleware/early-access-links'
@@ -61,21 +60,19 @@ import fastlyCacheTest from './fastly-cache-test'
 import trailingSlashes from './trailing-slashes'
 import mockVaPortal from './mock-va-portal'
 import dynamicAssets from '@/assets/middleware/dynamic-assets'
-import contextualizeSearch from '@/search/middleware/contextualize.js'
+import generalSearchMiddleware from '@/search/middleware/general-search-middleware'
 import shielding from '@/shielding/middleware'
 import tracking from '@/tracking/middleware'
 import { MAX_REQUEST_TIMEOUT } from '@/frame/lib/constants.js'
 
-const { DEPLOYMENT_ENV, NODE_ENV } = process.env
+const { NODE_ENV } = process.env
 const isTest = NODE_ENV === 'test' || process.env.GITHUB_ACTIONS === 'true'
 
 // By default, logging each request (with morgan), is on. And by default
 // it's off if you're in a production environment or running automated tests.
 // But if you set the env var, that takes precedence.
 const ENABLE_DEV_LOGGING = Boolean(
-  process.env.ENABLE_DEV_LOGGING
-    ? JSON.parse(process.env.ENABLE_DEV_LOGGING)
-    : !(DEPLOYMENT_ENV === 'azure' || isTest),
+  process.env.ENABLE_DEV_LOGGING ? JSON.parse(process.env.ENABLE_DEV_LOGGING) : !isTest,
 )
 
 const ENABLE_FASTLY_TESTING = JSON.parse(process.env.ENABLE_FASTLY_TESTING || 'false')
@@ -112,15 +109,9 @@ export default function (app: Express) {
     app.use(morgan('dev'))
   }
 
-  // *** Observability ***
-  if (process.env.DD_API_KEY) {
-    app.use(datadog)
-  }
-
-  // Put this early to make it as fast as possible because it's used,
-  // and used very often, by the Azure load balancer to check the
-  // health of each node.
-  app.use('/healthz', healthz)
+  // Put this early to make it as fast as possible because it's used
+  // to check the health of each cluster.
+  app.use('/healthcheck', healthcheck)
 
   // Must appear before static assets and all other requests
   // otherwise we won't be able to benefit from that functionality
@@ -240,8 +231,8 @@ export default function (app: Express) {
 
   // *** Rendering, 2xx responses ***
   app.use('/api', api)
-  app.get('/_ip', remoteIP)
   app.get('/_build', buildInfo)
+  app.get('/_req-headers', reqHeaders)
   app.use(asyncMiddleware(manifestJson))
 
   // Things like `/api` sets their own Fastly surrogate keys.
@@ -275,7 +266,7 @@ export default function (app: Express) {
   app.use(asyncMiddleware(productExamples))
   app.use(asyncMiddleware(productGroups))
   app.use(asyncMiddleware(glossaries))
-  app.use(asyncMiddleware(contextualizeSearch))
+  app.use(asyncMiddleware(generalSearchMiddleware))
   app.use(asyncMiddleware(featuredLinks))
   app.use(asyncMiddleware(learningTrack))
 

@@ -15,7 +15,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Actions
@@ -28,13 +28,10 @@ topics:
 
 If you're configuring {% data variables.product.prodname_code_scanning %} for a compiled language, and you're building the code in a containerized environment, the analysis may fail with the error message "No source code was seen during the build." This indicates that {% data variables.product.prodname_codeql %} was unable to monitor your code as it was compiled.
 
-You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_cli %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %}, see "[AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system)" for more information. If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see "[Example workflow](#example-workflow)."
+You must run {% data variables.product.prodname_codeql %} inside the container in which you build your code. This applies whether you are using the {% data variables.product.prodname_codeql_cli %} or {% data variables.product.prodname_actions %}. For the {% data variables.product.prodname_codeql_cli %}, see [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system) for more information. If you're using {% data variables.product.prodname_actions %}, configure your workflow to run all the actions in the same container. For more information, see [Example workflow](#example-workflow).
 
-{% note %}
-
-**Note:** {% data reusables.code-scanning.non-glibc-linux-support %}
-
-{% endnote %}
+> [!NOTE]
+> {% data reusables.code-scanning.non-glibc-linux-support %}
 
 ## Dependencies for {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}
 
@@ -48,7 +45,7 @@ You may have difficulty running {% data variables.product.prodname_code_scanning
 
 {% data reusables.code-scanning.codeql-action-version-ghes %}
 
-This sample workflow uses {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis in a containerized environment. The value of `container.image` identifies the container to use. In this example the image is named `codeql-container`, with a tag of `f0f91db`. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer)."
+This sample workflow uses {% data variables.product.prodname_actions %} to run {% data variables.product.prodname_codeql %} analysis in a containerized environment. The value of `container.image` identifies the container to use. In this example the image is named `codeql-container`, with a tag of `f0f91db`. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idcontainer).
 
 ```yaml
 name: "{% data variables.product.prodname_codeql %}"
@@ -72,7 +69,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [{% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %}]
+        language: [java-kotlin]
 
     # Specify the container in which actions will run
     container:

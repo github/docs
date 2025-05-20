@@ -3,7 +3,7 @@ title: Transcript - "Billing GitHub consumption through an Azure subscription"
 intro: Audio and visual transcript.
 shortTitle: Billing through Azure
 allowTitleToDifferFromFilename: true
-product_video: 'https://www.youtube.com/watch?v=DAiIhJKCt8s'
+product_video: 'https://www.youtube.com/watch?v=Y-f7JKJ4_8Y'
 topics:
   - Transcripts
 versions:
@@ -27,7 +27,9 @@ And finally, if a Microsoft customer has an Azure discount, it will automaticall
 
 If a Microsoft customer also has a Microsoft Azure Consumption Commitment, or MACC, all future GitHub consumption will decrement their MACC as well.
 
-So what GitHub products are eligible for Azure billing? Any GitHub consumption products are eligible today, meaning products that customers pay for based on actual usage, including Copilot for Business, GitHub-hosted actions, larger hosted runners, GitHub Packages and storage, and GitHub Codespaces. Please note that GitHub Enterprise and GitHub Advanced Security are currently not able to be billed through Azure, but are instead invoiced on an annual basis.
+So what GitHub products are eligible for Azure billing? Any GitHub consumption products are eligible today, meaning products that customers pay for based on actual usage, including things like GitHub Copilot, GitHub-hosted actions, larger hosted runners, GitHub Packages and storage, and GitHub Codespaces.
+
+Historically, GitHub Enterprise and {% data variables.product.prodname_AS %} were only available through an annual license. However, as of August 1, 2024, they are now also available for metered billing through Azure, for additional flexibility and pay-as-you-go pricing. For existing licensed customers, be sure to connect with your GitHub seller to learn more, as certain restrictions may apply.
 
 [A table shows eligibility for Azure billing and MACCs for the products mentioned. In the table, all products eligible for Azure billing are also eligible for MACCs.]
 
@@ -91,4 +93,4 @@ At this point, the eligible items within my subscriptions, as we described earli
 
 T.J.: Thanks so much for joining us today. For future reference, we are also sharing two helpful resources to help you bill GitHub consumption through Azure in the future. And if you have a dedicated GitHub and/or Microsoft account team, please don't hesitate to reach out to them for additional information. Thanks.
 
-End of transcript. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription)" and [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft documentation.
+End of transcript. For more information, see [AUTOTITLE](/enterprise-cloud@latest/billing/managing-the-plan-for-your-github-account/connecting-an-azure-subscription) and [Get subscription and tenant IDs in the Azure portal](https://learn.microsoft.com/en-us/azure/azure-portal/get-subscription-tenant-id) in the Microsoft documentation.

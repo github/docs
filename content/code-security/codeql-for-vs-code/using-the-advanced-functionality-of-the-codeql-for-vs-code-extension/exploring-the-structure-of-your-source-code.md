@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -23,11 +23,8 @@ The abstract syntax tree (AST) of a program represents the program's syntactic s
 
 ## Viewing the abstract syntax tree of a source file
 
-{% note %}
-
-**Note:** If you don't have an appropriate query (usually `printAST.ql`) in your workspace, the **{% data variables.product.prodname_codeql %}: View AST** command in the following steps won't work. To fix this, you can update your copy of the [`github/codeql`](https://github.com/github/codeql) repository from the `main` branch. If you do this, query caches may be discarded, so your next query runs may be slower.
-
-{% endnote %}
+> [!NOTE]
+> If you don't have an appropriate query (usually `printAST.ql`) in your workspace, the **{% data variables.product.prodname_codeql %}: View AST** command in the following steps won't work. To fix this, you can update your copy of the [`github/codeql`](https://github.com/github/codeql) repository from the `main` branch. If you do this, query caches may be discarded, so your next query runs may be slower.
 
 1. Open the "Databases" view in the extension, and right-click the database that you want to explore. Click **Add Database Source to Workspace**.
 

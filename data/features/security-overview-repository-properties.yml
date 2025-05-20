@@ -1,5 +1,6 @@
 # Reference: Issue #10332 - Repository properties integration with security overview
-
+# Ref 17108 Advanced Security available to Team plans
 versions:
+  fpt: '*'
   ghec: '*'
   ghes: '>=3.13'

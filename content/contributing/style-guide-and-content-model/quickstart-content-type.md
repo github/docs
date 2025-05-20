@@ -1,8 +1,10 @@
 ---
 title: Quickstart content type
-intro: 'Quickstarts are best for people who want instructions quickly without lengthy explanations of how something works or why they would want to use it.'
+intro: Quickstarts are best for people who want instructions quickly without lengthy explanations of how something works or why they would want to use it.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Quickstarts enable people to quickly complete a discrete, focused task by illustrating a workflow with only essential steps, in about five minutes or 600 words. Quickstarts can be used for quickly getting set up with a new tool, or for quickly completing another task. For more complex tasks, use a tutorial.
@@ -13,7 +15,7 @@ We collectively refer to tutorials and quickstarts as "guides" across the site. 
 
 ## How to write a quickstart
 
-For the quickstart template, see "[AUTOTITLE](/contributing/writing-for-github-docs/templates#quickstart-article-template)."
+For the quickstart template, see [AUTOTITLE](/contributing/writing-for-github-docs/templates#quickstart-article-template).
 
 Contents of quickstarts:
 * Introduction:

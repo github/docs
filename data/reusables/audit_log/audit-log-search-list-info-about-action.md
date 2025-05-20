@@ -9,10 +9,10 @@ Each audit log entry shows applicable information about an event, such as:
 * The action that was performed
 * Which country the action took place in
 * The date and time the action occurred
-{%- ifversion ghec or ghes > 3.12 %}
+{%- ifversion ghec or ghes %}
 * The SAML SSO and SCIM identity of the user (actor) who performed the action
 {%- endif %}
-{%- ifversion token-audit-log %}
+{%- ifversion ghec or ghes %}
 * For actions outside of the web UI, how the user (actor) authenticated
 {%- endif %}
 {%- ifversion enterprise-audit-log-ip-addresses %}

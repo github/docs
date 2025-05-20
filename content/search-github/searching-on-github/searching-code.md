@@ -1,6 +1,6 @@
 ---
 title: Searching code {% ifversion code-search-upgrade %}(legacy){% endif %}
-intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.product_name %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
+intro: '{% ifversion code-search-upgrade %}You only need to use the legacy code search syntax if you are using the code search API{% else %}You can search for code on {% data variables.product.github %} and narrow the results using these code search qualifiers in any combination{% endif %}.'
 redirect_from:
   - /articles/searching-code
   - /github/searching-for-information-on-github/searching-files-in-a-repository-for-exact-matches
@@ -16,16 +16,15 @@ topics:
   - GitHub search
 ---
 {% ifversion code-search-upgrade %}
-{% note %}
 
-**Note:** This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
+> [!NOTE]
+> This article covers the syntax for legacy code search, which you should only need to use for the [REST API endpoint for searching code](/rest/search/search#search-code).
+>
+> For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom %}, see [AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax).
 
-For information on the code search syntax that you can use on {% data variables.product.prodname_dotcom_the_website %}, see "[AUTOTITLE](/search-github/github-code-search/understanding-github-code-search-syntax)."
-
-{% endnote %}
 {% endif %}
 
-{% data reusables.search.you-can-search-globally %} For more information, see "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github)."
+{% data reusables.search.you-can-search-globally %} For more information, see [AUTOTITLE](/search-github/getting-started-with-searching-on-github/about-searching-on-github).
 
 You can only search code using these code search qualifiers. Search qualifiers specifically for repositories, users, or commits, will not work when searching for code.
 
@@ -36,7 +35,7 @@ You can only search code using these code search qualifiers. Search qualifiers s
 Due to the complexity of searching code, there are some restrictions on how searches are performed:
 
 * {% data reusables.search.required_login %}
-* Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository, and the forked repository has at least one pushed commit after being created. Forks with fewer stars than the parent repository or no commits are **not** indexed for code search. To include forks with more stars than their parent and at least one pushed commit in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)."
+* Code in [forks](/pull-requests/collaborating-with-pull-requests/working-with-forks/about-forks) is only searchable if the fork has more stars than the parent repository, and the forked repository has at least one pushed commit after being created. Forks with fewer stars than the parent repository or no commits are **not** indexed for code search. To include forks with more stars than their parent and at least one pushed commit in the search results, you will need to add `fork:true` or `fork:only` to your query. For more information, see [AUTOTITLE](/search-github/searching-on-github/searching-in-forks).
 * Only the _default branch_ is indexed for code search.{% ifversion fpt or ghec %}
 * Only files smaller than 384 KB are searchable.{% else %}* Only files smaller than 5 MB are searchable.
 * Only the first 500 KB of each file is searchable.{% endif %}
@@ -59,7 +58,7 @@ With the `in` qualifier you can restrict your search to the contents of the sour
 
 ## Search within a user's or organization's repositories
 
-To search the code in all repositories owned by a certain user or organization, you can use the  `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
+To search the code in all repositories owned by a certain user or organization, you can use the `user` or `org` qualifier. To search the code in a specific repository, you can use the `repo` qualifier.
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -79,7 +78,7 @@ You can use the `path` qualifier to search for source code that appears at a spe
 
 ## Search by language
 
-You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github-linguist/linguist repository](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml).
+You can search for code based on what language it's written in. The `language` qualifier can be the language name or alias. For a full list of supported languages with their names and aliases, see the [github-linguist/linguist repository](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -97,7 +96,7 @@ You can use the `size` qualifier to search for source code based on the size of 
 
 ## Search by filename
 
-The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see "[AUTOTITLE](/search-github/searching-on-github/finding-files-on-github)."
+The `filename` qualifier matches code files with a certain filename. You can also find a file in a repository using the file finder. For more information, see [AUTOTITLE](/search-github/searching-on-github/finding-files-on-github).
 
 | Qualifier  | Example
 | ------------- | -------------
@@ -116,6 +115,6 @@ The `extension` qualifier matches code files with a certain file extension.
 
 ## Further reading
 
-* "[AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)"
-* "[AUTOTITLE](/search-github/searching-on-github/searching-in-forks)"{% ifversion fpt or ghec %}
-* "[AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github)"{% endif %}
+* [AUTOTITLE](/search-github/getting-started-with-searching-on-github/sorting-search-results)
+* [AUTOTITLE](/search-github/searching-on-github/searching-in-forks){% ifversion fpt or ghec %}
+* [AUTOTITLE](/repositories/working-with-files/using-files/navigating-code-on-github){% endif %}

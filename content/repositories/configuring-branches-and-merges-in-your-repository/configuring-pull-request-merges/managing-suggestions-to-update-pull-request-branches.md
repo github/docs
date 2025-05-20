@@ -3,7 +3,7 @@ title: Managing suggestions to update pull request branches
 intro: You can give users the ability to always update a pull request branch when it is not up to date with the base branch.
 versions:
   fpt: '*'
-  ghes: '> 3.4'
+  ghes: '*'
   ghec: '*'
 topics:
   - Repositories
@@ -13,7 +13,7 @@ permissions: People with maintainer permissions can enable or disable the settin
 
 ## About suggestions to update a pull request branch
 
-If you enable the setting to always suggest updating pull request branches in your repository, people with write permissions will always have the ability, on the pull request page, to update a pull request's head branch when it's not up to date with the base branch. When not enabled, the ability to update is only available when the base branch requires branches to be up to date before merging and the branch is not up to date. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch)."
+If you enable the setting to always suggest updating pull request branches in your repository, people with write permissions will always have the ability, on the pull request page, to update a pull request's head branch when it's not up to date with the base branch. When not enabled, the ability to update is only available when the base branch requires branches to be up to date before merging and the branch is not up to date. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/keeping-your-pull-request-in-sync-with-the-base-branch).
 
 ## Managing suggestions to update a pull request branch
 

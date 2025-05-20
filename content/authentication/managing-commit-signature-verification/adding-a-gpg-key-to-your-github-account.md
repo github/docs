@@ -1,6 +1,6 @@
 ---
 title: Adding a GPG key to your GitHub account
-intro: 'To configure your account on {% data variables.product.product_name %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
+intro: 'To configure your account on {% data variables.product.github %} to use your new (or existing) GPG key, you''ll also need to add the key to your account.'
 redirect_from:
   - /articles/adding-a-gpg-key-to-your-github-account
   - /github/authenticating-to-github/adding-a-new-gpg-key-to-your-github-account
@@ -22,19 +22,17 @@ shortTitle: Add a GPG key
 
 ## About addition of GPG keys to your account
 
-To sign commits associated with your account on {% data variables.product.product_name %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)" and "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)."
+To sign commits associated with your account on {% data variables.product.github %}, you can add a public GPG key to your personal account. Before you add a key, you should check for existing keys. If you don't find any existing keys, you can generate and copy a new key. For more information, see [AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys) and [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key).
 
-You can add multiple public keys to your account on {% data variables.product.product_name %}. Commits signed by any of the corresponding private keys will show as verified. If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.
+You can add multiple public keys to your account on {% data variables.product.github %}. Commits signed by any of the corresponding private keys will show as verified. {% ifversion persistent-commit-verification %}Once a commit has been verified, any commits signed by the corresponding private key will continue to show as verified, even if the public key is removed.{% else %}If you remove a public key, any commits signed by the corresponding private key will no longer show as verified.{% endif %}
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
+![Screenshot of a list of commits. One commit is marked as "Verified." A dropdown shows the commit was signed and when it was signed.](/assets/images/help/settings/verified-persistent-commit.png)
+
 To verify as many of your commits as possible, you can add expired and revoked keys. If the key meets all other verification requirements, commits that were previously signed by any of the corresponding private keys will show as verified and indicate that their signing key is expired or revoked.
-
-![Screenshot of a list of commits. One commit is marked with a "Verified" label. Below the label, a dropdown explains that the commit was signed, but the key has now expired.](/assets/images/help/settings/gpg-verified-with-expired-key.png)
-{% endif %}
 
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-When verifying a signature, {% data variables.product.product_name %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.product_name %}. Until a matching GPG key is added to {% data variables.product.product_name %}, it cannot verify your signatures.
+When verifying a signature, {% data variables.product.github %} extracts the signature and attempts to parse its key ID. The key ID is then matched with keys added to {% data variables.product.github %}. Until a matching GPG key is added to {% data variables.product.github %}, it cannot verify your signatures.
 
 ## Adding a GPG key
 
@@ -46,25 +44,11 @@ When verifying a signature, {% data variables.product.product_name %} extracts t
 1. Click **Add GPG key**.
 1. If prompted, authenticate to your {% data variables.product.prodname_dotcom %} account to confirm the action.
 
-{% ifversion upload-expired-or-revoked-gpg-key %}
-{% else %}
-
-## Updating an expired GPG key
-
-When verifying a signature, {% data variables.product.product_name %} checks that the key is not revoked or expired. If your signing key is revoked or expired, {% data variables.product.product_name %} cannot verify your signatures.
-
-If your key is expired, you must [update its expiration](https://www.gnupg.org/gph/en/manual.html#AEN329), export the new key, delete the expired key in your account on {% data variables.product.product_name %}, and add the new key to your account as described above. Your previous commits and tags will show as verified, as long as the key meets all other verification requirements.
-
-If your key is revoked, use the primary key or another key that is not revoked to sign your commits.
-
-If your key is invalid and you don't use another valid key in your key set, but instead generate a new GPG key with a new set of credentials, then your commits made with the revoked or expired key will continue to show as unverified. Also, your new credentials will not be able to re-sign or verify your old commits and tags.
-{% endif %}
-
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/checking-for-existing-gpg-keys)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/about-commit-signature-verification)

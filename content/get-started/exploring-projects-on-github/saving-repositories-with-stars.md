@@ -24,7 +24,7 @@ You can search, sort, and filter your starred repositories and topics on your {%
 Starring makes it easy to find a repository or topic again later. You can see all the repositories and topics you have starred by going to your {% data variables.explore.your_stars_page %}.
 
 {% ifversion fpt or ghec %}
-You can star repositories and topics to discover similar projects on {% data variables.product.product_name %}. When you star repositories or topics, {% data variables.product.product_name %} may recommend related content on your personal dashboard. For more information, see "[AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)" and "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/about-your-personal-dashboard#staying-updated-with-activity-from-the-community)."
+You can star repositories and topics to discover similar projects on {% data variables.product.github %}. For example, after you star [{% data variables.product.github %}'s Green Software Directory](https://github.com/github/GreenSoftwareDirectory), you will see other content related to green software on your personal dashboard.
 {% endif %}
 
 Starring a repository also shows appreciation to the repository maintainer for their work. Many of {% data variables.product.prodname_dotcom %}'s repository rankings depend on the number of stars a repository has. In addition, [Explore {% data variables.product.prodname_dotcom %}](https://github.com/explore) shows popular repositories based on the number of stars they have.
@@ -49,11 +49,8 @@ To view everyone who has starred a repository, add `/stargazers` to the end of t
 
 ## Organizing starred repositories with lists
 
-{% note %}
-
-**Note:** Lists are currently in public beta and subject to change.
-
-{% endnote %}
+> [!NOTE]
+> Lists are currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 Curate repositories that you've starred with public lists. You can create public lists that appear on your stars page at `https://github.com/USERNAME?tab=stars`.
 
@@ -121,4 +118,4 @@ You can use sorting or filtering to customize how you see starred repositories a
 
 ## Further reading
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics)

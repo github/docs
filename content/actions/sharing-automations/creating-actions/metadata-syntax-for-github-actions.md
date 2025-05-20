@@ -19,9 +19,9 @@ type: reference
 
 ## About YAML syntax for {% data variables.product.prodname_actions %}
 
-All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
+All actions require a metadata file. The metadata filename must be either `action.yml` or `action.yaml`. The preferred format is `action.yml`. The data in the metadata file defines the inputs, outputs, and runs configuration for your action.
 
-Action metadata files use YAML syntax. If you're new to YAML, you can read "[Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes)."
+Action metadata files use YAML syntax. If you're new to YAML, you can read [Learn YAML in five minutes](https://www.codeproject.com/Articles/1214409/Learn-YAML-in-five-minutes).
 
 ## `name`
 
@@ -37,19 +37,16 @@ Action metadata files use YAML syntax. If you're new to YAML, you can read "[Lea
 
 ## `inputs`
 
-**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. Input ids with uppercase letters are converted to lowercase during runtime. We recommend using lowercase input ids.
+**Optional** Input parameters allow you to specify data that the action expects to use during runtime. {% data variables.product.prodname_dotcom %} stores input parameters as environment variables. We recommend using lowercase input ids.
 
 ### Example: Specifying inputs
 
 This example configures two inputs: `num-octocats` and `octocat-eye-color`. The `num-octocats` input is not required and will default to a value of `1`. `octocat-eye-color` is required and has no default value.
 
-{% note %}
+> [!NOTE]
+> Actions using `required: true` will not automatically return an error if the input is not specified.
 
-**Note:** Workflows using `required: true` will not automatically return an error if the input is not specified for events that automatically trigger workflow runs. If you set `required: true` in your workflow file and are using `workflow_dispatch` to manually run the workflow, you will be required to specify inputs on {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows)."
-
-{% endnote %}
-
-Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith)."
+Workflow files that use this action can use the `with` keyword to set an input value for `octocat-eye-color`. For more information about the `with` syntax, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepswith).
 
 ```yaml
 inputs:
@@ -62,11 +59,11 @@ inputs:
     required: true
 ```
 
-When you specify an input in a workflow file or use a default input value, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
+When you specify an input, {% data variables.product.prodname_dotcom %} creates an environment variable for the input with the name `INPUT_<VARIABLE_NAME>`. The environment variable created converts input names to uppercase letters and replaces spaces with `_` characters.
 
-If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. If the conversion doesn't occur, you can change these inputs manually.
+If the action is written using a [composite](/actions/creating-actions/creating-a-composite-action), then it will not automatically get `INPUT_<VARIABLE_NAME>`. With composite actions you can use `inputs` [AUTOTITLE](/actions/learn-github-actions/contexts) to access action inputs.
 
-To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file)."
+To access the environment variable in a Docker container action, you must pass the input using the `args` keyword in the action metadata file. For more information about the action metadata file for Docker container actions, see [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action#creating-an-action-metadata-file).
 
 For example, if a workflow defined the `num-octocats` and `octocat-eye-color` inputs, the action code could read the values of the inputs using the `INPUT_NUM-OCTOCATS` and `INPUT_OCTOCAT-EYE-COLOR` environment variables.
 
@@ -88,15 +85,15 @@ For example, if a workflow defined the `num-octocats` and `octocat-eye-color` in
 
 ### `inputs.<input_id>.deprecationMessage`
 
-**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is deprecated and mention any alternatives.
+**Optional** If the input parameter is used, this `string` is logged as a warning message. You can use this warning to notify users that the input is {% data variables.release-phases.closing_down %} and mention any alternatives.
 
 ## `outputs` for Docker container and JavaScript actions
 
-**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions.  For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
+**Optional** Output parameters allow you to declare data that an action sets. Actions that run later in a workflow can use the output data set in previously run actions. For example, if you had an action that performed the addition of two inputs (x + y = z), the action could output the sum (z) for other actions to use as an input.
 
 {% data reusables.actions.output-limitations %}
 
-If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see "[AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter)."
+If you don't declare an output in your action metadata file, you can still set outputs and use them in a workflow. For more information on setting outputs in an action, see [AUTOTITLE](/actions/using-workflows/workflow-commands-for-github-actions#setting-an-output-parameter).
 
 ### Example: Declaring outputs for Docker container and JavaScript actions
 
@@ -116,7 +113,7 @@ outputs:
 
 ## `outputs` for composite actions
 
-**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see "[`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)"), but also includes the `value` token.
+**Optional** `outputs` use the same parameters as `outputs.<output_id>` and `outputs.<output_id>.description` (see [`outputs` for Docker container and JavaScript actions](#outputs-for-docker-container-and-javascript-actions)), but also includes the `value` token.
 
 {% data reusables.actions.output-limitations %}
 
@@ -143,7 +140,7 @@ runs:
 
 **Required** The value that the output parameter will be mapped to. You can set this to a `string` or an expression with context. For example, you can use the `steps` context to set the `value` of an output to the output value of a step.
 
-For more information on how to use context syntax, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+For more information on how to use context syntax, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 ## `runs`
 
@@ -153,11 +150,11 @@ For more information on how to use context syntax, see "[AUTOTITLE](/actions/lea
 
 **Required** Configures the path to the action's code and the runtime used to execute the code.
 
-### Example: Using Node.js {% ifversion actions-node20-support %}v20{% else %}v16{% endif %}
+### Example: Using Node.js v20
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   main: 'main.js'
 ```
 
@@ -165,7 +162,7 @@ runs:
 
 **Required** The runtime used to execute the code specified in [`main`](#runsmain).
 
-* Use {% ifversion actions-node20-support %}`node20` for Node.js v20{% else %}`node16` for Node.js v16{% endif %}.
+* Use `node20` for Node.js v20.
 
 ### `runs.main`
 
@@ -175,11 +172,14 @@ runs:
 
 **Optional** Allows you to run a script at the start of a job, before the `main:` action begins. For example, you can use `pre:` to run a prerequisite setup script. The runtime specified with the [`using`](#runsusing-for-javascript-actions) syntax will execute this file. The `pre:` action always runs by default but you can override this using [`runs.pre-if`](#runspre-if).
 
+> [!NOTE]
+> `runs.pre` is not supported for local actions.
+
 In this example, the `pre:` action runs a script called `setup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   pre: 'setup.js'
   main: 'index.js'
   post: 'cleanup.js'
@@ -206,7 +206,7 @@ In this example, the `post:` action runs a script called `cleanup.js`:
 
 ```yaml
 runs:
-  using: {% ifversion actions-node20-support %}'node20'{% else %}'node16'{% endif %}
+  using: 'node20'
   main: 'index.js'
   post: 'cleanup.js'
 ```
@@ -262,17 +262,17 @@ runs:
       shell: bash
 ```
 
-For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts#github-context)".
+For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts#github-context).
 
 #### `runs.steps[*].shell`
 
-**Optional** The shell where you want to run the command. You can use any of the shells listed in "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell)." Required if `run` is set.
+**Optional** The shell where you want to run the command. You can use any of the shells listed in [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idstepsshell). Required if `run` is set.
 
 #### `runs.steps[*].if`
 
 **Optional** You can use the `if` conditional to prevent a step from running unless a condition is met. You can use any supported context and expression to create a conditional.
 
-{% data reusables.actions.expression-syntax-if %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions)."
+{% data reusables.actions.expression-syntax-if %} For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions).
 
 **Example: Using contexts**
 
@@ -286,7 +286,7 @@ steps:
 
 **Example: Using status check functions**
 
-The `my backup step` only runs when the previous step of a composite action fails. For more information, see "[AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions)."
+The `my backup step` only runs when the previous step of a composite action fails. For more information, see [AUTOTITLE](/actions/learn-github-actions/expressions#status-check-functions).
 
 ```yaml
 steps:
@@ -303,19 +303,19 @@ steps:
 
 #### `runs.steps[*].id`
 
-**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see "[AUTOTITLE](/actions/learn-github-actions/contexts)."
+**Optional** A unique identifier for the step. You can use the `id` to reference the step in contexts. For more information, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 #### `runs.steps[*].env`
 
-**Optional**  Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
+**Optional** Sets a `map` of environment variables for only that step. If you want to modify the environment variable stored in the workflow, use `echo "{name}={value}" >> $GITHUB_ENV` in a composite step.
 
 #### `runs.steps[*].working-directory`
 
-**Optional**  Specifies the working directory where the command is run.
+**Optional** Specifies the working directory where the command is run.
 
 #### `runs.steps[*].uses`
 
-**Optional**  Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
+**Optional** Selects an action to run as part of a step in your job. An action is a reusable unit of code. You can use an action defined in the same repository as the workflow, a public repository, or in a [published Docker container image](https://hub.docker.com/).
 
 We strongly recommend that you include the version of the action you are using by specifying a Git ref, SHA, or Docker tag number. If you don't specify a version, it could break your workflows or cause unexpected behavior when the action owner publishes an update.
 * Using the commit SHA of a released action version is the safest for stability and security.
@@ -348,7 +348,7 @@ runs:
 
 #### `runs.steps[*].with`
 
-**Optional**  A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
+**Optional** A `map` of the input parameters defined by the action. Each input parameter is a key/value pair. For more information, see [Example: Specifying inputs](#example-specifying-inputs).
 
 ```yaml
 runs:
@@ -362,13 +362,9 @@ runs:
         last_name: Octocat
 ```
 
-{% ifversion ghes %}
-
 #### `runs.steps[*].continue-on-error`
 
-**Optional**  Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
-
-{% endif %}
+**Optional** Prevents the action from failing when a step fails. Set to `true` to allow the action to pass when this step fails.
 
 ## `runs` for Docker container actions
 
@@ -424,11 +420,11 @@ runs:
 
 **Optional** Overrides the Docker `ENTRYPOINT` in the `Dockerfile`, or sets it if one wasn't already specified. Use `entrypoint` when the `Dockerfile` does not specify an `ENTRYPOINT` or you want to override the `ENTRYPOINT` instruction. If you omit `entrypoint`, the commands you specify in the Docker `ENTRYPOINT` instruction will execute. The Docker `ENTRYPOINT` instruction has a _shell_ form and _exec_ form. The Docker `ENTRYPOINT` documentation recommends using the _exec_ form of the `ENTRYPOINT` instruction.
 
-For more information about how the `entrypoint` executes, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#entrypoint)."
+For more information about how the `entrypoint` executes, see [AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#entrypoint).
 
 ### `runs.post-entrypoint`
 
-**Optional**  Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because  {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
+**Optional** Allows you to run a cleanup script once the `runs.entrypoint` action has completed. {% data variables.product.prodname_actions %} uses `docker run` to launch this action. Because {% data variables.product.prodname_actions %} runs the script inside a new container using the same base image, the runtime state is different from the main `entrypoint` container. You can access any state you need in either the workspace, `HOME`, or as a `STATE_` variable. The `post-entrypoint:` action always runs by default but you can override this using [`runs.post-if`](#runspost-if).
 
 ```yaml
 runs:
@@ -450,7 +446,7 @@ The `args` are used in place of the `CMD` instruction in a `Dockerfile`. If you 
 
 If you need to pass environment variables into an action, make sure your action runs a command shell to perform variable substitution. For example, if your `entrypoint` attribute is set to `"sh -c"`, `args` will be run in a command shell. Alternatively, if your `Dockerfile` uses an `ENTRYPOINT` to run the same command (`"sh -c"`), `args` will execute in a command shell.
 
-For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#cmd)."
+For more information about using the `CMD` instruction with {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/creating-actions/dockerfile-support-for-github-actions#cmd).
 
 #### Example: Defining arguments for the Docker container
 
@@ -774,3 +770,12 @@ Brand icons, and all the following icons, are omitted.
 <li>zoom-in</li>
 <li>zoom-out</li>
 </ul>
+
+{% ifversion fpt or ghec %}
+
+## Changing the metadata file name
+
+While the actions metadata file supports both YAML formats, changing the metadata file name (from `action.yml` to `action.yaml` or vice versa) between releases will affect previous release versions that have been published to {% data variables.product.prodname_marketplace %}. Changing the file name will hide all release versions associated with the previous file name from {% data variables.product.prodname_marketplace %}. Previous release versions will still be accessible to users through the source repository.
+
+When releasing new versions of actions, only versions released after the metadata file name change will have the {% data variables.product.prodname_marketplace %} tag and will show up on {% data variables.product.prodname_marketplace %}
+{% endif %}

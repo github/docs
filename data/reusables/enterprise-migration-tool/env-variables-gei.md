@@ -4,12 +4,14 @@
 
       ```shell copy
       export GH_PAT="TOKEN"
-     export GH_SOURCE_PAT="TOKEN"
+      export GH_SOURCE_PAT="TOKEN"
       ```
 
    * If you're using PowerShell, use the `$env` command.
 
       ```shell copy
       $env:GH_PAT="TOKEN"
-     $env:GH_SOURCE_PAT="TOKEN"
+      $env:GH_SOURCE_PAT="TOKEN"
       ```
+
+{% data reusables.enterprise-migration-tool.set-target-api-url %}

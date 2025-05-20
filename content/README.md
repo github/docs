@@ -50,13 +50,13 @@ It is a block of key-value content that lives at the top of every Markdown file.
 
 The following frontmatter values have special meanings and requirements for this site.
 There's also a schema that's used by the test suite to validate every page's frontmatter.
-See [`lib/frontmatter.js`](../lib/frontmatter.js).
+See [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
 
 ### `versions`
 
-- Purpose: Indicates the [versions](#src/versions/lib/all-versions.js) to which a page applies.
+- Purpose: Indicates the [versions](/src/versions/lib/all-versions.js) to which a page applies.
 See [Versioning](#versioning) for more info.
-- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](../lib/frontmatter.js).
+- Type: `Object`. Allowable keys map to product names and can be found in the `versions` object in [`lib/frontmatter.js`](/src/frame/lib/frontmatter.js).
 - This frontmatter value is currently **required** for all pages.
 - The `*` is used to denote all releases for the version.
 
@@ -196,7 +196,7 @@ featuredLinks:
 
 ### `allowTitleToDifferFromFilename`
 
-- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article "[About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users)" uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
+- Purpose: Indicates whether a page is allowed to have a title that differs from its filename. Pages with this frontmatter set to `true` will not be flagged in tests or updated by `src/content-render/scripts/reconcile-filenames-with-ids.js`. Use this value if a file's `title` frontmatter includes Liquid or punctuation that cannot be part of the filename. For example, the article [About Enterprise Managed Users](https://docs.github.com/en/enterprise-cloud@latest/admin/identity-and-access-management/using-enterprise-managed-users-for-iam/about-enterprise-managed-users) uses a Liquid reusable in its title, `'About {% data variables.product.prodname_emus %}'`, which cannot be in the filename, `about-enterprise-managed-users.md`, so the `allowTitleToDifferFromFilename` frontmatter is set to `true`.
 - Type: `Boolean`. Default is `false`.
 - Optional.
 
@@ -258,7 +258,7 @@ includeGuides:
 - Optional.
 
 ### `topics`
-- Purpose: Indicate the topics covered by the article. The topics are used to filter guides on some landing pages. For example, the guides at the bottom of [this page](https://docs.github.com/en/actions/guides) can be filtered by topics, and the topics are listed under the guide intro. Refer to the content models for more details about adding topics. A full list of  existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/tests/unit/search/topics.js) will fail.
+- Purpose: Indicate the topics covered by the article. Refer to the content models for more details about adding topics. A full list of existing topics is located in the [allowed topics file](/data/allowed-topics.js). If topics in article frontmatter and the allow-topics list become out of sync, the [topics CI test](/src/search/tests/topics.js) will fail.
 - Type: Array of `String`s
 - Optional: Topics are preferred for each article, but, there may be cases where existing articles don't yet have topics, or adding a topic to a new article may not add value.
 
@@ -293,15 +293,15 @@ Do not add hardcoded "In this article" sections in the Markdown source or else t
 A content file can have **two** types of versioning:
 
 - [`versions`](#versions) frontmatter (**required**)
-    - Determines in which versions the page is available. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation)" for more info.
+    - Determines in which versions the page is available. See [Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation) for more info.
 - Liquid statements in content (**optional**)
-    - Conditionally render content depending on the current version being viewed. See "[Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators)" for more info. Note Liquid conditionals can also appear in `data` and `include` files.
+    - Conditionally render content depending on the current version being viewed. See [Versioning documentation](https://docs.github.com/en/contributing/writing-for-github-docs/versioning-documentation#versioning-with-liquid-conditional-operators) for more info. Note Liquid conditionals can also appear in `data` and `include` files.
 
-**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `lib/remove-fpt-from-path.js` removes the version from URLs.
+**Note**: As of early 2021, the `free-pro-team@latest` version is not included URLs. A helper function called `src/versions/lib/remove-fpt-from-path.js` removes the version from URLs.
 
 ## Filenames
 
-When adding a new article, the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) version of the article's [`title`](#title) frontmatter. For example, the article "[About GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli)" has a `title` frontmatter of `About GitHub CLI` and a filename of `about-github-cli.md`.
+When adding a new article, the filename is a [kebab-cased](https://en.wikipedia.org/wiki/Letter_case#Kebab_case) version of the article's [`title`](#title) frontmatter. For example, the article [About GitHub CLI](https://docs.github.com/en/github-cli/github-cli/about-github-cli) has a `title` frontmatter of `About GitHub CLI` and a filename of `about-github-cli.md`.
 
 Directory names for categories and map topics can match the `title` or `shortTitle` frontmatter.
 
@@ -345,7 +345,7 @@ Links to docs in the `docs-internal` repository must start with a product ID (li
 
 Image paths must start with `/assets` and contain the entire filepath including the file extension. For example, `/assets/images/help/settings/settings-account-delete.png`.
 
-The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`lib/render-content/plugins/rewrite-local-links`](/lib/render-content/plugins/rewrite-local-links.js).
+The links to Markdown pages undergo some transformations on the server side to match the current page's language and version. The handling for these transformations lives in [`src/content-render/unified/rewrite-local-links.js`](/src/content-render/unified/rewrite-local-links.js).
 
 For example, if you include the following link in a content file:
 
@@ -383,7 +383,7 @@ You can link directly to a different version of the page using the `currentArtic
 Sometimes you want to link to a Dotcom-only article in Enterprise content and you don't want the link to be Enterprise-ified. To prevent the transformation, you should include the preferred version in the path.
 
 ```markdown
-"[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)"
+[GitHub's Terms of Service](/free-pro-team@latest/github/site-policy/github-terms-of-service)
 ```
 
 Sometimes the canonical home of content moves outside the docs site. None of the links included in [`src/redirects/lib/external-sites.json`](/src/redirects/lib/external-sites.json) get rewritten. See  [`contributing/redirects.md`](/contributing/redirects.md) for more info about this type of redirect.

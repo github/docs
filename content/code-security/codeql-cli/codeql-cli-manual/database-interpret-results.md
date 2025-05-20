@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -45,7 +45,7 @@ directory using [codeql database run-queries](/code-security/codeql-cli/codeql-c
 
 \[Mandatory] Path to the CodeQL database that has been queried.
 
-#### `<filesuite>...`
+#### `<file|dir|suite>...`
 
 Repeat the specification of which queries were executed here.
 

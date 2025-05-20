@@ -17,13 +17,10 @@ Until you add an image, repository links expand to show basic information about 
 
 ## Adding an image to customize the social media preview of your repository
 
-{% ifversion repo-rules %}You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.{% else %}You can upload an image to a private repository, but your image can only be shared from a public repository.{% endif %}
+You can upload an image to a public repository, or to a private repository to which you have previously uploaded an image. Your image can only be shared from a public repository.
 
-{% tip %}
-
-**Tip:** Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).
-
-{% endtip %}
+> [!TIP]
+> Your image should be a PNG, JPG, or GIF file under 1 MB in size. For the best quality rendering, we recommend a size of at least 640 by 320 pixels (1280 by 640 pixels for best display).
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
@@ -31,7 +28,7 @@ Until you add an image, repository links expand to show basic information about 
     * To add a new image, click **Upload an image...**.
     * To remove an image, click **Remove image**.
 
-    ![Screenshot of the "Social Preview" section. The "Edit" button is highlighted with an orange outline, and a dropdown displays the options for uploading or removing an image.](/assets/images/help/repository/social-preview.png)
+    ![Screenshot of the "Social Preview" section. The "Edit" button is outlined in orange. The upload and remove an image options are shown.](/assets/images/help/repository/social-preview.png)
 
 ## About transparency
 
@@ -39,7 +36,5 @@ We support PNG images with transparency. Many communication platforms support a 
 
 When using an image with transparency, keep in mind how it may look on different color backgrounds or platforms that don't support transparency.
 
-{% tip %}
-
-**Tip:** If you aren't sure, we recommend using an image with a solid background.
-{% endtip %}
+> [!TIP]
+> If you aren't sure, we recommend using an image with a solid background.

@@ -6,6 +6,8 @@ versions:
   ghes: '*'
   ghec: '*'
 children:
-  - /prototyping-with-ai-models
+  - /about-github-models
+  - /use-github-models
+  - /github-models-at-scale
   - /responsible-use-of-github-models
 ---

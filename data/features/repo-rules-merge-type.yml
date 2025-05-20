@@ -1,0 +1,7 @@
+# Reference: #53268
+# Public preview for merge method rules
+
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '>=3.18'

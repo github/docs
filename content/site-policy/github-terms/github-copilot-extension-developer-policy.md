@@ -27,9 +27,9 @@ Violations of this Agreement may result in removing the Extension from the Platf
 
 While we want You to develop useful, fun, and interesting Extensions with GitHub Copilot, we want to make sure that our Users receive a safe, secure, productive, and enjoyable experience. When creating Extensions, you must understand the use cases and limitations of GitHub Copilot, and not rely on it for tasks where its use could lead to significant harm. With that in mind, You are required to comply with this Policy and other obligations.
 
-**Terms of Service**: Your Extension must comply with the GitHub Terms of Service (ToS) including the Acceptable Use Policy.
+**Terms of Service:** Your Extension must comply with the GitHub Terms of Service (ToS) including the Acceptable Use Policy.
 
-**Security**: We take the security of Personal Data seriously and you must as well. As you develop your Extension, You must properly configure your systems to protect Personal Data and ensure that any stored Personal Data is encrypted. Furthermore, Extensions and developers must not:
+**Security:** We take the security of Personal Data seriously and you must as well. As you develop your Extension, You must properly configure your systems to protect Personal Data and ensure that any stored Personal Data is encrypted. Furthermore, Extensions and developers must not:
 
 * Degrade or compromise security
 * Bypass or circumvent protocols and access controls
@@ -38,7 +38,7 @@ While we want You to develop useful, fun, and interesting Extensions with GitHub
 * Transmit any viruses or other code that may damage, detrimentally interfere with, surreptitiously intercept or expropriate any system or Personal Data
 * Attempt to reverse engineer or otherwise derive source code, trade secrets, or know-how of the Platform or any portion thereof
 
-**Use of Personal Data**: Protecting User privacy is paramount at GitHub, and must be for you. You are responsible for good Personal Data practices. You do not have independent rights to any Personal Data. In accordance with this, Extensions and developers are prohibited from:
+**Use of Personal Data:** Protecting User privacy is paramount at GitHub, and must be for you. You are responsible for good Personal Data practices. You do not have independent rights to any Personal Data. In accordance with this, Extensions and developers are prohibited from:
 
 * Collecting, storing, and using Personal Data without obtaining proper User consent
 * Utilizing Personal Data to contact Users. You must gain permission through a clear and separate permissions process to contact Users outside of GitHub. Contacting Users is limited to emergencies in which the User’s safety and security is at risk and in compliance with the law
@@ -52,7 +52,7 @@ While we want You to develop useful, fun, and interesting Extensions with GitHub
 * Accessing Data for surveillance purposes. You may not allow or assist any entity to conduct surveillance or obtain Personal Data using your access to the Platform
 * Otherwise exploiting Personal Data in a way not approved by GitHub and not disclosed to and permitted by Users. You may, however, use Data that is both aggregated and anonymized for purposes of analytics and development related to the Extension
 
-**Law and Safety**: Extensions should not create unsafe environments or hardships for Users. Each Extension must comply with all applicable laws and legal requirements in all locations where it is made available to Users. In addition, Extensions and developers are prohibited from:
+**Law and Safety:** Extensions should not create unsafe environments or hardships for Users. Each Extension must comply with all applicable laws and legal requirements in all locations where it is made available to Users. In addition, Extensions and developers are prohibited from:
 
 * Inferring people’s emotional states from their physical, physiological, or behavioral characteristics
 * Inferring people’s sensitive attributes such as gender, race, nationality, religion, or specific age (not including age range, position of mouth (e.g., smile or frown), and hair color)
@@ -62,7 +62,7 @@ While we want You to develop useful, fun, and interesting Extensions with GitHub
 * For any real-time facial recognition technology on mobile cameras used by any law enforcement globally to attempt to identify individuals in uncontrolled, "in the wild" environments, which includes (without limitation) police officers on patrol using body-worn or dash-mounted cameras using facial recognition technology to attempt to identify individuals present in a database of suspects or prior inmates
 * Without the individual’s valid consent, for ongoing surveillance or real-time or near real-time identification or persistent tracking of the individual using any of their personal information, including biometric data
 
-**Transparency**: GitHub Copilot is a generative artificial intelligence (AI) tool intended to increase developer productivity. You must inform Users of Your Extensions intended use cases, best practices, and limitations as well as when they are interacting with generative AI content. Furthermore, Extensions and developers must:
+**Transparency:** GitHub Copilot is a generative artificial intelligence (AI) tool intended to increase developer productivity. You must inform Users of Your Extensions intended use cases, best practices, and limitations as well as when they are interacting with generative AI content. Furthermore, Extensions and developers must:
 
 * Test the Extension to ensure outputs do not violate this Agreement
 * Provide a mechanism for Users to report feedback to You and GitHub related to errors, bugs, improper, or undesired outputs

@@ -1,1 +1,1 @@
-1. In the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" %} **{% data variables.product.prodname_github_connect %}**.
+1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "plug" aria-hidden="true" %} {% data variables.product.prodname_github_connect %}**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "plug" aria-hidden="true" %} {% data variables.product.prodname_github_connect %}**.{% endif %}

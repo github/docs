@@ -7,7 +7,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -82,7 +82,7 @@ When running these subcommands, you can set extractor options with the `--extrac
 * `codeql database create --extractor-option java.option1=abc ...`
 * `codeql database start-tracing --extractor-option java.group1.option2=102 ...`
 
-`--extractor-option` requires exactly one argument of the form `extractor_option_name=extractor_option_value`.  `extractor_option_name` is the name of the extractor (in this example, `java`) followed by a period and then the name of the extractor option (in this example, either `option1` or `group1.option2`).  `extractor_option_value` is the value being assigned to the extractor option. The value must match the regular expression pattern of the extractor option (if it exists), and it must not contain newline characters.
+`--extractor-option` requires exactly one argument of the form `extractor_option_name=extractor_option_value`. `extractor_option_name` is the name of the extractor (in this example, `java`) followed by a period and then the name of the extractor option (in this example, either `option1` or `group1.option2`). `extractor_option_value` is the value being assigned to the extractor option. The value must match the regular expression pattern of the extractor option (if it exists), and it must not contain newline characters.
 
 Using `--extractor-option` to assign an extractor option that does not exist is an error.
 

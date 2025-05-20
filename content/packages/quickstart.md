@@ -15,9 +15,15 @@ shortTitle: Quickstart
 
 In this guide, you'll create a {% data variables.product.prodname_actions %} workflow to test your code and then publish it to {% data variables.product.prodname_registry %}.
 
+{% ifversion ghec %}
+
+If you use a {% data variables.enterprise.prodname_managed_user %}, you cannot publish a package to a repository owned by your account. To follow this guide, use a personal account on {% data variables.product.prodname_dotcom_the_website %} instead.
+
+{% endif %}
+
 ## Publishing your package
 
-1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. Create a new repository on {% data variables.product.prodname_dotcom %}, adding the `.gitignore` for Node. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. Clone the repository to your local machine.
 
     ```shell
@@ -68,7 +74,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 16
+              node-version: 20
           - run: npm ci
           - run: npm test
 
@@ -82,7 +88,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
           - uses: {% data reusables.actions.action-checkout %}
           - uses: {% data reusables.actions.action-setup-node %}
             with:
-              node-version: 16
+              node-version: 20
               registry-url: {% ifversion ghes %}https://npm.YOUR-HOSTNAME.com/{% else %}https://npm.pkg.github.com/{% endif %}
           - run: npm ci
           - run: npm publish
@@ -117,7 +123,7 @@ In this guide, you'll create a {% data variables.product.prodname_actions %} wor
 
 1. The workflow that you created will run whenever a new release is created in your repository. If the tests pass, then the package will be published to {% data variables.product.prodname_registry %}.
 
-    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see "[Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release)."
+    To test this out, navigate to the **Code** tab in your repository and create a new release. For more information, see [Managing releases in a repository](/github/administering-a-repository/managing-releases-in-a-repository#creating-a-release).
 
 ## Viewing your published package
 
@@ -129,7 +135,7 @@ You can view all of the packages you have published.
 
 ## Installing a published package
 
-Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package)."
+Now that you've published the package, you'll want to use it as a dependency across your projects. For more information, see [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#installing-a-package).
 
 ## Next steps
 
@@ -137,6 +143,6 @@ The basic workflow you just added runs any time a new release is created in your
 
 Combining {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %} can help you automate nearly every aspect of your application development processes. Ready to get started? Here are some helpful resources for taking your next steps with {% data variables.product.prodname_registry %} and {% data variables.product.prodname_actions %}:
 
-* "[AUTOTITLE](/packages/learn-github-packages)" for an in-depth tutorial on GitHub Packages
-* "[AUTOTITLE](/actions/learn-github-actions)" for an in-depth tutorial on GitHub Actions
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry)" for specific uses cases and examples
+* [AUTOTITLE](/packages/learn-github-packages) for an in-depth tutorial on GitHub Packages
+* [AUTOTITLE](/actions/learn-github-actions) for an in-depth tutorial on GitHub Actions
+* [AUTOTITLE](/packages/working-with-a-github-packages-registry) for specific uses cases and examples

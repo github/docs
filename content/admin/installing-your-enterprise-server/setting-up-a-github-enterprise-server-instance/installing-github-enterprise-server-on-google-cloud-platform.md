@@ -28,11 +28,11 @@ shortTitle: Install on GCP
 
 ## Determining the machine type
 
-Before launching {% data variables.location.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum requirements for {% data variables.product.product_name %}, see "[Minimum requirements](#minimum-requirements)."
+Before launching {% data variables.location.product_location %} on Google Cloud Platform, you'll need to determine the machine type that best fits the needs of your organization. To review the minimum recommended requirements for {% data variables.product.prodname_ghe_server %}, see [Minimum recommended requirements](#minimum-recommended-requirements).
 
 {% data reusables.enterprise_installation.warning-on-scaling %}
 
-{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see "[Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types)" in the Google Compute Engine documentation.
+{% data variables.product.company_short %} recommends a general-purpose, high-memory machine for {% data variables.product.prodname_ghe_server %}. For more information, see [Machine types](https://cloud.google.com/compute/docs/machine-types#n2_high-memory_machine_types) in the Google Compute Engine documentation.
 
 ## Selecting the {% data variables.product.prodname_ghe_server %} image
 
@@ -42,11 +42,11 @@ Before launching {% data variables.location.product_location %} on Google Cloud 
    gcloud compute images list --project github-enterprise-public --no-standard-images
    ```
 
-1. Take note of the image name for the latest GCE image of  {% data variables.product.prodname_ghe_server %}.
+1. Take note of the image name for the latest GCE image of {% data variables.product.prodname_ghe_server %}.
 
 ## Configuring the firewall
 
-GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports)," and [Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls) in the Google Cloud Platform documentation.
+GCE virtual machines are created as a member of a network, which has a firewall. For the network associated with the {% data variables.product.prodname_ghe_server %} VM, you'll need to configure the firewall to allow the required ports listed in the table below. We recommend opening network ports selectively based on the network services you need to expose for administrative and user purposes. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/network-ports#administrative-ports), and [Firewall Rules Overview](https://cloud.google.com/vpc/docs/firewalls) in the Google Cloud Platform documentation.
 
 1. Using the gcloud compute command-line tool, create the network. For more information, see [gcloud compute networks create](https://cloud.google.com/sdk/gcloud/reference/compute/networks/create) in the Google documentation.
 
@@ -74,7 +74,7 @@ In production High Availability configurations, both primary and replica applian
 
 ## Creating the {% data variables.product.prodname_ghe_server %} instance
 
-To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see "[Hardware considerations](#hardware-considerations)."
+To create the {% data variables.product.prodname_ghe_server %} instance, you'll need to create a GCE instance with your {% data variables.product.prodname_ghe_server %} image and attach an additional storage volume for your instance data. For more information, see [Hardware considerations](#hardware-considerations).
 
 1. Using the gcloud compute command-line tool, create a data disk to use as an attached storage volume for your instance data, and configure the size based on your user license count. For more information, see [gcloud compute disks create](https://cloud.google.com/sdk/gcloud/reference/compute/disks/create) in the Google documentation.
 
@@ -103,11 +103,11 @@ To create the {% data variables.product.prodname_ghe_server %} instance, you'll 
 
 {% data reusables.enterprise_installation.copy-the-vm-public-dns-name %}
 {% data reusables.enterprise_installation.upload-a-license-file %}
-{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise)."
+{% data reusables.enterprise_installation.save-settings-in-web-based-mgmt-console %} For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise).
 {% data reusables.enterprise_installation.instance-will-restart-automatically %}
 {% data reusables.enterprise_installation.visit-your-instance %}
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/system-overview)"{% ifversion ghes %}
-* "[AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)"{% endif %}
+* [AUTOTITLE](/admin/overview/system-overview)
+* [AUTOTITLE](/admin/overview/about-upgrades-to-new-releases)

@@ -1,21 +1,30 @@
 ---
 title: Guides for GitHub Education
-intro: 'These guides for {% data variables.product.prodname_education %} help you teach and learn both {% data variables.product.product_name %} and software development.'
+intro: 'These guides for {% data variables.product.prodname_education %} help you teach and learn both {% data variables.product.github %} and software development.'
 allowTitleToDifferFromFilename: true
 versions:
   fpt: '*'
 shortTitle: Guides
 ---
 
-## Get started with {% data variables.product.product_name %}
+## Get started with {% data variables.product.github %}
 
-Teachers, students, and researchers can use tools from {% data variables.product.product_name %} to enrich a software development curriculum and develop real-world collaboration skills.
+Teachers, students, and researchers can use tools from {% data variables.product.github %} to enrich a software development curriculum and develop real-world collaboration skills.
 
-* [Sign up for a new {% data variables.product.prodname_dotcom %}  account](/get-started/start-your-journey/creating-an-account-on-github)
+* [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)
 * [Git and {% data variables.product.prodname_dotcom %} quickstart](/get-started/start-your-journey)
-* [About {% data variables.product.prodname_global_campus %} for students](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/about-github-education-for-students)
-* [Apply to {% data variables.product.prodname_global_campus %} as a teacher](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher)
-* [Apply to {% data variables.product.prodname_global_campus %} as a student](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)
+
+## Applying for {% data variables.product.prodname_education %}
+
+For students:
+
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/about-github-education-for-students)
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-students/apply-to-github-education-as-a-student)
+
+For teachers:
+
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/about-github-education-for-teachers)
+* [AUTOTITLE](/education/explore-the-benefits-of-teaching-and-learning-with-github-education/github-education-for-teachers/apply-to-github-education-as-a-teacher)
 
 ## Run a software development course with {% data variables.product.company_short %}
 

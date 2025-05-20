@@ -83,30 +83,30 @@ describe('archived enterprise static assets', () => {
     const sampleCSS = '/* nice CSS */'
 
     nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.21/_next/static/foo.css')
+      .get('/docs-ghes-2.21/_next/static/foo.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
         'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.21/_next/static/only-on-proxy.css')
+      .get('/docs-ghes-2.21/_next/static/only-on-proxy.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
         'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.3/_next/static/only-on-2.3.css')
+      .get('/docs-ghes-2.3/_next/static/only-on-2.3.css')
       .reply(200, sampleCSS, {
         'content-type': 'text/css',
         'content-length': `${sampleCSS.length}`,
       })
     nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.3/_next/static/fourofour.css')
+      .get('/docs-ghes-2.3/_next/static/fourofour.css')
       .reply(404, 'Not found', {
         'content-type': 'text/plain',
       })
     nock('https://github.github.com')
-      .get('/help-docs-archived-enterprise-versions/2.3/assets/images/site/logo.png')
+      .get('/docs-ghes-2.3/assets/images/site/logo.png')
       .reply(404, 'Not found', {
         'content-type': 'text/plain',
       })

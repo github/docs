@@ -7,14 +7,16 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/installing-github-desktop
   - /desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 <a href="https://desktop.github.com?ref_cta=download+desktop&ref_loc=installing+github+desktop&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Download {% data variables.product.prodname_desktop %}</span> {% octicon "link-external" height:16 %}</a>
 
 ## About {% data variables.product.prodname_desktop %} installation
 
-You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have an account on {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %}, you can connect your account to {% data variables.product.prodname_desktop %}.{% ifversion fpt or ghec %} For more information about creating an account, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.product_name %} and you do not have an account, contact your {% data variables.product.prodname_enterprise %} site administrator.{% endif %}
+You can install {% data variables.product.prodname_desktop %} on supported operating systems, which currently include {% data variables.desktop.mac-osx-versions %} and {% data variables.desktop.windows-versions %}. If you have a {% data variables.product.prodname_dotcom %} or {% data variables.product.prodname_enterprise %} account, you can connect your account to {% data variables.product.prodname_desktop %}.{% ifversion fpt or ghec %} For more information about creating an account, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}{% ifversion ghec %} If you're part of an organization that uses {% data variables.product.prodname_emus %} and you do not have an account, contact your enterprise administrator.{% elsif ghes %} If you're a member of an organization that uses {% data variables.product.prodname_ghe_server %} and you do not have an account, contact your site administrator.{% endif %}
 
 {% windows %}
 
@@ -44,11 +46,8 @@ You can install {% data variables.product.prodname_desktop %} on {% data variabl
 
 You can install {% data variables.product.prodname_desktop %} on {% data variables.desktop.windows-versions %}.
 
-{% warning %}
-
-**Warning**: You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
-
-{% endwarning %}
+> [!WARNING]
+> You must have a 64-bit operating system to run {% data variables.product.prodname_desktop %}.
 
 {% data reusables.desktop.download-desktop-page %}
 1. Click **Download for Windows**.

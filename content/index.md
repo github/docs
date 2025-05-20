@@ -1,8 +1,8 @@
 ---
-title: '{% data variables.product.product_name %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
+title: '{% data variables.product.github %}{% ifversion fpt or ghec%}.com{% endif %} Help Documentation'
 featuredLinks:
   gettingStarted:
-    - /get-started/getting-started-with-git/set-up-git
+    - /get-started/git-basics/set-up-git
     - /authentication/connecting-to-github-with-ssh
     - /repositories/creating-and-managing-repositories
     - /get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax
@@ -10,7 +10,7 @@ featuredLinks:
     - /pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests
     - /authentication
     - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
-    - /get-started/getting-started-with-git/managing-remote-repositories
+    - /get-started/git-basics/managing-remote-repositories
     - /pages
 redirect_from:
   - /github
@@ -51,6 +51,7 @@ versions:
 children:
   - search
   - get-started
+  - enterprise-onboarding
   - account-and-profile
   - authentication
   - repositories
@@ -83,6 +84,7 @@ children:
   - video-transcripts
   - contributing
   - github-models
+  - nonprofit
 childGroups:
   - name: Get started
     octicon: RocketIcon
@@ -100,7 +102,15 @@ childGroups:
       - repositories
       - pull-requests
       - discussions
+  - name: GitHub Copilot
+    octicon: CopilotIcon
+    children:
       - copilot
+      - copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
+      - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
+      - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
+      - copilot/copilot-chat-cookbook
+      - copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
@@ -111,15 +121,16 @@ childGroups:
     octicon: ShieldLockIcon
     children:
       - code-security
+      - code-security/secret-scanning
       - code-security/supply-chain-security
-      - code-security/security-advisories
       - code-security/dependabot
       - code-security/code-scanning
-      - code-security/secret-scanning
+      - code-security/security-advisories
   - name: Client apps
     octicon: DeviceMobileIcon
     children:
       - github-cli
+      - get-started/using-github/github-mobile
       - desktop
   - name: Project management
     octicon: ProjectIcon
@@ -127,6 +138,14 @@ childGroups:
       - issues
       - issues/planning-and-tracking-with-projects
       - search-github
+  - name: Enterprise and Teams
+    octicon: OrganizationIcon
+    children:
+      - organizations
+      - code-security/securing-your-organization
+      - enterprise-onboarding
+      - admin
+      - gh-wa
   - name: Developers
     octicon: CodeSquareIcon
     children:
@@ -134,25 +153,22 @@ childGroups:
       - rest
       - graphql
       - webhooks
+      - copilot/building-copilot-extensions
       - github-models
-  - name: Enterprise and Teams
-    octicon: OrganizationIcon
-    children:
-      - organizations
-      - admin
   - name: Community
     octicon: GlobeIcon
     children:
       - communities
       - sponsors
       - education
+      - nonprofit
       - support
       - contributing
   - name: More docs
     octicon: PencilIcon
     children:
-      - electron
       - codeql
+      - electron
       - npm
 externalProducts:
   electron:
@@ -162,12 +178,17 @@ externalProducts:
     external: true
   codeql:
     id: codeql
-    name: CodeQL
+    name: CodeQL query writing
     href: 'https://codeql.github.com/docs'
     external: true
   npm:
     id: npm
     name: npm
     href: 'https://docs.npmjs.com/'
+    external: true
+  gh-wa:
+    id: gh-wa
+    name: GitHub Well-Architected
+    href: 'https://wellarchitected.github.com/'
     external: true
 ---

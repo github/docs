@@ -17,7 +17,7 @@ topics:
   - Upgrades
 ---
 
-## About upgrades to a {% data variables.product.product_name %} cluster
+## About upgrades to a {% data variables.product.prodname_ghe_server %} cluster
 
 {% data reusables.enterprise.about-upgrades %}
 
@@ -45,7 +45,7 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 1. From the administrative shell of any node, use the `ghe-cluster-each` command combined with `curl` to download the release package to each node in a single step. Use the URL you copied in the previous step as an argument.
 
    ```shell
-   $ ghe-cluster-each -- "cd /home/admin && curl -L -O  https://PACKAGE-URL.pkg"
+   $ ghe-cluster-each -- "cd /home/admin && curl -L -O https://PACKAGE-URL.pkg"
    > ghe-app-node-1:   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
    > ghe-app-node-1:                                  Dload  Upload   Total   Spent    Left  Speed
    > 100  496M  100  496M    0     0  24.2M      0  0:00:20  0:00:20 --:--:-- 27.4M
@@ -68,8 +68,8 @@ Use an upgrade package to upgrade a {% data variables.product.prodname_ghe_serve
 ### Upgrading the cluster nodes
 
 1. Enable maintenance mode according to your scheduled window by connecting to the administrative shell of any cluster node and running `ghe-cluster-maintenance -s`.
-{% ifversion ghes > 3.10 and ghes < 3.15 %}
-1. If you're upgrading from version 3.11 or 3.12 to version 3.13 or later, Elasticsearch will be upgraded as part of the upgrade to your cluster. For more information, see "[AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade)."
+{% ifversion ghes < 3.15 %}
+1. If you're upgrading from version 3.11 or 3.12 to version 3.13 or later, Elasticsearch will be upgraded as part of the upgrade to your cluster. For more information, see [AUTOTITLE](/admin/upgrading-your-instance/performing-an-upgrade/preparing-for-the-elasticsearch-upgrade).
 
    Before upgrading, you will need to run a script to prepare your cluster for an upgrade to 3.13 or 3.14.
    1. Ensure you are running the required patch release for your current version: **3.11.9** or later for 3.11, or **3.12.3** or later for 3.12.

@@ -39,9 +39,6 @@ jobs:
       - uses: github/codeql-action/init@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         with:
           languages: javascript # comma separated list of values from {go, python, javascript, java, cpp, csharp, ruby}
-          config: |
-            paths-ignore:
-              - 'src/open-source/scripts/add-pr-links.js'
       - uses: github/codeql-action/analyze@eb055d739abdc2e8de2e5f4ba1a8b246daa779aa # v3.26.0
         continue-on-error: true
 

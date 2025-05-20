@@ -1,0 +1,1 @@
+Instances with security products enabled by default at the organization level will experience issues while upgrading from 3.14 to 3.16.0. We recommend waiting for the next 3.16 patch to upgrade. If you instead upgrade from 3.14 to 3.15, then from 3.15 to 3.16.0, the upgrade will succeed.

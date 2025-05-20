@@ -13,10 +13,10 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
-shortTitle: Managing alerts
+shortTitle: Manage alerts
 children:
   - /about-alerts
   - /viewing-alerts

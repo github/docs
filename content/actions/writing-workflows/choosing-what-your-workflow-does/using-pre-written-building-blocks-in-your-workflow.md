@@ -26,14 +26,14 @@ You can use pre-written building blocks, called actions, in your workflow. An ac
 
 Actions can be:
 
-* **Reusable**: actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
-* **Pre-written**: many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
-* **Configurable**: you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
-* **Community-driven**: you can create your own actions and share them with others or use actions developed by the community.
+* **Reusable:** actions can be used across different workflows and repositories, allowing you to avoid rewriting the same code.
+* **Pre-written:** many actions are available in the {% data variables.product.prodname_marketplace %}, covering a wide range of tasks like checking out code, setting up environments, running tests, and deploying applications.
+* **Configurable:** you can configure actions with inputs, outputs, and environment variables to tailor them to your specific needs.
+* **Community-driven:** you can create your own actions and share them with others or use actions developed by the community.
 
 The actions you use in your workflow can be defined in:
 
-* The same repository as your workflow file{% ifversion internal-actions %}
+* The same repository as your workflow file{% ifversion ghec or ghes %}
 * An internal repository within the same enterprise account that is configured to allow access to workflows{% endif %}
 * Any public repository
 * A published Docker container image on Docker Hub
@@ -41,6 +41,8 @@ The actions you use in your workflow can be defined in:
 {% data variables.product.prodname_marketplace %} is a central location for you to find actions created by the {% data variables.product.prodname_dotcom %} community.{% ifversion fpt or ghec %} [{% data variables.product.prodname_marketplace %} page](https://github.com/marketplace/actions/) enables you to filter for actions by category. {% endif %}
 
 {% data reusables.actions.enterprise-marketplace-actions %}
+
+{% data reusables.actions.actions-marketplace-ghecom %}
 
 {% ifversion fpt or ghec %}
 
@@ -52,7 +54,7 @@ You can search and browse actions directly in your repository's workflow editor.
 1. In the upper right corner of the file view, to open the workflow editor, click {% octicon "pencil" aria-label="Edit file" %}.
    ![Screenshot of a workflow file showing the header section. The pencil icon for editing files is highlighted with a dark orange outline.](/assets/images/help/repository/actions-edit-workflow-file.png)
 1. To the right of the editor, use the {% data variables.product.prodname_marketplace %} sidebar to browse actions. Actions with the {% octicon "verified" aria-label="Creator verified by GitHub" %} badge indicate {% data variables.product.prodname_dotcom %} has verified the creator of the action as a partner organization.
-   ![Screenshot of a workflow file in edit mode. The right sidebar shows Marketplace actions. A checkmark in a stamp icon, showing that the creator is verified by GitHub, is outlined in orange.](/assets/images/help/repository/actions-marketplace-sidebar.png)
+   ![Screenshot of a workflow in the file editor. The sidebar shows Marketplace actions. A "Creator verified by GitHub" badge is outlined in orange.](/assets/images/help/repository/actions-marketplace-sidebar.png)
 
 ## Adding an action to your workflow
 
@@ -70,8 +72,8 @@ An action's listing page includes the action's version and the workflow syntax r
 1. Click to view the full marketplace listing for the action.
 1. Under "Installation", click {% octicon "copy" aria-label="Copy to clipboard" %} to copy the workflow syntax.
    ![Screenshot of the marketplace listing for an action. The "Copy to clipboard" icon for the action is highlighted with a dark orange outline.](/assets/images/help/repository/actions-sidebar-detailed-view.png)
-1. Paste the syntax as a new step in your workflow. For more information, see "[AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps)."
-1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see "[AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action)."
+1. Paste the syntax as a new step in your workflow. For more information, see [AUTOTITLE](/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsteps).
+1. If the action requires you to provide inputs, set them in your workflow. For information on inputs an action might require, see [AUTOTITLE](/actions/learn-github-actions/finding-and-customizing-actions#using-inputs-and-outputs-with-an-action).
 
 {% data reusables.dependabot.version-updates-for-actions %}
 
@@ -83,13 +85,13 @@ If an action is defined in the same repository where your workflow file uses the
 
 {% data reusables.actions.workflows.section-referencing-an-action-from-the-same-repository %}
 
-The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in "[AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions)."
+The `action.yml` file is used to provide metadata for the action. Learn about the content of this file in [AUTOTITLE](/actions/creating-actions/metadata-syntax-for-github-actions).
 
 ### Adding an action from a different repository
 
 If an action is defined in a different repository than your workflow file, you can reference the action with the `{owner}/{repo}@{ref}` syntax in your workflow file.
 
-The action must be stored in a public repository{% ifversion internal-actions %} or an internal repository that is configured to allow access to workflows. For more information, see "[AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise)."{% else %}.{% endif %}
+The action must be stored in a public repository{% ifversion ghec or ghes %} or an internal repository that is configured to allow access to workflows. For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise).{% else %}.{% endif %}
 
 ```yaml
 jobs:
@@ -98,6 +100,10 @@ jobs:
       - name: My first step
         uses: {% data reusables.actions.action-setup-node %}
 ```
+
+{% ifversion ghec or ghes %}
+If {% ifversion ghec %}you're on {% data variables.enterprise.data_residency_site %}{% elsif ghes %}an enterprise owner has enabled access to actions on {% data variables.product.prodname_dotcom_the_website %}{% endif %}, you can use this syntax to reference actions either within your enterprise or on {% data variables.product.prodname_dotcom_the_website %}. {% data variables.product.prodname_actions %} will look for the action in your enterprise first, then fall back to {% data variables.product.prodname_dotcom_the_website %}.
+{% endif %}
 
 ### Referencing a container on Docker Hub
 
@@ -111,7 +117,7 @@ jobs:
         uses: docker://alpine:3.8
 ```
 
-For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and "[AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action)."
+For some examples of Docker actions, see the [Docker-image.yml workflow](https://github.com/actions/starter-workflows/blob/main/ci/docker-image.yml) and [AUTOTITLE](/actions/creating-actions/creating-a-docker-container-action).
 
 ### Security hardening for using actions in your workflows
 
@@ -123,11 +129,8 @@ The creators of a community action have the option to use tags, branches, or SHA
 
 You will designate the version of the action in your workflow file. Check the action's documentation for information on their approach to release management, and to see which tag, branch, or SHA value to use.
 
-{% note %}
-
-**Note:** We recommend that you use a SHA value when using third-party actions. However, it's important to note {% data variables.product.prodname_dependabot %} will only create {% data variables.product.prodname_dependabot_alerts %} for vulnerable {% data variables.product.prodname_actions %} that use semantic versioning. For more information, see "[AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions)" and "[AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts)."
-
-{% endnote %}
+> [!NOTE]
+> We recommend that you use a SHA value when using third-party actions. However, it's important to note {% data variables.product.prodname_dependabot %} will only create {% data variables.product.prodname_dependabot_alerts %} for vulnerable {% data variables.product.prodname_actions %} that use semantic versioning. For more information, see [AUTOTITLE](/actions/security-guides/security-hardening-for-github-actions#using-third-party-actions) and [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 
 ### Using tags
 
@@ -156,13 +159,13 @@ steps:
   - uses: actions/javascript-action@main
 ```
 
-For more information, see "[AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions)."
+For more information, see [AUTOTITLE](/actions/creating-actions/about-custom-actions#using-release-management-for-actions).
 
 ## Using inputs and outputs with an action
 
 An action often accepts or requires inputs and generates outputs that you can use. For example, an action might require you to specify a path to a file, the name of a label, or other data it will use as part of the action processing.
 
-To see the inputs and outputs of an action, check the `action.yml` or `action.yaml` in the root directory of the repository.
+To see the inputs and outputs of an action, check the `action.yml` in the root directory of the repository.
 
 In this example `action.yml`, the `inputs` keyword defines a required input called `file-path`, and includes a default value that will be used if none is specified. The `outputs` keyword defines an output called `results-file`, which tells you where to locate the results.
 
@@ -181,4 +184,4 @@ outputs:
 
 ## Next steps
 
-To continue learning about {% data variables.product.prodname_actions %}, see "[AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions)."
+To continue learning about {% data variables.product.prodname_actions %}, see [AUTOTITLE](/actions/learn-github-actions/essential-features-of-github-actions).

@@ -1,9 +1,7 @@
-#!/usr/bin/env node
-
 import { languageKeys } from '#src/languages/lib/languages.js'
 
 import { makeLanguageSurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'
-import purgeEdgeCache from '#src/workflows/purge-edge-cache.js'
+import purgeEdgeCache from '#src/workflows/purge-edge-cache.ts'
 
 /**
  * In simple terms, this script sends purge commands for...

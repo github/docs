@@ -1,5 +1,6 @@
 import Cookies from 'src/frame/components/lib/cookies'
-import { sendEvent, EventType } from 'src/events/components/events'
+import { sendEvent } from 'src/events/components/events'
+import { EventType } from 'src/events/types'
 
 enum annotationMode {
   Beside = 'beside',

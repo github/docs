@@ -1,6 +1,7 @@
 ---
 title: Organizing information with collapsed sections
 intro: You can streamline your Markdown by creating a collapsed section with the `<details>` tag.
+product: '{% data reusables.gated-features.markdown-ui %}'
 versions:
   fpt: '*'
   ghes: '*'
@@ -24,7 +25,7 @@ Within the `<details>` block, use the `<summary>` tag to let readers know what i
 
 ### You can add a header
 
-You can add text within a collapsed section. 
+You can add text within a collapsed section.
 
 You can add an image or a code block, too.
 
@@ -37,13 +38,19 @@ You can add an image or a code block, too.
 
 The Markdown inside the `<summary>` label will be collapsed by default:
 
-![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, showing a right-facing arrow and the header "Tips for collapsed sections."](/assets/images/help/writing/collapsed-section-view.png)
+![Screenshot of the Markdown above on this page as rendered on {% data variables.product.github %}, showing a right-facing arrow and the header "Tips for collapsed sections."](/assets/images/help/writing/collapsed-section-view.png)
 
 After a reader clicks {% octicon "triangle-right" aria-label="The right triangle icon" %}, the details are expanded:
 
-![Screenshot of the Markdown above on this page as rendered on {% data variables.product.prodname_dotcom %}, indicating that a collapsed section can contain headers, sentences of text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
+![Screenshot of the Markdown above on this page as rendered on {% data variables.product.github %}. The collapsed section contains headers, text, images, and code blocks.](/assets/images/help/writing/open-collapsed-section.png)
+
+Optionally, to make the section display as open by default, add the `open` attribute to the `<details>` tag:
+
+```html
+<details open>
+```
 
 ## Further reading
 
 * [{% data variables.product.prodname_dotcom %} Flavored Markdown Spec](https://github.github.com/gfm/)
-* "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)"
+* [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)

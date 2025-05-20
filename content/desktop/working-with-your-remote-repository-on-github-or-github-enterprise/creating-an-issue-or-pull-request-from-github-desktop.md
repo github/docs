@@ -9,21 +9,23 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request
   - /desktop/contributing-and-collaborating-using-github-desktop/working-with-your-remote-repository-on-github-or-github-enterprise/creating-an-issue-or-pull-request-from-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Create an issue or PR
 ---
 ## About issues and pull requests
 
-You can use issues to track ideas, bugs, tasks, and other information that's important to your project. You can create an issue in your project's repository with {% data variables.product.prodname_desktop %}. For more information about issues, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues)."
+You can use issues to track ideas, bugs, tasks, and other information that's important to your project. You can create an issue in your project's repository with {% data variables.product.prodname_desktop %}. For more information about issues, see [AUTOTITLE](/issues/tracking-your-work-with-issues/about-issues).
 
-After you create a branch and make changes to files in a project, you can create a pull request. With a pull request, you can propose, discuss, and iterate on changes before you merge the changes into the project. You can create a pull request in your project's repository with {% data variables.product.prodname_desktop %}. For more information about pull requests, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests)."
+After you create a branch and make changes to files in a project, you can create a pull request. With a pull request, you can propose, discuss, and iterate on changes before you merge the changes into the project. You can create a pull request in your project's repository with {% data variables.product.prodname_desktop %}. For more information about pull requests, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests).
 
 ## Prerequisites
 
 Before you create a pull request, you'll need to push changes to a branch on {% data variables.product.prodname_dotcom %}.
-* Save and commit any changes on your local branch. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop)."
-* Push your local commits to the remote repository. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop)."
-* Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop)."
+* Save and commit any changes on your local branch. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/committing-and-reviewing-changes-to-your-project-in-github-desktop).
+* Push your local commits to the remote repository. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/pushing-changes-to-github-from-github-desktop).
+* Publish your current branch to {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/desktop/making-changes-in-a-branch/managing-branches-in-github-desktop).
 
 ## Creating an issue
 
@@ -37,17 +39,14 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
    {% windows %}
 
-   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the expanded "Repository" dropdown menu, an option labeled "Create Issue on GitHub" is outlined in orange.](/assets/images/help/desktop/create-issue-windows.png)
+   ![Screenshot of the "GitHub Desktop" menu bar on Windows. In the "Repository" dropdown menu, the "Create Issue on GitHub" option is outlined in orange.](/assets/images/help/desktop/create-issue-windows.png)
 
    {% endwindows %}
 
 1. On {% data variables.product.prodname_dotcom %}, click **Get started** to open an issue template or click **Open a blank issue**.
 
-{% note %}
-
-**Note**: If issue templates aren't enabled in your current repository, {% data variables.product.prodname_desktop %} will direct you to a blank issue on {% data variables.product.prodname_dotcom %}.
-
-{% endnote %}
+> [!NOTE]
+> If issue templates aren't enabled in your current repository, {% data variables.product.prodname_desktop %} will direct you to a blank issue on {% data variables.product.prodname_dotcom %}.
 
 ## Creating a pull request
 
@@ -79,7 +78,7 @@ Before you create a pull request, you'll need to push changes to a branch on {% 
 
 ## Further reading
 
-* "[Issue](/get-started/learning-about-github/github-glossary#issue)" in the {% data variables.product.prodname_dotcom %} glossary
-* "[Pull request](/get-started/learning-about-github/github-glossary#pull-request)" in the {% data variables.product.prodname_dotcom %} glossary
-* "[Base branch](/get-started/learning-about-github/github-glossary#base-branch)" in the {% data variables.product.prodname_dotcom %} glossary
-* "[Topic branch](/get-started/learning-about-github/github-glossary#topic-branch)" in the {% data variables.product.prodname_dotcom %} glossary
+* [Issue](/get-started/learning-about-github/github-glossary#issue) in the {% data variables.product.prodname_dotcom %} glossary
+* [Pull request](/get-started/learning-about-github/github-glossary#pull-request) in the {% data variables.product.prodname_dotcom %} glossary
+* [Base branch](/get-started/learning-about-github/github-glossary#base-branch) in the {% data variables.product.prodname_dotcom %} glossary
+* [Topic branch](/get-started/learning-about-github/github-glossary#topic-branch) in the {% data variables.product.prodname_dotcom %} glossary

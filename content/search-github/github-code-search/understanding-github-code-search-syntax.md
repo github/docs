@@ -11,7 +11,7 @@ topics:
 
 ## About code search query structure
 
-The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %}  code search. {% data reusables.search.non-code-search-explanation %}
+The search syntax in this article only applies to searching code with {% data variables.product.prodname_dotcom %} code search. {% data reusables.search.non-code-search-explanation %}
 
 Search queries consist of search terms, comprising text you want to search for, and qualifiers, which narrow down the search.
 
@@ -35,13 +35,13 @@ sparse index
 
 The search results would include all documents containing both the terms `sparse` and `index`, in any order. As examples, it would match a file containing `SparseIndexVector`, a file with the phrase `index for sparse trees`, and even a file named `index.txt` that contains the term `sparse`.
 
-Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see "[Using boolean operations](#using-boolean-operations)."
+Searching for multiple terms separated by whitespace is the equivalent to the search `hello AND world`. Other boolean operations, such as `hello OR world`, are also supported. For more information about boolean operations, see [Using boolean operations](#using-boolean-operations).
 
-Code search also supports searching for an exact string, including whitespace. For more information, see "[Query for an exact match](#query-for-an-exact-match)."
+Code search also supports searching for an exact string, including whitespace. For more information, see [Query for an exact match](#query-for-an-exact-match).
 
-You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in code search, see "[Using qualifiers](#using-qualifiers)."
+You can narrow your code search with specialized qualifiers, such as `repo:`, `language:` and `path:`. For more information on the qualifiers you can use in code search, see [Using qualifiers](#using-qualifiers).
 
-You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+You can also use regular expressions in your searches by surrounding the expression in slashes. For more information on using regular expressions, see [Using regular expressions](#using-regular-expressions).
 
 ## Query for an exact match
 
@@ -69,7 +69,7 @@ To search for code containing a backslash, `\`, use a double backslash, `\\`.
 
 The two escape sequences `\\` and `\"` can be used outside of quotes as well. No other escape sequences are recognized, though. A backslash that isn't followed by either `"` or `\` is included in the search, unchanged.
 
-Additional escape sequences, such as `\n` to match a newline character, are supported in regular expressions. See "[Using regular expressions](#using-regular-expressions)."
+Additional escape sequences, such as `\n` to match a newline character, are supported in regular expressions. See [Using regular expressions](#using-regular-expressions).
 
 ## Using boolean operations
 
@@ -120,11 +120,8 @@ To search within a set of repositories, you can combine multiple `repo:` qualifi
 repo:github-linguist/linguist OR repo:tree-sitter/tree-sitter
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for repository names, so you will have to type the entire repository name (including the user prefix) for the `repo:` qualifier to work.
 
 ### Organization and user qualifiers
 
@@ -140,11 +137,8 @@ To search for files within a personal account, use the `user:` qualifier. For ex
 user:octocat
 ```
 
-{% note %}
-
-**Note:** Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
-
-{% endnote %}
+> [!NOTE]
+> Code search does not currently support regular expressions or partial matching for organization or user names, so you will have to type the entire organization or user name for the qualifier to work.
 
 ### Language qualifier
 
@@ -154,7 +148,7 @@ To narrow down to a specific languages, use the `language:` qualifier. For examp
 language:ruby OR language:cpp OR language:csharp
 ```
 
-For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/master/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
+For a complete list of supported language names, see [languages.yaml](https://github.com/github-linguist/linguist/blob/main/lib/linguist/languages.yml) in [github-linguist/linguist](https://github.com/github-linguist/linguist). If your preferred language is not on the list, you can open a pull request to add it.
 
 ### Path qualifier
 
@@ -172,7 +166,7 @@ To match only a specific filename (and not part of the path), you could use a re
 path:/(^|\/)README\.md$/
 ```
 
-Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see "[Using regular expressions](#using-regular-expressions)."
+Note that the `.` in the filename is escaped, since `.` has special meaning for regular expressions. For more information about using regular expressions, see [Using regular expressions](#using-regular-expressions).
 
 <br>
 
@@ -317,4 +311,8 @@ If code search guesses wrong, you can always get the search you wanted by using 
 
 ## Case sensitivity
 
-Code search is case-insensitive. Searching for `True` will include results for _uppercase_ `TRUE` and _lowercase_ `true`. You cannot do case-sensitive searches. Regular expression searches (e.g. for `[t][H][i][S]`) are also case-insensitive, and thus would return `This`, `THIS` and `this` in addition to any instances of `tHiS`.
+By default, code search is case-insensitive, and results will include both uppercase and lowercase results. You can do case-sensitive searches by using a regular expression with case insensitivity turned off. For example, to search for the string "True", you would use:
+
+```text
+/(?-i)True/
+```

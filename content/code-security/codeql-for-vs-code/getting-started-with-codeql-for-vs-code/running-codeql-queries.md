@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -22,7 +22,7 @@ The [`github/codeql`](https://github.com/github/codeql) repository contains a la
 
 ### Prerequisites
 
-To analyze a codebase, you run queries against a {% data variables.product.prodname_codeql %} database extracted from the code, so you'll need to select a database to work with in the extension. You can select a database locally (from a ZIP archive or an unarchived folder), from a public URL, or from a project's URL on {% data variables.product.prodname_dotcom_the_website %}. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases)."
+To analyze a codebase, you run queries against a {% data variables.product.prodname_codeql %} database extracted from the code, so you'll need to select a database to work with in the extension. You can select a database locally (from a ZIP archive or an unarchived folder), from a public URL, or from a project's URL on {% data variables.product.prodname_dotcom_the_website %}. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases).
 
 ## Running a single query
 
@@ -58,9 +58,9 @@ You can run multiple queries with a single command.
 
 When working on a new query, you can open a "Quick Query" tab to easily execute your code and view the results, without having to save a `.ql` file in your workspace. Select **{% data variables.product.prodname_codeql %}: Quick Query** from the {% data variables.product.prodname_vscode_command_palette_shortname %}, then to run the query use **{% data variables.product.prodname_codeql %}: Run Query on Selected Database**.
 
-You can see all quick queries that you've run in the current session in the "Query History" view. Click an entry to see the exact text of the quick query that produced the results. For more information, see "[Viewing your query history](#viewing-your-query-history)."
+You can see all quick queries that you've run in the current session in the "Query History" view. Click an entry to see the exact text of the quick query that produced the results. For more information, see [Viewing your query history](#viewing-your-query-history).
 
-Once you're happy with your quick query, you should save it in a {% data variables.product.prodname_codeql %} pack so you can access it later. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs)."
+Once you're happy with your quick query, you should save it in a {% data variables.product.prodname_codeql %} pack so you can access it later. For more information, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/about-codeql-packs).
 
 ## Running a specific part of a query or library
 
@@ -100,7 +100,7 @@ The "Query History" view contains information including the date and time when t
 
 * To customize the information that is displayed, right-click an entry and select **Rename**.
 
-* Optionally, filter the view by language using the language selector. For more information, see "[Filtering databases and queries by language](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#filtering-databases-and-queries-by-language)."
+* Optionally, filter the view by language using the language selector. For more information, see [Filtering databases and queries by language](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/managing-codeql-databases#filtering-databases-and-queries-by-language).
 
 * Click an entry to display the corresponding results, and double-click to display the query itself in the editor (or right-click and select **View Query**).
 
@@ -112,11 +112,8 @@ The "Query History" view contains information including the date and time when t
 
 1. Click a query in the "Query History" view to display its results in the "Results" view.
 
-    {% note %}
-
-    **Note:** Depending on the query, you can also choose different views such as CSV, [AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/sarif-output), or [DIL format](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#dil). For example, to view the DIL format, right-click a result and select **View DIL**. The available output views are determined by the format and the metadata of the query. For more information, see "[{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries)."
-
-    {% endnote %}
+    > [!NOTE]
+    > Depending on the query, you can also choose different views such as CSV, [AUTOTITLE](/code-security/codeql-cli/codeql-cli-reference/sarif-output), or [DIL format](https://codeql.github.com/docs/codeql-overview/codeql-glossary/#dil). For example, to view the DIL format, right-click a result and select **View DIL**. The available output views are determined by the format and the metadata of the query. For more information, see [{% data variables.product.prodname_codeql %} queries](https://codeql.github.com/docs/writing-codeql-queries/codeql-queries/#codeql-queries).
 
 1. Use the dropdown menu in the "Results" view to choose which results to display, and in what form to display them, such as a formatted alert message or a table of raw results.
 
@@ -124,14 +121,10 @@ The "Query History" view contains information including the date and time when t
 
 If a result links to a source code element, you can click it to display it in the source.
 
-To use standard code navigation features in the source code, you can right-click an element and use the commands **Go to Definition** or **Go to References**. This runs a {% data variables.product.prodname_codeql %}  query over the active file, which may take a few seconds. This query needs to run once for every file, so any additional references from the same file will be fast.
+To use standard code navigation features in the source code, you can right-click an element and use the commands **Go to Definition** or **Go to References**. This runs a {% data variables.product.prodname_codeql %} query over the active file, which may take a few seconds. This query needs to run once for every file, so any additional references from the same file will be fast.
 
-{% note %}
-
-**Note:** If you're using an older database, code navigation commands such as **Go to Definition** and **Go to References** may not work.
-To use code navigation, try unzipping the database and running `codeql database cleanup <database>` on the unzipped database using the {% data variables.product.prodname_codeql_cli %}. Then, re-add the database to {% data variables.product.prodname_vscode %}. For more information, see "[AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-cleanup)."
-
-{% endnote %}
+> [!NOTE]
+> If you're using an older database, code navigation commands such as **Go to Definition** and **Go to References** may not work. To use code navigation, try unzipping the database and running `codeql database cleanup <database>` on the unzipped database using the {% data variables.product.prodname_codeql_cli %}. Then, re-add the database to {% data variables.product.prodname_vscode %}. For more information, see [AUTOTITLE](/code-security/codeql-cli/codeql-cli-manual/database-cleanup).
 
 ### Comparing query results
 
@@ -147,18 +140,18 @@ When you're writing or debugging a query, it's useful to see how your changes af
 
 To see the logs from running a particular query, right-click the query in the "Query History" view and select **Show Query Log**. If the log file is too large for the extension to open in {% data variables.product.prodname_vscode_shortname %}, the file will be displayed in your file explorer so you can open it with an external program.
 
-For details about compiling and running queries, as well as information about database upgrades, check the {% data variables.product.prodname_codeql %} Query Server log. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/accessing-logs)."
+For details about compiling and running queries, as well as information about database upgrades, check the {% data variables.product.prodname_codeql %} Query Server log. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/troubleshooting-codeql-for-vs-code/accessing-logs).
 
-By default, the extension deletes logs after each workspace session. To override this behavior, you can specify a custom directory for query server logs. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings)."
+By default, the extension deletes logs after each workspace session. To override this behavior, you can specify a custom directory for query server logs. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/customizing-settings).
 
 You can use the **{% data variables.product.prodname_codeql %}: Restart Query Server** command to restart the query server. This restarts the server without affecting your {% data variables.product.prodname_codeql %} session history. You are most likely to need to restart the query server if you make external changes to files that the extension is using. For example, regenerating a {% data variables.product.prodname_codeql %} database that’s open in {% data variables.product.prodname_vscode_shortname %}. In addition to problems in the log, you might also see: errors in code highlighting, incorrect results totals, or duplicate notifications that a query is running.
 
 ## Next steps
 
-You can optionally use the extension to create your own custom queries. For more information, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query)."
+You can optionally use the extension to create your own custom queries. For more information, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/creating-a-custom-query).
 
 {% ifversion codeql-vs-code-mrva %}
 
-For information on running analysis at scale across many {% data variables.product.prodname_codeql %} databases, see "[AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis)."
+For information on running analysis at scale across many {% data variables.product.prodname_codeql %} databases, see [AUTOTITLE](/code-security/codeql-for-vs-code/getting-started-with-codeql-for-vs-code/running-codeql-queries-at-scale-with-multi-repository-variant-analysis).
 
 {% endif %}

@@ -23,21 +23,21 @@ topics:
 
 TLS, which replaced SSL, is enabled and configured with a self-signed certificate when {% data variables.product.prodname_ghe_server %} is started for the first time. As self-signed certificates are not trusted by web browsers and Git clients, these clients will report certificate warnings until you disable TLS or upload a certificate signed by a trusted authority, such as Let's Encrypt.
 
-The {% data variables.product.prodname_ghe_server %} appliance will send HTTP Strict Transport Security headers when SSL is enabled. Disabling TLS will cause users to lose access to the appliance, because their browsers will not allow a protocol downgrade to HTTP. For more information, see "[HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)" on Wikipedia.
+The {% data variables.product.prodname_ghe_server %} appliance will send HTTP Strict Transport Security headers when SSL is enabled. Disabling TLS will cause users to lose access to the appliance, because their browsers will not allow a protocol downgrade to HTTP. For more information, see [HTTP Strict Transport Security (HSTS)](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security) on Wikipedia.
 
 {% data reusables.enterprise_installation.terminating-tls %}
 
-To allow users to use FIDO U2F for two-factor authentication, you must enable TLS for your instance. For more information, see "[AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication)."
+To allow users to use FIDO U2F for two-factor authentication or deploy {% data variables.product.prodname_pages %} sites with {% data variables.product.prodname_actions %}, you must enable TLS for your instance. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 ## Prerequisites
 
-To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates)."
+To use TLS in production, you must have a certificate in an unencrypted PEM format signed by a trusted certificate authority. To use a certificate signed by an internal certificate authority, you must install the root certificate and any intermediate certificates. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#installing-self-signed-or-untrusted-certificate-authority-ca-root-certificates).
 
-Your certificate will also need Subject Alternative Names configured for the subdomains listed in "[AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation)" and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see "[Subject Alternative Name](https://en.wikipedia.org/wiki/SubjectAltName)" on Wikipedia.
+Your certificate will also need Subject Alternative Names configured for the subdomains listed in [AUTOTITLE](/admin/configuration/configuring-network-settings/enabling-subdomain-isolation#about-subdomain-isolation) and will need to include the full certificate chain if it has been signed by an intermediate certificate authority. For more information, see [Subject Alternative Name](https://en.wikipedia.org/wiki/SubjectAltName) on Wikipedia.
 
-You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-generate-csr)."
+You can generate a certificate signing request (CSR) for your instance using the `ghe-ssl-generate-csr` command. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-generate-csr).
 
-Your key must be an RSA key and must not have a passphrase. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#removing-the-passphrase-from-your-key-file)".
+Your key must be an RSA key and must not have a passphrase. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/troubleshooting-tls-errors#removing-the-passphrase-from-your-key-file).
 
 ## Uploading a custom TLS certificate
 
@@ -61,7 +61,7 @@ Let's Encrypt is a public certificate authority that issues free, automated TLS 
 
 When you enable automation of TLS certificate management using Let's Encrypt, {% data variables.location.product_location %} will contact the Let's Encrypt servers to obtain a certificate. To renew a certificate, Let's Encrypt servers must validate control of the configured domain name with inbound HTTP requests.
 
-You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see "[AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-acme)."
+You can also use the `ghe-ssl-acme` command line utility on {% data variables.location.product_location %} to automatically generate a Let's Encrypt certificate. For more information, see [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-ssl-acme).
 
 ## Configuring TLS using Let's Encrypt
 
@@ -98,8 +98,8 @@ To resolve these errors, you must update the Subject Alternative Names (SANs) yo
 
 1. Communicate the upcoming downtime to your users, and consider enabling maintenance mode. For more information, see the following articles.
 
-   * "[AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)"
-   * "[AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)"
+   * [AUTOTITLE](/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-mandatory-message)
+   * [AUTOTITLE](/admin/administering-your-instance/configuring-maintenance-mode/enabling-and-scheduling-maintenance-mode)
 {% data reusables.enterprise_installation.ssh-into-instance %}
 1. To disable Let's Encrypt, run the following command.
 

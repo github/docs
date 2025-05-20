@@ -13,15 +13,25 @@ versions:
  
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
-{% note %}
-
-**Note**: Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
-
-{% endnote %}
+> [!NOTE]
+> Workflow badges in a private repository are not accessible externally, so you won't be able to embed them or link to them from an external site.
 
 {% data reusables.repositories.actions-workflow-status-badge-intro %}
 
-To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+To add a workflow status badge to your `README.md` file, first find the URL for the status badge you would like to display. Then you can use Markdown to display the badge as an image in your `README.md` file. For more information about image markup in Markdown, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images).
+
+## Using the UI
+
+You can create a workflow status badge directly on the UI using the workflow file name, branch parameter, and event parameter.
+
+{% data reusables.repositories.navigate-to-repo %}
+{% data reusables.repositories.actions-tab %}
+{% data reusables.repositories.navigate-to-workflow %}
+1. On the right side of the page, next to the "Filter workflow runs" field, click {% octicon "kebab-horizontal" aria-label="Show workflow options" %} to display a dropdown menu and click **Create status badge**.
+1. Optionally, select a branch if you want to display the status badge for a branch different from the default branch.
+1. Optionally, select the event that will trigger the workflow.
+1. Click **{% octicon "copy" aria-hidden="true" %} Copy status badge Markdown**.
+1. Copy the Markdown into your `README.md` file.
 
 ## Using the workflow file name
 
@@ -31,7 +41,7 @@ You can build the URL for a workflow status badge using the name of the workflow
 {% ifversion fpt or ghec %}https://github.com{% else %}HOSTNAME{% endif %}/OWNER/REPOSITORY/actions/workflows/WORKFLOW-FILE/badge.svg
 ```
 
-To display the workflow status badge in your `README.md` file, use the Markdown markup for embedding images. For more information about image markup in Markdown, see "[AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images)."
+To display the workflow status badge in your `README.md` file, use the Markdown markup for embedding images. For more information about image markup in Markdown, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#images).
 
 For example, add the following Markdown to your `README.md` file to add a status badge for a workflow with the file path `.github/workflows/main.yml`. The `OWNER` of the repository is the `github` organization and the `REPOSITORY` name is `docs`.
 

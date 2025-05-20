@@ -1,5 +1,4 @@
-# GitHub Models (AI models on GitHub Marketplace)
+# GitHub Models (AI models on GitHub Models)
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '*'

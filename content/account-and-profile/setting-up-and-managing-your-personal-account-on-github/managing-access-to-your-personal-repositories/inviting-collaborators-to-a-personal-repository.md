@@ -22,7 +22,7 @@ shortTitle: Invite collaborators
 
 To collaborate with users in a repository that belongs to your personal account on {% data variables.product.prodname_dotcom %}, you can invite the users as collaborators.
 
-If you want to grant more granular access to the repository, you can create a repository within an organization. For more information, see "[AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github)."
+If you want to grant more granular access to the repository, you can create a repository within an organization. For more information, see [AUTOTITLE](/get-started/learning-about-github/access-permissions-on-github).
 
 {% ifversion ghec %}
 
@@ -38,11 +38,11 @@ You can send an invitation to collaborate in your repository directly to someone
 
 {% ifversion fpt or ghec %}
 
-{% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people. For more information, see "[AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch)."
+{% data variables.product.company_short %} limits the number of people who can be invited to a repository within a 24-hour period. If you exceed this limit, either wait 24 hours or create an organization to collaborate with more people. For more information, see [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/creating-a-new-organization-from-scratch).
 
 {% endif %}
 
-1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see "[AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github)."{% endif %}
+1. Ask for the username of the person you're inviting as a collaborator.{% ifversion fpt or ghec %} If they don't have a username yet, they can sign up for {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/get-started/start-your-journey/creating-an-account-on-github).{% endif %}
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 1. In the "Access" section of the sidebar, click **{% octicon "people" aria-hidden="true" %} Collaborators**.
@@ -55,7 +55,7 @@ You can send an invitation to collaborate in your repository directly to someone
 
 ## Further reading
 
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository)"
-* "[AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository)"
-* "[AUTOTITLE](/organizations/organizing-members-into-teams)"
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-user-account-settings/permission-levels-for-a-personal-account-repository#collaborator-access-for-a-repository-owned-by-a-personal-account)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-a-collaborator-from-a-personal-repository)
+* [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-access-to-your-personal-repositories/removing-yourself-from-a-collaborators-repository)
+* [AUTOTITLE](/organizations/organizing-members-into-teams)

@@ -23,8 +23,8 @@ But remember that by itself, artifact attestations provides links, like the buil
 You can take this a step further by requiring builds make use of known, vetted build instructions. A great way to do this is to have your build take place in a reusable workflow that many repositories across your organization share. Reusable workflows can provide isolation between the build process and the calling workflow, to meet SLSA v1.0 Build Level 3.
 
 Before starting this guide, you should be familiar with:
-* Generating artifact attestations. See "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
-* Writing and using reusable workflows. See "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+* Generating artifact attestations. See [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
+* Writing and using reusable workflows. See [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## Step 1: Configuring your builds
 
@@ -32,11 +32,11 @@ First, we need to build with both artifact attestations and a reusable workflow.
 
 ### Building with a reusable workflow
 
-If you aren't already using reusable workflows to build your software, you'll need to take your build steps and move them into a reusable workflow. For more information on how to write and call a reusable workflow, see "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+If you aren't already using reusable workflows to build your software, you'll need to take your build steps and move them into a reusable workflow. For more information on how to write and call a reusable workflow, see [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ### Building with artifact attestations
 
-The reusable workflow you use to build your software must also generate artifact attestations to establish build provenance. For more information, see "[AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds)."
+The reusable workflow you use to build your software must also generate artifact attestations to establish build provenance. For more information, see [AUTOTITLE](/actions/security-guides/using-artifact-attestations-to-establish-provenance-for-builds).
 
 When you use a reusable workflow to generate artifact attestations, both the calling workflow and the reusable workflow need to have the following permissions.
 

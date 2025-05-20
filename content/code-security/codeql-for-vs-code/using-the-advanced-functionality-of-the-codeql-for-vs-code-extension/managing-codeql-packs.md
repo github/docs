@@ -6,7 +6,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -28,7 +28,7 @@ With the {% data variables.product.prodname_codeql %} for {% data variables.prod
 
 * View a {% data variables.product.prodname_codeql %} query pack and all of its dependencies.
 
-For more information about creating and editing {% data variables.product.prodname_codeql %} query and library packs, see "[AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs)."
+For more information about creating and editing {% data variables.product.prodname_codeql %} query and library packs, see [AUTOTITLE](/code-security/codeql-cli/using-the-advanced-functionality-of-the-codeql-cli/creating-and-working-with-codeql-packs).
 
 ## Installing dependencies for {% data variables.product.prodname_codeql %} query packs
 
@@ -56,12 +56,8 @@ For more information about creating and editing {% data variables.product.prodna
 
    * Otherwise, you will see the definition stored in your package cache, where downloaded dependencies are saved. The package cache is a shared location that is stored in your home directory by default.
 
-{% ifversion codeql-model-packs %}
-
 ## Working with {% data variables.product.prodname_codeql %} model packs
 
 {% data reusables.code-scanning.beta-model-packs %}
 
-{% data variables.product.prodname_codeql %} model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. The {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} includes a dedicated editor for creating and editing model packs. For information on using the model editor, see "[AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor)."
-
-{% endif %}
+{% data variables.product.prodname_codeql %} model packs can be used to expand {% data variables.product.prodname_code_scanning %} analysis to include dependencies that are not supported by default. The {% data variables.product.prodname_codeql %} extension for {% data variables.product.prodname_vscode %} includes a dedicated editor for creating and editing model packs. For information on using the model editor, see [AUTOTITLE](/code-security/codeql-for-vs-code/using-the-advanced-functionality-of-the-codeql-for-vs-code-extension/using-the-codeql-model-editor).

@@ -21,7 +21,7 @@ shortTitle: Enable subdomain isolation
 ---
 ## About subdomain isolation
 
-Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see "[Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting)" on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.location.product_location %}.
+Subdomain isolation mitigates cross-site scripting and other related vulnerabilities. For more information, see [Cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting) on Wikipedia. We highly recommend that you enable subdomain isolation on {% data variables.location.product_location %}.
 
 When subdomain isolation is enabled, {% data variables.product.prodname_ghe_server %} replaces several paths with subdomains. After enabling subdomain isolation, attempts to access the previous paths for some user-supplied content, such as `http(s)://HOSTNAME/raw/`, may return `404` errors.
 
@@ -43,9 +43,7 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 | `http(s)://HOSTNAME/reply/` | `http(s)://reply.HOSTNAME/` |
 | `http(s)://HOSTNAME/uploads/` | `http(s)://uploads.HOSTNAME/` |
 | `http(s)://HOSTNAME/viewscreen/` | `http(s)://viewscreen.HOSTNAME/` |
-| {%- ifversion ghes %} |
 | Not supported | `https://containers.HOSTNAME/` |
-| {%- endif %} |
 
 ## Prerequisites
 
@@ -53,13 +51,13 @@ When subdomain isolation is enabled, {% data variables.product.prodname_ghe_serv
 
 Before you enable subdomain isolation, you must configure your network settings for your new domain.
 
-* Specify a valid domain name as your hostname, instead of an IP address. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname)."
+* Specify a valid domain name as your hostname, instead of an IP address. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-a-hostname).
 
 {% data reusables.enterprise_installation.changing-hostname-not-supported %}
 
 * Set up a wildcard Domain Name System (DNS) record or individual DNS records for the subdomains listed above. We recommend creating an A record for `*.HOSTNAME` that points to your server's IP address so you don't have to create multiple records for each subdomain.
 * Get a wildcard Transport Layer Security (TLS) certificate for `*.HOSTNAME` with a Subject Alternative Name (SAN) for both `HOSTNAME` and the wildcard domain `*.HOSTNAME`. For example, if your hostname is `github.octoinc.com`, get a certificate with the Common Name value set to `*.github.octoinc.com` and a SAN value set to both `github.octoinc.com` and `*.github.octoinc.com`.
-* Enable TLS on your appliance. For more information, see "[AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls)."
+* Enable TLS on your appliance. For more information, see [AUTOTITLE](/admin/configuration/configuring-network-settings/configuring-tls).
 
 ## Enabling subdomain isolation
 

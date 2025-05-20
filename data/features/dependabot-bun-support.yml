@@ -1,0 +1,6 @@
+# Reference: #16918
+# Bun support for Dependabot
+versions:
+  fpt: '*'
+  ghec: '*'
+  ghes: '> 3.16'

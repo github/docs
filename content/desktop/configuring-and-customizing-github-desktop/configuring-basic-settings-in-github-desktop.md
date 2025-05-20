@@ -7,17 +7,19 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings
   - /desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-basic-settings-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Configure basic settings
 ---
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. To view or change your settings, toggle between the panes in the "Preferences" window.
+1. To view or change your settings, toggle between the panes in the "Settings" window.
 
-   ![Screenshot of the "Preferences" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/mac-select-preferences-pane.png)
+   ![Screenshot of the "Settings" window. The left sidebar contains menu options such as "Accounts" and "Integrations".](/assets/images/help/desktop/sign-in-github.png)
 
-   {% data reusables.desktop.preferences-options-tabs %}
+   {% data reusables.desktop.settings-options-tabs %}
 
 {% endmac %}
 
@@ -28,10 +30,10 @@ shortTitle: Configure basic settings
 
    ![Screenshot of the "Options" window. The left sidebar, with menu options such as "Accounts" and "Integrations", is highlighted with an orange outline.](/assets/images/help/desktop/window-select-options-pane.png)
 
-   {% data reusables.desktop.preferences-options-tabs %}
+   {% data reusables.desktop.settings-options-tabs %}
 
 {% endwindows %}
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)"
+* [AUTOTITLE](/desktop/configuring-and-customizing-github-desktop/setting-a-theme-for-github-desktop)

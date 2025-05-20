@@ -23,12 +23,9 @@ shortTitle: Add to milestones
    ![Screenshot of the list of issues for a repository. In the header above the list, a dropdown menu, labeled "Milestones," is outlined in dark orange.](/assets/images/help/issues/issues-assigning-milestone-dropdown.png)
 1. In the "Filter milestones" field, start typing the name of an existing milestone, then click the milestone's name to associate it with the item.
 
-{% tip %}
-
-As you're working on issues and pull requests, you can [track the progress of your milestone](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
-
-{% endtip %}
+> [!TIP]
+> As you're working on issues and pull requests, you can [track the progress of your milestone](/issues/using-labels-and-milestones-to-track-work/viewing-your-milestones-progress).
 
 ## Further reading
 
-* "[AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)"
+* [AUTOTITLE](/issues/using-labels-and-milestones-to-track-work/filtering-issues-and-pull-requests-by-milestone)

@@ -18,12 +18,12 @@ shortTitle: Workflow billing & limits
 
 ## About billing for {% data variables.product.prodname_actions %}
 
-{% data reusables.repositories.about-github-actions %} For more information, see "[AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}."{% elsif ghes or ghec %}" and "[AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises)."{% endif %}
+{% data reusables.repositories.about-github-actions %} For more information, see [AUTOTITLE](/actions/learn-github-actions/understanding-github-actions){% ifversion fpt %}.{% elsif ghes or ghec %} and [AUTOTITLE](/admin/github-actions/getting-started-with-github-actions-for-your-enterprise/about-github-actions-for-enterprises).{% endif %}
 
 {% ifversion fpt or ghec %}
-{% data reusables.actions.actions-billing %} For more information, see "[AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)."
+{% data reusables.actions.actions-billing %} For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 {% else %}
-GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
+GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %} instances that use self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -39,16 +39,10 @@ GitHub Actions usage is free for {% data variables.product.prodname_ghe_server %
 {% ifversion fpt or ghec %}
 There are some limits on {% data variables.product.prodname_actions %} usage when using {% data variables.product.prodname_dotcom %}-hosted runners. These limits are subject to change.
 
-{% note %}
+> [!NOTE]
+> For self-hosted runners, different usage limits apply. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners).
 
-**Note:** For self-hosted runners, different usage limits apply. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
-
-{% endnote %}
-
-* **Job execution time** - Each job in a workflow can run for up to 6 hours of execution time. If a job reaches this limit, the job is terminated and fails to complete.
-{% data reusables.actions.usage-workflow-run-time %}
-{% data reusables.actions.usage-api-requests %}
-* **Concurrent jobs** - The number of concurrent jobs you can run in your account depends on your {% data variables.product.prodname_dotcom %} plan, as well as the type of runner used. If exceeded, any additional jobs are queued.
+For more information about service rate limits, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/troubleshooting-workflows/actions-limits).
 
   **Standard {% data variables.product.prodname_dotcom %}-hosted runners**
 
@@ -66,20 +60,15 @@ There are some limits on {% data variables.product.prodname_actions %} usage whe
   | Team | 1000 | 5 | 100 |
   | Enterprise | 1000 | 50 | 100 |
 
-  {% note %}
-
-  **Notes:**
-
-  * If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
-  * The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
-
-  {% endnote %}
+  > [!NOTE]
+  > * If required, customers on enterprise plans can request a higher limit for concurrent jobs. For more information, contact us through the {% data variables.contact.contact_support_portal %}, or contact your sales representative.
+  > * The maximum concurrent macOS jobs is shared across standard {% data variables.product.prodname_dotcom %}-hosted runner and {% data variables.product.prodname_dotcom %}-hosted {% data variables.actions.hosted_runner %}s.
 
 * **Job matrix** - {% data reusables.actions.usage-matrix-limits %}
 {% data reusables.actions.usage-workflow-queue-limits %}
 
 {% else %}
-Usage limits apply to self-hosted runners. For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners#usage-limits)."
+Usage limits apply to self-hosted runners. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/usage-limits-for-self-hosted-runners).
 {% endif %}
 
 {% ifversion fpt or ghec %}
@@ -93,7 +82,7 @@ In addition to the usage limits, you must ensure that you use {% data variables.
 
 ## {% data variables.product.prodname_actions %} usage metrics
 
-Organization owners and users with the "View organization Actions usage metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see "[AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions)."
+Organization owners and users with the "View organization Actions metrics" permission can view {% data variables.product.prodname_actions %} usage metrics for their organization. These metrics can help you understand how and where your Actions minutes are being used. For more information, see [AUTOTITLE](/enterprise-cloud@latest/organizations/collaborating-with-groups-in-organizations/viewing-usage-metrics-for-github-actions).
 
 When you view usage metrics, it is important to remember that {% data reusables.actions.actions-usage-metrics-not-billing-metrics %}
 
@@ -103,7 +92,7 @@ When you view usage metrics, it is important to remember that {% data reusables.
 
 If you reuse a workflow, billing is always associated with the caller workflow. Assignment of {% data variables.product.prodname_dotcom %}-hosted runners is always evaluated using only the caller's context. The caller cannot use {% data variables.product.prodname_dotcom %}-hosted runners from the called repository.
 
-For more information see, "[AUTOTITLE](/actions/using-workflows/reusing-workflows)."
+For more information see, [AUTOTITLE](/actions/using-workflows/reusing-workflows).
 
 ## Artifact and log retention policy
 
@@ -113,20 +102,24 @@ You can configure the artifact and log retention period for your repository, org
 
 For more information, see:
 
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)"
-* "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/configuring-the-retention-period-for-github-actions-artifacts-and-logs-in-your-organization)
+* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise#enforcing-a-policy-for-artifact-and-log-retention-in-your-enterprise)
+
+## Workflow run history retention policy
+
+The workflow runs in a repository's workflow run history are retained for 400 days. After 400 days, workflow runs are archived. 10 days after archival, they are permanently deleted. The retention period for workflow runs cannot be modified. For more information, see [AUTOTITLE](/actions/monitoring-and-troubleshooting-workflows/monitoring-workflows/viewing-workflow-run-history).
 
 ## Disabling or limiting {% data variables.product.prodname_actions %} for your repository or organization
 
 {% data reusables.actions.disabling-github-actions %}
 
-{% ifversion actions-cache-admin-ui %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
+{% ifversion ghes %}You can also manage {% data variables.product.prodname_actions %} settings for your enterprise, such as workflow permissions and cache storage.{% endif %}
 
 For more information, see:
-* "[AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)"
-* "[AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)"
-* "[AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)"
+* [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository)
+* [AUTOTITLE](/organizations/managing-organization-settings/disabling-or-limiting-github-actions-for-your-organization)
+* [AUTOTITLE](/admin/policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-github-actions-in-your-enterprise)
 
 ## Disabling and enabling workflows
 
@@ -134,4 +127,4 @@ You can enable and disable individual workflows in your repository on {% data va
 
 {% data reusables.actions.scheduled-workflows-disabled %}
 
-For more information, see "[AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow)."
+For more information, see [AUTOTITLE](/actions/managing-workflow-runs/disabling-and-enabling-a-workflow).

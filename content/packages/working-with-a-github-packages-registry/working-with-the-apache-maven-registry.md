@@ -15,6 +15,12 @@ versions:
 shortTitle: Apache Maven registry
 ---
 
+{% ifversion ghec %}
+
+> [!NOTE] The Apache Maven registry is not available for {% data variables.enterprise.data_residency %}.
+
+{% endif %}
+
 {% data reusables.package_registry.packages-ghes-release-stage %}
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
@@ -130,6 +136,8 @@ If your instance has subdomain isolation disabled:
 
 {% data reusables.package_registry.default-name %} For example, {% data variables.product.prodname_dotcom %} will publish a package named `com.example:test` in a repository called `OWNER/test`.
 
+{% data reusables.package_registry.maven-package-naming-convention %}
+
 If you would like to publish multiple packages to the same repository, you can include the URL of the repository in the `<distributionManagement>` element of the _pom.xml_ file. {% data variables.product.prodname_dotcom %} will match the repository based on that field. Since the repository name is also part of the `distributionManagement` element, there are no additional steps to publish multiple packages to the same repository.
 
 For more information on creating a package, see the [maven.apache.org documentation](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html).
@@ -168,7 +176,7 @@ For more information on creating a package, see the [maven.apache.org documentat
 
 ## Installing a package
 
-To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the _pom.xml_ file to include the package as a dependency. If you want to install packages from any repository for a specified repository owner, use a repository URL like `https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*`. For more information on using a _pom.xml_ file in your project, see "[Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)" in the Apache Maven documentation.
+To install an Apache Maven package from {% data variables.product.prodname_registry %}, edit the _pom.xml_ file to include the package as a dependency. If you want to install packages from any repository for a specified repository owner, use a repository URL like `https://{% ifversion fpt or ghec %}maven.pkg.github.com{% else %}maven.HOSTNAME{% endif %}/OWNER/*`. For more information on using a _pom.xml_ file in your project, see [Introduction to the POM](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html) in the Apache Maven documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 1. Add the package dependencies to the `dependencies` element of your project _pom.xml_ file, replacing `com.example:test` with your package.
@@ -191,5 +199,5 @@ To install an Apache Maven package from {% data variables.product.prodname_regis
 
 ## Further reading
 
-* "[AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)"
-* "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)"
+* [AUTOTITLE](/packages/working-with-a-github-packages-registry/working-with-the-gradle-registry)
+* [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)

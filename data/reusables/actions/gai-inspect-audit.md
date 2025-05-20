@@ -37,7 +37,7 @@ The "Manual tasks" section contains an overview of tasks that {% data variables.
 
 Listed below are some key terms that can appear in the "Manual tasks" section:
 
-* A **secret** is a repository or organization-level secret that is used in the converted pipelines. These secrets must be created manually in {% data variables.product.prodname_actions %} for these pipelines to function properly. For more information, see "[AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions)."
+* A **secret** is a repository or organization-level secret that is used in the converted pipelines. These secrets must be created manually in {% data variables.product.prodname_actions %} for these pipelines to function properly. For more information, see [AUTOTITLE](/actions/security-guides/using-secrets-in-github-actions).
 * A **self-hosted runner** refers to a label of a runner that is referenced in a converted pipeline that is not a {% data variables.product.prodname_dotcom %}-hosted runner. You will need to manually define these runners for these pipelines to function properly.
 
 #### Files

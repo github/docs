@@ -47,18 +47,14 @@ shortTitle: Disable SSH for Git
 1. Under "Git SSH access", select the drop-down menu, and click **Disabled**.
 1. Select **Enforce on all repositories**.
 
-   ![Screenshot of the "Git SSH access" section of the site admin page for an organization. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
+   ![Screenshot of the "Git SSH access" section of the site admin page for an organization. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/git-ssh-access-organization-setting.png)
 
 ## Disabling Git SSH access to all repositories in your enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% ifversion ghes %}
 {% data reusables.enterprise-accounts.policies-tab %}
-{% else %}
-{% data reusables.enterprise-accounts.settings-tab %}
-{% endif %}
 {% data reusables.enterprise-accounts.options-tab %}
 1. Under "Git SSH access", select the drop-down menu, and click **Disabled**.
 1. Select **Enforce on all repositories**.
 
-   ![Screenshot of the "Git SSH access" section on the enterprise's policies page. The "Enforce on all repositories" checkbox is highlighted with an orange outline.](/assets/images/enterprise/site-admin-settings/git-ssh-access-appliance-setting.png)
+   ![Screenshot of the "Git SSH access" section on the enterprise's policies page. The "Enforce on all repositories" checkbox is outlined.](/assets/images/enterprise/site-admin-settings/git-ssh-access-appliance-setting.png)

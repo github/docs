@@ -28,7 +28,7 @@ For example, you can subscribe your {% data variables.product.prodname_github_ap
 
 If your app is running on a server that is listening for these webhook events, then your app can take an action when it receives a webhook event. For example, your app can use the {% data variables.product.company_short %} API to post a comment to the pull request when it receives a pull request webhook event.
 
-For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps)." For information about the possible webhook events and actions, see "[AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads)."
+For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/using-webhooks-with-github-apps). For information about the possible webhook events and actions, see [AUTOTITLE](/webhooks-and-events/webhooks/webhook-events-and-payloads).
 
 ## Prerequisites
 
@@ -40,16 +40,16 @@ This tutorial assumes you have a basic understanding of JavaScript and ES6 synta
 
 The following sections will lead you through setting up the following components:
 
-* a repository to store the code for your app
-* a way to receive webhooks locally
-* a {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
+* A repository to store the code for your app
+* A way to receive webhooks locally
+* A {% data variables.product.prodname_github_app %} registration that is subscribed to "pull request" webhook events, has permission to add comments to pull requests, and uses a webhook URL that you can receive locally
 
 ### Create a repository to store code for your app
 
-1. Create a repository to store the code for your app. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
-1. Clone your repository from the previous step. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository)." You may use a local clone or {% data variables.product.prodname_github_codespaces %}.
+1. Create a repository to store the code for your app. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
+1. Clone your repository from the previous step. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/cloning-a-repository). You may use a local clone or {% data variables.product.prodname_github_codespaces %}.
 1. In a terminal, navigate to the directory where your clone is stored.
-1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see "[AUTOTITLE](/get-started/getting-started-with-git/ignoring-files)."
+1. If the directory doesn't already include a `.gitignore` file, add a `.gitignore` file. You will add content to this file later. For more information about `.gitignore` files, see [AUTOTITLE](/get-started/git-basics/ignoring-files).
 
 You will add more code to this repository in later steps.
 
@@ -70,22 +70,22 @@ For this tutorial, you must have a {% data variables.product.prodname_github_app
 * Has the "Pull request" repository permission
 * Subscribes to the "Pull request" webhook event
 
-The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+The following steps will guide you through registering a {% data variables.product.prodname_github_app %} with these settings. For more information about {% data variables.product.prodname_github_app %} settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
 
 {% data reusables.apps.settings-step %}
-{% data reusables.user-settings.developer_settings %}
-{% data reusables.user-settings.github_apps %}
-1. Click **New GitHub App**.
-1. Under "GitHub App name", enter a name for your app. For example, `USERNAME-webhook-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
+{% data reusables.apps.enterprise-apps-steps %}
+1. Click **New {% data variables.product.prodname_github_app %}**.
+1. Under "{% data variables.product.prodname_github_app %} name", enter a name for your app. For example, `USERNAME-webhook-test-app` where `USERNAME` is your {% data variables.product.company_short %} username.
 1. Under "Homepage URL", enter a URL for your app. For example, you can use the URL of the repository that you created to store the code for your app.
-1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app)."
+1. Skip the "Identifying and authorizing users" and "Post installation" sections for this tutorial. For more information about these settings, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/creating-a-github-app).
 1. Make sure that **Active** is selected under "Webhooks."
-1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see "[Get a webhook proxy URL](#get-a-webhook-proxy-url)."
+1. Under "Webhook URL", enter your webhook proxy URL from earlier. For more information, see [Get a webhook proxy URL](#get-a-webhook-proxy-url).
 1. Under "Webhook secret", enter a random string. You will use this string later.
 1. Under "Repository permissions", next to "Pull requests," select **Read & write**.
 1. Under "Subscribe to events", select **Pull request**.
-1. Under "Where can this GitHub App be installed?", select **Only on this account**. You can change this later if you want to publish your app.
-1. Click **Create GitHub App**.
+1. Under "Where can this {% data variables.product.prodname_github_app %} be installed?", select **Only on this account**. You can change this later if you want to publish your app.{% ifversion enterprise-apps-public-beta %}
+    >[!NOTE] If your {% data variables.product.prodname_github_app %} is registered under an enterprise, this step does not apply.{% endif %}
+1. Click **Create {% data variables.product.prodname_github_app %}**.
 
 ## Write code for your app
 
@@ -93,7 +93,7 @@ The following sections will lead you through writing code to make your app respo
 
 ### Install dependencies
 
-This tutorial uses {% data variables.product.company_short %}'s `octokit` module to handle webhook events and make API requests. For more information about Octokit.js, see "[AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript)" and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
+This tutorial uses {% data variables.product.company_short %}'s `octokit` module to handle webhook events and make API requests. For more information about Octokit.js, see [AUTOTITLE](/rest/guides/scripting-with-the-rest-api-and-javascript) and [the Octokit.js README](https://github.com/octokit/octokit.js/#readme).
 
 This tutorial uses the `dotenv` module to read information about your app from a `.env` file. For more information, see [dotenv](https://www.npmjs.com/package/dotenv).
 
@@ -108,7 +108,7 @@ This tutorial uses Smee.io to forward webhooks from {% data variables.product.co
 
 ### Store your app's identifying information and credentials
 
-This tutorial will show you how to store your app's credentials and identifying information as environment variables in a `.env` file. When you deploy your app, you will want to change how you store the credentials. For more information, see "[Deploy your app](#deploy-your-app)."
+This tutorial will show you how to store your app's credentials and identifying information as environment variables in a `.env` file. When you deploy your app, you will want to change how you store the credentials. For more information, see [Deploy your app](#deploy-your-app).
 
 Make sure that you are on a secure machine before performing these steps since you will store your credentials locally.
 
@@ -127,7 +127,7 @@ Make sure that you are on a secure machine before performing these steps since y
 1. {% data reusables.apps.navigate-to-app-settings-page %}
 1. On your app's settings page, next to "App ID", find the app ID for your app.
 1. In your `.env` file, replace `YOUR_APP_ID` with the app ID of your app.
-1. On your app's settings page, under "Private keys", click **Generate a private key**. You will see a private key in PEM format downloaded to your computer. For more information, see "[AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps)."
+1. On your app's settings page, under "Private keys", click **Generate a private key**. You will see a private key in PEM format downloaded to your computer. For more information, see [AUTOTITLE](/apps/creating-github-apps/authenticating-with-a-github-app/managing-private-keys-for-github-apps).
 1. If you are using a codespace, move the downloaded PEM file into your codespace so that your codespace can access the file.
 1. In your `.env` file, replace `YOUR_PRIVATE_KEY_PATH` with the full path to your private key, including the `.pem` extension.
 1. In your `.env` file, replace `YOUR_WEBHOOK_SECRET` with the webhook secret for your app. If you have forgotten your webhook secret, under "Webhook secret (optional)", click **Change secret**. Enter a new secret, then click **Save changes**.
@@ -211,7 +211,7 @@ app.webhooks.onError((error) => {
 
 // This determines where your server will listen.
 //
-// For local development, your server will listen to port 3000 on `localhost`. When you deploy your app, you will change these values. For more information, see "[Deploy your app](#deploy-your-app)."
+// For local development, your server will listen to port 3000 on `localhost`. When you deploy your app, you will change these values. For more information, see [Deploy your app](#deploy-your-app).
 const port = 3000;
 const host = 'localhost';
 const path = "/api/webhook";
@@ -290,7 +290,7 @@ Follow these steps to test the app that you created above.
 
 In order for your app to leave a comment on pull requests in a repository, it must be installed on the account that owns the repository and granted access to that repository. Since your app is private, it can only be installed on the account that owns the app.
 
-1. In the account that owns the app you created, create a new repository to install the app on. For more information, see "[AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository)."
+1. In the account that owns the app you created, create a new repository to install the app on. For more information, see [AUTOTITLE](/repositories/creating-and-managing-repositories/creating-a-new-repository).
 1. {% data reusables.apps.navigate-to-app-settings-page %}
 1. Click **Public page**.
 1. Click **Install**.
@@ -319,9 +319,9 @@ For testing, you will use your computer or codespace as a server. Your app will 
 
 Now that your server is running and receiving forwarded webhooks events, test your app by opening a pull request on the repository that you selected when you installed your app.
 
-1. Open a pull request on the repository that you selected when you installed your app. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request)."
+1. Open a pull request on the repository that you selected when you installed your app. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request).
 
-   Make sure to use the repository that you selected when you installed your app, not the repository where your app's code is stored. For more information, see "[Install your app](#install-your-app)."
+   Make sure to use the repository that you selected when you installed your app, not the repository where your app's code is stored. For more information, see [Install your app](#install-your-app).
 
 1. Navigate to your webhook proxy URL on smee.io. You should see a `pull_request` event. This indicates that {% data variables.product.company_short %} successfully sent a pull request event when you created a pull request.
 1. In the terminal where you ran `npm run server`, you should see something like "Received a pull request event for #1" where the integer after the `#` is the number of the pull request that you opened.
@@ -336,7 +336,7 @@ Now that you have an app that responds to webhook events, you might want to expa
 
 This tutorial demonstrated how to post a comment on a pull request in when a pull request was opened. You can update the code to respond to different types of webhook events or to do something different in response to the webhook event.
 
-Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps)."
+Remember to update your app's permissions if your app needs additional permissions for the API requests that you want to make or the webhook events you want to receive. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/setting-permissions-for-github-apps).
 
 This tutorial stored all of the code into a single file, but you may want to move functions and components into separate files.
 
@@ -367,12 +367,12 @@ const host = process.env.NODE_ENV === 'production' ? '0.0.0.0' : 'localhost';
 
 You should never publicize your app's private key or webhook secret. This tutorial stored your app's credentials in a gitignored `.env` file. When you deploy your app, you should choose a secure way to store the credentials and update your code to get the value accordingly. For example, you can store the credentials with a secret management service like [Azure Key Vault](https://azure.microsoft.com/en-us/products/key-vault). When your app runs, it can retrieve the credentials and store them in environment variables on the server where your app is deployed.
 
-For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).
 
 ### Share your app
 
-If you want to share your app with other users and organizations, make your app public. For more information, see "[AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private)."
+If you want to share your app with other users and organizations, make your app public. For more information, see [AUTOTITLE](/apps/creating-github-apps/creating-github-apps/making-a-github-app-public-or-private).
 
 ### Follow best practices
 
-You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see "[AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app)."
+You should aim to follow best practices with your {% data variables.product.prodname_github_app %}. For more information, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/best-practices-for-creating-a-github-app).

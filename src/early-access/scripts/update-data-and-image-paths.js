@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // This script is run on a writer's machine while developing Early Access content locally. It
@@ -10,7 +8,7 @@
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
-import walkFiles from '#src/workflows/walk-files.js'
+import walkFiles from '#src/workflows/walk-files.ts'
 import { escapeRegExp } from 'lodash-es'
 import patterns from '#src/frame/lib/patterns.js'
 

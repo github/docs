@@ -19,6 +19,16 @@ shortTitle: npm registry
 
 {% data reusables.package_registry.admins-can-configure-package-types %}
 
+{% ifversion ghec %}
+
+## URL for the {% data variables.product.prodname_npm_registry %}
+
+If you access {% data variables.product.github %} at {% data variables.product.prodname_dotcom_the_website %}, you will publish packages to https://npm.pkg.github.com. Examples in this article use this URL.
+
+If you access {% data variables.product.github %} at another domain, such as `octocorp.ghe.com`, replace "https://npm.pkg.github.com" with `https://npm.SUBDOMAIN.ghe.com`, where `SUBDOMAIN` is your enterprise's unique subdomain.
+
+{% endif %}
+
 {% ifversion packages-npm-v2 %}
 {% else %}
 
@@ -28,7 +38,7 @@ If you publish over 1,000 npm package versions to {% data variables.product.prod
 
 In the future, to improve the performance of the service, you won't be able to publish more than 1,000 versions of a package on {% data variables.product.prodname_dotcom %}. Any versions published before hitting this limit will still be readable.
 
-If you reach this limit, consider deleting package versions or contacting support for help. When this limit is enforced, our documentation will be updated with a way to work around it. For more information, see "[AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package)" or "[AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support)."
+If you reach this limit, consider deleting package versions or contacting support for help. When this limit is enforced, our documentation will be updated with a way to work around it. For more information, see [AUTOTITLE](/packages/learn-github-packages/deleting-and-restoring-a-package) or [AUTOTITLE](/packages/learn-github-packages/introduction-to-github-packages#contacting-support).
 {% endif %}
 
 ## Authenticating to {% data variables.product.prodname_registry %}
@@ -48,9 +58,9 @@ This registry supports granular permissions. {% data reusables.package_registry.
 
 {% data reusables.package_registry.required-scopes %}
 
-You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user _~/.npmrc_ file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
+You can authenticate to {% data variables.product.prodname_registry %} with npm by either editing your per-user `~/.npmrc` file to include your {% data variables.product.pat_v1 %} or by logging in to npm on the command line using your username and {% data variables.product.pat_generic %}.
 
-To authenticate by adding your {% data variables.product.pat_v1 %} to your _~/.npmrc_ file, edit the _~/.npmrc_ file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new _~/.npmrc_ file if one doesn't exist.
+To authenticate by adding your {% data variables.product.pat_v1 %} to your `~/.npmrc` file, edit the `~/.npmrc` file for your project to include the following line, replacing {% ifversion ghes %}HOSTNAME with the host name of {% data variables.location.product_location %} and {% endif %}TOKEN with your {% data variables.product.pat_generic %}. Create a new `~/.npmrc` file if one doesn't exist.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:
@@ -99,32 +109,26 @@ $ npm login --scope=@NAMESPACE --auth-type=legacy --registry=https://HOSTNAME/_r
 
 ## Publishing a package
 
+> [!NOTE]
 {% ifversion packages-npm-v2 %}
-{% note %}
 
-**Note:**
+> * Package names and scopes must only use lowercase letters.
+> * The tarball for an npm version must be smaller than 256MB in size.
 
-* Package names and scopes must only use lowercase letters.
-* The tarball for an npm version must be smaller than 256MB in size.
-
-{% endnote %}
 {% else %}
-{% note %}
 
-**Note:** Package names and scopes must only use lowercase letters.
-
-{% endnote %}
+> Package names and scopes must only use lowercase letters.
 
 {% endif %}
 
 {% ifversion packages-npm-v2 %}
 The {% data variables.product.prodname_registry %} registry stores npm packages within your organization or personal account, and allows you to associate a package with a repository. You can choose whether to inherit permissions from a repository, or set granular permissions independently of a repository.
 
-{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see "[AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package)."
+{% data reusables.package_registry.publishing-user-scoped-packages %} For more information on linking a published package with a repository, see [AUTOTITLE](/packages/learn-github-packages/connecting-a-repository-to-a-package).
 
-You can connect a package to a repository as soon as the package is published by including a `repository` field in the `package.json` file. You can also use this method to connect multiple packages to the same repository. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+You can connect a package to a repository as soon as the package is published by including a `repository` field in the `package.json` file. You can also use this method to connect multiple packages to the same repository. For more information, see [Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository).
 {% else %}
-By default, your package is published in the {% data variables.product.prodname_dotcom %} repository that you specify in the `name` field of the `package.json` file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `repository` field in the `package.json` file. For more information, see "[Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository)."
+By default, your package is published in the {% data variables.product.prodname_dotcom %} repository that you specify in the `name` field of the `package.json` file. For example, you would publish a package named `@my-org/test` to the `my-org/test` {% data variables.product.prodname_dotcom %} repository. You can publish multiple packages to the same {% data variables.product.prodname_dotcom %} repository by including a `repository` field in the `package.json` file. For more information, see [Publishing multiple packages to the same repository](#publishing-multiple-packages-to-the-same-repository).
 {% endif %}
 
 {% data reusables.package_registry.auto-inherit-permissions-note %}
@@ -133,9 +137,9 @@ You can set up the scope mapping for your project using either a local `.npmrc` 
 
 {% data reusables.package_registry.viewing-packages %}
 
-### Publishing a package using a local _.npmrc_ file
+### Publishing a package using a local `.npmrc` file
 
-You can use an _.npmrc_ file to configure the scope mapping for your project. In the _.npmrc_ file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an _.npmrc_ file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
+You can use an `.npmrc` file to configure the scope mapping for your project. In the `.npmrc` file, use the {% data variables.product.prodname_registry %} URL and account owner so {% data variables.product.prodname_registry %} knows where to route package requests. Using an `.npmrc` file prevents other developers from accidentally publishing the package to npmjs.org instead of {% data variables.product.prodname_registry %}.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
@@ -146,7 +150,7 @@ You can use an _.npmrc_ file to configure the scope mapping for your project. In
 
 ### Publishing a package using `publishConfig` in the `package.json` file
 
-You can use `publishConfig` element in the `package.json` file to specify the registry where you want the package published. For more information, see "[publishConfig](https://docs.npmjs.com/files/package.json#publishconfig)" in the npm documentation.
+You can use `publishConfig` element in the `package.json` file to specify the registry where you want the package published. For more information, see [publishConfig](https://docs.npmjs.com/files/package.json#publishconfig) in the npm documentation.
 
 1. Edit the `package.json` file for your package and include a `publishConfig` entry.
    {% ifversion ghes %}
@@ -174,7 +178,7 @@ You can use `publishConfig` element in the `package.json` file to specify the re
 
 ## Publishing multiple packages to the same repository
 
-To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the `package.json` file for each package. For more information, see "[Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file)" and "[Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules)" in the npm documentation.
+To publish multiple packages {% ifversion packages-npm-v2 %}and link them {% endif %}to the same repository, you can include the URL of the {% data variables.product.prodname_dotcom %} repository in the `repository` field of the `package.json` file for each package. For more information, see [Creating a package.json file](https://docs.npmjs.com/creating-a-package-json-file) and [Creating Node.js modules](https://docs.npmjs.com/creating-node-js-modules) in the npm documentation.
 
 To ensure the repository's URL is correct, replace `REPOSITORY` with the name of the repository containing the package you want to publish, and `OWNER` with the name of the personal account or organization on {% data variables.product.prodname_dotcom %} that owns the repository.
 
@@ -186,11 +190,11 @@ To ensure the repository's URL is correct, replace `REPOSITORY` with the name of
 
 ## Installing a package
 
-You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the `package.json` file for your project. For more information on using a `package.json` in your project, see "[Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json)" in the npm documentation.
+You can install packages from {% data variables.product.prodname_registry %} by adding the packages as dependencies in the `package.json` file for your project. For more information on using a `package.json` in your project, see [Working with package.json](https://docs.npmjs.com/getting-started/using-a-package.json) in the npm documentation.
 
-By default, you can add packages from one organization. For more information, see "[Installing packages from other organizations](#installing-packages-from-other-organizations)."
+By default, you can add packages from one organization. For more information, see [Installing packages from other organizations](#installing-packages-from-other-organizations).
 
-You also need to add the _.npmrc_ file to your project so that all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from _npmjs.org_. For more information, see "[npm-scope](https://docs.npmjs.com/misc/scope)" in the npm documentation.
+You also need to add the `.npmrc` file to your project so that all requests to install packages will go through {% data variables.product.prodname_registry %}. When you route all package requests through {% data variables.product.prodname_registry %}, you can use both scoped and unscoped packages from _npmjs.org_. For more information, see [npm-scope](https://docs.npmjs.com/misc/scope) in the npm documentation.
 
 {% data reusables.package_registry.authenticate-step %}
 {% data reusables.package_registry.create-npmrc-owner-step %}
@@ -219,7 +223,7 @@ You also need to add the _.npmrc_ file to your project so that all requests to i
 
 ### Installing packages from other organizations
 
-By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your _.npmrc_ file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
+By default, you can only use {% data variables.product.prodname_registry %} packages from one organization. If you'd like to route package requests to multiple organizations and users, you can add additional lines to your `.npmrc` file, replacing {% ifversion ghes %}`HOSTNAME` with the host name of {% data variables.location.product_location %} and {% endif %}`NAMESPACE` with the name of the personal account or organization {% ifversion packages-npm-v2 %}to which the package is scoped{% else %}that owns the repository containing the project{% endif %}.
 
 {% ifversion ghes %}
 If your instance has subdomain isolation enabled:

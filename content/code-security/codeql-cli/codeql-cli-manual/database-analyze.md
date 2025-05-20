@@ -5,7 +5,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -50,7 +50,7 @@ being interpreted as source-code alerts, use
 
 \[Mandatory] Path to the CodeQL database to query.
 
-#### `<querysuite|pack>...`
+#### `<query|dir|suite|pack>...`
 
 Queries to execute. Each argument is in the form `scope/name@range:path`
 where:

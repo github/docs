@@ -11,13 +11,10 @@ topics:
 
 ## About {% data variables.product.prodname_cli %} extensions
 
-{% note %}
+> [!NOTE]
+> Extensions outside of {% data variables.product.github %} and {% data variables.product.prodname_cli %} are not certified by {% data variables.product.github %} and are governed by separate terms of service, privacy policy, and support documentation. To mitigate risk when using third-party extensions, audit the source code of the extension before installing or updating the extension.
 
-**Note:** Extensions outside of {% data variables.product.product_name %} and {% data variables.product.prodname_cli %} are not certified by {% data variables.product.product_name %} and are governed by separate terms of service, privacy policy, and support documentation. To mitigate risk when using third-party extensions, audit the source code of the extension before installing or updating the extension.
-
-{% endnote %}
-
-{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
+{% data reusables.cli.cli-extensions %} For more information about how to create {% data variables.product.prodname_cli %} extensions, see [AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions).
 
 Extensions are locally installed and are scoped to the user. Therefore, if you access {% data variables.product.prodname_cli %} from a different machine or another user accesses {% data variables.product.prodname_cli %} from the same machine, the extension will not be available.
 

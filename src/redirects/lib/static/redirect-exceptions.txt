@@ -14,7 +14,8 @@
 /rest/using-the-rest-api/getting-started-with-the-rest-api
 - /rest/overview/api-previews
 
-/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
+/enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-repository-search-across-environments
+- /enterprise-server@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 - /enterprise-cloud@latest/search-github/getting-started-with-searching-on-github/enabling-githubcom-repository-search-from-your-private-enterprise-environment
 
 /enterprise-cloud@latest/organizations/managing-membership-in-your-organization/exporting-member-information-for-your-organization
@@ -37,9 +38,6 @@
 
 /enterprise-cloud@latest/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/configuring-advanced-setup-for-code-scanning
 - /enterprise-cloud@latest/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-for-a-repository
-
-/billing/managing-your-github-billing-settings/redeeming-a-coupon
-- /enterprise-cloud@latest/billing/managing-your-github-billing-settings/redeeming-a-coupon
 
 # As seen in PR 48753 we are restructuring the copilot docs and removing the overview category
 /copilot/about-github-copilot

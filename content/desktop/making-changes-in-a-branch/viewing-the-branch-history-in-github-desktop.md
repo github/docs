@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/viewing-the-branch-history
   - /desktop/contributing-and-collaborating-using-github-desktop/making-changes-in-a-branch/viewing-the-branch-history-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: View branch history
 ---
 Each commit shows:
@@ -36,8 +38,8 @@ Each commit shows:
 
 1. If there are multiple files in the commit or range of commits, click on an individual file to see the changes made to that file.
 
-   ![Screenshot of a commit view. To the right of the "History" tab, in a list of files, the "hello.txt" file is selected and highlighted with an orange outline.](/assets/images/help/desktop/branch-history-file.png)
+   ![Screenshot of a commit view. To the right of the "History" tab, the "hello.txt" file is selected from a list and highlighted with an orange outline.](/assets/images/help/desktop/branch-history-file.png)
 
 ## Further reading
 
-* "[AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)"
+* [AUTOTITLE](/desktop/working-with-your-remote-repository-on-github-or-github-enterprise/syncing-your-branch-in-github-desktop)

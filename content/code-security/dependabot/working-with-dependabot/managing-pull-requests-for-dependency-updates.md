@@ -1,6 +1,7 @@
 ---
 title: Managing pull requests for dependency updates
 intro: 'You manage pull requests raised by {% data variables.product.prodname_dependabot %} in much the same way as other pull requests, but there are some extra options.'
+permissions: '{% data reusables.permissions.dependabot-various-tasks %}'
 redirect_from:
   - /github/administering-a-repository/managing-pull-requests-for-dependency-updates
   - /code-security/supply-chain-security/managing-pull-requests-for-dependency-updates
@@ -8,7 +9,7 @@ redirect_from:
 versions:
   fpt: '*'
   ghec: '*'
-  ghes: '> 3.2'
+  ghes: '*'
 type: how_to
 topics:
   - Repositories
@@ -27,19 +28,12 @@ shortTitle: Manage Dependabot PRs
 {% data reusables.dependabot.pull-request-introduction %}
 
 When {% data variables.product.prodname_dependabot %} raises a pull request, you're notified by your chosen method for the repository. Each pull request contains detailed information about the proposed change, taken from the package manager. These pull requests follow the normal checks and tests defined in your repository.
-{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates)."{% endif %}
+{% ifversion fpt or ghec %}In addition, where enough information is available, you'll see a compatibility score. This may also help you decide whether or not to merge the change. For information about this score, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% endif %}
 
-If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. {% ifversion dependabot-version-updates-groups %} You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request.{% endif %} For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependency-updates){% ifversion dependabot-grouped-security-updates-config %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request)."{% else %}" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request)."{% endif %}
+If you have many dependencies to manage, you may want to customize the configuration for each package manager so that pull requests have specific reviewers, assignees, and labels. You may also want to group sets of dependencies together, so that multiple dependencies are updated in a single pull request. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/customizing-dependabot-prs){% ifversion dependabot-grouped-security-updates-config %} and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-updates-into-a-single-pull-request).{% else %} and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates#grouping-dependabot-security-updates-into-a-single-pull-request).{% endif %}
 
-{% ifversion dependabot-updates-paused %}
-
-{% note %}
-
-**Note**: If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates)" and "[AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates)."
-
-{% endnote %}
-
-{% endif %}
+> [!NOTE]
+> If you don't interact with {% data variables.product.prodname_dependabot %} pull requests for a repository during a 90-day time period, {% data variables.product.prodname_dependabot %} considers your repository as inactive, and will automatically pause {% data variables.product.prodname_dependabot_updates %}. For more information about inactivity criteria, see [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#about-automatic-deactivation-of-dependabot-updates) and [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates#about-automatic-deactivation-of-dependabot-updates).
 
 ## Viewing {% data variables.product.prodname_dependabot %} pull requests
 
@@ -51,7 +45,7 @@ If you have many dependencies to manage, you may want to customize the configura
 
 ## Changing the rebase strategy for {% data variables.product.prodname_dependabot %} pull requests
 
-By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. {% ifversion dependabot-updates-rebase-30-days-cutoff %}{% data reusables.dependabot.pull-requests-30-days-cutoff %}{% endif %} If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#rebase-strategy)."
+By default, {% data variables.product.prodname_dependabot %} automatically rebases pull requests to resolve any conflicts. {% data reusables.dependabot.pull-requests-30-days-cutoff %} If you'd prefer to handle merge conflicts manually, you can disable this using the `rebase-strategy` option. For details, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#rebase-strategy).
 
 ## Allowing {% data variables.product.prodname_dependabot %} to rebase and force push over extra commits
 
@@ -72,15 +66,15 @@ You can use any of the following commands on a {% data variables.product.prodnam
 * `@dependabot merge` merges the pull request once your CI tests have passed.
 * `@dependabot rebase` rebases the pull request.
 * `@dependabot recreate` recreates the pull request, overwriting any edits that have been made to the pull request.
-* `@dependabot reopen` reopens the pull request if the pull request is closed.{% ifversion dependabot-version-updates-groups %}
-* `@dependabot show DEPENDENCY_NAME ignore conditions` retrieves information on the ignore conditions for the specified dependency, and comments on the pull request with a table that displays all ignore conditions for the dependency. For example, `@dependabot show express ignore conditions` would find all `ignore` conditions stored for the Express dependency, and comment on the pull request with that information.{% endif %}
+* `@dependabot reopen` reopens the pull request if the pull request is closed.
+* `@dependabot show DEPENDENCY_NAME ignore conditions` retrieves information on the ignore conditions for the specified dependency, and comments on the pull request with a table that displays all ignore conditions for the dependency. For example, `@dependabot show express ignore conditions` would find all `ignore` conditions stored for the Express dependency, and comment on the pull request with that information.
 * `@dependabot squash and merge` squashes and merges the pull request once your CI tests have passed.
 
 {% data variables.product.prodname_dependabot %} will react with a "thumbs up" emoji to acknowledge the command, and may respond with a comment on the pull request. While {% data variables.product.prodname_dependabot %} usually responds quickly, some commands may take several minutes to complete if {% data variables.product.prodname_dependabot %} is busy processing other updates or commands.
 
 If you run any of the commands for ignoring dependencies or versions, {% data variables.product.prodname_dependabot %} stores the preferences for the repository centrally. While this is a quick solution, for repositories with more than one contributor it is better to explicitly define the dependencies and versions to ignore in the configuration file. This makes it easy for all contributors to see why a particular dependency isn't being updated automatically.
 
-For more information, see "[AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file#ignore)."
+For more information, see [AUTOTITLE](/code-security/dependabot/working-with-dependabot/dependabot-options-reference#ignore).
 
 {% ifversion dependabot-grouped-security-updates-config %}
 
@@ -96,23 +90,17 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 * `@dependabot unignore DEPENDENCY_NAME` closes the current pull request, clears all `ignore` conditions stored for the dependency, then opens a new pull request that includes available updates for the specified dependency. For example, `@dependabot unignore lodash` would open a new pull request that includes updates for the Lodash dependency.
 * `@dependabot unignore DEPENDENCY_NAME IGNORE_CONDITION` closes the current pull request, clears the stored `ignore` condition, then opens a new pull request that includes available updates for the specified ignore condition. For example, `@dependabot unignore express [< 1.9, > 1.8.0]` would open a new pull request that includes updates for Express between versions 1.8.0 and 1.9.0.
 
-{% note %}
+> [!TIP]
+> When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
 
-**Tip:** When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
-
-{% endnote %}
-
-{% elsif dependabot-version-updates-groups %}
+{% else %}
 
 ### Managing {% data variables.product.prodname_dependabot %} pull requests for grouped version updates with comment commands
 
 In {% data variables.product.prodname_dependabot %} pull requests for grouped version updates, you can use comment commands to ignore and un-ignore updates for specific dependencies and versions. You can use any of the following commands to manage ignore conditions for grouped version updates.
 
-{% note %}
-
-**Note:** The following comment commands do not work for grouped {% data variables.product.prodname_dependabot_security_updates %}.
-
-{% endnote %}
+> [!NOTE]
+> The following comment commands do not work for grouped {% data variables.product.prodname_dependabot_security_updates %}.
 
 * `@dependabot ignore DEPENDENCY_NAME` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency.
 * `@dependabot ignore DEPENDENCY_NAME major version` closes the pull request and prevents {% data variables.product.prodname_dependabot %} from updating this dependency's major version.
@@ -122,9 +110,7 @@ In {% data variables.product.prodname_dependabot %} pull requests for grouped ve
 * `@dependabot unignore DEPENDENCY_NAME` closes the current pull request, clears all `ignore` conditions stored for the dependency, then opens a new pull request that includes available version updates for the specified dependency. For example, `@dependabot unignore lodash` would open a new pull request that includes version updates for the Lodash dependency.
 * `@dependabot unignore DEPENDENCY_NAME IGNORE_CONDITION` closes the current pull request, clears the stored `ignore` condition, then opens a new pull request that includes available version updates for the specified ignore condition. For example, `@dependabot unignore express [< 1.9, > 1.8.0]` would open a new pull request that includes version updates for Express between versions 1.8.0 and 1.9.0.
 
-{% note %}
+> [!TIP]
+> When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
 
-**Tip:** When you want to un-ignore a specific ignore condition, use the `@dependabot show DEPENDENCY_NAME ignore conditions` command to quickly check what ignore conditions a dependency currently has.
-
-{% endnote %}
 {% endif %}

@@ -6,7 +6,7 @@ You can customize the rewards for each tier. For example, rewards for a tier cou
 * Weekly newsletter updates
 * Other rewards your sponsors would enjoy ✨
 
-{% data reusables.sponsors.sponsors-only-repos %} For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier)."
+{% data reusables.sponsors.sponsors-only-repos %} For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/managing-your-sponsorship-tiers#adding-a-repository-to-a-sponsorship-tier).
 
 You can include a welcome message with information about accessing or receiving rewards, which will be visible after payment and in the welcome email.
 

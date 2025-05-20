@@ -16,13 +16,40 @@ The site search is part of every version of docs.github.com. This endpoint respo
 You can also query our search endpoint directly at:
 `https://docs.github.com/search?version=<VERSION>&language=<LANGUAGE CODE>&query=<QUERY>`
 
-- The VERSION can be any numbered supported GitHub Enterprise Server version (e.g., `3.12`), Enterprise Cloud (`ghec`), or the Free pro team plan (`dotcom`).
-- The LANGUAGE CODE can be one of: `zh`, `es`, `pt`, `ru`, `ja`, `fr`, `de`, `ko`
-- Any search QUERY you'd like.
+- The `VERSION` can be any numbered supported GitHub Enterprise Server version (e.g., `3.12`), Enterprise Cloud (`ghec`), or the Free pro team plan (`dotcom`).
+- The `LANGUAGE CODE` can be one of: `es`, `ja`, `pt`, `zh`, `ru`, `fr`, `ko`, `de`
+- The `QUERY` can be any alphanumeric string value.
+
+## Types of search
+
+Our backend currently supports 3 "types" of searching.
+
+All searches accept a `query` param, e.g. `?query=how` and return results based on their type:
+
+1. **general search**
+  - Results: The pages of our sites that match the query, sorted by popularity
+  - Example: Query = "clone" -> Results <URLs to Docs Page about cloning>
+  - Endpoint: `/api/search/v1`
+2. **general autocomplete**
+  - Results: Potential terms that can be autocompleted from the query based on previous user searches
+  - Example: Query = "cl" -> A Result = "clone"
+  - Endpoint: `/api/search/autocomplete/v1`
+3. **AI search autocomplete**
+  - Results: Human-readable full-sentence questions that best match the query. Questions are based on previous searches and popular pages
+  - Example: Query = "How do I clone" -> A Result = "How do I clone a repository?"
+  - Endpoint: `/api/search/ai-search-autocomplete/v1`
+
+## Elasticsearch
+
+Elasticsearch is an external service that we use for searching. When a user types a search, our backend queries Elasticsearch for the most relevant results.
+
+### Indexing Elasticsearch
+
+In order to provide relevant results to queries, we prefill Elasticsearch with data via Indexes. See the [Indexing README](./scripts/index/README.md) for how we index on Docs.
 
 ## Production deploys
 
-A [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml) that runs every four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
+A [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml) that runs every twenty four hours syncs the search data. This process generates structured data for all pages on the site, compares that data to what's currently on search, then adds, updates, or removes indices based on the diff of the local and remote data, being careful not to create duplicate records and avoiding any unnecessary (and costly) indexing operations.
 
 The workflow runs are only accessible to GitHub employees using internal resources.
 
@@ -32,40 +59,25 @@ You can manually run the workflow to generate the indexes after you push your ch
 
 ### Build and sync
 
-The preferred way to build and sync the search indices is to do so via the [GitHub Actions workflow](/.github/workflows/sync-search-elasticsearch.yml).
+The preferred way to build and sync the search indices is to do so via the [GitHub Actions workflow](/.github/workflows/index-general-search.yml).
 
 ## Files
 
 ### Actions workflow files
 
-- [`.github/workflows/sync-search-elasticsearch.yml`](/.github/workflows/sync-search-elasticsearch.yml) - Builds and syncs search indices on the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
+- [`.github/workflows/index-general-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for **general search** using the `main` branch every four hours. Search indices are stored in an internal-only Elasticsearch instance. To run it manually, click "Run workflow" button in the Actions tab.
+- [`.github/workflows/index-autocomplete-search.yml`](/.github/workflows/index-general-search.yml) - Populates search indices for both **general autocomplete** and **AI search autocomplete** using data from an internal repo. Runs daily. 
 
 ### Notable code files and directories
 
 - [src/search/components/Search.tsx](/src/search/components/Search.tsx) - The browser-side code that enables the search.
 - [src/search/components/SearchResults.tsx](/src/search/components/SearchResults.tsx) - The browser-side code that displays search results.
-- [src/search/middleware/es-search.js](/src/search/middleware/es-search.js) - A wrapper around the Node.js Elasticsearch module for interacting with the search API.
-- [src/search/scripts/](/src/search/scripts/) - Scripts used by Actions workflows or for manual operations.
-- [src/search/tests](/src/search/tests) - Tests!
+- [src/search/middleware/general-search-middleware.ts](src/search/middleware/general-search-middleware.ts) - Entrypoint to general search when you hit docs.github/search
+- [src/search/middleware/search-routes](src/search/middleware/general-search-middleware.ts) - Entrypoint to the API endpoints for our search routes
+- [src/search/scripts/](/src/search/scripts/) - Scripts used by Actions workflows or for manual operations like scraping data for indexing and performing the indexing.
+- [src/search/tests](/src/search/tests) - Tests relevant to searching.
 
-## Records
-
-Each record represents a page. Each record has `breadcrumbs`, `title`, `headings`, `content` (the article content in text, not HTML), `intro` (if one exists in the frontmatter), and a unique `objectID` that is currently just the permalink of the article. Here's an example:
-
-```json
-{
-  "objectID":"/en/actions/creating-actions/about-custom-actions",
-  "breadcrumbs":"GitHub Actions / Creating actions",
-  "title":"About custom actions",
-  "headings":"About custom actions\nTypes of actions\n[...]",
-  "content":"Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, [...]",
-  "intro":"Actions are individual tasks that you can combine to create jobs and customize your workflow. You can create your own actions, or use and customize actions shared by the GitHub community.",
-  "toplevel":"GitHub Actions",
-  "popularity":0
-}
-```
-
-## Notes
+## Miscellaneous Notes
 
 - It's not strictly necessary to set an `objectID` as the search index will create one automatically, but by creating our own we have a guarantee that subsequent invocations of this upload script will overwrite existing records instead of creating numerous duplicate records with differing IDs.
 - Our search querying has typo tolerance. Try spelling something wrong and see what you get!

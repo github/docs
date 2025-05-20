@@ -24,6 +24,8 @@ Issue events all have the same object structure, except events that are only ava
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
+{% ifversion projects-v1 %}
+
 ## added_to_project
 
 The issue or pull request was added to a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -46,6 +48,8 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
+
+{% endif %}
 
 ## assigned
 
@@ -124,7 +128,7 @@ This event is available for the following issue types.
 
 ## closed
 
-The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword)".
+The issue or pull request was closed. When the `commit_id` is present, it identifies the commit that closed the issue using "closes / fixes" syntax. For more information about the syntax, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#linking-a-pull-request-to-an-issue-using-a-keyword).
 
 This event is available for the following issue types.
 
@@ -204,12 +208,12 @@ Name | Type | Description
 `tree` | `object` | The Git tree of the commit.
 `message` | `string` | The commit message.
 `parents` | `array of objects` | A list of parent commits.
-`verification` | `object` | The result of verifying the commit's signature. For more information, see "[AUTOTITLE](/rest/git/commits#get-a-commit)."
+`verification` | `object` | The result of verifying the commit's signature. For more information, see [AUTOTITLE](/rest/git/commits#get-a-commit).
 `event` | `string` | The event value is `"committed"`.
 
 ## connected
 
-The issue or pull request was linked to another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+The issue or pull request was linked to another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 
@@ -244,6 +248,8 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
+{% ifversion projects-v1 %}
+
 ## converted_note_to_issue
 
 The issue was created by converting a note in a {% data variables.projects.projects_v1_board %} to an issue. {% data reusables.projects.disabled-projects %}
@@ -266,6 +272,8 @@ This event is available for the following issue types.
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 
+{% endif %}
+
 ## converted_to_discussion
 
 The issue was closed and converted to a discussion.
@@ -276,7 +284,7 @@ This event is available for the following issue types.
 
 |  | REST API for issue events | REST API for timeline events |
 |---|---|---|
-|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "x" aria-label="Not supported" %}|
+|Issues| {% octicon "check" aria-label="Supported" %} | {% octicon "check" aria-label="Supported" %} |
 
 {% endrowheaders %}
 
@@ -372,7 +380,7 @@ This event is available for the following issue types.
 
 ## disconnected
 
-The issue or pull request was unlinked from another issue or pull request. For more information, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue)".
+The issue or pull request was unlinked from another issue or pull request. For more information, see [AUTOTITLE](/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue).
 
 This event is available for the following issue types.
 
@@ -556,6 +564,8 @@ This event is available for the following issue types.
 `milestone` | `object` | The milestone object.
 `milestone[title]` | `string` | The title of the milestone.
 
+{% ifversion projects-v1 %}
+
 ## moved_columns_in_project
 
 The issue or pull request was moved between columns in a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -579,6 +589,8 @@ This event is available for the following issue types.
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
 `previous_column_name` | `string` | The name of the column the issue was moved from.
+
+{% endif %}
 
 ## pinned
 
@@ -635,6 +647,8 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 
+{% ifversion projects-v1 %}
+
 ## removed_from_project
 
 The issue or pull request was removed from a {% data variables.projects.projects_v1_board %}. {% data reusables.projects.disabled-projects %}
@@ -657,6 +671,8 @@ This event is available for the following issue types.
 
 {% data reusables.issue-events.issue-event-common-properties %}
 {% data reusables.issue-events.project-card-properties %}
+
+{% endif %}
 
 ## renamed
 

@@ -17,7 +17,7 @@ If you don't have any sponsors, then you can disable your {% data variables.prod
 
 If you decide to create a {% data variables.product.prodname_sponsors %} account again, you'll need to reapply.
 
-Alternatively, you can unpublish your sponsors profile and then republish the account without reapplying again. For more information, see "[AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/unpublishing-your-github-sponsors-profile)."
+Alternatively, you can unpublish your sponsors profile and then republish the account without reapplying again. For more information, see [AUTOTITLE](/sponsors/receiving-sponsorships-through-github-sponsors/unpublishing-your-github-sponsors-profile).
 
 {% data reusables.sponsors.navigate-to-sponsors-dashboard %}
 {% data reusables.sponsors.settings-tab %}

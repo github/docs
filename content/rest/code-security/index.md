@@ -1,5 +1,5 @@
 ---
-title: Code security settings
+title: Security settings
 intro: Use the REST API to create and manage security configurations for your organization.
 topics:
   - API
@@ -10,5 +10,5 @@ children:
 versions:
   fpt: '*'
   ghec: '*'
+  ghes: '>=3.15'
 ---
-

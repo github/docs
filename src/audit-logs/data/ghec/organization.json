@@ -41,12 +41,12 @@
   },
   {
     "action": "auto_approve_personal_access_token_requests.disable",
-    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources. See also: personal_access_token.auto_approve_grant_requests_disabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
     "action": "auto_approve_personal_access_token_requests.enable",
-    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval. See also: personal_access_token.auto_approve_grant_requests_enabled",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization"
   },
   {
@@ -83,6 +83,56 @@
     "action": "checks.delete_logs",
     "description": "Logs in a check suite were deleted.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "code_scanning.alert_appeared_in_branch",
+    "description": "Existing code scanning alerts appeared in a branch.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_fixed",
+    "description": "Code scanning alerts were fixed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_became_outdated",
+    "description": "Code scanning alerts were closed as outdated (all configurations they were detected in were deleted).",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closed_by_user",
+    "description": "Code scanning alerts were manually dismissed.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_approved",
+    "description": "Dismissal of code scanning alerts was approved.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_denied",
+    "description": "Dismissal of code scanning alerts was denied.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_closure_requested",
+    "description": "Dismissal of code scanning alerts was requested.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_created",
+    "description": "Code scanning alerts were seen for the first time.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reappeared",
+    "description": "Code scanning alerts that were previously fixed reappeared.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
+  },
+  {
+    "action": "code_scanning.alert_reopened_by_user",
+    "description": "Code scanning alerts that were previously dismissed were reopened.",
+    "docs_reference_links": "/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning"
   },
   {
     "action": "codespaces.allow_permissions",
@@ -220,6 +270,16 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "copilot.custom_instructions_created",
+    "description": "Copilot custom instructions were created for the organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.custom_instructions_updated",
+    "description": "Copilot custom instructions were updated for the organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "copilot.knowledge_base_created",
     "description": "A knowledge base was created in the organization.",
     "docs_reference_links": "copilot/github-copilot-enterprise/copilot-chat-in-github/managing-copilot-knowledge-bases"
@@ -242,6 +302,21 @@
   {
     "action": "copilot.plan_downgrade_scheduled",
     "description": "The plan for GitHub Copilot was scheduled to be downgraded.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.swe_agent_repo_disabled",
+    "description": "Specific repositories were disabled from using Copilot coding agent.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.swe_agent_repo_enabled",
+    "description": "Specific repositories were enabled to use Copilot coding agent.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "copilot.swe_agent_repo_enablement_updated",
+    "description": "Copilot coding agent access was updated for the organization's or user's repositories.",
     "docs_reference_links": "N/A"
   },
   {
@@ -308,6 +383,11 @@
     "action": "dependabot_alerts_new_repos.enable",
     "description": "Dependabot alerts were enabled for all new repositories.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_repository_access.default_access_level_updated",
+    "description": "The default repository access for Dependabot was updated.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -388,6 +468,21 @@
     "action": "discussion_post.update",
     "description": "Triggered when a team discussion post is edited.",
     "docs_reference_links": "/communities/moderating-comments-and-conversations/managing-disruptive-comments#editing-a-comment"
+  },
+  {
+    "action": "enterprise_announcement.create",
+    "description": "A global announcement banner was created for the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise#creating-a-global-announcement-banner"
+  },
+  {
+    "action": "enterprise_announcement.destroy",
+    "description": "A global announcement banner was removed from the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise"
+  },
+  {
+    "action": "enterprise_announcement.update",
+    "description": "A global announcement banner was updated for the enterprise.",
+    "docs_reference_links": "/admin/managing-accounts-and-repositories/communicating-information-to-users-in-your-enterprise/customizing-user-messages-for-your-enterprise"
   },
   {
     "action": "enterprise_installation.create",
@@ -670,6 +765,21 @@
     "docs_reference_links": "/issues/tracking-your-work-with-issues/transferring-an-issue-to-another-repository"
   },
   {
+    "action": "issue_type.create",
+    "description": "An issue type was created.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "issue_type.destroy",
+    "description": "An issue type was deleted.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "issue_type.update",
+    "description": "An issue type was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "issue.unpinned",
     "description": "An issue was unpinned from a repository.",
     "docs_reference_links": "/issues/tracking-your-work-with-issues/pinning-an-issue-to-your-repository"
@@ -900,6 +1010,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization"
   },
   {
+    "action": "org.add_disallowed_two_factor_method",
+    "description": "An organization prevented access to resources by users with the given two-factor method.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.add_member",
     "description": "A user joined an organization.",
     "docs_reference_links": "N/A"
@@ -933,6 +1048,11 @@
     "action": "org.advanced_security_enabled_on_all_repos",
     "description": "GitHub Advanced Security was enabled for all repositories in an organization.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.advanced_security_entity_policy_update",
+    "description": "An enterprise owner updated the GitHub Advanced Security access policy for repositories owned by the organization.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
   },
   {
     "action": "org.advanced_security_policy_selected_member_disabled",
@@ -992,6 +1112,11 @@
   {
     "action": "org.clear_custom_invitation_rate_limit",
     "description": "N/A",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "org.clear_disallowed_two_factor_methods",
+    "description": "Cleared two-factor authentication restrictions for an organization.",
     "docs_reference_links": "N/A"
   },
   {
@@ -1330,6 +1455,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/removing-a-billing-manager-from-your-organization, /organizations/keeping-your-organization-secure/managing-two-factor-authentication-for-your-organization/requiring-two-factor-authentication-in-your-organization"
   },
   {
+    "action": "org.remove_disallowed_two_factor_method",
+    "description": "Removed a two-factor authentication method restriction for an organization.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "org.remove_integration_secret",
     "description": "A Codespaces or Dependabot secret was removed from an organization.",
     "docs_reference_links": "N/A"
@@ -1543,6 +1673,11 @@
     "action": "org.secret_scanning_push_protection_new_repos_enable",
     "description": "Push protection for secret scanning was enabled for all new repositories in the organization.",
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations"
+  },
+  {
+    "action": "org.security_center_export_code_scanning_metrics",
+    "description": "A CSV export was requested on the CodeQL pull request alerts page.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "org.security_center_export_coverage",
@@ -1790,6 +1925,11 @@
     "docs_reference_links": "/organizations/managing-peoples-access-to-your-organization-with-roles/about-custom-organization-roles"
   },
   {
+    "action": "organization_wide_project_base_role.update",
+    "description": "An organization's default project base role was updated.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "packages.package_deleted",
     "description": "An entire package was deleted.",
     "docs_reference_links": "/packages/learn-github-packages/deleting-and-restoring-a-package"
@@ -1845,9 +1985,39 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
   {
+    "action": "personal_access_token.access_restriction_disabled",
+    "description": "The configured restriction for access to resources via personal access tokens was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_enabled",
+    "description": "The configured restriction for access to resources via personal access tokens was enabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "personal_access_token.access_revoked",
     "description": "A fine-grained personal access token was revoked. The token can still read public organization resources.",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_disabled",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_enabled",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_set",
+    "description": "A personal access token expiration limit was set.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_unset",
+    "description": "A personal access token expiration limit was unset.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "personal_access_token.request_cancelled",
@@ -1942,6 +2112,11 @@
   {
     "action": "project.access",
     "description": "A project board visibility was changed.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "project_base_role.update",
+    "description": "A project's base role was updated.",
     "docs_reference_links": "N/A"
   },
   {
@@ -2350,6 +2525,16 @@
     "docs_reference_links": "/code-security/code-scanning/managing-code-scanning-alerts/managing-code-scanning-alerts-for-your-repository#removing-stale-configurations-and-alerts-from-a-branch"
   },
   {
+    "action": "repo.code_scanning_delegated_alert_dismissal_disabled",
+    "description": "Prevention of direct alert dismissal for code scanning was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repo.code_scanning_delegated_alert_dismissal_enabled",
+    "description": "Prevention of direct alert dismissal for code scanning was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repo.codeql_disabled",
     "description": "Code scanning using the default setup was disabled for a repository.",
     "docs_reference_links": "/code-security/code-scanning/enabling-code-scanning/configuring-default-setup-for-code-scanning"
@@ -2695,6 +2880,16 @@
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
+    "action": "repository_code_security.disable",
+    "description": "Code security was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_code_security.enable",
+    "description": "Code security was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_content_analysis.disable",
     "description": "Data use settings were disabled for a private repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
@@ -2743,6 +2938,16 @@
     "action": "repository_invitation.reject",
     "description": "An invitation to join a repository was declined.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_limit.reached",
+    "description": "An organization has reached their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
+  },
+  {
+    "action": "repository_limit.warning",
+    "description": "An organization is approaching their repository limit.",
+    "docs_reference_links": "repositories/creating-and-managing-repositories/repository-limits"
   },
   {
     "action": "repository_projects_change.clear",
@@ -2945,6 +3150,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "repository_vulnerability_alert.withdraw",
+    "description": "A Dependabot alert was withdrawn.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_vulnerability_alerts.authorized_users_teams",
     "description": "The list of people or teams authorized to receive Dependabot alerts for the repository was updated.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#granting-access-to-security-alerts"
@@ -3010,9 +3220,19 @@
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
   },
   {
+    "action": "secret_scanning_alert.public_leak",
+    "description": "A secret scanning alert was leaked in a public repo.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
     "action": "secret_scanning_alert.reopen",
     "description": "A secret scanning alert was reopened.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_alert.report",
+    "description": "A leaked secret was reported to the secret's provider by secret scanning.",
+    "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning/resolving-alerts"
   },
   {
     "action": "secret_scanning_alert.resolve",
@@ -3028,6 +3248,26 @@
     "action": "secret_scanning_alert.validate",
     "description": "A secret scanning alert was validated.",
     "docs_reference_links": "/code-security/secret-scanning/managing-alerts-from-secret-scanning"
+  },
+  {
+    "action": "secret_scanning_closure_request.approve",
+    "description": "A request to close a secret scanning alert was approved by a user.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_closure_request.cancel",
+    "description": "N/A",
+    "docs_reference_links": "A reqeust to close a secret scanning alert was canceled by a user."
+  },
+  {
+    "action": "secret_scanning_closure_request.create",
+    "description": "N/A",
+    "docs_reference_links": "A user requested to close a secret scanning alert."
+  },
+  {
+    "action": "secret_scanning_closure_request.deny",
+    "description": "A request to close a secret scanning alert was denied by a user.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "secret_scanning.disable",
@@ -3068,6 +3308,11 @@
     "action": "secret_scanning_push_protection_request.request",
     "description": "A user requested to bypass secret scanning push protection.",
     "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_scan.completed",
+    "description": "A secret scanning scan has completed on this repository.",
+    "docs_reference_links": "/code-security/secret-scanning/about-secret-scanning"
   },
   {
     "action": "security_configuration.create",

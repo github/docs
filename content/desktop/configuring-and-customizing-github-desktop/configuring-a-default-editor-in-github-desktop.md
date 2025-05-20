@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor
   - /desktop/installing-and-configuring-github-desktop/configuring-and-customizing-github-desktop/configuring-a-default-editor-in-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Configure default editor
 ---
 
@@ -33,7 +35,6 @@ shortTitle: Configure default editor
 * [JetBrains GoLand](https://www.jetbrains.com/go/)
 * [JetBrains Fleet](https://www.jetbrains.com/fleet/)
 * [JetBrains DataSpell](https://www.jetbrains.com/dataspell/)
-* [TextMate](https://macromates.com/)
 * [Brackets](http://brackets.io/)
   * To use Brackets with {% data variables.product.prodname_desktop %}, you must install the Command Line shortcut. To install the shortcut, open Brackets, click **File** in the menu bar, then click **Install Command Line Shortcut**.
 * [Typora](https://typora.io/)
@@ -83,8 +84,8 @@ shortTitle: Configure default editor
 {% mac %}
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the Preferences window, select **Integrations**.
-   ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
+1. In the Settings window, select **Integrations**.
+   ![Screenshot of the "Settings" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
 1. Under "External Editor", use the dropdown menu to select the editor you want to set as your default.
 1. Click **Save**.
 
@@ -103,10 +104,9 @@ shortTitle: Configure default editor
 ## Configuring a custom editor
 
 {% data reusables.desktop.mac-select-desktop-menu %}
-1. In the Preferences window, select **Integrations**.
-   ![Screenshot of the "Preferences" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
+1. In the Settings window, select **Integrations**.
+   ![Screenshot of the "Settings" window. In the left sidebar, the "Integrations" option is highlighted in blue and outlined in orange.](/assets/images/help/desktop/mac-select-integrations-pane.png)
 1. Under "External Editor", use the dropdown menu to select **Configure Custom Editor**.
-   ![Screenshot of the "Preferences window. Under "External Editor", the dropdown menu is displayed with "Configure Custom Editor" highlighted in blue and outlined in orange.](/assets/images/help/desktop/configure-custom-editor.png)
 1. Click **Choose** to open the system dialog to navigate to the path of your custom editor.
 1. Under "Arguments", enter any arguments you would like to use after the "%TARGET_PATH%" variable. Reference supporting documentation for your custom editor to ensure you have the arguments set correctly, as invalid arguments can prevent the editor from launching in {% data variables.product.prodname_desktop %}.
 1. Click **Save**.
@@ -123,21 +123,19 @@ If you want to open another repository in the default editor, you can use the re
 1. In the upper-left corner of {% data variables.product.prodname_desktop %}, to the right of the current repository name, click {% octicon "triangle-down" aria-label="The triangle-down icon" %}.
 1. Right-click the repository, then click **Open in default editor**.
 
-{% tip %}
-
 {% mac %}
 
-**Tip:** You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+> [!TIP]
+> You can use the <kbd>Shift</kbd>+<kbd>Command</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
 
 {% endmac %}
 
 {% windows %}
 
-**Tip:** You can use the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
+> [!TIP]
+> You can use the <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>A</kbd> keyboard shortcut to open a repository in the default editor.
 
 {% endwindows %}
-
-{% endtip %}
 
 ## Opening a file in the default editor
 

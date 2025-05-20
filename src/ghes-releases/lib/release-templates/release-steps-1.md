@@ -5,19 +5,21 @@ labels:
   - new-release
   - priority-0
   - skip FR board
+  - rhythm of docs operations
   - GHES {{ release-number }}
 ---
 
 ## Instructions for triage
 
-- [ ] In the Enterprise project, adjust the "Cycle" field to the cycle containing the target date.
+- [ ] Add this issue to the [Rhythm of Docs: Operations](https://github.com/orgs/github/projects/20190) project.
+- [ ] For assignee: if needed, add this issue to your persona team project for tracking purposes.
 
 ## Instructions for assignee
 
 - [Prerequisites](#prerequisites)
 - [Create publication branch for a new version of GHES](#creation)
 - [Resolve check failures](#check-failures)
-- [Sync the search indices](#sync-search-indices)
+- [Scrape the search indices](#scrape-search-indices)
 - [Maintain the publication branch](#maintenance)
 - [Complete preparation for the RC and publish the docset](#publication)
 
@@ -52,15 +54,15 @@ To enable a new version of GHES on GitHub Docs, update the site's supported vers
 
   - [ ] For `supported`, prepend the new version. For example, if the array contains 3.9, 3.8, 3.7, and 3.6, add 3.10:
 
-     ```js
-     export const supported = ['3.10', '3.9', '3.8', '3.7', '3.6']
-     ```
+    ```js
+    export const supported = ["3.10", "3.9", "3.8", "3.7", "3.6"];
+    ```
 
   - [ ] For `releaseCandidate`, change the variable definition from `null` to the release version. For example, if the release version is 3.10:
 
-     ```js
-     export const releaseCandidate = '3.10'
-     ```
+    ```js
+    export const releaseCandidate = "3.10";
+    ```
 
   - [ ] Add and commit the changes.
 
@@ -69,18 +71,18 @@ To enable a new version of GHES on GitHub Docs, update the site's supported vers
   - [ ] Run the following script.
 
     ```shell
-    src/ghes-releases/scripts/sync-automated-pipeline-data.js
+    npm run deprecate-ghes -- pipelines
     ```
 
   - [ ] Add and commit the changes.
 
-- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See "[About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs)".
+- [ ] Optionally, on your workstation, run the local development environment for GitHub Docs and verify that the new GHES version is enabled. See [About versions of GitHub Docs](https://docs.github.com/get-started/learning-about-github/about-versions-of-github-docs).
 
 - [ ] Push your changes.
 
 - [ ] Create a PR. For the body, copy the contents of the body comment for the [previous release](https://github.com/github/docs-internal/pull/44684), modifying it to reflect this release.
 
-- [ ] Link your PR to this issue. See "[Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar)".
+- [ ] Link your PR to this issue. See [Linking a pull request to an issue](https://docs.github.com/issues/tracking-your-work-with-issues/linking-a-pull-request-to-an-issue#manually-linking-a-pull-request-to-an-issue-using-the-pull-request-sidebar).
 
 <br/>
 <a name="check-failures">
@@ -99,6 +101,7 @@ Our link checker validates links the site. If links are broken immediately after
 If you aren't familiar with the content with the broken link, consult the DRI for the content's focus area. See the [README](https://github.com/github/docs-content/blob/main/focus-areas/README.md) in `github/docs-content`.
 
 For broken links due to in-progress work elsewhere in the docs, you can comment out problematic versioning temporarily by:
+
 - using {% raw %}`{% comment %}`{% endraw %} tags in Liquid or
 - prepending `#` in YAML front matter.
 
@@ -110,15 +113,15 @@ For content from the OpenAPI schema, note the affected content with broken links
 
 <br/>
 
-<a name="sync-search-indices">
+<a name="scrape-search-indices">
 
-### [🔎](#sync-search-indices) Sync the search indices
+### [🔎](#scrape-search-indices) Scrape the search indices
 
-1. Go to the [`sync-search-elasticsearch` workflow](https://github.com/github/docs-internal/actions/workflows/sync-search-elasticsearch.yml) ([permalink](https://github.com/github/docs-internal/blob/f8ca45703c48c7d1976a278337bc3391fb14fe9e/.github/workflows/sync-search-elasticsearch.yml) in case it moves)
+1. Go to the [`index-general-search.yml` workflow](https://github.com/github/docs-internal/actions/workflows/index-general-search.yml)
 1. Click on the **Run workflow** drop down and set the following parameters:
-    - `Branch:` set to the name of the publication branch
-    - `Version` set to the version you're publishing (e.g., `ghes-3.12` if you're publishing GHES 3.12)
-    - `Languages` left as default (blank, all languages. If time is a concern, can also set to just `en` and wait for the workflow to automatically include the other languages in later runs)
+   - `Branch:` set to the name of the publication branch
+   - `Version` set to the version you're publishing (e.g., `ghes-3.12` if you're publishing GHES 3.12)
+   - `Languages` left as default (blank, all languages. If time is a concern, can also set to just `en` and wait for the workflow to automatically include the other languages in later runs)
 1. Click **Run workflow** and wait for the workflow to finish running, which can take up to 30 minutes.
 
 _Note_: After performing these steps, search indices will be automatically updated when the workflow runs on `main`, once every 4 hours. However, it will not do so until you first complete the steps above which will manually create a search index for the new release.
@@ -133,7 +136,7 @@ After your publication PR's are passing, complete the following maintenance **da
 
 1. Check out `main`, then pull the latest changes.
 
-1. Check out your publication branch,  <code>ghes-VERSION-rc</code>, then merge changes from `main`.
+1. Check out your publication branch, <code>ghes-VERSION-rc</code>, then merge changes from `main`.
 
 1. Push the changes.
 

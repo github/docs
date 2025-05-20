@@ -15,7 +15,7 @@ topics:
 
 ## Linking to the latest release
 
-You can share a link to the latest release for a repository by adding `releases/latest` to the end of a repository's URL. For example, the URL for the latest release of `octo-org/octo-repo` on {% data variables.product.prodname_dotcom_the_website %} is `https://github.com/octo-org/octo-repo/releases/latest`.
+You can share a link to the latest release for a repository by adding `releases/latest` to the end of a repository's URL. For example, the URL for the latest release of `octo-org/octo-repo` is `https://{% data variables.product.product_url %}/octo-org/octo-repo/releases/latest`.
 
 To link directly to a download of your latest release asset that was manually uploaded, the suffix is `/releases/latest/download/asset-name.zip`.
 

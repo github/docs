@@ -12,7 +12,7 @@ topics:
 redirect_from:
   - /actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-hashicorp-vault
 ---
- 
+
 {% data reusables.actions.enterprise-github-hosted-runners %}
 
 ## Overview
@@ -26,6 +26,8 @@ This guide gives an overview of how to configure HashiCorp Vault to trust {% dat
 {% data reusables.actions.oidc-link-to-intro %}
 
 {% data reusables.actions.oidc-security-notice %}
+
+{% data reusables.actions.oidc-on-ghecom %}
 
 ## Adding the identity provider to HashiCorp Vault
 
@@ -47,11 +49,10 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
    ```
 
    {% ifversion ghec %}
-   {% note %}
 
-   **Note:** If a unique issuer URL for an enterprise was set using the REST API (as described in "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)"), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
+   > [!NOTE]
+   > If a unique issuer URL for an enterprise was set using the REST API (as described in [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#switching-to-a-unique-token-url)), the values for `bound_issuer` and `oidc_discover_url` must match that unique URL. For example, for an enterprise named `octocat` that uses the unique issuer URL, `bound_issuer` and `oidc_discovery_url` must be set to `https://token.actions.githubusercontent.com/octocat`.
 
-   {% endnote %}
    {% endif %}
 
 1. Configure a policy that only grants access to the specific paths your workflows will use to retrieve secrets. For more advanced policies, see the HashiCorp Vault [Policies documentation](https://www.vaultproject.io/docs/concepts/policies).
@@ -85,7 +86,7 @@ To configure your Vault server to accept JSON Web Tokens (JWT) for authenticatio
 * `ttl` defines the validity of the resulting access token.
 * Ensure that the `bound_claims` parameter is defined for your security requirements, and has at least one condition. Optionally, you can also set the `bound_subject` as well as the `bound_audiences` parameter.
 * To check arbitrary claims in the received JWT payload, the `bound_claims` parameter contains a set of claims and their required values. In the above example, the role will accept any incoming authentication requests from the `repo-name` repository owned by the `user-or-org-name` account.
-* To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see "[AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud)."
+* To see all the available claims supported by {% data variables.product.prodname_dotcom %}'s OIDC provider, see [AUTOTITLE](/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect#configuring-the-oidc-trust-with-the-cloud).
 
 For more information, see the HashiCorp Vault [documentation](https://www.vaultproject.io/docs/auth/jwt).
 
@@ -110,13 +111,8 @@ This example demonstrates how to use OIDC with the official action to request a 
 
 {% data reusables.actions.oidc-permissions-token %}
 
-{% note %}
-
-**Note**:
-
-When the `permissions` key is used, all unspecified permissions are set to _no access_, with the exception of the metadata scope, which always gets _read_ access. As a result, you may need to add other permissions, such as `contents: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
-
-{% endnote %}
+> [!NOTE]
+> When the `permissions` key is used, all unspecified permissions are set to _no access_, with the exception of the metadata scope, which always gets _read_ access. As a result, you may need to add other permissions, such as `contents: read`. See [Automatic token authentication](/actions/security-guides/automatic-token-authentication) for more information.
 
 ### Requesting the access token
 
@@ -138,27 +134,22 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
-          with:
-            method: jwt
-            url: VAULT-URL
-            namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
+        with:
+          method: jwt
+          url: VAULT-URL
+          namespace: VAULT-NAMESPACE # HCP Vault and Vault Enterprise only
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |
           # This step has access to the secret retrieved above; see hashicorp/vault-action for more details.
 ```
 
-{% note %}
-
-**Note**:
-
-* If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see "[AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners)."
-* `VAULT-NAMESPACE` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
-
-{% endnote %}
+> [!NOTE]
+> * If your Vault server is not accessible from the public network, consider using a self-hosted runner with other available Vault [auth methods](https://www.vaultproject.io/docs/auth). For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/about-self-hosted-runners).
+> * `VAULT-NAMESPACE` must be set for a Vault Enterprise (including HCP Vault) deployment. For more information, see [Vault namespace](https://www.vaultproject.io/docs/enterprise/namespaces).
 
 ### Revoking the access token
 
@@ -176,13 +167,13 @@ jobs:
       contents: read
     steps:
       - name: Retrieve secret from Vault
-        uses: hashicorp/vault-action@v2.4.0
-          with:
-            exportToken: true
-            method: jwt
-            url: VAULT-URL
-            role: ROLE-NAME
-            secrets: SECRET-PATH
+        uses: hashicorp/vault-action@9a8b7c6d5e4f3a2b1c0d9e8f7a6b5c4d3e2f1a0b
+        with:
+          exportToken: true
+          method: jwt
+          url: VAULT-URL
+          role: ROLE-NAME
+          secrets: SECRET-PATH
 
       - name: Use secret from Vault
         run: |

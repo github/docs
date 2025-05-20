@@ -50,7 +50,10 @@ Your business can:
 
 Your business can:
 
-* Be alerted to leaked secrets or vulnerable code patterns using {% data variables.product.prodname_GH_advanced_security %} tools
+{% ifversion ghas-products %}
+* Automate detection and remediation of vulnerabilities in code and dependencies using {% data variables.product.prodname_GH_code_security %}
+* Block users from leaking secrets and identify and remediate historic leaks using {% data variables.product.prodname_GH_secret_protection %}{% else %}
+* Be alerted to leaked secrets or vulnerable code patterns using {% data variables.product.prodname_GHAS %} tools{% endif %}
 * Keep software dependencies up to date with {% data variables.product.prodname_dependabot %}
 * Monitor the security landscape across your repositories with security overview
 
@@ -61,7 +64,7 @@ Your business can:
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
 * An enterprise account, which provides a single place to manage billing and settings, enforce policies, and audit the people with access to your enterprise.
-* The option to add {% data variables.product.prodname_GH_advanced_security %}, {% data variables.contact.premium_support %}, and {% data variables.product.prodname_copilot_enterprise %}.
+* The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.product.prodname_copilot_enterprise %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 
@@ -69,12 +72,13 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 {% data reusables.enterprise.ghe-includes-ghec-and-ghes %} You can choose to use **one or both** of these deployment options.
 
-**With {% data variables.product.prodname_ghe_cloud %}**:
+**With {% data variables.product.prodname_ghe_cloud %}:**
 
-* Your repositories and other resources are hosted on {% data variables.product.prodname_dotcom_the_website %}.
-* To access your resources, members of your enterprise can use their personal account or, if you use {% data variables.product.prodname_emus %}, you can provision accounts for users using an external system.
+* Your repositories and other resources are hosted by {% data variables.product.company_short %}, and you'll automatically have access to the latest features and bugfixes.
+* You can choose for your enterprise to be hosted on {% data variables.product.prodname_dotcom_the_website %} or, for more control over where your company's code and data reside, on your own subdomain of {% data variables.enterprise.data_residency_site %}.
+* To access your resources, members of your enterprise can use their personal account or, if you use {% data variables.product.prodname_emus %}, you will provision accounts for users using an external system.
 
-**With {% data variables.product.prodname_ghe_server %}**:
+**With {% data variables.product.prodname_ghe_server %}:**
 
 * You run your own {% data variables.product.prodname_dotcom %} instance, either on-premises or on a public cloud service.
 * You create accounts for users, and authenticate users using either built-in authentication or an external system.
@@ -84,17 +88,18 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 1. Learn more about {% data variables.product.prodname_enterprise %}.
 
-   * "[AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud)"{% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud%} documentation{% endif %}
-   * "[AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %}" in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}."{% endif %}
+   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 1. Set up a trial.
 
-   * "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)"
-   * "[AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)"
+   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)
+   * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-server)
 
 ## Further reading
 
-* "[AUTOTITLE](/admin/overview/about-enterprise-accounts)"
-* "[AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)"
-* "[AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)"
-* "[AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)"
+* [AUTOTITLE](/admin/overview/about-enterprise-accounts)
+* [AUTOTITLE](/enterprise-cloud@latest/admin/data-residency/about-github-enterprise-cloud-with-data-residency){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+* [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security)
+* [AUTOTITLE](/support/learning-about-github-support/about-github-premium-support)
+* [AUTOTITLE](/enterprise-server@latest/admin/configuration/configuring-github-connect/about-github-connect)
 * [Compare {% data variables.product.prodname_dotcom %} to other DevOps solutions](https://resources.github.com/devops/tools/compare/) in {% data variables.product.company_short %} Resources

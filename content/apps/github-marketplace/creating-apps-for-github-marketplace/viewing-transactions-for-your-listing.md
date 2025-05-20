@@ -16,11 +16,8 @@ shortTitle: View listing transactions
 
 {% data reusables.marketplace.marketplace-apps-not-actions %}
 
-{% note %}
-
-**Note:** Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
-
-{% endnote %}
+> [!NOTE]
+> Because it takes time to aggregate data, you'll notice a slight delay in the dates shown. When you select a time period, you can see exact dates for the metrics at the top of the page.
 
 You can view or download the transaction data to keep track of your subscription activity. Click the **Export CSV** button to download a `.csv` file. You can also select a period of time to view and search within the transaction page.
 
@@ -38,7 +35,7 @@ You can view or download the transaction data to keep track of your subscription
 * **region:** The name of the region present in billing address.
 * **postal_code:** The postal code value present in billing address.
 
-![Screenshot of the "Transactions" tab in the {% data variables.product.prodname_marketplace %} listing for an app. Transactions from the past week are listed in a table layout, with a search bar labeled "Search this file...".](/assets/images/marketplace/marketplace-transactions.png)
+![Screenshot of the "Transactions" tab in an app listing. Transactions from the past week are listed in a table with a search field.](/assets/images/marketplace/marketplace-transactions.png)
 
 ## Accessing {% data variables.product.prodname_marketplace %} transactions
 

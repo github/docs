@@ -22,11 +22,8 @@ shortTitle: Quickstart
 
 ## Some useful commands
 
-{% note %}
-
-**Note**: When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
-
-{% endnote %}
+> [!NOTE]
+> When you use some commands for the first time - for example, `gh codespace SUBCOMMAND` - you'll be prompted to add extra scopes to your authentication token. Follow the onscreen instructions.
 
 ### Viewing your status
 
@@ -44,13 +41,13 @@ Enter `gh repo clone OWNER/REPO`. For example, `gh repo clone octo-org/octo-repo
 
 ### Creating a repository
 
-Enter `gh repo create` and follow the on-screen instructions. You can create a new, empty repository on {% data variables.product.prodname_dotcom %} and then, optionally, clone it locally. Alternatively, you can push an existing local repository to {% data variables.product.prodname_dotcom %}, and optionally set it as the remote for your local repository. For information on setting a local directory as a Git repository, see "[AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#initializing-a-git-repository)."
+Enter `gh repo create` and follow the on-screen instructions. You can create a new, empty repository on {% data variables.product.prodname_dotcom %} and then, optionally, clone it locally. Alternatively, you can push an existing local repository to {% data variables.product.prodname_dotcom %}, and optionally set it as the remote for your local repository. For information on setting a local directory as a Git repository, see [AUTOTITLE](/migrations/importing-source-code/using-the-command-line-to-import-source-code/adding-locally-hosted-code-to-github#initializing-a-git-repository).
 
 ### Working with issues
 
 Enter `gh issue list --repo OWNER/REPO` to list the most recently created issues that are currently open for the specified repository. If you run the `issue` subcommand from within the directory of a local Git repository that has a remote on {% data variables.product.prodname_dotcom %} you can omit `--repo OWNER/REPO`. For example, enter `gh issue list --assignee "@me"` to list issues assigned to you in this repository, or `gh issue list --author monalisa` to list issues created by the user "monalisa."
 
-You can also create a new issue, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-with-github-cli)," or search for an issue, see "[AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests?tool=cli#searching-for-issues-and-pull-requests)."
+You can also create a new issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/creating-an-issue#creating-an-issue-with-github-cli), or search for an issue, see [AUTOTITLE](/issues/tracking-your-work-with-issues/filtering-and-searching-issues-and-pull-requests?tool=cli#searching-for-issues-and-pull-requests).
 
 ### Working with pull requests
 
@@ -58,7 +55,7 @@ Enter `gh pr list --repo OWNER/REPO` to list the most recently created pull requ
 
 Enter `gh pr list --label LABEL-NAME` to list open pull requests with a specific label. Enter `gh search prs --review-requested=@me --state=open` to list pull requests that you've been asked to review.
 
-To create a pull request, enter `gh pr create` and follow the on-screen instructions. For more information, see "[AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=cli#creating-the-pull-request)."
+To create a pull request, enter `gh pr create` and follow the on-screen instructions. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request?tool=cli#creating-the-pull-request).
 
 ### Working with codespaces
 
@@ -86,7 +83,13 @@ You can change configuration settings and add aliases or extensions, to make {% 
 
 * Define aliases for commands that you commonly run. For example, if you run `gh alias set prd "pr create --draft"`, you will then be able to run `gh prd` to quickly open a draft pull request. For more information, see [`gh alias`](https://cli.github.com/manual/gh_alias).
 
-* Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see "[AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions)" and "[AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions)."
+* Create or add custom commands with {% data variables.product.prodname_cli %} extensions. For more information, see [AUTOTITLE](/github-cli/github-cli/using-github-cli-extensions) and [AUTOTITLE](/github-cli/github-cli/creating-github-cli-extensions).
+
+## Using {% data variables.product.prodname_cli %} with multiple accounts
+
+If you have multiple accounts on the same {% data variables.product.github %} platform, such as {% data variables.location.product_location %}, you can authenticate to each one and switch between them using the `gh auth switch` command. See [gh auth switch](https://cli.github.com/manual/gh_auth_switch) in the {% data variables.product.prodname_cli %} manual.
+
+If you need to use the {% data variables.product.prodname_cli %} across multiple {% data variables.product.github %} platforms, such as a personal account on {% data variables.product.prodname_dotcom_the_website %} and a {% data variables.enterprise.prodname_managed_user %} on {% data variables.enterprise.data_residency_site %}, see [AUTOTITLE](/github-cli/github-cli/using-multiple-accounts).
 
 ## Further reading
 

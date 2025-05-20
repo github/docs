@@ -16,11 +16,8 @@ shortTitle: Existing GPG keys
 ---
 {% data reusables.gpg.supported-gpg-key-algorithms %}
 
-{% note %}
-
-**Note:** GPG does not come installed by default on macOS or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
-
-{% endnote %}
+> [!NOTE]
+> GPG does not come installed by default on macOS or Windows. To install GPG command line tools, see [GnuPG's Download page](https://www.gnupg.org/download/).
 
 {% data reusables.command_line.open_the_multi_os_terminal %}
 {% data reusables.gpg.list-keys-with-note %}
@@ -30,16 +27,18 @@ shortTitle: Existing GPG keys
 
       ```shell
       $ gpg --armor --export 3AA5C34371567BD2
-      # Prints the GPG key ID, in ASCII armor format
+      # Prints the GPG public key, in ASCII armor format
       ```
+
+        Consider exporting your keys with the option `--export-options export-minimal`, which can prevent misreading keys that contain deprecated fields.
 
       You can then [add your GPG key to your GitHub account](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account).
 
 ## Further reading
 
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)"
-* "[AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)"
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/generating-a-new-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/adding-a-gpg-key-to-your-github-account)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/associating-an-email-with-your-gpg-key)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-commits)
+* [AUTOTITLE](/authentication/managing-commit-signature-verification/signing-tags)

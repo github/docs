@@ -1,10 +1,8 @@
-import path from 'path'
-
 import got from 'got'
 import type { Response, NextFunction } from 'express'
 
 import patterns from '@/frame/lib/patterns.js'
-import { isArchivedVersion } from '@/archives/lib/is-archived-version.js'
+import { isArchivedVersion } from '@/archives/lib/is-archived-version'
 import {
   setFastlySurrogateKey,
   SURROGATE_ENUMS,
@@ -14,13 +12,7 @@ import type { ExtendedRequest } from '@/types'
 
 // This module handles requests for the CSS and JS assets for
 // deprecated GitHub Enterprise versions by routing them to static content in
-// help-docs-archived-enterprise-versions
-//
-// Note that as of GHES 3.2, we no longer store assets for deprecated versions
-// in help-docs-archived-enterprise-versions. Instead, we store them in the
-// Azure blob storage `githubdocs` in the `enterprise` container. All HTML files
-// have been updated to use references to this blob storage for all assets.
-//
+// one of the docs-ghes-<release number> repos.
 // See also ./archived-enterprise-versions.js for non-CSS/JS paths
 
 export default async function archivedEnterpriseVersionsAssets(
@@ -33,12 +25,13 @@ export default async function archivedEnterpriseVersionsAssets(
   // or /_next/static/foo.css
   if (!patterns.assetPaths.test(req.path)) return next()
 
-  // We now know the URL is either /enterprise/2.22/_next/static/foo.css
-  // or the regular /_next/static/foo.css. But we're only going to
-  // bother looking it up on https://github.github.com/help-docs-archived-enterprise-versions
-  // if the URL has the enterprise bit in it, or if the path was
-  // /_next/static/foo.css *and* its Referrer had the enterprise
-  // bit in it.
+  // The URL is either in the format
+  // /enterprise/2.22/_next/static/foo.css,
+  // /enterprise-server@<release>,
+  // or /_next/static/foo.css.
+  // If the URL is prefixed with the enterprise version and release number
+  // or if the Referrer contains the enterprise version and release number,
+  // then we'll fetch it from the docs-ghes-<release number> repo.
   if (
     !(
       patterns.getEnterpriseVersionNumber.test(req.path) ||
@@ -59,12 +52,17 @@ export default async function archivedEnterpriseVersionsAssets(
   const { isArchived, requestedVersion } = isArchivedVersion(req)
   if (!isArchived || !requestedVersion) return next()
 
-  const assetPath = req.path.replace(`/enterprise/${requestedVersion}`, '')
+  // In all of the `docs-ghes-<relase number` repos, the asset directories
+  // are at the root. This removes the version and release number from the
+  // asset path so that we can proxy the request to the correct location.
+  const newEnterprisePrefix = `/enterprise-server@${requestedVersion}`
+  const legacyEnterprisePrefix = `/enterprise/${requestedVersion}`
+  const assetPath = req.path.replace(newEnterprisePrefix, '').replace(legacyEnterprisePrefix, '')
 
   // Just to be absolutely certain that the path can not contain
   // a URL that might trip up the GET we're about to make.
   if (
-    assetPath.includes('..') ||
+    assetPath.includes('../') ||
     assetPath.includes('://') ||
     (assetPath.includes(':') && assetPath.includes('@'))
   ) {
@@ -72,12 +70,10 @@ export default async function archivedEnterpriseVersionsAssets(
     return res.status(404).type('text/plain').send('Asset path not valid')
   }
 
-  const proxyPath = path.join('/', requestedVersion, assetPath)
-
+  const proxyPath = `https://github.github.com/docs-ghes-${requestedVersion}${assetPath}`
   try {
-    const r = await got(
-      `https://github.github.com/help-docs-archived-enterprise-versions${proxyPath}`,
-    )
+    const r = await got(proxyPath)
+
     res.set('accept-ranges', 'bytes')
     res.set('content-type', r.headers['content-type'])
     res.set('content-length', r.headers['content-length'])

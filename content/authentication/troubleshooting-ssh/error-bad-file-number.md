@@ -27,7 +27,7 @@ $ ssh -vT git@{% data variables.product.product_url %}
 
 ### Use HTTPS
 
-Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/get-started/getting-started-with-git/about-remote-repositories) you're using:
+Often, the simplest solution is to simply avoid SSH entirely. Most firewalls and proxies allow HTTPS traffic without issue. To take advantage of this, change [the remote URL](/get-started/git-basics/about-remote-repositories) you're using:
 
 ```shell
 $ git clone https://{% data variables.product.product_url %}/USERNAME/REPO-NAME.git
@@ -40,7 +40,7 @@ $ git clone https://{% data variables.product.product_url %}/USERNAME/REPO-NAME.
 
 ### Test from a different network
 
-If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.product_name %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to {% data variables.product.product_name %} to succeed.
+If you can connect the computer to another network that doesn't have a firewall, you can try testing your SSH connection to {% data variables.product.github %}. If everything works as it should, contact your network administrator for help on changing the firewall settings to allow your SSH connection to succeed.
 
 {% ifversion fpt or ghec %}
 
@@ -54,6 +54,6 @@ If using HTTPS is not an option, and your firewall admin refuses to allow SSH co
 
 ## Further reading
 
-* "[AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)"
+* [AUTOTITLE](/get-started/using-github/troubleshooting-connectivity-problems)
 
 {% endif %}

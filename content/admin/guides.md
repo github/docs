@@ -1,7 +1,7 @@
 ---
 title: Guides for GitHub Enterprise
 shortTitle: Guides
-intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.product_name %}.'
+intro: 'Learn how to increase developer productivity and code quality with {% data variables.product.prodname_enterprise %}.'
 allowTitleToDifferFromFilename: true
 layout: product-guides
 versions:
@@ -64,7 +64,7 @@ includeGuides:
   - /admin/configuring-settings/hardening-security-for-your-enterprise/troubleshooting-tls-errors
   - /admin/configuring-settings/configuring-network-settings/using-github-enterprise-server-with-a-load-balancer
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/about-high-availability-configuration
-  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/accessing-the-monitor-dashboard
+  - /admin/monitoring-and-managing-your-instance/monitoring-your-instance/about-the-monitor-dashboards
   - /admin/monitoring-and-managing-your-instance/configuring-high-availability/creating-a-high-availability-replica
   - /admin/monitoring-and-managing-your-instance/configuring-clustering/differences-between-clustering-and-high-availability-ha
   - /admin/upgrading-your-instance/preparing-to-upgrade/enabling-automatic-update-checks
@@ -96,7 +96,6 @@ includeGuides:
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-security-settings-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise
-  - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
   - /admin/enforcing-policies/enforcing-policies-for-your-enterprise/restricting-email-notifications-for-your-enterprise
   - /admin/enforcing-policies/enforcing-policy-with-pre-receive-hooks/managing-pre-receive-hooks-on-your-instance
   - /admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/auditing-ssh-keys
@@ -137,4 +136,3 @@ includeGuides:
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/accessing-the-management-console
   - /admin/administering-your-instance/administering-your-instance-from-the-web-ui/troubleshooting-access-to-the-management-console
 ---
-

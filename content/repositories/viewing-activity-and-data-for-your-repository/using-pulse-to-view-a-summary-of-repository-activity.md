@@ -22,10 +22,8 @@ You can view an overview of a repository's activity through Pulse. Pulse include
 
 Commit co-authors are included in the commit activity summary if their commits were merged into the repository's default branch and they're in the top 15 users who have contributed the most commits.
 
-{% ifversion repository-activity-view %}
 {% data reusables.repositories.activity-view %}
-For more information, see "[AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository)."
-{% endif %}
+For more information, see [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/using-the-activity-view-to-see-changes-to-a-repository).
 
 ## Accessing Pulse
 

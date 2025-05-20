@@ -10,5 +10,5 @@ children:
   - /viewing-logs-for-github-copilot-in-your-environment
   - /troubleshooting-firewall-settings-for-github-copilot
   - /troubleshooting-network-errors-for-github-copilot
-  - /troubleshooting-issues-with-github-copilot-chat-in-ides
+  - /troubleshooting-issues-with-github-copilot-chat
 ---

@@ -17,7 +17,7 @@ redirect_from:
 
 If you require additional software packages on {% data variables.product.prodname_dotcom %}-hosted runners, you can create a job that installs the packages as part of your workflow.
 
-To see which packages are already installed by default, see "[AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software)."
+To see which packages are already installed by default, see [AUTOTITLE](/actions/using-github-hosted-runners/about-github-hosted-runners#preinstalled-software).
 
 This guide demonstrates how to create a job that installs additional software on a {% data variables.product.prodname_dotcom %}-hosted runner.
 
@@ -41,11 +41,8 @@ jobs:
           sudo apt-get install jq
 ```
 
-{% note %}
-
-**Note:** Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures.
-
-{% endnote %}
+> [!NOTE]
+> Always run `sudo apt-get update` before installing a package. In case the `apt` index is stale, this command fetches and re-indexes any available packages, which helps prevent package installation failures.
 
 ## Installing software on macOS runners
 

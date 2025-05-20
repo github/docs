@@ -1,3 +1,4 @@
-# Versions for which the enhanced billing platform is available
+# Versions for which the new billing platform (FKA enhanced billing platform) is available (GitHub Enterprise plan from June 2024 and GitHub Team plan from Nov 2024)
 versions:
   ghec: '*'
+  fpt: '*'

@@ -14,4 +14,4 @@ which should not work.
 
 ## The experiment
 
-See "[AUTOTITLE](#introduction)."
+See [AUTOTITLE](#introduction).

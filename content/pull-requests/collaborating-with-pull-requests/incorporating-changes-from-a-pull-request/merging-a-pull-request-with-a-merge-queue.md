@@ -1,8 +1,10 @@
 ---
 title: Merging a pull request with a merge queue
-intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.product_name %} will merge the pull requests for you once all required checks have passed.'
+intro: 'If a merge queue is required by the branch protection setting for the branch, you can add your pull requests to a merge queue and {% data variables.product.github %} will merge the pull requests for you once all required checks have passed.'
 versions:
-  feature: merge-queue
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 topics:
   - Pull requests
 shortTitle: Merge PR with merge queue
@@ -22,11 +24,8 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
 {% webui %}
 
-{% note %}
-
-**Note:** You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
-
-{% endnote %}
+> [!NOTE]
+> You can use {% data variables.product.prodname_cli %} to add a pull request to a merge queue. For more information, click the "{% data variables.product.prodname_cli %}" tab at the top of this article.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-pr %}
@@ -39,13 +38,10 @@ product: '{% data reusables.gated-features.merge-queue %}'
 
    ![Screenshot of the merge queue options for a pull request.](/assets/images/help/pull_requests/merge-queue-options.png)
 
-   {% note %}
+   > [!NOTE]
+   > You can click **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.github %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
 
-   **Note:** You can click  **Merge when ready** whenever you're ready to merge your proposed changes. {% data variables.product.product_name %} will automatically add the pull request to the merge queue once required approval and status checks conditions are met.
-
-   {% endnote %}
-
-1. Confirm you want to add the pull request to the merge queue by clicking  **Confirm merge when ready**.
+1. Confirm you want to add the pull request to the merge queue by clicking **Confirm merge when ready**.
 
 {% endwebui %}
 
@@ -78,17 +74,17 @@ Alternatively, you can navigate to the merge queue page for the base branch, cli
 
 {% cli %}
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}. You cannot use {% data variables.product.prodname_cli %} to view a merge queue.
+You can view the merge queue for a base branch in various places on {% data variables.product.github %}. You cannot use {% data variables.product.prodname_cli %} to view a merge queue.
 
 {% endcli %}
 
 {% webui %}
 
-You can view the merge queue for a base branch in various places on {% data variables.product.product_name %}.
+You can view the merge queue for a base branch in various places on {% data variables.product.github %}.
 
 {% endwebui %}
 
-* On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see "[AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository)."
+* On the **Branches** page for the repository. We recommend you use this route if you don't have or don't know about a pull request already in a queue, and if you want to see what's in that queue. For more information, see [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-branches-in-your-repository/viewing-branches-in-your-repository).
 
   ![Screenshot of the "Branches" page for a repository. A link, labeled "33 pull requests queued to merge," is outlined in dark orange.](/assets/images/help/pull_requests/merge-queue-branches-page.png)
 
@@ -98,7 +94,7 @@ You can view the merge queue for a base branch in various places on {% data vari
 
 * The merge queue view shows the pull requests that are currently in the queue, with your pull requests clearly marked.
 
-  ![Screenshot of the merge queue.](/assets/images/help/pull_requests/merge-queue-view.png)
+  ![Screenshot of the merge queue for a repository.](/assets/images/help/pull_requests/merge-queue-view.png)
 
 ## Understanding why your pull request was removed from the merge queue
 

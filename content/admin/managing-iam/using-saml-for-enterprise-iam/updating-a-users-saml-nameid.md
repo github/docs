@@ -1,7 +1,7 @@
 ---
 title: Updating a user's SAML NameID
 shortTitle: Update SAML NameID
-intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer {% ifversion ghes %}sign into {% data variables.location.product_location %}{% elsif ghec %}authenticate to access your enterprise''s resources{% endif %}, you must {% ifversion ghec %}either contact {% data variables.product.company_short %} Support or revoke the person''s linked identity{% elsif ghes %}update the `NameID` mapping on {% data variables.location.product_location %}{% endif %}.'
+intro: 'When an account''s `NameID` changes on your identity provider (IdP) and the person can no longer sign into {% data variables.location.product_location %}, you must update the `NameID` mapping on {% data variables.location.product_location %}.'
 versions:
   ghes: '*'
 type: how_to
@@ -17,13 +17,17 @@ redirect_from:
 
 ## About updates to users' SAML `NameID`
 
-In some situations, you may need to update values associated with a person's account on your SAML IdP. If that identifier is also the `NameID` that you use for authentication on {% data variables.product.product_name %}, you must update the `NameID` mapping on your instance so the person can continue to authenticate successfully. For more information, see "[AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication)."
+In some situations, you may need to update values associated with a person's account on your SAML IdP. If that identifier is also the `NameID` that you use for authentication on {% data variables.product.github %}, you must update the `NameID` mapping on your instance so the person can continue to authenticate successfully. For more information, see [AUTOTITLE](/admin/identity-and-access-management/managing-iam-for-your-enterprise/username-considerations-for-external-authentication).
 
-To update user SAML `NameID` mappings in bulk, you can use the `ghe-saml-mapping-csv` command. For more information, see "[AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-saml-mapping-csv)."
+To update user SAML `NameID` mappings in bulk, you can use the `ghe-saml-mapping-csv` command. For more information, see [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/command-line-utilities#ghe-saml-mapping-csv).
+
+{% ifversion scim-for-ghes-ga %}
+When SCIM is enabled on your {% data variables.product.prodname_ghe_server %} instance, you cannot update user SAML `NameID` mappings.
+{% endif %}
 
 ## Updating a user's SAML `NameID`
 
-Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.product_name %} instance.
+Enterprise owners can update a user's SAML `NameID` on a {% data variables.product.github %} instance.
 
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 1. In the left sidebar, click **All users**.
