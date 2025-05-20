@@ -55,7 +55,7 @@ shortTitle: Create a GitHub Pages site
    ![Screenshot of Pages settings for a repository. The visibility dropdown, currently set to "Private," is outlined in dark orange.](/assets/images/help/pages/public-or-private-visibility.png)
    {% indented_data_reference reusables.pages.privately-publish-ghec-only spaces=3 %}
 {%- endif %}
-1. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" %} Visit site**.
+1. To see your published site, under "{% data variables.product.prodname_pages %}", click **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} Visit site**.
 
 {% data reusables.pages.twenty-minutes-to-publish %}
 {% data reusables.pages.admin-must-push %}

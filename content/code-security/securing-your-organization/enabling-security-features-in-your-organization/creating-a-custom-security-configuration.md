@@ -72,7 +72,7 @@ You can also choose whether or not you want to include {% data variables.product
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
-   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
+   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
@@ -111,7 +111,7 @@ You can also choose whether or not you want to include {% data variables.product
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
-   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
+   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
@@ -145,7 +145,7 @@ You can also choose whether or not you want to include {% data variables.product
 {% ifversion push-protection-delegated-bypass-configurations %}
 1. Optionally, under "Push protection", choose whether you want to assign bypass privileges to selected actors in your organization. By assigning bypass privileges, selected organization members can bypass push protection, and there is a review and approval process for all other contributors. For further guidance on how to configure this setting, see [AUTOTITLE](/code-security/secret-scanning/using-advanced-secret-scanning-and-push-protection-features/delegated-bypass-for-push-protection/enabling-delegated-bypass-for-push-protection#configuring-delegated-bypass-for-an-organization).
 {% endif %}
-1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
+1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.

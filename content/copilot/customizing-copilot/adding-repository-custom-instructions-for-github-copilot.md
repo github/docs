@@ -273,7 +273,7 @@ To enable prompt files, configure the workspace settings.
 
 ### Using prompt files
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} view, click the **Attach context** icon ({% octicon "paperclip" aria-hidden="true" %}).
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} view, click the **Attach context** icon ({% octicon "paperclip" aria-hidden="true" aria-label="paperclip" %}).
 1. In the dropdown menu, click **Prompt...** and choose the prompt file you want to use.
 1. Optionally, attach additional files, including prompt files, to provide more context.
 1. Optionally, type additional information in the chat prompt box.

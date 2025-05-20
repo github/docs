@@ -29,7 +29,7 @@ Click the link in the banner display, or alternatively, filter the list of repos
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
 1. In the "Apply configurations" section, filter by `config-status:failed`.
-1. From the results list, for the repository you're interested in, click **{% octicon "alert" aria-hidden="true" %} Failed REASON**.
+1. From the results list, for the repository you're interested in, click **{% octicon "alert" aria-hidden="true" aria-label="alert" %} Failed REASON**.
 1. In the dialog box, review the information and follow the remediation guidance.
 
 ## Further reading

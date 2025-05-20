@@ -28,7 +28,7 @@ For more information, see [AUTOTITLE](/code-security/secret-scanning/using-advan
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" %} Push protection bypass**.
+1. In the sidebar, under "Requests", click **{% octicon "key" aria-hidden="true" aria-label="key" %} Push protection bypass**.
 1. Select the **All statuses** dropdown menu, then click **Open** to view requests that are awaiting review, or that have been approved but for which the commits haven't been pushed to the repository yet.
 1. Click the request that you want to review.
 1. Review the details of the request.

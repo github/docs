@@ -13,4 +13,4 @@
 
      ![Screenshot of a filled custom {% data variables.product.prodname_secret_scanning %} pattern form for the generator to use.](/assets/images/help/repository/secret-scanning-use-regular-expression-generator.png)
 
-1. You can click **More options {% octicon "chevron-down" aria-hidden="true" %}** to provide other surrounding content or additional match requirements for the secret format. {% data variables.product.prodname_dotcom %} will add the examples you typed in the sliding panel to the **Test string** field.
+1. You can click **More options {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %}** to provide other surrounding content or additional match requirements for the secret format. {% data variables.product.prodname_dotcom %} will add the examples you typed in the sliding panel to the **Test string** field.
