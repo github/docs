@@ -232,18 +232,75 @@ export function AskAIResults({
         const decoder = new TextDecoder('utf-8')
         const reader = response.body.getReader()
         let done = false
+        let leftover = '' // <= carry‑over buffer
         setInitialLoading(false)
+
+        const processLine = (parsedLine: any) => {
+          switch (parsedLine.chunkType) {
+            // A conversation ID will still be sent when a question cannot be answered
+            case 'CONVERSATION_ID':
+              conversationIdBuffer = parsedLine.conversation_id
+              setConversationId(parsedLine.conversation_id)
+              break
+
+            case 'NO_CONTENT_SIGNAL':
+              // Serve canned response. A question that cannot be answered was asked
+              handleAICannotAnswer(conversationIdBuffer, 200)
+              break
+
+            case 'SOURCES':
+              if (!isCancelled) {
+                sourcesBuffer = uniqBy(
+                  sourcesBuffer.concat(parsedLine.sources as AIReference[]),
+                  'url',
+                )
+                setReferences(sourcesBuffer)
+              }
+              break
+
+            case 'MESSAGE_CHUNK':
+              if (!isCancelled) {
+                messageBuffer += parsedLine.text
+                setMessage(messageBuffer)
+              }
+              break
+
+            case 'INPUT_CONTENT_FILTER':
+              // Serve canned response. A spam question was asked
+              handleAICannotAnswer(
+                conversationIdBuffer,
+                200,
+                t('search.ai.responses.invalid_query'),
+              )
+              break
+          }
+
+          if (!isCancelled) setAnnouncement('Copilot Response Loading...')
+        }
+
         while (!done && !isCancelled) {
           const { value, done: readerDone } = await reader.read()
           done = readerDone
+
+          // The sources JSON chunk may be sent in multiple parts, so we need to decode it with a leftover buffer so that it can be parsed all at once
+          // So when we say "incomplete" or "leftover" we mean that the JSON is not complete yet, not that the message is incomplete
           if (value) {
-            const chunkStr = decoder.decode(value, { stream: true })
-            const chunkLines = chunkStr.split('\n').filter((line) => line.trim() !== '')
-            for (const line of chunkLines) {
-              let parsedLine
+            // 1 append this chunk's text to whatever was left over
+            leftover += decoder.decode(value, { stream: true })
+
+            // 2 split on newline
+            const lines = leftover.split('\n')
+
+            // 3 keep the *last* item (maybe incomplete) for next round
+            leftover = lines.pop() ?? ''
+
+            // 4 parse all complete lines
+            for (const raw of lines) {
+              if (!raw.trim()) continue
+
+              let parsedLine: any
               try {
-                parsedLine = JSON.parse(line)
-                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
+                parsedLine = JSON.parse(raw)
                 if (parsedLine?.errors) {
                   sendAISearchResultEvent({
                     sources: [],
@@ -255,48 +312,23 @@ export function AskAIResults({
                   setAISearchError()
                   return
                 }
-              } catch (e) {
-                console.warn(
-                  'Failed to parse JSON:',
-                  e,
-                  'Line:',
-                  line,
-                  'Typeof line: ',
-                  typeof line,
-                )
+              } catch (err) {
+                console.warn('Failed to parse JSON line:', raw, err)
                 continue
               }
 
-              // A conversation ID will still be sent when a question cannot be answered
-              if (parsedLine.chunkType === 'CONVERSATION_ID') {
-                conversationIdBuffer = parsedLine.conversation_id
-                setConversationId(parsedLine.conversation_id)
-              } else if (parsedLine.chunkType === 'NO_CONTENT_SIGNAL') {
-                // Serve canned response. A question that cannot be answered was asked
-                handleAICannotAnswer(conversationIdBuffer, 200)
-              } else if (parsedLine.chunkType === 'SOURCES') {
-                if (!isCancelled) {
-                  sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
-                  sourcesBuffer = uniqBy(sourcesBuffer, 'url')
-                  setReferences(sourcesBuffer)
-                }
-              } else if (parsedLine.chunkType === 'MESSAGE_CHUNK') {
-                if (!isCancelled) {
-                  messageBuffer += parsedLine.text
-                  setMessage(messageBuffer)
-                }
-              } else if (parsedLine.chunkType === 'INPUT_CONTENT_FILTER') {
-                // Serve canned response. A spam question was asked
-                handleAICannotAnswer(
-                  conversationIdBuffer,
-                  200,
-                  t('search.ai.responses.invalid_query'),
-                )
-              }
-              if (!isCancelled) {
-                setAnnouncement('Copilot Response Loading...')
-              }
+              processLine(parsedLine)
             }
+          }
+        }
+
+        // 5 flush whatever remains after the stream ends
+        if (!isCancelled && leftover.trim()) {
+          try {
+            const tail = JSON.parse(leftover)
+            processLine(tail)
+          } catch (err) {
+            console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
       } catch (error: any) {
