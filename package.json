@@ -247,7 +247,7 @@
     "@github/failbot": "0.8.3",
     "@horizon-rs/language-guesser": "0.1.1",
     "@octokit/plugin-retry": "7.1.4",
-    "@octokit/request-error": "6.1.8",
+    "@octokit/request-error": "7.0.0",
     "@primer/behaviors": "^1.7.2",
     "@primer/css": "^21.3.1",
     "@primer/live-region-element": "^0.7.2",
