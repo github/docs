@@ -42,6 +42,14 @@ jobs:
           path: rest-api-description
           ref: ${{ inputs.SOURCE_BRANCH }}
 
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          # By default, only the most recent commit of the `main` branch
+          # will be checked out
+          repository: github/models-gateway
+          path: models-gateway
+          ref: main
+
       - uses: ./.github/actions/node-npm-setup
 
       - name: Sync the REST, Webhooks, and GitHub Apps schemas
@@ -49,7 +57,9 @@ jobs:
           # Needed for gh
           GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: |
-          npm run sync-rest -- --source-repo rest-api-description --output rest github-apps webhooks rest-redirects
+          npm run sync-rest -- \
+            --source-repos rest-api-description models-gateway \
+            --output rest github-apps webhooks rest-redirects
           git status
           echo "Deleting the cloned github/rest-api-description repo..."
           rm -rf rest-api-description

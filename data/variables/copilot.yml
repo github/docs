@@ -36,6 +36,10 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
 
+## Copilot coding agent (aka Padawan) - e.g. {% data variables.copilot.copilot_coding_agent %}
+copilot_coding_agent: 'Copilot coding agent'
+coding_agent_UI: 'Coding agent'
+
 ## LLM models for Copilot
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude 3.5 Sonnet'
