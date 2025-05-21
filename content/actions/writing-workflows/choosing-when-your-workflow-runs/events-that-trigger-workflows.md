@@ -901,13 +901,13 @@ on:
 ```
 
 > [!NOTE]
-> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
+> {% data reusables.actions.tag-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a tag that starts with `v1.`.
 >
 > ```yaml
 > on:
 >   push:
->     branches:
->       - 'releases/**'
+>     tags:
+>       - v1.**
 >     paths:
 >       - '**.js'
 > ```
