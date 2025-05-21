@@ -83,7 +83,7 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
-  const { isOpen: isCTAOpen, dismiss: dismissCTA } = useCTAPopoverContext()
+  const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
@@ -138,9 +138,10 @@ export function AskAIResults({
     setResponseLoading(true)
     disclaimerRef.current?.focus()
 
-    // Upon performing an AI Search, dismiss the CTA if it is open
+    // We permanently dismiss the CTA after performing an AI Search because the
+    // user has tried it and doesn't require additional CTA prompting to try it
     if (isCTAOpen) {
-      dismissCTA()
+      permanentlyDismissCTA()
     }
 
     const cachedData = getItem(query, version, router.locale || 'en')

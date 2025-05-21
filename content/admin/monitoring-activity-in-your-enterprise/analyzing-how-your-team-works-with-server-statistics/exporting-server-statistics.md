@@ -24,7 +24,7 @@ To learn more about {% data variables.product.prodname_github_connect %}, see [A
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 
-1. {% ifversion horizontal-nav %}At the top of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" %} **GitHub Connect**.{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" %} **GitHub Connect**.{% endif %}
+1. {% ifversion horizontal-nav %}At the top of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" aria-label="plug" %} **GitHub Connect**.{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "plug" aria-hidden="true" aria-label="plug" %} **GitHub Connect**.{% endif %}
 
 {% data reusables.server-statistics.csv-download %}
 

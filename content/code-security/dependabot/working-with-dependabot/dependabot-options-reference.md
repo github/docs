@@ -77,8 +77,8 @@ Use to define exactly which dependencies to maintain for a package ecosystem. Of
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `allow` is specified {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -121,8 +121,8 @@ Specify individual assignees for all pull requests raised for a package ecosyste
 
 When `assignees` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen assignees.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen assignees.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
 
 Assignees must have write access to the repository. For organization-owned repositories, organization members with read access are also valid assignees.
 
@@ -136,8 +136,8 @@ Define the format for commit messages. Since the titles of pull requests are wri
 
 When `commit-message` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All commit messages follow the defined pattern.
-* {% octicon "shield-check" aria-hidden="true" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All commit messages follow the defined pattern.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
 
 | Parameters | Purpose |
 |------------|---------|
@@ -245,8 +245,8 @@ Use with the [`allow`](#allow--) option to define exactly which dependencies to 
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `ignore` is used {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -466,8 +466,8 @@ Specify individual reviewers, or teams of reviewers, for all pull requests raise
 
 When `reviewers` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen reviewers.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen reviewers.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
 

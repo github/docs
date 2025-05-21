@@ -41,7 +41,7 @@ There are a few ways to start using {% data variables.product.prodname_copilot_f
 
 In {% data variables.product.prodname_vs %} and {% data variables.product.prodname_vscode_shortname %} you can access {% data variables.product.prodname_copilot_free_short %} directly from the editor.
 
-1. In the top right of {% data variables.product.prodname_vs %} or {% data variables.product.prodname_vscode_shortname %}, click **{% octicon "copilot" aria-hidden="true" %}**.
+1. In the top right of {% data variables.product.prodname_vs %} or {% data variables.product.prodname_vscode_shortname %}, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
 1. In the sidebar, click **Sign up for {% data variables.product.prodname_copilot_free_short %}**.
 1. If you have a {% data variables.product.github %} account, you will be prompted to sign in. If you don't have a {% data variables.product.github %} account, you will be prompted to create one.
 

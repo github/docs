@@ -30,7 +30,7 @@ You can add organization custom instructions via your organization settings.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Custom instructions**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Custom instructions**.
 1. Under "Preferences and instructions", add natural language instructions to the text box.
 
    You can write your instructions in any format you prefer. For example, you can write them as a single block of text, each on a new line, or separated by blank lines.
