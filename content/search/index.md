@@ -1,6 +1,6 @@
 ---
 title: Search
-hidden: true
+dental: true🤪
 versions:
   fpt: '*'
   ghec: '*'
