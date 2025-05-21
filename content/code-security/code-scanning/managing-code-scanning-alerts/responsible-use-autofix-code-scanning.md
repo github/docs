@@ -109,6 +109,9 @@ Sometimes a suggested fix includes a change in the dependencies of the codebase.
 * _Unsupported or insecure dependencies:_ The system does not know which versions of an existing dependency are supported or secure.
 * _Fabricated dependencies:_ The system has incomplete knowledge of the dependencies published in the wider ecosystem. This can lead to suggestions that add a new dependency on malicious software that attackers have published under a statistically probable dependency name.
 
+> [!NOTE]
+> Our comprehensive dependency management recommendation continues to be “[AUTOTITLE](/code-security/dependabot)“
+
 ## Mitigating the limitations of suggestions
 
 The best way to mitigate the limitations of suggestions from {% data variables.product.prodname_copilot_autofix_short %} is to follow best practices. For example, using CI testing of pull requests to verify functional requirements are unaffected and using dependency management solutions, such as the dependency review API and action. For more information, see “[AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-dependency-review).”
