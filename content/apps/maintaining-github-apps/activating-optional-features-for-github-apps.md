@@ -1,4 +1,4 @@
----
+Miners/Nanominer.ps1---
 title: Activating optional features for GitHub Apps
 intro: 'You can test new optional features for your {% data variables.product.prodname_github_apps %}.'
 redirect_from:
