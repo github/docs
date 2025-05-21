@@ -10,7 +10,7 @@ By being a member of GitHub Education and accessing the Student Developer Pack, 
 
 ## GitHub Education Terms and Conditions
 
-- All users must be actively verified as a student by the GitHub education team. You can become verified directly from your [GitHub profile](https://github.com/settings/education/benefits). Note that teachers, researchers, faculty, staff, and other educational users can get free and discounted access to GitHub, but are not eligible for the Pack.
+- All users must be actively verified as a student by the GitHub Education team. You can become verified directly from your [GitHub profile](https://github.com/settings/education/benefits). Note that teachers, researchers, faculty, staff, and other educational users can get free and discounted access to GitHub, but are not eligible for the Pack.
 - Student validation lasts for 2 years, after which you will need to revalidate your student status.
 - All users must be 13 years of age or older. Certain third-party offers may have additional age restrictions.
 - Offers may not be redeemed multiple times. For example, users will not be able to make a new account on a third-party website to re-set a time-limited offer or “re-set” the time-limited offering by re-verifying their student status.
