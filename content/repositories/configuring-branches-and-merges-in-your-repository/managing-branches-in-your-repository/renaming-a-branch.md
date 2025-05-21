@@ -30,7 +30,7 @@ Organizational rulesets that apply to branches of a repository will no longer al
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.navigate-to-branches %}
-1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Rename branch**.
+1. Next to the branch you want to rename, select the {% octicon "kebab-horizontal" aria-label="More" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" %} Rename branch**.
 1. Type a new name for the branch.
 1. Review the information about local environments, then click **Rename branch**.
 

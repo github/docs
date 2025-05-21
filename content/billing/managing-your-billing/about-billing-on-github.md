@@ -139,4 +139,4 @@ If you're an organization or enterprise owner, you can switch between settings f
 
    ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
 1. Start typing the name of the account you want to switch to, then click the name of the account.
-1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
+1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.

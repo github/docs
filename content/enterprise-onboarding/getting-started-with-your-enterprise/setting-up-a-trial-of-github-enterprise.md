@@ -49,7 +49,7 @@ You do not need to provide a payment method to start a trial. If you want to use
 
 Go to the trial page and follow the instructions to sign up for the trial.
 
-<a href="https://github.com//account/enterprises/new?ref_cta=GHEC+trial&ref_loc=Getting+started+with+the+github+enterprise+cloud+trial&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com//account/enterprises/new?ref_cta=GHEC+trial&ref_loc=Getting+started+with+the+github+enterprise+cloud+trial&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try {% data variables.product.prodname_ghe_cloud %}</span> {% octicon "link-external" height:16 %}</a>
 
 When setting up your trial of GitHub Enterprise Cloud, you'll choose an enterprise type.
 

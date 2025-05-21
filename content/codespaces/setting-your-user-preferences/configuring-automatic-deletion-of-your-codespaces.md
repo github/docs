@@ -70,11 +70,11 @@ You may have a codespace that you want to keep for longer than the retention per
 Codespaces incur storage costs, or consume your included storage allowance if the codespace is owned by your personal {% data variables.product.prodname_dotcom %} account. You should therefore be aware of the cost implications of storing codespaces indefinitely. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-codespaces/about-billing-for-github-codespaces#about-billing-for-storage-usage).
 
 {% data reusables.codespaces.your-codespaces-procedure-step %}
-1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "bookmark" aria-hidden="true" aria-label="bookmark" %} Keep codespace**.
+1. To the right of the codespace you want to exempt from automatic deletion, click {% octicon "kebab-horizontal" aria-label="Codespace configuration" %}, then click **{% octicon "bookmark" aria-hidden="true" %} Keep codespace**.
 
    ![Screenshot of the dropdown menu for an active codespace. The "Keep codespace" option has a tooltip saying "Expires 10 days after shutdown."](/assets/images/help/codespaces/keep-codespace.png)
 
-Codespaces that you have exempted from automatic deletion are indicated in your list of codespaces with the bookmark icon ({% octicon "bookmark-fill" aria-hidden="true" aria-label="bookmark-fill" %}).
+Codespaces that you have exempted from automatic deletion are indicated in your list of codespaces with the bookmark icon ({% octicon "bookmark-fill" aria-hidden="true" %}).
 
 ![Screenshot of a section of the codespaces list, showing a codespace labeled with the bookmark icon.](/assets/images/help/codespaces/keep-codespace-bookmarked.png)
 

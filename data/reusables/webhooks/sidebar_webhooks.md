@@ -1,1 +1,1 @@
-1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" aria-label="webhook" %} Webhooks**.
+1. In the left sidebar, click **{% octicon "webhook" aria-hidden="true" %} Webhooks**.

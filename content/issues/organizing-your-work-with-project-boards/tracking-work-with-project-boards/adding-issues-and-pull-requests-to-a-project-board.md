@@ -32,7 +32,7 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 ## Adding issues and pull requests to a {% data variables.projects.projects_v1_board %}
 
 1. Navigate to the {% data variables.projects.projects_v1_board %} where you want to add issues and pull requests.
-1. In your {% data variables.projects.projects_v1_board %}, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add cards**.
+1. In your {% data variables.projects.projects_v1_board %}, click **{% octicon "plus" aria-hidden="true" %} Add cards**.
 ![Screenshot showing the header of a project. The "Add cards" button is highlighted with an orange outline.](/assets/images/help/projects/add-cards-button.png)
 1. Search for issues and pull requests to add to your {% data variables.projects.projects_v1_board %} using search qualifiers such as `is:issue is:open`. For more information on search qualifiers you can use, see [AUTOTITLE](/search-github/searching-on-github/searching-issues-and-pull-requests).
 
@@ -47,14 +47,14 @@ You can put a maximum of 2,500 cards into each project column. If a column has r
 
 ## Adding issues and pull requests to a {% data variables.projects.projects_v1_board %} from the sidebar
 
-1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-hidden="true" aria-label="gear" %}**.
+1. On the right side of an issue or pull request, click **Projects {% octicon "gear" aria-hidden="true" %}**.
 
    ![Screenshot showing an issue's sidebar. The "Projects" section header is highlighted with an orange outline.](/assets/images/help/projects-v2/issue-sidebar-projects.png)
 
 1. Click the **Recent**, **Repository**, **User**, or **Organization** tab for the {% data variables.projects.projects_v1_board %} you would like to add to.
 1. Type the name of the project in **Filter projects** field.
 1. Select one or more {% data variables.projects.projects_v1_boards %} where you want to add the issue or pull request.
-1. Click **Awaiting triage**{% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the {% data variables.projects.projects_v1_board %} column you select.
+1. Click **Awaiting triage**{% octicon "triangle-down" aria-hidden="true" %}, then click the column where you want your issue or pull request. The card will move to the bottom of the {% data variables.projects.projects_v1_board %} column you select.
    ![Screenshot showing the projects section in an issue's sidebar. The awaiting triage option is highlighted with an orange outline.](/assets/images/help/projects/sidebar-select-project-board-column-menu.png)
 
 ## Further reading

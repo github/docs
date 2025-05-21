@@ -26,7 +26,7 @@ $ git clone https://{% data variables.product.product_url %}/USERNAME/REPOSITORY
 # Clones a repository to your computer
 ```
 
-You can choose from [several different URLs](/get-started/git-basics/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code**.
+You can choose from [several different URLs](/get-started/git-basics/about-remote-repositories) when cloning a repository. While logged in to {% data variables.product.prodname_dotcom %}, these URLs are available on the main page of the repository when you click **{% octicon "code" aria-hidden="true" %} Code**.
 
   ![Screenshot of the main page of a repository. A green "Code" button is outlined in orange and expanded to show the HTTPS URL for the repository.](/assets/images/help/repository/remotes-url-global-nav-update.png)
 

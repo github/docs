@@ -43,7 +43,7 @@ Coding guidelines are configured at the repository level. You can create and ena
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then **Code review**.
 1. Click **Create guideline**.
 1. Under "Name," give the coding guideline a name.
 1. Under "Description," provide a description of the coding guideline up to 600 characters long. This will be used by {% data variables.product.prodname_copilot_short %} to understand your coding style and to decide when to leave a comment.
@@ -59,9 +59,9 @@ Coding guidelines are configured at the repository level. You can create and ena
 1. Test your coding guideline to make sure it works as expected.
 
    1. Click **Add sample**.
-   1. Add your own sample, or press **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Generate code sample** to automatically generate a code sample based on your title and description.
+   1. Add your own sample, or press **{% octicon "copilot" aria-hidden="true" %} Generate code sample** to automatically generate a code sample based on your title and description.
    1. Click **Save** to save the code sample.
-   1. Test the coding guideline against your sample by pressing **{% octicon "play" aria-hidden="true" aria-label="play" %} Run**.
+   1. Test the coding guideline against your sample by pressing **{% octicon "play" aria-hidden="true" %} Run**.
 
 1. Save your coding guideline, and turn it on, by clicking **Save guideline**.
 

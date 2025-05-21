@@ -101,7 +101,7 @@ For more information about best practices, see [AUTOTITLE](/rest/overview/keepin
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Fine-grained tokens**.
 1. Click **Generate new token**.
 1. Under **Token name**, enter a name for the token.
 1. Under **Expiration**, select an expiration for the token. Infinite lifetimes are allowed but may be blocked by a maximum lifetime policy set by your organization or enterprise owner. For more information, See [Enforcing a maximum lifetime policy for {% data variables.product.pat_generic_plural %}](/organizations/managing-programmatic-access-to-your-organization/setting-a-personal-access-token-policy-for-your-organization#enforcing-a-maximum-lifetime-policy-for-personal-access-tokens).
@@ -129,7 +129,7 @@ If you selected an organization as the resource owner and the organization requi
 {% ifversion fpt or ghec %}1. [Verify your email address](/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/verifying-your-email-address), if it hasn't been verified yet.{% endif %}
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Tokens (classic)**.
 1. Select **Generate new token**, then click **Generate new token (classic)**.
 1. In the "Note" field, give your token a descriptive name.
 1. To give your token an expiration, select **Expiration**, then choose a default option or click **Custom** to enter a date.
@@ -146,7 +146,7 @@ You should delete a {% data variables.product.pat_generic %} if it is no longer 
 
 {% data reusables.user-settings.access_settings %}
 {% data reusables.user-settings.developer_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click either **Fine-grained tokens** or **Tokens (classic)**, depending on which type of {% data variables.product.pat_generic %} you'd like to delete.
 1. To the right of the {% data variables.product.pat_generic %} you want to delete, click **Delete**.
 
 {% ifversion ghec or fpt %}> [!NOTE] If you find a leaked {% data variables.product.pat_generic %} belonging to someone else, you can submit a revocation request through the REST API. See [AUTOTITLE](/code-security/getting-started/best-practices-for-preventing-data-leaks-in-your-organization#mitigate-data-leaks).

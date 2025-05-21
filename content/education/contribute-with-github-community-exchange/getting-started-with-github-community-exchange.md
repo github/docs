@@ -30,13 +30,13 @@ You can star repositories listed in the {% data variables.product.prodname_commu
 
 Repository listings in the {% data variables.product.prodname_community_exchange %} gallery can be sorted on the number of stars a repository has.
 
-To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click **{% octicon "star" aria-hidden="true" aria-label="star" %} Star** button found right by its name.
+To star a repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to star, and click **{% octicon "star" aria-hidden="true" %} Star** button found right by its name.
 
 ## Reporting abuse
 
 The {% data variables.product.prodname_community_exchange %} community moderates repository submissions. You can report abusive repositories, spammy, or disruptive content at any time.
 
-To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-hidden="true" aria-label="report" %} Report abuse**.
+To report an abusive repository: Go to your {% data variables.product.prodname_community_exchange %} home page, find the repository you want to report, click the {% octicon "kebab-horizontal" aria-label="The edit icon" %} drop-down right by its name, then click **{% octicon "report" aria-hidden="true" %} Report abuse**.
 
 ## Further reading
 

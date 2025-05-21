@@ -42,7 +42,7 @@ You can download a CSV file containing the membership information report for you
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.people-tab %}
-1. To the right of "Members", click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV Report**.
+1. To the right of "Members", click **{% octicon "download" aria-hidden="true" %} CSV Report**.
 
    * If your enterprise has less than 1,000 members, the report will download immediately.
    * If your enterprise has 1,000 or more members, you'll soon receive an email with a link to download the report.

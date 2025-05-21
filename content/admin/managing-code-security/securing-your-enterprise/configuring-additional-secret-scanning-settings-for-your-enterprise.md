@@ -31,7 +31,7 @@ These additional settings apply only to repositories with {% data variables.prod
 
 To provide context for developers when {% data variables.product.prodname_secret_scanning %} blocks a commit, you can display a link with more information on why the commit was blocked.
 
-1. Under "Additional settings", to the right of "Resource link for push protection", click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %}**.
+1. Under "Additional settings", to the right of "Resource link for push protection", click **{% octicon "pencil" aria-hidden="true" %}**.
 1. In the text box, type the link to the desired resource, then click **{% octicon "check" aria-label="Save" %}**.
 
 ### Controlling features for new repositories created in a user namespace

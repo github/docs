@@ -31,7 +31,7 @@ You should ensure that 2FA is enabled for unattended or shared access accounts i
 
    If you have already configured 2FA using TOTP and you need to locate the TOTP secret, use the following steps:
 
-   1. In the shared account's settings, click **{% octicon "shield-lock" aria-hidden="true" aria-label="shield-lock" %} Password and authentication**.
+   1. In the shared account's settings, click **{% octicon "shield-lock" aria-hidden="true" %} Password and authentication**.
    1. Under "Two-factor methods", to the right of "Authenticator app", click **Edit**.
    1. In "Authenticator app", immediately below the QR code, click **setup key**.
 

@@ -34,7 +34,7 @@ If you're an organization owner, you can enable {% data variables.product.prodna
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under "{% octicon "law" aria-hidden="true" aria-label="law" %} Policies," click **Codespaces**.
+1. Under "{% octicon "law" aria-hidden="true" %} Policies," click **Codespaces**.
 1. On the {% data variables.product.prodname_github_codespaces %} policies page, under "Manage organization access to {% data variables.product.prodname_github_codespaces %}," select whether to enable {% data variables.product.prodname_github_codespaces %} in your organizations' private and internal repositories.
 
    You can enable for all organizations, enable for specific organizations, or disable for all organizations.

@@ -60,11 +60,11 @@ You can:
 The invited person will receive an invitation email asking them to become a billing manager for your {% ifversion ghec %}enterprise{% endif %}{% ifversion fpt %} organization{% endif %}. Once the invited person clicks the accept link in their invitation email, they will automatically be added to the {% ifversion ghec %}enterprise{% endif %}{% ifversion fpt %} organization{% endif %} as a billing manager. If they don't already have a {% data variables.product.prodname_dotcom %} account, they will be directed to sign up for one, and they will be automatically added to the {% ifversion ghec %}enterprise{% endif %}{% ifversion fpt %} organization{% endif %} as a billing manager after they create an account.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "organization" aria-hidden="true" aria-label="organization" %} Organizations**.
+1. In the "Access" section of the sidebar, click **{% octicon "organization" aria-hidden="true" %} Organizations**.
 {% data reusables.profile.org_settings %}
-1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
+1. If you are an organization owner, in the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Click the link in the text box, **Enterprise account billing settings**, which will direct you to your organizations billing settings page.
-1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "person" aria-hidden="true" aria-label="person" %} **People**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "person" aria-hidden="true" aria-label="person" %} **People**{% endif %}.
+1. {% ifversion horizontal-nav %}At the top of the page, click {% octicon "person" aria-hidden="true" %} **People**{% else %}On the left side of the page, in the enterprise account sidebar, click {% octicon "person" aria-hidden="true" %} **People**{% endif %}.
 1. Under "People", click **Administrators**.
 1. Above the list of administrators, click **Invite admin**.
 1. Type the username, full name, or email address of the person you want to invite, then select the appropriate person from the results.

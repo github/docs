@@ -23,7 +23,7 @@ You can access {% data variables.product.company_short %}'s compliance reports i
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.compliance %}
-1. To the right of the report you want to access, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Download** or **{% octicon "link-external" aria-hidden="true" aria-label="link-external" %} View**.
+1. To the right of the report you want to access, click **{% octicon "download" aria-hidden="true" %} Download** or **{% octicon "link-external" aria-hidden="true" %} View**.
 
    {% data reusables.security.compliance-report-screenshot %}
 

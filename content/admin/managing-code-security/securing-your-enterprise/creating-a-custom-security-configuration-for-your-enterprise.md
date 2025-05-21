@@ -71,7 +71,7 @@ When creating a security configuration, keep in mind that:
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
-   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
+   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
@@ -109,7 +109,7 @@ When creating a security configuration, keep in mind that:
    * **Security updates**. To learn about security updates, see [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/about-dependabot-security-updates).{% ifversion fpt or ghec %}
 1. For "Private vulnerability reporting", choose whether you want to enable, disable, or keep the existing settings. To learn about private vulnerability reporting, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/configuring-private-vulnerability-reporting-for-a-repository).{% endif %}
 1. Optionally, in the "Policy" section, you can use additional options to control how the configuration is applied:
-   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
+   * **Use as default for newly created repositories**. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, **Private and internal**, or **All repositories**.
         {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
    * **Enforce configuration**. Block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Select **Enforce** from the dropdown menu.
 
@@ -141,7 +141,7 @@ When creating a security configuration, keep in mind that:
     * **Alerts**. To learn about {% data variables.secret-scanning.alerts %}, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).{% ifversion org-npp-enablement-security-configurations %}
     * **Non-provider patterns**. To learn more about scanning for non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns) and [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).{% endif %}
     * **Push protection**. To learn about push protection, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
-1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
+1. Optionally, in the "Policy" section, you can choose to automatically apply the {% data variables.product.prodname_security_configuration %} to newly created repositories depending on their visibility. Select the **None** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Public**, or **Private and internal**, or **All repositories**.
 
 1. Optionally, in the "Policy" section, you can enforce the configuration and block repository owners from changing features that are enabled or disabled by the configuration (features that are not set aren't enforced). Next to "Enforce configuration", select **Enforce** from the dropdown menu.
 

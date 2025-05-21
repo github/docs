@@ -59,8 +59,8 @@ For more detailed instructions, see [AUTOTITLE](/copilot/building-copilot-extens
 
 Rather than deploying the Blackbeard agent as a web app, you can host your agent in a codespace for a significantly faster build process.
 
-1. Navigate to the [`copilot-extensions/blackbeard-extension`](https://github.com/copilot-extensions/blackbeard-extension) repository. Select the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Create codespace on main**.
-1. To find your new codespace, select the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu. Next to your new codespace, select {% octicon "kebab-horizontal" aria-label="Show more actions for codespace" %}, then click **{% octicon "globe" aria-hidden="true" aria-label="globe" %} Open in Browser**.
+1. Navigate to the [`copilot-extensions/blackbeard-extension`](https://github.com/copilot-extensions/blackbeard-extension) repository. Select the **{% octicon "code" aria-hidden="true" %} Code** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Create codespace on main**.
+1. To find your new codespace, select the **{% octicon "code" aria-hidden="true" %} Code** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu. Next to your new codespace, select {% octicon "kebab-horizontal" aria-label="Show more actions for codespace" %}, then click **{% octicon "globe" aria-hidden="true" %} Open in Browser**.
 1. In the integrated Terminal, run `npm start` to start the Blackbeard agent on port 3000.
 1. In the "Ports" tab of the {% data variables.product.prodname_vscode_shortname %} panel, click **Forward a port**, then add port 3000.
 1. Right-click the port and set the visibility to "Public," then copy the local address.

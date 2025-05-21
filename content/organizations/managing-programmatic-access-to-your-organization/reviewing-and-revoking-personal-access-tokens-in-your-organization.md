@@ -24,7 +24,7 @@ Organization owners can also use the REST API to review and revoke {% data varia
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
 1. Click the name of the token that you want review or revoke.
 1. Review the access and permissions that the token has.
 1. To revoke access by the token to the organization, click **Revoke**.
@@ -33,7 +33,7 @@ Alternatively, you can revoke multiple tokens at once:
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, under **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
+1. In the left sidebar, under **{% octicon "key" aria-hidden="true" %} {% data variables.product.pat_generic_caps %}s**, click **Active tokens**. Any {% data variables.product.pat_v2 %}s that can access your organization will be displayed.
 {% data reusables.user-settings.patv2-filters %}
 1. Select each token that you want to revoke.
 1. Select the **tokens selected...** dropdown menu and click **Revoke...**.

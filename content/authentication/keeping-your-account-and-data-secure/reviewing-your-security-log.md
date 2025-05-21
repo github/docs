@@ -20,7 +20,7 @@ shortTitle: Review security log
 The security log lists all actions performed within the last 90 days.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" aria-label="log" %} Security log**.
+1. In the "Archives" section of the sidebar, click **{% octicon "log" aria-hidden="true" %} Security log**.
 
 ## Searching your security log
 

@@ -181,7 +181,7 @@ You can view a list of all dormant users {% ifversion ghes %} who have not been 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Under "Organizations", in the search bar, begin typing the organization's name until it appears in the search results.
 1. Select the name of the organization.
-1. Above the organization name, select **{% octicon "person" aria-hidden="true" aria-label="person" %} People**.
+1. Above the organization name, select **{% octicon "person" aria-hidden="true" %} People**.
 
    ![Screenshot of the tabs above an organization name. The "People" tab is highlighted with an orange outline.](/assets/images/help/enterprises/emu-organization-people-tab.png)
 1. Above the list of members, select **Type**, then select the type of members you want to view.
@@ -219,7 +219,7 @@ You can view a list of members in your enterprise who don't have an email addres
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.verified-domains-tab %}
-1. Under "Notification preferences", select the **{% octicon "eye" aria-hidden="true" aria-label="eye" %} View enterprise members without an approved or verified domain email** link.
+1. Under "Notification preferences", select the **{% octicon "eye" aria-hidden="true" %} View enterprise members without an approved or verified domain email** link.
 
 ## Viewing whether members in your enterprise have 2FA enabled
 

@@ -1,1 +1,1 @@
-1. In the left sidebar, under the "Management" section, click **{% octicon "server" aria-hidden="true" aria-label="server" %} Runners**.
+1. In the left sidebar, under the "Management" section, click **{% octicon "server" aria-hidden="true" %} Runners**.

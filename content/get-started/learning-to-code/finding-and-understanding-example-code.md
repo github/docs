@@ -71,7 +71,7 @@ In the [`github/choosealicense.com`](https://github.com/github/choosealicense.co
 
 If the README.md file doesn't give you all the answers, you can ask {% data variables.product.prodname_copilot_short %} to help you navigate the repository and locate functionality.
 
-To open {% data variables.product.prodname_copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar and ask your question. For example:
+To open {% data variables.product.prodname_copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar and ask your question. For example:
 
 >What is the main landing page for this Jekyll website?
 
@@ -79,7 +79,7 @@ When you ask {% data variables.product.prodname_copilot_short %} questions about
 
 ### The repository's wiki
 
-Another possible source of information is the repository's **wiki**, a section of the repository specifically for hosting documentation. Every repository on {% data variables.product.github %} comes equipped with the ability to use a wiki, but not every repository uses it. To access the wiki, click the **{% octicon "book" aria-hidden="true" aria-label="book" %} Wiki** tab in the repository.
+Another possible source of information is the repository's **wiki**, a section of the repository specifically for hosting documentation. Every repository on {% data variables.product.github %} comes equipped with the ability to use a wiki, but not every repository uses it. To access the wiki, click the **{% octicon "book" aria-hidden="true" %} Wiki** tab in the repository.
 
 ### Releases
 

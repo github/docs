@@ -41,7 +41,7 @@ An enterprise owner can identify the correct enterprise ID to use in the header 
 
 {% data reusables.enterprise-accounts.access-enterprise-emu %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under {% octicon "gear" aria-hidden="true" aria-label="gear" %} **Settings**, click **Authentication security**.
+1. Under {% octicon "gear" aria-hidden="true" %} **Settings**, click **Authentication security**.
 1. In the "Enterprise access restrictions" section, find the header for your enterprise. This section is only visible for enterprises with the feature enabled.
 
 ## Using the header

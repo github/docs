@@ -36,7 +36,7 @@ Once you star repositories or follow people, you will see updates on their activ
 
 1. Navigate to {% data variables.explore.explore_github %}.
 1. Browse popular repositories and topics.
-1. Click **{% octicon "star" aria-hidden="true" aria-label="star" %} Star** next to repositories and topics that interest you, so you can easily find them again later.
+1. Click **{% octicon "star" aria-hidden="true" %} Star** next to repositories and topics that interest you, so you can easily find them again later.
 1. Navigate to your {% data variables.explore.your_stars_page %} to see all your starred repositories and topics.
 
 ## Search for a topic or project on {% data variables.product.github %}

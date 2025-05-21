@@ -1,1 +1,1 @@
-1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Code Security**.{% endif %}
+1. {% ifversion horizontal-nav %}At the top of the page, click **{% octicon "shield" aria-hidden="true" %} Security**.{% else %}On the left side of the page, in the enterprise account sidebar, click **{% octicon "shield" aria-hidden="true" %} Code Security**.{% endif %}

@@ -49,7 +49,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-1. In the left sidebar, click **{% octicon "code-review" aria-hidden="true" aria-label="code-review" %} Code review**.
+1. In the left sidebar, click **{% octicon "code-review" aria-hidden="true" %} Code review**.
 1. Select **Only notify requested team members.**
 1. Click **Save changes**.
 
@@ -59,7 +59,7 @@ Any team members that have set their status to "Busy" will not be selected for r
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
 {% data reusables.organizations.team_settings %}
-1. In the left sidebar, click **{% octicon "code-review" aria-hidden="true" aria-label="code-review" %} Code review**.
+1. In the left sidebar, click **{% octicon "code-review" aria-hidden="true" %} Code review**.
 1. Select **Enable auto assignment**.
 1. Under "How many team members should be assigned to review?", select the dropdown menu and choose a number of reviewers to be assigned to each pull request.
 1. Under "Routing algorithm", use the dropdown menu and choose which algorithm you'd like to use. For more information, see [Routing algorithms](#routing-algorithms).

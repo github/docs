@@ -19,7 +19,7 @@ redirect_from:
 You can only assign issues to {% data variables.product.prodname_copilot_short %} if you have access to {% data variables.product.prodname_copilot_short %} through either the **{% data variables.product.prodname_copilot_pro_plus %}** plan or the **{% data variables.product.prodname_copilot_enterprise %}** plan.
 
 If you do not already have a subscription for one of these plans, click this button for more information:<br>
-<a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
+<a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=troubleshooting+copilot+coding+agent&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>
 
 If you _do_ have either {% data variables.product.prodname_copilot_pro_plus %} or {% data variables.product.prodname_copilot_enterprise %}, check that {% data variables.copilot.copilot_coding_agent %} {% ifversion ghec %}is enabled and{% endif %} has been made available for the repository:
 

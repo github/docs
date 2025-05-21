@@ -1,1 +1,1 @@
-1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Authentication security**.
+1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Authentication security**.

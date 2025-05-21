@@ -52,7 +52,7 @@ Explain this program.
 
 Before you can reuse the code you've found, you need to understand its licensing. Licenses determine how you can use the code in a project, including your ability to copy, modify, and distribute that code.
 
-To identify the license for [new2code/python-factorial](https://github.com/new2code/python-factorial), locate the "About" section on the repository's main page. There, you'll see that the repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" aria-label="law" %} **MIT license**.
+To identify the license for [new2code/python-factorial](https://github.com/new2code/python-factorial), locate the "About" section on the repository's main page. There, you'll see that the repository is licensed under the MIT license. To read the license, click {% octicon "law" aria-hidden="true" %} **MIT license**.
 
   ![Screenshot of the main page of the new2code/python-factorial repository. In the right sidebar, "MIT license" is outlined in dark orange.](/assets/images/help/repository/license-info-python-factorial.png)
 

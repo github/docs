@@ -35,7 +35,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.profile.access_profile %}
-1. On the top of your profile page, in the main navigation, click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
+1. On the top of your profile page, in the main navigation, click **{% octicon "project" aria-hidden="true" %} Projects**.
 
    ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 
@@ -88,7 +88,7 @@ You can also configure workflow automations to keep your {% data variables.proje
 {% data reusables.projects.classic-project-creation %}
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
+1. Under your repository name, click **{% octicon "project" aria-hidden="true" %} Projects**.
 1. Click **Projects (classic)**.
 {% data reusables.project-management.click-new-project %}
 {% data reusables.project-management.create-project-name-description %}

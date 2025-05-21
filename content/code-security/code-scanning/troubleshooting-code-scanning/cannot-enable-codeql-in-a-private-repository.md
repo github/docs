@@ -26,7 +26,7 @@ If you are on a **{% data variables.product.prodname_free_team %}** or **{% data
 1. If there is an associated and active **Enable** button, {% data variables.product.prodname_code_security %} is available for this repository but not yet enabled.
 
 {% ifversion ghas-products %}
-1. If use of {% data variables.product.prodname_GH_code_security %} is blocked by a policy, "{% octicon "shield" aria-hidden="true" aria-label="shield" %} Disabled" is shown in place of the **Enable** button.
+1. If use of {% data variables.product.prodname_GH_code_security %} is blocked by a policy, "{% octicon "shield" aria-hidden="true" %} Disabled" is shown in place of the **Enable** button.
 
    !["Screenshot of the {% data variables.product.prodname_AS %}" setting. The disabled option is highlighted in dark orange.](/assets/images/help/repository/ghas-enterprise-policy-block.png)
 {% else %}

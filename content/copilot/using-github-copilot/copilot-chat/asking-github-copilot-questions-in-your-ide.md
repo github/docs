@@ -28,7 +28,7 @@ shortTitle: Chat in IDE
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the title bar of {% data variables.product.prodname_vscode %}. If the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon is not displayed, right-click the title bar and make sure that **Command Center** is selected.
+1. To open the chat view, click the **{% octicon "copilot" aria-hidden="true" %}** icon in the title bar of {% data variables.product.prodname_vscode %}. If the **{% octicon "copilot" aria-hidden="true" %}** icon is not displayed, right-click the title bar and make sure that **Command Center** is selected.
 
    ![Screenshot of the '{% data variables.product.prodname_copilot_chat_short %}' button, highlighted with a dark orange outline.](/assets/images/help/copilot/vsc-copilot-chat-icon.png)
 
@@ -407,7 +407,7 @@ By default, {% data variables.product.prodname_copilot_chat_short %} will refere
 
 * **Built-in requests**. In addition to submitting prompts through the chat window, you can submit built-in requests by right clicking in a file, selecting **{% data variables.product.prodname_copilot %}**, then selecting one of the options.
 * **Inline**. You can submit a chat prompt inline, and scope it to a highlighted code block or your current file.
-   * To start an inline chat, right click on a code block or anywhere in your current file, hover over **{% data variables.product.prodname_copilot %}**, then select **{% octicon "plus" aria-hidden="true" aria-label="plus" %} {% data variables.product.prodname_copilot_short %}: Inline Chat**, or enter <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
+   * To start an inline chat, right click on a code block or anywhere in your current file, hover over **{% data variables.product.prodname_copilot %}**, then select **{% octicon "plus" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}: Inline Chat**, or enter <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd>.
 
 ## {% data variables.product.prodname_copilot_edits_short %}
 
@@ -422,7 +422,7 @@ Use {% data variables.product.prodname_copilot_edits_short %} to make changes ac
 
 #### Using edit mode
 
-1. To start an edit session, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
+1. To start an edit session, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
 1. At the top of the chat panel, click **{% data variables.product.prodname_copilot_edits_short %}**.
 1. Add relevant files to the _working set_ to indicate to {% data variables.product.prodname_copilot %} which files you want to work on. You can add all open files by clicking **Add all open files** or individually search for single files.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_edits_short %} determines which files in your _working set_ to change and adds a short description of the change.
@@ -434,7 +434,7 @@ Use {% data variables.product.prodname_copilot_edits_short %} to make changes ac
 
 #### Using agent mode
 
-1. To start an edit session using agent mode, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
+1. To start an edit session using agent mode, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then select **Open {% data variables.product.prodname_copilot_chat %}**.
 1. At the top of the chat panel, click the **Agent** tab.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
@@ -477,7 +477,7 @@ To use {% data variables.product.prodname_copilot %} for Xcode, you must install
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
 
 1. Enter a prompt in the prompt box. For example prompts, see [AUTOTITLE](/copilot/using-github-copilot/guides-on-using-github-copilot/getting-started-with-prompts-for-copilot-chat).
 
@@ -505,7 +505,7 @@ To see all available slash commands, type `/` in the chat prompt box. For more i
 
 ### Using agent mode
 
-1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
+1. To open the chat view, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** in the menu bar, then click **Open Chat**.
 1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
 1. Optionally, add relevant files to the _working set_ view to indicate to {% data variables.product.prodname_copilot_short %} which files you want to work on.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
@@ -551,7 +551,7 @@ To indicate whether a response was helpful, use {% octicon "thumbsup" aria-label
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} to give you code suggestions, explain code, generate unit tests, and suggest code fixes.
 
-1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
 
 1. Enter a prompt in the prompt box, then press <kbd>Enter</kbd>.
 
@@ -579,7 +579,7 @@ To see all available slash commands, type `/` in the chat prompt box.
 
 ### Using agent mode
 
-1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse, then click **Open Chat**.
 1. At the bottom of the chat panel, select **Agent** from the mode dropdown.
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.

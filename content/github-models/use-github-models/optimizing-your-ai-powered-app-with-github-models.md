@@ -33,7 +33,7 @@ You can access the **Comparisons** view directly from the **Models** tab in any 
 ### 2. Creating a new prompt
 
 1. On the main page of your new repository, click the **Models** tab.
-1. In the "Prompts" section, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} New Prompt**.
+1. In the "Prompts" section, click **{% octicon "plus" aria-hidden="true" %} New Prompt**.
 1. In the upper-left corner, choose a model from the dropdown menu.
 
 ### 3. Writing a system prompt
@@ -68,7 +68,7 @@ When should I use rebase or merge?
 
 ### 6. Running the sample prompt
 
-1. In the upper-right corner, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Play**.
+1. In the upper-right corner, click **{% octicon "play" aria-hidden="true" %} Play**.
 1. Make a change to the model or prompt, then run the prompt again to see what results you get.
 
 ## Testing different models against a prompt
@@ -76,29 +76,29 @@ When should I use rebase or merge?
 Now, let's determine which model will work best for our application, using the **Comparisons** view. This view allows you to test different models on the same input, revealing differences in accuracy, creativity, tone, reasoning, and reliability. That will help us choose the model that best fits our needs in terms of quality, speed, cost, and consistency.
 
 1. In the upper-left corner, click **Comparisons**.
-1. To compare different models, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add prompt** and select **{% octicon "repo-forked" aria-hidden="true" aria-label="repo-forked" %} Copy original prompt** to duplicate your existing system and user prompts. Create at least two copies of the original prompt to evaluate three different models.
-1. Next to each prompt, click {% octicon "pencil" aria-hidden="Edit prompt" aria-label="pencil" %}. From the **Model** dropdown, choose a different model for each prompt you created.
-1. Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add inputs** to create new rows for sample inputs.
+1. To compare different models, click **{% octicon "plus" aria-hidden="true" %} Add prompt** and select **{% octicon "repo-forked" aria-hidden="true" %} Copy original prompt** to duplicate your existing system and user prompts. Create at least two copies of the original prompt to evaluate three different models.
+1. Next to each prompt, click {% octicon "pencil" aria-hidden="Edit prompt" %}. From the **Model** dropdown, choose a different model for each prompt you created.
+1. Click **{% octicon "plus" aria-hidden="true" %} Add inputs** to create new rows for sample inputs.
 
-    * Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add inputs**. Then, in the "Input" field, copy and paste the following text:
+    * Click **{% octicon "plus" aria-hidden="true" %} Add inputs**. Then, in the "Input" field, copy and paste the following text:
 
       ```text copy
       How do I modify the most recent commit message in my current branch?   
       ```
 
-    * Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add inputs** again, then paste the following input:
+    * Click **{% octicon "plus" aria-hidden="true" %} Add inputs** again, then paste the following input:
 
       ```text copy
       How do I move a specific commit from one branch to a different branch?
       ```
 
-    * Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add inputs** one more time, and paste this input:
+    * Click **{% octicon "plus" aria-hidden="true" %} Add inputs** one more time, and paste this input:
 
       ```text copy
       How do I find the author of a specific commit in a repository's history?
       ```
 
-1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Run**.
+1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" %} Run**.
 1. Try out different models against your prompt, making note of the **Latency** and the **Input** and **Output** token usage of the different models.
 
 ## Testing prompt variations with a specific model
@@ -114,15 +114,15 @@ Now, let's use {% data variables.product.prodname_github_models %} to test promp
 
 ### 1. Adding prompt variations
 
-For this example scenario, select the **same model for each column**, but provide a different prompt variation by editing the "User prompt" field of our existing prompts. Next to each prompt, click {% octicon "pencil" aria-hidden="Edit prompt" aria-label="pencil" %}.
+For this example scenario, select the **same model for each column**, but provide a different prompt variation by editing the "User prompt" field of our existing prompts. Next to each prompt, click {% octicon "pencil" aria-hidden="Edit prompt" %}.
   
-1. Click **{% octicon "pencil" aria-hidden="Edit prompt" aria-label="pencil" %}** in "Prompt 2." Then, in the "User prompt" field, copy and paste the following text:
+1. Click **{% octicon "pencil" aria-hidden="Edit prompt" %}** in "Prompt 2." Then, in the "User prompt" field, copy and paste the following text:
   
     ```text copy
     I want to learn how to use Git from the command line, but explain it to me like I am five years old. {{input}}  
     ```
 
-1. Click **{% octicon "pencil" aria-hidden="Edit prompt" aria-label="pencil" %}** in "Prompt 3", then paste the following input:
+1. Click **{% octicon "pencil" aria-hidden="Edit prompt" %}** in "Prompt 3", then paste the following input:
 
     ```text copy
     I want to learn how to use Git from the command line. Give me instructions in the form of a haiku. {{input}}
@@ -130,7 +130,7 @@ For this example scenario, select the **same model for each column**, but provid
 
 ### 2. Running prompt variations
 
-1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Run**.
+1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" %} Run**.
 1. Try out different prompt variations, and compare the types of output the model gives you.
 
 ## Evaluating model output
@@ -151,14 +151,14 @@ Depending on the number of prompts and models you are evaluating, the model outp
 
 For this example scenario, let's use the **String check** evaluator to check for a string in the output.
 
-1. In the lower-right corner of the **Prompts** field, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add evaluator** and select **{% octicon "note" aria-hidden="true" aria-label="note" %} String check**.
+1. In the lower-right corner of the **Prompts** field, click **{% octicon "plus" aria-hidden="true" %} Add evaluator** and select **{% octicon "note" aria-hidden="true" %} String check**.
 1. In the **Name** field, enter "Amend check", then copy and paste the following input for the **Value** field:
 
     ```text copy
    git commit --amend
    ```
 
-1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Run**.
+1. To run the prompts, in the upper-right corner, click **{% octicon "play" aria-hidden="true" %} Run**.
 1. The prompt output will now show a **Pass** or **Fail** label, letting you know which model contained the required string.
 
 To learn more about the pre-built evaluators like similarity, groundedness, and relevance, see [AUTOTITLE](/github-models/use-github-models/evaluating-ai-models#evaluating-outputs).

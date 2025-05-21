@@ -1,5 +1,5 @@
 {% data reusables.profile.access_profile %}
-1. On your profile, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
+1. On your profile, click **{% octicon "table" aria-hidden="true" %} Projects**.
 
    ![Screenshot showing profile tabs. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 

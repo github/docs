@@ -53,7 +53,7 @@ If you know the issue or pull request number or if you know part of the title, y
 
 You can add multiple issues and pull requests from your project and use filters, such as `label:bug`, to narrow down your search.
 
-1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" aria-label="plus" %}.
+1. In the bottom row of the project, click {% octicon "plus" aria-hidden="true" %}.
    ![Screenshot showing the bottom row of a table view. The "+" button is highlighted with an orange outline.](/assets/images/help/projects-v2/omnibar-add.png)
 1. Click **Add item from repository**.
 {% data reusables.projects.bulk-add %}

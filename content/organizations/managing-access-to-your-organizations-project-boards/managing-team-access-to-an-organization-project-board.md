@@ -44,7 +44,7 @@ If a team's access to a {% data variables.projects.projects_v1_board %} is inher
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
 {% data reusables.organizations.specific_team %}
-1. Above the team's conversation, click **{% octicon "project" aria-hidden="true" aria-label="project" %} Projects**.
+1. Above the team's conversation, click **{% octicon "project" aria-hidden="true" %} Projects**.
 
    ![Screenshot of the main page for a team. In the horizontal navigation bar, the "Projects" tab is outlined in dark orange.](/assets/images/help/organizations/team-project-board-button.png)
 1. To change permissions levels, to the right of the {% data variables.projects.projects_v1_board %} you want to update, use the permission level dropdown menu.

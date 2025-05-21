@@ -20,11 +20,11 @@ topics:
 
 <div class="button-container">
     <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=getting+started+with+github+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
-        <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
+        <span>Get started for free</span> {% octicon "link-external" height:16 %}
     </a>
     {% vscode %}
     <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
-        <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
+        <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 %}
     </a>
     {% endvscode %}
 </div>

@@ -49,7 +49,7 @@ Without access to {% data variables.product.prodname_copilot_workspace %} you ca
 
 To work on a pull request in {% data variables.product.prodname_copilot_workspace %}:
 
-1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Open in {% data variables.product.prodname_copilot_workspace_short %}** button on the right side of the main page of a pull request.
+1. Click the **{% octicon "copilot" aria-hidden="true" %} Open in {% data variables.product.prodname_copilot_workspace_short %}** button on the right side of the main page of a pull request.
 
    {% data variables.product.prodname_copilot_workspace %} opens, displaying an overview of the pull request.
 
@@ -146,9 +146,9 @@ You can type commands directly into the terminal, or you can use quick commands 
 
 You can configure **Build**, **Run**, and **Test** commands that you can use when you work on a specific project in {% data variables.product.prodname_copilot_workspace %}. If commands have already been configured for the repository, you can replace them with alternative commands for your own personal use.
 
-1. At the top of the {% data variables.product.prodname_copilot_workspace_short %} window, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Configure**.
+1. At the top of the {% data variables.product.prodname_copilot_workspace_short %} window, click **{% octicon "gear" aria-hidden="true" %} Configure**.
 
-   If **Build**, **Run**, and **Test** quick commands have already been defined, the **{% octicon "play" aria-hidden="true" aria-label="play" %} Build** button is displayed instead of **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Configure**. Click the dropdown arrow beside the **{% octicon "play" aria-hidden="true" aria-label="play" %} Build** button and then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Configure** from the dropdown menu.
+   If **Build**, **Run**, and **Test** quick commands have already been defined, the **{% octicon "play" aria-hidden="true" %} Build** button is displayed instead of **{% octicon "gear" aria-hidden="true" %} Configure**. Click the dropdown arrow beside the **{% octicon "play" aria-hidden="true" %} Build** button and then click **{% octicon "gear" aria-hidden="true" %} Configure** from the dropdown menu.
 
    ![Screenshot of the "Commands" dropdown menu with the "Configure" option highlighted with a dark orange outline.](/assets/images/help/copilot/workspace-configure-commands.png)
 
@@ -200,7 +200,7 @@ You can change how files are displayed in {% data variables.product.prodname_cop
 
 ### Changing the diff view
 
-1. Click the compare picker icon ({% octicon "git-compare" aria-hidden="true" aria-label="git-compare" %}), at the top right of the {% data variables.product.prodname_copilot_workspace_short %} editor panel.
+1. Click the compare picker icon ({% octicon "git-compare" aria-hidden="true" %}), at the top right of the {% data variables.product.prodname_copilot_workspace_short %} editor panel.
 1. Choose a view option:
 
    * **Unified** - Shows changes in a single view, with added lines highlighted in green and removed lines highlighted in red.

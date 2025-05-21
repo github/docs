@@ -463,7 +463,7 @@ You can use the default keyboard shortcuts for inline suggestions in Eclipse whe
 
 If you don't want to use the default keyboard shortcuts for {% data variables.product.prodname_copilot %}, you can rebind the shortcuts in the Key Bindings editor and use your preferred keyboard shortcuts.
 
-1. In the IDE, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
+1. In the IDE, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** to open the menu.
 1. Click **Edit Keyboard Shortcuts...** to rebind the shortcuts.
 
 ## Settings and configurations

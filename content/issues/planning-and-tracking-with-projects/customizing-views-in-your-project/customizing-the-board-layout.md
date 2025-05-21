@@ -25,7 +25,7 @@ The current count of cards and the column's limit is displayed at the top of the
 
 1. Click {% octicon "kebab-horizontal" aria-label="Column context menu" %} next to the name of the column you want to modify.
   ![Screenshot showing a top of a column in the table layout. The column context menu button is highlighted with an orange outline.](/assets/images/help/projects-v2/board-column-menu.png)
-1. In the menu, click **{% octicon "number" aria-hidden="true" aria-label="number" %} Set column limit**.
+1. In the menu, click **{% octicon "number" aria-hidden="true" %} Set column limit**.
 1. Under "Column limit", type the card limit for this column.
 1. Optionally, to remove the limit, clear the entry.
 1. Click **Save**.
@@ -39,7 +39,7 @@ The current count of cards and the column's limit is displayed at the top of the
 In the board layout, you choose any single select or iteration field for your columns. If you drag an item to a new column, the value of that column is applied to the dragged item. For example, if you use the "Status" field for your board columns and then drag an item with a status of `In progress` to the `Done` column, the status of the item will switch to `Done`.
 
 {% data reusables.projects.open-view-menu %}
-1. Click **{% octicon "columns" aria-hidden="true" aria-label="columns" %} Column field**.
+1. Click **{% octicon "columns" aria-hidden="true" %} Column field**.
 1. Click the field you want to use.
 
 ## Showing and hiding columns in board layout

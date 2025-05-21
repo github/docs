@@ -70,7 +70,7 @@ Compiled languages are not automatically included in default setup configuration
 {% data reusables.repositories.navigate-to-repo %}
 
    > [!NOTE]
-   > If you are configuring default setup on a fork, you must first enable {% data variables.product.prodname_actions %}. To enable {% data variables.product.prodname_actions %}, under your repository name, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Actions**, then click **I understand my workflows, go ahead and enable them**. Be aware that this will enable all existing workflows on your fork.
+   > If you are configuring default setup on a fork, you must first enable {% data variables.product.prodname_actions %}. To enable {% data variables.product.prodname_actions %}, under your repository name, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **I understand my workflows, go ahead and enable them**. Be aware that this will enable all existing workflows on your fork.
 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
@@ -91,7 +91,7 @@ Compiled languages are not automatically included in default setup configuration
    > [!NOTE]
    > If your repository contains _only_ compiled {% data variables.product.prodname_codeql %}-supported languages (for example, Java), you will be taken to the settings page to select the languages you want to add to your default setup configuration.
 
-1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit**.
+1. Optionally, to customize your {% data variables.product.prodname_code_scanning %} setup, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
    * To add or remove a language from the analysis performed by default setup, select or deselect that language in the "Languages" section. If you would like to analyze a {% data variables.product.prodname_codeql %}-supported compiled language with default setup, select that language here.
    * To specify the {% data variables.product.prodname_codeql %} query suite you would like to use, select your preferred query suite in the "Query suites" section.
 
@@ -100,7 +100,7 @@ Compiled languages are not automatically included in default setup configuration
    > [!NOTE]
    > If you are switching to default setup from advanced setup, you will see a warning informing you that default setup will override existing {% data variables.product.prodname_code_scanning %} configurations. This warning means default setup will disable the existing workflow file and block any {% data variables.product.prodname_codeql %} analysis API uploads.
 
-1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} View {% data variables.product.prodname_codeql %} configuration**.
+1. Optionally, to view your default setup configuration after enablement, select {% octicon "kebab-horizontal" aria-label="Menu" %}, then click **{% octicon "gear" aria-hidden="true" %} View {% data variables.product.prodname_codeql %} configuration**.
 
 ## Assigning labels to runners
 

@@ -44,7 +44,7 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 {% data reusables.repositories.sidebar-security %}
 {% data reusables.repositories.sidebar-code-scanning-alerts %}
 1. Click the name of an alert.
-1. If {% data variables.product.prodname_copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} Generate fix**.
+1. If {% data variables.product.prodname_copilot_autofix_short %} can suggest a fix, at the top of the page, click **{% octicon "shield-check" aria-hidden="true" %} Generate fix**.
 1. Once the suggested fix has been generated, at the bottom of the page, you can click **Create PR with fix** to automatically generate a pull request with the suggested fix.
 A new branch is created from the default branch, the generated fix is committed and a draft pull request is created. You can test and edit the suggested fix as you would with any other fix.
 

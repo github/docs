@@ -3,4 +3,4 @@
 
    ![Screenshot of the dropdown menu under @octocat's profile picture. "Your profile" is outlined in dark orange.](/assets/images/help/profile/profile-button-avatar-menu-global-nav-update.png)
 
-1. On your profile page, in the header, click the **{% octicon "package" aria-hidden="true" aria-label="package" %} Packages** tab.
+1. On your profile page, in the header, click the **{% octicon "package" aria-hidden="true" %} Packages** tab.

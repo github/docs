@@ -16,7 +16,7 @@ allowTitleToDifferFromFilename: true
 You can download a view as a _.tsv_ (tab-separated) file.
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of your repository.
-1. Click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
+1. Click **{% octicon "table" aria-hidden="true" %} Projects**.
    ![Screenshot showing a repository's tabs. The "Projects" tab is highlighted with an orange outline.](/assets/images/help/projects-v2/repo-tab.png)
 
 {% data reusables.projects.open-view-menu %}

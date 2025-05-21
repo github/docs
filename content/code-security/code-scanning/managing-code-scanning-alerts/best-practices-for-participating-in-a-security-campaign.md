@@ -92,7 +92,7 @@ When fixing security alerts as part of a campaign, it may be helpful to group an
 
 You can ask {% data variables.product.prodname_copilot_chat_short %} for help in understanding the vulnerability, the suggested fix, and how to test that the fix is comprehensive. To access {% data variables.product.prodname_copilot_chat_short %}, navigate to https://github.com/copilot.
 
-Alternatively, when viewing a specific alert, in the top right corner of the page, click the {% data variables.product.prodname_copilot_chat_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) to open a chat window, and ask {% data variables.product.prodname_copilot_short %} questions about the alert.
+Alternatively, when viewing a specific alert, in the top right corner of the page, click the {% data variables.product.prodname_copilot_chat_short %} icon ({% octicon "copilot" aria-hidden="true" %}) to open a chat window, and ask {% data variables.product.prodname_copilot_short %} questions about the alert.
 
 For example:
 
@@ -114,7 +114,7 @@ To find the contact URL:
 
 1. Open the **Security** tab for your repository.
 1. On the left sidebar, click the name of the campaign you are participating in.
-1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" aria-label="comment" %}**.
+1. On the campaign tracking page, to the right of the campaign manager's name, click **{% octicon "comment" aria-hidden="true" %}**.
 
 ## Next steps
 

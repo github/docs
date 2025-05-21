@@ -40,7 +40,7 @@ If a comment is off-topic, outdated, or resolved, you may want to hide a comment
 {% ifversion fpt or ghec %}Organization moderators, and anyone{% else %}Anyone{% endif %} with write access to a repository, can unhide comments on issues, pull requests, and commits.
 
 1. Navigate to the comment you'd like to unhide.
-1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" aria-label="fold" %} Show comment**.
+1. On the right side of the comment, click **{% octicon "fold" aria-hidden="true" %} Show comment**.
 1. On the right side of the expanded comment, select the {% octicon "kebab-horizontal" aria-label="Show options" %} dropdown menu, then click **Unhide**.
 
    ![Screenshot of a pull request comment marked as spam. Below an icon of three dots, a dropdown menu is expanded, and "Unhide" is outlined in orange.](/assets/images/help/repository/comment-menu-hidden.png)

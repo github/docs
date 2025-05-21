@@ -40,7 +40,7 @@ To best secure your organization, you should encourage contributors to review an
 * {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.github %} and can be resolved
 
 {% endif %}
-You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" aria-label="key" %} {% data variables.product.prodname_secret_scanning_caps %}** in the "Metrics" or "Alerts" section.
+You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}** in the "Metrics" or "Alerts" section.
 
 * **Metrics**. To see detailed information on push protection events, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
 * **Alerts**. To see detailed information on **Default** and **Generic** alerts for exposed secrets in the organization.
@@ -53,7 +53,7 @@ To learn how to evaluate {% data variables.product.prodname_secret_scanning %} a
 
 {% data reusables.code-scanning.about-code-scanning %} These problems are raised as {% data variables.product.prodname_code_scanning %} alerts, which contain detailed information on the vulnerability or error detected.
 
-You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab, then clicking:
+You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking:
 
 * **{% data variables.product.prodname_codeql %} pull request alerts**. To see information on {% data variables.product.prodname_code_scanning %} alerts found and remediated in pull requests.
 * **{% data variables.product.prodname_code_scanning_caps %}**. To see detailed information on alerts for potentially vulnerable code in the organization, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
@@ -64,7 +64,7 @@ To learn how to interpret and resolve {% data variables.product.prodname_code_sc
 
 ## Interpreting {% data variables.product.prodname_dependabot_alerts %}
 
-{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab, then clicking **{% octicon "dependabot" aria-hidden="true" aria-label="dependabot" %} {% data variables.product.prodname_dependabot %}**.
+{% data variables.product.prodname_dependabot_alerts %} inform you about vulnerabilities in the dependencies that you use in repositories in your organization. You can view {% data variables.product.prodname_dependabot_alerts %} for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "dependabot" aria-hidden="true" %} {% data variables.product.prodname_dependabot %}**.
 
 For an introduction to {% data variables.product.prodname_dependabot_alerts %}, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/about-dependabot-alerts).
 

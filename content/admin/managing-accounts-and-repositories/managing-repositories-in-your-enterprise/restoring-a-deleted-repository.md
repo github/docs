@@ -30,7 +30,7 @@ Restoring a repository will not restore release attachments or team permissions.
 {% data reusables.enterprise_site_admin_settings.access-settings %}
 {% data reusables.enterprise_site_admin_settings.search-user-or-org %}
 {% data reusables.enterprise_site_admin_settings.click-user-or-org %}
-1. In the **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories** section, click the **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Deleted repositories** link.
+1. In the **{% octicon "repo" aria-hidden="true" %} Repositories** section, click the **{% octicon "trash" aria-hidden="true" %} Deleted repositories** link.
 1. Find the repository you want to restore in the deleted repositories list, then to the right of the repository name click **Restore**.
 1. To confirm you would like to restore the named repository, click **Restore**.
 

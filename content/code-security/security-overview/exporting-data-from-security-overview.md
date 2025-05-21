@@ -34,8 +34,8 @@ The CSV file you download will contain data corresponding to the filters you hav
 {% data reusables.profile.access_org %}
 1. In the "Organizations" section, select the organization for which you would like to download security overview data.
 {% data reusables.organizations.security-overview %}
-1. In the "Security" sidebar, choose the page that you want to export data from by clicking on **{% octicon "graph" aria-hidden="true" aria-label="graph" %}Overview**, **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**, **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Risk** or **{% octicon "graph" aria-hidden="true" aria-label="graph" %} {% data variables.product.prodname_codeql %} pull request alerts**.
-1. Next to the search bar, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV**.
+1. In the "Security" sidebar, choose the page that you want to export data from by clicking on **{% octicon "graph" aria-hidden="true" %}Overview**, **{% octicon "meter" aria-hidden="true" %} Coverage**, **{% octicon "shield" aria-hidden="true" %} Risk** or **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_codeql %} pull request alerts**.
+1. Next to the search bar, click **{% octicon "download" aria-hidden="true" %} Export CSV**.
 
     It may take a moment for {% data variables.product.github %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.
 
@@ -47,6 +47,6 @@ The CSV file you download will contain data corresponding to the filters you hav
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. Choose the page that you want to export data from by clicking on **Overview**, **Risk**, or **Coverage**.
-1. Next to the search bar, click {% octicon "download" aria-hidden="true" aria-label="download" %} **Export CSV**.
+1. Next to the search bar, click {% octicon "download" aria-hidden="true" %} **Export CSV**.
 
     It may take a moment for {% data variables.product.github %} to generate the CSV file of your data. Once the CSV file generates, the file will automatically start downloading, and a banner will appear confirming your report is ready. If you are downloading the CSV from the overview page, you will also receive an email when your report is ready, containing a link to download the CSV.

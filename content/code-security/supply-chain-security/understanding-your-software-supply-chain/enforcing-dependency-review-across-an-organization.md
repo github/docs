@@ -35,7 +35,7 @@ You need to add the {% data variables.dependency-review.action_name %} to one of
 {% data reusables.organizations.access-ruleset-settings %}
 1. Click the **New ruleset** dropdown menu, and select **New branch ruleset**.
 1. To help identify your ruleset and clarify its purpose, give the ruleset a name in **Ruleset Name**.
-1. Set **Enforcement status** to **{% octicon "play" aria-hidden="true" aria-label="play" %} Active**.
+1. Set **Enforcement status** to **{% octicon "play" aria-hidden="true" %} Active**.
 1. Optionally, you can target specific repositories in your organization. For more information, see [Choosing which repositories to target in your organization](/organizations/managing-organization-settings/creating-rulesets-for-repositories-in-your-organization#choosing-which-repositories-to-target-in-your-organization).
 1. In the "Rules" section, select the "Require workflows to pass before merging" option.
 1. In "Workflow configurations", click **Add workflow**.

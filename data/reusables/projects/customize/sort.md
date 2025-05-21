@@ -6,4 +6,4 @@
 
    {% ifversion projects-v2-sorting-update %}![Screenshot of the sort menu. The button to change the direction of the sort for the first sorted field is highlighted with an orange outline.](/assets/images/help/projects-v2/sort-order-secondary.png){% else %}![Screenshot of the sort menu. The button to change the direction of the sort is highlighted with an orange outline.](/assets/images/help/projects-v2/sort-order.png){% endif %}
 
-1. Optionally, to remove a sort,{% ifversion projects-v2-sorting-update %} click one of the sorted fields, or{% endif %} {% octicon "x" aria-hidden="true" aria-label="x" %} click **No sorting** at the bottom of the list.
+1. Optionally, to remove a sort,{% ifversion projects-v2-sorting-update %} click one of the sorted fields, or{% endif %} {% octicon "x" aria-hidden="true" %} click **No sorting** at the bottom of the list.

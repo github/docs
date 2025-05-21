@@ -1,1 +1,1 @@
-1. Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add**.
+1. Click **{% octicon "plus" aria-hidden="true" %} Add**.

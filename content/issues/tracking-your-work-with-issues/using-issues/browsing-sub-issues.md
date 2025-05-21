@@ -15,7 +15,7 @@ topics:
 You can browse through all levels of sub-issues from the parent issue.
 
 1. Navigate to the parent issue.
-1. To view the sub-issues under another sub-issue, click the expand toggle ({% octicon "triangle-right" aria-hidden="true" aria-label="triangle-right" %}).
+1. To view the sub-issues under another sub-issue, click the expand toggle ({% octicon "triangle-right" aria-hidden="true" %}).
 
    ![Screenshot of a sub-issues section. The expand toggle is highlighted with an orange rectangle.](/assets/images/help/issues/sub-issue-expand.png)
 

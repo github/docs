@@ -36,7 +36,7 @@ If your project makes use of iteration fields, you can use the roadmap layout to
 1. Click the name of the iteration field you want to adjust.
 1. To add a new iteration of the same duration, click **Add iteration**.
    ![Screenshot showing iteration settings. The "Add iteration" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-iteration.png)
-1. Optionally, to customize the duration of the new iteration and when it will start, click **{% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} More options**, select a starting date and duration, and click **Add**.
+1. Optionally, to customize the duration of the new iteration and when it will start, click **{% octicon "triangle-down" aria-hidden="true" %} More options**, select a starting date and duration, and click **Add**.
    ![Screenshot showing iteration settings. The "More options" button is highlighted with an orange outline.](/assets/images/help/projects-v2/add-iteration-options.png)
 1. Click **Save changes**.
 

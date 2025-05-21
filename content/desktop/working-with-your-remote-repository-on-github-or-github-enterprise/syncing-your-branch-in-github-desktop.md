@@ -25,7 +25,7 @@ Some workflows require or benefit from rebasing instead of merging. By rebasing 
 
 ## Pulling to your local branch from the remote
 
-1. In {% data variables.product.prodname_desktop %}, use the **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Current Branch** drop-down, and select the local branch you want to update.
+1. In {% data variables.product.prodname_desktop %}, use the **{% octicon "git-branch" aria-hidden="true" %} Current Branch** drop-down, and select the local branch you want to update.
 1. To check for commits on the remote branch, click **Fetch origin**
 
    ![Screenshot of the repository bar. The "Fetch origin" button, displayed with an icon of two arrows forming a circle, is outlined in orange.](/assets/images/help/desktop/fetch-button.png)

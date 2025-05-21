@@ -27,7 +27,7 @@ When you copy a project, the new project will contain the same {% data reusables
 
    ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
 
-1. In the menu, click **{% octicon "copy" aria-hidden="true" aria-label="copy" %} Make a copy**.
+1. In the menu, click **{% octicon "copy" aria-hidden="true" %} Make a copy**.
 1. Optionally, if you want all draft issues to be copied with the project, in the "Make a copy" dialog, select **Draft issues will be copied if selected**.
 1. Under "Owner", select either the organization that will own the new project or your personal account.
 1. Under "New project name", type the name of the new project.

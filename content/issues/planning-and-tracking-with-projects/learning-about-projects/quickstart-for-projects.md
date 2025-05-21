@@ -83,7 +83,7 @@ Specify a priority for all issues in your project.
 Next, group all of the items in your project by priority to make it easier to focus on the high priority items.
 
 {% data reusables.projects.open-view-menu %}
-1. Click **{% octicon "rows" aria-hidden="true" aria-label="rows" %} Group**.
+1. Click **{% octicon "rows" aria-hidden="true" %} Group**.
 1. Click **Priority**.
 
 Now, move issues between groups to change their priority.
@@ -123,7 +123,7 @@ When you changed the layout, your project displayed an indicator to show that th
 To indicate the purpose of the view, give it a descriptive name.
 
 {% data reusables.projects.open-view-menu %}
-1. Click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Rename view**.
+1. Click **{% octicon "pencil" aria-hidden="true" %} Rename view**.
 1. Type the new name for your view.
 1. To save changes, press <kbd>Return</kbd>.
 
@@ -145,7 +145,7 @@ Finally, add a built in workflow to set the status to **Todo** when an item is a
 
 1. In the top-right, click {% octicon "kebab-horizontal" aria-label="The menu icon" %} to open the menu.
    ![Screenshot showing a project's menu bar. The menu icon is highlighted with an orange outline.](/assets/images/help/projects-v2/open-menu.png)
-1. In the menu, click **{% octicon "workflow" aria-hidden="true" aria-label="workflow" %} Workflows**.
+1. In the menu, click **{% octicon "workflow" aria-hidden="true" %} Workflows**.
 1. Under **Default workflows**, click **Item added to project**.
 1. Next to **When**, ensure that both `issues` and `pull requests` are selected.
 1. Next to **Set**, select **Status:Todo**.

@@ -11,8 +11,8 @@ versions:
 You can hide existing comments and prevent new comments from being added to a gist by disabling comments for the gist. You can re-enable comments at any time. This will make existing comments visible.
 
 1. Navigate to {% data variables.gists.gist_user %} and select the gist you want to moderate.
-1. In the top right corner, select **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit**.
-1. In the top right corner, select **{% octicon "comment" aria-hidden="true" aria-label="comment" %} Disable comments**.
+1. In the top right corner, select **{% octicon "pencil" aria-hidden="true" %} Edit**.
+1. In the top right corner, select **{% octicon "comment" aria-hidden="true" %} Disable comments**.
 
 ## Deleting comments
 

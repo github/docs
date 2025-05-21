@@ -40,7 +40,7 @@ After you enable {% data variables.product.prodname_github_connect %}, license d
 {% data reusables.enterprise-accounts.access-enterprise-ghes %}
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "License sync", click **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Sync now**.
+1. Under "License sync", click **{% octicon "sync" aria-hidden="true" %} Sync now**.
 
 ## Manually uploading GitHub Enterprise Server license usage
 

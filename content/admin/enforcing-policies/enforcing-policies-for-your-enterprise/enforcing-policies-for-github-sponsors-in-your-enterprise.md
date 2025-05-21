@@ -26,7 +26,7 @@ Organizations that belong to an enterprise that pays by invoice can either pay f
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-hidden="true" aria-label="law" %} "Policies", click **Sponsors**.
+1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **Sponsors**.
 1. Under "Sponsors", click **Add organization**.
 1. Begin typing the name of the organization you'd like to enable sponsorships for, then click the name of the organization in the list.
 1. Click **Enable sponsorships**.
@@ -37,5 +37,5 @@ You can disallow the use of {% data variables.product.prodname_sponsors %} for a
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under {% octicon "law" aria-hidden="true" aria-label="law" %} "Policies", click **Sponsors**.
+1. Under {% octicon "law" aria-hidden="true" %} "Policies", click **Sponsors**.
 1. Under "Sponsors", to the right of the organization's name, click **Disable**.

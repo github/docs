@@ -67,7 +67,7 @@ When you're ready to proceed, follow these steps to enable a feature for all rep
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 
-1. In the left sidebar, click **{% octicon "codescan" aria-hidden="true" aria-label="codescan" %} Code security and analysis**.
+1. In the left sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security and analysis**.
 1. Locate the feature that you want to enable and use any associated check boxes to fine-tune the options.
 1. When you are ready to enable the feature for all repositories in your organization where the feature is supported, next to the name of the feature, click **Enable all**.
 
@@ -84,7 +84,7 @@ You can use the "Security coverage" view to identify repositories that require a
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
 
-1. In the sidebar, click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**.
+1. In the sidebar, click **{% octicon "meter" aria-hidden="true" %} Coverage**.
 
 On this view, you can use checkboxes to select specific repositories, or you can use the search bar to find the repositories where you want to enable a feature. For example, you can use filters to identify repositories where a certain team has write or admin access, or exclude repositories that don't require the same level of protection, such as test repositories or repositories for internal documentation. Then you can enable features for all selected repositories at once. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
 
@@ -99,7 +99,7 @@ You can choose to enable a security feature automatically in all new repositorie
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.org_settings %}
 
-1. In the left sidebar, click **{% octicon "codescan" aria-hidden="true" aria-label="codescan" %} Code security and analysis**.
+1. In the left sidebar, click **{% octicon "codescan" aria-hidden="true" %} Code security and analysis**.
 1. Below the name of the feature, select the option for automatically enabling the feature in applicable future repositories.
 
    ![Screenshot of "Code security and analysis" page. Below "Dependabot alerts", the checkbox to enable alerts in new repositories is outlined in orange.](/assets/images/help/security/enable-for-new-repos.png)

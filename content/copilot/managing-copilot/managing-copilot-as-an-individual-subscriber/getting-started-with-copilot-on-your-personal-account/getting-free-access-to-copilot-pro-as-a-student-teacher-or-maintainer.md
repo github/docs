@@ -32,6 +32,6 @@ If you do not meet the previous criteria, you can either:
 
 ## Accessing {% data variables.product.prodname_copilot_pro_short %} for free
 
-1. In the upper-right corner of any page, click your profile photo, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
+1. In the upper-right corner of any page, click your profile photo, then click **{% octicon "copilot" aria-hidden="true" %} Your {% data variables.product.prodname_copilot_short %}**.
 1. If you qualify for free access to {% data variables.product.prodname_copilot_short %}, you will see a page titled "{% data variables.product.prodname_copilot_pro %}" informing you that you are eligible. Click **Get access to {% data variables.product.prodname_copilot %}**.
 1. On the page that appears, configure the {% data variables.product.prodname_copilot_short %} use policies to meet your needs, then click **Save and complete**.

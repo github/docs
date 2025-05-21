@@ -25,5 +25,5 @@ Alternatively, if you want to apply a {% data variables.product.prodname_securit
 {% data reusables.security-configurations.view-configurations-page %}
 1. Optionally, in the "Apply configurations" section, filter for specific repositories you would like to detach from their configurations. To learn more, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 {% data reusables.security-configurations.select-repos %}
-1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **No configuration**.
+1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **No configuration**.
 1. To finish detaching your repositories from their linked {% data variables.product.prodname_security_configurations %}, in the "No configuration?" window, click **No configuration**.

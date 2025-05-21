@@ -119,7 +119,7 @@ To re-run a {% data variables.product.prodname_dependabot_version_updates %} or 
 ### Re-running a {% data variables.product.prodname_dependabot_security_updates %} job
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **{% octicon "shield-lock" aria-hidden="true" aria-label="shield-lock" %} Security**.
+1. Under your repository name, click **{% octicon "shield-lock" aria-hidden="true" %} Security**.
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_dependabot %}**.
 1. Under "{% data variables.product.prodname_dependabot %}", click the alert you want to view.
 1. In the section displaying the error details for the alert, click **Try again** to re-run the {% data variables.product.prodname_dependabot_security_updates %} job.

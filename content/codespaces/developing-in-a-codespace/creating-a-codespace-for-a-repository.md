@@ -74,7 +74,7 @@ If you want to use Git hooks for your codespace, then you should set up hooks us
 
    ![Screenshot of the expanded branch dropdown menu, listing various branches. The "trunk" dropdown menu, shown with a branch icon, is outlined in orange.](/assets/images/help/codespaces/branch-drop-down.png)
 
-1. Click the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** button, then click the **Codespaces** tab.
+1. Click the **{% octicon "code" aria-hidden="true" %} Code** button, then click the **Codespaces** tab.
 
    A message is displayed at the bottom of the dialog telling you who will pay for the codespace.
 

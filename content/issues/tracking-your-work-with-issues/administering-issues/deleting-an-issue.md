@@ -23,7 +23,7 @@ The ability to delete issues depends on whether the repository is owned by a per
 Collaborators do not receive a notification when issues are deleted. When visiting the URL of a deleted issue, collaborators will see a message stating that the web page can't be found (but they can use the API to determine that it was deleted). People with admin or owner permissions in the repository will additionally see the username of the person who deleted the issue and when it was deleted.
 
 1. Navigate to the issue you want to delete.
-1. On the right side bar, under "Notifications", click **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete issue**.
+1. On the right side bar, under "Notifications", click **{% octicon "trash" aria-hidden="true" %} Delete issue**.
 
    ![Screenshot of the issue sidebar. A trash can icon and "Delete issue" are outlined in dark orange.](/assets/images/help/issues/delete-issue.png)
 1. To confirm deletion, click **Delete this issue**.

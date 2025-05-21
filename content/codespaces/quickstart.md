@@ -59,7 +59,7 @@ Once your codespace is created, the template repository will be automatically cl
 
 1. Go back to the running application tab in your browser and refresh to see your changes.
 
-   {% octicon "light-bulb" aria-hidden="true" aria-label="light-bulb" %} If you've closed the browser tab, click the Ports tab in {% data variables.product.prodname_vscode_shortname %}, hover over the **Local Address** value for the running port, and click the **Open in Browser** icon.
+   {% octicon "light-bulb" aria-hidden="true" %} If you've closed the browser tab, click the Ports tab in {% data variables.product.prodname_vscode_shortname %}, hover over the **Local Address** value for the running port, and click the **Open in Browser** icon.
 
    ![Screenshot of the "Ports" panel. The "Ports" tab and a globe icon, which opens the forwarded port in a browser, are highlighted with orange outlines.](/assets/images/help/codespaces/quickstart-forward-port.png)
 

@@ -44,7 +44,7 @@ If you use Gravatar, and your Gravatar image is associated with the email you us
 ### Resetting your profile picture to the identicon
 
 {% data reusables.user-settings.access_settings %}
-1. Under "Profile Picture", select **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit**, then click **Remove photo** to revert to your identicon.
+1. Under "Profile Picture", select **{% octicon "pencil" aria-hidden="true" %} Edit**, then click **Remove photo** to revert to your identicon.
 
    If your email address is associated with a [Gravatar](https://en.gravatar.com/), you cannot revert to your identicon. Click **Revert to Gravatar** instead.
 
@@ -149,7 +149,7 @@ If you select the "Busy" option, when people @mention your username, assign you 
 
 ![Screenshot of a draft comment. "@octocat" is written in the text field, and "The Octocat (busy)" is suggested.](/assets/images/help/profile/username-with-limited-availability-text.png)
 
-1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **{% octicon "smiley" aria-hidden="true" aria-label="smiley" %} Set status** or, if you already have a status set, click your current status.
+1. In the top right corner of {% data variables.product.prodname_dotcom %}, select your profile photo, then click **{% octicon "smiley" aria-hidden="true" %} Set status** or, if you already have a status set, click your current status.
 
    ![Screenshot of the dropdown menu under @octocat's profile picture. A smiley icon and "Set status" are outlined in dark orange.](/assets/images/help/profile/set-status-on-profile-global-nav-update.png)
 

@@ -32,6 +32,6 @@ You can enable the `same-origin` referrer policy to instruct modern browsers to 
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Authentication security**.
+1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Authentication security**.
 1. Under "User Agent Referrer Policy", select **Enable same origin referrer policy for all organizations**.
 1. Click **Save**.

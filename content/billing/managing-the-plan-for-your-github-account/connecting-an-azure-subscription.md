@@ -92,7 +92,7 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Under "Billing Management", to the right of "Metered billing via Azure", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
@@ -135,7 +135,7 @@ After you disconnect your Azure subscription from your organization account, you
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
 1. Under "Billing Management", then under "Metered billing via Azure", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.
 

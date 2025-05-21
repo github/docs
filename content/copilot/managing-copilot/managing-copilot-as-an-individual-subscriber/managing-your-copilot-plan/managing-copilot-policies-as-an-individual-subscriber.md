@@ -41,7 +41,7 @@ If you choose to allow suggestions matching public code, when {% data variables.
 To use {% data variables.copilot.copilot_coding_agent %} in repositories owned by your own personal account, you must enable it for those repositories in your account settings.
 
 {% data reusables.user-settings.copilot-settings %}
-1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
 1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
 1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_coding_agent %}.
 

@@ -28,7 +28,7 @@ You can also enable activity limitations on all repositories owned by your perso
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Moderation options**, then click **Interaction limits**.
+1. In the sidebar, select **{% octicon "comment-discussion" aria-hidden="true" %} Moderation options**, then click **Interaction limits**.
 {% data reusables.community.set-interaction-limit %}
 
 ## Further reading

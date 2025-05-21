@@ -39,7 +39,7 @@ You can also use cherry-picking when collaborating with a team. Some projects in
 
    {% endwindows %}
 
-1. Right-click the selected commit and click **Cherry pick commit**, then select the branch that you want to copy the commit to. You can also drag the commit that you want to cherry-pick from the "History" tab to the **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Current Branch** dropdown menu, then drop the commit on the branch that you want to copy the commit to.
+1. Right-click the selected commit and click **Cherry pick commit**, then select the branch that you want to copy the commit to. You can also drag the commit that you want to cherry-pick from the "History" tab to the **{% octicon "git-branch" aria-hidden="true" %} Current Branch** dropdown menu, then drop the commit on the branch that you want to copy the commit to.
 
    ![Screenshot of the "History" tab and the "Current Branch" dropdown. The cursor hovers over "my-feature", and "plus one" icons show one extra commit.](/assets/images/help/desktop/cherry-picking.png)
 

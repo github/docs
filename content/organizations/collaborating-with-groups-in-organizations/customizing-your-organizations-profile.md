@@ -65,7 +65,7 @@ The content of a member-only `README.md` will be displayed in the member view of
 You can pin repositories that you want to feature, such as those that are frequently used, to your organization's profile page. To choose which repositories to pin to your organization's profile, you must be an organization owner.
 
 1. Navigate to your organization's profile page.
-1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" aria-label="eye" %} View as** dropdown menu, then click **Public** or **Member**.
+1. In the right sidebar of the page, select the **{% octicon "eye" aria-hidden="true" %} View as** dropdown menu, then click **Public** or **Member**.
 
    ![Screenshot of an organization's profile page. In the left sidebar, a dropdown menu, labeled "View as: public" is outlined in dark orange.](/assets/images/help/organizations/org-profile-view.png)
 1. Navigate to the settings for pinned repositories.

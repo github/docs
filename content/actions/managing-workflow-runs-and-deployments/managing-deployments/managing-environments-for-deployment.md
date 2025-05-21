@@ -186,7 +186,7 @@ Variables stored in an environment are only available to workflow jobs that refe
 1. Optionally, specify what branches and tags can deploy to this environment. For more information, see [Deployment branches and tags](/actions/deployment/targeting-different-environments/managing-environments-for-deployment#deployment-branches-and-tags).
    1. Select the desired option in the **Deployment branches** dropdown.
    1. If you chose **Selected branches and tags**, to add a new rule, click **Add deployment branch or tag rule**
-   1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-hidden="true" aria-label="git-branch" %} Branch** or **{% octicon "tag" aria-hidden="true" aria-label="tag" %} Tag**.
+   1. In the "Ref type" dropdown menu, depending on what rule you want to apply, click **{% octicon "git-branch" aria-hidden="true" %} Branch** or **{% octicon "tag" aria-hidden="true" %} Tag**.
    1. Enter the name pattern for the branch or tag that you want to allow.
 
       {% data reusables.actions.branch-and-tag-deployment-rules-configuration %}

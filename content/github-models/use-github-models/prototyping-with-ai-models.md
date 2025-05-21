@@ -73,7 +73,7 @@ The steps to use each model are similar. In general, you will need to:
 
    All models can be used with the Azure AI Inference SDK, and some models support additional SDKs. If you want to easily switch between models, you should select "Azure AI Inference SDK". If you selected "REST" as the language, you won't use an SDK. Instead, you will use the API endpoint directly. {% ifversion fpt %} See [{% data variables.product.prodname_github_models %} REST API](/rest/models?apiVersion=2022-11-28). {% endif %}
 1. Either open a codespace, or set up your local environment:
-   * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" aria-label="codespaces" %} Run codespace**, then click **Create new codespace**.
+   * To run in a codespace, click **{% octicon "codespaces" aria-hidden="true" %} Run codespace**, then click **Create new codespace**.
    * To run locally:
       * Create a {% data variables.product.company_short %} {% data variables.product.pat_generic %}. The token needs to have `models:read` permissions. See [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
       * Save your token as an environment variable.
@@ -89,16 +89,16 @@ You can save and share your progress in the playground with presets. Presets sav
 * Your parameters
 * Your chat history (optional)
 
-To create a preset for your current context, select **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} at the top right of the playground, then click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Create new preset**. You need to name your preset, and you can also choose to provide a preset description, include your chat history, and allow your preset to be shared.
+To create a preset for your current context, select **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} at the top right of the playground, then click **{% octicon "plus" aria-hidden="true" %} Create new preset**. You need to name your preset, and you can also choose to provide a preset description, include your chat history, and allow your preset to be shared.
 
 There are two ways to load a preset:
-* Select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the preset you want to load.
+* Select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the preset you want to load.
 * Open a shared preset URL
 
 After you load a preset, you can edit, share, or delete the preset:
-* To edit the preset, change the parameters and prompt the model. Once you are satisfied with your changes, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit preset** and save your updates.
-* To share the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **{% octicon "share" aria-hidden="true" aria-label="share" %} Share preset** to get a shareable URL.
-* To delete the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete preset** and confirm the deletion.
+* To edit the preset, change the parameters and prompt the model. Once you are satisfied with your changes, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "pencil" aria-hidden="true" %} Edit preset** and save your updates.
+* To share the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "share" aria-hidden="true" %} Share preset** to get a shareable URL.
+* To delete the preset, select the **Preset: PRESET-NAME** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% octicon "trash" aria-hidden="true" %} Delete preset** and confirm the deletion.
 
 ## Using the prompt editor
 
@@ -108,7 +108,7 @@ The prompt editor in {% data variables.product.prodname_github_models %} is desi
 * Fine-tune prompts for precision and relevance in your projects.
 * Use a specialized space for single-turn scenarios to ensure consistent and optimized results.
 
-To access the prompt editor, click **{% octicon "stack" aria-hidden="true" aria-label="stack" %} Prompt editor** at the top right of the playground.
+To access the prompt editor, click **{% octicon "stack" aria-hidden="true" %} Prompt editor** at the top right of the playground.
 
 ![Screenshot of the 'Prompt editor' button, highlighted with a dark orange outline, at the top right of the playground.](/assets/images/help/models/model-playground-prompt-editor.png)
 

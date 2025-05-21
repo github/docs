@@ -35,7 +35,7 @@ You can specify custom patterns for {% data variables.product.prodname_secret_sc
 
 ### Regular expression syntax for manually defining custom patterns {% endif %}
 
-The **More options {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %}** section in the UI helps you write regular expressions manually.
+The **More options {% octicon "chevron-down" aria-hidden="true" %}** section in the UI helps you write regular expressions manually.
 
 * **Secret format:** an expression that describes the format of the secret itself.
 * **Before secret:** an expression that describes the characters that come before the secret. By default, this is set to `\A|[^0-9A-Za-z]` which means that the secret must be at the start of a line or be preceded by a non-alphanumeric character.

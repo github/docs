@@ -51,7 +51,7 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %} o
 
 You can also assign issues to {% data variables.product.prodname_copilot_short %} from other places on {% data variables.product.prodname_dotcom_the_website %}:
 
-* From the list of issues on a repository's **{% octicon "issue-opened" aria-hidden="true" aria-label="issue-opened" %} Issues** page.
+* From the list of issues on a repository's **{% octicon "issue-opened" aria-hidden="true" %} Issues** page.
 * When viewing an issue in {% data variables.product.github %} {% data variables.projects.projects_v2_caps %}.
 
 ### Assigning an issue to {% data variables.product.prodname_copilot_short %} via the {% data variables.product.github %} API

@@ -24,7 +24,7 @@ shortTitle: Check out a PR locally
 
 {% data reusables.repositories.sidebar-pr %}
 1. In the list of pull requests, click the pull request you'd like to modify.{% ifversion fpt or ghec %}
-1. To choose where you'd like to open the pull request, select the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** dropdown and click one of the tabs.
+1. To choose where you'd like to open the pull request, select the **{% octicon "code" aria-hidden="true" %} Code** dropdown and click one of the tabs.
 
    ![Screenshot of a pull request title. A button with an arrow indicating a dropdown menu, labeled "Code," is outlined in dark orange.](/assets/images/help/pull_requests/open-with-button.png){% else %}
 

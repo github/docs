@@ -36,7 +36,7 @@ By default, only the repository administrator and the organization owner can vie
 
 The default setup for {% data variables.product.prodname_code_scanning %} runs a set of high confidence queries. These are chosen to ensure that, when you roll out {% data variables.product.prodname_code_scanning %} across your whole codebase, developers see a limited set of high quality results, with few false positive results.
 
-You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
+You can see a summary of any results found in the organizations in your trial enterprise in the **{% octicon "shield" aria-hidden="true" %} Security** tab for the enterprise. There are also separate views for each type of security alert. See [AUTOTITLE](/code-security/security-overview/viewing-security-insights).
 
 If you don't see the results you expect for {% data variables.product.prodname_code_scanning %}, you can update default setup to run an extended query suite for repositories where you expected to find more results. This is controlled at the repository level, see [AUTOTITLE](/code-security/code-scanning/managing-your-code-scanning-configuration/editing-your-configuration-of-default-setup).
 

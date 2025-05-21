@@ -12,7 +12,7 @@ redirect_from:
 
 ## Finding discussions
 
-1. In the top-left corner of {% data variables.product.prodname_dotcom %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click **{% octicon "comment-discussion" aria-hidden="true" aria-label="comment-discussion" %} Discussions**.
+1. In the top-left corner of {% data variables.product.prodname_dotcom %}, select {% octicon "three-bars" aria-label="Open global navigation menu" %}, then click **{% octicon "comment-discussion" aria-hidden="true" %} Discussions**.
 
    ![Screenshot of the navigation bar on {% data variables.product.github %}. The "Open global navigation menu" icon is outlined in dark orange.](/assets/images/help/navigation/global-navigation-menu-icon.png)
 

@@ -26,7 +26,7 @@ You can also create your own custom {% data variables.product.prodname_copilot_e
 ## Installing {% data variables.product.prodname_copilot_extensions %} for your personal account
 
 1. Open [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true).
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
 1. In the list of {% data variables.product.prodname_copilot_extensions_short %}, locate an app you'd like to install.
 1. To install the {% data variables.product.prodname_copilot_extension_short %} on your personal account, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-personal-account#installing-a-github-app-in-your-personal-account).
 {% data reusables.copilot.copilot-extensions.extension-specific-onboarding-steps %}

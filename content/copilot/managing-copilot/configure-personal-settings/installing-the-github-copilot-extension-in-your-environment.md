@@ -241,7 +241,7 @@ To use the {% data variables.product.prodname_copilot %} extension, you must hav
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 
-1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
 
 1. In the "Sign In to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy Code and Open**.
 

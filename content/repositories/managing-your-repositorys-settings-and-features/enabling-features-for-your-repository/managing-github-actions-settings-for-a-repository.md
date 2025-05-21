@@ -120,7 +120,7 @@ By default, when you create a new repository in your personal account, workflows
 You can use the steps below to configure whether {% ifversion internal-actions %}actions and {% endif %}reusable workflows in an internal repository can be accessed from outside the repository.{% ifversion internal-actions %} For more information, see [AUTOTITLE](/actions/creating-actions/sharing-actions-and-workflows-with-your-enterprise). Alternatively, you can use the REST API to set, or get details of the level of access. For more information, see [AUTOTITLE](/rest/actions/permissions#get-the-level-of-access-for-workflows-outside-of-the-repository) and [AUTOTITLE](/rest/actions/permissions#set-the-level-of-access-for-workflows-outside-of-the-repository).{% endif %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the internal repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -141,7 +141,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -156,7 +156,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 ### Managing access for a private repository in an organization
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
 
@@ -169,7 +169,7 @@ You can use the steps below to configure whether actions and reusable workflows 
 {% ifversion fpt %}{% else %}
 
 1. On {% data variables.product.prodname_dotcom %}, navigate to the main page of the private repository.
-1. Under your repository name, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**.
+1. Under your repository name, click **{% octicon "gear" aria-hidden="true" %} Settings**.
 {% data reusables.repositories.settings-sidebar-actions-general %}
 1. Under **Access**, choose one of the access settings:
    * **Not accessible** - Workflows in other repositories cannot access this repository.

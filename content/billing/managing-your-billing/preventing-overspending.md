@@ -35,7 +35,7 @@ For license-based products such as {% data variables.product.prodname_copilot %}
 You can set spending limits and receive alerts when your usage reaches 75%, 90%, or 100% of your defined budget. Budgets can be scoped at the repository or product level, depending on the product.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
 1. Click **Budgets and alerts**.
 1. To create a new budget, click **New budget**.
 1. Under "Budget Type" select either **Product-level budget** or **SKU-level budget**.
@@ -149,5 +149,5 @@ You can edit or delete a budget at any time, but you cannot change the budget sc
 {% endif %}
 
 1. Click **Budgets and alerts**.
-1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete**.
+1. To edit a budget, in the list of budgets, click {% octicon "kebab-horizontal" aria-label="View actions" %} next to the budget you want to edit, and click **{% octicon "pencil" aria-hidden="true" %} Edit** or **{% octicon "trash" aria-hidden="true" %} Delete**.
 1. Follow the prompts.
