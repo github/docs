@@ -49,7 +49,7 @@ You can also find a list of your recently visited repositories, teams, and proje
 
 The feed is designed to help you discover relevant content from projects you follow, keep up with your friends and community members, and track recent activity in your communities.
 
-You can use the **{% octicon "filter" aria-hidden="true" %} Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
+You can use the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** dropdown in the upper right corner to filter the feed to show only the exact event types you'd like to see. For example, you'll see updates when someone you follow:
 
 * Stars a repository
 * Follows another user

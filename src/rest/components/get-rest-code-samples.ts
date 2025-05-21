@@ -49,6 +49,10 @@ export function getShellExample(
     }
   }
 
+  if (operation.subcategory === 'inference') {
+    contentTypeHeader = '-H "Content-Type: application/json"'
+  }
+
   let requestPath = codeSample?.request?.parameters
     ? parseTemplate(operation.requestPath).expand(codeSample.request.parameters)
     : operation.requestPath

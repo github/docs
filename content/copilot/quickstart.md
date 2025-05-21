@@ -44,7 +44,7 @@ To use {% data variables.product.prodname_copilot_short %} on the {% data variab
 ## Asking your first question
 
 1. On {% data variables.product.github %}, navigate to a repository and open a file.
-1. Click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) at the top right of the file view.
+1. Click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) at the top right of the file view.
 
    ![Screenshot of the {% data variables.product.prodname_copilot_short %} button, highlighted with a dark orange outline, at the top of the file view.](/assets/images/help/copilot/copilot-button-for-file.png)
 

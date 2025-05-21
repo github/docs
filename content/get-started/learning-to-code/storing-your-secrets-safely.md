@@ -136,7 +136,7 @@ Your secret is now safely encrypted and ready to use!
 
 Now we can update the YAML workflow file to use the token and test it works.
 
-1. Navigate back to your repository. If you're in your repository's settings, you can click **{% octicon "code" aria-hidden="true" %} Code** under the repository name.
+1. Navigate back to your repository. If you're in your repository's settings, you can click **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** under the repository name.
 1. Navigate to the YAML workflow file by clicking `.github/workflows` in the list of files.
 1. Open the workflow file by clicking `comment.yml` in the list of files.
 1. To start editing the workflow file, at the top-right, click {% octicon "pencil" aria-label="Edit this file" %}.

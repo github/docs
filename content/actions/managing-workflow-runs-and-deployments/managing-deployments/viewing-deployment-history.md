@@ -42,9 +42,9 @@ By default, the deployments page shows currently active deployments from select 
    * **To view the URL for a deployment**, to the right of the commit message in the deployment history list, click {% octicon "link-external" aria-label="Navigate to deployment URL" %}.
    * **To navigate to the workflow run logs associated with a deployment**, to the right of the commit message in the deployment history list, click {% octicon "kebab-horizontal" aria-label="View logs" %}, then click **View logs**.{% ifversion deployment-dashboard-filter %}
 1. Optionally, to filter the deployment history list, create a filter.
-   1. Click on the **{% octicon "filter" aria-hidden="true" %} Filter** button.
-   1. Click **{% octicon "plus" aria-hidden="true" %} Add a filter**.
+   1. Click on the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** button.
+   1. Click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add a filter**.
    1. Choose a qualifier you would like to filter the deployment history by.
    1. Depending on the qualifier you chose, fill out information in the "Operator" and "Value" columns.
-   1. Optionally, click **{% octicon "plus" aria-hidden="true" %} Add a filter** to add another filter.
+   1. Optionally, click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Add a filter** to add another filter.
    1. Click **Apply**.{% endif %}

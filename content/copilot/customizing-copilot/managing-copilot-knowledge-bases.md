@@ -37,7 +37,7 @@ Knowledge bases you create will be accessible by all organization members with a
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of "Knowledge bases", click **New knowledge base**.
 1. In the "Name" field, enter a unique name for the knowledge base. Optionally, in the "Description" field, you can add a description for the knowledge base.
 
@@ -68,7 +68,7 @@ Organization owners can update a knowledge base created in their organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to edit, click {% octicon "pencil" aria-label="The pencil symbol" %}.
 1. Make your desired changes to your knowledge base.
 1. Click **Update knowledge base**.
@@ -80,6 +80,6 @@ Organization owners can delete a knowledge base created in their organization.
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Knowledge bases**.
 1. To the right of the knowledge base you want to delete, click {% octicon "trash" aria-label="The trash symbol" %}.
 1. In the "Confirm deletion" dialog box, review the information and click **Delete**.

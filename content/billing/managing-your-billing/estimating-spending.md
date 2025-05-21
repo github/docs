@@ -23,7 +23,7 @@ The new billing platform provides a high-level view of your spending trends base
 ## Viewing your spending for your personal account
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 On this page, you can view your usage in the following categories:
 

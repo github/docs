@@ -57,7 +57,7 @@ With a {% data variables.product.prodname_copilot_enterprise %} license, you can
 
 ## Performing an on-demand validity check
 
-Once you have enabled validity checks for partner patterns for your repository, you can perform an "on-demand" validity check for any supported secret by clicking **{% octicon "sync" aria-hidden="true" %} Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
+Once you have enabled validity checks for partner patterns for your repository, you can perform an "on-demand" validity check for any supported secret by clicking **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Verify secret** in the alert view. {% data variables.product.company_short %} will send the pattern to the relevant partner and display the validation status of the secret in the alert view.
 
 ![Screenshot of the UI showing a {% data variables.product.prodname_secret_scanning %} alert. A button, labeled "Verify secret" is highlighted with an orange outline.](/assets/images/help/security/secret-scanning-verify-secret.png)
 

@@ -11,8 +11,8 @@ If a workflow run fails, you can open a chat with {% data variables.product.prod
 
 To open a chat about a failed workflow run, you can either:
 
-* Next to the failed check in the merge box, click **{% octicon "kebab-horizontal" aria-hidden="true" %}**, then click **{% octicon "copilot" aria-hidden="true" %} Explain error**.
-* In the merge box, click on the failed check. At the top of the workflow run summary page, click **{% octicon "copilot" aria-hidden="true" %} Explain error**.
+* Next to the failed check in the merge box, click **{% octicon "kebab-horizontal" aria-hidden="true" aria-label="kebab-horizontal" %}**, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Explain error**.
+* In the merge box, click on the failed check. At the top of the workflow run summary page, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Explain error**.
 
 This opens a chat window with {% data variables.product.prodname_copilot %}, where it will provide instructions to resolve the issue.
 

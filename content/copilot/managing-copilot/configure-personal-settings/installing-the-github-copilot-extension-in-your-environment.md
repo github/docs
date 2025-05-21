@@ -206,8 +206,8 @@ Two permissions are required to be able to use the extension: "Accessibility" an
 
 The "Xcode Source Editor Extension" permission needs to be enabled manually.
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
-1. Click **Extension Permission** and click **Xcode Source Editor**.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
+1. Click **Extension Permission**.
 1. Enable {% data variables.product.prodname_copilot %} and click **Done**.
 
 After granting the required permissions, restart Xcode. You will see a new item in the "Editor" menu called "{% data variables.product.prodname_copilot %}".
@@ -218,7 +218,7 @@ Before you can use the {% data variables.product.prodname_copilot %} extension f
 
 >[!NOTE] {% data reusables.copilot.sign-in-ghecom %} See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom?tool=xcode#authenticating-from-xcode).
 
-1. Open the {% data variables.product.prodname_copilot %} extension application.
+1. Open the {% data variables.product.prodname_copilot %} for Xcode application.
 1. Click **Login to {% data variables.product.github %}** and follow the prompts to authorize the extension.
 
 {% endxcode %}
@@ -241,7 +241,7 @@ To use the {% data variables.product.prodname_copilot %} extension, you must hav
 
 1. After the extension is installed, restart Eclipse to apply the changes.
 
-1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
+1. In the bottom right corner of the Eclipse workbench, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, then click **Sign In to {% data variables.product.prodname_dotcom %}**.
 
 1. In the "Sign In to {% data variables.product.prodname_dotcom %}" dialog box, to copy the device code and open the device activation window, click **Copy Code and Open**.
 

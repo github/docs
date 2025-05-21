@@ -22,7 +22,7 @@ shortTitle: GitHub Advanced Security
 
 Other security features require you to purchase one of {% data variables.product.github %}'s {% data variables.product.prodname_AS %} products:
 
-{% data reusables.advanced-security.ghas-products-bullets %}
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
 {% ifversion fpt or ghec %}Some of these features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled for public repositories by default. To run the feature on your private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.{% endif %}
 
