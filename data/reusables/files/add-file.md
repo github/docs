@@ -1,4 +1,4 @@
-1. Above the list of files, select the **Add file** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} dropdown menu, then click **{% octicon "plus" aria-hidden="true" %} Create new file**.
+1. Above the list of files, select the **Add file** {% octicon "triangle-down" aria-label="The downwards-facing triangle icon" %} dropdown menu, then click **{% octicon "plus" aria-hidden="true" aria-label="plus" %} Create new file**.
 
    Alternatively, you can click {% octicon "plus" aria-label="The plus sign icon" %} in the file tree view on the left.
 

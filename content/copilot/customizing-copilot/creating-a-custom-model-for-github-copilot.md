@@ -82,7 +82,7 @@ You can use your organization settings to create a custom large language model.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Custom model**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Custom model**.
 1. On the "Custom models" page, click **Train a new custom model**.
 1. Under "Select repositories," choose either **Selected repositories** or **All repositories**.
 

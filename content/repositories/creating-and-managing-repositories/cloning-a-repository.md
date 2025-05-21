@@ -87,7 +87,7 @@ An empty repository contains no files. It's often made if you don't initialize t
 
    ![Screenshot of the quick setup notes for an empty repository. To the right of the HTTPS URL for the repository, a copy icon is outlined in orange.](/assets/images/help/repository/empty-https-url-clone-button.png)
 
-   Alternatively, to clone your repository in Desktop, click **{% octicon "desktop-download" aria-hidden="true" %} Set up in Desktop** and follow the prompts to complete the clone.
+   Alternatively, to clone your repository in Desktop, click **{% octicon "desktop-download" aria-hidden="true" aria-label="desktop-download" %} Set up in Desktop** and follow the prompts to complete the clone.
 
    ![Screenshot of the quick setup notes for an empty repository. The "Set up in Desktop" button is outlined in dark orange.](/assets/images/help/repository/empty-desktop-clone-button.png)
 

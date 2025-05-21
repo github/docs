@@ -70,7 +70,7 @@ You can use the same steps to configure MCP servers in your personal {% data var
 
     ![Screenshot of MCP server configuration in {% data variables.product.prodname_vscode %}. The "Start" button is outlined in dark orange. ](/assets/images/help/copilot/mcp-start-server-button.png)
 
-1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
+1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
 1. In the {% data variables.product.prodname_copilot_chat_short %} box, select **Agent** from the popup menu.
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} box in {% data variables.product.prodname_vscode %}. The "Agent" option is outlined in dark orange.](/assets/images/help/copilot/copilot-chat-agent-option.png)
@@ -85,7 +85,7 @@ For more information on configuring MCP servers in {% data variables.product.pro
 
 Once you have configured your MCP servers, you can use them in {% data variables.product.prodname_copilot_chat_short %} to access a wide range of tools and services. In the example below, we will use the Fetch MCP server to fetch details about a web page.
 
-1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
+1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
 1. In the {% data variables.product.prodname_copilot_chat_short %} box, select **Agent** from the popup menu.
 1. In the file with the MCP configuration, check that the MCP server is running. If it is not running, click the "Start" button to start the MCP server.
 
@@ -131,7 +131,7 @@ For information on other currently available MCP servers, see [the MCP servers r
 
 ## Configuring MCP servers in JetBrains IDEs
 
-1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" %}**.
+1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
 1. From the menu, select "Edit settings".
 1. Under the MCP section, click "Edit in `mcp.json`".
 1. Define your MCP servers. You can use the following configuration as an example:
@@ -182,7 +182,7 @@ For information on other currently available MCP servers, see [the MCP servers r
 
 ## Configuring MCP servers in Eclipse
 
-1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" %}) in the status bar at the bottom of Eclipse.
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
 1. From the menu, select "Edit preferences".
 1. In the left pane, expand {% data variables.product.prodname_copilot_chat_short %} and click **MCP**.
 1. Define your MCP servers. You can use the following configuration as an example:

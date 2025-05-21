@@ -86,7 +86,7 @@ With the new billing platform, you can:
 {% elsif ghec %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. {% ifversion horizontal-nav %}At the top of the page,{% else %}In the enterprise account sidebar,{% endif %} click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 {% endif %}
 
