@@ -20,8 +20,6 @@ shortTitle: Configure publishing source
 
 {% data reusables.pages.pages-about-publishing-source %}
 
-{% data reusables.pages.private_pages_are_public_warning %}
-
 ## Publishing from a branch
 
 1. Make sure the branch you want to use as your publishing source already exists in your repository.
