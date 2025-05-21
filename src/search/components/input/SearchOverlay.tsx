@@ -482,6 +482,9 @@ export function SearchOverlay({
         }
       }
     } else if (event.key === 'Enter') {
+      if (searchLoading) {
+        return
+      }
       event.preventDefault()
       let pressedGroupKey = SEARCH_OVERLAY_EVENT_GROUP
       let pressedGroupId = searchEventGroupId
@@ -494,9 +497,7 @@ export function SearchOverlay({
         pressedGroupId = askAIEventGroupId
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
-      }
-
-      if (
+      } else if (
         combinedOptions.length > 0 &&
         selectedIndex >= 0 &&
         selectedIndex < combinedOptions.length

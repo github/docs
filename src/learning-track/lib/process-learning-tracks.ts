@@ -1,15 +1,19 @@
-import getLinkData from './get-link-data.js'
-import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
-import { getDataByLanguage } from '#src/data-directory/lib/get-data.js'
-import { renderContent } from '#src/content-render/index.js'
-import { executeWithFallback } from '#src/languages/lib/render-with-fallback.js'
+import getLinkData from './get-link-data'
+import getApplicableVersions from '@/versions/lib/get-applicable-versions'
+import { getDataByLanguage } from '@/data-directory/lib/get-data'
+import { renderContent } from '@/content-render/index'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback'
+import { Context, TrackGuide, LearningTrack, ProcessedLearningTracks } from './types'
 
 const renderOpts = { textOnly: true }
 
 // This module returns an object that contains a single featured learning track
 // and an array of all the other learning tracks for the current version.
-export default async function processLearningTracks(rawLearningTracks, context) {
-  const learningTracks = []
+export default async function processLearningTracks(
+  rawLearningTracks: string[],
+  context: Context,
+): Promise<ProcessedLearningTracks> {
+  const learningTracks: LearningTrack[] = []
 
   if (!context.currentProduct) {
     throw new Error(`Missing context.currentProduct value.`)
@@ -59,7 +63,7 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     //      we need to have the English `title` and `description` to
     //      fall back to.
     //
-    let enTrack
+    let enTrack: any
     if (context.currentLanguage !== 'en') {
       enTrack = getDataByLanguage(
         `learning-tracks.${context.currentProduct}.${renderedTrackName}`,
@@ -86,26 +90,28 @@ export default async function processLearningTracks(rawLearningTracks, context) 
     const title = await executeWithFallback(
       context,
       () => renderContent(track.title, context, renderOpts),
-      (enContext) => renderContent(enTrack.title, enContext, renderOpts),
+      (enContext: any) => renderContent(enTrack.title, enContext, renderOpts),
     )
     const description = await executeWithFallback(
       context,
       () => renderContent(track.description, context, renderOpts),
-      (enContext) => renderContent(enTrack.description, enContext, renderOpts),
+      (enContext: any) => renderContent(enTrack.description, enContext, renderOpts),
     )
 
-    const learningTrack = {
+    const guides = (await getLinkData(track.guides, context)) || []
+
+    const learningTrack: LearningTrack = {
       trackName: renderedTrackName,
       trackProduct: context.currentProduct || null,
       title,
       description,
       // getLinkData respects versioning and only returns guides available in the current version;
       // if no guides are available, the learningTrack.guides property will be an empty array.
-      guides: await getLinkData(track.guides, context),
+      guides: guides as TrackGuide[],
     }
 
     // Only add the track to the array of tracks if there are guides in this version and it's not the featured track.
-    if (learningTrack.guides.length) {
+    if (Array.isArray(learningTrack.guides) && learningTrack.guides.length > 0) {
       learningTracks.push(learningTrack)
     }
   }

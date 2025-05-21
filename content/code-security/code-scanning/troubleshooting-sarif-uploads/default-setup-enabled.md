@@ -33,7 +33,7 @@ You will only see this error for SARIF files that contain results created using 
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
 1. In the "{% data variables.product.UI_code_security_scanning %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," click {% octicon "kebab-horizontal" aria-label="Menu" %}.
-1. If there is a **{% octicon "workflow" aria-hidden="true" %} Switch to advanced** option, default setup is enabled for the repository.
+1. If there is a **{% octicon "workflow" aria-hidden="true" aria-label="workflow" %} Switch to advanced** option, default setup is enabled for the repository.
 
 ## Fixing the problem
 
@@ -46,5 +46,5 @@ Before you can fix the problem, you need to decide whether {% data variables.pro
 
 ### Disabling default setup to unblock SARIF upload
 
-1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," from the {% octicon "kebab-horizontal" aria-label="Menu" %} menu select **{% octicon "stop" aria-hidden="true" %} Disable {% data variables.product.prodname_codeql %}**.
+1. In the "{% data variables.product.prodname_code_scanning_caps %}" section of the page, next to "{% data variables.product.prodname_codeql %} analysis," from the {% octicon "kebab-horizontal" aria-label="Menu" %} menu select **{% octicon "stop" aria-hidden="true" aria-label="stop" %} Disable {% data variables.product.prodname_codeql %}**.
 {% data reusables.code-scanning.sarif-upload-retry %}

@@ -18,7 +18,7 @@ The copied assignment includes assignment details such as the name, source repos
 1. Sign into {% data variables.product.prodname_classroom_with_url %}.
 1. Navigate to the classroom that has the assignment that you want to reuse.
 1. In the list of assignments, click the assignment you want to reuse.
-1. Select the **{% octicon "pencil" aria-hidden="true" %} Edit** dropdown menu in the top right of the page, then click **{% octicon "sync" aria-hidden="true" %} Reuse assignment**.
+1. Select the **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** dropdown menu in the top right of the page, then click **{% octicon "sync" aria-hidden="true" aria-label="sync" %} Reuse assignment**.
 
    ![Screenshot of an assignment. The "Edit" dropdown is expanded and the "Reuse assignment" option is outlined in dark orange.](/assets/images/help/classroom/reuse-assignment-button.png)
 
