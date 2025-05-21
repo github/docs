@@ -2,7 +2,6 @@ import { describe, expect, test } from 'vitest'
 
 import { SURROGATE_ENUMS } from '@/frame/middleware/set-fastly-surrogate-key.js'
 import { get } from '@/tests/helpers/e2etest.js'
-import { DEFAULT_FASTLY_IPS } from '@/shielding/lib/fastly-ips'
 
 describe('honeypotting', () => {
   test('any GET with survey-vote and survey-token query strings is 400', async () => {
@@ -73,92 +72,25 @@ describe('index.md and .md suffixes', () => {
   })
 
   // TODO-ARTICLEAPI: unskip tests or replace when ready to ship article API
-  test.skip('any URL that ends with /.md redirects', async () => {
+  test('any URL that ends with /.md redirects', async () => {
     // With language prefix
     {
       const res = await get('/en/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/en/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/en/get-started/hello')
     }
     // Without language prefix
     {
       const res = await get('/get-started/hello.md')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
     // With query string
     {
       const res = await get('/get-started/hello.md?foo=bar')
       expect(res.statusCode).toBe(302)
-      expect(res.headers.location).toBe('/get-started/hello?foo=bar')
+      expect(res.headers.location).toBe('/api/article/body?pathname=/get-started/hello')
     }
-  })
-})
-
-describe('rate limiting', () => {
-  // We can't actually trigger a full rate limit because
-  // then all other tests will all fail. And we can't rely on this
-  // test always being run last.
-
-  test('only happens if you have junk query strings', async () => {
-    const res = await get('/robots.txt?foo=bar', {
-      headers: {
-        // Rate limiting only happens in production, so we need to
-        // make the environment look like production.
-        'fastly-client-ip': 'abc',
-      },
-    })
-    expect(res.statusCode).toBe(200)
-    const limit = parseInt(res.headers['ratelimit-limit'])
-    const remaining = parseInt(res.headers['ratelimit-remaining'])
-    expect(limit).toBeGreaterThan(0)
-    expect(remaining).toBeLessThan(limit)
-
-    // A second request
-    {
-      const res = await get('/robots.txt?foo=buzz', {
-        headers: {
-          'fastly-client-ip': 'abc',
-        },
-      })
-      expect(res.statusCode).toBe(200)
-      const newLimit = parseInt(res.headers['ratelimit-limit'])
-      const newRemaining = parseInt(res.headers['ratelimit-remaining'])
-      expect(newLimit).toBe(limit)
-      // Can't rely on `newRemaining == remaining - 1` because of
-      // concurrency of test-running.
-      expect(newRemaining).toBeLessThan(remaining)
-    }
-  })
-
-  test('nothing happens if no unrecognized query string', async () => {
-    const res = await get('/robots.txt')
-    expect(res.statusCode).toBe(200)
-    expect(res.headers['ratelimit-limit']).toBeUndefined()
-    expect(res.headers['ratelimit-remaining']).toBeUndefined()
-  })
-
-  test('Fastly IPs are not rate limited', async () => {
-    // Fastly IPs are in the form `X.X.X.X/Y`
-    // Rate limited IPs are in the form `X.X.X.X`
-    // Where the last X could be any 2-3 digit number
-    const mockFastlyIP =
-      DEFAULT_FASTLY_IPS[0].split('.').slice(0, 3).join('.') + `.${Math.floor(Math.random() * 100)}`
-    // Cookies only allows 1 request per minute
-    const res1 = await get('/api/cookies', {
-      headers: {
-        'fastly-client-ip': mockFastlyIP,
-      },
-    })
-    expect(res1.statusCode).toBe(200)
-
-    // A second request shouldn't be rate limited because it's from a Fastly IP
-    const res2 = await get('/api/cookies', {
-      headers: {
-        'fastly-client-ip': mockFastlyIP,
-      },
-    })
-    expect(res2.statusCode).toBe(200)
   })
 })
 

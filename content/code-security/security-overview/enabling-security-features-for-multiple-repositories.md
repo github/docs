@@ -5,7 +5,7 @@ intro: You can use security overview to select a subset of repositories and enab
 permissions: '{% data reusables.permissions.security-org-enable %}'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: security-configurations-beta-and-pre-beta
+  feature: security-configurations-beta-and-pre-beta # Display article for old GHES versions only
 type: how_to
 topics:
   - Security overview
@@ -24,8 +24,8 @@ You can use checkboxes to select which repositories you want to include, or use 
 
 * To exclude certain repositories from the selection, you can assign a topic such as `test` to these repositories, then exclude them from the results with a search like `-topic:test`. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics).
 * If a team uses repositories that all require a certain feature, you can use the `team:` filter to search for repositories where a team has write access.
-* If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale).{% ifversion security-overview-repository-properties %}
-* You can use custom repository properties to filter security overview to show results from specific groups of repositories. Custom properties are metadata that organization owners can add and set for repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).{% endif %}
+* If you're enabling {% data variables.product.prodname_code_scanning %}, you can see which repositories are eligible for default setup with the search `code-scanning-default-setup:eligible`. For more information, see [AUTOTITLE](/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/configuring-code-scanning-at-scale).
+* You can use custom repository properties to filter security overview to show results from specific groups of repositories. Custom properties are metadata that organization owners can add and set for repositories in an organization. For more information, see [AUTOTITLE](/organizations/managing-organization-settings/managing-custom-properties-for-repositories-in-your-organization).
 
 For more information on filters you can use in different parts of security overview, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
 

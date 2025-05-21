@@ -145,7 +145,7 @@ You can use query parameters to open issues. Query parameters are optional parts
 
 You must have the proper permissions for any action to use the equivalent query parameter. For example, you must have permission to add a label to an issue to use the `labels` query parameter. For more information, see [AUTOTITLE](/organizations/managing-user-access-to-your-organizations-repositories/managing-repository-roles/repository-roles-for-an-organization).
 
-If you create an invalid URL using query parameters, or if you don’t have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
+If you create an invalid URL using query parameters, or if you don't have the proper permissions, the URL will return a `404 Not Found` error page. If you create a URL that exceeds the server limit, the URL will return a `414 URI Too Long` error page.
 
 Query parameter | Example
 ---  | ---
@@ -161,13 +161,18 @@ Query parameter | Example
 You can also use URL query parameters to fill custom text fields that you have defined in issue form templates. Query parameters for issue form fields can also be passed to the issue template chooser. For more information, see [AUTOTITLE](/communities/using-templates-to-encourage-useful-issues-and-pull-requests/syntax-for-githubs-form-schema#keys).
 {% endif %}
 
-{% ifversion code-scanning-task-lists %}
+{% ifversion copilot %}
 
-## Creating an issue from a {% data variables.product.prodname_code_scanning %} alert
+## Creating an issue with {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}
 
-{% data reusables.code-scanning.beta-alert-tracking-in-issues %}
-If you're using issues to track and prioritize your work, you can use issues to track {% data variables.product.prodname_code_scanning %} alerts.
-{% data reusables.code-scanning.alert-tracking-link %}
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-to-create-issues).
+
+## Creating an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
+
+You can also create an issue directly from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
 
 {% endif %}
 

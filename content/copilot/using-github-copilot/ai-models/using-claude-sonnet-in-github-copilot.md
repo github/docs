@@ -2,7 +2,7 @@
 title: Using Claude Sonnet in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use {% data variables.copilot.copilot_claude_sonnet %}'
-intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
+intro: 'Learn how to enable {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
   feature: copilot
 topics:
@@ -11,27 +11,28 @@ redirect_from:
   - /copilot/using-github-copilot/using-claude-sonnet-in-github-copilot
 ---
 
-> [!NOTE] All {% data variables.copilot.copilot_claude_sonnet %} models are in {% data variables.release-phases.public_preview %} and subject to change. The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
-
 ## About {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_chat %}
 
-{% data variables.copilot.copilot_claude_sonnet %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about the [Sonnet's capabilities](https://www.anthropic.com/claude/sonnet).
+{% data variables.copilot.copilot_claude_sonnet %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude_sonnet %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about [Sonnet's capabilities](https://www.anthropic.com/claude/sonnet).
 
-{% data variables.copilot.copilot_claude_sonnet_37 %} is currently available in:
+* {% data variables.copilot.copilot_claude_sonnet_35 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are available in:
 
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.13 or later
-* Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022
+    * **3.5**: Version 17.12 or later
+    * **3.7**: Version 17.13 or later
+  * {% data variables.product.prodname_copilot_chat_short %} in Xcode
+  * {% data variables.product.prodname_copilot_chat_short %} in Eclipse
+  * {% data variables.product.prodname_copilot_chat_short %} in JetBrains
+  * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
-{% data variables.copilot.copilot_claude_sonnet_35 %} is currently available in:
+{% data variables.copilot.copilot_claude_sonnet_37 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform when used in {% data variables.product.prodname_copilot %}. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022 version 17.12 or later
-* Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+* Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
+* Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic.
+* Google Cloud: [Google commits to not training on {% data variables.product.github %} data as part of their service terms](https://cloud.google.com/vertex-ai/generative-ai/docs/data-governance). {% data variables.product.github %} is additionally not subject to prompt logging for abuse monitoring.
 
-{% data variables.product.prodname_copilot %} uses {% data variables.copilot.copilot_claude_sonnet %} hosted on Amazon Web Services. When using {% data variables.copilot.copilot_claude_sonnet %}, prompts and metadata are sent to Amazon's Bedrock service, which makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
-
-Beginning March 11th, 2025, {% data variables.copilot.copilot_claude_sonnet %} will additionally be hosted by Anthropic PBC and Google Cloud Platform when used in {% data variables.product.prodname_copilot %} to provide additional model capacity and reliability.
+In order to provide better service quality and reduce latency, {% data variables.product.github %} uses [prompt caching](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching). You can read more about prompt caching on [Anthropic PBC](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching), [Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/prompt-caching.html), and [Google Cloud](https://cloud.google.com/vertex-ai/generative-ai/docs/partner-models/claude-prompt-caching).
 
 When using {% data variables.copilot.copilot_claude_sonnet %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful, offensive, or off-topic content.
 
@@ -43,7 +44,7 @@ You must enable access to each {% data variables.copilot.copilot_claude_sonnet %
 
 ### Setup for individual use
 
-> [!NOTE] {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.product.prodname_copilot_free_short %}
+> [!NOTE] {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.product.prodname_copilot_free_short %}.
 
 If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude_sonnet %} in two ways:
 
@@ -61,8 +62,8 @@ As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can e
 
 ## Using {% data variables.copilot.copilot_claude_sonnet %}
 
-For details of how to change the model that {% data variables.product.prodname_copilot_chat_short %} uses, see: [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+For details on how to change the model that {% data variables.product.prodname_copilot_chat_short %} uses, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Leaving feedback
 
-To leave feedback about {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [Claude 3.5 Sonnet is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).
+To leave feedback about {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}, or to ask a question, see the {% data variables.product.prodname_github_community %} discussion [{% data variables.copilot.copilot_claude_sonnet_35 %} is now available to all {% data variables.product.prodname_copilot_short %} users in Public Preview](https://github.com/orgs/community/discussions/143337).

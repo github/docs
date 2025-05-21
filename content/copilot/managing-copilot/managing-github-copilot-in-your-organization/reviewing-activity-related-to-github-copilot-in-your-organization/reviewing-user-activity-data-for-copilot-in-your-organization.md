@@ -3,7 +3,7 @@ title: Reviewing user activity data for Copilot in your organization
 shortTitle: User activity data
 intro: 'Review {% data variables.product.prodname_copilot %} usage in your organization to make informed decisions about seat assignment.'
 permissions: Organization owners
-product: 'Organizations with a subscription to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
+product: 'Organizations with a plan to {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %}'
 versions:
   feature: copilot
 topics:
@@ -22,7 +22,7 @@ redirect_from:
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 {% data reusables.copilot.access-settings %}
-1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} subscription, and the estimated monthly cost.
+1. At the top of the page, under "{% data variables.product.prodname_copilot %}," you can see an overview of your organization's {% data variables.product.prodname_copilot %} usage. You can see the number seats assigned through your {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} plan, and the estimated monthly cost.
 
    {% ifversion ghec %}
    ![Screenshot of the {% data variables.product.prodname_copilot %} usage overview.](/assets/images/help/copilot/copilot-usage-overview-enterprise.png)
@@ -64,17 +64,11 @@ Processing new telemetry events and updating a user's `last_activity_at` date ca
 
 If you believe a user's `last_activity_at` date should be more recent than shown in the CSV or API report, please wait 24 hours and check again. If their recent Copilot usage is still not reflected in their `last_activity_at` date, have the user check that telemetry is enabled in their IDE settings.
 
-For more information about enabling telemetry in various IDEs, see:
-
-* [Enable or disable usage data collection for Azure Data Studio](https://learn.microsoft.com/azure-data-studio/usage-data-collection) in the Microsoft documentation
-* [Data Sharing](https://www.jetbrains.com/help/idea/settings-usage-statistics.html) in the JetBrains documentation
-* [Telemetry](https://code.visualstudio.com/docs/getstarted/telemetry) in the {% data variables.product.prodname_vscode_shortname %} documentation
-
 ## Further reading
 
 {% ifversion ghec %}
 * [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/viewing-copilot-usage-for-your-enterprise){% endif %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization)
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/revoking-access-to-copilot-for-members-of-your-organization)
 * [AUTOTITLE](/copilot/managing-copilot/configuring-and-auditing-content-exclusion/reviewing-changes-to-content-exclusions-for-github-copilot)

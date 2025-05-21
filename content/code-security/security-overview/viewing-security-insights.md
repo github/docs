@@ -3,8 +3,11 @@ title: Viewing security insights
 shortTitle: View security insights
 intro: 'You can use the overview dashboard in security overview to monitor the security landscape of the repositories in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %}.'
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-both %}'
 versions:
-  feature: security-overview-dashboard
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: how_to
 topics:
   - Security overview
@@ -56,6 +59,12 @@ You can download a CSV file of the overview dashboard data for your organization
 
 {% ifversion security-overview-dashboard-enterprise %}Enterprise members can access the overview page for organizations in their enterprise. {% endif %}The metrics you see will depend on your role and repository permissions. For more information, see [AUTOTITLE](/code-security/security-overview/about-security-overview#permission-to-view-data-in-security-overview).
 
+{% ifversion secret-risk-assessment %}
+
+> [!TIP] If you're interested in assessing your organization's exposure to secret leaks specifically, you can run a free {% data variables.product.prodname_secret_risk_assessment %} on {% data variables.product.github %}. The resulting report gives you aggregate insights on public leaks, private exposures, and token types, as well as provides you with actionable steps to strengthen your security and protect your code. See [AUTOTITLE](/code-security/securing-your-organization/understanding-your-organizations-exposure-to-leaked-secrets/about-secret-risk-assessment).
+
+{% endif %}
+
 ### Limitations
 
 The data that populates the overview page can and will change over time due to various factors, such as repository deletion or modifications to a security advisory. This means that the overview metrics for the same time period could vary if viewed at two different times. For compliance reports or other scenarios where data consistency is crucial, we recommend that you source data from the audit log. For more information, see [AUTOTITLE](/code-security/getting-started/auditing-security-alerts).
@@ -88,7 +97,7 @@ Keep in mind that the overview page tracks changes over time for security alert 
 ## Understanding the overview dashboard
 
 {% ifversion security-overview-3-tab-dashboard %}
-<!--Content for GHEC and GHES 3.16+ see next HTML comment for GHES =< 3.15-->
+<!--Content for FPT, GHEC, and GHES 3.16+ see next HTML comment for GHES =< 3.15-->
 
 * [Detection tab](#detection-tab)
 * [Remediation tab](#remediation-tab)
@@ -230,7 +239,7 @@ Some metrics in the security overview dashboard include a trend indicator, which
 
 ### Alert trends graph
 
-The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. {% ifversion security-overview-3-13-overview %}By default, alerts{% else %}Alerts{% endif %} are grouped by severity. You can toggle the graph between open and closed alerts{% ifversion security-overview-3-13-overview %} and change the way alerts are grouped{% endif %}.
+The alert trends graph shows the change in the number of alerts in your organization{% ifversion security-overview-dashboard-enterprise %} or enterprise{% endif %} over the time period you have chosen. By default, alerts are grouped by severity. You can toggle the graph between open and closed alerts and change the way alerts are grouped.
 
 Open alerts include both newly created and existing open security alerts. New alerts are represented on their creation date, while alerts that existed before the chosen time period are represented at the start of the period. Once an alert is remediated or dismissed, it is not included in the graph. Instead, the alert will move to the closed alerts graph.
 

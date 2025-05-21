@@ -132,19 +132,26 @@ Liquid syntax for alerts is still supported and may still appear in older articl
 
 For more information on formatting alerts, see “Alerts” in [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#alerts).
 
-## Buttons
+## Call to action (CTA)
 
-Landing pages and some articles have buttons that take people to relevant content in other articles or on other {% data variables.product.prodname_dotcom %} webpages. Buttons should be used when someone needs to navigate to another page to complete the task being described. For example, [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) has a button that takes people to the trial sign up page since that is the next step in the process of setting up a trial. The [AUTOTITLE](/migrations) landing page uses a button to direct people to the article that most people will need to read to start a migration.
+A CTA is a link or button prompting users to take the next step in their journey. It will send a user to a different location.
 
-If a button encourages people to navigate away from the {% data variables.product.prodname_docs %} site, follow the call to action (CTA) button guidelines. If you want to include another type of button on a landing page or article, you must get approval from the {% data variables.product.prodname_docs %} team.
+The key component of a CTA is that it helps the user to do what they were trying to do, either by guiding them to the next step or leading them to a product or feature they need.
 
-## Call to action (CTA) buttons
+In considering when to use a CTA, ask the following questions:
 
-CTA buttons emphasize a link that we expect or encourage people to navigate to after reading an article or as part of completing the task that an article describes. CTAs should only take people to {% data variables.product.company_short %}-owned domains. For example, the "Try {% data variables.product.prodname_copilot %}" CTA in [AUTOTITLE](/free-pro-team@latest/copilot/using-github-copilot/getting-started-with-github-copilot) links to the [GitHub Copilot settings menu](https://github.com/settings/copilot) on {% data variables.product.prodname_dotcom_the_website %}.
+* Is there a logical or necessary next step for the user? This can be the next information they need, or a feature that would help them accomplish their task.
+* Is there a business need for sending the user to that place?
 
-Only include a CTA button if navigating to the link supports user needs. Do not use CTA buttons solely for marketing GitHub features or products. In the above example, someone who wants to try {% data variables.product.prodname_copilot %} must navigate to the {% data variables.product.prodname_copilot_short %} settings menu and would likely want to after reading the article. In contrast, even though someone might use {% data variables.product.prodname_copilot_short %} as part of writing code that they then create a pull request for, we would not add a "Try {% data variables.product.prodname_copilot %}" CTA to [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) since {% data variables.product.prodname_copilot_short %} is not connected to the user needs of "Creating a pull request." Most people will create pull requests without using {% data variables.product.prodname_copilot_short %}. But people visiting articles about getting started with {% data variables.product.prodname_copilot_short %} are probably interested in trying {% data variables.product.prodname_copilot_short %} if they are not already using it. So we add the CTA button to help people get where they are trying to go.
+We should only use a CTA when the answer to both questions is yes.
 
-Style your CTAs using the following format.
+### How is a CTA different from a link?
+
+A CTA is an explicit direction to the user to take an immediate action, such as “Try Copilot for free” or “Create your own repository”. A CTA in our documentation should only lead people to a {% data variables.product.company_short %}-owned domain.
+
+For example, the CTA on [AUTOTITLE](/enterprise-cloud@latest/admin/overview/setting-up-a-trial-of-github-enterprise-cloud) links to [an enterprise sales page](https://github.com/account/enterprises/new?ref_cta=GHEC+trial&ref_loc=setting+up+a+trial+of+github+enterprise+cloud&ref_page=docs) on {% data variables.product.prodname_dotcom_the_website %}.
+
+Style a CTA using the following format.
 
 ```html
 {% raw %}<a href="https://github.com/DESTINATION/URL?ref_cta=CTA+NAME&ref_loc=LOCATION&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Try PRODUCT NAME</span> {% octicon "link-external" height:16 %}</a>{% endraw %}
@@ -519,7 +526,6 @@ The Microsoft Style Guide offers resources on bias-free communication, accessibi
 * [Accessibility terms](https://docs.microsoft.com/style-guide/a-z-word-list-term-collections/term-collections/accessibility-terms)
 
 More resources for learning about inclusive and accessible language and style:
-* [18F Content Guide on Inclusive Language](https://content-guide.18f.gov/our-style/inclusive-language/)
 * MailChimp Content Style Guide:
   * [Writing About People](https://styleguide.mailchimp.com/writing-about-people/)
   * [Writing for Accessibility](https://styleguide.mailchimp.com/writing-for-accessibility/)
@@ -948,7 +954,7 @@ Always use "dev container" (or, where clarification is needed, its longer form "
 
 Use "development container configuration files" to refer to all of the files in the `.devcontainer` directory (plus the `.devcontainer.json` if that's being used rather than `devcontainer.json` in the `.devcontainer` directory). Don't refer to these as "development container files" or "devcontainer files" to avoid this being taken as referring to `devcontainer.json` files. "Development container configuration files" refers to all of the files that can be used to configure a dev container, including `Dockerfile` and `docker-compose.yml` files. Don't use "the development container configuration file" (singular) when referring specifically to a `devcontainer.json` file. Instead refer to this file by its name.
 
-### {% data variables.product.prodname_GHAS %}{% ifversion ghas-products-cloud %} products{% endif %} (GHAS)
+### {% data variables.product.prodname_GHAS %} products (GHAS)
 
 Use the terms `licenses` and `active committers` when you refer to {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %} billing.
 
@@ -1374,7 +1380,7 @@ For tables that use symbols:
 
 * Populate all cells. For example in a permissions table, do not mark only the cells for things that require a permission.
 * Use octicons or SVG. Do not use emoji. For more information about octicons, see [AUTOTITLE](/contributing/syntax-and-versioning-for-github-docs/using-markdown-and-liquid-in-github-docs#octicons).
-* Use a [check mark](https://primer.style/octicons/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/x-16) for negative values ("No", "Optional", "Unsupported").
+* Use a [check mark](https://primer.style/octicons/icon/check-16) for affirmative values ("Yes", "Required", "Supported") and a [cross](https://primer.style/octicons/icon/x-16) for negative values ("No", "Optional", "Unsupported").
 * Use `aria-label` to describe the meaning of the symbol, not its visual characteristics. For example, "Required", not "Check mark icon".
 
 Where table data is not truly binary (every value is either "Yes" or "No", for example), text values may be needed in addition to, or instead of, symbols. For example on the page [AUTOTITLE](/support/learning-about-github-support/about-github-support), some features are marked as "Available to purchase".
@@ -1527,11 +1533,12 @@ Format lists and clickable list items in bold. To describe interacting with a li
 
 ### Location
 
-Describe a user interface element’s location with standard terms.
-* Under or above
-* Next to
-* Upper-left, upper-right, lower-left, lower-right
-* Top of the page, bottom of the page, right side of the page, left side of the page
+As per [WCAG guidance](https://www.w3.org/WAI/WCAG21/Understanding/sensory-characteristics.html), we should describe elements by name and not merely by appearance or location. The Microsoft Style Guide offers specific guidance for directional phrases, with emphasis on their use in documentation.
+
+* [Above](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/a/above) or [below](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/b/below)
+* [Upper-left, upper-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/u/upper-left-upper-right)
+* [Lower-left, lower-right](https://learn.microsoft.com/en-us/style-guide/a-z-word-list-term-collections/l/lower-left-lower-right)
+* Next to, bottom or top of the page, left or right side of the page
 
 ### Panels
 
@@ -1561,7 +1568,8 @@ We only document the responsive states of UI elements when they create ambiguity
 
 ### User interface text
 
-When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with.
+When referencing text in the user interface, reproduce the text exactly. Use quotation marks to surround UI text that cannot be interacted with. Place any commas outside of the quotation marks.
+
 * **Use:** Under “IP allow list”, click **Edit**.
 
 ### More resources

@@ -4,6 +4,7 @@ Go | [Go Dependency Submission](https://github.com/marketplace/actions/go-depend
 Gradle | [Gradle Dependency Submission](https://github.com/marketplace/actions/build-with-gradle#the-dependency-submission-action) |
 Maven | [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) |
 Mill | [Mill Dependency Submission](https://github.com/marketplace/actions/mill-dependency-submission) |
+Mix (Elixir) | [Mix Dependency Submission](https://github.com/marketplace/actions/mix-dependency-submission) |
 Scala | [Sbt Dependency Submission](https://github.com/marketplace/actions/sbt-dependency-submission) |
 NuGet and others | [Component Detection dependency submission action](https://github.com/marketplace/actions/component-detection-dependency-submission-action) |
 

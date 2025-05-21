@@ -8,10 +8,6 @@ topics:
   - Copilot
 type: rai
 redirect_from:
-  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat
-  - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
-  - /copilot/github-copilot-enterprise/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
-  - /copilot/github-copilot-chat/copilot-chat-in-github/about-github-copilot-chat-in-githubcom
   - /copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom
 ---
 
@@ -158,4 +154,4 @@ For details of how to use {% data variables.product.prodname_copilot_chat_dotcom
 ## Further reading
 
 * [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-copilot-pre-release-terms)
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)

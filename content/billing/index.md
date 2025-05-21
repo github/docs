@@ -6,12 +6,13 @@ redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github
   - /categories/setting-up-and-managing-billing-and-payments-on-github
 introLinks:
-  overview: '{% ifversion fpt or ghec %}/billing/using-the-billing-platform/about-billing-on-github{% elsif ghes%}/billing/using-the-billing-platform/about-billing-for-your-enterprise{% endif %}'
+  overview: '{% ifversion fpt or ghec %}/billing/managing-your-billing/about-billing-on-github{% elsif ghes%}/billing/managing-your-billing/about-billing-for-your-enterprise{% endif %}'
 featuredLinks:
   startHere:
-    - '{% ifversion fpt or ghec %}/billing/using-the-billing-platform/adding-or-editing-a-payment-method{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/using-the-billing-platform/setting-your-billing-email{% endif %}'
-    - '{% ifversion fpt or ghec %}/billing/managing-the-plan-for-your-github-account/about-per-user-pricing{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/managing-your-billing/about-the-new-billing-platform{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/managing-your-billing/managing-your-payment-and-billing-information{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/managing-your-billing/about-the-billing-cycle{% endif %}'
+    - '{% ifversion fpt or ghec %}/billing/managing-your-billing/preventing-overspending{% endif %}'
     - '{% ifversion ghes %}/billing/managing-the-plan-for-your-github-account/viewing-the-subscription-and-usage-for-your-enterprise-account{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/about-licenses-for-github-enterprise{% endif %}'
     - '{% ifversion ghes %}/billing/managing-your-license-for-github-enterprise/viewing-license-usage-for-github-enterprise{% endif %}'
@@ -36,8 +37,7 @@ versions:
 topics:
   - Billing
 children:
-  - /using-the-billing-platform
-  - /using-the-new-billing-platform
+  - /managing-your-billing
   - /managing-the-plan-for-your-github-account
   - /managing-your-license-for-github-enterprise
   - /managing-billing-for-your-products

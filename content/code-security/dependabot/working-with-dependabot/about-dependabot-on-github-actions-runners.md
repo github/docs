@@ -1,6 +1,6 @@
 ---
 title: About Dependabot on GitHub Actions runners
-intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} if you have {% data variables.product.prodname_actions %} enabled for the repository.'
+intro: '{% data variables.product.prodname_dotcom %} automatically runs the jobs that generate {% data variables.product.prodname_dependabot %} pull requests on {% data variables.product.prodname_actions %} if you have {% data variables.product.prodname_actions %} enabled for the repository. When {% data variables.product.prodname_dependabot %} is enabled, these jobs will run by bypassing Actions policy checks and disablement at the repository or organization level.'
 shortTitle: About Dependabot on Actions
 product: '{% data reusables.gated-features.dependabot-on-actions %}'
 versions:
@@ -17,6 +17,9 @@ topics:
 
 ## About {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} runners
 
+> [!IMPORTANT]
+> If {% data variables.product.prodname_dependabot %} is enabled for a repository, it will always run on {% data variables.product.prodname_actions %}, **bypassing both Actions policy checks and disablement at the repository or organization level**. This ensures that security and version update workflows always run when Dependabot is enabled.
+
 {% data reusables.dependabot.dependabot-updates-and-actions %}
 
 {% data reusables.dependabot.dependabot-on-actions-future-note %}
@@ -29,7 +32,7 @@ Using {% data variables.product.prodname_actions %} runners allows you to more e
 You can run {% data variables.product.prodname_dependabot %} on {% data variables.product.prodname_actions %} using:
 * {% data variables.product.prodname_dotcom %}-hosted runners
 * {% data variables.actions.hosted_runners_caps %}. These runners are {% data variables.product.prodname_dotcom %}-hosted, with advanced features, such as more RAM, CPU, and disk space. For more information, see [AUTOTITLE](/actions/using-github-hosted-runners/about-larger-runners).
-* Self-hosted runners
+* Self-hosted runners. For more information on assigning a `dependabot` label on self-hosted runners, see [AUTOTITLE](/code-security/dependabot/maintain-dependencies/managing-dependabot-on-self-hosted-runners).
 
 {% data reusables.dependabot.vnet-arc-note %}
 

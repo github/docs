@@ -64,7 +64,6 @@ router.get('/cookies', (req, res) => {
   noCacheControl(res)
   const cookies = {
     isStaff: Boolean(req.cookies?.staffonly?.startsWith('yes')) || false,
-    dotcomUsername: req.cookies?.dotcom_user || '',
   }
   return res.json(cookies)
 })

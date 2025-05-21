@@ -37,7 +37,7 @@ jobs:
       - name: Open issue in docs-content
         if: ${{ always() && steps.linting-content-data.outcome == 'failure' }}
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken content markdown report
           REPORT_REPOSITORY: github/docs-content

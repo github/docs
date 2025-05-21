@@ -19,7 +19,7 @@ const STATSD_KEY = 'middleware.handle_invalid_querystring_values'
 // that the values of `?platform=...` should be none when the path is
 // something like `/en/search`.
 const RECOGNIZED_VALUES = {
-  platform: allPlatforms,
+  platform: allPlatforms as string[],
   tool: Object.keys(allTools),
 }
 // So we can look up if a key in the object is actually present
@@ -62,13 +62,7 @@ export default function handleInvalidQuerystringValues(
           if (sp.toString()) newURL += `?${sp}`
           res.redirect(302, newURL)
 
-          const tags = [
-            'response:302',
-            `url:${req.url}`,
-            `ip:${req.ip}`,
-            `path:${req.path}`,
-            `key:${key}`,
-          ]
+          const tags = ['response:302', `url:${req.url}`, `path:${req.path}`, `key:${key}`]
           statsd.increment(STATSD_KEY, 1, tags)
 
           return

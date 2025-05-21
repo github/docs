@@ -4,7 +4,6 @@ title: Getting started with your enterprise
 intro: 'Learn how to start a trial of {% data variables.product.prodname_enterprise %}, and about enterprise billing and migrations.'
 versions:
   ghec: '*'
-  ghes: '*'
 topics:
   - Accounts
   - Enterprise

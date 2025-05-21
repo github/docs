@@ -1,1 +1,1 @@
-1. Under "{% octicon "gear" aria-hidden="true" %} Settings", click **Audit log**.
+1. Under "Settings", click **{% octicon "log" aria-hidden="true" %} Audit log**.

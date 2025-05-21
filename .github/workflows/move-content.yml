@@ -34,8 +34,8 @@ jobs:
           # These must be set to something before running the move-content
           # script because it depends on executing `git mv ...`
           # and `git commit ...`
-          git config --global user.name any-body
-          git config --global user.email "any-body@example.com"
+          git config --global user.name "docs-bot"
+          git config --global user.email "77750099+docs-bot@users.noreply.github.com"
 
       - name: Move hello-world.md to hello-wurld.md
         env:

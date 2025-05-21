@@ -1,1 +1,1 @@
-For complex repositories larger than around 5 GB, you may need to use `ghe-migrator` and Enterprise Cloud Importer instead. Enterprise Cloud Importer is only available for expert-led migrations.
+For repositories with git or metadata archives greater than 20GB, consider engaging our {% data variables.product.prodname_expert_services %} to help bring your large repositories within Enterprise Cloud Importer limits.

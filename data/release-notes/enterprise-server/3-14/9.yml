@@ -1,5 +1,8 @@
 date: '2025-03-04'
 sections:
+  features:
+    - |
+      Running {% data variables.product.prodname_ghe_server %} on the VMware ESXi 8.0 hypervisor is supported. If your installation is on VMware ESXi 7.x or earlier versions, you can now use the ESXi 8.0 hypervisor. [Updated: 2025-04-03]
   security_fixes:
     - |
       Permissions and ownership of `/etc/ssh/sshd_config` are now enforced so that the `root` identity is the only one able to read or write to the file.
@@ -57,6 +60,13 @@ sections:
     - |
       When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
     - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-19]
+    - |
       After a restore, existing outside collaborators are unable to be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
     - |
       After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.
+  errata:
+    - |
+      The release notes previously did not mention VMware ESXi 8.0 support. [Updated: 2025-04-02]

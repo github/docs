@@ -32,7 +32,7 @@ jobs:
         id: check-early-access
         env:
           BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: npm run what-docs-early-access-branch
 
       - name: Check out docs-early-access too, if internal repo
@@ -40,7 +40,7 @@ jobs:
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
         with:
           repository: github/docs-early-access
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
           path: docs-early-access
           ref: ${{ steps.check-early-access.outputs.branch }}
 
@@ -71,7 +71,7 @@ jobs:
           # Set this to true in repo scope to enable debug logs
           # ACTIONS_RUNNER_DEBUG = true
           ACTION_RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           REPORT_AUTHOR: docs-bot
           REPORT_LABEL: broken link report
           REPORT_REPOSITORY: github/docs-content

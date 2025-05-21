@@ -2,7 +2,6 @@
 title: Configuring network settings for GitHub Copilot
 shortTitle: Network settings
 intro: 'You can connect to {% data variables.product.prodname_copilot_short %} through an HTTP proxy and use custom certificates.'
-product: '{% data reusables.gated-features.copilot %}'
 topics:
   - Copilot
 versions:
@@ -68,8 +67,8 @@ This stores your credentials as plaintext in your editor's settings. Alternative
 
 {% data reusables.copilot.vscode-settings %}
 1. In the left-side panel of the settings tab, click **Application** and then select **Proxy**.
-1. In the text box under "Proxy", type the address of your proxy server, for example `http://localhost:3128`.
-1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL", select or deselect the checkbox.
+1. In the text box under "Proxy," type the address of your proxy server, for example `http://localhost:3128`.
+1. Optionally, to configure {% data variables.product.prodname_copilot_short %} to ignore certificate errors, under "Proxy Strict SSL," select or deselect the checkbox.
 
    > [!WARNING] Ignoring certificate errors can cause security issues and is not recommended.
 

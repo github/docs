@@ -47,9 +47,12 @@ For information about {% data variables.product.prodname_code_scanning %} alerts
 
 {% data variables.product.prodname_codeql %} supports both compiled and interpreted languages, and can find vulnerabilities and errors in code that's written in the supported languages.
 
+{% data variables.product.prodname_codeql %} supports the following languages:
+
 {% data reusables.code-scanning.codeql-languages-bullets %}
 
-{% data reusables.code-scanning.beta-actions-analysis %}
+> [!IMPORTANT]
+> {% data variables.product.prodname_codeql %} does **not** support languages that are not listed above. This includes, but is not limited to, **Rust**, **PHP**, **Scala**, and others. Attempting to use {% data variables.product.prodname_codeql %} with unsupported languages may result in no alerts being generated and incomplete analysis.
 
 ## Modeling custom or niche frameworks
 

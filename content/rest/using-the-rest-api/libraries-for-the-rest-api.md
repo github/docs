@@ -62,8 +62,8 @@ These third-party libraries are not maintained by {% data variables.product.comp
 
 ### Java
 
-* GitHub API for Java, an object oriented representation of the GitHub API: [org.kohsuke.github (From github-api)](http://github-api.kohsuke.org/)
-* JCabi GitHub API, based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API: [github.jcabi.com (Personal Website)](http://github.jcabi.com)
+* GitHub API for Java, an object oriented representation of the GitHub API: [hub4j/github-api](https://hub4j.github.io/github-api/)
+* JCabi GitHub API, based on Java7 JSON API (JSR-353), simplifies tests with a runtime GitHub stub, and covers the entire API: [github.jcabi.com (Personal Website)](https://github.jcabi.com)
 
 ### JavaScript
 
@@ -113,7 +113,6 @@ These third-party libraries are not maintained by {% data variables.product.comp
 ### Rust
 
 * Octocrab: [XAMPPRocky/octocrab](https://github.com/XAMPPRocky/octocrab)
-* Octocat: [octocat-rs/octocat-rs](https://github.com/octocat-rs/octocat-rs)
 
 ### Scala
 

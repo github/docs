@@ -3,7 +3,7 @@ title: Creating a custom model for GitHub Copilot
 shortTitle: Create a custom model
 intro: "You can fine-tune {% data variables.product.prodname_copilot_short %} code completion by creating a custom model based on code in your organization's repositories."
 permissions: "Owners of organizations enrolled in the {% data variables.release-phases.public_preview %}."
-product: "The organization must belong to an enterprise with a {% data variables.product.prodname_copilot_enterprise_short %} subscription."
+product: '{% data reusables.copilot.ce-product-callout %}'
 versions:
   feature: copilot-custom-models
 topics:
@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot
 ---
 
-> [!NOTE] Custom models for {% data variables.product.prodname_copilot_enterprise %} is in {% data variables.release-phases.public_preview %} and is subject to change. During the {% data variables.release-phases.public_preview %}, there is no additional cost to {% data variables.product.prodname_copilot_enterprise_short %} customers enrolled on the {% data variables.release-phases.public_preview %} for creating or using a custom model.
+> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.product.prodname_copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
 
 ## Prerequisite
 
@@ -22,7 +22,7 @@ The code on which you want to train a custom model must be hosted in repositorie
 ## Limitations
 
 * For the {% data variables.release-phases.public_preview %}, an enterprise can deploy one custom model in a single organization.
-* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} subscription from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
+* Code completion suggestions based on the custom model are only available to managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization in which the custom model is deployed. For more information, see [AUTOTITLE](/enterprise-cloud@latest/admin/managing-iam/understanding-iam-for-enterprises/about-enterprise-managed-users).
 * The custom model is not used for code suggested in responses by {% data variables.product.prodname_copilot_chat %}.
 
 ## About {% data variables.product.prodname_copilot_short %} custom models
@@ -125,9 +125,9 @@ Retraining the model updates it to include any new code that has been added to t
 1. Go to your organization's settings for {% data variables.product.prodname_copilot_short %} custom models. See [Creating a custom model](#creating-a-custom-model) above.
 1. On the model training page, click the first ellipsis button (**...**), then click either **Retrain model** or **Delete model**.
 
-If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} subscription from the organization.
+If you retrain the model, {% data variables.product.prodname_copilot_short %} will continue to use the current model to generate code completion suggestions until the new model is ready. Once the new model is ready, it will be automatically be used for code completion suggestions for all managed users who get a {% data variables.product.prodname_copilot_enterprise_short %} plan from the organization.
 
-If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} subscription from the organization.
+If you delete the custom model, {% data variables.product.prodname_copilot_short %} will use the base model for generating code completion suggestions for all users who get a {% data variables.product.prodname_copilot_short %} plan from the organization.
 
 ## Telemetry data collection and usage for custom models
 
@@ -164,4 +164,4 @@ Telemetry data is primarily used to fine-tune the {% data variables.product.prod
 * **Opt-in for telemetry:** Participation in telemetry data collection is optional and controlled via your organization’s admin policies. Telemetry data is only collected when explicitly enabled for training custom models.
 * **Potential risks:** Although {% data variables.product.company_short %} takes extensive measures to prevent data leakage, there are scenarios where sensitive data, such as internal links or names, could be included in the telemetry and subsequently used in training. We recommend reviewing and filtering the data you submit for training to minimize these risks.
 
-  For more details about our data-handling practices, see the [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center) or review {% data variables.product.company_short %}’s [data protection agreement](https://github.com/customer-terms/github-data-protection-agreement).
+  For more details about our data-handling practices, see the [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page) or review {% data variables.product.company_short %}’s [data protection agreement](https://github.com/customer-terms/github-data-protection-agreement).

@@ -99,14 +99,17 @@ To discard a group of changed lines, right-click the vertical bar to the right o
 
 ## Write a commit message and push your changes
 
-Once you're satisfied with the changes you've chosen to include in your commit, write your commit message and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
+Once you're satisfied with the changes you've chosen to include in your commit, you need to describe your commit and push your changes. If you've collaborated on a commit, you can also attribute a commit to more than one author.
 
 > [!NOTE]
 > {% data reusables.desktop.tags-push-with-commits %} For more information, see [AUTOTITLE](/desktop/managing-commits/managing-tags-in-github-desktop).
 
-{% data reusables.desktop.commit-message %}
+1. At the bottom of the list of changes, next to your profile picture, describe your commit:
+   * If you have access to {% data variables.product.prodname_copilot %} and you are using [{% data variables.product.prodname_desktop %} beta](https://desktop.github.com/beta/), you can automatically create a commit message and details based on the changes you made. Click {% octicon "copilot" aria-label="Generate commit message with Copilot" %}.
+   * Alternatively, type your own short, meaningful commit message in the Summary field. You can also add more information about the change in the Description field.
 
-   ![Screenshot of the "Changes" tab in the sidebar. To the right of a profile picture, a text field containing a commit message is outlined in orange.](/assets/images/help/desktop/commit-message.png)
+   ![Screenshot of the "Changes" tab. The "Summary" field and "Generate commit message with Copilot" button are outlined in orange.](/assets/images/help/desktop/create-commit-details.png)
+
 1. Optionally, to attribute a commit to another author, click the add co-authors icon and type the username(s) you want to include.
 
    ![Screenshot of the "Changes" tab. In the corner of the "Description" field, the icon for adding a co-author is outlined in orange.](/assets/images/help/desktop/add-co-author-commit.png)

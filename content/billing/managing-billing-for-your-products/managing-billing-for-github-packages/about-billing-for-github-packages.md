@@ -20,11 +20,7 @@ shortTitle: About billing
 
 ## About billing for {% data variables.product.prodname_registry %}
 
-{% ifversion billing-auth-and-capture %}
-
 {% data reusables.billing.authorization-charge %}
-
-{% endif %}
 
 {% data reusables.package_registry.packages-billing %}
 
@@ -103,6 +99,6 @@ You should set a spending limit that will cover your maximum projected storage u
 
 To avoid reaching your spending limit in the current billing cycle, you can delete some of your current storage usage to free up projected usage for the rest of the month. This method is more effective toward the beginning of a billing cycle. The closer you get to the end of a billing cycle, the less impact this method will have on projected monthly usage.
 
-For more information about managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages).
+For more information about managing and changing your account's spending limit, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-packages/managing-your-spending-limit-for-github-packages).
 
 {% data reusables.dotcom_billing.actions-packages-unpaid-account %}
