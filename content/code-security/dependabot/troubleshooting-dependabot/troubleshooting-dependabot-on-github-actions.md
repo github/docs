@@ -82,6 +82,9 @@ jobs:
 
 By default, {% data variables.product.prodname_actions %} workflows triggered by {% data variables.product.prodname_dependabot %} get a `GITHUB_TOKEN` with read-only permissions. You can use the `permissions` key in your workflow to increase the access for the token:
 
+> [!WARNING]
+> Increasing the permissions for {% data variables.product.prodname_dependabot %} workflow runs can cause compromised dependencies to immediately infect your repository. Only grant the minimally required permissions to the workflow.
+
 {% raw %}
 
 ```yaml copy
