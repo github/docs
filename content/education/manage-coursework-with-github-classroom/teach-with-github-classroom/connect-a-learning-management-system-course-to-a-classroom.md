@@ -40,8 +40,8 @@ An administrator needs to register your LMS instance with classroom before you c
 
 1. Sign into your **Blackboard** instance.
 1. Select the Blackboard course or organization to integrate with {% data variables.product.prodname_classroom %}.
-1. In the rigth sidebar on the course page, click **Books & Tools**, then click **GitHub Classroom**. Note that the name may be different if your LMS admin named it something else when registering your LMS.
-1. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course.
+1. In the right sidebar on the course page, click **Books & Tools**, then click **GitHub Classroom**. Note that the name may be different if your LMS admin named it something else when registering your LMS.
+1. Clicking the **GitHub Classroom** button will launch you into {% data variables.product.prodname_classroom %}, where you can select a classroom to link with your LMS course. This step might popup an error message "Unable to launch link. The Tool Provider has been disabled by the System Administrator: GitHub Classroom". To resolve this error, ensure that the status of tool “GitHub Classroom” is set to Approved. Click on LTI Tool Providers in Admin Panel. Hover on the name next to GitHub Classroom and click Approve.
 
 Once your course is linked, you can import your roster from your LMS course to your classroom. For more information, see [Importing a roster from your LMS](#importing-a-roster-from-your-lms).
 

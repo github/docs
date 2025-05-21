@@ -63,11 +63,13 @@ You can register your Blackboard installation with {% data variables.product.pro
 1. Sign into your **Blackboard** instance.
 1. In the left sidebar on the home page, click **Admin**, then click **LTI Tool Providers**.
 1. On the "LTI Tool Providers" page, click **Register LTI 1.3/Advantage Tool**.
-1. Insert the **Client ID** obtained from the Developer Portal and click **Submit**.
+1. Insert the **Client ID** / **Application ID** obtained from the Developer Portal and click **Submit**.
 1. Blackboard will show all application data. In this page:
     1. Verify that **Tool Status** is "Approved".
     1. Verify that **User Fields to be Sent** flags are enabled for "Role in Course", "Name", "Email Address".
-    1. Verify that **Allow mark service access** radio button is set to "No".
+    1. Verify that **Allow mark service access** radio button is set to "No". To enable this option, navigate to the LTI Tool Providers in the Admin Panel:
+       - Select Manage Global Properties
+       - Under Creation of Tool Provider Links, select radio button “Allow links to any tool provider, but require approval for each new provider”
     1. Verify that **Allow Membership Service Access** radio button is set to "Yes".
 1. Click **Submit**.
 
@@ -79,7 +81,7 @@ You can register your Blackboard installation with {% data variables.product.pro
    * Under "LMS Type", choose "Other" from the dropdown menu.
    * "Issuer Identifier": `https://blackboard.com`
    * "Domain": The base URL to your Blackboard instance
-   * "Client ID": The "Client ID" obtained from the registration of the app in the Anthology Developer Portal.
+   * "Client ID": The "Client ID" / "Application ID" obtained from the registration of the app in the Anthology Developer Portal.
    * "OIDC Initiation URL": The "OIDC auth request endpoint" obtained from the registration of the app in the Anthology Developer Portal.
    * "OAuth 2.0 Token Retrieval URL": The "Auth token endpoint" obtained from the registration of the app in the Anthology Developer Portal.
    * "Key Set URL": The "Public keyset URL" obtained from the registration of the app in the Anthology Developer Portal.
