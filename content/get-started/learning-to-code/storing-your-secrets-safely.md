@@ -166,3 +166,5 @@ Once the workflow has had time to complete, you should see a new comment appear.
 ## Next steps
 
 For a more in-depth dive into secret scanning and push protection, you can complete the [Introduction to secret scanning](https://github.com/skills/introduction-to-secret-scanning/tree/main) course in {% data variables.product.prodname_learning %}.
+
+Another important part of code security is learning how to identify and patch code vulnerabilities in your projects. See [AUTOTITLE](/get-started/learning-to-code/finding-and-fixing-your-first-code-vulnerability).
