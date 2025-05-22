@@ -150,7 +150,7 @@ For each repository in your organization, you can see how much cache storage a r
 {% data reusables.profile.access_profile %}
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **{% octicon "play" aria-hidden="true" %} Actions**, then click **Caches**.
+1. In the left sidebar, click **{% octicon "play" aria-hidden="true" aria-label="play" %} Actions**, then click **Caches**.
 1. Review the list of repositories for information about their {% data variables.product.prodname_actions %} caches. You can click on a repository name to see more detail about the repository's caches.
 
 {% ifversion ghes %}

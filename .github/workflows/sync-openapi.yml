@@ -48,6 +48,8 @@ jobs:
           # will be checked out
           repository: github/models-gateway
           path: models-gateway
+          ref: main
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 

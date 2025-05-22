@@ -119,10 +119,10 @@ You can download a CSV report of license usage through the {% data variables.pro
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar click **{% octicon "credit-card" aria-hidden="true" %} Billing & licensing** and then **Usage**.
+1. In the "Access" section of the sidebar click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & licensing** and then **Usage**.
 1. Filter the metered usage to show `product:ghas` and choose "Group: SKU".
 1. Optionally, use the "Time Frame" field to set the period to report on.
-1. Click **{% octicon "download" aria-hidden="true" %}Get usage report** to download the report.
+1. Click **{% octicon "download" aria-hidden="true" aria-label="download" %}Get usage report** to download the report.
 
 {% endif %}
 
@@ -131,22 +131,22 @@ You can download a CSV report of license usage through the {% data variables.pro
 #### For an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-1. Click **{% octicon "credit-card" aria-hidden="true" %} Billing & licensing** to display an overview.
+1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & licensing** to display an overview.
 
    **License consumption:**
-   1. Click **{% octicon "law" aria-hidden="true" %} Licensing**.
-   1. Under "{% data variables.product.prodname_GHAS %}," click the **Download report** dropdown and then click either **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_code_security %}** or **{% octicon "download" aria-hidden="true" %} {% data variables.product.prodname_secret_protection %}**.
+   1. Click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
+   1. Under "{% data variables.product.prodname_GHAS %}," click the **Download report** dropdown and then click either **{% octicon "download" aria-hidden="true" aria-label="download" %} {% data variables.product.prodname_code_security %}** or **{% octicon "download" aria-hidden="true" aria-label="download" %} {% data variables.product.prodname_secret_protection %}**.
 
    **Metered usage:**
    1. Scroll to the tabbed usage information at the bottom of the "Overview" page and click **{% data variables.product.prodname_AS %}** to show usage.
    1. In the summary box, click "View details" to show metered usage for {% data variables.product.prodname_AS %} grouped by SKU.
-   1. Select a time frame and click **{% octicon "download" aria-hidden="true" %}Get usage report** to download a detailed report.
+   1. Select a time frame and click **{% octicon "download" aria-hidden="true" aria-label="download" %}Get usage report** to download a detailed report.
 
 {% elsif ghes %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.license-tab %}
-1. Under "{% data variables.product.prodname_GHAS %}," click **{% octicon "download" aria-hidden="true" %} CSV report**.
+1. Under "{% data variables.product.prodname_GHAS %}," click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
 
    ![Screenshot of the licensing screen. The "CSV Report" button is highlighted with an orange outline.](/assets/images/enterprise/ghas/download-csv-report-ghes-3.9.png)
 
