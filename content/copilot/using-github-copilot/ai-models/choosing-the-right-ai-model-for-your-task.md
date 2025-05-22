@@ -31,6 +31,7 @@ You can click a model name in the list below to jump to a detailed overview of i
 * [{% data variables.copilot.copilot_o4_mini %}](#o4-mini)
 * [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-35-sonnet)
 * [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-37-sonnet)
+* [{% data variables.copilot.copilot_claude_sonnet_40 %}](#claude-sonnet-4)
 * [{% data variables.copilot.copilot_claude_opus %}](#claude-opus-4)
 * [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
 * [{% data variables.copilot.copilot_gemini_25_pro %}](#gemini-25-pro)
@@ -395,6 +396,13 @@ The following table summarizes when an alternative model may be a better choice:
 | Lightweight prototyping  | Rapid back-and-forth code iterations with minimal context.     | {% data variables.copilot.copilot_claude_sonnet_37 %} may over-engineer or apply unnecessary complexity.                                                                                                                                                               |
 
 {% endrowheaders %}
+
+## {% data variables.copilot.copilot_claude_sonnet_40 %}
+
+{% data reusables.copilot.claude-sonnet-40-public-preview-note %}
+
+For more information about {% data variables.copilot.copilot_claude_sonnet_40 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/).
+For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 
 ## {% data variables.copilot.copilot_claude_opus %}
 

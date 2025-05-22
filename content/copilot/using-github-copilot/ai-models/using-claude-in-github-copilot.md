@@ -23,6 +23,11 @@ redirect_from:
   * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
   * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
+* {% data variables.copilot.copilot_claude_sonnet_40 %} is available in:
+
+  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+  * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+
 * {% data variables.copilot.copilot_claude_sonnet_35 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are available in:
 
   * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
@@ -34,7 +39,7 @@ redirect_from:
   * {% data variables.product.prodname_copilot_chat_short %} in JetBrains
   * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
-{% data variables.copilot.copilot_claude_opus %} is hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_sonnet_37 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform when used in {% data variables.product.prodname_copilot %}. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
+{% data variables.copilot.copilot_claude_opus %} is hosted by Anthropic PBC. {% data variables.copilot.copilot_claude_sonnet_40 %} is hosted by Anthropic 1P. {% data variables.copilot.copilot_claude_sonnet_37 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform when used in {% data variables.product.prodname_copilot %}. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
 * Amazon Bedrock: Amazon makes the [following data commitments](https://docs.aws.amazon.com/bedrock/latest/userguide/data-protection.html): _Amazon Bedrock doesn't store or log your prompts and completions. Amazon Bedrock doesn't use your prompts and completions to train any AWS models and doesn't distribute them to third parties_.
 * Anthropic PBC: {% data variables.product.github %} maintains a [zero data retention agreement](https://privacy.anthropic.com/en/articles/8956058-i-have-a-zero-retention-agreement-with-anthropic-what-products-does-it-apply-to) with Anthropic.
@@ -54,6 +59,7 @@ You must enable access to each {% data variables.copilot.copilot_claude %} indiv
 
 > [!NOTE]
 > * {% data variables.copilot.copilot_claude_opus %} is not currently available for {% data variables.product.prodname_copilot_free_short %} and {% data variables.product.prodname_copilot_pro_short %}.
+> * {% data variables.copilot.copilot_claude_sonnet_40 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are not currently available for {% data variables.product.prodname_copilot_free_short %}.
 > * {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.product.prodname_copilot_free_short %}.
 
 If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude %} in two ways:

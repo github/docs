@@ -35,6 +35,7 @@ The following models are currently available in the immersive mode of {% data va
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
+* {% data variables.copilot.copilot_claude_sonnet_40 %}
 * {% data variables.copilot.copilot_claude_opus %}
 * {% data variables.copilot.copilot_gemini_flash %}
 * {% data variables.copilot.copilot_gemini_25_pro %} (preview)
@@ -85,6 +86,7 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
+* {% data variables.copilot.copilot_claude_sonnet_40 %}
 * {% data variables.copilot.copilot_claude_opus %}
 * {% data variables.copilot.copilot_gemini_flash %}
 * {% data variables.copilot.copilot_o1 %}

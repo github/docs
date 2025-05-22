@@ -53,6 +53,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
+| {% data variables.copilot.copilot_claude_sonnet_40 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_opus %}                        | 10                                                                           |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
