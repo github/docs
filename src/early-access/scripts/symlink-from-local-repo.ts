@@ -16,6 +16,11 @@ const earlyAccessRepo = 'docs-early-access'
 const earlyAccessDirName = 'early-access'
 const earlyAccessRepoUrl = `https://github.com/github/${earlyAccessRepo}`
 
+interface ProgramOptions {
+  pathToEarlyAccessRepo?: string
+  unlink?: boolean
+}
+
 program
   .description(`Create or destroy symlinks to your local "${earlyAccessRepo}" repository.`)
   .option(
@@ -25,44 +30,45 @@ program
   .option('-u, --unlink', 'remove the symlinks')
   .parse(process.argv)
 
-const { pathToEarlyAccessRepo, unlink } = program.opts()
+const { pathToEarlyAccessRepo, unlink }: ProgramOptions = program.opts()
 
 if (!pathToEarlyAccessRepo && !unlink) {
   throw new Error('Must provide either `--path-to-early-access-repo <PATH>` or `--unlink`')
 }
 
-let earlyAccessLocalRepoDir
+let earlyAccessLocalRepoDir: string | undefined
 
 // If creating symlinks, run some extra validation
 if (!unlink && pathToEarlyAccessRepo) {
   earlyAccessLocalRepoDir = path.resolve(process.cwd(), pathToEarlyAccessRepo)
 
-  let dirStats
+  let dirStats: fs.Stats | null
   try {
     dirStats = fs.statSync(earlyAccessLocalRepoDir)
-  } catch (err) {
+  } catch {
     dirStats = null
   }
 
   if (!dirStats) {
     throw new Error(
-      `The local "${earlyAccessRepo}" repo directory does not exist:`,
-      earlyAccessLocalRepoDir,
+      `The local "${earlyAccessRepo}" repo directory does not exist: ${earlyAccessLocalRepoDir}`,
     )
   }
   if (dirStats && !dirStats.isDirectory()) {
     throw new Error(
-      `A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location:`,
-      earlyAccessLocalRepoDir,
+      `A non-directory entry exists at the local "${earlyAccessRepo}" repo directory location: ${earlyAccessLocalRepoDir}`,
     )
   }
 }
 
-const destinationDirNames = ['content', 'data', 'assets/images']
-const destinationDirsMap = destinationDirNames.reduce((map, dirName) => {
-  map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
-  return map
-}, {})
+const destinationDirNames: string[] = ['content', 'data', 'assets/images']
+const destinationDirsMap: Record<string, string> = destinationDirNames.reduce(
+  (map, dirName) => {
+    map[dirName] = path.join(process.cwd(), dirName, earlyAccessDirName)
+    return map
+  },
+  {} as Record<string, string>,
+)
 
 // Remove all existing early access directories from this repo
 destinationDirNames.forEach((dirName) => {
@@ -82,6 +88,8 @@ if (unlink) {
 
 // Move the latest early access source directories into this repo
 destinationDirNames.forEach((dirName) => {
+  if (!earlyAccessLocalRepoDir) return
+
   const sourceDir = path.join(earlyAccessLocalRepoDir, dirName)
   const destDir = destinationDirsMap[dirName]
 

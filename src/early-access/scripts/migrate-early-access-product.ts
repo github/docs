@@ -12,11 +12,11 @@ import { program } from 'commander'
 import { execFileSync } from 'child_process'
 import frontmatter from '#src/frame/lib/read-frontmatter.js'
 import patterns from '#src/frame/lib/patterns.js'
-import addRedirectToFrontmatter from '#src/redirects/scripts/helpers/add-redirect-to-frontmatter.js'
+import addRedirectToFrontmatter from '@/redirects/scripts/helpers/add-redirect-to-frontmatter'
 import walkFiles from '#src/workflows/walk-files.ts'
 
-const contentFiles = walkFiles('content', '.md', { includeEarlyAccess: true })
-const contentDir = path.posix.join(process.cwd(), 'content')
+const contentFiles: string[] = walkFiles('content', '.md', { includeEarlyAccess: true })
+const contentDir: string = path.posix.join(process.cwd(), 'content')
 
 program
   .description('Move a product-level early access docs set to a category level.')
@@ -34,29 +34,30 @@ program
   )
   .parse(process.argv)
 
-const oldPathId = program.opts().oldPath.replace('content/', '')
-const newPathId = program.opts().newPath.replace('content/', '')
+const oldPathId: string = program.opts().oldPath.replace('content/', '')
+const newPathId: string = program.opts().newPath.replace('content/', '')
 
-const oldPath = path.posix.join(contentDir, oldPathId)
-const newPath = path.posix.join(contentDir, newPathId)
+const oldPath: string = path.posix.join(contentDir, oldPathId)
+const newPath: string = path.posix.join(contentDir, newPathId)
 
 if (!fs.existsSync(oldPath)) {
   console.error(`Error! Can't find ${oldPath}`)
   process.exit(1)
 }
 
-const filesToMigrate = contentFiles.filter((file) => file.includes(`/${oldPathId}/`))
+const filesToMigrate: string[] = contentFiles.filter((file) => file.includes(`/${oldPathId}/`))
 
 if (!filesToMigrate.length) {
   console.error(`Error! Can't find any files in ${oldPath}`)
   process.exit(1)
 }
 
-const migratePath = path.posix.join(contentDir, newPathId)
+const migratePath: string = path.posix.join(contentDir, newPathId)
 
 // 1. Update the image and data refs in the to-be-migrated early access files BEFORE moving them.
 try {
-  execFileSync('src/early-access/scripts/update-data-and-image-paths.js', [
+  execFileSync('tsx', [
+    'src/early-access/scripts/update-data-and-image-paths.ts',
     '-p',
     `content/${oldPathId}`,
     '--remove',
@@ -66,28 +67,30 @@ try {
   process.exit(1)
 }
 
-const variablesToMove = []
-const reusablesToMove = []
-const imagesToMove = []
+const variablesToMove: string[] = []
+const reusablesToMove: string[] = []
+const imagesToMove: string[] = []
 
 // 2. Add redirects to and update frontmatter in the to-be-migrated early access files BEFORE moving them.
 filesToMigrate.forEach((filepath) => {
   const { content, data } = frontmatter(fs.readFileSync(filepath, 'utf8'))
-  const redirectString = filepath
+  const redirectString: string = filepath
     .replace('content/', '/')
     .replace('/index.md', '')
     .replace('.md', '')
-  data.redirect_from = addRedirectToFrontmatter(data.redirect_from, redirectString)
-  delete data.hidden
-  delete data.noEarlyAccessBanner
-  delete data.earlyAccessToc
-  fs.writeFileSync(filepath, frontmatter.stringify(content, data, { lineWidth: 10000 }))
+  if (data) {
+    data.redirect_from = addRedirectToFrontmatter(data.redirect_from, redirectString)
+    delete data.hidden
+    delete data.noEarlyAccessBanner
+    delete data.earlyAccessToc
+    fs.writeFileSync(filepath, frontmatter.stringify(content || '', data))
+  }
 
   // 4. Find the data files and images referenced in the early access files so we can move them over.
-  const dataRefs = content.match(patterns.dataReference) || []
-  const variables = dataRefs.filter((ref) => ref.includes('variables'))
-  const reusables = dataRefs.filter((ref) => ref.includes('reusables'))
-  const images = content.match(patterns.imagePath) || []
+  const dataRefs: string[] = content ? content.match(patterns.dataReference) || [] : []
+  const variables: string[] = dataRefs.filter((ref) => ref.includes('variables'))
+  const reusables: string[] = dataRefs.filter((ref) => ref.includes('reusables'))
+  const images: string[] = content ? content.match(patterns.imagePath) || [] : []
 
   variablesToMove.push(...variables)
   reusablesToMove.push(...reusables)
@@ -103,73 +106,78 @@ Array.from(new Set(imagesToMove)).forEach((imageRef) => moveImage(imageRef))
 execFileSync('mv', [oldPath, migratePath])
 
 // 5. Update the parent product TOC with the new child path.
-const parentProductTocPath = path.posix.join(path.dirname(newPath), 'index.md')
-const parentProducToc = frontmatter(fs.readFileSync(parentProductTocPath, 'utf-8'))
-parentProducToc.data.children.push(`/${path.basename(newPathId)}`)
+const parentProductTocPath: string = path.posix.join(path.dirname(newPath), 'index.md')
+const parentProductToc = frontmatter(fs.readFileSync(parentProductTocPath, 'utf-8'))
+if (parentProductToc.data && Array.isArray(parentProductToc.data.children)) {
+  parentProductToc.data.children.push(`/${path.basename(newPathId)}`)
+}
 
 fs.writeFileSync(
   parentProductTocPath,
-  frontmatter.stringify(parentProducToc.content, parentProducToc.data, { lineWidth: 10000 }),
+  frontmatter.stringify(parentProductToc.content || '', parentProductToc.data || {}),
 )
 
 // 6. Optionally, update the new product TOC with the new title.
 if (program.opts().newTitle) {
-  const productTocPath = path.posix.join(newPath, 'index.md')
+  const productTocPath: string = path.posix.join(newPath, 'index.md')
   const productToc = frontmatter(fs.readFileSync(productTocPath, 'utf-8'))
-  productToc.data.title = program.opts().newTitle
+  if (productToc.data) {
+    productToc.data.title = program.opts().newTitle
+  }
 
   fs.writeFileSync(
     productTocPath,
-    frontmatter.stringify(productToc.content, productToc.data, { lineWidth: 10000 }),
+    frontmatter.stringify(productToc.content || '', productToc.data || {}),
   )
 }
 
 // 7. Update internal links now that the files have been moved.
 console.log('\nRunning script to update internal links...')
-execFileSync('src/links/scripts/update-internal-links.js')
+execFileSync('tsx', ['src/links/scripts/update-internal-links.ts'])
 
 console.log(`
 Done! Did the following:
 - Moved content/${oldPathId} files to content/${newPathId}
-- Ran ./src/early-access/scripts/update-data-and-images-paths.js
+- Ran ./src/early-access/scripts/update-data-and-image-paths.ts
 - Added redirects to the moved files
 - Updated children frontmatter entries in index.md files
-- Ran ./src/links/scripts/update-internal-links.js
+- Ran ./src/links/scripts/update-internal-links.ts
 
 Please review all the changes in docs-internal and docs-early-access, especially to index.md files. You may need to do some manual cleanup.
 `)
 
-function moveVariable(dataRef) {
+function moveVariable(dataRef: string): void {
   // Get the data filepath from the data reference,
   // where the data reference looks like: {% data variables.foo.bar %}
   // and the data filepath looks like: data/variables/foo.yml with key of 'bar'.
-  const variablePathArray = dataRef
-    .match(/{% (?:data|indented_data_reference) (.*?) %}/)[1]
-    .split('.')
-    // If early access is part of the path, remove it (since the path below already includes it)
-    .filter((n) => n !== 'early-access')
+  const variablePathArray: string[] =
+    dataRef
+      .match(/{% (?:data|indented_data_reference) (.*?) %}/)?.[1]
+      .split('.')
+      // If early access is part of the path, remove it (since the path below already includes it)
+      .filter((n) => n !== 'early-access') || []
 
   // Given a string `variables.foo.bar` split into an array, we want the last segment 'bar', which is the variable key.
   // Then pop 'bar' off the array because it's not really part of the filepath.
   // The filepath we want is `variables/foo.yml`.
-  const variableKey = last(variablePathArray)
+  const variableKey: string = last(variablePathArray) as string
 
   variablePathArray.pop()
 
-  const oldVariablePath = path.posix.join(
+  const oldVariablePath: string = path.posix.join(
     process.cwd(),
     'data/early-access',
     `${variablePathArray.join('/')}.yml`,
   )
-  const newVariablePath = path.posix.join(
+  const newVariablePath: string = path.posix.join(
     process.cwd(),
     'data',
     `${variablePathArray.join('/')}.yml`,
   )
-  const nonAltPath = newVariablePath.replace('-alt.yml', '.yml')
-  const oldAltPath = oldVariablePath.replace('.yml', '-alt.yml')
+  const nonAltPath: string = newVariablePath.replace('-alt.yml', '.yml')
+  const oldAltPath: string = oldVariablePath.replace('.yml', '-alt.yml')
 
-  let oldPath = oldVariablePath
+  let oldPath: string = oldVariablePath
 
   // If the old variable path doesn't exist, assume no migration needed.
   if (!fs.existsSync(oldVariablePath)) {
@@ -184,12 +192,17 @@ function moveVariable(dataRef) {
     }
   }
 
-  const variableFileContent = yaml.load(fs.readFileSync(oldPath, 'utf8'))
-  const value = variableFileContent[variableKey]
+  const variableFileContent: Record<string, any> = yaml.load(
+    fs.readFileSync(oldPath, 'utf8'),
+  ) as Record<string, any>
+  const value: any = variableFileContent[variableKey]
 
   // If the variable file already exists, add the key/value pair.
   if (fs.existsSync(nonAltPath)) {
-    const content = yaml.load(fs.readFileSync(nonAltPath, 'utf8'))
+    const content: Record<string, any> = yaml.load(fs.readFileSync(nonAltPath, 'utf8')) as Record<
+      string,
+      any
+    >
     if (!content[variableKey]) {
       const newString = `\n\n${variableKey}: ${value}`
       fs.appendFileSync(nonAltPath, newString)
@@ -199,19 +212,24 @@ function moveVariable(dataRef) {
   }
 }
 
-function moveReusable(dataRef) {
+function moveReusable(dataRef: string): void {
   // Get the data filepath from the data reference,
   // where the data reference looks like: {% data reusables.foo.bar %}
   // and the data filepath looks like: data/reusables/foo/bar.md.
-  const reusablePath = dataRef
-    .match(/{% (?:data|indented_data_reference) (\S*?) .*%}/)[1]
-    .split('.')
-    // If early access is part of the path, remove it (since the path below already includes it)
-    .filter((n) => n !== 'early-access')
-    .join('/')
+  const reusablePath: string =
+    dataRef
+      .match(/{% (?:data|indented_data_reference) (\S*?) .*%}/)?.[1]
+      .split('.')
+      // If early access is part of the path, remove it (since the path below already includes it)
+      .filter((n) => n !== 'early-access')
+      .join('/') || ''
 
-  const oldReusablePath = path.posix.join(process.cwd(), 'data/early-access', `${reusablePath}.md`)
-  const newReusablePath = path.posix.join(process.cwd(), 'data', `${reusablePath}.md`)
+  const oldReusablePath: string = path.posix.join(
+    process.cwd(),
+    'data/early-access',
+    `${reusablePath}.md`,
+  )
+  const newReusablePath: string = path.posix.join(process.cwd(), 'data', `${reusablePath}.md`)
 
   // If the old reusable path doesn't exist, assume no migration needed.
   if (!fs.existsSync(oldReusablePath)) {
@@ -229,14 +247,18 @@ function moveReusable(dataRef) {
   }
 }
 
-function moveImage(imageRef) {
-  const imagePath = imageRef
+function moveImage(imageRef: string): void {
+  const imagePath: string = imageRef
     .replace('/assets/images/', '')
     // If early access is part of the path, remove it (since the path below already includes it)
     .replace('early-access', '')
 
-  const oldImagePath = path.posix.join(process.cwd(), 'assets/images/early-access', imagePath)
-  const newImagePath = path.posix.join(process.cwd(), 'assets/images', imagePath)
+  const oldImagePath: string = path.posix.join(
+    process.cwd(),
+    'assets/images/early-access',
+    imagePath,
+  )
+  const newImagePath: string = path.posix.join(process.cwd(), 'assets/images', imagePath)
 
   // If the old image path doesn't exist, assume no migration needed.
   if (!fs.existsSync(oldImagePath)) {

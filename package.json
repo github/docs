@@ -86,7 +86,7 @@
     "start": "cross-env NODE_ENV=development ENABLED_LANGUAGES=en nodemon src/frame/server.ts",
     "start-all-languages": "cross-env NODE_ENV=development tsx src/frame/server.ts",
     "start-for-playwright": "cross-env ROOT=src/fixtures/fixtures TRANSLATIONS_FIXTURE_ROOT=src/fixtures/fixtures/translations ENABLED_LANGUAGES=en,ja NODE_ENV=test tsx src/frame/server.ts",
-    "symlink-from-local-repo": "tsx src/early-access/scripts/symlink-from-local-repo.js",
+    "symlink-from-local-repo": "tsx src/early-access/scripts/symlink-from-local-repo.ts",
     "sync-audit-log": "tsx src/audit-logs/scripts/sync.ts",
     "sync-codeql-cli": "tsx src/codeql-cli/scripts/sync.js",
     "sync-graphql": "tsx src/graphql/scripts/sync.js",
@@ -98,13 +98,13 @@
     "test-moved-content": "tsx src/content-render/scripts/test-moved-content.ts",
     "tsc": "tsc --noEmit",
     "unallowed-contributions": "tsx src/workflows/unallowed-contributions.ts",
-    "update-data-and-image-paths": "tsx src/early-access/scripts/update-data-and-image-paths.js",
+    "update-data-and-image-paths": "tsx src/early-access/scripts/update-data-and-image-paths.ts",
     "update-enterprise-dates": "tsx src/ghes-releases/scripts/update-enterprise-dates.ts",
     "update-internal-links": "tsx src/links/scripts/update-internal-links.ts",
     "validate-asset-images": "tsx src/assets/scripts/validate-asset-images.ts",
     "validate-github-github-docs-urls": "tsx src/links/scripts/validate-github-github-docs-urls/index.ts",
     "warmup-remotejson": "tsx src/archives/scripts/warmup-remotejson.ts",
-    "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.js"
+    "what-docs-early-access-branch": "tsx src/early-access/scripts/what-docs-early-access-branch.ts"
   },
   "lint-staged": {
     "*.{js,mjs,ts,tsx}": "eslint --cache --fix",
