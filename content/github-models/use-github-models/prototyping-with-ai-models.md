@@ -265,7 +265,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3, xAI Grok-3</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1 and o3</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>1</td>
@@ -294,7 +294,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>Azure OpenAI o1-mini, o3-mini, and o4-mini</b></th>
+    <th rowspan="4" scope="rowgroup"><b>Azure OpenAI o1-mini, o3-mini, and o4-mini</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>Not applicable</td>
     <td>2</td>
@@ -323,7 +323,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>DeepSeek-R1 and MAI-DS-R1</b></th>
+    <th rowspan="4" scope="rowgroup"><b>DeepSeek-R1 and MAI-DS-R1</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>1</td>
     <td>1</td>
@@ -343,6 +343,64 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>4000 in, 4000 out</td>
     <td>4000 in, 4000 out</td>
     <td>4000 in, 4000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup"><b>xAI Grok-3</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>2</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>15</td>
+    <td>15</td>
+    <td>20</td>
+    <td>30</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 4000 out</td>
+    <td>4000 in, 8000 out</td>
+    <td>4000 in, 16000 out</td>
+  </tr>
+  <tr>
+    <th><b>Concurrent requests</b></th>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <th rowspan="4" scope="rowgroup" style="box-shadow: none"><b>xAI Grok-3-Mini</b></th>
+    <th style="padding-left: 0"><b>Requests per minute</b></th>
+    <td>2</td>
+    <td>2</td>
+    <td>3</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <th><b>Requests per day</b></th>
+    <td>30</td>
+    <td>30</td>
+    <td>40</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <th><b>Tokens per request</b></th>
+    <td>4000 in, 8000 out</td>
+    <td>4000 in, 8000 out</td>
+    <td>4000 in, 12000 out</td>
+    <td>4000 in, 12000 out</td>
   </tr>
   <tr>
     <th><b>Concurrent requests</b></th>
