@@ -900,18 +900,6 @@ on:
       - '**.js'
 ```
 
-> [!NOTE]
-> {% data reusables.actions.tag-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a tag that starts with `v1.`.
->
-> ```yaml
-> on:
->   push:
->     tags:
->       - v1.**
->     paths:
->       - '**.js'
-> ```
-
 ## `registry_package`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
