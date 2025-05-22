@@ -38,7 +38,7 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
-  * Anthropic {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_short %}
+  * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
   * Google {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}
   * OpenAI models in {% data variables.product.prodname_copilot_short %}
 

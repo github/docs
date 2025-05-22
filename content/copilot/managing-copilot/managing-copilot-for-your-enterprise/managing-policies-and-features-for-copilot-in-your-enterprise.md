@@ -89,7 +89,7 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
-* **{% data variables.copilot.copilot_claude %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
+* **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
 * **OpenAI models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot).
 

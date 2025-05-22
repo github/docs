@@ -41,12 +41,9 @@ copilot_coding_agent: 'Copilot coding agent'
 coding_agent_UI: 'Coding agent'
 
 ## LLM models for Copilot
-copilot_claude: 'Claude'
 copilot_claude_sonnet: 'Claude Sonnet'
 copilot_claude_sonnet_35: 'Claude 3.5 Sonnet'
 copilot_claude_sonnet_37: 'Claude 3.7 Sonnet'
-copilot_claude_sonnet_40: 'Claude Sonnet 4'
-copilot_claude_opus: 'Claude Opus 4'
 
 copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'

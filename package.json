@@ -77,7 +77,6 @@
     "purge-old-workflow-runs": "tsx src/workflows/purge-old-workflow-runs.js",
     "ready-for-docs-review": "tsx src/workflows/ready-for-docs-review.ts",
     "release-banner": "tsx src/ghes-releases/scripts/release-banner.ts",
-    "repo-sync": "./src/workflows/local-repo-sync.sh",
     "reusables": "tsx src/content-render/scripts/reusables-cli.ts",
     "rendered-content-link-checker": "tsx src/links/scripts/rendered-content-link-checker.ts",
     "rendered-content-link-checker-cli": "tsx src/links/scripts/rendered-content-link-checker-cli.ts",
