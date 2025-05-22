@@ -1,3 +1,10 @@
+---
+title: Terms for Student Benefits
+intro: 
+versions: 
+shortTitle: 
+---
+
 # GitHub Terms and Conditions for the Student Developer Pack
 
 
