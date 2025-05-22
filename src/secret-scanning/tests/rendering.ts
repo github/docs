@@ -3,8 +3,14 @@ import { readFileSync } from 'fs'
 
 import { get } from '#src/tests/helpers/e2etest.js'
 
+interface ConfigFile {
+  targetFilename: string
+}
+
 describe('secret-scanning pipeline', () => {
-  const { targetFilename } = JSON.parse(readFileSync('src/secret-scanning/lib/config.json'))
+  const { targetFilename } = JSON.parse(
+    readFileSync('src/secret-scanning/lib/config.json', 'utf8'),
+  ) as ConfigFile
   // This test ensures that the configured page exists. If the page moves
   // this test will fail.
   test(`check if ${targetFilename} was moved`, async () => {

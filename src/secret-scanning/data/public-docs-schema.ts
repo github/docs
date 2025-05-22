@@ -2,7 +2,8 @@ import { schema } from '#src/frame/lib/frontmatter.js'
 
 // Secret scanning entries have `versions` blocks that match `versions` frontmatter,
 // so we can import that part of the FM schema.
-const versionsProps = Object.assign({}, schema.properties.versions)
+// Access the versions property which is defined dynamically in frontmatter.js
+const versionsProps = Object.assign({}, (schema.properties as Record<string, any>).versions)
 
 // The secret-scanning.json contains an array of objects that look like this:
 // {
@@ -19,6 +20,18 @@ const versionsProps = Object.assign({}, schema.properties.versions)
 //   "hasPushProtection": false,
 //   "hasValidityCheck": false
 // },
+
+export interface SecretScanningEntry {
+  provider: string
+  supportedSecret: string
+  secretType: string
+  versions: Record<string, string>
+  isPublic: boolean | string
+  isPrivateWithGhas: boolean | string
+  hasPushProtection: boolean | string
+  hasValidityCheck: boolean | string
+  isduplicate: boolean
+}
 
 export default {
   type: 'array',
