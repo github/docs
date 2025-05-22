@@ -8,7 +8,6 @@ redirect_from:
   - /billing/using-the-billing-platform/adding-or-editing-a-payment-method
   - /billing/using-the-billing-platform/viewing-your-payment-history-and-receipts
   - /billing/using-the-billing-platform/adding-information-to-your-receipts
-  - /billing/using-the-billing-platform/adding-a-sales-tax-certificate
   - /billing/using-the-billing-platform/setting-your-billing-email
   - /billing/using-the-new-billing-platform/managing-your-payment-and-billing-information
 type: how_to
