@@ -28,7 +28,6 @@ export const baseConfig = {
     style: 'asterisk',
     'partial-markdown-files': true,
     'yml-files': false,
-    context: `We use asterisks to format bulleted lists because this gives clearer, more accessible source code.`,
   },
   'no-trailing-spaces': {
     // MD009
