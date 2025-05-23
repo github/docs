@@ -16,4 +16,5 @@ children:
   - /troubleshooting-copilot-coding-agent
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues
+  - /early-access/copilot/coding-agent
 ---

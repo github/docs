@@ -11,6 +11,7 @@ type: reference
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-issues
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-tasks
+  - /early-access/copilot/coding-agent/best-practices-for-using-copilot-coding-agent
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}
