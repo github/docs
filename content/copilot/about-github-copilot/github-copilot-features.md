@@ -24,6 +24,10 @@ If you use {% data variables.product.prodname_vscode_shortname %}, you can also 
 
 A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse IDE, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
+### {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+
+An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks).
+
 ### {% data variables.product.prodname_copilot_cli_short %}
 
 A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
