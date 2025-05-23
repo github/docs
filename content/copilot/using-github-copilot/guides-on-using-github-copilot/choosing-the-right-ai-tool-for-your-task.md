@@ -18,7 +18,7 @@ The use of AI tools is increasingly becoming a standard part of a software devel
   * {% data variables.product.prodname_copilot_short %} can create issues to help track your ideas.
   * {% data variables.product.prodname_copilot_chat_short %} can help you brainstorm and identify the best technologies for your project.
 * **Code creation**:
-  * {% data variables.product.prodname_copilot_short %} code completions helps add code as you type.
+  * {% data variables.product.prodname_copilot_short %} code completion helps add code as you type.
   * {% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %}) predicts the next edit you are likely to make and suggests a completion for it.
   * {% data variables.product.prodname_copilot_chat_short %} can answer questions and offer suggestions in a conversational environment.
   * You can assign {% data variables.copilot.copilot_coding_agent %} to an open issue and it will automatically raise a pull request to address the necessary changes.
@@ -46,7 +46,7 @@ Once you've chosen an issue to address, **{% data variables.product.prodname_cop
 
 During the creation phase, you'll write and refine the code for your application. This is where you can bring the project to life by implementing features, fixing bugs, and iterating on the codebase.
 
-{% data variables.product.prodname_copilot_short %} provides auto-complete style **coding suggestions** as you code in your favorite IDE or on {% data variables.product.github %}, helping you draft and refine your code faster. You can write code directly or describe your intent in natural language using comments in your IDE, and {% data variables.product.prodname_copilot_short %} will generate relevant suggestions.  
+{% data variables.product.prodname_copilot_short %} provides auto-complete style **coding suggestions** as you code in your favorite IDE or on {% data variables.product.github %}, helping you draft and refine your code faster. You can write code directly or describe your intent in natural language using comments in your IDE, and {% data variables.product.prodname_copilot_short %} will generate relevant suggestions.
 
 With **{% data variables.copilot.next_edit_suggestions %}** ({% data variables.release-phases.public_preview %}), {% data variables.product.prodname_copilot_short %} predicts related edits based on the changes you’re actively making. For example, if you rename a variable or update a function’s parameters, it suggests corresponding updates throughout your code. This helps maintain consistency and reduces the chance of errors.
 

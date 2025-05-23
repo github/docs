@@ -4,7 +4,7 @@ As an {% ifversion ghec %}enterprise or {% endif %}organization owner, you can u
 
 Configuring {% data variables.product.prodname_copilot_sku_isolation %} will affect the following {% data variables.product.prodname_copilot_short %} features:
 
-* Code completions in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
+* Code completion in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, and Vim/NeoVim
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs
 * {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}
 * {% data variables.product.prodname_mobile %} Apps

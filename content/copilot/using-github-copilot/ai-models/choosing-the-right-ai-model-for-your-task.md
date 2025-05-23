@@ -10,7 +10,7 @@ topics:
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses in {% data variables.product.prodname_copilot_chat_short %} and code completions. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
+{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
 
 This article helps you compare the available models, understand the strengths of each model, and choose the model that best fits your task. For guidance across different models using real-world tasks, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
 
