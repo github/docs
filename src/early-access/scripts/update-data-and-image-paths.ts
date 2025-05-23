@@ -12,6 +12,12 @@ import walkFiles from '#src/workflows/walk-files.ts'
 import { escapeRegExp } from 'lodash-es'
 import patterns from '#src/frame/lib/patterns.js'
 
+interface ProgramOptions {
+  add?: boolean
+  remove?: boolean
+  earlyAccessPath?: string
+}
+
 program
   .description('Update data and image paths.')
   .option(
@@ -22,7 +28,7 @@ program
   .option('-r, --remove', 'Remove "early-access" from data and image paths.')
   .parse(process.argv)
 
-const { add, remove, earlyAccessPath } = program.opts()
+const { add, remove, earlyAccessPath }: ProgramOptions = program.opts()
 
 if (!(add || remove)) {
   console.error('Error! Must specify either `--add` or `--remove`.')
@@ -34,26 +40,27 @@ if (earlyAccessPath && !earlyAccessPath.startsWith('content/early-access')) {
   process.exit(1)
 }
 
-const allEarlyAccessFiles = walkFiles('content', '.md', { includeEarlyAccess: true }).concat(
-  walkFiles('data', ['.md', '.yml'], { includeEarlyAccess: true }),
-)
+const allEarlyAccessFiles: string[] = walkFiles('content', '.md', {
+  includeEarlyAccess: true,
+}).concat(walkFiles('data', ['.md', '.yml'], { includeEarlyAccess: true }))
 
-let selectFiles = allEarlyAccessFiles
+let selectedFiles: string[] = allEarlyAccessFiles
 if (earlyAccessPath) {
   const contentFiles = allEarlyAccessFiles.filter((file) => file.includes(earlyAccessPath))
 
   // We also need to include any reusable files that are referenced in the selected content files.
-  const referencedDataFiles = []
+  const referencedDataFiles: string[] = []
   contentFiles.forEach((file) => {
     const contents = fs.readFileSync(file, 'utf8')
-    const dataRefs = contents.match(patterns.dataReference) || []
-    const filepaths = dataRefs
+    const dataRefs: string[] = contents.match(patterns.dataReference) || []
+    const filepaths: string[] = dataRefs
       .filter((dataRef) => dataRef.includes('reusables') && dataRef.includes('early-access'))
       .map((dataRef) => {
-        const filepath = dataRef
-          .match(/{% (?:data|indented_data_reference) (\S*?) .*%}/)[1]
-          .split('.')
-          .join('/')
+        const filepath =
+          dataRef
+            .match(/{% (?:data|indented_data_reference) (\S*?) .*%}/)?.[1]
+            .split('.')
+            .join('/') || ''
         return path.posix.join(process.cwd(), 'data', `${filepath}.md`)
       })
     referencedDataFiles.push(...filepaths)
@@ -65,17 +72,17 @@ if (earlyAccessPath) {
     )
   })
 
-  selectFiles = contentFiles.concat(dataFiles)
+  selectedFiles = contentFiles.concat(dataFiles)
 }
 
 // Update the EA content and data files
-selectFiles.forEach((file) => {
+selectedFiles.forEach((file) => {
   const oldContents = fs.readFileSync(file, 'utf8')
 
-  const dataRefs = oldContents.match(patterns.dataReference) || []
-  const imageRefs = oldContents.match(patterns.imagePath) || []
+  const dataRefs: string[] = oldContents.match(patterns.dataReference) || []
+  const imageRefs: string[] = oldContents.match(patterns.imagePath) || []
 
-  const replacements = {}
+  const replacements: Record<string, string> = {}
 
   if (add) {
     dataRefs
