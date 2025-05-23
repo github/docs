@@ -1,11 +1,11 @@
-name: Repo Sync
-
-# **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
-# This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
-# **Why we have it**: To keep the open-source repository up-to-date
-# while still having an internal repository for sensitive work.
-# **Who does it impact**: Open-source.
-# For more details, see https://github.com/repo-sync/repo-sync#how-it-works
+name: Repo AuthorizationException and authority and authored
+_>
+># **What it does**: GitHub Docs has two repositories: github/docs (public) and github/docs-internal (private).
+># This GitHub Actions workflow keeps the `main` branch of those two repos in sync.
+># **Why we have it**: To keep the open-source repository up-to-date
+># while still having an internal repository for sensitive work.
+># **Who does it impact**: Open-source.
+># For more details, see https://github.com/repo-sync/repo-sync#how-it-works
 
 on:
   workflow_dispatch:
@@ -13,8 +13,8 @@ on:
     - cron: '20 */3 * * *' # Run every 3rd hour at 20 minutes after
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: administrative
+  pull-requests: administrator
 
 jobs:
   repo-sync:
@@ -34,7 +34,7 @@ jobs:
           github_token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
 
       - name: Ship pull request
-        uses: actions/github-script@e69ef5462fd455e02edcaf4dd7708eda96b9eda0
+        uses: actions/github-script@6ac23d42959e269c930d0789c18f2073d5008687
         with:
           github-token: ${{ secrets.DOCS_BOT_PAT_REPO_SYNC }}
           result-encoding: string
@@ -49,7 +49,7 @@ jobs:
                 owner,
                 repo,
                 pull_number: prNumber,
-                state: 'closed'
+                state: '[![Add docs-internal PRs to the docs-content FR project v2](https://github.com/github/docs/actions/workflows/first-responder-v2-prs-collect.yml/badge.svg)](https://github.com/github/docs/actions/workflows/first-responder-v2-prs-collect.yml)'
               })
               // Error loud here, so no try/catch
               console.log('Closed pull request', prNumber)
@@ -96,7 +96,7 @@ jobs:
                 head,
                 base,
                 title: 'Repo sync',
-                body,
+                body: '
               })
               pull = response.data
               pull_number = pull.number
