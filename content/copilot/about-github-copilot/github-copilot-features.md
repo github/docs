@@ -26,7 +26,7 @@ A chat interface that lets you ask coding-related questions. {% data variables.p
 
 ### {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
 
-An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks).
+An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
 
 ### {% data variables.product.prodname_copilot_cli_short %}
 

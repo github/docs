@@ -9,6 +9,7 @@ topics:
   - Copilot
 type: how_to
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/asking-copilot-to-create-a-pull-request
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/asking-copilot-to-create-a-pull-request
 ---
 
@@ -22,7 +23,7 @@ Often, when you are working on a project, you might notice a change you want to 
 
 Instead—if {% data variables.copilot.copilot_coding_agent %} is available—you can ask {% data variables.product.prodname_copilot_short %} to make the change for you. {% data variables.product.prodname_copilot_short %} will start working on the change in the background and, when it's done, request you to review the pull request it raises.
 
-For information on making {% data variables.copilot.copilot_coding_agent %} available, see [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent).
+For information on making {% data variables.copilot.copilot_coding_agent %} available, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent).
 
 ## Creating a pull request from {% data variables.product.prodname_copilot_chat_short %}
 
@@ -43,12 +44,12 @@ For information on making {% data variables.copilot.copilot_coding_agent %} avai
 
 ## Monitoring progress
 
-You can see what {% data variables.product.prodname_copilot_short %} is doing while it is working on a task by viewing the session logs. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs).
+You can see what {% data variables.product.prodname_copilot_short %} is doing while it is working on a task by viewing the session logs. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs).
 
 You can also stop {% data variables.product.prodname_copilot_short %} from working on a task by clicking **Stop session** in the session logs.
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/troubleshooting-copilot-coding-agent#copilot-cant-create-a-pull-request-from-copilot-chat)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent#copilot-cant-create-a-pull-request-from-copilot-chat)

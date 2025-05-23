@@ -110,7 +110,7 @@ childGroups:
       - copilot/using-github-copilot/copilot-chat/prompt-engineering-for-copilot-chat
       - copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-github
       - copilot/copilot-chat-cookbook
-      - copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks
+      - copilot/using-github-copilot/coding-agent
   - name: CI/CD and DevOps
     octicon: GearIcon
     children:
