@@ -90,7 +90,7 @@ You can view and edit your billing information and update your payment method.
 
 You can view and edit your billing information, update your payment method, and view active coupons.
 
->[!NOTE] This only applies to invoiced enterprise accounts.
+>[!NOTE] This does not apply to invoiced enterprise accounts.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
