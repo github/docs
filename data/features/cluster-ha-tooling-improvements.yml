@@ -1,5 +1,0 @@
-# Reference: #13596
-# Improvements to tooling for cluster HA
-
-versions:
-  ghes: '>= 3.12'
