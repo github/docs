@@ -99,14 +99,14 @@ You can use this information for insights into your {% data variables.product.pr
 
 You can download a CSV report of license usage through the {% data variables.product.github %} user interface or the REST API.
 
-### Downloading license usage information from the UI
+## Using the UI to download license and metered usage
 
 {% ifversion fpt %}You can download a CSV report for a repository or an organization.{% endif %}
 {% ifversion ghec %}You can download a CSV report for a repository, an organization, or an enterprise.{% endif %}
 
 {% ifversion fpt or ghec %}
 
-#### For a repository
+### For a repository
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -115,32 +115,38 @@ You can download a CSV report of license usage through the {% data variables.pro
 
    ![Screenshot of the table for {% data variables.product.prodname_GH_secret_protection %} usage. The horizontal kebab icon and "Download CSV report" button are outlined in orange.](/assets/images/help/billing/ghas-billing-table-repository-csv.png)
 
-#### For an organization
+### For an organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & licensing** and then **Usage**.
-1. Filter the metered usage to show `product:ghas` and choose "Group: SKU".
-1. Optionally, use the "Time Frame" field to set the period to report on.
-1. Click **{% octicon "download" aria-hidden="true" aria-label="download" %}Get usage report** to download the report.
+1. In the "Access" section of the sidebar click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and licensing** to display an overview.
+1. For metered usage, in the sidebar click **Usage**.
+   1. To display only {% data variables.product.prodname_AS %} usage within the graph, click the search bar, then click **Product**. Within the list of products displayed, click **GHAS**.
+   1. To further filter the usage graph, use the dropdown menus:
+      * To view usage by SKU, select the **Group** dropdown, then click **SKU**. This will allow you to view usage for both {% data variables.product.prodname_GH_cs_and_sp %}.
+      * To filter by time, select **Time Frame**, then click a time period.
+      * Below the graph, you can see a more granular overview of the usage. Click the arrow next to a specific date to see a nested table with usage per SKU, units, price/unit, gross amount (the amount actually used), and billed amount (the amount you are charged).
+   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.
+1. For license consumption, in the sidebar click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
+   1. Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
 
 {% endif %}
 
 {% ifversion ghec %}
 
-#### For an enterprise
+### For an enterprise
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 1. Click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & licensing** to display an overview.
-
-   **License consumption:**
-   1. Click **{% octicon "law" aria-hidden="true" aria-label="law" %} Licensing**.
-   1. Under "{% data variables.product.prodname_GHAS %}," click the **Download report** dropdown and then click either **{% octicon "download" aria-hidden="true" aria-label="download" %} {% data variables.product.prodname_code_security %}** or **{% octicon "download" aria-hidden="true" aria-label="download" %} {% data variables.product.prodname_secret_protection %}**.
-
-   **Metered usage:**
-   1. Scroll to the tabbed usage information at the bottom of the "Overview" page and click **{% data variables.product.prodname_AS %}** to show usage.
-   1. In the summary box, click "View details" to show metered usage for {% data variables.product.prodname_AS %} grouped by SKU.
-   1. Select a time frame and click **{% octicon "download" aria-hidden="true" aria-label="download" %}Get usage report** to download a detailed report.
+1. For metered usage, click {% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} **Usage**.
+   1. To display only {% data variables.product.prodname_AS %} usage within the graph, click the search bar, then click **Product**. Within the list of products displayed, click **GHAS**.
+   1. To further filter the usage graph, use the dropdown menus:
+        * To view usage by SKU, select the **Group** dropdown, then click **SKU**. This will allow you to view usage for both {% data variables.product.prodname_GH_cs_and_sp %}.
+        * To filter by time, select **Time Frame**, then click a time period.
+        * Below the graph, you can see a more granular overview of the usage. Click the arrow next to a specific date to see a nested table with usage per SKU, units, price/unit, gross amount (the amount actually used), and billed amount (the amount you are charged).
+   1. To download the data, click **{% octicon "download" aria-hidden="true" aria-label="download" %} Get usage report**.  
+1. For license consumption, click {% octicon "law" aria-hidden="true" aria-label="law" %} **Licensing**.
+   * Under "{% data variables.product.prodname_GHAS %}," click the **{% octicon "download" aria-hidden="true" aria-label="download" %} Download CSV report** dropdown and then click either **{% data variables.product.prodname_code_security %}** or **{% data variables.product.prodname_secret_protection %}**.
 
 {% elsif ghes %}
 
@@ -152,7 +158,7 @@ You can download a CSV report of license usage through the {% data variables.pro
 
 {% endif %}
 
-### Downloading {% data variables.product.prodname_AS %} license usage information through the REST API
+## Using the REST API to download license and metered usage
 
 You can retrieve {% data variables.product.prodname_AS %} usage information via the billing API.
 
