@@ -10,6 +10,10 @@ redirect_from:
   - /billing/using-the-billing-platform/adding-information-to-your-receipts
   - /billing/using-the-billing-platform/setting-your-billing-email
   - /billing/using-the-new-billing-platform/managing-your-payment-and-billing-information
+  - /billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method
+  - /billing/managing-your-github-billing-settings/adding-information-to-your-receipts
+  - /billing/managing-your-github-billing-settings/setting-your-billing-email
+  - /billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 type: how_to
 topics:
   - Enterprise
