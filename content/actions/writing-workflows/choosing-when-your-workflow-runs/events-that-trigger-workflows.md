@@ -900,18 +900,6 @@ on:
       - '**.js'
 ```
 
-> [!NOTE]
-> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
->
-> ```yaml
-> on:
->   push:
->     branches:
->       - 'releases/**'
->     paths:
->       - '**.js'
-> ```
-
 ## `registry_package`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
