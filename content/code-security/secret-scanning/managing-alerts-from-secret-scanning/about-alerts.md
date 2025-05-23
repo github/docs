@@ -25,12 +25,12 @@ allowTitleToDifferFromFilename: true
 
 When {% data variables.product.company_short %} detects a supported secret in a repository that has {% data variables.product.prodname_secret_scanning %} enabled, a {% ifversion fpt or ghec %}user {% else %}{% data variables.product.prodname_secret_scanning %}{% endif %} alert is generated and displayed in the **Security** tab of the repository.
 
-{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning %} {% endif %}alerts can be of the following types:
+{% ifversion fpt or ghec %}User {% else %}{% data variables.product.prodname_secret_scanning_caps %} {% endif %}alerts can be of the following types:
 
 * {% ifversion secret-scanning-alert-experimental-list %}Default{% else %}High confidence{% endif %} alerts, which relate to supported patterns and specified custom patterns.
-* {% ifversion secret-scanning-alert-experimental-list %}Experimental{% else %}Other{% endif %} alerts, which can have a higher ratio of false positives or secrets used in tests.
+* {% ifversion secret-scanning-generic-tab %}Generic{% elsif ghes = 3.16 %}Experimental{% else %}Other{% endif %} alerts, which can have a higher ratio of false positives or secrets used in tests.
 
-{% data variables.product.prodname_dotcom %} displays {% ifversion secret-scanning-alert-experimental-list %}experimental{% else %}these "other"{% endif %} alerts in a different list to {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts, making triaging a better experience for users. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
+{% data variables.product.prodname_dotcom %} displays {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% else %}these "other"{% endif %} alerts in a different list to {% ifversion secret-scanning-alert-experimental-list %}default{% else %}high confidence{% endif %} alerts, making triaging a better experience for users. For more information, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/viewing-alerts).
 
 {% data reusables.secret-scanning.secret-scanning-pattern-pair-matches %}
 
