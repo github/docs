@@ -9,6 +9,7 @@ topics:
 type: how_to
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/using-copilot-to-work-on-an-issue
+  - /early-access/copilot/coding-agent/using-copilot-coding-agent
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}

@@ -10,6 +10,7 @@ topics:
 type: reference
 redirect_from:
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/troubleshooting-copilot-coding-agent
+  - /early-access/copilot/coding-agent/troubleshooting-copilot-coding-agent
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}

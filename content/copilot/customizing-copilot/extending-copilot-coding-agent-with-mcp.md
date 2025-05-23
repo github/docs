@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 type: how_to
+redirect_from:
+  - /early-access/copilot/coding-agent/extending-copilot-coding-agent-with-model-context-protocol
 ---
 
 > [!NOTE]

@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 type: rai
+redirect_from:
+  - /early-access/copilot/coding-agent/responsible-use-of-copilot-coding-agent
 ---
 
 ## About {% data variables.copilot.copilot_coding_agent %} on {% data variables.product.prodname_dotcom_the_website %}

@@ -7,6 +7,8 @@ versions:
 topics:
   - Copilot
 type: how_to
+redirect_from:
+  - /early-access/copilot/coding-agent/customizing-copilot-coding-agents-development-environment
 ---
 
 > [!NOTE]
