@@ -20,7 +20,7 @@ You can review changes in a pull request one file at a time. While reviewing the
 
 {% ifversion copilot %}
 
-If the pull request was raised by {% data variables.product.prodname_copilot %} then, when you submit your comments, {% data variables.product.prodname_copilot_short %} will carry out more work to respond to your comments and will push a new commit to the pull request with further changes. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot).
+If the pull request was raised by {% data variables.product.prodname_copilot %} then, when you submit your comments, {% data variables.product.prodname_copilot_short %} will carry out more work to respond to your comments and will push a new commit to the pull request with further changes. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 {% endif %}
 

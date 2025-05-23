@@ -60,4 +60,4 @@ You can view all of the reviews a pull request has received in the Conversation 
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/viewing-a-pull-request-review)
 * [AUTOTITLE](/communities/setting-up-your-project-for-healthy-contributions/setting-guidelines-for-repository-contributors){% ifversion copilot %}
 * [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue){% endif %}
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue){% endif %}
