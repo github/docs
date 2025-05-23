@@ -1,4 +1,5 @@
-@use "./variables.scss" as searchVariables;
+
+@euid "./variables.scss" as searchVariables;
 
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
