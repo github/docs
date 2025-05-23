@@ -40,7 +40,7 @@ export const liquidDataReferencesDefined = {
       addError(
         onError,
         lineNumber,
-        `The Liquid data reference {% ${token.content} %} is used in content but cannot be found or has no value. If the file exists, check it has a '.md' extension.`,
+        `The Liquid data reference {% ${token.content} %} is used in content but either does not exist or has no value.`,
         token.content,
         [column, length],
         null, // No fix available
