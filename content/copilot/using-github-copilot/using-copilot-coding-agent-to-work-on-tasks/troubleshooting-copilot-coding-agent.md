@@ -54,11 +54,11 @@ If there is a "{% data variables.product.prodname_copilot_short %} started work"
 
 ## {% data variables.product.prodname_copilot_short %} won't respond to my pull request comments
 
-When you leave a pull request comment on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will consider your comment, and decide whether to start a new agent session to respond.
+{% data reusables.copilot.coding-agent.write-access-required %}
 
-If {% data variables.product.prodname_copilot_short %} decides to take action and start a new agent session in response to your comment, it will leave an 👀 reaction on the comment, and then a "{% data variables.product.prodname_copilot_short %} started work" event will appear in the pull request timeline.
+If you do have write access, and you add a comment on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, the comment is passed to {% data variables.copilot.copilot_coding_agent %}. An eyes emoji (👀) is added to your comment to indicate that {% data variables.copilot.copilot_coding_agent %} is considering your comment. If the agent proceeds to work on making changes in response to your comment a "{% data variables.product.prodname_copilot_short %} started work" event is added to the pull request timeline.
 
-If this doesn't happen, you may have unassigned {% data variables.product.prodname_copilot_short %} from the pull request, or {% data variables.product.prodname_copilot_short %} may have decided that your comment is not actionable.
+If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or {% data variables.product.prodname_copilot_short %} may have decided that your comment is not actionable.
 
 Check that {% data variables.product.prodname_copilot_short %} is assigned to the pull request. If it is, you can force {% data variables.product.prodname_copilot_short %} to respond to your comment by @mentioning {% data variables.product.prodname_copilot_short %} in the comment with `@copilot`.
 

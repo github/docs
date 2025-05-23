@@ -26,7 +26,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to make changes 
 
 When you leave a comment on {% data variables.product.prodname_copilot_short %}'s pull request, {% data variables.product.prodname_copilot_short %} will consider your comment, and decide whether to start a new agent session to respond.
 
-If {% data variables.product.prodname_copilot_short %} starts a new agent session in response to your comment, {% data variables.product.prodname_copilot_short %} will react with 👀, and a "Copilot has started work" event will appear in the pull request timeline.
+{% data reusables.copilot.coding-agent.write-access-required %}
+
+If {% data variables.product.prodname_copilot_short %} starts a new agent session in response to your comment, an eyes emoji (👀) is added as a reaction to the comment, and a "Copilot has started work" event is added to the pull request timeline.
 
 ![Screenshot of a pull request timeline with a review comment with the eyes reaction and a "Copilot started work" timeline event.](/assets/images/help/copilot/coding-agent/comment-to-agent-on-pr.png)
 
