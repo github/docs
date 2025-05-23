@@ -1,4 +1,4 @@
----
+<!---
 title: Managing policies for Copilot in your organization
 intro: 'Learn how to manage policies for {% data variables.product.prodname_copilot %} in your organization.'
 permissions: Organization owners
@@ -20,7 +20,7 @@ redirect_from:
 topics:
   - Copilot
 shortTitle: Managing policies
----
+--!>
 
 ## About policies for {% data variables.product.prodname_copilot %}
 
