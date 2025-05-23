@@ -101,18 +101,26 @@ You can view and edit your billing information, update your payment method, and 
 
 You can view your payment history, including the date, amount, and payment method. You can also download past payments.
 
-1. Display the **Billing & Licensing** section of the sidebar of the {% data variables.enterprise.enterprise_or_org %} settings.
+1. Display the **Billing and Licensing** {% ifversion fpt %}section of the sidebar of the organization settings{% else %}page for the enterprise{% endif %}.
 1. Click **Payment history**.
-
-{% ifversion ghec %}
 
 ## Managing billing contacts
 
 You can add an email address to receive billing notifications regarding payments and budget threshold alerts.
 
-1. Display the **Billing & Licensing** section of the sidebar of the enterprise settings.
+{% ifversion fpt %}
+
+1. Display the **Billing and Licensing** section of the sidebar of the organization settings.
+1. Click **Additional billing details**.
+1. In the table of "Email recipients":
+   * Click **Add** and follow the prompt to add a new billing contact.
+   * Use the **Edit** drop-down for a contact to either remove the contact or make that contact the primary billing contact.
+
+{% else %}
+
+1. Display the **Billing and Licensing** page for the enterprise.
 1. Click **Billing contacts**.
 1. Click **Add** in the upper-right corner and follow the prompt.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove or make a contact the primary billing contact.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove a contact or make a contact the primary billing contact.
 
 {% endif %}
