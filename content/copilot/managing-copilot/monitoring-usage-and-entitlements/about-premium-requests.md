@@ -44,21 +44,23 @@ The following {% data variables.product.prodname_copilot_short %} features can u
 
 Each model has a premium request multiplier, based on its complexity and resource usage. Your premium request allowance is deducted according to this multiplier.
 
-| Model   | Premium requests |
-| ------- | ---------------- |
+| Model                                                                   | Premium requests                                                             |
+|-------------------------------------------------------------------------|------------------------------------------------------------------------------|
 | Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
-| Premium {% data variables.copilot.copilot_gpt_41 %}             | 1    |
-| {% data variables.copilot.copilot_gpt_4o %}                     | 1    |
-| {% data variables.copilot.copilot_gpt_45 %}                     | 50   |
-| {% data variables.copilot.copilot_claude_sonnet_35 %}           | 1    |
-| {% data variables.copilot.copilot_claude_sonnet_37 %}           | 1    |
-| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking  | 1.25 |
-| {% data variables.copilot.copilot_gemini_flash %}               | 0.25 |
-| {% data variables.copilot.copilot_gemini_25_pro %}              | 1    |
-| {% data variables.copilot.copilot_o1 %}                         | 10   |
-| {% data variables.copilot.copilot_o3 %}                         | 5    |
-| {% data variables.copilot.copilot_o3_mini %}                    | 0.33 |
-| {% data variables.copilot.copilot_o4_mini %}                    | 0.33 |
+| Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
+| {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
+| {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                                                                            |
+| {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
+| {% data variables.copilot.copilot_claude_sonnet_40 %}                   | 1                                                                            |
+| {% data variables.copilot.copilot_claude_opus %}                        | 10                                                                           |
+| {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
+| {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
+| {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
+| {% data variables.copilot.copilot_o3 %}                                 | 5                                                                            |
+| {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
+| {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
 
 [^2]: The base model at the time of writing is powered by {% data variables.copilot.copilot_gpt_41 %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
 
