@@ -30,7 +30,6 @@ To set up a trial of {% data variables.product.prodname_GHAS %} using this metho
 ## Setting up your trial of {% data variables.product.prodname_GHAS %}
 
 {% data reusables.enterprise-accounts.access-enterprise %}
-{% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.licensing-tab-both-platforms %}
 1. To the right of "{% data variables.product.prodname_GHAS %}", click **Start free trial**.
 1. Click **Start trial**.

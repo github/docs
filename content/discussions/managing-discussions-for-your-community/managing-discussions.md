@@ -159,7 +159,15 @@ To transfer a discussion, you must have permissions to create discussions in the
 1. At the bottom of the discussion, below the comment box, click **Close discussion**.
 1. Optionally, to change the reason for closing the discussion, select the {% octicon "triangle-down" aria-label="The down triangle octicon" %} dropdown next to "Close discussion" and click a reason.
 
+<!-- expires 2025-06-06 -->
+
+<!-- When this expires, remove the Converting issues based on labels section for FPT/GHEC but keep it for GHES <=3.17 -->
+
+{% ifversion fpt or ghec %}
+
 ## Converting issues based on labels
+
+>[!WARNING] Starting June 6, 2025, {% data variables.product.company_short %} will deprecate bulk converting of issues based on labels.
 
 You can convert all issues with the same label to discussions in bulk. Future issues with this label will also automatically convert to the discussion and category you configure.
 
@@ -169,3 +177,6 @@ You can convert all issues with the same label to discussions in bulk. Future is
 1. Next to the label you want to convert to issues, click **Convert issues**.
 1. Select the **Choose a category** drop-down menu, and click a category for your discussion.
 1. Click **I understand, convert this issue to a discussion**.
+
+{% endif %}
+<!-- end expires 2025-06-06 -->
