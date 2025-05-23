@@ -10,7 +10,7 @@ children:
   - /best-practices-for-using-github-copilot
   - /getting-code-suggestions-in-your-ide-with-github-copilot
   - /copilot-chat
-  - /using-copilot-coding-agent-to-work-on-tasks
+  - /coding-agent
   - /asking-github-copilot-questions-in-windows-terminal
   - /using-copilot-text-completion
   - /code-review

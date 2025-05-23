@@ -9,6 +9,7 @@ topics:
   - Copilot
 type: reference
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/troubleshooting-copilot-coding-agent
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/troubleshooting-copilot-coding-agent
   - /early-access/copilot/coding-agent/troubleshooting-copilot-coding-agent
 ---
@@ -54,11 +55,11 @@ If there is a "{% data variables.product.prodname_copilot_short %} started work"
 
 ## {% data variables.product.prodname_copilot_short %} won't respond to my pull request comments
 
-When you leave a pull request comment on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, {% data variables.product.prodname_copilot_short %} will consider your comment, and decide whether to start a new agent session to respond.
+{% data reusables.copilot.coding-agent.write-access-required %}
 
-If {% data variables.product.prodname_copilot_short %} decides to take action and start a new agent session in response to your comment, it will leave an 👀 reaction on the comment, and then a "{% data variables.product.prodname_copilot_short %} started work" event will appear in the pull request timeline.
+If you do have write access, and you add a comment on a pull request that is assigned to {% data variables.product.prodname_copilot_short %}, the comment is passed to {% data variables.copilot.copilot_coding_agent %}. An eyes emoji (👀) is added to your comment to indicate that {% data variables.copilot.copilot_coding_agent %} is considering your comment. If the agent proceeds to work on making changes in response to your comment a "{% data variables.product.prodname_copilot_short %} started work" event is added to the pull request timeline.
 
-If this doesn't happen, you may have unassigned {% data variables.product.prodname_copilot_short %} from the pull request, or {% data variables.product.prodname_copilot_short %} may have decided that your comment is not actionable.
+If this doesn't happen, {% data variables.product.prodname_copilot_short %} may have been unassigned from the pull request, or {% data variables.product.prodname_copilot_short %} may have decided that your comment is not actionable.
 
 Check that {% data variables.product.prodname_copilot_short %} is assigned to the pull request. If it is, you can force {% data variables.product.prodname_copilot_short %} to respond to your comment by @mentioning {% data variables.product.prodname_copilot_short %} in the comment with `@copilot`.
 
@@ -74,13 +75,13 @@ If {% data variables.product.prodname_copilot_short %} got stuck while respondin
 
 {% data variables.product.prodname_actions %} workflows will not run automatically when {% data variables.product.prodname_copilot_short %} pushes changes to a pull request.
 
-To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
+To allow {% data variables.product.prodname_actions %} workflows to run, click the **Approve and run workflows** button in the pull request's merge box. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
 
 ## {% data variables.product.prodname_copilot_short %} is pushing changes which don't pass my CI checks
 
 While working on an issue, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can execute automated tests and linters to validate its work before it pushes.
 
-It is most likely to do this if given clear instructions on what to do. The best way to do this is with a `.github/copilot-instructions.md` file. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository).
+It is most likely to do this if given clear instructions on what to do. The best way to do this is with a `.github/copilot-instructions.md` file. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#adding-custom-instructions-to-your-repository).
 
 ## There is a warning from {% data variables.product.prodname_copilot %} about the firewall
 
@@ -96,5 +97,5 @@ For more information, see [AUTOTITLE](/copilot/customizing-copilot/customizing-o
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)

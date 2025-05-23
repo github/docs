@@ -8,6 +8,8 @@ versions:
 topics:
   - Copilot
 type: how_to
+redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/reviewing-a-pull-request-created-by-copilot
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}
@@ -26,7 +28,9 @@ You can ask {% data variables.product.prodname_copilot_short %} to make changes 
 
 When you leave a comment on {% data variables.product.prodname_copilot_short %}'s pull request, {% data variables.product.prodname_copilot_short %} will consider your comment, and decide whether to start a new agent session to respond.
 
-If {% data variables.product.prodname_copilot_short %} starts a new agent session in response to your comment, {% data variables.product.prodname_copilot_short %} will react with 👀, and a "Copilot has started work" event will appear in the pull request timeline.
+{% data reusables.copilot.coding-agent.write-access-required %}
+
+If {% data variables.product.prodname_copilot_short %} starts a new agent session in response to your comment, an eyes emoji (👀) is added as a reaction to the comment, and a "Copilot has started work" event is added to the pull request timeline.
 
 ![Screenshot of a pull request timeline with a review comment with the eyes reaction and a "Copilot started work" timeline event.](/assets/images/help/copilot/coding-agent/comment-to-agent-on-pr.png)
 
@@ -35,7 +39,7 @@ If {% data variables.product.prodname_copilot_short %} starts a new agent sessio
 > [!TIP]
 > If you don't want {% data variables.product.prodname_copilot_short %} to respond to comments on a pull request, you can unassign {% data variables.product.prodname_copilot_short %} from the pull request. If you later reassign {% data variables.product.prodname_copilot_short %} to the same pull request it will respond to new comments and push more changes. It will not respond to comment that were added while it was not assigned.
 
-For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks#using-comments-to-iterate-on-a-pull-request).
+For more information, see the section "Use comments to iterate on a pull request" in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks#using-comments-to-iterate-on-a-pull-request).
 
 ## Managing {% data variables.product.prodname_actions %} workflow runs
 
@@ -56,6 +60,6 @@ You can provide feedback on {% data variables.product.prodname_copilot_short %}'
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/troubleshooting-copilot-coding-agent)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)

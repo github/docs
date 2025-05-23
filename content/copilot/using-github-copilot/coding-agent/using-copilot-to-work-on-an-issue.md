@@ -8,6 +8,7 @@ topics:
   - Copilot
 type: how_to
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/using-copilot-to-work-on-an-issue
   - /early-access/copilot/coding-agent/using-copilot-coding-agent
 ---
@@ -16,9 +17,9 @@ redirect_from:
 
 ## Introduction
 
-You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, raise a pull request and when it's finished working, request a review from you. For more information, see [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot).
+You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %}, just like you would with a human software developer. {% data variables.product.prodname_copilot_short %} will start working on the issue, raise a pull request and when it's finished working, request a review from you. For more information, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
-If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks).
+If you haven't used {% data variables.product.prodname_copilot_short %} to work on an issue before, you can find some useful advice for getting good results in [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks).
 
 ## Assigning an issue to {% data variables.product.prodname_copilot_short %}
 
@@ -132,7 +133,7 @@ A few seconds later, {% data variables.product.prodname_copilot_short %} will op
 
 ![Screenshot of a pull request with a series of timeline events, including "Copilot started work."](/assets/images/help/copilot/coding-agent/copilot-started-work.png)
 
-If you want to check what {% data variables.product.prodname_copilot_short %} is doing, click **View session**. The session log viewer is displayed, showing you a live log as {% data variables.product.prodname_copilot_short %} works on the issue. If you want to stop {% data variables.product.prodname_copilot_short %} from working on the issue, click **Stop session**. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs).
+If you want to check what {% data variables.product.prodname_copilot_short %} is doing, click **View session**. The session log viewer is displayed, showing you a live log as {% data variables.product.prodname_copilot_short %} works on the issue. If you want to stop {% data variables.product.prodname_copilot_short %} from working on the issue, click **Stop session**. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-the-copilot-coding-agent-logs).
 
 Once {% data variables.product.prodname_copilot_short %} has finished, the agent session will end, and {% data variables.product.prodname_copilot_short %} will request a review from you, triggering a notification. In addition, a "{% data variables.product.prodname_copilot_short %} finished work" event will appear in the pull request timeline.
 
@@ -140,9 +141,9 @@ Once {% data variables.product.prodname_copilot_short %} has finished, the agent
 
 ## Working with {% data variables.product.prodname_copilot_short %} on a pull request
 
-After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and comment on anything that needs changed. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/reviewing-a-pull-request-created-by-copilot).
+After {% data variables.product.prodname_copilot_short %} has finished working on the issue, you should review the pull request thoroughly and comment on anything that needs changed. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/reviewing-a-pull-request-created-by-copilot).
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/troubleshooting-copilot-coding-agent)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)
