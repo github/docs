@@ -121,6 +121,8 @@ The number of unique, active committers who use {% data variables.product.prodna
 {% endif %} For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 * **Unique committers** is the number of active committers who contributed only to a repository, or to repositories in an organization. This number shows how many licenses you can free up by disabling {% data variables.product.prodname_GH_cs_or_sp %} for that repository or organization.
 
+> [!NOTE] When a repository is migrated to GitHub, GitHub Advanced Security only consumes licenses for commits and pushes made after migration, rather than considering all historic contributions from before the migration.
+
 If there are no unique committers to a repository or organization, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_AS %} licenses. Disabling a product for that repository or organization would not free any licenses or lower your usage costs.
 
 ## Understanding usage
