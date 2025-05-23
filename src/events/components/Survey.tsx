@@ -104,7 +104,7 @@ export const Survey = () => {
 
   return (
     <form
-      className="f5"
+      className={cx(styles.underlineLinks, 'f5')}
       onSubmit={submit}
       ref={formRef}
       data-testid="survey-form"
@@ -242,7 +242,7 @@ export const Survey = () => {
       )}
 
       <Link
-        className="f6 text-underline"
+        className="f6"
         href={`/${locale}/site-policy/privacy-policies/github-privacy-statement`}
         target="_blank"
       >
