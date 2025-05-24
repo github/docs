@@ -175,7 +175,8 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu.
+1. In the chat view, click the currently selected AI model (such as "GPT 4o") in the dropdown menu at the bottom right of the input field.
+1. Select an AI model of your choice from the dropdown list, which includes options such as GPT 4o, o1 (Preview), and Claude 3.5 Sonnet.
 
 {% endjetbrains %}
 
