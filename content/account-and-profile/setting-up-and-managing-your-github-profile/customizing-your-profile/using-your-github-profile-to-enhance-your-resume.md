@@ -1,16 +1,16 @@
 ---
-title: Using your GitHub profile to enhance your resume
+title: Using your GitHub profile to enhance your résumé
 intro: 'Demonstrate your skills to hiring managers with your {% data variables.product.github %} profile.'
 versions:
   fpt: '*'
 topics:
   - Profiles
-shortTitle: Enhance your resume
+shortTitle: Enhance your résumé
 ---
 
 ## How can my {% data variables.product.github %} profile help with my job search?
 
-When you include a link to your {% data variables.product.github %} profile in your resume, you showcase your skills and experience to potential employers. In this article, you'll find practical tips for preparing your {% data variables.product.github %} profile for a job search.
+When you include a link to your {% data variables.product.github %} profile in your résumé, you showcase your skills and experience to potential employers. In this article, you'll find practical tips for preparing your {% data variables.product.github %} profile for a job search.
 
 After you complete these steps, you can be confident that hiring managers will have a good sense of your technical skills when they are reviewing your {% data variables.product.github %} profile.
 
@@ -71,6 +71,7 @@ For example, {% data variables.product.prodname_copilot_short %} wrote the READM
 ### Update the repository details
 
 On the main page of the repository, to the right of "About," click {% octicon "gear" aria-label="Edit repository metadata" %}. Here, you can provide information that helps hiring managers quickly understand the project:
+
 * A brief description of your project
 * A website where you can see the project in action
 * Topic tags that categorize your project
@@ -100,7 +101,7 @@ You can automate this process with {% data variables.product.prodname_dependabot
 
 ## Step 5: Share your results
 
-Your profile is now ready to be included on your resume! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.
+Your profile is now ready to be included on your résumé! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.
 
 Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
 
