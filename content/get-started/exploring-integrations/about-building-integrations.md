@@ -1,4 +1,4 @@
----
+---about-building-integrations.md
 title: About building integrations
 intro: 'You can build integrations to extend {% data variables.product.company_short %}''s functionality.'
 versions:
