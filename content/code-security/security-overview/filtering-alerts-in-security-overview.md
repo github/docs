@@ -183,7 +183,7 @@ All {% data variables.product.prodname_code_scanning %} alerts have one of the c
 | Qualifier | Description |
 | -------- | -------- |
 |`is`|Display {% data variables.product.prodname_code_scanning %} alerts that are open (`open`) or closed (`closed`).|
-|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-postive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
+|`resolution`| Display {% data variables.product.prodname_code_scanning %} alerts closed as "false positive" (`false-positive`), "fixed" (`fixed`), "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|
 |`rule`|Display {% data variables.product.prodname_code_scanning %} alerts identified by the specified rule.|
 |`severity`|Display {% data variables.product.prodname_code_scanning %} alerts categorized as `critical`, `high`, `medium`, or `low` security alerts. Alternatively, displays {% data variables.product.prodname_code_scanning %} alerts categorized as `error`, `warning`, `note` problems.|
 |`sort`| Display alerts from newest to oldest (`created-desc`), oldest to newest (`created-asc`), most recently updated (`updated-desc`), or least recently updated (`updated-asc`).

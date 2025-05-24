@@ -153,7 +153,7 @@ updates:
 
 {% endraw %}
 
-## Supported private registeries
+## Supported private registries
 
 Examples of how to configure access to the private registries supported by {% data variables.product.prodname_dependabot %}.
 

@@ -29,7 +29,7 @@ For information about the developer experience, see [AUTOTITLE](/code-security/c
 
 ## Selecting security alerts for remediation
 
-Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding and common vulnerabilities, you will benefit from a more stategic approach.
+Your first thought may be to identify all the most urgent alerts and create a security campaign to fix them. If your developers already have a good understanding of secure coding and are keen to remediate potential vulnerabilities, this could be a successful approach for your company. However, if you need to build up knowledge of secure coding and common vulnerabilities, you will benefit from a more strategic approach.
 
 For example, if you have many alerts for cross-site scripting vulnerabilities, you could:
 
