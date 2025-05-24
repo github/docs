@@ -1,4 +1,4 @@
----
+---creating-tool-switchers-in-articles
 title: Creating tool switchers in articles
 shortTitle: Create tool switchers
 intro: You can use a tool switcher to show how to complete tasks using specific tools.
