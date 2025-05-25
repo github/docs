@@ -20,11 +20,11 @@ topics:
 
 <div class="button-container">
     <a href="https://github.com/copilot?ref_cta=Copilot+free&ref_loc=getting+started+with+github+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
-        <span>Get started for free</span> {% octicon "link-external" height:16 %}
+        <span>Get started for free</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% vscode %}
     <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline">
-        <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 %}
+        <span>Open in {% data variables.product.prodname_vscode %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
     </a>
     {% endvscode %}
 </div>
@@ -251,7 +251,7 @@ This guide demonstrates how to get coding suggestions from {% data variables.pro
 
 {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %} provides two kinds of suggestions:
 
-* **Code completions**. {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
+* **Code completion**. {% data variables.product.prodname_copilot_short %} offers coding suggestions as you type. You can also describe something you want to do using natural language within a comment, and {% data variables.product.prodname_copilot_short %} will suggest the code to accomplish your goal.
 * **{% data variables.copilot.next_edit_suggestions_caps %} ({% data variables.release-phases.public_preview %})**. Based on the edits you are making, {% data variables.product.prodname_copilot_short %} will predict the location of the next edit you are likely to make and suggest a completion for it.
 
 The examples in this guide use JavaScript, however other languages will work similarly. {% data reusables.copilot.supported-languages %}
@@ -365,7 +365,7 @@ An arrow in the gutter indicates an available edit suggestion. Hover over the ar
 
 ![Screenshot of the gutter menu in {% data variables.product.prodname_vscode %}. The arrow is outlined in dark orange.](/assets/images/help/copilot/vsc-advanced-code-completion-menu.png)
 
-For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://aka.ms/gh-copilot-nes-docs) in the {% data variables.product.prodname_vscode %} documentation.
+For more details and examples, see [Code completions with {% data variables.product.prodname_copilot %} in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/ai-powered-suggestions) in the {% data variables.product.prodname_vscode %} documentation.
 
 ## Changing the AI model
 

@@ -35,6 +35,8 @@ The following models are currently available in the immersive mode of {% data va
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
+* {% data variables.copilot.copilot_claude_sonnet_40 %}
+* {% data variables.copilot.copilot_claude_opus %}
 * {% data variables.copilot.copilot_gemini_flash %}
 * {% data variables.copilot.copilot_gemini_25_pro %} (preview)
 * {% data variables.copilot.copilot_o1 %}
@@ -56,11 +58,11 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 > [!NOTE] If you use {% data variables.product.prodname_copilot_extensions_short %}, they may override the model you select.
 
-1. In the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon and click **Immersive** in the dropdown menu.
+1. In the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon and click **Immersive** in the dropdown menu.
 
    ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
 
-1. At the top of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+1. At the top of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 
@@ -84,6 +86,8 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
+* {% data variables.copilot.copilot_claude_sonnet_40 %}
+* {% data variables.copilot.copilot_claude_opus %}
 * {% data variables.copilot.copilot_gemini_flash %}
 * {% data variables.copilot.copilot_o1 %}
 * {% data variables.copilot.copilot_o3 %}
@@ -101,7 +105,7 @@ These instructions are for {% data variables.product.prodname_vscode_shortname %
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 {% data reusables.copilot.open-chat-vs-code %}
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 {% endvscode %}
 
@@ -132,7 +136,7 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 {% data reusables.copilot.chat-model-limitations-ide %}
 
 1. In the {% data variables.product.prodname_vs %} menu bar, click **View**, then click **{% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
 
 {% endvisualstudio %}
 
@@ -169,9 +173,9 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open {% data variables.product.prodname_copilot_chat %}**.
-1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" %} dropdown menu.
+1. In the bottom right of the chat view, select an AI model of your choice from the {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu.
 
 {% endjetbrains %}
 
@@ -204,7 +208,7 @@ These instructions are for the Eclipse IDE. For instructions on different client
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Open Chat**.
 1. In the bottom right of the chat panel, click the currently selected AI model, then select an alternative model from the popup menu.
 
@@ -245,14 +249,14 @@ To use multi-model {% data variables.product.prodname_copilot_chat_short %}, you
 
 {% data reusables.copilot.chat-model-limitations-ide %}
 
-1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
-1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click the AI model of your choice.
+1. To open the chat view, click **Editor** in the menu bar, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then **Open Chat**. {% data variables.product.prodname_copilot_chat_short %} opens in a new window.
+1. In the bottom right of the chat view, select the **CURRENT-MODEL** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click the AI model of your choice.
 
 {% endxcode %}
 
 ## Further reading
 
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion)
-* [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot)
+* [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
 * [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task)

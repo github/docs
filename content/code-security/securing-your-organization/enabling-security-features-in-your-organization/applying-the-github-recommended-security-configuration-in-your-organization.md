@@ -17,14 +17,14 @@ topics:
 The {% data variables.product.prodname_github_security_configuration %} is a collection of enablement settings for {% data variables.product.company_short %}'s security features that is created and maintained by subject matter experts at {% data variables.product.company_short %}. The {% data variables.product.prodname_github_security_configuration %} is designed to successfully reduce the security risks for low- and high-impact repositories. We recommend you apply this configuration to all the repositories in your organization.
 
 > [!NOTE]
-> The {% data variables.product.prodname_github_security_configuration %} includes {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features. Applying the configuration to private and internal repositories in your organization will incur usage costs or require licenses.
+> The {% data variables.product.prodname_github_security_configuration %} includes {% data variables.product.prodname_GH_code_security %} and {% data variables.product.prodname_GH_secret_protection %} features. Applying the configuration to repositories in your organization will incur usage costs or require licenses.
 
 ## Applying the {% data variables.product.prodname_github_security_configuration %} to all repositories in your organization
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org_settings %}
 {% data reusables.security-configurations.view-configurations-page %}
-1. In the "{% data variables.product.company_short %} recommended" row of the configurations table for your organization, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
+1. In the "{% data variables.product.company_short %} recommended" row of the configurations table for your organization, select the **Apply to** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **All repositories** or **All repositories without configurations**.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 
@@ -37,7 +37,7 @@ The {% data variables.product.prodname_github_security_configuration %} is a col
 {% data reusables.security-configurations.view-configurations-page %}
 1. Optionally, in the "Apply configurations" section, filter the view to find the repositories you would like to apply the {% data variables.product.prodname_github_security_configuration %} to. To learn how to filter the repository table, see [AUTOTITLE](/code-security/securing-your-organization/managing-the-security-of-your-organization/filtering-repositories-in-your-organization-using-the-repository-table).
 {% data reusables.security-configurations.select-repos %}
-1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **{% data variables.product.company_short %} recommended**.
+1. Select the **Apply configuration** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **{% data variables.product.company_short %} recommended**.
 
     {% data reusables.security-configurations.default-configuration-exception-repo-transfers %}
 

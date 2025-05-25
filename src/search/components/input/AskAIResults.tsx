@@ -4,7 +4,14 @@ import { executeAISearch } from '../helpers/execute-search-actions'
 import { useRouter } from 'next/router'
 import { useTranslation } from '@/languages/components/useTranslation'
 import { ActionList, IconButton, Spinner } from '@primer/react'
-import { CheckIcon, CopyIcon, FileIcon, ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
+import {
+  CheckIcon,
+  CopilotIcon,
+  CopyIcon,
+  FileIcon,
+  ThumbsdownIcon,
+  ThumbsupIcon,
+} from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
 import { useAISearchLocalStorageCache } from '../hooks/useAISearchLocalStorageCache'
 import { UnrenderedMarkdownContent } from '@/frame/components/ui/MarkdownContent/UnrenderedMarkdownContent'
@@ -76,7 +83,7 @@ export function AskAIResults({
     aiCouldNotAnswer: boolean
     connectedEventId?: string
   }>('ai-query-cache', 1000, 7)
-  const { isOpen: isCTAOpen, dismiss: dismissCTA } = useCTAPopoverContext()
+  const { isOpen: isCTAOpen, permanentDismiss: permanentlyDismissCTA } = useCTAPopoverContext()
 
   const [isCopied, setCopied] = useClipboard(message, { successDuration: 1400 })
   const [feedbackSelected, setFeedbackSelected] = useState<null | 'up' | 'down'>(null)
@@ -131,9 +138,10 @@ export function AskAIResults({
     setResponseLoading(true)
     disclaimerRef.current?.focus()
 
-    // Upon performing an AI Search, dismiss the CTA if it is open
+    // We permanently dismiss the CTA after performing an AI Search because the
+    // user has tried it and doesn't require additional CTA prompting to try it
     if (isCTAOpen) {
-      dismissCTA()
+      permanentlyDismissCTA()
     }
 
     const cachedData = getItem(query, version, router.locale || 'en')
@@ -225,18 +233,75 @@ export function AskAIResults({
         const decoder = new TextDecoder('utf-8')
         const reader = response.body.getReader()
         let done = false
+        let leftover = '' // <= carry‑over buffer
         setInitialLoading(false)
+
+        const processLine = (parsedLine: any) => {
+          switch (parsedLine.chunkType) {
+            // A conversation ID will still be sent when a question cannot be answered
+            case 'CONVERSATION_ID':
+              conversationIdBuffer = parsedLine.conversation_id
+              setConversationId(parsedLine.conversation_id)
+              break
+
+            case 'NO_CONTENT_SIGNAL':
+              // Serve canned response. A question that cannot be answered was asked
+              handleAICannotAnswer(conversationIdBuffer, 200)
+              break
+
+            case 'SOURCES':
+              if (!isCancelled) {
+                sourcesBuffer = uniqBy(
+                  sourcesBuffer.concat(parsedLine.sources as AIReference[]),
+                  'url',
+                )
+                setReferences(sourcesBuffer)
+              }
+              break
+
+            case 'MESSAGE_CHUNK':
+              if (!isCancelled) {
+                messageBuffer += parsedLine.text
+                setMessage(messageBuffer)
+              }
+              break
+
+            case 'INPUT_CONTENT_FILTER':
+              // Serve canned response. A spam question was asked
+              handleAICannotAnswer(
+                conversationIdBuffer,
+                200,
+                t('search.ai.responses.invalid_query'),
+              )
+              break
+          }
+
+          if (!isCancelled) setAnnouncement('Copilot Response Loading...')
+        }
+
         while (!done && !isCancelled) {
           const { value, done: readerDone } = await reader.read()
           done = readerDone
+
+          // The sources JSON chunk may be sent in multiple parts, so we need to decode it with a leftover buffer so that it can be parsed all at once
+          // So when we say "incomplete" or "leftover" we mean that the JSON is not complete yet, not that the message is incomplete
           if (value) {
-            const chunkStr = decoder.decode(value, { stream: true })
-            const chunkLines = chunkStr.split('\n').filter((line) => line.trim() !== '')
-            for (const line of chunkLines) {
-              let parsedLine
+            // 1 append this chunk's text to whatever was left over
+            leftover += decoder.decode(value, { stream: true })
+
+            // 2 split on newline
+            const lines = leftover.split('\n')
+
+            // 3 keep the *last* item (maybe incomplete) for next round
+            leftover = lines.pop() ?? ''
+
+            // 4 parse all complete lines
+            for (const raw of lines) {
+              if (!raw.trim()) continue
+
+              let parsedLine: any
               try {
-                parsedLine = JSON.parse(line)
-                // If midstream there is an error, like a connection reset / lost, our backend will send an error JSON
+                parsedLine = JSON.parse(raw)
                 if (parsedLine?.errors) {
                   sendAISearchResultEvent({
                     sources: [],
@@ -248,48 +313,23 @@ export function AskAIResults({
                   setAISearchError()
                   return
                 }
-              } catch (e) {
-                console.warn(
-                  'Failed to parse JSON:',
-                  e,
-                  'Line:',
-                  line,
-                  'Typeof line: ',
-                  typeof line,
-                )
+              } catch (err) {
+                console.warn('Failed to parse JSON line:', raw, err)
                 continue
               }
 
-              // A conversation ID will still be sent when a question cannot be answered
-              if (parsedLine.chunkType === 'CONVERSATION_ID') {
-                conversationIdBuffer = parsedLine.conversation_id
-                setConversationId(parsedLine.conversation_id)
-              } else if (parsedLine.chunkType === 'NO_CONTENT_SIGNAL') {
-                // Serve canned response. A question that cannot be answered was asked
-                handleAICannotAnswer(conversationIdBuffer, 200)
-              } else if (parsedLine.chunkType === 'SOURCES') {
-                if (!isCancelled) {
-                  sourcesBuffer = sourcesBuffer.concat(parsedLine.sources)
-                  sourcesBuffer = uniqBy(sourcesBuffer, 'url')
-                  setReferences(sourcesBuffer)
-                }
-              } else if (parsedLine.chunkType === 'MESSAGE_CHUNK') {
-                if (!isCancelled) {
-                  messageBuffer += parsedLine.text
-                  setMessage(messageBuffer)
-                }
-              } else if (parsedLine.chunkType === 'INPUT_CONTENT_FILTER') {
-                // Serve canned response. A spam question was asked
-                handleAICannotAnswer(
-                  conversationIdBuffer,
-                  200,
-                  t('search.ai.responses.invalid_query'),
-                )
-              }
-              if (!isCancelled) {
-                setAnnouncement('Copilot Response Loading...')
-              }
+              processLine(parsedLine)
             }
+          }
+        }
+
+        // 5 flush whatever remains after the stream ends
+        if (!isCancelled && leftover.trim()) {
+          try {
+            const tail = JSON.parse(leftover)
+            processLine(tail)
+          } catch (err) {
+            console.warn('Failed to parse tail JSON:', leftover, err)
           }
         }
       } catch (error: any) {
@@ -334,6 +374,64 @@ export function AskAIResults({
 
   return (
     <div className={styles.container}>
+      {!aiCouldNotAnswer && references && references.length > 0 ? (
+        <>
+          <ActionList className={styles.referencesList} showDividers>
+            <ActionList.Group>
+              <ActionList.GroupHeading
+                as="h3"
+                aria-label={t('search.ai.references')}
+                className={styles.referencesTitle}
+              >
+                {t('search.ai.references')}
+              </ActionList.GroupHeading>
+              {references
+                .map((source, index) => {
+                  if (index >= MAX_REFERENCES_TO_SHOW) {
+                    return null
+                  }
+                  const refIndex = index + referencesIndexOffset
+                  return (
+                    <ActionList.Item
+                      sx={{
+                        marginLeft: '0px',
+                      }}
+                      key={`reference-${index}`}
+                      id={`search-option-reference-${index + referencesIndexOffset}`}
+                      role="option"
+                      tabIndex={-1}
+                      onSelect={() => {
+                        referenceOnSelect(source.url)
+                      }}
+                      active={refIndex === selectedIndex}
+                      ref={(element) => {
+                        if (listElementsRef.current) {
+                          listElementsRef.current[refIndex] = element
+                        }
+                      }}
+                    >
+                      <ActionList.LeadingVisual aria-hidden="true">
+                        <FileIcon />
+                      </ActionList.LeadingVisual>
+                      {source.title}
+                    </ActionList.Item>
+                  )
+                })
+                .filter(Boolean)}
+            </ActionList.Group>
+            <ActionList.Divider aria-hidden="true" />
+          </ActionList>
+        </>
+      ) : null}
+      <ActionList.GroupHeading
+        key="ai-heading"
+        as="h3"
+        tabIndex={-1}
+        aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
+      >
+        <CopilotIcon className="mr-1" />
+        {t('search.overlay.ai_autocomplete_list_heading')}
+      </ActionList.GroupHeading>
       {initialLoading ? (
         <div className={styles.loadingContainer} role="status">
           <Spinner />
@@ -422,55 +520,6 @@ export function AskAIResults({
             }}
           ></IconButton>
         </div>
-      ) : null}
-      {!aiCouldNotAnswer && references && references.length > 0 ? (
-        <>
-          <ActionList.Divider aria-hidden="true" />
-          <ActionList className={styles.referencesList} showDividers>
-            <ActionList.Group>
-              <ActionList.GroupHeading
-                as="h3"
-                aria-label={t('search.ai.references')}
-                className={styles.referencesTitle}
-              >
-                {t('search.ai.references')}
-              </ActionList.GroupHeading>
-              {references
-                .map((source, index) => {
-                  if (index >= MAX_REFERENCES_TO_SHOW) {
-                    return null
-                  }
-                  const refIndex = index + referencesIndexOffset
-                  return (
-                    <ActionList.Item
-                      sx={{
-                        marginLeft: '0px',
-                      }}
-                      key={`reference-${index}`}
-                      id={`search-option-reference-${index + referencesIndexOffset}`}
-                      role="option"
-                      tabIndex={-1}
-                      onSelect={() => {
-                        referenceOnSelect(source.url)
-                      }}
-                      active={refIndex === selectedIndex}
-                      ref={(element) => {
-                        if (listElementsRef.current) {
-                          listElementsRef.current[refIndex] = element
-                        }
-                      }}
-                    >
-                      <ActionList.LeadingVisual aria-hidden="true">
-                        <FileIcon />
-                      </ActionList.LeadingVisual>
-                      {source.title}
-                    </ActionList.Item>
-                  )
-                })
-                .filter(Boolean)}
-            </ActionList.Group>
-          </ActionList>
-        </>
       ) : null}
       <div
         aria-live="assertive"

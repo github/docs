@@ -24,6 +24,7 @@ children:
   - /preventing-overspending
   - /managing-your-payment-and-billing-information
   - /automating-usage-reporting
+  - /adding-a-sales-tax-certificate
   - /redeeming-a-coupon
   - /troubleshooting-a-declined-credit-card-charge
   - /unlocking-a-locked-account

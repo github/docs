@@ -32,11 +32,11 @@ You need pay to use {% data variables.product.prodname_AS %} features in private
 
 ## License types for {% data variables.product.prodname_AS %} products
 
-Licensing for {% data variables.product.prodname_AS %} products is flexible, making it easy for you to choose options that fit your business needs. {% ifversion ghec or ghes %}You can buy volume/subscription licenses for any combination of the following products or use metered billing to pay for your use:{% endif %}
+{% data variables.product.prodname_AS %} consists of two main products:
 
 {% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
-For example, you might start by using {% data variables.product.prodname_GH_secret_protection %} across all repositories, and pilot {% data variables.product.prodname_GH_code_security %} in high-risk repositories. You {% ifversion ghec or ghes %}buy or {% endif %}pay only for the products you need, and expand as you see the benefits to the security of your code.
+Licensing for {% data variables.product.prodname_AS %} products is flexible, making it easy for you to choose options that fit your business needs. For example, you might start by using {% data variables.product.prodname_GH_secret_protection %} across all repositories, and pilot {% data variables.product.prodname_GH_code_security %} in high-risk repositories. You buy or pay only for the products you need, and expand as you see the benefits to the security of your code.
 
 For more information, see [feature summary and pricing information](https://github.com/enterprise/advanced-security#pricing) and [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
@@ -51,7 +51,7 @@ Each active committer to at least one repository with an {% data variables.produ
 
 There are two different ways to pay for licenses.
 
-* **Metered billing** {% ifversion ghec %}introduced from June 2024 onward{% elsif ghes %}available from {% data variables.product.prodname_ghe_server %} 3.13 onward with {% data variables.product.prodname_github_connect %}{% endif %}
+* **Metered billing** {% ifversion ghes %}available from {% data variables.product.prodname_ghe_server %} 3.13 onward with {% data variables.product.prodname_github_connect %}{% endif %}
 
   * Users can enable {% data variables.product.prodname_GH_cs_or_sp %} independently.
   * Monthly bill for the number of licenses used by active committers.
@@ -64,9 +64,10 @@ There are two different ways to pay for licenses.
 
 * **Volume/subscription billing** available for {% data variables.product.prodname_enterprise %} plans only
 
-  * Users must ask the sales team to set up billing.
   * Purchase a specific number of {% data variables.product.prodname_GHAS_cs_or_sp %} licenses that last for a defined period, typically at least a year.
   * If the usage of {% data variables.product.prodname_AS %} by active committers exceeds the number of licenses purchased, you need to purchase additional licenses to cover this overage usage.
+
+   If you want to purchase volume/subscription-based licenses, contact your account manager in {% data variables.contact.contact_enterprise_sales %} or contact {% data variables.contact.contact_support_page %}.
 
 ## Managing committers and costs
 
@@ -119,6 +120,8 @@ The number of unique, active committers who use {% data variables.product.prodna
 * **Active committers** is the number of committers who contributed to at least one organization-owned repository{% ifversion secret-scanning-user-owned-repos %} or one user-owned repository{% endif %}, and who use a license in your enterprise. That is, they are also an organization member, an external collaborator, or have a pending invitation to join an organization in your enterprise, and they are not a {% data variables.product.prodname_github_app %} bot.
 {% endif %} For information about differences between bot and machine accounts, see [AUTOTITLE](/apps/creating-github-apps/setting-up-a-github-app/differences-between-github-apps-and-oauth-apps#machine-vs-bot-accounts).
 * **Unique committers** is the number of active committers who contributed only to a repository, or to repositories in an organization. This number shows how many licenses you can free up by disabling {% data variables.product.prodname_GH_cs_or_sp %} for that repository or organization.
+
+> [!NOTE] When a repository is migrated to GitHub, GitHub Advanced Security only consumes licenses for commits and pushes made after migration, rather than considering all historic contributions from before the migration.
 
 If there are no unique committers to a repository or organization, all active committers also contribute to other repositories or organizations that use {% data variables.product.prodname_AS %} licenses. Disabling a product for that repository or organization would not free any licenses or lower your usage costs.
 

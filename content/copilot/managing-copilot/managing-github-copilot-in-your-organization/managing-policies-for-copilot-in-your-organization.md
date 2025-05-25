@@ -29,16 +29,16 @@ Organization owners can set policies to govern how {% data variables.product.pro
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview Copilot features, such as:
-
   * Image support in {% data variables.product.prodname_copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
-
     >[!NOTE] This setting only applies to preview features within {% data variables.product.prodname_copilot_short %} and does not control all preview-related settings in {% data variables.product.prodname_vscode_shortname %}.
+* {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+* MCP servers on {% data variables.product.prodname_dotcom_the_website %} ({% data variables.release-phases.public_preview %})
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
-  * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
+  * Anthropic {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_short %}
   * Google {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}
   * OpenAI models in {% data variables.product.prodname_copilot_short %}
 
@@ -54,7 +54,7 @@ If an organization member is assigned a seat by multiple organizations with diff
 
 ## Enabling {% data variables.product.prodname_copilot_short %} features in your organization
 
->[!NOTE] {% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level.  For more information on managing policies at the enterprise level, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+{% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -66,6 +66,9 @@ If an organization member is assigned a seat by multiple organizations with diff
 1. If your organization has a {% data variables.product.prodname_copilot_business_short %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
 
     {% data reusables.copilot.policies-for-dotcom %}
+
+> [!TIP]
+> If you choose to enable {% data variables.copilot.copilot_coding_agent %} for users, you also need to define which repositories the agent is available in, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
 
@@ -99,4 +102,6 @@ After you have installed a {% data variables.product.prodname_copilot_extension_
 
 * [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions){% ifversion ghec %}
-* [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise){% endif %}
+* [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)
+* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/making-copilot-coding-agent-available-to-enterprise){% else %}
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization){% endif %}

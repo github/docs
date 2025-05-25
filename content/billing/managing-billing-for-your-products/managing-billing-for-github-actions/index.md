@@ -14,4 +14,3 @@ children:
   - /managing-your-spending-limit-for-github-actions
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}

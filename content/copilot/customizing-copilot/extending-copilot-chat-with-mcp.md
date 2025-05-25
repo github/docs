@@ -7,12 +7,15 @@ versions:
   feature: copilot
 topics:
   - Copilot
+type: how_to
 ---
 
 >[!NOTE]
 > * MCP support is currently in {% data variables.release-phases.public_preview %} and subject to change.
-> * MCP support is only available in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode %}.
+> * MCP support is available in {% data variables.product.prodname_copilot_chat_short %} for {% data variables.product.prodname_vscode %}, JetBrains, Eclipse, and Xcode.
 > * The [AUTOTITLE](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms) apply to your use of this product.
+
+{% vscode %}
 
 ## Overview
 
@@ -47,7 +50,7 @@ You can use the same steps to configure MCP servers in your personal {% data var
     ```json copy
     {
     "inputs": [
-      // The "inputs" section defines the inputs required for the MCP server configuration. 
+      // The "inputs" section defines the inputs required for the MCP server configuration.
       {
         "type": "promptString"
       }
@@ -67,7 +70,7 @@ You can use the same steps to configure MCP servers in your personal {% data var
 
     ![Screenshot of MCP server configuration in {% data variables.product.prodname_vscode %}. The "Start" button is outlined in dark orange. ](/assets/images/help/copilot/mcp-start-server-button.png)
 
-1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
+1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
 1. In the {% data variables.product.prodname_copilot_chat_short %} box, select **Agent** from the popup menu.
 
     ![Screenshot of the {% data variables.product.prodname_copilot_chat_short %} box in {% data variables.product.prodname_vscode %}. The "Agent" option is outlined in dark orange.](/assets/images/help/copilot/copilot-chat-agent-option.png)
@@ -82,7 +85,7 @@ For more information on configuring MCP servers in {% data variables.product.pro
 
 Once you have configured your MCP servers, you can use them in {% data variables.product.prodname_copilot_chat_short %} to access a wide range of tools and services. In the example below, we will use the Fetch MCP server to fetch details about a web page.
 
-1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
+1. Open {% data variables.product.prodname_copilot_chat_short %} by clicking the {% octicon "copilot" aria-hidden="true" aria-label="copilot" %} icon in the title bar of {% data variables.product.prodname_vscode %}.
 1. In the {% data variables.product.prodname_copilot_chat_short %} box, select **Agent** from the popup menu.
 1. In the file with the MCP configuration, check that the MCP server is running. If it is not running, click the "Start" button to start the MCP server.
 
@@ -108,8 +111,92 @@ If you already have an MCP configuration in Claude Desktop, you can use that con
 
 {% data variables.product.prodname_vscode %} will automatically find your existing configuration and use it in your {% data variables.product.prodname_vscode %} instance.
 
+{% endvscode %}
+
+{% jetbrains %}
+
+## Overview
+
+{% data reusables.copilot.mcp-overview-other-ides %}
+
+For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **A compatible JetBrains IDE**. {% data variables.product.prodname_copilot %} is compatible with the following IDEs:
+
+  {% data reusables.copilot.jetbrains-compatible-ides %}
+{% data reusables.copilot.jetbrains-plugin-prerequisites %}
+
+## Configuring MCP servers in JetBrains IDEs
+
+1. In the lower right corner, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}**.
+1. From the menu, select "Edit settings".
+1. Under the MCP section, click "Edit in `mcp.json`".
+1. Define your MCP servers. You can use the following configuration as an example:
+
+   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+
+Alternatively, to access the MCP settings, once you're in "Agent Mode", click the tools icon, then click **Add more tools**.
+
+{% endjetbrains %}
+
+{% xcode %}
+
+## Overview
+
+{% data reusables.copilot.mcp-overview-other-ides %}
+
+For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot_short %}**. {% data reusables.copilot.subscription-prerequisite %}
+* **{% data variables.product.prodname_copilot %} for Xcode extension**. See [AUTOTITLE](/copilot/configuring-github-copilot/installing-the-github-copilot-extension-in-your-environment).
+
+## Configuring MCP servers in Xcode
+
+1. Open the {% data variables.product.prodname_copilot %} for Xcode extension.
+1. In agent mode, click the tools icon.
+1. Select "Edit config".
+1. Define your MCP servers, editing `mcp.json`. You can use the following configuration as an example:
+
+   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+
+{% endxcode %}
+
+{% eclipse %}
+
+## Overview
+
+{% data reusables.copilot.mcp-overview-other-ides %}
+
+For information on other currently available MCP servers, see [the MCP servers repository](https://github.com/modelcontextprotocol/servers/tree/main).
+
+## Prerequisites
+
+{% data reusables.copilot.eclipse-prerequisites %}
+* **Latest version of the {% data variables.product.prodname_copilot %} extension**. Download this from the [Eclipse Marketplace](https://aka.ms/copiloteclipse). For more information, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/installing-the-github-copilot-extension-in-your-environment?tool=eclipse).
+* **Sign in to {% data variables.product.company_short %} from Eclipse**.
+
+## Configuring MCP servers in Eclipse
+
+1. To open the {% data variables.product.prodname_copilot_chat_short %} panel, click the {% data variables.product.prodname_copilot_short %} icon ({% octicon "copilot" aria-hidden="true" aria-label="copilot" %}) in the status bar at the bottom of Eclipse.
+1. From the menu, select "Edit preferences".
+1. In the left pane, expand {% data variables.product.prodname_copilot_chat_short %} and click **MCP**.
+1. Define your MCP servers. You can use the following configuration as an example:
+
+   {% data reusables.copilot.mcp-chat-json-snippet-for-other-ides %}
+
+{% endeclipse %}
+
 ## Creating a new MCP server
 
 You can create a new MCP server to fulfill your specific needs, and then integrate it with {% data variables.product.prodname_copilot_chat_short %}. For example, you can create an MCP server that connects to a database or a web service, and then use that server in {% data variables.product.prodname_copilot_chat_short %} to perform tasks on that database or web service.
 
 For more information on creating and configuring your own MCP servers, see [the official MCP documentation](https://modelcontextprotocol.io/quickstart/server).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)

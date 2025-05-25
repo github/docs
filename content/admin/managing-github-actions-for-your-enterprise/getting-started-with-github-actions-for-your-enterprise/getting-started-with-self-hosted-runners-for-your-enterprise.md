@@ -89,7 +89,7 @@ You can create a runner group to manage access to the runner that you added to y
 1. Click the "Runners" tab.
 1. In the list of runners, click the runner that you deployed in the previous section.
 1. Click **Edit**.
-1. Click **Runner groups {% octicon "gear" aria-hidden="true" %}**.
+1. Click **Runner groups {% octicon "gear" aria-hidden="true" aria-label="gear" %}**.
 1. In the list of runner groups, click the name of the group that you previously created.
 1. Click **Save** to move the runner to the group.
 

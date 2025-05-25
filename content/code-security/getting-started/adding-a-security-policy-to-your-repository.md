@@ -43,7 +43,7 @@ For an example of a real `SECURITY.md` file, see [https://github.com/electron/el
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" %} Policy**.
+1. In the left sidebar, under "Reporting", click **{% octicon "law" aria-hidden="true" aria-label="law" %} Policy**.
 1. Click **Start setup**.
 1. In the new `SECURITY.md` file, add information about supported versions of your project and how to report a vulnerability.
 {% data reusables.files.write_commit_message %}
