@@ -14,7 +14,7 @@ redirect_from:
 
 When you're adopting {% data variables.product.prodname_copilot %} in an enterprise, you will want to set budgets and track spending to ensure your rollout is sustainable. {% data variables.product.github %} offers billing tools to help you visualize your spending patterns, receive alerts when you reach budget thresholds, and optimize your license usage.
 
->[!NOTE] Some of the tools recommended in this article are part of {% data variables.product.github %}'s new billing platform, which isn't available to all customers. If your enterprise has access, you will see a **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing** option in your enterprise account's settings.
+>[!NOTE] Some of the tools recommended in this article are part of {% data variables.product.github %}'s new billing platform, which isn't available to all customers. If your enterprise has access, you will see a **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing** option in your enterprise account's settings.
 
 ## Understand who can grant licenses
 
@@ -22,21 +22,21 @@ To control spending, it's important to understand who can affect your bill by gr
 
 We recommend that you identify the people with this role and communicate with them about your company's strategy for distributing licenses. For example, you may have a budget or limited pilot program, or you may distribute licenses through an internal website.
 
-## Manage charges for premium requests
+## Managing charges for premium requests
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-06-04 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-06-04 -->
 
 {% data reusables.copilot.premium-requests-for-enterprises %}
 
-Premium requests over the allowance are rejected unless you have enabled additional premium requests. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
+Premium requests over the allowance are rejected unless you have set a budget. Depending on the type of development tasks your developers use {% data variables.product.prodname_copilot_short %} for, you may find developers need to make more premium requests than the allowance included in your plan.
 
-If you enable additional premium requests, premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
+Premium requests over the allowance are charged at a rate of {% data variables.copilot.additional_premium_requests %} per request, with an additional multiplier applied to certain models. You can also increase your monthly allowance by upgrading to {% data variables.product.prodname_copilot_enterprise_short %}.
 
 For pricing details and a list of available models, see [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot#comparing-copilot-plans).
 
-### Enable premium requests and manage budgets
+### Managing budgets
 
 By default, a $0 budget for the {% data variables.product.prodname_copilot %} Premium Request SKU is created for your enterprise. You can edit this budget from the "Budgets and alerts" page. See [AUTOTITLE](/billing/using-the-new-billing-platform/preventing-overspending#editing-or-deleting-a-budget).
 
@@ -50,12 +50,12 @@ The default budget that is created applies to your whole enterprise. To set a ne
 
 {% elsif ghec %}
 
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 {% endif %}
 1. Click **Budgets and alerts**.
 1. Click **New budget**.
-1. Under "Budget Type" select **SKU-level budget**.  
+1. Under "Budget Type" select **SKU-level budget**.
 1. Select the "Product" dropdown and click **Copilot**.
 1. Select the "SKU" dropdown and click **Copilot Premium Request**
 1. Under "Budget scope", set the scope of spending for this budget.
@@ -63,13 +63,6 @@ The default budget that is created applies to your whole enterprise. To set a ne
 1. Click **Create budget**.
 
 ### Tracking premium requests
-
-<!-- expires 2025-05-19 -->
-> [!IMPORTANT] Premium request reporting will be available to download starting on the following dates:
->
-> * May 12, 2025: For self-service (credit card) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
-> * May 19, 2025: For sales-served (invoiced) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} customers
-<!-- end expires 2025-05-19 -->
 
 You can view a CSV report that shows the cumulative number of premium requests per user over a time period. You can use this report to:
 
@@ -79,7 +72,7 @@ You can view a CSV report that shows the cumulative number of premium requests p
 
 You can download the report for an enterprise account, or for an organization that is not part of an enterprise.
 
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. In the left sidebar, click **Usage**.
 1. To download the usage report, select **Get usage report** in the upper-right corner of the page, and click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
@@ -91,7 +84,7 @@ For example, if you were running a pilot program for {% data variables.product.p
 
 ### Create a cost center
 
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. In the left sidebar, click **Cost centers**, then click **New cost center**.
 1. Create the cost center. You don't need to add any repositories or organizations, because you will add users to the cost center directly in the next step.
 
@@ -105,7 +98,7 @@ With {% data variables.product.github %}'s new billing platform, you can set a m
 
 {% ifversion ghec %}You can create the budget for the whole enterprise or for a cost center.{% endif %}
 
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. In the left sidebar, click **Budgets and alerts**.
 1. Click **New budget**.
 1. Select **{% data variables.product.prodname_copilot_short %}** for the product, or **{% data variables.product.prodname_copilot_short %} Premium Request** for the SKU, then configure the settings as required. You can choose who receives alerts when budget thresholds are reached.
@@ -115,7 +108,7 @@ With {% data variables.product.github %}'s new billing platform, you can set a m
 
 With {% data variables.product.github %}'s new billing platform, you can understand your spending trends by viewing a graph for {% data variables.product.prodname_copilot_short %} usage over a certain timeframe. For more detailed insights, you can filter the results by cost center and group usage by the type of {% data variables.product.prodname_copilot_short %} plan.
 
-1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. Go to your enterprise or organization account settings and click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. In the left sidebar, click **Usage**.
 1. In the "Metered usage" section, in the search field, enter `product:copilot`. To filter by cost center, add a query like `cost_center:ce-pilot-group`.
 1. To understand spending differences between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %} plans, select the **Group: None** dropdown menu and click **Group: SKU**.

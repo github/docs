@@ -14,11 +14,8 @@ versions:
 shortTitle: Connect an Azure subscription
 ---
 
-{% ifversion metered-ghe-ghas %}
 
 {% data reusables.billing.usage-based-billing %}
-
-{% endif %}
 
 ## About connection of an Azure subscription
 
@@ -44,11 +41,8 @@ If you use {% data variables.product.prodname_ghe_cloud %} through a Microsoft E
 | {% data variables.product.prodname_actions %} usage beyond the amounts included with your plan  | [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions)                                                                         |   [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#about-spending-limits) |
 | {% data variables.product.prodname_registry %} usage beyond the amounts included with your plan | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages)                                                                       | [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages#about-spending-limits) |
 | {% data variables.product.prodname_copilot_business_short %} usage                              | [AUTOTITLE](/billing/managing-billing-for-github-copilot/about-billing-for-github-copilot#about-billing-for-github-copilot-business-and-github-copilot-enterprise) |                                                                                                                  N/A |
-| {% ifversion metered-ghe-ghas %} |
 | {% data variables.product.prodname_AS %} usage (only available with a trial of {% data variables.product.prodname_ghe_cloud %})                              | [AUTOTITLE](/billing/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#usage-based-billing-for-github-advanced-security) |                                                                                                                  N/A |
 | {% data variables.product.prodname_enterprise %} usage                              | [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise) |                                                                                                                  N/A |
-
-{% endif %}
 
 {% endif %}
 
@@ -98,7 +92,7 @@ To connect your Azure subscription, you must have owner permissions to the Azure
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
 1. Under "Billing Management", to the right of "Metered billing via Azure", click **Add Azure Subscription**.
 1. To sign in to your Microsoft account, follow the prompts.
 1. Review the "Permissions requested" prompt. If you agree with the terms, click **Accept**.
@@ -141,7 +135,7 @@ After you disconnect your Azure subscription from your organization account, you
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
 1. Under "Billing Management", then under "Metered billing via Azure", to the right of the subscription ID you want to disconnect, click **{% octicon "trash" aria-label="The trash icon" %}**.
 1. Review the prompt, then click **Remove**.
 

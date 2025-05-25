@@ -23,7 +23,7 @@ The new billing platform provides a high-level view of your spending trends base
 ## Viewing your spending for your personal account
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 On this page, you can view your usage in the following categories:
 
@@ -74,11 +74,9 @@ On this page, you can view your usage in the following categories:
 {% endif %}
 * **By products:** You can use the product tabs to view usage and discounts for different products.
 
-    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png){% ifversion metered-ghe-ghas %}
+    ![Screenshot of the product tabs section of the overview page.](/assets/images/help/billing/enhanced-billing-platform-products-tabs.png)
 
    {% data reusables.billing.actions-usage-delay %}
-
-   {% endif %}
 
 {% ifversion ghec %}
 

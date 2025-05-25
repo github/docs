@@ -13801,6 +13801,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "duplicateOf",
+          "description": "<p>The issue or pull request that this issue was marked as a duplicate of.</p>",
+          "type": "IssueOrPullRequest",
+          "id": "issueorpullrequest",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issueorpullrequest"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the ClosedEvent object.</p>",
           "type": "ID!",
@@ -29172,6 +29180,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "duplicateOf",
+          "description": "<p>A reference to the original issue that this issue has been marked as a duplicate of.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
         },
         {
           "name": "editor",
@@ -94710,6 +94726,25 @@
           "name": "Organization",
           "id": "organization",
           "href": "/graphql/reference/objects#organization"
+        },
+        {
+          "name": "User",
+          "id": "user",
+          "href": "/graphql/reference/objects#user"
+        }
+      ]
+    },
+    {
+      "name": "BotOrUser",
+      "kind": "unions",
+      "id": "botoruser",
+      "href": "/graphql/reference/unions#botoruser",
+      "description": "<p>Used when either Bot or User are accepted.</p>",
+      "possibleTypes": [
+        {
+          "name": "Bot",
+          "id": "bot",
+          "href": "/graphql/reference/objects#bot"
         },
         {
           "name": "User",

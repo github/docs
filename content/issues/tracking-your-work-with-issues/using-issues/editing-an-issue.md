@@ -34,7 +34,7 @@ You can also make changes to the issue description. The edit history is availabl
 
    ![Screenshot of an issue description. The "Issue body actions" button is highlighted with an orange outline.](/assets/images/help/issues/issue-edit-description.png)
 
-1. In the menu, click **{% octicon "pencil" aria-hidden="true" %} Edit**.
+1. In the menu, click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit**.
 1. Type your changes to the issue description.
 1. Click **Save**.
 

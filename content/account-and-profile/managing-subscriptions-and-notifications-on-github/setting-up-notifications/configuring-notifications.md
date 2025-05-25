@@ -42,7 +42,7 @@ The notifications inbox includes triaging options designed specifically for your
 * Mark completed notifications as **Done** and remove them from your inbox. To view all of your notifications marked as **Done**, use the `is:done` query.
 * Save a notification to review later. Saved notifications are flagged in your inbox and kept indefinitely. To view all of your saved notifications, use the `is:saved` query.
 * Unsubscribe and remove a notification from your inbox.
-* Preview the issue{% ifversion team-discussions %}, pull request, or team discussion{% else %} or pull request{% endif %} where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
+* Preview the issue or pull request where the notification originates on {% data variables.product.prodname_dotcom %} from within the notifications inbox.
 * See one of the latest reasons you're receiving a notification from your inbox with a `reasons` label.
 * Create custom filters to focus on different notifications when you want.
 * Group notifications in your inbox by repository or date to get a quick overview with less context switching.
@@ -59,7 +59,7 @@ Email notifications also allow flexibility with the types of notifications you r
 
 ## About participating and watching notifications
 
-When you watch a repository, you're subscribing to updates for activity in that repository. {% ifversion team-discussions %}Similarly, when you watch a specific team's discussions, you're subscribing to all conversation updates on that team's page. For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).{% endif %}
+When you watch a repository, you're subscribing to updates for activity in that repository.
 
 To see repositories that you're watching, go to your [watching page](https://github.com/watching). For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/managing-subscriptions-for-activity-on-github).
 
@@ -152,24 +152,15 @@ The `reply-to` address on each email notification identifies the thread and the 
 {% data reusables.notifications.access_notifications %}
 {% data reusables.notifications-v2.manage-notifications %}
 1. On the notifications settings page, choose how you receive notifications when:
-    * There are updates in repositories {% ifversion team-discussions %}or team discussions{% endif %} you're watching or in a conversation you're participating in. For more information, see [About participating and watching notifications](#about-participating-and-watching-notifications).
-    * You gain access to a new repository or you've joined a new team. For more information, see [Automatic watching](#automatic-watching).
+    * There are updates in repositories you're watching or in a conversation you're participating in. For more information, see [About participating and watching notifications](#about-participating-and-watching-notifications).{% ifversion automatic-watching %}
+    * You gain access to a new repository or you've joined a new team. For more information, see [Automatic watching](#automatic-watching).{% endif %}
     * There are new {% data variables.product.prodname_dependabot_alerts %} in your repository. For more information, see [{% data variables.product.prodname_dependabot_alerts %} notification options](#dependabot-alerts-notification-options).  {% ifversion fpt or ghec %}
     * There are workflow runs updates on repositories set up with {% data variables.product.prodname_actions %}. For more information, see [{% data variables.product.prodname_actions %} notification options](#github-actions-notification-options).{% endif %}
     * There are new deploy keys added to repositories that belong to organizations that you're an owner of. For more information, see [Organization alerts notification options](#organization-alerts-notification-options).
 
+{% ifversion automatic-watching %}
+
 ## Automatic watching
-
-<!-- expires 2025-05-18 -->
-
-<!-- When this expires, remove the Automatic watching section for FPT/GHEC but keep it for GHES <=3.17 -->
-
-{% ifversion fpt or ghec %}
-
->[!WARNING] Starting May 18, 2025, {% data variables.product.company_short %} will deprecate automatic watching of repositories and teams. Existing subscriptions will remain unaffected, ensuring you can stay subscribed to repositories or teams that you were previously watching.
-
-{% endif %}
-<!-- end expires 2025-05-18 -->
 
 By default, anytime you gain access to a new repository, you will automatically begin watching that repository. Anytime you join a new team, you will automatically be subscribed to updates and receive notifications when that team is @mentioned. If you don't want to automatically be subscribed, you can unselect the automatic watching options in your notification settings.
 
@@ -181,6 +172,8 @@ By default, anytime you gain access to a new repository, you will automatically 
 If "Automatically watch repositories" is disabled, then you will not automatically watch your own repositories. You must navigate to your repository page and choose the watch option.
 
 For more information, see [AUTOTITLE](/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#choosing-your-notification-settings).
+
+{% endif %}
 
 ## Configuring your watch settings for an individual repository
 

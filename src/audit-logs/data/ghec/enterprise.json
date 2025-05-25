@@ -110,6 +110,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.add_disallowed_two_factor_method",
+    "description": "An enterprise prevented access to resources by users with the given two-factor method.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.add_organization",
     "description": "An organization was added to an enterprise.",
     "docs_reference_links": "N/A"
@@ -208,6 +213,11 @@
     "action": "business.clear_default_repository_permission",
     "description": "An enterprise owner cleared the base repository permission policy setting for an enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions"
+  },
+  {
+    "action": "business.clear_disallowed_two_factor_methods",
+    "description": "Cleared two-factor authentication restrictions for an enterprise.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "business.clear_members_can_create_repos",
@@ -422,6 +432,11 @@
   {
     "action": "business.remove_billing_manager",
     "description": "A billing manager was removed from an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.remove_disallowed_two_factor_method",
+    "description": "Removed a two-factor authentication method restriction for an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -3978,6 +3993,11 @@
     "action": "secret_scanning_closure_request.approve",
     "description": "A request to close a secret scanning alert was approved by a user.",
     "docs_reference_links": "N/A"
+  },
+  {
+    "action": "secret_scanning_closure_request.cancel",
+    "description": "N/A",
+    "docs_reference_links": "A reqeust to close a secret scanning alert was canceled by a user."
   },
   {
     "action": "secret_scanning_closure_request.create",

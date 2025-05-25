@@ -34,8 +34,8 @@ children:
   - /requesting-to-add-a-child-team
   - /requesting-to-add-or-change-a-parent-team
   - /removing-organization-members-from-a-team
-  - /disabling-team-discussions-for-your-organization
   - /managing-scheduled-reminders-for-your-team
   - /deleting-a-team
 shortTitle: Organize members into teams
 ---
+

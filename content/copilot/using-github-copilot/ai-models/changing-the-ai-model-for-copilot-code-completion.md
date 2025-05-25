@@ -10,7 +10,7 @@ topics:
 
 ## Overview
 
-By default, {% data variables.product.prodname_copilot_short %} code completion uses the GPT-4o {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
+By default, {% data variables.product.prodname_copilot_short %} code completion uses the {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %}, a fine-tuned GPT-4o mini based large language model (LLM). This model has been trained on a wide range of high quality public {% data variables.product.github %} repositories, providing coverage of over 30 programming languages. Its knowledge base is more current than the default model and you may find that it generates completion suggestions more quickly.
 
 <details>
   <summary>View the list of programming languages and technologies included in the training data.</summary>
@@ -52,7 +52,7 @@ By default, {% data variables.product.prodname_copilot_short %} code completion 
 </details>
 
 > [!NOTE]
-Multiple model support for {% data variables.product.prodname_copilot_short %} code completion is in {% data variables.release-phases.public_preview %} and is subject to change.
+> The list of available models will change over time. When only one code completion model is available, the model picker will only show that model. Preview models and additional code completion models will appear in the picker when we release them.
 
 {% vscode %} You can switch AI models in the latest releases of {% data variables.product.prodname_vscode_shortname %} with the latest version of the {% data variables.product.prodname_copilot %} extension. {% endvscode %}
 
@@ -90,7 +90,7 @@ The following instructions are for {% data variables.product.prodname_vscode_sho
 1. Type `change completions model` and select the "{% data variables.product.prodname_copilot %}: Change Completions Model" command.
 1. In the dropdown menu, select the model you want to use.
 
-Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
+Alternatively, if Command Center is enabled, you can click {% octicon "chevron-down" aria-label="The downward-pointing arrowhead" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon at the top of the {% data variables.product.prodname_vscode_shortname %} window, then click **Configure Code Completions** in the dropdown menu. Then choose **Change Completions Model** in the dropdown menu and select the model you want to use.
 
 ## Checking which model is being used
 
@@ -107,7 +107,7 @@ Alternatively, if Command Center is enabled, you can click {% octicon "chevron-d
 
 The following instructions are for {% data variables.product.prodname_vs %}. If you are using {% data variables.product.prodname_vscode_shortname %}, or a JetBrains IDE, click the appropriate tab at the start of this article.
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the top right corner.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the top right corner.
 1. Click **Settings**, then click **Options**.
 1. Under **{% data variables.product.prodname_copilot_short %} Completions**, use the dropdown menu to select the model you want to use.
 
@@ -119,7 +119,7 @@ The following instructions are for {% data variables.product.prodname_vs %}. If 
 
 The following instructions are for JetBrains IDEs. If you are using {% data variables.product.prodname_vs %}, or {% data variables.product.prodname_vscode_shortname %}, click the appropriate tab at the start of this article.
 
-1. Click the **{% octicon "copilot" aria-hidden="true" %}** icon in the status bar.
+1. Click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon in the status bar.
 1. In the popup menu, click **Edit Model for Completion**.
 1. In the settings dialog box for "Languages & Frameworks > {% data variables.product.prodname_copilot %}," click the dropdown menu for **Model for completions** and select the model you want to use.
 1. Click **OK**.

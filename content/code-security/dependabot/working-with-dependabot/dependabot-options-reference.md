@@ -77,8 +77,8 @@ Use to define exactly which dependencies to maintain for a package ecosystem. Of
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `allow` is specified {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -121,8 +121,8 @@ Specify individual assignees for all pull requests raised for a package ecosyste
 
 When `assignees` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen assignees.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen assignees.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen assignees, unless `target-branch` defines updates to a non-default branch.
 
 Assignees must have write access to the repository. For organization-owned repositories, organization members with read access are also valid assignees.
 
@@ -136,8 +136,8 @@ Define the format for commit messages. Since the titles of pull requests are wri
 
 When `commit-message` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All commit messages follow the defined pattern.
-* {% octicon "shield-check" aria-hidden="true" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All commit messages follow the defined pattern.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All commit messages follow the defined pattern, unless `target-branch` defines updates to a non-default branch.
 
 | Parameters | Purpose |
 |------------|---------|
@@ -245,8 +245,8 @@ Use with the [`allow`](#allow--) option to define exactly which dependencies to 
 
 {% data variables.product.prodname_dependabot %} default behavior:
 
-* {% octicon "versions" aria-hidden="true" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
-* {% octicon "shield-check" aria-hidden="true" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All dependencies explicitly defined in a manifest are kept up to date by version updates.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All dependencies defined in lock files with vulnerable dependencies are updated by security updates.
 
 When `ignore` is used {% data variables.product.prodname_dependabot %} uses the following process:
 
@@ -372,9 +372,7 @@ Package manager | YAML value      | Supported versions |
 | Bundler | `bundler` | {% ifversion ghes < 3.15 %}v1, {% endif %}v2 |
 | Cargo       | `cargo`          | v1               |
 | Composer       | `composer`       | {% ifversion dependabot-updates-composerv1-closing-down %}v2{% else %}v1, v2{% endif %}         |
-| {% ifversion dependabot-version-updates-devcontainer-support %} |
 | Dev containers | `devcontainers`         | Not applicable               |
-| {% endif %} |
 | Docker         | `docker`         | v1               |
 | {% ifversion dependabot-docker-compose-support %} |
 | Docker Compose | `docker-compose`         | v2, v3               |
@@ -393,12 +391,12 @@ Package manager | YAML value      | Supported versions |
 | Gradle        | `gradle`         | Not applicable   |
 | Maven      | `maven`          | Not applicable   |
 | npm            | `npm`            |  v7, v8, v9   |
-| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0{% elsif ghes = 3.12 %}<= 6.7.0{% else %}<= 4.8{% endif %} |
+| NuGet          | `nuget`          | {% ifversion fpt or ghec or ghes > 3.14 %}<=6.12.0{% elsif ghes = 3.14 or ghes = 3.13 %}<= 6.8.0 {% endif %} |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
 | pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
-| poetry         | `pip`            | v1               |
+| poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |
 | Terraform    | `terraform`      | >= 0.13, <= 1.10.x  |
@@ -468,8 +466,8 @@ Specify individual reviewers, or teams of reviewers, for all pull requests raise
 
 When `reviewers` is defined:
 
-* {% octicon "versions" aria-hidden="true" %} All pull requests for version updates are created with the chosen reviewers.
-* {% octicon "shield-check" aria-hidden="true" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
+* {% octicon "versions" aria-hidden="true" aria-label="versions" %} All pull requests for version updates are created with the chosen reviewers.
+* {% octicon "shield-check" aria-hidden="true" aria-label="shield-check" %} All pull requests for security updates are created with the chosen reviewers, unless `target-branch` defines updates to a non-default branch.
 
 Reviewers must have at least read access to the repository.
 
@@ -669,8 +667,8 @@ Specify authentication details that {% data variables.product.prodname_dependabo
 > * Gradle
 > * Maven
 > * Npm
-> * NuGet{% ifversion dependabot-updates-pub-private-registry %}
-> * Pub{% endif %}
+> * NuGet
+> * Pub
 > * Python
 > * Yarn
 
@@ -702,6 +700,8 @@ updates:
 {% endraw %}
 
 {% data reusables.dependabot.dependabot-updates-registries-options %}
+
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}
 
 {% data reusables.dependabot.advanced-private-registry-config-link %}
 
@@ -735,3 +735,5 @@ All sensitive data used for authentication should be stored securely and referen
 ### `url` and `replaces-base`
 
 The `url` parameter defines where to access a registry. When the optional `replaces-base` parameter is enabled (`true`), {% data variables.product.prodname_dependabot %} resolves dependencies using the value of `url` rather than the base URL of that specific ecosystem.
+
+{% data reusables.dependabot.dependabot-replaces-base-nuget %}

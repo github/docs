@@ -16,8 +16,6 @@ topics:
 shortTitle: Billing for GitHub Actions
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About billing for {% data variables.product.prodname_actions %}
 
 {% data reusables.billing.authorization-charge %}
@@ -33,7 +31,7 @@ Minutes reset every month, while storage usage does not.
 ### Included storage and minutes
 
 > [!NOTE]
-> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
+> * Included minutes cannot be used for larger runners. These runners will always be charged for, including in public repositories. For more information, see [Per-minute rates](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#per-minute-rates).
 > * Logs and job summaries do not count towards storage usage.
 
 |Plan | Storage | Minutes (per month)|
@@ -44,13 +42,11 @@ Minutes reset every month, while storage usage does not.
 | {% data variables.product.prodname_team %} | 2 GB | 3,000 |
 | {% data variables.product.prodname_ghe_cloud %} | 50 GB | 50,000 |
 
-The storage used by a repository is the total storage used by {% data variables.product.prodname_actions %} artifacts and {% data variables.product.prodname_registry %}. Your storage cost is the total usage for all repositories owned by your account. For more information about pricing for {% data variables.product.prodname_registry %}, see [AUTOTITLE](/billing/managing-billing-for-github-packages/about-billing-for-github-packages).
-
-If your account's usage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day and per-minute usage depending on the operating system used by the {% data variables.product.prodname_dotcom %}-hosted runner. {% data variables.product.prodname_dotcom %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
+If your account's storage surpasses these limits and you have set a spending limit above $0 USD, you will pay $0.008 USD per GB of storage per day.
 
 ### Minute multipliers
 
-Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume. For example, using 1,000 Windows minutes would consume 2,000 of the minutes included in your account. Using 1,000 macOS minutes, would consume 10,000 minutes included in your account.
+Jobs that run on Windows and macOS runners that {% data variables.product.prodname_dotcom %} hosts consume minutes at 2 and 10 times the rate that jobs on Linux runners consume.
 
 | Operating system | Minute multiplier |
 |----------------- | ------------------|
@@ -59,9 +55,11 @@ Jobs that run on Windows and macOS runners that {% data variables.product.prodna
 | macOS            | 10                |
 
 > [!NOTE]
-> Minute multipliers do not apply to the per-minute rates shown below.
+> The billing dashboard may show your Actions usage as a dollar amount ("spend") rather than raw minutes. This amount already reflects the minute multipliers above. If you're using macOS or Windows runners, you will use up your included minutes more quickly
 
 ### Per-minute rates
+
+{% data variables.product.github %} rounds the minutes and partial minutes each job uses up to the nearest whole minute.
 
 #### Per-minute rates for standard runners
 

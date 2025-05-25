@@ -10,7 +10,7 @@ topics:
 
 ## Comparison of AI models for {% data variables.product.prodname_copilot %}
 
-{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses in {% data variables.product.prodname_copilot_chat_short %} and code completions. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
+{% data variables.product.prodname_copilot %} supports multiple AI models with different capabilities. The model you choose affects the quality and relevance of responses by {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.prodname_copilot_short %} code completion. Some models offer lower latency, while others offer fewer hallucinations or better performance on specific tasks.
 
 This article helps you compare the available models, understand the strengths of each model, and choose the model that best fits your task. For guidance across different models using real-world tasks, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/comparing-ai-models-using-different-tasks).
 
@@ -19,11 +19,11 @@ The best model depends on your use case:
 * For **balance between cost and performance**, try {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_claude_sonnet_37 %}.
 * For **fast, low-cost support for basic tasks**, try {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_claude_sonnet_35 %}.
 * For **deep reasoning or complex coding challenges**, try {% data variables.copilot.copilot_o3 %}, GPT-4.5, or {% data variables.copilot.copilot_claude_sonnet_37 %}.
-* For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or {% data variables.copilot.copilot_gpt_4o %}.
+* For **multimodal inputs and real-time performance**, try {% data variables.copilot.copilot_gemini_flash %} or {% data variables.copilot.copilot_gpt_41 %}.
 
 You can click a model name in the list below to jump to a detailed overview of its strengths and use cases.
-* [{% data variables.copilot.copilot_gpt_4o %}](#gpt-4o)
 * [{% data variables.copilot.copilot_gpt_41 %}](#gpt-41)
+* [{% data variables.copilot.copilot_gpt_4o %}](#gpt-4o)
 * [{% data variables.copilot.copilot_gpt_45 %}](#gpt-45)
 * [{% data variables.copilot.copilot_o1 %}](#o1)
 * [{% data variables.copilot.copilot_o3 %}](#o3)
@@ -31,58 +31,15 @@ You can click a model name in the list below to jump to a detailed overview of i
 * [{% data variables.copilot.copilot_o4_mini %}](#o4-mini)
 * [{% data variables.copilot.copilot_claude_sonnet_35 %}](#claude-35-sonnet)
 * [{% data variables.copilot.copilot_claude_sonnet_37 %}](#claude-37-sonnet)
+* [{% data variables.copilot.copilot_claude_sonnet_40 %}](#claude-sonnet-4)
+* [{% data variables.copilot.copilot_claude_opus %}](#claude-opus-4)
 * [{% data variables.copilot.copilot_gemini_flash %}](#gemini-20-flash)
 * [{% data variables.copilot.copilot_gemini_25_pro %}](#gemini-25-pro)
 > [!NOTE] Different models have different premium request multipliers, which can affect how much of your monthly usage allowance is consumed. For details, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
 
-## GPT-4o
-
-OpenAI GPT-4o is a multimodal model that supports text and images. It responds in real time and works well for lightweight development tasks and conversational prompts in {% data variables.product.prodname_copilot_chat_short %}.
-
-Compared to previous models, GPT-4o improves performance in multilingual contexts and demonstrates stronger capabilities when interpreting visual content. It delivers GPT-4 Turbo–level performance with lower latency and cost, making it a good default choice for many common developer tasks.
-
-For more information about GPT-4o, see [OpenAI's documentation](https://platform.openai.com/docs/models/gpt-4o).
-
-### Use cases
-
-{% data reusables.copilot.model-use-cases.gpt-4o %}
-
-### Strengths
-
-The following table summarizes the strengths of GPT-4o:
-
-{% rowheaders %}
-
-| Task                              | Description                                                         | Why GPT-4o is a good fit               |
-|-----------------------------------|---------------------------------------------------------------------|----------------------------------------|
-| Code explanation                  | Understand what a block of code does or walk through logic.         | Fast and accurate explanations.        |
-| Code commenting and documentation | Generate or refine comments and documentation.                      | Writes clear, concise explanations.    |
-| Bug investigation                 | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.      |
-| Code snippet generation           | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly. |
-| Multilingual prompts              | Work with non-English prompts or identifiers.                       | Improved multilingual comprehension.   |
-| Image-based questions             | Ask about a diagram or screenshot (where image input is supported). | Supports visual reasoning.             |
-
-{% endrowheaders %}
-
-### Alternative options
-
-The following table summarizes when an alternative model may be a better choice:
-
-{% rowheaders %}
-
-| Task                               | Description                                                  | Why another model may be better                            |
-|------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
-| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.      | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
-| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.|
-| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.              |
-
-{% endrowheaders %}
-
 ## {% data variables.copilot.copilot_gpt_41 %}
 
-{% data reusables.copilot.gpt-41-public-preview-note %}
-
-OpenAI’s latest model, {% data variables.copilot.copilot_gpt_41 %}, is now available in {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_github_models %}, bringing OpenAI’s newest model to your coding workflow. This model outperforms GPT-4o across the board, with major gains in coding, instruction following, and long-context understanding. It has a larger context window and features a refreshed knowledge cutoff of June 2024.
+OpenAI’s latest model, {% data variables.copilot.copilot_gpt_41 %}, is now available in {% data variables.product.prodname_copilot %} and {% data variables.product.prodname_github_models %}, bringing OpenAI’s newest model to your coding workflow. This model outperforms {% data variables.copilot.copilot_gpt_4o %} across the board, with major gains in coding, instruction following, and long-context understanding. It has a larger context window and features a refreshed knowledge cutoff of June 2024.
 
 OpenAI has optimized {% data variables.copilot.copilot_gpt_41 %} for real-world use based on direct developer feedback about: frontend coding, making fewer extraneous edits, following formats reliably, adhering to response structure and ordering, consistent tool usage, and more. This model is a strong default choice for common development tasks that benefit from speed, responsiveness, and general-purpose reasoning.
 
@@ -114,11 +71,57 @@ The following table summarizes the strengths of {% data variables.copilot.copilo
 | Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.                                           |
 | System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.                |
 
+## {% data variables.copilot.copilot_gpt_4o %}
+
+OpenAI {% data variables.copilot.copilot_gpt_4o %} is a multimodal model that supports text and images. It responds in real time and works well for lightweight development tasks and conversational prompts in {% data variables.product.prodname_copilot_chat_short %}.
+
+Compared to previous models, {% data variables.copilot.copilot_gpt_4o %} improves performance in multilingual contexts and demonstrates stronger capabilities when interpreting visual content. It delivers GPT-4 Turbo–level performance with lower latency and cost, making it a good default choice for many common developer tasks.
+
+For more information about {% data variables.copilot.copilot_gpt_4o %}, see [OpenAI's documentation](https://platform.openai.com/docs/models/gpt-4o).
+
+### Use cases
+
+{% data reusables.copilot.model-use-cases.gpt-4o %}
+
+### Strengths
+
+The following table summarizes the strengths of {% data variables.copilot.copilot_gpt_4o %}:
+
+{% rowheaders %}
+
+| Task                              | Description                                                         | Why {% data variables.copilot.copilot_gpt_4o %} is a good fit |
+|-----------------------------------|---------------------------------------------------------------------|---------------------------------------------------------------|
+| Code explanation                  | Understand what a block of code does or walk through logic.         | Fast and accurate explanations.                               |
+| Code commenting and documentation | Generate or refine comments and documentation.                      | Writes clear, concise explanations.                           |
+| Bug investigation                 | Get a quick explanation or suggestion for an error.                 | Provides fast diagnostic insight.                             |
+| Code snippet generation           | Generate small, reusable pieces of code.                            | Delivers high-quality results quickly.                        |
+| Multilingual prompts              | Work with non-English prompts or identifiers.                       | Improved multilingual comprehension.                          |
+| Image-based questions             | Ask about a diagram or screenshot (where image input is supported). | Supports visual reasoning.                                    |
+
+{% endrowheaders %}
+
+### Alternative options
+
+The following table summarizes when an alternative model may be a better choice:
+
+{% rowheaders %}
+
+| Task                               | Description                                                  | Why another model may be better                            |
+|------------------------------------|--------------------------------------------------------------|-------------------------------------------------------------|
+| Multi-step reasoning or algorithms | Design complex logic or break down multi-step problems.      | GPT-4.5 or {% data variables.copilot.copilot_claude_sonnet_37 %} provide better step-by-step thinking. |
+| Complex refactoring                | Refactor large codebases or update multiple interdependent files. | GPT-4.5 handles context and code dependencies more robustly.|
+| System review or architecture      | Analyze structure, patterns, or architectural decisions in depth. | {% data variables.copilot.copilot_claude_sonnet_37 %} or GPT-4.5 offer deeper analysis.              |
+
+{% endrowheaders %}
+
 ## GPT-4.5
+
+> [!NOTE]
+> GPT-4.5 in {% data variables.product.prodname_copilot_chat_short %} is currently in {% data variables.release-phases.public_preview %} and subject to change.
 
 OpenAI GPT-4.5 improves reasoning, reliability, and contextual understanding. It works well for development tasks that involve complex logic, high-quality code generation, or interpreting nuanced intent.
 
-Compared to GPT-4o, GPT-4.5 produces more consistent results for multi-step reasoning, long-form content, and complex problem-solving. It may have slightly higher latency and costs than GPT-4o and other smaller models.
+Compared to {% data variables.copilot.copilot_gpt_41 %}, GPT-4.5 produces more consistent results for multi-step reasoning, long-form content, and complex problem-solving. It may have slightly higher latency and costs than {% data variables.copilot.copilot_gpt_41 %} and other smaller models.
 
 For more information about GPT-4.5, see [OpenAI's documentation](https://platform.openai.com/docs/models/gpt-4.5-preview).
 
@@ -147,10 +150,10 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
-| Task                     | Description                                       | Why another model may be better                                   |
-|--------------------------|---------------------------------------------------|-------------------------------------------------------------------|
-| High-speed iteration     | Rapid back-and-forth prompts or code tweaks.      | GPT-4o responds faster with similar quality for lightweight tasks. |
-| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.    | GPT-4o or {% data variables.copilot.copilot_o4_mini %} are more cost-effective.                         |
+| Task                     | Description                                    | Why another model may be better                                                                                      |
+|--------------------------|------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| High-speed iteration     | Rapid back-and-forth prompts or code tweaks.   | {% data variables.copilot.copilot_gpt_41 %} responds faster with similar quality for lightweight tasks.              |
+| Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters. | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_o4_mini %} are more cost-effective. |
 
 {% endrowheaders %}
 
@@ -186,10 +189,10 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
-| Task                      | Description                                        | Why another model may be better                                                                                                                |
-|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | GPT-4o or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.                                             |
-| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
+| Task                      | Description                                        | Why another model may be better                                                                                                                        |
+|---------------------------|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.                |
+| Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases.         |
 
 {% endrowheaders %}
 
@@ -226,9 +229,9 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
-| Task                      | Description                                        | Why another model may be better                                                                           |
-|---------------------------|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------|
-| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | GPT-4o or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.        |
+| Task                      | Description                                        | Why another model may be better                                                                                                                |
+|---------------------------|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quick iterations          | Rapid back-and-forth prompts or code tweaks.       | {% data variables.copilot.copilot_gpt_41 %} or {% data variables.copilot.copilot_gemini_flash %} responds faster for lightweight tasks.        |
 | Cost-sensitive scenarios  | Tasks where performance-to-cost ratio matters.     | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. |
 
 {% endrowheaders %}
@@ -318,7 +321,7 @@ The following table summarizes when an alternative model may be a better choice:
 {% data variables.copilot.copilot_claude_sonnet_35 %} is a fast and cost-efficient model designed for everyday developer tasks. While it doesn't have the deeper reasoning capabilities of {% data variables.copilot.copilot_claude_sonnet_37 %}, it still performs well on coding tasks that require quick responses, clear summaries, and basic logic.
 
 For more information about {% data variables.copilot.copilot_claude_sonnet_35 %}, see [Anthropic's documentation](https://www.anthropic.com/news/claude-3-5-sonnet).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 
 ### Use cases
 
@@ -355,10 +358,10 @@ The following table summarizes when an alternative model may be a better choice:
 
 ## {% data variables.copilot.copilot_claude_sonnet_37 %}
 
-{% data variables.copilot.copilot_claude_sonnet_37 %} is Anthropic's most advanced model to date. {% data variables.copilot.copilot_claude_sonnet_37 %} is a powerful model that excels in development tasks that require structured reasoning across large or complex codebases. Its hybrid approach to reasoning responds quickly when needed, while still supporting slower step-by-step analysis for deeper tasks.
+{% data variables.copilot.copilot_claude_sonnet_37 %} is a powerful model that excels in development tasks that require structured reasoning across large or complex codebases. Its hybrid approach to reasoning responds quickly when needed, while still supporting slower step-by-step analysis for deeper tasks.
 
 For more information about {% data variables.copilot.copilot_claude_sonnet_37 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/sonnet).
-For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 
 ### Use cases
 
@@ -386,13 +389,27 @@ The following table summarizes when an alternative model may be a better choice:
 
 {% rowheaders %}
 
-| Task                     | Description                                                    | Why another model may be better                                                                                                             |
-|--------------------------|----------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
-| Quick iterations         | Rapid back-and-forth prompts or code tweaks.                   | GPT-4o responds faster for lightweight tasks.                                                                                               |
+| Task                     | Description                                                    | Why another model may be better                                                                                                                                                                                                                                        |
+|--------------------------|----------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Quick iterations         | Rapid back-and-forth prompts or code tweaks.                   | {% data variables.copilot.copilot_gpt_41 %} responds faster for lightweight tasks.                                                                                                                                                                                     |
 | Cost-sensitive scenarios | Tasks where performance-to-cost ratio matters.                 | {% data variables.copilot.copilot_o4_mini %} or {% data variables.copilot.copilot_gemini_flash %} are more cost-effective for basic use cases. {% data variables.copilot.copilot_claude_sonnet_35 %} is cheaper, simpler, and still advanced enough for similar tasks. |
-| Lightweight prototyping  | Rapid back-and-forth code iterations with minimal context.     | {% data variables.copilot.copilot_claude_sonnet_37 %} may over-engineer or apply unnecessary complexity.                                                                               |
+| Lightweight prototyping  | Rapid back-and-forth code iterations with minimal context.     | {% data variables.copilot.copilot_claude_sonnet_37 %} may over-engineer or apply unnecessary complexity.                                                                                                                                                               |
 
 {% endrowheaders %}
+
+## {% data variables.copilot.copilot_claude_sonnet_40 %}
+
+{% data reusables.copilot.claude-sonnet-40-public-preview-note %}
+
+For more information about {% data variables.copilot.copilot_claude_sonnet_40 %}, see [Anthropic's documentation](https://www.anthropic.com/claude/).
+For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
+
+## {% data variables.copilot.copilot_claude_opus %}
+
+{% data reusables.copilot.claude-opus-public-preview-note %}
+
+For more information about {% data variables.copilot.copilot_claude_opus %}, see [Anthropic's documentation](https://www.anthropic.com/claude/).
+For more information on using Claude in {% data variables.product.prodname_copilot_short %}, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 
 ## {% data variables.copilot.copilot_gemini_flash %}
 
@@ -435,6 +452,8 @@ The following table summarizes when an alternative model may be a better choice:
 {% endrowheaders %}
 
 ## {% data variables.copilot.copilot_gemini_25_pro %}
+
+{% data reusables.copilot.gemini-25-pro-public-preview-note %}
 
 {% data variables.copilot.copilot_gemini_25_pro %} is Google's latest AI model, designed to handle complex tasks with advanced reasoning and coding capabilities. It also works well for heavy research workflows that require long-context understanding and analysis.
 

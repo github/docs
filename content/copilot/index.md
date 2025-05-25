@@ -1,7 +1,7 @@
 ---
 title: '{% data variables.product.prodname_copilot %} documentation'
 shortTitle: '{% data variables.product.prodname_copilot %}'
-intro: 'You can use {% data variables.product.prodname_copilot %} to get autocomplete-style suggestions from an AI pair programmer as you code.'
+intro: 'You can use {% data variables.product.prodname_copilot %} to enhance your productivity and assist as you work on code.'
 redirect_from:
   - /github/copilot
 changelog:
@@ -14,8 +14,9 @@ featuredLinks:
     - /copilot/about-github-copilot/what-is-github-copilot
     - /copilot/quickstart
     - /copilot/building-copilot-extensions/quickstart-for-github-copilot-extensions-using-agents
+    - /copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot
   popular:
-    - /copilot/using-github-copilot/best-practices-for-using-github-copilot
+    - /copilot/about-github-copilot/github-copilot-features
     - /copilot/copilot-chat-cookbook
     - /copilot/using-github-copilot/getting-code-suggestions-in-your-ide-with-github-copilot
     - /copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide

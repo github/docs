@@ -1,6 +1,6 @@
 ---
 title: About billing on GitHub
-intro: "Your bill is a combination of charges for your subscriptions, including your account's plan, and usage-based billing."
+intro: "GitHub bills you separately for each account you own. Your bill combines subscription costs and usage-based billing."
 redirect_from:
   - /github/setting-up-and-managing-billing-and-payments-on-github/about-billing-on-github
   - /articles/about-billing-on-github
@@ -18,28 +18,32 @@ topics:
 
 ## About billing on {% data variables.product.prodname_dotcom %}
 
-{% data variables.product.company_short %} bills separately for each account. This means that you will receive a separate bill for your personal account and for each organization or enterprise account you own. For more information about account types, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
+{% data variables.product.company_short %} bills you separately for each account you own (personal, organization, or enterprise). Your bill combines:
 
-You can switch between the billing settings for each of your accounts by using the context switcher. See [Switching between settings for your different accounts](#switching-between-settings-for-your-different-accounts).
+* **Subscriptions**: Fixed monthly costs for account plans (for example: {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %}) and paid products (for example: {% data variables.product.prodname_copilot %})
+* **Usage-based billing**: Variable costs that depend on how much you use certain features (for example: {% data variables.product.prodname_actions %})
 
-The bill for each account is a combination of subscriptions and usage-based billing. Subscriptions include your account's plan, such as {% data variables.product.prodname_pro %} or {% data variables.product.prodname_team %}, as well as paid products that have a consistent monthly cost, such as {% data variables.product.prodname_copilot %} and apps from {% data variables.product.prodname_marketplace %}.
+Each account type has its own billing settings that you manage separately.
 
-Usage-based billing applies when the cost of a paid product depends on how much you use the product. For example, the cost of {% data variables.product.prodname_actions %} depends on how many minutes your jobs spend running and how much storage your artifacts use.
+* **For you personal account**: Your bill includes subscriptions for your personal account and charges for any usage that exceeds the included amounts.
 
-Your plan may come with included amounts of usage-based products. For example, with {% data variables.product.prodname_pro %}, your personal account gets 3,000 minutes of {% data variables.product.prodname_actions %} usage for free each month. You can control usage beyond the included amounts by setting spending limits.
+* **For your organization**: Your organization's bill is separate from your personal account bill. It includes subscriptions for your organization and charges for any usage that exceeds the included amounts.
+{% ifversion ghec %}
+* **For your enterprise**: Enterprise accounts are billed separately from personal accounts and standalone organizations. The bill includes the subscription to {% data variables.product.prodname_enterprise %} and the costs of all the organizations it owns.
+{% endif %}
 
-{% ifversion us-sales-tax %}
+For more information about account types, see [AUTOTITLE](/get-started/learning-about-github/types-of-github-accounts).
 
 {% data reusables.billing.us-sales-tax %}
 
-{% endif %}
-
 ## Included amounts by plan
+
+The table below shows what's included with each plan. When you exceed these amounts, you'll be charged for additional usage unless you've set a spending limit.
 
 <table>
   <tr>
     <th><b>Product</b></th>
-    <th><b>Usage</b></th>
+    <th><b>Usage type</b></th>
     <th><b>{% data variables.product.prodname_free_user %}</b></th>
     <th><b>{% data variables.product.prodname_pro %}</b></th>
     <th><b>{% data variables.product.prodname_free_team %} for organizations</b></th>
@@ -100,21 +104,24 @@ Your plan may come with included amounts of usage-based products. For example, w
   <tr>
     <th rowspan="2" scope="rowgroup"><b>{% data variables.large_files.product_name_long %}</b></th>
     <th><b>Storage (per month)</b></th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
+    <td>10 GB</th>
+    <td>10 GB</th>
+    <td>10 GB</th>
+    <td>250 GB</th>
+    <td>250 GB</th>
   </tr>
   <tr>
     <th><b>Bandwidth (per month)</b></th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
-    <td>1 GB</th>
+    <td>10 GB</th>
+    <td>10 GB</th>
+    <td>10 GB</th>
+    <td>250 GB</th>
+    <td>250 GB</th>
   </tr>
 </table>
+
+> [!TIP]
+> For information about included requests for {% data variables.product.prodname_copilot %} plans, see [AUTOTITLE](/copilot/about-github-copilot/plans-for-github-copilot).
 
 ## Managing billing settings
 
@@ -143,4 +150,4 @@ If you're an organization or enterprise owner, you can switch between settings f
 
    ![Screenshot of the "Public profile" settings for The Octocat. Next to "Your personal profile," a "Switch settings context" link is outlined in orange.](/assets/images/help/settings/context-switcher-button.png)
 1. Start typing the name of the account you want to switch to, then click the name of the account.
-1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the left sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.

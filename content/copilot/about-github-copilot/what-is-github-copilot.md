@@ -38,6 +38,7 @@ redirect_from:
 * Ask {% data variables.product.prodname_copilot_short %} for help using the command line
 * Generate a description of the changes in a pull request _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 * Create and manage collections of documentation, called knowledge bases, to use as a context for chatting with {% data variables.product.prodname_copilot_short %} _({% data variables.product.prodname_copilot_enterprise_short %} only)_
+* Work on code changes and create a pull request for you to review _({% data variables.product.prodname_copilot_pro_plus_short %} and {% data variables.product.prodname_copilot_enterprise_short %} only)_
 
 {% data variables.product.prodname_copilot_short %} is available:
 
@@ -77,4 +78,4 @@ If you **don't need other {% data variables.product.github %} features**, you ca
 ## Further reading
 
 * [Frequently asked questions](https://github.com/features/copilot#faq) about {% data variables.product.prodname_copilot %}
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)

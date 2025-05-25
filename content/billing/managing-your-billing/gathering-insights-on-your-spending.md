@@ -28,7 +28,7 @@ The new billing platform provides you with the tools to:
 You can view the usage of your personal account and download the usage data for further analysis.
 
 {% data reusables.user-settings.access_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 1. Click **Usage**.
 1. To search or filter the graph, click the search bar. Then click the filter you want to use.
 1. To further filter the graph, use the dropdown menus.
@@ -45,10 +45,6 @@ You can view the usage of your personal account and download the usage data for 
 
    * For a breakdown of all metered usage, click **Metered billing usage report**.
    * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
-
-    <!-- expires 2025-05-08 -->
-    {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-08 -->
 
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
@@ -88,10 +84,6 @@ You can view the usage of your {% data variables.enterprise.enterprise_or_org %}
    * For a breakdown of all metered usage, click **Metered billing usage report**.
    * For a per user breakdown of additional premium requests, click **{% data variables.product.prodname_copilot_short %} premium requests usage report**.
 
-    <!-- expires 2025-05-08 -->
-    {% data reusables.copilot.unlimited-premium-requests %}
-    <!-- end expires 2025-05-08 -->
-
    You can choose a pre-selected option or use the "Custom range" option to specify a date range of up to 31 days.
 
 ## Viewing license usage
@@ -120,7 +112,7 @@ You can also view your active {% data variables.product.prodname_enterprise %} i
 {% endif %}
 
 1. Click **Licensing**.
-1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click **{% octicon "download" aria-hidden="true" %} CSV report**.
+1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
 
 ## Further reading
 

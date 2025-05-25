@@ -26,37 +26,35 @@ shortTitle: Managing policies
 
 Organization owners can set policies to govern how {% data variables.product.prodname_copilot %} can be used within the organization. For example, an organization owner can enable or disable the following {% data variables.product.prodname_copilot_short %} features{% ifversion ghec %} (unless an enterprise owner has blocked access to these features at the enterprise level){% endif %}:
 
-* Additional {% data variables.product.prodname_copilot_short %} premium requests
-  <!-- expires 2025-05-19 -->
-  > [!IMPORTANT] This setting will be available starting on May 12, 2025 or May 19, 2025, depending on your payment method. For more information, see [AUTOTITLE](/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests).
-  <!-- end expires 2025-05-19 -->
 * {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 * {% data variables.product.prodname_copilot_chat_short %} in the IDE
 * Editor preview Copilot features, such as:
   * Image support in {% data variables.product.prodname_copilot_chat_short %} (available in {% data variables.product.prodname_vscode_shortname %} and {% data variables.product.prodname_vs %})
-  * Please note: This setting only applies to preview features within GitHub Copilot and does not control all preview-related settings in VS Code
+    >[!NOTE] This setting only applies to preview features within {% data variables.product.prodname_copilot_short %} and does not control all preview-related settings in {% data variables.product.prodname_vscode_shortname %}.
+* {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+* MCP servers on {% data variables.product.prodname_dotcom_the_website %} ({% data variables.release-phases.public_preview %})
 * {% data variables.product.prodname_copilot_mobile_short %}
 * {% data variables.product.prodname_copilot_cli_short %} and {% data variables.product.prodname_windows_terminal %}
 * {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
 * Suggestions matching public code
 * Access to alternative models for {% data variables.product.prodname_copilot_short %}
-  * Anthropic {% data variables.copilot.copilot_claude_sonnet %} in {% data variables.product.prodname_copilot_short %}
+  * Anthropic {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_short %}
   * Google {% data variables.copilot.copilot_gemini %} in {% data variables.product.prodname_copilot_short %}
   * OpenAI models in {% data variables.product.prodname_copilot_short %}
 
-The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
+The policy settings selected by an organization owner determine the behavior of {% data variables.product.prodname_copilot_short %} for all organization members that have been granted access to {% data variables.product.prodname_copilot_short %} through the organization.
 
 ### Policies for suggestion matching
 
-Organization settings include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot %} will check potential code suggestions and the surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown.
+Organization settings include an option to either allow or block code suggestions that match publicly available code. If you choose to block suggestions matching public code, {% data variables.product.prodname_copilot_short %} will check potential code suggestions and the surrounding code of about 150 characters against public code on {% data variables.product.prodname_dotcom %}. If there is a match, or a near match, the suggestion is not shown.
 
 {% ifversion ghec %}If your enterprise admin has selected **No policy** for suggestion matching at the enterprise level, you can set a suggestion matching policy for your organization.
 
-If an organization member is assigned a seat by multiple organizations with different suggestion matching policies under the same enterprise, {% data variables.product.prodname_copilot %} will use the most restrictive policy.{% endif %}
+If an organization member is assigned a seat by multiple organizations with different suggestion matching policies under the same enterprise, {% data variables.product.prodname_copilot_short %} will use the most restrictive policy.{% endif %}
 
 ## Enabling {% data variables.product.prodname_copilot_short %} features in your organization
 
->[!NOTE] {% data variables.product.prodname_copilot_short %} policies are also managed at the enterprise level. If your organization is part of an enterprise, and explicit settings have been selected at the enterprise level, you cannot override those settings at the organization level.  For more information on managing policies at the enterprise level, see [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+{% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
@@ -68,6 +66,9 @@ If an organization member is assigned a seat by multiple organizations with diff
 1. If your organization has a {% data variables.product.prodname_copilot_business_short %}{% ifversion ghec %} or {% data variables.product.prodname_copilot_enterprise_short %}{% endif %} plan and you enable "{% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}", two additional options are displayed:
 
     {% data reusables.copilot.policies-for-dotcom %}
+
+> [!TIP]
+> If you choose to enable {% data variables.copilot.copilot_coding_agent %} for users, you also need to define which repositories the agent is available in, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
 
 ## Setting a policy for {% data variables.product.prodname_copilot_extensions %} in your organization
 
@@ -99,6 +100,8 @@ After you have installed a {% data variables.product.prodname_copilot_extension_
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/using-github-copilot/finding-public-code-that-matches-github-copilot-suggestions){% ifversion ghec %}
-* [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise){% endif %}
+* [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise)
+* [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/making-copilot-coding-agent-available-to-enterprise){% else %}
+* [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization){% endif %}

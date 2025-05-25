@@ -3,9 +3,11 @@ title: 'Sharing {% data variables.projects.project_v2 %} updates'
 intro: 'You can post updates to your {% data variables.projects.projects_v2 %} that share the current status, start date, and target date of the {% data variables.projects.project_v2 %} itself.'
 allowTitleToDifferFromFilename: true
 versions:
-  feature: projects-v2-status-updates
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: overview
-permissions: 'Anyone with write access for a project can add a status update. Anyone with read access for a project can view status updates and subscribe.'
+permissions: Anyone with write access for a project can add a status update. Anyone with read access for a project can view status updates and subscribe.
 topics:
   - Projects
 ---

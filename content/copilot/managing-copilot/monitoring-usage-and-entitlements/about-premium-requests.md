@@ -10,9 +10,9 @@ redirect_from:
   - /copilot/managing-copilot/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs
 ---
 
-<!-- expires 2025-05-08 -->
+<!-- expires 2025-06-04 -->
 {% data reusables.copilot.unlimited-premium-requests %}
-<!-- end expires 2025-05-08 -->
+<!-- end expires 2025-06-04 -->
 
 ## What is a request?
 
@@ -32,10 +32,13 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests:
 
-* {% data variables.product.prodname_copilot_chat_short %}
-* {% data variables.product.prodname_copilot_agent_short %} mode
-* {% data variables.product.prodname_copilot_short %} code review
-* {% data variables.product.prodname_copilot_extensions_short %}
+* [{% data variables.product.prodname_copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat)
+* [{% data variables.copilot.copilot_coding_agent %}](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) [^1]
+* [{% data variables.product.prodname_copilot_agent_short %} mode](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits)
+* [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review)
+* [{% data variables.product.prodname_copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)
+
+[^1]: {% data variables.copilot.copilot_coding_agent %} uses a fixed multiplier of 1 for the premium requests it uses, and may use multiple premium requests in response to one user prompt.
 
 ### Model multipliers
 
@@ -43,16 +46,23 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 | Model                                                                   | Premium requests                                                             |
 |-------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Base model (currently {% data variables.copilot.copilot_gpt_4o %}) [^1] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
+| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
+| Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
+| {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
+| {% data variables.copilot.copilot_claude_sonnet_40 %}                   | 1                                                                            |
+| {% data variables.copilot.copilot_claude_opus %}                        | 10                                                                           |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
-| GPT-4.5                                                                 | 50                                                                           |
 | {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
+| {% data variables.copilot.copilot_o3 %}                                 | 5                                                                            |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
-[^1]: The base model at the time of writing is {% data variables.copilot.copilot_gpt_4o %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
+| {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
+
+[^2]: The base model at the time of writing is powered by {% data variables.copilot.copilot_gpt_41 %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
 
 ## Additional premium requests
 
@@ -62,20 +72,9 @@ Each model has a premium request multiplier, based on its complexity and resourc
 > * Users on {% data variables.product.prodname_copilot_free_short %}. To access more premium requests, upgrade to a paid plan.
 > * Users who subscribe, or have subscribed, to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
 
-If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. If you need more premium requests, you can upgrade to a higher plan or purchase additional premium requests. Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
+If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. If you need more premium requests, you can upgrade to a higher plan or set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance are rejected unless you have set a budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
 
-<!-- expires 2025-05-08 -->
-> [!IMPORTANT]
-> You will be able to enable additional premium requests in your account settings starting on{% ifversion ghec %} the following dates{% endif %}:
->
-> * **May 8, 2025**: {% data variables.product.prodname_copilot_free_short %}, {% data variables.product.prodname_copilot_pro_short %}, and {% data variables.product.prodname_copilot_pro_plus_short %}{% ifversion ghec %}
-> * **May 12, 2025**: Self-service (credit card) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}
-> * **May 19, 2025**: Sales-served (invoiced) {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}{% endif %}
-<!-- end expires 2025-05-08 -->
-
-To purchase additional premium requests, you’ll need to enable additional premium requests in your account settings first{% ifversion ghec %} or reach out to your {% data variables.product.prodname_enterprise %} administrator if you are on an enterprise plan{% endif %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-plan/managing-copilot-policies-as-an-individual-subscriber){% ifversion fpt %} or{% else %},{% endif %} [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %}, or [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#additional-copilot-premium-requests){% endif %}.
-
-Additionally, you must set a budget in your account settings{% ifversion ghec %} or ask your enterprise administrator to set one for your account{% endif %}.
+Additional premium requests beyond your plan’s included amount are billed at {% data variables.copilot.additional_premium_requests %} per request.
 
 ## Example of premium request usage
 
@@ -84,5 +83,3 @@ Premium request usage is based on the model’s multiplier and the feature you�
 * If you use **GPT-4.5** (50× multiplier) to ask a single question in {% data variables.product.prodname_copilot_chat_short %}, that interaction counts as **50 premium requests**.
 * If you're on **{% data variables.product.prodname_copilot_free_short %}**, even interactions with the **base model** use **1 premium request** each.
 * If you're on a **paid plan**, using the base model does not count against your monthly premium request allowance.
-
-If you've enabled additional usage, premium requests beyond your included monthly amount will be billed at {% data variables.copilot.additional_premium_requests %} each.

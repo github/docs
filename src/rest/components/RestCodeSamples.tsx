@@ -76,8 +76,13 @@ export function RestCodeSamples({ operation, slug, heading }: Props) {
   // Menu options for the language selector
   const languageSelectOptions: CodeSampleKeys[] = [CodeSampleKeys.curl]
 
-  // Management Console and GHES Manage API operations are not supported by Octokit
-  if (operation.subcategory !== 'management-console' && operation.subcategory !== 'manage-ghes') {
+  // Management Console, GHES Manage API, and GitHub Models
+  // operations are not supported by Octokit
+  if (
+    operation.category !== 'models' &&
+    operation.subcategory !== 'management-console' &&
+    operation.subcategory !== 'manage-ghes'
+  ) {
     languageSelectOptions.push(CodeSampleKeys.javascript)
 
     // Not all examples support the GH CLI language option. If any of

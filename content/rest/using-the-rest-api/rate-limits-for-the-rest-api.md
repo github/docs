@@ -38,23 +38,21 @@ In general, you can calculate your primary rate limit for the REST API based on 
 
 ### Primary rate limit for unauthenticated users
 
-You can make unauthenticated requests if you are only fetching public data. Unauthenticated requests are associated with the originating IP address, not with the user or application that made the request.
-
-The primary rate limit for unauthenticated requests is 60 requests per hour.
+{% data reusables.rest-api.primary-rate-limit-unauthenticated-users %}
 
 ### Primary rate limit for authenticated users
 
-You can use a {% data variables.product.pat_generic %} to make API requests. Additionally, you can authorize a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, which can then make API requests on your behalf.
+{% data reusables.rest-api.primary-rate-limit-authenticated-users %}
 
-All of these requests count towards your personal rate limit of 5,000 requests per hour. Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.
+### Primary rate limit for Git LFS access
+
+API requests are required when you upload or download Git LFS content. These count towards a separate rate limiting bucket with a limit of 300 requests per minute for unauthenticated requests and 3,000 requests per minute for authenticated requests.
+
+Git LFS uses a batch API which processes 100 Git LFS objects per API request by default. That means unauthenticated users can download 30,000 Git LFS objects per minute and authenticated users can upload/download 300,000 Git LFS objects per minute.
 
 ### Primary rate limit for {% data variables.product.prodname_github_app %} installations
 
-{% data variables.product.prodname_github_apps %} authenticating with an installation access token use the installation's minimum rate limit of 5,000 requests per hour. If the installation is on a {% data variables.product.prodname_ghe_cloud %} organization, the installation has a rate limit of 15,000 requests per hour.
-
-For installations that are not on a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit for the installation will scale with the number of users and repositories. Installations that have more than 20 repositories receive another 50 requests per hour for each repository. Installations that are on an organization that have more than 20 users receive another 50 requests per hour for each user. The rate limit cannot increase beyond 12,500 requests per hour.
-
-Primary rate limits for {% data variables.product.prodname_github_app %} user access tokens (as opposed to installation access tokens) are dictated by the primary rate limits for the authenticated user. This rate limit is combined with any requests that another {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %} makes on that user's behalf and any requests that the user makes with a {% data variables.product.pat_generic %}. See [Primary rate limit for authenticated users](#primary-rate-limit-for-authenticated-users).
+{% data reusables.rest-api.primary-rate-limit-github-app-installations %}
 
 ### Primary rate limit for {% data variables.product.prodname_oauth_apps %}
 
@@ -66,7 +64,7 @@ OAuth apps can also use their client ID and client secret to fetch public data. 
 curl -u YOUR_CLIENT_ID:YOUR_CLIENT_SECRET -I {% data variables.product.rest_url %}/meta
 ```
 
-For these requests, the rate limit is 5,000 requests per hour per {% data variables.product.prodname_oauth_app %}. If the app is owned by a {% data variables.product.prodname_ghe_cloud %} organization, the rate limit is 15,000 requests per hour.
+{% data reusables.rest-api.primary-rate-limit-oauth-apps %}
 
 > [!NOTE]
 > Never include your app's client secret in client-side code or in code that runs on a user device. The client secret can be used to generate OAuth access tokens for users who have authorized your app, so you should always keep the client secret secure.
@@ -75,7 +73,7 @@ For these requests, the rate limit is 5,000 requests per hour per {% data variab
 
 You can use the built-in `GITHUB_TOKEN` to authenticate requests in {% data variables.product.prodname_actions %} workflows. See [AUTOTITLE](/actions/security-guides/automatic-token-authentication).
 
-The rate limit for `GITHUB_TOKEN` is 1,000 requests per hour per repository. For requests to resources that belong to a {% data variables.product.prodname_ghe_cloud %} account, the limit is 15,000 requests per hour per repository.
+{% data reusables.rest-api.primary-rate-limit-github-token-in-actions %}
 
 ## About secondary rate limits
 

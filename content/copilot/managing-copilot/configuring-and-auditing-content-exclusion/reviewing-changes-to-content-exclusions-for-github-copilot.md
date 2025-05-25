@@ -22,7 +22,7 @@ Organization and repository settings include the ability to exclude content from
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 
-1. In the "Code & automation" section of the side bar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
+1. In the "Code & automation" section of the sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 {% data reusables.copilot.view-last-change-content-exclusions %}
 1. Click the time of the last change.
 
@@ -36,7 +36,7 @@ Organization and repository settings include the ability to exclude content from
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
 
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Content exclusion**.
 {% data reusables.copilot.view-last-change-content-exclusions %}
 1. Click the time of the last change.
 

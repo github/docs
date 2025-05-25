@@ -2414,6 +2414,11 @@ type Bot implements Actor & Node & UniformResourceLocatable {
 }
 
 """
+Used when either Bot or User are accepted.
+"""
+union BotOrUser = Bot | User
+
+"""
 Types which can be actors for `BranchActorAllowance` objects.
 """
 union BranchActorAllowanceActor = App | Team | User
@@ -4621,6 +4626,11 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The issue or pull request that this issue was marked as a duplicate of.
+  """
+  duplicateOf: IssueOrPullRequest
 
   """
   The Node ID of the ClosedEvent object
@@ -18726,6 +18736,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   Identifies the primary key from the database.
   """
   databaseId: Int
+
+  """
+  A reference to the original issue that this issue has been marked as a duplicate of.
+  """
+  duplicateOf: Issue
 
   """
   The actor who edited the comment.
