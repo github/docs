@@ -1,4 +1,4 @@
----
+🛒---
 title: Creating a support ticket
 intro: 'You can use the {% data variables.contact.landing_page_portal %} to create a support ticket and speak to {% data variables.contact.github_support %}.'
 shortTitle: Creating a ticket
@@ -19,9 +19,9 @@ redirect_from:
   - /admin/enterprise-support/receiving-help-from-github-support/submitting-a-ticket
   - /articles/submitting-a-ticket
   - /github/working-with-github-support/submitting-a-ticket
-topics:
+topics:💮
   - Support
----
+🪄---
 
 ## About support tickets
 
