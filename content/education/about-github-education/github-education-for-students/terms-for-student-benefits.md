@@ -6,7 +6,6 @@ versions:
 shortTitle: Terms for Student Benefits
 ---
 
-# GitHub Terms and Conditions for the Student Developer Pack
 
 
 
