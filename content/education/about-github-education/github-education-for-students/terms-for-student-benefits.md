@@ -1,6 +1,6 @@
 ---
 title: GitHub Terms and Conditions for the Student Developer Pack
-intro: 
+intro: The Student Developer Pack is a hub of benefits made available to verified learners who have approved accounts confirming student status. Explore all terms and conditions associated with gaining and using these developer resources.
 versions: 
 shortTitle: Terms for Student Benefits
 ---
