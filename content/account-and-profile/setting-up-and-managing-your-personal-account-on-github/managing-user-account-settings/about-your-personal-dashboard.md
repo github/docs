@@ -92,6 +92,8 @@ This feed shows activity and recommendations based on your network on {% data va
 * Users you've collaborated with
 * Organizations you follow
 
+{% endif %}
+
 ## Further reading
 
 * [AUTOTITLE](/organizations/collaborating-with-groups-in-organizations/about-your-organization-dashboard)
