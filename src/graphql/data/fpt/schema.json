@@ -59046,6 +59046,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "digest",
+          "description": "<p>The SHA256 digest of the asset.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
+        },
+        {
           "name": "downloadCount",
           "description": "<p>The number of times this asset was downloaded.</p>",
           "type": "Int!",
@@ -89559,6 +89567,10 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order labels by creation time.</p>"
+        },
+        {
+          "name": "ISSUE_COUNT",
+          "description": "<p>Order labels by issue count.</p>"
         },
         {
           "name": "NAME",
