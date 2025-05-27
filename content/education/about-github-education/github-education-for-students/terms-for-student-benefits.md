@@ -2,7 +2,7 @@
 title: GitHub Terms and Conditions for the Student Developer Pack
 intro: 
 versions: 
-shortTitle: 
+shortTitle: Terms for Student Benefits
 ---
 
 # GitHub Terms and Conditions for the Student Developer Pack
