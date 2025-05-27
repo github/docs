@@ -4628,6 +4628,11 @@ type ClosedEvent implements Node & UniformResourceLocatable {
   createdAt: DateTime!
 
   """
+  The issue or pull request that this issue was marked as a duplicate of.
+  """
+  duplicateOf: IssueOrPullRequest
+
+  """
   The Node ID of the ClosedEvent object
   """
   id: ID!
@@ -18733,6 +18738,11 @@ type Issue implements Assignable & Closable & Comment & Deletable & Labelable & 
   databaseId: Int
 
   """
+  A reference to the original issue that this issue has been marked as a duplicate of.
+  """
+  duplicateOf: Issue
+
+  """
   The actor who edited the comment.
   """
   editor: Actor
@@ -20856,6 +20866,11 @@ enum LabelOrderField {
   Order labels by creation time
   """
   CREATED_AT
+
+  """
+  Order labels by issue count
+  """
+  ISSUE_COUNT
 
   """
   Order labels by name
@@ -44849,6 +44864,11 @@ type ReleaseAsset implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The SHA256 digest of the asset
+  """
+  digest: String
 
   """
   The number of times this asset was downloaded
