@@ -343,7 +343,7 @@
     "@github/markdownlint-github": "^0.6.3",
     "@graphql-inspector/core": "^6.1.0",
     "@graphql-tools/load": "^8.0.19",
-    "@octokit/rest": "21.0.2",
+    "@octokit/rest": "22.0.0",
     "@playwright/test": "^1.50",
     "@types/accept-language-parser": "1.5.7",
     "@types/cheerio": "^0.22.35",
