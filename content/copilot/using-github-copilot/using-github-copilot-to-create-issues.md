@@ -63,7 +63,7 @@ Each draft appears separately, and you can review and edit them individually. To
 
 ## Assigning issues to {% data variables.product.prodname_copilot_short %}
 
-To assign an issue to {% data variables.product.prodname_copilot_short %}, you need to have {% data variables.copilot.copilot_coding_agent %} enabled. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent).
+To assign an issue to {% data variables.product.prodname_copilot_short %}, you need to have {% data variables.copilot.copilot_coding_agent %} enabled. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent).
 
 You can assign the issue during creation in one of two ways:
 

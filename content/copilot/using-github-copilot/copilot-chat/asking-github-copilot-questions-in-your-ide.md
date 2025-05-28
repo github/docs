@@ -142,6 +142,8 @@ For more detailed instructions, see [{% data variables.product.prodname_copilot_
 1. Submit a prompt. In response to your prompt, {% data variables.product.prodname_copilot_short %} streams the edits in the editor, updates the working set, and if necessary, suggests terminal commands to run.
 1. Review the changes. If {% data variables.product.prodname_copilot_short %} suggested terminal commands, confirm whether or not {% data variables.product.prodname_copilot_short %} can run them. In response, {% data variables.product.prodname_copilot_short %} iterates and performs additional actions to complete the task in your original prompt.
 
+You can also directly [open agent mode in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat/chat?mode=agent). <!-- markdownlint-disable-line GHD003 -->
+
 For more information, see [{% data variables.product.prodname_copilot_edits_short %}](https://aka.ms/vscode-copilot-agent) in the {% data variables.product.prodname_vscode %} documentation.
 
 {% data reusables.copilot.copilot-edits.agent-mode-requests %}

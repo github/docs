@@ -388,7 +388,7 @@ on:
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`page_build`](/webhooks-and-events/webhooks/webhook-events-and-payloads#page_build) | Not applicable | Last commit on default branch | Not applicable |
+| [`page_build`](/webhooks-and-events/webhooks/webhook-events-and-payloads#page_build) | Not applicable | Last commit on default branch | Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
@@ -900,18 +900,6 @@ on:
       - '**.js'
 ```
 
-> [!NOTE]
-> {% data reusables.actions.branch-paths-filter %} For example, the following workflow will only run when a push that includes a change to a JavaScript (`.js`) file is made to a branch whose name starts with `releases/`:
->
-> ```yaml
-> on:
->   push:
->     branches:
->       - 'releases/**'
->     paths:
->       - '**.js'
-> ```
-
 ## `registry_package`
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
@@ -1082,7 +1070,7 @@ Notifications for scheduled workflows are sent to the user who last modified the
 
 | Webhook event payload | Activity types | `GITHUB_SHA` | `GITHUB_REF` |
 | --------------------- | -------------- | ------------ | -------------|
-| [`status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#status) | Not applicable | Last commit on default branch | Not applicable |
+| [`status`](/webhooks-and-events/webhooks/webhook-events-and-payloads#status) | Not applicable | Last commit on default branch | Default branch |
 
 {% data reusables.actions.branch-requirement %}
 
