@@ -1,9 +1,9 @@
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/T-R0052/hubhub?quickstart=1)
+[![Open in GitHub Codespaces](https://github.com/t-r0052/hubhub/codespaces/badge.svg)](https://codespaces.new/T-R0052/hubhub?quickstart=1)
 จะเก็บไว้ความทรงจำ
 # GitHub Docs <!-- omit in toc -->
 [![Build GitHub Docs On Codespaces](https://github.com/codespaces/badge.svg)](https://github.com/codespaces/new/?repo=github)
 
-This repository contains the documentation website code and Markdown source files for [docs.github.com](https://docs.github.com).
+This repository contains the documentation website code and Markdown source files for [docs.github.com](https://github.com/t-r0052/hubhub).
 
 GitHub's Docs team works on pre-production content in a private repo that regularly syncs with this public repo.
 
