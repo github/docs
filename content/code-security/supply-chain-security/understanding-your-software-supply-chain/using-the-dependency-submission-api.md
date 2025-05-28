@@ -17,7 +17,7 @@ versions:
 
 {% data reusables.dependency-submission.about-dependency-submission %}
 
-Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from your dependencies detected at build time or from a software bill of materials (SBOM). There are {% data variables.product.prodname_actions %} that support either of these use cases. For more information about the {% data variables.dependency-submission-api.name %}, see [AUTOTITLE](/rest/dependency-graph/dependency-submission).
+Dependencies are submitted to the {% data variables.dependency-submission-api.name %} in the form of a snapshot. A snapshot is a set of dependencies associated with a commit SHA and other metadata, that reflects the current state of your repository for a commit. Snapshots can be generated from the dependencies detected at build time. For technical details on using the {% data variables.dependency-submission-api.name %} over the network, see [AUTOTITLE](/rest/dependency-graph/dependency-submission).
 
 ## Submitting dependencies at build-time
 
@@ -26,6 +26,8 @@ You can use the {% data variables.dependency-submission-api.name %} in a {% data
 ### Using pre-made actions
 
 {% data reusables.dependency-submission.api-premade-actions %}
+
+{% data reusables.dependency-submission.premade-action-table %}
 
 For more information about these actions, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems#package-ecosystems-supported-via-dependency-submission-actions).
 
@@ -39,33 +41,11 @@ Alternatively, you can write your own action to submit dependencies for your pro
 
 {% data variables.product.github %} maintains the [Dependency Submission Toolkit](https://github.com/github/dependency-submission-toolkit), a TypeScript library to help you build your own GitHub Action for submitting dependencies to the {% data variables.dependency-submission-api.name %}. For more information about writing an action, see [AUTOTITLE](/actions/creating-actions).
 
-## Generating and submitting a software bill of materials (SBOM)
+## Submitting SBOMs as snapshots
 
-{% data reusables.dependency-graph.sbom-intro %}
+If you have external tools which create or manage Software Bills of Materials (SBOMs), you can also submit those SBOMs to the {% data variables.dependency-submission-api.name %}. The snapshot data format is very similar to the standard SPDX and CycloneDX SBOM formats, and there are several tools which can generate or translate formats for use as snapshots.
 
-### Generating a software bill of materials (SBOM)
-
-To generate an SBOM, you can use:
-* The **{% data variables.product.prodname_dotcom %} UI**. For more information about how to export an SBOM for a repository using information from the dependency graph, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/exporting-a-software-bill-of-materials-for-your-repository).
-* The **REST API**. For more information, see [AUTOTITLE](/rest/dependency-graph/sboms).
-* **{% data variables.product.prodname_actions %}**. The following actions will generate an SBOM for your repository and attach it as a workflow artifact which you can download and use in other applications. For more information about downloading workflow artifacts, see [AUTOTITLE](/actions/managing-workflow-runs/downloading-workflow-artifacts).
-
-Action | Details |
---- | --- |
-[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  |
-[sbom-tool by Microsoft](https://github.com/microsoft/sbom-tool) | Scans your dependencies and creates an SPDX compatible SBOM |
-
-### Submitting a software bill of materials (SBOM) to the {% data variables.dependency-submission-api.name %}
-
-To receive {% data variables.product.prodname_dependabot_alerts %} for dependencies that have known vulnerabilities, you can upload and submit the SBOM to the {% data variables.dependency-submission-api.name %}. To submit an SBOM to the {% data variables.dependency-submission-api.name %}, you can use one of the actions in the following table.
-
->[!TIP] The [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) and the [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) can be used to both generate the SBOM and submit it to the {% data variables.dependency-submission-api.name %}.
-
-Action | Details |
----  | --- |
-[SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) | Uses [Microsoft's SBOM Tool](https://github.com/microsoft/sbom-tool) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/microsoft/component-detection/blob/main/docs/feature-overview.md) |
-[Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) | Uses [Syft](https://github.com/anchore/syft) to create SPDX 2.2 compatible SBOMs with the [supported ecosystems](https://github.com/anchore/syft#supported-ecosystems)  |
-[SBOM Dependency Submission Action](https://github.com/marketplace/actions/sbom-submission-action)| Uploads a CycloneDX SBOM to the {% data variables.dependency-submission-api.name %} |
+>[!TIP] The [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) and the [Anchore SBOM Action](https://github.com/marketplace/actions/anchore-sbom-action) can be used to both generate a SBOM and submit it to the {% data variables.dependency-submission-api.name %}.
 
 For example, the following [SPDX Dependency Submission Action](https://github.com/marketplace/actions/spdx-dependency-submission-action) workflow calculates the dependencies for a repository, generates an exportable SBOM in SPDX 2.2 format, and submits it to the {% data variables.dependency-submission-api.name %}.
 
