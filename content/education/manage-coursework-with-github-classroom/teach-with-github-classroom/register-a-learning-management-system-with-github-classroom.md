@@ -58,7 +58,7 @@ You can register your Blackboard installation with {% data variables.product.pro
     | **Custom parameters** | Leave empty. |
 1. Click **Register Placement**.
 
-### 2. Register {% data variables.product.prodname_classroom %} Developer Keys in Blackboard
+### Step 2. Register {% data variables.product.prodname_classroom %} Developer Keys in Blackboard
 
 1. Sign into your **Blackboard** instance.
 1. In the left sidebar on the home page, click **Admin**, then click **LTI Tool Providers**.
