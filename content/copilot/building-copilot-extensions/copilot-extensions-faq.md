@@ -11,7 +11,7 @@ type: reference
 
 ## General
 
-This section answers common questions about {% data variables.product.prodname_copilot_extension %}.
+This section answers common questions about {% data variables.product.prodname_copilot_extensions %}.
 
 * [What is the difference between a {% data variables.product.prodname_copilot_extension %} and a {% data variables.product.prodname_vscode %} chat participant?](#what-is-the-difference-between-a-github-copilot-extension-and-a-visual-studio-code-chat-participant)
 * [Is indemnity provided for {% data variables.product.prodname_copilot_extensions_short %}?](#is-indemnity-provided-for-copilot-extensions)
@@ -41,7 +41,7 @@ This section explains what data is collected and shared when using {% data varia
 * [What data is being collected and shared with {% data variables.product.prodname_copilot_extensions_short %}?](#what-data-is-being-collected-and-shared-with-copilot-extensions)
 * [What permissions are required for {% data variables.product.prodname_copilot_extensions_short %}?](#what-permissions-are-required-for-copilot-extensions)
 * [Who can provide permissions for {% data variables.product.prodname_copilot_extensions_short %} to access organization resources?](#who-can-provide-permissions-for-copilot-extensions-to-access-organization-resources)
-* [Can a user use a {% data variables.product.prodname_copilot_extensions_short %} that the organization has not provided permissions for?](#can-a-user-use-a-copilot-extensions-that-the-organization-has-not-provided-permissions-for)
+* [Can a user use {% data variables.product.prodname_copilot_extensions_short %} that the organization has not provided permissions for?](#can-a-user-use-copilot-extensions-that-the-organization-has-not-provided-permissions-for)
 
 ### What data is being collected and shared with {% data variables.product.prodname_copilot_extensions_short %}?
 
@@ -60,9 +60,9 @@ The following data is shared when interacting with {% data variables.product.pro
 Only organization admins can grant permissions for {% data variables.product.prodname_copilot_extensions_short %} to access organization resources.
 Organization members may encounter cases where an extension cannot access a repository or query context. This typically happens because the organization admin has not yet provided permissions or authorized the extension. See [Granting permissions to access organization resources](/copilot/building-copilot-extensions/about-building-copilot-extensions#granting-permissions-to-access-organization-resources).
 
-### Can a user use a {% data variables.product.prodname_copilot_extensions_short %} that the organization has not provided permissions for?
+### Can a user use {% data variables.product.prodname_copilot_extensions_short %} that the organization has not provided permissions for?
 
-Yes, any user can install and use a {% data variables.product.prodname_copilot_extensions_short %}. However, to query organization resources and repositories, the extension must be installed and authorized by an organization admin. See [Granting permissions to access organization resources](/copilot/building-copilot-extensions/about-building-copilot-extensions#granting-permissions-to-access-organization-resources)
+Yes, any user can install and use {% data variables.product.prodname_copilot_extensions_short %}. However, to query organization resources and repositories, an extension must be installed and authorized by an organization admin. See [Granting permissions to access organization resources](/copilot/building-copilot-extensions/about-building-copilot-extensions#granting-permissions-to-access-organization-resources).
 
 Users should contact their organization admin to request installation and authorization. Company context cannot be accessed without admin permissions.
 

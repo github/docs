@@ -111,4 +111,4 @@ You should also plan how you'll enable your teams to get the data they need from
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions)
+Next, learn how to plan a migration to {% data variables.product.prodname_actions %} for your enterprise from another provider. See [AUTOTITLE](/enterprise-onboarding/github-actions-for-your-enterprise/migrating-your-enterprise-to-github-actions).

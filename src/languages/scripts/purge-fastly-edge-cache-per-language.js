@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { languageKeys } from '#src/languages/lib/languages.js'
 
 import { makeLanguageSurrogateKey } from '#src/frame/middleware/set-fastly-surrogate-key.js'

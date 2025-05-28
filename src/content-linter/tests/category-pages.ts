@@ -14,26 +14,16 @@ import getApplicableVersions from '@/versions/lib/get-applicable-versions.js'
 import contextualize from '@/frame/middleware/context/context'
 import shortVersions from '@/versions/middleware/short-versions.js'
 import { ROOT } from '@/frame/lib/constants.js'
-import type { Context, ExtendedRequest, FrontmatterVersions } from '@/types'
+import type { Context, ExtendedRequest, MarkdownFrontmatter } from '@/types'
 
 const slugger = new GithubSlugger()
 
 const contentDir = path.join(ROOT, 'content')
 
-type Frontmatter = {
-  title: string
-  shortTitle?: string
-  children: string[]
-  allowTitleToDifferFromFilename?: boolean
-  versions: FrontmatterVersions
-  mapTopic?: boolean
-  hidden?: boolean
-}
-
-function getFrontmatterData(markdown: string): Frontmatter {
+function getFrontmatterData(markdown: string): MarkdownFrontmatter {
   const parsed = matter(markdown)
   if (!parsed.data) throw new Error('No frontmatter')
-  return parsed.data as Frontmatter
+  return parsed.data as MarkdownFrontmatter
 }
 
 describe.skip('category pages', () => {
@@ -108,7 +98,7 @@ describe.skip('category pages', () => {
           const indexContents = await fs.promises.readFile(indexAbsPath, 'utf8')
           const parsed = matter(indexContents)
           if (!parsed.data) throw new Error('No frontmatter')
-          const data = parsed.data as Frontmatter
+          const data = parsed.data as MarkdownFrontmatter
           categoryVersions = getApplicableVersions(data.versions, indexAbsPath)
           allowTitleToDifferFromFilename = data.allowTitleToDifferFromFilename
           categoryChildTypes = []

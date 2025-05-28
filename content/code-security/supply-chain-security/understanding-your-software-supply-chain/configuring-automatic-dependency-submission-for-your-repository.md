@@ -19,9 +19,9 @@ topics:
 > [!NOTE]
 > Automatic dependency submission is currently only supported for Maven.
 
-Dependency graph analyzes the manifest and lock files in a repository, in order to help users understand the dependencies that the repository depends on. However, in some ecosystems, the resolution of transitive dependencies occurs at build-time and {% data variables.product.company_short %} isn't able to automatically discover all dependencies based on the contents of the repository alone.
+Dependency graph analyzes the manifest and lock files in a repository, in order to help users understand the upstream packages that their software project depends on. However, in some ecosystems, the resolution of transitive dependencies occurs at build-time and {% data variables.product.company_short %} isn't able to automatically discover all dependencies based on the contents of the repository alone.
 
-When you enable automatic dependency submission for a repository, {% data variables.product.company_short %} automatically identifies the transitive dependencies in the repository and will submit these dependencies to {% data variables.product.company_short %} using the {% data variables.dependency-submission-api.name %}. You can then report on these dependencies using the dependency graph.
+When you enable automatic dependency submission for a repository, {% data variables.product.company_short %} automatically identifies the transitive dependencies in the repository and will submit these dependencies to {% data variables.product.company_short %} using the {% data variables.dependency-submission-api.name %}. You can then explore these dependencies using the dependency graph. {% data variables.product.prodname_dependabot %} will notify you about security updates for these dependencies by generating {% data variables.product.prodname_dependabot_alerts %} .
 
 Using automatic dependency submission counts toward your {% data variables.product.prodname_actions %} minutes. For more information, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions).
 
@@ -82,6 +82,10 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 Automatic dependency submission is currently only supported for Maven. The feature uses the Maven Dependency Tree Submission action. For more information, see the documentation for the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) action in the {% data variables.product.prodname_marketplace %}. If your project uses a non-standard Maven configuration, it may not properly generate the dependencies and submit them to the dependency graph.
 
 Automatic dependency submission makes a best effort to cache package downloads between runs using the [Cache](https://github.com/marketplace/actions/cache) action to speed up workflows. For self-hosted runners, you may want to manage this cache within your own infrastructure. To do this, you can disable the built-in caching by setting an environment variable of `GH_DEPENDENCY_SUBMISSION_SKIP_CACHE` to `true`. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
+
+If your repository's dependencies seem inaccurate, check that the timestamp of the last dependency graph build matches the last change to your `pom.xml` file. The timestamp is visible on the table of alerts in the repository's {% data variables.product.prodname_dependabot_alerts %} tab. Pushing a commit which updates `pom.xml` will trigger a new run of the Dependency Tree Submission action and force a rebuild of that repository's dependency graph.
+
+{% data reusables.dependency-graph.deduplication %}
 
 ## Further reading
 

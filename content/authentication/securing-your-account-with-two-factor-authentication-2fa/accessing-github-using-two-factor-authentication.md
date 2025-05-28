@@ -19,7 +19,7 @@ shortTitle: Access GitHub with 2FA
 
 {% ifversion 2fa-check-up-period %}
 
-With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.github %}through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.github %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
+With two-factor authentication (2FA) enabled, you'll need to use a second factor when accessing {% data variables.product.github %} through your browser. When you first configure 2FA, your account will enter a check up period for 28 days to ensure your account's 2FA methods are setup correctly. You can exit the check up period by successfully performing 2FA within 28 days. If you don't authenticate within 28 days, you'll be asked to perform 2FA inside one of your existing {% data variables.product.github %} sessions. If you cannot perform 2FA to pass the 28th day checkup, use the provided shortcut to reconfigure your 2FA settings and retain access to {% data variables.product.github %}. For more information, see [AUTOTITLE](/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication).
 
 If you access {% data variables.product.github %} using other methods, such as the API or the command line, you'll authenticate using a token, application, or SSH key. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/about-authentication-to-github).
 
@@ -102,15 +102,6 @@ For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-d
 ### Authenticating on the command line using SSH
 
 Enabling 2FA doesn't change how you authenticate to {% data variables.product.github %} on the command line using SSH URLs. For more information about setting up and using an SSH key, see [AUTOTITLE](/authentication/connecting-to-github-with-ssh).
-
-{% ifversion ghes < 3.13 %}
-
-## Using two-factor authentication to access a repository using Subversion
-
-{% data reusables.subversion.sunset %}
-
-When you access a repository via Subversion, you must provide a {% data variables.product.pat_generic %} instead of entering your password. For more information, see [AUTOTITLE](/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
-{% endif %}
 
 ## Troubleshooting
 

@@ -9,7 +9,7 @@ versions:
 type: how_to
 topics:
   - Secret scanning
-  - Advanced Security
+  - Secret Protection
   - Alerts
   - Repositories
 shortTitle: View alerts
@@ -19,8 +19,6 @@ allowTitleToDifferFromFilename: true
 ## About the {% data variables.product.prodname_secret_scanning %} alerts page
 
 {% data reusables.secret-scanning.secret-scanning-about-alerts %} {% data reusables.secret-scanning.repository-alert-location %}
-
-{% ifversion secret-scanning-non-provider-patterns %}
 
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 
@@ -77,16 +75,14 @@ For {% data variables.product.company_short %} to scan for non-provider patterns
 
 {% endif %}
 
-{% endif %}
-
 ## Viewing alerts
 
 Alerts for {% data variables.product.prodname_secret_scanning %} are displayed under the **Security** tab of the repository.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
-1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**. {% ifversion secret-scanning-non-provider-patterns %}
-1. Optionally, toggle to {% ifversion secret-scanning-alert-experimental-list %}"Experimental"{% else %}"Other"{% endif %} to see alerts for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or generic secrets detected using AI{% endif %}.{% endif %}
+1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
+1. Optionally, toggle to {% ifversion secret-scanning-alert-experimental-list %}"Experimental"{% else %}"Other"{% endif %} to see alerts for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or generic secrets detected using AI{% endif %}.
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.
    {% ifversion secret-scanning-user-owned-repos %}
 
@@ -107,18 +103,14 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`is:publicly-leaked`|Displays alerts for secrets that have been found in a public repository.|
 |`is:multi-repository`|Displays alerts for secrets that have been found in more than one repository within the same organization or enterprise.|
 | {% endif %} |
-| {% ifversion secret-scanning-bypass-filter %} |
 |`bypassed: true`|Displays alerts for secrets where push protection has been bypassed. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).|
-| {% endif %} |
-|`validity:active`| Displays alerts for secrets that are known to be active. {% ifversion fpt %}Applies to {% data variables.product.company_short %} tokens only.{% endif %} For more information about validity statuses, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).|
+|`validity:active`| Displays alerts for secrets that are known to be active. {% ifversion fpt or ghec %}Applies only to {% data variables.product.github %} tokens unless you enable validity checks.{% endif %}For more information about validity statuses, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/evaluating-alerts#checking-a-secrets-validity).|
 |`validity:inactive`| Displays alerts for secrets that are no longer active.|
 |`validity:unknown`| Displays alerts for secrets where the validity status of the secret is unknown.|
 |`secret-type:SECRET-NAME`| Displays alerts for a specific secret type, for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secret). |
 |`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).|
-| {% ifversion secret-scanning-non-provider-patterns %} |
 |{% ifversion secret-scanning-alert-experimental-list %}`results:default`{% else %}`confidence:high`{% endif %}| Displays alerts for {% ifversion secret-scanning-alert-experimental-list %}{% else %}high-confidence secrets, which relate to {% endif %}supported secrets and custom patterns. For a list of supported patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns). |
 |{% ifversion secret-scanning-alert-experimental-list %}`results:experimental`{% else %}`confidence:other`{% endif %}| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns). {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}|
-| {% endif %} |
 
 ## Next steps
 

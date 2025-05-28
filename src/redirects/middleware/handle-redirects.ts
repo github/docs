@@ -10,6 +10,13 @@ import { ExtendedRequest, URLSearchParamsTypes } from '@/types'
 export default function handleRedirects(req: ExtendedRequest, res: Response, next: NextFunction) {
   if (!req.context) throw new Error('Request not contextualized')
 
+  // Any double-slashes in the URL should be removed first
+  // This must be done before checking if the path
+  // is an asset (patterns.assetPaths)
+  if (req.path.includes('//')) {
+    return res.redirect(301, req.path.replace(/\/+/g, '/'))
+  }
+
   // never redirect assets
   if (patterns.assetPaths.test(req.path)) return next()
 
@@ -17,16 +24,16 @@ export default function handleRedirects(req: ExtendedRequest, res: Response, nex
   // such as /api/pageinfo redirects to /api/pageinfo/v1
   if (req.path.startsWith('/api/')) return next()
 
-  // Any double-slashes in the URL should be removed first
-  if (req.path.includes('//')) {
-    return res.redirect(301, req.path.replace(/\/\//g, '/'))
-  }
-
   // blanket redirects for languageless homepage
   if (req.path === '/') {
     const language = getLanguage(req)
     languageCacheControl(res)
-    return res.redirect(302, `/${language}`)
+    // Forward query params to the new URL
+    let queryParams = new URLSearchParams((req?.query as any) || '').toString()
+    if (queryParams) {
+      queryParams = `?${queryParams}`
+    }
+    return res.redirect(302, `/${language}${queryParams}`)
   }
 
   // begin redirect handling

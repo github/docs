@@ -2,9 +2,10 @@
 title: Creating charts
 intro: Learn how to create new charts to save your configurations.
 versions:
-  feature: projects-v2-insights
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
-product: '{% data reusables.gated-features.historical-insights-for-projects %}'
 permissions: '{% data reusables.projects.insights-permissions %}'
 topics:
   - Projects

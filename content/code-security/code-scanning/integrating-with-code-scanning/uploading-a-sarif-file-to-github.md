@@ -16,7 +16,7 @@ versions:
   ghec: '*'
 type: how_to
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - Integration
   - Actions
@@ -43,7 +43,7 @@ You can upload the results using {% data variables.product.prodname_actions %}, 
 {% ifversion fpt or ghec %}
 
 > [!NOTE]
-> For private and internal repositories, {% data variables.product.prodname_code_scanning %} is available when {% data variables.product.prodname_GH_advanced_security %} features are enabled for the repository. If you see the error `Advanced Security must be enabled for this repository to use code scanning`, check that {% data variables.product.prodname_GH_advanced_security %} is enabled. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
+> For private and internal repositories, {% data variables.product.prodname_code_scanning %} is available when {% data variables.product.prodname_GH_code_security %} features are enabled for the repository. If you see the error `{% data variables.product.prodname_GHAS_or_code_security %} must be enabled for this repository to use code scanning`, check that {% data variables.product.prodname_GH_code_security %} is enabled. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository).
 
 {% endif %}
 
@@ -56,7 +56,7 @@ Your workflow will need to use the `upload-sarif` action, which is part of the `
 * `sarif-file`, which configures the file or directory of SARIF files to be uploaded. The directory or file path is relative to the root of the repository.
 * `category` (optional), which assigns a category for results in the SARIF file. This enables you to analyze the same commit in multiple ways and review the results using the {% data variables.product.prodname_code_scanning %} views in {% data variables.product.prodname_dotcom %}. For example, you can analyze using multiple tools, and in mono-repos, you can analyze different slices of the repository based on the subset of changed files.
 
-For more information, see the {% ifversion codeql-action-node16-deprecated %}[`upload-sarif` action](https://github.com/github/codeql-action/tree/v3/upload-sarif){% else %}[`upload-sarif` action](https://github.com/github/codeql-action/tree/v2/upload-sarif){% endif %}.
+For more information, see the [`upload-sarif` action](https://github.com/github/codeql-action/tree/v3/upload-sarif).
 
 The `upload-sarif` action can be configured to run when the `push` and `scheduled` event occur. For more information about {% data variables.product.prodname_actions %} events, see [AUTOTITLE](/actions/using-workflows/events-that-trigger-workflows).
 

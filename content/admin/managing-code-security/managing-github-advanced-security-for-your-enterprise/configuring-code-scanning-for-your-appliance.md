@@ -32,13 +32,13 @@ You can configure {% data variables.product.prodname_code_scanning %} to run {% 
 
 {% data reusables.code-scanning.enabling-options %}
 
-## Checking whether your license includes {% data variables.product.prodname_GH_advanced_security %}
+## Checking whether your license includes {% data variables.product.prodname_AS %}
 
 {% data reusables.advanced-security.check-for-ghas-license %}
 
 ## Prerequisites for {% data variables.product.prodname_code_scanning %}
 
-* A license for {% data variables.product.prodname_GH_advanced_security %}{% ifversion ghes %} (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security)){% endif %}
+* A license for {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% endif %}{% data variables.product.prodname_GHAS %}, (see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security))
 
 * {% data variables.product.prodname_code_scanning_caps %} enabled in the management console (see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise))
 
@@ -90,7 +90,6 @@ You can use {% data variables.product.prodname_actions_runner_controller %} to c
 
 ### Provisioning the actions for {% data variables.product.prodname_code_scanning %}
 
-{% ifversion ghes %}
 If you want to use actions to run {% data variables.product.prodname_code_scanning %} on {% data variables.product.prodname_ghe_server %}, the actions must be available on your appliance.
 
 The {% data variables.product.prodname_codeql %} action is included in your installation of {% data variables.product.prodname_ghe_server %}. If both {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }} and your {% data variables.product.prodname_actions %} runner have access to the internet, the action will automatically download the {% data variables.product.prodname_codeql %} {% data variables.product.codeql_cli_ghes_recommended_version %} bundle required to perform analysis. Alternatively, you can use a synchronization tool to make the latest released version of the {% data variables.product.prodname_codeql %} analysis bundle available locally. See [Configuring {% data variables.product.prodname_codeql %} analysis on a server without internet access](#configuring-codeql-analysis-on-a-server-without-internet-access) below.
@@ -102,8 +101,6 @@ You can also make third-party actions available to users for {% data variables.p
 If the server on which you are running {% data variables.product.prodname_ghe_server %} is not connected to the internet, and you want to allow users to enable {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %} for their repositories, you must use the {% data variables.product.prodname_codeql %} action sync tool to copy the {% data variables.product.prodname_codeql %} analysis bundle from {% data variables.product.prodname_dotcom_the_website %} to your server. The tool, and details of how to use it, are available at [https://github.com/github/codeql-action-sync-tool](https://github.com/github/codeql-action-sync-tool/).
 
 If you configure the {% data variables.product.prodname_codeql %} action sync tool, you can use it to sync the latest releases of the {% data variables.product.prodname_codeql %} action and associated {% data variables.product.prodname_codeql %} analysis bundle. These are compatible with {% data variables.product.prodname_ghe_server %}.
-
-{% endif %}
 
 ### Configuring {% data variables.product.prodname_github_connect %} to sync {% data variables.product.prodname_actions %}
 

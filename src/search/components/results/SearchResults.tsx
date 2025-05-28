@@ -1,12 +1,12 @@
 import { Box, Pagination, Text } from '@primer/react'
 import { SearchIcon } from '@primer/octicons-react'
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import cx from 'classnames'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { Link } from 'src/frame/components/Link'
-import { sendEvent } from 'src/events/components/events'
+import { sendEvent, uuidv4 } from 'src/events/components/events'
 import { EventType } from 'src/events/types'
 
 import styles from './SearchResults.module.scss'
@@ -23,10 +23,18 @@ type Props = {
 export function SearchResults({ results, searchParams }: Props) {
   const pages = Math.ceil((results.meta.found as SearchTotalHits).value / results.meta.size)
   const { page } = results.meta
+  const searchEventGroupId = useRef<string>('')
+  useEffect(() => {
+    searchEventGroupId.current = uuidv4()
+  }, [results])
 
   return (
     <div>
-      <SearchResultHits hits={results.hits} searchParams={searchParams} />
+      <SearchResultHits
+        hits={results.hits}
+        searchParams={searchParams}
+        eventGroupId={searchEventGroupId}
+      />
       {pages > 1 && <ResultsPagination page={page} totalPages={pages} />}
     </div>
   )
@@ -35,9 +43,11 @@ export function SearchResults({ results, searchParams }: Props) {
 function SearchResultHits({
   hits,
   searchParams,
+  eventGroupId,
 }: {
   hits: GeneralSearchHitWithoutIncludes[]
   searchParams: SearchQueryContentT
+  eventGroupId: React.MutableRefObject<string>
 }) {
   return (
     <div>
@@ -50,6 +60,7 @@ function SearchResultHits({
           totalHits={hits.length}
           index={index}
           debug={searchParams.debug}
+          eventGroupId={eventGroupId}
         />
       ))}
     </div>
@@ -74,12 +85,14 @@ function SearchResultHit({
   totalHits,
   index,
   debug,
+  eventGroupId,
 }: {
   hit: GeneralSearchHitWithoutIncludes
   query: string
   totalHits: number
   index: number
   debug: boolean
+  eventGroupId: React.MutableRefObject<string>
 }) {
   const title =
     hit.highlights.title && hit.highlights.title.length > 0 ? hit.highlights.title[0] : hit.title
@@ -115,6 +128,8 @@ function SearchResultHit({
               search_result_total: totalHits,
               search_result_rank: (totalHits - index) / totalHits,
               search_result_url: hit.url,
+              eventGroupKey: GENERAL_SEARCH_RESULTS,
+              eventGroupId: eventGroupId.current,
             })
           }}
         ></Link>

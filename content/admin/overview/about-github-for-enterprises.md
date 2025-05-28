@@ -50,7 +50,10 @@ Your business can:
 
 Your business can:
 
-* Be alerted to leaked secrets or vulnerable code patterns using {% data variables.product.prodname_GH_advanced_security %} tools
+{% ifversion ghas-products %}
+* Automate detection and remediation of vulnerabilities in code and dependencies using {% data variables.product.prodname_GH_code_security %}
+* Block users from leaking secrets and identify and remediate historic leaks using {% data variables.product.prodname_GH_secret_protection %}{% else %}
+* Be alerted to leaked secrets or vulnerable code patterns using {% data variables.product.prodname_GHAS %} tools{% endif %}
 * Keep software dependencies up to date with {% data variables.product.prodname_dependabot %}
 * Monitor the security landscape across your repositories with security overview
 
@@ -61,7 +64,7 @@ Your business can:
 * Additional features such as SAML authentication and internal repositories. For a detailed list, see {% data variables.product.pricing_link %}.
 * Extra allowances for usage-based products such as {% data variables.product.prodname_actions %}.
 * An enterprise account, which provides a single place to manage billing and settings, enforce policies, and audit the people with access to your enterprise.
-* The option to add {% data variables.product.prodname_GH_advanced_security %}, {% data variables.contact.premium_support %}, and {% data variables.product.prodname_copilot_enterprise %}.
+* The option to add {% ifversion ghas-products %}<!-- Enterprise is no longer a pre-requisite with the GHAS products release -->{% else %}{% data variables.product.prodname_GHAS %}, {% endif %}{% data variables.contact.premium_support %}, and {% data variables.product.prodname_copilot_enterprise %}.
 
 When businesses adopt {% data variables.product.prodname_enterprise %}, their return on investment (ROI) is high. For example, their developers **save 45 minutes per day**, and onboarding and **training time is reduced by 40%**. See [The Total Economic Impact of {% data variables.product.prodname_enterprise %}](https://resources.github.com/forrester/).
 
@@ -85,8 +88,8 @@ When businesses adopt {% data variables.product.prodname_enterprise %}, their re
 
 1. Learn more about {% data variables.product.prodname_enterprise %}.
 
-   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
-   * [AUTOTITLE]({% ifversion not ghes %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion not ghes %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
+   * [AUTOTITLE](/enterprise-cloud@latest/admin/overview/about-github-enterprise-cloud){% ifversion ghes %} in the {% data variables.product.prodname_ghe_cloud %} documentation{% endif %}
+   * [AUTOTITLE]({% ifversion ghec %}/enterprise-server@latest{% endif %}/admin/overview/about-github-enterprise-server){% ifversion ghec %} in the {% data variables.product.prodname_ghe_server %} documentation.{% else %}.{% endif %}
 1. Set up a trial.
 
    * [AUTOTITLE](/admin/overview/setting-up-a-trial-of-github-enterprise-cloud)

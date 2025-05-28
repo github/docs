@@ -145,7 +145,7 @@
   },
   "3.12": {
     "releaseDate": "2024-02-13",
-    "deprecationDate": "2025-03-05"
+    "deprecationDate": "2025-04-03"
   },
   "3.13": {
     "releaseDate": "2024-05-16",
@@ -160,7 +160,7 @@
     "deprecationDate": "2025-12-19"
   },
   "3.16": {
-    "releaseDate": "2025-02-18",
+    "releaseDate": "2025-02-25",
     "deprecationDate": "2026-03-11"
   },
   "3.17": {
@@ -173,10 +173,22 @@
   },
   "3.19": {
     "releaseDate": "2025-11-11",
-    "deprecationDate": "2026-12-02"
+    "deprecationDate": "2026-12-09"
   },
   "3.20": {
     "releaseDate": "2026-02-17",
-    "deprecationDate": "2027-03-10"
+    "deprecationDate": "2027-03-17"
+  },
+  "3.21": {
+    "releaseDate": "2026-05-12",
+    "deprecationDate": "2027-06-02"
+  },
+  "3.22": {
+    "releaseDate": "2026-08-04",
+    "deprecationDate": "2027-08-25"
+  },
+  "3.23": {
+    "releaseDate": "2026-11-10",
+    "deprecationDate": "2027-12-08"
   }
 }

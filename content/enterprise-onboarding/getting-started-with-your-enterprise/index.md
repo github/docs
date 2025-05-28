@@ -1,10 +1,9 @@
 ---
 title: Getting started with your enterprise
 #redirect_from:
-intro: 'Learn about starting a trial of {% data variables.product.prodname_enterprise %} and getting set up. Be introduced to enterprise billing and migrations.'
+intro: 'Learn how to start a trial of {% data variables.product.prodname_enterprise %}, and about enterprise billing and migrations.'
 versions:
   ghec: '*'
-  ghes: '*'
 topics:
   - Accounts
   - Enterprise

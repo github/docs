@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 // add a new redirect string to redirect_from frontmatter
 
 export default function addRedirectToFrontmatter(redirectFromData, newRedirectString) {

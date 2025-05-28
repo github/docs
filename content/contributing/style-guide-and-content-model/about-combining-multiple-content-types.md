@@ -1,9 +1,11 @@
 ---
 title: About combining multiple content types
 shortTitle: Combining multiple types
-intro: 'You can combine multiple content types in a single article to help people complete complex tasks.'
+intro: You can combine multiple content types in a single article to help people complete complex tasks.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 Often, it's helpful to group information in context to help people complete a complex task, understand a set of related tasks, or illustrate an entire workflow. Use longer articles combining content types to ensure people find contextual content in the right place. Longer articles also help eliminate duplication of content and prepare content to scale as more options are added to the product. People most often need longer articles while actively using the product, and they may need to consult the article at different points on their journey.

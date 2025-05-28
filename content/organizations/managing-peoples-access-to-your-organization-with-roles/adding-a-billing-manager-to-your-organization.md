@@ -48,9 +48,9 @@ Billing managers **are not** able to:
 
 {% ifversion enhanced-billing-platform %}
 
->[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the enhanced billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the enhanced billing platform.
+>[!NOTE] Enterprise accounts, and organizations owned by enterprise accounts, created after June 2, 2024, have access to the new billing platform. Enterprises that participated in the {% data variables.release-phases.public_preview %} program also have access to the new billing platform.
 >
-> If you are on the enhanced billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/using-the-new-billing-platform/roles-for-the-new-billing-platform#inviting-a-billing-manager).
+> If you are on the new billing platform, the process for adding a billing manager is different. See [AUTOTITLE](/billing/managing-your-billing/roles-for-the-new-billing-platform#inviting-a-billing-manager).
 
 {% endif %}
 

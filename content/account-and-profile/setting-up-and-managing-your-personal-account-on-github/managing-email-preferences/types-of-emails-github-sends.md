@@ -30,7 +30,7 @@ You can also choose which type of email updates you'd like to receive on convers
 
 ## Account emails
 
-If you've upgraded to paid products or features, then you'll receive billing receipts at the account's primary email address. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/setting-your-billing-email).
+If you've upgraded to paid products or features, then you'll receive billing receipts at the account's primary email address. For more information, see [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information).
 
 ## Customer research emails
 

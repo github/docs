@@ -1,6 +1,6 @@
 import dotenv from 'dotenv'
 import { test, expect } from '@playwright/test'
-import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
+import { turnOffExperimentsInPage } from '../helpers/turn-off-experiments'
 
 // This exists for the benefit of local testing.
 // In GitHub Actions, we rely on setting the environment variable directly
@@ -10,8 +10,6 @@ import { turnOffExperimentsBeforeEach } from '../helpers/turn-off-experiments'
 // tests only interface with the server via HTTP, we too need to find
 // this out.
 dotenv.config()
-
-turnOffExperimentsBeforeEach(test)
 
 const SEARCH_TESTS = !!process.env.ELASTICSEARCH_URL
 
@@ -56,6 +54,7 @@ test('do a search from home page and click on "Foo" page', async ({ page }) => {
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/')
+  await turnOffExperimentsInPage(page)
   await page.getByTestId('site-search-input').click()
   await page.getByTestId('site-search-input').fill('serve playwright')
   await page.keyboard.press('Enter')
@@ -79,21 +78,50 @@ test('open new search, and perform a general search', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
+
+  await page.getByTestId('overlay-search-input').fill('serve playwright')
+  // Wait for the results to load
+  // NOTE: In the UI we wait for results to load before allowing "enter", because we don't want
+  // to allow an unnecessary request when there are no search results. Easier to wait 1 second
+  await page.waitForTimeout(1000)
+  // Scroll down to "View all results" then press enter
+  await page.getByText('View more results').click()
+
+  await expect(page).toHaveURL(
+    /\/search\?search-overlay-input=serve\+playwright&query=serve\+playwright/,
+  )
+  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
+
+  // The first result should be "For Playwright"
+  await page.getByRole('link', { name: 'For Playwright' }).click()
+
+  await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
+  await expect(page).toHaveTitle(/For Playwright/)
+})
+
+test('open new search, and select a general search article', async ({ page }) => {
+  test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
+
+  await page.goto('/')
+
+  // Enable the AI search experiment by overriding the control group
+  await page.evaluate(() => {
+    // @ts-expect-error overrideControlGroup is a custom function added to the window object
+    window.overrideControlGroup('ai_search_experiment', 'treatment')
+  })
+
+  await page.locator('[data-testid="search"]:visible').click()
 
   await page.getByTestId('overlay-search-input').fill('serve playwright')
   // Let new suggestions load
   await page.waitForTimeout(1000)
-  // Navigate to general search item, "serve playwright"
+  // Navigate to general search item, "For Playwright"
   await page.keyboard.press('ArrowDown')
-  // Select the general search item, "serve playwright"
+  // Select the general search item, "For Playwright"
   await page.keyboard.press('Enter')
 
-  await expect(page).toHaveURL(/\/search\?query=serve\+playwright/)
-  await expect(page).toHaveTitle(/\d Search results for "serve playwright"/)
-
-  await page.getByRole('link', { name: 'For Playwright' }).click()
-
+  // We should now be on the page for "For Playwright"
   await expect(page).toHaveURL(/\/get-started\/foo\/for-playwright$/)
   await expect(page).toHaveTitle(/For Playwright/)
 })
@@ -109,7 +137,7 @@ test('open new search, and get auto-complete results', async ({ page }) => {
     window.overrideControlGroup('ai_search_experiment', 'treatment')
   })
 
-  await page.getByTestId('search').click()
+  await page.locator('[data-testid="search"]:visible').click()
 
   let listGroup = page.getByTestId('ai-autocomplete-suggestions')
 
@@ -157,6 +185,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
   test.skip(!SEARCH_TESTS, 'No local Elasticsearch, no tests involving search')
 
   await page.goto('/enterprise-cloud@latest')
+  await turnOffExperimentsInPage(page)
 
   await page.getByTestId('site-search-input').fill('fixture')
   await page.getByTestId('site-search-input').press('Enter')
@@ -171,6 +200,7 @@ test('search from enterprise-cloud and filter by top-level Fooing', async ({ pag
 test.describe('platform picker', () => {
   test('switch operating systems', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
 
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Mac' }).click()
     await expect(page).toHaveURL(/\?platform=mac/)
@@ -186,6 +216,7 @@ test.describe('platform picker', () => {
   test('minitoc matches picker', async ({ page }) => {
     // default platform set to windows in fixture fronmatter
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Macintosh until 1999' }),
     ).not.toBeVisible()
@@ -203,6 +234,7 @@ test.describe('platform picker', () => {
 
   test('remember last clicked OS', async ({ page }) => {
     await page.goto('/get-started/liquid/platform-specific')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('platform-picker').getByRole('link', { name: 'Windows' }).click()
 
     // Return and now the cookie should start us off on Windows again
@@ -215,6 +247,7 @@ test.describe('platform picker', () => {
 test.describe('tool picker', () => {
   test('switch tools', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
 
     await page.getByTestId('tool-picker').getByRole('link', { name: 'GitHub CLI' }).click()
     await expect(page).toHaveURL(/\?tool=cli/)
@@ -239,6 +272,7 @@ test.describe('tool picker', () => {
 
   test('remember last clicked tool', async ({ page }) => {
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('tool-picker').getByRole('link', { name: 'Web browser' }).click()
 
     // Return and now the cookie should start us off with Web UI content again
@@ -251,6 +285,7 @@ test.describe('tool picker', () => {
   test('minitoc matches picker', async ({ page }) => {
     // default tool set to desktop in fixture fronmatter
     await page.goto('/get-started/liquid/tool-specific')
+    await turnOffExperimentsInPage(page)
     await expect(
       page.getByTestId('minitoc').getByRole('link', { name: 'Desktop section' }),
     ).toBeVisible()
@@ -284,6 +319,7 @@ test('navigate with side bar into article inside a map-topic inside a category',
 test.describe('hover cards', () => {
   test('hover over link', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -345,6 +381,7 @@ test.describe('hover cards', () => {
 
   test('use keyboard shortcut to open hover card', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // Simply putting focus on the link should not open the hovercard
     await page
@@ -376,6 +413,7 @@ test.describe('hover cards', () => {
 
   test('able to use Esc to close hovercard', async ({ page }) => {
     await page.goto('/pages/quickstart')
+    await turnOffExperimentsInPage(page)
 
     // hover over a link and check for intro content from hovercard
     await page
@@ -535,6 +573,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
 
     // header sign-up button is not visible
     await expect(page.getByTestId('header-signup')).not.toBeVisible()
@@ -574,6 +613,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
     await page.getByRole('button', { name: 'Open Search Bar' }).click()
     await page.getByTestId('site-search-input').click()
     await page.getByTestId('site-search-input').fill('serve playwright')
@@ -590,6 +630,7 @@ test.describe('test nav at different viewports', () => {
       height: 700,
     })
     await page.goto('/get-started/foo/bar')
+    await turnOffExperimentsInPage(page)
     await page.getByTestId('site-search-input').click()
     await page.getByTestId('site-search-input').fill('serve playwright')
     await page.getByTestId('site-search-input').press('Enter')
@@ -609,28 +650,36 @@ test.describe('survey', () => {
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
-      }
-      fulfilled++
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyPressedEvent = true
-      }
-      if (
-        postData.type === 'survey' &&
-        postData.survey_vote === true &&
-        postData.survey_comment === surveyComment
-      ) {
-        hasSurveySubmittedEvent = true
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyPressedEvent = true
+          }
+          if (
+            eventBody.type === 'survey' &&
+            eventBody.survey_vote === true &&
+            eventBody.survey_comment === surveyComment
+          ) {
+            hasSurveySubmittedEvent = true
+          }
+        }
       }
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
+    })
+
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
     })
 
     await page.goto('/get-started/foo/for-playwright')
@@ -640,16 +689,28 @@ test.describe('survey', () => {
     await expect(page.getByRole('button', { name: 'Cancel' })).toBeVisible()
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
 
-    await page.locator('[for=survey-comment]').click()
     await page.locator('[for=survey-comment]').fill(surveyComment)
     await page.locator('[name=survey-email]').click()
     await page.locator('[name=survey-email]').fill('test@example.com')
     await page.getByRole('button', { name: 'Send' }).click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
+
     // Events:
     // 1. page view event when navigating to the page
     // 2. Survey thumbs up event
     // 3. Survey submit event
-    expect(fulfilled).toBe(1 + 1 + 1)
+    // 4. Exit event
+    expect(fulfilled).toBe(1 + 1 + 1 + 1)
     expect(hasSurveyPressedEvent).toBe(true)
     expect(hasSurveySubmittedEvent).toBe(true)
     await expect(page.getByTestId('survey-end')).toBeVisible()
@@ -658,33 +719,51 @@ test.describe('survey', () => {
   test('thumbs up without filling in the form sends an API POST', async ({ page }) => {
     let fulfilled = 0
     let hasSurveyEvent = false
+
     // Important to set this up *before* interacting with the page
     // in case of possible race conditions.
     await page.route('**/api/events', (route, request) => {
-      route.fulfill({})
-      expect(request.method()).toBe('POST')
-      const postData = JSON.parse(request.postData() || '{}')
-      // Skip the exit event
-      if (postData.type === 'exit') {
-        return
+      const postData = request.postData()
+      if (postData) {
+        const postDataArray = JSON.parse(postData)
+        route.fulfill({})
+        expect(request.method()).toBe('POST')
+        fulfilled = postDataArray.length
+        for (const eventBody of postDataArray) {
+          if (eventBody.type === 'survey' && eventBody.survey_vote === true) {
+            hasSurveyEvent = true
+          }
+        }
       }
-      if (postData.type === 'survey' && postData.survey_vote === true) {
-        hasSurveyEvent = true
-      }
-      fulfilled++
       // At the time of writing you can't get the posted payload
       // when you use `navigator.sendBeacon(url, data)`.
       // So we can't make assertions about the payload.
       // See https://github.com/microsoft/playwright/issues/12231
     })
 
+    await page.addInitScript(() => {
+      window.GHDOCSPLAYWRIGHT = 1
+    })
+
     await page.goto('/get-started/foo/for-playwright')
 
     await page.locator('[for=survey-yes]').click()
+    // simulate sending an exit event to trigger sending all queued events
+    await page.evaluate(() => {
+      Object.defineProperty(document, 'visibilityState', {
+        configurable: true,
+        get: function () {
+          return 'hidden'
+        },
+      })
+      document.dispatchEvent(new Event('visibilitychange'))
+      return new Promise((resolve) => setTimeout(resolve, 100))
+    })
     // Events:
     // 1. page view event when navigating to the page
     // 2. the thumbs up click
-    expect(fulfilled).toBe(1 + 1)
+    // 3. the exit event
+    expect(fulfilled).toBe(1 + 1 + 1)
     expect(hasSurveyEvent).toBe(true)
 
     await expect(page.getByRole('button', { name: 'Send' })).toBeVisible()
@@ -763,59 +842,6 @@ test.describe('translations', () => {
     // it will offer a link to the Japanese URL in a banner.
     await page.goto('/en/get-started/start-your-journey/hello-world')
     await expect(page).toHaveURL('/ja/get-started/start-your-journey/hello-world')
-  })
-})
-
-test.describe('domain edit', () => {
-  test('edit a domain (using header nav)', async ({ page }) => {
-    test.skip(true, 'Editing domain from header is disabled')
-
-    await page.goto('/')
-    await expect(page.getByText('Domain name:')).not.toBeVisible()
-    await page.getByLabel('Select GitHub product version').click()
-    await page
-      .getByLabel(/Enterprise Server/)
-      .first()
-      .click()
-    await expect(page.getByText('Domain name:')).toBeVisible()
-    await page.getByRole('button', { name: 'Edit' }).click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await expect(page.getByRole('heading', { name: 'Edit your domain name' })).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('  github.com ')
-    await expect(page.getByText("Can't be github.com")).toBeVisible()
-    await page.getByLabel('Your domain name', { exact: true }).fill('github.peterbe.com ')
-    await expect(page.getByText("Can't be github.com")).not.toBeVisible()
-    await page.getByRole('button', { name: 'Save' }).click()
-
-    // This tests that the dialog is gone.
-    // XXX Peterbe: These don't work and I don't know why yet.
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
-    await expect(page.getByText('github.peterbe.com')).toBeVisible()
-  })
-
-  test('edit a domain (clicking HOSTNAME)', async ({ page }) => {
-    await page.goto('/get-started/markdown/replace-domain')
-    await page.getByLabel('Select GitHub product version').click()
-    await page.getByLabel('Enterprise Server 3.12').click() // XXX
-
-    // This is generally discourage in Playwright, but necessary here
-    // in this case. Because of the way
-    // the `main.addEventListener('click', ...)` is handled, it's setting
-    // up that event listener too late. In fact, it happens in a useEffect.
-    // Adding a little delay makes is much more likely that the event
-    // listener has been set up my the time we fire the `.click()` on the
-    // next line.
-    await page.waitForTimeout(500)
-    await page.getByText('HOSTNAME', { exact: true }).first().click()
-
-    await expect(page.getByTestId('domain-name-edit-form')).toBeVisible()
-    await page
-      .getByTestId('domain-name-edit-form')
-      .getByLabel('Your domain name')
-      .fill('peterbe.ghe.com')
-    await page.getByTestId('domain-name-edit-form').getByLabel('Your domain name').press('Enter')
-    await expect(page.getByTestId('domain-name-edit-form')).not.toBeVisible()
   })
 })
 

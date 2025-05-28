@@ -1,0 +1,87 @@
+New! Copilot for Docs
+Ask your question in the search bar and get help in seconds.Skip to main content
+GitHub Docs
+The Copilot Icon in front of an explosion of color.
+New! Copilot for Docs
+Ask your question in the search bar and get help in seconds.
+Search on GitHub/Start with search on GitHub/About searching on GitHub
+About searching on GitHub
+Our integrated search covers the many repositories, users, and lines of code on GitHub.
+
+In this article
+About searching on GitHub
+Types of searches on GitHub
+Searching using a visual interface
+Searching repositories on GitHub.com from your private enterprise environment
+Further reading
+About searching on GitHub
+You can search globally across all of GitHub, or scope your search to a particular repository or organization.
+
+To search globally across all of GitHub, type what you're looking for into the search field at the top of any page, and choose "Search all of GitHub" in the search dropdown menu.
+
+To search within a particular repository or organization, navigate to the repository or organization page, type what you're looking for into the search field at the top of the page, and press Enter.
+
+You can also use suggestions and completions in the search bar to quickly find what you need.
+
+If you click on the search bar in the top navigation of GitHub.com, you will see a list of suggestions organized by category, including recent searches and suggested repositories, teams, and projects that you have access to.
+
+Clicking on any of the specific suggestions will take you directly to the page for that suggestion (for example, the repository or project page). If you click on a recent search, depending on the type of search, the search term will appear in the search bar or you will be taken to the search results page for the search term.
+
+Once you start typing, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you continue to type, you will see more specific suggestions, such as code files you can jump to directly.
+
+After typing a search query, you can press Enter to go to the full search results view, where you can see each match and a visual interface for applying filters. For more information, see Searching using a visual interface.
+
+Note
+
+You must be signed into a personal account on GitHub to search for code across all public repositories.
+GitHub Pages sites are not searchable on GitHub. However you can search the source content if it exists in the default branch of a repository, using code search. For more information, see Understanding GitHub Code Search syntax. For more information about GitHub Pages, see What is GitHub Pages?
+Currently our search doesn't support exact matching.
+After running a search on GitHub, you can sort the results, or further refine them by clicking one of the languages in the sidebar. For more information, see Sorting search results.
+
+GitHub search uses an ElasticSearch cluster to index projects every time a change is pushed to GitHub. Issues and pull requests are indexed when they are created or modified.
+
+Types of searches on GitHub
+You can search for the following information across all repositories you can access on GitHub.
+
+Repositories
+Topics
+Issues and pull requests
+Discussions
+Code
+Commits
+Users
+Packages
+Wikis
+Searching using a visual interface
+In addition to the search bar, you can search GitHub using the search page or advanced search page. Alternatively, you can use the interactive search in the GitHub Command Palette to search your current location in the UI, a specific user, repository or organization, and globally across all of GitHub, without leaving the keyboard. For more information, see GitHub Command Palette.
+
+The advanced search page provides a visual interface for constructing search queries. You can filter your searches by a variety of factors, such as the number of stars or number of forks a repository has. As you fill in the advanced search fields, your query will automatically be constructed in the top search bar.
+
+Advanced Search page. Top search bar holds "kittens user:octocat" query. Under "Advanced options", "From these owners" text box holds term "octocat".
+
+Searching repositories on GitHub.com from your private enterprise environment
+If you use GitHub.com or GHE.com as well as GitHub Enterprise Server, and an enterprise owner has enabled unified search, you can search across both environments at the same time from GitHub Enterprise Server. For more information, see About searching on GitHub in the GitHub Enterprise Server documentation.
+
+Further reading
+Understanding the search syntax
+Searching on GitHub
+Help and support
+Did you find what you needed?
+
+Privacy policy
+Help us make these docs great!
+All GitHub docs are open source. See something that's wrong or unclear? Submit a pull request.
+
+Learn how to contribute
+
+Still need help?
+Ask the GitHub community
+Contact support
+Legal
+© 2025 GitHub, Inc.
+Terms
+Privacy
+Status
+Pricing
+Expert services
+Blog

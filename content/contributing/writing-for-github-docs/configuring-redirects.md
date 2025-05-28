@@ -1,9 +1,11 @@
 ---
 title: Configuring redirects
 shortTitle: Configure redirects
-intro: "If an article's title, version, or location changes, you can create a redirect to the current content."
+intro: 'If an article''s title, version, or location changes, you can create a redirect to the current content.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/configuring-redirects
 ---

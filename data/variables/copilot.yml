@@ -1,10 +1,19 @@
 # Variables used in the Copilot docs that are not product names
 
+# Copilot billing: price per additional premium request
+additional_premium_requests: '$0.04 USD'
+
 # Copilot billing: price per month for Copilot Pro
 cfi_price_per_month: '$10 USD'
 
 # Copilot billing: price per year for Copilot Pro
 cfi_price_per_year: '$100 USD'
+
+# Copilot billing: price per month for Copilot Pro Plus
+cpp_price_per_month: '$39 USD'
+
+# Copilot billing: price per year for Copilot Pro Plus
+cpp_price_per_year: '$390 USD'
 
 # Copilot billing: price per month for Copilot Business
 cfb_price_per_month: '$19 USD'
@@ -27,9 +36,26 @@ chat_completions_api: 'https://api.githubcopilot.com/chat/completions'
 copilot_code-review: 'GitHub Copilot code review'
 copilot_code-review_short: 'Copilot code review'
 
+## Copilot coding agent (aka Padawan) - e.g. {% data variables.copilot.copilot_coding_agent %}
+copilot_coding_agent: 'Copilot coding agent'
+coding_agent_UI: 'Coding agent'
+
 ## LLM models for Copilot
-copilot_claude_sonnet: 'Claude 3.5 Sonnet'
+copilot_claude_sonnet: 'Claude Sonnet'
+copilot_claude_sonnet_35: 'Claude 3.5 Sonnet'
+copilot_claude_sonnet_37: 'Claude 3.7 Sonnet'
+
+copilot_gemini: 'Gemini'
 copilot_gemini_flash: 'Gemini 2.0 Flash'
+copilot_gemini_25_pro: 'Gemini 2.5 Pro'
+
+copilot_gpt_4o: 'GPT-4o'
+copilot_gpt_41: 'GPT-4.1'
+copilot_gpt_45: 'GPT-4.5'
+copilot_o1: 'o1'
+copilot_o3: 'o3'
+copilot_o3_mini: 'o3-mini'
+copilot_o4_mini: 'o4-mini'
 
 ## Next edit suggestions in VS Code
 next_edit_suggestions: 'next edit suggestions'

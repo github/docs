@@ -5,16 +5,29 @@ intro: 'You can quickly secure your organization at scale with {% data variables
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 ---
 
 ## About securing your organization
 
-{% data variables.product.company_short %} offers many code security products and features including {% data variables.product.prodname_GH_advanced_security %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more. For more information on {% data variables.product.prodname_GH_advanced_security %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
+{% ifversion ghas-products %}
 
-You can easily enable and manage {% data variables.product.company_short %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
+{% data variables.product.github %} has many features that help you improve and maintain the quality of your code. Some features are included in all {% data variables.product.github %} plans. Additional features are available {% ifversion fpt or ghec %}to organizations on {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} that{% else %} if you {% endif %} purchase a {% data variables.product.prodname_GHAS %} product:
+
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
+
+{% else %}
+
+{% data variables.product.github %} offers many security features including {% data variables.product.prodname_GHAS %}, a suite of features designed to protect your organization from vulnerabilities in your code, insecure dependencies, leaked secrets, and more.
+
+{% endif %}
+
+You can easily enable and manage {% data variables.product.github %}'s security features throughout your organization with {% data variables.product.prodname_security_configurations %}, which control repository-level security features, and {% data variables.product.prodname_global_settings %}, which control security features at the organization level. We recommend applying {% data variables.product.prodname_security_configurations %} _and_ customizing your {% data variables.product.prodname_global_settings %} to create a system that best meets the security needs of your organization.
+
+For more information on purchasing {% data variables.product.prodname_GH_cs_or_sp %}, see [AUTOTITLE](/get-started/learning-about-github/about-github-advanced-security).
 
 ## About {% data variables.product.prodname_security_configurations %}
 

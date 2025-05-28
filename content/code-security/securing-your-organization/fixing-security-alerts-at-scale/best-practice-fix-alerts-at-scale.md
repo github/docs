@@ -8,11 +8,10 @@ type: reference
 versions:
   feature: security-campaigns
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---
-{% data reusables.security-campaigns.preview-note %}
 
 ## Elements of a successful security campaign
 
@@ -47,6 +46,10 @@ For example, if you have many alerts for cross-site scripting vulnerabilities, y
 
 When you select alerts to include in a security campaign, you can use any of the filters on the security alerts page to define a subset of alerts. Alternatively, you can choose a campaign template to use one of the pre-defined filters for common needs, for example: "Cross-site scripting (CWE-79)."
 
+### Draft campaigns
+
+It can be useful to create a draft campaign first, which lists the alerts that are set to be included in the campaign and the campaign details, so that you can collaborate on the scope of the campaign prior to publishing it. For guidance on creating a draft campaign, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns#create-a-campaign).
+
 ### Limitations on security campaigns
 
 The following limitations are intended to encourage you to take a balanced and measured approach to remediating alerts in your code. An iterative approach, addressing a few targeted sets of alerts at a time, is likely to lead to a sustainable and long-term change in security posture.
@@ -66,6 +69,12 @@ The names of the campaign managers are visible to developers when they take part
 
 If you want to increase the remediation rate for alerts and scale the knowledge of the security team, this is a key opportunity to build collaborative relationships with developers. Ideally, the campaign managers are available to answer questions and collaborate on difficult fixes via the contact link. Campaign managers should also be available to review pull requests for fixes over the whole course of the campaign.
 
+## Creating issues for a campaign
+
+When you create a campaign, you can choose to automatically open a {% data variables.product.github %} Issue in every repository involved in the campaign. This means that the work can be much more easily tracked, assigned, and managed on team project boards. What's more, when you update the details of the campaign, such as the contact link or due date, the issue body gets automatically updated with the latest information. When a campaign reaches its due date, or gets deleted or closed, a comment is automatically posted on the issue.
+
+This can aid developer engagement by providing clear, up-to-date context directly within developers' existing workflows. For information on how to automate issue creation for campaigns, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns#create-a-campaign).
+
 ## Combining security training with a security campaign
 
 If your security team already provides training for developers on secure coding, creating a campaign with alerts chosen to allow developers to use the skills from the training session is a great way to reinforce their learning. Even if you don't have a formal training program, it makes sense to provide information on the types of security vulnerabilities included in the campaign, examples of how to fix them, and how to test the fixes. This will simplify the role of the campaign manager as they will be able to direct developers to these resources for answers to basic questions.
@@ -80,8 +89,6 @@ The OWASP Foundation provides many resources for learning about the most common 
 
 {% data variables.product.prodname_copilot %} is an important tool for developers who have questions about secure coding, how to fix security alerts, and test their fix. Check that all developers in your organization have access to {% data variables.product.prodname_copilot_short %} in both their IDE and {% data variables.product.github %}, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-access-to-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 
-> [!TIP] The {% data variables.product.prodname_GH_advanced_security %} skill provides {% data variables.product.prodname_copilot_chat_short %} with additional context to answer questions about security alerts.
-
 {% endif %}
 
 ## Considerations in starting a security campaign and defining a deadline
@@ -90,4 +97,4 @@ As with any other project, it's important to define realistic timescales to avoi
 
 ## Next steps
 
-* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-tracking-security-campaigns)
+* [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/creating-managing-security-campaigns)

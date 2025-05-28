@@ -6,31 +6,81 @@ import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
 import { initializeEvents } from 'src/events/components/events'
-import { initializeExperiments } from 'src/events/components/experiments/experiment'
+import {
+  initializeExperiments,
+  initializeForwardFeatureUrlParam,
+} from 'src/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
 } from 'src/languages/components/LanguagesContext'
 import { useTheme } from 'src/color-schemes/components/useTheme'
+import { SharedUIContextProvider } from 'src/frame/components/context/SharedUIContext'
+import { CTAPopoverProvider } from 'src/frame/components/context/CTAContext'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
   languagesContext: LanguagesContextT
+  stagingName?: string
 }
 
-const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
+const stagingNames = new Set([
+  'boxwood',
+  'cedar',
+  'cypress',
+  'fir',
+  'hemlock',
+  'holly',
+  'juniper',
+  'laurel',
+  'pine',
+  'redwood',
+  'sequoia',
+  'spruce',
+])
+
+function getFaviconHref(stagingName?: string) {
+  /* The value in these "/cb-xxxxx" prefixes aren't important. They
+      just need to be present. They help the CDN cache the asset
+      for infinity.
+      Just remember, if you edit these images on disk, remember to
+      change these numbers
+   */
+  if (stagingName) {
+    return `/assets/cb-345/images/site/evergreens/${stagingName}.png`
+  }
+  return '/assets/cb-345/images/site/favicon.png'
+}
+
+const MyApp = ({ Component, pageProps, languagesContext, stagingName }: MyAppProps) => {
   const { theme } = useTheme()
   const router = useRouter()
 
   useEffect(() => {
     initializeEvents()
-    initializeExperiments(
-      router.locale as string,
-      pageProps.mainContext.currentVersion,
-      pageProps.mainContext.allVersions,
-    )
+    if (pageProps.mainContext) {
+      try {
+        initializeExperiments(
+          router.locale || 'en',
+          pageProps.mainContext.currentVersion,
+          pageProps.mainContext.allVersions,
+        )
+      } catch (e) {
+        console.error('Error initializing experiments:', e)
+      }
+    }
   }, [])
+
+  useEffect(() => {
+    if (pageProps.mainContext) {
+      try {
+        initializeForwardFeatureUrlParam(router, pageProps.mainContext.currentVersion)
+      } catch (e) {
+        console.error('Error initializing feature param forwarding:', e)
+      }
+    }
+  }, [router, router.query, pageProps.mainContext])
 
   useEffect(() => {
     // The CSS from primer looks something like this:
@@ -70,13 +120,7 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         <title>GitHub Docs</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-        {/* The value in these "/cb-xxxxx" prefixes aren't important. They
-            just need to be present. They help the CDN cache the asset
-            for infinity.
-            Just remember, if you edit these images on disk, remember to
-            change these numbers
-         */}
-        <link rel="icon" type="image/png" href="/assets/cb-345/images/site/favicon.png" />
+        <link rel="icon" type="image/png" href={getFaviconHref(stagingName)} />
 
         <link href="/manifest.json" rel="manifest" />
 
@@ -96,7 +140,11 @@ const MyApp = ({ Component, pageProps, languagesContext }: MyAppProps) => {
         preventSSRMismatch
       >
         <LanguagesContext.Provider value={languagesContext}>
-          <Component {...pageProps} />
+          <SharedUIContextProvider>
+            <CTAPopoverProvider>
+              <Component {...pageProps} />
+            </CTAPopoverProvider>
+          </SharedUIContextProvider>
         </LanguagesContext.Provider>
       </ThemeProvider>
     </>
@@ -138,10 +186,11 @@ MyApp.getInitialProps = async (appContext: AppContext) => {
       }
     }
   }
-
+  const stagingName = req.headers['x-ong-external-url']?.match(/staging-(\w+)\./)?.[1]
   return {
     ...appProps,
     languagesContext,
+    stagingName: stagingNames.has(stagingName) ? stagingName : undefined,
   }
 }
 

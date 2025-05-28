@@ -1,7 +1,10 @@
-@use "./variables.scss" as searchVariables;
+
+@euid "./variables.scss" as searchVariables;
 
 @import "@primer/css/support/variables/layout.scss";
 @import "@primer/css/support/mixins/layout.scss";
+
+$mutedTextColor: var(--fgColor-muted, var(--color-fg-muted, #656d76));
 
 .overlayBackdrop {
   position: fixed;
@@ -23,7 +26,7 @@
   width: searchVariables.$smSearchOverlayWidth !important;
   max-width: 100%;
   height: auto;
-  max-height: 90vh;
+  max-height: 95vh;
   overflow-y: auto;
 
   display: flex;
@@ -67,12 +70,21 @@
   padding: 5px 16px 13px 16px;
   width: 100%;
   background-color: var(--overlay-bgColor);
+  overflow-y: auto;
+  min-height: 15vh;
+
+  @include breakpoint(sm) {
+    min-height: fit-content !important;
+  }
 }
 
 .betaToken {
   color: var(--fgColor-success, var(--fgColor-open, green)) !important;
   background-color: var(--overlay-bgColor);
   margin-right: 1em;
+  height: 22px !important;
+  font-weight: 700 !important;
+  border-color: unset !important;
 }
 
 .loadingContainer {
@@ -95,5 +107,17 @@
 .errorBanner {
   width: 100%;
   margin-top: 8px;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
+}
+
+.viewAllSearchResults {
+  color: var(--color-accent-emphasis) !important;
+  padding-left: 32px !important;
+  span {
+    font-weight: 500 !important;
+  }
+}
+
+.noResultsFound {
+  color: $mutedTextColor !important;
 }

@@ -9,7 +9,7 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 redirect_from:
@@ -71,11 +71,7 @@ You can specify additional options depending on the location of your source file
 | Option | Required | Usage |
 |--------|:--------:|-----|
 | `<database>` | {% octicon "check" aria-label="Required" %} | Specify the name and location of a directory to create for the {% data variables.product.prodname_codeql %} database. The command will fail if you try to overwrite an existing directory. If you also specify `--db-cluster`, this is the parent directory and a subdirectory is created for each language analyzed. |
-| {% ifversion codeql-language-identifiers-311 %} |
 | <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %}. When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. |
-| {% else %} |
-| <code><span style="white-space: nowrap;">--language</span></code> | {% octicon "check" aria-label="Required" %} | Specify the identifier for the language to create a database for, one of: {% data reusables.code-scanning.codeql-languages-keywords %} (use `javascript` to analyze TypeScript code and `java` to analyze Kotlin code). When used with <code><span style="white-space: nowrap;">--db-cluster</span></code>, the option accepts a comma-separated list, or can be specified more than once. |
-| {% endif %} |
 | <code><span style="white-space: nowrap;">--command</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use to specify the build command or script that invokes the build process for the codebase. Commands are run from the current folder or, where it is defined, from <code><span style="white-space: nowrap;">--source-root</span></code>. Not needed for Python and JavaScript/TypeScript analysis. |
 | {% ifversion codeql-no-build %} |
 | <code><span style="white-space: nowrap;">--build-mode</span></code> | {% octicon "x" aria-label="Optional" %} | **Recommended.** Use for {% data variables.code-scanning.no_build_support %} when not providing a `--command` to specify whether to create a CodeQL database without a build (`none`) or by attempting to automatically detect a build command (`autobuild`). By default, autobuild detection is used. For a comparison of build modes, see [CodeQL build modes](/code-security/code-scanning/creating-an-advanced-setup-for-code-scanning/codeql-code-scanning-for-compiled-languages#codeql-build-modes). |
@@ -95,7 +91,7 @@ For full details of all the options you can use when creating databases, see [AU
 This example creates a single {% data variables.product.prodname_codeql %} database for the repository checked out at `/checkouts/example-repo`. It uses the JavaScript extractor to create a hierarchical representation of the JavaScript and TypeScript code in the repository. The resulting database is stored in `/codeql-dbs/example-repo`.
 
 ```shell
-$ codeql database create /codeql-dbs/example-repo --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} \
+$ codeql database create /codeql-dbs/example-repo --language=javascript-typescript \
     --source-root /checkouts/example-repo
 
 > Initializing database at /codeql-dbs/example-repo.
@@ -121,7 +117,7 @@ The resulting databases are stored in `python` and `cpp` subdirectories of `/cod
 
 ```shell
 $ codeql database create /codeql-dbs/example-repo-multi \
-    --db-cluster --language python,{% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} \
+    --db-cluster --language python,c-cpp \
     --command make --no-run-unnecessary-builds \
     --source-root /checkouts/example-repo-multi
 Initializing databases at /codeql-dbs/example-repo-multi.
@@ -154,10 +150,10 @@ The {% data variables.product.prodname_codeql_cli %} includes extractors to crea
 
 ### JavaScript and TypeScript
 
-Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, Node.js 14 or higher must be installed and available on the `PATH` as `node`. In the command line you can specify `--language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %}` to extract both JavaScript and TypeScript files:
+Creating databases for JavaScript requires no additional dependencies, but if the project includes TypeScript files, Node.js 14 or higher must be installed and available on the `PATH` as `node`. In the command line you can specify `--language=javascript-typescript` to extract both JavaScript and TypeScript files:
 
 ```shell
-codeql database create --language={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --source-root <folder-to-extract> <output-folder>/javascript-database
+codeql database create --language=javascript-typescript --source-root <folder-to-extract> <output-folder>/javascript-database
 ```
 
 Here, we have specified a `--source-root` path, which is the location where database creation is executed, but is not necessarily the checkout root of the codebase.
@@ -228,7 +224,7 @@ The following examples are designed to give you an idea of some of the build com
 
   ```shell
   # Disable parallel execution via `-j1` or other techniques: https://www.gnu.org/software/make/manual/make.html#Parallel-Execution
-  codeql database create cpp-database --language={% ifversion codeql-language-identifiers-311 %}c-cpp{% else %}cpp{% endif %} --command=make
+  codeql database create cpp-database --language=c-cpp --command=make
   ```
 
 * C# project built using `dotnet build`:
@@ -256,19 +252,19 @@ The following examples are designed to give you an idea of some of the build com
   ```shell
   # Use `--no-daemon` because a build delegated to an existing daemon cannot be detected by CodeQL.
   # To ensure isolated builds without caching, add `--no-build-cache` on persistent machines.
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='gradle --no-daemon clean test'
+  codeql database create java-database --language=java-kotlin --command='gradle --no-daemon clean test'
   ```
 
 * Java project built using Maven:
 
   ```shell
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='mvn clean install'
+  codeql database create java-database --language=java-kotlin --command='mvn clean install'
   ```
 
 * Java project built using Ant:
 
   ```shell
-  codeql database create java-database --language={% ifversion codeql-language-identifiers-311 %}java-kotlin{% else %}java{% endif %} --command='ant -f build.xml'
+  codeql database create java-database --language=java-kotlin --command='ant -f build.xml'
   ```
 
 * Swift project built from an Xcode project or workspace. By default, the largest Swift target is built:

@@ -6,7 +6,7 @@ allowTitleToDifferFromFilename: true
 versions:
   feature: org-private-registry
 topics:
-  - Advanced Security
+  - Code Security
   - Organizations
   - Security
 ---
@@ -16,8 +16,6 @@ topics:
 When a repository uses code stored in a private registry, some security features need access to the registry to enable them to work effectively. Without access to all the dependencies of a repository, {% data variables.product.prodname_code_scanning %} default setup and {% data variables.product.prodname_dependabot %} are limited.
 
 ## {% data variables.product.prodname_code_scanning_caps %} default setup access to private registries
-
-{% data reusables.code-scanning.preview-org-private-registry %}
 
 {% data variables.product.prodname_code_scanning_caps %} default setup analyzes {% data variables.code-scanning.no_build_support %} code without building it. If you do not define access to the private registries your organization uses, then {% data variables.product.prodname_code_scanning %} will only gather necessary data from dependencies available in public registries. Most times, this is enough for surfacing most of the vulnerabilities. However, in some cases the lack of access can lead to false negative results, that is, {% data variables.product.prodname_code_scanning %} is unable to detect a vulnerability in the code because it does not have all the information it needs to analyze the code. For example, some of the data flow paths may not be detected because steps are defined in dependencies that are not accessible and {% data variables.product.prodname_code_scanning %} does not know how to interpret them.
 

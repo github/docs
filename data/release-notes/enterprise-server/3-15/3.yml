@@ -1,4 +1,10 @@
 date: '2025-02-18'
+intro: |
+  {% warning %}
+
+  **Warning**: For instances installed on Google Cloud Platform (GCP), hotpatches to GitHub Enterprise Server version `3.15.3` will result in errors being reported in the upgrade log. We recommend hotpatching to a newer 3.15 version instead. [Updated: 2025-03-11]
+
+  {% endwarning %}
 sections:
   security_fixes:
     - |
@@ -47,6 +53,8 @@ sections:
       The `ghe-live-migrations --init-target` command fails with a descriptive error message if the specified upgrade path is not supported.
   known_issues:
     - |
+      {% data reusables.release-notes.2025-02-gcp-hotpatch-bug %} [Updated: 2025-03-11]
+    - |
       During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
     - |
       If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see "[AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account)."
@@ -54,8 +62,6 @@ sections:
       On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
     - |
       {% data reusables.release-notes.large-adoc-files-issue %}
-    - |
-      Repositories originally imported using ghe-migrator will not correctly track Advanced Security contributions.
     - |
       Admin stats REST API endpoints may timeout on appliances with many users or repositories. Retrying the request until data is returned is advised.
     - |
@@ -80,3 +86,14 @@ sections:
       When initializing a new GHES cluster, nodes with the `consul-server` role should be added to the cluster before adding additional nodes. Adding all nodes simultaneously creates a race condition between nomad server registration and nomad client registration.
     - |
       Admins setting up cluster high availability (HA) may encounter a spokes error when running `ghe-cluster-repl-status` if a new organization and repositories are created before using the `ghe-cluster-repl-bootstrap` command. To avoid this issue, complete the cluster HA setup with `ghe-cluster-repl-bootstrap` before creating new organizations and repositories.
+    - |
+      {% data reusables.release-notes.2025-03-03-elasticsearch-data-loss %}
+
+      [Updated: 2025-03-12]
+  errata:
+    - |
+      The warning and known issues section have been updated to accurately reflect that instances installed on GCP will face issues while hotpatching to 3.15.3. Previously, the warning and known issue indicated that customers would face issues either while upgrading or hotpatching to version 3.15.3. [Updated: 2025-03-11]
+    - |
+      These release notes previously indicated as a known issue that on GitHub Enterprise Server 3.15.3, repositories originally imported using `ghe-migrator` will not correctly track Advanced Security contributions.
+
+      The fix for this problem was already included in GitHub Enterprise Server [3.12](/admin/release-notes#3.12.0-bugs). [Updated: 2025-04-11]

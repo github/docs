@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // [start-readme]
 //
 // Run this script to generate the updated data files for the rest,
@@ -23,6 +21,7 @@ import { allVersions } from '@/versions/lib/all-versions'
 import { syncWebhookData } from '../../webhooks/scripts/sync'
 import { syncGitHubAppsData } from '../../github-apps/scripts/sync'
 import { syncRestRedirects } from './utils/get-redirects'
+import { MODELS_GATEWAY_ROOT, injectModelsSchema } from './utils/inject-models-schema'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const TEMP_OPENAPI_DIR = path.join(__dirname, '../../../rest-api-description/openApiTemp')
@@ -47,10 +46,10 @@ program
   )
   .addOption(
     new Option(
-      '-s, --source-repo <repo>',
-      `The source repository to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
+      '-s, --source-repos [repos...]',
+      `The source repositories to get the dereferenced files from. When the source repo is ${REST_API_DESCRIPTION_ROOT}, the bundler is not run to generate the source dereferenced OpenAPI files because the ${REST_API_DESCRIPTION_ROOT} repo already contains them.`,
     )
-      .choices(['github', REST_API_DESCRIPTION_ROOT])
+      .choices(['github', REST_API_DESCRIPTION_ROOT, MODELS_GATEWAY_ROOT])
       .default('github', 'github'),
   )
   .option(
@@ -65,9 +64,12 @@ program
   .option('-n --next', 'Generate the next OpenAPI calendar-date version.')
   .parse(process.argv)
 
-const { versions, includeUnpublished, includeDeprecated, next, output, sourceRepo } = program.opts()
+const { versions, includeUnpublished, includeDeprecated, next, output, sourceRepos } =
+  program.opts()
 
-const sourceRepoDirectory = sourceRepo === 'github' ? GITHUB_REP_DIR : REST_API_DESCRIPTION_ROOT
+const sourceRepoDirectories = sourceRepos.map((sourceRepo: string) =>
+  sourceRepo === 'github' ? GITHUB_REP_DIR : sourceRepo,
+)
 
 main()
 
@@ -79,15 +81,20 @@ async function main() {
 
   // If the source repo is github, this is the local development workflow
   // and the files in github must be bundled and dereferenced first.
-  if (sourceRepo === 'github') {
+  if (sourceRepos.includes('github')) {
     await getBundledFiles()
   }
+  const sourceRepoDirectory = sourceRepos.includes('github')
+    ? GITHUB_REP_DIR
+    : REST_API_DESCRIPTION_ROOT
 
   // When we get the dereferenced OpenAPI files from the open-source
   // rest description repo (REST_API_DESCRIPTION_ROOT), we need to
   // remove any versions that are deprecated because that repo contains
   // all past versions.
-  const sourceDirectory = sourceRepo === 'github' ? TEMP_BUNDLED_OPENAPI_DIR : REST_DESCRIPTION_DIR
+  const sourceDirectory = sourceRepos.includes('github')
+    ? TEMP_BUNDLED_OPENAPI_DIR
+    : REST_DESCRIPTION_DIR
 
   const dereferencedFiles = walk(sourceDirectory, {
     includeBasePath: true,
@@ -105,7 +112,7 @@ async function main() {
   // The REST_API_DESCRIPTION_ROOT repo contains all current and
   // deprecated versions. We need to remove the deprecated versions
   // so that we don't spend time generating data files for them.
-  if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
+  if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const derefDir = await readdir(TEMP_OPENAPI_DIR)
     // TODO: After migrating all-version.js to TypeScript, we can remove the type assertion
     const currentOpenApiVersions = Object.values(allVersions).map(
@@ -120,11 +127,12 @@ async function main() {
     }
   }
   const derefFiles = await readdir(TEMP_OPENAPI_DIR)
+
   const { restSchemas, webhookSchemas } = await getOpenApiSchemaFiles(derefFiles)
 
   if (pipelines.includes('rest')) {
     console.log(`\n▶️  Generating REST data files...\n`)
-    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory)
+    await syncRestData(TEMP_OPENAPI_DIR, restSchemas, sourceRepoDirectory, injectModelsSchema)
   }
 
   if (pipelines.includes('webhooks')) {
@@ -144,7 +152,7 @@ async function main() {
 
   // If the source repo is REST_API_DESCRIPTION_ROOT, we want to update
   // the pipeline config files with the SHA of the synced commit.
-  if (sourceRepo === REST_API_DESCRIPTION_ROOT) {
+  if (sourceRepos.includes(REST_API_DESCRIPTION_ROOT)) {
     const syncedSha = execSync('git rev-parse HEAD', {
       cwd: REST_API_DESCRIPTION_ROOT,
       encoding: 'utf8',
@@ -163,7 +171,7 @@ async function main() {
   }
 
   console.log(
-    `\n🏁 The static REST API files are now up-to-date with \`github/${sourceRepo}\`. To revert uncommitted data changes, run \`git checkout src/**/data/*\`\n`,
+    `\n🏁 The static REST API files are now up-to-date with ${sourceRepos.join(' ')}. To revert uncommitted data changes, run \`git checkout src/**/data/*\`\n`,
   )
 }
 
@@ -228,19 +236,22 @@ async function validateInputParameters(): Promise<void> {
 
   // The `--decorate-only` option cannot be used
   // with the `--include-deprecated` or `--include-unpublished` options
-  if ((includeDeprecated || includeUnpublished) && sourceRepo !== 'github') {
+  if ((includeDeprecated || includeUnpublished) && !sourceRepos.include('github')) {
     const errorMsg = `🛑 You cannot use the decorate-only option with  include-unpublished or include-deprecated because the include-unpublished and include-deprecated options are only available when running the bundler. The decorate-only option skips running the bundler.\nPlease reach out to #docs-engineering if a new use case should be supported.`
     throw new Error(errorMsg)
   }
 
   // Check that the source repo exists.
-  if (!existsSync(sourceRepoDirectory)) {
-    const errorMsg =
-      sourceRepo === 'github'
-        ? `🛑 The ${GITHUB_REP_DIR} does not exist. Make sure you have a codespace with a checkout of \`github/github\` at the same level as your \`github/docs-internal \`repo before running this script. See this documentation for details: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs.`
-        : `🛑 You must have a clone of the ${REST_API_DESCRIPTION_ROOT} repo in the root of this repo.`
-    throw new Error(errorMsg)
+  for (let sourceRepoDirectory of sourceRepoDirectories) {
+    if (!existsSync(sourceRepoDirectory)) {
+      const errorMsg =
+        sourceRepoDirectory === 'github' || sourceRepoDirectory === GITHUB_REP_DIR
+          ? `🛑 The ${GITHUB_REP_DIR} does not exist. Make sure you have a codespace with a checkout of \`github/github\` at the same level as your \`github/docs-internal \`repo before running this script. See this documentation for details: https://thehub.github.com/epd/engineering/products-and-services/public-apis/rest/openapi/openapi-in-the-docs/#previewing-changes-in-the-docs.`
+          : `🛑 You must have a clone of the ${sourceRepoDirectory} repo in the root of this repo.`
+      throw new Error(errorMsg)
+    }
   }
+
   if (versions && versions.length) {
     await validateVersionsOptions(versions)
   }

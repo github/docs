@@ -22,7 +22,7 @@ $ol-circled-reduce-diameter: 2px;
       float: left;
       width: calc(1.5rem - $ol-circled-reduce-diameter);
       margin-left: -2rem;
-      margin-top: $ol-circled-reduce-diameter / 2;
+      margin-top: calc($ol-circled-reduce-diameter / 2);
       font-size: $h5-size;
       line-height: calc(1.5rem - $ol-circled-reduce-diameter);
       font-weight: 500;

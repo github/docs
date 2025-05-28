@@ -9,7 +9,7 @@ versions:
   ghes: '*'
   ghec: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 ---
@@ -65,7 +65,7 @@ codeql github upload-results \
 
 | Option | Required | Usage |
 | ------ | :------: | ----- |
-| <code><span style="white-space: nowrap;">--repository</span></code> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization within an enterprise that has a license for {% data variables.product.prodname_GH_advanced_security %} and {% data variables.product.prodname_GH_advanced_security %} must be enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository). |
+| <code><span style="white-space: nowrap;">--repository</span></code> | {% octicon "check" aria-label="Required" %} | Specify the _OWNER/NAME_ of the repository to upload data to. The owner must be an organization{% ifversion fpt or ghec %} within an enterprise, or on a {% data variables.product.prodname_team %} plan,{% endif %} with {% data variables.product.prodname_GH_code_security %} enabled for the repository{% ifversion fpt or ghec %}, unless the repository is public{% endif %}. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository). |
 | <code><span style="white-space: nowrap;">--ref</span></code> | {% octicon "check" aria-label="Required" %} | Specify the name of the `ref` you checked out and analyzed so that the results can be matched to the correct code. For a branch use: `refs/heads/BRANCH-NAME`, for the head commit of a pull request use `refs/pull/NUMBER/head`, or for the {% data variables.product.prodname_dotcom %}-generated merge commit of a pull request use `refs/pull/NUMBER/merge`. |
 | <code><span style="white-space: nowrap;">--commit</span></code> | {% octicon "check" aria-label="Required" %} | Specify the full SHA of the commit you analyzed. |
 | <code><span style="white-space: nowrap;">--sarif</span></code> | {% octicon "check" aria-label="Required" %} | Specify the SARIF file to load. |
@@ -107,7 +107,7 @@ You can create a SARIF file for the failed analysis using [AUTOTITLE](/code-secu
 
 ```shell
 $ codeql database export-diagnostics codeql-dbs/example-repo \
-    --sarif-category={% ifversion codeql-language-identifiers-311 %}javascript-typescript{% else %}javascript{% endif %} --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
+    --sarif-category=javascript-typescript --format={% ifversion fpt or ghec %}sarif-latest{% else %}sarifv2.1.0{% endif %} \
     --output=/temp/example-repo-js.sarif
 ```
 

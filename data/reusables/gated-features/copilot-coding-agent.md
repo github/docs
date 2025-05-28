@@ -1,0 +1,1 @@
+{% data variables.copilot.copilot_coding_agent %} is available with the {% data variables.product.prodname_copilot_pro_plus %} and {% data variables.product.prodname_copilot_enterprise %} plans in repositories where it is enabled.

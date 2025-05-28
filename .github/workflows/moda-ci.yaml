@@ -24,12 +24,12 @@ jobs:
         id: modify_vault_keys
         run: |
           if [ -z "${{ vars.VAULT_KEYS }}" ]; then
-            # We want to add the DOCS_BOT_PAT_READPUBLICKEY to the list of keys
+            # We want to add the DOCS_BOT_PAT_BASE to the list of keys
             # so that builds fetch the secret from the docs-internal vault
             # where --environment is "ci"
-            echo "modified=DOCS_BOT_PAT_READPUBLICKEY" >> $GITHUB_OUTPUT
+            echo "modified=DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
           else
-            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_READPUBLICKEY" >> $GITHUB_OUTPUT
+            echo "modified=${{ vars.VAULT_KEYS }},DOCS_BOT_PAT_BASE" >> $GITHUB_OUTPUT
           fi
 
   #############
@@ -66,8 +66,9 @@ jobs:
     with:
       ci-formatted-job-name: ${{ matrix.ci_job.job }}
       vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
-      # Passes 'DOCS_BOT_PAT_READPUBLICKEY' secret from Vault to docker as --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=<PAT value>
-      docker-build-env-secrets: 'DOCS_BOT_PAT_READPUBLICKEY'
+      # Passes 'DOCS_BOT_PAT_BASE' secret from Vault to docker as --secret id=DOCS_BOT_PAT_BASE,src=<PAT value>
+      attest: true
+      docker-build-env-secrets: 'DOCS_BOT_PAT_BASE'
     secrets:
       dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
       datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
@@ -87,8 +88,8 @@ jobs:
     with:
       ci-formatted-job-name: ${{ matrix.ci_job.job }}
       vault-keys: ${{ needs.set-vault-keys.outputs.modified_vault_keys }}
-      # Passes 'DOCS_BOT_PAT_READPUBLICKEY' secret from Vault to docker as --secret id=DOCS_BOT_PAT_READPUBLICKEY,src=<PAT value>
-      docker-build-env-secrets: 'DOCS_BOT_PAT_READPUBLICKEY'
+      # Passes 'DOCS_BOT_PAT_BASE' secret from Vault to docker as --secret id=DOCS_BOT_PAT_BASE,src=<PAT value>
+      docker-build-env-secrets: 'DOCS_BOT_PAT_BASE'
     secrets:
       dx-bot-token: ${{ secrets.INTERNAL_ACTIONS_DX_BOT_ACCOUNT_TOKEN }}
       datadog-api-key: ${{ secrets.DATADOG_API_KEY }}
@@ -99,3 +100,4 @@ permissions:
   contents: read
   statuses: read
   id-token: write
+  attestations: write

@@ -117,6 +117,34 @@
   font-weight: var(--base-text-weight-normal, 400) !important;
 }
 
+.placeholderShortcutContainer {
+  float: right;
+  color: var(--fgColor-disabled);
+  margin-right: 8px;
+}
+
+.forwardSlashIcon {
+  display: inline-grid;
+  width: var(--base-size-16, 16px);
+  height: var(--base-size-16, 16px);
+  color: var(--color-fg-default);
+
+  margin-right: 4px;
+  margin-left: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
+  border-radius: var(--borderRadius-small);
+
+  border: 0.0625rem solid var(--color-fg-muted);
+  border-radius: 0.1875rem;
+  box-shadow: none;
+  align-items: center;
+  justify-content: center;
+}
+
 .searchIconContainer {
   display: flex;
   align-items: center;
@@ -147,7 +175,8 @@
     --button-default-bgColor-rest,
     var(--color-btn-bg, #f6f8fa)
   );
-  box-shadow: var(
+  box-shadow:
+    var(
       --button-default-shadow-resting,
       var(--color-btn-shadow, 0 1px 0 rgba(31, 35, 40, 0.04))
     ),
@@ -160,8 +189,8 @@
 .searchIconContainer svg {
   overflow: visible !important;
 
-  width: 16;
-  height: 16;
+  width: 16px;
+  height: 16px;
 
   fill: currentColor;
   color: var(--fgColor-muted, var(--color-fg-muted, #656d76));

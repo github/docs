@@ -1,8 +1,10 @@
 ---
 title: Using the content linter
-intro: 'You can use content linter to check your contributions for errors.'
+intro: You can use content linter to check your contributions for errors.
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 ---
 
 ## About the {% data variables.product.prodname_docs %} content linter

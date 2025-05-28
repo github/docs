@@ -4,19 +4,20 @@ import cheerio from 'cheerio'
 import getApplicableVersions from '#src/versions/lib/get-applicable-versions.js'
 import generateRedirectsForPermalinks from '#src/redirects/lib/permalinks.js'
 import getEnglishHeadings from '#src/languages/lib/get-english-headings.js'
+import { getAlertTitles } from '#src/languages/lib/get-alert-titles.ts'
 import getTocItems from './get-toc-items.js'
 import Permalink from './permalink.js'
 import { renderContent } from '#src/content-render/index.js'
-import processLearningTracks from '#src/learning-track/lib/process-learning-tracks.js'
-import { productMap } from '#src/products/lib/all-products.js'
+import processLearningTracks from '#src/learning-track/lib/process-learning-tracks'
+import { productMap } from '#src/products/lib/all-products.ts'
 import slash from 'slash'
 import readFileContents from './read-file-contents.js'
-import getLinkData from '#src/learning-track/lib/get-link-data.js'
-import getDocumentType from '#src/events/lib/get-document-type.js'
-import { allTools } from '#src/tools/lib/all-tools.js'
+import getLinkData from '#src/learning-track/lib/get-link-data'
+import getDocumentType from '#src/events/lib/get-document-type.ts'
+import { allTools } from '#src/tools/lib/all-tools.ts'
 import { renderContentWithFallback } from '#src/languages/lib/render-with-fallback.js'
 import { deprecated, supported } from '#src/versions/lib/enterprise-server-releases.js'
-import { allPlatforms } from '#src/tools/lib/all-platforms.js'
+import { allPlatforms } from '#src/tools/lib/all-platforms.ts'
 
 // We're going to check a lot of pages' "ID" (the first part of
 // the relativePath) against `productMap` to make sure it's valid.
@@ -199,6 +200,9 @@ class Page {
       const englishHeadings = getEnglishHeadings(this, context)
       context.englishHeadings = englishHeadings
     }
+
+    // pull translations for alerts
+    context.alertTitles = await getAlertTitles(this)
 
     this.intro = await renderContentWithFallback(this, 'rawIntro', context)
     this.introPlainText = await renderContentWithFallback(this, 'rawIntro', context, {

@@ -21,7 +21,7 @@ After you enable {% data variables.product.prodname_github_connect %}, you can c
 
 ## About the connection
 
-To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and an enterprise account on **{% data variables.product.prodname_dotcom_the_website %}**{% ifversion ghecom-github-connect %} or **{% data variables.enterprise.data_residency_site %}**{% endif %}. {% data reusables.github-connect.connection-port-protocol %}
+To enable {% data variables.product.prodname_github_connect %}, you configure a connection between {% data variables.location.product_location %} and an enterprise account on **{% data variables.product.prodname_dotcom_the_website %}** or **{% data variables.enterprise.data_residency_site %}**. {% data reusables.github-connect.connection-port-protocol %}
 
 * {% data variables.product.prodname_github_connect %} does not open {% data variables.location.product_location %} to the public internet.
 * None of your enterprise's private data is exposed to {% data variables.product.prodname_ghe_cloud %} users.
@@ -74,7 +74,7 @@ Additional data is transmitted if you enable individual features of {% data vari
 
 | Feature | Data | Which way does the data flow? | Where is the data used? |
 | ------- | ---- | --------- | ------ |
-| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GH_advanced_security %}{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
+| Automatic user license sync | Each {% data variables.product.prodname_ghe_server %} user's user ID and email addresses{% ifversion ghas-in-license-sync %}, and whether the user consumes a license for {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %}, {% data variables.product.prodname_GH_code_security %}, or {% data variables.product.prodname_GH_secret_protection %}{% endif %}.{% endif %} | From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_ghe_cloud %} | {% data variables.product.prodname_ghe_cloud %} |
 | {% data variables.product.prodname_dependabot_alerts %} | Vulnerability alerts | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_dependabot_updates %} | Dependencies and the metadata for each dependency's repository<br><br>If a dependency is stored in a private repository on {% data variables.product.prodname_dotcom_the_website %}, data will only be transmitted if {% data variables.product.prodname_dependabot %} is configured and authorized to access that repository. | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %} | {% data variables.product.prodname_ghe_server %} |
 | {% data variables.product.prodname_dotcom_the_website %} actions | Name of action, action (YAML file from {% data variables.product.prodname_marketplace %}) | From {% data variables.product.prodname_dotcom_the_website %} to {% data variables.product.prodname_ghe_server %}<br><br>From {% data variables.product.prodname_ghe_server %} to {% data variables.product.prodname_dotcom_the_website %} | {% data variables.product.prodname_ghe_server %} |
@@ -84,15 +84,7 @@ Additional data is transmitted if you enable individual features of {% data vari
 
 ## Enabling {% data variables.product.prodname_github_connect %}
 
-{% ifversion ghecom-github-connect %}
-
 To enable {% data variables.product.prodname_github_connect %}, see the article for your {% data variables.product.prodname_ghe_cloud %} environment.
 
 * [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom)
 * [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-ghecom)
-
-{% else %}
-
-To enable {% data variables.product.prodname_github_connect %}, see [AUTOTITLE](/admin/configuring-settings/configuring-github-connect/enabling-github-connect-for-githubcom).
-
-{% endif %}

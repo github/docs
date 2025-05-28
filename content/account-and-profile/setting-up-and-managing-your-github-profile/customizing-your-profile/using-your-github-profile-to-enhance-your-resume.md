@@ -36,7 +36,7 @@ Things you may want to add to your profile README include:
 
 To create your profile README, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/customizing-your-profile/managing-your-profile-readme#adding-a-profile-readme).
 
-> [!NOTE] Updating and customizing your profile README also helps demonstrate fluency using Markdown and HTML, which are useful skills for technical jobs. To show off your skills for potential employers, look for ways to use more advanced Markdown or HTML elements in your profile README.
+> [!TIP] Look for ways to show off your coding skills within your profile README. For example, [@new2code](https://github.com/new2code) demonstrates knowledge of {% data variables.product.prodname_actions %} and Python scripts by automating daily updates to the [Countdown to GitHub Universe](https://github.com/new2code#countdown-to-github-universe) section.
 
 ## Step 3: Showcase your best projects
 
@@ -66,6 +66,8 @@ Then, copy the response into a `README.md` file in the root of the repository, e
 * An example or demo of the project
 * Instructions on testing your code
 
+For example, {% data variables.product.prodname_copilot_short %} wrote the README for [@new2code](https://github.com/new2code)'s [hiking pace calculator](https://github.com/new2code/hiking-pace-calculator?tab=readme-ov-file#hiking-pace-calculator).
+
 ### Update the repository details
 
 On the main page of the repository, to the right of "About," click {% octicon "gear" aria-label="Edit repository metadata" %}. Here, you can provide information that helps hiring managers quickly understand the project:
@@ -86,6 +88,10 @@ To give the best impression, you'll want to make sure that hiring managers can u
 
 The easiest way to follow these practices is to use {% data variables.product.prodname_copilot_short %} with {% data variables.product.prodname_vscode_shortname %}. See [Set up Visual Studio Code with Copilot](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode_shortname %} documentation.
 
+For example, {% data variables.product.prodname_copilot_short %} wrote the comments in [`update_readme.py`](https://github.com/new2code/new2code/blob/main/update_readme.py), when [@new2code](https://github.com/new2code) used the following prompt:
+
+> Help me write some helpful comments on this file so that it's easy to understand.
+
 ### Update your project's dependencies
 
 If your project has any dependencies, you can showcase your understanding of security best practices by ensuring you're using the **latest versions**.
@@ -94,18 +100,9 @@ You can automate this process with {% data variables.product.prodname_dependabot
 
 ## Step 5: Share your results
 
-Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
-
-## Extra credit: Maintaining your projects
-
 Your profile is now ready to be included on your resume! The changes you made today will have a big impact on your job search and will make your {% data variables.product.github %} profile stand out to hiring managers.
 
-If you want to improve your profile even more, incorporate these practices into your coding routines:
-
-* **Maintain a clean commit history**. To make your project history understandable, use descriptive commit messages and work in smaller batches.
-* **Use issues, pull requests, and {% data variables.product.prodname_projects_v2 %}**. Showcase your task management and project planning skills by tracking bugs and feature requests with issues and using {% data variables.product.prodname_projects_v2 %} to organize them.
-* **Keep dependencies updated**. Use {% data variables.product.prodname_dependabot_version_updates %} to automatically update your project's dependencies with the latest security features and bug fixes.
-* **Contribute to open source**. Open source contributions showcase your collaboration skills and prove that you can work in complex code bases. For more information, see [AUTOTITLE](/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github).
+Share your updated profile and get inspiration from others in our [Community discussion](https://github.com/orgs/community/discussions/150827).
 
 ## Further reading
 

@@ -15,11 +15,7 @@ redirect_from:
 ## About deferring database seeding of a MySQL replica node
 
 >[!NOTE]
->The ability to defer database seeding{% ifversion ghes < 3.13 %} was added in patch release
-{%- ifversion ghes = 3.12 %} 3.12.1{%- endif %}
-{%- ifversion ghes = 3.11 %} 3.11.7{%- endif %}
-
- and{% endif %} is available as a {% data variables.release-phases.public_preview %}.
+>The ability to defer database seeding is available as a {% data variables.release-phases.public_preview %}.
 
 Adding a new MySQL replica node to your cluster when your primary node has more than seven days of data will normally trigger database seeding which can take several hours depending on the amount of data. You can choose to defer database seeding, allowing the config apply run to complete sooner, resulting in being able to open your appliance to traffic sooner.
 

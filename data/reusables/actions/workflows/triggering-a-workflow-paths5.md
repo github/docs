@@ -8,6 +8,7 @@ The filter determines if a workflow should run by evaluating the changed files a
 * **Pushes to existing branches:** A two-dot diff compares the head and base SHAs directly with each other.
 * **Pushes to new branches:** A two-dot diff against the parent of the ancestor of the deepest commit pushed.
 
-Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
+> [!NOTE]
+> Diffs are limited to 300 files. If there are files changed that aren't matched in the first 300 files returned by the filter, the workflow will not run. You may need to create more specific filters so that the workflow will run automatically.
 
 For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests).

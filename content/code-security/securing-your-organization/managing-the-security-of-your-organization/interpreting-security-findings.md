@@ -6,7 +6,8 @@ permissions: '{% data reusables.permissions.security-org-enable %}'
 versions:
   feature: security-configurations
 topics:
-  - Advanced Security
+  - Code Security
+  - Secret Protection
   - Organizations
   - Security
 redirect_from:
@@ -19,8 +20,6 @@ After you apply a {% data variables.product.prodname_security_configuration %} t
 
 To best secure your organization, you should encourage contributors to review and resolve security alerts and pull requests. {% ifversion security-campaigns %}In addition, you can collaborate with contributors to fix historical security alerts, see [AUTOTITLE](/code-security/securing-your-organization/fixing-security-alerts-at-scale/best-practice-fix-alerts-at-scale).{% endif %}
 
-{% ifversion ghec or ghes %}
-
 ## Finding repositories with security alerts using security overview
 
 {% data reusables.security-overview.information-varies-GHAS %}
@@ -31,12 +30,7 @@ To best secure your organization, you should encourage contributors to review an
     * `tool:secret-scanning` to only show alerts for secrets identified by {% data variables.product.prodname_secret_scanning %}.
     * `tool:codeql` to show only alerts for potential security vulnerabilities identified by {% data variables.product.prodname_codeql %} {% data variables.product.prodname_code_scanning %}.
 1. You can add further filters to show only the repositories you want to assess. The list of repositories and metrics displayed on the page automatically update to match your current selection. For more information on filtering, see [AUTOTITLE](/code-security/security-overview/filtering-alerts-in-security-overview).
-    * Use the **Teams** dropdown to show information only for the repositories owned by one or more teams.
-    * Click **NUMBER affected** or **NUMBER unaffected** in the header for any feature to show only the repositories with open alerts or no open alerts of that type.
-    * Click any of the descriptions of "Open alerts" in the header to show only repositories with alerts of that type and category. For example, **1 critical** to show the repository with a critical alert for {% data variables.product.prodname_dependabot %}.
-    * At the top of the list of repositories, click **NUMBER Archived** to show only repositories that are archived.
 {% data reusables.organizations.security-overview-feature-specific-page %}
-{% endif %}
 
 ## Interpreting {% data variables.product.prodname_secret_scanning %} alerts
 
@@ -46,7 +40,10 @@ To best secure your organization, you should encourage contributors to review an
 * {% data variables.secret-scanning.user_alerts_caps %}, which appear on {% data variables.product.github %} and can be resolved
 
 {% endif %}
-You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}**.
+You can view {% data variables.product.prodname_secret_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "key" aria-hidden="true" %} {% data variables.product.prodname_secret_scanning_caps %}** in the "Metrics" or "Alerts" section.
+
+* **Metrics**. To see detailed information on push protection events, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-secret-scanning-push-protection).
+* **Alerts**. To see detailed information on **Default** and **Generic** alerts for exposed secrets in the organization.
 
 For an introduction to {% data variables.product.prodname_secret_scanning %} alerts, see [AUTOTITLE](/code-security/secret-scanning/managing-alerts-from-secret-scanning/about-alerts).
 
@@ -56,7 +53,10 @@ To learn how to evaluate {% data variables.product.prodname_secret_scanning %} a
 
 {% data reusables.code-scanning.about-code-scanning %} These problems are raised as {% data variables.product.prodname_code_scanning %} alerts, which contain detailed information on the vulnerability or error detected.
 
-You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking **{% octicon "codescan" aria-hidden="true" %} {% data variables.product.prodname_code_scanning_caps %}**.
+You can view the {% data variables.product.prodname_code_scanning %} alerts for an organization by navigating to the main page of that organization, clicking the **{% octicon "shield" aria-hidden="true" %} Security** tab, then clicking:
+
+* **{% data variables.product.prodname_codeql %} pull request alerts**. To see information on {% data variables.product.prodname_code_scanning %} alerts found and remediated in pull requests.
+* **{% data variables.product.prodname_code_scanning_caps %}**. To see detailed information on alerts for potentially vulnerable code in the organization, see [AUTOTITLE](/code-security/security-overview/viewing-metrics-for-pull-request-alerts).
 
 For an introduction to {% data variables.product.prodname_code_scanning %} alerts, see [AUTOTITLE](/code-security/code-scanning/managing-code-scanning-alerts/about-code-scanning-alerts).
 

@@ -7,7 +7,9 @@ redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cloning-and-forking-repositories-from-github-desktop
   - /desktop/guides/contributing/cloning-a-repository-from-github-desktop
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 shortTitle: Clone & fork from Desktop
 ---
 ## About local repositories
@@ -54,4 +56,4 @@ You can create an alias for a local repository to help differentiate between rep
 
 ## Further reading
 
-* [About remote repositories](/get-started/getting-started-with-git/about-remote-repositories)
+* [About remote repositories](/get-started/git-basics/about-remote-repositories)

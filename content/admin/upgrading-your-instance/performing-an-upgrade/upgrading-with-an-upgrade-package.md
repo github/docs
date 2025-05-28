@@ -15,7 +15,7 @@
 
 Using the administrative shell, you can install an upgrade package with the `ghe-upgrade` utility.
 
-If you're running back-to-back feature version upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release. {% data variables.product.prodname_dotcom %} recommends waiting 24 hours between upgrades to allow any background upgrade tasks to complete before upgrading a second time. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements).
+If you're running back-to-back feature version upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release. {% data variables.product.prodname_dotcom %} recommends waiting for any background upgrade tasks to complete before upgrading a second time. See [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process) and [AUTOTITLE](/admin/enterprise-management/updating-the-virtual-machine-and-physical-resources/upgrade-requirements).
 
 While you can use a hotpatch to upgrade to the latest patch release within a feature series, you must use an upgrade package to upgrade to a newer feature release. For example, to upgrade from 2.11.10 to 2.12.4 you must use an upgrade package since these are in different feature series.
 
@@ -52,7 +52,7 @@ While you can use a hotpatch to upgrade to the latest patch release within a fea
 
    To check the status of background jobs, use the `ghe-check-background-upgrade-jobs` utility. If you're running back-to-back upgrades, you must ensure background jobs are complete before proceeding with the following upgrade to a feature release.
 
-   {%- ifversion ghes < 3.12 %} To use this utility with {% data variables.product.prodname_ghe_server %} {{ allVersions[currentVersion].currentRelease }}, your instance must run version {{ allVersions[currentVersion].currentRelease }}.1 or later.{% endif %} See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
+    See [AUTOTITLE](/admin/configuration/configuring-your-enterprise/command-line-utilities#ghe-check-background-upgrade-jobs).
 
    To monitor progress of the configuration run, read the output in `/data/user/common/ghe-config.log`. For example, you can tail the log by running the following command:
 

@@ -112,22 +112,31 @@ const GENERAL_SEARCH_PARAMS_OBJ: SearchRequestQueryParams[] = [
 ]
 
 const SHARED_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
+  { key: 'query' },
   {
     key: 'size',
     default_: DEFAULT_AUTOCOMPLETE_SIZE,
     cast: (size: string) => parseInt(size, 10),
     validate: (size: number) => size >= 0 && size <= MAX_AUTOCOMPLETE_SIZE,
   },
+  {
+    key: 'version',
+    default_: 'free-pro-team',
+    validate: (version: string) => {
+      if (!versionToIndexVersionMap[version]) {
+        throw new ValidationError(`'${version}' not in ${allIndexVersionKeys.join(', ')}`)
+      }
+      return true
+    },
+  },
 ]
 
 const AI_SEARCH_AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
-  ...SHARED_PARAMS_OBJ,
   ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
   { key: 'language', default_: 'en', validate: (language: string) => language === 'en' },
 ]
 
 const AUTOCOMPLETE_PARAMS_OBJ: SearchRequestQueryParams[] = [
-  ...SHARED_PARAMS_OBJ,
   ...SHARED_AUTOCOMPLETE_PARAMS_OBJ,
   { key: 'language', default_: 'en', validate: (language: string) => language in languages },
 ]

@@ -1,31 +1,26 @@
-import { useRef } from 'react'
 import cx from 'classnames'
 import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
 import { useTranslation } from 'src/languages/components/useTranslation'
-import { SearchOverlay } from './SearchOverlay'
+import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
+import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 
 import styles from './SearchBarButton.module.scss'
-import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
+import { AISearchCTAPopup } from './AISearchCTAPopup'
 
 type Props = {
   isSearchOpen: boolean
   setIsSearchOpen: (value: boolean) => void
+  params: QueryParams
+  searchButtonRef: React.RefObject<HTMLButtonElement>
 }
 
-export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
+export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchButtonRef }: Props) {
   const { t } = useTranslation('search')
-  const {
-    debug,
-    queryParam: urlSearchInputQuery,
-    setQueryParam: setUrlSearchInputQuery,
-  } = useQueryParam('search-overlay-input')
-  const { queryParam: isAskAIState, setQueryParam: setIsAskAIState } = useQueryParam(
-    'search-overlay-ask-ai',
-    true,
-  )
-  const buttonRef = useRef(null)
+  const { isOpen, dismiss } = useCTAPopoverContext()
+
+  const urlSearchInputQuery = params['search-overlay-input']
 
   // Handle click events
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -44,15 +39,22 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
     }
   }
 
+  const placeHolderElements = t('search.input.placeholder')
+    .split(/({{[^}]+}})/)
+    .filter((item) => item.trim() !== '')
+    .map((item) => <>{item.trim()}</>)
+  placeHolderElements[1] = <CopilotIcon aria-hidden className="mr-1 ml-1" />
+
   return (
     <>
       {/* We don't want to show the input when overlay is open */}
       {!isSearchOpen ? (
         <>
+          <AISearchCTAPopup isOpen={isOpen} dismiss={dismiss} />
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"
-            ref={buttonRef}
+            ref={searchButtonRef}
             className={styles.searchIconButton}
             onClick={handleClick}
             tabIndex={0}
@@ -67,7 +69,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             className={styles.searchInputButton}
             onKeyDown={handleKeyDown}
             onClick={handleClick}
-            ref={buttonRef}
+            ref={searchButtonRef}
           >
             {/* Styled to look like an input */}
             <div
@@ -75,11 +77,16 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
               aria-hidden
               tabIndex={-1}
             >
-              <CopilotIcon aria-hidden className="mr-1" />
               <span
                 className={cx(styles.queryText, !urlSearchInputQuery ? styles.placeholder : null)}
               >
-                {urlSearchInputQuery ? urlSearchInputQuery : t('search.input.placeholder')}
+                {urlSearchInputQuery ? (
+                  urlSearchInputQuery
+                ) : (
+                  <>
+                    <span className={styles.placeholderText}>{placeHolderElements}</span>
+                  </>
+                )}
               </span>
             </div>
             <span className={styles.searchIconContainer} aria-hidden tabIndex={-1}>
@@ -87,20 +94,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen }: Props) {
             </span>
           </button>
         </>
-      ) : (
-        <SearchOverlay
-          searchOverlayOpen={isSearchOpen}
-          parentRef={buttonRef}
-          debug={debug}
-          urlSearchInputQuery={urlSearchInputQuery}
-          setUrlSearchInputQuery={setUrlSearchInputQuery}
-          isAskAIState={isAskAIState}
-          setIsAskAIState={setIsAskAIState}
-          onClose={() => {
-            setIsSearchOpen(false)
-          }}
-        />
-      )}
+      ) : null}
     </>
   )
 }

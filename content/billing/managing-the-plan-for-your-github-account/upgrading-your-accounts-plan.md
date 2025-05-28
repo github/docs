@@ -38,7 +38,7 @@ shortTitle: Upgrade your plan
 
 {% data reusables.accounts.accounts-billed-separately %}
 
-Upgrading your plan does not affect other subscriptions or usage-based billing for your account. See [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
+Upgrading your plan does not affect other subscriptions or usage-based billing for your account. See [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).
 
 ## Upgrading your personal account's plan
 
@@ -110,7 +110,7 @@ If you'd like additional users to have access to your {% data variables.product.
 
 ## Adding seats to your enterprise account
 
-If you have access to the enhanced billing platform, you can add seats to your enterprise account through the "Licensing" page. See, [AUTOTITLE](/billing/using-the-new-billing-platform/adding-seats-to-your-enterprise-account).
+You can add seats to your enterprise account through the "Licensing" page. See, [AUTOTITLE](/billing/managing-your-billing/adding-licenses-to-an-organization).
 
 {% data reusables.enterprise-accounts.billing-perms %}
 
@@ -131,4 +131,4 @@ If you have access to the enhanced billing platform, you can add seats to your e
 
 * [AUTOTITLE](/get-started/learning-about-github/githubs-plans)
 * [AUTOTITLE](/billing/managing-the-plan-for-your-github-account/how-does-upgrading-or-downgrading-affect-the-billing-process)
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-on-github).
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-on-github).

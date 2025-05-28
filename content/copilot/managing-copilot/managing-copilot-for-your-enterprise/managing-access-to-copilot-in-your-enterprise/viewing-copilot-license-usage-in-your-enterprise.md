@@ -2,7 +2,7 @@
 title: Viewing Copilot license usage in your enterprise
 shortTitle: View license usage
 intro: 'View how many users have access to {% data variables.product.prodname_copilot %} across {% ifversion fpt %}your organization{% else %} all the organizations in your enterprise{% endif %}.'
-product: 'Enterprises with a subscription to {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %}'
+product: 'Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan'
 permissions: Enterprise owners
 versions:
   feature: copilot-enterprise
@@ -23,7 +23,7 @@ redirect_from:
 
 ## About your {% data variables.product.prodname_copilot %} usage
 
-If you have a subscription to {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, you can view usage information for {% data variables.product.prodname_copilot %} in your {% ifversion ghec %}enterprise, broken down by organization, or in your{% endif %} organization, broken down by seat assignment status. {% ifversion ghec %}At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle.{% endif %} At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle.
+If you have a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, you can view usage information for {% data variables.product.prodname_copilot_short %} in your {% ifversion ghec %}enterprise, broken down by organization, or in your{% endif %} organization, broken down by seat assignment status. {% ifversion ghec %}At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle.{% endif %} At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle.
 
 {% ifversion ghec %}
 

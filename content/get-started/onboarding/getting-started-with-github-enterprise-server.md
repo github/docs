@@ -52,7 +52,7 @@ To protect your production data, you can configure automated backups of {% data 
 
 ### 8. Managing billing for your enterprise
 
-Billing for all the organizations and  {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise).
+Billing for all the organizations and  {% data variables.product.prodname_ghe_server %} instances connected to your enterprise account is aggregated into a single bill charge for all of your paid {% data variables.product.prodname_dotcom_the_website %} services. Enterprise owners and billing managers can access and manage billing settings for enterprise accounts. For more information, see [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise).
 
 ## Part 2: Organizing and managing your team
 
@@ -92,7 +92,7 @@ As an enterprise owner or administrator, you can manage settings on user, reposi
 
 ## Part 3: Building securely
 
-To increase the security of {% data variables.location.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GH_advanced_security %}.
+To increase the security of {% data variables.location.product_location %}, you can configure authentication for enterprise members, use tools and audit logging to stay in compliance, configure security and analysis features for your organizations, and optionally enable {% data variables.product.prodname_GHAS %} features.
 
 ### 1. Authenticating enterprise members
 
@@ -108,9 +108,9 @@ You can implement required status checks and commit verifications to enforce you
 
 {% data reusables.getting-started.configuring-security-features %}
 
-### 4. Enabling {% data variables.product.prodname_GH_advanced_security %} features
+### 4. Enabling {% data variables.product.prodname_GHAS %} features
 
-You can upgrade your  {% data variables.product.prodname_ghe_server %} license to include {% data variables.product.prodname_GH_advanced_security %}. This provides extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
+You can upgrade your {% data variables.product.prodname_ghe_server %} license to include {% ifversion ghas-products %}{% data variables.product.prodname_GH_code_security %} or {% data variables.product.prodname_GH_secret_protection %}{% else %}{% data variables.product.prodname_GHAS %}{% endif %}. Upgrading will provide extra features that help users find and fix security problems in their code, such as code and secret scanning. For more information, see [AUTOTITLE](/admin/code-security/managing-github-advanced-security-for-your-enterprise/enabling-github-advanced-security-for-your-enterprise).
 
 ## Part 4: Customizing and automating your enterprise's work on {% data variables.product.github %}
 

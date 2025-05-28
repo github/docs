@@ -1,6 +1,7 @@
 ---
 title: Removing a collaborator from a repository security advisory
 intro: 'When you remove a collaborator from a repository security advisory, they lose read and write access to the security advisory''s discussion and metadata.'
+permissions: '{% data reusables.permissions.security-repo-enable %}'
 redirect_from:
   - /github/managing-security-vulnerabilities/removing-a-collaborator-from-a-security-advisory
   - /code-security/security-advisories/removing-a-collaborator-from-a-security-advisory
@@ -16,8 +17,6 @@ topics:
   - Collaboration
 shortTitle: Remove collaborators
 ---
-
-People with admin permissions to a security advisory can remove collaborators from the security advisory.
 
 {% data reusables.security-advisory.repository-level-advisory-note %}
 

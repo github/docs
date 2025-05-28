@@ -110,6 +110,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "business.add_disallowed_two_factor_method",
+    "description": "An enterprise prevented access to resources by users with the given two-factor method.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.add_organization",
     "description": "An organization was added to an enterprise.",
     "docs_reference_links": "N/A"
@@ -210,6 +215,11 @@
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#enforcing-a-policy-for-base-repository-permissions"
   },
   {
+    "action": "business.clear_disallowed_two_factor_methods",
+    "description": "Cleared two-factor authentication restrictions for an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "business.clear_members_can_create_repos",
     "description": "An enterprise owner cleared a restriction on repository creation in organizations in the enterprise.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-your-enterprise/enforcing-repository-management-policies-in-your-enterprise#setting-a-policy-for-repository-creation"
@@ -222,7 +232,12 @@
   {
     "action": "business.code_scanning_autofix_third_party_tools_policy_update",
     "description": "The policy for Code scanning autofix third party tools was updated for an enterprise.",
-    "docs_reference_links": "N/A"
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
+  },
+  {
+    "action": "business.code_security_enablement_policy_update",
+    "description": "The policy for Code Security enablement was updated for an enterprise.",
+    "docs_reference_links": "/code-security/getting-started/github-security-features#available-with-github-code-security"
   },
   {
     "action": "business.connect_usage_metrics_export",
@@ -417,6 +432,11 @@
   {
     "action": "business.remove_billing_manager",
     "description": "A billing manager was removed from an enterprise.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "business.remove_disallowed_two_factor_method",
+    "description": "Removed a two-factor authentication method restriction for an enterprise.",
     "docs_reference_links": "N/A"
   },
   {
@@ -983,6 +1003,11 @@
     "action": "dependabot_alerts_new_repos.enable",
     "description": "Dependabot alerts were enabled for all new repositories.",
     "docs_reference_links": "/organizations/keeping-your-organization-secure/managing-security-settings-for-your-organization/managing-security-and-analysis-settings-for-your-organization#enabling-or-disabling-a-feature-automatically-when-new-repositories-are-added"
+  },
+  {
+    "action": "dependabot_repository_access.default_access_level_updated",
+    "description": "The default repository access for Dependabot was updated.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "dependabot_repository_access.repositories_updated",
@@ -1850,6 +1875,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "org.advanced_security_entity_policy_update",
+    "description": "An enterprise owner updated the GitHub Advanced Security access policy for repositories owned by the organization.",
+    "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
+  },
+  {
     "action": "org.advanced_security_policy_selected_member_disabled",
     "description": "An enterprise owner prevented GitHub Advanced Security features from being enabled for repositories owned by the organization.",
     "docs_reference_links": "/admin/policies/enforcing-policies-for-advanced-security-in-your-enterprise"
@@ -2700,9 +2730,49 @@
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/managing-requests-for-personal-access-tokens-in-your-organization"
   },
   {
+    "action": "personal_access_token.access_restriction_disabled",
+    "description": "The configured restriction for access to resources via personal access tokens was disabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_enabled",
+    "description": "The configured restriction for access to resources via personal access tokens was enabled.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.access_restriction_reset",
+    "description": "The configured restriction for access to resources via personal access tokens was reset and delegated to organizations.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "personal_access_token.access_revoked",
     "description": "A fine-grained personal access token was revoked. The token can still read public organization resources.",
     "docs_reference_links": "/organizations/managing-programmatic-access-to-your-organization/reviewing-and-revoking-personal-access-tokens-in-your-organization"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_disabled",
+    "description": "Triggered when fine-grained personal access tokens can access organization resources without prior approval.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_enabled",
+    "description": "Triggered when the organization must approve fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.auto_approve_grant_requests_reset",
+    "description": "Triggered when the enterprise delegates to the organizations when to require approval for fine-grained personal access tokens before the tokens can access organization resources.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_set",
+    "description": "A personal access token expiration limit was set.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "personal_access_token.expiration_limit_unset",
+    "description": "A personal access token expiration limit was unset.",
+    "docs_reference_links": "N/A"
   },
   {
     "action": "personal_access_token.request_cancelled",
@@ -3560,6 +3630,16 @@
     "docs_reference_links": "/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/managing-a-branch-protection-rule"
   },
   {
+    "action": "repository_code_security.disable",
+    "description": "Code security was disabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
+    "action": "repository_code_security.enable",
+    "description": "Code security was enabled for a repository.",
+    "docs_reference_links": "N/A"
+  },
+  {
     "action": "repository_content_analysis.disable",
     "description": "Data use settings were disabled for a private repository.",
     "docs_reference_links": "/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories"
@@ -3915,6 +3995,11 @@
     "docs_reference_links": "N/A"
   },
   {
+    "action": "secret_scanning_closure_request.cancel",
+    "description": "N/A",
+    "docs_reference_links": "A reqeust to close a secret scanning alert was canceled by a user."
+  },
+  {
     "action": "secret_scanning_closure_request.create",
     "description": "N/A",
     "docs_reference_links": "A user requested to close a secret scanning alert."
@@ -4248,21 +4333,6 @@
     "action": "user_email.mark_as_unclaimed",
     "description": "N/A",
     "docs_reference_links": "An enterprise managed user unclaimed an email address."
-  },
-  {
-    "action": "user_license.create",
-    "description": "A seat license for a user in an enterprise was created.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.destroy",
-    "description": "A seat license for a user in an enterprise was deleted.",
-    "docs_reference_links": "N/A"
-  },
-  {
-    "action": "user_license.update",
-    "description": "A seat license type for a user in an enterprise was changed.",
-    "docs_reference_links": "N/A"
   },
   {
     "action": "vulnerability_alert_rule.create",

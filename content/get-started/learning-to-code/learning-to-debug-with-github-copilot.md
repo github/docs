@@ -30,61 +30,46 @@ Thankfully, {% data variables.product.prodname_copilot_short %} can help debug y
 
 When you run bugged code, you'll often receive an error message. The message tells you the file and line where the error occurred and briefly describes what went wrong. However, error messages can be confusing. To fully understand and fix the bug, we can ask {% data variables.product.prodname_copilot_short %} for help.
 
-Let's try this out with the [`bugged_dice_battle.py`](https://github.com/new2code/debug-with-copilot/blob/main/bugged_dice_battle.py) file in the [`new2code/debug-with-copilot`](https://github.com/new2code/debug-with-copilot) repository. This program simulates a dice battle between two players using the following code:
+Let's try this out with an example repository: [`new2code/debug-with-copilot`](https://github.com/new2code/debug-with-copilot).
 
-```python
-# Import the random module to easily generate pseudo-random numbers
-import random
+#### Cloning the example repository
 
-# Define a function that simulates a dice battle between two players
-def dice_battle():
+First, we need to create a local copy of the repository:
 
-    # Generate random numbers between 1 and 6 for each player's die roll
-    die_1 = random.randint(1, 6)
-    die_2 = random.randint(1, 6)
+1. [Start cloning the new2code/debug-with-copilot repository](vscode://vscode.git/clone?url=https://github.com/new2code/debug-with-copilot) in {% data variables.product.prodname_vscode_shortname %}. <!-- markdownlint-disable-line GHD003 -->
+1. Choose a location to save the repository on your computer, then click **Select as Repository Destination**.
+1. When prompted, open the repository.
 
-    # Compare the die rolls and return the result as a string
-    if die_1 > die_2:
-        return "Player 1 rolled a " + die_1 + " and Player 2 rolled a " + die_2 + ". Player 1 wins!"
-    elif die_1 < die_2:
-        return "Player 1 rolled a " + die_1 + " and Player 2 rolled a " + die_2 + ". Player 2 wins!"
-    else:
-        return "Player 1 rolled a " + die_1 + " and Player 2 rolled a " + die_2 + ". It's a tie!"
+#### Running the bugged file
 
-print(dice_battle())
-```
+Now, let's run the [`bugged_dice_battle.py`](https://github.com/new2code/debug-with-copilot/blob/main/bugged_dice_battle.py) file. This program simulates a dice battle between two players.
 
-First, we need to clone the repository locally:
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Git: Clone` and press <kbd>Enter</kbd>.
-1. Paste the URL of the `new2code/debug-with-copilot` repository:
-
-   ```text copy
-   https://github.com/new2code/debug-with-copilot
-   ```
-
-1. Press <kbd>Enter</kbd>, then choose a location to save the repository on your computer.
-1. When prompted, open the repository in {% data variables.product.prodname_vscode_shortname %}.
-
-Now that we've cloned the repository, let's run `bugged_dice_battle.py` to see the output:
-
-1. Open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
+1. In {% data variables.product.prodname_vscode_shortname %}, open and review the `bugged_dice_battle.py` file.
+1. Open the Command Palette by pressing <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac).
 1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
+1. In the terminal tab, paste the following command.
 
-    ```shell copy
-    python bugged_dice_battle.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+    Windows:
 
     ```shell copy
     py bugged_dice_battle.py
     ```
 
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_dice_battle.py
+    ```
+
 1. Press <kbd>Enter</kbd> to run the program.
 
-Unfortunately, we get some error text in our terminal ending with the following message: `TypeError: can only concatenate str (not "int") to str`. To understand what this means, press <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) to open {% data variables.product.prodname_copilot_chat_short %}, then paste and send the following prompt:
+Unfortunately, we get some error text in our terminal ending with the following message:
+
+> TypeError: can only concatenate str (not "int") to str
+
+#### Debugging the file
+
+To understand what this error means, [open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
@@ -92,49 +77,41 @@ Explain in depth why my code produces the following error and how I can fix it:
 TypeError: can only concatenate str (not "int") to str
 ```
 
-{% data variables.product.prodname_copilot_short %} will respond that the error occurs because we are trying to concatenate the integers `die_1` and `die_2` to strings, and you can only concatenate strings to strings. It will then provide an updated version of our code that fixes the bug by using the `str()` function to convert the integers to strings before concatenating them.
+{% data variables.product.prodname_copilot_short %} will respond that the error occurs because we are trying to concatenate the integers `die_1` and `die_2` to strings, and you can only concatenate strings to strings.
+
+It will also provide an **updated version of our code** that fixes the bug by using the `str()` function to convert the integers to strings before concatenating them. Practice the final step of debugging by applying {% data variables.product.prodname_copilot_short %}'s suggestion to the file.
 
 ### Debugging an incorrect output with {% data variables.product.prodname_copilot %}
 
 Sometimes, bugged code runs without throwing any errors, but the output is clearly incorrect. In this case, debugging can be more difficult because {% data variables.product.prodname_vscode_shortname %} can't tell you the location or description of the bug.
 
-For these "invisible" bugs, {% data variables.product.prodname_copilot_short %} is particularly useful. Let's get some hands-on experience using the [`bugged_factorial_finder.py`](https://github.com/new2code/debug-with-copilot/blob/main/bugged_factorial_finder.py) file in the [`new2code/debug-with-copilot`](https://github.com/new2code/debug-with-copilot) repository. The Python program is supposed to calculate a factorial, and it contains the following code:
+For these "invisible" bugs, {% data variables.product.prodname_copilot_short %} is particularly useful. Let's get some hands-on experience with the other file in our example repository: `bugged_factorial_finder.py`. It's a Python program that's supposed to calculate a factorial.
 
-```python
-# Initialize the factorial result to 1
-factorial = 1
+#### Running the bugged file
 
-# Initialize the input number to 6
-number = 6
+First, let's run the program to see the incorrect output:
 
-# Loop from 1 to number (inclusive) and multiply factorial by each number
-for i in range(1, number + 1):
-    factorial *= factorial * i
-
-print(f"The factorial of {number} is {factorial}")
-```
-
-Since we've already cloned the repository locally, let's run `bugged_factorial_finder.py` to see the output:
-
-1. In {% data variables.product.prodname_vscode_shortname %}, open the Command Palette by pressing <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Mac) or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd> (Windows/Linux).
-1. Type `Terminal: Create New Terminal` and press <kbd>Enter</kbd>.
-1. If you are using Mac or Linux, in the terminal tab, paste the following code:
-
-    ```shell copy
-    python bugged_factorial_finder.py
-    ```
-
-    Otherwise, if you are using Windows, paste the following code:
+1. Open and review the `bugged_factorial_finder.py` file.
+1. In the terminal you created earlier, paste the following command.
+    Windows:
 
     ```shell copy
     py bugged_factorial_finder.py
+    ```
+
+    Mac or Linux:
+
+    ```shell copy
+    python bugged_factorial_finder.py
     ```
 
 1. Press <kbd>Enter</kbd> to run the program.
 
 Unfortunately, the code isn't working as expected. We want it to return `720`, the correct value of 6 factorial, but the output is much higher than that.
 
-To understand what went wrong, with the `bugged_factorial_finder.py` file open in {% data variables.product.prodname_vscode_shortname %}, open {% data variables.product.prodname_copilot_chat_short %} and send the following prompt:
+#### Debugging the file
+
+To understand what went wrong, [open {% data variables.product.prodname_copilot_chat_short %}](vscode://GitHub.Copilot-Chat) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Why is the output of this code so much higher than expected? Please explain in depth and suggest a solution.
@@ -142,7 +119,7 @@ Why is the output of this code so much higher than expected? Please explain in d
 
 {% data variables.product.prodname_copilot_short %} will point out that, because we're using the `*=` operator, we're actually multiplying `factorial` by both `i` **and** `factorial`. In other words, we're multiplying by an extra `factorial` for each iteration of the loop.
 
-To fix this error, {% data variables.product.prodname_copilot_short %} will suggest code that removes the extra `factorial` from the equation, or that changes the `*=` operator to `=`.
+To fix this error, {% data variables.product.prodname_copilot_short %} will suggest code that removes the extra `factorial` from the equation, or that changes the `*=` operator to `=`. Make that change now!
 
 ## Debugging your own project
 

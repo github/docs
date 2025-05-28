@@ -9,7 +9,7 @@ versions: # DO NOT MANUALLY EDIT. CHANGES WILL BE OVERWRITTEN BY A 🤖
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 type: reference
@@ -29,12 +29,11 @@ codeql resolve extensions-by-pack <options>... -- <pack>...
 
 ## Description
 
-\[Deep plumbing] Determine accessible extensions for the given paths to
-pack roots. This includes machine learning models and data extensions.
+\[Deep plumbing] Determine accessible data extensions for the given
+paths to pack roots.
 
-This plumbing command resolves the set of data extensions and
-GitHub-created machine learning models that are available to the paths
-passed in as command line arguments.
+This plumbing command resolves the set of data extensions that are
+available to the paths passed in as command line arguments.
 
 Available since `v2.13.3`.
 

@@ -4,10 +4,11 @@ shortTitle: View PR alert metrics
 allowTitleToDifferFromFilename: true
 intro: 'You can use security overview to see how {% data variables.product.prodname_codeql %} is performing in pull requests for repositories across your organizations, and to identify repositories where you may need to take action.'
 permissions: '{% data reusables.permissions.security-overview %}'
+product: '{% data reusables.gated-features.security-overview-fpt-cs-only %}'
 type: how_to
 topics:
   - Security overview
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
   - Organizations
@@ -58,16 +59,12 @@ You can apply filters to the data. The metrics are based on activity from the de
     * Optionally, to remove a filter from your search, click **{% octicon "filter" aria-hidden="true" %} Filter**. In the row of the filter you want to remove, click {% octicon "x" aria-label="Delete FILTER-NUMBER: FILTER-PROPERTIES" %}, then click **Apply**.{% ifversion security-overview-export-data %}
 1. You can use the **{% octicon "download" aria-hidden="true" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
-{% ifversion security-overview-enterprise-codeql-pr-alerts %}
-
 ## Viewing {% data variables.product.prodname_codeql %} pull request alerts metrics for your enterprise
 
 You can also view metrics for {% data variables.product.prodname_codeql %} alerts in pull requests across organizations in your enterprise.
-
-{% data reusables.security-overview.enterprise-filters-tip %}
 
 {% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
 1. In the sidebar, under "Metrics", click **{% octicon "graph" aria-hidden="true" %} {% data variables.product.prodname_codeql %} pull request alerts**.
 
-{% endif %}
+{% data reusables.security-overview.enterprise-filters-tip %}

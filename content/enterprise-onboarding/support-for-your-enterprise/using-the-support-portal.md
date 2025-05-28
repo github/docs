@@ -28,4 +28,4 @@ Before you start creating tickets associated with your enterprise account on {% 
 
 ## Next steps
 
-* [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements)
+Next, learn how to manage support entitlements for your enterprise. See [AUTOTITLE](/enterprise-onboarding/support-for-your-enterprise/managing-support-entitlements).

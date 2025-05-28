@@ -2,7 +2,7 @@
 // The `queryParam` variable returned from this method are stateful and will be set to the query param on page load
 
 import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react'
 import { parseDebug } from '@/search/components/hooks/useQuery'
 
 type UseQueryParamReturn<T extends string | boolean> = {
@@ -23,69 +23,48 @@ export function useQueryParam(
 ): UseQueryParamReturn<any> {
   const router = useRouter()
 
-  // Determine the initial value of the query param
-  let initialQueryParam = ''
-  const paramValue = router.query[queryParamKey]
-
-  if (paramValue) {
-    if (Array.isArray(paramValue)) {
-      initialQueryParam = paramValue[0]
-    } else {
-      initialQueryParam = paramValue
-    }
-  }
-
-  const debugValue = parseDebug(router.query.debug)
-
-  // Return type will be set based on overloads
-  const [queryParamString, setQueryParamState] = useState<string>(initialQueryParam)
-  const [debug] = useState<boolean>(debugValue)
-
-  // If the query param changes in the URL, update the state
-  useEffect(() => {
-    const paramValue = router.query[queryParamKey]
-
-    if (paramValue) {
-      if (Array.isArray(paramValue)) {
-        setQueryParamState(paramValue[0])
-      } else {
-        setQueryParamState(paramValue)
-      }
-    }
-  }, [router.query, queryParamKey])
-
-  // Determine the type of queryParam based on isBoolean
+  const [queryParamString, setQueryParamState] = useState<string>('')
+  const [debug, setDebug] = useState<boolean>(false)
   const queryParam: string | boolean = isBoolean ? queryParamString === 'true' : queryParamString
 
+  // Only set the initial query param values on page load, the rest of the time we use React state
+  useEffect(() => {
+    let initialQueryParam = ''
+    const paramValue = router.query[queryParamKey]
+    if (paramValue) {
+      initialQueryParam = Array.isArray(paramValue) ? paramValue[0] : paramValue
+    }
+    setQueryParamState(initialQueryParam)
+    setDebug(parseDebug(router.query.debug || '') || false)
+  }, [queryParamKey, router.pathname])
+
   const setQueryParam = (value: string | boolean) => {
-    const { pathname, hash, search } = window.location
-
-    let newValue: string = value as string
-
-    // If it's a false boolean or empty string, just remove the query param
-    if (!value) {
-      newValue = ''
-    } else if (typeof value === 'boolean') {
-      newValue = 'true'
-    }
-
-    const params = new URLSearchParams(search)
+    const newValue = typeof value === 'boolean' ? (value ? 'true' : '') : value
+    const [asPathWithoutHash] = router.asPath.split('#')
+    const [asPathRoot, asPathQuery = ''] = asPathWithoutHash.split('?')
+    const currentParams = new URLSearchParams(asPathQuery)
     if (newValue) {
-      params.set(queryParamKey, newValue)
+      currentParams.set(queryParamKey, newValue)
     } else {
-      params.delete(queryParamKey)
+      currentParams.delete(queryParamKey)
+    }
+    const paramsString = currentParams.toString() ? `?${currentParams.toString()}` : ''
+    let newUrl = `${asPathRoot}${paramsString}`
+    if (asPathRoot !== '/' && router.locale) {
+      newUrl = `${router.locale}${asPathRoot}${paramsString}`
+    }
+    if (!newUrl.startsWith('/')) {
+      newUrl = `/${newUrl}`
     }
 
-    const newSearch = params.toString()
-    const newUrl = newSearch ? `${pathname}?${newSearch}${hash}` : `${pathname}${hash}`
+    router.replace(newUrl, undefined, { shallow: true, locale: router.locale, scroll: false })
 
-    window.history.replaceState({}, '', newUrl)
     setQueryParamState(newValue)
   }
 
   return {
     debug,
     queryParam: queryParam as any, // Type will be set based on overloads
-    setQueryParam: setQueryParam as any,
+    setQueryParam,
   }
 }

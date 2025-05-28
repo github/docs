@@ -3,7 +3,9 @@ title: 'Archiving items from your {% data variables.projects.project_v2 %}'
 shortTitle: Archiving items
 intro: 'You can archive items, keeping them available to restore, or permanently delete them.'
 versions:
-  feature: projects-v2
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 type: tutorial
 topics:
   - Projects
@@ -11,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items and {% data variables.projects.archived_item_limit %} archived items.
+> A project can contain a maximum of {% data variables.projects.item_limit %} items {% ifversion projects-single-limit %}across both active views and archive page{% else %} and {% data variables.projects.archived_item_limit %} archived items{% endif %}.
 
 ## Archiving items
 

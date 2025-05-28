@@ -56,9 +56,7 @@ If an error blocked {% data variables.product.prodname_dependabot %} from creati
 
 ## Investigating errors with {% data variables.product.prodname_dependabot_version_updates %}
 
-When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem, {% ifversion dependabot-job-log %} you can view the job logs list to find out more about the error {% else %} it posts the error icon on the manifest file{% endif %}.
-
-{% ifversion dependabot-job-log %}
+When {% data variables.product.prodname_dependabot %} is blocked from creating a pull request to update a dependency in an ecosystem,  you can view the job logs list to find out more about the error .
 
 {% data reusables.dependabot.dependabot-jobs-log-access %}
 
@@ -67,16 +65,6 @@ To view the full logs files for a particular job, to the right of the log entry 
 ![Screenshot of the Dependabot job log entries for a manifest file. A button, called "View logs", is highlighted in a dark orange outline.](/assets/images/help/dependabot/dependabot-job-log-error-message.png)
 
 For more information, see [AUTOTITLE](/code-security/dependabot/troubleshooting-dependabot/viewing-dependabot-job-logs).
-
-{% else %}
-
-The manifest files that are managed by {% data variables.product.prodname_dependabot %} are listed on the {% data variables.product.prodname_dependabot %} tab. To access this tab, on the **Insights** tab for the repository click **Dependency graph**, and then click the **{% data variables.product.prodname_dependabot %}** tab.
-
-![Screenshot of the {% data variables.product.prodname_dependabot %} view. An alert icon, and a link, titled "Last checked 10 hours ago", is highlighted with an orange outline.](/assets/images/help/dependabot/dependabot-tab-view-error.png)
-
-To see the logs for any manifest file, click the **Last checked TIME ago** link, and then click **View logs**.
-
-{% endif %}
 
 ## Understanding {% data variables.product.prodname_dependabot %} errors
 

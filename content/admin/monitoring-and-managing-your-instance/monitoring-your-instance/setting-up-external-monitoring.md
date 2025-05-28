@@ -27,3 +27,13 @@ Simple Network Management Protocol (SNMP) is a widely supported method of monito
 collectd is an open source statistics collection and reporting daemon with built-in support for writing to RRD files. Statistics on CPU utilization, memory and disk consumption, network interface traffic and errors, and system load can be forwarded to an external collectd server where graphs, analysis, and alerting may be configured using a wide range of available tools and plugins. To configure `collectd` forwarding, see [AUTOTITLE](/admin/enterprise-management/monitoring-your-appliance/configuring-collectd).
 
 Additionally, the monitoring tools built into underlying virtualization platforms may also be used for basic monitoring and alerting of system resources. For more information, see [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/) and [VMware vSphere](https://docs.vmware.com/en/VMware-vSphere/index.html) documentation.
+
+{% ifversion prometheus-metrics-exporter %}
+
+## About the Prometheus metrics exporter
+
+The Prometheus metrics exporter allows you to integrate {% data variables.product.prodname_ghe_server %} metrics into your observability pipeline and tooling. You can scrape metrics in a Prometheus-compatible format via the `/metrics` API at regular intervals and feed them into your observability system.
+
+To configure the Prometheus metrics exporter and scraping, see [AUTOTITLE](/admin/monitoring-and-managing-your-instance/monitoring-your-instance/exporting-and-scraping-prometheus-metrics).
+
+{% endif %}

@@ -36,39 +36,34 @@ To access your enterprise on {% data variables.enterprise.data_residency_site %}
 
 These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the EU.
 
-#### Ranges for egress traffic
-
-* 108.143.221.96/28
-* 20.61.46.32/28
-* 20.224.62.160/28
-* 51.12.252.16/28
-* 74.241.131.48/28
-* 20.240.211.176/28
-
-#### Ranges for ingress traffic
-
-* 108.143.197.176/28
-* 20.123.213.96/28
-* 20.224.46.144/28
-* 20.240.194.240/28
-* 20.240.220.192/28
-* 20.240.211.208/28
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 108.143.221.96/28        | 108.143.197.176/28        |
+| 20.61.46.32/28           | 20.123.213.96/28          |
+| 20.224.62.160/28         | 20.224.46.144/28          |
+| 51.12.252.16/28          | 20.240.194.240/28         |
+| 74.241.131.48/28         | 20.240.220.192/28         |
+| 20.240.211.176/28        | 20.240.211.208/28         |
 
 ### Australia
 
 These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in Australia.
 
-#### Ranges for egress traffic
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 20.5.34.240/28           | 4.237.73.192/28           |
+| 20.5.146.128/28          | 20.5.226.112/28           |
+| 68.218.155.16/28         | 20.248.163.176/28         |
 
-* 20.5.34.240/28
-* 20.5.146.128/28
-* 68.218.155.16/28
+### US
 
-#### Ranges for ingress traffic
+These are {% data variables.product.company_short %}'s IP address ranges for enterprises hosted in the US.
 
-* 4.237.73.192/28
-* 20.5.226.112/28
-* 20.248.163.176/28
+| Ranges for egress traffic | Ranges for ingress traffic |
+|--------------------------|---------------------------|
+| 20.221.76.128/28         | 74.249.180.192/28         |
+| 135.233.115.208/28       | 48.214.149.96/28          |
+| 20.118.27.192/28         | 172.202.123.176/28        |
 
 ## Supported regions for Azure private networking
 
@@ -78,8 +73,8 @@ If you use Azure private networking for {% data variables.product.company_short 
 
 | Runner type | Supported regions |
 | ----------- | ----------------- |
-| x64 | `francecentral`, `swedencentral` |
-| arm64 | `francecentral`, `northeurope` |
+| x64 | `francecentral`, `swedencentral`, `germanywestcentral` |
+| arm64 | `francecentral`, `northeurope`, `germanywestcentral` |
 | GPU | `italynorth`, `swedencentral` |
 
 ### Supported regions in Australia
@@ -89,6 +84,14 @@ If you use Azure private networking for {% data variables.product.company_short 
 | x64 | `australiaeast`, `australiacentral` |
 | arm64 | `australiaeast`, `australiacentral` |
 | GPU | N/A |
+
+### Supported regions in the US
+
+| Runner type | Supported regions |
+| ----------- | ----------------- |
+| x64 | `centralus`, `eastus2`, `westus3` |
+| arm64 | `centralus`, `eastus2`, `westus3` |
+| GPU | `centralus`, `eastus2`, `westus3` |
 
 ## IP ranges for {% data variables.product.prodname_importer_proper_name %}
 
@@ -134,3 +137,10 @@ You must allow:
 * 20.5.34.240/28
 * 20.5.146.128/28
 * 68.218.155.16/28
+
+### Required in the US
+
+* 130.213.245.128/28
+* 20.171.204.144/28
+* 20.171.204.176/28
+* 4.150.167.192/28

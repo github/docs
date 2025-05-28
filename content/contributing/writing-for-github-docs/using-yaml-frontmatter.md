@@ -1,9 +1,11 @@
 ---
 title: Using YAML frontmatter
-shortTitle: YAML frontmatter # Max 31 characters
+shortTitle: YAML frontmatter
 intro: 'You can use YAML frontmatter to define versioning, add metadata, and control the layout for articles.'
 versions:
-  feature: 'contributing'
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /contributing/syntax-and-versioning-for-github-docs/using-yaml-frontmatter
 ---

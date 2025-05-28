@@ -8,6 +8,7 @@ labels:
   - skip FR board
   - GHES {{ release-number }}
   - ghes-release-automation
+  - rhythm of docs operations
 ---
 
 This issue tracks Docs work for the GA release of GHES {{ release-number }}.
@@ -26,11 +27,11 @@ This issue tracks Docs work for the GA release of GHES {{ release-number }}.
 
 ## Instructions for triage
 
-- [ ] In the Enterprise project, adjust the "Cycle" field to the cycle containing the target date.
+- [ ] Add this issue to the [Rhythm of Docs: Operations](https://github.com/orgs/github/projects/20190) project.
+- [ ] For assignee: if needed, add this issue to your persona team project for tracking purposes.
 
 <br/>
 
-```[tasklist]
 # Tasks
 - [ ] {{ release-steps-1-url }}
 - [ ] {{ release-steps-2-url }}
@@ -43,7 +44,6 @@ This issue tracks Docs work for the GA release of GHES {{ release-number }}.
 - [ ] After merging PR for RC, notify the API team in [#ecosystem-api](https://github.slack.com/archives/C1042T6MS) on Slack that they can now merge "Update OpenAPI 3.x Descriptions" PRs in [`github/rest-api-description`](https://github.com/github/rest-api-description/pulls), which you blocked as part of the issue for preparing OpenAPI assets.
 - [ ] Notify the Docs Content first responder (`@TBD`) that they can now merge OpenAPI PRs.
 - [ ] To close this issue, open a PR to complete [these steps](https://github.com/github/docs-content/issues/12972#issuecomment-1947981671).
-```
 
 ## Resources
 

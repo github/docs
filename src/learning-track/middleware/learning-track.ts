@@ -1,27 +1,22 @@
 import type { Response, NextFunction } from 'express'
 
-import type {
-  Context,
-  ExtendedRequest,
-  LearningTrack,
-  LearningTracks,
-  TrackGuide,
-  Page,
-} from '@/types'
+import type { ExtendedRequest, LearningTracks } from '@/types'
+import type { Context, CurrentLearningTrack, TrackGuide } from '../lib/types'
 import { getPathWithoutLanguage, getPathWithoutVersion } from '@/frame/lib/path-utils.js'
-import getLinkData from '../lib/get-link-data.js'
+import getLinkData from '../lib/get-link-data'
 import { renderContent } from '@/content-render/index.js'
+import { executeWithFallback } from '@/languages/lib/render-with-fallback.js'
 import { getDeepDataByLanguage } from '@/data-directory/lib/get-data.js'
 
 export default async function learningTrack(
-  req: ExtendedRequest,
+  req: ExtendedRequest & { context: Context },
   res: Response,
   next: NextFunction,
 ) {
   if (!req.context) throw new Error('request is not contextualized')
 
   const noTrack = () => {
-    req.context!.currentLearningTrack = null
+    req.context.currentLearningTrack = null
     return next()
   }
 
@@ -85,14 +80,20 @@ export default async function learningTrack(
 
   // The trackTitle comes from a data .yml file and may use Liquid templating, so we need to render it
   const renderOpts = { textOnly: true }
-  const trackTitle = (await renderContent(track.title, req.context, renderOpts)) as string
+  // Some translated titles are known to have broken Liquid, so we need to
+  // try rendering them in English as a fallback.
+  const trackTitle = await executeWithFallback(
+    req.context,
+    () => renderContent(track.title, req.context, renderOpts),
+    () => '', // todo use english track.title
+  )
 
-  const currentLearningTrack: LearningTrack = { trackName, trackProduct, trackTitle }
+  const currentLearningTrack: CurrentLearningTrack = { trackName, trackProduct, trackTitle }
   const guidePath = getPathWithoutLanguage(getPathWithoutVersion(req.pagePath))
 
   // The raw track.guides will return all guide paths, need to use getLinkData
   // so we only get guides available in the current version
-  const trackGuides = (await getLinkData(track.guides, req.context)) as TrackGuide[]
+  const trackGuides = ((await getLinkData(track.guides, req.context)) || []) as TrackGuide[]
 
   const trackGuidePaths = trackGuides.map((guide) => {
     return getPathWithoutLanguage(getPathWithoutVersion(guide.href))
@@ -130,8 +131,8 @@ export default async function learningTrack(
       intro: false,
       fullTitle: false,
     })
-    if (!resultData) return noTrack()
-    const result = resultData as { href: string; page: Page; title: string }
+    if (!resultData || !resultData.length) return noTrack()
+    const result = resultData[0]
 
     const href = result.href
     const title = result.title
@@ -145,8 +146,8 @@ export default async function learningTrack(
       intro: false,
       fullTitle: false,
     })
-    if (!resultData) return noTrack()
-    const result = resultData as { href: string; page: Page; title: string }
+    if (!resultData || !resultData.length) return noTrack()
+    const result = resultData[0]
 
     const href = result.href
     const title = result.title
@@ -168,9 +169,14 @@ async function indexOfLearningTrackGuide(
 ) {
   let guideIndex = -1
 
+  const renderOpts = { textOnly: true }
   for (let i = 0; i < trackGuidePaths.length; i++) {
     // Learning track URLs may have Liquid conditionals.
-    const renderedGuidePath = await renderContent(trackGuidePaths[i], context, { textOnly: true })
+    let renderedGuidePath = await executeWithFallback(
+      context,
+      () => renderContent(trackGuidePaths[i], context, renderOpts),
+      () => '', // todo use english trackGuidePaths[i]
+    )
 
     if (!renderedGuidePath) continue
 

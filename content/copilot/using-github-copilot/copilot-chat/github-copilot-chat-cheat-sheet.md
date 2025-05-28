@@ -28,11 +28,8 @@ Available slash commands may vary, depending on your environment and the context
 | --- | --- |
 | `/clear` | Clear conversation. |
 | `/delete` | Delete a conversation. |
-| `/file` | Retrieves a specific file from the repository by its path. |
-| `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
 | `/new` | Start a new conversation |
 | `/rename` | Rename a conversation. |
-| `/search` | Performs a search within the repository, including issues, pull requests, and code. |
 
 {% endwebui %}
 
@@ -145,12 +142,9 @@ Available slash commands may vary, depending on your environment and the context
 
 | Command | Description |
 | --- | --- |
-| `/clear` | Start a new chat session. |
 | `/explain` | Explain how the code in your active editor works. |
 | `/fix` | Propose a fix for problems in the selected code. |
-| `/fixTestFailure` | Find and fix a failing test. |
 | `/help` | Quick reference and basics of using {% data variables.product.prodname_copilot %}. |
-| `/new` | Create a new project. |
 | `/tests` | Generate unit tests for the selected code. |
 
 ## Chat participants

@@ -18,12 +18,12 @@ export default function handleInvalidNextPaths(
   // In local dev, we don't get these penetration-testing looking requests.
   if (
     process.env.NODE_ENV !== 'development' &&
-    req.path.startsWith('/_next/') &&
-    !req.path.startsWith('/_next/data')
+    ((req.path.startsWith('/_next/') && !req.path.startsWith('/_next/data')) ||
+      req.query?.['__nextFallback'])
   ) {
     defaultCacheControl(res)
 
-    const tags = [`ip:${req.ip}`, `path:${req.path}`]
+    const tags = [`path:${req.path}`]
     statsd.increment(STATSD_KEY, 1, tags)
 
     return res.status(404).type('text').send('Not found')

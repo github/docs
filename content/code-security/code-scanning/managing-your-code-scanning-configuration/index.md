@@ -8,18 +8,21 @@ versions:
   ghec: '*'
   ghes: '*'
 topics:
-  - Advanced Security
+  - Code Security
   - Code scanning
   - CodeQL
 children:
   - /about-the-tool-status-page
   - /editing-your-configuration-of-default-setup
   - /set-code-scanning-merge-protection
+  - /enabling-delegated-alert-dismissal-for-code-scanning
   - /codeql-query-suites
   - /configuring-larger-runners-for-default-setup
   - /viewing-code-scanning-logs
+  - /actions-built-in-queries
   - /c-cpp-built-in-queries
   - /csharp-built-in-queries
+  - /github-actions-built-in-queries
   - /go-built-in-queries
   - /java-kotlin-built-in-queries
   - /javascript-typescript-built-in-queries

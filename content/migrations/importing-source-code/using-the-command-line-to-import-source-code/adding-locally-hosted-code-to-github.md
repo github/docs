@@ -110,7 +110,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+   For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
@@ -143,7 +143,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+   For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell
@@ -176,7 +176,7 @@ Before you can add your local repository to {% data variables.product.prodname_d
    git remote add origin REMOTE-URL
    ```
 
-   For more information, see [AUTOTITLE](/get-started/getting-started-with-git/managing-remote-repositories).
+   For more information, see [AUTOTITLE](/get-started/git-basics/managing-remote-repositories).
 1. To verify that you set the remote URL correctly, run the following command.
 
    ```shell

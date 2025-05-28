@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 // In the case that there are more than one example requests, and
 // no content responses, a request with an example key that matches the
 // status code of a response will be matched.
@@ -111,9 +109,9 @@ export function mergeExamples(requestExamples, responseExamples) {
 
 /*
   Create an example object for each example in the requestBody property
-  of the schema. Each requestBody can have more than one content type. 
+  of the schema. Each requestBody can have more than one content type.
   Each content type can have more than one example. We create an object
-  for each permutation of content type and example. 
+  for each permutation of content type and example.
   Returns an array of objects in the format:
   {
     key,
@@ -220,9 +218,9 @@ export function getRequestExamples(operation) {
 /*
   Create an example object for each example in the response property
   of the schema. Each response can have more than one status code,
-  each with more than one content type. And each content type can 
+  each with more than one content type. And each content type can
   have more than one example. We create an object
-  for each permutation of status, content type, and example. 
+  for each permutation of status, content type, and example.
   Returns an array of objects in the format:
   {
     key,

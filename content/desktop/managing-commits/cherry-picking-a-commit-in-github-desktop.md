@@ -3,7 +3,9 @@ title: Cherry-picking a commit in GitHub Desktop
 shortTitle: Cherry-picking a commit
 intro: 'You can use {% data variables.product.prodname_desktop %} to pick a specific commit on one branch and copy the commit to another branch.'
 versions:
-  feature: desktop
+  fpt: '*'
+  ghec: '*'
+  ghes: '*'
 redirect_from:
   - /desktop/contributing-and-collaborating-using-github-desktop/cherry-picking-a-commit
   - /desktop/contributing-and-collaborating-using-github-desktop/managing-commits/cherry-picking-a-commit

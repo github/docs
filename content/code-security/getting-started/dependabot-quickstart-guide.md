@@ -1,6 +1,6 @@
 ---
 title: Dependabot quickstart guide
-intro: 'You can use {% data variables.product.prodname_dependabot %} to alert you when your repository is using a software dependency with a known vulnerability. This guide will help get you started on enabling {% data variables.product.prodname_dependabot %} for a repository, and exploring reported alerts.'
+intro: 'Find and fix vulnerable dependencies you rely on with {% data variables.product.prodname_dependabot %}.'
 product: '{% data reusables.gated-features.dependabot-alerts %}'
 versions:
   fpt: '*'
@@ -18,7 +18,7 @@ shortTitle: Dependabot quickstart
 
 ## About {% data variables.product.prodname_dependabot %}
 
-This quickstart guide walks you through setting up and enabling {% data variables.product.prodname_dependabot %} and viewing {% data variables.product.prodname_dependabot_alerts %} and updates for a repository.
+This quickstart guide walks you through setting up and enabling {% data variables.product.prodname_dependabot %}, viewing {% data variables.product.prodname_dependabot_alerts %}, and updating your repository to use a secure version of the dependency.
 
 {% data reusables.dependabot.dependabot-overview %}
 
@@ -44,11 +44,12 @@ You need to follow the steps below on the repository you forked in [Prerequisite
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
 {% data reusables.repositories.navigate-to-code-security-and-analysis %}
-1. Under {% ifversion code-security-wording-only %}"Code security"{% else %}"Code security and analysis"{% endif %}, to the right of {% data variables.product.prodname_dependabot_alerts %}, click **Enable** for {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %}.
-1. Optionally, if you are interested in experimenting with {% data variables.product.prodname_dependabot_version_updates %}, click **.github/dependabot.yml**. This will create a default `dependabot.yml` configuration file in the `/.github` directory of your repository. To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file) for an example.
+1. Under "{% data variables.product.prodname_dependabot %}", click **Enable** for {% data variables.product.prodname_dependabot_alerts %}, {% data variables.product.prodname_dependabot_security_updates %}, and {% data variables.product.prodname_dependabot_version_updates %}.
+1. If you clicked **Enable** for {% data variables.product.prodname_dependabot_version_updates %}, you can edit the default `dependabot.yml` configuration file that {% data variables.product.github %} creates for you in the `/.github` directory of your repository.
+   To enable {% data variables.product.prodname_dependabot_version_updates %} for your repository, you typically configure this file to suit your needs by editing the default file, and committing your changes. You can refer to the snippet provided in [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates#example-dependabotyml-file) for an example.
 
 > [!NOTE]
-> If the dependency graph is not already enabled for the repository, {% data variables.product.prodname_dotcom %} will enable it automatically when you enable {% data variables.product.prodname_dependabot %}.
+> If the dependency graph is not already enabled for the repository, {% data variables.product.github %} will enable it automatically when you enable {% data variables.product.prodname_dependabot %}.
 
 For more information about configuring each of these {% data variables.product.prodname_dependabot %} features, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/configuring-dependabot-alerts), [AUTOTITLE](/code-security/dependabot/dependabot-security-updates/configuring-dependabot-security-updates), and [AUTOTITLE](/code-security/dependabot/dependabot-version-updates/configuring-dependabot-version-updates).
 
@@ -63,7 +64,7 @@ If {% data variables.product.prodname_dependabot_alerts %} are enabled for a rep
 
    ![Screenshot showing the list of Dependabot alerts for the demo repository.](/assets/images/help/repository/dependabot-alerts-list-demo-repo.png)
 
-   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts).{% ifversion dependabot-auto-triage-rules %} You can also use {% data variables.dependabot.auto_triage_rules %} to filter out false positive alerts or alerts you're not interested in. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).{% endif %}
+   You can filter {% data variables.product.prodname_dependabot_alerts %} in the list, using a variety of filters or labels. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-alerts/viewing-and-updating-dependabot-alerts#prioritizing-dependabot-alerts). You can also use {% data variables.dependabot.auto_triage_rules %} to filter out false positive alerts or alerts you're not interested in. For more information, see [AUTOTITLE](/code-security/dependabot/dependabot-auto-triage-rules/about-dependabot-auto-triage-rules).
 
 1. Click the "Command Injection in lodash" alert on the `javascript/package-lock.json` file. The details page for the alert will show the following information (note that some information may not apply to all alerts):
    * Whether {% data variables.product.prodname_dependabot %} created a pull request that will fix the vulnerability. You can review the suggested security update by clicking **Review security update**.
