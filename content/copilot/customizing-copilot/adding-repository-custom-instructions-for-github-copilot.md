@@ -25,7 +25,7 @@ For an overview of the methods you can use to customize {% data variables.produc
 
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
 
-The custom instructions file is also used by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot).
+The custom instructions file is also used by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 ### Example
 

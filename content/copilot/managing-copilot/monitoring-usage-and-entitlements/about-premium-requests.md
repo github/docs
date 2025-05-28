@@ -33,7 +33,7 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests:
 
 * [{% data variables.product.prodname_copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat)
-* [{% data variables.copilot.copilot_coding_agent %}](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot) [^1]
+* [{% data variables.copilot.copilot_coding_agent %}](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) [^1]
 * [{% data variables.product.prodname_copilot_agent_short %} mode](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits)
 * [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review)
 * [{% data variables.product.prodname_copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)

@@ -1,5 +1,5 @@
 ---
-title: Using Copilot to work on tasks
+title: Coding agent
 intro: 'Find out how {% data variables.product.prodname_copilot_short %} can work on {% data variables.product.github %} issues and raise pull requests for your to review.'
 versions:
   feature: copilot
@@ -15,5 +15,7 @@ children:
   - /using-the-copilot-coding-agent-logs
   - /troubleshooting-copilot-coding-agent
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues
+  - /early-access/copilot/coding-agent
 ---

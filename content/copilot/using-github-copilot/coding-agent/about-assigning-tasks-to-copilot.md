@@ -8,6 +8,7 @@ topics:
   - Copilot
 type: overview
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-issues-to-copilot
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/about-assigning-tasks-to-copilot
 ---
@@ -47,7 +48,7 @@ Having {% data variables.product.prodname_copilot_short %} as an additional codi
 
 ### Making {% data variables.copilot.copilot_coding_agent %} available
 
-Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/enabling-copilot-coding-agent).
+Before you can assign tasks to {% data variables.product.prodname_copilot_short %}, it must be enabled. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/enabling-copilot-coding-agent).
 
 ## {% data variables.copilot.copilot_coding_agent %} usage costs
 
@@ -70,7 +71,7 @@ To mitigate this risk, {% data variables.product.github %}:
 * **Limits who can assign tasks to {% data variables.product.prodname_copilot_short %}.** Only users with write access to the repository can trigger {% data variables.product.prodname_copilot_short %} to work. Comments from users without write access are never presented to the agent.
 * **Limits the permissions in access tokens used by Copilot.** Pushes are only allowed to branches beginning with `copilot/`. {% data variables.product.prodname_copilot_short %} cannot push to the `main` or `master` branches.
 * **Limits {% data variables.product.prodname_copilot_short %}'s credentials.** {% data variables.product.prodname_copilot_short %} can only perform simple push operations. It cannot directly run `git push` or other Git commands.
-* **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.product.prodname_copilot_short %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
+* **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.product.prodname_copilot_short %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
 * **Prevents the user who asked {% data variables.product.prodname_copilot_short %} to create a pull request from approving it.** This maintains the expected controls in the "Required reviews" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Risk: {% data variables.product.prodname_copilot_short %} has access to sensitive information
@@ -105,7 +106,7 @@ Users can include hidden messages in issues assigned to {% data variables.produc
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent)
 * [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-copilot-coding-agent-on-githubcom)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent)
 * [AUTOTITLE](/copilot/customizing-copilot/customizing-or-disabling-the-firewall-for-copilot-coding-agent)

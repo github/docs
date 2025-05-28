@@ -8,13 +8,15 @@ versions:
 topics:
   - Copilot
 type: how_to
+redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/using-the-copilot-coding-agent-logs
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}
 
 ## Introduction
 
-After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.product.prodname_copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/about-assigning-tasks-to-copilot).
+After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.product.prodname_copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 
@@ -43,5 +45,5 @@ Reasons you might want to stop a session include:
 
 ## Further reading
 
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks)
-* [AUTOTITLE](/copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/troubleshooting-copilot-coding-agent)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks)
+* [AUTOTITLE](/copilot/using-github-copilot/coding-agent/troubleshooting-copilot-coding-agent)

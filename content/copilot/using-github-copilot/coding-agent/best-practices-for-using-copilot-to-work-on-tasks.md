@@ -9,8 +9,10 @@ topics:
   - Copilot
 type: reference
 redirect_from:
+  - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-tasks/best-practices-for-using-copilot-to-work-on-tasks
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-issues
   - /copilot/using-github-copilot/using-copilot-coding-agent-to-work-on-issues/best-practices-for-using-copilot-to-work-on-tasks
+  - /early-access/copilot/coding-agent/best-practices-for-using-copilot-coding-agent
 ---
 
 {% data reusables.copilot.coding-agent.preview-note %}
@@ -53,7 +55,10 @@ Issues that you may choose to work on yourself, rather than assigning to {% data
 
 Working with {% data variables.product.prodname_copilot_short %} on a pull request is just like working with a human developer: it's common for the pull request to need further work before it can be merged. The process for getting the pull request to a mergeable state is exactly the same when the pull request is created by {% data variables.product.prodname_copilot_short %} as when it's created by a human. If you want, you can work on the feature branch yourself and push changes to the pull request. However, you can also just add comments to the pull request—explaining what you think is incorrect, or could be improved—and leave {% data variables.product.prodname_copilot_short %} to make the required changes.
 
-{% data variables.product.prodname_copilot_short %} will read all comments as soon as they are submitted, and will decide whether they require action. It will then start to make any required changes, and will update the pull request when it's done. Because {% data variables.product.prodname_copilot_short %} starts looking at comments as soon as they are submitted, if you are likely to make multiple comments on a pull request it's best to batch them by clicking **Start a review**, rather than clicking **Add single comment**. You can then submit all of your comments at once, triggering {% data variables.product.prodname_copilot_short %} to work on your entire review, rather than working on individual comments separately.
+{% data variables.product.prodname_copilot_short %} will read all comments as soon as they are submitted by users with write access, and will decide whether they require action. It will then start to make any required changes, and will update the pull request when it's done. Because {% data variables.product.prodname_copilot_short %} starts looking at comments as soon as they are submitted, if you are likely to make multiple comments on a pull request it's best to batch them by clicking **Start a review**, rather than clicking **Add single comment**. You can then submit all of your comments at once, triggering {% data variables.product.prodname_copilot_short %} to work on your entire review, rather than working on individual comments separately.
+
+> [!NOTE]
+> {% data reusables.copilot.coding-agent.write-access-required %}
 
 ## Adding custom instructions to your repository
 
