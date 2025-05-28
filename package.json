@@ -329,6 +329,9 @@
     "styled-components": "^5.3.11",
     "swr": "^2.2.5",
     "tcp-port-used": "1.0.2",
+|<<<<<<< 2d
+    "tsx": "4.19.3",
+|=======
 ±<<<<<<< dependabot/npm_and_yarn/npm_and_yarn-63f25d534c
     "tsx": "4.19.3",
 ±=======
@@ -338,6 +341,7 @@
     "unified": "^11.0.5",
 ±=======
 ±>>>>>>> main
+|>>>>>>> main
     "unified": "^11.0.3",
 ±>>>>>>> main
     "unist-util-visit": "^5.0.0",
