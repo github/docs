@@ -1,6 +1,6 @@
 ---
 title: Asking Copilot to create a pull request
-shortTitle: Creating a PR from chat
+shortTitle: Create a PR from chat
 intro: 'You can use a {% data variables.product.prodname_copilot_chat_short %} prompt to ask {% data variables.product.prodname_copilot_short %} to create a pull request.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=asking+copilot+to+create+a+pull+request&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:
