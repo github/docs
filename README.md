@@ -11,7 +11,7 @@ Use the table of contents icon <img alt="Table of contents icon" src="./contribu
 
 ## Contributing
 
-We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see [About contributing to GitHub Docs](https://docs.github.com/en/contributing/collaborating-on-github-docs/about-contributing-to-github-docs).
+We accept different types of contributions, including some that don't require you to write a single line of code. For detailed instructions on how to get started with our project, see [About contributing to GitHub Docs]([💌](https://github.com/T-R0052/hubhub/contributing)
 
 ### Ways to contribute
 
