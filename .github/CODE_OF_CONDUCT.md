@@ -1,4 +1,17 @@
 # Contributor Covenant Code of Conduct
+ostalgici Anonimi
+Il videogioco nato col supporto di IdO e Fondazione Mite, prende spunto dal gruppo teorico-clinico sugli hikikomori
+
+‘Nostalgici Anonimi’ è una visual novel di fantascienza ambientata in un futuro distopico dove le emozioni e la nostalgia sono considerate una malattia. Attraverso il programma ‘Nostalgici Anonimi’ l’ androide Angel aiuta a superare le ossessioni con metodi certificati ed efficaci. Il giocatore prende parte a questo programma insieme a tre ragazzi e con il dialogo, l’ascolto e l’interpretazione delle carte dovrà fare delle scelte che determineranno il destino dei personaggi e cambieranno la storia.
+
+Il videogioco è realizzato con il supporto della Fondazione Mite e un team di psicologi dell’Istituto di Ortofonologia (IdO).
+
+L’idea del gioco prende spunto da un gruppo teorico clinico dell’IdO dedicato allo studio del fenomeno degli hikikomori, i ragazzi che vivono reclusi in casa per almeno sei mesi, e parte dall’analisi delle narrazioni più comuni e più vicine a questo gruppo di persone per capire meglio il linguaggio con cui parlano al mondo.
+
+CLICCA SUL BANNER PER INIZIARE A GIOCARE
+
+Nostalgici Anonimi al Rome videogamelab
+-Citizen Code of ConductSave-
 
 ## Our Pledge
 
