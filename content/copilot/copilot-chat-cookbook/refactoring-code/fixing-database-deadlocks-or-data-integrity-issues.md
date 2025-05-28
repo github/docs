@@ -1,6 +1,6 @@
 ---
 title: 'Fixing database deadlocks or data integrity issues'
-shortTitle: Fixing database deadlocks
+shortTitle: Fix database deadlocks
 intro: '{% data variables.product.prodname_copilot_chat_short %} can help you avoid code that causes slow or blocked database operations, or tables with missing or incorrect data.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/fixing-database-deadlocks-or-data-integrity-issues

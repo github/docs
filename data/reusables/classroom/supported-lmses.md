@@ -7,6 +7,7 @@ Using LTI helps keep your information safe and secure. LTI is an industry-standa
 
 {% data variables.product.company_short %} has tested and verified registration, connection and the import of roster data from the following LMSes into {% data variables.product.prodname_classroom %}.
 
+* Blackboard (This is a community supported option)
 * Canvas
 * Moodle
 * Sakai
