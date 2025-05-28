@@ -21,7 +21,7 @@ Before you can connect your LMS to a classroom, an administrator for your LMS in
 
 You can register your Blackboard installation with {% data variables.product.prodname_classroom %} to enable teachers to import roster data into their classrooms. For more information about Blackboard, see the [Blackboard website](https://www.anthology.com/products/teaching-and-learning/learning-effectiveness/blackboard).
 
-### 1. Register {% data variables.product.prodname_classroom %} Developer Keys in the Anthology Developer Portal
+### Step 1. Register {% data variables.product.prodname_classroom %} Developer Keys in the Anthology Developer Portal
 
 1. Sign into the [Anthology Developer Portal](https://developer.anthology.com/).
 1. Click on the **plus sign** in the [My Application](https://developer.anthology.com/portal/applications) page.
@@ -30,7 +30,7 @@ You can register your Blackboard installation with {% data variables.product.pro
 
     | Field in the new app configuration | Value or setting |
     | :- | :- |
-    | **Application Name** | `GitHub Classroom` <br/><br/>**Note**: You can use any name, it will be showed only to administrators.  |
+    | **Application Name** | `GitHub Classroom` <br/><br/>You can use any name, it will be showed only to administrators.  |
     | **Description** | `Sync Blackboard course roster to GitHub Classroom` (or something similar) |
     | **Domain(s)** | `classroom.github.com` |
     | **Group** | Leave the default value or change it according to your institution needs. |
@@ -41,14 +41,14 @@ You can register your Blackboard installation with {% data variables.product.pro
     | **Signing Algorithm** dropdown | `RS256` |
     | **Custom parameters** | Leave empty. |
 1. Click **Register Application**.
-1. The Developer Portal will show a screen contains important information you'll need to input in the next steps of registering your instance in your Blackboard instance and in {% data variables.product.prodname_classroom %} below. Please note them in a safe place and click **Done**.
+1. The Developer Portal will show a screen that contains important information you'll need to input in the next steps of registering your instance in your Blackboard instance and in {% data variables.product.prodname_classroom %} below. Please note them in a safe place and click **Done**.
 1. In the table on the "My Applications" page, in the row for the GitHub Classroom application, click on the three dots and then **Manage Placements** in the dropdown menu.
 1. Click on the **plus sign**.
 1. On the "Register a new placement" configuration screen, set the fields to the following values.
 
     | Field in the new placement configuration | Value or setting |
     | :- | :- |
-    | **Placement Name** | `GitHub Classroom` <br/><br/>**Note**: You can use any name, but if you set this to something else, be sure this is communicated to teachers.  |
+    | **Placement Name** | `GitHub Classroom` <br/><br/>You can use any name, but if you set this to something else, be sure this is communicated to teachers.  |
     | **Description** | `Sync Blackboard course roster to GitHub Classroom` (or something similar) |
     | **Type** dropdown | Course Tool |
     | **Allow students access** | Don't enable the flag. |
@@ -65,7 +65,7 @@ You can register your Blackboard installation with {% data variables.product.pro
 1. On the "LTI Tool Providers" page, click **Register LTI 1.3/Advantage Tool**.
 1. Insert the **Client ID** / **Application ID** obtained from the Developer Portal and click **Submit**.
 1. Blackboard will show all application data. In this page:
-    1. Verify that **Tool Status** is "Approved".
+    1. Verify that **Tool Status** is `Approved`.
     1. Verify that **User Fields to be Sent** flags are enabled for "Role in Course", "Name", "Email Address".
     1. Verify that **Allow mark service access** radio button is set to "No". To enable this option, navigate to the LTI Tool Providers in the Admin Panel:
        - Select Manage Global Properties
