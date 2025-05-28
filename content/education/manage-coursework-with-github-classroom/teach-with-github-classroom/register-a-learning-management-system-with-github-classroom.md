@@ -68,8 +68,8 @@ You can register your Blackboard installation with {% data variables.product.pro
     1. Verify that **Tool Status** is `Approved`.
     1. Verify that **User Fields to be Sent** flags are enabled for "Role in Course", "Name", "Email Address".
     1. Verify that **Allow mark service access** radio button is set to "No". To enable this option, navigate to the LTI Tool Providers in the Admin Panel:
-       * Select Manage Global Properties
-       * Under Creation of Tool Provider Links, select radio button “Allow links to any tool provider, but require approval for each new provider”
+       - Select Manage Global Properties
+       - Under Creation of Tool Provider Links, select radio button “Allow links to any tool provider, but require approval for each new provider”
     1. Verify that **Allow Membership Service Access** radio button is set to "Yes".
 1. Click **Submit**.
 
