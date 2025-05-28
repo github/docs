@@ -19,7 +19,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization
 topics:
   - Copilot
-shortTitle: Managing policies
+shortTitle: Manage policies
 ---
 
 ## About policies for {% data variables.product.prodname_copilot %}

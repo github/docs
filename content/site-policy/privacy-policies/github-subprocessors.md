@@ -31,7 +31,7 @@ If you have questions about this list, please contact us at <privacy@github.com>
 | Anthropic PBC                   | AI Inference and AI Services                                                   | United States                                     | United States      |
 | Cloudflare                      | Content delivery service                                                       | United States                                     | United States      |
 | Fastly                          | Content delivery service                                                       | United States                                     | United States      |
-| Google Cloud Platform (GCP)     | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium                            | United States      |
+| Google Cloud Platform (GCP)     | Cloud Hosted Infrastructure, AI Inference and AI Services                      | United States, Belgium, Singapore                            | United States      |
 | Microsoft (Azure)               | Cloud Hosted Infrastructure, Data Hosting, AI Inference and AI Services        | United States                                     | United States      |
 | Microsoft (Azure)               | Cognitive Services and customer support ticketing analysis                     | United States                                     | United States      |
 | Microsoft                       | Technical Services                                                             | Australia, Brazil, Canada, France, Japan, Norway, Spain, Sweden, Switzerland, United Kingdom, United States | United States      |
