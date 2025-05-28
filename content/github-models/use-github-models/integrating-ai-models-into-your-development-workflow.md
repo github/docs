@@ -4,6 +4,8 @@ intro: 'Call AI models in the tools you use every day.'
 versions:
   feature: github-models
 shortTitle: Integrate AI models
+redirect_from:
+  - /github-models/integrating-ai-models-into-your-development-workflow
 ---
 
 With {% data variables.product.prodname_github_models %} extensions, you can call specific AI models from both {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.prodname_cli %}. These extensions integrate directly into your development workflow, allowing you to prompt models without context switching.
