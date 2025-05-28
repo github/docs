@@ -18,7 +18,7 @@ redirect_from:
 
 A request is any interaction where you ask {% data variables.product.prodname_copilot_short %} to do something for you—whether it’s generating code, answering a question, or helping you through an extension. Each time you send a prompt in a chat window or trigger a response from {% data variables.product.prodname_copilot_short %}, you’re making a request.
 
-If you have {% data variables.copilot.copilot_free_short %} enabled, your {% data variables.product.github %} account comes with up to 2,000 code completions and up to 50 chats or premium requests per month.
+If you have {% data variables.product.prodname_copilot_free_short %} enabled, your {% data variables.product.github %} account comes with up to 2,000 code completions and up to 50 chats or premium requests per month.
 
 If you're on a paid plan, you get unlimited code completions, unlimited agent requests, and unlimited chat interactions using the base model. Rate limiting is in place to accommodate for high demand. Learn more about [current models and usage](/copilot/about-github-copilot/plans-for-github-copilot).
 
@@ -32,11 +32,11 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests:
 
-* [{% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat)
+* [{% data variables.product.prodname_copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat)
 * [{% data variables.copilot.copilot_coding_agent %}](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) [^1]
-* [Agent mode in {% data variables.copilot.copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits)
+* [{% data variables.product.prodname_copilot_agent_short %} mode](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits)
 * [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review)
-* [{% data variables.copilot.copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)
+* [{% data variables.product.prodname_copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)
 
 [^1]: {% data variables.copilot.copilot_coding_agent %} uses a fixed multiplier of 1 for the premium requests it uses, and may use multiple premium requests in response to one user prompt.
 
@@ -46,7 +46,7 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 | Model                                                                   | Premium requests                                                             |
 |-------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.copilot.copilot_free_short %}) |
+| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
 | Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
@@ -69,8 +69,8 @@ Each model has a premium request multiplier, based on its complexity and resourc
 > [!NOTE]
 > The option to purchase additional premium requests is not available to:
 >
-> * Users on {% data variables.copilot.copilot_free_short %}. To access more premium requests, upgrade to a paid plan.
-> * Users who subscribe, or have subscribed, to {% data variables.copilot.copilot_pro_short %} or {% data variables.copilot.copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
+> * Users on {% data variables.product.prodname_copilot_free_short %}. To access more premium requests, upgrade to a paid plan.
+> * Users who subscribe, or have subscribed, to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
 >
 > <!-- expires 2025-06-04 -->Budget setting for premium requests will be available starting **June 4, 2025**.<!-- end expires 2025-06-04 -->
 
@@ -82,6 +82,6 @@ Additional premium requests beyond your plan’s included amount are billed at {
 
 Premium request usage is based on the model’s multiplier and the feature you’re using. For example:
 
-* If you use **GPT-4.5** (50× multiplier) to ask a single question in {% data variables.copilot.copilot_chat_short %}, that interaction counts as **50 premium requests**.
-* If you're on **{% data variables.copilot.copilot_free_short %}**, even interactions with the **base model** use **1 premium request** each.
+* If you use **GPT-4.5** (50× multiplier) to ask a single question in {% data variables.product.prodname_copilot_chat_short %}, that interaction counts as **50 premium requests**.
+* If you're on **{% data variables.product.prodname_copilot_free_short %}**, even interactions with the **base model** use **1 premium request** each.
 * If you're on a **paid plan**, using the base model does not count against your monthly premium request allowance.
