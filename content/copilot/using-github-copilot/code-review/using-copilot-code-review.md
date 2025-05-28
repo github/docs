@@ -87,6 +87,23 @@ When you reach your monthly quota you will not be able to get a code review from
 
 {% data variables.copilot.copilot_code-review_short %} on the {% data variables.product.github %} website supports all languages.
 
+The following languages have general availability support:
+
+* C
+* C#
+* C++
+* Go
+* Java
+* JavaScript
+* Kotlin
+* Markdown
+* Python
+* Ruby
+* Swift
+* TypeScript
+
+All other languages are supported as a {% data variables.release-phases.public_preview %}.
+
 {% endwebui %}
 
 ### Validating {% data variables.product.prodname_copilot_short %} code reviews
@@ -150,7 +167,7 @@ To request a re-review from {% data variables.product.prodname_copilot_short %},
 
 ## Enabling automatic reviews
 
-By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests. See [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot).
+By default, you manually request a review from {% data variables.product.prodname_copilot_short %} on each pull request, in the same way you would request a review from a human. However, you can set up {% data variables.product.prodname_copilot_short %} to automatically review all pull requests in a repository, or for all repositories in an organization. See [AUTOTITLE](/copilot/using-github-copilot/code-review/configuring-automatic-code-review-by-copilot).
 
 ## Customizing {% data variables.product.prodname_copilot_short %}'s reviews with coding guidelines
 

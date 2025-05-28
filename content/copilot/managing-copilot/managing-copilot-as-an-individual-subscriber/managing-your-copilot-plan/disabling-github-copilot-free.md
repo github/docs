@@ -17,7 +17,7 @@ redirect_from:
 
 You can disable {% data variables.product.prodname_copilot_free_short %} in your {% data variables.product.github %} account settings. This will disable all features of {% data variables.product.prodname_copilot_short %} on {% data variables.product.github %}.
 
-{% data reusables.copilot.your-copilot %}
+1. In the upper-right corner of any page, click your profile photo, then click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} Your {% data variables.product.prodname_copilot_short %}**.
 1. Under "Visibility," to the right of "Show {% data variables.product.prodname_copilot_short %}, select **Disabled** from the dropdown.
 
 ## Disabling {% data variables.product.prodname_copilot_free_short %} in your IDE
