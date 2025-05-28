@@ -201,7 +201,7 @@ export const Survey = () => {
             </label>
             <input
               type="email"
-              className="form-control input-sm width-full"
+              className="form-control input-sm width-full color-bg-transparent"
               name="survey-email"
               id="survey-email"
               value={email}
