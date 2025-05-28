@@ -73,7 +73,7 @@ You can register your Blackboard installation with {% data variables.product.pro
     1. Verify that **Allow Membership Service Access** radio button is set to "Yes".
 1. Click **Submit**.
 
-### 3. Register your developer keys with {% data variables.product.prodname_classroom %}
+### Step 3. Register your developer keys with {% data variables.product.prodname_classroom %}
 
 1. Go to https://classroom.github.com/register-lms.
 1. Fill in the following information:
