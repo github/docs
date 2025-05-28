@@ -1,6 +1,7 @@
+
 # Welcome to GitHub docs contributing guide <!-- omit in toc -->
 
-Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [docs.github.com](https://docs.github.com/en) :sparkles:.
+Thank you for investing your time in contributing to our project! Any contribution you make will be reflected on [github.com](https://github.com/orgs) :sparkles:.
 
 Read our [Code of Conduct](./CODE_OF_CONDUCT.md) to keep our community approachable and respectable.
 
@@ -12,10 +13,10 @@ Use the table of contents icon <img alt="Table of contents icon" src="/contribut
 
 To get an overview of the project, read the [README](../README.md) file. Here are some resources to help you get started with open source contributions:
 
-- [Finding ways to contribute to open source on GitHub](https://docs.github.com/en/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
+- [Finding ways to contribute to open source on GitHub](https://github.com/orgs/t-r0052/hunhub/.github/get-started/exploring-projects-on-github/finding-ways-to-contribute-to-open-source-on-github)
 - [Set up Git](https://docs.github.com/en/get-started/git-basics/set-up-git)
 - [GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
-- [Collaborating with pull requests](https://docs.github.com/en/github/collaborating-with-pull-requests)
+- [Collaborating with pull requests](https://github.com/orgs/t-r0052/hubhub/collaborating-with-pull-requests)
 
 
 ## Getting started
@@ -31,7 +32,7 @@ Check to see what [types of contributions](/contributing/types-of-contributions.
 If you spot a problem with the docs, [search if an issue already exists](https://docs.github.com/en/github/searching-for-information-on-github/searching-on-github/searching-issues-and-pull-requests#search-by-the-title-body-or-comments). If a related issue doesn't exist, you can open a new issue using a relevant [issue form](https://github.com/github/docs/issues/new/choose).
 
 #### Solve an issue
-
+m
 Scan through our [existing issues](https://github.com/github/docs/issues) to find one that interests you. You can narrow down the search using `labels` as filters. See "[Label reference](https://docs.github.com/en/contributing/collaborating-on-github-docs/label-reference)" for more information. As a general rule, we don’t assign issues to anyone. If you find an issue to work on, you are welcome to open a PR with a fix.
 
 ### Make Changes
@@ -75,7 +76,7 @@ Once you submit your PR, a Docs team member will review your proposal. We may as
 - As you update your PR and apply changes, mark each conversation as [resolved](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/commenting-on-a-pull-request#resolving-conversations).
 - If you run into any merge issues, checkout this [git tutorial](https://github.com/skills/resolve-merge-conflicts) to help you resolve merge conflicts and other issues.
 
-### Your PR is merged!
+### Your'PRs
 
 Congratulations :tada::tada: The GitHub team thanks you :sparkles:.
 
@@ -83,7 +84,7 @@ Once your PR is merged, your contributions will be publicly visible on the [GitH
 
 Now that you are part of the GitHub docs community, see how else you can [contribute to the docs](/contributing/types-of-contributions.md).
 
-## Windows
+## windows
 
 This site can be developed on Windows, however a few potential gotchas need to be kept in mind:
 

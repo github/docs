@@ -1,5 +1,4 @@
 version: 2
-
 registries:
   ghcr: # Define access for a private registry
     type: docker-registry

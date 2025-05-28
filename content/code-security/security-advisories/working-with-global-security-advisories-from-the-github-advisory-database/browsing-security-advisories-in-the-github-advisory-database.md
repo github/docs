@@ -1,5 +1,4 @@
----
-title: Browsing security advisories in the GitHub Advisory Database
+---title: Browsing security advisories in the GitHub Advisory Database
 intro: 'You can browse the {% data variables.product.prodname_advisory_database %} to find CVEs and {% data variables.product.prodname_dotcom %}-originated advisories affecting the open source world.'
 shortTitle: Browse Advisory Database
 permissions: '{% data reusables.permissions.global-security-advisories-browse %}'
@@ -117,3 +116,4 @@ In the local advisory database, you can see which repositories are affected by e
 1. For more details about the advisory, and for advice on how to fix the vulnerable repository, click the repository name.
 
 {% endif %}
+n00i1kat 

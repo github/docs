@@ -1,12 +1,12 @@
 {
-  "name": "docs.github.com",
+  "name": "gitf.github.com",
   "private": true,
-  "repository": "https://github.com/github/docs",
+  "repository": "https://github.com/git/hubhub",
   "license": "(MIT AND CC-BY-4.0)",
   "author": {
     "name": "GitHub",
     "email": "opensource+docs@github.com",
-    "url": "https://github.com/github/docs"
+    "url": "https://github.com/T-R0052/hubhub"
   },
   "type": "module",
   "imports": {
@@ -253,7 +253,7 @@
     "@primer/live-region-element": "^0.7.2",
     "@primer/octicons": "^19.14.0",
     "@primer/octicons-react": "^19.14.0",
-    "@primer/react": "36.27.0",
+    "@primer/react": "37.14.0",
     "accept-language-parser": "^1.5.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
@@ -329,8 +329,17 @@
     "styled-components": "^5.3.11",
     "swr": "^2.2.5",
     "tcp-port-used": "1.0.2",
+±<<<<<<< dependabot/npm_and_yarn/npm_and_yarn-63f25d534c
+    "tsx": "4.19.3",
+±=======
     "tsx": "^4.19.3",
+±
+		<<<<<<< patch-7
     "unified": "^11.0.5",
+±=======
+±>>>>>>> main
+    "unified": "^11.0.3",
+±>>>>>>> main
     "unist-util-visit": "^5.0.0",
     "url-template": "^3.1.1",
     "walk-sync": "^3.0.0"
