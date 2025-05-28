@@ -35,12 +35,7 @@ For an example {% data variables.product.prodname_actions %} workflow using the 
 
     For example, you can set `iss` to `https://token.actions.githubusercontent.com`, and the `repository` to something like "octo-org/octo-repo"`. This will ensure only Actions workflows from the specified repository will have access to your JFrog platform. The following is an example Claims JSON when configuring identity mappings.
 
-    ```json copy
-    {
-      "iss": "https://token.actions.githubusercontent.com",
-      "repository": "octo-org/octo-repo"
-    }
-    ```
+    {% data reusables.actions.jfrog-json-configuring-identity-mappings %}
 
 ## Adding the identity provider to JFrog
 

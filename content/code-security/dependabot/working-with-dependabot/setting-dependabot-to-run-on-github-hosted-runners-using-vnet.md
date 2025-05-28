@@ -17,8 +17,6 @@ shortTitle: Configure VNET
 
 ## Configuring VNET for {% data variables.product.prodname_dependabot_updates %}
 
-{% data reusables.dependabot.vnet-support-private-preview-note %}
-
 This article provides step-by-step instructions for running {% data variables.product.prodname_dependabot %} on {% data variables.product.company_short %}-hosted runners configured with VNET. The article explains:
 
 * How to create runner groups for your enterprise or organization with a VNET configuration.
