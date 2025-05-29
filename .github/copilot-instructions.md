@@ -15,11 +15,3 @@ Within Markdown files, with the exception of the `title` field in the metadata a
 | `{% data variables.code-scanning.codeql_workflow %}` | CodeQL analysis workflow | data/variables/code-scanning.yml | 
 
 There are many more variables. These are stored in various YAML files within the `data/variables` directory.
-
-### Links to other articles
-
-`[AUTOTITLE]` is the correct way to specify the title of a linked article, when that article is another page on the docs.github.com site. Do not suggest replacing the placeholder link text `[AUTOTITLE]` with the actual page title or using the `{% link %}` Liquid tag.
-
-### Creating a pull request
-
-When creating a pull request as a result of a request to do so in Copilot Chat, the first line of the PR description should always be the following (in italics): `_This pull request was created as a result of the following prompt in Copilot Chat._` Then, within a collapsed section, quote the original prompt from Copilot Chat.
