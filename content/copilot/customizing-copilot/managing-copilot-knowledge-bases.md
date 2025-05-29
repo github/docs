@@ -20,6 +20,10 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
+> [!TIP] If you're looking for a more flexible way to organize context for {% data variables.product.prodname_copilot_short %}, you can also try {% data variables.product.prodname_copilot_spaces %}.
+>
+> {% data variables.product.prodname_copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
 ## About knowledge bases
 
 Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
