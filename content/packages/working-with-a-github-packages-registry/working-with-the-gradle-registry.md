@@ -1,4 +1,4 @@
----
+---working-with-the-gradle-registry
 title: Working with the Gradle registry
 intro: 'You can configure Gradle to publish packages to the {% data variables.product.prodname_registry %} Gradle registry and to use packages stored on {% data variables.product.prodname_registry %} as dependencies in a Java project.'
 product: '{% data reusables.gated-features.packages %}'
