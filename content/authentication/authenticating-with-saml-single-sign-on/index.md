@@ -1,4 +1,4 @@
----
+---index.md
 title: Authenticating with SAML single sign-on
 intro: 'You can authenticate to {% data variables.product.github %} with SAML single sign-on (SSO) and view your active sessions.'
 redirect_from:
