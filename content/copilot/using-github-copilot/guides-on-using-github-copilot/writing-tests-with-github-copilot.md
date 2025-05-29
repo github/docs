@@ -1,6 +1,6 @@
 ---
 title: Writing tests with GitHub Copilot
-intro: 'Use {% data variables.product.prodname_copilot_short %} to generate unit and integration tests, and help improve code quality.' 
+intro: 'Use {% data variables.product.prodname_copilot_short %} to generate unit and integration tests, and help improve code quality.'
 topics:
   - Copilot
 versions:
@@ -175,10 +175,10 @@ class BankAccount:
         if amount > self.balance:
             raise ValueError("Cannot withdraw more than the current balance.")
         self.balance -= amount
-        
+
         if self.notification_system:
             self.notification_system.notify(f"Withdrew {amount}, new balance: {self.balance}")
-        
+
     def get_balance(self):
         return self.balance
 ```
@@ -211,7 +211,7 @@ class TestBankAccountIntegration(unittest.TestCase):
         account.deposit(50)
         self.assertEqual(account.get_balance(), 150)
         self.notification_system.notify.assert_called_once_with("Deposited 50, new balance: 150")
-        
+
 if __name__ == '__main__':
     unittest.main()
 ```
@@ -314,3 +314,23 @@ Once Copilot has generated the test suite to your satisfaction, run the tests wi
 ```bash
 python -m unittest test_bank_account_integration.py
 ```
+
+## Using {% data variables.product.prodname_copilot_spaces %} to improve test suggestions
+
+{% data variables.product.prodname_copilot_spaces %} is a feature that allows you to organize and share task-specific context with {% data variables.product.prodname_copilot_short %}. This can help improve the relevance of the suggestions you receive. By providing {% data variables.product.prodname_copilot_short %} with more context about your project, you can get better test suggestions.
+
+For example, you could create a space that includes:
+
+* The module you’re testing (like `payments.js`)
+* The current test suite (like `payments.test.js`)
+* A test coverage report or notes about what's missing
+
+In the space, you can ask {% data variables.product.prodname_copilot_short %} questions like:
+
+> What test cases are missing in `payments.test.js` based on the logic in `payments.js`?
+
+Or:
+
+> Write a unit test for the refund logic in `refund.js`, following the structure in the existing test suite.
+
+For more information about using {% data variables.product.prodname_copilot_spaces %}, see [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
