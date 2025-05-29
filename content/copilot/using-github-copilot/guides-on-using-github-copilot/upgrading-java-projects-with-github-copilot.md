@@ -1,6 +1,6 @@
 ---
 title: Upgrading Java projects with GitHub Copilot
-shortTitle: Upgrading Java projects
+shortTitle: Upgrade Java projects
 intro: 'You can use {% data variables.product.prodname_copilot %} to upgrade your Maven and Gradle Java applications.'
 versions:
   feature: copilot
