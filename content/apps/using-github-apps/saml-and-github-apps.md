@@ -1,4 +1,4 @@
----
+---saml-and-github-apps.md
 title: SAML and GitHub Apps
 shortTitle: SAML with apps
 intro: "If your organization uses SAML SSO, you may need to start an active SAML session for your organization before authorizing, installing, or requesting a {% data variables.product.prodname_github_app %}."
