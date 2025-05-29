@@ -1,6 +1,6 @@
 ---
 title: Granting access to Copilot for members of your organization
-shortTitle: Granting access
+shortTitle: Grant access
 intro: 'Grant access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
 permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} plan.'
 versions:

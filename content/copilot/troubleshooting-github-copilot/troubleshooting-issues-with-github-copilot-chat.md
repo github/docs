@@ -52,7 +52,7 @@ If you can't find {% data variables.product.prodname_copilot_chat_short %} in yo
 
 ### Troubleshooting authentication issues in {% data variables.product.prodname_vs %}
 
-If you are experiencing authentication issues after installing the {% data variables.product.prodname_copilot_chat %} extension in {% data variables.product.prodname_vs %}, you can try the following steps to resolve the issue.
+If you experience authentication issues when you try to use {% data variables.product.prodname_copilot_chat %}, you can try the following steps to resolve the issue.
 
 1. Check that the {% data variables.product.prodname_dotcom %} ID you are signed into {% data variables.product.prodname_vs %} with is the same as the one you have been granted access to {% data variables.product.prodname_copilot_chat %} with.
 1. Check whether your {% data variables.product.prodname_dotcom %} ID/credentials need refreshing in {% data variables.product.prodname_vs %}. For more information, see [Work with {% data variables.product.prodname_dotcom %} accounts in {% data variables.product.prodname_vs %}](https://learn.microsoft.com/en-us/visualstudio/ide/work-with-github-accounts?view=vs-2022) in the {% data variables.product.prodname_vs %} documentation.

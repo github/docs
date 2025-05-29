@@ -1,6 +1,6 @@
 ---
 title: Translating code to a different programming language
-shortTitle: Translating code
+shortTitle: Translate code
 intro: '{% data variables.product.prodname_copilot_chat_short %} can help you rewrite code to perform the same operations but in a different programming language.'
 versions:
   feature: copilot

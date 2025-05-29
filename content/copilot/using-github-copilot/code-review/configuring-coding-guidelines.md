@@ -1,6 +1,6 @@
 ---
 title: Configuring coding guidelines for GitHub Copilot code review
-shortTitle: Configuring coding guidelines
+shortTitle: Configure coding guidelines
 intro: "Learn how to customize {% data variables.copilot.copilot_code-review_short %} with custom coding guidelines."
 allowTitleToDifferFromFilename: true
 versions:

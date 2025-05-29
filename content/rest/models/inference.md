@@ -12,7 +12,7 @@ allowTitleToDifferFromFilename: true
 
 ## About {% data variables.product.prodname_github_models %} inference
 
-You can use the REST API to run inference requests using the {% data variables.product.prodname_github_models %} platform.
+You can use the REST API to run inference requests using the {% data variables.product.prodname_github_models %} platform. The API requires the `models: read` scope when using a {% data variables.product.pat_v2 %} or when authenticating using a {% data variables.product.prodname_github_app %}.
 
 The API supports:
 

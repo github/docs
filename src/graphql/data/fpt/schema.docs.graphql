@@ -20868,6 +20868,11 @@ enum LabelOrderField {
   CREATED_AT
 
   """
+  Order labels by issue count
+  """
+  ISSUE_COUNT
+
+  """
   Order labels by name
   """
   NAME
@@ -44859,6 +44864,11 @@ type ReleaseAsset implements Node {
   Identifies the date and time when the object was created.
   """
   createdAt: DateTime!
+
+  """
+  The SHA256 digest of the asset
+  """
+  digest: String
 
   """
   The number of times this asset was downloaded

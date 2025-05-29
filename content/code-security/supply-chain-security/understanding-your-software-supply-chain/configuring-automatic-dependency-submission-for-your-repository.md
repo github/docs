@@ -17,7 +17,7 @@ topics:
 ## About automatic dependency submission
 
 > [!NOTE]
-> Automatic dependency submission is currently only supported for Maven.
+> Automatic dependency submission does not support all package ecosystems. For the current list of supported ecosystems, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/dependency-graph-supported-package-ecosystems).
 
 Dependency graph analyzes the manifest and lock files in a repository, in order to help users understand the upstream packages that their software project depends on. However, in some ecosystems, the resolution of transitive dependencies occurs at build-time and {% data variables.product.company_short %} isn't able to automatically discover all dependencies based on the contents of the repository alone.
 
@@ -47,12 +47,13 @@ Organization owners can enable automatic dependency submission for multiple repo
 1. Under "Dependency graph", click the dropdown menu next to “Automatic dependency submission”, then select **Enabled**.
 
 Once you've enabled automatic dependency submission for a repository, {% data variables.product.company_short %} will:
-* Monitor for changes to the `pom.xml` file in the root of the repository on all branches of the repository.
-* Perform an automatic dependency submission on each change.
+* Monitor for changes to manifest files in the root of the repository on all branches of the repository.
+* Run the dependency graph build action associated with the package ecosystem of each changed manifest.
+* Perform an automatic dependency submission with the results.
 
 You can view details about the automatic workflows run by viewing the **Actions** tab of your repository.
 
-> [!NOTE] Automatic submission will occur on the first push to the `pom.xml` file after the option is enabled.
+> [!NOTE] After you enable automatic dependency submission, we'll automatically trigger a run of the action. Once enabled, it'll run each time a commit to the default branch updates a manifest.
 
 ## Using self-hosted runners for automatic dependency submission
 
@@ -67,7 +68,7 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 * The self-hosted runners are unavailable.
 * There aren't any runner groups tagged with a `dependency-submission` label.
 
->[!NOTE] When using self-hosted runners, you need to add access to the Maven server settings file to allow the dependency submission workflows to connect to private registries. Dependencies from private registries will be included in the dependency tree in the next `pom.xml` update. For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
+>[!NOTE] For Maven or Gradle projects that use self-hosted runners with private Maven registries, you need to modify the Maven server settings file to allow the dependency submission workflows to connect to the registries. For more information about the Maven server settings file, see [Security and Deployment Settings](https://maven.apache.org/guides/introduction/introduction-to-dependency-mechanism.html#transitive-dependencies) in the Maven documentation.
 
 ## Using {% data variables.product.company_short %}-hosted {% data variables.actions.hosted_runners %} for automatic dependency submission
 
@@ -79,13 +80,21 @@ Once enabled, automatic dependency submission jobs will run on the self-hosted r
 
 ## Troubleshooting automatic dependency submission
 
-Automatic dependency submission is currently only supported for Maven. The feature uses the Maven Dependency Tree Submission action. For more information, see the documentation for the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission) action in the {% data variables.product.prodname_marketplace %}. If your project uses a non-standard Maven configuration, it may not properly generate the dependencies and submit them to the dependency graph.
-
 Automatic dependency submission makes a best effort to cache package downloads between runs using the [Cache](https://github.com/marketplace/actions/cache) action to speed up workflows. For self-hosted runners, you may want to manage this cache within your own infrastructure. To do this, you can disable the built-in caching by setting an environment variable of `GH_DEPENDENCY_SUBMISSION_SKIP_CACHE` to `true`. For more information, see [AUTOTITLE](/actions/learn-github-actions/variables).
+
+### Manifest deduplication
+
+{% data reusables.dependency-graph.deduplication %}
+
+### Maven projects
+
+For Maven projects, automatic dependency submission runs an open source fork of the [Maven Dependency Tree Dependency Submission](https://github.com/marketplace/actions/maven-dependency-tree-dependency-submission). The fork allows {% data variables.product.github %} to stay in sync with the upstream repository plus maintain some changes that are only applicable to automatic submission. The fork's source is available at [advanced-security/maven-dependency-submission-action](https://github.com/advanced-security/maven-dependency-submission-action).
 
 If your repository's dependencies seem inaccurate, check that the timestamp of the last dependency graph build matches the last change to your `pom.xml` file. The timestamp is visible on the table of alerts in the repository's {% data variables.product.prodname_dependabot_alerts %} tab. Pushing a commit which updates `pom.xml` will trigger a new run of the Dependency Tree Submission action and force a rebuild of that repository's dependency graph.
 
-{% data reusables.dependency-graph.deduplication %}
+### Gradle projects
+
+For Gradle projects, automatic dependency submission runs a fork of the open source Gradle actions from [gradle/actions](https://github.com/gradle/actions). The fork is available at [actions/gradle-build-tools-actions](https://github.com/actions/gradle-build-tools-actions). You can view the results of the autosubmission action under your repository's **Actions** tab. Each run will be labeled "Automatic Dependency Submission (Gradle)" and its output will contain the JSON payload which the action submitted to the API.
 
 ## Further reading
 

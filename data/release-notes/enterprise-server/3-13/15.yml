@@ -1,0 +1,73 @@
+date: '2025-05-27'
+sections:
+  security_fixes:
+    - |
+      **MEDIUM:** An attacker could inject HTML in the instances web UI because the web commit dialog did not properly sanitize repository rule violation messages. This vulnerability was reported via the [GitHub Bug Bounty program](https://bounty.github.com/).
+    - |
+      Packages have been updated to the latest security versions.
+  bugs:
+    - |
+      Ephemeral runner registrations for GitHub Actions were not fully cleaned up after deletion.
+    - |
+      For instances in a high availability configuration, because there was no Nomad job for the `aqueduct-lite` service on replica nodes, generating a support bundle from the command line on a replica would result in the error `ERROR: Failed to get elastomer index build progress` being incorrectly reported.
+    - |
+      A pre-receive hook could fail due to blocked system calls.
+    - |
+      After updating the TLS certificate from the Management Console, users encountered 502 errors when creating releases and uploading artifacts. Running `ghe-config-apply` did not resolve the issue, as the alambic service required a manual restart.
+    - |
+      The sidebar menu did not display on the "Retired namespaces" page on the site admin dashboard.
+    - |
+      Site administrators could encounter a failure to load domain entries in the "Verified & Approved Domains" section of the site admin dashboard when one or more authoritative nameservers for the affected domain were unreachable or unresponsive due to inefficient DNS queries.
+    - |
+      Images embedded in Markdown tables did not display correctly.
+    - |
+      Deleted discussions could potentially prevent a repository from being exported using the export API or `ghe-migrator`.
+    - |
+      During an import, missing assignee models caused incomplete imports of issues, pull requests, and their dependent models.
+    - |
+      When the GitHub Enterprise Server application attempted to create an Elasticsearch index that already existed but lacked a routing configuration, the operation failed. This resulted in a state where the index appeared to exist, but the application could not write documents to it.
+    - |
+      Enterprise customers in very large organizations experienced performance issues with the GitHub API when making multiple API requests to retrieve Dependabot alerts for their enterprise.
+    - |
+      In some cases, a file in the code view would appear as JSON instead of HTML.
+    - |
+      Instances using Azure for migration API storage without a proxy configured could not export migration archives because the system incorrectly attempted to route requests through a proxy.
+    - |
+      When administrators downloaded large Advanced Security committer CSV files, the operation would fail due to insufficient timeout settings. The timeout duration has been increased to ensure successful downloads.
+    - |
+      Actions workflows were not able to access up to 1,000 organization variables when the total size of all variables was under 10 MB.
+    - |
+      Secret scanning alerts would sometimes incorrectly identify the location of a secret in a file after a custom pattern was edited.
+  changes:
+    - |
+      Support tools now redact proxy credentials from their outputs in the admin terminal during connectivity checks.
+    - |
+      Live updates to the GitHub site were sometimes blocked by per-IP address rate limits, especially in environments where users accessed a GitHub Enterprise Server instance through a proxy.
+    - |
+      Merging a pull request using the "Rebase and merge" option is now limited to 100 commits. If you have a pull request with more than 100 commits, you can create a merge commit, or squash and merge, or split the commits into multiple pull requests.
+  closing_down:
+    - |
+      Microsoft Exchange Online is retiring SMTP basic authentication in September 2025. If your GitHub Enterprise Server instance uses this method to send email, delivery may fail after the retirement date. Microsoft recommends switching to a supported alternative. As another option, you may consider using an SMTP OAuth proxy such as [email-oauth2-proxy](https://github.com/simonrob/email-oauth2-proxy), though this is not officially supported. For details and configuration guidance, see the [Microsoft announcement](https://techcommunity.microsoft.com/blog/exchange/exchange-online-to-retire-basic-auth-for-client-submission-smtp-auth/4114750) and the proxy’s [documentation](https://github.com/simonrob/email-oauth2-proxy/blob/main/emailproxy.config).
+  known_issues:
+    - |
+      During the validation phase of a configuration run, a `No such object` error may occur for the Notebook and Viewscreen services. This error can be ignored as the services should still correctly start.
+    - |
+      If the root site administrator is locked out of the Management Console after failed login attempts, the account does not unlock automatically after the defined lockout time. Someone with administrative SSH access to the instance must unlock the account using the administrative shell. For more information, see [AUTOTITLE](/admin/configuration/administering-your-instance-from-the-management-console/troubleshooting-access-to-the-management-console#unlocking-the-root-site-administrator-account).
+    - |
+      On an instance with the HTTP `X-Forwarded-For` header configured for use behind a load balancer, all client IP addresses in the instance's audit log erroneously appear as 127.0.0.1.
+    - |
+      For an instance in a cluster configuration and with GitHub Actions enabled, restoring a cluster from backup requires targeting the primary DB node.
+    - |
+      When following instructions for [Replacing the primary MySQL node](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-the-primary-mysql-node), the step that includes running `ghe-cluster-config-apply` might fail with errors. If this occurs, re-running `ghe-cluster-config-apply` is expected to succeed.
+    - |
+      Running `ghe-cluster-config-apply` as part of the steps for [Replacing a node in an emergency](/admin/monitoring-managing-and-updating-your-instance/configuring-clustering/replacing-a-cluster-node#replacing-a-node-in-an-emergency) may fail with errors if the node being replaced is still reachable. If this occurs, shutdown the node and repeat the steps.
+    - |
+      {% data reusables.release-notes.2024-06-possible-frontend-5-minute-outage-during-hotpatch-upgrade %}
+    - |
+      When restoring data originally backed up from a 3.13 or greater appliance version, the Elasticsearch indices need to be reindexed before some of the data will show up. This happens via a nightly scheduled job. The reindexing can also be forced by running `/usr/local/share/enterprise/ghe-es-search-repair`.
+    - |
+      When restoring from a backup snapshot, a large number of `mapper_parsing_exception` errors may be displayed.
+    - |
+      After a restore, existing outside collaborators cannot be added to repositories in a new organization. This issue can be resolved by running `/usr/local/share/enterprise/ghe-es-search-repair` on the appliance.
+    - |
+      After a geo-replica is promoted to be a primary by running `ghe-repl-promote`, the actions workflow of a repository does not have any suggested workflows.

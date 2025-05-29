@@ -68,6 +68,10 @@ Enhance {% data variables.product.prodname_copilot_chat_short %} responses by pr
 
 Automatically generate commit messages and descriptions with {% data variables.product.prodname_copilot_desktop_short %} based on the changes you make to your project.
 
+### {% data variables.product.prodname_copilot_spaces %} ({% data variables.release-phases.public_preview %})
+
+Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.product.prodname_copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 
 Create and manage collections of documentation to use as context for chatting with {% data variables.product.prodname_copilot_short %}. When you ask a question in {% data variables.product.prodname_copilot_chat_dotcom_short %} or in {% data variables.product.prodname_vscode_shortname %}, you can specify a knowledge base as the context for your question. See [AUTOTITLE](/copilot/customizing-copilot/managing-copilot-knowledge-bases).

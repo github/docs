@@ -15,6 +15,7 @@ children:
   - /apply-to-github-education-as-a-student
   - /solving-problems-with-your-github-education-access
   - /about-github-community-exchange
+  - /github-terms-and-conditions-for-the-student-developer-pack
 shortTitle: For students
 ---
 
