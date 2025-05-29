@@ -1,4 +1,4 @@
----
+---git@github.com:github/docs.git
 title: Secure coding documentation
 shortTitle: Secure coding
 intro: 'Build security into your {% data variables.product.github %} workflow to secure your software supply chain, automatically find and fix vulnerabilities in your codebase, and prevent data leaks.'
