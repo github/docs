@@ -1,4 +1,4 @@
----
+---troubleshooting-commits-on-your-timeline.md
 title: Troubleshooting commits on your timeline
 intro: 'You can view details for commits from your profile''s timeline. If you don''t see commits you expect on your profile or can''t find commit details from your profile page, the commit date and the commit author date may be different.'
 redirect_from:
