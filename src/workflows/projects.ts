@@ -94,8 +94,8 @@ export async function addItemToProject(item: string, project: string) {
 // Given a GitHub login, returns a bool indicating
 // whether the login is part of the docs team
 export async function isDocsTeamMember(login: string) {
-  // Returns true if login is docs-bot, to bypass the checks and make PRs opened by docs-bot be treated as though they were made by a docs team member
-  if (login === 'docs-bot') {
+  // Returns true if login is docs-bot or copilot, to bypass the checks and make PRs opened by docs-bot or copilot be treated as though they were made by a docs team member
+  if (login === 'docs-bot' || login === 'copilot') {
     return true
   }
   // Get all members of the docs team
