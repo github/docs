@@ -14,7 +14,7 @@ You can, however, [unlink email addresses](/account-and-profile/setting-up-and-m
 
 ## Can I open a support ticket to recover my account?
 
-For security reasons, **GitHub Support will not restore access to accounts with two-factor authentication enabled if you lose your two-factor authentication credentials or lose access to your account recovery methods. Note that if you have access to two-factor authentication, and even if you have access to github account recovery codes, you can not recover your account if you forget your password.** You must use existing [account recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
+For security reasons, **GitHub Support will not restore access to accounts with two-factor authentication enabled if you lose your two-factor authentication credentials or lose access to your account recovery methods. You must have account recovery codes and either your password or access to your primary email.** You must use existing [account recovery methods](/authentication/securing-your-account-with-two-factor-authentication-2fa/recovering-your-account-if-you-lose-your-2fa-credentials).
 
 GitHub does not support any other means of account recovery, including social or ID verification, by members of GitHub’s staff. This policy is in place to protect your account from unauthorized access through social engineering.
 
