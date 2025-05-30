@@ -44,7 +44,7 @@ With {% data variables.product.prodname_copilot_spaces %} you can:
 
 Anyone with a {% data variables.product.prodname_copilot_short %} license, including {% data variables.product.prodname_copilot_free_short %}, can create and use {% data variables.product.prodname_copilot_spaces_short %}.
 
-{% data reusables.copilot.editor-preview-settings %}
+During the {% data variables.release-phases.public_preview %}, if you're using a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, the organization or enterprise that provides your plan must have the **Opt in to preview features** setting enabled. See [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization) or [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise#copilot-in-githubcom).
 
 {% data variables.product.prodname_copilot_spaces_short %} can belong to a personal account or to an organization. Spaces owned by an organization can be shared with other organization members (read-only) or kept private to the person who created the space.
 
