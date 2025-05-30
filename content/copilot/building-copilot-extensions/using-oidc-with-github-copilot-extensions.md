@@ -103,7 +103,7 @@ This endpoint should:
   ```json
   {
     "access_token": <"your-service-token">,
-    "Issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
+    "issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
     "token_type": "Bearer",
     "expires_in": 3600
   }
