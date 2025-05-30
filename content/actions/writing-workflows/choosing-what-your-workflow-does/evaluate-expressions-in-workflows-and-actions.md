@@ -111,50 +111,6 @@ env:
 
 % data variables.product.prodname_dotcom %} provides a way to create conditional logic in expressions using binary logical operators (`&&` and `||`). This pattern can be used to achieve similar functionality to the ternary operator (`?:`) found in many programming languages, while actually using only binary operators.
 
-## Example:
-{% raw %}
-```yaml
-env:
-  MY_ENV_VAR: ${{ github.ref == 'refs/heads/main' && 'value_for_main_branch' || 'value_for_other_branches' }}
-```
-{% endraw %}
-
-In this example, we're using logical operators to set the value of the `MY_ENV_VAR` environment variable based on whether the {% data variables.product.prodname_dotcom %} reference is set to `refs/heads/main` or not.
-
-### How It Works
-
-This expression uses two binary operators:
-- `&&` (logical AND): Returns the right operand if the left operand is truthy, otherwise returns the left operand
-- `||` (logical OR): Returns the left operand if it's truthy, otherwise returns the right operand
-
-### Order of Operations
-
-The order of operations is important to understand:
-1. The equality comparison (`==`) is evaluated first
-2. The logical AND (`&&`) has higher precedence than logical OR (`||`)
-3. The expression is evaluated as `(github.ref == 'refs/heads/main' && 'value_for_main_branch') || 'value_for_other_branches'`
-
-### Step-by-Step Evaluation
-
-When `github.ref == 'refs/heads/main'` is true:
-1. `github.ref == 'refs/heads/main'` evaluates to `true`
-2. `true && 'value_for_main_branch'` evaluates to `'value_for_main_branch'`
-3. `'value_for_main_branch' || 'value_for_other_branches'` evaluates to `'value_for_main_branch'`
-
-When `github.ref == 'refs/heads/main'` is false:
-1. `github.ref == 'refs/heads/main'` evaluates to `false`
-2. `false && 'value_for_main_branch'` evaluates to `false`
-3. `false || 'value_for_other_branches'` evaluates to `'value_for_other_branches'`
-
-### Important Considerations
-
-- This is NOT a true ternary operator (which would take the form `condition ? true_value : false_value`), but rather two binary operators arranged to achieve similar functionality
-- The expression after `&&` must evaluate to a truthy value to work correctly
-- If the expression after `&&` is falsy (empty string, zero, false, null), the value after `||` will be returned even if the initial condition is true
-- The evaluation follows standard JavaScript-like operator precedence rules
-
-For complex conditional logic, you might prefer using job conditionals or separate if-steps.
-
 ## Functions
 
 {% data variables.product.prodname_dotcom %} offers a set of built-in functions that you can use in expressions. Some functions cast values to a string to perform comparisons. {% data variables.product.prodname_dotcom %} casts data types to a string using these conversions:
