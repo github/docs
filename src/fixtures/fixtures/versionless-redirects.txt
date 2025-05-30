@@ -66,13 +66,6 @@
 - /github/setting-up-and-managing-your-enterprise-account/configuring-webhooks-for-organization-events-in-your-enterprise-account
 - /github/setting-up-and-managing-your-enterprise/configuring-webhooks-for-organization-events-in-your-enterprise-account
 
-/enterprise-server@3.12/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-team-policies-in-your-enterprise
-- /articles/enforcing-team-settings-for-organizations-in-your-business-account
-- /articles/enforcing-team-policies-for-organizations-in-your-enterprise-account
-- /articles/enforcing-team-policies-in-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise-account/enforcing-team-policies-in-your-enterprise-account
-- /github/setting-up-and-managing-your-enterprise/enforcing-team-policies-in-your-enterprise-account
-
 /enterprise-cloud@latest/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-projects-in-your-enterprise
 - /articles/enforcing-project-board-settings-for-organizations-in-your-business-account
 - /articles/enforcing-project-board-policies-for-organizations-in-your-enterprise-account
@@ -99,9 +92,8 @@
 - /graphql/guides/managing-enterprise-accounts
 - /v4/guides/managing-enterprise-accounts
 
-/enterprise-cloud@latest/billing/using-the-billing-platform/about-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-your-enterprise
-- /admin/overview/managing-billing-for-github-enterprise
+/enterprise-cloud@latest/billing/managing-your-billing/about-billing-for-your-enterprise
+- /billing/managing-your-billing/about-billing-for-your-enterprise
 
 /enterprise-cloud@latest/billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise
 - /billing/managing-your-license-for-github-enterprise/downloading-your-license-for-github-enterprise

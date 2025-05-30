@@ -69,7 +69,7 @@ jobs:
 
       - uses: ./.github/actions/install-cocofix
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_WORKFLOW }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Lint the code (eslint)
         if: ${{ github.event_name == 'pull_request' }}
@@ -103,7 +103,7 @@ jobs:
 
       - name: Create pull request
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
 

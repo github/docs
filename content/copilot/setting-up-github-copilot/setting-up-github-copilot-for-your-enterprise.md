@@ -18,10 +18,10 @@ redirect_from:
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
-1. Click the **{% octicon "check-circle" aria-hidden="true" %} Getting Started** tab.
+1. Click the **{% octicon "check-circle" aria-hidden="true" aria-label="check-circle" %} Getting Started** tab.
 1. Under "Next steps", click **Verify your payment method**. This will enable {% data variables.product.prodname_copilot %} in your enterprise.
 
-After you've completed these steps, you will be able to confirm that {% data variables.product.prodname_copilot %} is enabled in your enterprise's **{% octicon "law" aria-hidden="true" %} Policies** tab.
+After you've completed these steps, you will be able to confirm that {% data variables.product.prodname_copilot %} is enabled in your enterprise's **{% octicon "law" aria-hidden="true" aria-label="law" %} Policies** tab.
 
 ## 2. Set policies
 

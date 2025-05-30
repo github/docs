@@ -1,7 +1,7 @@
 ---
 title: Username considerations for external authentication
 shortTitle: Username considerations
-intro: '{% ifversion ghes or ghec %}When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% endif %}{% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
+intro: 'When you use {% ifversion ghes %}CAS, LDAP, or SAML for authentication{% elsif ghec %}{% data variables.product.prodname_emus %}{% endif %}, {% data variables.product.github %} follows certain rules to determine the username for each user account {% ifversion ghec %}in your enterprise{% elsif ghes %}on your instance{% endif %}.'
 versions:
   ghec: '*'
   ghes: '*'
@@ -132,11 +132,11 @@ When you configure CAS, LDAP, or SAML authentication (without SCIM), {% data var
 | `internal\\The.Octocat` | `the-octocat{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created. Although the normalized username is valid, it already exists. |
 | `mona.lisa.the.octocat.from.github.united.states@example.com` | `mona-lisa-the-octocat-from-github-united-states{% ifversion ghec %}_SHORT-CODE{% endif %}` | This username is not created, because it exceeds the 39-character limit. |
 
-{% ifversion not ghec %}
+{% ifversion ghes %}
 
 ### About username normalization with SAML
 
-{% ifversion ghes %}If you configure SAML authentication for {% data variables.location.product_location %}, {% endif %}{% data variables.product.github %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
+If you configure SAML authentication for {% data variables.location.product_location %}, {% data variables.product.github %} determines each person's username by one of the following assertions in the SAML response, ordered by descending priority.
 
 1. The custom `username` attribute, if defined and present
 1. An `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` assertion, if present
@@ -147,19 +147,16 @@ When you configure CAS, LDAP, or SAML authentication (without SCIM), {% data var
 
 {% data variables.product.github %} creates a mapping between the `NameID` from the IdP and the username on {% data variables.location.product_location %}, so the `NameID` should be persistent, unique, and not subject to change for the lifecycle of the user.
 
-{% ifversion ghes %}
-
 > [!NOTE]
 > If the `NameID` for a user does change on the IdP, the person will see an error message when signing in to {% data variables.location.product_location %}. To restore the person's access, you'll need to update the user account's `NameID` mapping. For more information, see [AUTOTITLE](/admin/identity-and-access-management/using-saml-for-enterprise-iam/updating-a-users-saml-nameid).
 
-{% endif %}
 {% endif %}
 
 {% ifversion ghec %}
 
 ## Resolving username problems
 
-When a new user is being provisioned, if the username conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. If the username is longer than 39 characters (including underscore{% ifversion ghec %} and short code{% endif %}), the provisioning attempt will fail with a `400` error. For a full list of possible user provisioning status codes, see [AUTOTITLE](/rest/enterprise-admin/scim?apiVersion=2022-11-28#provision-a-scim-enterprise-user--status-codes).
+When a new user is being provisioned, if the username conflicts with an existing user in the enterprise, the provisioning attempt will fail with a `409` error. If the username is longer than 39 characters (including underscore and short code), the provisioning attempt will fail with a `400` error. For a full list of possible user provisioning status codes, see [AUTOTITLE](/rest/enterprise-admin/scim?apiVersion=2022-11-28#provision-a-scim-enterprise-user--status-codes).
 
 To resolve this problem, you must make one of the following changes in your IdP so that all normalized usernames will be within the character limit and unique.
 

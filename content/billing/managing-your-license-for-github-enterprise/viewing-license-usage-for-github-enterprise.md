@@ -53,7 +53,7 @@ You can view the license usage for your enterprise and download a file with lice
 
    * If you purchased {% data variables.product.prodname_AS %}, you can review your total license usage. To learn about the information displayed, see [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/viewing-your-github-advanced-security-usage).
 
-1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click **{% octicon "download" aria-hidden="true" %} CSV report**.
+1. To download a CSV report of the license usage, click {% octicon "kebab-horizontal" aria-label="Licensing dropdown" %} to the right of the usage you want to download, then click **{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**.
 
 {% elsif ghes %}
 

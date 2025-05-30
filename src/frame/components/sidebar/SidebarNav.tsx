@@ -40,7 +40,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
           <div className={cx('d-none px-4 pb-3 border-bottom d-xxl-block')}>
             <AllProductsLink />
             {showCurrentProductLink && (
-              <div className="mt-3" id="allproducts-menu">
+              <h2 className="mt-3" id="allproducts-menu">
                 <Link
                   data-testid="sidebar-product-xl"
                   href={`/${router.locale}${currentProduct.href}`}
@@ -50,7 +50,7 @@ export const SidebarNav = ({ variant = 'full' }: Props) => {
                 >
                   {currentProductName || currentProduct.name}
                 </Link>
-              </div>
+              </h2>
             )}
             {variant === 'full' && isRestPage && <ApiVersionPicker />}
           </div>

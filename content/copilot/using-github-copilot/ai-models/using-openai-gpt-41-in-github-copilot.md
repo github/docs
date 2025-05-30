@@ -11,8 +11,6 @@ topics:
 
 ## About OpenAI {% data variables.copilot.copilot_gpt_41 %} in {% data variables.product.prodname_copilot_chat %}
 
-{% data reusables.copilot.gpt-41-public-preview-note %}
-
 OpenAI has a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_gpt_41 %} is one of those models and excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. For information about the capabilities of {% data variables.copilot.copilot_gpt_41 %}, see the [OpenAI documentation](https://platform.openai.com/docs/models).
 
 {% data variables.copilot.copilot_gpt_41 %} is currently available in:
@@ -20,7 +18,7 @@ OpenAI has a family of large language models that you can use as an alternative 
 * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
 * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
 
-{% data variables.copilot.copilot_gpt_41 %} is hosted by OpenAI and GitHub's Azure tenant when used in {% data variables.product.prodname_copilot %}. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. GitHub maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
+{% data variables.copilot.copilot_gpt_41 %} is hosted by GitHub's Azure tenant when used in {% data variables.product.prodname_copilot %}.
 
 When using {% data variables.copilot.copilot_gpt_41 %}, input prompts and output completions continue to run through {% data variables.product.prodname_copilot %}'s content filters for public code matching, when applied, along with those for harmful, offensive, or off-topic content.
 

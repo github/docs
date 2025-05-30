@@ -73,7 +73,7 @@ export function createProcessor(context) {
       .use(rewriteForRowheaders)
       .use(rewriteImgSources)
       .use(rewriteAssetImgTags)
-      .use(alerts)
+      .use(alerts, context)
       // HTML AST above ^^^
       .use(html)
     // String below vvv

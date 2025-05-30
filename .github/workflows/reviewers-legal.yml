@@ -55,7 +55,7 @@ jobs:
       - name: Check for reviewers-legal label, add if missing and request review
         if: steps.checkContentType.outputs.containsContentType == 'true'
         env:
-          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+          GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           PR: ${{ github.event.pull_request.html_url }}
         run: |
           gh pr edit $PR --add-reviewer github/legal-product

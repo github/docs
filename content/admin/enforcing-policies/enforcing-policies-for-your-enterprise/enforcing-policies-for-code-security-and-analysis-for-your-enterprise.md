@@ -33,15 +33,15 @@ shortTitle: Security & analysis
 
 You can enforce policies to manage the use of security features within organizations owned by your enterprise. You can allow or disallow people with admin access to a repository to enable or disable the security and analysis features.
 
-Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS %}{% ifversion ghas-products %} products{% endif %} in your enterprise's organizations and repositories.
+Additionally, you can enforce policies for the use of {% data variables.product.prodname_GHAS_cs_or_sp %} in your enterprise's organizations and repositories.
 
 ## Enforcing a policy for the availability of {% data variables.product.prodname_AS %} in your enterprise's organizations
 
-{% data variables.product.github %} bills for {% data variables.product.prodname_AS %} products on a per-committer basis. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#managing-committers-and-costs).
+You are billed for {% data variables.product.prodname_GHAS_cs_and_sp %} products on a per-committer basis. See [AUTOTITLE](/billing/managing-billing-for-your-products/managing-billing-for-github-advanced-security/about-billing-for-github-advanced-security#managing-committers-and-costs).
 
 You can enforce a policy that controls whether repository administrators are allowed to enable features for {% data variables.product.prodname_AS %} in an organization's repositories. You can configure a policy for all organizations owned by your enterprise account, or for individual organizations that you choose.
 
-Disallowing {% data variables.product.prodname_GH_cs_or_sp %} for an organization prevents repository administrators from enabling {% data variables.product.prodname_GH_cs_or_sp %} features for additional repositories, but does not disable the features for repositories where the features are already enabled.
+Disallowing {% data variables.product.prodname_GHAS_cs_or_sp %} for an organization prevents repository administrators from enabling {% data variables.product.prodname_GHAS_cs_or_sp %} features for additional repositories, but does not disable the features for repositories where the features are already enabled.
 
 {% data reusables.enterprise.role-permission-hierarchy %}
 
@@ -91,7 +91,7 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
 {% ifversion ghas-products %}
-1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_cs_and_sp %}.
+1. In the "Policies" section, under "Repository administrators can enable or disable `PRODUCT`", use the dropdown menu to define whether repository administrators can change the enablement of {% data variables.product.prodname_GHAS_cs_or_sp %}.
 {% else %}
 1. In the "{% data variables.product.prodname_GHAS %} policies" section, under "Enable or disable {% data variables.product.prodname_GHAS %} by repository admins", select the dropdown menu and click a policy.
 {% endif %}

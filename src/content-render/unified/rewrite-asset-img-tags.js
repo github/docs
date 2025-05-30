@@ -1,5 +1,5 @@
 import { visit, SKIP } from 'unist-util-visit'
-import { IMAGE_DENSITY } from '../../assets/lib/image-density.js'
+import { IMAGE_DENSITY } from '../../assets/lib/image-density.ts'
 
 // This number must match a width we're willing to accept in a dynamic
 // asset URL.

@@ -26,7 +26,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PR: ${{ github.event.pull_request.html_url }}
-      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_WRITEORG_PROJECT }}
+      GH_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
     steps:
       - name: Add content systems as a reviewer

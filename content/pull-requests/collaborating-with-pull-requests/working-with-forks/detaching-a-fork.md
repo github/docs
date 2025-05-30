@@ -21,12 +21,8 @@ To turn your fork into a standalone repository, you can leave the fork network e
 > * All git commit metadata will be preserved. Commits may become eligible to be counted as contributions if they meet certain criteria. For more information, see [AUTOTITLE](/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile#your-local-git-commit-email-isnt-connected-to-your-account).
 > * Leaving the fork network is **permanent** and the new repository **cannot** be reconnected to the fork network.
 
-{% ifversion ghes %}
-
 > [!NOTE]
 > If you are unable to detach a fork, contact your site administrator.
-
-{% endif %}
 
 ## Leaving the fork network
 

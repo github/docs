@@ -73,8 +73,11 @@ Multiple workflow runs in a repository can share caches. A cache created for a b
 
 ## Using the `cache` action
 
-The [`cache` action](https://github.com/actions/cache) will attempt to restore a cache based on the `key` you provide. When the action finds a cache that _exactly_ matches the key, the action restores the cached files to the `path` you configure.
-You can optionally provide a list of `restore-keys` to use in case the `key` doesn't match an existing cache. A list of `restore-keys` is useful when you are restoring a cache from another branch because `restore-keys` can _partially_ match cache keys. For more information about matching `restore-keys`, see [Matching a cache key](#matching-a-cache-key).
+The [`cache` action](https://github.com/actions/cache) will attempt the following sequence when restoring a cache:
+
+1. First, it searches for an exact match to your provided `key`.
+1. If no exact match is found, it will search for partial matches of the `key`.
+1. If there is still no match found, and you've provided `restore-keys`, these keys will be checked sequentially for partial matches. For more information, see [Matching a cache key](#matching-a-cache-key).
 
 If there is an exact match to the provided `key`, this is considered a cache hit. If no cache exactly matches the provided `key`, this is considered a cache miss. On a cache miss, the action automatically creates a new cache if the job completes successfully. The new cache will use the `key` you provided and contains the files you specify in `path`. For more information about how this is handled, see [Cache hits and misses](#cache-hits-and-misses).
 
@@ -211,7 +214,7 @@ In the example workflow above, there is a step that lists the state of the Node 
 
 ## Matching a cache key
 
-The `cache` action first searches for cache hits for `key` and the cache _version_ in the branch containing the workflow run. If there is no hit, it searches for `restore-keys` and the _version_. If there are still no hits in the current branch, the `cache` action retries same steps on the default branch. Please note that the scope restrictions apply during the search. For more information, see [Restrictions for accessing a cache](#restrictions-for-accessing-a-cache).
+The `cache` action first searches for cache hits for `key` and the cache _version_ in the branch containing the workflow run. If there is no hit, it searches for prefix-matches for `key`, and if there is still no hit, it searches for `restore-keys` and the _version_. If there are still no hits in the current branch, the `cache` action retries the same steps on the default branch. Please note that the scope restrictions apply during the search. For more information, see [Restrictions for accessing a cache](#restrictions-for-accessing-a-cache).
 
 Cache version is a way to stamp a cache with metadata of the `path` and the compression tool used while creating the cache. This ensures that the consuming workflow run uniquely matches a cache it can actually decompress and use. For more information, see [Cache Version](https://github.com/actions/cache#cache-version) in the Actions Cache documentation.
 

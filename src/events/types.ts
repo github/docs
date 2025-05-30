@@ -50,6 +50,7 @@ export type EventProps = {
     code_display_preference: string
     event_group_key?: string
     event_group_id?: string
+    is_headless: boolean
   }
 }
 

@@ -1,11 +1,12 @@
-import { Request, Response } from 'express'
+import { Response } from 'express'
 import statsd from '@/observability/lib/statsd'
 import got from 'got'
 import { getHmacWithEpoch } from '@/search/lib/helpers/get-cse-copilot-auth'
 import { getCSECopilotSource } from '@/search/lib/helpers/cse-copilot-docs-versions'
+import type { ExtendedRequest } from '@/types'
 
-export const aiSearchProxy = async (req: Request, res: Response) => {
-  const { query, version, language } = req.body
+export const aiSearchProxy = async (req: ExtendedRequest, res: Response) => {
+  const { query, version } = req.body
 
   const errors = []
 
@@ -15,18 +16,12 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   } else if (typeof query !== 'string') {
     errors.push({ message: `Invalid 'query' in request body. Must be a string` })
   }
-  if (!version) {
-    errors.push({ message: `Missing required key 'version' in request body` })
-  }
-  if (!language) {
-    errors.push({ message: `Missing required key 'language' in request body` })
-  }
 
   let docsSource = ''
   try {
-    docsSource = getCSECopilotSource(version, language)
+    docsSource = getCSECopilotSource(version)
   } catch (error: any) {
-    errors.push({ message: error?.message || 'Invalid version or language' })
+    errors.push({ message: error?.message || 'Invalid version' })
   }
 
   if (errors.length) {
@@ -36,7 +31,7 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
 
   const diagnosticTags = [
     `version:${version}`.slice(0, 200),
-    `language:${language}`.slice(0, 200),
+    `language:${req.language}`.slice(0, 200),
     `queryLength:${query.length}`.slice(0, 200),
   ]
   statsd.increment('ai-search.call', 1, diagnosticTags)
@@ -52,7 +47,8 @@ export const aiSearchProxy = async (req: Request, res: Response) => {
   }
 
   try {
-    const stream = got.stream.post(`${process.env.CSE_COPILOT_ENDPOINT}/answers`, {
+    // TODO: We temporarily add ?ai_search=1 to use a new pattern in cgs-copilot production
+    const stream = got.stream.post(`${process.env.CSE_COPILOT_ENDPOINT}/answers?ai_search=1`, {
       json: body,
       headers: {
         Authorization: getHmacWithEpoch(),

@@ -18,11 +18,17 @@ shortTitle: Review proposed changes
 
 You can review changes in a pull request one file at a time. While reviewing the files in a pull request, you can leave individual comments on specific changes. After you finish reviewing each file, you can mark the file as viewed. This collapses the file, helping you identify the files you still need to review. A progress bar in the pull request header shows the number of files you've viewed. After reviewing as many files as you want, you can approve the pull request or request additional changes by submitting your review with a summary comment.
 
+{% ifversion copilot %}
+
+If the pull request was raised by {% data variables.product.prodname_copilot %} then, when you submit your comments, {% data variables.product.prodname_copilot_short %} will carry out more work to respond to your comments and will push a new commit to the pull request with further changes. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+
+{% endif %}
+
 {% data reusables.search.requested_reviews_search_tip %}
 
-## Starting a review
-
 {% webui %}
+
+## Starting a review
 
 {% data reusables.repositories.sidebar-pr %}
 {% data reusables.repositories.choose-pr-review %}
@@ -51,6 +57,8 @@ Before you submit your review, your line comments are _pending_ and only visible
 {% ifversion fpt or ghec %}
 
 {% codespaces %}
+
+## Reviewing a pull request
 
 You can use [{% data variables.product.prodname_github_codespaces %}](/codespaces/quickstart) to test, run, and review pull requests.
 
@@ -103,7 +111,6 @@ For more information on reviewing pull requests in {% data variables.product.pro
 {% data reusables.copilot.stop-response-generation %}
 
 {% endif %}
-{% endwebui %}
 
 ## Reviewing dependency changes
 
@@ -141,6 +148,8 @@ After you've finished reviewing all the files you want in the pull request, subm
 {% data reusables.repositories.submit-review %}
 
 {% data reusables.repositories.request-changes-tips %}
+
+{% endwebui %}
 
 ## Further reading
 

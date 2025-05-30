@@ -26,9 +26,9 @@ shortTitle: Best practices
 
 ## Choose the right {% data variables.product.prodname_copilot_short %} tool for the job
 
-While {% data variables.product.prodname_copilot_short %} code completions and {% data variables.product.prodname_copilot_chat_short %} share some functionality, the two tools are best used in different circumstances.
+While {% data variables.product.prodname_copilot_short %} code completion and {% data variables.product.prodname_copilot_chat_short %} share some functionality, the two tools are best used in different circumstances.
 
-**Code completions work best for:**
+**Code completion works best for:**
 
 * Completing code snippets, variable names, and functions as you write them
 * Generating repetitive code
@@ -73,9 +73,9 @@ There are several adjustments you can make to steer {% data variables.product.pr
   * If you are using {% data variables.product.prodname_copilot_chat_dotcom_short %}, provide specific repositories, files, symbols, and more as context. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-githubcom).
   * If you are using {% data variables.product.prodname_copilot_chat_short %} in your IDE, use keywords to focus {% data variables.product.prodname_copilot_short %} on a specific task or piece of context. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#using-keywords-in-your-prompt).
 * **Rewrite your prompts to generate different responses.** If {% data variables.product.prodname_copilot_short %} is not providing a helpful response, try rephrasing your prompt, or even breaking your request down into multiple smaller prompts.
-* **Pick the best available suggestion.** When you are using code completions, {% data variables.product.prodname_copilot_short %} might offer more than one suggestion. You can use keyboard shortcuts to quickly look through all available suggestions. For the default keyboard shortcuts for your operating system, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#keyboard-shortcuts-for-github-copilot).
+* **Pick the best available suggestion.** When you are using code completion, {% data variables.product.prodname_copilot_short %} might offer more than one suggestion. You can use keyboard shortcuts to quickly look through all available suggestions. For the default keyboard shortcuts for your operating system, see [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/configuring-github-copilot-in-your-environment#keyboard-shortcuts-for-github-copilot).
 * **Provide feedback to improve future suggestions.** You can provide feedback in many ways:
-  * For code completions, accept or reject {% data variables.product.prodname_copilot_short %}'s suggestion.
+  * For code completion, accept or reject {% data variables.product.prodname_copilot_short %}'s suggestion.
   * For individual responses in {% data variables.product.prodname_copilot_chat_short %}, click the thumbs up or thumbs down icons next to the response.
   * For {% data variables.product.prodname_copilot_chat_short %} in your IDE, see [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide#sharing-feedback) for instructions specific to your environment.
   * For {% data variables.product.prodname_copilot_chat_dotcom_short %}, leave a comment on the [feedback discussion](https://github.com/orgs/community/discussions/110314).

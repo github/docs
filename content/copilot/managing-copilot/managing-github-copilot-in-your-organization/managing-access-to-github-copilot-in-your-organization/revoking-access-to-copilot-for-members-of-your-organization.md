@@ -1,6 +1,6 @@
 ---
 title: Revoking access to Copilot for members of your organization
-shortTitle: Revoking access
+shortTitle: Revoke access
 intro: 'Remove access to {% data variables.product.prodname_copilot %} for some or all of the members of your organization.'
 permissions: 'Organization owners for organizations with a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or{% endif %} {% data variables.product.prodname_copilot_business_short %} plan.'
 versions:
@@ -44,6 +44,6 @@ You can use {% data variables.product.prodname_dotcom %}'s REST API to revoke ac
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page)
 * [AUTOTITLE](/copilot/managing-github-copilot-in-your-organization/granting-access-to-copilot-for-members-of-your-organization).
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-github-copilot-activity-in-your-organization/reviewing-usage-data-for-github-copilot-in-your-organization)

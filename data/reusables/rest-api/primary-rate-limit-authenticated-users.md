@@ -1,0 +1,4 @@
+You can use a {% data variables.product.pat_generic %} to make API requests. Additionally, you can authorize a {% data variables.product.prodname_github_app %} or {% data variables.product.prodname_oauth_app %}, which can then make API requests on your behalf.
+
+  All of these requests count towards your personal rate limit of 5,000 requests per hour. {% ifversion fpt or ghec %}Requests made on your behalf by a {% data variables.product.prodname_github_app %} that is owned by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour. Similarly, requests made on your behalf by a {% data variables.product.prodname_oauth_app %} that is owned or approved by a {% data variables.product.prodname_ghe_cloud %} organization have a higher rate limit of 15,000 requests per hour if you are a member of the {% data variables.product.prodname_ghe_cloud %} organization.{% endif %}
+  

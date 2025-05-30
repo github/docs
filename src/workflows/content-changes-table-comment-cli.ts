@@ -30,4 +30,4 @@ program
 
 const args = program.args
 const [owner, repo, baseSHA, headSHA] = args
-console.log(await main(owner, repo, baseSHA, headSHA, { isFork: false }))
+console.log(await main(owner, repo, baseSHA, headSHA))

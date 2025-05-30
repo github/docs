@@ -36,7 +36,7 @@ As we work with our payment gateway provider to meet the new requirements, we ar
 
 Customers on monthly billing plans will be able to make a one-time payment on the same day their billing cycle usually renews. For example, if you're usually billed on the 7th of each month, you will now be able to make a one-time payment from your account from the 7th of each month. Your first one-time payment will also include any accrued usage from October 2021 onwards.
 
-If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see [AUTOTITLE](/billing/managing-your-github-billing-settings/changing-the-duration-of-your-billing-cycle).
+If you are currently billed monthly, and would like to switch to yearly billing, you can reduce the frequency of your one-time payments. For more information, see [AUTOTITLE](/billing/managing-your-billing/about-the-billing-cycle).
 
 ### For customers on yearly billing
 

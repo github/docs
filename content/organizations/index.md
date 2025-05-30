@@ -6,6 +6,7 @@ redirect_from:
   - /articles/about-improved-organization-permissions
   - /categories/setting-up-and-managing-organizations-and-teams
   - /github/setting-up-and-managing-organizations-and-teams
+  - /organizations/organizing-members-into-teams/disabling-team-discussions-for-your-organization
 introLinks:
   overview: /organizations/collaborating-with-groups-in-organizations/about-organizations
 featuredLinks:
@@ -38,7 +39,6 @@ children:
   - /managing-peoples-access-to-your-organization-with-roles
   - /managing-user-access-to-your-organizations-repositories
   - /organizing-members-into-teams
-  - /collaborating-with-your-team
   - /managing-access-to-your-organizations-project-boards
   - /managing-programmatic-access-to-your-organization
   - /managing-oauth-access-to-your-organizations-data

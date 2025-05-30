@@ -15,12 +15,6 @@ redirect_from:
   - /copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-access-to-copilot-in-your-enterprise/viewing-copilot-usage-for-your-enterprise
 ---
 
-{% ifversion enhanced-billing-platform %}
-
-{% data reusables.billing.enhanced-billing-platform %}
-
-{% endif %}
-
 ## About your {% data variables.product.prodname_copilot %} usage
 
 If you have a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, you can view usage information for {% data variables.product.prodname_copilot_short %} in your {% ifversion ghec %}enterprise, broken down by organization, or in your{% endif %} organization, broken down by seat assignment status. {% ifversion ghec %}At the enterprise level, this information includes the number of seats assigned in each organization, and the total spending associated with each organization, for the current billing cycle.{% endif %} At the organization level, this information includes the total number of seats, seats carried over from the previous billing cycle, new seats added during the current cycle, and seats to be removed at the end of the current cycle.
@@ -54,7 +48,7 @@ If you have a {% data variables.product.prodname_copilot_business_short %} or {%
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing and plans**.
+1. In the "Access" section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing and plans**.
 1. Under "{% data variables.product.prodname_copilot_short %}", view the breakdown of your {% data variables.product.prodname_copilot %} usage and upcoming changes in your organization.
 
    ![Screenshot of the organization-level {% data variables.product.prodname_copilot %} seat usage page.](/assets/images/help/copilot/org-level-seat-view.png)

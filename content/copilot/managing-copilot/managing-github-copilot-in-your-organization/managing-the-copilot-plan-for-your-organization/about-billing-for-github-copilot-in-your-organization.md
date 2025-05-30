@@ -56,4 +56,4 @@ When you connect an Azure subscription to your organization account and enable m
 
 * [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)
 * [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization)
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
+* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)

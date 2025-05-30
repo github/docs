@@ -13,7 +13,7 @@ redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/enhancing-copilot-for-your-organization/creating-a-custom-model-for-github-copilot
 ---
 
-> [!NOTE] Custom models for {% data variables.product.prodname_copilot_enterprise %} is in {% data variables.release-phases.public_preview %} and is subject to change. During the {% data variables.release-phases.public_preview %}, there is no additional cost to {% data variables.product.prodname_copilot_enterprise_short %} customers enrolled on the {% data variables.release-phases.public_preview %} for creating or using a custom model.
+> [!NOTE] The current {% data variables.release-phases.public_preview %} of custom models for {% data variables.product.prodname_copilot_enterprise %} will be discontinued. For now, participants can continue using their custom models, but we are no longer processing new training requests. We encourage participants to try the newer {% data variables.copilot.copilot_gpt_4o %} {% data variables.product.prodname_copilot_short %} code completion model. See [Changing the AI model for Copilot code completion](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion?tool=vscode).
 
 ## Prerequisite
 
@@ -82,7 +82,7 @@ You can use your organization settings to create a custom large language model.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}** then click **Custom model**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}** then click **Custom model**.
 1. On the "Custom models" page, click **Train a new custom model**.
 1. Under "Select repositories," choose either **Selected repositories** or **All repositories**.
 
@@ -164,4 +164,4 @@ Telemetry data is primarily used to fine-tune the {% data variables.product.prod
 * **Opt-in for telemetry:** Participation in telemetry data collection is optional and controlled via your organization’s admin policies. Telemetry data is only collected when explicitly enabled for training custom models.
 * **Potential risks:** Although {% data variables.product.company_short %} takes extensive measures to prevent data leakage, there are scenarios where sensitive data, such as internal links or names, could be included in the telemetry and subsequently used in training. We recommend reviewing and filtering the data you submit for training to minimize these risks.
 
-  For more details about our data-handling practices, see the [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center) or review {% data variables.product.company_short %}’s [data protection agreement](https://github.com/customer-terms/github-data-protection-agreement).
+  For more details about our data-handling practices, see the [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page) or review {% data variables.product.company_short %}’s [data protection agreement](https://github.com/customer-terms/github-data-protection-agreement).

@@ -58,5 +58,7 @@ export function isAllVersions(versions: FrontmatterVersions) {
 export function getFeatureVersionsObject(feature: string) {
   const featureDataDir = process.env.ROOT ? `${process.env.ROOT}/data/features` : 'data/features'
   const featureData = getDataDirectory(featureDataDir) as FeatureData
+  const featureValue = featureData[feature]
+  if (!featureValue) return {}
   return featureData[feature].versions
 }

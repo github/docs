@@ -22,7 +22,7 @@ shortTitle: GitHub Advanced Security
 
 Other security features require you to purchase one of {% data variables.product.github %}'s {% data variables.product.prodname_AS %} products:
 
-{% data reusables.advanced-security.ghas-products-bullets %}
+{% data reusables.advanced-security.ghas-products-bullets+ghas %}
 
 {% ifversion fpt or ghec %}Some of these features, such as {% data variables.product.prodname_code_scanning %} and {% data variables.product.prodname_secret_scanning %}, are enabled for public repositories by default. To run the feature on your private or internal repositories, you must purchase the relevant {% data variables.product.prodname_GHAS %} product.{% endif %}
 
@@ -60,7 +60,7 @@ The table below summarizes the availability of {% data variables.product.prodnam
 
 {% rowheaders %}
 
-| | Public repository <br>without {% data variables.product.prodname_GH_secret_protection %} | Private repository <br>without {% data variables.product.prodname_GH_code_security %} | Public or private repository <br>with {% data variables.product.prodname_GH_code_security %} |
+| | Public repository <br>without {% data variables.product.prodname_GH_code_security %} | Private repository <br>without {% data variables.product.prodname_GH_code_security %} | Public or private repository <br>with {% data variables.product.prodname_GH_code_security %} |
 | --- | --- | --- | --- |
 | {% data variables.product.prodname_code_scanning_caps %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
 | {% data variables.product.prodname_codeql_cli %} | {% octicon "check" aria-label="Yes" %} | {% octicon "x" aria-label="No" %} | {% octicon "check" aria-label="Yes" %} |
@@ -120,7 +120,7 @@ A {% data variables.product.prodname_GHAS %} license provides the following addi
 
 * **{% data variables.product.prodname_codeql_cli %}** - Run {% data variables.product.prodname_codeql %} processes locally on software projects or to generate {% data variables.product.prodname_code_scanning %} results for upload to {% data variables.product.github %}. See [AUTOTITLE](/code-security/codeql-cli/getting-started-with-the-codeql-cli/about-the-codeql-cli).
 
-* **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into {% ifversion fpt %}private repositories{% else %} the repository{% endif %}. If push protection is enabled, {% data variables.product.prodname_dotcom %} also detects secrets when they are pushed to your repository. {% ifversion secret-scanning-enable-by-default-for-public-repos %}{% data variables.secret-scanning.user_alerts_caps %} and push protection are available and free of charge for all {% ifversion ghec %}user-owned {% endif %}public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %} See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
+* **{% data variables.product.prodname_secret_scanning_caps %}** - Detect secrets, for example keys and tokens, that have been checked into  the repository. If push protection is enabled, {% data variables.product.prodname_dotcom %} also detects secrets when they are pushed to your repository. {% ifversion secret-scanning-enable-by-default-for-public-repos %}{% data variables.secret-scanning.user_alerts_caps %} and push protection are available and free of charge for all {% ifversion ghec %}user-owned {% endif %}public repositories on {% data variables.product.prodname_dotcom_the_website %}.{% endif %} See [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning) and [AUTOTITLE](/code-security/secret-scanning/introduction/about-push-protection).
 
 * **{% data variables.dependabot.custom_rules_caps %}** - {% data reusables.dependabot.dependabot-custom-rules-ghas %}
 

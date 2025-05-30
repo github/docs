@@ -41,7 +41,7 @@ For example, if the custom domain for your user site is `www.octocat.com`, and y
 You can override the default custom domain by adding a custom domain to the individual repository.
 
 > [!NOTE]
-> The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see [AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion not ghec %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
+> The URLs for project sites that are privately published are not affected by the custom domain for your user or organization site. For more information about privately published sites, see [AUTOTITLE](/enterprise-cloud@latest/pages/getting-started-with-github-pages/changing-the-visibility-of-your-github-pages-site){% ifversion fpt %} in the {% data variables.product.prodname_ghe_cloud %} documentation.{% else %}.{% endif %}
 
 To remove the default custom domain, you must remove the custom domain from your user or organization site.
 

@@ -18,7 +18,7 @@ These examples show how models vary in their reasoning style, response depth, an
 
 For a full list of supported models and side-by-side feature comparisons, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
-## GPT-4o
+## {% data variables.copilot.copilot_gpt_4o %}
 
 {% data reusables.copilot.model-use-cases.gpt-4o %}
 
@@ -68,10 +68,10 @@ def grant_editor_access(user_id, doc_id):
     )
 ```
 
-### Why GPT-4o is a good fit
+### Why {% data variables.copilot.copilot_gpt_4o %} is a good fit
 
 * The function is short and self-contained, making it ideal for quick docstring generation.
-* GPT-4o can recognize the pattern and provide a clear, concise explanation.
+* {% data variables.copilot.copilot_gpt_4o %} can recognize the pattern and provide a clear, concise explanation.
 * The task doesn't require deep reasoning or complex logic.
 
 ## o3-mini

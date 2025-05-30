@@ -98,7 +98,7 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | {% ifversion fpt or ghec %} |
 | `repository_advisory` | Contains repository-level activities related to security advisories in the {% data variables.product.prodname_advisory_database %}. For more information, see [AUTOTITLE](/code-security/security-advisories/working-with-repository-security-advisories/about-repository-security-advisories).
 | `repository_content_analysis` | Contains all activities related to enabling or disabling data use for a private repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-security-and-analysis-settings-for-your-repository#enabling-or-disabling-security-and-analysis-features-for-private-repositories).
-| `repository_dependency_graph` | Contains repository-level activities related to enabling or disabling the dependency graph for a {% ifversion fpt or ghec %}private {% endif %}repository. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
+| `repository_dependency_graph` | Contains repository-level activities related to enabling or disabling the dependency graph for a private repository. For more information, see [AUTOTITLE](/code-security/supply-chain-security/understanding-your-software-supply-chain/about-the-dependency-graph).
 | {% endif %} |
 | {% ifversion ghes or ghec %} |
 | `repository_secret_scanning` | Contains repository-level activities related to {% data variables.product.prodname_secret_scanning %}. For more information, see [AUTOTITLE](/code-security/secret-scanning/introduction/about-secret-scanning).
@@ -123,9 +123,6 @@ To search for specific events, use the `action` qualifier in your query. Actions
 | `sponsors`| Contains all events related to sponsor buttons (see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/displaying-a-sponsor-button-in-your-repository))
 | {% endif %} |
 | `team` | Contains all activities related to teams in your organization.
-| {% ifversion team-discussions %} |
-| `team_discussions` | Contains activities related to managing team discussions for an organization.
-| {% endif %} |
 | `workflows` | Contains activities related to {% data variables.product.prodname_actions %} workflows.
 
 You can search for specific sets of actions using these terms. For example:
@@ -221,11 +218,7 @@ To ensure your intellectual property is secure, and you maintain compliance for 
 
 By default, only events from the past three months are returned. To include older events, you must specify a timestamp in your query.
 
-{% ifversion ghec %}
-
 When you use the REST API to request Git events, events that were initiated via the web browser or the REST or GraphQL APIs are not included. For example, when you merge a pull request in the web browser, changes are pushed to the base branch, but the Git event for that push is not included in the response.
-
-{% endif %}
 
 For more information about the audit log REST API, see [AUTOTITLE](/rest/orgs#get-the-audit-log-for-an-organization).
 

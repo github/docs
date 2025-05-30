@@ -20,7 +20,7 @@ If you make your app public, you can choose to publish it on the {% data variabl
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org-list %}
-1. At the bottom of the sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings**, then click **{% data variables.product.prodname_github_apps %}**.
+1. At the bottom of the sidebar, select **{% octicon "code" aria-hidden="true" aria-label="code" %} Developer settings**, then click **{% data variables.product.prodname_github_apps %}**.
 1. In the "{% data variables.product.prodname_github_apps %}" section, next to the name of your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
 1. In the sidebar, click **Advanced**. At the bottom of the "Danger Zone" section, you will see one of two options:
    * **Make public:** If you see the **Make public** option, your {% data variables.product.prodname_github_app %} is currently private, and can only be installed by the organization or user that created the app. You can click **Make public** to allow any other account with the link to your app's installation page to install your {% data variables.product.prodname_copilot_short %} extension. Leave the settings unchanged to keep your app private.
@@ -44,7 +44,7 @@ App managers cannot create, edit, or publish extensions on the {% data variables
 
 {% data reusables.profile.access_org %}
 {% data reusables.organizations.org-list %}
-1. At the bottom of the sidebar, select **{% octicon "code" aria-hidden="true" %} Developer settings**, then click **{% data variables.product.prodname_github_apps %}**.
+1. At the bottom of the sidebar, select **{% octicon "code" aria-hidden="true" aria-label="code" %} Developer settings**, then click **{% data variables.product.prodname_github_apps %}**.
 1. Select the app you'd like to publish to the {% data variables.product.prodname_marketplace %}.
 1. On the app settings landing page, scroll down to the Marketplace section, then click **List in Marketplace**. The Marketplace section is only visible if your app is public.
 1. In the "Listing name" text box, type a name for your listing. This name is displayed on the {% data variables.product.prodname_marketplace %} page and in search results, and can be changed later. {% data variables.product.github %} recommends using any of the following naming conventions:

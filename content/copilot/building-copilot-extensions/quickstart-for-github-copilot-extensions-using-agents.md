@@ -12,7 +12,9 @@ topics:
 shortTitle: Extensions quickstart
 ---
 
-The [Blackbeard extension](https://github.com/copilot-extensions/blackbeard-extension) is a {% data variables.product.prodname_copilot_extension %} built with a simple agent that responds to requests like a pirate using {% data variables.product.prodname_copilot_short %}'s large language model (LLM) API and special system prompts. This guide uses a simple agent implementation, but the process is similar for skillsets.
+The [Blackbeard extension](https://github.com/copilot-extensions/blackbeard-extension) is a {% data variables.product.prodname_copilot_extension %} that comprises a {% data variables.product.prodname_github_app %} and a {% data variables.product.prodname_copilot_short %} agent. The agent responds to chat requests in the style of a pirate, using {% data variables.product.prodname_copilot_short %}'s large language model (LLM) API and special system prompts. See [AUTOTITLE](/copilot/building-copilot-extensions/building-a-copilot-agent-for-your-copilot-extension/about-copilot-agents).
+
+This guide uses a simple agent implementation, but the process is similar for skillsets. For information about the difference between agents and skillsets, see [AUTOTITLE](/copilot/building-copilot-extensions/about-building-copilot-extensions#about-skillsets-and-agents).
 
 This quickstart is designed to help you build and chat with the Blackbeard extension as quickly as possible, so you can develop and test your extension without deploying infrastructure. For production, you'll need to host the application for your agent or skillset's endpoints on a publicly accessible server. To instead learn how to create a new {% data variables.product.prodname_copilot_extension %}, see [AUTOTITLE](/copilot/building-copilot-extensions/setting-up-copilot-extensions).
 
@@ -57,8 +59,8 @@ For more detailed instructions, see [AUTOTITLE](/copilot/building-copilot-extens
 
 Rather than deploying the Blackbeard agent as a web app, you can host your agent in a codespace for a significantly faster build process.
 
-1. Navigate to the [`copilot-extensions/blackbeard-extension`](https://github.com/copilot-extensions/blackbeard-extension) repository. Select the **{% octicon "code" aria-hidden="true" %} Code** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu, then click **Create codespace on main**.
-1. To find your new codespace, select the **{% octicon "code" aria-hidden="true" %} Code** {% octicon "triangle-down" aria-hidden="true" %} dropdown menu. Next to your new codespace, select {% octicon "kebab-horizontal" aria-label="Show more actions for codespace" %}, then click **{% octicon "globe" aria-hidden="true" %} Open in Browser**.
+1. Navigate to the [`copilot-extensions/blackbeard-extension`](https://github.com/copilot-extensions/blackbeard-extension) repository. Select the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu, then click **Create codespace on main**.
+1. To find your new codespace, select the **{% octicon "code" aria-hidden="true" aria-label="code" %} Code** {% octicon "triangle-down" aria-hidden="true" aria-label="triangle-down" %} dropdown menu. Next to your new codespace, select {% octicon "kebab-horizontal" aria-label="Show more actions for codespace" %}, then click **{% octicon "globe" aria-hidden="true" aria-label="globe" %} Open in Browser**.
 1. In the integrated Terminal, run `npm start` to start the Blackbeard agent on port 3000.
 1. In the "Ports" tab of the {% data variables.product.prodname_vscode_shortname %} panel, click **Forward a port**, then add port 3000.
 1. Right-click the port and set the visibility to "Public," then copy the local address.

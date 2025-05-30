@@ -32,13 +32,9 @@ You can also monitor replication status from the overview dashboard on your inst
 
 `http(s)://HOSTNAME/setup/replication`
 
-{% ifversion ghes-manage-api-cli-extension %}
-
 ## Monitoring replication using the {% data variables.product.prodname_cli %}
 
 You can monitor replication status on your instance using the `gh es` extension for {% data variables.product.prodname_cli %}. For more information, see the [GH ES CLI usage documentation](https://github.com/github/gh-es/blob/main/USAGE.md#gh-es-replication-status) and [AUTOTITLE](/admin/administering-your-instance/administering-your-instance-from-the-command-line/administering-your-instance-using-the-github-cli).
-
-{% endif %}
 
 ## Monitoring replication using the REST API
 

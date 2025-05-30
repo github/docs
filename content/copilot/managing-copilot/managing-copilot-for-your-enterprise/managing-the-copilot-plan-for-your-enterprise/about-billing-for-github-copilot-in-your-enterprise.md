@@ -68,6 +68,6 @@ Disabling {% data variables.product.prodname_copilot %} for all organizations in
 
 ## Further reading
 
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/about-billing-for-your-enterprise)
+* [AUTOTITLE](/billing/managing-your-billing/about-billing-for-your-enterprise)
 * [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise)
-* [AUTOTITLE](/billing/managing-your-github-billing-settings/adding-information-to-your-receipts)
+* [AUTOTITLE](/billing/managing-your-billing/managing-your-payment-and-billing-information)

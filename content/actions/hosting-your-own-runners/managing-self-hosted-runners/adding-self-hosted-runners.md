@@ -76,11 +76,7 @@ For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing
 {% ifversion ghec or ghes %}
 New runners are assigned to the default group. You can modify the runner's group after you've registered the runner. For more information, see [AUTOTITLE](/actions/hosting-your-own-runners/managing-self-hosted-runners/managing-access-to-self-hosted-runners-using-groups#moving-a-self-hosted-runner-to-a-group).
 
-{% ifversion ghec or ghes %}
-
 To add a self-hosted runner to an enterprise, you must be an enterprise owner. For information about how to add a self-hosted runner with the REST API, see the enterprise endpoints in the [{% data variables.product.prodname_actions %} REST API](/rest/actions/self-hosted-runners).
-
-{% endif %}
 
 {% data reusables.actions.self-hosted-runner-add-to-enterprise %}
 

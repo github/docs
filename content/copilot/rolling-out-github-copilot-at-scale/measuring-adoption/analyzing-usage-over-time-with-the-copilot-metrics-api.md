@@ -25,8 +25,6 @@ The API includes:
 * Breakdowns by language and IDE
 * The option to view metrics for an enterprise, organization, or team
 
-If you currently use the [AUTOTITLE](/rest/copilot/copilot-usage), we recommend migrating to the [AUTOTITLE](/rest/copilot/copilot-metrics) as soon as possible.
-
 This guide demonstrates how to query the API, store data, and analyze a trend for changes to the number of users per week. The examples in this guide use the endpoint for an organization, but you can adapt the examples to meet your needs.
 
 ## About endpoint availability

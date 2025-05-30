@@ -42,7 +42,7 @@ jobs:
         id: get-number
         timeout-minutes: 5
         env:
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
         run: npm run find-past-built-pr
 
       - name: Find content directory changes comment

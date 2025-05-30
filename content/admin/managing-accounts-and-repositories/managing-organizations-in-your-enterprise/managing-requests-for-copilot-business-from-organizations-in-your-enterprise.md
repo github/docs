@@ -23,5 +23,5 @@ As an enterprise owner, you can view or dismiss these requests from your notific
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
-1. Under "{% octicon "law" aria-hidden="true" %} Policies", click **Copilot**.
+1. Under "{% octicon "law" aria-hidden="true" aria-label="law" %} Policies", click **Copilot**.
 1. In the "Access management" section, next to the organization you want to give access, select the dropdown menu and click **Enabled**.

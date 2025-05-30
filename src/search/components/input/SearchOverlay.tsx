@@ -91,6 +91,7 @@ export function SearchOverlay({
   const [aiCouldNotAnswer, setAICouldNotAnswer] = useState<boolean>(false)
   const [showSpinner, setShowSpinner] = useState(false)
   const [scrollPos, setScrollPos] = useState(0)
+  const [announcement, setAnnouncement] = useState<string>('')
 
   const { hasOpenHeaderNotifications } = useSharedUIContext()
 
@@ -188,6 +189,7 @@ export function SearchOverlay({
 
   // Combine options for key navigation
   const [combinedOptions, generalOptionsWithViewStatus, aiOptionsWithUserInput] = useMemo(() => {
+    setAnnouncement('')
     let generalOptionsWithViewStatus = [...generalSearchResults]
     const aiOptionsWithUserInput = [...userInputOptions, ...filteredAIOptions]
     const combinedOptions = [] as Array<{
@@ -209,6 +211,7 @@ export function SearchOverlay({
         } as unknown as GeneralSearchHit)
       }
     } else if (urlSearchInputQuery.trim() !== '' && !searchLoading) {
+      setAnnouncement(t('search.overlay.no_results_found_announcement'))
       generalOptionsWithViewStatus.push({
         title: t('search.overlay.no_results_found'),
         isNoResultsFound: true,
@@ -479,6 +482,9 @@ export function SearchOverlay({
         }
       }
     } else if (event.key === 'Enter') {
+      if (searchLoading) {
+        return
+      }
       event.preventDefault()
       let pressedGroupKey = SEARCH_OVERLAY_EVENT_GROUP
       let pressedGroupId = searchEventGroupId
@@ -491,9 +497,7 @@ export function SearchOverlay({
         pressedGroupId = askAIEventGroupId
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
-      }
-
-      if (
+      } else if (
         combinedOptions.length > 0 &&
         selectedIndex >= 0 &&
         selectedIndex < combinedOptions.length
@@ -794,13 +798,13 @@ export function SearchOverlay({
                   // Hubbers users use an internal discussion for feedback
                   window.open('https://github.com/github/docs-team/discussions/5172', '_blank')
                 } else {
-                  // TODO: On ship date set this value
-                  // window.open('TODO', '_blank')
+                  // public discussion for feedback
+                  window.open('https://github.com/orgs/community/discussions/158488', '_blank')
                 }
               }}
               as="button"
             >
-              {t('search.overlay.give_feedback')}
+              <u>{t('search.overlay.give_feedback')}</u>
             </Link>
           </Box>
           <Text
@@ -815,6 +819,22 @@ export function SearchOverlay({
             dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
         </footer>
+        <div
+          aria-live="assertive"
+          style={{
+            position: 'absolute',
+            width: '1px',
+            height: '1px',
+            padding: '0',
+            margin: '-1px',
+            overflow: 'hidden',
+            clip: 'rect(0, 0, 0, 0)',
+            whiteSpace: 'nowrap',
+            border: '0',
+          }}
+        >
+          {announcement}
+        </div>
       </Overlay>
     </>
   )
@@ -860,23 +880,10 @@ function renderSearchGroups(
 ) {
   const groups = []
 
-  const askAIGroupHeading = (
-    <ActionList.GroupHeading
-      key="ai-heading"
-      as="h3"
-      tabIndex={-1}
-      aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
-    >
-      <CopilotIcon className="mr-1" />
-      {t('search.overlay.ai_autocomplete_list_heading')}
-    </ActionList.GroupHeading>
-  )
-
   let isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
   if (isInAskAIState) {
     groups.push(
       <ActionList.Group key="ai" data-testid="ask-ai">
-        {askAIGroupHeading}
         <AskAIResults
           query={askAIState.aiQuery}
           debug={askAIState.debug}

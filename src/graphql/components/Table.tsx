@@ -26,7 +26,7 @@ export function Table({ fields }: Props) {
             <td>
               <p>
                 <code>{field.name}</code> (
-                <code>
+                <code className="color-bg-transparent">
                   <Link
                     href={field.href}
                     makeAbsolute
@@ -75,7 +75,7 @@ export function Table({ fields }: Props) {
                       <li className="border-top mt-2">
                         <p className="mt-2">
                           <code>{argument.name}</code> (
-                          <code>
+                          <code className="color-bg-transparent">
                             <Link href={argument.type.href} makeAbsolute>
                               {argument.type.name}
                             </Link>

@@ -19,18 +19,6 @@ redirect_from:
 
 In addition to the configuration for the {% data variables.product.prodname_copilot %} plugin in your supported IDE, you can configure settings for {% data variables.product.prodname_copilot %} on {% data variables.product.github %}. The settings apply wherever you use {% data variables.product.prodname_copilot %}.
 
-## Enabling additional {% data variables.product.prodname_copilot_short %} premium requests
-
-<!-- expires 2025-05-08 -->
-{% data reusables.copilot.unlimited-premium-requests %}<br>
->
-> This setting won't be available until then.
-<!-- end expires 2025-05-08 -->
-
-{% data reusables.copilot.premium-requests-billing-platform %}
-
-If you enable this setting, additional premium requests beyond the limit of your {% data variables.product.prodname_copilot_short %} plan will be billed at {% data variables.copilot.additional_premium_requests %} per premium request. You will be charged for each additional premium request you use across all {% data variables.product.prodname_copilot_short %} interfaces, including {% data variables.product.prodname_mobile %}. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
-
 ## Enabling or disabling suggestions matching public code
 
 > [!NOTE] If you are a member of an organization on {% data variables.product.prodname_ghe_cloud %} who has been assigned a {% data variables.product.prodname_copilot %} seat through your organization, you will not be able to configure suggestions matching public code in your personal account settings. Your setting for suggestions matching public code will be inherited from your organization or enterprise.
@@ -41,6 +29,23 @@ If you choose to allow suggestions matching public code, when {% data variables.
 
 {% data reusables.user-settings.copilot-settings %}
 1. To the right of **Suggestions matching public code**, select the dropdown menu, then click **Allow** to allow suggestions matching public code, or **Block** to block suggestions matching public code.
+
+## Enabling or disabling {% data variables.copilot.copilot_coding_agent %}
+
+{% data variables.copilot.copilot_coding_agent %} allows you to assign {% data variables.product.prodname_copilot_short %} to {% data variables.product.github %} issues, or ask {% data variables.product.prodname_copilot_short %} to raise a pull request from a prompt in {% data variables.product.prodname_copilot_chat_short %}.
+
+> [!NOTE]
+> * {% data reusables.gated-features.copilot-coding-agent %}
+> * {% data reusables.copilot.coding-agent.preview-note-text %}
+
+To use {% data variables.copilot.copilot_coding_agent %} in repositories owned by your own personal account, you must enable it for those repositories in your account settings.
+
+{% data reusables.user-settings.copilot-settings %}
+1. In the sidebar, under **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**, click **Coding agent**.
+1. On the {% data variables.copilot.copilot_coding_agent %} page, under "Policies," click the dropdown button for "Repository access," then choose either **No repositories**, **All repositories**, or **Only selected repositories**.
+1. If you choose **Only selected repositories**, click **Select repositories** and choose the repositories where you want to enable {% data variables.copilot.copilot_coding_agent %}.
+
+{% data reusables.copilot.coding-agent.enabling-for-orgs-and-enterprises %}
 
 {% ifversion fpt %}
 
@@ -55,7 +60,7 @@ You can choose whether your prompts and {% data variables.product.prodname_copil
 
 You can choose whether to allow the following AI models to be used as an alternative to {% data variables.product.prodname_copilot_short %}'s default model.
 
-* {% data variables.copilot.copilot_claude_sonnet %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot)
+* {% data variables.copilot.copilot_claude %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot)
 * {% data variables.copilot.copilot_gemini %} - see [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot)
 
 {% data reusables.user-settings.copilot-settings %}

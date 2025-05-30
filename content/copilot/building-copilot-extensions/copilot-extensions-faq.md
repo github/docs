@@ -32,7 +32,7 @@ For more information, see [AUTOTITLE](/copilot/building-copilot-extensions/about
 
 No, {% data variables.product.prodname_copilot_extensions_short %} are not covered by {% data variables.product.prodname_copilot %}’s indemnity policy. However, this exclusion applies only to issues that arise within extension chat threads.
 
-Installing and using extensions does not affect indemnity coverage for any issues that occur while using other {% data variables.product.prodname_copilot_short %} features such as code completions and chat.
+Installing and using extensions does not affect indemnity coverage for any issues that occur while using other {% data variables.product.prodname_copilot_short %} features such as code completion and chat.
 
 ## Data and Permissions
 

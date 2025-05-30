@@ -22,11 +22,7 @@ topics:
 
 {% data variables.product.github %} provides built-in collaborative communication tools allowing you to interact closely with your community. This quickstart guide will show you how to pick the right tool for your needs.
 
-{% ifversion team-discussions %}
-You can create and participate in issues, pull requests, {% data variables.product.prodname_discussions %}, and team discussions, depending on the type of conversation you'd like to have.
-{% else %}
 You can create and participate in issues, pull requests, and team discussions, depending on the type of conversation you'd like to have.
-{% endif %}
 
 {% ifversion copilot %}
 
@@ -55,17 +51,6 @@ You can create and participate in issues, pull requests, and team discussions, d
 * Provide a collaborative experience outside the codebase, allowing the brainstorming of ideas, and the creation of a community knowledge base
 * Often don’t have a clear owner
 * Often do not result in an actionable task
-{% endif %}
-
-{% ifversion team-discussions %}
-
-### Team discussions
-
-* Can be started on your team's page for conversations that span across projects and don't belong in a specific issue or pull request. Instead of opening an issue in a repository to discuss an idea, you can include the entire team by having a conversation in a team discussion.
-* Allow you to hold discussions with your team about planning, analysis, design, user research and general project decision making in one place.{% ifversion ghes %}
-* Provide a collaborative experience outside the codebase, allowing the brainstorming of ideas.
-* Often don’t have a clear owner.
-* Often do not result in an actionable task.{% endif %}
 {% endif %}
 
 ## Which discussion tool should I use?
@@ -126,27 +111,6 @@ This example shows the {% data variables.product.prodname_discussions %} welcome
 
 This community maintainer started a discussion to welcome the community, and to ask members to introduce themselves. This post fosters an inviting atmosphere for visitors and contributors. The post also clarifies that the team's happy to help with contributions to the repository.
 
-{% ifversion team-discussions %}
-
-### Scenarios for team discussions
-
-* I have a question that's not necessarily related to specific files in the repository.
-* I want to share news with my collaborators, or my team.
-* I want to start or participate in an open-ended conversation.
-* I want to make an announcement to my team.
-
-#### Team discussion example
-
-This example shows a team post for the `octo-team` team.
-
-![Screenshot of a team discussion that was created in a GitHub community repository.](/assets/images/help/projects/team-discussions-example.png)
-
-The `octocat` team member posted a team discussion, informing the team of various things:
-* A team member called Mona started remote game events.
-* There is a blog post describing how the teams use {% data variables.product.prodname_actions %} to produce their docs.
-* Material about the April All Hands is now available for all team members to view.
-{% endif %}
-
 {% ifversion copilot %}
 
 ## Using {% data variables.product.prodname_copilot_short %} to gain context
@@ -157,7 +121,7 @@ If you need more context or clarity on a specific issue or discussion, you can u
 
 To ask a question about an issue or discussion:
 
-1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" %}** {% data variables.product.prodname_copilot %} icon next to the search bar in the top right of the page.
+1. From anywhere on {% data variables.product.github %},  click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar in the top right of the page.
 
    ![Screenshot of the new conversation button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 
@@ -184,7 +148,5 @@ For issues, for example, you can tag issues with labels for quicker searching an
 For pull requests, you can create draft pull requests if your proposed changes are still a work in progress. Draft pull requests cannot be merged until they're marked as ready for review. For more information, see [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests#draft-pull-requests).
 
 For {% data variables.product.prodname_discussions %}, you can{% ifversion fpt or ghec %} set up a code of conduct and{% endif %} pin discussions that contain important information for your community. For more information, see [AUTOTITLE](/discussions/collaborating-with-your-community-using-discussions/about-discussions).
-
-{% ifversion team-discussions %}For team discussions, you can edit or delete discussions on a team's page, and you can configure notifications for team discussions. For more information, see [AUTOTITLE](/organizations/collaborating-with-your-team/about-team-discussions).{% endif %}
 
 To learn some advanced formatting features that will help you communicate, see [AUTOTITLE](/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/quickstart-for-writing-on-github).

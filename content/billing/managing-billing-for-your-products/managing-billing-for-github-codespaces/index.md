@@ -13,4 +13,3 @@ children:
   - /managing-the-spending-limit-for-github-codespaces
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}

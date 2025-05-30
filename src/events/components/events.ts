@@ -86,8 +86,6 @@ export function sendEvent<T extends EventType>({
   eventGroupKey?: string
   eventGroupId?: string
 } & EventPropsByType[T]) {
-  if (isHeadless()) return
-
   const body = {
     type,
 
@@ -118,6 +116,7 @@ export function sendEvent<T extends EventType>({
       // Device information
       // os, os_version, browser, browser_version:
       ...parseUserAgent(),
+      is_headless: isHeadless(),
       viewport_width: document.documentElement.clientWidth,
       viewport_height: document.documentElement.clientHeight,
 

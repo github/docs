@@ -1,6 +1,6 @@
 import { languageKeys } from '#src/languages/lib/languages.js'
 import { allVersionKeys } from '#src/versions/lib/all-versions.js'
-import { productIds } from '#src/products/lib/all-products.js'
+import { productIds } from '#src/products/lib/all-products.ts'
 import { allTools } from 'src/tools/lib/all-tools.js'
 
 const versionPattern = '^\\d+(\\.\\d+)?(\\.\\d+)?$' // eslint-disable-line
@@ -135,6 +135,9 @@ const context = {
     browser_version: {
       type: 'string',
       description: 'The version of the browser the user is browsing with.',
+    },
+    is_headless: {
+      type: 'boolean',
     },
     viewport_width: {
       type: 'number',

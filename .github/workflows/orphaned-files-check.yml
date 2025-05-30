@@ -34,7 +34,7 @@ jobs:
         with:
           # Using a PAT is necessary so that the new commit will trigger the
           # CI in the PR. (Events from GITHUB_TOKEN don't trigger new workflows.)
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       # It's important because translations are often a bit behind.
       # So if a translation is a bit behind, it might still be referencing
@@ -42,14 +42,14 @@ jobs:
       - name: Clone all translations
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - uses: ./.github/actions/node-npm-setup
 
       - name: Check for orphaned assets and reusables
         env:
           # Needed for gh
-          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          GITHUB_TOKEN: ${{ secrets.DOCS_BOT_PAT_BASE }}
           DRY_RUN: ${{ github.event_name == 'pull_request'}}
         run: |
           set -e
@@ -92,11 +92,11 @@ jobs:
 
           body=$(cat <<-EOM
             Found with the `npm run find-orphaned-assets` and `npm run -s reusables -- find unused` scripts.
-            
+
             The orphaned files workflow file .github/workflows/orphaned-files-check.yml runs every Monday at 16:20 UTC / 8:20 PST.
-            
+
             If you are the first responder, please spot check some of the unused assets to make sure they aren't referenced anywhere. Then, approve and merge the pull request.
-            
+
             For more information, see [Doc: Orphaned Assets](https://github.com/github/docs-engineering/blob/main/docs/orphaned-assets.md) and [Doc: Reusables CLI](https://github.com/github/docs-internal/tree/main/src/content-render/scripts/reusables-cli).
           EOM
           )

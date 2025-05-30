@@ -75,6 +75,7 @@ export default [
   'Git',
   'GitHub Apps',
   'GitHub Connect',
+  'GitHub Models',
   'GitHub search',
   'GitHub',
   'GitLab',

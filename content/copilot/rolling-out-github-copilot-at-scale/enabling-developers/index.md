@@ -8,5 +8,6 @@ topics:
   - Copilot
 children:
   - /driving-copilot-adoption-in-your-company
+  - /integrating-agentic-ai
+  - /using-copilot-coding-agent-in-org
 ---
-

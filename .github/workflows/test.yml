@@ -57,7 +57,6 @@ jobs:
           - events
           - fixtures
           - frame
-          - ghes-releases
           - github-apps
           - graphql
           - landings
@@ -102,7 +101,7 @@ jobs:
       - uses: ./.github/actions/get-docs-early-access
         if: ${{ github.repository == 'github/docs-internal' }}
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Check the test fixture data (if applicable)
         if: ${{ matrix.name == 'fixtures' }}
@@ -127,7 +126,7 @@ jobs:
         if: ${{ matrix.name == 'languages' }}
         uses: ./.github/actions/clone-translations
         with:
-          token: ${{ secrets.DOCS_BOT_PAT_READPUBLICKEY }}
+          token: ${{ secrets.DOCS_BOT_PAT_BASE }}
 
       - name: Gather files changed
         if: ${{ matrix.name == 'content-linter' }}

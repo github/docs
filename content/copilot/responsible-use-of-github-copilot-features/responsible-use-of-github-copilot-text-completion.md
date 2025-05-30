@@ -56,4 +56,4 @@ Because a text complete suggestion is drawn from changes that were made in a pul
 
 ## Further reading
 
-* [{% data variables.product.prodname_copilot %} Trust Center](https://resources.github.com/copilot-trust-center/)
+* [{% data variables.product.prodname_copilot %} Trust Center](https://copilot.github.trust.page/)

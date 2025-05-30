@@ -30,11 +30,7 @@ type: tutorial
 
 ## Creating a self-hosted runner group for an enterprise
 
- {%- ifversion ghec or ghes %}
-
 {% data reusables.actions.self-hosted-runner-security-admonition %}
-
-{%- endif %}
 
 {% data reusables.actions.creating-a-runner-group-for-an-enterprise %}
 

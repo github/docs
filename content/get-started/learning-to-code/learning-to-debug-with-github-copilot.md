@@ -69,7 +69,7 @@ Unfortunately, we get some error text in our terminal ending with the following 
 
 #### Debugging the file
 
-To understand what this error means, press <kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>I</kbd> (Windows/Linux) or <kbd>Command</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (Mac) to **open {% data variables.product.prodname_copilot_chat_short %}**, then paste and send the following prompt:
+To understand what this error means, [open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}](vscode://GitHub.Copilot-Chat), then paste and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Explain in depth why my code produces the following error and how I can fix it:
@@ -111,7 +111,7 @@ Unfortunately, the code isn't working as expected. We want it to return `720`, t
 
 #### Debugging the file
 
-To understand what went wrong, open {% data variables.product.prodname_copilot_chat_short %} and send the following prompt:
+To understand what went wrong, [open {% data variables.product.prodname_copilot_chat_short %}](vscode://GitHub.Copilot-Chat) and send the following prompt: <!-- markdownlint-disable-line GHD003 -->
 
 ```text copy
 Why is the output of this code so much higher than expected? Please explain in depth and suggest a solution.

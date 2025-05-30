@@ -23,7 +23,7 @@ You can choose to receive ongoing updates about specific activity on {% data var
 
 You can choose to subscribe to notifications for:
 * A conversation in a specific issue, pull request, or gist
-* All activity in a repository{% ifversion team-discussions %} or team discussion{% endif %}
+* All activity in a repository
 * CI activity, such as the status of workflows in repositories set up with {% data variables.product.prodname_actions %}
 * Repository {% data reusables.notifications-v2.custom-notification-types %} (if enabled)
 
@@ -36,7 +36,7 @@ If you're no longer interested in a conversation, you can unsubscribe, unwatch, 
 In general, you are automatically subscribed to conversations by default when you have:
 * Not disabled automatic watching for repositories or teams you've joined in your notification settings. This setting is enabled by default.
 * Been assigned to an issue or pull request.
-* Opened a pull request{% ifversion team-discussions %}, issue, or created a team discussion post{% else %} or issue{% endif %}.
+* Opened a pull request or issue.
 * Commented on a thread.
 * Subscribed to a thread manually by clicking **Watch** or **Subscribe**.
 * Had your username @mentioned.

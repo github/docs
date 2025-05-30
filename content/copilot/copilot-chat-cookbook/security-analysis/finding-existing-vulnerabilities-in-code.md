@@ -1,6 +1,6 @@
 ---
 title: 'Finding existing vulnerabilities in code'
-shortTitle: Finding vulnerabilities
+shortTitle: Find vulnerabilities
 intro: 'Copilot Chat can help find common vulnerabilities in your code and suggest fixes.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/security-analysis/finding-existing-vulnerabilities-in-code

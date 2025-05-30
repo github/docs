@@ -17,6 +17,9 @@ describe('data tag', () => {
             foo: 'Foo',
           },
         },
+        ui: {
+          alerts: {},
+        },
       },
     })
     languages.en.dir = dd.root

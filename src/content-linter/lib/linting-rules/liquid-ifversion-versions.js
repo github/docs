@@ -196,9 +196,8 @@ async function getApplicableVersionFromLiquidTag(conditionStr, filename) {
       const firstAnd = ands[0].split(' ')[0]
       // if all ands don't start with the same version it's invalid
       if (!ands.every((and) => and.startsWith(firstAnd))) {
-        console.error(
-          'The condition tag `' + conditionStr + '` is invalid. Please update ' + filename,
-        )
+        // noop - we don't handle this case
+        // TODO - handle this case in the future
         return []
       }
       const andValues = []

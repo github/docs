@@ -81,7 +81,7 @@ All previously archived content lives in its own repository. For example, GHES 3
 1. Do a dry run by scraping a small amount of files to test locally on your machine. This command does not overwrite the references to asset files so they will render on your machine.
 
     ```shell
-    npm run deprecate-ghes -- archive --dry-run --local-dev
+    npm run deprecate-ghes-archive -- --dry-run --local-dev
     ```
 
 1. Navigate to the scraped files directory (`tmpArchivalDir_<VERSION_TO_DEPRECATE>`) inside your docs-internal checkout. Open a few HTML files and ensure they render and drop-down pickers work correctly.
@@ -89,7 +89,7 @@ All previously archived content lives in its own repository. For example, GHES 3
 1. If the dry-run looks good, scrape all content files. This will take about 20-30 minutes. **Note:**  This will overwrite the directory that was previously generated with new files. You can also create a specific output directory using the `--output` flag.
 
     ```shell
-    npm run deprecate-ghes -- archive
+    npm run deprecate-ghes-archive
     ```
 
 1. Revert changes to `src/search/components/Search.tsx`.
@@ -127,7 +127,7 @@ All previously archived content lives in its own repository. For example, GHES 3
 1. Remove deprecated Liquid from content and data files. **Note:** The previous step to update content file frontmatter must have run successfully for this step to work because the updated frontmatter is used to determine file versions.
 
    ```shell
-   npm run lint-content -- --paths content data --rules liquid-unused-conditional --fix
+   npm run lint-content -- --paths content data --rules liquid-ifversion-versions --fix
    ```
 
 1. There are some `data/variables/*.yml` files that can't be autofixed. These will show up as errors. You can manually make the changes to these files. For example, this means open file data/variables/code-scanning and find the code_scanning_thread_model_support key. Edit the key’s value to remove the deprecated liquid:
@@ -172,9 +172,9 @@ All previously archived content lives in its own repository. For example, GHES 3
 
 ## Step 5: Create a tag
 
-1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-release`. To create only a tag and not a release, you can [create a new release](https://github.com/github/docs-internal/releases), which allows you to "Choose a tag." Select add a new tag and use the tag name as the release title. After creating the new release, you will see the new tag as well. You can then delete the release.
+1. Create a new tag for the most recent commit on the `main` branch so that we can keep track of where in commit history we removed the GHES release. Create a tag called `enterprise-<release number>-deprecation`. On your local, `git checkout main`, `git pull`, `git tag enterprise-<version>-deprecation`, then `git push --tags --no-verify`.
 
-## Step 7: Deprecate the OpenAPI description in `github/github`
+## Step 6: Deprecate the OpenAPI description in `github/github`
 
 1. In `github/github`, edit the release's config file in `app/api/description/config/releases/`, and change `deprecated: false` to `deprecated: true`.
 
@@ -211,7 +211,7 @@ TRANSLATIONS_ROOT_DE_DE=${TRANSLATIONS}/docs-internal.de-de
 
 ## Re-scraping a page or all pages
 
-Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `npm run deprecate-ghes -- archive`. To scrape a single page you can use the `—page <page relative path>` option.
+Occasionally, a change will need to be added to our archived enterprise versions. If this occurs, you can check out the `enterprise-<release number>-release` branch and re-scrape the page or all pages using `npm run deprecate-ghes-archive`. To scrape a single page you can use the `—page <page relative path>` option.
 
 For each language, upload the new file to the `github/docs-ghes-<RELEASE_NUM>` repo.
 
