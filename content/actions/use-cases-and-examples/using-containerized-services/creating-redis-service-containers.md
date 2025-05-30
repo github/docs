@@ -79,7 +79,7 @@ jobs:
         # Runs a script that creates a Redis client, populates
         # the client with data, and retrieves data
         run: node client.js
-        # Environment variable used by the `client.js` script to create a new Redis client.
+        # Environment variables used by the `client.js` script to create a new Redis client.
         env:
           # The hostname used to communicate with the Redis service container
           REDIS_HOST: redis
@@ -135,7 +135,7 @@ steps:
     # Runs a script that creates a Redis client, populates
     # the client with data, and retrieves data
     run: node client.js
-    # Environment variable used by the `client.js` script to create a new Redis client.
+    # Environment variables used by the `client.js` script to create a new Redis client.
     env:
       # The hostname used to communicate with the Redis service container
       REDIS_HOST: redis
@@ -193,7 +193,7 @@ jobs:
         # Runs a script that creates a Redis client, populates
         # the client with data, and retrieves data
         run: node client.js
-        # Environment variable used by the `client.js` script to create
+        # Environment variables used by the `client.js` script to create
         # a new Redis client.
         env:
           # The hostname used to communicate with the Redis service container
@@ -253,7 +253,7 @@ steps:
     # Runs a script that creates a Redis client, populates
     # the client with data, and retrieves data
     run: node client.js
-    # Environment variable used by the `client.js` script to create
+    # Environment variables used by the `client.js` script to create
     # a new Redis client.
     env:
       # The hostname used to communicate with the Redis service container
