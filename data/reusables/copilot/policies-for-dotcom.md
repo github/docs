@@ -2,3 +2,4 @@
 * **Opt in to preview features:** If enabled, users can test new {% data variables.product.prodname_copilot_short %} features that are not yet generally available. Be aware that previews of features may have flaws, and the features may be changed or discontinued at any time. Current previews of {% data variables.product.prodname_copilot_short %} features include:
 
   * Experimental languages in {% data variables.product.prodname_copilot_short %} code review. See [AUTOTITLE](/copilot/using-github-copilot/code-review/using-copilot-code-review).
+  * {% data variables.product.prodname_copilot_spaces %}. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
