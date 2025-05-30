@@ -72,7 +72,7 @@ To mitigate this risk, {% data variables.product.github %}:
 * **Limits the permissions in access tokens used by Copilot.** Pushes are only allowed to branches beginning with `copilot/`. {% data variables.product.prodname_copilot_short %} cannot push to the `main` or `master` branches.
 * **Limits {% data variables.product.prodname_copilot_short %}'s credentials.** {% data variables.product.prodname_copilot_short %} can only perform simple push operations. It cannot directly run `git push` or other Git commands.
 * **Restricts {% data variables.product.prodname_actions %} workflow runs.** Workflows are not triggered until {% data variables.product.prodname_copilot_short %}'s code is reviewed and a user with write access to the repo clicks the **Approve and run workflows** button. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue#allowing-github-actions-workflows-to-run-when-copilot-pushes-changes).
-* **Prevents the user who asked {% data variables.product.prodname_copilot_short %} to create a pull request from approving it.** This maintains the expected controls in the "Required reviews" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
+* **Prevents the user who asked {% data variables.product.prodname_copilot_short %} to create a pull request from approving it.** This maintains the expected controls in the "Required approvals" rule and branch protection. See [AUTOTITLE](/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets).
 
 ### Risk: {% data variables.product.prodname_copilot_short %} has access to sensitive information
 
