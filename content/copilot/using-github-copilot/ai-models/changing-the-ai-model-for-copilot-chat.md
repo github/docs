@@ -70,8 +70,6 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 {% vscode %}
 
-Changing the model that's used by {% data variables.product.prodname_copilot_chat_short %} does not affect the model that's used for {% data variables.product.prodname_copilot_short %} code completion. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-code-completion).
-
 > [!NOTE]
 > * Multiple model support in {% data variables.product.prodname_copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
 > * Support for GPT-4.5 is only available on {% data variables.product.prodname_copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.product.prodname_copilot_enterprise_short %}{% endif %}.

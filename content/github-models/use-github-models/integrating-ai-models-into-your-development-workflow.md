@@ -4,6 +4,8 @@ intro: 'Call AI models in the tools you use every day.'
 versions:
   feature: github-models
 shortTitle: Integrate AI models
+redirect_from:
+  - /github-models/integrating-ai-models-into-your-development-workflow
 ---
 
 With {% data variables.product.prodname_github_models %} extensions, you can call specific AI models from both {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.prodname_cli %}. These extensions integrate directly into your development workflow, allowing you to prompt models without context switching.
@@ -103,5 +105,5 @@ To see a list of all available commands, run `gh models`.
 
 There are a few key ways you can use the extension:
    * **To ask a model multiple questions using a chat experience**, run `gh models run`. Select your model from the listed models, then send your prompts.
-   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the {% data variables.copilot.copilot_gpt_41 %} model why the sky is blue, you can run `gh models run gpt-4.1 "why is the sky blue?"`.
-   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the {% data variables.copilot.copilot_gpt_41 %} model, you can run `cat README.md | gh models run gpt-4.1 "summarize this text"`.
+   * **To ask a model a single question**, run `gh models run MODEL-NAME "QUESTION"` in your terminal. For example, to ask the {% data variables.copilot.copilot_gpt_41 %} model why the sky is blue, you can run `gh models run openai/gpt-4.1 "why is the sky blue?"`.
+   * **To provide the output of a command as context when you call a model**, you can join a separate command and the call to the model with the pipe character (`|`). For example, to summarize the README file in the current directory using the {% data variables.copilot.copilot_gpt_41 %} model, you can run `cat README.md | gh models run openai/gpt-4.1 "summarize this text"`.

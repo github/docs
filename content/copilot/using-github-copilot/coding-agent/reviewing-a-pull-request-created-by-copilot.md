@@ -1,6 +1,6 @@
 ---
 title: Reviewing a pull request created by Copilot
-shortTitle: Reviewing Copilot PRs
+shortTitle: Review Copilot PRs
 intro: 'After {% data variables.product.prodname_copilot_short %} creates a pull request you should review it and comment on anything that needs changes.'
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=reviewing+a+pull+request+created+by+copilot&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:

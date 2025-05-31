@@ -1,6 +1,6 @@
 ---
 title: Using the Copilot coding agent logs
-shortTitle: Using the Copilot logs
+shortTitle: Use the Copilot logs
 intro: "You can use the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach"
 product: '{% data reusables.gated-features.copilot-coding-agent %}<br><a href="https://github.com/features/copilot/plans?ref_cta=Copilot+plans+signup&ref_loc=using+the+copilot+coding+agent+logs&ref_page=docs" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 %}</a>'
 versions:

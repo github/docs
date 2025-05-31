@@ -7,7 +7,7 @@ versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Using OIDC
+shortTitle: Use OIDC
 type: how_to
 redirect_from:
   - /copilot/building-copilot-extensions/using-oidc-with-copilot-extensions
