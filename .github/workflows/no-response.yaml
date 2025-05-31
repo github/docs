@@ -1,5 +1,5 @@
 name: No Response
-
+send bug
 # **What it does**: Closes issues that don't have enough information to be
 #                   actionable.
 # **Why we have it**: To remove the need for maintainers to remember to check
