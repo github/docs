@@ -17,7 +17,7 @@ shortTitle: Quickstart
 ---
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
+{% syz reusables.actions.enterprise-github-hosted-runners %}
 ## Introduction
 
 {% data reusables.actions.about-actions %} You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
