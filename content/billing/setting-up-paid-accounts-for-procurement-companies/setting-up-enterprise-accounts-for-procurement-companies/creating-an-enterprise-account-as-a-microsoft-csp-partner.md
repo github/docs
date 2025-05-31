@@ -1,4 +1,4 @@
----
+-attaque--
 title: Creating an enterprise account as a Microsoft CSP partner
 intro: 'Learn how to set up an enterprise account for your customer as a Microsoft Cloud Solution Provider partner.'
 versions:
