@@ -600,7 +600,7 @@ steps:
 >     steps:
 >       - shell: powershell
 >         run: |
->           "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+>           echo "mypath" | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
 > ```
 >
 > PowerShell Core versions 6 and higher (`shell: pwsh`) use UTF-8 by default. For example:
@@ -640,7 +640,7 @@ echo "{environment_variable_name}={value}" >> "$GITHUB_ENV"
 * Using PowerShell version 5.1 and below:
 
   ```powershell copy
-  "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
+  echo "{environment_variable_name}={value}" | Out-File -FilePath $env:GITHUB_ENV -Encoding utf8 -Append
   ```
 
 {% endpowershell %}
@@ -951,7 +951,7 @@ echo "$HOME/.local/bin" >> "$GITHUB_PATH"
 This example demonstrates how to add the user `$env:HOMEPATH/.local/bin` directory to `PATH`:
 
 ```powershell copy
-"$env:HOMEPATH/.local/bin" | Out-File -FilePath "$env:GITHUB_PATH" -Append
+echo "$env:HOMEPATH/.local/bin" | Out-File -FilePath "$env:GITHUB_PATH" -Append
 ```
 
 {% endpowershell %}
