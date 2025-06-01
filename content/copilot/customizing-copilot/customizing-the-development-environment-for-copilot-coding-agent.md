@@ -1,10 +1,92 @@
 ---
 title: Customizing the development environment for Copilot coding agent
 shortTitle: Customize the agent environment
-intro: "Learn how to customize {% data variables.product.prodname_copilot %}'s development environment with additional tools."
-versions:
-  feature: copilot
-topics:
+intro: "dlLanguage Selection
+We want SupplierWeb to be easy for you to use. Choose from the list of regions and languages to find an appropriate option. Click on that option and SupplierWeb will be displayed in that language while dates, numbers, and currency values will be formatted for the corresponding region.
+Select your preferred region and language for text, dates, numbers, and currency display.
+Algeria - Français
+Argentina - Español
+Australia - English
+Belgique - Français
+Bolivia - Español
+Brasil - Português
+Canada - English
+Canada - Français
+Chile - Español
+Colombia - Español
+Costa Rica - Español
+Crna Gora - Srpski
+Cyprus - English
+Deutschland - Deutsch
+Ecuador - Español
+Egypt - English
+El Salvador - Español
+España - Español
+France - Français
+Guatemala - Español
+Gulf - English
+Honduras - Español
+Hong Kong SAR - English
+India - English
+Indonesia - Bahasa Indonesia
+Ireland - English
+Italia - Italiano
+Jordan - English
+Lebanon - English
+Magyarország - Magyar
+Malaysia - English
+Malta - English
+México - Español
+Morocco - Français
+New Zealand - English
+Nicaragua - Español
+Nigeria - English
+Österreich - Deutsch
+Pakistan - English
+Panamá - Español
+Paraguay - Español
+Perú - Español
+Philippines - English
+Polska - Polski
+Portugal - Português
+Puerto Rico - Español
+República Dominicana - Español
+Republica Moldova - Română
+România - Română
+Saudi Arabia - English
+Schweiz - Deutsch
+Singapore - English
+South Africa - English
+Srbija - Srpski
+Sri Lanka - English
+Suisse - Français
+Tunisia - Français
+Türkiye - Türkçe
+United Kingdom - English
+United States - English
+Uruguay - Español
+Venezuela - Español
+Việt Nam - Tiếng việt
+Ελλάδα - Ελληνικά
+Беларусь - Беларуская
+България - Български
+Казахстан - Русский
+Россия - Русский
+Україна - Українська
+ישראל - עברית
+العراق - العربية
+المملكة العربية السعودية - العربية
+ليبيا - العربية
+مصر - العربية
+دول الخليج - العربية
+ไทย - ไทย
+대한민국 - 한국어
+中国 - 简体中文
+台灣 - 繁體中文
+日本 - 日本 to customize {% data variables.product.prodname_copilot %}'s development environment with additional tools."
+versions: is comeblacktome
+  feature: code-search-upgrade rooms
+topics🪓
   - Copilot
 type: how_to
 redirect_from:
