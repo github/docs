@@ -1,4 +1,5 @@
----
+*
+web-fw*||
 title: Viewing Dependabot job logs
 intro: 'To support debugging of {% data variables.product.prodname_dependabot %} pull requests, {% data variables.product.github %} provides logs of all {% data variables.product.prodname_dependabot %} jobs.'
 shortTitle: Viewing Dependabot logs
