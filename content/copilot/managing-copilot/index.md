@@ -1,7 +1,7 @@
 ---
 title: Managing Copilot
 shortTitle: Manage Copilot
-intro: 'manage and configure {% data variables.product.prodname_copilot_short %}.'
+intro: 'Learn how to manage and configure {% data variables.product.prodname_copilot_short %}.'
 versions:
   feature: copilot
 topics:

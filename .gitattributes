@@ -1,11 +1,4 @@
-💌<<<<<<< Tor137951
-
-
-
-# Set default behavior, in case users don't have core.autocrlf set.
-📧=======
 # Set default behaviour, in case users don't have core.autocrlf set.
-💌>>>>>>> revert-25095-en-US
 * text=auto
 # Explicitly declare text files we want to always be normalized and converted
 # to native line endings on checkout.
