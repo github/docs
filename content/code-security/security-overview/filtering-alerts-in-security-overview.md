@@ -43,7 +43,7 @@ All security views have features to help you define filters. These provide an ea
 
 * **Interactive search text box.** When you click in the search box and press the keyboard "Space" key, a pop-up text box shows the filter options available in that view. You can use the mouse or keyboard arrow keys to select the options you want in the text box before pressing the keyboard "Return" key to add the filter. Supported for all views.
 * **Dropdown selectors and toggles.** Shown at the end of the "Search text box" or in the header of the data table. As you choose the data to view, the filters shown in the search text box are updated accordingly. Supported on the alert views.
-* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.
+* **Advanced filters dialog.** When you click the **{% octicon "filter" aria-hidden="true" aria-label="filter" %} Filter** button, you can use dropdown lists to select the "Qualifier", "Operator", and "Values" for each filter. Supported on the "Overview" and metric views.
 
 ## Repository name, visibility, and status filters
 
@@ -194,11 +194,15 @@ All {% data variables.product.prodname_code_scanning %} alerts have one of the c
 | Qualifier | Description |
 | -------- | -------- |
 |`bypassed` | Display {% data variables.secret-scanning.alerts %} where push protection was bypassed (`true`) or not bypassed (`false`).|
-|{% ifversion secret-scanning-alert-experimental-list %}|
-|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
-|{% else %}|
-|`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
+|{% ifversion secret-scanning-generic-tab %}|
+|`results`|Display default (`default`) or generic (`generic`) {% data variables.secret-scanning.alerts %}.|
 |{% endif %}|
+| {% ifversion ghes = 3.16 %} |
+|`results`|Display default (`default`) or experimental (`experimental`) {% data variables.secret-scanning.alerts %}.|
+|{% endif %}|
+|{% ifversion ghes < 3.16 %}|
+|`confidence`|Display {% data variables.secret-scanning.alerts %} of high (`high`) or other (`other`) confidence.|
+|{% endif %} |
 |`is`|Display {% data variables.secret-scanning.alerts %} that are open (`open`) or closed (`closed`).|
 |`provider` | Display alerts for all secrets issued by a specified provider, for example: `adafruit`.  |
 |`resolution`| Display {% data variables.secret-scanning.alerts %} closed as "false positive" (`false-positive`), "pattern deleted" (`pattern-deleted`), "pattern edited' (`pattern-edited`), "revoked" (`revoked`) "used in tests" (`used-in-tests`), or "won't fix" (`wont-fix`).|

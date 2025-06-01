@@ -18,9 +18,9 @@ In this guide, you’ll learn how to set up {% data variables.product.prodname_c
 
 This guide assumes that you'll use {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_vscode_shortname %}. To get set up, see [Set up Copilot in {% data variables.product.prodname_vscode_shortname %}](https://code.visualstudio.com/docs/copilot/setup-simplified) in the {% data variables.product.prodname_vscode %} documentation.
 
-## Step 1: Disable code completions
+## Step 1: Disable code completion
 
-First, let's disable code completions. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
+First, let's disable code completion. This will give you the opportunity to deepen your understanding of programming concepts by writing more code yourself.
 
 1. In {% data variables.product.prodname_vscode_shortname %}, open your project.
 1. Create a folder in the root directory called `.vscode`.
@@ -35,7 +35,7 @@ First, let's disable code completions. This will give you the opportunity to dee
    }
    ```
 
-1. Save the file. {% data variables.product.prodname_copilot_short %} code completions are now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
+1. Save the file. {% data variables.product.prodname_copilot_short %} code completion is now disabled for this project in {% data variables.product.prodname_vscode_shortname %}.
 
 ## Step 2: Add learning instructions
 
@@ -49,8 +49,8 @@ Now, let's provide {% data variables.product.prodname_copilot_chat_short %} with
 
    Do not provide code snippets, even if I ask you for implementation advice in my prompts. Teach me all the basic coding concepts in your answers. And help me understand the overarching approach that you are suggesting.
 
-   Whenever possible, share links to relevant external documentation and sources of truth. 
-   
+   Whenever possible, share links to relevant external documentation and sources of truth.
+
    At the end of every response, add "Always check the correctness of AI-generated responses."
    ```
 
@@ -63,7 +63,7 @@ You're ready to start building real coding skills with {% data variables.product
 Throughout your work on the project, engage in a long-running conversation with **{% data variables.product.prodname_copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
 
 <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
-<span>Open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 %}
+<span>Open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
 </a><br></br>
 
 {% data variables.product.prodname_copilot_chat_short %} is especially helpful for debugging your code. For step-by-step guidance, see [AUTOTITLE](/get-started/learning-to-code/learning-to-debug-with-github-copilot).

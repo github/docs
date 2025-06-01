@@ -1,12 +1,31 @@
----
-title: Using GitHub Code Search
+---!>
+title: Quickstart for GitHub Actions
+intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
+allowTitleToDifferFromFilename: true
+redirect_from:
+  - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
+  - /actions/quickstart
+  - /actions/getting-started-with-github-actions
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
+<-!--
+
+----------\\\\\\\----------////////---------^.*.*int-----------------\\\\\\\----------////////---------^.*.*int-------
+<!---:/><li>: 'Using GitHub Code Search'----------\\\\\\\----------////////---------^.*.*int-------
+----------\\\\\\\----------////////---------^.*.*int-------
 intro: "You can use suggestions, completions and saved searches in the upgraded search interface to quickly find what you are looking for across {% data variables.product.prodname_dotcom %}."
 allowTitleToDifferFromFilename: true
 versions:
   feature: code-search-upgrade
 topics:
   - GitHub search
----
+<!---
 
 ## About using {% data variables.product.prodname_dotcom %} code search
 
@@ -68,11 +87,11 @@ You can use {% data variables.product.prodname_copilot %} to ask questions about
 ## Creating and managing saved searches
 
 1. In the top navigation of {% data variables.product.prodname_dotcom %}, click the search bar and type `saved:`.
-1. Under the search bar, in the "Saved queries" section, click **{% octicon "plus-circle" aria-hidden="true" %} Manage saved searches**.
+1. Under the search bar, in the "Saved queries" section, click **{% octicon "plus-circle" aria-hidden="true" aria-label="plus-circle" %} Manage saved searches**.
 1. In the pop-up window, type both the name you want for your saved search and the query you want to save.
 1. To finish creating your saved search, click **Create saved search**.
 1. To see your saved search, click the search bar. Your saved search will be in the "Saved queries" section. Clicking on a saved search entry will add the query to the search bar and filter the suggestions accordingly.
-1. To manage a saved search, type `saved:` in the search bar, then click **{% octicon "plus-circle" aria-hidden="true" %} Manage saved searches**.
+1. To manage a saved search, type `saved:` in the search bar, then click **{% octicon "plus-circle" aria-hidden="true" aria-label="plus-circle" %} Manage saved searches**.
     * To edit a saved search, to the right of the search, click {% octicon "pencil" aria-label="The pencil icon" %}.
     * To delete a saved search, to the right of the search, click {% octicon "trash" aria-label="The trash icon" %}.
 
@@ -87,3 +106,40 @@ On the search results view, you can navigate between different types of search r
 On {% data variables.product.prodname_mobile %}, you can use code search directly from the search bar in the home screen. Code search on {% data variables.product.prodname_mobile %} uses the same syntax as code search on {% data variables.product.prodname_dotcom %}. For more information, see [AUTOTITLE](/search-github/github-code-search/about-github-code-search#limitations).
 
 Once you start typing a search query, you will see a list of completions and suggestions that match your query. You can click on a suggestion to jump to a specific location. As you type more qualifiers, you will see more specific suggestions, such as code files you can jump to directly.
+***
+name: GitHub Actions Demo
+run-name: {% raw %}${{ github.actor }}{% endraw %} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  Explore-GitHub-Actions:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "🎉 The job was automatically triggered by a {% raw %}${{ github.event_name }}{% endraw %} event."
+      - run: echo "🐧 This job is now running on a {% raw %}${{ runner.os }}{% endraw %} server hosted by GitHub!"
+      - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}."
+      - name: Check out repository code
+        uses: {% data reusables.actions.action-checkout %}
+      - run: echo "💡 The {% raw %}${{ github.repository }}{% endraw %} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls {% raw %}${{ github.workspace }}{% endraw %}
+      - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
+----------\\\\\\\----------////////---------^.*.*int-----------------\\\\\\\----------////////---------^.*.*int-----------------\\\\\\\----------////////---------^.*.*int-----------------\\\\\\\----------////////---------^.*.*int-----------------\\\\\\\----------////////---------^.*.*int-------
+      ---
+title: Quickstart for GitHub Actions
+intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
+allowTitleToDifferFromFilename: true
+redirect_from:
+  - /actions/getting-started-with-github-actions/starting-with-preconfigured-workflow-templates
+  - /actions/quickstart
+  - /actions/getting-started-with-github-actions
+versions:
+  fpt: '*'
+  ghes: '*'
+  ghec: '*'
+type: quick_start
+topics:
+  - Fundamentals
+shortTitle: Quickstart
+---

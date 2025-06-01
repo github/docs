@@ -53,7 +53,7 @@ You{% ifversion custom-org-roles %}, and any users with the "Edit custom propert
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.access-custom-properties %}
 1. Click the "Set values" tab.
-1. Select one or more repositories from the list and click **{% octicon "pencil" aria-hidden="true" %} Edit properties**.
+1. Select one or more repositories from the list and click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit properties**.
 
     ![Screenshot the page to set values for repositories. A button, labeled with a pencil icon and "Edit properties", is highlighted with an orange outline.](/assets/images/help/repository/edit-properties.png)
 
@@ -68,7 +68,7 @@ People with read permissions to a repository can view the values of custom prope
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}
-1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" %} Custom properties**.
+1. In the "Code and automation" section of the sidebar, click **{% octicon "tools" aria-hidden="true" aria-label="tools" %} Custom properties**.
 
 {% ifversion ghec or fpt or ghes > 3.14 %}
 
@@ -78,7 +78,7 @@ You can search for repositories in your organization by custom properties values
 
 {% data reusables.profile.access_org %}
 {% data reusables.user-settings.access_org %}
-1. Under your organization name, click **{% octicon "repo" aria-hidden="true" %} Repositories**.
+1. Under your organization name, click **{% octicon "repo" aria-hidden="true" aria-label="repo" %} Repositories**.
 1. In the search bar, type `prop` to see a list of all custom properties in your organization, and select the property you'd like to search by.
 
 {% endif %}

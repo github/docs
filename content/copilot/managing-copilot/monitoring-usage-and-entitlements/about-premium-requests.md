@@ -32,10 +32,13 @@ Some {% data variables.product.prodname_copilot_short %} features use more advan
 
 The following {% data variables.product.prodname_copilot_short %} features can use premium requests:
 
-* {% data variables.product.prodname_copilot_chat_short %}
-* {% data variables.product.prodname_copilot_agent_short %} mode
-* {% data variables.product.prodname_copilot_short %} code review
-* {% data variables.product.prodname_copilot_extensions_short %}
+* [{% data variables.product.prodname_copilot_chat_short %}](/copilot/using-github-copilot/copilot-chat)
+* [{% data variables.copilot.copilot_coding_agent %}](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot) [^1]
+* [{% data variables.product.prodname_copilot_agent_short %} mode](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide#copilot-edits)
+* [{% data variables.product.prodname_copilot_short %} code review](/copilot/using-github-copilot/code-review/using-copilot-code-review)
+* [{% data variables.product.prodname_copilot_extensions_short %}](/copilot/building-copilot-extensions/about-building-copilot-extensions)
+
+[^1]: {% data variables.copilot.copilot_coding_agent %} uses a fixed multiplier of 1 for the premium requests it uses, and may use multiple premium requests in response to one user prompt.
 
 ### Model multipliers
 
@@ -43,21 +46,23 @@ Each model has a premium request multiplier, based on its complexity and resourc
 
 | Model                                                                   | Premium requests                                                             |
 |-------------------------------------------------------------------------|------------------------------------------------------------------------------|
-| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^1] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
-| Premium {% data variables.copilot.copilot_gpt_41 %}                             | 1                                                                            |
+| Base model (currently {% data variables.copilot.copilot_gpt_41 %}) [^2] | 0 (paid users), 1 ({% data variables.product.prodname_copilot_free_short %}) |
+| Premium {% data variables.copilot.copilot_gpt_41 %}                     | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_4o %}                             | 1                                                                            |
 | {% data variables.copilot.copilot_gpt_45 %}                             | 50                                                                           |
 | {% data variables.copilot.copilot_claude_sonnet_35 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %}                   | 1                                                                            |
 | {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking          | 1.25                                                                         |
+| {% data variables.copilot.copilot_claude_sonnet_40 %}                   | 1                                                                            |
+| {% data variables.copilot.copilot_claude_opus %}                        | 10                                                                           |
 | {% data variables.copilot.copilot_gemini_flash %}                       | 0.25                                                                         |
 | {% data variables.copilot.copilot_gemini_25_pro %}                      | 1                                                                            |
 | {% data variables.copilot.copilot_o1 %}                                 | 10                                                                           |
-| {% data variables.copilot.copilot_o3 %}                            | 5                                                                         |
+| {% data variables.copilot.copilot_o3 %}                                 | 5                                                                            |
 | {% data variables.copilot.copilot_o3_mini %}                            | 0.33                                                                         |
 | {% data variables.copilot.copilot_o4_mini %}                            | 0.33                                                                         |
 
-[^1]: The base model at the time of writing is powered by {% data variables.copilot.copilot_gpt_41 %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
+[^2]: The base model at the time of writing is powered by {% data variables.copilot.copilot_gpt_41 %}. This is subject to change. Response times for the base model may vary during periods of high usage. Requests to the base model may be subject to rate limiting.
 
 ## Additional premium requests
 
@@ -66,6 +71,8 @@ Each model has a premium request multiplier, based on its complexity and resourc
 >
 > * Users on {% data variables.product.prodname_copilot_free_short %}. To access more premium requests, upgrade to a paid plan.
 > * Users who subscribe, or have subscribed, to {% data variables.product.prodname_copilot_pro_short %} or {% data variables.product.prodname_copilot_pro_plus_short %} through {% data variables.product.prodname_mobile %} on iOS or Android.
+>
+> <!-- expires 2025-06-04 -->Budget setting for premium requests will be available starting **June 4, 2025**.<!-- end expires 2025-06-04 -->
 
 If you use all of your premium requests, you can still use {% data variables.product.prodname_copilot_short %} with the base model for the rest of the month. If you need more premium requests, you can upgrade to a higher plan or set a spending limit for premium requests over your plan's allowance. Premium requests over the allowance are rejected unless you have set a budget. See [AUTOTITLE](/billing/managing-your-billing/preventing-overspending).
 

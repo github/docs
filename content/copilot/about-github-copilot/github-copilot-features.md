@@ -24,6 +24,10 @@ If you use {% data variables.product.prodname_vscode_shortname %}, you can also 
 
 A chat interface that lets you ask coding-related questions. {% data variables.product.prodname_copilot_chat %} is available on the {% data variables.product.github %} website, in {% data variables.product.prodname_mobile %}, in supported IDEs _({% data variables.product.prodname_vscode %}, {% data variables.product.prodname_vs %}, JetBrains IDEs, Eclipse IDE, and Xcode)_, and in {% data variables.product.prodname_windows_terminal %}. Users can also use skills with {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-github) and [AUTOTITLE](/copilot/using-github-copilot/asking-github-copilot-questions-in-your-ide).
 
+### {% data variables.copilot.copilot_coding_agent %} ({% data variables.release-phases.public_preview %})
+
+An autonomous AI agent that can make code changes for you. You can assign a {% data variables.product.github %} issue to {% data variables.product.prodname_copilot_short %} and the agent will work on making the required changes, and will create a pull request for you to review. You can also ask {% data variables.product.prodname_copilot_short %} to create a pull request from {% data variables.product.prodname_copilot_chat_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent).
+
 ### {% data variables.product.prodname_copilot_cli_short %}
 
 A chat-like interface in the terminal, where you can ask questions about the command line. You can ask {% data variables.product.prodname_copilot_short %} to provide command suggestions or explanations of commands. Users can also integrate {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_windows_terminal %} Canary. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-in-the-command-line).
@@ -63,6 +67,10 @@ Enhance {% data variables.product.prodname_copilot_chat_short %} responses by pr
 ### {% data variables.product.prodname_copilot_desktop_short %} ({% data variables.release-phases.public_preview %})
 
 Automatically generate commit messages and descriptions with {% data variables.product.prodname_copilot_desktop_short %} based on the changes you make to your project.
+
+### {% data variables.product.prodname_copilot_spaces %} ({% data variables.release-phases.public_preview %})
+
+Organize and centralize relevant content—like code, docs, specs, and more—into {% data variables.product.prodname_copilot_spaces_short %} that ground {% data variables.product.prodname_copilot_short %}’s responses in the right context for a specific task. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
 
 ### {% data variables.product.prodname_copilot_short %} knowledge bases _({% data variables.product.prodname_copilot_enterprise_short %} only)_
 

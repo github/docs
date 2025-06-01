@@ -37,7 +37,7 @@ You must remove, transfer, or delete all organizations in the enterprise before 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.settings-tab %}
 1. If you are not trialing {% data variables.product.prodname_ghe_cloud %}, delete your enterprise account:
-   1. Under **{% octicon "gear" aria-hidden="true" %} Settings**, click **Profile**.
+   1. Under **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Settings**, click **Profile**.
    1. In the "Danger Zone" section, click **Delete this enterprise**.
    1. In the text box, type the enterprise slug to confirm the deletion, then click **Delete this enterprise**.
 1. If you are trialing {% data variables.product.prodname_ghe_cloud %}, cancel your trial, or delete the expired trial:

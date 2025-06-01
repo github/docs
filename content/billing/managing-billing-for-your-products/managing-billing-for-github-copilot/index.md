@@ -10,4 +10,3 @@ children:
   - /about-billing-for-github-copilot
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}

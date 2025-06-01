@@ -23,13 +23,18 @@ allowTitleToDifferFromFilename: true
 To help you triage alerts more effectively, {% data variables.product.company_short %} separates alerts into two lists:
 
 {% ifversion secret-scanning-alert-experimental-list %}
-* **Default** alerts
-* **Experimental** alerts
+* **Default** alerts{% ifversion secret-scanning-generic-tab %}
+* **Generic** alerts{% elsif ghes = 3.16 %}
+* **Experimental** alerts{% endif %}
+
+{% ifversion ghes = 3.16 %}
 
 {% ifversion secret-scanning-alert-experimental-list-toggle %}
 ![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The button to toggle between "Default" and "Experimental" alerts is highlighted with an orange outline.](/assets/images/enterprise/3.16/help/security/secret-scanning-default-alert-view.png)
 {% else %}
 ![Screenshot of the {% data variables.product.prodname_secret_scanning %} alert view. The sidebar menu items for "Default" and "Experimental" alerts are highlighted with an orange outline.](/assets/images/help/security/secret-scanning-default-alert-view.png)
+{% endif %}
+
 {% endif %}
 
 {% else %}
@@ -46,9 +51,9 @@ To help you triage alerts more effectively, {% data variables.product.company_sh
 
 The default alerts list displays alerts that relate to supported patterns and specified custom patterns. This is the main view for alerts.
 
-### Experimental alerts list
+### {% ifversion secret-scanning-generic-tab %}Generic{% elsif ghes = 3.16 %}Experimental{% endif %} alerts list
 
-The experimental alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the experimental alerts list from the default alerts list.
+The {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list displays alerts that relate to non-provider patterns (such as private keys){% ifversion secret-scanning-ai-generic-secret-detection %}, or generic secrets detected using AI (such as passwords){% endif %}. These types of alerts can have a higher rate of false positives or secrets used in tests. You can toggle to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list from the default alerts list.
 
 {% else %}
 
@@ -71,7 +76,7 @@ For {% data variables.product.company_short %} to scan for non-provider patterns
 
 {% ifversion secret-scanning-alert-experimental-list %}
 
-{% data variables.product.github %} will continue to release new patterns and secret types to the experimental alerts list and will promote them to the default list when feature-complete (e.g. when they have an appropriately low volume and false positive rate).
+{% data variables.product.github %} will continue to release new patterns and secret types to the {% ifversion secret-scanning-generic-tab %}generic{% elsif ghes = 3.16 %}experimental{% endif %} alerts list and will promote them to the default list when feature-complete (e.g. when they have an appropriately low volume and false positive rate).
 
 {% endif %}
 
@@ -82,7 +87,7 @@ Alerts for {% data variables.product.prodname_secret_scanning %} are displayed u
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-security %}
 1. In the left sidebar, under "Vulnerability alerts", click **{% data variables.product.prodname_secret_scanning_caps %}**.
-1. Optionally, toggle to {% ifversion secret-scanning-alert-experimental-list %}"Experimental"{% else %}"Other"{% endif %} to see alerts for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or generic secrets detected using AI{% endif %}.
+1. Optionally, toggle to {% ifversion secret-scanning-generic-tab %}"Generic"{% elsif ghes = 3.16 %}"Experimental"{% else %}"Other"{% endif %} to see alerts for non-provider patterns{% ifversion secret-scanning-ai-generic-secret-detection %} or generic secrets detected using AI{% endif %}.
 1. Under "{% data variables.product.prodname_secret_scanning_caps %}", click the alert you want to view.
    {% ifversion secret-scanning-user-owned-repos %}
 
@@ -110,7 +115,9 @@ You can apply various filters to the alerts list to help you find the alerts you
 |`secret-type:SECRET-NAME`| Displays alerts for a specific secret type, for example, `secret-type:github_personal_access_token`. For a list of supported secret types, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secret). |
 |`provider:PROVIDER-NAME`|Displays alerts for a specific provider, for example, `provider:github`. For a list of supported partners, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#supported-secrets).|
 |{% ifversion secret-scanning-alert-experimental-list %}`results:default`{% else %}`confidence:high`{% endif %}| Displays alerts for {% ifversion secret-scanning-alert-experimental-list %}{% else %}high-confidence secrets, which relate to {% endif %}supported secrets and custom patterns. For a list of supported patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns). |
-|{% ifversion secret-scanning-alert-experimental-list %}`results:experimental`{% else %}`confidence:other`{% endif %}| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns). {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}|
+|{% ifversion secret-scanning-generic-tab %}`results:generic`| Displays alerts for non-provider patterns, such as private keys{% ifversion secret-scanning-ai-generic-secret-detection %}, and AI-detected generic secrets, such as passwords{% endif %}. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns). {% ifversion secret-scanning-ai-generic-secret-detection %}For more information about AI-detected generic secrets, see [AUTOTITLE](/code-security/secret-scanning/copilot-secret-scanning/responsible-ai-generic-secrets).{% endif %}{% endif %}|
+|{% ifversion ghes = 3.16 %}`results:experimental`| Displays alerts for non-provider patterns, such as private keys. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns).{% endif %}|
+|{% ifversion ghes < 3.16 %}`confidence:other`| Displays alerts for non-provider patterns, such as private keys. For a list of supported non-provider patterns, see [AUTOTITLE](/code-security/secret-scanning/introduction/supported-secret-scanning-patterns#non-provider-patterns).{% endif %}|
 
 ## Next steps
 

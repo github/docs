@@ -8,9 +8,12 @@ redirect_from:
   - /billing/using-the-billing-platform/adding-or-editing-a-payment-method
   - /billing/using-the-billing-platform/viewing-your-payment-history-and-receipts
   - /billing/using-the-billing-platform/adding-information-to-your-receipts
-  - /billing/using-the-billing-platform/adding-a-sales-tax-certificate
   - /billing/using-the-billing-platform/setting-your-billing-email
   - /billing/using-the-new-billing-platform/managing-your-payment-and-billing-information
+  - /billing/managing-your-github-billing-settings/adding-or-editing-a-payment-method
+  - /billing/managing-your-github-billing-settings/adding-information-to-your-receipts
+  - /billing/managing-your-github-billing-settings/setting-your-billing-email
+  - /billing/managing-your-github-billing-settings/viewing-your-payment-history-and-receipts
 type: how_to
 topics:
   - Enterprise
@@ -80,14 +83,14 @@ You can view and edit your billing information and update your payment method.
 
 1. In the upper-right corner of any page on {% data variables.product.prodname_dotcom %}, select your profile photo.
 
-   * For **personal accounts**, click **Settings**, then in the **Access** section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
-   * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" %} Billing & Licensing**.
+   * For **personal accounts**, click **Settings**, then in the **Access** section of the sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
+   * For **organizations**, click **Your organizations**, then next to the organization, click **Settings**. In the organization sidebar, click **{% octicon "credit-card" aria-hidden="true" aria-label="credit-card" %} Billing & Licensing**.
 
 {% elsif ghec %}
 
 You can view and edit your billing information, update your payment method, and view active coupons.
 
->[!NOTE] This only applies to invoiced enterprise accounts.
+>[!NOTE] This does not apply to invoiced enterprise accounts.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.billing.enterprise-billing-menu %}
@@ -102,18 +105,26 @@ You can view and edit your billing information, update your payment method, and 
 
 You can view your payment history, including the date, amount, and payment method. You can also download past payments.
 
-1. Display the **Billing & Licensing** section of the sidebar of the {% data variables.enterprise.enterprise_or_org %} settings.
+1. Display the **Billing and Licensing** {% ifversion fpt %}section of the sidebar of the organization settings{% else %}page for the enterprise{% endif %}.
 1. Click **Payment history**.
-
-{% ifversion ghec %}
 
 ## Managing billing contacts
 
 You can add an email address to receive billing notifications regarding payments and budget threshold alerts.
 
-1. Display the **Billing & Licensing** section of the sidebar of the enterprise settings.
+{% ifversion fpt %}
+
+1. Display the **Billing and Licensing** section of the sidebar of the organization settings.
+1. Click **Additional billing details**.
+1. In the table of "Email recipients":
+   * Click **Add** and follow the prompt to add a new billing contact.
+   * Use the **Edit** drop-down for a contact to either remove the contact or make that contact the primary billing contact.
+
+{% else %}
+
+1. Display the **Billing and Licensing** page for the enterprise.
 1. Click **Billing contacts**.
 1. Click **Add** in the upper-right corner and follow the prompt.
-1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove or make a contact the primary billing contact.
+1. Click {% octicon "pencil" aria-label="The edit icon" %} to edit the primary billing contact or {% octicon "kebab-horizontal" aria-label="Show options" %} to either remove a contact or make a contact the primary billing contact.
 
 {% endif %}

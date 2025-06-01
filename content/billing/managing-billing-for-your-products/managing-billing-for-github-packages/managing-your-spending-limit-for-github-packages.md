@@ -19,8 +19,6 @@ topics:
 shortTitle: Your spending limit
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About spending limits for {% data variables.product.prodname_registry %}
 
 {% data reusables.package_registry.packages-billing %}

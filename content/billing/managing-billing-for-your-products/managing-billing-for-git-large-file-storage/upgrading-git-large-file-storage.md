@@ -20,8 +20,6 @@ topics:
 shortTitle: Upgrade Git LFS storage
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## Purchasing additional storage and bandwidth for a personal account
 
 {% data reusables.user-settings.access_settings %}

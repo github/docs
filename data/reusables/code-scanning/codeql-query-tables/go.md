@@ -30,7 +30,6 @@
 | [Use of insecure HostKeyCallback implementation](https://codeql.github.com/codeql-query-help/go/go-insecure-hostkeycallback/) | 322 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Use of insufficient randomness as the key of a cryptographic algorithm](https://codeql.github.com/codeql-query-help/go/go-insecure-randomness/) | 338 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [XPath injection](https://codeql.github.com/codeql-query-help/go/go-xml-xpath-injection/) | 643 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/go/go-hardcoded-credentials/) | 259, 321, 798 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Log entries created from user input](https://codeql.github.com/codeql-query-help/go/go-log-injection/) | 117 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 
 {% endrowheaders %}

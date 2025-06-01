@@ -33,7 +33,7 @@ Before you install any {% data variables.product.prodname_copilot_extensions_sho
 ## Installing {% data variables.product.prodname_copilot_extensions %} for your organization
 
 1. Open [{% data variables.product.prodname_marketplace %}](https://github.com/marketplace?type=apps&copilot_app=true).
-1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" %} {% data variables.product.prodname_copilot_short %}**.
+1. In the left sidebar, click **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %} {% data variables.product.prodname_copilot_short %}**.
 1. In the list of {% data variables.product.prodname_copilot_extensions_short %}, locate an app you'd like to install.
 1. To install the {% data variables.product.prodname_copilot_extension_short %} on an organization with a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan, see [AUTOTITLE](/apps/using-github-apps/installing-a-github-app-from-github-marketplace-for-your-organizations).
 {% data reusables.copilot.copilot-extensions.extension-specific-onboarding-steps %}
@@ -43,3 +43,8 @@ Before you install any {% data variables.product.prodname_copilot_extensions_sho
 After installing a {% data variables.product.prodname_copilot_extension_short %} for your organization, developers in your organization can start using the extension. See [AUTOTITLE](/copilot/github-copilot-chat/github-copilot-extensions/using-github-copilot-extensions).
 
 You can also manage the permissions of installed {% data variables.product.prodname_copilot_extensions_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#managing-permissions-for-a-github-copilot-extension-in-your-organization).
+
+## Further reading
+
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp)
+* [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp)

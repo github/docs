@@ -1,7 +1,7 @@
 ---
 title: Adding repository custom instructions for GitHub Copilot
 shortTitle: Repository custom instructions
-intro: 'Create a file in a repository that automatically adds information to questions you ask {% data variables.product.prodname_copilot_chat_short %}.'
+intro: 'Create a file in a repository that gives {% data variables.product.prodname_copilot_short %} additional context for the work it does in that repository.'
 redirect_from:
    - /copilot/customizing-copilot/adding-custom-instructions-for-github-copilot
 versions:
@@ -15,15 +15,17 @@ topics:
 
 > This feature is currently in {% data variables.release-phases.public_preview %} and is subject to change.
 >
-{% data reusables.copilot.repository-custom-instructions-note %}
+{% data reusables.copilot.repository-custom-instructions-note %} They are also supported for {% data variables.copilot.copilot_coding_agent %}.
 >
 > This version of this article is for using repository custom instructions on the {% data variables.product.github %} website. Click the tabs above for information on using custom instructions in other environments. <!-- markdownlint-disable-line MD027 -->
 
-For an overview of the methods you can use to customize {% data variables.product.prodname_copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui).
+For an overview of the methods you can use to customize {% data variables.product.prodname_copilot_chat %} responses, see [AUTOTITLE](/copilot/customizing-copilot/about-customizing-github-copilot-chat-responses?tool=webui). For information on customizing {% data variables.copilot.copilot_coding_agent %} see [AUTOTITLE](/copilot/customizing-copilot/customizing-the-development-environment-for-copilot-coding-agent).
 
-## About repository custom instructions for {% data variables.product.prodname_copilot_chat %}
+## About repository custom instructions for {% data variables.product.prodname_copilot_short %}
 
 {% data variables.product.prodname_copilot %} can provide chat responses that are tailored to the way your team works, the tools you use, or the specifics of your project, if you provide it with enough context to do so. Instead of repeatedly adding this contextual detail to your chat questions, you can create a file in your repository that automatically adds this information for you. The additional information is not displayed in the chat, but is available to {% data variables.product.prodname_copilot_short %} to allow it to generate higher quality responses.
+
+The custom instructions file is also used by {% data variables.product.prodname_copilot_short %} when you assign it to an issue or ask it to create a pull request. Instructions included in this file can help {% data variables.product.prodname_copilot_short %} to work on files in a way that matches your team's working practices and conforms to coding standards for your project. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 ### Example
 
@@ -271,7 +273,7 @@ To enable prompt files, configure the workspace settings.
 
 ### Using prompt files
 
-1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} view, click the **Attach context** icon ({% octicon "paperclip" aria-hidden="true" %}).
+1. At the bottom of the {% data variables.product.prodname_copilot_chat_short %} view, click the **Attach context** icon ({% octicon "paperclip" aria-hidden="true" aria-label="paperclip" %}).
 1. In the dropdown menu, click **Prompt...** and choose the prompt file you want to use.
 1. Optionally, attach additional files, including prompt files, to provide more context.
 1. Optionally, type additional information in the chat prompt box.

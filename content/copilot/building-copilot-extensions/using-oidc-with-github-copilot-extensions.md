@@ -7,7 +7,7 @@ versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Using OIDC
+shortTitle: Use OIDC
 type: how_to
 redirect_from:
   - /copilot/building-copilot-extensions/using-oidc-with-copilot-extensions
@@ -103,7 +103,7 @@ This endpoint should:
   ```json
   {
     "access_token": <"your-service-token">,
-    "Issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
+    "issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
     "token_type": "Bearer",
     "expires_in": 3600
   }

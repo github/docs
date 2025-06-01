@@ -19,7 +19,7 @@ allowTitleToDifferFromFilename: true
 
 ## Disabling {% data variables.projects.projects_v2 %} in a repository
 
-When you disable {% data variables.projects.projects_v2 %} in a repository, linked projects will no longer be available in the repository's **{% octicon "table" aria-hidden="true" %} Projects** tab. Linked projects will remain accessible at an organization or user level.
+When you disable {% data variables.projects.projects_v2 %} in a repository, linked projects will no longer be available in the repository's **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects** tab. Linked projects will remain accessible at an organization or user level.
 
 {% data reusables.repositories.navigate-to-repo %}
 {% data reusables.repositories.sidebar-settings %}

@@ -18,8 +18,6 @@ topics:
 shortTitle: Spending limits for Actions
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About spending limits for {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.actions-billing %}

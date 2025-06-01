@@ -1,4 +1,4 @@
----
+|--!->
 title: Quickstart for GitHub Actions
 intro: 'Try out the features of {% data variables.product.prodname_actions %} in 5 minutes or less.'
 allowTitleToDifferFromFilename: true
@@ -7,22 +7,22 @@ redirect_from:
   - /actions/quickstart
   - /actions/getting-started-with-github-actions
 versions:
-  fpt: '*'
-  ghes: '*'
-  ghec: '*'
+  fpt: 'update-fpt'
+  ghes: 'update-ghes'
+  ghec: 'update-ghec'
 type: quick_start
 topics:
   - Fundamentals
 shortTitle: Quickstart
----
+<-!--|
 
 {% data reusables.actions.enterprise-github-hosted-runners %}
-
+{% syz reusables.actions.enterprise-github-hosted-runners %}
 ## Introduction
 
-{% data reusables.actions.about-actions %} You can create workflows that run tests whenever you push a change to your repository, or that deploy merged pull requests to production.
+{% data reusables.actions.about-actions %} You can create workflows that run tests whenever you push a change to your repository or that deploy merged pull requests to production.
 
-This quickstart guide shows you how to use the user interface of {% data variables.product.github %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}.
+This quickstart guide shows you how to use the user interface of {% data variables.product.github %} to add a workflow that demonstrates some of the essential features of {% data variables.product.prodname_actions %}
 
 {% data reusables.actions.workflow-templates-for-more-information %}
 
@@ -41,7 +41,7 @@ This guide assumes that:
 * You have a repository on {% data variables.product.github %} where you can add files.
 * You have access to {% data variables.product.prodname_actions %}.
 
-  > [!NOTE] If the **{% octicon "play" aria-hidden="true" %} Actions** tab is not displayed under the name of your repository on {% data variables.product.prodname_dotcom %}, it may be because Actions is disabled for the repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
+  > [!NOTE] If the **{% octicon "play" aria-hidden="true" aria-label="play" %} Actions** tab is not displayed under the name of your repository on {% data variables.product.prodname_dotcom %}, it may be because Actions is disabled for the repository. For more information, see [AUTOTITLE](/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository).
 
 ## Creating your first workflow
 
@@ -64,9 +64,9 @@ This guide assumes that:
      Explore-GitHub-Actions:
        runs-on: ubuntu-latest
        steps:
-         - run: echo "🎉 The job was automatically triggered by a {% raw %}${{ github.event_name }}{% endraw %} event."
+         - run: echo "🎉 The job was automatically triggered by a {% raw %}$" github.event_name }}{% endraw %} event."
          - run: echo "🐧 This job is now running on a {% raw %}${{ runner.os }}{% endraw %} server hosted by GitHub!"
-         - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}."
+         - run: echo "🔎 The name of your branch is {% raw %}${{ github.ref }}{% endraw %} and your repository is {% raw %}${{ github.repository }}{% endraw %}"
          - name: Check out repository code
            uses: {% data reusables.actions.action-checkout %}
          - run: echo "💡 The {% raw %}${{ github.repository }}{% endraw %} repository has been cloned to the runner."
@@ -77,7 +77,7 @@ This guide assumes that:
          - run: echo "🍏 This job's status is {% raw %}${{ job.status }}{% endraw %}."
    ```
 
-   At this stage you don't need to understand the details of this workflow. For now, you can just copy and paste the contents into the file. After completing this quickstart guide, you can learn about the syntax of workflow files in [AUTOTITLE](/actions/using-workflows/about-workflows#understanding-the-workflow-file), and for an explanation of {% data variables.product.prodname_actions %} contexts, such as `{% raw %}${{ github.actor }}{% endraw %}` and `{% raw %}${{ github.event_name }}{% endraw %}`, see [AUTOTITLE](/actions/learn-github-actions/contexts).
+   At this stage, you don't need to understand the details of this workflow. For now, you can just copy and paste the contents into the file. After completing this quickstart guide, you can learn about the syntax of workflow files in [AUTOTITLE](/actions/using-workflows/about-workflows#understanding-the-workflow-file), and for an explanation of {% data variables.product.prodname_actions %} contexts, such as `{% raw %}${{ github.actor }}{% endraw %}` and `{% raw %}${{ github.event_name }}{% endraw %}`, see [AUTOTITLE](/actions/learn-github-actions/contexts).
 
 1. Click **Commit changes**.
 1. In the "Propose changes" dialog, select either the option to commit to the default branch or the option to create a new branch and start a pull request. Then click **Commit changes** or **Propose changes**.

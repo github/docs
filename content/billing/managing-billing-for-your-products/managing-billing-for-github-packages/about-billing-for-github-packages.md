@@ -16,8 +16,6 @@ topics:
 shortTitle: About billing
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About billing for {% data variables.product.prodname_registry %}
 
 {% data reusables.billing.authorization-charge %}

@@ -145,7 +145,7 @@ Each {% data variables.product.prodname_copilot_autofix_short %} suggestion demo
 
     {% data reusables.rai.code-scanning.copilot-workspaces-prs-autofix-note %}
 
-1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" %} dropdown menu on the suggestion.
+1. Optionally, if you prefer to apply the fix on a local repository or branch, select the {% octicon "copy" aria-hidden="true" aria-label="copy" %} dropdown menu on the suggestion.
    * Select **View autofix patch** to display instructions for applying the suggested fix to any local repository or branch.
    * Select **Copy modified line LINE_NUMBER** to copy a specific line of the suggestion.
 1. Test and modify the suggested fix as needed.

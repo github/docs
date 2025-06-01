@@ -350,6 +350,8 @@ prodname_copilot_workspace_pr: 'GitHub Copilot Workspace for pull requests'
 prodname_copilot_workspace_pr_short: 'Copilot Workspace for PRs'
 prodname_copilot_workspace: 'Copilot Workspace'
 prodname_copilot_workspace_short: 'Workspace'
+prodname_copilot_spaces: 'Copilot Spaces'
+prodname_copilot_spaces_short: 'Spaces'
 
 # GHAS licensed features branded as Copilot
 prodname_copilot_autofix: 'GitHub Copilot Autofix'

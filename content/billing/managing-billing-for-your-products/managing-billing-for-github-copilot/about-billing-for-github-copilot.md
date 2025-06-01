@@ -47,6 +47,38 @@ Some migrations cannot be completed through self-service options.
 
 * **Changing between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
 
+## Allowance usage for {% data variables.copilot.copilot_coding_agent %}
+
+{% data reusables.copilot.coding-agent.premium-requests-start-date %}
+
+Within your monthly usage allowance for {% data variables.product.prodname_actions %} and {% data variables.product.prodname_copilot %} premium requests, you can ask {% data variables.product.prodname_copilot_short %} to work on coding tasks without incurring any additional costs.
+
+When {% data variables.product.prodname_copilot_short %} works on coding tasks, {% data variables.copilot.copilot_coding_agent %} uses:
+
+* **{% data variables.product.prodname_actions %} minutes** from your account's monthly allowance of free minutes for {% data variables.product.prodname_dotcom %}-hosted runners.
+
+  This allowance of free minutes is shared with all {% data variables.product.prodname_actions %} workflows in your account.
+
+  For details of the free minutes allowance for your {% data variables.product.github %} plan, see [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions#included-storage-and-minutes).
+
+* **Premium requests** from your account's monthly allowance of premium {% data variables.product.prodname_copilot_short %} requests.
+
+  This allowance of free premium requests is shared with other {% data variables.product.prodname_copilot_short %} features, such as {% data variables.product.prodname_copilot_chat_short %}.
+
+  When you use {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} may make multiple premium requests to complete a single task. This includes both user-initiated prompts and follow-up actions {% data variables.product.prodname_copilot_short %} takes on your behalf. The total premium requests used will depend on the complexity of the task and the number of steps involved. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
+
+For more information about {% data variables.copilot.copilot_coding_agent %}, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+
+### What happens if you have used up your monthly quota?
+
+If you run out of free Actions minutes or free premium requests, and you have set up billing and a spending limit, you will be charged at the normal rates for additional minutes and premium requests. See [AUTOTITLE](/billing/managing-billing-for-github-actions/about-billing-for-github-actions) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/about-premium-requests#additional-premium-requests).
+
+If you run out of free minutes or premium requests, and you have _not_ set up billing, a message is displayed explaining why {% data variables.product.prodname_copilot_short %} cannot work on the task.
+
+### Monitoring your use of Actions minutes and premium requests
+
+You can track your monthly usage of {% data variables.product.prodname_actions %} minutes and premium requests, to help you get the most value from your {% data variables.product.prodname_copilot_short %} plan. See [AUTOTITLE](/enterprise-cloud@latest/billing/managing-billing-for-your-products/managing-billing-for-github-actions/viewing-your-github-actions-usage) and [AUTOTITLE](/enterprise-cloud@latest/copilot/managing-copilot/monitoring-usage-and-entitlements/monitoring-your-copilot-usage-and-entitlements).
+
 ## Further reading
 
 * [AUTOTITLE](/copilot/about-github-copilot/subscription-plans-for-github-copilot)

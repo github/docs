@@ -14,10 +14,11 @@ shortTitle: Manage policies
 
 You can set policies that control the availability of {% data variables.product.prodname_copilot_short %} and its features in your enterprise and organizations.
 
-There are **two enforcement options** for {% data variables.product.prodname_copilot_short %} policies in your enterprise:
+The enforcement options for {% data variables.product.prodname_copilot_short %} policies in your enterprise are:
 
 * **Enabled** - The feature is available in all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
 * **Disabled** - The feature is blocked for all organizations with {% data variables.product.prodname_copilot_short %} enabled in your enterprise.
+* **No policy** - Control of the feature is delegated to organization owners to set.
 
 If a policy is enabled or disabled at the enterprise level, the same policy cannot be changed at the organization level.
 
@@ -36,6 +37,8 @@ You can configure policies for your enterprise. If no policy is chosen at the en
 | [Give {% data variables.product.prodname_copilot_short %} access to Bing](#give-copilot-access-to-bing) | least restrictive |
 | [{% data variables.product.prodname_copilot_short %} access to alternative AI models](#copilot-access-to-alternative-ai-models) | least restrictive |
 | [{% data variables.product.prodname_copilot_short %} Metrics API access](#copilot-metrics-api-access) | most restrictive |
+| [{% data variables.copilot.copilot_coding_agent %}](#copilot-coding-agent) | least restrictive |
+| [MCP servers on {% data variables.product.prodname_dotcom_the_website %}](#mcp-servers-on-githubcom) | least restrictive |
 
 ### {% data variables.product.prodname_copilot_short %} in {% data variables.product.prodname_dotcom_the_website %}
 
@@ -86,13 +89,34 @@ Some features of {% data variables.product.prodname_copilot_short %} are availab
 
 By default, {% data variables.product.prodname_copilot_chat_short %} uses a base model. If you grant access to the alternative models, members of your enterprise can choose to use these models rather than the base model. The available alternative models are:
 
-* **{% data variables.copilot.copilot_claude_sonnet %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot).
+* **{% data variables.copilot.copilot_claude %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-claude-in-github-copilot).
 * **{% data variables.copilot.copilot_gemini %}**. See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-gemini-in-github-copilot).
 * **OpenAI models:** See [AUTOTITLE](/copilot/using-github-copilot/ai-models/using-openai-gpt-41-in-github-copilot).
+
+> [!NOTE]
+> This setting has no impact on the model used by {% data variables.copilot.copilot_coding_agent %}.
 
 ### {% data variables.product.prodname_copilot_short %} Metrics API access
 
 Enable this policy to allow users to use the {% data variables.product.prodname_copilot_short %} Metrics API. See [AUTOTITLE](/rest/copilot/copilot-metrics).
+
+### {% data variables.copilot.copilot_coding_agent %}
+
+{% data reusables.copilot.coding-agent.preview-note %}
+
+{% data variables.copilot.copilot_coding_agent %} is an autonomous, AI-powered software development agent. During the preview, use of the feature is subject to [GitHub Pre-release License Terms](/free-pro-team@latest/site-policy/github-terms/github-pre-release-license-terms). This feature may use models which are not enabled on your "Models" settings page. The cost of a premium request made by {% data variables.copilot.copilot_coding_agent %} is independent of the model it uses.
+
+With a **{% data variables.product.prodname_copilot_enterprise_short %} license**, you can enable "{% data variables.copilot.copilot_coding_agent %}" to allow members of your enterprise to use {% data variables.copilot.copilot_coding_agent %} under the Copilot license you have assigned them. This will allow them to assign work or issues to {% data variables.product.prodname_copilot_short %} in organization repositories where {% data variables.copilot.copilot_coding_agent %} is available and to enable {% data variables.copilot.copilot_coding_agent %} for their personal repositories.
+
+Alternatively, set to "No policy" to leave organization owners to make the decision in their organization settings.
+
+> [!TIP] Enabling your license holders to use {% data variables.copilot.copilot_coding_agent %} is the first step in making {% data variables.copilot.copilot_coding_agent %} available for use in repositories in your organizations. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/adding-copilot-coding-agent-to-organization).
+
+### MCP servers on {% data variables.product.prodname_dotcom_the_website %}
+
+> [!NOTE] Use of MCP servers on {% data variables.product.prodname_dotcom_the_website %} is in public preview and subject to change.
+
+{% data reusables.copilot.coding-agent.mcp-brief-intro %} See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-coding-agent-with-mcp).
 
 ## Configuring policies for {% data variables.product.prodname_copilot %}
 

@@ -88,7 +88,7 @@ You can open a new issue from a specific line or lines of code in a file or pull
 {% data reusables.repositories.navigate-to-repo %}
 1. Locate the code you want to reference in an issue:
     * To open an issue about code in a file, navigate to the file.
-    * To open an issue about code in a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" %} Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
+    * To open an issue about code in a pull request, navigate to the pull request and click **{% octicon "diff" aria-hidden="true" aria-label="diff" %} Files changed**. Then, browse to the file that contains the code you want included in your comment, and click **View**.
 {% data reusables.repositories.choose-line-or-range %}
 1. To the left of the code range, click {% octicon "kebab-horizontal" aria-label="Code line X options" %}. In the dropdown menu, click **Reference in new issue**.
 
@@ -105,7 +105,7 @@ When you create an issue from a discussion, the contents of the discussion post 
 
 {% data reusables.discussions.discussions-tab %}
 {% data reusables.discussions.click-discussion-in-list %}
-1. In the right sidebar, click **{% octicon "issue-opened" aria-hidden="true" %} Create issue from discussion**.
+1. In the right sidebar, click **{% octicon "issue-opened" aria-hidden="true" aria-label="issue-opened" %} Create issue from discussion**.
 
    ![Screenshot of the sidebar in a discussion. The "Create issue from discussion" option is outlined in dark orange.](/assets/images/help/discussions/create-issue-from-discussion.png)
 
@@ -163,9 +163,16 @@ You can also use URL query parameters to fill custom text fields that you have d
 
 {% ifversion copilot %}
 
-## Creating an issue from {% data variables.product.prodname_copilot_chat_short %}
+## Creating an issue with {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.github %}
 
-You can create an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %} with the Model Context Protocol (MCP). For more information, see [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
+> [!NOTE]
+> This feature is in {% data variables.release-phases.public_preview %} and subject to change.
+
+Creating issues manually can be repetitive and time-consuming. With {% data variables.product.prodname_copilot_short %}, you can create issues faster by prompting in natural language, or even by uploading a screenshot. {% data variables.product.prodname_copilot_short %} fills out the title, body, labels, assignees, and more, using your repository’s templates and structure. See [AUTOTITLE](/copilot/using-github-copilot/using-github-copilot-to-create-issues).
+
+## Creating an issue from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}
+
+You can also create an issue directly from {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}, using the Model Context Protocol (MCP). See [AUTOTITLE](/copilot/customizing-copilot/extending-copilot-chat-with-mcp).
 
 {% endif %}
 

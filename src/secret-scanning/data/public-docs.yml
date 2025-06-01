@@ -4198,7 +4198,7 @@
   versions:
     fpt: '*'
     ghec: '*'
-  isPublic: false
+  isPublic: true
   isPrivateWithGhas: true
   hasPushProtection: false
   hasValidityCheck: false

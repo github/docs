@@ -52,7 +52,7 @@ For information about the **Overview**, see [AUTOTITLE](/code-security/security-
     {% data reusables.security-overview.unaffected-repositories %}
 
 {% data reusables.organizations.security-overview-feature-specific-page %} {% ifversion security-overview-export-data %}
-1. Optionally, use the **{% octicon "download" aria-hidden="true" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
+1. Optionally, use the **{% octicon "download" aria-hidden="true" aria-label="download" %} Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 
@@ -64,14 +64,14 @@ You can view data for security alerts across organizations in an enterprise.
 
 {% ifversion ghes %}{% data reusables.enterprise-accounts.access-enterprise-ghes %}{% else %}{% data reusables.enterprise-accounts.access-enterprise-on-dotcom %}{% endif %}
 {% data reusables.code-scanning.click-code-security-enterprise %}
-1. To display the "Security risk" view, in the sidebar, click **{% octicon "shield" aria-hidden="true" %} Risk**.
+1. To display the "Security risk" view, in the sidebar, click **{% octicon "shield" aria-hidden="true" aria-label="shield" %} Risk**.
 {% data reusables.code-scanning.using-security-overview-risk %}
 
     ![Screenshot of the "Security risk" view for an enterprise. The options for filtering are outlined in dark orange.](/assets/images/help/security-overview/security-risk-view-highlights-enterprise.png)
 
     {% data reusables.security-overview.unaffected-repositories %}
 {% data reusables.organizations.security-overview-feature-specific-page %}{% ifversion security-overview-export-data %}
-1. Optionally, use the {% octicon "download" aria-hidden="true" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
+1. Optionally, use the {% octicon "download" aria-hidden="true" aria-label="download" %} **Export CSV** button to download a CSV file of the data currently displayed on the page for security research and in-depth data analysis. For more information, see [AUTOTITLE](/code-security/security-overview/exporting-data-from-security-overview). {% endif %}
 
 {% data reusables.security-overview.alert-differences %}
 

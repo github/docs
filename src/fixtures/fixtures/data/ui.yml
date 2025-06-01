@@ -47,7 +47,7 @@ search:
     privacy_disclaimer: For product and service improvement purposes, the GitHub Docs team will retain questions and answers generated in the Docs search function. Please see the <a href="https://docs.github.com/privacy"><u>GitHub Privacy Statement</u></a> to review how GitHub collects and uses your data.
   ai:
     disclaimer: <a href="https://docs.github.com/en/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-chat-in-githubcom"}>Copilot</a> uses AI. Check for mistakes.
-    references: Additional docs
+    references: Copilot Sources
     loading_status_message: Loading Copilot response...
     done_loading_status_message: Done loading Copilot response
     copy_answer: Copy answer

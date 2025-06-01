@@ -33,6 +33,7 @@ import { tableLiquidVersioning } from './table-liquid-versioning.js'
 import { thirdPartyActionPinning } from './third-party-action-pinning.js'
 import { liquidTagWhitespace } from './liquid-tag-whitespace.js'
 import { linkQuotation } from './link-quotation.js'
+import { octiconAriaLabels } from './octicon-aria-labels.js'
 import { liquidIfversionVersions } from './liquid-ifversion-versions.js'
 
 const noDefaultAltText = markdownlintGitHub.find((elem) =>
@@ -82,6 +83,6 @@ export const gitHubDocsMarkdownlint = {
     thirdPartyActionPinning,
     liquidTagWhitespace,
     linkQuotation,
-    liquidIfversionVersions,
+    octiconAriaLabels,
   ],
 }

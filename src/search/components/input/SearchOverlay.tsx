@@ -482,6 +482,9 @@ export function SearchOverlay({
         }
       }
     } else if (event.key === 'Enter') {
+      if (searchLoading) {
+        return
+      }
       event.preventDefault()
       let pressedGroupKey = SEARCH_OVERLAY_EVENT_GROUP
       let pressedGroupId = searchEventGroupId
@@ -494,9 +497,7 @@ export function SearchOverlay({
         pressedGroupId = askAIEventGroupId
         sendKeyboardEvent(event.key, pressedOnContext, pressedGroupId, pressedGroupKey)
         aiSearchOptionOnSelect({ term: urlSearchInputQuery } as AutocompleteSearchHit)
-      }
-
-      if (
+      } else if (
         combinedOptions.length > 0 &&
         selectedIndex >= 0 &&
         selectedIndex < combinedOptions.length
@@ -879,23 +880,10 @@ function renderSearchGroups(
 ) {
   const groups = []
 
-  const askAIGroupHeading = (
-    <ActionList.GroupHeading
-      key="ai-heading"
-      as="h3"
-      tabIndex={-1}
-      aria-label={t('search.overlay.ai_suggestions_list_aria_label')}
-    >
-      <CopilotIcon className="mr-1" />
-      {t('search.overlay.ai_autocomplete_list_heading')}
-    </ActionList.GroupHeading>
-  )
-
   let isInAskAIState = askAIState?.isAskAIState && !askAIState.aiSearchError
   if (isInAskAIState) {
     groups.push(
       <ActionList.Group key="ai" data-testid="ask-ai">
-        {askAIGroupHeading}
         <AskAIResults
           query={askAIState.aiQuery}
           debug={askAIState.debug}

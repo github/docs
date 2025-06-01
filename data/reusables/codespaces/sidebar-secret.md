@@ -1,1 +1,1 @@
-1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-hidden="true" %} Secrets and variables**, then click **{% data variables.product.prodname_codespaces %}**.
+1. In the "Security" section of the sidebar, select **{% octicon "key-asterisk" aria-hidden="true" aria-label="key-asterisk" %} Secrets and variables**, then click **{% data variables.product.prodname_codespaces %}**.

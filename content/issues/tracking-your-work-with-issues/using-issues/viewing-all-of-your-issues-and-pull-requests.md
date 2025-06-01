@@ -54,7 +54,7 @@ You can create up to 25 saved views.
 1. At the top of any page, click {% octicon "issue-opened" aria-label="Issues" %} to see your issues.
 1. On the left sidebar, under "Views", click the saved view you want to edit, duplicate or delete.
 1. To the right of the name of the saved view, click **{% octicon "kebab-horizontal" aria-label="The horizontal kebab icon" %}.**.
-1. Click **{% octicon "pencil" aria-hidden="true" %} Edit** to modify the view, **{% octicon "duplicate" aria-hidden="true" %} Duplicate** to create a copy of the view, or **{% octicon "trash" aria-hidden="true" %} Delete** to remove the view.
+1. Click **{% octicon "pencil" aria-hidden="true" aria-label="pencil" %} Edit** to modify the view, **{% octicon "duplicate" aria-hidden="true" aria-label="duplicate" %} Duplicate** to create a copy of the view, or **{% octicon "trash" aria-hidden="true" aria-label="trash" %} Delete** to remove the view.
 
 {% endif %}
 

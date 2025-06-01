@@ -54,7 +54,7 @@ You can view the subscription and usage for your enterprise and download a file 
 {% data reusables.enterprise-accounts.settings-tab %}
 {% data reusables.enterprise-accounts.license-tab %}
 1. Under "User licenses", view your total licenses, number of consumed licenses, and your subscription expiration date.
-1. Optionally, to view details for license usage or download a {% ifversion ghec %}CSV{% elsif ghes %}JSON{% endif %} file with license details{% ifversion ghec %}, to the right of "User Licenses"{% endif %}, click **View {% ifversion ghec %}details{% elsif ghes %}users{% endif %}** or {% ifversion ghec %}**{% octicon "download" aria-hidden="true" %} CSV report**{% elsif ghes %}**Export license usage**{% endif %}.
+1. Optionally, to view details for license usage or download a {% ifversion ghec %}CSV{% elsif ghes %}JSON{% endif %} file with license details{% ifversion ghec %}, to the right of "User Licenses"{% endif %}, click **View {% ifversion ghec %}details{% elsif ghes %}users{% endif %}** or {% ifversion ghec %}**{% octicon "download" aria-hidden="true" aria-label="download" %} CSV report**{% elsif ghes %}**Export license usage**{% endif %}.
 {%- ifversion ghec %}
 1. Optionally, to view usage details for other features, in the left sidebar, click **Billing**.
 {% endif %}

@@ -44,11 +44,11 @@ You can view data to assess the enablement of features for secure coding across 
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true" %} Coverage**.
+1. To display the "Security coverage" view, in the sidebar, click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Coverage**.
 {% data reusables.code-scanning.using-security-overview-coverage %}
 
 {% ifversion pre-security-configurations %}
-1. Optionally, click **{% octicon "gear" aria-hidden="true" %} Security settings** to enable security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see [AUTOTITLE](/code-security/getting-started/securing-your-repository).
+1. Optionally, click **{% octicon "gear" aria-hidden="true" aria-label="gear" %} Security settings** to enable security features for a repository and click **Save security settings** to confirm the changes. If a feature is not shown, it has more complex configuration requirements and you need to use the repository settings dialog. For more information, see [AUTOTITLE](/code-security/getting-started/securing-your-repository).
 1. Optionally, select some or all of the repositories that match your current search and click **Security settings** in the table header to display a side panel where you can enable security features for the selected repositories. When you've finished, click **Apply changes** to confirm the changes. For more information, see [AUTOTITLE](/code-security/security-overview/enabling-security-features-for-multiple-repositories).
 
 {% data reusables.security-overview.settings-limitations %}
@@ -86,7 +86,7 @@ You can view data to assess the enablement status and enablement status trends o
 
 {% data reusables.organizations.navigate-to-org %}
 {% data reusables.organizations.security-overview %}
-1. In the sidebar, under "Metrics", click **{% octicon "meter" aria-hidden="true" %} Enablement trends**.
+1. In the sidebar, under "Metrics", click **{% octicon "meter" aria-hidden="true" aria-label="meter" %} Enablement trends**.
 1. Click on one of the tabs for "{% data variables.product.prodname_dependabot %}", "{% data variables.product.prodname_code_scanning_caps %}", or "{% data variables.product.prodname_secret_scanning_caps %}" to view enablement trends and the percentage of repositories in your organization with that feature enabled. This data is displayed as a graph and a detailed table.
 1. Optionally, use the options at the top of the "Enablement trends" view page to filter the group of repositories you want to see enablement trends for.
     * Use the date picker to set the time range that you want to view enablement trends for.

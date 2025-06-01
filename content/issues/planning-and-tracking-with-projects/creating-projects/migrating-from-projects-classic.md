@@ -37,7 +37,7 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 
    ![Screenshot showing the profile photo menu. The "Your projects" link is highlighted with an orange outline.](/assets/images/help/projects-v2/projects-profile-menu.png)
 
-1. On the top of your profile page, in the main navigation, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. On the top of your profile page, in the main navigation, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
    ![Screenshot showing the tabs on a user profile. The 'Projects' tab is highlighted with an orange outline.](/assets/images/help/projects-v2/tab-projects.png)
 1. Above the list of projects, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}
@@ -48,6 +48,6 @@ You can migrate your {% data variables.projects.projects_v1_boards %} to the new
 > {% data variables.projects.projects_v2_caps %} does not support repository level projects. When you migrate a repository {% data variables.projects.projects_v1_board %}, it will migrate to either the organization or personal account that owns the repository project, and the migrated project will be pinned to the original repository.
 
 {% data reusables.repositories.navigate-to-repo %}
-1. Under your repository name, click **{% octicon "table" aria-hidden="true" %} Projects**.
+1. Under your repository name, click **{% octicon "table" aria-hidden="true" aria-label="table" %} Projects**.
 1. In the left sidebar, click **Projects (classic)**.
 {% data reusables.projects.migrate-project-steps %}

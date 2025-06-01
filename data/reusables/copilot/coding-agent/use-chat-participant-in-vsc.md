@@ -1,0 +1,1 @@
+In {% data variables.product.prodname_vscode_shortname %}, {% data variables.product.prodname_vs %}, and JetBrains IDEs, you must mention the `@github` chat participant in your prompt. You can omit this in {% data variables.product.prodname_copilot_chat_short %} on {% data variables.product.prodname_dotcom_the_website %}.

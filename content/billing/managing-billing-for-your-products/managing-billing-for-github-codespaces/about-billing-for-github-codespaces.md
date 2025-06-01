@@ -19,8 +19,6 @@ redirect_from:
   - /billing/managing-billing-for-github-codespaces/about-billing-for-github-codespaces
 ---
 
-{% data reusables.billing.enhanced-billing-platform %}
-
 ## About {% data variables.product.prodname_github_codespaces %} pricing
 
 {% data reusables.billing.authorization-charge %}

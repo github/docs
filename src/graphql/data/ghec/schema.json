@@ -13801,6 +13801,14 @@
           "href": "/graphql/reference/scalars#datetime"
         },
         {
+          "name": "duplicateOf",
+          "description": "<p>The issue or pull request that this issue was marked as a duplicate of.</p>",
+          "type": "IssueOrPullRequest",
+          "id": "issueorpullrequest",
+          "kind": "unions",
+          "href": "/graphql/reference/unions#issueorpullrequest"
+        },
+        {
           "name": "id",
           "description": "<p>The Node ID of the ClosedEvent object.</p>",
           "type": "ID!",
@@ -29172,6 +29180,14 @@
           "id": "int",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#int"
+        },
+        {
+          "name": "duplicateOf",
+          "description": "<p>A reference to the original issue that this issue has been marked as a duplicate of.</p>",
+          "type": "Issue",
+          "id": "issue",
+          "kind": "objects",
+          "href": "/graphql/reference/objects#issue"
         },
         {
           "name": "editor",
@@ -59028,6 +59044,14 @@
           "id": "datetime",
           "kind": "scalars",
           "href": "/graphql/reference/scalars#datetime"
+        },
+        {
+          "name": "digest",
+          "description": "<p>The SHA256 digest of the asset.</p>",
+          "type": "String",
+          "id": "string",
+          "kind": "scalars",
+          "href": "/graphql/reference/scalars#string"
         },
         {
           "name": "downloadCount",
@@ -89543,6 +89567,10 @@
         {
           "name": "CREATED_AT",
           "description": "<p>Order labels by creation time.</p>"
+        },
+        {
+          "name": "ISSUE_COUNT",
+          "description": "<p>Order labels by issue count.</p>"
         },
         {
           "name": "NAME",
