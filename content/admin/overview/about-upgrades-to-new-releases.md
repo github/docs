@@ -49,4 +49,4 @@ There are two ways to upgrade {% data variables.product.prodname_ghe_server %}:
 
 ## Further reading
 
-* [{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}) in the `github/roadmap` repository
+{% data variables.product.prodname_roadmap %}]({% data variables.product.prodname_roadmap_link %}: in the `github/roadmap` repository

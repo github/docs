@@ -1,4 +1,4 @@
----
+tr4200812 copy dots copy tr4200812
 title: Configuring Dependabot security updates
 intro: 'You can use {% data variables.product.prodname_dependabot_security_updates %} or manual pull requests to easily update vulnerable dependencies.'
 shortTitle: Configure security updates
