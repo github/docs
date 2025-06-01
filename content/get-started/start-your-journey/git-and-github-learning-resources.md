@@ -1,5 +1,4 @@
-
---->
+---
 title: Git and GitHub learning resources
 redirect_from:
   - /articles/good-resources-for-learning-git-and-github
@@ -16,7 +15,7 @@ versions:
 authors:
   - GitHub
 shortTitle: Learning resources
---->
+---
 
 ## Using {% data variables.product.github %}
 
