@@ -1,3 +1,4 @@
+
 ---
 title: About permissions and visibility of forks
 shortTitle: Permissions and visibility
@@ -74,5 +75,6 @@ Forks within the same organization copy the collaborators and team settings of t
 ### About forks within an enterprise
 
 Internal repositories only support a single level of forking, it is not possible to fork a private fork of an internal repository. This is intentional to simplify access and management for internal repositories which have enterprise-wide access. This differs from the behavior of public and private repositories, that allow nested forking.
-
+#gitf
+tr4200812@gmail.com/inbox
 {% endif %}

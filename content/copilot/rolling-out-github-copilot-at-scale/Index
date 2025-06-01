@@ -1,0 +1,161 @@
+data/release-notes/enterprise-server/3-16/0.yml
+
+Skip to content
+Navigation Menu
+github
+docs
+
+Code
+Issues
+317
+Pull requests
+234
+Actions
+Projects
+3
+Security
+Insights
+You’re making changes in a project you don’t have write access to. Submitting a change will write it to a new branch in your fork tr4200812/hubhub, so you can send a pull request.
+docs/content/copilot/managing-copilot/configure-personal-settings
+/
+installing-github-copilot-in-the-cli.md
+in
+main
+
+Edit
+
+Preview
+Indent mode
+
+Spaces
+Indent size
+
+2
+Line wrap mode
+
+Soft wrap
+Editing installing-github-copilot-in-the-cli.md file contents
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+:---
+title: Installing GitHub Copilot in the CLI
+intro: 'Learn how to install {% data variables.product.prodname_copilot_cli_short %} so that you can get suggestions and explanations for the command line.'
+versions:
+  feature: copilot-in-the-cli
+topics:
+  - Copilot
+  - CLI
+shortTitle: Install Copilot in the CLI
+redirect_from:
+  - /copilot/github-copilot-in-the-cli/enabling-github-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli/setting-up-github-copilot-in-the-cli
+  - /copilot/github-copilot-in-the-cli/installing-github-copilot-in-the-cli
+:---
+
+## Prerequisites
+
+* **Access to {% data variables.product.prodname_copilot %}**. See [AUTOTITLE](/copilot/about-github-copilot/what-is-github-copilot#getting-access-to-copilot).
+* **{% data variables.product.prodname_cli %} installed.** {% data reusables.cli.cli-installation %}
+
+If you have access to {% data variables.product.prodname_copilot %} via your organization or enterprise, you cannot use {% data variables.product.prodname_copilot_cli_short %} if your organization owner or enterprise administrator has disabled {% data variables.product.prodname_copilot_cli_short %}. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-github-copilot-features-in-your-organization/managing-policies-for-copilot-in-your-organization).
+
+## Installing {% data variables.product.prodname_copilot_cli_short %}
+
+1. If you have not already authenticated to the {% data variables.product.prodname_cli %}, run the following command in your terminal.
+
+   ```shell copy
+   gh auth login
+   ```
+
+1. To install the {% data variables.product.prodname_copilot_cli_short %} extension, run the following command.
+
+   ```shell copy
+   gh extension install github/gh-copilot
+   ```
+
+## Updating {% data variables.product.prodname_copilot_cli_short %}
+
+After installing the {% data variables.product.prodname_copilot_cli_short %} extension, you can update at any time by running:
+
+```shell copy
+gh extension upgrade gh-copilot
+```
+
+## Further reading
+
+* [AUTOTITLE](/copilot/github-copilot-in-the-cli/using-github-copilot-in-the-cli)
+* [AUTOTITLE](/copilot/github-copilot-in-the-cli/configuring-github-copilot-in-the-cli)
+***
+Use Control + Shift + m to toggle the tab key moving focus. Alternatively, use esc then tab to move to the next interactive element on the page.
+No file chosen
+Attach files by dragging & dropping, selecting or pasting them.
+Editing docs/content/copilot/managing-copilot/configure-personal-settings/installing-github-copilot-in-the-cli.md at main · github/docs
+tr4200812
+hubhub
+
+Code
+Issues
+204
+Pull requests
+163
+Discussions
+Actions
+Projects
+14
+Wiki
+hubhub/content/copilot/rolling-out-github-copilot-at-scale
+/
+Name your file...
+in
+Whatisthis
+
+Edit
+
+Preview
