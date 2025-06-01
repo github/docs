@@ -1,4 +1,3 @@
-***
 name: Add docs-reviewers request to the docs-content review board
 
 # **What it does**: Adds PRs in github/github and github/audit-log-allowlists that requested a review from docs-reviewers to the docs-content review board
