@@ -2,7 +2,7 @@
 title: Using Claude in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use {% data variables.copilot.copilot_claude %}'
-intro: 'Learn how to enable {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_chat %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
+intro: 'Learn how to enable {% data variables.copilot.copilot_claude %} in {% data variables.copilot.copilot_chat %} for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
   feature: copilot
 topics:
@@ -12,32 +12,32 @@ redirect_from:
   - /copilot/using-github-copilot/ai-models/using-claude-sonnet-in-github-copilot
 ---
 
-## About {% data variables.copilot.copilot_claude %} in {% data variables.product.prodname_copilot_chat %}
+## About {% data variables.copilot.copilot_claude %} in {% data variables.copilot.copilot_chat %}
 
 {% data reusables.copilot.claude-public-preview-note %}
 
-{% data variables.copilot.copilot_claude %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_claude %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about [Claude's capabilities](https://www.anthropic.com/claude).
+{% data variables.copilot.copilot_claude %} is a family of large language models that you can use as an alternative to the default model used by {% data variables.copilot.copilot_chat_short %}. {% data variables.copilot.copilot_claude %} excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. Learn more about [Claude's capabilities](https://www.anthropic.com/claude).
 
 * {% data variables.copilot.copilot_claude_opus %} is available in:
 
-  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-  * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+  * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+  * Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
 
 * {% data variables.copilot.copilot_claude_sonnet_40 %} is available in:
 
-  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-  * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+  * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+  * Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
 
 * {% data variables.copilot.copilot_claude_sonnet_35 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are available in:
 
-  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-  * {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022
+  * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+  * {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %} 2022
     * **3.5**: Version 17.12 or later
     * **3.7**: Version 17.13 or later
-  * {% data variables.product.prodname_copilot_chat_short %} in Xcode
-  * {% data variables.product.prodname_copilot_chat_short %} in Eclipse
-  * {% data variables.product.prodname_copilot_chat_short %} in JetBrains
-  * Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+  * {% data variables.copilot.copilot_chat_short %} in Xcode
+  * {% data variables.copilot.copilot_chat_short %} in Eclipse
+  * {% data variables.copilot.copilot_chat_short %} in JetBrains
+  * Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
 
 {% data variables.copilot.copilot_claude_opus %} and {% data variables.copilot.copilot_claude_sonnet_40 %} are hosted by Anthropic PBC and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_37 %} is hosted by Amazon Web Services, Anthropic PBC, and Google Cloud Platform. {% data variables.copilot.copilot_claude_sonnet_35 %} is hosted exclusively by Amazon Web Services. {% data variables.product.github %} has provider agreements in place to ensure data is not used for training. Additional details for each provider are included below:
 
@@ -58,13 +58,13 @@ You must enable access to each {% data variables.copilot.copilot_claude %} indiv
 ### Setup for individual use
 
 > [!NOTE]
-> * {% data variables.copilot.copilot_claude_opus %} is not currently available for {% data variables.product.prodname_copilot_free_short %} and {% data variables.product.prodname_copilot_pro_short %}.
-> * {% data variables.copilot.copilot_claude_sonnet_40 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are not currently available for {% data variables.product.prodname_copilot_free_short %}.
-> * {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.product.prodname_copilot_free_short %}.
+> * {% data variables.copilot.copilot_claude_opus %} is not currently available for {% data variables.copilot.copilot_free_short %} and {% data variables.copilot.copilot_pro_short %}.
+> * {% data variables.copilot.copilot_claude_sonnet_40 %} and {% data variables.copilot.copilot_claude_sonnet_37 %} are not currently available for {% data variables.copilot.copilot_free_short %}.
+> * {% data variables.copilot.copilot_claude_sonnet_37 %} is not currently available for {% data variables.copilot.copilot_free_short %}.
 
-If you have a {% data variables.product.prodname_copilot_free_short %} or {% data variables.product.prodname_copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude %} in two ways:
+If you have a {% data variables.copilot.copilot_free_short %} or {% data variables.copilot.copilot_pro_short %} subscription, you can enable {% data variables.copilot.copilot_claude %} in two ways:
 
-* The first time you choose to use {% data variables.copilot.copilot_claude %} models with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
+* The first time you choose to use {% data variables.copilot.copilot_claude %} models with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
 
   Clicking **Allow** enables you to use {% data variables.copilot.copilot_claude %} and updates the policy in your personal settings on {% data variables.product.github %}.
 
@@ -75,13 +75,13 @@ If you have a {% data variables.product.prodname_copilot_free_short %} or {% dat
 ### Setup for organization {% ifversion ghec %}and enterprise{% endif %} use
 
 > [!NOTE]
-> {% data variables.copilot.copilot_claude_opus %} is not currently available for {% data variables.product.prodname_copilot_business_short %}.
+> {% data variables.copilot.copilot_claude_opus %} is not currently available for {% data variables.copilot.copilot_business_short %}.
 
-As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can enable or disable {% data variables.copilot.copilot_claude %} models for everyone who has been assigned a {% ifversion ghec %}{% data variables.product.prodname_copilot_enterprise_short %} or {% endif %}{% data variables.product.prodname_copilot_business_short %} seat through your {% ifversion ghec %}enterprise or {% endif %}organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
+As an {% ifversion ghec %}enterprise or{% endif %} organization owner, you can enable or disable {% data variables.copilot.copilot_claude %} models for everyone who has been assigned a {% ifversion ghec %}{% data variables.copilot.copilot_enterprise_short %} or {% endif %}{% data variables.copilot.copilot_business_short %} seat through your {% ifversion ghec %}enterprise or {% endif %}organization. See [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/setting-policies-for-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization){% ifversion ghec %} and [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise){% endif %}.
 
 ## Using {% data variables.copilot.copilot_claude %}
 
-For details on how to change the model that {% data variables.product.prodname_copilot_chat_short %} uses, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+For details on how to change the model that {% data variables.copilot.copilot_chat_short %} uses, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
 
 ## Leaving feedback
 

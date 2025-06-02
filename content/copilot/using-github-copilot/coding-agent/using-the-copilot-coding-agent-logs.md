@@ -16,7 +16,7 @@ redirect_from:
 
 ## Introduction
 
-After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.product.prodname_copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
+After you assign an issue to {% data variables.product.prodname_copilot_short %}, or use {% data variables.copilot.copilot_chat_short %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request, {% data variables.product.prodname_copilot_short %} works autonomously to complete the task. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/about-assigning-tasks-to-copilot).
 
 During or after an agent session, you can inspect the session logs to understand {% data variables.product.prodname_copilot_short %}'s approach to your problem.
 

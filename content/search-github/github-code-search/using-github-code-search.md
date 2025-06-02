@@ -59,7 +59,7 @@ You can use {% data variables.product.prodname_copilot %} to ask questions about
 
    ![Screenshot of the main search box on {% data variables.product.prodname_dotcom %}. The drop-down option "Ask {% data variables.product.prodname_copilot_short %}" is highlighted with an orange outline.](/assets/images/help/copilot/ask-copilot-from-search-bar.png)
 
-   The {% data variables.product.prodname_copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
+   The {% data variables.copilot.copilot_chat %} panel is displayed and {% data variables.product.prodname_copilot_short %} responds to your request.
 
 {% data reusables.copilot.stop-response-generation %}
 

@@ -1,4 +1,4 @@
-{% data variables.product.prodname_copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is available for the following repository types:
+{% data variables.copilot.copilot_autofix %} for {% data variables.product.prodname_code_scanning %} is available for the following repository types:
 
 {% ifversion fpt %}
 * Public repositories on {% data variables.product.prodname_dotcom_the_website %}

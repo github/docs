@@ -3,7 +3,7 @@ title: Disabling Copilot for organizations in your enterprise
 shortTitle: Disable for organizations
 intro: 'Disable {% data variables.product.prodname_copilot %} for some or all of the organizations in your enterprise.'
 permissions: Enterprise owners
-product: 'Enterprises with a {% data variables.product.prodname_copilot_enterprise_short %} or {% data variables.product.prodname_copilot_business_short %} plan'
+product: 'Enterprises with a {% data variables.copilot.copilot_enterprise_short %} or {% data variables.copilot.copilot_business_short %} plan'
 versions:
   feature: copilot-enterprise
 topics:
@@ -23,8 +23,8 @@ redirect_from:
 
    1. Under "Access management", locate the organization for which you want to disable {% data variables.product.prodname_copilot_short %}.
    1. To the right of the organization name, select the **Copilot** dropdown menu.
-       * If your enterprise has a {% data variables.product.prodname_copilot_business_short %} plan, click **Disabled**.
-       * If your enterprise has a {% data variables.product.prodname_copilot_enterprise_short %} plan, click **Remove access**.
+       * If your enterprise has a {% data variables.copilot.copilot_business_short %} plan, click **Disabled**.
+       * If your enterprise has a {% data variables.copilot.copilot_enterprise_short %} plan, click **Remove access**.
 
 ## Further reading
 
