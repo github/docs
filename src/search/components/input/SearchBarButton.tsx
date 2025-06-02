@@ -50,7 +50,7 @@ export function SearchBarButton({ isSearchOpen, setIsSearchOpen, params, searchB
       {/* We don't want to show the input when overlay is open */}
       {!isSearchOpen ? (
         <>
-          <AISearchCTAPopup isOpen={isOpen} dismiss={dismiss} />
+          <AISearchCTAPopup isOpen={isOpen} setIsSearchOpen={setIsSearchOpen} dismiss={dismiss} />
           {/* On mobile only the IconButton is shown */}
           <IconButton
             data-testid="mobile-search-button"

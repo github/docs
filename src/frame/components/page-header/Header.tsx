@@ -20,10 +20,10 @@ import { HeaderSearchAndWidgets } from './HeaderSearchAndWidgets'
 import { useInnerWindowWidth } from './hooks/useInnerWindowWidth'
 import { EXPERIMENTS } from '@/events/components/experiments/experiments'
 import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
-import { useQueryParam } from '@/frame/components/hooks/useQueryParam'
 import { useMultiQueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { SearchOverlayContainer } from '@/search/components/input/SearchOverlayContainer'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
+import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
 
 import styles from './Header.module.scss'
 
@@ -34,10 +34,6 @@ export const Header = () => {
   const { currentVersion } = useVersion()
   const { t } = useTranslation(['header'])
   const isRestPage = currentProduct && currentProduct.id === 'rest'
-  const { queryParam: isSearchOpen, setQueryParam: setIsSearchOpen } = useQueryParam(
-    'search-overlay-open',
-    true,
-  )
   const { params, updateParams } = useMultiQueryParams()
   const [scroll, setScroll] = useState(false)
   const [isSidebarOpen, setIsSidebarOpen] = useState(false)
@@ -52,6 +48,7 @@ export const Header = () => {
   const returnFocusRef = useRef(null)
   const searchButtonRef = useRef<HTMLButtonElement>(null)
   const { initializeCTA } = useCTAPopoverContext()
+  const { isSearchOpen, setIsSearchOpen } = useSearchOverlayContext()
 
   const { showExperiment: showNewSearch, experimentLoading: newSearchLoading } =
     useShouldShowExperiment(EXPERIMENTS.ai_search_experiment)
