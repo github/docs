@@ -16,4 +16,4 @@ To open a chat about a failed workflow run, you can either:
 
 This opens a chat window with {% data variables.product.prodname_copilot %}, where it will provide instructions to resolve the issue.
 
->[!NOTE] If you are on a {% data variables.product.prodname_copilot_free %} subscription, this will count towards your monthly chat message limit.
+>[!NOTE] If you are on a {% data variables.copilot.copilot_free %} subscription, this will count towards your monthly chat message limit.

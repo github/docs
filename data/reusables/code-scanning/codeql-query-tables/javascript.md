@@ -1,6 +1,6 @@
 {% rowheaders %}
 
-| Query name | Related CWEs | Default | Extended | {% data variables.product.prodname_copilot_autofix_short %} |
+| Query name | Related CWEs | Default | Extended | {% data variables.copilot.copilot_autofix_short %} |
 | --- | --- | --- | --- | --- |
 | [Arbitrary file access during archive extraction ("Zip Slip")](https://codeql.github.com/codeql-query-help/javascript/js-zipslip/) | 022 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Bad HTML filtering regexp](https://codeql.github.com/codeql-query-help/javascript/js-bad-tag-filter/) | 020, 080, 116, 184, 185, 186 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
@@ -28,7 +28,6 @@
 | [Exception text reinterpreted as HTML](https://codeql.github.com/codeql-query-help/javascript/js-xss-through-exception/) | 079, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Exposure of private files](https://codeql.github.com/codeql-query-help/javascript/js-exposure-of-private-files/) | 200, 219, 548 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Expression injection in Actions](https://codeql.github.com/codeql-query-help/javascript/js-actions-command-injection/) | 094 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
-| [Hard-coded credentials](https://codeql.github.com/codeql-query-help/javascript/js-hardcoded-credentials/) | 259, 321, 798 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Host header poisoning in email generation](https://codeql.github.com/codeql-query-help/javascript/js-host-header-forgery-in-email-generation/) | 640 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Improper code sanitization](https://codeql.github.com/codeql-query-help/javascript/js-bad-code-sanitization/) | 094, 079, 116 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Inclusion of functionality from an untrusted source](https://codeql.github.com/codeql-query-help/javascript/js-functionality-from-untrusted-source/) | 830 | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
@@ -99,7 +98,6 @@
 | [Missing origin verification in `postMessage` handler](https://codeql.github.com/codeql-query-help/javascript/js-missing-origin-check/) | 020, 940 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Missing regular expression anchor](https://codeql.github.com/codeql-query-help/javascript/js-regex-missing-regexp-anchor/) | 020 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |
 | [Network data written to file](https://codeql.github.com/codeql-query-help/javascript/js-http-to-file-access/) | 912, 434 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
-| [Password in configuration file](https://codeql.github.com/codeql-query-help/javascript/js-password-in-configuration-file/) | 256, 260, 313, 522 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Potential file system race condition](https://codeql.github.com/codeql-query-help/javascript/js-file-system-race/) | 367 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Remote property injection](https://codeql.github.com/codeql-query-help/javascript/js-remote-property-injection/) | 250, 400 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "x" aria-label="Not included" %} |
 | [Sensitive cookie without SameSite restrictions](https://codeql.github.com/codeql-query-help/javascript/js-samesite-none-cookie/) | 1275 | {% octicon "x" aria-label="Not included" %} | {% octicon "check" aria-label="Included" %} | {% octicon "check" aria-label="Included" %} |

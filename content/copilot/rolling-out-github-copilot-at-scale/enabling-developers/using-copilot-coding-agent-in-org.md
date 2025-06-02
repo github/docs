@@ -30,7 +30,7 @@ product: '{% data reusables.gated-features.copilot-coding-agent %}'
 
 {% data variables.product.prodname_copilot_short %} can help your organization address well-defined and scoped issues, such as increasing test coverage, fixing bugs or flaky tests, or updating config files or documentation. For more on the kinds of issues {% data variables.product.prodname_copilot_short %} works best on, see [AUTOTITLE](/copilot/using-github-copilot/coding-agent/best-practices-for-using-copilot-to-work-on-tasks).
 
-Developers stay in the flow when they ask {% data variables.product.prodname_copilot_short %} to create pull requests directly from {% data variables.product.prodname_copilot_chat_short %} instead of opening issues that may sit in a backlog.
+Developers stay in the flow when they ask {% data variables.product.prodname_copilot_short %} to create pull requests directly from {% data variables.copilot.copilot_chat_short %} instead of opening issues that may sit in a backlog.
 
 When used effectively, {% data variables.copilot.copilot_coding_agent %} offers productivity benefits over traditional AI assistants in IDEs:
 
@@ -85,7 +85,7 @@ All AI models are trained to meet a request, even if they don't have all the inf
 
 <a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=using-cca-effectively" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
-> [!TIP] During the {% data variables.release-phases.public_preview %}, you need {% data variables.product.prodname_copilot_pro_plus %} or {% data variables.product.prodname_copilot_enterprise %} to use {% data variables.copilot.copilot_coding_agent %}.
+> [!TIP] During the {% data variables.release-phases.public_preview %}, you need {% data variables.copilot.copilot_pro_plus %} or {% data variables.copilot.copilot_enterprise %} to use {% data variables.copilot.copilot_coding_agent %}.
 
 As with any other change to working practices, it's important to run a trial to learn how to deploy {% data variables.copilot.copilot_coding_agent %} effectively in your organization or enterprise.
 

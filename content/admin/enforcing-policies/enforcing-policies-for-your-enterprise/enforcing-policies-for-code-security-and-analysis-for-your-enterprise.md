@@ -128,13 +128,13 @@ Across all of your enterprise's organizations, you can allow or disallow people 
 
 {% ifversion code-scanning-autofix %}
 
-## Enforcing a policy to manage the use of {% data variables.product.prodname_copilot_autofix_short %} in your enterprise's repositories
+## Enforcing a policy to manage the use of {% data variables.copilot.copilot_autofix_short %} in your enterprise's repositories
 
-Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage where {% data variables.product.prodname_copilot_autofix_short %} is enabled. {% data variables.product.prodname_GH_code_security %} must be enabled for the organization for this policy to take effect.
+Across all of your enterprise's organizations, you can allow or disallow people with admin access to repositories to manage where {% data variables.copilot.copilot_autofix_short %} is enabled. {% data variables.product.prodname_GH_code_security %} must be enabled for the organization for this policy to take effect.
 
 {% data reusables.enterprise-accounts.access-enterprise %}
 {% data reusables.enterprise-accounts.policies-tab %}
 {% data reusables.enterprise-accounts.code-security-and-analysis-policies %}
-1. In the "Policies" section, under "{% data variables.product.prodname_copilot_autofix_short %}", select the dropdown menu and click a policy.
+1. In the "Policies" section, under "{% data variables.copilot.copilot_autofix_short %}", select the dropdown menu and click a policy.
 
 {% endif %}

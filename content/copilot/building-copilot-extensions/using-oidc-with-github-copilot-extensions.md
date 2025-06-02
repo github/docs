@@ -2,7 +2,7 @@
 title: Using OIDC with GitHub Copilot Extensions
 intro: >-
   Learn how to use OpenID Connect (OIDC) with your {% data
-  variables.product.prodname_copilot_extension_short %} to enhance security.
+  variables.copilot.copilot_extension_short %} to enhance security.
 versions:
   feature: copilot-extensions
 topics:
@@ -13,13 +13,13 @@ redirect_from:
   - /copilot/building-copilot-extensions/using-oidc-with-copilot-extensions
 ---
 
-## About OpenID Connect (OIDC) for {% data variables.product.prodname_copilot_extensions_short %}
+## About OpenID Connect (OIDC) for {% data variables.copilot.copilot_extensions_short %}
 
-OpenID Connect (OIDC) allows {% data variables.product.prodname_copilot_extensions_short %} to exchange short-lived tokens directly from their cloud provider instead of storing long-lived {% data variables.product.github %} credentials. This feature enables both Copilot agents and skillsets to more securely authenticate users and access cloud resources.
+OpenID Connect (OIDC) allows {% data variables.copilot.copilot_extensions_short %} to exchange short-lived tokens directly from their cloud provider instead of storing long-lived {% data variables.product.github %} credentials. This feature enables both Copilot agents and skillsets to more securely authenticate users and access cloud resources.
 
 ## Overview of OIDC
 
-{% data variables.product.prodname_copilot_extensions_short %} often need to access third-party resources or APIs on behalf of users. Traditionally, this required storing {% data variables.product.github %} tokens as secrets and making additional API calls to map these tokens to user identities in your system. With OIDC, your extension can request short-lived access tokens directly from your authentication service by exchanging {% data variables.product.github %} identity information.
+{% data variables.copilot.copilot_extensions_short %} often need to access third-party resources or APIs on behalf of users. Traditionally, this required storing {% data variables.product.github %} tokens as secrets and making additional API calls to map these tokens to user identities in your system. With OIDC, your extension can request short-lived access tokens directly from your authentication service by exchanging {% data variables.product.github %} identity information.
 
 When enabled, {% data variables.product.github %}'s OIDC provider automatically generates a token containing claims about the user and the request context. Your authentication service can validate these claims and exchange them for an access token scoped specifically for your service.
 
@@ -27,7 +27,7 @@ Using OIDC is especially valuable for {% data variables.product.prodname_copilot
 
 ## Benefits of using OIDC
 
-By implementing OIDC token exchange in your {% data variables.product.prodname_copilot_extension_short %}, you can:
+By implementing OIDC token exchange in your {% data variables.copilot.copilot_extension_short %}, you can:
 
 * Avoid storing long-lived {% data variables.product.github %} tokens or maintain a mapping between {% data variables.product.github %} and your service's identities.
 * Use short-lived tokens that automatically expire and can be scoped specifically to your service's needs.
@@ -37,11 +37,11 @@ By implementing OIDC token exchange in your {% data variables.product.prodname_c
 
 ## Token exchange flow
 
-The following outlines how the {% data variables.product.prodname_copilot_extensibility_platform_short %} exchanges an OIDC token for an access token to authenticate requests to your extension.
+The following outlines how the {% data variables.copilot.copilot_extensibility_platform_short %} exchanges an OIDC token for an access token to authenticate requests to your extension.
 
 ### Initial request
 
-1. The user sends a message to your {% data variables.product.prodname_copilot_extension_short %}.
+1. The user sends a message to your {% data variables.copilot.copilot_extension_short %}.
 1. GitHub generates an OIDC token containing user identity information.
 1. GitHub calls your token exchange endpoint with the OIDC token.
 1. Your service validates the token and returns an access token.
@@ -103,7 +103,7 @@ This endpoint should:
   ```json
   {
     "access_token": <"your-service-token">,
-    "Issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
+    "issued_token_type":"urn:ietf:params:oauth:token-type:access_token",
     "token_type": "Bearer",
     "expires_in": 3600
   }
@@ -117,13 +117,13 @@ This endpoint should:
   }
   ```
 
-### Enable OIDC in your {% data variables.product.prodname_copilot_extension_short %}'s settings
+### Enable OIDC in your {% data variables.copilot.copilot_extension_short %}'s settings
 
-In your {% data variables.product.prodname_copilot_extension_short %}'s configuration, enable OIDC:
+In your {% data variables.copilot.copilot_extension_short %}'s configuration, enable OIDC:
 
 {% data reusables.apps.settings-step %}
 {% data reusables.apps.enterprise-apps-steps %}
-1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.product.prodname_copilot_extension_short %}, click **Edit**.
+1. To the right of the {% data variables.product.prodname_github_app %} you want to configure for your {% data variables.copilot.copilot_extension_short %}, click **Edit**.
 1. In the left sidebar, click **{% data variables.product.prodname_copilot_short %}**.
 1. Under **OpenID Connect Token Exchange**, check **Enabled**.
 1. In the **Token exchange endpoint** field, input your token exchange URL.
@@ -136,7 +136,7 @@ Your token exchange endpoint should validate the {% data variables.product.githu
 1. Fetch the JSON Web Key Set (JWKS) from https://github.com/login/oauth/.well-known/openid-configuration.
 1. Verify  the token signature.
 1. Validate required claims.
-   * `aud`: Audience. Your {% data variables.product.prodname_copilot_extension_short %}'s client ID.
+   * `aud`: Audience. Your {% data variables.copilot.copilot_extension_short %}'s client ID.
    * `sub`: Subject. The {% data variables.product.github %} user ID making the request. The response is limited to data that the user has permissions to access. If the user has no permissions `400 Bad Request` is shown.
    * `iat`: Issued At. The timestamp when the token was issued. It is typically a timestamp in the past but represents the exact moment the token was created.
    * `nbf`: Not Before. The timestamp before which the token is not valid. This should be a timestamp in the past.
@@ -145,7 +145,7 @@ Your token exchange endpoint should validate the {% data variables.product.githu
 
 ## Troubleshooting
 
-The following sections outline common problems and best practices for implementing OIDC for your {% data variables.product.prodname_copilot_extension_short %}.
+The following sections outline common problems and best practices for implementing OIDC for your {% data variables.copilot.copilot_extension_short %}.
 
 ### Token validation errors
 

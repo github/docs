@@ -236,7 +236,7 @@ export const Header = () => {
                   >
                     <AllProductsLink />
                     {error === '404' || !currentProduct || isSearchResultsPage ? null : (
-                      <div className="mt-3">
+                      <h2 className="mt-3">
                         <Link
                           data-testid="sidebar-product-dialog"
                           href={currentProduct.href}
@@ -244,7 +244,7 @@ export const Header = () => {
                         >
                           {currentProductName || currentProduct.name}
                         </Link>
-                      </div>
+                      </h2>
                     )}
                     {isRestPage && <ApiVersionPicker />}
                   </Dialog.Header>

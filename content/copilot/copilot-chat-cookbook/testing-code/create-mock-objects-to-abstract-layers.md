@@ -1,7 +1,7 @@
 ---
 title: 'Create mock objects to abstract layers'
 shortTitle: Create mock objects
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with creating mock objects that you can use for unit tests.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with creating mock objects that you can use for unit tests.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/create-mock-objects-to-abstract-layers
 versions:
@@ -15,11 +15,11 @@ topics:
   - Copilot
 ---
 
-When creating unit tests, it's important to ensure they're isolated and not depending on external services. One way to achieve this is to create mock objects that abstract layers of your application. {% data variables.product.prodname_copilot_chat_short %} can help you generate the code you need to create these mock objects.
+When creating unit tests, it's important to ensure they're isolated and not depending on external services. One way to achieve this is to create mock objects that abstract layers of your application. {% data variables.copilot.copilot_chat_short %} can help you generate the code you need to create these mock objects.
 
 ## Example scenario
 
-Imagine a website built with TypeScript which displays a list of runners. You have a service which fetches the runners from a database, and the server-side code which uses this service. You want to test the server-side code, but you don't want to make a call to the database. You can ask {% data variables.product.prodname_copilot_chat_short %} to generate a mock object for the service.
+Imagine a website built with TypeScript which displays a list of runners. You have a service which fetches the runners from a database, and the server-side code which uses this service. You want to test the server-side code, but you don't want to make a call to the database. You can ask {% data variables.copilot.copilot_chat_short %} to generate a mock object for the service.
 
 ```typescript
 // SvelteKit example at +page.server.ts
