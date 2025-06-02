@@ -55,11 +55,10 @@ export async function populateIndex(
       client.helpers.bulk({
         datasource: records,
         onDocument: () => ({ index: { _index: indexAlias } }),
-        flushBytes: 4 * 1024 * 1024, // 4MB - Prevents too large of a bulk request which results in a 429 from ES
-        concurrency: 2,
+        flushBytes: 10_000_000, // stop before breaker trips
+        concurrency: 2, // back-off a bit
         refreshOnCompletion: true,
         timeout: '5m',
-        // We could use `retries` and `wait` here, but then we don't have as granular control over logging and when to retry
       }),
     {
       attempts,
