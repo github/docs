@@ -1,16 +1,14 @@
 import cx from 'classnames'
 
-import { Survey } from '@/events/components/Survey'
-import { Contribution } from '@/frame/components/page-footer/Contribution'
-import { Support } from '@/frame/components/page-footer/Support'
-import { useMainContext } from '@/frame/components/context/MainContext'
-import { useVersion } from '@/versions/components/useVersion'
+import { Survey } from 'src/events/components/Survey'
+import { Contribution } from 'src/frame/components/page-footer/Contribution'
+import { Support } from 'src/frame/components/page-footer/Support'
+import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useVersion } from 'src/versions/components/useVersion'
 import { useRouter } from 'next/router'
-import { useTranslation } from '@/languages/components/useTranslation'
+import { useTranslation } from 'src/languages/components/useTranslation'
 import { AISearchCTAPopup } from '@/search/components/input/AISearchCTAPopup'
 import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
-import { EXPERIMENTS } from '@/events/components/experiments/experiments'
-import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 
 import styles from './SupportSection.module.scss'
 
@@ -20,9 +18,6 @@ export const SupportSection = () => {
   const router = useRouter()
   const { t } = useTranslation('footer')
   const { setIsSearchOpen } = useSearchOverlayContext()
-  const { showExperiment: showNewSearch } = useShouldShowExperiment(
-    EXPERIMENTS.ai_search_experiment,
-  )
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
@@ -34,7 +29,7 @@ export const SupportSection = () => {
   const showSurvey = !isDeprecated && !isSitePolicyDocs
   const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
   const showSupport = true
-  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish && showNewSearch
+  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
