@@ -57,6 +57,14 @@ If your company employs security measures like a firewall or proxy server, you s
 | `https://*.business.githubcopilot.com/*`[^3] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 | `https://*.enterprise.githubcopilot.com/*`[^4] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
 
+
+If your organization is using Microsoft Extra ID, you also need to add the following URLs to the allowlist:
+- `https://login.microsoftonline.com/*`
+- `https://aadcdn.msauth.net/*`
+- `https://login.live.com/*`
+- `https://*.activedirectory.windowsazure.com/*`
+
+
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 
 Every user of the proxy server or firewall also needs to configure their own environment to connect to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/configuring-github-copilot/configuring-network-settings-for-github-copilot).
