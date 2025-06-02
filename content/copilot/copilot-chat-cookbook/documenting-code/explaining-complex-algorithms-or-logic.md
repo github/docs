@@ -1,7 +1,7 @@
 ---
 title: 'Explaining complex algorithms or logic'
 shortTitle: Explain complex logic
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help add clear and concise documentation on complex algorithms or logic.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help add clear and concise documentation on complex algorithms or logic.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/documenting-code/explaining-complex-algorithms-or-logic
 versions:
@@ -15,7 +15,7 @@ topics:
   - Copilot
 ---
 
-There may be times where you need to explain complex algorithms or logic in your code. This can be challenging, especially when you're trying to make it understandable to others. {% data variables.product.prodname_copilot_chat_short %} can help you with this task by providing you with suggestions on how to explain the algorithm or logic in a clear and concise manner.
+There may be times where you need to explain complex algorithms or logic in your code. This can be challenging, especially when you're trying to make it understandable to others. {% data variables.copilot.copilot_chat_short %} can help you with this task by providing you with suggestions on how to explain the algorithm or logic in a clear and concise manner.
 
 ## Example scenario
 
@@ -76,7 +76,7 @@ private void UpdateStatusLabel(string message, Label statusLabel)
 
 ## Example prompt
 
-We can ask {% data variables.product.prodname_copilot_chat_short %} to make this code easier to understand using comments.
+We can ask {% data variables.copilot.copilot_chat_short %} to make this code easier to understand using comments.
 
 `Add comments to this code to make it more understandable`
 

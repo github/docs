@@ -129,7 +129,7 @@ Before you start working with the command line, you need to set up a few tools.
     ```
 
     Choose to authenticate with **{% data variables.product.prodname_dotcom_the_website %}**, then follow the on-screen prompts.
-1. Install {% data variables.product.prodname_copilot_cli %}, a powerful extension for the {% data variables.product.prodname_cli %} that helps you find and understand commands, by running the following command:
+1. Install {% data variables.copilot.copilot_cli %}, a powerful extension for the {% data variables.product.prodname_cli %} that helps you find and understand commands, by running the following command:
 
     ```shell copy
     gh extension install github/gh-copilot

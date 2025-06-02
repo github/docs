@@ -28,7 +28,7 @@ You can use content exclusions to configure {% data variables.product.prodname_c
 
 * Code completion will not be available in the affected files.
 * The content in affected files will not inform code completion suggestions in other files.
-* The content in affected files will not inform {% data variables.product.prodname_copilot_chat %}'s responses.
+* The content in affected files will not inform {% data variables.copilot.copilot_chat %}'s responses.
 * Affected files will not be reviewed in a {% data variables.product.prodname_copilot_short %} code review.
 
 ### Who can configure content exclusion
@@ -39,7 +39,7 @@ Repository administrators{% ifversion ghec %}, organization owners, and enterpri
 
 ### Availability of content exclusions
 
-| Tool                                            |            Code completion support            | {% data variables.product.prodname_copilot_chat_short %} support |
+| Tool                                            |            Code completion support            | {% data variables.copilot.copilot_chat_short %} support |
 |-------------------------------------------------|:---------------------------------------------:|:----------------------------------------------------------------:|
 | {% data variables.product.prodname_vs %}        | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
 | {% data variables.product.prodname_vscode %}    | {% octicon "check" aria-label="Supported" %}  |           {% octicon "check" aria-label="Supported" %}           |
@@ -225,7 +225,7 @@ There are a few different ways to test your content exclusions, depending on whi
 1. Use one or more of the following techniques to test if content is being excluded:
    * **In JetBrains IDEs, {% data variables.product.prodname_vs %}, and {% data variables.product.prodname_vscode %}**, check the {% data variables.product.prodname_copilot_short %} icon in the status bar. If a {% data variables.product.prodname_copilot_short %} content exclusion applies to the file, the {% data variables.product.prodname_copilot_short %} icon will have a diagonal line through it. Hover over the icon to see whether an organization or the parent repository disabled {% data variables.product.prodname_copilot_short %} for the file.
    * **In Vim/Neovim**, begin typing in the file. If {% data variables.product.prodname_copilot %} no longer provides inline suggestions as you type, the file is excluded.
-   * You can also test content exclusions in {% data variables.product.prodname_copilot_chat_short %}. Open the {% data variables.product.prodname_copilot_chat_short %} window, and ask {% data variables.product.prodname_copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
+   * You can also test content exclusions in {% data variables.copilot.copilot_chat_short %}. Open the {% data variables.copilot.copilot_chat_short %} window, and ask {% data variables.copilot.copilot_chat_short %} a question about the excluded file. If your content is excluded successfully, {% data variables.product.prodname_copilot_short %} will be unable to answer your question, and will explain that some files were excluded from the conversation due to content exclusion rules.
 
 ## Further reading
 

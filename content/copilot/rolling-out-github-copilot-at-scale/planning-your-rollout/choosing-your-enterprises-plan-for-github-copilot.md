@@ -1,7 +1,7 @@
 ---
 title: Choosing your enterprise's plan for GitHub Copilot
 shortTitle: Choose your plan
-intro: 'Choose between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}.'
+intro: 'Choose between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}.'
 versions:
   feature: copilot
 topics:
@@ -17,9 +17,9 @@ When you adopt {% data variables.product.prodname_copilot %} in a company, you w
 * Meet regulations and security requirements with features like file exclusion, policies, and audit logs
 * Benefit from advanced {% data variables.product.prodname_copilot_short %} features
 
-{% data variables.product.prodname_copilot_enterprise_short %} offers additional features for enterprises that want to customize {% data variables.product.prodname_copilot_short %} for their needs.
+{% data variables.copilot.copilot_enterprise_short %} offers additional features for enterprises that want to customize {% data variables.product.prodname_copilot_short %} for their needs.
 
-This article helps you to decide whether to adopt {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %}.
+This article helps you to decide whether to adopt {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %}.
 
 <a href="https://github.com/github-copilot/purchase?ref_cta=Copilot+Enterprise+trial&ref_cta=Copilot+Business+trial&ref_loc=choosing+enterprise+plan" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline"><span>Sign up for {% data variables.product.prodname_copilot_short %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}</a>
 
@@ -27,33 +27,33 @@ This article helps you to decide whether to adopt {% data variables.product.prod
 
 {% data variables.product.company_short %} offers two {% data variables.product.prodname_copilot_short %} plans for customers on {% data variables.product.prodname_ghe_cloud %}:
 
-* **{% data variables.product.prodname_copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes most {% data variables.product.prodname_copilot_short %} features in IDEs and on the {% data variables.product.github %} website.
-* **{% data variables.product.prodname_copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): allows companies to customize {% data variables.product.prodname_copilot_short %} for their code and processes, and includes a higher allowance for premium requests. To learn more, see the sections below.
+* **{% data variables.copilot.copilot_business_short %}** ({% data variables.copilot.cfb_price_per_month %} per user per month): includes most {% data variables.product.prodname_copilot_short %} features in IDEs and on the {% data variables.product.github %} website.
+* **{% data variables.copilot.copilot_enterprise_short %}** ({% data variables.copilot.ce_price_per_month %} per user per month): allows companies to customize {% data variables.product.prodname_copilot_short %} for their code and processes, and includes a higher allowance for premium requests. To learn more, see the sections below.
 
 For a full comparison, see our [plans page](https://github.com/features/copilot/plans).
 
 ## About mixed plans
 
-When you subscribe your enterprise account to {% data variables.product.prodname_copilot_enterprise_short %}, you don't need to use this plan across the whole enterprise. Instead, you can choose a plan individually for each organization in your enterprise. This approach allows you to:
+When you subscribe your enterprise account to {% data variables.copilot.copilot_enterprise_short %}, you don't need to use this plan across the whole enterprise. Instead, you can choose a plan individually for each organization in your enterprise. This approach allows you to:
 
-* Evaluate the benefits of {% data variables.product.prodname_copilot_enterprise_short %} for a smaller group of users before rolling it out further.
-* Enable {% data variables.product.prodname_copilot_enterprise_short %} in the organizations where it will have the most impact, such as organizations with complex documentation or specialized engineering requirements.
+* Evaluate the benefits of {% data variables.copilot.copilot_enterprise_short %} for a smaller group of users before rolling it out further.
+* Enable {% data variables.copilot.copilot_enterprise_short %} in the organizations where it will have the most impact, such as organizations with complex documentation or specialized engineering requirements.
 
 ## Do we have projects with complex requirements?
 
 For complex projects like monorepos or legacy codebases, developers in your company may need to spend a long time finding and reading documentation before they can contribute.
 
-With {% data variables.product.prodname_copilot_enterprise_short %}, you can create **knowledge bases** that bring together documentation from one or more repositories in an organization, allowing {% data variables.product.prodname_copilot_short %} to synthesize information from your documentation in its responses.
+With {% data variables.copilot.copilot_enterprise_short %}, you can create **knowledge bases** that bring together documentation from one or more repositories in an organization, allowing {% data variables.product.prodname_copilot_short %} to synthesize information from your documentation in its responses.
 
 ## Will we use {% data variables.copilot.copilot_code-review_short %} at scale?
 
 With {% data variables.copilot.copilot_code-review_short %}, {% data variables.product.prodname_copilot_short %} can provide feedback on pull requests on {% data variables.product.github %}. How much you use this feature depends on the goals of your rollout. For example, if a goal is to increase velocity by accelerating approvals of pull requests, then you may be encouraging developers to use {% data variables.copilot.copilot_code-review_short %} as much as possible.
 
-With {% data variables.product.prodname_copilot_enterprise_short %}, you can make {% data variables.product.prodname_copilot_short %}'s reviews more consistent across your repositories by adding **custom coding guidelines** written in natural language. {% data variables.product.prodname_copilot_short %} will give feedback based on the guidelines when it reviews code, which can increase developers' confidence in the reviews and allow you to encourage consistency in coding standards across teams.
+With {% data variables.copilot.copilot_enterprise_short %}, you can make {% data variables.product.prodname_copilot_short %}'s reviews more consistent across your repositories by adding **custom coding guidelines** written in natural language. {% data variables.product.prodname_copilot_short %} will give feedback based on the guidelines when it reviews code, which can increase developers' confidence in the reviews and allow you to encourage consistency in coding standards across teams.
 
 {% data reusables.copilot.code-review.custom-coding-guidelines-prerequisites %}
 
-{% data variables.product.prodname_copilot_enterprise_short %} also includes a higher allowance for premium requests, which include code reviews. To learn more, see [How much will we benefit from premium requests?](#how-much-will-we-benefit-from-premium-requests).
+{% data variables.copilot.copilot_enterprise_short %} also includes a higher allowance for premium requests, which include code reviews. To learn more, see [How much will we benefit from premium requests?](#how-much-will-we-benefit-from-premium-requests).
 
 ## How much will we benefit from premium requests?
 
@@ -71,9 +71,9 @@ Regardless of your plan, you can set a spending limit for premium requests over 
 
 To summarize:
 
-* Choose {% data variables.product.prodname_copilot_enterprise_short %} if your company has projects with complex requirements or large amounts of documentation. Knowledge bases give {% data variables.product.prodname_copilot_short %} enhanced context, which can save developers time and allow them to focus on tasks they enjoy.
-* If you think your developers will benefit from premium models and {% data variables.product.prodname_copilot_short %} code reviews, it may be cost effective to choose {% data variables.product.prodname_copilot_enterprise_short %} rather than pay for premium requests over your allowance.
-* If you're not sure about a full rollout, choose {% data variables.product.prodname_copilot_enterprise_short %} at the enterprise level and enable it for individual organizations where it will have the most impact.
+* Choose {% data variables.copilot.copilot_enterprise_short %} if your company has projects with complex requirements or large amounts of documentation. Knowledge bases give {% data variables.product.prodname_copilot_short %} enhanced context, which can save developers time and allow them to focus on tasks they enjoy.
+* If you think your developers will benefit from premium models and {% data variables.product.prodname_copilot_short %} code reviews, it may be cost effective to choose {% data variables.copilot.copilot_enterprise_short %} rather than pay for premium requests over your allowance.
+* If you're not sure about a full rollout, choose {% data variables.copilot.copilot_enterprise_short %} at the enterprise level and enable it for individual organizations where it will have the most impact.
 
 ## Further reading
 

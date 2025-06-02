@@ -12,7 +12,7 @@ redirect_from:
 
 ## Overview
 
-Each AI model supported in {% data variables.product.prodname_copilot_chat_short %} has different strengths. To help you decide which model to use, this article provides real-world examples of common developer tasks along with sample prompts, responses, and guidance on why a particular model is a good fit.
+Each AI model supported in {% data variables.copilot.copilot_chat_short %} has different strengths. To help you decide which model to use, this article provides real-world examples of common developer tasks along with sample prompts, responses, and guidance on why a particular model is a good fit.
 
 These examples show how models vary in their reasoning style, response depth, and ability to handle visual input. Use them to compare output quality and choose the right model for your specific workflow.
 

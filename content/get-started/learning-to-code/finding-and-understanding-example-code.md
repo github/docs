@@ -17,7 +17,7 @@ Learning from projects on {% data variables.product.github %} is a great way of 
 
 However, with millions of publicly available repositories on {% data variables.product.github %}, finding code that applies to your project can be overwhelming. Even after you find the perfect repository, it can be difficult to navigate the codebase to find useful examples.
 
-Instead of trying to understand an entire project, a better approach is to pick a single feature or function and see how it works. We can use {% data variables.product.prodname_copilot_chat_short %} and {% data variables.product.github %}'s search functionality to locate a feature and follow it through the codebase. This is a great way to learn as we can see how the feature works all the way from the backend to the frontend.
+Instead of trying to understand an entire project, a better approach is to pick a single feature or function and see how it works. We can use {% data variables.copilot.copilot_chat_short %} and {% data variables.product.github %}'s search functionality to locate a feature and follow it through the codebase. This is a great way to learn as we can see how the feature works all the way from the backend to the frontend.
 
 In this guide, you'll learn how to do both by following an **example scenario**: learning how to load and display data from files on a Jekyll website. Then, you can apply the tips and techniques to other projects and programming languages.
 
@@ -25,11 +25,11 @@ In this guide, you'll learn how to do both by following an **example scenario**:
 
 The first step is to find the right project to learn from.
 
-### Use {% data variables.product.prodname_copilot_chat_short %} to identify a repository
+### Use {% data variables.copilot.copilot_chat_short %} to identify a repository
 
-The fastest way to find a project with code that you can learn from is to ask [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot) to find repositories that match your criteria.
+The fastest way to find a project with code that you can learn from is to ask [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) to find repositories that match your criteria.
 
-Open [{% data variables.product.prodname_copilot_chat_short %}](https://github.com/copilot) and start a general purpose chat. Then ask:
+Open [{% data variables.copilot.copilot_chat_short %}](https://github.com/copilot) and start a general purpose chat. Then ask:
 
 > Can you find some popular repositories that use Jekyll to display data from files in the repository?
 
@@ -67,11 +67,11 @@ It's always a good idea to read the **README.md** file, which is the front page 
 
 In the [`github/choosealicense.com`](https://github.com/github/choosealicense.com) repository, the README.md file explains where the license files live (`/_licenses`), the attributes each license can have, and how to get the website running on your computer.
 
-### Using {% data variables.product.prodname_copilot_chat_short %}
+### Using {% data variables.copilot.copilot_chat_short %}
 
 If the README.md file doesn't give you all the answers, you can ask {% data variables.product.prodname_copilot_short %} to help you navigate the repository and locate functionality.
 
-To open {% data variables.product.prodname_copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar and ask your question. For example:
+To open {% data variables.copilot.copilot_chat_short %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** {% data variables.product.prodname_copilot %} icon next to the search bar and ask your question. For example:
 
 >What is the main landing page for this Jekyll website?
 
@@ -111,7 +111,7 @@ Now we can click on the result and dig deeper! [`licenses.html`](https://github.
 
 Now that we've found the specific code we're interested in, we can move on to understanding it.
 
-### Asking {% data variables.product.prodname_copilot_chat_short %} about the code
+### Asking {% data variables.copilot.copilot_chat_short %} about the code
 
 You can use {% data variables.product.prodname_copilot_short %} to learn more about a file or even specific lines of code. {% data variables.product.prodname_copilot_short %} will combine information about the programming language with the context from the repository to answer your questions in great detail.
 
@@ -122,7 +122,7 @@ Let's ask {% data variables.product.prodname_copilot_short %} to explain what's 
 {% data variables.product.prodname_copilot_short %} will explain that the line is including the `license-overview.html` file and passing along `"agpl-3.0"` as the `license-id` to display.
 
 >[!TIP]
->If you don't understand a response from {% data variables.product.prodname_copilot_chat_short %}, you can always ask it to simplify the answer or expand on a particular part of it.
+>If you don't understand a response from {% data variables.copilot.copilot_chat_short %}, you can always ask it to simplify the answer or expand on a particular part of it.
 
 ### Reading comments
 
