@@ -40,12 +40,6 @@ export async function populateIndex(
   options: Options,
 ) {
   console.log(chalk.yellow(`\nIndexing ${chalk.bold(indexName)}`))
-  const bulkOperations = records.flatMap((doc) => [{ index: { _index: indexAlias } }, doc])
-
-  const bulkOptions = {
-    refresh: false,
-    timeout: '5m',
-  }
 
   const attempts = options.retries || 0
   const sleepTime = options.sleepTime || DEFAULT_SLEEPTIME_SECONDS * 1000
@@ -57,7 +51,15 @@ export async function populateIndex(
   const t0 = new Date()
   const bulkResponse = await retryOnErrorTest(
     (error) => error instanceof errors.ResponseError && error.meta.statusCode === 429,
-    () => client.bulk({ operations: bulkOperations, ...bulkOptions }),
+    () =>
+      client.helpers.bulk({
+        datasource: records,
+        onDocument: () => ({ index: { _index: indexAlias } }),
+        flushBytes: 10_000_000, // stop before breaker trips
+        concurrency: 2, // back-off a bit
+        refreshOnCompletion: true,
+        timeout: '5m',
+      }),
     {
       attempts,
       sleepTime,
