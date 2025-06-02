@@ -1,4 +1,4 @@
----
+-!-->
 title: Making a GitHub App public or private
 intro: 'When registering a {% data variables.product.prodname_github_app %}, you can make it public so that other GitHub users or organizations can install the app, or private so that you can only install it on the account that owns the app.'
 redirect_from:
@@ -18,7 +18,7 @@ versions:
 topics:
   - GitHub Apps
 shortTitle: Visibility
----
+<-!--
 
 ## About visibility for {% data variables.product.prodname_github_apps %}
 

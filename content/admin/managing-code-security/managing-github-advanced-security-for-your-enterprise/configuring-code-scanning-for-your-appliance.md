@@ -115,3 +115,4 @@ If you don't want to use {% data variables.product.prodname_actions %}, you shou
 
 The {% data variables.product.prodname_codeql_cli %} is a command-line tool that you use to analyze codebases on any machine, including a third-party CI/CD system. See [AUTOTITLE](/code-security/code-scanning/integrating-with-code-scanning/using-code-scanning-with-your-existing-ci-system).
 {% endif %}
+***

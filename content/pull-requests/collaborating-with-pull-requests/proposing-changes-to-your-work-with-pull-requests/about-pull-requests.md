@@ -1,4 +1,4 @@
----
+|---
 title: About pull requests
 intro: 'Learn about pull requests and draft pull requests on {% data variables.product.github %}. Pull requests communicate changes to a branch in a repository. Once a pull request is opened, you can review changes with collaborators and add follow-up commits.'
 redirect_from:
@@ -13,7 +13,7 @@ versions:
   ghec: '*'
 topics:
   - Pull requests
----
+|---
 
 ## About pull requests
 
@@ -60,10 +60,11 @@ The compare and pull request pages use different methods to calculate the diff f
 
 * Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
 * Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. Consequently, the merge base used for the comparison might be different.
-
+  ***
 ## Further reading
 
 * [AUTOTITLE](/get-started/learning-about-github/github-glossary#pull-request) in the {% data variables.product.prodname_dotcom %} glossary
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-branches)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/reviewing-changes-in-pull-requests/commenting-on-a-pull-request)
 * [AUTOTITLE](/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/closing-a-pull-request)
+|---
