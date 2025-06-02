@@ -4,7 +4,7 @@ shortTitle: Analyze usage over time
 intro: 'Learn how to connect to the API, store data, and analyze usage trends.'
 versions:
   feature: copilot
-product: '{% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}'
+product: '{% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}'
 redirect_from:
   - /copilot/managing-copilot/managing-github-copilot-in-your-organization/reviewing-activity-related-to-github-copilot-in-your-organization/analyzing-usage-over-time-with-the-copilot-metrics-api
   - /copilot/rolling-out-github-copilot-at-scale/analyzing-usage-over-time-with-the-copilot-metrics-api
@@ -31,8 +31,8 @@ This guide demonstrates how to query the API, store data, and analyze a trend fo
 
 Endpoints are available to get data for an enterprise, organization, organization team, or enterprise team on {% data variables.product.prodname_dotcom_the_website %}.
 
-* If you have a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} plan as part of a regular organization or enterprise, you can use the endpoints for **an enterprise, an organization, or an organization team**. You don't have access to enterprise teams unless you're enrolled in a preview.
-* If you use a dedicated enterprise for {% data variables.product.prodname_copilot_for_business %}—an enterprise account without the ability to create organizations—you can use the endpoints for **an enterprise or an enterprise team**.
+* If you have a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} plan as part of a regular organization or enterprise, you can use the endpoints for **an enterprise, an organization, or an organization team**. You don't have access to enterprise teams unless you're enrolled in a preview.
+* If you use a dedicated enterprise for {% data variables.copilot.copilot_for_business %}—an enterprise account without the ability to create organizations—you can use the endpoints for **an enterprise or an enterprise team**.
 
 {% data reusables.copilot.metrics-api-ghecom %}
 

@@ -3,7 +3,7 @@ title: About billing for GitHub Copilot in your organization
 shortTitle: About billing
 intro: 'Learn about pricing and billing cycles for {% data variables.product.prodname_copilot_short %} in your organization.'
 permissions: 'Organization owners'
-product: '{% data variables.product.prodname_copilot_for_business %}'
+product: '{% data variables.copilot.copilot_for_business %}'
 versions:
   feature: copilot
 type: overview
@@ -15,7 +15,7 @@ redirect_from:
 
 ## About pricing for {% data variables.product.prodname_copilot_short %} in your organization
 
-{% data variables.product.prodname_copilot_business_short %} plans are available on a monthly cycle. The plans are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
+{% data variables.copilot.copilot_business_short %} plans are available on a monthly cycle. The plans are billed at the end of each cycle, at {% data variables.copilot.cfb_price_per_month %} per user per month.
 
 ## Premium requests
 
@@ -36,7 +36,7 @@ If your organization belongs to an enterprise, your enterprise will be charged o
 
 ### About seat assignment for {% data variables.product.prodname_copilot_short %} in your organization
 
-A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot_short %}, which is granted to a unique user account through an organization's {% data variables.product.prodname_copilot_business_short %} plan. Each month, the organization is charged for the number of assigned seats.
+A {% data variables.product.prodname_copilot_short %} seat is a license to use {% data variables.product.prodname_copilot_short %}, which is granted to a unique user account through an organization's {% data variables.copilot.copilot_business_short %} plan. Each month, the organization is charged for the number of assigned seats.
 
 Removing all assigned {% data variables.product.prodname_copilot_short %} seats in your organization will cancel your organization's {% data variables.product.prodname_copilot_short %} plan.
 

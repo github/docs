@@ -39,7 +39,7 @@ First, let's disable code completion. This will give you the opportunity to deep
 
 ## Step 2: Add learning instructions
 
-Now, let's provide {% data variables.product.prodname_copilot_chat_short %} with instructions to act like a tutor that supports your learning.
+Now, let's provide {% data variables.copilot.copilot_chat_short %} with instructions to act like a tutor that supports your learning.
 
 1. In the root folder of your project, create a file called `copilot-instructions.md`.
 1. Add the following text, or customize it for your personal learning goals:
@@ -54,16 +54,16 @@ Now, let's provide {% data variables.product.prodname_copilot_chat_short %} with
    At the end of every response, add "Always check the correctness of AI-generated responses."
    ```
 
-1. Save the file. {% data variables.product.prodname_copilot_short %} will use these instructions when you ask questions in {% data variables.product.prodname_copilot_chat_short %}.
+1. Save the file. {% data variables.product.prodname_copilot_short %} will use these instructions when you ask questions in {% data variables.copilot.copilot_chat_short %}.
 
-## Step 3: Use {% data variables.product.prodname_copilot_chat_short %} to learn
+## Step 3: Use {% data variables.copilot.copilot_chat_short %} to learn
 
 You're ready to start building real coding skills with {% data variables.product.prodname_copilot_short %}'s help!
 
-Throughout your work on the project, engage in a long-running conversation with **{% data variables.product.prodname_copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
+Throughout your work on the project, engage in a long-running conversation with **{% data variables.copilot.copilot_chat_short %}**. Treat it as your **personal tutor**, asking questions as they arise and using it to navigate challenges or clarify concepts.
 
 <a href="vscode://GitHub.Copilot-Chat" target="_blank" class="btn btn-primary mt-3 mr-3 no-underline" aria-label="Open Copilot Chat in Visual Studio Code">
-<span>Open {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
+<span>Open {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode_shortname %}</span> {% octicon "link-external" height:16 aria-label="link-external" %}
 </a><br></br>
 
-{% data variables.product.prodname_copilot_chat_short %} is especially helpful for debugging your code. For step-by-step guidance, see [AUTOTITLE](/get-started/learning-to-code/learning-to-debug-with-github-copilot).
+{% data variables.copilot.copilot_chat_short %} is especially helpful for debugging your code. For step-by-step guidance, see [AUTOTITLE](/get-started/learning-to-code/learning-to-debug-with-github-copilot).

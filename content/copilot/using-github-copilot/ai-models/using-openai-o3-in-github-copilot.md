@@ -2,23 +2,23 @@
 title: Using OpenAI o3 in Copilot Chat
 allowTitleToDifferFromFilename: true
 shortTitle: 'Use OpenAI {% data variables.copilot.copilot_o3 %}'
-intro: 'Learn how to enable OpenAI {% data variables.copilot.copilot_o3 %} in {% data variables.product.prodname_copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
+intro: 'Learn how to enable OpenAI {% data variables.copilot.copilot_o3 %} in {% data variables.copilot.copilot_chat %}, for {% ifversion fpt %}yourself or{% endif %} your organization{% ifversion ghec %} or enterprise{% endif %}.'
 versions:
   feature: copilot
 topics:
   - Copilot
 ---
 
-## About OpenAI {% data variables.copilot.copilot_o3 %} in {% data variables.product.prodname_copilot_chat %}
+## About OpenAI {% data variables.copilot.copilot_o3 %} in {% data variables.copilot.copilot_chat %}
 
 {% data reusables.copilot.o3-public-preview-note %}
 
-OpenAI has a family of large language models that you can use as an alternative to the default model used by {% data variables.product.prodname_copilot_chat_short %}. {% data variables.copilot.copilot_o3 %} is one of those models and excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. For information about the capabilities of {% data variables.copilot.copilot_o3 %}, see the [OpenAI documentation](https://platform.openai.com/docs/models).
+OpenAI has a family of large language models that you can use as an alternative to the default model used by {% data variables.copilot.copilot_chat_short %}. {% data variables.copilot.copilot_o3 %} is one of those models and excels at coding tasks across the entire software development lifecycle, from initial design to bug fixes, maintenance to optimizations. For information about the capabilities of {% data variables.copilot.copilot_o3 %}, see the [OpenAI documentation](https://platform.openai.com/docs/models).
 
 {% data variables.copilot.copilot_o3 %} is currently available in:
 
-* {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}
-* Immersive mode in {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.github %}
+* {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}
+* Immersive mode in {% data variables.copilot.copilot_chat_short %} in {% data variables.product.github %}
 
 {% data variables.copilot.copilot_o3 %} is hosted by OpenAI and GitHub's Azure tenant when used in {% data variables.product.prodname_copilot %}. OpenAI makes the [following data commitment](https://openai.com/enterprise-privacy/): _We [OpenAI] do not train our models on your business data by default_. GitHub maintains a [zero data retention agreement](https://platform.openai.com/docs/guides/your-data) with OpenAI.
 
@@ -32,9 +32,9 @@ You must enable access to OpenAI {% data variables.copilot.copilot_o3 %} individ
 
 ### Setup for individual use
 
-If you have a {% data variables.product.prodname_copilot_pro_plus_short %} subscription, you can enable OpenAI {% data variables.copilot.copilot_o3 %} in two ways:
+If you have a {% data variables.copilot.copilot_pro_plus_short %} subscription, you can enable OpenAI {% data variables.copilot.copilot_o3 %} in two ways:
 
-* The first time you choose to use {% data variables.copilot.copilot_o3 %} with {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.product.prodname_copilot_chat_short %}, you will be prompted to allow access to the model.
+* The first time you choose to use {% data variables.copilot.copilot_o3 %} with {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, or in the immersive view of {% data variables.copilot.copilot_chat_short %}, you will be prompted to allow access to the model.
 
   Clicking **Allow** enables you to use {% data variables.copilot.copilot_o3 %} and updates the policy in your personal settings on {% data variables.product.github %}.
 
@@ -46,10 +46,10 @@ If you have a {% data variables.product.prodname_copilot_pro_plus_short %} subsc
 
 ### Setup enterprise use
 
-As an enterprise owner, you can enable or disable {% data variables.copilot.copilot_o3 %} for everyone who has been assigned a {% data variables.product.prodname_copilot_enterprise_short %} seat through your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
+As an enterprise owner, you can enable or disable {% data variables.copilot.copilot_o3 %} for everyone who has been assigned a {% data variables.copilot.copilot_enterprise_short %} seat through your enterprise. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-policies-and-features-for-copilot-in-your-enterprise).
 
 {% endif %}
 
 ## Using {% data variables.copilot.copilot_o3 %}
 
-For details of how to change the model that {% data variables.product.prodname_copilot_chat_short %} uses, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
+For details of how to change the model that {% data variables.copilot.copilot_chat_short %} uses, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/changing-the-ai-model-for-copilot-chat).
