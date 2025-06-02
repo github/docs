@@ -1,8 +1,8 @@
 ---
 title: Speeding up development work with Copilot Spaces
 shortTitle: Speed up development work
-intro: 'Learn how to use {% data variables.product.prodname_copilot_spaces %} to help you with development work.'
-permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.product.prodname_copilot_spaces_short %}.'
+intro: 'Learn how to use {% data variables.copilot.copilot_spaces %} to help you with development work.'
+permissions: 'Anyone with a {% data variables.product.prodname_copilot_short %} license can use {% data variables.copilot.copilot_spaces_short %}.'
 versions:
   feature: copilot
 type: how_to
@@ -12,7 +12,7 @@ topics:
 
 {% data reusables.copilot.copilot-spaces.preview-note %}
 
-If you're starting a new feature, trying to understand a system, or picking up a task in a codebase you’re still learning, {% data variables.product.prodname_copilot_spaces %} can help you:
+If you're starting a new feature, trying to understand a system, or picking up a task in a codebase you’re still learning, {% data variables.copilot.copilot_spaces %} can help you:
 
 * Stay focused by organizing the context you need in one place.
 * Get better help from {% data variables.product.prodname_copilot_short %} by grounding it in relevant code and documentation.
@@ -20,7 +20,7 @@ If you're starting a new feature, trying to understand a system, or picking up a
 
 To create a space, go to [https://github.com/copilot/spaces](https://github.com/copilot/spaces), and click **Create space**.
 
-Below are some examples of how to use {% data variables.product.prodname_copilot_spaces_short %} to help you with development work.
+Below are some examples of how to use {% data variables.copilot.copilot_spaces_short %} to help you with development work.
 
 ## Developing a new feature
 
@@ -39,7 +39,7 @@ When working on a specific feature, you can save time and produce higher-quality
 
 ## Defining the logic for a small, frequent task
 
-When working on repetitive tasks like tracking telemetry events or handling event emissions, it’s useful to document the logic once and share it with others through {% data variables.product.prodname_copilot_spaces_short %}. This allows everyone to stay consistent and saves time when performing the task. {% data variables.product.prodname_copilot_short %} can assist by:
+When working on repetitive tasks like tracking telemetry events or handling event emissions, it’s useful to document the logic once and share it with others through {% data variables.copilot.copilot_spaces_short %}. This allows everyone to stay consistent and saves time when performing the task. {% data variables.product.prodname_copilot_short %} can assist by:
 
 * Suggesting efficient patterns based on your previous work.
 * Helping write reusable functions or templates.
@@ -61,7 +61,7 @@ In situations where people tend to ask similar questions, such as how authentica
 * Guide new team members on the best practices.
 
 **Instructions**:
-> You contain the code and documentation associated with our authentication system.  
+> You contain the code and documentation associated with our authentication system.
 
 **Suggested prompt**:
 > How does SSO work?
