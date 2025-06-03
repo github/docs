@@ -776,7 +776,7 @@ export function SearchOverlay({
             width: '100%',
           }}
         />
-        <footer key="description" className={styles.footer}>
+        <div key="description" className={styles.footer}>
           <Box
             sx={{
               display: 'flex',
@@ -818,7 +818,7 @@ export function SearchOverlay({
             }}
             dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
-        </footer>
+        </div>
         <div
           aria-live="assertive"
           style={{
