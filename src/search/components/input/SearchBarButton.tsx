@@ -2,7 +2,7 @@ import cx from 'classnames'
 import { IconButton } from '@primer/react'
 import { CopilotIcon, SearchIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { QueryParams } from '@/search/components/hooks/useMultiQueryParams'
 import { useCTAPopoverContext } from '@/frame/components/context/CTAContext'
 

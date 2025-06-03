@@ -25,8 +25,8 @@ import {
 } from '@primer/octicons-react'
 import { focusTrap } from '@primer/behaviors'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useVersion } from 'src/versions/components/useVersion'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 import {
   AI_SEARCH_CONTEXT,
   executeGeneralSearch,

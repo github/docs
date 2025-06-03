@@ -23,7 +23,7 @@ import getRemoteJSON from '@/frame/lib/get-remote-json.js'
 import {
   deprecated,
   lastVersionWithoutArchivedRedirectsFile,
-} from '#src/versions/lib/enterprise-server-releases.js'
+} from '@/versions/lib/enterprise-server-releases.js'
 
 program
   .description(

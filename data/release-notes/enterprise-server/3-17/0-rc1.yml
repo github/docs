@@ -1,6 +1,6 @@
 date: '2025-05-13'
 release_candidate: true
-deprecated: false
+deprecated: true
 intro: |
   > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
   >

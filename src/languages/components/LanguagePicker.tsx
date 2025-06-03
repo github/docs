@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 import { GlobeIcon } from '@primer/octicons-react'
 
-import { useLanguages } from 'src/languages/components/LanguagesContext'
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useUserLanguage } from 'src/languages/components/useUserLanguage'
+import { useLanguages } from '@/languages/components/LanguagesContext'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useUserLanguage } from '@/languages/components/useUserLanguage'
 import { ActionList, ActionMenu, IconButton, Link } from '@primer/react'
 
 type Props = {

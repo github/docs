@@ -1,8 +1,8 @@
 import { parseTemplate } from 'url-template'
 import { stringify } from 'javascript-stringify'
 
-import type { CodeSample, Operation } from 'src/rest/components/types'
-import { type VersionItem } from 'src/frame/components/context/MainContext'
+import type { CodeSample, Operation } from '@/rest/components/types'
+import { type VersionItem } from '@/frame/components/context/MainContext'
 
 type CodeExamples = Record<string, any>
 

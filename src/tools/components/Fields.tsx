@@ -2,7 +2,7 @@ import { ReactNode } from 'react'
 import { ActionList } from '@primer/react'
 
 import { PickerItem } from './Picker'
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 
 import styles from './Fields.module.scss'
 

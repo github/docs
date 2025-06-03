@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, FormEvent } from 'react'
 import { FormControl, IconButton, Select, TabNav } from '@primer/react'
 import { CheckIcon, CopyIcon, InfoIcon } from '@primer/octicons-react'
 import { announce } from '@primer/live-region-element'
-import Cookies from 'src/frame/components/lib/cookies'
+import Cookies from '@/frame/components/lib/cookies'
 import cx from 'classnames'
 
 import hljs from 'highlight.js/lib/core'
@@ -10,19 +10,19 @@ import json from 'highlight.js/lib/languages/json'
 import javascript from 'highlight.js/lib/languages/javascript'
 import hljsCurl from 'highlightjs-curl'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import useClipboard from 'src/rest/components/useClipboard'
+import { useTranslation } from '@/languages/components/useTranslation'
+import useClipboard from '@/rest/components/useClipboard'
 import {
   getShellExample,
   getGHExample,
   getJSExample,
-} from 'src/rest/components/get-rest-code-samples'
+} from '@/rest/components/get-rest-code-samples'
 import styles from './RestCodeSamples.module.scss'
 import { RestMethod } from './RestMethod'
 import type { Operation, ExampleT } from './types'
 import { ResponseKeys, CodeSampleKeys } from './types'
-import { useVersion } from 'src/versions/components/useVersion'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import { useVersion } from '@/versions/components/useVersion'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 type Props = {
   slug: string

@@ -5,7 +5,7 @@ import path from 'path'
 import { beforeAll, describe, expect, test } from 'vitest'
 import yaml from 'js-yaml'
 
-import { liquid } from '#src/content-render/index.js'
+import { liquid } from '@/content-render/index.js'
 
 interface ReleaseNoteContent {
   intro: string

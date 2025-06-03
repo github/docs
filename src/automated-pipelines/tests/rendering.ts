@@ -3,8 +3,8 @@ import { readFileSync } from 'fs'
 import cheerio from 'cheerio'
 import { describe, expect, test, vi } from 'vitest'
 
-import { loadPages } from '#src/frame/lib/page-data.js'
-import { get } from '#src/tests/helpers/e2etest.js'
+import { loadPages } from '@/frame/lib/page-data.js'
+import { get } from '@/tests/helpers/e2etest.js'
 
 // Type definitions for page objects
 type Page = {

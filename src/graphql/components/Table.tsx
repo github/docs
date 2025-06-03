@@ -1,6 +1,6 @@
-import { Link } from 'src/frame/components/Link'
+import { Link } from '@/frame/components/Link'
 import { Notice } from './Notice'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { FieldT } from './types'
 
 type Props = {
