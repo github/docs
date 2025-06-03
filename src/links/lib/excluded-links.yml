@@ -16,6 +16,7 @@
 - startsWith: https://github.com/github/docs/edit
 - startsWith: https://github.com/github/insights-releases/releases/latest
 - startsWith: https://classroom.github.com/videos
+- startsWith: https://developer.anthology.com/portal
 
 # Oneoff links that link checkers think are broken but are not.
 - is: https://haveibeenpwned.com/

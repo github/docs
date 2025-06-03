@@ -341,6 +341,28 @@
         "additional-permissions": true
       },
       {
+        "category": "dependabot",
+        "slug": "lists-repositories-that-organization-admins-have-allowed-dependabot-to-access-when-updating-dependencies",
+        "subcategory": "repository-access",
+        "verb": "get",
+        "requestPath": "/organizations/{org}/dependabot/repository-access",
+        "access": "read",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
+        "category": "dependabot",
+        "slug": "set-the-default-repository-access-level-for-dependabot",
+        "subcategory": "repository-access",
+        "verb": "put",
+        "requestPath": "/organizations/{org}/dependabot/repository-access/default-level",
+        "access": "write",
+        "user-to-server": true,
+        "server-to-server": true,
+        "additional-permissions": false
+      },
+      {
         "category": "billing",
         "slug": "get-billing-usage-report-for-an-organization",
         "subcategory": "enhanced-billing",

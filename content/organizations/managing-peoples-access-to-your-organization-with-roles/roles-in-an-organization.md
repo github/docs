@@ -94,8 +94,6 @@ Generally, the outside collaborator and repository collaborator roles are equiva
 * Repository collaborators cannot bypass single sign-on (SSO) requirements, because SSO is managed at the enterprise level in an {% data variables.enterprise.prodname_emu_enterprise %}. However, like outside collaborators, they do not need to provide SSO authorization of credentials for organizations where they are a collaborator.
 * Repository collaborators are subject to your enterprise IP allow list policy and your identity provider's conditional access policy. However, they are not subject to the organization's IP allow list policy.
 
-{% data reusables.repositories.repository-collaborators-release-phase %}
-
 {% endif %}
 
 #### Managing outside collaborators{% ifversion repository-collaborators %} or repository collaborators{% endif %}
