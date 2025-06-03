@@ -9,6 +9,8 @@ import { useRouter } from 'next/router'
 import { useTranslation } from 'src/languages/components/useTranslation'
 import { AISearchCTAPopup } from '@/search/components/input/AISearchCTAPopup'
 import { useSearchOverlayContext } from '@/search/components/context/SearchOverlayContext'
+import { EXPERIMENTS } from '@/events/components/experiments/experiments'
+import { useShouldShowExperiment } from '@/events/components/experiments/useShouldShowExperiment'
 
 import styles from './SupportSection.module.scss'
 
@@ -18,6 +20,9 @@ export const SupportSection = () => {
   const router = useRouter()
   const { t } = useTranslation('footer')
   const { setIsSearchOpen } = useSearchOverlayContext()
+  const { showExperiment: showNewSearch } = useShouldShowExperiment(
+    EXPERIMENTS.ai_search_experiment,
+  )
 
   const isDeprecated =
     enterpriseServerReleases.isOldestReleaseDeprecated &&
@@ -29,7 +34,7 @@ export const SupportSection = () => {
   const showSurvey = !isDeprecated && !isSitePolicyDocs
   const showContribution = !isDeprecated && !isEarlyAccess && isEnglish
   const showSupport = true
-  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish
+  const showCopilotCTA = !isDeprecated && !isEarlyAccess && isEnglish && showNewSearch
 
   return (
     <section className="container-xl mt-lg-8 mt-6 px-3 px-md-6 no-print mx-auto">
