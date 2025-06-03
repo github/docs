@@ -8,9 +8,9 @@
 import fs from 'fs'
 import path from 'path'
 import { program } from 'commander'
-import walkFiles from '#src/workflows/walk-files.ts'
+import walkFiles from '@/workflows/walk-files'
 import { escapeRegExp } from 'lodash-es'
-import patterns from '#src/frame/lib/patterns.js'
+import patterns from '@/frame/lib/patterns.js'
 
 interface ProgramOptions {
   add?: boolean

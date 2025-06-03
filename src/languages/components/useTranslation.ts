@@ -1,5 +1,5 @@
-import type { UIStrings } from 'src/frame/components/context/MainContext'
-import { useMainContext } from 'src/frame/components/context/MainContext'
+import type { UIStrings } from '@/frame/components/context/MainContext'
+import { useMainContext } from '@/frame/components/context/MainContext'
 
 class TranslationNamespaceError extends Error {}
 class UngettableError extends Error {}

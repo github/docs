@@ -6,7 +6,7 @@ import path from 'path'
 import { afterAll, beforeAll, describe, expect, test } from 'vitest'
 import { mkdirp } from 'mkdirp'
 import matter from 'gray-matter'
-import type { FrontmatterVersions } from '#src/types.js'
+import type { FrontmatterVersions } from '@/types.js'
 
 import { updateContentDirectory } from '../lib/update-markdown.js'
 

@@ -5,19 +5,19 @@ import Head from 'next/head'
 import { ThemeProvider } from '@primer/react'
 import { useRouter } from 'next/router'
 
-import { initializeEvents } from 'src/events/components/events'
+import { initializeEvents } from '@/events/components/events'
 import {
   initializeExperiments,
   initializeForwardFeatureUrlParam,
-} from 'src/events/components/experiments/experiment'
+} from '@/events/components/experiments/experiment'
 import {
   LanguagesContext,
   LanguagesContextT,
   LanguageItem,
-} from 'src/languages/components/LanguagesContext'
-import { useTheme } from 'src/color-schemes/components/useTheme'
-import { SharedUIContextProvider } from 'src/frame/components/context/SharedUIContext'
-import { CTAPopoverProvider } from 'src/frame/components/context/CTAContext'
+} from '@/languages/components/LanguagesContext'
+import { useTheme } from '@/color-schemes/components/useTheme'
+import { SharedUIContextProvider } from '@/frame/components/context/SharedUIContext'
+import { CTAPopoverProvider } from '@/frame/components/context/CTAContext'
 
 type MyAppProps = AppProps & {
   isDotComAuthenticated: boolean
