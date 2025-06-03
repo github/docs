@@ -1,14 +1,9 @@
-date: '2025-05-13'
-release_candidate: true
-deprecated: true
+date: '2025-06-03'
+release_candidate: false
+deprecated: false
 intro: |
-  > [!NOTE] Release candidate (RC) builds are intended solely for use in a test environment. Do not install an RC in a production environment.
-  >
-  > Do not upgrade to an RC from a supported, earlier version.
-  >
-  > If {% data variables.location.product_location %} is running an RC, you cannot upgrade to the general availability (GA) release. You also cannot upgrade with a hotpatch.
-
   For upgrade instructions, see [AUTOTITLE](/admin/upgrading-your-instance/preparing-to-upgrade/overview-of-the-upgrade-process).
+
 sections:
   # Remove section heading if the section contains no notes.
 
@@ -146,13 +141,20 @@ sections:
         - |
           Verified commits are attached to persistent verification records, allowing users to identify the first actor to introduce a commit to a repository. Users can rotate, expire, or revoke their signing key without impacting existing verifications.
 
-          Verification records consume approximately 80 bytes on disk per signed commit. To limit data growth on large instances, site administrators can run `ghe-config app.persist-commit-signature-verification.enabled false` to disable persistent records. See [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
+          Verification records consume approximately 80 bytes on disk per signed commit. To limit data growth on large instances, site administrators can run `ghe-config app.persist-commit-signature-verification.enabled false` to disable persistent records.
 
     - heading: GitHub Mobile
       notes:
         # https://github.com/github/releases/issues/3234
          - |
            GitHub Mobile users can quickly view their recent projects by clicking the Projects view from the Home screen.
+        # https://github.com/github/releases/issues/5828
+         - |
+           GitHub Mobile supports additional functionality when connected to instances running GitHub Enterprise Server 3.17:
+
+           * Compare branches: View and compare changes between branches directly from your mobile device.
+           * Fork repositories: Fork public repositories in the mobile app.
+           * Projects: Access and interact with GitHub Projects on the go.
 
     - heading: Integrations and extensions
       notes:
@@ -172,8 +174,6 @@ sections:
       Users see a horizontal navigation bar at the top of their enterprise account. This update is designed to improve the user experience by providing a consistent, intuitive navigation structure that mirrors the rest of the GitHub experience.
 
   known_issues:
-    - |
-      **Note:** This list is not complete. Any new known issues that are identified for the 3.17 release will be added between now and the general availability release.
     - |
       Custom firewall rules are removed during the upgrade process.
     - |
@@ -206,6 +206,8 @@ sections:
       Repository Cache Replicas return `Repository not found` when changes have been pushed to the primary instance that have not yet synchronized to the Cache Replica. This issue can also occur in all previous patches of this release.
     - |
       When publishing npm packages in a workflow after restoring from a backup to GitHub Enterprise Server 3.13.5.gm4 or 3.14.2.gm3, you may encounter a `401 Unauthorized` error from the GitHub Packages service. This can happen if the restore is from an N-1 or N-2 version and the workflow targets the npm endpoint on the backup instance. To avoid this issue, ensure the access token is valid and includes the correct scopes for publishing to GitHub Packages.
+    - |
+      Uploading a new license with unbundled GitHub Advanced Security may not fully unbundle all the Security Configurations on the instance in certain cases. Any active Security Configurations will continue to function, but when attempting to apply the configurations to new repositories you may see errors like "Advanced Security is not purchased" or `Validation failed: Secret scanning non provider patterns Non-provider patterns must be disabled when secret scanning is disabled`. Contact GitHub Support for assistance clearing this state in version 3.17.0. This issue will be resolved in version 3.17.1.
 
   closing_down:
     # https://github.com/github/releases/issues/5177
@@ -227,6 +229,3 @@ sections:
     # https://github.com/github/releases/issues/5204
     - |
       Dependabot is no longer supporting NPM version 6, which has reached its end-of-life. If you continue to use NPM version 6, Dependabot will be unable to create pull requests to update dependencies. If this affects you, we recommend updating to a supported release of NPM. As of December 2024, NPM 9 is the newest supported release.
-    # https://github.com/github/releases/issues/4710
-    - |
-      The `cvss` field for GitHub security advisories in the REST and GraphQL APIs is no longer available, and is superseded by the new `cvss_severities` field. See [Deprecation of cvss field in security advisories API](https://github.blog/changelog/2025-03-27-deprecation-of-cvss-field-in-security-advisories-api/) on the GitHub Blog.
