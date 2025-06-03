@@ -29,12 +29,16 @@ With {% data variables.copilot.copilot_coding_agent %}, {% data variables.produc
 
 To delegate development tasks to {% data variables.product.prodname_copilot_short %}, you can:
 
-* Assign an issue to {% data variables.product.prodname_copilot_short %}
-* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request
+* Assign an issue to {% data variables.product.prodname_copilot_short %}. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/using-copilot-to-work-on-an-issue).
+* Use {% data variables.copilot.copilot_chat %} to ask {% data variables.product.prodname_copilot_short %} to create a pull request. See [AUTOTITLE](/copilot/using-github-copilot/coding-agent/asking-copilot-to-create-a-pull-request).
 
 {% data variables.product.prodname_copilot_short %} will evaluate the task it has been assigned based on the prompt you give it—whether that's from the issue description or a chat message. Then {% data variables.product.prodname_copilot_short %} will make the required changes and open a pull request. When {% data variables.product.prodname_copilot_short %} finishes, it will request a review from you, and you can leave pull request comments to ask {% data variables.product.prodname_copilot_short %} to iterate.
 
 While working on a coding task, {% data variables.product.prodname_copilot_short %} has access to its own ephemeral development environment, powered by {% data variables.product.prodname_actions %}, where it can explore your code, make changes, execute automated tests and linters and more.
+
+### {% data variables.copilot.copilot_coding_agent %} vs. agent mode in {% data variables.product.prodname_vscode %}
+
+{% data variables.copilot.copilot_coding_agent %} is distinct from the "agent mode" feature available in {% data variables.product.prodname_vscode %}. {% data variables.copilot.copilot_coding_agent %} works autonomously in a {% data variables.product.prodname_actions %}-powered environment to complete development tasks assigned through {% data variables.product.github %} issues or {% data variables.copilot.copilot_chat %} prompts, and creates pull requests with the results. In contrast, agent mode in {% data variables.product.prodname_vscode %} is part of the {% data variables.copilot.copilot_edits %} feature that allows {% data variables.product.prodname_copilot_short %} to make autonomous edits directly in your local development environment. For more information about agent mode, see [AUTOTITLE](/copilot/using-github-copilot/copilot-chat/asking-github-copilot-questions-in-your-ide?tool=visualstudio#copilot-edits-1).
 
 ### Streamlining software development with {% data variables.copilot.copilot_coding_agent %}
 
