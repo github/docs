@@ -18,13 +18,11 @@ shortTitle: Migrating to new GHAS SKUs
 
 ## New SKUs for {% data variables.product.prodname_AS %} features
 
-<!-- expires 2025-05-31 -->
+<!-- expires 2025-09-30 -->
 
-<!-- On expiry, check with the stakeholder. If nothing else, remove the date from the start of this paragraph and check the information for Metered-billing users is still appropriate. Possibly the whole article can be deleted. Reference: release 5202 -->
+{% data variables.product.prodname_AS %} features are also available under two separate stock keeping units (SKUs) for {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} users. {% data variables.product.prodname_ghe_server %} users can use the two new SKUs when upgrading to version 3.17.
 
-From April 1, 2025, {% data variables.product.prodname_AS %} features are also available under two separate stock keeping units (SKUs) for {% data variables.product.prodname_team %} and {% data variables.product.prodname_ghe_cloud %} users. {% data variables.product.prodname_ghe_server %} users can use the two new SKUs when upgrading to version 3.17.
-
-<!-- end expires 2025-05-31 -->
+<!-- end expires 2025-09-30 -->
 
 {% data reusables.advanced-security.ghas-products-bullets %}
 
