@@ -30,6 +30,7 @@ search:
     placeholder_no_icon: Search or ask Copilot
     shortcut: Type {{icon}} to search
   overlay:
+    aria_label: Search overlay
     input_aria_label: Search or ask Copilot
     suggestions_list_aria_label: Search suggestions
     ai_suggestions_list_aria_label: Copilot search suggestions
