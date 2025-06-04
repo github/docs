@@ -23,7 +23,7 @@ shortTitle: 'Add {% data variables.copilot.copilot_coding_agent %}'
 
 {% data reusables.organizations.copilot-policy-ent-overrides-org %}
 
-{% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are disabled by default for organization members. Organization owners with {% data variables.product.prodname_copilot_enterprise %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
+{% data variables.copilot.copilot_coding_agent %} and use of third-party MCP servers are disabled by default for organization members. Organization owners with {% data variables.copilot.copilot_enterprise %} can enable these features for members on the {% data variables.product.prodname_copilot_short %} policies page for their organization. See [Enabling {% data variables.product.prodname_copilot_short %} features in your organization](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-policies-for-copilot-in-your-organization#enabling-copilot-features-in-your-organization).
 
 * For the "{% data variables.copilot.copilot_coding_agent %}" policy, select "Enabled".
 * For the "MCP servers on {% data variables.product.prodname_dotcom_the_website %}" policy, select "Enabled".
@@ -37,7 +37,7 @@ Owners of any organization—even organizations without a {% data variables.prod
 1. Use the "Repository access" control to define which repositories allow {% data variables.copilot.copilot_coding_agent %}.
 1. If you choose "Selected repositories", in the "Select repositories" dialog, select the repositories that allow {% data variables.copilot.copilot_coding_agent %}, then click **Select**.
 
-Once Copilot coding agent is enabled for a repository, any user with access to Copilot coding agent and write permission for the repository can delegate work to Copilot.
+Once {% data variables.copilot.copilot_coding_agent %} is enabled for a repository, any user with access to {% data variables.copilot.copilot_coding_agent %} and write permission for the repository can delegate work to {% data variables.product.prodname_copilot_short %}.
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
 title: Refactoring for performance optimization
 shortTitle: Performance optimization
-intro: '{% data variables.product.prodname_copilot_chat_short %} can suggest ways to speed up slow-running code.'
+intro: '{% data variables.copilot.copilot_chat_short %} can suggest ways to speed up slow-running code.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/refactoring-code/refactoring-for-performance-optimization
 versions:
@@ -17,7 +17,7 @@ topics:
 
 Existing code may function correctly but be inefficient, leading to performance bottlenecks. Examples of coding that can adversely impact performance include inefficient loops, unnecessary computations, and excessive memory allocation.
 
-{% data variables.product.prodname_copilot_chat_short %} can identify performance hotspots and suggest refactoring strategies such as optimizing data structures (for example, using hashmaps instead of arrays), reducing redundant calculations, and improving algorithmic efficiency. It can also recommend caching mechanisms or parallelizing operations to improve performance.
+{% data variables.copilot.copilot_chat_short %} can identify performance hotspots and suggest refactoring strategies such as optimizing data structures (for example, using hashmaps instead of arrays), reducing redundant calculations, and improving algorithmic efficiency. It can also recommend caching mechanisms or parallelizing operations to improve performance.
 
 ## Example scenario
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
 
 {% data variables.product.prodname_copilot_short %} suggests using a sieve function to generate the prime numbers much more efficiently. If you run this program it will complete in a fraction of a second.
 
-> [!NOTE] {% data variables.product.prodname_copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one shown here.
+> [!NOTE] {% data variables.copilot.copilot_chat_short %} responses are non-deterministic, so you may get a different response from the one shown here.
 
 ```python
 import time

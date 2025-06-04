@@ -5,11 +5,11 @@ import { useRouter } from 'next/router'
 import { slug } from 'github-slugger'
 import cx from 'classnames'
 
-import { useVersion } from 'src/versions/components/useVersion'
-import { HeadingLink } from 'src/frame/components/article/HeadingLink'
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
+import { HeadingLink } from '@/frame/components/article/HeadingLink'
+import { useTranslation } from '@/languages/components/useTranslation'
 import type { WebhookAction, WebhookData } from './types'
-import { ParameterTable } from 'src/automated-pipelines/components/parameter-table/ParameterTable'
+import { ParameterTable } from '@/automated-pipelines/components/parameter-table/ParameterTable'
 
 import styles from './WebhookPayloadExample.module.scss'
 

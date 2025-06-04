@@ -2,12 +2,12 @@ import { useEffect, useState, useRef } from 'react'
 import { useRouter } from 'next/router'
 import { BeakerIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 import { Box, Flash, FormControl, Spinner, TextInput } from '@primer/react'
 import { Dialog } from '@primer/react/experimental'
 import { useEditableDomainName } from './useEditableDomainContext'
-import { sendEvent } from 'src/events/components/events'
-import { EventType } from 'src/events/types'
+import { sendEvent } from '@/events/components/events'
+import { EventType } from '@/events/types'
 
 type Props = {
   xs?: boolean

@@ -28,18 +28,18 @@ You can find full instructions on setting up {% data variables.product.prodname_
 
 You can find information about planning a trial of {% data variables.product.prodname_GHAS %} and exploring the additional options available with {% data variables.product.prodname_ghe_cloud %} in the [AUTOTITLE](/code-security/trialing-github-advanced-security) articles.
 
-## Part 4: Setting up {% data variables.product.prodname_copilot_for_business %}
+## Part 4: Setting up {% data variables.copilot.copilot_for_business %}
 
-Setting up your {% data variables.product.prodname_copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
+Setting up your {% data variables.copilot.copilot_for_business %} trial involves three phases, and each phase must be completed by different people.
 
-### 1. Configuring {% data variables.product.prodname_copilot_for_business %} for your enterprise
+### 1. Configuring {% data variables.copilot.copilot_for_business %} for your enterprise
 
-As an **enterprise owner**, you must first configure {% data variables.product.prodname_copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.product.prodname_copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.product.prodname_copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
+As an **enterprise owner**, you must first configure {% data variables.copilot.copilot_for_business %} for your enterprise. This phase involves setting policies for the use of {% data variables.copilot.copilot_for_business %} in your enterprise, and deciding which organizations in your enterprise can use {% data variables.copilot.copilot_for_business %}. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise).
 
-### 2. Enabling {% data variables.product.prodname_copilot_for_business %} for your organization
+### 2. Enabling {% data variables.copilot.copilot_for_business %} for your organization
 
-Next, **organization owners** can enable {% data variables.product.prodname_copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
+Next, **organization owners** can enable {% data variables.copilot.copilot_for_business %} for their organizations. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-organization).
 
-### 3. Enabling {% data variables.product.prodname_copilot_for_business %} for individual users
+### 3. Enabling {% data variables.copilot.copilot_for_business %} for individual users
 
-If your **personal account** has been granted a seat in an organization that has enabled {% data variables.product.prodname_copilot_for_business %}, you can now enable {% data variables.product.prodname_copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).
+If your **personal account** has been granted a seat in an organization that has enabled {% data variables.copilot.copilot_for_business %}, you can now enable {% data variables.copilot.copilot_for_business %} for your personal account. For detailed instructions, see [AUTOTITLE](/enterprise-cloud@latest/copilot/setting-up-github-copilot/setting-up-github-copilot-for-yourself).

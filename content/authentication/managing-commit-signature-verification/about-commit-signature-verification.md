@@ -42,6 +42,10 @@ Signing commits differs from signing off on a commit. For more information about
 | **Unverified** | The commit is signed but the signature could not be verified.
 | No verification status | The commit is not signed.
 
+{% endif %}
+
+{% ifversion fpt or ghec or ghes > 3.16 %}
+
 ### Persistent commit signature verification
 
 Regardless of the signature choice - GPG, SSH, or S/MIME - once a commit signature is verified, it remains verified within its repository's network. See [AUTOTITLE](/repositories/viewing-activity-and-data-for-your-repository/understanding-connections-between-repositories).
@@ -51,6 +55,12 @@ When a commit signature is verified upon being pushed to {% data variables.produ
 The verification record includes a timestamp marking when the verification was completed. This persistent record ensures a consistent verified state, providing a stable history of contributions within the repository. You can view this timestamp by hovering over the "Verified" badge on {% data variables.product.github %} or by accessing the commit via the REST API, which includes a `verified_at` field. See [AUTOTITLE](/rest/commits/commits).
 
 Persistent commit signature verification applies to new commits pushed to {% data variables.product.github %}. For any commits that predate this feature, a persistent record will be created the next time the commit's signature is verified on {% data variables.product.github %}, helping ensure that verified statuses remain stable and reliable across the repository's history.
+
+{% ifversion ghes %}
+
+For information about disabling persistent commit signature verification, see [AUTOTITLE](/admin/configuring-settings/configuring-user-applications-for-your-enterprise/disabling-persistent-commit-verification).
+
+{% endif %}
 
 #### Records persist even after revocation and expiration
 

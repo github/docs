@@ -1,4 +1,4 @@
-For next steps that apply to any enterprise using {% data variables.product.prodname_copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
+For next steps that apply to any enterprise using {% data variables.copilot.copilot_business_short %}, see [AUTOTITLE](/copilot/setting-up-github-copilot/setting-up-github-copilot-for-your-enterprise). The step for granting access to organizations does not apply.
 
 The following sections contain specific information for your enterprise.
 

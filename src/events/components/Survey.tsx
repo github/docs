@@ -3,9 +3,9 @@ import cx from 'classnames'
 import { useRouter } from 'next/router'
 import { ThumbsdownIcon, ThumbsupIcon } from '@primer/octicons-react'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { Link } from 'src/frame/components/Link'
-import { sendEvent } from 'src/events/components/events'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { Link } from '@/frame/components/Link'
+import { sendEvent } from '@/events/components/events'
 import { EventType } from '../types'
 
 import styles from './Survey.module.scss'

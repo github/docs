@@ -1,17 +1,17 @@
 ---
 title: Building Copilot skillsets
-intro: 'Learn the steps to build {% data variables.product.prodname_copilot_skillsets %} and integrate custom tools and functions into your Copilot environment.'
+intro: 'Learn the steps to build {% data variables.copilot.copilot_skillsets %} and integrate custom tools and functions into your Copilot environment.'
 versions:
   feature: copilot-extensions
 topics:
   - Copilot
-shortTitle: Build {% data variables.product.prodname_copilot_skillsets_short %}
+shortTitle: Build {% data variables.copilot.copilot_skillsets_short %}
 type: how_to
 ---
 
 ## Introduction
 
-{% data variables.product.prodname_copilot_skillsets %} are a streamlined way to extend {% data variables.product.prodname_copilot %}'s functionality by defining API endpoints that {% data variables.product.prodname_copilot_short %} can call. When you create a skillset, {% data variables.product.prodname_copilot_short %} handles all the AI interactions while your endpoints provide the data or functionality. This guide walks you through configuring and deploying a skillset within your {% data variables.product.prodname_github_app %}.
+{% data variables.copilot.copilot_skillsets %} are a streamlined way to extend {% data variables.product.prodname_copilot %}'s functionality by defining API endpoints that {% data variables.product.prodname_copilot_short %} can call. When you create a skillset, {% data variables.product.prodname_copilot_short %} handles all the AI interactions while your endpoints provide the data or functionality. This guide walks you through configuring and deploying a skillset within your {% data variables.product.prodname_github_app %}.
 
 ## Prerequisites
 

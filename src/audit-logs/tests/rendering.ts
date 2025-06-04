@@ -1,7 +1,7 @@
 import { describe, expect, test, vi } from 'vitest'
 
-import { getDOM } from '#src/tests/helpers/e2etest.js'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { getDOM } from '@/tests/helpers/e2etest.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 import { getCategorizedAuditLogEvents } from '../lib'
 
 describe('audit log events docs', () => {

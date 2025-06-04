@@ -1,12 +1,12 @@
 import cx from 'classnames'
 import { useRouter } from 'next/router'
 
-import { useMainContext } from 'src/frame/components/context/MainContext'
-import { SidebarProduct } from 'src/landings/components/SidebarProduct'
-import { SidebarSearchAggregates } from 'src/search/components/results/SidebarSearchAggregates'
+import { useMainContext } from '@/frame/components/context/MainContext'
+import { SidebarProduct } from '@/landings/components/SidebarProduct'
+import { SidebarSearchAggregates } from '@/search/components/results/SidebarSearchAggregates'
 import { AllProductsLink } from './AllProductsLink'
-import { ApiVersionPicker } from 'src/rest/components/ApiVersionPicker'
-import { Link } from 'src/frame/components/Link'
+import { ApiVersionPicker } from '@/rest/components/ApiVersionPicker'
+import { Link } from '@/frame/components/Link'
 
 type Props = {
   variant?: 'full' | 'overlay'

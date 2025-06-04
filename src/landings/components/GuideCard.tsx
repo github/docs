@@ -1,4 +1,4 @@
-import type { FeaturedLink } from 'src/landings/components/ProductLandingContext'
+import type { FeaturedLink } from '@/landings/components/ProductLandingContext'
 import cx from 'classnames'
 import styles from './Landings.module.scss'
 
