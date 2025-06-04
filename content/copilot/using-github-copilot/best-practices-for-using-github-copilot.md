@@ -83,3 +83,64 @@ There are several adjustments you can make to steer {% data variables.product.pr
 ## Stay up-to-date on {% data variables.product.prodname_copilot_short %}'s features
 
 New features are regularly added to {% data variables.product.prodname_copilot_short %} to create new abilities, build on existing features, and improve the user experience. To stay up-to-date with {% data variables.product.prodname_copilot_short %}'s features, see the [changelog](https://github.blog/changelog/label/copilot/).
+
+# SITE – Redefining FMCG
+
+**SITE** (Sustainable Integrated Traceability Ecosystem) is a modular, scalable infrastructure designed to embed verifiable traceability across the entire FMCG landscape. Currently under private development, SITE will transition into the open-source ecosystem to provide Source-to-Shelf transparency and decentralized integrity.
+
+Engineered for long-term impact, the framework prioritizes trust, integration flexibility, and ethical governance—empowering businesses and communities alike.
+
+## Key Capabilities
+
+- **Traceability APIs** with event-driven lifecycle and compliance logging
+- **RESTful Data Orchestration** for seamless audit integration
+- **QR-Based & Encrypted Identity** for secure batch- and unit-level product mapping
+- **Role-Based Access Control** for confidential, role-specific ecosystem participation
+- **Version-Controlled Documentation Pipelines** aligned with global sustainability standards
+
+> Every product’s journey is a responsibility, not a transaction. SITE honors that journey with control, integrity, and global alignment. — #SachinKPal
+
+## Core Repositories (Private Until Open Source Launch)
+
+- `dhuniworldwide/site-core` — Orchestration logic and lifecycle governance
+- `dhuniworldwide/trace-sdk` — SDK for trace event triggers and public verification
+- `dhuniworldwide/traceability` — Confidential modular trace mapping and ledger-ready workflows
+
+## Open Source Roadmap
+
+SITE is built as a hybrid framework. Modules will transition into open-source after stabilization and compliance validation.
+
+Planned integrations include:
+
+- Blockchain-enforced audit trails and tamper-proof notarization
+- ML-driven anomaly and fraud detection
+- Distributed ledger compatibility for cross-border regulation
+- Self-verifiable supply chain proofs with privacy-preserving obfuscation options
+
+## GitHub Copilot × Dhuni SITE
+
+Copilot played a pivotal role during development—augmenting our capacity to build clean, secure, and modular code while maintaining architectural coherence.
+
+It supported:
+
+- Scaffold generation for secure API architecture
+- Consistency across multi-repo systems
+- Documentation-aligned refactoring cycles
+- Traceable iterations with structural integrity
+
+> We built with vision. Copilot helped us stay honest, fast, and focused.
+
+## Community-First, Development-Phase
+
+Dhuni SITE is more than infrastructure—it’s a commitment to community upliftment and shared accountability.
+
+While in development, we welcome strategic dialogue with developers, certifiers, policy-makers, and technologists committed to inclusive systems design.
+
+**Email:** site@dhuniworldwide.com  
+**Website:** [https://www.dhuniworldwide.com](https://www.dhuniworldwide.com)
+
+## Our Commitment
+
+SITE is Dhuni Worldwide’s contribution to redefining traceability for a new generation—rooted in transparency, designed for scalability, and aligned with our mission of empowerment, integrity, and global justice.
+
+Thank you.
