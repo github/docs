@@ -31,8 +31,9 @@ Paid {% data variables.product.prodname_copilot_short %} plans include premium r
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
 
-* **Any seat assigned part way through the billing cycle** will be prorated based on the number of days remaining in the cycle.
-* **Any seat assignment removed during a billing cycle** will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle. If a user's access to organizations in the enterprise with {% data variables.product.prodname_copilot_short %} seats is removed, they will lose access immediately.
+* **Any seat assigned part way through the billing cycle** is prorated based on the number of days remaining in the cycle.
+* **Any seat assignment cancellation during a billing cycle** takes effect at the beginning of the next cycle. The user can access {% data variables.product.prodname_copilot_short %} until the end of the cycle.
+* **Any user removed from an organization with {% data variables.product.prodname_copilot_short %} during a billing cycle** loses access to {% data variables.product.prodname_copilot_short %} immediately. Billing for that user stops at the end of the cycle.  If the user is restored to the organization during the billing cycle, they regain access to {% data variables.product.prodname_copilot_short %} immediately.
 
 Your enterprise will be charged on whichever payment method you’ve set up for the enterprise account, such as a credit card or a Microsoft Azure subscription.
 
@@ -62,7 +63,7 @@ If you upgrade an organization from {% data variables.copilot.copilot_business_s
 
 If you downgrade an organization's {% data variables.copilot.copilot_enterprise %} plan during a billing cycle, the users will have access to {% data variables.copilot.copilot_enterprise %} for the rest of the cycle, and the change to your bill will take effect from the following cycle.
 
-Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise's {% data variables.product.prodname_copilot_short %} plan.
+Disabling {% data variables.product.prodname_copilot %} for all organizations in your enterprise will cancel your enterprise's {% data variables.product.prodname_copilot_short %} plan. All users with a seat in those organizations will lose access to {% data variables.product.prodname_copilot_short %} immediately. You will be billed for those seats until the end of the current billing cycle.
 
 {% data reusables.copilot.copilot-one-account %}
 

@@ -25,10 +25,11 @@ Paid {% data variables.product.prodname_copilot_short %} plans include premium r
 
 Billed users are calculated at the end of each billing cycle, based on the number of {% data variables.product.prodname_copilot %} seats that are assigned. You can add or remove seats at any time during the billing cycle.
 
-* **Any seat assigned part way through the billing cycle** will be prorated based on the number of days remaining in the cycle.
-* **Any seat assignment removed during a billing cycle** will take effect from the beginning of the next cycle. The person will still be able to use {% data variables.product.prodname_copilot %} until the end of the cycle. If a user's access to the organization itself is removed, they will lose access immediately.
+* **Any seat assigned part way through the billing cycle** is prorated based on the number of days remaining in the cycle.
+* **Any seat assignment cancellation during a billing cycle** takes effect at the beginning of the next cycle. The user can access {% data variables.product.prodname_copilot %} until the end of the cycle.
+* **Any user removed from the organization during a billing cycle** loses access to {% data variables.product.prodname_copilot %} immediately. Billing for that user stops at the end of the cycle. If the user is restored to the organization during the billing cycle, they will regain access to {% data variables.product.prodname_copilot %} immediately.
 
-If your organization belongs to an enterprise, your enterprise will be charged on whichever payment method you’ve set up for the organization account, such as a credit card or a Microsoft Azure subscription.
+If your organization belongs to an enterprise, your enterprise will be charged on whichever payment method you’ve set up for the organization account, such as a credit card or a Microsoft Azure subscription. If an organization with {% data variables.product.prodname_copilot %} seats is removed from an enterprise, billing for those seats will stop at the end of the billing cycle. The users who had seats assigned by the removed organization will lose access to {% data variables.product.prodname_copilot %} unless they receive a seat through another organization.
 
 {% data reusables.billing.authorization-charge %}
 
