@@ -395,7 +395,7 @@ Package manager | YAML value      | Supported versions |
 | pip| `pip`            | v21.1.2          |
 | pip-compile | `pip`            | 6.1.0            |
 | pipenv         | `pip`            | <= 2021-05-29    |
-| pnpm   | `npm`            | v7, v8 <br>v9 (version updates only)    |
+| pnpm   | `npm`            | v7, v8 <br>v9, v10 (version updates only)    |
 | poetry         | `pip`            | v2               |
 | pub         | `pub`            | v2  |
 | Swift   | `swift`      | v5  |

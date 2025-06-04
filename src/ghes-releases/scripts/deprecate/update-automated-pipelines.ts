@@ -15,7 +15,7 @@ import { rimrafSync } from 'rimraf'
 import { difference, intersection } from 'lodash-es'
 import { mkdirp } from 'mkdirp'
 
-import { deprecated, supported } from '#src/versions/lib/enterprise-server-releases.js'
+import { deprecated, supported } from '@/versions/lib/enterprise-server-releases.js'
 
 const [currentReleaseNumber, previousReleaseNumber] = supported
 const pipelines = JSON.parse(await readFile('src/automated-pipelines/lib/config.json', 'utf-8'))[
@@ -55,7 +55,7 @@ export async function updateAutomatedPipelines() {
   // src/rest/lib/config.json file. We want to update 'api-versions'
   // before the allVersions object is created so we need to import it
   // after calling updateAutomatedConfigFiles.
-  const { allVersions } = await import('#src/versions/lib/all-versions.js')
+  const { allVersions } = await import('@/versions/lib/all-versions.js')
 
   // Gets all of the base names (e.g., ghes-) in the allVersions object
   // Currently, this is only ghes- but if we had more than one type of

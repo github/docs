@@ -2,9 +2,9 @@ import { CheckboxGroup, Checkbox, FormControl } from '@primer/react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
+import { useTranslation } from '@/languages/components/useTranslation'
 
-import type { SearchResultAggregations } from 'src/search/types'
+import type { SearchResultAggregations } from '@/search/types'
 
 type Props = {
   aggregations: SearchResultAggregations
