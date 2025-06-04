@@ -35,6 +35,7 @@ Before getting started you must have the following:
 * Installed versions of both the source and target JDKs.
 * A Git-based Java project using Maven or Gradle.
 * For Maven-based projects, access to the public Maven Central repository.
+* Make sure `chat.extensionTools.enabled` is set to `true` in your {% data variables.product.prodname_vscode %} settings. This setting might be controlled by your organization.
 
 >[!NOTE] For Gradle projects, only wrapper-based builds (Gradle v5+) are supported. Projects using Kotlin DSL are not currently supported.
 
