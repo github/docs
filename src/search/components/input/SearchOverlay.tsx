@@ -650,6 +650,7 @@ export function SearchOverlay({
   } else {
     OverlayContents = (
       <ActionList
+        id="search-suggestions-list"
         aria-label={t('search.overlay.suggestions_list_aria_label')}
         showDividers
         className={styles.suggestionsList}
@@ -1026,7 +1027,7 @@ function renderSearchGroups(
 
     groups.push(
       <ActionList.Group key="general" data-testid="general-autocomplete-suggestions">
-        <ActionList.GroupHeading as="h3" tabIndex={-1} id="search-suggestions-list">
+        <ActionList.GroupHeading as="h3" tabIndex={-1}>
           {t('search.overlay.general_suggestions_list_heading')}
         </ActionList.GroupHeading>
         {items}
