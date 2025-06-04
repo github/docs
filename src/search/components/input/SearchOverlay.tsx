@@ -650,6 +650,7 @@ export function SearchOverlay({
   } else {
     OverlayContents = (
       <ActionList
+        id="search-suggestions-list"
         aria-label={t('search.overlay.suggestions_list_aria_label')}
         showDividers
         className={styles.suggestionsList}
@@ -675,7 +676,6 @@ export function SearchOverlay({
     )
   }
 
-  const overlayHeadingId = 'overlay-heading'
   return (
     <>
       <div className={styles.overlayBackdrop} />
@@ -698,7 +698,7 @@ export function SearchOverlay({
         }
         role="dialog"
         aria-modal="true"
-        aria-labelledby={overlayHeadingId}
+        aria-label={t('search.overlay.aria_label')}
         ref={overlayRef}
       >
         <div className={styles.header}>
@@ -723,11 +723,11 @@ export function SearchOverlay({
             value={urlSearchInputQuery}
             onChange={handleSearchQueryChange}
             leadingVisual={<SearchIcon />}
-            aria-labelledby={overlayHeadingId}
             role="combobox"
             // In AskAI the search input not longer "controls" the suggestions list, because there is no list, so we remove the aria-controls attribute
             aria-controls={isAskAIState ? 'ask-ai-result-container' : 'search-suggestions-list'}
             aria-expanded={combinedOptions.length > 0}
+            aria-label={t('search.overlay.input_aria_label')}
             aria-activedescendant={
               selectedIndex >= 0
                 ? `search-option-${combinedOptions[selectedIndex]?.group}-${selectedIndex}`
@@ -1027,7 +1027,7 @@ function renderSearchGroups(
 
     groups.push(
       <ActionList.Group key="general" data-testid="general-autocomplete-suggestions">
-        <ActionList.GroupHeading as="h3" tabIndex={-1} id="search-suggestions-list">
+        <ActionList.GroupHeading as="h3" tabIndex={-1}>
           {t('search.overlay.general_suggestions_list_heading')}
         </ActionList.GroupHeading>
         {items}
