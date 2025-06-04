@@ -373,7 +373,7 @@ export function AskAIResults({
   }, [query])
 
   return (
-    <div className={styles.container}>
+    <div id="ask-ai-result-container" role="region" className={styles.container}>
       {!aiCouldNotAnswer && references && references.length > 0 ? (
         <>
           <ActionList className={styles.referencesList} showDividers>
@@ -398,7 +398,6 @@ export function AskAIResults({
                       }}
                       key={`reference-${index}`}
                       id={`search-option-reference-${index + referencesIndexOffset}`}
-                      role="option"
                       tabIndex={-1}
                       onSelect={() => {
                         referenceOnSelect(source.url)
