@@ -8,7 +8,7 @@ topics:
   - Copilot
 ---
 
-By default, {% data variables.copilot.copilot_chat_short %} uses a base model to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
+By default, {% data variables.copilot.copilot_chat_short %} uses {% data variables.copilot.copilot_gpt_41 %} to provide fast, capable responses for a wide range of tasks, such as summarization, knowledge-based questions, reasoning, math, and coding.
 
 However, you are not limited to using this model. You can choose from a selection of other models, each with its own particular strengths. You may have a favorite model that you like to use, or you might prefer to use a particular model for inquiring about a specific subject.
 
@@ -21,9 +21,8 @@ Changing the model that's used by {% data variables.copilot.copilot_chat_short %
 {% webui %}
 
 > [!NOTE]
-> * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Support for GPT-4.5 is only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
-> * You can only use an alternative AI model in the immersive view of {% data variables.copilot.copilot_chat_short %}. This is the full-page version of {% data variables.copilot.copilot_chat_short %} that's displayed at [https://github.com/copilot](https://github.com/copilot). The {% data variables.copilot.copilot_chat_short %} panel always uses the default model.
+> * Support for {% data variables.copilot.copilot_gpt_45 %}, {% data variables.copilot.copilot_claude_opus %}, and {% data variables.copilot.copilot_o3 %} are only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
+> * You can only use an alternative AI model in the immersive view of {% data variables.copilot.copilot_chat_short %} on GitHub.com. This is the full-page version of {% data variables.copilot.copilot_chat_short %} that's displayed at [https://github.com/copilot](https://github.com/copilot). The {% data variables.copilot.copilot_chat_short %} panel always uses the default model.
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -35,14 +34,14 @@ The following models are currently available in the immersive mode of {% data va
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
-* {% data variables.copilot.copilot_claude_sonnet_40 %}
-* {% data variables.copilot.copilot_claude_opus %}
+* {% data variables.copilot.copilot_claude_sonnet_40 %} (preview)
+* {% data variables.copilot.copilot_claude_opus %} (preview)
 * {% data variables.copilot.copilot_gemini_flash %}
 * {% data variables.copilot.copilot_gemini_25_pro %} (preview)
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3 %}
+* {% data variables.copilot.copilot_o1 %} (preview)
+* {% data variables.copilot.copilot_o3 %} (preview)
 * {% data variables.copilot.copilot_o3_mini %}
-* {% data variables.copilot.copilot_o4_mini %}
+* {% data variables.copilot.copilot_o4_mini %} (preview)
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -58,11 +57,11 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 > [!NOTE] If you use {% data variables.copilot.copilot_extensions_short %}, they may override the model you select.
 
-1. In the top right of any page on {% data variables.product.github %}, click {% octicon "triangle-down" aria-label="The downwards triangle icon" %} beside the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon and click **Immersive** in the dropdown menu.
+1. In the top right of any page on {% data variables.product.github %}, click the **{% octicon "copilot" aria-hidden="true" aria-label="copilot" %}** icon.
 
-   ![Screenshot of the 'Immersive' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-immersive-button.png)
+   ![Screenshot of the 'Copilot' button, highlighted with a dark orange outline.](/assets/images/help/copilot/copilot-icon-top-right.png)
 
-1. At the top of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
+1. At the bottom of the immersive view, select the **CURRENT-MODEL** {% octicon "chevron-down" aria-hidden="true" aria-label="chevron-down" %} dropdown menu, then click the AI model of your choice.
 
 1. Optionally, after submitting a prompt, you can regenerate the same prompt using a different model by clicking the retry icon ({% octicon "sync" aria-label="The re-run icon" %}) below the response. The new response will use your selected model and maintain the full context of the conversation.
 
@@ -72,7 +71,7 @@ These instructions are for {% data variables.product.prodname_copilot_short %} o
 
 > [!NOTE]
 > * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Support for GPT-4.5 is only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
+> * Support for {% data variables.copilot.copilot_gpt_45 %}, {% data variables.copilot.copilot_claude_opus %}, and {% data variables.copilot.copilot_o3 %} are only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -84,13 +83,14 @@ The following models are currently available through multi-model {% data variabl
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
-* {% data variables.copilot.copilot_claude_sonnet_40 %}
-* {% data variables.copilot.copilot_claude_opus %}
+* {% data variables.copilot.copilot_claude_sonnet_40 %} (preview)
+* {% data variables.copilot.copilot_claude_opus %} (preview)
 * {% data variables.copilot.copilot_gemini_flash %}
-* {% data variables.copilot.copilot_o1 %}
-* {% data variables.copilot.copilot_o3 %}
+* {% data variables.copilot.copilot_gemini_25_pro %} (preview)
+* {% data variables.copilot.copilot_o1 %} (preview)
+* {% data variables.copilot.copilot_o3 %} (preview)
 * {% data variables.copilot.copilot_o3_mini %}
-* {% data variables.copilot.copilot_o4_mini %}
+* {% data variables.copilot.copilot_o4_mini %} (preview)
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -109,17 +109,22 @@ These instructions are for {% data variables.product.prodname_vscode_shortname %
 
 {% visualstudio %}
 
-> [!NOTE] Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.copilot.copilot_chat_short %}:
 
 * {% data variables.copilot.copilot_gpt_4o %}
+* {% data variables.copilot.copilot_gpt_41 %}
+* {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
-* {% data variables.copilot.copilot_o1 %}
+* {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
+* {% data variables.copilot.copilot_gemini_flash %}
+* {% data variables.copilot.copilot_gemini_25_pro %} (preview)
+* {% data variables.copilot.copilot_o1 %} (preview)
+* {% data variables.copilot.copilot_o3 %} (preview)
 * {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_o4_mini %} (preview)
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -142,7 +147,7 @@ To use multi-model {% data variables.copilot.copilot_chat_short %}, you must use
 
 > [!NOTE]
 > * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Support for GPT-4.5 is only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
+> * Support for {% data variables.copilot.copilot_gpt_45 %} and {% data variables.copilot.copilot_o3 %} are only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
@@ -181,20 +186,24 @@ These instructions are for the JetBrains IDEs. For instructions on different cli
 
 > [!NOTE]
 > * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Support for GPT-4.5 is only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
+> * Support for {% data variables.copilot.copilot_gpt_45 %} and {% data variables.copilot.copilot_o3 %} are only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
 The following models are currently available through multi-model {% data variables.copilot.copilot_chat_short %}:
 
 * {% data variables.copilot.copilot_gpt_4o %}
+* {% data variables.copilot.copilot_gpt_41 %}
 * {% data variables.copilot.copilot_gpt_45 %} (preview)
 * {% data variables.copilot.copilot_claude_sonnet_35 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %}
 * {% data variables.copilot.copilot_claude_sonnet_37 %} Thinking
 * {% data variables.copilot.copilot_gemini_flash %}
+* {% data variables.copilot.copilot_gemini_25_pro %} (preview)
 * {% data variables.copilot.copilot_o1 %} (preview)
+* {% data variables.copilot.copilot_o3 %} (preview)
 * {% data variables.copilot.copilot_o3_mini %}
+* {% data variables.copilot.copilot_o4_mini %} (preview)
 
 For more information about these models, see [AUTOTITLE](/copilot/using-github-copilot/ai-models/choosing-the-right-ai-model-for-your-task).
 
@@ -216,7 +225,7 @@ These instructions are for the Eclipse IDE. For instructions on different client
 
 > [!NOTE]
 > * Multiple model support in {% data variables.copilot.copilot_chat_short %} is in {% data variables.release-phases.public_preview %} and is subject to change.
-> * Support for GPT-4.5 is only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
+> * Support for {% data variables.copilot.copilot_gpt_45 %} and {% data variables.copilot.copilot_o3 %} are only available on {% data variables.copilot.copilot_pro_plus_short %}{% ifversion copilot-enterprise %} and {% data variables.copilot.copilot_enterprise_short %}{% endif %}.
 
 ## AI models for {% data variables.copilot.copilot_chat_short %}
 
