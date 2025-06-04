@@ -1,7 +1,7 @@
 ---
 title: Managing Copilot knowledge bases
 shortTitle: Manage knowledge bases
-intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.product.prodname_copilot_chat_dotcom_short %}.'
+intro: 'Organization owners can create a knowledge base bringing together Markdown documentation across one or more repositories, and then organization members can use that knowledge base as context for {% data variables.copilot.copilot_chat_dotcom_short %}.'
 versions:
   ghec: '*'
 product: '{% data reusables.copilot.ce-product-callout %}'
@@ -20,19 +20,23 @@ redirect_from:
   - /copilot/github-copilot-enterprise/copilot-docset-management/about-copilot-docset-management
 ---
 
+> [!TIP] If you're looking for a more flexible way to organize context for {% data variables.product.prodname_copilot_short %}, you can also try {% data variables.copilot.copilot_spaces %}.
+>
+> {% data variables.copilot.copilot_spaces_short %} let you combine code and free-text content—like transcripts or specs—and can be created by any {% data variables.product.prodname_copilot_short %} user, not just organization owners. They’re a good option for more focused or task-specific use cases. See [AUTOTITLE](/copilot/using-github-copilot/copilot-spaces/about-organizing-and-sharing-context-with-copilot-spaces).
+
 ## About knowledge bases
 
-Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.product.prodname_copilot_chat_dotcom_short %}, {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.product.prodname_copilot_chat_short %} in {% data variables.product.prodname_vs %}.
+Organization owners can create knowledge bases, bringing together Markdown documentation across one or more repositories. Organization members can then specify that knowledge base as the context for {% data variables.copilot.copilot_chat_dotcom_short %}, {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vscode %}, and {% data variables.copilot.copilot_chat_short %} in {% data variables.product.prodname_vs %}.
 
-When you ask a question in {% data variables.product.prodname_copilot_chat %} with a knowledge base selected, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response.
+When you ask a question in {% data variables.copilot.copilot_chat %} with a knowledge base selected, {% data variables.product.prodname_copilot %} will search the knowledge base for relevant information and synthesize a response.
 
-For more information on how to use knowledge bases in {% data variables.product.prodname_copilot_chat_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-knowledge-base) and [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#asking-a-question-about-a-knowledge-base-in-github-copilot-chat).
+For more information on how to use knowledge bases in {% data variables.copilot.copilot_chat_short %}, see [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-github/using-github-copilot-chat-in-githubcom#asking-a-question-about-a-knowledge-base) and [AUTOTITLE](/copilot/github-copilot-chat/copilot-chat-in-ides/using-github-copilot-chat-in-your-ide#asking-a-question-about-a-knowledge-base-in-github-copilot-chat).
 
 ## Creating a knowledge base
 
 You can create a knowledge base from a single repository or a selection of repositories. You can create a knowledge base using public, private, and/or internal repositories.
 
-Knowledge bases you create will be accessible by all organization members with a {% data variables.product.prodname_copilot_enterprise_short %} plan. When an organization member uses a knowledge base as context in {% data variables.product.prodname_copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
+Knowledge bases you create will be accessible by all organization members with a {% data variables.copilot.copilot_enterprise_short %} plan. When an organization member uses a knowledge base as context in {% data variables.copilot.copilot_chat %}, the response will only use data from repositories that the organization member has read access to.
 
 {% data reusables.profile.access_org %}
 {% data reusables.profile.org_settings %}

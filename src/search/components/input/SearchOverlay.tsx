@@ -4,7 +4,6 @@ import { useRouter } from 'next/router'
 import {
   ActionList,
   Box,
-  Header,
   IconButton,
   Link,
   Overlay,
@@ -25,8 +24,8 @@ import {
 } from '@primer/octicons-react'
 import { focusTrap } from '@primer/behaviors'
 
-import { useTranslation } from 'src/languages/components/useTranslation'
-import { useVersion } from 'src/versions/components/useVersion'
+import { useTranslation } from '@/languages/components/useTranslation'
+import { useVersion } from '@/versions/components/useVersion'
 import {
   AI_SEARCH_CONTEXT,
   executeGeneralSearch,
@@ -698,7 +697,7 @@ export function SearchOverlay({
         aria-labelledby={overlayHeadingId}
         ref={overlayRef}
       >
-        <Header className={styles.header}>
+        <div className={styles.header}>
           <Box
             sx={{
               display: isAskAIState ? 'flex' : 'none',
@@ -761,7 +760,7 @@ export function SearchOverlay({
               </Stack>
             }
           />
-        </Header>
+        </div>
         <ActionList.Divider
           sx={{
             display: inErrorState ? 'none' : 'block',
@@ -776,7 +775,7 @@ export function SearchOverlay({
             width: '100%',
           }}
         />
-        <footer key="description" className={styles.footer}>
+        <div key="description" className={styles.footer}>
           <Box
             sx={{
               display: 'flex',
@@ -818,7 +817,7 @@ export function SearchOverlay({
             }}
             dangerouslySetInnerHTML={{ __html: t('search.overlay.privacy_disclaimer') }}
           />
-        </footer>
+        </div>
         <div
           aria-live="assertive"
           style={{

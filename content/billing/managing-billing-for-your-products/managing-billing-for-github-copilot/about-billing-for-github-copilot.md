@@ -12,24 +12,24 @@ redirect_from:
 
 ## {% data variables.product.prodname_copilot %} in your enterprise
 
-Enterprises on {% data variables.product.prodname_ghe_cloud %} can subscribe to either {% data variables.product.prodname_copilot_for_business %} or {% data variables.product.prodname_copilot_enterprise %}, or a mixture of both across different organizations within an enterprise. Both plans are available on a monthly cycle, and pricing varies. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise).
+Enterprises on {% data variables.product.prodname_ghe_cloud %} can subscribe to either {% data variables.copilot.copilot_for_business %} or {% data variables.copilot.copilot_enterprise %}, or a mixture of both across different organizations within an enterprise. Both plans are available on a monthly cycle, and pricing varies. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-copilot-for-your-enterprise/managing-the-copilot-subscription-for-your-enterprise/about-billing-for-github-copilot-in-your-enterprise).
 
 ## {% data variables.product.prodname_copilot %} in your organization
 
-{% data variables.product.github %} bills {% data variables.product.prodname_copilot_business_short %} on a monthly cycle, for {% data variables.copilot.cfb_price_per_month %} per user per month. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization).
+{% data variables.product.github %} bills {% data variables.copilot.copilot_business_short %} on a monthly cycle, for {% data variables.copilot.cfb_price_per_month %} per user per month. For more information, see [AUTOTITLE](/copilot/managing-copilot/managing-github-copilot-in-your-organization/managing-the-copilot-subscription-for-your-organization/about-billing-for-github-copilot-in-your-organization).
 
 ## {% data variables.product.prodname_copilot %} as an individual
 
-{% data variables.product.prodname_copilot_pro %} and {% data variables.product.prodname_copilot_pro_plus %} plans are available on a monthly or yearly cycle:
+{% data variables.copilot.copilot_pro %} and {% data variables.copilot.copilot_pro_plus %} plans are available on a monthly or yearly cycle:
 
-* **{% data variables.product.prodname_copilot_pro_short %}**: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.
-* **{% data variables.product.prodname_copilot_pro_plus_short %}**: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.
+* **{% data variables.copilot.copilot_pro_short %}**: {% data variables.copilot.cfi_price_per_month %} per calendar month or {% data variables.copilot.cfi_price_per_year %} per year.
+* **{% data variables.copilot.copilot_pro_plus_short %}**: {% data variables.copilot.cpp_price_per_month %} per calendar month or {% data variables.copilot.cpp_price_per_year %} per year.
 
 See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/managing-your-copilot-subscription/about-billing-for-github-copilot-individual).
 
 > [!NOTE] {% data reusables.copilot.copilot-one-account %}
 
-If you want to try {% data variables.product.prodname_copilot_short %} before subscribing, you can use {% data variables.product.prodname_copilot_free %} for a limited experience. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
+If you want to try {% data variables.product.prodname_copilot_short %} before subscribing, you can use {% data variables.copilot.copilot_free %} for a limited experience. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/about-github-copilot-free).
 
 ## Migrating between {% data variables.product.prodname_copilot_short %} plans
 
@@ -45,7 +45,7 @@ Some migrations cannot be completed through self-service options.
 
 * **Non-enterprise to enterprise environment migrations**: When moving from standalone {% data variables.product.prodname_copilot_short %} plans to a {% data variables.product.prodname_enterprise %} environment, contact {% data variables.contact.contact_support_page %} or your account manager for assistance to avoid service interruption.
 
-* **Changing between {% data variables.product.prodname_copilot_business_short %} and {% data variables.product.prodname_copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
+* **Changing between {% data variables.copilot.copilot_business_short %} and {% data variables.copilot.copilot_enterprise_short %}**: If you need to migrate between these plans within your enterprise and the option isn't available in your "Billing & Licensing" settings, contact {% data variables.contact.contact_support_page %} or your account manager for assistance.
 
 ## Allowance usage for {% data variables.copilot.copilot_coding_agent %}
 
@@ -63,7 +63,7 @@ When {% data variables.product.prodname_copilot_short %} works on coding tasks, 
 
 * **Premium requests** from your account's monthly allowance of premium {% data variables.product.prodname_copilot_short %} requests.
 
-  This allowance of free premium requests is shared with other {% data variables.product.prodname_copilot_short %} features, such as {% data variables.product.prodname_copilot_chat_short %}.
+  This allowance of free premium requests is shared with other {% data variables.product.prodname_copilot_short %} features, such as {% data variables.copilot.copilot_chat_short %}.
 
   When you use {% data variables.copilot.copilot_coding_agent %}, {% data variables.product.prodname_copilot_short %} may make multiple premium requests to complete a single task. This includes both user-initiated prompts and follow-up actions {% data variables.product.prodname_copilot_short %} takes on your behalf. The total premium requests used will depend on the complexity of the task and the number of steps involved. See [AUTOTITLE](/copilot/managing-copilot/managing-copilot-as-an-individual-subscriber/monitoring-usage-and-entitlements/avoiding-unexpected-copilot-costs).
 

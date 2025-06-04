@@ -49,14 +49,14 @@ If the extended suite still fails to find the results you expect, you may need t
 
 There are three different types of automated analysis of pull requests built into {% data variables.product.github %}:
 
-* **{% data variables.product.prodname_code_scanning_caps %} analysis** uses queries to highlight known bad coding patterns and security vulnerabilities. {% data variables.product.prodname_copilot_autofix_short %} suggests fixes to problems identified by {% data variables.product.prodname_code_scanning %}.
+* **{% data variables.product.prodname_code_scanning_caps %} analysis** uses queries to highlight known bad coding patterns and security vulnerabilities. {% data variables.copilot.copilot_autofix_short %} suggests fixes to problems identified by {% data variables.product.prodname_code_scanning %}.
 * **Dependency review** summarizes the dependency changes made by the pull request and highlights any dependencies with known vulnerabilities or that do not meet your development standards.
 * **{% data variables.product.prodname_copilot_short %} code review** uses AI to provide feedback on your changes with suggested fixes where possible.
 
 These automated reviews are a valuable extension to self-review and make it easier for developers to present a more complete and secure pull request for peer review. In addition, {% data variables.product.prodname_code_scanning %} and dependency reviews can be enforced to protect the security and compliance of your code.
 
 > [!NOTE]
-> {% data variables.product.prodname_copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_code_security %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
+> {% data variables.copilot.copilot_autofix %} is included in the license for {% data variables.product.prodname_GH_code_security %}. {% data variables.product.prodname_copilot_short %} code review requires a paid {% data variables.product.prodname_copilot_short %} plan.
 
 ### {% data variables.product.prodname_code_scanning_caps %} analysis
 
@@ -92,14 +92,14 @@ By default, users request a review from {% data variables.product.prodname_copil
 
 {% data variables.product.prodname_copilot_short %} leaves a review comment on each pull request it reviews, without approving the pull request or requesting changes. This ensures that its review is advisory and will not block development work. Similarly, you should not enforce the resolution of suggestions made by {% data variables.product.prodname_copilot_short %} because AI suggestions have known limitations, see [AUTOTITLE](/copilot/responsible-use-of-github-copilot-features/responsible-use-of-github-copilot-code-review#limitations-of-github-copilot-code-review).
 
-## Define where {% data variables.product.prodname_copilot_autofix_short %} is allowed and enabled
+## Define where {% data variables.copilot.copilot_autofix_short %} is allowed and enabled
 
-{% data variables.product.prodname_copilot_autofix_short %} helps developers understand and fix {% data variables.product.prodname_code_scanning %} alerts found in their pull requests. We recommend that you enable this feature for all repositories with {% data variables.product.prodname_code_security %} enabled to help developers resolve alerts efficiently and increase their understanding of secure coding.
+{% data variables.copilot.copilot_autofix_short %} helps developers understand and fix {% data variables.product.prodname_code_scanning %} alerts found in their pull requests. We recommend that you enable this feature for all repositories with {% data variables.product.prodname_code_security %} enabled to help developers resolve alerts efficiently and increase their understanding of secure coding.
 
 There are two levels of control:
 
-* Enterprises can allow or block use of {% data variables.product.prodname_copilot_autofix_short %} throughout the enterprise using an "{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% else %}Code security{% endif %}" policy, see: [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
-* Organizations can enable or disable {% data variables.product.prodname_copilot_autofix_short %} for all organization-owned repositories in the "Global settings" for the organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
+* Enterprises can allow or block use of {% data variables.copilot.copilot_autofix_short %} throughout the enterprise using an "{% ifversion ghas-products %}{% data variables.product.prodname_AS %}{% else %}Code security{% endif %}" policy, see: [AUTOTITLE](/admin/enforcing-policies/enforcing-policies-for-your-enterprise/enforcing-policies-for-code-security-and-analysis-for-your-enterprise).
+* Organizations can enable or disable {% data variables.copilot.copilot_autofix_short %} for all organization-owned repositories in the "Global settings" for the organization, see [AUTOTITLE](/code-security/securing-your-organization/enabling-security-features-in-your-organization/configuring-global-security-settings-for-your-organization).
 
 ## Engage developers in security remediation
 

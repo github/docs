@@ -92,7 +92,7 @@ Rate limits apply for requests to the REST API. See [AUTOTITLE](/rest/overview/r
 
 ### {% data variables.product.prodname_copilot %}
 
-Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.product.prodname_copilot_business_short %} or {% data variables.product.prodname_copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.product.prodname_copilot_individuals_short %}.
+Your developers can access {% data variables.product.prodname_copilot %} if you grant them access to a {% data variables.copilot.copilot_business_short %} or {% data variables.copilot.copilot_enterprise_short %} subscription. {% data variables.enterprise.prodname_managed_users_caps %} cannot sign up for {% data variables.copilot.copilot_individuals_short %}.
 
 * Users must perform some additional setup to authenticate to their account from their development environment. See [AUTOTITLE](/copilot/managing-copilot/configure-personal-settings/using-github-copilot-with-an-account-on-ghecom).
 * Certain {% data variables.product.prodname_copilot %} features are currently unavailable on {% data variables.enterprise.data_residency_site %}. See [AUTOTITLE](/admin/data-residency/feature-overview-for-github-enterprise-cloud-with-data-residency#currently-unavailable-features).

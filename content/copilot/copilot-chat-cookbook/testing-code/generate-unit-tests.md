@@ -1,7 +1,7 @@
 ---
 title: 'Generate unit tests'
 shortTitle: Generate unit tests
-intro: '{% data variables.product.prodname_copilot_chat_short %} can help with generating unit tests for a function.'
+intro: '{% data variables.copilot.copilot_chat_short %} can help with generating unit tests for a function.'
 redirect_from:
   - /copilot/example-prompts-for-github-copilot-chat/testing-code/generate-unit-tests
 versions:
@@ -15,11 +15,11 @@ topics:
   - Copilot
 ---
 
-A good suite of unit tests is critical to the success of any project. However, writing these tests can be time-consuming and are often neglected. {% data variables.product.prodname_copilot_chat_short %} can help generate these tests for you.
+A good suite of unit tests is critical to the success of any project. However, writing these tests can be time-consuming and are often neglected. {% data variables.copilot.copilot_chat_short %} can help generate these tests for you.
 
 ## Example scenario
 
-Imagine you have a Python function which validates data before updating the database. You need to create unit tests to ensure the validation performs the way you expect. You can ask {% data variables.product.prodname_copilot_chat_short %} to generate these tests for you.
+Imagine you have a Python function which validates data before updating the database. You need to create unit tests to ensure the validation performs the way you expect. You can ask {% data variables.copilot.copilot_chat_short %} to generate these tests for you.
 
 ```python
 def validate_price(price: float):
@@ -37,7 +37,7 @@ def validate_price(price: float):
 
 {% data reusables.copilot.example-prompts.response-is-an-example %}
 
-If this is your first time asking {% data variables.product.prodname_copilot_chat_short %} to generate unit tests, it may ask you if you wish to configure unit tests for your project. For this example, we are assuming you decline this offer.
+If this is your first time asking {% data variables.copilot.copilot_chat_short %} to generate unit tests, it may ask you if you wish to configure unit tests for your project. For this example, we are assuming you decline this offer.
 
 {% data variables.product.prodname_copilot_short %} will provide a strategy for generating the tests, and then provide the tests themselves.
 

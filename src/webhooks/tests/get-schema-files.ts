@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 
 import { getOpenApiSchemaFiles } from '../../rest/scripts/utils/sync'
-import { allVersions } from '#src/versions/lib/all-versions.js'
+import { allVersions } from '@/versions/lib/all-versions.js'
 
 describe('webhook data files are generated correctly from dereferenced openapi files', () => {
   test('webhook schema list should not include calendar date versions', async () => {

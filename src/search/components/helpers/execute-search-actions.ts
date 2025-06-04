@@ -2,7 +2,7 @@ import { EventType } from '@/events/types'
 import { CombinedSearchResponse } from '@/search/types'
 import { DEFAULT_VERSION } from '@/versions/components/useVersion'
 import { NextRouter } from 'next/router'
-import { sendEvent } from 'src/events/components/events'
+import { sendEvent } from '@/events/components/events'
 import { SEARCH_OVERLAY_EVENT_GROUP } from '@/events/components/event-groups'
 
 // Search context values for identifying each search event
