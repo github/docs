@@ -91,7 +91,7 @@ Once the custom resources are installed, you can deploy ARC into your Kubernetes
 
 ### About the runner container image
 
-{% data variables.product.company_short %} maintains a [minimal runner container image](https://github.com/actions/runner/pkgs/container/actions-runner). A new image will be published with every release of the runner binaries. The most recent image will have the runner binaries version and `latest` as tags.
+{% data variables.product.company_short %} maintains a [minimal runner container image](https://github.com/actions/runner/pkgs/container/actions-runner). A new image will be published with every runner binaries release. The most recent image will have the runner binaries version and `latest` as tags.
 
 This image contains the least amount of packages necessary for the container runtime and the runner binaries. To install additional software, you can create your own runner image. You can use ARC's runner image as a base, or use the corresponding setup actions. For instance, `actions/setup-java` for Java or `actions/setup-node` for Node.
 
