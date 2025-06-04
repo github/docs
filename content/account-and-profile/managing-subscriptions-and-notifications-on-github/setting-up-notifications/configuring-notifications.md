@@ -65,6 +65,13 @@ To see repositories that you're watching, go to your [watching page](https://git
 
 You can configure notifications for a repository on the repository page, or on your watching page.
 
+{% ifversion fpt or ghec %}
+
+> [!NOTE]
+> You can watch a maximum of 10,000 repositories.
+
+{% endif %}
+
 ### About custom notifications
 
 You can customize notifications for a repository. For example, you can choose to only be notified when updates to one or more types of events ({% data reusables.notifications-v2.custom-notification-types %}) happen within a repository, or ignore all notifications for a repository. For more information, see [Configuring your watch settings for an individual repository](#configuring-your-watch-settings-for-an-individual-repository) below.
