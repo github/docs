@@ -7,7 +7,7 @@ codeql_workflow: 'CodeQL analysis workflow'
 tool_status_page: 'tool status page'
 
 # List of compiled languages supported for `no-build` extraction
-no_build_support: '{% ifversion codeql-no-build-csharp %}C# and{% endif %} Java'
+no_build_support: '{% ifversion codeql-no-build-c-cpp %}C/C++, {% endif %}{% ifversion codeql-no-build-csharp %}C# and{% endif %} Java'
 
 # List of compiled languages
 compiled_languages: 'C/C++, C#, Go, Java, Kotlin, and Swift'
