@@ -60,4 +60,4 @@ jobs:
           days-before-stale: 365
           days-before-close: -1 # If -1, the issues nor pull requests will never be closed automatically.
           days-before-pr-stale: -1 # If  -1, no pull requests will be marked as stale automatically.
-          exempt-issue-labels: 'never-stale, help wanted, ' # issues labeled as such will be excluded them from being marked as stale
+          exempt-issue-labels: 'never-stale, help wanted' # issues labeled as such will be excluded them from being marked as stale
