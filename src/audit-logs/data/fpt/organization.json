@@ -3300,6 +3300,16 @@
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
   },
   {
+    "action": "secret_scanning_push_protection_request.cancel",
+    "description": "A user canceled a request to bypass secret scanning push protection.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
+    "action": "secret_scanning_push_protection_request.complete",
+    "description": "A user pushed a commit containing a secret for which there is an approved secret scanning push protection bypass request.",
+    "docs_reference_links": "/code-security/secret-scanning/working-with-push-protection#requesting-bypass-privileges-when-working-with-the-command-line"
+  },
+  {
     "action": "secret_scanning_push_protection_request.deny",
     "description": "A request to bypass secret scanning push protection was denied by a user.",
     "docs_reference_links": "/code-security/secret-scanning/push-protection-for-repositories-and-organizations#managing-requests-to-bypass-push-protection"
