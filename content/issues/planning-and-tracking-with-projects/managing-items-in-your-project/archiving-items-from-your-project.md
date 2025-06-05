@@ -13,7 +13,7 @@ allowTitleToDifferFromFilename: true
 ---
 
 > [!NOTE]
-> A project can contain a maximum of {% data variables.projects.item_limit %} items {% ifversion projects-single-limit %}across both active views and archive page{% else %} and {% data variables.projects.archived_item_limit %} archived items{% endif %}.
+> A project can contain a maximum of{% ifversion projects-single-limit %} {% data variables.projects.item_limit %} items across both active views and the archive page{% else %} {% data variables.projects.legacy_item_limit %} items and {% data variables.projects.legacy_archived_item_limit %} archived items{% endif %}.
 
 ## Archiving items
 
