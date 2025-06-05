@@ -36,9 +36,9 @@ You can view the current license limits and usage for your enterprise.
    * If you have a volume/subscription license, the number of licenses **available** to use is also displayed.
    * If you run out of licenses, for volume/subscription only, the section is red and reports "Limit exceeded." You should either reduce your use or purchase more licenses.
 
-1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, in the "{% data variables.product.prodname_GHAS %}" section click **More details**.
+1. Optionally, to see a detailed breakdown of usage per organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}, in the "{% data variables.product.prodname_AS %}" section click **More details**.
 
-   In the "{% data variables.product.prodname_GHAS %}" section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
+   In the "{% data variables.product.prodname_AS %}" section, you can see a summary of your current license usage, as well as the number of committers and unique committers for each organization{% ifversion secret-scanning-user-owned-repos %} and user namespace when using {% data variables.product.prodname_emus %}{% endif %}. The organizations{% ifversion secret-scanning-user-owned-repos %} and user namespaces{% endif %} in the billing table are sorted by the highest number of unique committers in descending order.
 
 1. Optionally, to see a detailed breakdown of usage by repositories within an organization, click an organization name to display the "Global code security settings" for the organization.
 
@@ -77,7 +77,7 @@ You can view the organization account's current license limits and usage.
 {% data reusables.profile.org_settings %}
 {% data reusables.organizations.billing_plans_or_licensing %}
 
-   The "{% data variables.product.prodname_GHAS %}" section shows details of the current usage.
+   The "{% data variables.product.prodname_AS %}" section shows details of the current usage.
 
 {% endif %}
 
@@ -88,14 +88,14 @@ You can view the organization account's current license limits and usage.
 
 ## Downloading {% data variables.product.prodname_AS %} license usage information
 
-You can download a CSV file with {% data variables.product.prodname_GHAS %} license usage information at both the {% data variables.enterprise.enterprise_and_org %} level. The CSV file contains information about each {% data variables.product.prodname_AS %} license that is in use, including:
+You can download a CSV file with details of paid use of {% data variables.product.prodname_GHAS %} products at both the {% data variables.enterprise.enterprise_and_org %} level. The CSV file contains information about each {% data variables.product.prodname_AS %} license that is in use, including:
 
 * The username of the person using the {% data variables.product.prodname_GHAS_cs_or_sp %} license
 * The {% data variables.product.prodname_GH_cs_and_sp %}-enabled repositories where commits were made
 * The organizations{% ifversion secret-scanning-user-owned-repos %}{% ifversion ghec %} and user namespaces for {% data variables.product.prodname_emus %}{% endif %}{% endif %} that people using licenses belong to
 * The most recent commit dates and associated email addresses
 
-You can use this information for insights into your {% data variables.product.prodname_AS %} usage, such as which members of your enterprise are using a license or how licenses are being consumed across your organizations.
+You can use this information for insights into your paid use of {% data variables.product.prodname_AS %}, such as which members of your enterprise are using a license or how licenses are being consumed across your organizations.
 
 You can download a CSV report of license usage through the {% data variables.product.github %} user interface or the REST API.
 
@@ -160,7 +160,7 @@ You can download a CSV report of license usage through the {% data variables.pro
 
 ## Using the REST API to download license and metered usage
 
-You can retrieve {% data variables.product.prodname_AS %} usage information via the billing API.
+You can retrieve information on paid use of {% data variables.product.prodname_AS %} with the billing API.
 
 {% ifversion fpt or ghec %}
 
