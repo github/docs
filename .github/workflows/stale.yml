@@ -47,6 +47,7 @@ on:
     - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
+  contents: read
   issues: write
 
 jobs:
