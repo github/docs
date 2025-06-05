@@ -323,7 +323,7 @@ Low, high, and embedding models have different rate limits. To see which type of
     <td>1</td>
   </tr>
   <tr>
-    <th rowspan="4" scope="rowgroup"><b>DeepSeek-R1 and MAI-DS-R1</b></th>
+    <th rowspan="4" scope="rowgroup"><b>DeepSeek-R1, DeepSeek-R1-0528, and MAI-DS-R1</b></th>
     <th style="padding-left: 0"><b>Requests per minute</b></th>
     <td>1</td>
     <td>1</td>
