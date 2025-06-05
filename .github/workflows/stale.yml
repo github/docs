@@ -44,7 +44,7 @@
 name: 'Marks stale issues and PRs'
 on:
   schedule:
-    - cron: '20 16 * * *' # 1:30 AM UTC
+    - cron: '20 16 * * *' # Run every day at 16:20 UTC / 8:20 PST
 
 permissions:
   issues: write
