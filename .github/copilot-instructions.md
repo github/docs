@@ -22,4 +22,4 @@ There are many more variables. These are stored in various YAML files within the
 
 ### Creating a pull request
 
-When creating a pull request as a result of a request to do so in Copilot Chat, the first line of the PR description should always be the following (in italics): `_This pull request was created as a result of the following prompt in Copilot Chat._` Then, within a collapsed section, quote the original prompt from Copilot Chat.
+When creating a pull request as a result of a request to do so in Copilot Chat, the first line of the PR description should always be the following (in italics): `_This pull request was created as a result of the following prompt in Copilot Chat._` Then, within a collapsed section, quote the original prompt from Copilot Chat. The clickable text that expands the collapsed section should be: Original prompt - submitted by @GITHUB-USER-ID. Where @GITHUB-USER-ID is the @ user name of the GitHub user who submitted the prompt. 
