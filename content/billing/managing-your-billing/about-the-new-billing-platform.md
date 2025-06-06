@@ -1,4 +1,4 @@
----
+---about-the-new-billing-platform.md
 title: About the new billing platform
 intro: Learn about the billing platform's key functionalities, and how it can help you manage your spending more effectively.
 versions:
