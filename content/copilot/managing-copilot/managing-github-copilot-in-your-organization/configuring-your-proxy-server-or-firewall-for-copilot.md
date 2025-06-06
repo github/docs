@@ -11,20 +11,59 @@ shortTitle: Allow Copilot traffic
 
 If your company employs security measures like a firewall or proxy server, you should add the following URLs, ports, and protocols to an allowlist to ensure {% data variables.product.prodname_copilot_short %} works as expected:
 
+## GitHub Enterprise Related URLs
 | Domain and/or URL                      | Purpose |
 | :------------------------------------- | :--------------------------------- |
-| `https://github.com/login/*`             | Authentication |
+| `https://github.com/YOUR-ENTERPRISE/*` | Enterprise URL |
+| `https://github.com/YOUR-ENTERPRISE?*` | Enterprise URL |
 | `https://github.com/enterprises/YOUR-ENTERPRISE/*` | Authentication for {% data variables.enterprise.prodname_managed_users %}, only required with {% data variables.product.prodname_emus %} |
-| `https://api.github.com/user`             | User Management |
+
+## GitHub Public URLs
+| Domain and/or URL                      | Purpose |
+| :------------------------------------- | :--------------------------------- |
+| `https://github.com/login/*`             | Authentication, only required with Personal Users |
+| `https://github.com/login?*`             | Authentication, only required with Personal Users |
+| `https://github.com/login/oauth/*`             | Authentication, only required with {% data variables.product.prodname_emus %} |
+| `https://api.github.com/user/*`             | User Management |
+| `https://github.com/favicon.ico` | Icon |
+| `https://github.com/account/*` | Account |
+| `https://github.com/settings/*` | Settings |
+| `https://avatars.githubusercontent.com/*` | Avatars |
+| `https://github.com/copilot/*` | Copilot |
+| `https://raw.githubusercontent.com/*` | Raw Content |
+| `https://github.githubassets.com/*` | GitHub Assets |
+| `https://collector.github.com/*` | Collector |
+| `https://github.com/github-copilot/*` | GitHub Copilot |
+| `https://api.github.com/*` | API |
+| `https://github.com/notifications/*` | Notifications |
+| `https://github.com/session/*` | Session |
+| `https://github.com/dashboard/*` | Dashboard |
+| `https://github.com/dashboard?*` | Dashboard |
+| `https://github.com/logout/*` | Logout |
+| `https://github.com/logout?*` | Logout |
+| `https://github.com/switch_account?*` | Switch Account |
+| `https://github.com/switch_account/*` | Switch Account |
+
+## GitHub Copilot Related URLs
+| Domain and/or URL                      | Purpose |
+| :------------------------------------- | :--------------------------------- |
 | `https://api.github.com/copilot_internal/*` | User Management |
-| `https://copilot-telemetry.githubusercontent.com/telemetry` | Telemetry |
-| `https://default.exp-tas.com` | Telemetry |
-| `https://copilot-proxy.githubusercontent.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://origin-tracker.githubusercontent.com` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.githubcopilot.com`[^1] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.individual.githubcopilot.com`[^2] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.business.githubcopilot.com`[^3] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
-| `https://*.enterprise.githubcopilot.com`[^4] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://copilot-telemetry.githubusercontent.com/telemetry/*` | Telemetry |
+| `https://default.exp-tas.com/*` | Telemetry |
+| `https://copilot-proxy.githubusercontent.com/*` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://origin-tracker.githubusercontent.com/*` | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://*.githubcopilot.com/*`[^1] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://*.individual.githubcopilot.com/*`[^2] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://*.business.githubcopilot.com/*`[^3] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+| `https://*.enterprise.githubcopilot.com/*`[^4] | API service for {% data variables.product.prodname_copilot_short %} suggestions |
+
+
+If your organization is using Microsoft Extra ID, you also need to add the following URLs to the allowlist:
+- `https://login.microsoftonline.com/*`
+- `https://aadcdn.msauth.net/*`
+- `https://login.live.com/*`
+- `https://*.activedirectory.windowsazure.com/*`
+
 
 Depending on the security policies and editors your organization uses, you may need to allowlist additional domains and URLs. For more information on specific editors, see [Further reading](#further-reading).
 
