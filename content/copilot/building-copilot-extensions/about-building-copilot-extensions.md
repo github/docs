@@ -1,5 +1,5 @@
 ---
-title: About building Copilot Extensions
+title About building Copilot Extensions
 intro: 'Learn about the development process for {% data variables.copilot.copilot_extensions_short %}.'
 product: '{% data reusables.gated-features.copilot-extensions %}'
 versions:
@@ -9,6 +9,16 @@ topics:
 shortTitle: About building Extensions
 type: overview
 ---
+
+```title About building Copilot Extensions
+intro: 'Learn about the development process for {% data variables.copilot.copilot_extensions_short %}.'
+product: '{% data reusables.gated-features.copilot-extensions %}'
+versions:
+  feature: copilot-extensions
+topics:
+  - Copilot
+shortTitle: About building Extensions
+type: overview
 
 ## About {% data variables.copilot.copilot_extensions_short %}
 
@@ -93,6 +103,8 @@ Before creating your own {% data variables.copilot.copilot_extension %} from scr
 
 * **Blackbeard:** A simple {% data variables.copilot.copilot_agent_short %} that responds to requests like a pirate, using {% data variables.product.prodname_copilot_short %}'s LLM API and special system prompts. It is a good starting point for learning how to build a {% data variables.copilot.copilot_extension %}. For more information, see the [Blackbeard {% data variables.copilot.copilot_extension_short %}](https://github.com/copilot-extensions/blackbeard-extension).
 * **{% data variables.product.prodname_github_models %}:** A more complex {% data variables.copilot.copilot_agent_short %} that lets you ask about and interact with various LLMs listed on the {% data variables.product.prodname_marketplace %} from within {% data variables.copilot.copilot_chat_short %}. For more information, see the [{% data variables.product.prodname_github_models %} {% data variables.copilot.copilot_extension_short %}](https://github.com/copilot-extensions/github-models-extension).
+![1000107413](https://github.com/user-attachments/assets/c312458f-c734-410b-a0ed-c7c6e188033b)
+![1000107412](https://github.com/user-attachments/assets/6c1c5578-fe94-47fe-bf2a-7e859fecb23e)
 
     > [!NOTE] {% data variables.product.prodname_github_models %} are in {% data variables.release-phases.public_preview %} and subject to change. To request access, join the [waitlist](https://github.com/marketplace/models/waitlist).
 * **Function calling:** an example agent written in Go that demonstrates function calling and confirmation dialogues. For more information, see the [Function calling extension](https://github.com/copilot-extensions/function-calling-extension).
@@ -102,6 +114,7 @@ Before creating your own {% data variables.copilot.copilot_extension %} from scr
 ## About building {% data variables.copilot.copilot_extensions_vsc %}
 
 > [!NOTE] The {% data variables.product.github %} documentation focuses on building {% data variables.copilot.copilot_extensions %}, not {% data variables.copilot.copilot_extensions_vsc %}.
+![1000107476](https://github.com/user-attachments/assets/996b5672-0a19-4962-976e-e6cb92777cd8)
 
 You can build a {% data variables.copilot.copilot_extension_short %} that is exclusive and native to {% data variables.product.prodname_vscode %}, called a {% data variables.copilot.copilot_extensions_vsc %}. This option is best suited for developers who want to build extensions that use {% data variables.product.prodname_vscode_shortname %}-specific APIs and functionality, or extend existing {% data variables.product.prodname_vscode_shortname %} extensions.
 
@@ -116,3 +129,5 @@ For more information on {% data variables.copilot.copilot_extensions_vsc %}, see
 ## Further reading
 
 * [AUTOTITLE](/copilot/building-copilot-extensions/copilot-extensions-glossary)
+
+##Error in user YAML: (<unknown>): found character that cannot start any token while scanning for the next token at line 1 column 1
