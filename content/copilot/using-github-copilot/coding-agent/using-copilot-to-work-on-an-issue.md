@@ -103,7 +103,7 @@ You can assign an issue to {% data variables.product.prodname_copilot_short %} b
 
     ```graphql copy
     mutation {
-      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", assigneeIds: ["BOT_ID"]}) {
+      replaceActorsForAssignable(input: {assignableId: "ISSUE_ID", actorIds: ["BOT_ID"]}) {
         assignable {
           ... on Issue {
             id
