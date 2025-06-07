@@ -562,7 +562,7 @@ Define a specific branch to check for version updates and to target pull request
 When `target-branch` is defined:
 
 * Only manifest files on the target branch are checked for version updates.
-* All pull requests for version updates are opened targetting the specified branch.
+* All pull requests for version updates are opened targeting the specified branch.
 * Options defined for this `package-ecosystem` no longer apply to security updates because security updates always use the default branch for the repository.
 
 ## `vendor` {% octicon "versions" aria-label="Version updates" height="24" %} {% octicon "shield-check" aria-label="Security updates" height="24" %}

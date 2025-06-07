@@ -74,7 +74,7 @@ If you cannot use a single partner IdP for both authentication and provisioning,
 The profile name and email address of a {% data variables.enterprise.prodname_managed_user %} is provided by the IdP:
 * {% data variables.enterprise.prodname_managed_users_caps %} _cannot_ change their profile name or email address on {% data variables.product.prodname_dotcom %}.
 * The IdP can only provide one email address.
-* Changing a user's email address in your IdP will delink the user from the contribution history associated with the old email address.
+* Changing a user's email address in your IdP will unlink the user from the contribution history associated with the old email address.
 
 ## Managing roles and access
 
